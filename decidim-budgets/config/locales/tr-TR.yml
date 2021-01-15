@@ -216,6 +216,12 @@ tr:
             one: oy
             other: oylar
           you_voted: Buna oy verdin
+        project_budget_button:
+          add: Oyunuza ekleyin
+          add_descriptive: Oyunuza %{resource_name} projesini ekleyin
+          added: Oyunuza eklendi
+          added_descriptive: '%{resource_name} projesi oyunuza eklendi'
+        projects_for: '%{name} için projeler'
         show:
           budget: Bütçe
           view_all_projects: Tüm projeleri görüntüle
@@ -228,8 +234,24 @@ tr:
           global:
             announcement: Duyurular
             comments_enabled: Yorumlar etkin
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            form:
+              errors:
+                budget_voting_rule_only_one: Yalnızca bir oylama kuralı etkinleştirilmelidir
+                budget_voting_rule_required: Bir oylama kuralı gerekli
+            landing_page_content: Bütçeler ana sayfası
+            more_information_modal: Daha fazla bilgi
             projects_per_page: Sayfa başına projeler
+            resources_permissions_enabled: Her proje için eylem izinleri ayarlanabilir
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
+            title: Başlık
             total_budget: Toplam bütçe
+            vote_minimum_budget_projects_number: Oy verilecek minimum proje sayısı
+            vote_rule_minimum_budget_projects_enabled: 'Kuralı etkinleştir: Oylanacak minimum proje sayısı'
+            vote_rule_selected_projects_enabled: 'Kuralı etkinleştir: Oylanacak minimum ve maksimum sayıda projeye sahip seçilen projeler'
+            vote_rule_threshold_percent_enabled: 'Kuralı etkinleştir: Minimum bütçe yüzdesi'
+            vote_selected_projects_maximum: Seçilecek maksimum proje sayısı
             vote_selected_projects_minimum: Seçilecek minimum proje sayısı
             vote_threshold_percent: Oy eşiği yüzde
             workflow: İş Akışı
