@@ -109,6 +109,7 @@ tr:
         update: "%{user_name} kuruluş ayarlarını güncelledi"
       participatory_space_private_user:
         create: "%{user_name} özel bir kullanıcı olmak için %{resource_name} davet edildi"
+        create_via_csv: "%{user_name} özel bir kullanıcı olmak için %{resource_name} davet edildi"
         delete: "%{user_name} kullanıcı %{resource_name} özel bir kullanıcı olarak kaldırdı"
       scope:
         create: "%{user_name} %{resource_name} kapsamı oluşturdu"
@@ -217,7 +218,7 @@ tr:
       dummy_authorization_workflow:
         name: Kukla yetkilendirme iş akışı
       errors:
-        duplicate_authorization: Bir kullanıcı zaten aynı verilerle yetkilendirilmiştir.
+        duplicate_authorization: Bir katılımcı zaten aynı verilerle yetkilendirilmiştir.
       expired_at: '%{timestamp}bitti'
       expires_at: '%{timestamp}sona eriyor'
       foo_authorization:
@@ -326,6 +327,7 @@ tr:
           email_already_exists: Başka bir hesap aynı e-posta adresini kullanıyor
         new:
           complete_profile: Tam profil
+          nickname_help: Benzersiz tanımlayıcınız %{organization}
           sign_up: Lütfen profilinizi tamamlayın
           subtitle: Kayıt işlemini tamamlamak için lütfen aşağıdaki formu doldurunuz.
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
@@ -334,6 +336,7 @@ tr:
           already_have_an_account?: Zaten hesabınız var mı?
           newsletter: İlgili bilgiler içeren bir ara bülteni alın
           newsletter_title: İletişim izni
+          nickname_help: Benzersiz tanımlayıcınız %{organization}
           password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
           sign_in: Oturum aç
           sign_up: kaydol
@@ -553,6 +556,9 @@ tr:
       default_image: Varsayılan görüntü
       errors:
         error: Bu alanda bir hata var.
+      file_help:
+        file:
+          message_2: Resimler için tercihen yatay resimleri kullanın, bu servis resmi kırpar.
       remove_this_file: Bu dosyayı kaldır
     gamification:
       all_badges_link: Tüm mevcut rozetleri görün.
