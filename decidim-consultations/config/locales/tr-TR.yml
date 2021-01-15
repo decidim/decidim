@@ -306,14 +306,14 @@ tr:
         title: Bu danışma için sorular
       show:
         badge_name:
-          finished: bitirdi
+          finished: Bitti
           open: Açık
           open_votes: Açık oylar
           published_results: Sonuçlar yayınlandı
         footer_button_text:
-          debate: tartışma
+          debate: Tartışma
           view: Görünüm
-          view_results: Sonuçları Görüntüle
+          view_results: Sonuçları görüntüle
           vote: Oy
         unspecified: Belirtilmemiş
     help:
@@ -321,13 +321,13 @@ tr:
         consultations:
           contextual: "<p> <strong> Danışma </strong>, bir kuruluş oluşturan tüm insanlara net bir soru sormanıza, danışmaya katılmak için bir çağrı yapmanıza, bir tepki. Danışma tarihi geldiğinde oylayabilir ve oylama sonuçlarını yayınlayabilirsiniz. </p> <p> Örnekler: İstişareler, bir kuruluşu etkileyen hemen hemen her yönle ilgili olabilir: Bazı örnekler, kuruluşun adını veya logosunu değiştiriyor birkaç alternatif önermek, daha büyük bir organizasyonun parçası olmaya Evet veya Hayır karar vermek, yeni bir stratejik planı veya bir çalışma grubunun sonucunu onaylamak veya reddetmek veya pozisyonların maksimum 1, 2 veya 3 görev olarak kalması gerekip gerekmediğini tanımlamak. </p>\n"
           page: "<p> <strong> Danışma </strong>, bir kuruluş oluşturan tüm insanlara net bir soru sormanıza, danışmaya katılmak için bir çağrı yapmanıza, bir tepki. Danışma tarihi geldiğinde oylayabilir ve oylama sonuçlarını yayınlayabilirsiniz. </p> <p> Örnekler: İstişareler bir kuruluşu etkileyen hemen hemen her yönle ilgili olabilir: Bazı örnekler, kuruluşun adını veya logosunu değiştiriyor Birkaç alternatif önermek, daha büyük bir organizasyonun parçası olmaya Evet veya Hayır karar vermek, yeni bir stratejik planı veya bir çalışma grubunun sonucunu onaylamak veya reddetmek veya pozisyonların organizasyonda maksimum 1, 2 veya 3 görev olarak kalması gerekip gerekmediğini tanımlamak. </p>\n"
-          title: Danışmalar nelerdir?
+          title: Danışma nedir?
     menu:
-      consultations: istişareler
+      consultations: İstişareler
     pages:
       home:
         statistics:
-          consultations_count: istişareler
+          consultations_count: İstişareler
     questions:
       next_button: Sonraki soru
       previous_button: Önceki soru
@@ -336,7 +336,7 @@ tr:
       show:
         read_more: Daha fazla oku
       statistics:
-        assistants_count_title: Yardımcıları
+        assistants_count_title: Asistanlar
         comments_count_title: Yorumlar
         meetings_count_title: Toplantılar
         supports_count_title: Destekler
