@@ -7,7 +7,7 @@ module Decidim
       mimic :proposal
 
       attribute :title, String
-      attribute :body, String
+      attribute :body, Decidim::Attributes::CleanString
       attribute :body_template, String
       attribute :user_group_id, Integer
 
