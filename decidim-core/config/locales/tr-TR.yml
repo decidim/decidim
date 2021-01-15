@@ -146,11 +146,16 @@ tr:
         invite: "%{user_name} kullanıcı %{resource_name} rolüyle davet edildi: %{role}"
         officialize: "%{user_name} kullanıcı resmi %{resource_name}"
         remove_from_admin: "%{user_name} kullanıcı %{resource_name} rolüyle kaldırıldı: %{role}"
+        show_email: "%{user_name}, %{resource_name} katılımcının e-postasını aldı"
         unofficialize: "%{user_name} kullanıcı resmi olmayan %{resource_name}"
       user_group:
         reject: "%{user_name} , %{resource_name} kullanıcı grubu doğrulamasını reddetti"
         verify: "%{user_name} , %{resource_name} kullanıcı grubunu doğruladı"
         verify_via_csv: "%{user_name} , bir CSV dosyası aracılığıyla %{resource_name} kullanıcı grubunu doğruladı"
+    admin_terms_of_use:
+      default_body: "<h2> YÖNETİCİ KULLANIM ŞARTLARI </h2> <p> Yerel Sistem Yöneticinizden olağan dersi almış olduğunuza güveniyoruz. Genellikle şu üç şeye indirgenir: </p> <ol> <li> Başkalarının mahremiyetine saygı gösterin. </li> <li> Tıklamadan önce düşünün. </li> <li> Büyük güç, büyük sorumluluk getirir. </li> </ol>"
+    alert:
+      dismiss: Bildirimleri yoksay
     amendments:
       accepted:
         error: Değişikliği kabul ederken bir hata oluştu.
@@ -173,6 +178,12 @@ tr:
         success: Değişiklik tasarısı başarı ile oluşturuldu.
       destroy_draft:
         error: Değişiklik tasarısını silerken bir hata oluştu.
+        success: Değişiklik taslağı başarıyla silindi.
+      edit_draft:
+        discard: Bu taslağı sil
+        discard_confirmation: Bu değişiklik taslağını iptal etmek istediğinizden emin misiniz?
+        send: Önizleme
+        title: Değişiklik Taslağını Düzenle
       emendation:
         actions:
           button_accept: Kabul etmek
@@ -185,15 +196,25 @@ tr:
           evaluating: |-
             %{amendable_type} %{amendable_link}
             için yapılan bu değişiklik değerlendiriliyor.
+          promoted: '%{amendable_type} olarak yükseltildi.'
           rejected: "%{amendable_type} %{amendable_link}\niçin bu emenisyon <strong>%{announcement_date}</strong>reddedildi."
           withdrawn: |-
             %{amendable_type} %{amendable_link}
             için bu değişiklik yazar tarafından geri çekilmiştir.
       new:
         amendment_author: Değişiklik yazarı
+        send: Oluştur
+        title: Değişiklik Taslağı Oluştur
+      preview_draft:
+        modify: Düzenle
+        publish: Yayınla
+        title: Değişiklik Taslağını Yayınla
       promoted:
         error: Düzeltmeyi teşvik ederken hatalar oluştu
         success: Emendation başarıyla tanıtıldı
+      publish_draft:
+        error: Değişiklik yayınlanırken bir hata oluştu.
+        success: Değişiklik başarıyla yayınlandı.
       rejected:
         error: Bu ödeme reddedilirken bir hata oluştu, lütfen daha sonra tekrar deneyin.
         success: Emendation başarıyla reddedildi
@@ -202,26 +223,38 @@ tr:
         heading: Değişikliği gözden geçirin
         help_text: '%{model_name}yapılan bir değişikliği inceliyorsunuz'
         send: Değişikliği kabul et
+      update_draft:
+        error: Değişiklik taslağı güncellenirken bir hata oluştu.
+        success: Değişiklik taslağı başarıyla güncellendi.
+      withdraw:
+        error: Değişiklik geri çekilirken bir hata oluştu
+        success: Değişiklik başarıyla geri çekildi
       wizard_step_form:
         steps:
           '1': Değişikliğinizi oluşturun
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Değişikliğinizi karşılaştırın
+          '3': Değişikliğinizi tamamlayın
+          '4': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       collection:
         documents:
           one: belge
           other: evraklar
+      document:
+        download: Dosyayı indir
       documents:
         related_documents: Alakalı dökümanlar
       photos:
         related_photos: İlgili fotoğraflar
     author:
+      avatar: Avatar
       comments:
         one: yorum Yap
         other: yorumlar
+      endorsements:
+        one: onay
+        other: onaylar
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: '"A" ile başlayan bir pasaport numarası girerek doğrulanın.'
@@ -232,6 +265,7 @@ tr:
       dummy_authorization_handler:
         explanation: '"X" ile biten bir belge numarası girerek doğrulanmış olsun'
         fields:
+          allowed_postal_codes: İzin verilen posta kodları (virgülle ayrılmış)
           document_number: Belge Numarası
           postal_code: Posta kodu
         name: Örnek yetkilendirme
@@ -527,8 +561,21 @@ tr:
           email_outro: Bu bildirimi siz grubun üyesi olduğunuz için aldınız.
           email_subject: '%{user_group_name} gruptan kaldırıldınız!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> grubundan kaldırıldınız.
+        user_group_created:
+          email_subject: Yeni bir kullanıcı grubu oluşturuldu
+          notification_title: '%{user_group_name} kullanıcı grubu oluşturuldu. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
+        user_group_updated:
+          email_intro: '%{user_group_name} adlı bir kullanıcı grubu profilini güncelledi ve doğrulanmamış olarak bırakıldı. Artık bunu <a href="%{groups_admin_url}"> yönetici panelinde </a> doğrulayabilirsiniz.'
+          email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
+          email_subject: Bir kullanıcı grubu profilini güncelledi
+          notification_title: '%{user_group_name} kullanıcı grubu profilini güncelledi ve doğrulanmadan bırakıldı. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
       notification_event:
         notification_title: Bir olay <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: 'Takip ettiğiniz %{endorser_name} %{endorser_nickname}, "%{resource_title}" öğesini az önce onayladı ve sizin için ilginç olabileceğini düşünüyoruz. Kontrol edin ve katkıda bulunun:'
+        email_outro: Bu bildirimi %{endorser_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+        email_subject: "%{endorser_nickname} yeni bir onay gerçekleştirdi"
+        notification_title: <a href="%{resource_path}">%{resource_title} </a> %{resource_type}, <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname} </a> tarafından onaylandı.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profil sayfası</a> arasında %{name} (%{nickname}izlediğiniz), güncellendi.
@@ -560,6 +607,9 @@ tr:
       title: Parmak izi
       value: değer
     followers:
+      followers_count:
+        one: "%{count} takipçi"
+        other: "%{count} takipçi"
       no_followers: Henüz takipçisi yok.
     following:
       no_followings: Henüz kimseyi takip etmiyor.
@@ -567,6 +617,7 @@ tr:
       create:
         button: Takip et
         error: Bu kaynağı takip eden bir hata oluştu.
+        participatory_space: <span class = "show-for-sr">%{resource_name} </span> hali hazırda takip ediliyor
       destroy:
         button: Takibi bırak
         error: Bu kaynağı takip etmekten bir hata oluştu.
@@ -575,10 +626,22 @@ tr:
       current_image: Geçerli resim
       default_image: Varsayılan görüntü
       errors:
+        decidim/user:
+          password: Bu şifre çok kısa.
+          password_confirmation: Şifre onayı şifre ile uyuşmuyor.
         error: Bu alanda bir hata var.
       file_help:
         file:
+          explanation: 'Dosya kılavuzu:'
+          message_1: Bir resim veya bir belge olmalı.
           message_2: Resimler için tercihen yatay resimleri kullanın, bu servis resmi kırpar.
+        image:
+          explanation: 'Dosya kılavuzu:'
+          message_1: Tercihen herhangi bir metin içermeyen yatay bir resim.
+          message_2: Bu servis görüntüyü kırpar.
+      file_validation:
+        allowed_file_extensions: 'İzin verilen dosya uzantıları: %{extensions}'
+        max_file_size: 'Maksimum dosya boyutu: %{megabytes} MB'
       remove_this_file: Bu dosyayı kaldır
     gamification:
       all_badges_link: Tüm mevcut rozetleri görün.
@@ -732,6 +795,13 @@ tr:
           not_found: 'Veritabanında kapsam tipi bulunamadı (ID: %{id})'
     managed_users:
       expired_session: Mevcut kimliğe bürünme oturumunun süresi doldu.
+    map:
+      dynamic:
+        screen_reader_explanation: Aşağıdaki, bu sayfadaki öğeleri harita noktaları olarak sunan bir haritadır. Öğe bir ekran okuyucuyla kullanılabilir, ancak anlaşılması zor olabilir.
+        skip_button: Haritayı atla
+      static:
+        latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Bu kullanıcı grubunun henüz üye yok.
     menu:
@@ -739,11 +809,35 @@ tr:
       home: Ev
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
+          greeting: Merhaba, %{recipient}!
+          intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Decidim'in tadını çıkarın!
+          subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
+        comanagers_new_message:
+          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
+          greeting: Merhaba, %{recipient}!
+          intro: "%{manager}, %{group} adına bir görüşmede yeni mesajlar yayınladı. Onları görmek için buraya tıklayın:"
+          outro: Decidim'in tadını çıkarın!
+          subject: "%{manager} %{group} olarak yeni mesajlar gönderdi"
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
           outro: Decidim'in tadını çıkar!
           subject: "%{sender} sizinle bir konuşma başlattı"
+        new_group_conversation:
+          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
+          greeting: Merhaba, %{recipient}!
+          intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Decidim'in tadını çıkarın!
+          subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
+        new_group_message:
+          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
+          greeting: Merhaba, %{recipient}!
+          intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
+          outro: Decidim'in tadını çıkarın!
+          subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} , konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
@@ -947,15 +1041,23 @@ tr:
       create:
         error: Rapor oluşturulurken bir hata oluştu. Lütfen tekrar dene.
         success: Rapor başarıyla oluşturuldu ve bir yönetici tarafından incelenecek.
+    resource_endorsements:
+      create:
+        error: Onay işlemi sırasında bir hata oluştu.
     scopes:
       global: Küresel kapsamı
       picker:
         cancel: İptal etmek
+        change: Seçili kapsamı değiştir
         choose: seçmek
+        currently_selected: Şu anda seçili kapsam
         title: '%{field}Seç'
       prompt: Bir kapsam seçin
       scopes: kapsamları
+      scopes_picker_input:
+        select_scope: 'Bir kapsam seçin (şu anda: %{current})'
     search:
+      results: Arama sonuçları
       results_found_for_term: '%{count} Arama için sonuçlar: "%{term}"'
       term_input_placeholder: Arama
     searches:
@@ -977,7 +1079,16 @@ tr:
           one: "%{count} sonuç"
           other: "%{count} sonuç"
         view_all: Tümünü görüntüle (%{count})
+    security:
+      selfxss_warning:
+        description: Bu tarayıcı özelliği geliştiriciler içindir ve sizden istenirse buraya hiçbir şey yapıştırmamalısınız. Bu pencereye içerik yapıştırmak gizliliğinizi tehlikeye atabilir ve bilgisayar korsanlarının hesabınıza erişmesine izin verebilir.
+        title: Dur!
     shared:
+      confirm_modal:
+        cancel: İptal Et
+        close_modal: Pencereyi kapat
+        ok: TAMAM
+        title: Onayla
       embed_modal:
         close_window: Pencereyi kapat
         embed: Lütfen bu kodu sayfanıza yapıştırın
@@ -985,6 +1096,9 @@ tr:
       extended_navigation_bar:
         more: Daha
         unfold: açılmak
+      filter_form_help:
+        help: Aşağıdaki form, arama koşulları değiştirildiğinde arama sonuçlarını dinamik olarak filtreler.
+        skip: Sonuçları atla
       flag_modal:
         already_reported: Bu içerik zaten bildirilmiştir ve bir yönetici tarafından incelenecektir.
         close: Kapat
@@ -995,10 +1109,12 @@ tr:
         spam: Tıklama, reklam, dolandırıcılık veya komut dosyası botları içerir.
         title: Sorun bildir
       floating_help:
+        close: Yardımı Kapat
         help: yardım et
       follow_button:
         sign_in_before_follow: Bu eylemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
+        close_modal: Pencereyi kapat
         please_sign_in: Lütfen giriş yapın
         sign_up: kaydol
       participatory_space_filters:
@@ -1012,10 +1128,18 @@ tr:
         select_user_group: Bir grup seçiniz
       results_per_page:
         label: 'Sayfa başına sonuç:'
+        title: Sayfa başına sonuç sayısını seçin
       share_modal:
         close_window: Pencereyi kapat
         share: Pay
         share_link: Linki paylaş
+    tags:
+      filter_results_for_category: 'Kategori için sonuçları filtrele: %{resource}'
+      filter_results_for_scope: 'Sonuçları kapsam için filtrele: %{resource}'
+    translation_bar:
+      help_text: "<strong> Uyarı: </strong> İçerik otomatik olarak çevrilebilir ve %100 doğru olmayabilir."
+      show_original: Orijinal metni göster
+      show_translated: Otomatik olarak çevrilmiş metni göster
     user_activity:
       index:
         no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
