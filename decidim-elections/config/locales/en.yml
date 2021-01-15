@@ -435,6 +435,10 @@ en:
           new:
             create: Create
             title: New Voting
+          publish:
+            success: Voting successfully published
+          unpublish:
+            success: Voting successfully unpublished
           update:
             invalid: There was a problem updating this voting
             success: Voting successfully updated
