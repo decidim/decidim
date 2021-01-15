@@ -1163,7 +1163,31 @@ tr:
     user_activity:
       index:
         no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
+    user_contact_disabled: Bu katılımcı doğrudan mesajları kabul etmiyor.
     user_conversations:
+      create:
+        error: Mesaj oluşturulamadı. Daha sonra tekrar deneyin
+        existing_error: Mesaj oluşturulamadı. Konuşma zaten mevcut, lütfen şimdi tekrar deneyin.
+        success: Görüşme başarıyla başladı!
+      index:
+        add_max_users: 'Kullanıcıları görüşmeye ekleyin: En fazla 9 kullanıcı'
+        add_users_placeholder: Arama...
+        close: Kapat
+        conversations_info: Görüşmeler özeldir, onları başka kimse göremez. Platforma kayıtlı herhangi bir katılımcı veya grup ile görüşme başlatılabilir.
+        from: Gönderen
+        last_message: Son mesaj
+        modal_title: Yeni görüşme
+        new_conversation: Yeni görüşme
+        next: Sonraki
+        no_conversations_warning: Henüz bir görüşme yok.
+        no_results: Sonuç bulunamadı
+        participant_with_disabled_message_reception: Bu katılımcı mesaj alımını devre dışı bıraktı
+        time_ago: "%{time} önce"
+      new:
+        title: Bir görüşme başlatın
+      reply:
+        placeholder: Cevabınız...
+        send: Gönder
       update:
         error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
     user_interests:
@@ -1430,14 +1454,18 @@ tr:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
       left: Silme
       right: Ekleme
     dropdown:
+      choose_diff_view_html: 'HTML görünümü modu:'
       choose_diff_view_mode: 'Görütüleme modlarını kıyasla:'
+      option_escaped: Kaçtı
       option_split: Yan yana
+      option_unescaped: Yakalandı
       option_unified: Birleşik
   views:
     pagination:
