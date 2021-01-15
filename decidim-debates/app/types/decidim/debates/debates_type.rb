@@ -2,24 +2,24 @@
 
 module Decidim
   module Debates
-    DebatesType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class DebatesType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Debates"
+      graphql_name "Debates"
       description "A debates component of a participatory space."
 
-      connection :debates, DebateType.connection_type do
-        resolve ->(component, _args, _ctx) {
-          DebatesTypeHelper.base_scope(component).includes(:component)
-        }
+      field :debates, DebateType.connection_type, null: true, connection: true
+
+      def debates
+        DebatesTypeHelper.base_scope(object).includes(:component)
       end
 
-      field(:debate, DebateType) do
-        argument :id, !types.ID
+      field :debate, DebateType, null: true do
+        argument :id, ID, required: true
+      end
 
-        resolve ->(component, args, _ctx) {
-          DebatesTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def debate(**args)
+        DebatesTypeHelper.base_scope(object).find_by(id: args[:id])
       end
     end
 

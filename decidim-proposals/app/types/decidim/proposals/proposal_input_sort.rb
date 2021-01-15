@@ -14,9 +14,7 @@ module Decidim
                type: String,
                description: "Sort by number of votes, valid values are ASC or DESC. Will be ignored if votes are hidden",
                required: false,
-               prepare: ->(value, _ctx) do
-                          { proposal_votes_count: value }
-                        end
+               as: :proposal_votes_count
     end
   end
 end

@@ -3,30 +3,27 @@
 module Decidim
   module Consultations
     # This type represents a consultation.
-    ConsultationType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ParticipatorySpaceInterface }
-      ]
+    class ConsultationType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ParticipatorySpaceInterface
 
-      name "Consultation"
       description "A consultation"
 
-      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this consultation"
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this consultation"
-      field :slug, !types.String, "Slug of this consultation"
-      field :createdAt, !Decidim::Core::DateTimeType, "The time this consultation was created", property: :created_at
-      field :updatedAt, !Decidim::Core::DateTimeType, "The time this consultation was updated", property: :updated_at
-      field :publishedAt, !Decidim::Core::DateTimeType, "The time this consultation was published", property: :published_at
+      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this consultation", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this consultation", null: true
+      field :slug, String, "Slug of this consultation", null: false
+      field :created_at, Decidim::Core::DateTimeType, "The time this consultation was created", null: false
+      field :updated_at, Decidim::Core::DateTimeType, "The time this consultation was updated", null: false
+      field :published_at, Decidim::Core::DateTimeType, "The time this consultation was published", null: false
 
-      field :introductoryVideoUrl, types.String, "The introductory video url for this consultation", property: :introductory_video_url
-      field :introductoryImage, types.String, "The introductory image for this consultation", property: :introductory_image
-      field :bannerImage, types.String, "The banner image for this consultation", property: :banner_image
-      field :highlightedScope, Decidim::Core::ScopeApiType, "This is the highlighted scope of this consultation", property: :highlighted_scope
-      field :startVotingDate, Decidim::Core::DateType, "Start date of the voting for this consultation", property: :start_voting_date
-      field :endVotingDate, Decidim::Core::DateType, "End date of the voting for this consultation", property: :end_voting_date
-      field :resultsPublishedAt, Decidim::Core::DateType, "Date when the results have been published", property: :results_published_at
+      field :introductory_video_url, String, "The introductory video url for this consultation", null: true
+      field :introductory_image, String, "The introductory image for this consultation", null: true
+      field :banner_image, String, "The banner image for this consultation", null: true
+      field :highlighted_scope, Decidim::Core::ScopeApiType, "This is the highlighted scope of this consultation", null: true
+      field :start_voting_date, Decidim::Core::DateType, "Start date of the voting for this consultation", null: true
+      field :end_voting_date, Decidim::Core::DateType, "End date of the voting for this consultation", null: true
+      field :results_published_at, Decidim::Core::DateType, "Date when the results have been published", null: true
 
-      field :questions, types[Decidim::Consultations::ConsultationQuestionType], ""
+      field :questions, [Decidim::Consultations::ConsultationQuestionType, { null: true }], "", null: true
     end
   end
 end
