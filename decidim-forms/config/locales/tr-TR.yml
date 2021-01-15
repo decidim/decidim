@@ -33,6 +33,7 @@ tr:
           form:
             add_question: Soru ekle
             already_answered_warning: Form, bazı kullanıcılar tarafından zaten yanıtlandı, bu nedenle sorularını değiştiremezsiniz.
+            title: Formu düzenle
           matrix_row:
             remove: Kaldır
             statement: Beyan

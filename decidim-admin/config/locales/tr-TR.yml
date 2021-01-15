@@ -557,6 +557,7 @@ tr:
           officialize: ', resmiyete'
           officialized: resmileştirilmiş
           reofficialize: Reofficialize
+          show_email: E-posta adresini göster
           status: durum
           unofficialize: Unofficialize
         new:
@@ -564,6 +565,8 @@ tr:
           officialize: ', resmiyete'
           title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
         show_email_modal:
+          close_modal: Pencereyi kapat
+          description: Bir katılımcıyla doğrudan iletişime geçmeniz gerekirse, e-posta adresini görmek için Göster düğmesine tıklayabilirsiniz. Bu eylem günlüğe kaydedilecek.
           email_address: E-posta adresi
           full_name: Tam adı
           hidden: saklı
@@ -598,6 +601,7 @@ tr:
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
           images:
             layout_appearance_title: Düzen görünümünü düzenle
+            preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_homepage:
         edit:
@@ -618,12 +622,24 @@ tr:
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: CSV dosyasını okurken bir hata oluştu.
+          success: CSV dosyası başarıyla yüklendi, katılımcılara bir davetiye e-postası gönderiyoruz. Bu biraz zaman alabilir.
+        new:
+          explanation: 'CSV dosyanızı yükleyin. Başlıksız, katılımcı alanına eklemek istediğiniz kullanıcıların dosyanın ilk sütununda e-posta ve dosyanın son sütununda (e-posta, ad) bulunan iki sütunu olmalıdır. Kullanıcı adında "<>?% & ^ * # @ () [] = +:;" {} \ | "gibi geçersiz karakterler kullanmaktan kaçının.'
+          title: CSV dosyası yükle
+          upload: Yükle
       resource_permissions:
         edit:
           submit: Gönder
           title: İzinleri düzenle
         update:
           success: İzinler başarıyla güncellendi.
+      resources:
+        index:
+          headers:
+            scope: Kapsam
       scope_types:
         create:
           error: Yeni kapsam türü oluştururken bir hata oluştu.
@@ -655,6 +671,23 @@ tr:
         update:
           error: Bu kapsamı güncellerken bir hata oluştu.
           success: Kapsam başarıyla güncellendi
+      share_tokens:
+        actions:
+          confirm_destroy: Bu jetonu silmek istediğinizden emin misiniz?
+          destroy: Sil
+          share: Paylaş
+        destroy:
+          error: Bu jetonu yok ederken bir hata oluştu.
+          success: Jeton başarılı bir şekilde yok edildi.
+        share_tokens:
+          empty: Etkin bir jeton yok
+          help: Bu jeton, yayınlanmamış kaynağı herhangi bir kullanıcıyla herkese açık olarak paylaşmak için kullanılır. Kaynak yayınlandığında gizlenecekler. Paylaşılabilir URL'yi ziyaret etmek için jetonun paylaş simgesine tıklayın.
+          title: Jeton paylaş
+      shared:
+        gallery:
+          add_images: Resim ekle
+          delete_image: Resmi sil
+          gallery_legend: Bir resim galerisi ekleyin (İsteğe bağlı)
       static_page_topics:
         create:
           error: Yeni bir konu oluştururken bir hata oluştu.
@@ -706,10 +739,12 @@ tr:
         dashboard: Pano
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
+        metrics: Metrik
         participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
         static_pages: Sayfalar
+        statistics: Aktivite
         user_groups: Kullanıcı Grupları
         users: Kullanıcılar
       user_group:
@@ -758,6 +793,10 @@ tr:
       users_statistics:
         users_count:
           admins: Yöneticiler
+          last_day: Son gün
+          last_month: Geçen ay
+          last_week: Geçen hafta
+          no_users_count_statistics_yet: Henüz canlı kullanıcı istatistikleri yok
           participants: Katılımcılar
       view_public_page: Genel sayfayı görüntüle
     forms:
