@@ -2,7 +2,7 @@ tr:
   activemodel:
     attributes:
       consultation:
-        banner_image: Filama görseli
+        banner_image: Banner resmi
         decidim_highlighted_scope_id: Vurgulanan kapsam
         description: Açıklama
         end_voting_date: Oylama biter
@@ -196,6 +196,9 @@ tr:
         new:
           create: Oluştur
           title: Yeni sorumlu grup
+        update:
+          error: Bu yanıtı güncellerken bir hata oluştu.
+          success: Yanıt başarıyla güncellendi.
       responses:
         create:
           error: Yeni bir yanıt oluştururken bir hata oluştu.
@@ -216,6 +219,7 @@ tr:
       titles:
         consultations: istişareler
         questions: Sorular
+        response_groups: Sorumlu gruplar
         responses: Tepkiler
         results: Sonuçlar
     consultations:
@@ -233,6 +237,8 @@ tr:
           label: 'Danışmanlıklara göre sırala:'
           random: rasgele
           recent: En yeni
+        show:
+          dates: Tarih
       content_blocks:
         highlighted_consultations:
           name: Vurgulanan istişareler
@@ -274,9 +280,28 @@ tr:
         votes_out_of:
           one: oy vermek
           other: oy vermemek
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Katılımcılar farklı seçenekler arasında minimum %{votes} oy dağıtabilir.
+          title: Bu soruda uygun olan yerlerde birden fazla seçenek
+          total_participants: Oylamaya toplam %{count} kişi katıldı.
+          vote_limit:
+            description: Katılımcılar %{limit} limitine kadar oy verebilir.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Farklı seçenekler arasında minimum %{votes} oy dağıtmalısınız.
+          title: 'Oylama aşağıdaki kurallara tabidir:'
+          vote_limit:
+            description: En fazla %{limit} teklife oy verebilirsiniz.
+            left: Kalan
+            votes: Oylar
       question_votes:
         create:
           error: Soruya oy verirken hatalar oldu
+          success: Konsültasyonun sonuna kadar değiştirebilirsiniz. Yalnızca son oylama kabul edilecektir.
+          title_error: Hatalı oy!
+          title_success: Oy başarıyla kaydedildi
       regular_questions:
         title: Bu danışma için sorular
       show:
@@ -294,6 +319,8 @@ tr:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p> <strong> Danışma </strong>, bir kuruluş oluşturan tüm insanlara net bir soru sormanıza, danışmaya katılmak için bir çağrı yapmanıza, bir tepki. Danışma tarihi geldiğinde oylayabilir ve oylama sonuçlarını yayınlayabilirsiniz. </p> <p> Örnekler: İstişareler, bir kuruluşu etkileyen hemen hemen her yönle ilgili olabilir: Bazı örnekler, kuruluşun adını veya logosunu değiştiriyor birkaç alternatif önermek, daha büyük bir organizasyonun parçası olmaya Evet veya Hayır karar vermek, yeni bir stratejik planı veya bir çalışma grubunun sonucunu onaylamak veya reddetmek veya pozisyonların maksimum 1, 2 veya 3 görev olarak kalması gerekip gerekmediğini tanımlamak. </p>\n"
+          page: "<p> <strong> Danışma </strong>, bir kuruluş oluşturan tüm insanlara net bir soru sormanıza, danışmaya katılmak için bir çağrı yapmanıza, bir tepki. Danışma tarihi geldiğinde oylayabilir ve oylama sonuçlarını yayınlayabilirsiniz. </p> <p> Örnekler: İstişareler bir kuruluşu etkileyen hemen hemen her yönle ilgili olabilir: Bazı örnekler, kuruluşun adını veya logosunu değiştiriyor Birkaç alternatif önermek, daha büyük bir organizasyonun parçası olmaya Evet veya Hayır karar vermek, yeni bir stratejik planı veya bir çalışma grubunun sonucunu onaylamak veya reddetmek veya pozisyonların organizasyonda maksimum 1, 2 veya 3 görev olarak kalması gerekip gerekmediğini tanımlamak. </p>\n"
           title: Danışmalar nelerdir?
     menu:
       consultations: istişareler
@@ -319,15 +346,22 @@ tr:
         already_voted: Çoktan oy verildi
         already_voted_hover: Desteği iptal et
         starting_from: '%{date}başlayarak'
+        verification_required: Oy vermek için hesabınızı doğrulayın
         vote: Oy
       vote_modal:
+        close_modal: Pencereyi kapat
         contextual_help: Lütfen bir seçenek seçin.
         title: 'Danışma: soru desteği'
       vote_modal_confirm:
         change: Değişiklik
+        close_modal: Pencereyi kapat
         confirm: Onaylamak
         contextual_help: Lütfen seçilen seçeneği onaylayın.
         title: 'Danışma: teyit teyit'
+    resources:
+      consultations:
+        actions:
+          vote: Oy ver
   layouts:
     decidim:
       admin:
@@ -341,3 +375,4 @@ tr:
         unfold: açılmak
       question_header:
         back_to_consultation: Tüm istişarelere bakın
+        back_to_question: Soruya geri dön
