@@ -34,16 +34,26 @@ module Decidim
 
         delegate :bulletin_board, to: :form
 
+        def cast_vote_message_id
+          bulletin_board.cast_vote_message_id(form.election_id, form.voter_id)
+        end
+
         def cast_vote_on_bulletin_board
           bulletin_board.cast_vote(form.election_id, form.voter_id, form.encrypted_vote)
         end
 
+        def user
+          @user ||= form.current_organization.users.find_by(id: form.current_user)
+        end
+
         def store_vote
           Vote.create!(
+            message_id: cast_vote_message_id,
             election: form.election,
             voter_id: form.voter_id,
             encrypted_vote_hash: form.encrypted_vote_hash,
-            status: Vote::PENDING_STATUS
+            status: :pending,
+            user: user
           )
         end
       end
