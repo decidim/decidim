@@ -3,6 +3,16 @@ tr:
     attributes:
       account:
         delete_reason: Hesabınızı silmenin nedeni
+      common:
+        created_at: Oluşturuldu
+      group:
+        about: Hakkında
+        avatar: Avatar
+        document_number: Doküman sayısı
+        email: E-posta
+        name: Adı
+        nickname: Rumuz
+        phone: Telefon
       report:
         details: Ek Yorumlar
       user:
@@ -25,6 +35,7 @@ tr:
       decidim/profile_updated_event: Profil güncellendi
       decidim/promote_to_admin: Grup yöneticisine yükseltildi
       decidim/removed_from_group: Gruptan kaldırıldı
+      decidim/resource_endorsed_event: Kaynak onaylandı
   activerecord:
     attributes:
       decidim/user:
@@ -38,6 +49,9 @@ tr:
       decidim/amendment:
         one: düzeltme
         other: Değişiklikler
+      decidim/endorsement:
+        one: Onay
+        other: Onaylar
       decidim/user:
         one: Kullanıcı yok
         other: Kullanıcılar
@@ -49,7 +63,9 @@ tr:
     'true': 'Evet'
   carrierwave:
     errors:
+      general: İsteği işlerken bir hata oluştu
       image_too_big: Görüntü çok büyük
+      not_inside_organization: Dosya herhangi bir kuruluşa eklenmemiş
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -58,6 +74,10 @@ tr:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      external_link: Dış bağlantı
+      logo: "%{organization} resmi logosu"
+      skip_button: Ana içeriğe geç
     account:
       data_portability_export:
         file_no_exists: Dosya bulunmuyor
