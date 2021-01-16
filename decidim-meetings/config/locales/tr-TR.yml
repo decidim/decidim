@@ -16,6 +16,7 @@ tr:
         available_slots: Bu toplantı için mevcut yuvalar
         decidim_category_id: Kategori
         decidim_scope_id: kapsam
+        decidim_user_group_id: Kullanıcı grubu
         description: Açıklama
         end_time: Bitiş zamanı
         location: yer
