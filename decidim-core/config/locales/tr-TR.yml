@@ -883,20 +883,45 @@ tr:
           outro: Decidimin tadını çıkar!
           subject: '%{sender}, size yeni mesaj gönderdi'
       conversations:
+        add_conversation_users:
+          add_max_users: 'Kullanıcıları görüşmeye ekleyin: En fazla 9 kullanıcı'
+          add_users_placeholder: Arama...
+          modal_title: Yeni görüşme
+          no_results: Sonuç bulunamadı
+          participant_with_disabled_message_reception: Bu katılımcı mesaj alımını devre dışı bıraktı
+        conversation:
+          show: '%{sender} ile görüşmeleri göster'
         create:
           error: Konuşma başlamadı. Daha sonra tekrar deneyin
-        index:
+        error_modal:
           close: Pencereyi kapat
+          correct_errors: Lütfen hataları düzeltip tekrar deneyin.
+          intro: 'Mesajınızda aşağıdaki hatalar vardı:'
+          ok: OK
+        index:
+          ago: önce
+          close: Pencereyi kapat
+          from: Gönderen
+          groups: Gruplarım
+          last_message: Son mesaj
+          new_conversation: Yeni görüşme
+          next: Sonraki
           no_conversations: Henüz konuşma yok
           title: Konuşmalar
         reply:
+          placeholder: Cevabınız...
           send: Gönder
           title: Cevapla
         show:
+          back: Tüm görüşmelere dön
+          chat_with: ile görüşme
+          not_allowed: Bu katılımcı artık doğrudan mesaj kabul etmiyor.
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
           title: Bir görüşme başlat
+        update:
+          error: Bir hata nedeniyle mesaj gönderilemedi
     metrics:
       download:
         csv: Veri indir (csv)
@@ -917,6 +942,25 @@ tr:
         note: Bu e-postayı, %{organization_name} bültenlere abone olduğunuz için aldınız. Eğer ayarlarınızı değiştirebilirsiniz <a href="%{link}">bildirimleri sayfa</a>.
         see_on_website: Bu e-postayı doğru göremiyor musunuz? Onu <a href="%{link}" target="_blank">web sitesinde görüntüle</a>.
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Gövde için sahte metin: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Geçici bir çözüm bulmaya çalışın. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Temel (yalnızca metin)
+      basic_only_text_settings_form:
+        body: Gövde
+        interpolations_hint: 'İpucu: Gövde veya konu içinde herhangi bir yerde "%{name}" kullanabilirsiniz ve alıcının adı ile değiştirilecektir.'
+      image_text_cta:
+        body_preview: 'Gövde için sahte metin: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Harekete Geçirici Mesaj metni
+        introduction_preview: 'Tanıtım için sahte metin: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Geçici bir çözüm bulmaya çalışın. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Resim, metin ve Harekete Geçirici Mesaj düğmesi
+      image_text_cta_settings_form:
+        body: Gövde
+        cta_text: Harekete Geçirici Mesaj düğme metni
+        cta_url: Harekete Geçirici URL düğmesi
+        interpolations_hint: 'İpucu: Giriş, gövde, CTA metni veya konunun herhangi bir yerinde "%{name}" kullanabilirsiniz ve alıcının adı ile değiştirilecektir.'
+        introduction: Tanıtım
+        main_image: Ana resim
     newsletters:
       unsubscribe:
         check_subscription: Tercihlerinizi değiştirmek isterseniz, bunu <a href="%{link}" target="_blank">Yapılandırma Sayfasında</a> yapabilirsiniz
@@ -942,6 +986,8 @@ tr:
       no_notifications: Henüz bildirim yok.
     notifications_settings:
       show:
+        allow_public_contact: Takip etmesem bile herkesin bana doğrudan mesaj göndermesine izin ver.
+        direct_messages: Herkesten doğrudan mesaj alın
         email_on_notification: Her bildirim aldığımda bir e-posta almak istiyorum.
         everything_followed: Takip ettiğim her şey
         newsletter_notifications: Bülten almak istiyorum
@@ -968,90 +1014,93 @@ tr:
       home:
         extended:
           debates: Tartışmalar
-          debates_explanation: Tartışmak ve tartışmak, görüşlerinizi paylaşmak ve ilgili konuları zenginleştirmek.
+          debates_explanation: Tartışıp müzakere edin, görüşlerinizi paylaşın ve ilgili konuları zenginleştirin.
           how_to_participate: Bir sürece nasıl katılırım?
           meetings: Toplantılar
           meetings_explanation: Genel toplantılara nerede ve ne zaman katılabileceğinizi öğrenin.
-          more_info: Daha fazla bilgi
-          proposals: Teklif
-          proposals_explanation: Teklif hazırlayın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
+          more_info: '%{resource_name} hakkında daha fazla bilgi'
+          proposals: Teklifler
+          proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
-          footer_sub_hero_body: Daha açık, şeffaf ve işbirlikçi bir toplum inşa edelim.<br /> Katıl, katıl ve karar ver.
+          footer_sub_hero_body: Daha açık, şeffaf ve işbirliğine dayalı bir toplum oluşturalım. <br /> Katılın, katılımcı olun ve karar verin.
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
-          register: Kayıt olmak
+          register: Kayıt Ol
         hero:
           participate: Katıl
-          welcome: '%{organization}hoşgeldin!'
+          welcome: '%{organization} hoşgeldin!'
         metrics:
-          headline: Rakamlara katılım
+          headline: Metrikler
         statistics:
           answers_count: Tamamlanmış Anketler
-          assemblies_count: meclisleri
+          assemblies_count: Kurullar
           comments_count: Yorumlar
           conferences_count: Konferanslar
           debates_count: Tartışmalar
-          endorsements_count: Cirolar
+          endorsements_count: Onaylar
           headline: Mevcut durum %{organization}
           meetings_count: Toplantılar
-          orders_count: oy
+          orders_count: Oylar
           pages_count: Sayfalar
           processes_count: Süreçler
           projects_count: Projeler
           proposals_accepted: Kabul Edilen Teklifler
-          proposals_count: Teklif
+          proposals_count: Teklifler
           results_count: Sonuçlar
           surveys_count: Anketler
           users_count: Katılımcılar
-          votes_count: oy
+          votes_count: Oylar
         sub_hero:
-          register: Kayıt olmak
+          register: Kayıt Ol
       index:
         read_more: Daha fazla oku
         standalone_pages: Sayfalar
-        subheading: '%{name}yardım sayfalarında gezinin'
-        title: yardım et
+        subheading: '%{name} yardım sayfalarını ziyaret edin'
+        title: Yardım
         topics: Başlıklar
       participatory_space:
         metrics:
-          headline: Rakamlara katılım
+          headline: Metrikler
           link: Bütün istatistikleri göster
       terms_and_conditions:
         accept:
           error: Şartları ve koşulları kabul ederken bir hata oluştu.
           success: Harika! Şartları ve koşulları kabul ettiniz.
         form:
+          agreement: Bu koşulları kabul ediyorum
           legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
           modal_body: Eğer kabul ederseniz, platformu kullanmak mümkün olmayacaktır şunları yapabilirsiniz <a href="%{data_portability_path}">verileri indirme</a> ve / veya <a href="%{delete_path}">Hesabınızı silmek</a>.
           modal_btn_continue: Şartları kabul et ve devam et
           modal_btn_exit: Daha sonra inceleyeceğim
-          modal_button: Şartları reddetme
-          modal_close: Yakın kalıcı
+          modal_button: Şartları reddet
+          modal_close: Pencereyi kapat
           modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
         required_review:
           alert: Hizmet Şartlarımızı güncelledik, lütfen bunları inceleyin.
           body: Hizmet Şartlarımıza ait güncellemeleri incelemek için lütfen biraz zaman ayırın. Aksi halde platformu kullanamazsınız.
           title: 'Gerekli: Hizmet şartlarımızı güncellemeleri inceleyin'
     participatory_space_private_users:
-      not_allowed: Bu içeriği görüntüleyemezsiniz
+      not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
-      deleted: Silinmiş kullanıcı
+      deleted: Katılımcı silindi
       view: Görünüm
     profiles:
-      default_officialization_text_for_user_groups: Bu kullanıcı grubu genel olarak doğrulandı, adı gerçek adıyla doğrulandı
-      default_officialization_text_for_users: Bu katılımcı kamuya açıklanmış, adı veya rolünün gerçek adı ve rolüyle uyumlu olduğu doğrulanmıştır.
+      default_officialization_text_for_user_groups: Bu grup herkese açık olarak doğrulandı, adının gerçek adıyla eşleştiği doğrulandı
+      default_officialization_text_for_users: Bu katılımcı herkese açık olarak doğrulandı, adı veya rolü gerçek adı ve rolüyle eşleşecek şekilde doğrulandı
       show:
         activity: Aktivite
         badges: Rozetler
-        followers: İzleyiciler
-        following: Şöyledir
+        conversations: Konuşmalar
+        followers: Takipçiler
+        following: Takip Et
         groups: Gruplar
         members: Üyeler
+        officialized: Resmi katılımcı
         timeline: Zaman çizelgesi
-        view_full_profile: Tüm profili Görüntüle
+        view_full_profile: Tam Profili Gör
       sidebar:
         badges:
-          info: Platformda belirli faaliyetler gerçekleştirilerek rozetler kazanılır.
+          info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
           title: Rozetler
       user:
         confirmation_instructions_sent: E-posta doğrulama talimatları gönderildi
@@ -1059,7 +1108,7 @@ tr:
         edit_profile: Profili Düzenle
         edit_user_group: Grup profilini düzenle
         fill_in_email_to_confirm_it: Lütfen onaylamak için grubunuzun e-posta adresini doldurun
-        invite_user: Kullanıcı davet et
+        invite_user: Katılımcı davet et
         join_user_group: Gruba katılma isteği
         leave_user_group: Gruptan ayrıl
         manage_user_group_admins: Yöneticileri yönet
