@@ -1002,52 +1002,52 @@ tr:
       home:
         extended:
           debates: Tartışmalar
-          debates_explanation: Tartışmak ve tartışmak, görüşlerinizi paylaşmak ve ilgili konuları zenginleştirmek.
+          debates_explanation: Tartışıp müzakere edin, görüşlerinizi paylaşın ve ilgili konuları zenginleştirin.
           how_to_participate: Bir sürece nasıl katılırım?
           meetings: Toplantılar
           meetings_explanation: Genel toplantılara nerede ve ne zaman katılabileceğinizi öğrenin.
-          more_info: Daha fazla bilgi
-          proposals: Teklif
-          proposals_explanation: Teklif hazırlayın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
+          more_info: '%{resource_name} hakkında daha fazla bilgi'
+          proposals: Teklifler
+          proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
-          footer_sub_hero_body: Daha açık, şeffaf ve işbirlikçi bir toplum inşa edelim.<br /> Katıl, katıl ve karar ver.
+          footer_sub_hero_body: Daha açık, şeffaf ve işbirliğine dayalı bir toplum oluşturalım. <br /> Katılın, katılımcı olun ve karar verin.
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
-          register: Kayıt olmak
+          register: Kayıt Ol
         hero:
           participate: Katıl
-          welcome: '%{organization}hoşgeldin!'
+          welcome: '%{organization} hoşgeldin!'
         metrics:
-          headline: Rakamlara katılım
+          headline: Metrikler
         statistics:
           answers_count: Tamamlanmış Anketler
-          assemblies_count: meclisleri
+          assemblies_count: Kurullar
           comments_count: Yorumlar
           conferences_count: Konferanslar
           debates_count: Tartışmalar
-          endorsements_count: Cirolar
+          endorsements_count: Onaylar
           headline: Mevcut durum %{organization}
           meetings_count: Toplantılar
-          orders_count: oy
+          orders_count: Oylar
           pages_count: Sayfalar
           processes_count: Süreçler
           projects_count: Projeler
           proposals_accepted: Kabul Edilen Teklifler
-          proposals_count: Teklif
+          proposals_count: Teklifler
           results_count: Sonuçlar
           surveys_count: Anketler
           users_count: Katılımcılar
-          votes_count: oy
+          votes_count: Oylar
         sub_hero:
-          register: Kayıt olmak
+          register: Kayıt Ol
       index:
         read_more: Daha fazla oku
         standalone_pages: Sayfalar
-        subheading: '%{name}yardım sayfalarında gezinin'
-        title: yardım et
+        subheading: '%{name} yardım sayfalarını ziyaret edin'
+        title: Yardım
         topics: Başlıklar
       participatory_space:
         metrics:
-          headline: Rakamlara katılım
+          headline: Metrikler
           link: Bütün istatistikleri göster
       terms_and_conditions:
         accept:
@@ -1059,33 +1059,33 @@ tr:
           modal_body: Eğer kabul ederseniz, platformu kullanmak mümkün olmayacaktır şunları yapabilirsiniz <a href="%{data_portability_path}">verileri indirme</a> ve / veya <a href="%{delete_path}">Hesabınızı silmek</a>.
           modal_btn_continue: Şartları kabul et ve devam et
           modal_btn_exit: Daha sonra inceleyeceğim
-          modal_button: Şartları reddetme
-          modal_close: Yakın kalıcı
+          modal_button: Şartları reddet
+          modal_close: Pencereyi kapat
           modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
         required_review:
           alert: Hizmet Şartlarımızı güncelledik, lütfen bunları inceleyin.
           body: Hizmet Şartlarımıza ait güncellemeleri incelemek için lütfen biraz zaman ayırın. Aksi halde platformu kullanamazsınız.
           title: 'Gerekli: Hizmet şartlarımızı güncellemeleri inceleyin'
     participatory_space_private_users:
-      not_allowed: Bu içeriği görüntüleyemezsiniz
+      not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
-      deleted: Silinmiş kullanıcı
+      deleted: Katılımcı silindi
       view: Görünüm
     profiles:
-      default_officialization_text_for_user_groups: Bu kullanıcı grubu genel olarak doğrulandı, adı gerçek adıyla doğrulandı
-      default_officialization_text_for_users: Bu katılımcı kamuya açıklanmış, adı veya rolünün gerçek adı ve rolüyle uyumlu olduğu doğrulanmıştır.
+      default_officialization_text_for_user_groups: Bu grup herkese açık olarak doğrulandı, adının gerçek adıyla eşleştiği doğrulandı
+      default_officialization_text_for_users: Bu katılımcı herkese açık olarak doğrulandı, adı veya rolü gerçek adı ve rolüyle eşleşecek şekilde doğrulandı
       show:
         activity: Aktivite
         badges: Rozetler
-        followers: İzleyiciler
-        following: Şöyledir
+        followers: Takipçiler
+        following: Takip Et
         groups: Gruplar
         members: Üyeler
         timeline: Zaman çizelgesi
-        view_full_profile: Tüm profili Görüntüle
+        view_full_profile: Tam Profili Gör
       sidebar:
         badges:
-          info: Platformda belirli faaliyetler gerçekleştirilerek rozetler kazanılır.
+          info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
           title: Rozetler
       user:
         confirmation_instructions_sent: E-posta doğrulama talimatları gönderildi
@@ -1093,7 +1093,7 @@ tr:
         edit_profile: Profili Düzenle
         edit_user_group: Grup profilini düzenle
         fill_in_email_to_confirm_it: Lütfen onaylamak için grubunuzun e-posta adresini doldurun
-        invite_user: Kullanıcı davet et
+        invite_user: Katılımcı davet et
         join_user_group: Gruba katılma isteği
         leave_user_group: Gruptan ayrıl
         manage_user_group_admins: Yöneticileri yönet
