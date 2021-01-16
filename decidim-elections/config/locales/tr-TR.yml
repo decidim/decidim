@@ -41,3 +41,67 @@ tr:
       decidim/elections/question:
         one: Soru
         other: Sorular
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Oy ver
+        name: Seçimler
+        settings:
+          global:
+            announcement: Duyuru
+          step:
+            announcement: Duyuru
+    elections:
+      actions:
+        confirm_destroy: Emin misin?
+        destroy: Yok et
+        edit: Düzenle
+        feedback: Seçmen geri bildirimi
+        import: Teklifleri yanıtlara aktarın
+        manage_answers: Cevapları yönet
+        manage_questions: Soruları yönet
+        new: Yeni %{name}
+        preview: Önizleme
+        publish: Yayınla
+        setup: Kur
+        title: Eylemler
+        unpublish: Yayımdan Kaldır
+      admin:
+        answers:
+          create:
+            invalid: Bu cevabı oluştururken bir sorunla karşılaştım
+            success: Cevap başarıyla oluşturuldu
+          destroy:
+            invalid: Bu cevabı silerken bir sorun oluştu
+            success: Yanıt başarıyla silindi
+          edit:
+            title: Cevabı düzenle
+            update: Cevabı güncelle
+          index:
+            invalid_max_selections: Maksimum seçimi eşleştirmek için %{missing_answers} yanıt(lar)a daha ihtiyacınız var
+            title: Cevaplar
+          new:
+            create: Cevap oluştur
+            title: Yeni cevap
+          select:
+            disable: Cevabın seçimini kaldır
+            enable: Cevabı seçildi olarak işaretle
+            invalid: Bu cevabı seçerken bir sorun oluştu
+            success: Cevap başarıyla seçildi
+          unselect:
+            invalid: Bu cevabın seçimi kaldırılırken bir sorun oluştu
+        setup:
+          requirements:
+            minimum_answers: Her sorunun <strong> en az 2 cevabı </strong> vardır
+            minimum_questions: Seçimde <strong> en az 1 soru </strong> var
+            published: Seçim <strong> yayınlandı </strong>
+            time_before: Kurulum, seçim başlamadan <strong> en az 3 saat </strong> önce yapılıyor
+            trustee_public_key: <strong> geçerli bir genel anahtara </strong> sahiptir
+            trustees_quorum: Bu güvenilenler listesinin boyutu doğru ve çetele sürecini gerçekleştirmek için <strong> en az %{quorum} güvenilen kişi </strong> gerekecek
+          show:
+            setup: Seçim yarat
+            title: Seçim ayarları
+          update:
+            setup: Seçimi güncelle
+            title: Seçim ayarları
