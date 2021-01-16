@@ -329,17 +329,17 @@ tr:
           deleted: "%{user_name}, %{attendee_name} adlı kişinin%{space_name} alanındaki %{resource_name} toplantısına katılmasını reddetti"
           update: "%{user_name}, %{attendee_name} adlı kişiyi %{space_name} alanındaki %{resource_name} toplantısına katılmaya davet etti"
         meeting:
-          close: "%{user_name} %{space_name} uzayda %{resource_name} toplantıyı kapattı"
-          create: "%{user_name} , %{space_name} alanda %{resource_name} toplantıyı oluşturdu"
-          delete: "%{user_name} , %{space_name} alandaki %{resource_name} toplantıyı sildi"
-          export_registrations: "%{user_name} %{resource_name} toplantının kayıtlarını %{space_name} uzayda ihraç etti"
-          update: "%{user_name} , %{space_name} alanda %{resource_name} toplantıyı güncelledi"
+          close: "%{user_name}, %{space_name} alanındaki %{resource_name} toplantısını kapattı"
+          create: "%{user_name}, %{space_name} alanındaki %{resource_name} toplantıyı oluşturdu"
+          delete: "%{user_name}, %{space_name} alanındaki %{resource_name} toplantıyı sildi"
+          export_registrations: "%{user_name}, %{resource_name} toplantısının kayıtlarını %{space_name} alanında dışa aktardı"
+          update: "%{user_name}, %{space_name} alanındaki %{resource_name} toplantıyı güncelledi"
           value_types:
             organizer_presenter:
               not_found: 'Organizatör veritabanında bulunamadı (ID: %{id})'
         minutes:
-          create: "%{user_name} toplantının tutanağını %{resource_name} %{space_name} uzayda oluşturdu"
-          update: "%{user_name} toplantının tutanaklarını %{resource_name} %{space_name} uzayda güncelledi"
+          create: "%{user_name}, %{space_name} alanında%{resource_name} toplantısının dakikalarını oluşturdu"
+          update: "%{user_name}, %{space_name} alanında %{resource_name} toplantısının dakikalarını güncelledi"
       calendar_modal:
         calendar_url: Takvim URL'si
         close_window: Pencereyi kapat
@@ -353,15 +353,15 @@ tr:
       directory:
         meetings:
           index:
-            all: Herşey
-            date: tarih
+            all: Tümü
+            date: Tarih
             meetings: Toplantılar
-            past: geçmiş
+            past: Geçmiş
             search: Arama
             space_type: Katılımcı alan
             upcoming: Yaklaşan
       last_activity:
-        new_meeting_at_html: "%{link}</span><span>yeni toplantı"
+        new_meeting_at_html: "<span>%{link} </span> adresinde yeni toplantı"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -370,7 +370,7 @@ tr:
           confirmation:
             subject: Toplantınızın kaydı onaylandı
       meeting:
-        not_allowed: Bu toplantıyı göremezsin
+        not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
       meeting_closes:
         edit:
           back: Geri
@@ -390,7 +390,7 @@ tr:
           update: Güncelle
         filters:
           category: Kategori
-          date: tarih
+          date: Tarih
           date_values:
             all: Tümü
             past: Geçmiş
@@ -408,10 +408,10 @@ tr:
             all: Tümü
             hybrid: Her ikisi
         filters_small_view:
-          close_modal: Yakın kalıcı
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         meeting_minutes:
           meeting_minutes: Görüşme süreleri
           related_information: İlgili bilgi
@@ -419,23 +419,23 @@ tr:
           no_meetings_warning: Hiçbir toplantı, arama kriterinizle eşleşmiyor veya planlanmış bir toplantı yok.
           upcoming_meetings_warning: Şu anda planlanmış bir toplantı yok, ancak burada listelenen tüm geçmiş toplantıları bulabilirsiniz.
         registration_confirm:
-          cancel: İptal etmek
-          confirm: Onaylamak
+          cancel: İptal Et
+          confirm: Onayla
         show:
           attendees: Katılımcı sayısı
           contributions: Katkı sayımı
-          going: Gidiyor
+          going: Devam eden
           join: Toplantıya katıl
           meeting_report: Toplantı Raporu
-          no_slots_available: Mevcut yuva yok
+          no_slots_available: Kullanılabilir yer yok
           organizations: Katılan kuruluşlar
           registration_code_help_text: Kayıt kodunuz
           registration_state:
-            validated: valide
-            validation_pending: VALIDATION PENDING
+            validated: DOĞRULANDI
+            validation_pending: DOĞRULAMA BEKLİYOR
           remaining_slots:
-            one: "%{count} yuva kaldı"
-            other: "%{count} yuva kaldı"
+            one: "%{count} alan kaldı"
+            other: "%{count} alan kaldı"
           view: Görünüm
       meetings_map:
         view_meeting: Toplantıyı görüntüle
@@ -443,9 +443,9 @@ tr:
         invite:
           fields:
             email: E-posta
-            name: isim
+            name: Adı
             sent_at: Adresine gönderildi
-            status: durum
+            status: Statü
           status:
             accepted: Kabul edildi (%{at})
             rejected: Reddedildi (%{at})
@@ -454,7 +454,7 @@ tr:
           fields:
             closed: Kapalı
             end_time: Bitiş tarihi
-            map: harita
+            map: Harita
             start_time: Başlangıç tarihi
             title: Başlık
       read_more: "(daha fazla oku)"
@@ -466,9 +466,9 @@ tr:
       registrations:
         create:
           invalid: Bu toplantıya katılırken bir sorun oluştu.
-          success: Toplantıya başarılı bir şekilde katıldınız.
+          success: Toplantıya başarıyla katıldınız. Bu toplantıya kaydolduğunuz için, onunla ilgili güncellemeler varsa bilgilendirileceksiniz.
         decline_invitation:
-          invalid: Davetin reddedilmesiyle ilgili bir sorun oluştu.
+          invalid: Davet reddedilirken bir sorun oluştu.
           success: Davetiyeyi başarıyla reddettiniz.
         destroy:
           invalid: Bu buluşmadan bir sorun çıktı.
