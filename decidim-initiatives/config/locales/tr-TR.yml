@@ -298,8 +298,14 @@ tr:
         filter_scope_values:
           all: Tümü
         filter_state_values:
+          accepted: Yeterince imza
+          all: Tümü
+          answered: Cevaplanmış
           closed: Kapalı
           open: Açık
+          rejected: Yeterince imza yok
+        filter_type_values:
+          all: Tümü
       committee_requests:
         new:
           continue: Devam et
@@ -316,14 +322,17 @@ tr:
           fill_data_help: "<ul> <li>Girişinizin içeriğini gözden geçirin. Başlığınız anlaşılması kolay mı? Girişimin amacı net mi?</li> <li>İmzanın türünü seçmelisiniz. , Çevrimiçi ya da her ikisinin bir kombinasyonu kişiye ise</li> <li>girişiminin coğrafi kapsamı nedir? Şehir bölge mi?</li> </ul>"
           initiative_type: Girişim türü
           more_information: "(Daha fazla bilgi)"
+          select_area: Bir alan seçin
           select_scope: Bir kapsam seçin
         finish:
           back: Geri
           back_to_initiatives: Girişimlere geri dön
           callout_text: Tebrikler! Vatandaş girişimi başarıyla oluşturuldu.
           confirm: Onayla
+          edit_my_initiative: Girişimlerimi düzenle
           go_to_my_initiatives: Benim girişimlerime git
           more_information: "(Daha fazla bilgi)"
+          send_my_initiative: Girişimimi gönder
         finish_help:
           access_reminder: Kullanıcı menüsü aracılığıyla girişimlerinize her zaman erişebileceğinizi unutmayın.
           help_for_organizations: Eğer bir dernekseniz, Teşvik Komisyonunu oluşturan tüm kuruluşların yönetim kurulunun tutanaklarını yüklemeniz gerekecektir.
@@ -407,8 +416,10 @@ tr:
             other: "%{count} girişim"
         filters:
           any: Herhangi bir
+          area: Alan
           author: Yazar
           myself: Benim girişimlerim
+          scope: Kapsam
           search: Arama
           state: Statü
           type: Tür
@@ -419,6 +430,14 @@ tr:
           unfold: Aç
         index_header:
           new_initiative: Yeni girişim
+          not_authorized:
+            authorizations_page: İzinleri görüntüle
+            close: Kapat
+            explanation: Yeni bir girişim oluşturabilmek için doğrulanmanız gerekiyor.
+            title: Yetkilendirme gerekli
+        initiatives:
+          closed_initiatives_warning: Şu anda açık girişim yok, ancak burada listelenen tüm kapalı girişimleri bulabilirsiniz.
+          no_initiatives_warning: Arama kriterlerinizle eşleşen hiçbir girişim yok.
         interactions:
           comments_count:
             count:
@@ -430,6 +449,7 @@ tr:
           most_voted: En çok imzalanmış
           random: Rastgele
           recent: En yeni
+          recently_published: Son yayınlananlar
         result:
           answer_title:
             accepted: Bu teklif kabul edildi çünkü
