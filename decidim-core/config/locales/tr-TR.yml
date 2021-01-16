@@ -919,13 +919,33 @@ tr:
           outro: Decidimin tadını çıkar!
           subject: '%{sender}, size yeni mesaj gönderdi'
       conversations:
+        add_conversation_users:
+          add_max_users: 'Kullanıcıları görüşmeye ekleyin: En fazla 9 kullanıcı'
+          add_users_placeholder: Arama...
+          modal_title: Yeni görüşme
+          no_results: Sonuç bulunamadı
+          participant_with_disabled_message_reception: Bu katılımcı mesaj alımını devre dışı bıraktı
+        conversation:
+          show: '%{sender} ile görüşmeleri göster'
         create:
           error: Konuşma başlamadı. Daha sonra tekrar deneyin
-        index:
+        error_modal:
           close: Pencereyi kapat
+          correct_errors: Lütfen hataları düzeltip tekrar deneyin.
+          intro: 'Mesajınızda aşağıdaki hatalar vardı:'
+          ok: OK
+        index:
+          ago: önce
+          close: Pencereyi kapat
+          from: Gönderen
+          groups: Gruplarım
+          last_message: Son mesaj
+          new_conversation: Yeni görüşme
+          next: Sonraki
           no_conversations: Henüz konuşma yok
           title: Konuşmalar
         reply:
+          placeholder: Cevabınız...
           send: Gönder
           title: Cevapla
         show:
