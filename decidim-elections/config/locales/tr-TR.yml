@@ -105,3 +105,73 @@ tr:
           update:
             setup: Seçimi güncelle
             title: Seçim ayarları
+        trustees_participatory_spaces:
+          actions:
+            disable: Devre dışı
+            enable: Dikkate al
+          create:
+            exists: Bu katılımcı alan için vekil var
+            invalid: Vekil oluşturulurken bir sorun meydana geldi
+            success: Vekil başarıyla oluşturuldu
+          delete:
+            invalid: Bu vekili kaldırırken bir sorun oluştu
+            success: Vekil başarıyla kaldırıldı
+          form:
+            select_user: Kullanıcı seçin
+          index:
+            title: Vekiller
+          new:
+            create: Vekil Oluşturun
+            title: Yeni Vekil
+          update:
+            invalid: '%{trustee} vekili güncellenirken bir sorun oluştu'
+            success: Vekil %{trustee} başarıyla güncellendi
+      admin_log:
+        election:
+          publish: "%{user_name}, %{resource_name} seçimini yayınladı"
+          unpublish: "%{user_name}, %{resource_name} seçimini yayından kaldırdı"
+      election_m:
+        badge_name:
+          finished: Bitti
+          ongoing: Aktif
+          upcoming: Yakında
+        end_date: Son
+        footer:
+          view: Görünüm
+          vote: Seçim
+        label:
+          date: Tarihler
+        questions: '%{count} soru'
+        start_date: Başlangıç
+        unspecified: Belirtilmemiş
+      elections:
+        count:
+          elections_count:
+            one: "%{count} seçim"
+            other: "%{count} seçim"
+        filters:
+          active: Aktif
+          all: Tümü
+          finished: Bitti
+          search: Arama
+          state: Statü
+          upcoming: Yakında
+        filters_small_view:
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
+        preview:
+          available_answers: Mevcut cevaplar
+          description: Oylama sürecinde bulacağınız sorular bunlar
+          title: Seçim soruları
+        results:
+          description: Bunlar, her soru için oylamanın sonuçlarıdır
+      trustee_zone:
+        trustees:
+          show:
+            identification_keys:
+              upload_error:
+                invalid_key: Yüklenen dosyadaki kimlik anahtarları yüklenemez.
+                invalid_public_key: Yüklenen dosyadaki tanımlama anahtarları, Decidim tarafından saklanan genel tanımlama anahtarıyla eşleşmiyor.
+              upload_legend: Decidim'de sizin genel kimlik anahtarlarınız var, ancak tarayıcınızda hala bu anahtarlar yok. Kimlik anahtarlarınızın olduğu dosyayı, oluşturduktan sonra oluşturduğunuz yedekten bilgisayarınıza aktarmanız gerekir.
