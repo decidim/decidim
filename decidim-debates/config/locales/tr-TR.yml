@@ -159,6 +159,30 @@ tr:
           label: Tartışmaların sıralama ölçütü
           random: Rasgele sırala
           recent: En yeni
+          updated: Yeni güncellenmiş
+        show:
+          back: Listeye geri dön
+          close_debate: Tartışmayı kapat
+          date: Tarih
+          debate_closed: Kapalı
+          debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
+          edit_conclusions: Sonuçları düzenleyin
+          edit_debate: Tartışmayı düzenle
+          groups_count: Gruplar
+          last_comment_by: Son yorum
+          no_comments_yet: Henüz yorum yok
+          open: Açık tartışma
+          participants_count: Katılımcılar
+        update:
+          invalid: Bu tartışmayı güncellerken bir sorun oluştu.
+          success: Tartışma başarıyla güncellendi.
+        versions:
+          debates:
+            back_to_resource: Tartışmaya geri dön
+          index:
+            title: Sürümler
+        versions_list:
+          back_to_resource: Tartışmaya geri dön
       last_activity:
         new_debate_at_html: "<span> %{link}</span> linkinde yeni tartışma"
       models:
@@ -193,16 +217,16 @@ tr:
         creation_enabled:
           email_intro: 'Artık %{participatory_space_title} içinde yeni tartışmalar başlatabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
-          email_subject: Şimdi tartışmalar %{participatory_space_title}
-          notification_title: Şimdi <a href="%{resource_path}">yeni tartışmaya başlayabilirsiniz.</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Tartışmalar artık %{participatory_space_title} içinde mevcut
+          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> ’de <a href="%{resource_path}"> yeni tartışmalar </a> başlatabilirsiniz
     gamification:
       badges:
         commented_debates:
           conditions:
             - Katılmak için açık bir tartışma seçin
           description: Bu rozet, yorumlarınızı bırakarak farklı tartışmalara aktif olarak katıldığınızda verilir.
-          description_another: Bu katılımcı %{score} tartışmada yer aldı.
-          description_own: '%{score} tartışmaya katıldınız.'
+          description_another: Bu katılımcı %{score} kez tartışmada yer aldı.
+          description_own: '%{score} kez tartışmaya katıldınız.'
           name: Tartışmalar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
           unearned_another: Bu katılımcı henüz bir tartışmada yer almadı.
