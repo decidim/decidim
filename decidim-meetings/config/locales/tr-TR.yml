@@ -407,23 +407,47 @@ tr:
           type_values:
             all: Tümü
             hybrid: Her ikisi
+            in_person: Şahsen
+            online: Çevrimiçi
         filters_small_view:
           close_modal: Pencereyi kapat
           filter: Filtrele
           filter_by: Şuna göre filtrele
           unfold: Aç
+        form:
+          address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
+          available_slots_help: Sınırsız alanınız varsa bunu 0 olarak bırakın
+          create_as: Toplantı oluştur
+          disclaimer: 'Sorumluluk reddi: Harici bir kayıt sistemi kullanarak, %{organization} organizatörlerinin, kullanıcılar tarafından harici hizmete sağlanan verilerden sorumlu olmadığını biliyorsunuz.'
+          location_help: 'Konum: kullanıcılara buluşulacak yeri ima eden mesaj'
+          location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: Yüz yüze bir toplantıysa binanın katı veya kısıtlı erişime sahip çevrimiçi bir toplantıysa toplantı parolası.'
+          online_meeting_url_help: 'Bağlantı: katılımcıların toplantınıza doğrudan bağlanmasına izin verin'
+          registration_url_help: 'Bağlantı: katılımcıların kayıtlar için kullandığınız harici hizmete girmesine izin verin'
+          select_a_category: Lütfen bir kategori seçin
+          select_a_meeting_type: Lütfen bir toplantı türü seçin
+          select_a_registration_type: Lütfen bir kayıt türü seçin
+        index:
+          new_meeting: Yeni toplantı
         meeting_minutes:
           meeting_minutes: Görüşme süreleri
           related_information: İlgili bilgi
         meetings:
           no_meetings_warning: Hiçbir toplantı, arama kriterinizle eşleşmiyor veya planlanmış bir toplantı yok.
           upcoming_meetings_warning: Şu anda planlanmış bir toplantı yok, ancak burada listelenen tüm geçmiş toplantıları bulabilirsiniz.
+        new:
+          back: Geri
+          create: Oluştur
+          title: Bir Toplantı Oluştur
         registration_confirm:
           cancel: İptal Et
           confirm: Onayla
         show:
           attendees: Katılımcı sayısı
+          back: Listeye geri dön
+          close_meeting: Toplantıyı kapat
           contributions: Katkı sayımı
+          date: Tarih
+          edit_meeting: Toplantıyı Düzenle
           going: Devam eden
           join: Toplantıya katıl
           meeting_report: Toplantı Raporu
@@ -437,6 +461,9 @@ tr:
             one: "%{count} alan kaldı"
             other: "%{count} alan kaldı"
           view: Görünüm
+        update:
+          invalid: Bu toplantı güncellenirken bir sorun oluştu.
+          success: Toplantıyı başarıyla oluşturdunuz.
       meetings_map:
         view_meeting: Toplantıyı görüntüle
       models:
@@ -455,6 +482,7 @@ tr:
             closed: Kapalı
             end_time: Bitiş tarihi
             map: Harita
+            official_meeting: Resmi toplantı
             start_time: Başlangıç tarihi
             title: Başlık
       read_more: "(daha fazla oku)"
@@ -463,6 +491,10 @@ tr:
           confirmed_html: Toplantı için kaydınız <a href="%{url}">%{title}</a> onaylandı.
           details: Toplantı detaylarını ekte bulabilirsiniz.
           registration_code: Kayıt kodunuz %{code}.
+      registration_type:
+        on_different_platform: Farklı bir platformda
+        on_this_platform: Bu platformu kullanın
+        registration_disabled: Kayıt olma devre dışı
       registrations:
         create:
           invalid: Bu toplantıya katılırken bir sorun oluştu.
@@ -473,9 +505,15 @@ tr:
         destroy:
           invalid: Bu toplantıdan ayrılırken bir sorun oluştu.
           success: Toplantıdan başarıyla ayrıldınız.
+      type_of_meeting:
+        hybrid: Her ikisi
+        in_person: Şahsen
+        online: Çevrimiçi
       types:
         private_meeting: Özel toplantı
         transparent: Şeffaf
+      versions:
+        back_to_resource: Toplantı sayfasına geri dön
     metrics:
       meetings:
         description: Oluşturulan toplantı sayısı
