@@ -104,8 +104,73 @@ tr:
             success: Seçim başarıyla silindi
           edit:
             title: Seçimi düzenle
+            update: Seçimi güncelle
+          index:
+            no_bulletin_board: Bu modülü kullanmak için gerekli olan yapılandırılmış bir <a href="https://github.com/decidim/decidim-bulletin-board"> Bulletin Board sunucusu </a> yok. Bu görev Sistem Yöneticisi tarafından yapılmalıdır.
+            title: Seçimler
+          new:
+            create: Seçim oluştur
+            title: Yeni seçim
+          publish:
+            success: Seçim başarıyla yayınlandı.
+          setup:
+            invalid: Bu seçimi ayarlarken bir sorun oluştu
+            success: Seçim, Bülten Panosuna başarıyla gönderildi
+          unpublish:
+            success: Seçim başarılı bir şekilde yayınlanmadı.
+          update:
+            invalid: Bu seçim güncellenirken bir sorun oluştu
+            success: Seçim başarıyla güncellendi
+        exports:
+          elections: Seçimler
+          feedback_form_answers: Cevapların geri bildirimi
+        models:
+          answer:
+            name: Cevap
+          election:
+            name: Seçim
+          question:
+            name: Soru
+          trustee:
+            name: Vekil
+        proposals_imports:
+          create:
+            invalid: Teklifleri cevaplara aktarırken bir sorun oluştu
+            success: "%{number} teklif başarıyla yanıtlara aktarıldı"
+          new:
+            create: Teklifleri yanıtlara aktarın
+            no_components: Bu katılımcı alanda, teklifleri yanıtlara aktarmak için başka teklif bileşeni yoktur.
+            select_component: Lütfen modülü bileşeni seçin
+            title: Teklifleri içe aktar
+        questions:
+          create:
+            invalid: Yeni bir soru oluşturulurken bir hata oluştu
+            success: Soru başarıyla oluşturuldu
+          destroy:
+            invalid: Bu soru silinirken bir sorun oluştu
+            success: Soru başarıyla silindi
+          edit:
+            title: Soruyu Düzenle
+            update: Soruyu güncelle
+          index:
+            title: Sorular
+          new:
+            create: Soru Oluştur
+            title: Yeni soru
+          update:
+            invalid: Bu soru güncellenirken bir hata oluştu
+            success: Soru başarıyla güncellendi
         setup:
+          errors:
+            max_selections: Sorular, <strong> yanıt miktarı için doğru değere </strong> sahip değildir
+            minimum_answers: Soruların <strong> en az bir cevabı </strong> olmalıdır.
+            minimum_questions: Seçim <strong> en az bir soruyu içermelidir </strong>.
+            published: Seçim <strong> yayınlanmadı </strong>
+            time_before: Kurulum, seçim başlamadan <strong> en az 3 saat </strong> önce yapılıyor
+            trustee_public_key: <strong> geçerli bir genel anahtara </strong> sahip değil
+            trustees_quorum: Vekil sayısı <strong> gerekli vekil heyetine uymuyor </strong>
           requirements:
+            max_selections: Tüm sorular <strong> maksimum cevap </strong> için doğru değere sahiptir
             minimum_answers: Her sorunun <strong> en az 2 cevabı </strong> vardır
             minimum_questions: Seçimde <strong> en az 1 soru </strong> var
             published: Seçim <strong> yayınlandı </strong>
@@ -236,3 +301,9 @@ tr:
       warnings:
         no_elections_warning: Arama kriterlerinize uyan seçim yok veya planlanmış bir seçim yok.
         no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} seçimi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{resource_title} seçimi artık %{participatory_space_title} için aktif.'
