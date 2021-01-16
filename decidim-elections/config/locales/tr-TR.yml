@@ -175,3 +175,51 @@ tr:
                 invalid_key: Yüklenen dosyadaki kimlik anahtarları yüklenemez.
                 invalid_public_key: Yüklenen dosyadaki tanımlama anahtarları, Decidim tarafından saklanan genel tanımlama anahtarıyla eşleşmiyor.
               upload_legend: Decidim'de sizin genel kimlik anahtarlarınız var, ancak tarayıcınızda hala bu anahtarlar yok. Kimlik anahtarlarınızın olduğu dosyayı, oluşturduktan sonra oluşturduğunuz yedekten bilgisayarınıza aktarmanız gerekir.
+            not_supported_browser_description: Vekil olarak hareket etmek için kullanılamayan bir web tarayıcısı kullanıyorsunuz gibi görünüyor. Vekil görevlerinizi tamamlayabilmek için tarayıcınızın en son sürümünü kullandığınızdan emin olun veya en popüler tarayıcılardan herhangi birini kullanmayı deneyin.
+            not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
+            trustee_role_description: Bu platformda kutlanan bazı seçimlerde Vekil olarak görev yapmakla görevlendirildiniz.
+          update:
+            success: Tanımlama genel anahtarınız başarıyla saklandı.
+      votes:
+        confirm:
+          answer: Cevap
+          answer_number: '%{number} cevap'
+          confirm: Onayla
+          edit: düzenle
+          header: Oyunu onayla
+          intro: İşte kullanmak üzere olduğunuz oyların bir özeti. <br> Lütfen oyunuzu onaylayın veya yanıtlarınızı düzenleyin.
+          nota_option: Boş
+          question: '%{count} soru'
+        confirmed:
+          back: Seçimlere dön
+          experience: Şu ana kadarki deneyiminiz nasıl?
+          feedback: Bize geri bildirim verin
+          header: Oy onaylandı
+          lead: Oyunuz çoktan verildi!
+          text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
+          verify_text: Kontrol etmek için, tanımlayıcıyı kopyalayın ve <a href="evote-verify"> oy doğrulama sayfasına </a> yapıştırın
+        encrypting:
+          header: Oy kodlanıyor...
+          text: Anonim olarak kullanabilmeniz için oyunuz şifreleniyor.
+        header:
+          confirm: Oyunu onayla
+          confirmed: Oy onaylandı
+          encrypting: Onaylanan oy
+        messages:
+          not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
+        modal:
+          close: Kapat
+          proposal_header: 'Teklifler:'
+        new:
+          answer_choices: En fazla %{choices} cevap seçebilirsiniz
+          more_information: Daha fazla bilgi
+          nota_option: Yukarıdakilerin hiçbiri
+          preview_alert: Bu, oylama kabininin bir önizlemesidir.
+          question_steps: Soru %{current_step}/%{total_steps}
+          selections: "%{selected}/%{max_selections} <br> seçim"
+        voting_step:
+          back: Geri
+          continue: Sonraki
+      warnings:
+        no_elections_warning: Arama kriterlerinize uyan seçim yok veya planlanmış bir seçim yok.
+        no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
