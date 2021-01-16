@@ -28,24 +28,44 @@ tr:
       debates:
         actions:
           create: yaratmak
+          endorse: Onayla
         name: Tartışmalar
         settings:
           global:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
             creation_enabled: Katılımcılar tarafından tartışma yaratıldı etkin
+            endorsements_blocked: Onaylar engellendi
+            endorsements_enabled: Onaylar etkinleştirildi
     debates:
       actions:
+        active: Aktif tartışmalar
+        archive: Arşivle
+        archived: Arşivlenmiş tartışmalar
+        close: Kapat
         confirm_destroy: Emin misiniz?
-        destroy: silmek
+        destroy: Sil
         edit: Düzenle
         new: Yeni %{name}
         title: Eylemler
+        unarchive: Arşivden çıkar
       admin:
+        debate_closes:
+          edit:
+            archive: Bu tartışmayı arşivleyin
+            archive_help: Bu tartışmayı arşivlemek, onu kamuya açık tartışmalar bölümünden gizleyecektir
+            close: Kapat
+            title: Tartışmayı kapat
         debates:
+          archive:
+            invalid: Tartışmayı arşivlerken bir sorun oluştu.
+            success: Tartışma başarıyla arşivlendi.
           create:
             invalid: Tartışmayı oluştururken bir sorun oluştu.
             success: Tartışma başarıyla oluşturuldu.
@@ -54,22 +74,43 @@ tr:
           edit:
             title: Tartışmayı düzenle
             update: Tartışmayı güncelle
+          empty: Bu kriterlere uyan tartışma yok.
+          form:
+            debate_type: Tartışma türü
+            finite: Sonlu (Başlangıç ​​ve bitiş saatleri ile)
+            open: Açık (Başlangıç ​​veya bitiş zamanı yok)
           index:
             title: Tartışmalar
           new:
             create: Tartışma oluştur
             title: Yeni tartışma
+          unarchive:
+            invalid: Tartışmayı arşivden çıkarırken bir sorun oluştu.
+            success: Tartışma başarıyla arşivden çıkarıldı.
           update:
             invalid: Bu tartışmayı güncellerken bir sorun oluştu.
             success: Tartışma başarıyla güncellendi.
+        exports:
+          comments: Yorumlar
         models:
           debate:
             name: tartışma
       admin_log:
         debate:
+          close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"
           create: "%{user_name} , %{space_name} alanda %{resource_name} tartışmasını yarattı"
           update: "%{user_name} , %{space_name} uzayda %{resource_name} tartışmasını güncelledi"
+      debate_m:
+        commented_time_ago: '%{time} önce yorumlandı'
       debates:
+        close:
+          invalid: Tartışmayı kapatırken bir sorun oluştu.
+          success: Tartışma başarıyla sonuçlandı.
+        close_debate_modal:
+          close: Kapat
+          description: Bu tartışmanın özeti veya sonucu nedir?
+          send: Tartışmayı kapat
+        closed: Kapat
         count:
           debates_count:
             one: "%{count} tartışma"
@@ -79,14 +120,27 @@ tr:
           success: Tartışma başarıyla oluşturuldu.
         debate:
           participate: Katıl
+        edit:
+          back: Geri
+          save: Değişiklikleri kaydet
+          title: Tartışmayı düzenleyin
         filters:
+          activity: Aktivitelerim
           all: Herşey
           category: Kategori
           category_prompt: bir kategori seç
           citizens: Vatandaşlar
+          commented: Yorum yaptı
+          my_debates: Tartışmalarım
           official: Resmi
           origin: Menşei
+          scope: Kapsam
           search: Arama
+          state: Statü
+          state_values:
+            closed: Kapalı
+            open: Açık
+          user_groups: Gruplar
         filters_small_view:
           close_modal: Kalıcı modal
           filter: filtre
@@ -100,6 +154,11 @@ tr:
           back: Geri
           create: yaratmak
           title: Yeni tartışma
+        orders:
+          commented: En çok yorum yapılan
+          label: Tartışmaların sıralama ölçütü
+          random: Rasgele sırala
+          recent: En yeni
       last_activity:
         new_debate_at_html: "<span> %{link}</span>yeni tartışma"
       models:
