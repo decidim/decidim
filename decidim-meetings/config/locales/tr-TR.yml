@@ -213,25 +213,25 @@ tr:
         invite_join_meeting_mailer:
           invite:
             decline: Davet reddet
-            invited_you_to_join_a_meeting: "%{invited_by} sizi %{application}bir toplantıya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
+            invited_you_to_join_a_meeting: "%{invited_by} sizi %{application}'da bir toplantıya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
             join: '''%{meeting_title}'' toplantısına katıl'
         invites:
           create:
-            error: Kullanıcıyı toplantıya katılmaya davet ederken bir sorun oluştu.
-            success: Kullanıcı toplantıya katılmaya başarıyla davet edildi.
+            error: Katılımcıyı toplantıya katılmaya davet ederken bir sorun oluştu.
+            success: Katılımcı başarıyla toplantıya katılmaya davet edildi.
           form:
             attendee_type: Katılımcı Tipi
-            existing_user: Mevcut kullanıcı
+            existing_user: Mevcut katılımcı
             invite: Davet et
-            invite_explanation: Kullanıcı toplantıya ve organizasyona da davet edilecektir.
-            non_user: Mevcut olmayan kullanıcı
-            select_user: Kullanıcı seç
+            invite_explanation: Katılımcı toplantıya ve organizasyona katılmaya davet edilecektir.
+            non_user: Mevcut olmayan katılımcı
+            select_user: Katılımcı seç
           index:
             filter:
               accepted: Kabul edilmiş
-              all: Herşey
-              rejected: Reddedilen
-              sent: Gönderilen
+              all: Tümü
+              rejected: Reddedildi
+              sent: Gönderildi
             filter_by: Tarafından filtre
             invite_attendee: Katılımcı davet et
             invites: Davetler
@@ -256,7 +256,7 @@ tr:
             success: Toplantı başarıyla silindi
           edit:
             title: Toplantıyı Düzenle
-            update: Güncelleştirme
+            update: Güncelle
           form:
             address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
             available_slots_help: Sınırsız yuvanız varsa bunu 0 olarak bırakın
@@ -270,51 +270,51 @@ tr:
           index:
             title: Toplantılar
           new:
-            create: yaratmak
+            create: Oluştur
             title: Toplantı oluştur
           service:
             description: Açıklama
             down: Aşağı
             remove: Kaldır
-            service: Hizmet
+            service: Servis
             title: Başlık
-            up: yukarı
+            up: Yukarı
           services:
             add_service: Servis ekle
-            services: Hizmetler
+            services: Servisler
           update:
             invalid: Bu toplantı güncellenirken bir sorun oluştu
             success: Toplantı başarıyla güncellendi
         minutes:
           create:
-            invalid: Bu dakika oluştururken bir sorun oluştu
+            invalid: Bu dakikalar oluşturulurken bir sorunla karşılaşıldı
             success: Dakika başarıyla oluşturuldu
           edit:
             title: Dakikaları düzenleyin
-            update: Güncelleştirme
+            update: Güncelle
           new:
-            create: yaratmak
+            create: Oluştur
             title: Dakika oluşturun
           update:
-            invalid: Bu dakika güncellenirken bir sorun oluştu
+            invalid: Bu dakikalar güncellenirken bir sorun oluştu
             success: Dakika başarıyla güncellendi
         models:
           meeting:
             name: Toplantı
         registrations:
           edit:
-            save: Kayıt etmek
-            validate: onaylamak
+            save: Kaydet
+            validate: Doğrula
             validate_registration_code: Kayıt kodunu doğrula
           form:
             available_slots_help: Mevcut sınırsız yuvaya sahipseniz 0'a bırakın.
-            invites: Davetler
+            invites: Davetiyeler
             recommendation_message: Gizlilik nedeniyle, artık ihtiyacınız kalmadığında bu yazı formunu silmenizi öneririz. Varsayılan olarak bu, toplantı bittikten 3 ay sonradır.
             registration_form: Kayıt formu
             registrations_count:
               one: '%{count} kayıt oldu.'
-              other: '%{count} kayıt var.'
-            reserved_slots_help: Ayrılmış yuvalarınız yoksa 0'a bırakın
+              other: '%{count} kayıt oldu.'
+            reserved_slots_help: Ayrılmış alanınız yoksa 0 olarak bırakın
             reserved_slots_less_than: Daha az ya da buna eşit olmalıdır %{count}
             title: Kayıtlar
           update:
@@ -325,9 +325,9 @@ tr:
             success: Kayıt kodu başarıyla doğrulandı.
       admin_log:
         invite:
-          create: "%{user_name} davet %{attendee_name} katılmaya %{resource_name} toplantıya %{space_name} uzayda"
-          deleted: "%{user_name} %{space_name} alandaki %{resource_name} toplantıya katılmadan davetsiz %{attendee_name}"
-          update: "%{user_name} davet %{attendee_name} katılmaya %{resource_name} toplantıya %{space_name} uzayda"
+          create: "%{user_name}, %{attendee_name} adlı kişiyi %{space_name} alanındaki %{resource_name} toplantısına katılmaya davet etti"
+          deleted: "%{user_name}, %{attendee_name} adlı kişinin%{space_name} alanındaki %{resource_name} toplantısına katılmasını reddetti"
+          update: "%{user_name}, %{attendee_name} adlı kişiyi %{space_name} alanındaki %{resource_name} toplantısına katılmaya davet etti"
         meeting:
           close: "%{user_name} %{space_name} uzayda %{resource_name} toplantıyı kapattı"
           create: "%{user_name} , %{space_name} alanda %{resource_name} toplantıyı oluşturdu"
