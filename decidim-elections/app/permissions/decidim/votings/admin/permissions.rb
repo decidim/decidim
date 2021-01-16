@@ -58,7 +58,6 @@ module Decidim
         end
 
         def allowed_voting_action?
-          # byebug
           return unless [:votings, :voting].member? permission_action.subject
 
           case permission_action.subject

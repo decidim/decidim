@@ -21,15 +21,15 @@ module Decidim
       validates :slug, uniqueness: { scope: :organization }
       validates :slug, presence: true, format: { with: Decidim::Votings::Voting.slug_format }
 
-      # searchable_fields({
-      #                     scope_id: :decidim_scope_id,
-      #                     participatory_space: :itself,
-      #                     A: :title,
-      #                     B: :description,
-      #                     datetime: :published_at
-      #                   },
-      #                   index_on_create: ->(_voting) { false },
-      #                   index_on_update: ->(voting) { voting.visible? })
+      searchable_fields({
+                          scope_id: :decidim_scope_id,
+                          participatory_space: :itself,
+                          A: :title,
+                          B: :description,
+                          datetime: :published_at
+                        },
+                        index_on_create: ->(_voting) { false },
+                        index_on_update: ->(voting) { voting.visible? })
 
       def self.log_presenter_class_for(_log)
         Decidim::Votings::AdminLog::VotingPresenter
