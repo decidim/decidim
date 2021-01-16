@@ -94,12 +94,12 @@ tr:
           comments: Yorumlar
         models:
           debate:
-            name: tartışma
+            name: Tartışma
       admin_log:
         debate:
           close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"
-          create: "%{user_name} , %{space_name} alanda %{resource_name} tartışmasını yarattı"
-          update: "%{user_name} , %{space_name} uzayda %{resource_name} tartışmasını güncelledi"
+          create: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını yarattı"
+          update: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını güncelledi"
       debate_m:
         commented_time_ago: '%{time} önce yorumlandı'
       debates:
@@ -114,7 +114,7 @@ tr:
         count:
           debates_count:
             one: "%{count} tartışma"
-            other: "%{count} tartışmalar"
+            other: "%{count} tartışma"
         create:
           invalid: Tartışmayı oluştururken bir sorun oluştu.
           success: Tartışma başarıyla oluşturuldu.
@@ -126,14 +126,14 @@ tr:
           title: Tartışmayı düzenleyin
         filters:
           activity: Aktivitelerim
-          all: Herşey
+          all: Tümü
           category: Kategori
-          category_prompt: bir kategori seç
+          category_prompt: Bir kategori seç
           citizens: Vatandaşlar
           commented: Yorum yaptı
           my_debates: Tartışmalarım
           official: Resmi
-          origin: Menşei
+          origin: Orijin
           scope: Kapsam
           search: Arama
           state: Statü
@@ -142,17 +142,17 @@ tr:
             open: Açık
           user_groups: Gruplar
         filters_small_view:
-          close_modal: Kalıcı modal
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         form:
           select_a_category: Lütfen bir kategori seçin
         index:
           new_debate: Yeni tartışma
         new:
           back: Geri
-          create: yaratmak
+          create: Oluştur
           title: Yeni tartışma
         orders:
           commented: En çok yorum yapılan
@@ -160,7 +160,7 @@ tr:
           random: Rasgele sırala
           recent: En yeni
       last_activity:
-        new_debate_at_html: "<span> %{link}</span>yeni tartışma"
+        new_debate_at_html: "<span> %{link}</span> linkinde yeni tartışma"
       models:
         debate:
           fields:
@@ -176,23 +176,23 @@ tr:
               Merhaba,
               %{space_title} katılımcı alanda yeni bir "%{resource_title}" tartışması oluşturuldu, inceleyin ve katkıda bulunun:
             email_outro: '%{space_title} katılımcı alanı takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-            email_subject: '%{space_title}yeni tartışma "%{resource_title}"'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> tartışması <a href="%{space_path}">%{space_title}</a>oluşturuldu.
+            email_subject: '%{space_title} üzerinde yeni tartışma "%{resource_title}"'
+            notification_title: <a href="%{resource_path}">%{resource_title} </a> tartışması <a href="%{space_path}">%{space_title} </a> adresinde oluşturuldu.
           user_followers:
             email_intro: |-
               Merhaba,
-              %{author_name} %{author_nickname}, takip ettiğiniz, yeni bir "%{resource_title}" tartışması yarattı. Şuna bir bakın ve katkıda bulunun:
-            email_outro: '%{author_nickname}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-            email_subject: Yeni tartışma "%{resource_title}" ile %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> tartışmasını yarattı.
+              Takip ettiğiniz %{author_name} %{author_nickname}, "%{resource_title}" adlı yeni bir tartışma yarattı. Kontrol edin ve katkıda bulunun:
+            email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+            email_subject: '%{author_nickname} tarafından "%{resource_title}" adlı yeni tartışma'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} </a>, <a href="%{resource_path}">%{resource_title} </a> tartışmasını oluşturdu.
         creation_disabled:
-          email_intro: 'Tartışma oluşturma artık %{participatory_space_title}etkin değil. Bu sayfadaki açık tartışmalara hala katılabilirsiniz:'
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: Tartışma oluşturma %{participatory_space_title}devre dışı
-          notification_title: Tartışma oluşturma şimdi <a href="%{participatory_space_url}">%{participatory_space_title}</a>devre dışı bırakıldı
+          email_intro: 'Tartışma oluşturma artık %{participatory_space_title} içinde aktif değil. Bu sayfadan hala açık tartışmalara katılabilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} içinde tartışma oluşturma devre dışı bırakıldı'
+          notification_title: Tartışma oluşturma artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> içinde devre dışı bırakıldı
         creation_enabled:
-          email_intro: 'Artık %{participatory_space_title}yeni tartışmalara başlayabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
+          email_intro: 'Artık %{participatory_space_title} içinde yeni tartışmalar başlatabilirsiniz! Bu sayfaya katılmaya başlayın:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: Şimdi tartışmalar %{participatory_space_title}
           notification_title: Şimdi <a href="%{resource_path}">yeni tartışmaya başlayabilirsiniz.</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
