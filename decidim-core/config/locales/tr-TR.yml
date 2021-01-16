@@ -545,40 +545,40 @@ tr:
             email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type} yükseltilmiştir. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi aldınız, çünkü %{amendable_title} yazarı sizsiniz.
             email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
-            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a> , yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a>, yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type}yükseltilmiştir. Bu sayfadan görebilirsiniz:'
-            email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+            email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type} yükseltilmiştir. Bu sayfadan görebilirsiniz:'
+            email_outro: Bu bildirimi, %{amendable_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
             email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
-            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a> , yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a>, yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Bir emendation %{amendable_title}için reddedildi. Bu sayfadan görebilirsiniz:'
-            email_outro: Bu bildirimi aldınız, çünkü %{amendable_title}yazarı sizsiniz.
+            email_intro: 'Bir emendation %{amendable_title} için reddedildi. Bu sayfadan görebilirsiniz:'
+            email_outro: Bu bildirimi aldınız, çünkü %{amendable_title} yazarı sizsiniz.
             email_subject: Bir değişiklik %{emendation_author_nickname}%{amendable_title} için reddedildi
             notification_title: <a href="%{emendation_path}">değişiklik</a> tarafından oluşturulan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> reddedildi <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Bir emendation %{amendable_title}için reddedildi. Bu sayfadan görebilirsiniz:'
-            email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+            email_intro: 'Bir emendation %{amendable_title} için reddedildi. Bu sayfadan görebilirsiniz:'
+            email_outro: Bu bildirimi, %{amendable_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
             email_subject: Bir değişiklik %{emendation_author_nickname}%{amendable_title} için reddedildi
             notification_title: <a href="%{emendation_path}">değişiklik</a> tarafından oluşturulan <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> reddedildi <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: '%{resource_title}yeni bir belge eklendi. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{resource_title}bir güncelleme'
+          email_intro: '%{resource_title} yeni bir belge eklendi. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{resource_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_subject: '%{resource_title} bir güncelleme'
           notification_title: Bir <a href="%{resource_path}">yeni bir doküman</a> eklenmiştir <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: '%{resource_title} bileşeni şimdi %{participatory_space_title}için aktif. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title}bir güncelleme'
+          email_intro: '%{resource_title} bileşeni şimdi %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} bir güncelleme'
           notification_title: '%{resource_title} bileşeni şu anda aktiftir <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Merhaba %{user_name}
         email_intro: '"%{resource_title}" için bir güncelleme yapıldı. Bu sayfadan görebilirsiniz:'
         email_outro: Bu bildirimi "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
-        email_subject: '%{resource_title}bir güncelleme'
+        email_subject: '%{resource_title} bir güncelleme'
       gamification:
         badge_earned:
           email_intro: İyi iş! <a href="%{resource_url}">%{badge_name} rozeti</a> (seviye %{current_level}) kazandınız.
@@ -588,7 +588,7 @@ tr:
         level_up:
           email_intro: İyi iş! Sen seviyeye ulaşan %{current_level} üzerinde <a href="%{resource_url}">%{badge_name} rozet</a>!
           email_outro: Web sitemizde etkinlik yaptığınız için bu bildirimi aldınız.
-          email_subject: '%{badge_name} rozetde seviye %{current_level} ulaştınız!'
+          email_subject: '%{badge_name} rozette seviye %{current_level} ulaştınız!'
           notification_title: İyi iş! Sen seviyeye ulaşan %{current_level} üzerinde <a href="%{resource_path}">%{badge_name} rozet</a>!
       groups:
         demoted_membership:
@@ -640,30 +640,30 @@ tr:
         notification_title: Bir olay <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
-          email_intro: Bir yönetici, %{resource_type} 'nizi %{report_reasons} olarak bildirildiği için kaldırdı.
+          email_intro: Bir yönetici, %{resource_type}'nizi %{report_reasons} olarak bildirildiği için kaldırdı.
           email_outro: Bu bildirimi, kaldırılan içeriğin yazarı olduğunuz için aldınız.
           email_subject: '%{resource_type} kaldırıldı'
           notification_title: |-
-            Bir yönetici, %{resource_type} 'nizi %{report_reasons} olarak bildirildiği için kaldırdı. </br>
+            Bir yönetici, %{resource_type}'nizi %{report_reasons} olarak bildirildiği için kaldırdı. </br>
             <i>%{resource_content} </i>
       resource_endorsed:
-        email_intro: 'Takip ettiğiniz %{endorser_name} %{endorser_nickname}, "%{resource_title}" öğesini az önce onayladı ve sizin için ilginç olabileceğini düşünüyoruz. Kontrol edin ve katkıda bulunun:'
+        email_intro: 'Takip ettiğiniz %{endorser_name} %{endorser_nickname}, "%{resource_title}" ögesini az önce onayladı ve sizin için ilginç olabileceğini düşünüyoruz. Kontrol edin ve katkıda bulunun:'
         email_outro: Bu bildirimi %{endorser_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
         email_subject: "%{endorser_nickname} yeni bir onay gerçekleştirdi"
         notification_title: <a href="%{resource_path}">%{resource_title} </a> %{resource_type}, <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname} </a> tarafından onaylandı.
       users:
         profile_updated:
-          email_intro: <a href="%{resource_url}">profil sayfası</a> arasında %{name} (%{nickname}izlediğiniz), güncellendi.
-          email_outro: Bu bildirimi, %{nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_intro: <a href="%{resource_url}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
+          email_outro: Bu bildirimi, %{nickname} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
           email_subject: "%{nickname} profilini güncelledi"
-          notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname}izlediğiniz), güncellendi.
+          notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
     export_mailer:
       data_portability_export:
         click_button: 'Verilerinizi indirmek için sonraki düğmeye tıklayın. <br/> Dosyaya %{date}kadar sahip olacaksınız.'
         download: İndir
       export:
-        ready: Lütfen ihracatınızın bir sıkıştırılmış versiyonunu ekte bulabilirsiniz.
-      subject: İhracatınız "%{name}" hazır
+        ready: Lütfen dışa aktarımınızın sıkıştırılmış bir sürümünü ekte bulun.
+      subject: '"%{name}" dışa aktarmanız hazır'
     filters:
       linked_classes:
         all: Herşey
@@ -676,11 +676,11 @@ tr:
     fingerprint:
       check: Parmak izi kontrol edin
       explanation: Aşağıdaki metin parçası, bu içeriğin kısaltılmış, temsili bir temsilidir. Tek bir değişikliğin tamamen farklı bir değerle sonuçlanacağı için içeriğin müdahale edilmediğinden emin olmak yararlıdır.
-      online_calculator_name: Online MD5 hesap makinesi
+      online_calculator_name: Çevrimiçi MD5 hesap makinesi
       replicate_help: Bu parmak izi, bir SHA256 karma algoritması kullanılarak hesaplanır. Kendiniz çoğaltmak için, bir %{online_calculator_link} kullanabilir ve kaynak verileri kopyalayıp yapıştırabilirsiniz.
       source: Kaynak
       title: Parmak izi
-      value: değer
+      value: Değer
     followers:
       followers_count:
         one: "%{count} takipçi"
@@ -724,7 +724,7 @@ tr:
         followers:
           conditions:
             - Aktif olmak ve diğer insanları takip etmek kesinlikle başka insanların sizi takip etmesini sağlayacaktır.
-          description: Bu rozet belirli sayıda takipçiye ulaştığınızda verilir. %{organization_name} sosyal ve politik bir ağdır, web'inizi platformdaki diğer insanlarla iletişim kurmak için kullanın.
+          description: Bu rozet belirli sayıda takipçiye ulaştığınızda verilir. %{organization_name} sosyal ve politik bir ağdır, web platformunuzdaki diğer insanlarla iletişim kurmak için kullanın.
           description_another: Bu kullanıcının %{score} takipçisi var.
           description_own: "%{score} kullanıcı sizi takip ediyor."
           name: İzleyiciler
@@ -765,7 +765,7 @@ tr:
       accept:
         error: Bu daveti kabul eden bir hata oluştu
         success: Davetiye başarıyla kabul edildi
-      accept_invitation: Kabul etmek
+      accept_invitation: Kabul Et
       accept_or_reject_group_invitations: 'Aşağıdaki gruplar, onlara katılmaları için sizi davet etti. İsteklerini kabul etme veya reddetme:'
       index:
         invite: Davet et
