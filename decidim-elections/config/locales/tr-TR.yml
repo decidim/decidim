@@ -245,6 +245,52 @@ tr:
           title: Seçim soruları
         results:
           description: Bunlar, her soru için oylamanın sonuçlarıdır
+          selected: Seçili
+          title: Seçim sonuçları
+          votes:
+            one: "%{count} oy"
+            other: "%{count} oy"
+        show:
+          back: Mevcut seçimler
+          preview: Önizleme
+          vote: Oy
+          voting_period_status:
+            finished: Oylama %{start_time} tarihinde başladı ve %{end_time} tarihinde sona erdi
+            ongoing: Oylama %{end_time} tarihinde sona eriyor
+            upcoming: Oylama %{start_time} tarihinde başlıyor
+      feedback:
+        answer:
+          invalid: Geri bildiriminizi gönderirken bir sorun oluştu.
+          spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davrandın, tekrar deneyebilir misin?
+          success: Geri bildirim başarıyla gönderildi.
+      models:
+        answer:
+          fields:
+            proposals: Teklifler
+            title: Başlık
+        election:
+          fields:
+            end_time: Bitiyor
+            start_time: Başlıyor
+            title: Başlık
+        question:
+          fields:
+            answers: Cevaplar
+            max_selections: Maks. Alan sayısı seçimler
+            title: Başlık
+        trustees_participatory_space:
+          fields:
+            considered: dikkate al
+            email: E-posta
+            inactive: aktif değil
+            name: Adı
+            notification: Bildirim gönderildi
+            public_key: Herkese açık anahtar
+            status: Statü
+      orders:
+        label: Seçimleri şuna göre sırala
+        older: Daha eski
+        recent: En son
       trustee_zone:
         trustees:
           show:
@@ -307,3 +353,26 @@ tr:
           email_intro: '%{resource_title} seçimi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: '%{resource_title} seçimi artık %{participatory_space_title} için aktif.'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi artık %{participatory_space_title} için aktif.
+        trustees:
+          new_election:
+            email_intro: '%{resource_title} seçimi için vekil olarak eklendiniz.'
+            email_outro: Bu bildirimi, %{resource_title} seçiminde vekil kişi olarak eklendiğiniz için aldınız.
+            email_subject: '%{resource_title} seçimi için vekil olarak eklendiniz..'
+            notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi için bir vekilsiniz.
+          new_trustee:
+            email_intro: Bir yönetici sizi %{resource_name} için güvenilen kişi olarak ekledi. Genel anahtarınızı <a href='%{trustee_zone_url}'> güvenilen bölgenizde </a> oluşturmalısınız
+            email_outro: Bu bildirimi, %{resource_name} için vekil kişi olarak eklendiğiniz için aldınız.
+            email_subject: '%{resource_name} için vekil birisiniz.'
+            notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
+    pages:
+      home:
+        statistics:
+          elections_count: Seçimler
+    participatory_processes:
+      statistics:
+        elections_count: Seçimler
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Çıkış
