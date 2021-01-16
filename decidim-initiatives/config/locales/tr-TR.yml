@@ -296,8 +296,14 @@ tr:
         filter_scope_values:
           all: Tümü
         filter_state_values:
+          accepted: Yeterince imza
+          all: Tümü
+          answered: Cevaplanmış
           closed: Kapalı
           open: Açık
+          rejected: Yeterince imza yok
+        filter_type_values:
+          all: Tümü
       committee_requests:
         new:
           continue: Devam et
@@ -311,14 +317,23 @@ tr:
         fill_data:
           back: Geri
           continue: Devam et
+          fill_data_help: "<ul> <li> Girişiminizin içeriğini inceleyin. Başlığınızı anlamak kolay mı? Girişiminizin amacı açık mı? </li> <li> İmza türünü seçmeniz gerekiyor. Yüz yüze, çevrimiçi veya her ikisinin kombinasyonu </li> <li> Girişimin coğrafi kapsamı nedir? </li> </ul>"
           initiative_type: Girişim türü
           more_information: "(Daha fazla bilgi)"
+          select_area: Bir alan seçin
           select_scope: Bir kapsam seçin
         finish:
           back: Geri
           back_to_initiatives: Girişimlere geri dön
+          callout_text: Tebrikler! Girişiminiz başarıyla oluşturuldu.
+          confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
+          edit_my_initiative: Girişimlerimi düzenle
           go_to_my_initiatives: Benim girişimlerime git
           more_information: "(Daha fazla bilgi)"
+          send_my_initiative: Girişimimi gönder
+        finish_help:
+          access_reminder: Girişimlerinize Girişimler sayfasındaki %{link} filtresinden erişebilirsiniz.
+          publish_helper_text: Girişiminizin yayınlanması için gerekli bilgileri tamamlamanız ve bir yöneticinin incelemesi için <strong> teknik doğrulamaya göndermeniz </strong> gerektiğini unutmayın.
         previous_form:
           back: Geri
           continue: Devam et
@@ -326,12 +341,14 @@ tr:
           more_information: "(Daha fazla bilgi)"
         promotal_committee:
           back: Geri
+          individual_help_text: Bu tür bir girişim, en az %{committee_size} kişiden (onaylayanlardan) oluşan bir Teşvik Komisyonu gerektirir. Aşağıdaki bağlantıyı bu girişimin parçası olan diğer kişilerle paylaşmalısınız. Kişileriniz bu bağlantıyı aldıklarında, belirtilen adımları izlemeleri gerekecektir.
           more_information: "(Daha fazla bilgi)"
         select_initiative_type:
           back: Geri
           choose_html: <strong>%{title}</strong> oluşturmak istiyorum
           more_information: "(Daha fazla bilgi)"
           select: Bu girişimi tanıtmak istiyorum
+          select_initiative_type_help: Girişimler, kuruluşun genel menfaati savunmak için eylemlerde bulunabilmesi için katılımcıların müdahale edebilecekleri bir araçtır. Hangi girişimi başlatmak istiyorsunuz?
         share_committee_link:
           continue: Devam et
           invite_to_committee_help: Tanıtım komitesinin bir parçası olacak kişileri davet etmek için bağlantı
@@ -340,6 +357,16 @@ tr:
           compare_help: Aşağıdaki girişimlerden herhangi biri sizinkine benziyorsa, imzalamanızı öneririz. Teklifinizin yerine getirilmesi için daha fazla olasılık olacak.
           continue: Benim girişim farklı
           more_information: "(Daha fazla bilgi)"
+      edit:
+        accept: Girişimi kabul edin
+        back: Geri
+        confirm: Emin misin?
+        discard: Girişimi atın
+        export_pdf_signatures: İmzaların PDF'sini dışa aktar
+        export_votes: İmzaları dışa aktar
+        reject: Girişimi reddet
+        title: Girişimi düzenle
+        update: Güncelle
       events:
         create_initiative_event:
           email_intro: "Takip ettiğiniz %{author_name} %{author_nickname} yeni bir girişim oluşturdu, inceleyin ve katkıda bulunun:"
@@ -351,6 +378,10 @@ tr:
           email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: Girişim %{author_nickname} tarafından onaylandı
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından onaylandı.
+      form:
+        add_attachments: Dokümanlar
+        attachment_legend: "(İsteğe bağlı) Ekler Ekleyin"
+        delete_attachment: Sil
       index:
         title: Girişimler
       initiative_signatures:
@@ -387,14 +418,23 @@ tr:
           hidden_authors_count:
             one: ve 1 kişi daha
             other: ve %{count} kişi daha
+        committee_members:
+          approve: Onayla
+          confirm_revoke: Emin misin?
+          invite_to_committee_help: Diğer katılımcıları tanıtım komitesine davet etmek için bu bağlantıyı paylaşın
+          no_members_yet: Tanıtım komitesinde üye yok
+          revoke: Geri al
+          title: Komite üyeleri
         count:
           title:
             one: "%{count} girişim"
             other: "%{count} girişim"
         filters:
           any: Herhangi bir
+          area: Alan
           author: Yazar
           myself: Benim girişimlerim
+          scope: Kapsam
           search: Arama
           state: Statü
           type: Tür
@@ -405,6 +445,14 @@ tr:
           unfold: Aç
         index_header:
           new_initiative: Yeni girişim
+          not_authorized:
+            authorizations_page: İzinleri görüntüle
+            close: Kapat
+            explanation: Yeni bir girişim oluşturabilmek için doğrulanmanız gerekiyor.
+            title: Yetkilendirme gerekli
+        initiatives:
+          closed_initiatives_warning: Şu anda açık girişim yok, ancak burada listelenen tüm kapalı girişimleri bulabilirsiniz.
+          no_initiatives_warning: Arama kriterlerinizle eşleşen hiçbir girişim yok.
         interactions:
           comments_count:
             count:
@@ -416,9 +464,18 @@ tr:
           most_voted: En çok imzalanmış
           random: Rastgele
           recent: En yeni
+          recently_published: Son yayınlananlar
         print:
+          address: Adres
+          author_title: Girişimin yazarı
           city: Kent
+          email: E-posta
+          full_name: Ad Soyad
+          general_title: Bir girişimin kabulü için başvuru
+          id_number: ID Numarası
           initiative:
+            attachments: Ekli belgeler (lütfen her belgenin adını aşağıya yazın)
+            description: 'Açıklama:'
             title: 'Başlık:'
             type: Girişim türü
           legal_text: Toplanan kişisel veriler, mevcut mevzuata göre kuruluş tarafından gizli bir şekilde birleştirilecek ve muamele edilecektir.
