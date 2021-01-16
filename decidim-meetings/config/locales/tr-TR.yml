@@ -390,19 +390,32 @@ tr:
           filter_by: Şuna göre filtrele
           unfold: Aç
         form:
+          address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
+          create_as: Toplantı oluştur
+          location_help: 'Konum: kullanıcılara buluşulacak yeri ima eden mesaj'
           location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: binanın zemini'
+          select_a_category: Lütfen bir kategori seçin
+        index:
+          new_meeting: Yeni toplantı
         meeting_minutes:
           meeting_minutes: Görüşme süreleri
           related_information: İlgili bilgi
         meetings:
           no_meetings_warning: Hiçbir toplantı, arama kriterinizle eşleşmiyor veya planlanmış bir toplantı yok.
           upcoming_meetings_warning: Şu anda planlanmış bir toplantı yok, ancak burada listelenen tüm geçmiş toplantıları bulabilirsiniz.
+        new:
+          back: Geri
+          create: Oluştur
+          title: Bir Toplantı Oluştur
         registration_confirm:
           cancel: İptal Et
           confirm: Onayla
         show:
           attendees: Katılımcı sayısı
+          back: Listeye geri dön
           contributions: Katkı sayımı
+          date: Tarih
+          edit_meeting: Toplantıyı Düzenle
           going: Devam eden
           join: Toplantıya katıl
           meeting_report: Toplantı Raporu
@@ -416,6 +429,9 @@ tr:
             one: "%{count} alan kaldı"
             other: "%{count} alan kaldı"
           view: Görünüm
+        update:
+          invalid: Bu toplantı güncellenirken bir sorun oluştu.
+          success: Toplantıyı başarıyla oluşturdunuz.
       meetings_map:
         view_meeting: Toplantıyı görüntüle
       models:
@@ -434,6 +450,7 @@ tr:
             closed: Kapalı
             end_time: Bitiş tarihi
             map: Harita
+            official_meeting: Resmi toplantı
             start_time: Başlangıç tarihi
             title: Başlık
       read_more: "(daha fazla oku)"
@@ -450,11 +467,13 @@ tr:
           invalid: Davet reddedilirken bir sorun oluştu.
           success: Davetiyeyi başarıyla reddettiniz.
         destroy:
-          invalid: Bu buluşmadan bir sorun çıktı.
+          invalid: Bu toplantıdan ayrılırken bir sorun oluştu.
           success: Toplantıdan başarıyla ayrıldınız.
       types:
         private_meeting: Özel toplantı
         transparent: Şeffaf
+      versions:
+        back_to_resource: Toplantı sayfasına geri dön
     metrics:
       meetings:
         description: Oluşturulan toplantı sayısı
@@ -468,7 +487,7 @@ tr:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Geçmiş toplantılar
-        see_all: Tümünü gör (%{count})
+        see_all: Tüm toplantıları görün (%{count})
         upcoming_meetings: Yaklaşan toplantılar
       upcoming_meeting_for_card:
         upcoming_meeting: Yaklaşan toplantı
