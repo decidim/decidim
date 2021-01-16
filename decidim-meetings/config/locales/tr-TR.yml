@@ -21,16 +21,22 @@ tr:
         end_time: Bitiş zamanı
         location: yer
         location_hints: Yer ipuçları
+        online_meeting_url: Çevrimiçi Toplantı URL
+        organizer_gid: gibi oluştur
         organizer_id: Organizatör
         private_meeting: Özel toplantı
         registration_form_enabled: Kayıt formu etkin
         registration_terms: Kayıt şartları
+        registration_url: Kayıt URL
         registrations_enabled: Kayıtlar etkinleştirildi
         start_time: Başlama zamanı
         title: Başlık
         transparent: Şeffaf
+        type_of_meeting: Tür
       minutes:
+        audio_url: Ses URL'si
         description: Açıklama
+        video_url: Video URL'si
         visible: Görünür
     errors:
       models:
@@ -80,6 +86,7 @@ tr:
           global:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             default_registration_terms: Varsayılan kayıt şartları
             enable_pads_creation: Pedlerin oluşturulmasını etkinleştir
             resources_permissions_enabled: Her toplantı için işlem izinleri ayarlanabilir
