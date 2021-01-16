@@ -3,11 +3,22 @@ tr:
     attributes:
       dummy_resource:
         created_at: Adresinde düzenlendi
+        decidim_scope_id: Kapsam
         field: Benim alanım
         start_date: Başlangıç tarihi
         title: Başlık
+        translatable_text: Çeviri metni
         updated_at: Adresinde güncellendi
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Salt okunur özniteliği
+            test: Test
+            test_choices:
+              a: Seçenek
+              b: Seçim
     dummy:
       admin:
         exports:
