@@ -377,12 +377,12 @@ tr:
         personal_data:
           invalid: Kişisel veriler, yetkilendirme için sağlanan verilerle tutarlı değildir.
         sms_code:
-          invalid: Doğrulama kodunuz bizimkilerle eşleşmiyor. Lütfen size gönderdiğimiz SMS’i iki kez kontrol edin.
+          invalid: Doğrulama kodunuz bizimkiyle eşleşmiyor. Lütfen size gönderdiğimiz SMS'i iki kez kontrol edin.
         sms_phone:
-          invalid: Telefon numarası geçersiz veya izin bekliyor. Lütfen yetkilerini kontrol et.
+          invalid: Telefon numarası geçersiz veya yetki bekleniyor. Lütfen yetkilerinizi kontrol edin.
       initiatives:
         author:
-          deleted: silindi
+          deleted: Silindi
         author_list:
           hidden_authors_count:
             one: ve 1 kişi daha
@@ -392,29 +392,29 @@ tr:
             one: "%{count} girişim"
             other: "%{count} girişim"
         filters:
-          any: herhangi
+          any: Herhangi bir
           author: Yazar
           myself: Benim girişimlerim
           search: Arama
-          state: Belirtmek, bildirmek
-          type: tip
+          state: Statü
+          type: Tür
         filters_small_view:
           close_modal: Pencereyi kapat
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         index_header:
           new_initiative: Yeni girişim
         interactions:
           comments_count:
             count:
-              one: Yorum Yap
+              one: Yorum
               other: Yorumlar
         orders:
           label: 'Girişimleri şuna göre sırala:'
           most_commented: En çok yorum yapılan
-          most_voted: En imzalanmış
-          random: rasgele
+          most_voted: En çok imzalanmış
+          random: Rastgele
           recent: En yeni
         print:
           city: Kent
@@ -437,12 +437,12 @@ tr:
             published: Bu teklif yayınlandı çünkü
             rejected: Bu teklif reddedildi, çünkü
             validating: Bu teklif değerlendiriliyor
-          initiative_rejected_reason: Bu girişim destek eksikliğinden dolayı reddedildi.
+          initiative_rejected_reason: Bu girişim, imza eksikliği nedeniyle reddedildi.
         show:
           any_vote_method: Bu girişim hem çevrimiçi hem de şahsen imzaları toplar.
           confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
           edit: Düzenle
-          follow_description: Bu inisiyatifte haber olduğunda bir bildirim alın
+          follow_description: Bu girişimde haber olduğunda bildirim alın
           offline_method: Bu girişim yalnızca şahsen imza toplar.
           print: Girişimi Yazdır
           send_to_technical_validation: Teknik doğrulamaya gönder
@@ -453,24 +453,24 @@ tr:
           already_voted: Zaten imzalanmış
           supports_required: "%{total_supports} imza gerekli"
           verification_required: Girişimi imzalamak için hesabınızı doğrulayın
-          vote: İşaret
+          vote: İmza
           votes_blocked: İmzalama devre dışı
         votes_count:
           count:
-            one: İMZA
-            other: İMZALAR
+            one: İmza
+            other: İmzalar
           most_popular_initiative: En popüler girişim
-          need_more_votes: Daha fazla imzaya ihtiyacım var
+          need_more_votes: Daha fazla imzaya ihtiyaç var
       initiatives_mailer:
-        creation_subject: Vatandaş girişimi '%{title}' oluşturuldu
+        creation_subject: Girişiminiz '%{title}' oluşturuldu
         initiative_link:
           check_initiative_details: Girişim ayrıntılarını görebilirsiniz
           here: İşte
-        more_information: Girişim oluşturma süreci hakkında daha fazla bilgiye buradan ulaşabilirsiniz.
-        progress_report_body_for: İnisiyatif %{title} ulaşmıştır %{percentage}gerekli desteklerin%.
-        progress_report_for: 'Girişimle ilgili özgeçmiş: %{title}'
-        promotal_committee_help: Promoter komitesine en az %{member_count} kişiyi davet etmeniz gerektiğini unutmayın. İnsanları destekleyici kuruluna davet etmek için aşağıdaki bağlantıyı yönlendirin
-        status_change_body_for: 'Girişim %{title} şu şekilde değiştirdi: %{state}'
+        more_information: Burada inisiyatif oluşturma süreci hakkında daha fazla bilgiye sahipsiniz.
+        progress_report_body_for: '%{title} girişimi, gerekli imzaların % %{percentage} oranına ulaştı.'
+        progress_report_for: 'Girişimin özeti: %{title}'
+        promotal_committee_help: Tanıtım komitesine en az %{member_count} kişiyi davet etmeniz gerektiğini unutmayın. İnsanları tanıtım komitesine davet etmek için aşağıdaki bağlantıyı iletin
+        status_change_body_for: 'Girişim %{title} statüsünü değiştirildi: %{state}'
         status_change_for: Girişim %{title} durumu değişti
       last_activity:
         new_initiative: Yeni girişim
@@ -488,7 +488,7 @@ tr:
           rejected: Yeterince imza yok
           validating: Teknik doğrulama
       states:
-        accepted: Kabul edilmiş
+        accepted: Kabul Edildi
         expired: Süresi doldu
       unavailable_scope: Kullanılamayan kapsam
       update:
