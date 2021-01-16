@@ -116,15 +116,15 @@ tr:
         meeting_created:
           email_intro: '"%{resource_title}" toplantısı, takip ettiğiniz "%{participatory_space_title}" e eklenmiştir.'
           email_outro: Bu bildirimi "%{participatory_space_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
-          email_subject: Yeni toplantı %{participatory_space_title}eklendi
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı %{participatory_space_title}olarak eklendi.
+          email_subject: Yeni toplantı %{participatory_space_title} eklendi
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı %{participatory_space_title} olarak eklendi
         meeting_registration_confirmed:
           notification_title: Toplantı için kaydınız <a href="%{resource_url}">%{resource_title}</a> onaylandı. Kayıt kodunuz %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" toplantısı işgal edilen yuvalar% %{percentage}üzerindedir.'
+          email_intro: '"%{resource_title}" toplantısı için ayrılan zaman aralıkları % %{percentage} ''nin üzerinde.'
           email_outro: Bu bildirimi, toplantının katılımcı alanının yöneticisi olduğunuz için aldınız.
-          email_subject: '"%{resource_title}" toplantısıyla dolu toplantı alanları% %{percentage}üzerindedir'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantı işgal yuvaları% %{percentage}üzerindedir.
+          email_subject: '"%{resource_title}" toplantısı için ayrılan zaman aralıkları % %{percentage}''nin üzerinde'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> toplantısı için ayrılan zaman aralıkları % %{percentage}'nin üzerinde.
         meeting_updated:
           email_intro: '"%{resource_title}" toplantısı güncellendi. Yeni sürümü kendi sayfasından okuyabilirsiniz:'
           email_outro: '"%{resource_title}" toplantısını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
@@ -136,8 +136,8 @@ tr:
           email_subject: '"%{resource_title}" toplantısı için "%{registration_code}" kayıt kodunuz onaylandı'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı için "%{registration_code}" kayıt kodunuz onaylandı.
         registrations_enabled:
-          email_intro: '"%{resource_title}" toplantısı kayıtları etkinleştirdi. Kendini kendi sayfasına kaydedebilirsin:'
-          email_outro: '"%{resource_title}" toplantısını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
+          email_intro: '"%{resource_title}" toplantısı kayıtları etkinleştirdi. Kendinizi, ilgili sayfadan kayıt ettirebilirsiniz:'
+          email_outro: Bu bildirimi, "%{resource_title}" toplantısını takip ettiğiniz için aldınız. Önceki bağlantıdan takibini bırakabilirsiniz.
           email_subject: '"%{resource_title}" toplantısı kayıtları etkinleştirdi.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı kayıtları etkinleştirdi.
         upcoming_meeting:
@@ -151,11 +151,11 @@ tr:
           conditions:
             - Katılmak istediğiniz toplantılara kayıt olun
           description: Yüz yüze yapılan toplantılara katıldığınızda bu rozet verilir.
-          description_another: Bu kullanıcı %{score} toplantıya katıldı.
+          description_another: Bu katılımcı %{score} toplantıya katılmıştır.
           description_own: '%{score} toplantıya katıldınız.'
           name: Katıldığı toplantılar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} toplantıya katılın!
-          unearned_another: Bu kullanıcı henüz bir toplantıya katılmadı.
+          unearned_another: Bu katılımcı henüz bir toplantıya katılmadı.
           unearned_own: Henüz bir toplantıya katılmadın.
     meetings:
       actions:
@@ -164,7 +164,7 @@ tr:
         attachments: Ekler
         close: Kapat
         confirm_destroy: Bu toplantıyı silmek istediğinizden emin misiniz?
-        destroy: silmek
+        destroy: Sil
         edit: Düzenle
         invalid_destroy:
           proposals_count:
@@ -180,32 +180,32 @@ tr:
           agenda_item:
             add_agenda_item_child: Gündem maddesi ekle
             agenda_item: Gündem maddesi
-            agenda_item_children: Ajanda Öğesi Childs
+            agenda_item_children: Gündem alt kalemleri
             down: Aşağı
             remove: Kaldır
-            up: yukarı
+            up: Yukarı
           agenda_item_child:
-            agenda_item_child: Gündem Maddesi Çocuk
+            agenda_item_child: Gündem alt maddesi
             down: Aşağı
             remove: Kaldır
-            up: yukarı
+            up: Yukarı
           create:
             invalid: Bu gündemi oluştururken bir sorun oluştu
             success: Ajanda başarıyla oluşturuldu
           edit:
             title: Gündemi düzenle
-            update: Güncelleştirme
+            update: Güncelle
           form:
             add_agenda_item: Gündem maddesi ekle
             agenda_items: Gündem maddeleri
             end_date: Bitiş tarihi
             start_date: Başlangıç tarihi
           new:
-            create: yaratmak
+            create: Oluştur
             title: Yeni gündem
           update:
             invalid: Bu gündemi güncellerken bir sorun oluştu
-            success: Ajanda başarıyla güncellendi
+            success: Gündem başarıyla güncellendi
         exports:
           meeting_comments: Yorumlar
           meetings: Toplantılar
