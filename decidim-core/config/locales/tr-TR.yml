@@ -949,11 +949,18 @@ tr:
           send: Gönder
           title: Cevapla
         show:
+          back: Tüm görüşmelere dön
+          chat_with: ile görüşme
+          not_allowed: Bu katılımcı artık doğrudan mesaj kabul etmiyor.
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
           title: Bir görüşme başlat
+        update:
+          error: Bir hata nedeniyle mesaj gönderilemedi
     metrics:
+      download:
+        csv: Veri indir (csv)
       followers:
         description: Bu katılım alanını takip eden kullanıcı sayısı
         object: takipçiler
@@ -971,6 +978,25 @@ tr:
         note: Bu e-postayı, %{organization_name} bültenlere abone olduğunuz için aldınız. Eğer ayarlarınızı değiştirebilirsiniz <a href="%{link}">bildirimleri sayfa</a>.
         see_on_website: Bu e-postayı doğru göremiyor musunuz? Onu <a href="%{link}" target="_blank">web sitesinde görüntüle</a>.
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Gövde için sahte metin: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Geçici bir çözüm bulmaya çalışın. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Temel (yalnızca metin)
+      basic_only_text_settings_form:
+        body: Gövde
+        interpolations_hint: 'İpucu: Gövde veya konu içinde herhangi bir yerde "%{name}" kullanabilirsiniz ve alıcının adı ile değiştirilecektir.'
+      image_text_cta:
+        body_preview: 'Gövde için sahte metin: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Harekete Geçirici Mesaj metni
+        introduction_preview: 'Tanıtım için sahte metin: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Geçici bir çözüm bulmaya çalışın. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Resim, metin ve Harekete Geçirici Mesaj düğmesi
+      image_text_cta_settings_form:
+        body: Gövde
+        cta_text: Harekete Geçirici Mesaj düğme metni
+        cta_url: Harekete Geçirici URL düğmesi
+        interpolations_hint: 'İpucu: Giriş, gövde, CTA metni veya konunun herhangi bir yerinde "%{name}" kullanabilirsiniz ve alıcının adı ile değiştirilecektir.'
+        introduction: Tanıtım
+        main_image: Ana resim
     newsletters:
       unsubscribe:
         check_subscription: Tercihlerinizi değiştirmek isterseniz, bunu <a href="%{link}" target="_blank">Yapılandırma Sayfasında</a> yapabilirsiniz
@@ -996,6 +1022,8 @@ tr:
       no_notifications: Henüz bildirim yok.
     notifications_settings:
       show:
+        allow_public_contact: Takip etmesem bile herkesin bana doğrudan mesaj göndermesine izin ver.
+        direct_messages: Herkesten doğrudan mesaj alın
         email_on_notification: Her bildirim aldığımda bir e-posta almak istiyorum.
         everything_followed: Takip ettiğim her şey
         newsletter_notifications: Bülten almak istiyorum
@@ -1074,6 +1102,7 @@ tr:
           error: Şartları ve koşulları kabul ederken bir hata oluştu.
           success: Harika! Şartları ve koşulları kabul ettiniz.
         form:
+          agreement: Bu koşulları kabul ediyorum
           legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
           modal_body: Eğer kabul ederseniz, platformu kullanmak mümkün olmayacaktır şunları yapabilirsiniz <a href="%{data_portability_path}">verileri indirme</a> ve / veya <a href="%{delete_path}">Hesabınızı silmek</a>.
@@ -1090,6 +1119,7 @@ tr:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
       deleted: Katılımcı silindi
+      inaccessible_message: Bu profile, Şartlar ve Koşullar ihlali nedeniyle erişilemez!
       view: Görünüm
     profiles:
       default_officialization_text_for_user_groups: Bu grup herkese açık olarak doğrulandı, adının gerçek adıyla eşleştiği doğrulandı
@@ -1097,10 +1127,12 @@ tr:
       show:
         activity: Aktivite
         badges: Rozetler
+        conversations: Konuşmalar
         followers: Takipçiler
         following: Takip Et
         groups: Gruplar
         members: Üyeler
+        officialized: Resmi katılımcı
         timeline: Zaman çizelgesi
         view_full_profile: Tam Profili Gör
       sidebar:
