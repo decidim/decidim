@@ -830,17 +830,17 @@ tr:
       no_user_groups: Henüz herhangi bir gruba ait değil.
       roles:
         admin: Yönetici
-        creator: yaratıcı
-        member: üye
+        creator: Kurucu
+        member: Üye
       update:
-        error: Grup güncellenirken bir sorun oluştu
+        error: Grup güncellemede bir hata oluştu
         success: Grup başarıyla güncellendi
     help:
       main_topic:
         default_page:
-          content: "<p>In %{organization} , farklı konularda, üst menüde gördüğünüz mekanlara katılabilirsiniz: Süreçler, Meclisler, İnisiyatifler, İstişareler.</p> <p>Her birinde katılım için farklı seçenekler bulacaksınız: bireysel veya diğer insanlarla birlikte teklifler hazırlamak, tartışmalara katılmak, uygulamak için projelere öncelik vermek, yüz yüze toplantılara katılmak ve diğer eylemlere katılmak.</p>\n"
-          title: '%{organization}ne yapabilirim?'
-        description: '%{organization}hakkında daha fazla bilgi edinin'
+          content: "<p>%{organization}'da üst menüde gördüğünüz alanlar aracılığıyla katılabilir ve farklı konulara karar verebilirsiniz: Süreçler, Toplantılar, Girişimler, İstişareler. </p> <p> Her birinde farklı seçenekler bulacaksınız. katılmak: bireysel olarak veya diğer insanlarla birlikte teklifler yapın, tartışmalara katılın, uygulanacak projelere öncelik verin, yüz yüze toplantılara ve diğer eylemlere katılın. </p>\n"
+          title: '%{organization} ne yapabilirim?'
+        description: '%{organization} hakkında daha fazla bilgi edinin'
         title: Genel Yardım
     last_activities:
       activities:
@@ -848,17 +848,17 @@ tr:
       all: Tüm aktivite türleri
       index:
         last_activity: Son Aktivite
-        resource_type: tip
+        resource_type: Türü
     log:
       base_presenter:
-        create: "%{user_name} oluşturuldu %{resource_name}"
-        create_with_space: "%{user_name} oluşturuldu %{resource_name} in %{space_name}"
-        delete: "%{user_name} silindi %{resource_name}"
-        delete_with_space: "%{user_name} silindi %{resource_name} %{space_name}"
-        unknown_action: "%{user_name} bir eylem gerçekleştirdi %{resource_name}"
-        unknown_action_with_space: "%{user_name} %{space_name}%{resource_name} eylem gerçekleştirdi"
-        update: "%{user_name} güncellendi %{resource_name}"
-        update_with_space: "%{user_name} güncellendi %{resource_name} in %{space_name}"
+        create: "%{user_name}, %{resource_name} oluşturdu"
+        create_with_space: "%{user_name}, %{space_name} içinde %{resource_name} oluşturdu"
+        delete: "%{user_name}, %{resource_name} ögesini sildi"
+        delete_with_space: "%{user_name}, %{space_name} içindeki %{resource_name} kaynağını sildi"
+        unknown_action: "%{user_name}, %{resource_name} üzerinde bir eylem gerçekleştirdi"
+        unknown_action_with_space: "%{user_name}, %{space_name} içinde %{resource_name} üzerinde bir eylem gerçekleştirdi"
+        update: "%{user_name}, %{resource_name} güncelledi"
+        update_with_space: "%{user_name}, %{resource_name} kaynağını %{space_name} alanında güncelledi"
       value_types:
         area_presenter:
           not_found: 'Alan veritabanında bulunamadı (ID: %{id})'
@@ -880,8 +880,8 @@ tr:
     members:
       no_members: Bu kullanıcı grubunun henüz üye yok.
     menu:
-      help: yardım et
-      home: Ev
+      help: Yardım
+      home: Ana Sayfa
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
@@ -899,53 +899,53 @@ tr:
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
-          outro: Decidim'in tadını çıkar!
+          outro: Decidimin tadını çıkar!
           subject: "%{sender} sizinle bir konuşma başlattı"
         new_group_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
-          outro: Decidim'in tadını çıkarın!
+          outro: Decidimin tadını çıkarın!
           subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
         new_group_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
-          outro: Decidim'in tadını çıkarın!
+          outro: Decidimin tadını çıkarın!
           subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
-          intro: "%{sender} , konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
-          outro: Decidim'in tadını çıkar!
-          subject: '%{sender}yeni mesajınız var'
+          intro: "%{sender}, konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
+          outro: Decidimin tadını çıkar!
+          subject: '%{sender}, size yeni mesaj gönderdi'
       conversations:
         create:
           error: Konuşma başlamadı. Daha sonra tekrar deneyin
         index:
-          close: Yakın kalıcı
+          close: Pencereyi kapat
           no_conversations: Henüz konuşma yok
           title: Konuşmalar
         reply:
-          send: göndermek
-          title: cevap
+          send: Gönder
+          title: Cevapla
         show:
-          title: '%{usernames}ile Söyleşi'
+          title: '%{usernames} ile görüşme'
         start:
-          send: göndermek
+          send: Gönder
           title: Bir görüşme başlat
     metrics:
       followers:
         description: Bu katılım alanını takip eden kullanıcı sayısı
-        object: takipçileri
-        title: İzleyiciler
+        object: takipçiler
+        title: Takipçiler
       participants:
         description: Kuruluştaki aktif kullanıcı sayısı
         object: katılımcılar
         title: Katılımcılar
       users:
-        description: Kuruluştaki kullanıcı sayısı
-        object: kullanıcılar
-        title: Kullanıcılar
+        description: Kuruluştaki katılımcı sayısı
+        object: katılımcılar
+        title: Katılımcılar
     newsletter_mailer:
       newsletter:
         note: Bu e-postayı, %{organization_name}bültenlere abone olduğunuz için aldınız. Eğer ayarlarınızı değiştirebilirsiniz <a href="%{link}">bildirimleri sayfa</a>.
