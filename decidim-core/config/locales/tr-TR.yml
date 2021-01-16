@@ -1158,7 +1158,15 @@ tr:
         report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> otomatik olarak gizlendi.</p>
         subject: Bir kaynak otomatik olarak gizlendi
       report:
+        authors: Yazarlar
+        content: İçeriği bildir
+        content_original_language: İçerik orijinal dili
+        date: Rapor edildi
+        details: Ayrıntılar
         hello: Merhaba %{name}
+        id: ID
+        participatory_space: Katılımcı alanı
+        reason: Nedeni
         report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> bildirilmiştir.</p>
         see_report: Raporu gör
         subject: Bir kaynak rapor edildi
