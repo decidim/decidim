@@ -114,8 +114,13 @@ tr:
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Bu resim:'
+        processors:
+          resize_and_pad: Yeniden boyutlandırıldı ve dolduruldu
+          resize_to_fit: Sığacak şekilde yeniden boyutlandırıldı
       question_types:
         long_answer: Uzun cevap
+        matrix_multiple: Matris (Çoklu seçenek)
+        matrix_single: Matris (Tek seçenek)
         multiple_option: Çoklu seçenek
         short_answer: Kısa cevap
         single_option: Tek seçenek
@@ -123,6 +128,7 @@ tr:
       questionnaires:
         answer:
           invalid: Formu yanıtlarken bir sorun oluştu.
+          max_choices_alert: Çok fazla seçenek seçilmiş
           success: Form başarıyla cevaplandı.
         question:
           max_choices: 'Maksimum seçenek: %{n}'
@@ -130,6 +136,8 @@ tr:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Formu yanıtlamak için</a> veya <a href="%{sign_up_link}">hesabınızla giriş yapın</a>.
             title: Formu cevapla
+          current_step: '%{step} adım'
+          of_total_steps: '%{total_steps}'
           questionnaire_answered:
             body: Bu formu zaten cevapladınız.
             title: Zaten cevaplandı
@@ -139,11 +147,26 @@ tr:
           questionnaire_for_private_users:
             body: Form yalnızca özel kullanıcılar tarafından kullanılabilir
             title: Form kapatıldı
+          questionnaire_js_disabled:
+            body: Bu formun bazı özellikleri devre dışı bırakılacak. Deneyiminizi iyileştirmek için lütfen tarayıcınızda JavaScript'i etkinleştirin.
+            title: JavaScript devre dışı
+          questionnaire_not_published:
+            body: Bu form henüz yayınlanmadı.
           tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
       step_navigation:
         show:
           are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
+          back: Geri
+          continue: Devam et
           submit: Gönder
       user_answers_serializer:
+        body: Cevap
+        completion: Tamamlanma
         created_at: Yanıtlandı
         id: Cevap kimliği
+        ip_hash: IP Hash
+        question: Soru
+        registered: Kayıtlı
+        session_token: Kullanıcı tanımlayıcı
+        unregistered: Kayıtlı değil
+        user_status: Kullanıcı durumu
