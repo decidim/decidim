@@ -1,9 +1,160 @@
 tr:
+  activemodel:
+    attributes:
+      answer:
+        description: Açıklama
+        image: Resim
+        proposals: İlgili teklifler
+        title: Başlık
+      election:
+        description: Açıklama
+        end_time: Oylama bitişi
+        start_time: Oylama başlangıcı
+        title: Başlık
+      question:
+        description: Açıklama
+        max_selections: Maksimum seçim sayısı
+        min_selections: Yukarıdakilerden hiçbiri
+        title: Başlık
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Cevap
+        other: Cevaplar
+      decidim/elections/election:
+        one: Seçim
+        other: Seçimler
+      decidim/elections/question:
+        one: Soru
+        other: Sorular
   decidim:
+    components:
+      elections:
+        actions:
+          vote: Oy ver
+        name: Seçimler
+        settings:
+          global:
+            announcement: Duyuru
+          step:
+            announcement: Duyuru
     elections:
       actions:
+        confirm_destroy: Emin misin?
+        destroy: Yok et
+        edit: Düzenle
         edit_answers: Cevapları düzenle
         edit_questions: Soruları Düzenle
+        import: Teklifleri yanıtlara aktarın
+        new: Yeni %{name}
+        preview: Önizleme
+        publish: Yayınla
+        title: Eylemler
+        unpublish: Yayımdan Kaldır
+      admin:
+        answers:
+          create:
+            invalid: Bu cevabı oluştururken bir sorunla karşılaştım
+            success: Cevap başarıyla oluşturuldu
+          destroy:
+            invalid: Bu cevabı silerken bir sorun oluştu
+            success: Yanıt başarıyla silindi
+          edit:
+            title: Cevabı düzenle
+            update: Cevabı güncelle
+          index:
+            invalid_max_selections: Maksimum seçimi eşleştirmek için %{missing_answers} yanıt(lar)a daha ihtiyacınız var
+            title: Cevaplar
+          new:
+            create: Cevap oluştur
+            title: Yeni cevap
+      admin_log:
+        election:
+          publish: "%{user_name}, %{resource_name} seçimini yayınladı"
+          unpublish: "%{user_name}, %{resource_name} seçimini yayından kaldırdı"
+      election_m:
+        badge_name:
+          finished: Bitti
+          ongoing: Aktif
+          upcoming: Yakında
+        end_date: Son
+        footer:
+          view: Görünüm
+          vote: Seçim
+        label:
+          date: Tarihler
+        questions: '%{count} soru'
+        start_date: Başlangıç
+        unspecified: Belirtilmemiş
       elections:
+        count:
+          elections_count:
+            one: "%{count} seçim"
+            other: "%{count} seçim"
+        filters:
+          active: Aktif
+          all: Tümü
+          finished: Bitti
+          search: Arama
+          state: Statü
+          upcoming: Yakında
+        filters_small_view:
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         show:
           back: Tüm seçimler
+      votes:
+        confirm:
+          answer: Cevap
+          answer_number: '%{number} cevap'
+          confirm: Onayla
+          edit: düzenle
+          header: Oyunu onayla
+          intro: İşte kullanmak üzere olduğunuz oyların bir özeti. <br> Lütfen oyunuzu onaylayın veya yanıtlarınızı düzenleyin.
+          nota_option: Boş
+          question: '%{count} soru'
+        confirmed:
+          back: Seçimlere dön
+          experience: Şu ana kadarki deneyiminiz nasıl?
+          feedback: Bize geri bildirim verin
+          header: Oy onaylandı
+          lead: Oyunuz çoktan verildi!
+          text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
+          verify_text: Kontrol etmek için, tanımlayıcıyı kopyalayın ve <a href="evote-verify"> oy doğrulama sayfasına </a> yapıştırın
+        encrypting:
+          header: Oy kodlanıyor...
+          text: Anonim olarak kullanabilmeniz için oyunuz şifreleniyor.
+        header:
+          confirm: Oyunu onayla
+          confirmed: Oy onaylandı
+          encrypting: Onaylanan oy
+        messages:
+          not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
+        modal:
+          close: Kapat
+          proposal_header: 'Teklifler:'
+        new:
+          answer_choices: En fazla %{choices} cevap seçebilirsiniz
+          more_information: Daha fazla bilgi
+          nota_option: Yukarıdakilerin hiçbiri
+          preview_alert: Bu, oylama kabininin bir önizlemesidir.
+          question_steps: Soru %{current_step}/%{total_steps}
+          selections: "%{selected}/%{max_selections} <br> seçim"
+        voting_step:
+          back: Geri
+          continue: Sonraki
+      warnings:
+        no_elections_warning: Arama kriterlerinize uyan seçim yok veya planlanmış bir seçim yok.
+        no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
