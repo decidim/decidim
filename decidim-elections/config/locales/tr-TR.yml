@@ -78,6 +78,65 @@ tr:
           new:
             create: Cevap oluştur
             title: Yeni cevap
+          update:
+            invalid: Bu klasör güncellenirken bir hata oluştu
+            success: Cevap başarıyla güncellendi
+        elections:
+          create:
+            invalid: Bu seçim oluşturulurken bir sorun meydana geldi
+            success: Seçim başarıyla oluşturuldu
+          destroy:
+            invalid: Bu seçim silinirken bir sorun oluştu
+            success: Seçim başarıyla silindi
+          edit:
+            title: Seçimi düzenle
+            update: Seçimi güncelle
+          index:
+            no_bulletin_board: Bu modülü kullanmak için gerekli olan yapılandırılmış bir <a href="https://github.com/decidim/decidim-bulletin-board"> Bulletin Board sunucusu </a> yok. Bu görev Sistem Yöneticisi tarafından yapılmalıdır.
+            title: Seçimler
+          new:
+            create: Seçim oluştur
+            title: Yeni seçim
+          publish:
+            success: Seçim başarıyla yayınlandı.
+          unpublish:
+            success: Seçim başarılı bir şekilde yayınlanmadı.
+          update:
+            invalid: Bu seçim güncellenirken bir sorun oluştu
+            success: Seçim başarıyla güncellendi
+        models:
+          answer:
+            name: Cevap
+          election:
+            name: Seçim
+          question:
+            name: Soru
+        proposals_imports:
+          create:
+            invalid: Teklifleri cevaplara aktarırken bir sorun oluştu
+            success: "%{number} teklif başarıyla yanıtlara aktarıldı"
+          new:
+            create: Teklifleri yanıtlara aktarın
+            no_components: Bu katılımcı alanda, teklifleri yanıtlara aktarmak için başka teklif bileşeni yoktur.
+            select_component: Lütfen modülü bileşeni seçin
+        questions:
+          create:
+            invalid: Yeni bir soru oluşturulurken bir hata oluştu
+            success: Soru başarıyla oluşturuldu
+          destroy:
+            invalid: Bu soru silinirken bir sorun oluştu
+            success: Soru başarıyla silindi
+          edit:
+            title: Soruyu Düzenle
+            update: Soruyu güncelle
+          index:
+            title: Sorular
+          new:
+            create: Soru Oluştur
+            title: Yeni soru
+          update:
+            invalid: Bu soru güncellenirken bir hata oluştu
+            success: Soru başarıyla güncellendi
       admin_log:
         election:
           publish: "%{user_name}, %{resource_name} seçimini yayınladı"
@@ -115,6 +174,31 @@ tr:
           unfold: Aç
         show:
           back: Tüm seçimler
+          preview: Önizleme
+          vote: Oy
+          voting_period_status:
+            finished: Oylama %{start_time} tarihinde başladı ve %{end_time} tarihinde sona erdi
+            ongoing: Oylama %{end_time} tarihinde sona eriyor
+            upcoming: Oylama %{start_time} tarihinde başlıyor
+      models:
+        answer:
+          fields:
+            proposals: Teklifler
+            title: Başlık
+        election:
+          fields:
+            end_time: Bitiyor
+            start_time: Başlıyor
+            title: Başlık
+        question:
+          fields:
+            answers: Cevaplar
+            max_selections: Maks. Alan sayısı seçimler
+            title: Başlık
+      orders:
+        label: Seçimleri şuna göre sırala
+        older: Daha eski
+        recent: En son
       votes:
         confirm:
           answer: Cevap
@@ -158,3 +242,21 @@ tr:
       warnings:
         no_elections_warning: Arama kriterlerinize uyan seçim yok veya planlanmış bir seçim yok.
         no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} seçimi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{resource_title} seçimi artık %{participatory_space_title} için aktif.'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi artık %{participatory_space_title} için aktif.
+    pages:
+      home:
+        statistics:
+          elections_count: Seçimler
+    participatory_processes:
+      statistics:
+        elections_count: Seçimler
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Çıkış
