@@ -153,6 +153,11 @@ tr:
             email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
             email_subject: Yeni kilometre taşı tamamlandı!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi elde etti %{percentage}imzaların%.
+        support_threshold_reached:
+          email_intro: '%{resource_title} girişimi imza eşiğine ulaştı'
+          email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
+          email_subject: Imza eşiğine ulaşıldı
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi imza eşiğine ulaştı
     gamification:
       badges:
         initiatives:
@@ -197,10 +202,13 @@ tr:
         content_blocks:
           highlighted_initiatives:
             max_results: Gösterilecek maksimum öğe miktarı
+        exports:
+          initiatives: Girişimler
         initiatives:
           edit:
             accept: Girişimi kabul et
             confirm: Emin misiniz?
+            confirm_send_to_technical_validation: Emin misin?
             discard: Girişimi atın
             export_pdf_signatures: İmza PDF'sini dışa aktar
             export_votes: İhracat destekleri
@@ -209,11 +217,18 @@ tr:
             success: Girişim teknik doğrulamaya gönderildi
             update: Güncelleştirme
           form:
+            attachments: Ekli Dosyalar
+            settings: Ayarlar
             title: Genel bilgi
           index:
             actions_title: Aksiyon
             preview: Ön izleme
             print: baskı
+          initiative_attachments:
+            documents: Dokümanlar
+            edit: Düzenle
+            new: Yeni
+            photos: Resimler
           show:
             print: baskı
           update:
@@ -249,6 +264,10 @@ tr:
             destroy: silmek
             update: Güncelleştirme
           form:
+            authorizations: Yetkilendirme ayarları
+            child_scope_threshold_enabled_help: 'Bu yapılandırma bayrağı çevrimdışı oyları desteklemez, alt ölçekleri etkinleştirir ve kullanıcıyla bir kapsamı ilişkilendiren bir yetkilendirme işleyicisi ile çalışır, aşağıdaki yetkilendirme ayarlarında bu yetkiyi seçtiğinizden emin olun. Çalışması için kapsamların hiyerarşik şekilde yapılandırılması gerekir: 1 Ana - N tane Alt. Bu yapılandırmanın nasıl çalıştığı hakkında daha fazla bilgi için bu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> bağlantıya </a> bakın.'
+            only_global_scope_enabled_help: '"Alt kapsam imzasını" etkinleştirdiyseniz ve genel kapsamı ana kapsamınız olarak yapılandırdıysanız bu bayrağı işaretleyin. Bunu etkinleştirdiğinizde, girişim oluşturma sihirbazında girişim türü seçimi atlanacaktır. Bu yapılandırmanın nasıl çalıştığı hakkında daha fazla bilgi için bu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> bağlantıya </a> bakın.'
+            options: Seçenekler
             title: Genel bilgi
           initiative_type_scopes:
             title: Girişim türü için kapsamlar
@@ -265,11 +284,17 @@ tr:
           unpublish: "%{user_name} %{resource_name} girişim reddetti"
           update: "%{user_name} , %{resource_name} girişimi güncelledi"
       admin_states:
+        accepted: Yeterince imza
         created: düzenlendi
         discarded: Atılan
         published: Yayınlanan
+        rejected: Yeterince imza yok
         validating: Teknik doğrulama
       application_helper:
+        filter_area_values:
+          all: Tümü
+        filter_scope_values:
+          all: Tümü
         filter_state_values:
           closed: Kapalı
           open: Açık
@@ -393,6 +418,17 @@ tr:
           recent: En yeni
         print:
           city: Kent
+          initiative:
+            title: 'Başlık:'
+            type: Girişim türü
+          legal_text: Toplanan kişisel veriler, mevcut mevzuata göre kuruluş tarafından gizli bir şekilde birleştirilecek ve muamele edilecektir.
+          phone_number: Telefon numarası
+          place_date: Yer, Tarih
+          postal_code: Posta Kodu
+          print: Yazdır
+          province: İlçe / İl
+          section: 'Kuruluş tarafından istenirse, lütfen belirtilen yerlerde göndermek için bu formu yazdırın ve doldurun:'
+          signature: İmza
         result:
           answer_title:
             accepted: Bu teklif kabul edildi çünkü
@@ -403,7 +439,13 @@ tr:
             validating: Bu teklif değerlendiriliyor
           initiative_rejected_reason: Bu girişim destek eksikliğinden dolayı reddedildi.
         show:
+          any_vote_method: Bu girişim hem çevrimiçi hem de şahsen imzaları toplar.
+          confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
+          edit: Düzenle
           follow_description: Bu inisiyatifte haber olduğunda bir bildirim alın
+          offline_method: Bu girişim yalnızca şahsen imza toplar.
+          print: Girişimi Yazdır
+          send_to_technical_validation: Teknik doğrulamaya gönder
         signatures_count:
           one: " imza"
           other: " imzalar"
@@ -437,10 +479,24 @@ tr:
           highlighted_initiatives:
             active_initiatives: Aktif girişimler
             see_all_initiatives: Tüm girişimleri görün
+      show:
+        badge_name:
+          accepted: Yeterince imza
+          created: Oluşturuldu
+          discarded: Yok sayıldı
+          published: Yayınlandı
+          rejected: Yeterince imza yok
+          validating: Teknik doğrulama
       states:
         accepted: Kabul edilmiş
         expired: Süresi doldu
       unavailable_scope: Kullanılamayan kapsam
+      update:
+        error: Bir hata oluştu
+        success: Vatandaş girişimi başarıyla güncellendi
+      versions:
+        shared:
+          back_to_resource: Girişime geri dönün
     menu:
       initiatives: Girişimler
     resources:
