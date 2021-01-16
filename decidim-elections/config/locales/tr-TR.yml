@@ -91,6 +91,19 @@ tr:
             success: Cevap başarıyla seçildi
           unselect:
             invalid: Bu cevabın seçimi kaldırılırken bir sorun oluştu
+            success: Cevabın seçimi başarıyla kaldırıldı
+          update:
+            invalid: Bu klasör güncellenirken bir hata oluştu
+            success: Cevap başarıyla güncellendi
+        elections:
+          create:
+            invalid: Bu seçim oluşturulurken bir sorun meydana geldi
+            success: Seçim başarıyla oluşturuldu
+          destroy:
+            invalid: Bu seçim silinirken bir sorun oluştu
+            success: Seçim başarıyla silindi
+          edit:
+            title: Seçimi düzenle
         setup:
           requirements:
             minimum_answers: Her sorunun <strong> en az 2 cevabı </strong> vardır
