@@ -89,14 +89,14 @@ tr:
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             creation_enabled_for_participants: Katılımcılar toplantı oluşturabilir
             default_registration_terms: Varsayılan kayıt şartları
-            enable_pads_creation: Pedlerin oluşturulmasını etkinleştir
+            enable_pads_creation: Altlık oluşturmayı etkinleştirin
             registration_code_enabled: Kayıt kodu etkinleştirildi
             resources_permissions_enabled: Her toplantı için işlem izinleri ayarlanabilir
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
-            terms_and_conditions_url_for_meeting_creators: İçerik oluşturucularla tanışmak için şartlar ve koşullar URL'si
+            terms_and_conditions_url_for_meeting_creators: Toplantı oluşturucuları için şartlar ve koşullar URL'si
           step:
-            announcement: duyuru
+            announcement: Duyuru
             comments_blocked: Yorumlar engellendi
             creation_enabled_for_participants: Katılımcılar tarafından toplantı oluşturma etkinleştirildi
             creation_enabled_for_user_groups: Kullanıcı grupları tarafından toplantı oluşturma etkinleştirildi
@@ -104,8 +104,8 @@ tr:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: '"%{resource_title}" toplantınız kapatıldı. Sonuçları kendi sayfasından okuyabilirsiniz:'
-            email_outro: '"%{resource_title}" toplantısını düzenlediğiniz için bu bildirimi aldınız.'
+            email_intro: '"%{resource_title}" toplantınız kapatıldı. Sonuçları sayfasından okuyabilirsiniz:'
+            email_outro: Bu bildirimi, "%{resource_title}" toplantısını düzenlediğiniz için aldınız.
             email_subject: '"%{resource_title}" toplantısı kapatıldı'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> toplantısı kapatıldı.
           follower:
