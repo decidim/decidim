@@ -471,7 +471,7 @@ tr:
           invalid: Davet reddedilirken bir sorun oluştu.
           success: Davetiyeyi başarıyla reddettiniz.
         destroy:
-          invalid: Bu buluşmadan bir sorun çıktı.
+          invalid: Bu toplantıdan ayrılırken bir sorun oluştu.
           success: Toplantıdan başarıyla ayrıldınız.
       types:
         private_meeting: Özel toplantı
@@ -484,7 +484,7 @@ tr:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Geçmiş toplantılar
-        see_all: Tümünü gör (%{count})
+        see_all: Tüm toplantıları görün (%{count})
         upcoming_meetings: Yaklaşan toplantılar
       upcoming_meeting_for_card:
         upcoming_meeting: Yaklaşan toplantı
