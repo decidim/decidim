@@ -292,10 +292,33 @@ tr:
         older: Daha eski
         recent: En son
       trustee_zone:
+        menu:
+          trustee_zone: Vekil bölgesi
         trustees:
           show:
+            elections:
+              list:
+                election: Seçim
+                status: Statü
+                voting_period: Oylama süresi
+              no_elections: Vekil olarak hareket ettiğiniz hiçbir seçim yoktur.
+              title: Seçimler
             identification_keys:
+              cancel: İptal Et
+              generate: Kimlik anahtarları oluşturun
+              generate_error: Kimlik anahtarları oluşturulurken bir hata meydana geldi.
+              generate_legend: Vekil olarak seçimlere katılmak için bir kimlik anahtarı çifti oluşturmanız gerekir.
+              generate_legend_1: Düğmeye bastıktan sonra, oluşturulan tanımlama anahtarları ile dosyayı indirmelisiniz.
+              generate_legend_2: İndirilen dosyayı temiz bir USB cihazına kopyalayın
+              generate_legend_3: Bilgisayarınızda dosyanın bir kopyası olmadığından emin olun (ör. İndirilenler ve Masaüstü klasörlerini kontrol edin).
+              generate_legend_4: Dosyanın başka bir kopyasını farklı bir harici cihazda oluşturun ve çok güvenli bir yerde saklayın.
+              submit: Gönder
+              submit_legend: Yukarıda açıklanan tüm adımları izledikten sonra, açık kimlik anahtarını Decidim sunucusuna gönderme işlemini tamamlayın.
+              submit_title: Genel kimlik anahtarını gönderin
+              title: Vekil kimlik anahtarları
+              upload: Kimlik anahtarlarınızı yükleyin
               upload_error:
+                invalid_format: Yüklenen dosya herhangi bir kimlik anahtarı içermiyor.
                 invalid_key: Yüklenen dosyadaki kimlik anahtarları yüklenemez.
                 invalid_public_key: Yüklenen dosyadaki tanımlama anahtarları, Decidim tarafından saklanan genel tanımlama anahtarıyla eşleşmiyor.
               upload_legend: Decidim'de sizin genel kimlik anahtarlarınız var, ancak tarayıcınızda hala bu anahtarlar yok. Kimlik anahtarlarınızın olduğu dosyayı, oluşturduktan sonra oluşturduğunuz yedekten bilgisayarınıza aktarmanız gerekir.
