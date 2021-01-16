@@ -3,6 +3,8 @@ tr:
     attributes:
       debate:
         category_id: Kategori
+        closed_at: Kapandı
+        conclusions: Sonuçlar
         decidim_category_id: Kategori
         description: Açıklama
         end_time: Biter
@@ -12,6 +14,7 @@ tr:
         title: Başlık
         user_group_id: Olarak tartışma oluştur
     models:
+      decidim/debates/close_debate_event: Tartışma kapandı
       decidim/debates/create_debate_event: tartışma
       decidim/debates/creation_disabled_event: Tartışmalar devre dışı bırakıldı
       decidim/debates/creation_enabled_event: Tartışmalar etkin
