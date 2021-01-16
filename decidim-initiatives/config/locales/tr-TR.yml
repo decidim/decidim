@@ -5,6 +5,7 @@ tr:
         decidim_user_group_id: Yazar
         description: Açıklama
         offline_votes: Yüz yüze destek
+        offline_votes_for_scope: '%{scope_name} için şahsen imzalar'
         scope_id: kapsam
         signature_end_date: İmza toplama süresinin sonu
         signature_start_date: İmza toplama döneminin başlangıcı
@@ -18,13 +19,19 @@ tr:
       initiatives_committee_member:
         user: Komite Üyesi
       initiatives_type:
+        area_enabled: Yazarların girişimleri için alanı seçmelerine izin verin
+        attachments_enabled: Tüm eklentileri aktifleştir
         banner_image: Banner resmi
+        child_scope_threshold_enabled: Alt kapsam imzalarını etkinleştir
         collect_user_extra_fields: İmzada kullanıcının kişisel verilerini topla
+        custom_signature_end_date_enabled: Yazarların imza toplama süresinin sonunu seçmesine izin ver
         description: Açıklama
         document_number_authorization_handler: Oylamada belge numarasını doğrulama yetkisi
         extra_fields_legal_information: Kişisel verilerin toplanması ile ilgili yasal bilgiler
         minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
+        only_global_scope_enabled: Yalnızca küresel kapsam girişimlerinin oluşturulmasına izin ver
+        promoting_committee_enabled: Terfi komitesini etkinleştirin
         title: Başlık
         undo_online_signatures_enabled: Kullanıcıların çevrimiçi imzalarını geri almalarını sağlama
         validate_sms_code_on_votes: İmza işlemine SMS kodu doğrulama adımı ekleme
@@ -37,6 +44,14 @@ tr:
         address: Adres
         id_document: Kimlik belgesi
         name: Tam adı
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Dosya geçersiz
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+              title: Başlık boş olamaz
   activerecord:
     models:
       decidim/initiative:
@@ -52,6 +67,23 @@ tr:
     admin:
       actions:
         new_initiative_type: Yeni girişim türü
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Alan
+          state_eq:
+            label: Durum
+            values:
+              accepted: Yeterince imza
+              created: Oluşturuldu
+              discarded: Yok sayıldı
+              published: Yayınlandı
+              rejected: Yeterince imza yok
+              validating: Teknik doğrulama
+          type_id_eq:
+            label: Tür
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} ''ı başlık, açıklama, kimlik veya yazar adına göre arayın.'
       menu:
         initiatives: Girişimler
         initiatives_types: Girişim türleri
@@ -60,6 +92,7 @@ tr:
           fields:
             created_at: Düzenlendi
             id: İD
+            published_at: Tarihinde yayınlandı
             state: Belirtmek, bildirmek
             supports_count: İmzalar
             title: Girişimler
@@ -85,6 +118,7 @@ tr:
             initiative_title: Girişim başlığı
             name_and_surname: Ad ve soyadı
             postal_code: Posta kodu
+            scope: Kapsam
             time_and_date: Saat ve tarih
             timestamp: Zaman Damgası
       titles:
@@ -92,11 +126,22 @@ tr:
         initiatives_types: Girişim türleri
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: '"%{resource_title}" girişimi teknik doğrulamaya gönderildi. <a href="%{admin_initiative_url}"> Yönetici panelinden </a> kontrol edin'
+            email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
+            email_subject: '"%{resource_title}" girişimi teknik doğrulamaya gönderildi.'
+            notification_title: '"%{resource_title}" girişimi teknik doğrulamaya gönderildi. <a href="%{admin_initiative_path}"> Yönetici panelinden </a> kontrol edin'
         initiative_extended:
           email_intro: Girişim için imzalar bitiş tarihi %{resource_title} uzatıldı!
           email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
           email_subject: Girişim imzaları bitiş tarihi uzatıldı!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> girişiminin imza bitiş tarihi uzatıldı.
+        initiative_sent_to_technical_validation:
+          email_intro: '"%{resource_title}" girişimi teknik doğrulamaya gönderildi. <a href="%{admin_initiative_url}"> Yönetici panelinden </a> kontrol edin'
+          email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
+          email_subject: '"%{resource_title}" girişimi teknik doğrulamaya gönderildi.'
+          notification_title: '"%{resource_title}" girişimi teknik doğrulamaya gönderildi. <a href="%{admin_initiative_path}"> Yönetici panelinden </a> kontrol edin'
         milestone_completed:
           affected_user:
             email_intro: Girişiminiz %{resource_title} elde etti %{percentage}imzaların%!
