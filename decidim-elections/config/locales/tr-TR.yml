@@ -1,1 +1,43 @@
 tr:
+  activemodel:
+    attributes:
+      answer:
+        description: Açıklama
+        image: Resim
+        proposals: İlgili teklifler
+        title: Başlık
+      election:
+        description: Açıklama
+        end_time: Oylama bitişi
+        start_time: Oylama başlangıcı
+        title: Başlık
+      question:
+        description: Açıklama
+        max_selections: Maksimum seçim sayısı
+        min_selections: Yukarıdakilerden hiçbiri
+        title: Başlık
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: değiştirilemez
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Cevap
+        other: Cevaplar
+      decidim/elections/election:
+        one: Seçim
+        other: Seçimler
+      decidim/elections/question:
+        one: Soru
+        other: Sorular
