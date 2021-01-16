@@ -4,29 +4,29 @@ tr:
       initiative:
         decidim_user_group_id: Yazar
         description: Açıklama
-        offline_votes: Yüz yüze destek
+        offline_votes: Şahsen imzalar
         offline_votes_for_scope: '%{scope_name} için şahsen imzalar'
-        scope_id: kapsam
+        scope_id: Kapsam
         signature_end_date: İmza toplama süresinin sonu
         signature_start_date: İmza toplama döneminin başlangıcı
         signature_type: İmza koleksiyonu türü
         signature_type_values:
           any: Karışık
-          offline: Yüz yüze
-          online: İnternet üzerinden
-        state: Belirtmek, bildirmek
+          offline: Şahsen
+          online: Çevrimiçi
+        state: Statü
         title: Başlık
       initiatives_committee_member:
         user: Komite Üyesi
       initiatives_type:
         area_enabled: Yazarların girişimleri için alanı seçmelerine izin verin
         attachments_enabled: Tüm eklentileri aktifleştir
-        banner_image: Banner resmi
+        banner_image: Afiş resmi
         child_scope_threshold_enabled: Alt kapsam imzalarını etkinleştir
-        collect_user_extra_fields: İmzada kullanıcının kişisel verilerini topla
+        collect_user_extra_fields: İmzada katılımcıya ait kişisel verileri toplayın
         custom_signature_end_date_enabled: Yazarların imza toplama süresinin sonunu seçmesine izin ver
         description: Açıklama
-        document_number_authorization_handler: Oylamada belge numarasını doğrulama yetkisi
+        document_number_authorization_handler: İmzalardaki belge numarasını doğrulama yetkisi
         extra_fields_legal_information: Kişisel verilerin toplanması ile ilgili yasal bilgiler
         minimum_committee_members: Minimum komite üyesi
         online_signature_enabled: Çevrimiçi imza etkin
@@ -103,14 +103,14 @@ tr:
           name: Girişim tipi kapsamı
         initiatives_types:
           fields:
-            created_at: Düzenlendi
+            created_at: Oluşturuldu
             title: Girişim türleri
-          name: Girişimi tipi
+          name: Girişimi türü
         initiatives_votes:
           fields:
             date_of_birth: Doğum tarihi
             document_number: Belge Numarası
-            hash: esrar
+            hash: Hash
             initiative_end_date: Bitiş tarihi
             initiative_id: Girişim Kimliği
             initiative_signatures_count: İmza sayısı
@@ -134,7 +134,7 @@ tr:
             notification_title: '"%{resource_title}" girişimi teknik doğrulamaya gönderildi. <a href="%{admin_initiative_path}"> Yönetici panelinden </a> kontrol edin'
         initiative_extended:
           email_intro: Girişim için imzalar bitiş tarihi %{resource_title} uzatıldı!
-          email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_outro: Bu bildirimi, %{resource_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
           email_subject: Girişim imzaları bitiş tarihi uzatıldı!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> girişiminin imza bitiş tarihi uzatıldı.
         initiative_sent_to_technical_validation:
@@ -144,19 +144,19 @@ tr:
           notification_title: '"%{resource_title}" girişimi teknik doğrulamaya gönderildi. <a href="%{admin_initiative_path}"> Yönetici panelinden </a> kontrol edin'
         milestone_completed:
           affected_user:
-            email_intro: Girişiminiz %{resource_title} elde etti %{percentage}imzaların%!
-            email_outro: Bu bildirimi aldınız çünkü inisiyatifin %{resource_title}yazarı sizsiniz.
+            email_intro: Girişiminiz %{resource_title}, imzaların %{percentage} kadarını elde etti!
+            email_outro: Bu bildirimi, %{resource_title} girişiminin yazarı olduğunuz için aldınız.
             email_subject: Yeni kilometre taşı tamamlandı!
-            notification_title: Sizin <a href="%{resource_path}">%{resource_title}</a> girişimi elde etti %{percentage}imzaların%.
+            notification_title: <a href="<a href="%{resource_path}">"> %{resource_title} </a> girişiminiz imzaların %{percentage} kadarını elde etti.
           follower:
-            email_intro: İnisiyatif %{resource_title} elde etti %{percentage}imzaların%!
-            email_outro: Bu bildirimi, %{resource_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+            email_intro: '%{resource_title} girişimi, imzaların %{percentage} kadarını elde etti!'
+            email_outro: Bu bildirimi %{resource_title} izlediğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
             email_subject: Yeni kilometre taşı tamamlandı!
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi elde etti %{percentage}imzaların%.
+            notification_title: <a href="<a href="%{resource_path}">">%{resource_title} </a> girişimi, imzaların %{percentage} kadarını elde etti.
         support_threshold_reached:
           email_intro: '%{resource_title} girişimi imza eşiğine ulaştı'
           email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
-          email_subject: Imza eşiğine ulaşıldı
+          email_subject: İmza eşiğine ulaşıldı
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi imza eşiğine ulaştı
     gamification:
       badges:
