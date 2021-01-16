@@ -18,6 +18,7 @@ module Decidim
             get "/", action: :index, as: :index
           end
         end
+        root to: "demographics#index"
       end
 
       initializer "decidim.action_controller" do

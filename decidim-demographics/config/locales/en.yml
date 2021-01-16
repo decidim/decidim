@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -8,6 +9,10 @@ en:
         education_age_stop: How old were you when you stopped full-time education?
         living_condition: Would you say you live in a...?
   decidim:
+    admin:
+      demographics:
+        management:
+          disabled: Management of this module is disabled
     components:
       demographics:
         name: Demographics

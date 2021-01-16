@@ -10,6 +10,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        root to: "demographics#index"
       end
 
       def load_seed
