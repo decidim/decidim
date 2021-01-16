@@ -281,13 +281,13 @@ tr:
         initiative:
           publish: "%{user_name}, %{resource_name} girişimini yayınladı"
           send_to_technical_validation: "%{user_name},%{resource_name} girişimini teknik doğrulamaya gönderdi"
-          unpublish: "%{user_name} %{resource_name} girişim reddetti"
-          update: "%{user_name} , %{resource_name} girişimi güncelledi"
+          unpublish: "%{user_name}, %{resource_name} girişimini iptal etti"
+          update: "%{user_name}, %{resource_name} girişimini güncelledi"
       admin_states:
         accepted: Yeterince imza
-        created: düzenlendi
-        discarded: Atılan
-        published: Yayınlanan
+        created: Oluşturuldu
+        discarded: Yok sayıldı
+        published: Yayınlandı
         rejected: Yeterince imza yok
         validating: Teknik doğrulama
       application_helper:
@@ -301,9 +301,9 @@ tr:
       committee_requests:
         new:
           continue: Devam et
-          help_text: Bu inisiyatifin destekleyici komitesine üye olmayı istemek üzeresiniz
+          help_text: Bu girişimin destekleyici komitesinin bir üyesi olmayı talep etmek üzeresiniz
         spawn:
-          success: İsteğiniz inisiyatif yazara gönderildi.
+          success: İsteğiniz girişim yazarına gönderildi.
       content_blocks:
         highlighted_initiatives:
           name: Vurgulanan girişimler
@@ -311,46 +311,46 @@ tr:
         fill_data:
           back: Geri
           continue: Devam et
-          initiative_type: Girişimi tipi
+          initiative_type: Girişim türü
           more_information: "(Daha fazla bilgi)"
           select_scope: Bir kapsam seçin
         finish:
           back: Geri
-          back_to_initiatives: Girişimlere geri dönüş
+          back_to_initiatives: Girişimlere geri dön
           go_to_my_initiatives: Benim girişimlerime git
           more_information: "(Daha fazla bilgi)"
         previous_form:
           back: Geri
           continue: Devam et
-          help: Girişim neden oluşur? Başlığı ve açıklamayı yazınız. Kısa ve özlü bir başlık ve önerilen çözüm üzerinde odaklanmış bir açıklama yapmanızı öneririz.
+          help: Girişim nelerden oluşuyor? Başlığı ve açıklamayı yazın. Kısa ve öz bir başlık ve önerilen çözüme odaklanan bir açıklama öneririz.
           more_information: "(Daha fazla bilgi)"
         promotal_committee:
           back: Geri
           more_information: "(Daha fazla bilgi)"
         select_initiative_type:
           back: Geri
-          choose_html: <strong>%{title}</strong>oluşturmak istiyorum
+          choose_html: <strong>%{title}</strong> oluşturmak istiyorum
           more_information: "(Daha fazla bilgi)"
-          select: Bu girişimi teşvik etmek istiyorum
+          select: Bu girişimi tanıtmak istiyorum
         share_committee_link:
           continue: Devam et
-          invite_to_committee_help: Promoter komitesinin bir parçası olacak kişileri davet etmek için bağlantı
+          invite_to_committee_help: Tanıtım komitesinin bir parçası olacak kişileri davet etmek için bağlantı
         show_similar_initiatives:
           back: Geri
-          compare_help: Aşağıdaki girişimlerden herhangi biri sizinkilerle benzerse, bunu desteklemenizi öneririz. Teklifinizin yapılması için daha fazla olasılık olacaktır.
+          compare_help: Aşağıdaki girişimlerden herhangi biri sizinkine benziyorsa, imzalamanızı öneririz. Teklifinizin yerine getirilmesi için daha fazla olasılık olacak.
           continue: Benim girişim farklı
           more_information: "(Daha fazla bilgi)"
       events:
         create_initiative_event:
-          email_intro: "Takip ettiğiniz %{author_name} %{author_nickname}, yeni bir girişim oluşturdu, kontrol etti ve katkıda bulundu:"
+          email_intro: "Takip ettiğiniz %{author_name} %{author_nickname} yeni bir girişim oluşturdu, inceleyin ve katkıda bulunun:"
           email_outro: Bu bildirimi, %{author_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{author_nickname}Yeni girişim'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından oluşturuldu.
+          email_subject: '%{author_nickname} tarafından yeni girişim'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından oluşturuldu.
         endorse_initiative_event:
-          email_intro: "Takip ettiğiniz %{author_name} %{author_nickname}, aşağıdaki girişimi onaylamıştır, belki de sohbete katkıda bulunmak istersiniz:"
-          email_outro: Bu bildirimi, %{author_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: Giriş tarafından onaylanan %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından onaylandı.
+          email_intro: "Takip ettiğiniz %{author_name} %{author_nickname} aşağıdaki girişimi onayladı, belki sohbete katkıda bulunmak istersiniz:"
+          email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: Girişim %{author_nickname} tarafından onaylandı
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından onaylandı.
       index:
         title: Girişimler
       initiative_signatures:
@@ -360,22 +360,22 @@ tr:
             day: Gün
             month: Ay
             year: Yıl
-          help: Lütfen girişimi imzalamak için aşağıdaki alanları kişisel verilerinizle doldurun
+          help: Girişimi imzalamak için lütfen aşağıdaki alanları kişisel verilerinizle doldurun
         finish:
           back_to_initiative: Girişime geri dön
         sms_code:
           continue: Kodu kontrol et ve devam et
-          help: Telefonunuza gelen SMS’leri kontrol edin.
+          help: Telefonunuza gelen SMS'i kontrol edin
         sms_phone_number:
           continue: Bana bir sms gönder
           help: Doğrulama kodunuzu istemek için formu doğrulanmış telefon numaranızla doldurun
       initiative_votes:
         create:
-          error: Girişimi imzalarken hatalar oldu.
+          error: Girişimi imzalarken bir hata oluştu.
           invalid: Girişimi imzalamak için sağlanan veriler geçerli değil
           success_html: Tebrikler! <strong> %{title}</strong> girişimi doğru imzalandı
         personal_data:
-          invalid: Kişisel veriler yetkilendirme için verilen verilerle tutarlı değildir.
+          invalid: Kişisel veriler, yetkilendirme için sağlanan verilerle tutarlı değildir.
         sms_code:
           invalid: Doğrulama kodunuz bizimkilerle eşleşmiyor. Lütfen size gönderdiğimiz SMS’i iki kez kontrol edin.
         sms_phone:
