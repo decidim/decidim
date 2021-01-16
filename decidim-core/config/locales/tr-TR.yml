@@ -264,8 +264,10 @@ tr:
         explanation: '"X" ile biten bir belge numarası girerek doğrulanmış olsun'
         fields:
           allowed_postal_codes: İzin verilen posta kodları (virgülle ayrılmış)
+          allowed_scope_id: İzin Verilen Kapsamlar
           document_number: Doküman numarası
           postal_code: Posta kodu
+          scope_id: Kapsam
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
         name: Kukla yetkilendirme iş akışı
@@ -279,6 +281,7 @@ tr:
           foo: Sahte
         name: Sahte yetkilendirme
       granted_at: '%{timestamp} tarihinde verildi'
+      renew: Doğrulamayı yenile
       sms:
         explanation: Cep telefon numaranızı gönderin, böylece kimliğinizi kontrol edebiliriz.
         name: SMS ile kod
@@ -313,6 +316,8 @@ tr:
           explanation_html: Bu eylemi gerçekleştirmek için yetkilendirilmeniz gerekir, bunu yapmadan önce e-postanızı doğrulamanız gerekir <strong>%{email}</strong>.
           request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
           title: E-posta adresinizi doğrulayın
+      show:
+        close_modal: Pencereyi kapat
     collapsible_list:
       hidden_elements_count:
         one: ve %{count} daha
@@ -320,6 +325,19 @@ tr:
       see_less: "(daha az görün)"
       see_more: "(daha fazla gör)"
     components:
+      component_order_selector:
+        no_content: Bu kriterlere sahip herhangi bir içerik bulamadık
+        order:
+          all_types: Bütün türler
+          collaborative_draft: İşbirlikçi Taslak
+          comment: Yorum
+          debate: Tartışma
+          initiative: Girişim
+          meeting: Toplantı
+          post: Paylaşım
+          proposal: Teklif
+          question: Soru
+        title: 'Göster:'
       dummy:
         actions:
           bar: Çizgi
@@ -329,10 +347,14 @@ tr:
           global:
             amendments_enabled: Değişiklikler etkinleştirildi
             comments_enabled: Yorumlar etkin
+            comments_max_length: Maksimum yorum uzunluğu
             dummy_global_attribute_1: Kukla Özellik 1
             dummy_global_attribute_2: Kukla Özellik 2
+            dummy_global_translatable_text: Sahte Çevrilebilir Metin
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
             resources_permissions_enabled: Kaynak izinleri etkin
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             comments_blocked: Yorumlar engellendi
             dummy_step_attribute_1: Kukla Adım Niteliği 1
