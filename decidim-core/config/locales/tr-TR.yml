@@ -308,7 +308,7 @@ tr:
           reauthorize: Yeniden yetkilendir
           title: Lütfen yeniden yetkilendirin
         missing:
-          authorize: '"%{authorization}" ile yetkilendir'
+          authorize: '"%{authorization}" ile yetkilendirin'
           explanation: Bu eylemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir.
           title: Yetkilendirme gerekli
         pending:
@@ -358,14 +358,14 @@ tr:
         actions:
           bar: Çizgi
           foo: Sahte
-        name: Kukla Bileşen
+        name: Sahte Bileşen
         settings:
           global:
             amendments_enabled: Değişiklikler etkinleştirildi
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu
-            dummy_global_attribute_1: Kukla Özellik 1
-            dummy_global_attribute_2: Kukla Özellik 2
+            dummy_global_attribute_1: Sahet Özellik 1
+            dummy_global_attribute_2: Sahte Özellik 2
             dummy_global_translatable_text: Sahte Çevrilebilir Metin
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
             resources_permissions_enabled: Kaynak izinleri etkin
@@ -377,8 +377,8 @@ tr:
             amendment_reaction_enabled: Değişiklik tepkisi etkinleştirildi
             amendments_visibility: Değişiklik görünürlüğü
             comments_blocked: Yorumlar engellendi
-            dummy_step_attribute_1: Kukla Adım Niteliği 1
-            dummy_step_attribute_2: Kukla Adım Öznitelik 2
+            dummy_step_attribute_1: Sahte Adım Niteliği 1
+            dummy_step_attribute_2: Sahte Adım Niteliği 2
             dummy_step_translatable_text: Sahte Çevrilebilir Metin
     contact: İletişim
     content_blocks:
@@ -1112,7 +1112,7 @@ tr:
           modal_close: Pencereyi kapat
           modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
         required_review:
-          alert: Hizmet Şartlarımızı güncelledik, lütfen bunları inceleyin.
+          alert: Hizmet Şartlarımızı güncellendi, lütfen inceleyin.
           body: Hizmet Şartlarımıza ait güncellemeleri incelemek için lütfen biraz zaman ayırın. Aksi halde platformu kullanamazsınız.
           title: 'Gerekli: Hizmet şartlarımızı güncellemeleri inceleyin'
     participatory_space_private_users:
