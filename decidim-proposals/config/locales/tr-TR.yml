@@ -7,6 +7,7 @@ tr:
         category_id: Kategori
         decidim_scope_id: kapsam
         has_address: Adresi var
+        scope_id: Kapsam
         state: Belirtmek, bildirmek
         title: Başlık
         user_group_id: Ortak çalışma taslağını oluştur
@@ -17,19 +18,27 @@ tr:
         automatic_hashtags: Hashtag'ler otomatik olarak eklendi
         body: Vücut
         category_id: Kategori
+        decidim_scope_id: Kapsam
         has_address: Adresi var
+        scope_id: Kapsam
         state: Belirtmek, bildirmek
         suggested_hashtags: Önerilen hashtag'ler
         title: Başlık
         user_group_id: Teklif oluştur
       proposal_answer:
         answer: Cevap
+        cost: Maliyet
+        cost_report: Maliyet raporu
+        execution_period: Yürütme süresi
       proposals_copy:
         copy_proposals: Bunun, tüm önerileri seçilen bileşenden geçerli olana aktardığını ve bu işlemin geri alınamayacağını anlıyorum.
         origin_component_id: Teklifleri kopyalamak için bileşen
       proposals_import:
         import_proposals: Teklifleri içe aktar
         keep_authors: Orijinal yazarları sakla
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Bilirkişi adı
     errors:
       models:
         participatory_text:
@@ -41,12 +50,14 @@ tr:
             attachment:
               needs_to_be_reattached: Yeniden bağlanması gerekiyor
             body:
+              cant_be_equal_to_template: şablona eşit olamaz
               identical: AND title aynı olamaz
             title:
               identical: VE vücut aynı olamaz
     models:
       decidim/proposals/accepted_proposal_event: Teklif kabul edildi
       decidim/proposals/admin/update_proposal_category_event: Teklif kategorisi değişti
+      decidim/proposals/admin/update_proposal_scope_event: Teklif kapsamı değişti
       decidim/proposals/creation_enabled_event: Teklif oluşturma etkin
       decidim/proposals/endorsing_enabled_event: Teklif onayı etkin
       decidim/proposals/evaluating_proposal_event: Teklif değerlendiriliyor
@@ -69,6 +80,35 @@ tr:
         one: Oy
         other: oy
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Kategori
+          is_emendation_true:
+            label: Türü
+            values:
+              'false': Teklifler
+              'true': Değişiklikler
+          scope_id_eq:
+            label: Kapsam
+          state_eq:
+            label: Durum
+            values:
+              accepted: Kabul Edildi
+              evaluating: Değerlendiriliyor
+              published: Yayınlanan
+              rejected: Reddedildi
+              validating: Teknik doğrulama
+              withdrawn: Geri çekildi
+          state_null:
+            label: Durum
+            values:
+              'true': Cevaplanmadı
+          valuator_role_ids_has:
+            label: Bilirkişiye atandı
+        search_placeholder:
+          id_string_or_title_cont: Başlığa vey ID'ye göre %{collection} ara.
     components:
       proposals:
         actions:
@@ -80,8 +120,10 @@ tr:
         name: Teklif
         settings:
           global:
+            allow_card_image: Kart resmine izin ver
             amendments_enabled: Değişiklikler etkinleştirildi
             amendments_enabled_help: Etkin ise, her adım için Yasa Değişikliği özelliklerini yapılandırın.
+            amendments_wizard_help_text: Değişiklik Sihirbazı yardım metni
             announcement: duyuru
             attachments_allowed: Eklere izin ver
             can_accumulate_supports_beyond_threshold: Destekleri eşiğin ötesinde biriktirebilir
