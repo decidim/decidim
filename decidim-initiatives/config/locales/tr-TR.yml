@@ -503,24 +503,24 @@ tr:
       initiatives_type:
         actions:
           title: Eylemler
-          vote: Oy
+          vote: İmza
   layouts:
     decidim:
       admin:
         initiative:
-          attachments: Ekler
+          attachments: Ekli Dosyalar
           committee_members: Komite üyeleri
           components: Bileşenler
           information: Bilgi
       initiative_creation_header:
         back: Geri
-        fill_data: yaratmak
-        finish: Bitiş
-        previous_form: başla
-        promotal_committee: Promoter komitesi
-        select_initiative_type: Seçmek
-        show_similar_initiatives: Karşılaştırmak
-        step: '%{total}adımdan %{current}'
+        fill_data: Oluştur
+        finish: Bitir
+        previous_form: Başlat
+        promotal_committee: Tanıtım komitesi
+        select_initiative_type: Seç
+        show_similar_initiatives: Karşılaştır
+        step: '%{total} adımdan %{current}. adımda'
         title: Yeni girişim oluştur
       initiative_header:
         initiative_menu_item: girişim
@@ -532,12 +532,12 @@ tr:
         see_steps: adımları gör
         select_identity: Kimlik seç
         sms_code: SMS kodu doğrulama
-        sms_phone_number: cep telefonu numarası
-        step: Aşama %{current} arasında %{total}
+        sms_phone_number: Cep telefonu numarası
+        step: Adım %{current} / %{total}
         title: İşaret %{initiative_title}
       initiatives:
         initiative:
-          check: Buna bir bak
+          check: Bunu kontrol et
           check_and_support: Kontrol et ve imzala
         no_initiatives_yet:
-          no_initiatives_yet: Henüz giriş yok!
+          no_initiatives_yet: Henüz girişim yok!
