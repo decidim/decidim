@@ -370,18 +370,39 @@ tr:
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
             resources_permissions_enabled: Kaynak izinleri etkin
             scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
           step:
+            amendment_creation_enabled: Değişiklik oluşturma etkinleştirildi
+            amendment_promotion_enabled: Değişiklik promosyonu etkinleştirildi
+            amendment_reaction_enabled: Değişiklik tepkisi etkinleştirildi
+            amendments_visibility: Değişiklik görünürlüğü
             comments_blocked: Yorumlar engellendi
             dummy_step_attribute_1: Kukla Adım Niteliği 1
             dummy_step_attribute_2: Kukla Adım Öznitelik 2
+            dummy_step_translatable_text: Sahte Çevrilebilir Metin
     contact: İletişim
     content_blocks:
+      cta:
+        name: Resim, metin ve Harekete Geçirici Mesaj düğmesi
+      cta_settings_form:
+        background_image: Arka plan resmi
+        button_text: Harekete Geçirici Mesaj metni
+        button_url: Harekete Geçirici Mesaj URL'si
+        description: Açıklama
       footer_sub_hero:
         name: Dipnot alt afişi
       hero:
         name: Ana resim
+      hero_settings_form:
+        background_image: Arka plan resmi
+        welcome_text: Hoşgeldin Mesajı
       highlighted_content_banner:
         name: Vurgulanan içerik banner'ı
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Öğeleri sıralama ölçütü:'
+          random: Rastgele
+          recent: En yeni
       how_to_participate:
         name: Nasıl katılacağım
       html:
@@ -416,6 +437,7 @@ tr:
           email_already_exists: Başka bir hesap aynı e-posta adresini kullanıyor
         new:
           complete_profile: Profilini tamamla
+          nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
           sign_up: Lütfen profilinizi tamamlayın
           subtitle: Kayıt işlemini tamamlamak için lütfen aşağıdaki formu doldurunuz.
           username_help: Gönderilerinizde görünen genel ad. Anonimliği garanti etmek amacıyla herhangi bir isim olabilir.
@@ -424,6 +446,7 @@ tr:
           already_have_an_account?: Zaten hesabınız var mı?
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
+          nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
           password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
           sign_in: Oturum aç
           sign_up: kaydol
@@ -445,6 +468,7 @@ tr:
           buttons:
             check: Kontrol et ve devam et
             close_modal: Yakın kalıcı
+            uncheck: İşaretlemeyin
           notice: |-
             <p>Hey, bir haber bülteni almak istemediğine emin misin?<br>
             Lütfen aşağıdaki haber bülteni onay kutusunu tekrar işaretleyin.<br>
@@ -476,6 +500,14 @@ tr:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> hesabınızı kullanmak istiyor"
     endorsable:
       endorsements: Cirolar
+      endorsements_count: Onay sayısı
+    endorsement_buttons_cell:
+      already_endorsed: Onaylanan
+      endorse: Onaylama
+    endorsements:
+      identities:
+        done: Bitti
+        select_identity: Kimlik seçin
     errors:
       internal_server_error:
         title: Sunucumuzla ilgili bir sorun oluştu
@@ -595,6 +627,8 @@ tr:
           email_subject: '%{user_group_name} gruptan kaldırıldınız!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> grubundan kaldırıldınız.
         user_group_created:
+          email_intro: '%{user_group_name} adıyla yeni bir kullanıcı grubu oluşturuldu. Artık bunu <a href="%{groups_admin_url}"> yönetici panelinde </a> doğrulayabilirsiniz.'
+          email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
           email_subject: Yeni bir kullanıcı grubu oluşturuldu
           notification_title: '%{user_group_name} kullanıcı grubu oluşturuldu. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
         user_group_updated:
@@ -1216,6 +1250,10 @@ tr:
       reply:
         placeholder: Cevabınız...
         send: Gönder
+        title_reply: Cevapla
+      show:
+        not_allowed: Bu kullanıcı artık doğrudan mesaj kabul etmiyor.
+        title: '%{usernames} ile görüşme'
       update:
         error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
     user_interests:
@@ -1227,9 +1265,30 @@ tr:
       update:
         error: İlgi alanlarınız güncellenirken bir hata oluştu.
         success: İlgi alanlarınız başarıyla güncellendi.
+    user_report_mailer:
+      notify:
+        body_1: Kullanıcı %{user}, %{token} tarafından rapor edildi
+        body_2: 'Gerekçe: %{reason}'
+        greetings: Selamlar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Merhaba %{admin},
+        subject: '%{organization_name} içinde yeni bir kullanıcı bildirildi'
+    version:
+      show:
+        back_to_resource: Geri git
+        changes_at_title: '"%{title}" üzerindeki değişiklikler'
+        number_of_versions: Sürümler
+        show_all_versions: Tüm sürümleri göster
+        version_author: Sürüm yazarı
+        version_created_at: Sürüm oluşturuldu
+        version_number: Sürüm numarası
+        version_number_out_of_total: "%{total_count} üzerinden %{current_version}"
     version_author:
       show:
         deleted: Silinmiş kullanıcı
+    versions:
+      resource_version:
+        of_versions: "(%{number})"
+        see_other_versions: diğer sürümlere bak
     welcome_notification:
       default_body: <p>Merhaba {{name}}, {{organization}} katıldığınız için teşekkürler ve hoş geldiniz!</p><ul><li>Burada neler yapabileceğiniz hakkında hızlı bir fikir edinmek istiyorsanız, <a href="{{help_url}}">Yardım</a> bölümüne bakın.</li><li>Okuduktan sonra ilk rozetinizi alacaksınız. İşte bu <a href="{{badges_url}}">tüm rozetlerle listesi</a> size katılmak olarak alabilirsiniz {{organization}}</li><li>onlarla Son ama en az, diğer insanları birleştirmek, paylaşmak yapan ve katılan olma deneyimi {{organization}}. Öneriler, yorumlar, tartışmalar yapın, ortak iyiliğe nasıl katkıda bulunacağınızı düşünün, ikna edeceğiniz argümanlar sunun, ikna olun, ikna olun, fikirlerinizi somut ve doğrudan bir şekilde ifade edin, sabır ve kararla karşılık verin, fikirlerinizi savunun ve saklayın. İşbirliği yapmak ve diğer insanların fikirlerine katılmak için açık bir zihin.</li></ul>
       default_subject: '{{organization}}katıldığınız için teşekkürler!'
