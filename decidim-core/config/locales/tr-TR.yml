@@ -16,7 +16,7 @@ tr:
       report:
         details: Ek Yorumlar
       user:
-        about: hakkında
+        about: Hakkında
         email: E-posta adresiniz
         name: Adınız
         nickname: Rumuz
@@ -279,7 +279,7 @@ tr:
           scope_id: Kapsam
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
-        name: Kukla yetkilendirme iş akışı
+        name: Sahte yetkilendirme iş akışı
       errors:
         duplicate_authorization: Bir katılımcı zaten aynı verilerle yetkilendirildi. Bir yönetici, bilgilerinizi doğrulamak için sizinle iletişime geçecektir.
       expired_at: '%{timestamp} bitti'
@@ -536,14 +536,14 @@ tr:
             email_subject: '%{amendable_title}için yeni değişiklik'
             notification_title: <a href="%{amendable_path}">%{amendable_title}</a>için yeni bir değişiklik yapıldı.
           follower:
-            email_intro: '%{amendable_title}için yeni bir emendation oluşturuldu. Bu sayfadan görebilirsiniz:'
+            email_intro: '%{amendable_title} için yeni bir emendation oluşturuldu. Bu sayfadan görebilirsiniz:'
             email_outro: Bu bildirimi, %{amendable_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
             email_subject: '%{amendable_title}için yeni değişiklik'
             notification_title: <a href="%{amendable_path}">%{amendable_title}</a>için yeni bir değişiklik yapıldı.
         amendment_promoted:
           affected_user:
-            email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type}yükseltilmiştir. Bu sayfadan görebilirsiniz:'
-            email_outro: Bu bildirimi aldınız, çünkü %{amendable_title}yazarı sizsiniz.
+            email_intro: '%{amendable_title} için reddedilen bir tahliye, bağımsız %{amendable_type} yükseltilmiştir. Bu sayfadan görebilirsiniz:'
+            email_outro: Bu bildirimi aldınız, çünkü %{amendable_title} yazarı sizsiniz.
             email_subject: '%{emendation_author_nickname} bir değişiklik yeni olarak yayınlandı %{amendable_type}'
             notification_title: Bir <a href="%{emendation_path}">değişikliğini reddetmiştir</a> için <a href="%{amendable_path}">%{amendable_title}</a> , yeni olarak yayınlanmış %{amendable_type} ile <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
@@ -1289,9 +1289,25 @@ tr:
       resource_version:
         of_versions: "(%{number})"
         see_other_versions: diğer sürümlere bak
+        version: Sürüm numarası %{number}
+    versions_list:
+      show:
+        back_to_resource: Geri git
+        changes_at_title: '"%{title}" üzerindeki değişiklikler'
+        number_of_versions: Sürümler
+        title: Sürümler
+    versions_list_item:
+      show:
+        version_index: Sürüm %{index}
     welcome_notification:
       default_body: <p>Merhaba {{name}}, {{organization}} katıldığınız için teşekkürler ve hoş geldiniz!</p><ul><li>Burada neler yapabileceğiniz hakkında hızlı bir fikir edinmek istiyorsanız, <a href="{{help_url}}">Yardım</a> bölümüne bakın.</li><li>Okuduktan sonra ilk rozetinizi alacaksınız. İşte bu <a href="{{badges_url}}">tüm rozetlerle listesi</a> size katılmak olarak alabilirsiniz {{organization}}</li><li>onlarla Son ama en az, diğer insanları birleştirmek, paylaşmak yapan ve katılan olma deneyimi {{organization}}. Öneriler, yorumlar, tartışmalar yapın, ortak iyiliğe nasıl katkıda bulunacağınızı düşünün, ikna edeceğiniz argümanlar sunun, ikna olun, ikna olun, fikirlerinizi somut ve doğrudan bir şekilde ifade edin, sabır ve kararla karşılık verin, fikirlerinizi savunun ve saklayın. İşbirliği yapmak ve diğer insanların fikirlerine katılmak için açık bir zihin.</li></ul>
       default_subject: '{{organization}}katıldığınız için teşekkürler!'
+    wizard_step_form:
+      wizard_aside:
+        back: Geri
+      wizard_header:
+        see_steps: adımları gör
+        step_of: Adım %{current_step} / %{total_steps}
   devise:
     confirmations:
       confirmed: E-posta adresiniz başarıyla onaylandı.
@@ -1445,15 +1461,26 @@ tr:
       cycle_detected: bir kapsamın ebeveyni torunlarından biri olamaz
       expired: süresi doldu, lütfen yeni bir tane isteyin
       file_size_is_less_than_or_equal_to: dosya boyutu %{count}eşit veya daha küçük olmalıdır
+      invalid_time_zone: geçerli bir zaman değil
       long_words: çok uzun kelimeler içeriyor (35 karakterden fazla)
       must_start_with_caps: büyük harfle başlamalıdır
       nesting_too_deep: bir alt kategorinin içinde olamaz
+      not_found: bulunamadı. Daha önce üye oldunuz mu?
       not_locked: kilitli değildi
+      not_saved:
+        one: 'İsteğiniz işlenirken bir hata oluştu:'
+        other: 'İsteğinizi işlerken birden çok hata oluştu:'
       too_many_marks: çok fazla ardışık noktalama işareti kullanıyor (örneğin! ve?)
       too_much_caps: çok fazla büyük harf kullanıyor (metnin% 25'inden fazlası)
       too_short: çok kısa (15 karakterin altında)
   forms:
+    correct_errors: Aşağıdaki formda hatalar oluştu, Devam etmek için lütfen bunları düzeltin.
+    length_validator:
+      minimum:
+        one: en az %{count} karakter
+        other: en az %{count} karakter
     required: gereklidir
+    required_explanation: "* Gerekli alanlar yıldız işareti ile işaretlenmiştir"
   invisible_captcha:
     sentence_for_humans: Eğer insansan, bu alanı görmezden gel
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
@@ -1466,6 +1493,8 @@ tr:
       edit_link:
         edit: Düzenle
       footer:
+        cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
+        decidim_logo: Decidim Logo
         download_open_data: Açık Veri dosyalarını indir
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
       header:
@@ -1477,9 +1506,19 @@ tr:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
         expire_time_html: Seansınız <b><span class="minutes">%{minutes}</span> dakika</b>bitecek.
+      language_chooser:
+        choose_language: Dil seçin
       notifications_dashboard:
         mark_all_as_read: Tümünü okundu olarak işaretle
+        mark_as_read: Okundu olarak işaretle
+      social_media_links:
+        facebook: "Facebook'ta %{organization}"
+        github: "GitHub'da %{organization}"
+        instagram: "Instagram'da %{organization}"
+        twitter: "Twitter'da %{organization}"
+        youtube: "YouTube'da %{organization}"
       user_menu:
+        account: 'Kullanıcı hesabı: %{name}'
         admin_dashboard: Yönetici kontrol paneli
         conversations: Konuşmalar
         notifications: Bildirimler
@@ -1499,6 +1538,7 @@ tr:
         see_more: Daha fazla gör
   locale:
     name: ingilizce
+    name_with_error: İngilizce (hata!)
   password_validator:
     domain_included_in_password: bu alan adına çok benzer
     email_included_in_password: e-postanıza çok benzer
@@ -1522,12 +1562,15 @@ tr:
     qq: Qzone
     reddit: Reddit
     share_to: '%{name}Paylaş'
+    telegram: Telegram
     tumblr: Tumblr
     twitter: heyecan
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: WeChat'inizi açın, "Keşfet" butonuna tıklayın ve "QR Kodunu Tara" menüsüne tıklayın.
     weibo: Sina Weibo
+    whatsapp_app: Whatsapp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1537,10 +1580,13 @@ tr:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
