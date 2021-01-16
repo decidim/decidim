@@ -165,11 +165,11 @@ tr:
             - Intiatives'in katılım alanına git
             - Yeni bir girişim oluşturmak için adımları izleyin
           description: Bu rozet, yeni girişimler başlattığınızda, bunları gerçekleştirmek için başkalarıyla ortaklık kurduğunuzda verilir.
-          description_another: Bu kullanıcı %{score} yayınlandı.
-          description_own: Yayınlanmış %{score} girişiniz var.
+          description_another: Bu katılımcı, yayınlanan %{score} girişimi aldı.
+          description_own: Yayınlanmış %{score} girişiminiz var.
           name: Yayınlanmış girişimler
           next_level_in: Bir sonraki seviyeye ulaşmak için yayınlanan %{score} daha alın!
-          unearned_another: Bu kullanıcı henüz yayınlanmış hiçbir girişimde bulunmadı.
+          unearned_another: Bu katılımcı henüz yayınlanmış herhangi bir girişimde bulunmadı.
           unearned_own: Henüz yayınlanan hiçbir girişimin yok.
     help:
       participatory_spaces:
@@ -184,20 +184,20 @@ tr:
         answers:
           edit:
             answer: Cevap
-            title: '%{title}cevabı'
+            title: '%{title} için cevap'
           info_initiative:
-            created_at: Adresinde düzenlendi
+            created_at: Oluşturuldu
             description: Açıklama
             initiative_votes_count: Oy sayısı
             initiatives: Girişimler
             state: Belirtmek, bildirmek
         committee_requests:
           index:
-            approve: onaylamak
-            confirm_revoke: Emin misiniz?
-            invite_to_committee_help: Diğer kullanıcıları promosyon komitesine davet etmek için bu bağlantıyı paylaşın
-            no_members_yet: Promoter komitesinde üye yok
-            revoke: geri almak
+            approve: Onayla
+            confirm_revoke: Emin misin?
+            invite_to_committee_help: Diğer katılımcıları tanıtım komitesine davet etmek için bu bağlantıyı paylaşın
+            no_members_yet: Tanıtım komitesinde üye yok
+            revoke: Geri al
             title: Komite üyeleri
         content_blocks:
           highlighted_initiatives:
@@ -207,15 +207,15 @@ tr:
         initiatives:
           edit:
             accept: Girişimi kabul et
-            confirm: Emin misiniz?
+            confirm: Emin misin?
             confirm_send_to_technical_validation: Emin misin?
             discard: Girişimi atın
-            export_pdf_signatures: İmza PDF'sini dışa aktar
-            export_votes: İhracat destekleri
+            export_pdf_signatures: İmzaların PDF'sini dışa aktar
+            export_votes: İmzaları dışa aktar
             reject: Girişimi reddet
             send_to_technical_validation: Teknik doğrulamaya gönder
             success: Girişim teknik doğrulamaya gönderildi
-            update: Güncelleştirme
+            update: Güncelle
           form:
             attachments: Ekli Dosyalar
             settings: Ayarlar
@@ -236,33 +236,33 @@ tr:
             success: Vatandaş girişimi başarıyla güncellendi
         initiatives_type_scopes:
           create:
-            error: bir hata oluştu
+            error: Bir hata oluştu
             success: Verilen inisiyatif türü için yeni bir kapsam oluşturuldu
           destroy:
             success: Kapsam başarıyla kaldırıldı
           edit:
             back: Geri
-            confirm_destroy: Emin misiniz?
-            destroy: silmek
+            confirm_destroy: Emin misin?
+            destroy: Sil
             title: Girişim türü kapsamını düzenle
-            update: Güncelleştirme
+            update: Güncelle
           new:
             back: Geri
-            create: yaratmak
+            create: Oluştur
             title: Girişim tipi kapsamı oluştur
           update:
-            error: bir hata oluştu
+            error: Bir hata oluştu
             success: Kapsam başarıyla güncellendi
         initiatives_types:
           create:
-            error: bir hata oluştu
+            error: Bir hata oluştu
             success: Yeni bir girişim türü başarıyla oluşturuldu
           destroy:
             success: Girişim türü başarıyla kaldırıldı
           edit:
-            confirm_destroy: Emin misiniz?
-            destroy: silmek
-            update: Güncelleştirme
+            confirm_destroy: Emin misin?
+            destroy: Sil
+            update: Güncelle
           form:
             authorizations: Yetkilendirme ayarları
             child_scope_threshold_enabled_help: 'Bu yapılandırma bayrağı çevrimdışı oyları desteklemez, alt ölçekleri etkinleştirir ve kullanıcıyla bir kapsamı ilişkilendiren bir yetkilendirme işleyicisi ile çalışır, aşağıdaki yetkilendirme ayarlarında bu yetkiyi seçtiğinizden emin olun. Çalışması için kapsamların hiyerarşik şekilde yapılandırılması gerekir: 1 Ana - N tane Alt. Bu yapılandırmanın nasıl çalıştığı hakkında daha fazla bilgi için bu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> bağlantıya </a> bakın.'
@@ -272,15 +272,15 @@ tr:
           initiative_type_scopes:
             title: Girişim türü için kapsamlar
           new:
-            create: yaratmak
+            create: Oluştur
             title: Yeni girişim türü
           update:
-            error: bir hata oluştu
+            error: Bir hata oluştu
             success: Girişim türü başarıyla güncellendi
       admin_log:
         initiative:
-          publish: "%{user_name} %{resource_name} girişim yayınladı"
-          send_to_technical_validation: "%{user_name} teknik inisiyatife %{resource_name} girişimi gönderdi"
+          publish: "%{user_name}, %{resource_name} girişimini yayınladı"
+          send_to_technical_validation: "%{user_name},%{resource_name} girişimini teknik doğrulamaya gönderdi"
           unpublish: "%{user_name} %{resource_name} girişim reddetti"
           update: "%{user_name} , %{resource_name} girişimi güncelledi"
       admin_states:
