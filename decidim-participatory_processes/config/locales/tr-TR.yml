@@ -24,10 +24,12 @@ tr:
         published_at: Yayınlandı
         related_process_ids: İlgili süreçler
         scope_id: kapsam
+        scope_type_max_depth_id: Kapsam filtre derinliği
         scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
+        show_metrics: Bütün istatistikleri göster
         show_statistics: İstatistikleri göster
-        slug: URL sümüklü böcek
+        slug: URL özel bilgisi
         start_date: Başlangıç tarihi
         subtitle: Alt yazı
         target: Kimler katılır
@@ -49,6 +51,12 @@ tr:
         email: E-posta
         name: isim
         role: rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Geçersiz belge türü. Kabul edilen biçimler şunlardır: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Adım aktif
       decidim/participatory_process_step_changed_event: Adım değişti
@@ -75,6 +83,7 @@ tr:
         filter:
           all_processes: Tüm işlemleri göster
           process_groups: İşlem Grupları
+        import_process: İçe aktar
         new_process: Yeni süreç
         new_process_group: Yeni işlem grubu
         new_process_step: Yeni adım
@@ -126,6 +135,7 @@ tr:
             admin: yönetici
             collaborator: işbirlikçi
             moderator: arabulucu
+            valuator: Bilirkişi
         user:
           fields:
             invitation_accepted_at: Davet kabul edildi
@@ -137,6 +147,7 @@ tr:
           title: Yinelenen katılımcı süreç
       participatory_process_groups:
         destroy:
+          error: Katılımcı süreç grubu yok edilirken bir hata oluştu.
           success: Katılımcı süreç grubu başarıyla silindi.
         edit:
           title: İşlem grubunu düzenle
@@ -147,6 +158,14 @@ tr:
         update:
           error: Bu katılımcı süreç grubunu güncellemede hata oluştu.
           success: Katılımcı süreç grubu başarıyla güncellendi.
+      participatory_process_imports:
+        create:
+          error: Bu katılımcı süreci içe aktarırken bir sorun oluştu.
+          success: Katılımcı süreç başarıyla içe aktarıldı.
+        new:
+          import: İçe aktar
+          select: Hangi verileri içe aktarmak istediğinizi seçin
+          title: Katılımcı süreci içe aktarın
       participatory_process_publications:
         create:
           error: Bu katılımcı süreci yayınlayan bir hata oluştu.
@@ -188,11 +207,13 @@ tr:
         destroy:
           success: Kullanıcı bu katılımcı işlemden başarıyla kaldırıldı.
         edit:
+          title: Katılımcı süreç yöneticisini güncelleyin
           update: Güncelleştirme
         index:
           process_admins_title: Katılımcı süreç kullanıcıları
         new:
           create: yaratmak
+          title: Yeni katılımcı süreç yöneticisi
         update:
           error: Bu katılımcı işlem için bir kullanıcı güncellendi bir hata oluştu.
           success: Kullanıcı bu katılımcı süreç için başarıyla güncellendi.
@@ -234,6 +255,9 @@ tr:
         publish: "%{user_name} %{resource_name} katılımcı süreci yayınladı"
         unpublish: "%{user_name} %{resource_name} katılımcı süreci yayından kaldırıldı"
         update: "%{user_name} katılımcı %{resource_name} süreci güncelledi"
+      participatory_process_group:
+        create: "%{user_name}, %{resource_name} katılımcı süreç grubunu oluşturdu"
+        update: "%{user_name}, %{resource_name} katılımcı süreç grubunu güncelledi"
       participatory_process_step:
         activate: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı aktifleştirdi"
         create: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı oluşturdu"
@@ -245,6 +269,11 @@ tr:
         update: "%{user_name} , %{space_name} katılımcı sürecindeki kullanıcı %{resource_name} rolünü değiştirdi"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Katılımcı "%{resource_title}" süreci için %{role} olarak atandınız.
+          email_outro: Bu bildirimi, "%{resource_title}" katılım sürecinden %{role} olduğunuz için aldınız.
+          email_subject: '"%{resource_title}" için %{role} olarak atandınız.'
+          notification_title: Katılımcı süreç <a href="%{resource_url}">%{resource_title} </a> için %{role} olarak atandınız.
         step_activated:
           email_intro: '%{resource_title} adım şimdi %{participatory_space_title}için aktif. Bu sayfadan görebilirsiniz:'
           email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
@@ -268,6 +297,9 @@ tr:
         description: Bu kuruluştaki katılımcı süreçlerin sayısı
         object: katılımcı süreçler
         title: Katılımcı süreçler
+    participatory_process:
+      show:
+        related_assemblies: İlgili kurullar
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -283,6 +315,9 @@ tr:
         content_blocks:
           highlighted_processes:
             max_results: Gösterilecek maksimum öğe miktarı
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
