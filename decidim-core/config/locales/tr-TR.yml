@@ -769,67 +769,67 @@ tr:
       accept_or_reject_group_invitations: 'Aşağıdaki gruplar, onlara katılmaları için sizi davet etti. İsteklerini kabul etme veya reddetme:'
       index:
         invite: Davet et
-        invite_user: Bir kullanıcıyı davet et
+        invite_user: Bir katılımcı davet et
       invite:
-        error: Bu kullanıcıyı davet eden bir hata oluştu
-        success: Kullanıcı başarıyla davet edildi
+        error: Bu katılımcıyı davet ederken bir sorun oluştu
+        success: Katılımcı başarıyla davet edildi
       reject:
         error: Bu davet reddedilirken bir hata oluştu
         success: Davet başarıyla reddedildi
-      reject_invitation: reddetmek
+      reject_invitation: Reddet
     group_members:
       accept:
         error: Bu katılma isteğini kabul eden bir hata oluştu
         success: Katılım isteği başarıyla kabul edildi
       actions:
         are_you_sure: Emin misiniz?
-        promote_to_admin: Admin yap
-        remove_from_group: Kullanıcıyı kaldır
+        promote_to_admin: Yönetici yap
+        remove_from_group: Katılımcıyı kaldır
       index:
         current_members_without_admins: 'Mevcut üyeler (yöneticiler olmadan):'
         manage_members: Üyeleri yönet
       promote:
-        error: Bu kullanıcıyı tanıtan bir hata oluştu
-        success: Kullanıcı başarıyla tanıtıldı
+        error: Bu katılımcıyı tanıtırken bir sorun oluştu
+        success: Katılımcı başarıyla tanıtıldı
       reject:
         error: Bu katılma isteğini reddeden bir hata oluştu
-        success: Katılım isteği başarıyla reddedildi
+        success: Katılma isteği başarıyla reddedildi
       remove:
-        error: Bu kullanıcıyı gruptan kaldırırken bir hata oluştu
-        success: Kullanıcı gruptan başarıyla kaldırıldı
+        error: Bu katılımcıyı gruptan çıkarırken bir sorun oluştu
+        success: Katılımcı gruptan başarıyla kaldırıldı
     groups:
       actions:
         are_you_sure: Emin misiniz?
       create:
-        error: Grup oluştururken bir sorun oluştu
+        error: Grup oluşturulurken bir sorun oluştu
         success: Grup başarıyla oluşturuldu
       edit:
         edit_user_group: Grubu düzenle
-        update_user_group: Güncelleme grubu
+        update_user_group: Grubu güncelle
       form:
         document_number_help: Tire veya boşluk kullanmayın
-        email_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. E-posta adresi.
+        email_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. e-posta adresi.
         fill_in_for_verification: 'Grubunuzun doğrulanmasını istiyorsanız, bu alanları doldurun:'
-        name_help: Organizasyonunuzun adı, dernek, kolektif, grup vb.
-        nickname_help: Kuruluşunuzun, derneğin, kolektif, grubunuzun vb. Kullanıcı adı. Boşluk veya aksan kullanmayın.
+        name_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. e-posta adresi.
+        nickname_help: Kuruluşunuzun, derneğinizin, kolektifiniziz, grubunuzun vb. isimlerinde boşluk veya aksan kullanmayın.
         phone_help: Tire veya boşluk kullanmayın
       join:
-        error: Grup katılmadan bir sorun oluştu.
-        success: Katılım isteği başarıyla oluşturuldu. Bir yönetici, sizi gruba kabul etmeden önce isteğinizi inceleyecektir.
+        error: Gruba katılırken bir sorun oluştu
+        success: Katılım isteği başarıyla oluşturuldu. Bir yönetici sizi gruba kabul etmeden önce isteğinizi inceleyecektir.
       leave:
-        error: Gruptan ayrılmayla ilgili bir sorun oluştu.
-        success: Grup başarıyla ayrıldı.
+        error: Gruptan ayrılırken bir sorun oluştu
+        success: Grup başarıyla terk edildi.
       members:
-        accept_or_reject_join_requests: 'Aşağıdaki kullanıcılar bu gruba katılmak için başvuruda bulundu. İsteklerini kabul etme veya reddetme:'
-        accept_request: Kabul etmek
-        reject_request: reddetmek
+        accept_or_reject_join_requests: 'Aşağıdaki kullanıcılar bu gruba katılmak için başvurdu. İsteklerini kabul edin veya reddedin:'
+        accept_request: Kabul Et
+        reject_request: Reddet
       new:
         create_user_group: Grup oluştur
-        new_user_group: Yeni Grup
-        subtitle: Bir grup oluşturun ve diğer kullanıcıları toplu bir seviyeye katılmak için katılmaya davet edin.
+        new_user_group: Yeni grup
+        subtitle: Bir grup oluşturun ve diğer kullanıcıları ortak bir düzeye katılmaya davet edin.
       no_user_groups: Henüz herhangi bir gruba ait değil.
       roles:
-        admin: yönetici
+        admin: Yönetici
         creator: yaratıcı
         member: üye
       update:
