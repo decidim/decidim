@@ -2,13 +2,13 @@ tr:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Adresinde düzenlendi
+        created_at: Oluşturuldu
         decidim_scope_id: Kapsam
         field: Benim alanım
         start_date: Başlangıç tarihi
         title: Başlık
         translatable_text: Çeviri metni
-        updated_at: Adresinde güncellendi
+        updated_at: Güncellendi
   decidim:
     components:
       dummy:
@@ -19,6 +19,11 @@ tr:
             test_choices:
               a: Seçenek
               b: Seçim
+              c: Seçenek
+          step:
+            endorsements_blocked: Onaylar engellendi
+            endorsements_enabled: Onaylar etkinleştirildi
+            readonly_step_attribute: Salt okunur özniteliği
     dummy:
       admin:
         exports:
@@ -38,14 +43,14 @@ tr:
     pages:
       home:
         statistics:
-          bar: Bar
-          dummies_count_high: Aptallar yüksek
-          dummies_count_medium: Aptallar orta
-          foo: foo
+          bar: Çubuk
+          dummies_count_high: Çok sahte
+          dummies_count_medium: Orta sahte
+          foo: Sahte değişken
     participatory_processes:
       statistics:
-        dummies_count_high: Aptallar yüksek
-        dummies_count_medium: Aptallar orta
+        dummies_count_high: Çok sahte
+        dummies_count_medium: Orta sahte
     resource_links:
       test_link:
-        dummy_resource_dummy: İlgili kukla
+        dummy_resource_dummy: İlgili sahte konu
