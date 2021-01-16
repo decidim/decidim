@@ -29,7 +29,7 @@ tr:
         short_description: Kısa Açıklama
         show_metrics: Bütün istatistikleri göster
         show_statistics: İstatistikleri göster
-        slug: URL sümüklü böcek
+        slug: URL özel bilgisi
         start_date: Başlangıç tarihi
         subtitle: Alt yazı
         target: Kimler katılır
@@ -287,6 +287,11 @@ tr:
         update: "%{user_name} , %{space_name} katılımcı sürecindeki kullanıcı %{resource_name} rolünü değiştirdi"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Katılımcı "%{resource_title}" süreci için %{role} olarak atandınız.
+          email_outro: Bu bildirimi, "%{resource_title}" katılım sürecinden %{role} olduğunuz için aldınız.
+          email_subject: '"%{resource_title}" için %{role} olarak atandınız.'
+          notification_title: Katılımcı süreç <a href="%{resource_url}">%{resource_title} </a> için %{role} olarak atandınız.
         step_activated:
           email_intro: '%{resource_title} adım şimdi %{participatory_space_title}için aktif. Bu sayfadan görebilirsiniz:'
           email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
@@ -310,7 +315,33 @@ tr:
         description: Bu kuruluştaki katılımcı süreçlerin sayısı
         object: katılımcı süreçler
         title: Katılımcı süreçler
+    participatory_process:
+      show:
+        related_assemblies: İlgili kurullar
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: İlk HTML bloğu
+        html_2:
+          name: İkinci HTML bloğu
+        html_3:
+          name: Üçüncü HTML bloğu
+        metadata:
+          developer_group: Tarafından teşvik
+          name: Meta veri
+          participatory_scope: Karar nedir
+          participatory_structure: Nasıl karar verilir
+          target: Katılanlar
+        participatory_processes:
+          name: Katılımcı süreçleri
+        stats:
+          name: İstatistikler
+        title:
+          meta_scope: Kapsam
+          name: Başlık, açıklama ve etiket
+          participatory_processes:
+            one: 1 süreç
+            other: "%{count} süreç"
       show:
         title: Katılımcı süreç grupları
     participatory_process_steps:
@@ -322,9 +353,15 @@ tr:
         content_blocks:
           highlighted_processes:
             max_results: Gösterilecek maksimum öğe miktarı
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Meta veri
         participatory_process_steps:
           form:
             cta_path_help: 'Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Ayarlanmazsa, düğme gösterilmeyecektir. Örnek: %{url}'
