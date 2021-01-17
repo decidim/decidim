@@ -37,13 +37,13 @@ tr:
         survey_closed:
           email_intro: '%{participatory_space_title} içindeki %{resource_title} anketi kapatıldı.'
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
-          email_subject: Bir anket %{participatory_space_title}bitti
-          notification_title: Anket <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> bitti.
+          email_subject: '%{participatory_space_title} içinde bir anket bitti'
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title} </a> içindeki anket <a href="%{resource_path}">%{resource_title} </a> bitti.
         survey_opened:
-          email_intro: 'Anket %{resource_title} %{participatory_space_title} açık. Bu sayfadan katılabilirsiniz:'
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: '%{participatory_space_title}yeni bir anket'
-          notification_title: Anket <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> açıktır.
+          email_intro: '%{participatory_space_title} içindeki %{resource_title} anketi şimdi açık. Bu sayfadan katılabilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} içinde yeni bir anket'
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title} </a> içindeki anket <a href="%{resource_path}">%{resource_title} </a> şimdi açık.
     metrics:
       survey_answers:
         description: Katılımcılar tarafından cevaplanan anket sayısı
@@ -58,7 +58,7 @@ tr:
             invalid: Anketi kaydederken bir sorun oluştu.
             success: Anket başarıyla kaydedildi.
       last_activity:
-        new_survey_at_html: "<span> %{link}</span>yeni anket"
+        new_survey_at_html: "<span> %{link}</span> linkinde yeni anket"
       surveys:
         answer:
           invalid: Anketi cevaplarken bir sorun oluştu.
