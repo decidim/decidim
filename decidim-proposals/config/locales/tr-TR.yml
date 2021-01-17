@@ -273,50 +273,50 @@ tr:
             email_subject: Takip ettiğiniz bir teklif reddedildi
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi reddedildi.
         proposal_update_category:
-          email_intro: 'Bir yönetici, "%{resource_title}" teklifinizin kategorisini güncelledi, kontrol et:'
-          email_outro: Bu bildirimi aldınız çünkü teklifin yazarı sizsiniz.
+          email_intro: 'Bir yönetici "%{resource_title}" teklifinizin kategorisini güncelledi, bu sayfada kontrol edin:'
+          email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
           email_subject: '%{resource_title} teklif kategorisi güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kategorisi bir yönetici tarafından güncellendi.
         proposal_update_scope:
           email_intro: 'Bir yönetici, "%{resource_title}" teklifinizin kapsamını güncelledi, bu sayfada göz atın:'
-          email_outro: Bu bildirimi aldınız çünkü teklifin yazarı sizsiniz.
+          email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
           email_subject: '%{resource_title} teklif kapsamı güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> teklif kapsamı bir yönetici tarafından güncellendi.
         voting_enabled:
-          email_intro: 'Teklifleri %{participatory_space_title}oylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title}için teklifler başladı'
-          notification_title: Artık başlayabilirsiniz <a href="%{resource_path}">oylama teklifleri aynı</a> içinde <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Teklifleri %{participatory_space_title} içinde destekleyebilirsiniz! Bu sayfaya katılmaya başlayın:'
+          email_outro: Bu bildirimi, %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} için teklif desteği başladı'
+          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title}</a> içinde <a href="%{resource_path}"> destekleyici teklifleri </a> başlatabilirsiniz
     gamification:
       badges:
         accepted_proposals:
           conditions:
-            - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
+            - Tekliflerin sunulması etkinleştirilmiş ilgilendiğiniz katılım alanını seçin
             - Gerçekleştirilebilecek teklifler vermeye çalışın. Bu şekilde kabul edilmeleri daha olasıdır.
           description: Bu rozet, yeni tekliflere aktif olarak katıldığınızda verilir ve bunlar kabul edilir.
-          description_another: Bu kullanıcı %{score} teklif kabul etti.
-          description_own: '%{score} teklif kabul edildi.'
+          description_another: Bu katılımcı kabul edilen %{score} teklif aldı.
+          description_own: '%{score} teklif kabul ettiniz.'
           name: Kabul edilen teklifler
           next_level_in: Bir sonraki seviyeye ulaşmak için kabul edilen %{score} teklif daha alın!
-          unearned_another: Bu kullanıcı henüz kabul edilen teklifleri almadı.
+          unearned_another: Bu katılımcının henüz herhangi bir teklifi kabul etmedi.
           unearned_own: Henüz kabul edilen teklifin yok.
         proposal_votes:
           conditions:
             - Göz atın ve diğer insanların önerilerini okumak için biraz zaman harcayın
             - Beğendiğiniz ya da ilginç bulduğunuz tekliflere destek verin
           description: Bu rozet, başkalarının önerilerini desteklediğinizde verilir.
-          description_another: Bu kullanıcı %{score} teklife destek verdi.
+          description_another: Bu katılımcı %{score} teklife destek verdi.
           description_own: '%{score} teklife destek verdiniz.'
           name: Teklif destekleri
-          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} teklife destek verin!
+          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} adetten fazla teklife destek verin!
           unearned_another: Bu kullanıcı henüz herhangi bir teklife destek vermedi.
           unearned_own: Henüz hiçbir teklife destek vermediniz.
         proposals:
           conditions:
             - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
             - Yeni bir teklif oluştur
-          description: Bu rozete, yeni tekliflere aktif olarak katıldığınızda izin verilir.
-          description_another: Bu kullanıcı %{score} teklif oluşturdu.
+          description: Bu rozet, yeni tekliflere aktif olarak katıldığınızda verilir.
+          description_another: Bu katılımcı %{score} teklif hazırladı.
           description_own: '%{score} teklif oluşturdunuz.'
           name: Teklif
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} teklif daha oluşturun!
@@ -324,7 +324,7 @@ tr:
           unearned_own: Henüz hiç teklif oluşturmadınız.
     metrics:
       accepted_proposals:
-        description: Kullanıcılar tarafından kabul edilen teklif sayısı
+        description: Kabul edilen teklif sayısı
         object: önerileri
         title: Kabul Edilen Teklifler
       endorsements:
