@@ -350,6 +350,7 @@ tr:
         import: Başka bir bileşenden içe aktar
         new: Yeni teklif
         participatory_texts: Katılımcı metinler
+        show: Teklifi göster
         title: Eylemler
       admin:
         actions:
@@ -369,6 +370,7 @@ tr:
             success: Tüm Katılımcı metin taslakları atıldı.
           import:
             invalid: Form geçersiz!
+            invalid_file: Dosya bazı hatalar içeriyor, lütfen dosyanın içeriğini düzenlemeyi ve yeniden yüklemeyi deneyin.
             success: Tebrikler, aşağıdaki bölümler içe aktarılan belgeden ayrıştırılmış, tekliflere dönüştürülmüştür. Artık yayınlamadan önce ihtiyacınız olan şeyleri inceleyip ayarlayabilirsin.
           index:
             info_1: Aşağıdaki bölümler içe aktarılan belgeden ayrıştırılmış, tekliflere dönüştürülmüştür. Artık yayınlamadan önce ihtiyacınız olan şeyleri inceleyip ayarlayabilirsin.
@@ -425,27 +427,52 @@ tr:
             select_a_meeting: Bir toplantı seçin
           index:
             actions: Eylemler
+            assign_to_valuator: Bilirkişiye ata
+            assign_to_valuator_button: Ata
             cancel: İptal etmek
             change_category: Kategoriyi değiştir
+            change_scope: Kapsamı değiştir
             merge: Yeni biriyle birleştir
             merge_button: birleşmek
             publish: Yayınla
+            publish_answers: Cevapları yayınla
             select_component: Bir bileşen seç
             selected: seçilmiş
             split: Bölünmüş teklifler
             split_button: Bölünmüş
             title: Teklif
+            unassign_from_valuator: Bilirkişinin atamasını kaldır
+            unassign_from_valuator_button: Atamayı kaldır
             update: Güncelleştirme
+            update_scope_button: Kapsamı Güncelle
           new:
             create: yaratmak
             title: Teklif oluştur
           publish_answers:
+            number_of_proposals: '%{number} teklifleri için cevaplar yayınlanacak.'
             select_a_proposal: Lütfen bir teklif seçin
           show:
+            amendments_count: Değişikliklerin sayısı
+            assigned_valuators: Atanan bilirkişiler
             authors: Yazarlar
             body: Vücut
+            comments_count: Yorum sayısı
+            comments_negative_count: Karşısında
+            comments_neutral_count: Tarafsız
+            comments_positive_count: Favori
             created_at: Oluşturulma tarihi
+            documents: Dokümanlar
+            endorsements_count: Onay sayısı
+            endorsements_ranking: Onaylara göre sıralama
+            endorsers: Onaycılar
+            link: Bağlantı
+            n_more_endorsers:
+              one: ve 1 tane daha
+              other: ve %{count} tane daha
+            photos: Resimler
             proposals: Teklif
+            ranking: "%{ranking} / %{total}"
+            related_meetings: İlgili toplantılar
             votes_count: Oy sayısı
           update_category:
             select_a_category: Lütfen bir kategori seçin
