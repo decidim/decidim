@@ -165,17 +165,17 @@ tr:
             amendments_visibility_help: '"Değişiklikler sadece yazarları tarafından görülebilir" seçeneği seçilirse, yapılan değişiklikleri görmek için katılımcının oturum açması gerekir.'
             announcement: Duyuru
             answers_with_costs: Teklif yanıtlarında maliyetleri etkinleştirin
-            automatic_hashtags: Hashtags tüm tekliflere eklendi
+            automatic_hashtags: Tüm tekliflere etiketler eklendi
             comments_blocked: Yorumlar engellendi
             creation_enabled: Teklif oluşturma etkin
             endorsements_blocked: Onaylar engellendi
             endorsements_enabled: Onaylar etkin
             proposal_answering_enabled: Teklif yanıtlama etkin
             publish_answers_immediately: Teklif yanıtlarını hemen yayınlayın
-            suggested_hashtags: Hashtags, yeni teklifler için kullanıcılara önerdi
-            votes_blocked: Oylama engellendi
-            votes_enabled: Oylama etkin
-            votes_hidden: Oylar gizli (oylar etkinleştirilirse, bu kontrol edilirken oy sayısı gizlenir)
+            suggested_hashtags: Yeni teklifler için katılımcılara önerilen etiketler
+            votes_blocked: Engellenen destekler
+            votes_enabled: Destekler etkin
+            votes_hidden: Gizli desteği destekler (destekler etkinleştirilmişse, bunu kontrol etmek destek sayısını gizleyecektir)
     events:
       proposals:
         admin:
@@ -185,10 +185,10 @@ tr:
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
             notification_title: Birisi teklif <a href="%{resource_path}">%{resource_title} </a> hakkında bir not bıraktı. <a href="%{admin_proposal_info_path}"> Yönetici panelinden </a> kontrol edin
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} bir katılımcı olarak erişmek için kabul edilmiş <a href="%{resource_path}">%{resource_title}</a> işbirlikçi taslak.'
-          email_outro: Bu bildirimi aldınız çünkü <a href="%{resource_path}">%{resource_title}</a>ortak çalışanısınız.
-          email_subject: "%{requester_name} , %{resource_title}katkı payı olarak kabul edildi."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> , <a href="%{resource_path}">%{resource_title}</a> işbirlikçi taslağın bir katkıcısı</strong> olarak erişim için <strong>kabul edilmiştir.
+          email_intro: '%{requester_name}, <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağına katkıda bulunan kişi olarak erişim için kabul edildi.'
+          email_outro: Bu bildirimi, <a href="%{resource_path}">%{resource_title} </a> ortak çalışanı olduğunuz için aldınız.
+          email_subject: "%{requester_name}, %{resource_title} katkı sağlayıcısı olarak erişim için kabul edildi."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> için <strong> katkıda bulunan </strong> olarak erişim için kabul edildi <a href = "%{resource_path}">%{resource_title} </a> ortak çalışma taslağı.
         collaborative_draft_access_rejected:
           email_intro: '<a href="%{resource_path}">%{resource_title}</a> işbirlikçi taslağın katılımcısı olarak erişim için %{requester_name} reddedildi.'
           email_outro: Bu bildirimi aldınız çünkü <a href="%{resource_path}">%{resource_title}</a>ortak çalışanısınız.
