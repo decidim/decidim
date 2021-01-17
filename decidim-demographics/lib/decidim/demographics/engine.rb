@@ -42,9 +42,9 @@ module Decidim
       end
 
       initializer "decidim_demographics.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
+        # Decidim::Api::QueryType.define do
+        #   QueryExtensions.define(self)
+        # end
       end
     end
   end
