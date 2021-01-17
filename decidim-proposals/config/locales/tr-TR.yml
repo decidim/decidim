@@ -663,62 +663,62 @@ tr:
           info: <strong> Ortak çalışmaya dayalı bir taslak </strong> oluşturuyorsunuz.
         wizard_steps:
           current_step: Geçerli adım
-          see_steps: adımları görmek
-          step_1: İşbirlikçi taslağını oluştur
-          step_2: Ortak taslaklarla karşılaştır
-          step_3: İşbirlikçi taslağınızı tamamlayın
+          see_steps: adımları gör
+          step_1: Ortak çalışmaya dayalı taslağınızı oluşturun
+          step_2: Ortak çalışmaya dayalı taslaklarla karşılaştırın
+          step_3: Ortak çalışma taslağınızı tamamlayın
           step_of: '%{total_steps}adımdan %{current_step_num}'
           title: İşbirliğine dayalı taslak oluşturma adımları
       content_blocks:
         highlighted_proposals:
           proposals: Teklifler
       create:
-        error: Teklif kaydedilirken hatalar oluştu.
+        error: Teklif kaydedilirken bir sorun oluştu.
         success: Teklif başarıyla oluşturuldu. Taslak olarak kaydedildi.
       destroy_draft:
-        error: Teklif taslağını silerken hatalar oluştu.
-        success: Teklif taslak başarıyla silindi.
+        error: Ortak çalışma taslağı silinirken bir sorun oluştu.
+        success: Teklif taslağı başarıyla silindi.
       last_activity:
-        new_proposal_at_html: "<span>Yeni teklif %{link}</span>"
+        new_proposal_at_html: "<span>%{link} adresinde yeni teklif</span>"
       models:
         collaborative_draft:
           fields:
             authors: Yazarlar
             comments: Yorumlar
-            contributions: Katılımlar
+            contributions: Katkılar
         proposal:
           fields:
             category: Kategori
             comments: Yorumlar
             id: İD
-            notes: notlar
+            notes: Notlar
             official_proposal: Resmi teklif
             published_answer: Yayınlanan cevap
             published_at: Yayınlandı
-            scope: kapsam
-            state: Belirtmek, bildirmek
+            scope: Kapsam
+            state: Durum
             title: Başlık
             valuator: Bilirkişi
             valuators: Bilirkişiler
-            votes: oy
+            votes: Oylar
       new:
         limit_reached: Sınırı aştığınız için yeni teklifler oluşturamazsınız.
       participatory_text_proposal:
         alternative_title: Şu anda katılımcı metin yok
         buttons:
-          amend: değiştirmek
+          amend: Düzelt
           comment: Yorum Yap
           comments: Yorumlar
       proposal_votes:
         create:
-          error: Teklif oylanırken hatalar oluştu.
+          error: Teklifi destekleyen bir sorun vardı.
       proposals:
         compare:
           continue: Devam et
           no_similars_found: Aferin! Benzer teklif bulunamadı
           title: Benzer teklifler
         complete:
-          send: göndermek
+          send: Gönder
           title: Teklifinizi tamamlayın
         count:
           proposals_count:
@@ -735,33 +735,33 @@ tr:
           delete_image: Resmi sil
           gallery_legend: "(İsteğe bağlı) Teklif kartına bir resim ekleyin"
           select_a_category: Lütfen bir kategori seçin
-          send: göndermek
+          send: Gönder
           title: Teklifi düzenle
         edit_draft:
           discard: Bu taslağı sil
           discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
           send: Ön izleme
-          title: Teklif Taslaklarını Düzenle
+          title: Teklif Taslağını Düzenle
         filters:
           activity: Aktivitelerim
           all: Tümü
-          amendment_type: tip
+          amendment_type: Tür
           category: Kategori
           my_proposals: Tekliflerim
-          origin: Menşei
+          origin: Orijin
           related_to: İle ilgili
-          scope: kapsam
+          scope: Kapsam
           search: Arama
-          state: Belirtmek, bildirmek
+          state: Statü
           type: tip
-          voted: oy
+          voted: Desteklenmiş
         filters_small_view:
-          close_modal: Yakın kalıcı
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         index:
-          collaborative_drafts_list: Ortak taslaklara erişme
+          collaborative_drafts_list: Ortak çalışmaya dayalı taslaklara erişin
           new_proposal: Yeni teklif
           see_all_withdrawn: Geri çekilen tüm tekliflere bakın
           view_proposal: Teklifi görüntüle
