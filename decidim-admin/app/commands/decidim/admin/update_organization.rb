@@ -57,7 +57,6 @@ module Decidim
           enable_machine_translations: form.enable_machine_translations,
           admin_terms_of_use_body: form.admin_terms_of_use_body,
           rich_text_editor_in_public_views: form.rich_text_editor_in_public_views,
-          demographics_data_collection: form.demographics_data_collection
         }.merge(welcome_notification_attributes)
           .merge(machine_translation_attributes || {})
       end
