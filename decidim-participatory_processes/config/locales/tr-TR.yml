@@ -321,6 +321,10 @@ tr:
         participatory_process_copies:
           form:
             slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Doküman Ekle
+            slug_help: 'Sahte URL, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Ayarlanmazsa, düğme gösterilmeyecektir. Örnek: %{url}'
@@ -334,6 +338,7 @@ tr:
             metadata: Meta veri
             other: Diğer
             related_processes: İlgili süreçler
+            scope_type_max_depth_help: Kapsam filtresi derinliğini sınırlayın; Filtre genelden seçilen kapsam türüne kadar gösterilecektir.
             select_an_area: Bir alan seçin
             select_process_group: Bir işlem grubu seçin
             slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
@@ -353,7 +358,11 @@ tr:
             active_step: Aktif adım
             more_information: Daha fazla bilgi
             participate: Katıl
+            participate_in: '%{resource_name} sürecine katılın'
             see_all_processes: Tüm süreçleri gör
+      participatory_process_steps:
+        index:
+          back_to_process: Süreç sayfasına geri dön
       participatory_processes:
         filters:
           counters:
@@ -383,6 +392,7 @@ tr:
           loading: Sonuçlar yükleniyor ...
       show:
         area: alan
+        dates: Tarihler
         developer_group: Tanıtım grubu
         end_date: Bitiş tarihi
         local_area: Organizasyon Alanı
@@ -399,8 +409,10 @@ tr:
         comments_count: Yorumlar
         debates_count: Tartışmalar
         endorsements_count: Cirolar
+        followers_count: Takipçiler
         headline: Aktivite
         meetings_count: Toplantılar
+        no_stats: Henüz canlı istatistikler yok.
         orders_count: oy
         pages_count: Sayfalar
         participants_count: Katılımcılar
@@ -416,6 +428,7 @@ tr:
       participatory_process_groups:
         participatory_process_group:
           browse: Araştır
+          browse_resource: '%{resource_name} işlem grubuna göz atın'
           processes_count: 'Süreçler:'
       participatory_process_widgets:
         show:
@@ -427,11 +440,15 @@ tr:
         participatory_process:
           active_step: 'Mevcut adım:'
           more_info: Daha fazla bilgi
+          more_info_about: '%{resource_name} hakkında daha fazla bilgi'
           take_part: Yer almak
+          take_part_in: '%{resource_name} sürecine katılın'
         promoted_process:
           active_step: 'Mevcut adım:'
           more_info: Daha fazla bilgi
+          more_info_about: '%{resource_name} süreci hakkında daha fazla bilgi'
           take_part: Yer almak
+          take_part_in: '%{resource_name} sürecine katılın'
       process_header_steps:
         step: '%{total}adımdan %{current}'
         view_steps: Adımları göster
