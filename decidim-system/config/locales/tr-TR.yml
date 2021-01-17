@@ -1,4 +1,19 @@
 tr:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth Uygulama Adı
+        organization_logo: Kuruluş logosu (kare)
+        organization_name: Kuruluş
+        organization_url: Kuruluş URL'si
+        redirect_uri: Yönlendirme URL'si
+      organization:
+        address: SMTP Sunucu Adı
+        from_email: E-posta adresi
+        from_label: Etiket
+        password: Şifre
+        port: Port
+        user_name: Kullanıcı adı
   decidim:
     system:
       actions:
