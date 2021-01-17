@@ -611,13 +611,13 @@ tr:
         new_collaborative_draft_button:
           new_collaborative_draft: Yeni ortak taslak
         orders:
-          label: 'Sıralama taslakları:'
+          label: 'Taslakları şuna göre sırala:'
           most_contributed: En çok katkıda bulunan
-          random: rasgele
-          recent: Son
+          random: Rastgele
+          recent: En son
         requests:
           accepted_request:
-            error: Ortak çalışan olarak kabul edilemedi, daha sonra tekrar deneyin.
+            error: Ortak çalışan olarak kabul edilemedi, lütfen daha sonra tekrar deneyin.
             success: "@%{user} , ortak çalışan olarak başarıyla kabul edildi"
           access_requested:
             error: İsteğiniz tamamlanamadı, lütfen daha sonra tekrar deneyin.
