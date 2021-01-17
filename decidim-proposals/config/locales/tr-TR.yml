@@ -767,8 +767,8 @@ tr:
           view_proposal: Teklifi görüntüle
         linked_proposals:
           proposal_votes:
-            one: oy
-            other: oy
+            one: destek
+            other: destekler
         new:
           send: Devam et
           title: Teklifinizi Oluşturun
@@ -777,9 +777,9 @@ tr:
           most_commented: En çok yorum yapılan
           most_endorsed: En çok onaylanan
           most_followed: En çok takip edilen
-          most_voted: En çok oylanan
-          random: rasgele
-          recent: Son
+          most_voted: En çok desteklenen
+          random: Rastgele
+          recent: En son
           with_more_authors: Daha fazla yazarlı
         participatory_texts:
           index:
@@ -791,8 +791,8 @@ tr:
         preview:
           modify: Teklifi değiştir
           proposal_edit_before_minutes:
-            one: Teklifin yayınlanmasından sonraki ilk dakika boyunca bu teklifi düzenleyebileceksiniz. Bu zaman penceresi geçtikten sonra teklifi düzenleyemezsiniz.
-            other: Teklifin yayınlanmasından sonraki ilk %{count} dakika içinde bu teklifi düzenleyebileceksiniz. Bu zaman penceresi geçtikten sonra teklifi düzenleyemezsiniz.
+            one: Teklif yayınlandıktan sonraki ilk dakika içinde bu teklifi düzenleyebileceksiniz. Bu zaman aralığı geçtikten sonra teklifi düzenleyemezsiniz.
+            other: Bu teklifi, teklif yayınlandıktan sonraki ilk %{count} dakika içinde düzenleyebileceksiniz. Bu zaman aralığı geçtikten sonra teklifi düzenleyemezsiniz.
           publish: Yayınla
           title: Teklifinizi yayınlayın
           update_position: Konumu güncelle
