@@ -212,27 +212,27 @@ tr:
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname} </a>, <a href="%{resource_path}">%{resource_title} </a> ortak çalışma taslağını geri çekti.
           email_outro: Bu bildirimi, <a href="%{resource_path}">%{resource_title} </a> ortak çalışanı olduğunuz için aldınız.
-          email_subject: "%{author_name} %{author_nickname} %{resource_title} işbirlikçi taslağı geri çekmiştir."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>çekildi</strong> <a href="%{resource_path}">%{resource_title}</a> işbirlikçi taslak.
+          email_subject: "%{author_name} %{author_nickname}, %{resource_title} ortak çalışma taslağını geri çekti."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} </a> <a href="%{resource_path}">%{resource_title} </a> işbirlikçi taslak öğesini <strong> geri çekti </strong>.
         creation_enabled:
-          email_intro: 'Şimdi %{participatory_space_title}yeni teklifler oluşturabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: Şu anda %{participatory_space_title}teklif mevcut
-          notification_title: Artık ileri koyabilirsiniz <a href="%{resource_path}">yeni teklifler</a> içinde <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Artık %{participatory_space_title} içinde yeni teklifler oluşturabilirsiniz! Bu sayfaya katılmaya başlayın:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: Teklifler artık %{participatory_space_title} içinde mevcut
+          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> ’de <a href="%{resource_path}"> yeni teklifler </a> sunabilirsiniz
         endorsing_enabled:
-          email_intro: 'Teklifleri %{participatory_space_title}onaylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: Teklifler onaylandı %{participatory_space_title}
-          notification_title: Artık başlayabilirsiniz <a href="%{resource_path}">tekliflerini destekleyen</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Teklifleri %{participatory_space_title} olarak onaylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
+          email_outro: Bu bildirimi %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} için teklifleri onaylamaya başladı'
+          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> ’de <a href="%{resource_path}"> teklifleri onaylamaya </a> başlayabilirsiniz
         proposal_accepted:
           affected_user:
-            email_intro: 'Teklifiniz "%{resource_title}" kabul edildi. Cevabı bu sayfada okuyabilirsiniz:'
+            email_intro: '"%{resource_title}" teklifiniz kabul edildi. Cevabı bu sayfada okuyabilirsiniz:'
             email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
             email_subject: Teklifiniz kabul edildi
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> kabul edildi.
           follower:
             email_intro: '"%{resource_title}" teklifi kabul edildi. Cevabı bu sayfada okuyabilirsiniz:'
-            email_outro: Bu bildirimi "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
+            email_outro: Bu bildirimi, "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklif kabul edildi
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kabul edildi.
         proposal_evaluating:
@@ -242,8 +242,8 @@ tr:
             email_subject: Teklifiniz değerlendiriliyor
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> değerlendiriliyor.
           follower:
-            email_intro: 'Şu anda "%{resource_title}" teklifi şu anda değerlendiriliyor. Bu sayfadaki cevabı kontrol edebilirsiniz:'
-            email_outro: Bu bildirimi "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
+            email_intro: 'Şu anda "%{resource_title}" teklifi değerlendiriliyor. Bu sayfadaki cevabı kontrol edebilirsiniz:'
+            email_outro: Bu bildirimi, "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklif değerlendiriliyor
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi değerlendiriliyor.
         proposal_mentioned:
