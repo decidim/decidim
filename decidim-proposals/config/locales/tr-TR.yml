@@ -21,8 +21,8 @@ tr:
         decidim_scope_id: Kapsam
         has_address: Adresi var
         scope_id: Kapsam
-        state: Belirtmek, bildirmek
-        suggested_hashtags: Önerilen hashtag'ler
+        state: Durum
+        suggested_hashtags: Önerilen Etiketler
         title: Başlık
         user_group_id: Teklif oluştur
       proposal_answer:
@@ -31,7 +31,7 @@ tr:
         cost_report: Maliyet raporu
         execution_period: Yürütme süresi
       proposals_copy:
-        copy_proposals: Bunun, tüm önerileri seçilen bileşenden geçerli olana aktardığını ve bu işlemin geri alınamayacağını anlıyorum.
+        copy_proposals: Bunun, seçilen bileşendeki tüm teklifleri mevcut bileşene aktaracağını ve bu işlemin geri alınamayacağını anlıyorum.
         origin_component_id: Teklifleri kopyalamak için bileşen
       proposals_import:
         import_proposals: Teklifleri içe aktar
@@ -44,11 +44,11 @@ tr:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Geçersiz doküman tipi Kabul edilen formatlar: %{valid_mime_types}'
+              invalid_document_type: 'Geçersiz doküman tipi. Kabul edilen formatlar: %{valid_mime_types}'
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+              needs_to_be_reattached: Yeniden eklenmesi gerekiyor
             body:
               cant_be_equal_to_template: şablona eşit olamaz
               identical: AND title aynı olamaz
@@ -472,12 +472,21 @@ tr:
             proposals: Teklif
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar
+            remove_assignment: Atamayı kaldır
+            remove_assignment_confirmation: Bilirkişiyi, bu tekliften çıkarmak istediğinizden emin misiniz?
+            valuators: Bilirkişiler
             votes_count: Oy sayısı
+            votes_ranking: Desteklere göre sıralama
           update_category:
+            invalid: 'Bu teklifler zaten %{subject_name} kategorisine sahipti: %{proposals}.'
             select_a_category: Lütfen bir kategori seçin
             select_a_proposal: Lütfen bir teklif seçin
+            success: 'Teklifler, %{subject_name} kategorisine başarıyla güncellendi: %{proposals}.'
           update_scope:
+            invalid: 'Bu teklifler zaten %{subject_name} kapsamına sahipti: %{proposals}.'
             select_a_proposal: Lütfen bir teklif seçin
+            select_a_scope: Lütfen bir kapsam seçin
+            success: 'Teklifler, %{subject_name} kapsamına başarıyla güncellendi: %{proposals}.'
         proposals_imports:
           create:
             invalid: Teklifleri içe aktarırken bir sorun oluştu
@@ -487,6 +496,7 @@ tr:
             no_components: Teklifleri içe aktarmak için bu katılımcı alanda başka hiçbir teklif bileşeni bulunmamaktadır.
             select_component: Lütfen bir bileşen seçiniz
             select_states: İçe aktarılacak tekliflerin durumlarını kontrol et
+            title: Teklifleri içe aktar
         proposals_merges:
           create:
             invalid: Seçilen teklifler birleştirilirken bir hata oluştu.
@@ -495,13 +505,24 @@ tr:
           create:
             invalid: Seçilen teklifleri bölen bir hata oluştu.
             success: Teklifleri başarılı bir şekilde yenilere ayırdı.
+        valuation_assignments:
+          create:
+            invalid: Bir değerleyiciye teklif atanırken bir hata oluştu
+            success: Bir değerleyiciye başarıyla atanan teklifler
+          delete:
+            invalid: Bir bilirkişiden tekliflerin ataması kaldırılırken hata oluştu
+            success: Bilirkişinin tekliflerdeki ataması başarıyla kaldırıldı
       admin_log:
         proposal:
           answer: "%{user_name} , %{space_name} uzayda %{resource_name} teklifi yanıtladı"
           create: "%{user_name} , resmi bir teklif olarak %{space_name} uzayda %{resource_name} teklif oluşturdu"
+          publish_answer: "%{user_name}, %{resource_name} teklifinin cevabını %{space_name} alanında yayınladı"
           update: "%{user_name} , %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
         proposal_note:
           create: "%{user_name} , %{space_name} alanda %{resource_name} teklif üzerinde özel bir not bıraktı"
+        valuation_assignment:
+          create: "%{user_name}, %{resource_name} teklifini bir değerleyiciye atadı"
+          delete: "%{user_name}, %{proposal_title} teklifinden bir değerleyicinin atamasını kaldırdı"
       answers:
         accepted: Kabul edilmiş
         evaluating: değerlendirilmesi
@@ -631,8 +652,13 @@ tr:
         update:
           error: Ortak taslak kaydedilirken hatalar oluştu.
           success: İşbirliği taslağı başarıyla güncellendi.
+          title: Ortak çalışma taslağını düzenleyin
         wizard_aside:
           back: Geri
+          back_from_collaborative_draft: Ortak çalışmaya dayalı taslaklara dön
+          back_from_step_1: Ortak çalışmaya dayalı taslaklara dön
+          back_from_step_2: Ortak çalışmaya dayalı taslaklara dön
+          back_from_step_3: Ortak taslakları karşılaştırmak için geri dön
           back_from_step_4: Taslağı düzenlemeye dön
           info: <strong>ortak çalışma taslağı</strong>.
         wizard_steps:
