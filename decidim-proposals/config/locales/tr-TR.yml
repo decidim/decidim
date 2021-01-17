@@ -51,9 +51,9 @@ tr:
               needs_to_be_reattached: Yeniden eklenmesi gerekiyor
             body:
               cant_be_equal_to_template: şablona eşit olamaz
-              identical: AND title aynı olamaz
+              identical: VE başlık aynı olamaz
             title:
-              identical: VE vücut aynı olamaz
+              identical: VE gövde aynı olamaz
     models:
       decidim/proposals/accepted_proposal_event: Teklif kabul edildi
       decidim/proposals/admin/update_proposal_category_event: Teklif kategorisi değişti
@@ -71,14 +71,14 @@ tr:
         one: İşbirlikçi taslak
         other: İşbirliği taslakları
       decidim/proposals/proposal:
-        one: öneri
-        other: Teklif
+        one: Teklif
+        other: Teklifler
       decidim/proposals/proposal_note:
         one: Not
-        other: notlar
+        other: Notlar
       decidim/proposals/proposal_vote:
-        one: Oy
-        other: oy
+        one: Destek
+        other: Destekler
   decidim:
     admin:
       filters:
@@ -113,25 +113,25 @@ tr:
       proposals:
         actions:
           amend: Değiştir
-          create: yaratmak
-          endorse: desteklemek
-          vote: Oy
-          withdraw: Çekil
-        name: Teklif
+          create: Oluştur
+          endorse: Onayla
+          vote: Destek
+          withdraw: Geri çek
+        name: Teklifler
         settings:
           global:
             allow_card_image: Kart resmine izin ver
             amendments_enabled: Değişiklikler etkinleştirildi
-            amendments_enabled_help: Etkin ise, her adım için Yasa Değişikliği özelliklerini yapılandırın.
+            amendments_enabled_help: Etkinse, her adım için Değişiklik özelliklerini yapılandırın.
             amendments_wizard_help_text: Değişiklik Sihirbazı yardım metni
-            announcement: duyuru
+            announcement: Duyuru
             attachments_allowed: Eklere izin ver
-            can_accumulate_supports_beyond_threshold: Destekleri eşiğin ötesinde biriktirebilir
+            can_accumulate_supports_beyond_threshold: Eşiğin ötesinde destek biriktirebilir
             collaborative_drafts_enabled: Ortak çalışma taslakları etkin
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             geocoding_enabled: Coğrafi kod etkin
-            minimum_votes_per_user: Kullanıcı başına minimum oy
+            minimum_votes_per_user: Kullanıcı başına minimum destek
             new_proposal_body_template: Yeni teklif gövdesi şablonu
             new_proposal_body_template_help: Yeni Tekliflerin sahip olacağı önceden doldurulmuş metni tanımlayabilirsiniz
             new_proposal_help_text: Yeni teklif yardım metni
@@ -141,18 +141,18 @@ tr:
             proposal_answering_enabled: Teklif yanıtlama etkin
             proposal_edit_before_minutes: Teklifler, bu birkaç dakika geçmeden yazarlar tarafından düzenlenebilir
             proposal_length: Maksimum teklif gövdesi uzunluğu
-            proposal_limit: Kullanıcı başına teklif limiti
-            proposal_wizard_step_1_help_text: Öneri sihirbazı "Oluştur" adımı yardım metni
-            proposal_wizard_step_2_help_text: Öneri sihirbazı "Karşılaştırma" adımı yardım metni
-            proposal_wizard_step_3_help_text: Öneri sihirbazı "Tamamlandı" adım yardım metni
-            proposal_wizard_step_4_help_text: Öneri sihirbazı "Yayınla" adım yardım metni
+            proposal_limit: Katılımcı başına teklif sınırı
+            proposal_wizard_step_1_help_text: Teklif sihirbazı "Oluştur" adımı yardım metni
+            proposal_wizard_step_2_help_text: Teklif sihirbazı "Karşılaştır" adımı yardım metni
+            proposal_wizard_step_3_help_text: Teklif sihirbazı "Tamamlandı" adımı yardım metni
+            proposal_wizard_step_4_help_text: Teklif sihirbazı "Yayınla" adımı yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             threshold_per_proposal: Teklif başına eşik
-            vote_limit: Kullanıcı başına oy sınırı
+            vote_limit: Katılımcı başına destek sınırı
           step:
-            amendment_creation_enabled: Yasa değişikliği oluşturma etkinleştirildi
+            amendment_creation_enabled: Değişiklik oluşturma etkinleştirildi
             amendment_creation_enabled_help: Katılımcı teklifleri değiştirebilir.
             amendment_promotion_enabled: Değişiklik tanıtımı etkinleştirildi
             amendment_promotion_enabled_help: Değişiklik yazarları, reddedilen düzeltmeyi Öneriye yükseltebileceklerdir.
@@ -163,7 +163,7 @@ tr:
               all: Değişiklikler herkes tarafından görülebilir
               participants: Değişiklikler yalnızca yazarları tarafından görülebilir
             amendments_visibility_help: '"Değişiklikler sadece yazarları tarafından görülebilir" seçeneği seçilirse, yapılan değişiklikleri görmek için katılımcının oturum açması gerekir.'
-            announcement: duyuru
+            announcement: Duyuru
             answers_with_costs: Teklif yanıtlarında maliyetleri etkinleştirin
             automatic_hashtags: Hashtags tüm tekliflere eklendi
             comments_blocked: Yorumlar engellendi
