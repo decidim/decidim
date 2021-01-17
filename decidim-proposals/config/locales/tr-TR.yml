@@ -249,18 +249,18 @@ tr:
         proposal_mentioned:
           email_intro: Yorumlarınızda <a href="%{resource_url}"> bu alanda </a> "%{mentioned_proposal_title}" önerinizden bahsedildi.
           email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
-          email_subject: Teklifinizin "%{mentioned_proposal_title}" olduğu belirtildi
-          notification_title: Öneriniz "%{mentioned_proposal_title}" söz edilmiştir <a href="%{resource_path}">bu alanda</a> yorumlardaki.
+          email_subject: '"%{mentioned_proposal_title}" adlı teklifinizden bahsedildi'
+          notification_title: <a href="%{resource_path}"> Bu alanda </a> yorumlarda "%{mentioned_proposal_title}" önerinizden bahsedildi.
         proposal_published:
-          email_intro: 'Takip ettiğiniz %{author_name} %{author_nickname}, "%{resource_title}" adlı yeni bir teklif yayınladı. Bir göz atın ve katkıda bulunun:'
-          email_outro: Bu bildirimi, %{author_nickname}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_intro: 'Takip ettiğiniz %{author_name} %{author_nickname}, "%{resource_title}" adlı yeni bir teklif yayınladı. Kontrol edin ve katkıda bulunun:'
+          email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: Yeni teklif "%{resource_title}" %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif <a href="%{author_path}">%{author_name} %{author_nickname}</a>tarafından yayınlandı.
         proposal_published_for_space:
-          email_intro: Öneri "%{resource_title}" "eklendi%{participatory_space_title}" izlediğinizi.
-          email_outro: Bu bildirimi "%{participatory_space_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
-          email_subject: Yeni teklif "%{resource_title}" %{participatory_space_title}eklendi
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> önerisi %{participatory_space_title}eklendi
+          email_intro: '"%{resource_title}" teklifi takip ettiğiniz "%{participatory_space_title}" listesine eklendi.'
+          email_outro: Bu bildirimi, "%{participatory_space_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
+          email_subject: Yeni teklif "%{resource_title}" %{participatory_space_title} eklendi
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> önerisi %{participatory_space_title} alanına eklendi
         proposal_rejected:
           affected_user:
             email_intro: 'Teklifiniz "%{resource_title}" reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
@@ -269,7 +269,7 @@ tr:
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> reddedildi.
           follower:
             email_intro: '"%{resource_title}" teklifi reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
-            email_outro: Bu bildirimi "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
+            email_outro: Bu bildirimi, "%{resource_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklif reddedildi
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi reddedildi.
         proposal_update_category:
