@@ -743,8 +743,11 @@ tr:
           send: Ön izleme
           title: Teklif Taslaklarını Düzenle
         filters:
+          activity: Aktivitelerim
+          all: Tümü
           amendment_type: tip
           category: Kategori
+          my_proposals: Tekliflerim
           origin: Menşei
           related_to: İle ilgili
           scope: kapsam
@@ -771,14 +774,20 @@ tr:
           title: Teklifinizi Oluşturun
         orders:
           label: 'Teklifleri şuna göre sırala:'
+          most_commented: En çok yorum yapılan
+          most_endorsed: En çok onaylanan
+          most_followed: En çok takip edilen
           most_voted: En çok oylanan
           random: rasgele
           recent: Son
+          with_more_authors: Daha fazla yazarlı
         participatory_texts:
           index:
             document_index: Belge indeksi
           view_index:
             see_index: Endeksi görmek
+        placeholder:
+          address: Teklif adresi
         preview:
           modify: Teklifi değiştir
           proposal_edit_before_minutes:
@@ -786,27 +795,44 @@ tr:
             other: Teklifin yayınlanmasından sonraki ilk %{count} dakika içinde bu teklifi düzenleyebileceksiniz. Bu zaman penceresi geçtikten sonra teklifi düzenleyemezsiniz.
           publish: Yayınla
           title: Teklifinizi yayınlayın
+          update_position: Konumu güncelle
         proposal:
           creation_date: 'Oluşturma: %{date}'
           view_proposal: Teklifi görüntüle
+        proposals:
+          empty: Henüz teklif yok
+          empty_filters: Bu kritere sahip herhangi bir teklif yok
         show:
           answer: Cevap
           back_to: Geri
+          back_to_list: Listeye geri dön
+          changes_at_title: Değişiklikler "%{title}"
           comments: Yorumlar
           edit_proposal: Teklifi düzenle
           endorsements_list: Onay Listesi
+          estimated_cost: Tahmini maliyet
           hidden_endorsers_count:
             one: ve %{count} kişi daha
             other: ve %{count} kişi daha
           link_to_collaborative_draft_help_text: Bu teklif, işbirlikçi bir taslağın sonucudur. Geçmişi gözden geçirin
           link_to_collaborative_draft_text: Ortak taslaka bakın
+          link_to_promoted_emendation_help_text: Bu teklif, önerilen bir düzeltmedir
+          link_to_promoted_emendation_text: Reddedilen düzeltmeye bakın.
+          link_to_proposal_from_emendation_help_text: Bu reddedilmiş bir düzeltmedir
           link_to_proposal_from_emendation_text: Öneriye bakın
           proposal_accepted_reason: 'Bu teklif kabul edildi çünkü:'
           proposal_in_evaluation_reason: Bu teklif değerlendiriliyor
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
+          read_less: Daha az oku
+          read_more: Daha fazla oku
           report: Rapor
           withdraw_btn_hint: Herhangi bir destek almadığınız sürece fikrinizi değiştirirseniz teklifinizi geri çekebilirsiniz. Teklif silinmemiş, iptal edilen teklifler listesinde görünecektir.
+          withdraw_confirmation_html: Bu teklifi geri çekmek istediğinizden emin misiniz? <br> <br> <strong> Bu eylem iptal edilemez! </strong>
           withdraw_proposal: Teklifi geri çek
+        tags:
+          changed_from: "(bir yönetici tarafından <u>%{previous_name} </u> yerine değiştirildi)"
+        update:
+          title: Teklif güncelleme
         vote_button:
           already_voted: Çoktan oy verildi
           already_voted_hover: Unvote
@@ -838,14 +864,25 @@ tr:
             votes: oy
         wizard_aside:
           back: Geri
+          back_from_step_1: Teklifte geri dön
+          back_from_step_2: Tekliflere geri dön
+          back_from_step_3: Teklifleri karşılaştırmaya geri dön
+          back_from_step_4: Taslağı düzenlemeye dön
           info: <strong>teklif</strong>.
         wizard_steps:
+          current_step: Geçerli adım
           see_steps: adımları görmek
           step_1: Teklifinizi oluşturun
           step_2: Karşılaştırmak
           step_3: Tamamlayınız
           step_4: Teklifinizi yayınlayın
           step_of: '%{total_steps}adımdan %{current_step_num}'
+          title: Teklif oluşturma adımları
+      proposals_picker:
+        choose_proposals: Teklifleri seçin
+        close: Kapat
+        more_proposals: '%{number} tane daha teklif var. Onları bulmak için aramanızı daraltın.'
+        no_proposals: Arama kriterlerinizle eşleşen teklif yok veya herhangi bir teklif yok.
       publish:
         error: Teklif yayınlanırken hatalar oluştu.
         success: Teklif başarıyla yayınlandı.
