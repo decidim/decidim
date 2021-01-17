@@ -3,40 +3,41 @@ tr:
     attributes:
       sortition:
         additional_info: Sıralama bilgileri
-        decidim_category_id: Draw'ı uygulamak istediğiniz teklif kümesinin kategorileri
-        decidim_proposals_component_id: Teklifler belirlendi
-        dice: Kalıp rulosunun sonucu. 6 taraflı bir kalıbı yuvarlayın veya 1 ila 6 arasında bir sayı oluşturmak için rastgele bir yol arayın ve sonuçta bazı tanıkların önüne buradaki sayıyı girin. Bu, sonucun rastlantısallığının kalitesine ve garantisine katkıda bulunur.
+        decidim_category_id: Çekilişi uygulamak istediğiniz teklif kümesinin kategorileri
+        decidim_proposals_component_id: Teklif seti
+        dice: Kalıp rulosunun sonucu. 6 kenarlı bir zarı yuvarlayın veya 1'den 6'ya kadar bir sayı oluşturmak için başka bir rastgele yol arayın ve sonuçta elde edilen sayıyı bazı tanıkların önüne girin. Bu, sonucun rasgeleliğinin kalitesine ve garantilerine katkıda bulunur
         target_items: Seçilecek teklif sayısı (daha önce seçmiş olduğunuz teklif grubunun çoğunu çizerek, seçmek istediğiniz teklif sayısını gösterir)
         title: Başlık
         witnesses: Tanıklar
     models:
-      decidim/sortitions/create_sortition_event: Sortition
+      decidim/sortitions/create_sortition_event: Sıralama
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortition
-        other: Sortitions
+        one: Sıralama
+        other: Sıralama
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Sıralama
         settings:
           global:
             comments_enabled: Yorumlar etkin
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
     events:
       sortitions:
         sortition_created:
-          email_intro: Sortition "%{resource_title}" "eklendi%{participatory_space_title}" izlediğinizi.
-          email_outro: Bu bildirimi aldınız çünkü "%{participatory_space_title}" u takip ediyorsun. Bunu önceki linkten takip edebilirsiniz.
-          email_subject: Yeni sortition eklenen %{participatory_space_title}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> %{participatory_space_title}eklendi
+          email_intro: '"%{resource_title}" sıralaması takip ettiğiniz "%{participatory_space_title}" listesine eklendi.'
+          email_outro: Bu bildirimi, "%{participatory_space_title}" adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıdan takibini bırakabilirsiniz.
+          email_subject: '%{participatory_space_title} alanına yeni sıralama eklendi'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> sıralaması %{participatory_space_title} alanına eklendi
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Sıralama
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Sıralama
     sortitions:
       admin:
         actions:
@@ -52,13 +53,13 @@ tr:
               decidim_proposals_component: Teklifler bileşeni
               dice: Zar
               reference: Referans
-              request_timestamp: Zaman çekmek
-              seed: Tohum
+              request_timestamp: Beraberlik süresi
+              seed: Çekirdek
               target_items: Seçilecek öğeler
               title: Başlık
             name:
-              one: Sortition
-              other: Sortitions
+              one: Sıralama
+              other: Sıralama
         sortitions:
           confirm_destroy:
             confirm_destroy: Bu sıralamayı iptal etmek istediğinize emin misiniz?
@@ -72,16 +73,16 @@ tr:
             success: Sıralama başarıyla iptal edildi
           edit:
             title: Sıralama hakkındaki bilgileri güncelleyin
-            update: Güncelleştirme
+            update: Güncelle
           form:
             all_categories: Tüm Kategoriler
-            select_proposal_component: Belirlenen teklifleri seçin
+            select_proposal_component: Teklif kümesini seçin
             title: Teklifler için yeni sıralama
           index:
-            title: Sortitions
+            title: Sıralama
           new:
             confirm: Bir sonraki düğmeye basıldığında Decidim, tarih ve saati (saniyenin kesinliği ile) kaydedecek ve zar rulosuyla birlikte, bu bilgi rastgele bir seçim oluşturmak için kullanılacak. İşlem geri alınamaz, düğme tıklandıktan sonra bu çekilişin sonucu yayınlanacak, bu forma girilen verilerle birlikte değiştirilemez, lütfen içeriği dikkatlice kontrol edin
-            create: yaratmak
+            create: Oluştur
             title: Yeni sıralama
           show:
             selected_proposals: Çizim için seçilen teklifler
@@ -124,6 +125,7 @@ tr:
         show:
           algorithm: Sıralamanın algoritma kodu
           any_category: tüm kategorilerden
+          back: Listeye geri dön
           cancelled: İptal edilen sıralama
           candidate_proposal_ids: Sıralama teklifleri siparişi ve kimlikleri
           candidate_proposals_info: 'Sıralama, aşağıdaki teklifler arasında (%{category_label}), aşağıdaki kimliklerle (seçilen tekliflerin kalın harflerle belirtildiği şekilde) yapıldı.  '
