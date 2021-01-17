@@ -503,7 +503,7 @@ tr:
             success: Teklifler, yeni bir taneyle başarılı bir şekilde birleştirildi.
         proposals_splits:
           create:
-            invalid: Seçilen teklifleri bölen bir hata oluştu.
+            invalid: Seçilen teklifleri bölerken bir sorun vardı.
             success: Teklifleri başarılı bir şekilde yenilere ayırdı.
         valuation_assignments:
           create:
@@ -514,40 +514,40 @@ tr:
             success: Bilirkişinin tekliflerdeki ataması başarıyla kaldırıldı
       admin_log:
         proposal:
-          answer: "%{user_name} , %{space_name} uzayda %{resource_name} teklifi yanıtladı"
-          create: "%{user_name} , resmi bir teklif olarak %{space_name} uzayda %{resource_name} teklif oluşturdu"
+          answer: "%{user_name}, %{space_name} alanında %{resource_name} teklifini yanıtladı"
+          create: "%{user_name}, %{resource_name} teklifini %{space_name} alanında resmi bir teklif olarak oluşturdu"
           publish_answer: "%{user_name}, %{resource_name} teklifinin cevabını %{space_name} alanında yayınladı"
-          update: "%{user_name} , %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
+          update: "%{user_name}, %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
         proposal_note:
-          create: "%{user_name} , %{space_name} alanda %{resource_name} teklif üzerinde özel bir not bıraktı"
+          create: "%{user_name}, %{space_name} alanda %{resource_name} teklif üzerinde özel bir not bıraktı"
         valuation_assignment:
           create: "%{user_name}, %{resource_name} teklifini bir değerleyiciye atadı"
           delete: "%{user_name}, %{proposal_title} teklifinden bir değerleyicinin atamasını kaldırdı"
       answers:
-        accepted: Kabul edilmiş
-        evaluating: değerlendirilmesi
+        accepted: Kabul Edildi
+        evaluating: Değerlendiriliyor
         not_answered: Cevaplanmadı
-        rejected: Reddedilen
-        withdrawn: çekilmiş
+        rejected: Reddedildi
+        withdrawn: Geri çekildi
       application_helper:
         filter_category_values:
-          all: Herşey
+          all: Tümü
         filter_origin_values:
-          all: Herşey
+          all: Tümü
           citizens: Vatandaşlar
           meetings: Toplantılar
           official: Resmi
-          user_groups: Kullanıcı Grupları
+          user_groups: Gruplar
         filter_scope_values:
-          all: Herşey
+          all: Tümü
         filter_state_values:
-          accepted: Kabul edilmiş
-          all: Herşey
-          evaluating: değerlendirilmesi
+          accepted: Kabul Edildi
+          all: Tümü
+          evaluating: Değerlendiriliyor
           not_answered: Cevaplanmadı
-          rejected: Reddedilen
+          rejected: Reddedildi
         filter_type_values:
-          all: Herşey
+          all: Tümü
           amendments: Değişiklikler
           proposals: Teklif
       collaborative_drafts:
@@ -620,38 +620,38 @@ tr:
             error: Ortak çalışan olarak kabul edilemedi, daha sonra tekrar deneyin.
             success: "@%{user} , ortak çalışan olarak başarıyla kabul edildi"
           access_requested:
-            error: İsteğiniz tamamlanamadı, daha sonra tekrar deneyin.
+            error: İsteğiniz tamamlanamadı, lütfen daha sonra tekrar deneyin.
             success: Ortak çalışma isteğiniz başarıyla gönderildi
           collaboration_requests:
-            accept_request: Kabul etmek
-            reject_request: reddetmek
+            accept_request: Kabul Et
+            reject_request: Reddet
             title: İşbirliği istekleri
           rejected_request:
-            error: Ortak çalışan olarak reddedilemedi, daha sonra tekrar deneyin.
-            success: "@%{user} , ortak çalışan olarak başarıyla reddedildi"
+            error: Ortak çalışan olarak reddedilemedi, lütfen daha sonra tekrar deneyin.
+            success: "@%{user}, ortak çalışan olarak başarıyla reddedildi"
         show:
           back: Geri
           edit: Ortak taslak düzenle
           final_proposal: son teklif
-          final_proposal_help_text: Bu taslak bitti. Son bitirme teklifini görebilirsiniz
+          final_proposal_help_text: Bu taslak bitti. Son teklife göz atın
           hidden_authors_count:
             one: ve %{count} kişi daha
             other: ve %{count} kişi daha
-          info-message: Bu, bir teklif için <strong>ortak çalışma taslağı</strong> . Bu, yazarlarının aşağıdaki yorum bölümünü kullanarak teklifi şekillendirmesine yardımcı olabilir veya düzenleme için erişim isteğinde bulunarak doğrudan iyileştirebilirsiniz. Yazarlar size erişim izni verdiğinde, bu taslakta değişiklikler yapabileceksiniz.
+          info-message: Bu, bir teklif için <strong> ortak çalışmaya dayalı bir taslaktır </strong>. Bu, yazarlarının aşağıdaki yorum bölümünü kullanarak teklifi şekillendirmesine veya düzenleme erişimi isteyerek doğrudan iyileştirmesine yardımcı olabileceğiniz anlamına gelir. Yazarlar size erişim izni verdikten sonra, bu taslakta değişiklik yapabileceksiniz.
           publish: Yayınla
-          publish_info: Taslak bu sürümünü yayınlayın veya
+          publish_info: Taslağın bu sürümünü yayınlayın veya
           published_proposal: yayınlanan teklif
-          request_access: Erişim talep etmek
+          request_access: Erişim talep et
           requested_access: Erişim istendi
           version_history: bu teklifin sürüm geçmişini gör
           withdraw: taslağı geri çekmek
         states:
           open: Açık
-          published: Yayınlanan
-          withdrawn: çekilmiş
+          published: Yayınlandı
+          withdrawn: Geri çekildi
         update:
           error: Ortak taslak kaydedilirken hatalar oluştu.
-          success: İşbirliği taslağı başarıyla güncellendi.
+          success: Ortak taslak başarıyla güncellendi.
           title: Ortak çalışma taslağını düzenleyin
         wizard_aside:
           back: Geri
@@ -660,7 +660,7 @@ tr:
           back_from_step_2: Ortak çalışmaya dayalı taslaklara dön
           back_from_step_3: Ortak taslakları karşılaştırmak için geri dön
           back_from_step_4: Taslağı düzenlemeye dön
-          info: <strong>ortak çalışma taslağı</strong>.
+          info: <strong> Ortak çalışmaya dayalı bir taslak </strong> oluşturuyorsunuz.
         wizard_steps:
           current_step: Geçerli adım
           see_steps: adımları görmek
