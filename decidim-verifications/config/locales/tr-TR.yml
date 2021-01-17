@@ -5,17 +5,17 @@ tr:
         available_methods: Mevcut yöntemler
         offline: Çevrimdışı
         offline_explanation: Çevrimdışı doğrulama için talimatlar
-        online: İnternet üzerinden
+        online: Çevrimiçi
       id_document_information:
         document_number: Belge numarası (harf ile)
         document_type: Belgenin türü
       id_document_upload:
         document_number: Belge numarası (harf ile)
-        document_type: Belgenizin tipi
-        user: kullanıcı
+        document_type: Belgenizin türü
+        user: Katılımcı
         verification_attachment: Belgenizin taranmış kopyası
       offline_confirmation:
-        email: Kullanıcı e-postası
+        email: Katılımcı e-postası
       postal_letter_address:
         full_address: Açık adres
       postal_letter_confirmation:
@@ -26,12 +26,24 @@ tr:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: İşlem zaten başladıysa ve önceki işlemin izinlerini iptal etmek istiyorsanız kullanışlıdır.
+          button: Tümünü İptal Et
+          button_before: Tarihten önce iptal et
+          destroy:
+            confirm: Tarihten önce iptal yetkileri geri alınamaz. Devam etmek istediğine emin misin?
+            confirm_all: Tüm yetkilendirmeler geri alınamaz. Devam etmek istediğine emin misin?
+          destroy_nok: Yetkilendirmeler iptal edilirken bir sorun oluştu.
+          destroy_ok: Tüm eşleşen yetkiler başarıyla iptal edildi!
+          info: Toplam %{count} doğrulanmış katılımcı var.
+          no_data: Doğrulanmış katılımcı yok
+          title: Yetkinin iptali
         authorization_workflows: Doğrulama
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} Kimlik Belgeleri doğrulama yapılandırmasını güncelledi"
+        update_id_documents_config: "%{user_name}, Kimlik Belgeleri doğrulama yapılandırmasını güncelledi"
       user:
-        grant_id_documents_offline_verification: "%{user_name} bir çevrimdışı Kimlik Belgeleri doğrulaması kullanarak %{resource_name} doğrulandı"
+        grant_id_documents_offline_verification: "%{user_name}, çevrimdışı Kimlik Belgeleri doğrulaması kullanarak %{resource_name} öğesini doğruladı"
     authorization_handlers:
       admin:
         csv_census:
@@ -63,12 +75,22 @@ tr:
       postal_letter:
         explanation: Size adresinizi doğrulayabilmemiz için girmeniz gereken bir kod içeren bir posta mektubu göndereceğiz.
         name: Posta mektubu ile kod
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Katılımcı <a href="%{resource_path}">%{resource_title} </a>, yönetilen katılımcının <a href="%{managed_user_path}">%{managed_user_name} </a> verileriyle kendini doğrulamaya çalıştı
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Bu, mevcut doğrulamanın verileridir:'
+          no_data_stored: Veri depolanmadı.
         create:
           error: Yetkilendirme oluşturulurken bir hata oluştu.
           success: Başarılı bir şekilde yetkilendirildiniz.
           unconfirmed: Kendinizi yetkilendirmek için e-postanızı onaylamanız gerekiyor.
+        destroy:
+          error: Yetkilendirme silinirken bir sorun oluştu.
+          success: Yetkilendirmeyi başarıyla sildiniz.
         first_login:
           actions:
             another_dummy_authorization_handler: Başka bir yetkilendirme işleyicisi örneğiyle doğrulayın
@@ -77,13 +99,23 @@ tr:
             dummy_authorization_workflow: Örnek yetkilendirme iş akışına karşı doğrulayın
             id_documents: Kimlik belgenizi yükleyerek doğrulanma
             postal_letter: Posta koduyla doğrulama kodu alarak doğrulanma
+            sms: Bir SMS doğrulama kodu alarak doğrulanın
           title: Kimliginizi dogrulayin
           verify_with_these_options: 'Bunlar kimliğinizi doğrulamak için kullanılabilecek seçenekler:'
+        index:
+          expired_verification: Doğrulamanın süresi doldu
+          pending_verification: Doğrulama beklemede
+          show_renew_info: Doğrulamayı yenilemek için tıklayın
+          unauthorized_verification: Yeni doğrulama
         new:
           authorize: göndermek
           authorize_with: '%{authorizer}ile doğrulayın'
         renew_modal:
           cancel: İptal etmek
+          close: kapat
+          continue: Devam et
+          info_renew: Verileri güncellemek istiyorsanız, yenilemeye devam edin
+          title: Doğrulamayı yenile
         skip_verification: Bunu şimdilik ve %{link}için atlayabilirsiniz.
         start_exploring: keşfetmeye başla
       csv_census:
@@ -103,8 +135,10 @@ tr:
             title: Mevcut nüfus sayımı verileri
           instructions:
             body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
+            title: Bu kuruluş için CSV sayımını etkinleştirmeniz gerekiyor
           new:
             file: "e-posta verileri içeren .csv dosyası"
+            info: 'E-posta adresi içeren yalnızca bir sütuna sahip CSV biçiminde bir dosya olmalıdır:'
             submit: Dosya yükleme
             title: Yeni bir nüfus sayımı yükleyin
         authorizations:
@@ -116,6 +150,7 @@ tr:
           postal_codes:
             one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
             other: 'Katılım, aşağıdaki posta kodlarından herhangi biriyle kullanıcılarla sınırlıdır: %{postal_codes}.'
+          scope: Katılım, %{scope_name} kapsamına sahip katılımcılarla sınırlıdır.
       id_documents:
         admin:
           config:
