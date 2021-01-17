@@ -2,24 +2,24 @@
 
 module Decidim
   module Pages
-    PagesType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class PagesType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Pages"
+      graphql_name "Pages"
       description "A pages component of a participatory space."
 
-      connection :pages, PageType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  PagesTypeHelper.base_scope(component).includes(:component)
-                }
+      field :pages, PageType.connection_type, null: true, connection: true
+
+      def pages
+        PagesTypeHelper.base_scope(object).includes(:component)
       end
 
-      field(:page, PageType) do
-        argument :id, !types.ID
+      field :page, PageType, null: true do
+        argument :id, ID, required: true
+      end
 
-        resolve ->(component, args, _ctx) {
-          PagesTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def page(**args)
+        PagesTypeHelper.base_scope(object).find_by(id: args[:id])
       end
     end
 

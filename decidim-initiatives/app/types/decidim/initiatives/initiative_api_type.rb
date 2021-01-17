@@ -2,25 +2,25 @@
 
 module Decidim
   module Initiatives
-    InitiativeApiType = GraphQL::ObjectType.define do
-      name "InitiativeType"
+    class InitiativeApiType < Decidim::Api::Types::BaseObject
+      graphql_name "InitiativeType"
       description "An initiative type"
 
-      field :id, !types.ID, "The internal ID for this initiative type"
-      field :title, Decidim::Core::TranslatedFieldType, "Initiative type name"
-      field :description, Decidim::Core::TranslatedFieldType, "This is the initiative type description"
-      field :createdAt, Decidim::Core::DateTimeType, "The date this initiative type was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "The date this initiative type was updated", property: :updated_at
-      field :bannerImage, types.String, "Banner image", property: :banner_image
-      field :collectUserExtraFields, types.Boolean, "Collect participant personal data on signature", property: :collect_user_extra_fields
-      field :extraFieldsLegalInformation, types.String, "Legal information about the collection of personal data", property: :extra_fields_legal_information
-      field :minimumCommitteeMembers, types.Int, "Minimum of committee members", property: :minimum_committee_members
-      field :validateSmsCodeOnVotes, types.Boolean, "Add SMS code validation step to signature process", property: :validate_sms_code_on_votes
-      field :undoOnlineSignaturesEnabled, types.Boolean, "Enable participants to undo their online signatures", property: :undo_online_signatures_enabled
-      field :promotingComitteeEnabled, types.Boolean, "If promoting committee is enabled", property: :promoting_committee_enabled
-      field :signatureType, types.String, "Signature type of the initiative", property: :signature_type
+      field :id, ID, "The internal ID for this initiative type", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "Initiative type name", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "This is the initiative type description", null: true
+      field :created_at, Decidim::Core::DateTimeType, "The date this initiative type was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, "The date this initiative type was updated", null: true
+      field :banner_image, String, "Banner image", null: true
+      field :collect_user_extra_fields, Boolean, "Collect participant personal data on signature", null: true
+      field :extra_fields_legal_information, String, "Legal information about the collection of personal data", null: true
+      field :minimum_committee_members, Integer, "Minimum of committee members", null: true
+      field :validate_sms_code_on_votes, Boolean, "Add SMS code validation step to signature process", null: true
+      field :undo_online_signatures_enabled, Boolean, "Enable participants to undo their online signatures", null: true
+      field :promoting_comittee_enabled, Boolean, "If promoting committee is enabled", method: :promoting_committee_enabled, null: true
+      field :signature_type, String, "Signature type of the initiative", null: true
 
-      field :initiatives, !types[Decidim::Initiatives::InitiativeType], "The initiatives that have this type"
+      field :initiatives, [Decidim::Initiatives::InitiativeType, { null: true }], "The initiatives that have this type", null: false
     end
   end
 end

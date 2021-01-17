@@ -2,24 +2,24 @@
 
 module Decidim
   module Surveys
-    SurveysType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class SurveysType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Surveys"
+      graphql_name "Surveys"
       description "A surveys component of a participatory space."
 
-      connection :surveys, SurveyType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  SurveysTypeHelper.base_scope(component).includes(:component)
-                }
+      field :surveys, SurveyType.connection_type, null: true, connection: true
+
+      def surveys
+        SurveysTypeHelper.base_scope(object).includes(:component)
       end
 
-      field(:survey, SurveyType) do
-        argument :id, !types.ID
+      field :survey, SurveyType, null: true do
+        argument :id, ID, required: true
+      end
 
-        resolve ->(component, args, _ctx) {
-          SurveysTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def survey(**args)
+        SurveysTypeHelper.base_scope(object).find_by(id: args[:id])
       end
     end
 

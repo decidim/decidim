@@ -14,7 +14,7 @@ gem "decidim-templates", path: "."
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", ">= 4.3.5"
+gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"

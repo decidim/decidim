@@ -19,7 +19,7 @@ module Decidim
 
       def call(_obj, args, ctx)
         query = { organization: ctx[:current_organization] }
-        args.keys.each do |key|
+        args.compact.keys.each do |key|
           query[key] = args[key]
         end
         model_class.public_spaces.find_by(query)
