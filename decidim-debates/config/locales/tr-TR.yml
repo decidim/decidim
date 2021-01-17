@@ -219,6 +219,17 @@ tr:
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: Tartışmalar artık %{participatory_space_title} içinde mevcut
           notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> ’de <a href="%{resource_path}"> yeni tartışmalar </a> başlatabilirsiniz
+        debate_closed:
+          affected_user:
+            email_intro: '"%{resource_title}" tartışması kapatıldı. Sonuçları sayfasından okuyabilirsiniz:'
+            email_outro: Bu bildirimi, "%{resource_title}" tartışmasını takip ettiğiniz için aldınız. Önceki bağlantıdan takibini bırakabilirsiniz.
+            email_subject: '"%{resource_title}" tartışması kapatıldı'
+            notification_title: <a href="%{resource_path}">%{resource_title} </a> tartışması kapatıldı.
+          follower:
+            email_intro: '"%{resource_title}" tartışması kapatıldı. Sonuçları sayfasından okuyabilirsiniz:'
+            email_outro: Bu bildirimi, "%{resource_title}" tartışmasını takip ettiğiniz için aldınız. Önceki bağlantıdan takibini bırakabilirsiniz.
+            email_subject: '"%{resource_title}" tartışması kapatıldı'
+            notification_title: <a href="%{resource_path}">%{resource_title} </a> tartışması kapatıldı.
     gamification:
       badges:
         commented_debates:
