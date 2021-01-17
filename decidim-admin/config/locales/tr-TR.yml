@@ -148,6 +148,7 @@ tr:
           error: Yönetici kullanım şartlarını kabul ederken bir hata oluştu.
           success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
         actions:
+          accept: Bu yönetici şartlarını kabul ediyorum
           are_you_sure: Yönetici şartlarını reddettiğinizden emin misiniz?
           refuse: Yönetici şartlarını reddedin
           title: Kullanım şartlarını ve koşullarını kabul edin
@@ -618,6 +619,7 @@ tr:
           error: Bu katılımcı alan için özel bir kullanıcı silinirken bir hata oluştu.
           success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
         index:
+          import_via_csv: Csv'den içe aktar
           title: Katılımcı alan özel kullanıcısı
         new:
           create: yaratmak
