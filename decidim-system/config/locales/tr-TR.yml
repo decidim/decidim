@@ -84,9 +84,9 @@ tr:
           actions:
             save_and_invite: Kuruluş oluşturun ve yöneticiyi davet edin
           fields:
-            created_at: Adresinde düzenlendi
+            created_at: Oluşturuldu
             file_upload_settings: Dosya yükleme ayarları
-            name: isim
+            name: Adı
             omniauth_settings: Omniauth ayarları
             smtp_settings: SMTP ayarları
           name: organizasyon
@@ -161,11 +161,12 @@ tr:
             api_secret: API secret
         smtp_settings:
           fieldsets:
-            sender: Gönderici
+            sender: Gönderen
           instructions:
             from_label: 'E-posta göndereni: "your-organization-name <your-organization@example.org>" olacaktır. ''E-posta adresini'' etiket olarak kullanmak için boş bırakın'
           placeholder:
             from_email: your-organization@example.org
+            from_label: your-organization-name
         update:
           error: Bu kuruluş güncellenirken bir sorun oluştu.
           success: Kuruluş başarıyla güncellendi.
