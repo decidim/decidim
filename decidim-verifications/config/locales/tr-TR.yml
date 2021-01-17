@@ -54,7 +54,7 @@ tr:
           help:
             - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
             - Yüklenen görüntüdeki mevcut bilgileri doldurursunuz.
-            - Bilgi, kullanıcının doldurduğu her şeyle eşleşmelidir.
+            - Bilgiler, kullanıcının doldurduğu bilgilerle eşleşmelidir.
             - Bilgileri açıkça göremiyorsanız veya doğrulamıyorsanız, isteği reddedebilirsiniz ve kullanıcı bunu düzeltebilir.
         postal_letter:
           help:
@@ -85,7 +85,7 @@ tr:
           info: 'Bu, mevcut doğrulamanın verileridir:'
           no_data_stored: Veri depolanmadı.
         create:
-          error: Yetkilendirme oluşturulurken bir hata oluştu.
+          error: Yetkilendirme oluşturulurken bir sorun oluştu.
           success: Başarılı bir şekilde yetkilendirildiniz.
           unconfirmed: Kendinizi yetkilendirmek için e-postanızı onaylamanız gerekiyor.
         destroy:
@@ -100,7 +100,7 @@ tr:
             id_documents: Kimlik belgenizi yükleyerek doğrulanma
             postal_letter: Posta koduyla doğrulama kodu alarak doğrulanma
             sms: Bir SMS doğrulama kodu alarak doğrulanın
-          title: Kimliginizi dogrulayin
+          title: Kimliğini doğrula
           verify_with_these_options: 'Bunlar kimliğinizi doğrulamak için kullanılabilecek seçenekler:'
         index:
           expired_verification: Doğrulamanın süresi doldu
@@ -109,14 +109,14 @@ tr:
           unauthorized_verification: Yeni doğrulama
         new:
           authorize: göndermek
-          authorize_with: '%{authorizer}ile doğrulayın'
+          authorize_with: '%{authorizer} ile doğrulayın'
         renew_modal:
-          cancel: İptal etmek
+          cancel: İptal Et
           close: kapat
           continue: Devam et
           info_renew: Verileri güncellemek istiyorsanız, yenilemeye devam edin
           title: Doğrulamayı yenile
-        skip_verification: Bunu şimdilik ve %{link}için atlayabilirsiniz.
+        skip_verification: Bunu şimdilik %{link} atlayabilirsiniz
         start_exploring: keşfetmeye başla
       csv_census:
         admin:
@@ -125,22 +125,22 @@ tr:
               error: Sayım alınırken bir hata oluştu.
               success: '%{count} öğe başarıyla içe aktarıldı (%{errors} hata)'
             destroy_all:
-              success: Tüm nüfus sayımı verileri silindi
+              success: Tüm sayım verileri silindi
           destroy:
-            confirm: Silinen tüm nüfus sayımı geri alınamaz. Devam etmek istediğine emin misin?
-            title: Tüm nüfus sayımı verilerini sil
+            confirm: Silinen tüm sayımlar geri alınamaz. Devam etmek istediğine emin misin?
+            title: Tüm sayım verilerini sil
           index:
             data: Toplam %{count} kayıt var. Son yükleme tarihi %{due_date}
             empty: Sayım verileri yok. Bir CSV dosyası kullanarak almak için aşağıdaki formu kullanın.
-            title: Mevcut nüfus sayımı verileri
+            title: Geçerli kayıt verisi
           instructions:
             body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
             title: Bu kuruluş için CSV sayımını etkinleştirmeniz gerekiyor
           new:
             file: "e-posta verileri içeren .csv dosyası"
             info: 'E-posta adresi içeren yalnızca bir sütuna sahip CSV biçiminde bir dosya olmalıdır:'
-            submit: Dosya yükleme
-            title: Yeni bir nüfus sayımı yükleyin
+            submit: Dosya yükle
+            title: Yeni bir sayım yükleyin
         authorizations:
           new:
             error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
@@ -156,7 +156,7 @@ tr:
           config:
             edit:
               title: Kimlik belgeleri yapılandırması
-              update: Güncelleştirme
+              update: Güncelle
             update:
               error: Yapılandırma güncellenirken bir hata oluştu.
               success: Yapılandırma başarıyla güncellendi
