@@ -1,1 +1,9 @@
 tr:
+  decidim:
+    admin:
+      menu:
+        templates: Şablonlar
+      templates:
+        apply:
+          error: Bu şablonu uygularken bir sorun oluştu.
+          success: Şablon başarıyla uygulandı
