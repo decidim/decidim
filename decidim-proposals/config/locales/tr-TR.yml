@@ -325,23 +325,23 @@ tr:
     metrics:
       accepted_proposals:
         description: Kabul edilen teklif sayısı
-        object: önerileri
-        title: Kabul Edilen Teklifler
+        object: teklifler
+        title: Kabul edilen teklifler
       endorsements:
-        description: Tekliflerde oluşturulan ciro sayısı
+        description: Tekliflere verilen onay sayısı
         object: onaylar
-        title: Cirolar
+        title: Onaylar
       proposals:
-        description: Oluşturulan tekliflerin sayısı
-        object: önerileri
-        title: Teklif
+        description: Teklif sayısı
+        object: teklifler
+        title: Teklifler
       votes:
-        description: Kullanıcıların tekliflerinde oluşturulan oy sayısı
-        object: oy
-        title: oy
+        description: Tekliflere verilen desteklerin sayısı
+        object: destekler
+        title: Destekler
     participatory_spaces:
       highlighted_proposals:
-        see_all: Tümünü gör (%{count})
+        see_all: Tüm teklifleri görün (%{count})
     proposals:
       actions:
         answer_proposal: Cevap önerisi
@@ -356,17 +356,17 @@ tr:
           preview: Ön izleme
         exports:
           proposal_comments: Yorumlar
-          proposals: Teklif
+          proposals: Teklifler
         models:
           proposal:
-            name: öneri
+            name: Teklif
         participatory_texts:
           bulk-actions:
-            are_you_sure: Katılımcı metin taslağının tamamını atadığınızdan emin misiniz?
-            discard_all: Hepsini at
+            are_you_sure: Katılımcı metin taslağının tamamını attığınızdan emin misiniz?
+            discard_all: Hepsini iptal et
             import_doc: Dokümanı içe aktar
           discard:
-            success: Tüm Katılımcı metin taslakları atıldı.
+            success: Tüm katılımcı metin taslakları atıldı.
           import:
             invalid: Form geçersiz!
             invalid_file: Dosya bazı hatalar içeriyor, lütfen dosyanın içeriğini düzenlemeyi ve yeniden yüklemeyi deneyin.
