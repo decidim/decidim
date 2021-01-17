@@ -270,50 +270,50 @@ tr:
             email_subject: Takip ettiğiniz bir teklif reddedildi
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi reddedildi.
         proposal_update_category:
-          email_intro: 'Bir yönetici, "%{resource_title}" teklifinizin kategorisini güncelledi, kontrol et:'
-          email_outro: Bu bildirimi aldınız çünkü teklifin yazarı sizsiniz.
+          email_intro: 'Bir yönetici "%{resource_title}" teklifinizin kategorisini güncelledi, bu sayfada kontrol edin:'
+          email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
           email_subject: '%{resource_title} teklif kategorisi güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kategorisi bir yönetici tarafından güncellendi.
         proposal_update_scope:
           email_intro: 'Bir yönetici, "%{resource_title}" teklifinizin kapsamını güncelledi, bu sayfada göz atın:'
-          email_outro: Bu bildirimi aldınız çünkü teklifin yazarı sizsiniz.
+          email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
           email_subject: '%{resource_title} teklif kapsamı güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> teklif kapsamı bir yönetici tarafından güncellendi.
         voting_enabled:
-          email_intro: 'Teklifleri %{participatory_space_title}oylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title}için teklifler başladı'
-          notification_title: Artık başlayabilirsiniz <a href="%{resource_path}">oylama teklifleri aynı</a> içinde <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Teklifleri %{participatory_space_title} içinde destekleyebilirsiniz! Bu sayfaya katılmaya başlayın:'
+          email_outro: Bu bildirimi, %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} için teklif desteği başladı'
+          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title}</a> içinde <a href="%{resource_path}"> destekleyici teklifleri </a> başlatabilirsiniz
     gamification:
       badges:
         accepted_proposals:
           conditions:
-            - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
+            - Tekliflerin sunulması etkinleştirilmiş ilgilendiğiniz katılım alanını seçin
             - Gerçekleştirilebilecek teklifler vermeye çalışın. Bu şekilde kabul edilmeleri daha olasıdır.
           description: Bu rozet, yeni tekliflere aktif olarak katıldığınızda verilir ve bunlar kabul edilir.
-          description_another: Bu kullanıcı %{score} teklif kabul etti.
-          description_own: '%{score} teklif kabul edildi.'
+          description_another: Bu katılımcı kabul edilen %{score} teklif aldı.
+          description_own: '%{score} teklif kabul ettiniz.'
           name: Kabul edilen teklifler
           next_level_in: Bir sonraki seviyeye ulaşmak için kabul edilen %{score} teklif daha alın!
-          unearned_another: Bu kullanıcı henüz kabul edilen teklifleri almadı.
+          unearned_another: Bu katılımcının henüz herhangi bir teklifi kabul etmedi.
           unearned_own: Henüz kabul edilen teklifin yok.
         proposal_votes:
           conditions:
             - Göz atın ve diğer insanların önerilerini okumak için biraz zaman harcayın
             - Beğendiğiniz ya da ilginç bulduğunuz tekliflere destek verin
           description: Bu rozet, başkalarının önerilerini desteklediğinizde verilir.
-          description_another: Bu kullanıcı %{score} teklife destek verdi.
+          description_another: Bu katılımcı %{score} teklife destek verdi.
           description_own: '%{score} teklife destek verdiniz.'
           name: Teklif destekleri
-          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} teklife destek verin!
+          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} adetten fazla teklife destek verin!
           unearned_another: Bu kullanıcı henüz herhangi bir teklife destek vermedi.
           unearned_own: Henüz hiçbir teklife destek vermediniz.
         proposals:
           conditions:
             - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
             - Yeni bir teklif oluştur
-          description: Bu rozete, yeni tekliflere aktif olarak katıldığınızda izin verilir.
-          description_another: Bu kullanıcı %{score} teklif oluşturdu.
+          description: Bu rozet, yeni tekliflere aktif olarak katıldığınızda verilir.
+          description_another: Bu katılımcı %{score} teklif hazırladı.
           description_own: '%{score} teklif oluşturdunuz.'
           name: Teklif
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} teklif daha oluşturun!
@@ -321,28 +321,28 @@ tr:
           unearned_own: Henüz hiç teklif oluşturmadınız.
     metrics:
       accepted_proposals:
-        description: Kullanıcılar tarafından kabul edilen teklif sayısı
-        object: önerileri
-        title: Kabul Edilen Teklifler
+        description: Kabul edilen teklif sayısı
+        object: teklifler
+        title: Kabul edilen teklifler
       endorsements:
-        description: Tekliflerde oluşturulan ciro sayısı
+        description: Tekliflere verilen onay sayısı
         object: onaylar
-        title: Cirolar
+        title: Onaylar
       proposals:
-        description: Oluşturulan tekliflerin sayısı
-        object: önerileri
-        title: Teklif
+        description: Teklif sayısı
+        object: teklifler
+        title: Teklifler
       votes:
-        description: Kullanıcıların tekliflerinde oluşturulan oy sayısı
-        object: oy
-        title: oy
+        description: Tekliflere verilen desteklerin sayısı
+        object: destekler
+        title: Destekler
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Teklifler
     participatory_spaces:
       highlighted_proposals:
-        see_all: Tümünü gör (%{count})
+        see_all: Tüm teklifleri görün (%{count})
     proposals:
       actions:
         answer_proposal: Cevap önerisi
@@ -357,17 +357,17 @@ tr:
           preview: Ön izleme
         exports:
           comments: Yorumlar
-          proposals: Teklif
+          proposals: Teklifler
         models:
           proposal:
-            name: öneri
+            name: Teklif
         participatory_texts:
           bulk-actions:
-            are_you_sure: Katılımcı metin taslağının tamamını atadığınızdan emin misiniz?
-            discard_all: Hepsini at
+            are_you_sure: Katılımcı metin taslağının tamamını attığınızdan emin misiniz?
+            discard_all: Hepsini iptal et
             import_doc: Dokümanı içe aktar
           discard:
-            success: Tüm Katılımcı metin taslakları atıldı.
+            success: Tüm katılımcı metin taslakları atıldı.
           import:
             invalid: Form geçersiz!
             invalid_file: Dosya bazı hatalar içeriyor, lütfen dosyanın içeriğini düzenlemeyi ve yeniden yüklemeyi deneyin.
@@ -419,34 +419,34 @@ tr:
             success: Teklif başarıyla oluşturuldu
           edit:
             title: Teklifi güncelle
-            update: Güncelleştirme
+            update: Güncelle
           form:
             attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
             created_in_meeting: Bu teklif bir toplantıdan geliyor
-            select_a_category: bir kategori seç
-            select_a_meeting: Bir toplantı seçin
+            select_a_category: Bir kategori seç
+            select_a_meeting: Bir toplantı seç
           index:
             actions: Eylemler
             assign_to_valuator: Bilirkişiye ata
             assign_to_valuator_button: Ata
-            cancel: İptal etmek
+            cancel: İptal Et
             change_category: Kategoriyi değiştir
             change_scope: Kapsamı değiştir
             merge: Yeni biriyle birleştir
-            merge_button: birleşmek
+            merge_button: Birleştir
             publish: Yayınla
             publish_answers: Cevapları yayınla
             select_component: Bir bileşen seç
-            selected: seçilmiş
-            split: Bölünmüş teklifler
-            split_button: Bölünmüş
-            title: Teklif
+            selected: seçildi
+            split: Teklifleri böl
+            split_button: Böl
+            title: Teklifler
             unassign_from_valuator: Bilirkişinin atamasını kaldır
             unassign_from_valuator_button: Atamayı kaldır
-            update: Güncelleştirme
+            update: Güncelle
             update_scope_button: Kapsamı Güncelle
           new:
-            create: yaratmak
+            create: Oluştur
             title: Teklif oluştur
           publish_answers:
             number_of_proposals: '%{number} teklifleri için cevaplar yayınlanacak.'
@@ -455,7 +455,7 @@ tr:
             amendments_count: Değişikliklerin sayısı
             assigned_valuators: Atanan bilirkişiler
             authors: Yazarlar
-            body: Vücut
+            body: Gövde
             comments_count: Yorum sayısı
             comments_negative_count: Karşısında
             comments_neutral_count: Tarafsız
@@ -470,7 +470,7 @@ tr:
               one: ve 1 tane daha
               other: ve %{count} tane daha
             photos: Resimler
-            proposals: Teklif
+            proposals: Teklifler
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar
             remove_assignment: Atamayı kaldır
@@ -738,8 +738,11 @@ tr:
           send: Ön izleme
           title: Teklif Taslaklarını Düzenle
         filters:
+          activity: Aktivitelerim
+          all: Tümü
           amendment_type: tip
           category: Kategori
+          my_proposals: Tekliflerim
           origin: Menşei
           related_to: İle ilgili
           scope: kapsam
@@ -766,9 +769,13 @@ tr:
           title: Teklifinizi Oluşturun
         orders:
           label: 'Teklifleri şuna göre sırala:'
+          most_commented: En çok yorum yapılan
+          most_endorsed: En çok onaylanan
+          most_followed: En çok takip edilen
           most_voted: En çok oylanan
           random: rasgele
           recent: Son
+          with_more_authors: Daha fazla yazarlı
         participatory_texts:
           index:
             document_index: Belge indeksi
@@ -784,24 +791,40 @@ tr:
         proposal:
           creation_date: 'Oluşturma: %{date}'
           view_proposal: Teklifi görüntüle
+        proposals:
+          empty: Henüz teklif yok
+          empty_filters: Bu kritere sahip herhangi bir teklif yok
         show:
           answer: Cevap
           back_to: Geri
+          back_to_list: Listeye geri dön
+          changes_at_title: Değişiklikler "%{title}"
           comments: Yorumlar
           edit_proposal: Teklifi düzenle
           endorsements_list: Onay Listesi
+          estimated_cost: Tahmini maliyet
           hidden_endorsers_count:
             one: ve %{count} kişi daha
             other: ve %{count} kişi daha
           link_to_collaborative_draft_help_text: Bu teklif, işbirlikçi bir taslağın sonucudur. Geçmişi gözden geçirin
           link_to_collaborative_draft_text: Ortak taslaka bakın
+          link_to_promoted_emendation_help_text: Bu teklif, önerilen bir düzeltmedir
+          link_to_promoted_emendation_text: Reddedilen düzeltmeye bakın.
+          link_to_proposal_from_emendation_help_text: Bu reddedilmiş bir düzeltmedir
           link_to_proposal_from_emendation_text: Öneriye bakın
           proposal_accepted_reason: 'Bu teklif kabul edildi çünkü:'
           proposal_in_evaluation_reason: Bu teklif değerlendiriliyor
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
+          read_less: Daha az oku
+          read_more: Daha fazla oku
           report: Rapor
           withdraw_btn_hint: Herhangi bir destek almadığınız sürece fikrinizi değiştirirseniz teklifinizi geri çekebilirsiniz. Teklif silinmemiş, iptal edilen teklifler listesinde görünecektir.
+          withdraw_confirmation_html: Bu teklifi geri çekmek istediğinizden emin misiniz? <br> <br> <strong> Bu eylem iptal edilemez! </strong>
           withdraw_proposal: Teklifi geri çek
+        tags:
+          changed_from: "(bir yönetici tarafından <u>%{previous_name} </u> yerine değiştirildi)"
+        update:
+          title: Teklif güncelleme
         vote_button:
           already_voted: Çoktan oy verildi
           already_voted_hover: Unvote
@@ -833,17 +856,30 @@ tr:
             votes: oy
         wizard_aside:
           back: Geri
+          back_from_step_1: Teklifte geri dön
+          back_from_step_2: Tekliflere geri dön
+          back_from_step_3: Teklifleri karşılaştırmaya geri dön
+          back_from_step_4: Taslağı düzenlemeye dön
           info: <strong>teklif</strong>.
         wizard_steps:
+          current_step: Geçerli adım
           see_steps: adımları görmek
           step_1: Teklifinizi oluşturun
           step_2: Karşılaştırmak
           step_3: Tamamlayınız
           step_4: Teklifinizi yayınlayın
           step_of: '%{total_steps}adımdan %{current_step_num}'
+          title: Teklif oluşturma adımları
+      proposals_picker:
+        choose_proposals: Teklifleri seçin
+        close: Kapat
+        more_proposals: '%{number} tane daha teklif var. Onları bulmak için aramanızı daraltın.'
+        no_proposals: Arama kriterlerinizle eşleşen teklif yok veya herhangi bir teklif yok.
       publish:
         error: Teklif yayınlanırken hatalar oluştu.
         success: Teklif başarıyla yayınlandı.
+      publish_answers:
+        success: Teklif yanıtları başarıyla yayınlandı.
       update:
         error: Teklif kaydedilirken hatalar oluştu.
         success: Teklif başarıyla güncellendi.
