@@ -553,63 +553,63 @@ tr:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Ortak taslak yayınlanırken hatalar oluştu.
+            error: Ortak taslak yayınlanırken bir sorun oluştu.
             irreversible_action_modal:
               body: Taslağı bir teklif olarak yayınladıktan sonra, taslak artık düzenlenemez. Teklif yeni yazarları veya katkıları kabul etmeyecektir.
               cancel: İptal etmek
               ok: Teklif olarak yayınla
               title: Aşağıdaki işlem geri alınamaz
-            success: İşbirlikçi taslak bir teklif olarak başarıyla yayınlandı.
+            success: Ortak taslak, teklif olarak başarıyla yayınlandı.
           view_collaborative_draft: İşbirlikçi Taslak Görüntüle
           withdraw:
-            error: İşbirliği taslağını kapatırken hatalar oluştu.
+            error: Ortak taslak kapanırken bir sorun oluştu.
             irreversible_action_modal:
               body: Taslağı kapattıktan sonra, taslak artık düzenlenemez. Taslak yeni yazarları veya katkıları kabul etmeyecek.
-              cancel: İptal etmek
+              cancel: İptal Et
               ok: İşbirliği taslağını geri çekme
               title: Aşağıdaki işlem geri alınamaz
-            success: İşbirlikçi taslak başarıyla geri çekildi.
+            success: Ortak taslak başarıyla geri çekildi.
         compare:
           mine_is_different: Ortak çalışma taslağım farklı
-          no_similars_found: Aferin! Benzer ortak taslak bulunamadı
+          no_similars_found: Benzer ortak taslak bulunamadı
           title: Benzer işbirliği taslakları
         complete:
-          send: göndermek
-          title: İşbirlikçi taslağınızı tamamlayın
+          send: Gönder
+          title: Ortak çalışma taslağınızı tamamlayın
         count:
           drafts_count:
-            one: "%{count} işbirlikçi taslak"
-            other: "%{count} işbirlikçi taslak"
+            one: "%{count} ortak taslak"
+            other: "%{count} ortak taslak"
         create:
-          error: Bu işbirlikçi taslakları oluştururken bir sorun oluştu
-          success: İşbirlikçi taslak başarıyla oluşturuldu.
+          error: Bu ortak çalışma taslakları oluşturulurken bir sorunla karşılaşıldı
+          success: Ortak taslak başarıyla oluşturuldu.
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
           select_a_category: Lütfen bir kategori seçin
-          send: göndermek
+          send: Gönder
           title: Ortak taslak düzenle
         filters:
-          all: Herşey
+          all: Tümü
           amendment: Değişiklikler
           category: Kategori
-          open: Açık
-          published: Yayınlanan
+          open: Aç
+          published: Yayınlandı
           related_to: İle ilgili
-          scope: kapsam
+          scope: Kapsam
           search: Arama
-          state: Belirtmek, bildirmek
-          withdrawn: çekilmiş
+          state: Statü
+          withdrawn: Geri çekildi
         filters_small_view:
-          close_modal: Yakın kalıcı
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         new:
           send: Devam et
-          title: İşbirlikçi taslak oluştur
+          title: Ortak taslak oluştur
         new_collaborative_draft_button:
-          new_collaborative_draft: Yeni işbirlikçi taslak
+          new_collaborative_draft: Yeni ortak taslak
         orders:
           label: 'Sıralama taslakları:'
           most_contributed: En çok katkıda bulunan
