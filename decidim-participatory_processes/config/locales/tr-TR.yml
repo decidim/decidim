@@ -403,6 +403,9 @@ tr:
             participate: Katıl
             participate_in: '%{resource_name} sürecine katılın'
             see_all_processes: Tüm süreçleri gör
+      participatory_process_steps:
+        index:
+          back_to_process: Süreç sayfasına geri dön
       participatory_processes:
         filters:
           counters:
@@ -432,6 +435,8 @@ tr:
           loading: Sonuçlar yükleniyor ...
       show:
         area: alan
+        belongs_to_group: Bu süreç,
+        dates: Tarihler
         developer_group: Tanıtım grubu
         end_date: Bitiş tarihi
         local_area: Organizasyon Alanı
@@ -448,8 +453,10 @@ tr:
         comments_count: Yorumlar
         debates_count: Tartışmalar
         endorsements_count: Cirolar
+        followers_count: Takipçiler
         headline: Aktivite
         meetings_count: Toplantılar
+        no_stats: Henüz canlı istatistikler yok.
         orders_count: oy
         pages_count: Sayfalar
         participants_count: Katılımcılar
@@ -465,6 +472,7 @@ tr:
       participatory_process_groups:
         participatory_process_group:
           browse: Araştır
+          browse_resource: '%{resource_name} işlem grubuna göz atın'
           processes_count: 'Süreçler:'
       participatory_process_widgets:
         show:
@@ -476,11 +484,17 @@ tr:
         participatory_process:
           active_step: 'Mevcut adım:'
           more_info: Daha fazla bilgi
+          more_info_about: '%{resource_name} hakkında daha fazla bilgi'
           take_part: Yer almak
+          take_part_in: '%{resource_name} sürecine katılın'
         promoted_process:
           active_step: 'Mevcut adım:'
           more_info: Daha fazla bilgi
+          more_info_about: '%{resource_name} süreci hakkında daha fazla bilgi'
           take_part: Yer almak
+          take_part_in: '%{resource_name} sürecine katılın'
+        promoted_process_group:
+          more_info: Daha fazla bilgi
       process_header_steps:
         step: '%{total}adımdan %{current}'
         view_steps: Adımları göster
