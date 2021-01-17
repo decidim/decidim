@@ -349,6 +349,7 @@ cs:
         body_2: 'Důvod: %{justification}'
         greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Dobrý den,
+        subject: Váš účet byl zablokován od %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: a %{count} dalších

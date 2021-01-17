@@ -333,6 +333,7 @@ nl:
         actions:
           preview: Voorbeeldweergave
         exports:
+          proposal_comments: Reacties
           proposals: Voorstellen
         models:
           proposal:

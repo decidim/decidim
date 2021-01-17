@@ -4,6 +4,8 @@ require "rails"
 require "active_support/all"
 require "decidim/core"
 
+require "decidim/consultations/query_extensions"
+
 module Decidim
   module Consultations
     # Decidim"s Consultations Rails Engine.
@@ -88,6 +90,10 @@ module Decidim
             settings.attribute :max_results, type: :integer, default: 4
           end
         end
+      end
+
+      initializer "decidim_consultations.query_extensions" do
+        Decidim::Api::QueryType.include Decidim::Consultations::QueryExtensions
       end
     end
   end

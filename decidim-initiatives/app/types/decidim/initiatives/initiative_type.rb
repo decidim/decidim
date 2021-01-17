@@ -3,49 +3,47 @@
 module Decidim
   module Initiatives
     # This type represents a Initiative.
-    InitiativeType = GraphQL::ObjectType.define do
-      Decidim::Initiative.include Decidim::Core::GraphQLApiTransition
+    class InitiativeType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ParticipatorySpaceInterface
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Initiatives::InitiativeTypeInterface
+      implements Decidim::Core::TimestampsInterface
 
-      interfaces [
-        -> { Decidim::Core::ParticipatorySpaceInterface },
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::AuthorableInterface },
-        -> { Decidim::Initiatives::InitiativeTypeInterface }
-      ]
-
-      name "Initiative"
       description "A initiative"
 
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative."
-      field :slug, !types.String
-      field :hashtag, types.String, "The hashtag for this initiative"
-      field :createdAt, !Decidim::Core::DateTimeType, "The time this initiative was created", property: :created_at
-      field :updatedAt, !Decidim::Core::DateTimeType, "The time this initiative was updated", property: :updated_at
-      field :publishedAt, !Decidim::Core::DateTimeType, "The time this initiative was published", property: :published_at
-      field :reference, !types.String, "Reference prefix for this initiative"
-      field :state, types.String, "Current status of the initiative"
-      field :signatureType, types.String, "Signature type of the initiative", property: :signature_type
-      field :signatureStartDate, !Decidim::Core::DateType, "The signature start date", property: :signature_start_date
-      field :signatureEndDate, !Decidim::Core::DateType, "The signature end date", property: :signature_end_date
-      field :offlineVotes, types.Int, "The number of offline votes in this initiative", property: :offline_votes_count
-      field :onlineVotes, types.Int, "The number of online votes in this initiative", property: :online_votes_count
-      field :initiativeVotesCount, types.Int,
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative.", null: true
+      field :slug, String, null: false
+      field :hashtag, String, "The hashtag for this initiative", null: true
+      field :published_at, Decidim::Core::DateTimeType, "The time this initiative was published", null: false
+      field :reference, String, "Reference prefix for this initiative", null: false
+      field :state, String, "Current status of the initiative", null: true
+      field :signature_type, String, "Signature type of the initiative", null: true
+      field :signature_start_date, Decidim::Core::DateType, "The signature start date", null: false
+      field :signature_end_date, Decidim::Core::DateType, "The signature end date", null: false
+      field :offline_votes, Integer, "The number of offline votes in this initiative", method: :offline_votes_count, null: true
+      field :online_votes, Integer, "The number of online votes in this initiative", method: :online_votes_count, null: true
+      field :initiative_votes_count, Integer,
             description: "The number of votes in this initiative",
-            property: :online_votes_count,
-            deprecation_reason: "initiativeVotesCount has been collapsed in onlineVotes parameter"
-      field :initiativeSupportsCount, types.Int,
+            deprecation_reason: "initiativeVotesCount has been collapsed in onlineVotes parameter",
+            null: true
+      field :initiative_supports_count, Integer,
             description: "The number of supports in this initiative",
-            property: :online_votes_count,
-            deprecation_reason: "initiativeSupportsCount has been collapsed in onlineVotes parameter"
+            method: :online_votes_count,
+            deprecation_reason: "initiativeSupportsCount has been collapsed in onlineVotes parameter",
+            null: true
 
-      field :author, type: Decidim::Core::AuthorInterface.to_non_null_type, description: "The initiative author" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.user_group || obj.author
-        }
+      field :author, Decidim::Core::AuthorInterface, "The initiative author", null: false
+
+      def initiative_votes_count
+        object.online_votes_count
       end
 
-      field :committeeMembers, types[Decidim::Initiatives::InitiativeCommitteeMemberType], property: :committee_members
+      def author
+        object.user_group || object.author
+      end
+
+      field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], null: true
     end
   end
 end

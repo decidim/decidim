@@ -2,17 +2,16 @@
 
 module Decidim
   module Accountability
-    TimelineEntryType = GraphQL::ObjectType.define do
-      name "TimelineEntry"
+    class TimelineEntryType < Decidim::Api::Types::BaseObject
       description "A Timeline Entry"
 
-      field :id, !types.ID, "The internal ID for this timeline entry"
-      field :entryDate, Decidim::Core::DateType, "The entry date for this timeline entry", property: :entry_date
-      field :description, Decidim::Core::TranslatedFieldType, "The description for this timeline entry"
-      field :createdAt, Decidim::Core::DateTimeType, "When this timeline entry was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "When this timeline entry was updated", property: :updated_at
+      field :id, ID, "The internal ID for this timeline entry", null: false
+      field :entry_date, Decidim::Core::DateType, "The entry date for this timeline entry", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description for this timeline entry", null: true
+      field :created_at, Decidim::Core::DateTimeType, "When this timeline entry was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, "When this timeline entry was updated", null: true
 
-      field :result, Decidim::Accountability::ResultType, "The result for this timeline entry"
+      field :result, Decidim::Accountability::ResultType, "The result for this timeline entry", null: true
     end
   end
 end
