@@ -36,7 +36,7 @@ shared_examples "import proposals" do
 
     attach_file("import_file", Decidim::Dev.asset("import_proposals.csv"))
 
-    click_button "Start import"
+    click_button "Import"
 
     confirm_flash_message
     confirm_current_path
@@ -48,7 +48,7 @@ shared_examples "import proposals" do
 
     attach_file("import_file", Decidim::Dev.asset("import_proposals.json"))
 
-    click_button "Start import"
+    click_button "Import"
 
     confirm_flash_message
     confirm_current_path
@@ -60,7 +60,7 @@ shared_examples "import proposals" do
 
     attach_file("import_file", Decidim::Dev.asset("import_proposals.xls"))
 
-    click_button "Start import"
+    click_button "Import"
 
     confirm_flash_message
     confirm_current_path
