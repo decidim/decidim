@@ -488,13 +488,7 @@ en:
           section: 'If requested by the organization, please print and fill out this form to submit where indicated:'
           signature: Signature
         result:
-          answer_title:
-            accepted: This proposal has been accepted because
-            created: This proposal has been created
-            discarded: This proposal has been discarded because
-            published: This proposal is published because
-            rejected: This proposal has been rejected because
-            validating: This proposal is being evaluated
+          answer_title: This initiative has been answered
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This initiative collects both online and in-person signatures.
