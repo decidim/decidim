@@ -13,15 +13,21 @@ shared_examples_for "a comment voted event" do
   let(:comment_vote_author) { comment_vote.author }
   let(:comment_author) { comment.author }
 
-  let(:extra) { { comment_id: comment.id, author_id: comment_vote_author.id, weight: weight } }
+  let(:extra) { { comment_id: comment.id, author_id: comment_vote_author.id, weight: weight, downvotes: 100, upvotes: 999 } }
   let(:resource_title) { decidim_html_escape(translated(resource.title)) }
   let(:resource_text) { subject.resource_text }
 
   let(:verb) { weight.positive? ? "upvoted" : "downvoted" }
 
-  describe "author" do
-    it "returns the comment vote author" do
-      expect(subject.author).to eq(comment_vote_author)
+  describe "downvotes" do
+    it "outputs the total downvotes" do
+      expect(subject.downvotes).to eq(100)
+    end
+  end
+
+  describe "upvotes" do
+    it "outputs the total upvotes" do
+      expect(subject.upvotes).to eq(999)
     end
   end
 
@@ -33,13 +39,13 @@ shared_examples_for "a comment voted event" do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("#{comment_vote_author.name} #{verb} your comment in #{resource_title}")
+      expect(subject.email_subject).to eq("Your comment in \"#{resource_title}\" has been #{verb}.")
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("Your comment in #{resource_title} has been #{verb} by #{comment_vote_author.name}.")
+      expect(subject.email_intro).to eq("Your comment in \"#{resource_title}\" has been #{verb}. It now has a total of 999 upvotes and 100 downvotes.")
     end
   end
 
@@ -53,10 +59,9 @@ shared_examples_for "a comment voted event" do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("<a href=\"/profiles/#{comment_vote_author.nickname}\">#{comment_vote_author.name} @#{comment_vote_author.nickname}</a>")
-
+        .to include("Your <a href=\"#{resource_path}#comment_#{comment.id}\">comment</a> in \"#{resource_title}\" has been #{verb}")
       expect(subject.notification_title)
-        .to include("#{verb} your <a href=\"#{resource_path}#comment_#{comment.id}\">comment</a> in #{resource_title}")
+        .to include("It now has a total of 999 upvotes and 100 downvotes.")
     end
   end
 end

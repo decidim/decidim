@@ -58,7 +58,9 @@ module Decidim
           extra: {
             comment_id: @comment.id,
             author_id: @author.id,
-            weight: @weight
+            weight: @weight,
+            downvotes: @comment.down_votes.count,
+            upvotes: @comment.up_votes.count
           }
         )
       end
