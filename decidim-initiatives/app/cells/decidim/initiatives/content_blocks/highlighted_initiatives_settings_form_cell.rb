@@ -20,8 +20,8 @@ module Decidim
 
         def order_select
           [
-            [I18n.t("decidim.initiatives.admin.content_blocks.highlighted_initiatives.order.default"), 0],
-            [I18n.t("decidim.initiatives.admin.content_blocks.highlighted_initiatives.order.most_recent"), 1]
+            [I18n.t("decidim.initiatives.admin.content_blocks.highlighted_initiatives.order.default"), "default"],
+            [I18n.t("decidim.initiatives.admin.content_blocks.highlighted_initiatives.order.most_recent"), "most_recent"]
           ]
         end
       end

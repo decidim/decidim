@@ -6,15 +6,17 @@ module Decidim
     class OrganizationPrioritizedInitiatives < Rectify::Query
       attr_reader :organization, :order
 
-      def initialize(organization, order = nil)
+      def initialize(organization, order)
         @organization = organization
         @order = order
       end
 
       def query
-        return base_query unless order
-
-        base_query.order_by_most_recently_published
+        if order == "most_recent"
+          base_query.order_by_most_recently_published
+        else
+          base_query
+        end
       end
 
       private

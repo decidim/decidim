@@ -16,13 +16,13 @@ module Decidim
           model.settings.max_results
         end
 
-        def order?
-          model.settings.try(:order)
+        def order
+          model.settings.order
         end
 
         def highlighted_initiatives
           @highlighted_initiatives ||= OrganizationPrioritizedInitiatives
-                                       .new(current_organization, order?)
+                                       .new(current_organization, order)
                                        .query
                                        .limit(max_results)
         end

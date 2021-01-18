@@ -42,14 +42,28 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
   end
 
   context "when the content block has customized the sorting order" do
-    let(:settings) do
-      {
-        "order" => "1"
-      }
+    context "when sorting by most_recent" do
+      let(:settings) do
+        {
+          "order" => "most_recent"
+        }
+      end
+
+      it "shows up initiatives ordered by published_at" do
+        expect(subject.highlighted_initiatives.first).to eq(most_recent_initiative)
+      end
     end
 
-    it "shows up initiatives ordered by published_at" do
-      expect(subject.highlighted_initiatives.first).to eq(most_recent_initiative)
+    context "when sorting by default" do
+      let(:settings) do
+        {
+          "order" => "default"
+        }
+      end
+
+      it "shows up initiatives ordered by published_at" do
+        expect(subject.highlighted_initiatives.first).not_to eq(most_recent_initiative)
+      end
     end
   end
 end
