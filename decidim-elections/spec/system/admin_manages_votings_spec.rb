@@ -112,4 +112,147 @@ describe "Admin manages votings", type: :system do
       expect(page).to have_admin_callout("problem")
     end
   end
+
+  describe "updating a voting" do
+    before do
+      click_link translated(voting.title)
+    end
+
+    it "updates a voting" do
+      fill_in_i18n(
+        :voting_title,
+        "#voting-title-tabs",
+        en: "My new title",
+        es: "Mi nuevo título",
+        ca: "El meu nou títol"
+      )
+      attach_file :voting_banner_image, image3_path
+
+      within ".edit_voting" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within ".container" do
+        expect(page).to have_selector("input[value='My new title']")
+        expect(page).not_to have_css("img[src*='#{image2_filename}']")
+        expect(page).to have_css("img[src*='#{image3_filename}']")
+      end
+    end
+  end
+
+  describe "updating a voting with invalid values" do
+    before do
+      click_link translated(voting.title)
+    end
+
+    it "do not updates the voting" do
+      fill_in_i18n(
+        :voting_title,
+        "#voting-title-tabs",
+        en: "",
+        es: "",
+        ca: ""
+      )
+
+      within ".edit_voting" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("problem")
+    end
+  end
+
+  describe "updating a voting without images" do
+    let!(:voting3) { create(:voting, organization: organization) }
+
+    before do
+      visit decidim_admin_votings.votings_path
+    end
+
+    it "update a voting without images does not delete them" do
+      click_link translated(voting3.title)
+
+      within ".edit_voting" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_css("img[src*='#{voting3.banner_image.url}']")
+    end
+  end
+
+  describe "previewing votings" do
+    let!(:voting) { create(:voting, :unpublished, organization: organization) }
+
+    it "allows the user to preview the unpublished voting" do
+      within find("tr", text: translated(voting.title)) do
+        preview_window = window_opened_by do
+          click_link "Preview"
+        end
+
+        within_window(preview_window) do
+          expect(page).to have_i18n_content(voting.title)
+          expect(page).to have_i18n_content(voting.description)
+        end
+      end
+    end
+  end
+
+  describe "viewing a missing voting" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_admin_votings.voting_path(99_999_999) }
+    end
+  end
+
+  describe "publishing a voting" do
+    let!(:voting) { create(:voting, :unpublished, organization: organization) }
+
+    before do
+      click_link translated(voting.title)
+    end
+
+    it "publishes the voting" do
+      click_link "Publish"
+      expect(page).to have_content("successfully published")
+      expect(page).to have_content("Unpublish")
+      expect(page).to have_current_path decidim_admin_votings.edit_voting_path(voting)
+
+      voting.reload
+      expect(voting).to be_published
+    end
+  end
+
+  describe "unpublishing a voting" do
+    let!(:voting) { create(:voting, :published, organization: organization) }
+
+    before do
+      click_link translated(voting.title)
+    end
+
+    it "unpublishes the voting" do
+      click_link "Unpublish"
+      expect(page).to have_content("successfully unpublished")
+      expect(page).to have_content("Publish")
+      expect(page).to have_current_path decidim_admin_votings.edit_voting_path(voting)
+
+      voting.reload
+      expect(voting).not_to be_published
+    end
+  end
+
+  context "when there are multiple organizations in the system" do
+    let!(:external_voting) { create(:voting) }
+
+    before do
+      visit decidim_admin_votings.votings_path
+    end
+
+    it "doesn't let the admin manage assemblies form other organizations" do
+      within "table" do
+        expect(page).not_to have_content(external_voting.title["en"])
+      end
+    end
+  end
 end

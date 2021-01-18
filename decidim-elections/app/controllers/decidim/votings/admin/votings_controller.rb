@@ -47,7 +47,7 @@ module Decidim
           UpdateVoting.call(current_voting, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("votings.update.success", scope: "decidim.votings.admin")
-              redirect_to votings_path
+              redirect_to edit_voting_path(voting)
             end
 
             on(:invalid) do
@@ -57,29 +57,13 @@ module Decidim
           end
         end
 
-        def destroy
-          # enforce_permission_to :delete, :voting, voting: current_voting
-          #
-          # DestroyVoting.call(voting, current_user) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("votings.destroy.success", scope: "decidim.votings.admin")
-          #   end
-          #
-          #   on(:invalid) do
-          #     flash.now[:alert] = I18n.t("votings.destroy.invalid", scope: "decidim.votings.admin")
-          #   end
-          # end
-          #
-          # redirect_to votings_path
-        end
-
         def publish
           enforce_permission_to :publish, :voting, voting: current_voting
 
           PublishVoting.call(current_voting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("votings.publish.success", scope: "decidim.votings.admin")
-              redirect_to votings_path
+              redirect_to edit_voting_path(voting)
             end
           end
         end
@@ -90,7 +74,7 @@ module Decidim
           UnpublishVoting.call(current_voting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("votings.unpublish.success", scope: "decidim.votings.admin")
-              redirect_to votings_path
+              redirect_to edit_voting_path(voting)
             end
           end
         end

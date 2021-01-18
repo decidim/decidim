@@ -8,6 +8,8 @@ shared_context "when administrating a voting" do
   let(:image1_path) { Decidim::Dev.asset(image1_filename) }
   let(:image2_filename) { "city2.jpeg" }
   let(:image2_path) { Decidim::Dev.asset(image2_filename) }
+  let(:image3_filename) { "city3.jpeg" }
+  let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
   let!(:voting) { create(:voting, organization: organization) }
 end

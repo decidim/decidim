@@ -17,6 +17,8 @@ FactoryBot.define do
     start_time { 1.day.from_now }
     end_time { 3.days.from_now }
     decidim_scope_id { create(:scope, organization: organization).id }
+    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+    introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
     trait :unpublished do
       published_at { nil }

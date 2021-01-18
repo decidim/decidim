@@ -447,8 +447,8 @@ en:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
           unpublish: "%{user_name} unpublished the %{resource_name} voting"
-          content_blocks:
-      highlighted_votings:
+      content_blocks:
+        highlighted_votings:
           name: Highlighted votings
       votings:
         count:
