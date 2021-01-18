@@ -711,6 +711,7 @@ eu:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
           close: Itxi modal
+          from: Nork
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
         reply:
@@ -974,6 +975,8 @@ eu:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
     user_conversations:
+      index:
+        from: Nork
       update:
         error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
