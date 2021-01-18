@@ -51,7 +51,8 @@ describe "Admin manages votings", type: :system do
           ca: "Descripció més llarga"
         )
         fill_in :voting_slug, with: "slug"
-        # attach_file :voting_banner_image, image2_path
+        attach_file :voting_banner_image, image1_path
+        attach_file :voting_introductory_image, image2_path
 
         scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
 
@@ -101,7 +102,8 @@ describe "Admin manages votings", type: :system do
           ca: "Descripció més llarga"
         )
         fill_in :voting_slug, with: "slug"
-        # attach_file :voting_banner_image, image2_path
+        attach_file :voting_banner_image, image1_path
+        attach_file :voting_introductory_image, image2_path
         scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
 
         find("*[type=submit]").click

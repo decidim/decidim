@@ -38,5 +38,15 @@
     <div class="row column">
       <%= scopes_picker_field form, :scope_id, root: nil %>
     </div>
+
+    <div class="row">
+      <div class="columns xlarge-4">
+        <%= form.upload :banner_image %>
+      </div>
+
+      <div class="columns xlarge-4">
+        <%= form.upload :introductory_image %>
+      </div>
+    </div>
   </div>
 </div>

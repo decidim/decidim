@@ -13,6 +13,8 @@ module Decidim
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :scope_id, Integer
+        attribute :banner_image, String
+        attribute :introductory_image, String
         # attribute :attachment, AttachmentForm
         # attribute :photos, Array[String]
         # attribute :add_photos, Array
@@ -23,6 +25,8 @@ module Decidim
         validate :slug_uniqueness
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
+        validates :banner_image, passthru: { to: Decidim::Votings::Voting }
+        validates :introductory_image, passthru: { to: Decidim::Votings::Voting }
         # validate :notify_missing_attachment_if_errored
 
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }

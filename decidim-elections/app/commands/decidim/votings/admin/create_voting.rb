@@ -21,9 +21,15 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          transaction do
-            create_voting!
-          end && broadcast(:ok)
+          voting = create_voting!
+
+          if voting.persisted?
+            broadcast(:ok, voting)
+          else
+            form.errors.add(:banner_image, voting.errors[:banner_image]) if voting.errors.include? :banner_image
+            form.errors.add(:introductory_image, voting.errors[:introductory_image]) if voting.errors.include? :introductory_image
+            broadcast(:invalid)
+          end
         end
 
         private

@@ -8,6 +8,8 @@ class CreateDecidimElectionsVotings < ActiveRecord::Migration[5.2]
       t.jsonb :description, null: false
       t.datetime :start_time
       t.datetime :end_time
+      t.string :banner_image
+      t.string :introductory_image
 
       t.timestamps
 

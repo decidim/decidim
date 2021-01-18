@@ -11,6 +11,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::ScopableParticipatorySpace
       include Decidim::Publicable
+      include Decidim::HasUploadValidations
 
       translatable_fields :title, :description
 
@@ -20,6 +21,12 @@ module Decidim
 
       validates :slug, uniqueness: { scope: :organization }
       validates :slug, presence: true, format: { with: Decidim::Votings::Voting.slug_format }
+
+      validates_upload :banner_image
+      mount_uploader :banner_image, Decidim::BannerImageUploader
+
+      validates_upload :introductory_image
+      mount_uploader :introductory_image, Decidim::BannerImageUploader
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
