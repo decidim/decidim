@@ -74,7 +74,9 @@ module Decidim
                   extra: {
                     comment_id: comment.id,
                     author_id: author.id,
-                    weight: weight
+                    weight: weight,
+                    upvotes: comment.up_votes.count + 1,
+                    downvotes: comment.down_votes.count
                   }
                 )
               command.call
@@ -96,7 +98,9 @@ module Decidim
                   extra: {
                     comment_id: comment.id,
                     author_id: author.id,
-                    weight: weight
+                    weight: weight,
+                    upvotes: comment.up_votes.count,
+                    downvotes: comment.down_votes.count + 1
                   }
                 )
               command.call
