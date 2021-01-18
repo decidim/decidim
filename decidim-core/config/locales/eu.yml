@@ -1150,6 +1150,9 @@ eu:
       must_start_with_caps: letra maiuskulaz hasi behar da
       nesting_too_deep: ezin da egon azpikategoria batean
       not_locked: ez zen blokeatuta
+      not_saved:
+        one: 'Errorea gertatu da zure eskaera prozesatzean:'
+        other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
       too_short: laburra da (15 karaktere baino gutxiago)
