@@ -1552,7 +1552,7 @@ cs:
         youtube: "%{organization} na YouTube"
       user_menu:
         account: 'Uživatelský účet: %{name}'
-        admin_dashboard: Správní panel
+        admin_dashboard: Ovládací panel
         conversations: Konverzace
         notifications: Oznámení
         profile: Můj účet
