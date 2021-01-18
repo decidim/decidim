@@ -82,11 +82,6 @@ module Decidim
       def to_param
         slug
       end
-
-      # should remove this method when we have public views
-      def self.public_spaces
-        none
-      end
     end
   end
 end

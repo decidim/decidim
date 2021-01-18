@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/votings/query_extensions"
+
 module Decidim
   module Votings
     # This is the engine that runs on the public interface for Votings of `decidim-elections`.
@@ -51,6 +53,10 @@ module Decidim
             settings.attribute :max_results, type: :integer, default: 4
           end
         end
+      end
+
+      initializer "decidim_votings.query_extensions" do
+        Decidim::Api::QueryType.include Decidim::Votings::QueryExtensions
       end
 
       def load_seed
