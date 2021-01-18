@@ -1,1 +1,262 @@
 tr:
+  activemodel:
+    attributes:
+      answer:
+        description: Açıklama
+        image: Resim
+        proposals: İlgili teklifler
+        title: Başlık
+      election:
+        description: Açıklama
+        end_time: Oylama bitişi
+        start_time: Oylama başlangıcı
+        title: Başlık
+      question:
+        description: Açıklama
+        max_selections: Maksimum seçim sayısı
+        min_selections: Yukarıdakilerden hiçbiri
+        title: Başlık
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Cevap
+        other: Cevaplar
+      decidim/elections/election:
+        one: Seçim
+        other: Seçimler
+      decidim/elections/question:
+        one: Soru
+        other: Sorular
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Oy ver
+        name: Seçimler
+        settings:
+          global:
+            announcement: Duyuru
+          step:
+            announcement: Duyuru
+    elections:
+      actions:
+        confirm_destroy: Emin misin?
+        destroy: Yok et
+        edit: Düzenle
+        edit_answers: Cevapları düzenle
+        edit_questions: Soruları Düzenle
+        import: Teklifleri yanıtlara aktarın
+        new: Yeni %{name}
+        preview: Önizleme
+        publish: Yayınla
+        title: Eylemler
+        unpublish: Yayımdan Kaldır
+      admin:
+        answers:
+          create:
+            invalid: Bu cevabı oluştururken bir sorunla karşılaştım
+            success: Cevap başarıyla oluşturuldu
+          destroy:
+            invalid: Bu cevabı silerken bir sorun oluştu
+            success: Yanıt başarıyla silindi
+          edit:
+            title: Cevabı düzenle
+            update: Cevabı güncelle
+          index:
+            invalid_max_selections: Maksimum seçimi eşleştirmek için %{missing_answers} yanıt(lar)a daha ihtiyacınız var
+            title: Cevaplar
+          new:
+            create: Cevap oluştur
+            title: Yeni cevap
+          update:
+            invalid: Bu klasör güncellenirken bir hata oluştu
+            success: Cevap başarıyla güncellendi
+        elections:
+          create:
+            invalid: Bu seçim oluşturulurken bir sorun meydana geldi
+            success: Seçim başarıyla oluşturuldu
+          destroy:
+            invalid: Bu seçim silinirken bir sorun oluştu
+            success: Seçim başarıyla silindi
+          edit:
+            title: Seçimi düzenle
+            update: Seçimi güncelle
+          index:
+            no_bulletin_board: Bu modülü kullanmak için gerekli olan yapılandırılmış bir <a href="https://github.com/decidim/decidim-bulletin-board"> Bulletin Board sunucusu </a> yok. Bu görev Sistem Yöneticisi tarafından yapılmalıdır.
+            title: Seçimler
+          new:
+            create: Seçim oluştur
+            title: Yeni seçim
+          publish:
+            success: Seçim başarıyla yayınlandı.
+          unpublish:
+            success: Seçim başarılı bir şekilde yayınlanmadı.
+          update:
+            invalid: Bu seçim güncellenirken bir sorun oluştu
+            success: Seçim başarıyla güncellendi
+        models:
+          answer:
+            name: Cevap
+          election:
+            name: Seçim
+          question:
+            name: Soru
+        proposals_imports:
+          create:
+            invalid: Teklifleri cevaplara aktarırken bir sorun oluştu
+            success: "%{number} teklif başarıyla yanıtlara aktarıldı"
+          new:
+            create: Teklifleri yanıtlara aktarın
+            no_components: Bu katılımcı alanda, teklifleri yanıtlara aktarmak için başka teklif bileşeni yoktur.
+            select_component: Lütfen modülü bileşeni seçin
+        questions:
+          create:
+            invalid: Yeni bir soru oluşturulurken bir hata oluştu
+            success: Soru başarıyla oluşturuldu
+          destroy:
+            invalid: Bu soru silinirken bir sorun oluştu
+            success: Soru başarıyla silindi
+          edit:
+            title: Soruyu Düzenle
+            update: Soruyu güncelle
+          index:
+            title: Sorular
+          new:
+            create: Soru Oluştur
+            title: Yeni soru
+          update:
+            invalid: Bu soru güncellenirken bir hata oluştu
+            success: Soru başarıyla güncellendi
+      admin_log:
+        election:
+          publish: "%{user_name}, %{resource_name} seçimini yayınladı"
+          unpublish: "%{user_name}, %{resource_name} seçimini yayından kaldırdı"
+      election_m:
+        badge_name:
+          finished: Bitti
+          ongoing: Aktif
+          upcoming: Yakında
+        end_date: Son
+        footer:
+          view: Görünüm
+          vote: Seçim
+        label:
+          date: Tarihler
+        questions: '%{count} soru'
+        start_date: Başlangıç
+        unspecified: Belirtilmemiş
+      elections:
+        count:
+          elections_count:
+            one: "%{count} seçim"
+            other: "%{count} seçim"
+        filters:
+          active: Aktif
+          all: Tümü
+          finished: Bitti
+          search: Arama
+          state: Statü
+          upcoming: Yakında
+        filters_small_view:
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
+        show:
+          back: Tüm seçimler
+          preview: Önizleme
+          vote: Oy
+          voting_period_status:
+            finished: Oylama %{start_time} tarihinde başladı ve %{end_time} tarihinde sona erdi
+            ongoing: Oylama %{end_time} tarihinde sona eriyor
+            upcoming: Oylama %{start_time} tarihinde başlıyor
+      models:
+        answer:
+          fields:
+            proposals: Teklifler
+            title: Başlık
+        election:
+          fields:
+            end_time: Bitiyor
+            start_time: Başlıyor
+            title: Başlık
+        question:
+          fields:
+            answers: Cevaplar
+            max_selections: Maks. Alan sayısı seçimler
+            title: Başlık
+      orders:
+        label: Seçimleri şuna göre sırala
+        older: Daha eski
+        recent: En son
+      votes:
+        confirm:
+          answer: Cevap
+          answer_number: '%{number} cevap'
+          confirm: Onayla
+          edit: düzenle
+          header: Oyunu onayla
+          intro: İşte kullanmak üzere olduğunuz oyların bir özeti. <br> Lütfen oyunuzu onaylayın veya yanıtlarınızı düzenleyin.
+          nota_option: Boş
+          question: '%{count} soru'
+        confirmed:
+          back: Seçimlere dön
+          experience: Şu ana kadarki deneyiminiz nasıl?
+          feedback: Bize geri bildirim verin
+          header: Oy onaylandı
+          lead: Oyunuz çoktan verildi!
+          text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
+          verify_text: Kontrol etmek için, tanımlayıcıyı kopyalayın ve <a href="evote-verify"> oy doğrulama sayfasına </a> yapıştırın
+        encrypting:
+          header: Oy kodlanıyor...
+          text: Anonim olarak kullanabilmeniz için oyunuz şifreleniyor.
+        header:
+          confirm: Oyunu onayla
+          confirmed: Oy onaylandı
+          encrypting: Onaylanan oy
+        messages:
+          not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
+        modal:
+          close: Kapat
+          proposal_header: 'Teklifler:'
+        new:
+          answer_choices: En fazla %{choices} cevap seçebilirsiniz
+          more_information: Daha fazla bilgi
+          nota_option: Yukarıdakilerin hiçbiri
+          preview_alert: Bu, oylama kabininin bir önizlemesidir.
+          question_steps: Soru %{current_step}/%{total_steps}
+          selections: "%{selected}/%{max_selections} <br> seçim"
+        voting_step:
+          back: Geri
+          continue: Sonraki
+      warnings:
+        no_elections_warning: Arama kriterlerinize uyan seçim yok veya planlanmış bir seçim yok.
+        no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} seçimi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{resource_title} seçimi artık %{participatory_space_title} için aktif.'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi artık %{participatory_space_title} için aktif.
+    pages:
+      home:
+        statistics:
+          elections_count: Seçimler
+    participatory_processes:
+      statistics:
+        elections_count: Seçimler
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Çıkış

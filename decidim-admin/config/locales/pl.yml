@@ -91,6 +91,8 @@ pl:
         name: Nazwa
         organization: Organizacja
         plural: Liczba mnoga
+      settings:
+        scope_id: Zakres
       static_page:
         changed_notably: Nastąpiły zauważalne zmiany.
         content: Zawartość
