@@ -483,6 +483,7 @@ pl:
         index:
           choose_an_option: 'Wybierz opcję rejestracji:'
           login_as: Jesteś zalogowany jako %{name} <%{email}>
+          no_registrations: Brak rejestracji
           register: Zarejestruj się
           title: Typy rejestracji
       shared:
@@ -546,6 +547,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać ją obserwować klikając poprzedni link.
           email_subject: Konferencja „%{resource_title}” już wkrótce!
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> odbędzie się za 2 dni.
+    help:
+      participatory_spaces:
+        conferences:
+          title: Czym są konferencje?
     log:
       value_types:
         conference_presenter:
