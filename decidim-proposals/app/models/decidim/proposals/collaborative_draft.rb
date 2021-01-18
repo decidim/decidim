@@ -34,12 +34,19 @@ module Decidim
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where(state: "published") }
+      scope :drafts, -> { where(published_at: nil) }
+      scope :except_drafts, -> { where.not(published_at: nil) }
 
       # Checks whether the user can edit the given proposal.
       #
       # user - the user to check for authorship
       def editable_by?(user)
         authored_by?(user)
+      end
+
+      # Public: Whether the proposal is a draft or not.
+      def draft?
+        published_at.nil?
       end
 
       def open?

@@ -172,7 +172,7 @@ module Decidim
       end
 
       def type_of
-        if ["Decidim::Proposals::CollaborativeDraftForm"].include? @form.class.name
+        if @form.class.name.include? "CollaborativeDraft"
           :collaborative_drafts
         elsif @collaborative_draft.present?
           :collaborative_drafts

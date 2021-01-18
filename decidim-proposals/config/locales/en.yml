@@ -133,8 +133,8 @@ en:
             comments_max_length: Comments max length (Leave 0 for default value)
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
-            new_proposal_body_template: New proposal body template
-            new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
+            new_proposal_body_template: New proposal and collaborative draft body template
+            new_proposal_body_template_help: You can define prefilled text that the new Proposals and Collaborative Drafts will have
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             participatory_texts_enabled: Participatory texts enabled

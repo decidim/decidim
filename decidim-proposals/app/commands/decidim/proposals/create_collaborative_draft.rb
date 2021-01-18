@@ -26,14 +26,8 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        if process_attachments?
-          build_attachment
-          return broadcast(:invalid) if attachment_invalid?
-        end
-
         transaction do
           create_collaborative_draft
-          create_attachment if process_attachments?
         end
 
         broadcast(:ok, collaborative_draft)
@@ -54,19 +48,12 @@ module Decidim
             title: title_with_hashtags,
             body: body_with_hashtags,
             category: form.category,
-            scope: form.scope,
-            component: form.component,
-            address: form.address,
-            latitude: form.latitude,
-            longitude: form.longitude,
-            state: "open"
+            component: form.component
           )
-          draft.coauthorships.build(author: @current_user, user_group: @form.user_group)
+          draft.add_coauthor(@current_user, user_group: user_group)
           draft.save!
           draft
         end
-
-        @attached_to = @collaborative_draft
       end
 
       def user_group

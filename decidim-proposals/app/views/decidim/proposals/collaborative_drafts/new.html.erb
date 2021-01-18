@@ -8,16 +8,22 @@
 
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form, url: compare_collaborative_drafts_path, method: :get) do |form| %>
+        <%= decidim_form_for(@form) do |form| %>
           <%= form_required_explanation %>
 
           <div class="field">
-            <%= form.text_field :title %>
+            <%= form.text_field :title, class: "js-hashtags" %>
           </div>
 
-          <div class="field">
-            <%= form.text_area :body, rows: 10 %>
+          <div class="field hashtags__container">
+            <%= text_editor_for_proposal_body(form) %>
           </div>
+
+          <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+            <div class="field">
+              <%= user_group_select_field form, :user_group_id %>
+            </div>
+          <% end %>
 
           <div class="actions">
             <%= form.submit t("decidim.proposals.collaborative_drafts.new.send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
