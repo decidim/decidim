@@ -27,6 +27,7 @@ module Decidim
       def query
         Decidim::Proposals::CollaborativeDraft
           .where(component: @component)
+          .published
           .where(
             "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",
             @collaborative_draft[:title],
@@ -41,11 +42,11 @@ module Decidim
       attr_reader :collaborative_draft
 
       def title_similarity
-        "similarity(title, ?)"
+        "similarity(title::text, ?)"
       end
 
       def body_similarity
-        "similarity(body, ?)"
+        "similarity(body::text, ?)"
       end
     end
   end
