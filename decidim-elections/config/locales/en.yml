@@ -400,7 +400,7 @@ en:
     votings:
       admin:
         index:
-          not_published: Not published
+          not_published: Unpublished
           published: Published
         menu:
           votings: Votings
