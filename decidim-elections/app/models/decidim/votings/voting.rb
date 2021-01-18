@@ -58,7 +58,7 @@ module Decidim
         else
           :upcoming
         end
-      end      
+      end
 
       searchable_fields({
                           scope_id: :decidim_scope_id,

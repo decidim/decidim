@@ -13,7 +13,9 @@ module Decidim
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :scope_id, Integer
+        attribute :remove_banner_image
         attribute :banner_image, String
+        attribute :remove_introductory_image
         attribute :introductory_image, String
         # attribute :attachment, AttachmentForm
         # attribute :photos, Array[String]

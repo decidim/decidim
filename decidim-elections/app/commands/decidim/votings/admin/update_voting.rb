@@ -24,13 +24,13 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          update_voting
+          update_voting!
 
           if voting.valid?
             broadcast(:ok, voting)
           else
-            # form.errors.add(:banner_image, voting.errors[:banner_image]) if voting.errors.include? :banner_image
-            # form.errors.add(:introductory_image, voting.errors[:introductory_image]) if voting.errors.include? :introductory_image
+            form.errors.add(:banner_image, voting.errors[:banner_image]) if voting.errors.include? :banner_image
+            form.errors.add(:introductory_image, voting.errors[:introductory_image]) if voting.errors.include? :introductory_image
             broadcast(:invalid)
           end
         end
@@ -39,7 +39,7 @@ module Decidim
 
         attr_reader :form, :voting
 
-        def update_voting
+        def update_voting!
           voting.assign_attributes(attributes)
           voting.save! if voting.valid?
         end
@@ -52,18 +52,17 @@ module Decidim
             start_time: form.start_time,
             end_time: form.end_time,
             scope: form.scope
-          }
-          # .merge(uploader_attributes)
+          }.merge(uploader_attributes)
         end
 
-        # def uploader_attributes
-        #   {
-        #     banner_image: form.banner_image,
-        #     remove_banner_image: form.remove_banner_image,
-        #     introductory_image: form.introductory_image,
-        #     remove_introductory_image: form.remove_introductory_image
-        #   }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
-        # end
+        def uploader_attributes
+          {
+            banner_image: form.banner_image,
+            remove_banner_image: form.remove_banner_image,
+            introductory_image: form.introductory_image,
+            remove_introductory_image: form.remove_introductory_image
+          }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
+        end
       end
     end
   end
