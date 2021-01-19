@@ -6,7 +6,7 @@ module Decidim
       # This controller allows to create or update an election.
       class VotingsController < Admin::ApplicationController
         include Decidim::Votings::Admin::Filterable
-        helper_method :current_voting, :current_participatory_space
+        helper_method :votings, :current_voting, :current_participatory_space
 
         def index
           enforce_permission_to :read, :votings
