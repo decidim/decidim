@@ -412,6 +412,11 @@ en:
           published: Published
         menu:
           votings: Votings
+          votings_submenu:
+            attachment_collections: Folders
+            attachment_files: Files
+            attachments: Attachments
+            info: Information
         models:
           voting:
             fields:
