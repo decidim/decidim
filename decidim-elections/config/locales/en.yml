@@ -45,6 +45,9 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/voting:
+        one: Voting
+        other: Votings
   decidim:
     components:
       elections:
