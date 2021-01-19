@@ -6,7 +6,7 @@ module Decidim
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
 
       attribute :current_component, Decidim::Component
-      attribute :creator, Object
+      attribute :creator, String, default: ->(form, _attribute) { form.creators.first[:creator].to_s }
       attribute :file
       attribute :user_group_id, Integer
 
@@ -38,7 +38,7 @@ module Decidim
       end
 
       def creators
-        current_component.manifest.import_manifests.map do |manifest|
+        @creators ||= current_component.manifest.import_manifests.map do |manifest|
           { creator: manifest.creator, name: manifest.creator.to_s.split("::").last.downcase }
         end
       end

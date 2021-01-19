@@ -1,6 +1,6 @@
 (() => {
   const $creatorSelect = $("#import_creator");
-  const $creatorGuidances = $(".guidance");
+  const $creatorGuidances = $(".creator-guidances").find(".guidance");
 
   const showGuidance = (text) => {
     const formatted = text.replace(/\s/g, "").toLocaleLowerCase();
@@ -21,13 +21,6 @@
   })
 
   $creatorGuidances.hide();
-
-  if ($creatorGuidances.length === 1) {
-    const $option = $("#import_creator option:eq(1)").first()
-    const value = $option.val()
-    $creatorSelect.val(value)
-    showGuidance($option.text());
-  }
-
+  $creatorGuidances.first().show();
 })();
 

@@ -22,11 +22,6 @@ describe "Import proposals", type: :system do
       expect(page).to have_content("Import")
     end
 
-    it "does not have guidance when no creator is selected" do
-      select "", from: "import_creator"
-      expect(page).to have_no_content("The file must have column names title/en and body/en")
-    end
-
     it "has guidance when creator is selected" do
       select "Proposal creator", from: "import_creator"
       expect(page).to have_content("The file must have column names title/en and body/en")
