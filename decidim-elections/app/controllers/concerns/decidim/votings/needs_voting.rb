@@ -11,12 +11,6 @@ module Decidim
         end
       end
 
-      def self.extended(base)
-        base.extend Decidim::NeedsOrganization, InstanceMethods
-
-        enhance_controller(base)
-      end
-
       def self.included(base)
         base.include Decidim::NeedsOrganization, InstanceMethods
 
