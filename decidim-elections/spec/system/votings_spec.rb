@@ -58,7 +58,7 @@ describe "Votings", type: :system do
       visit decidim_votings.votings_path
     end
 
-    it "Shows all votings" do
+    it "shows all votings" do
       within ".order-by" do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
       end

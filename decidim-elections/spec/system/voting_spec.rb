@@ -20,7 +20,7 @@ describe "Voting", type: :system do
       visit decidim_votings.voting_path(voting)
     end
 
-    it "Shows the basic voting data" do
+    it "shows the basic voting data" do
       expect(page).to have_i18n_content(voting.title)
       expect(page).to have_i18n_content(voting.description)
     end
@@ -32,13 +32,10 @@ describe "Voting", type: :system do
 
       before do
         switch_to_host(organization.host)
-        p current_url
         visit decidim_votings.voting_path(voting)
-        p current_url
       end
 
       it "redirects to root path" do
-        p current_url
         expect(page).to have_current_path("/")
       end
     end

@@ -29,18 +29,18 @@ FactoryBot.define do
     end
 
     trait :upcoming do
-      start_time { Time.zone.today + 7.days }
-      end_time { Time.zone.today + 1.month + 7.days }
+      start_time { 7.days.from_now }
+      end_time { 1.month.from_now + 7.days }
     end
 
     trait :ongoing do
-      start_time { Time.zone.today - 7.days }
-      end_time { Time.zone.today - 7.days + 1.month }
+      start_time { 7.days.ago }
+      end_time { 1.month.from_now - 7.days }
     end
 
     trait :finished do
-      start_time { Time.zone.today - 7.days - 1.month }
-      end_time { Time.zone.today - 7.days }
+      start_time { 1.month.ago - 7.days }
+      end_time { 7.days.ago }
     end
   end
 end

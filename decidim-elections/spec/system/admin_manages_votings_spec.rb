@@ -147,7 +147,7 @@ describe "Admin manages votings", type: :system do
       click_link translated(voting.title)
     end
 
-    it "do not updates the voting" do
+    it "does not update the voting" do
       fill_in_i18n(
         :voting_title,
         "#voting-title-tabs",
@@ -187,7 +187,7 @@ describe "Admin manages votings", type: :system do
       visit decidim_admin_votings.votings_path
     end
 
-    it "update a voting without images does not delete them" do
+    it "does not delete them" do
       click_link translated(voting3.title)
 
       within ".edit_voting" do

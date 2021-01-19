@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     module VotingsHelper
-      # Returns  options for state filter selector.
+      # Returns options for state filter selector.
       def options_for_state_filter
         [
           ["all", t("votings.filters.all", scope: "decidim.votings")],
