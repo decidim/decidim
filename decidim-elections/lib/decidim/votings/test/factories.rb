@@ -27,5 +27,20 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :upcoming do
+      start_time { Time.zone.today + 7.days }
+      end_time { Time.zone.today + 1.month + 7.days }
+    end
+
+    trait :ongoing do
+      start_time { Time.zone.today - 7.days }
+      end_time { Time.zone.today - 7.days + 1.month }
+    end
+
+    trait :finished do
+      start_time { Time.zone.today - 7.days - 1.month }
+      end_time { Time.zone.today - 7.days }
+    end
   end
 end
