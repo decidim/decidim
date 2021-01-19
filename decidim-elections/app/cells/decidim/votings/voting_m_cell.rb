@@ -8,7 +8,7 @@ module Decidim
       private
 
       def has_state?
-        true
+        false
       end
 
       # Even though we need to render the badge, we can't do it in the normal
@@ -40,11 +40,11 @@ module Decidim
       end
 
       def resource_image_path
-        # model.banner_image.url
+        model.banner_image.url
       end
 
       def has_image?
-        false
+        model.banner_image.url.present?
       end
 
       def start_time
