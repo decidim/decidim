@@ -503,7 +503,7 @@ tr:
             success: Teklifler, yeni bir taneyle başarılı bir şekilde birleştirildi.
         proposals_splits:
           create:
-            invalid: Seçilen teklifleri bölen bir hata oluştu.
+            invalid: Seçilen teklifleri bölerken bir sorun vardı.
             success: Teklifleri başarılı bir şekilde yenilere ayırdı.
         valuation_assignments:
           create:
@@ -514,144 +514,144 @@ tr:
             success: Bilirkişinin tekliflerdeki ataması başarıyla kaldırıldı
       admin_log:
         proposal:
-          answer: "%{user_name} , %{space_name} uzayda %{resource_name} teklifi yanıtladı"
-          create: "%{user_name} , resmi bir teklif olarak %{space_name} uzayda %{resource_name} teklif oluşturdu"
+          answer: "%{user_name}, %{space_name} alanında %{resource_name} teklifini yanıtladı"
+          create: "%{user_name}, %{resource_name} teklifini %{space_name} alanında resmi bir teklif olarak oluşturdu"
           publish_answer: "%{user_name}, %{resource_name} teklifinin cevabını %{space_name} alanında yayınladı"
-          update: "%{user_name} , %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
+          update: "%{user_name}, %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
         proposal_note:
-          create: "%{user_name} , %{space_name} alanda %{resource_name} teklif üzerinde özel bir not bıraktı"
+          create: "%{user_name}, %{space_name} alanda %{resource_name} teklif üzerinde özel bir not bıraktı"
         valuation_assignment:
           create: "%{user_name}, %{resource_name} teklifini bir değerleyiciye atadı"
           delete: "%{user_name}, %{proposal_title} teklifinden bir değerleyicinin atamasını kaldırdı"
       answers:
-        accepted: Kabul edilmiş
-        evaluating: değerlendirilmesi
+        accepted: Kabul Edildi
+        evaluating: Değerlendiriliyor
         not_answered: Cevaplanmadı
-        rejected: Reddedilen
-        withdrawn: çekilmiş
+        rejected: Reddedildi
+        withdrawn: Geri çekildi
       application_helper:
         filter_category_values:
-          all: Herşey
+          all: Tümü
         filter_origin_values:
-          all: Herşey
+          all: Tümü
           citizens: Vatandaşlar
           meetings: Toplantılar
           official: Resmi
-          user_groups: Kullanıcı Grupları
+          user_groups: Gruplar
         filter_scope_values:
-          all: Herşey
+          all: Tümü
         filter_state_values:
-          accepted: Kabul edilmiş
-          all: Herşey
-          evaluating: değerlendirilmesi
+          accepted: Kabul Edildi
+          all: Tümü
+          evaluating: Değerlendiriliyor
           not_answered: Cevaplanmadı
-          rejected: Reddedilen
+          rejected: Reddedildi
         filter_type_values:
-          all: Herşey
+          all: Tümü
           amendments: Değişiklikler
           proposals: Teklif
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Ortak taslak yayınlanırken hatalar oluştu.
+            error: Ortak taslak yayınlanırken bir sorun oluştu.
             irreversible_action_modal:
               body: Taslağı bir teklif olarak yayınladıktan sonra, taslak artık düzenlenemez. Teklif yeni yazarları veya katkıları kabul etmeyecektir.
               cancel: İptal etmek
               ok: Teklif olarak yayınla
               title: Aşağıdaki işlem geri alınamaz
-            success: İşbirlikçi taslak bir teklif olarak başarıyla yayınlandı.
+            success: Ortak taslak, teklif olarak başarıyla yayınlandı.
           view_collaborative_draft: İşbirlikçi Taslak Görüntüle
           withdraw:
-            error: İşbirliği taslağını kapatırken hatalar oluştu.
+            error: Ortak taslak kapanırken bir sorun oluştu.
             irreversible_action_modal:
               body: Taslağı kapattıktan sonra, taslak artık düzenlenemez. Taslak yeni yazarları veya katkıları kabul etmeyecek.
-              cancel: İptal etmek
+              cancel: İptal Et
               ok: İşbirliği taslağını geri çekme
               title: Aşağıdaki işlem geri alınamaz
-            success: İşbirlikçi taslak başarıyla geri çekildi.
+            success: Ortak taslak başarıyla geri çekildi.
         compare:
           mine_is_different: Ortak çalışma taslağım farklı
-          no_similars_found: Aferin! Benzer ortak taslak bulunamadı
+          no_similars_found: Benzer ortak taslak bulunamadı
           title: Benzer işbirliği taslakları
         complete:
-          send: göndermek
-          title: İşbirlikçi taslağınızı tamamlayın
+          send: Gönder
+          title: Ortak çalışma taslağınızı tamamlayın
         count:
           drafts_count:
-            one: "%{count} işbirlikçi taslak"
-            other: "%{count} işbirlikçi taslak"
+            one: "%{count} ortak taslak"
+            other: "%{count} ortak taslak"
         create:
-          error: Bu işbirlikçi taslakları oluştururken bir sorun oluştu
-          success: İşbirlikçi taslak başarıyla oluşturuldu.
+          error: Bu ortak çalışma taslakları oluşturulurken bir sorunla karşılaşıldı
+          success: Ortak taslak başarıyla oluşturuldu.
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
           select_a_category: Lütfen bir kategori seçin
-          send: göndermek
+          send: Gönder
           title: Ortak taslak düzenle
         filters:
-          all: Herşey
+          all: Tümü
           amendment: Değişiklikler
           category: Kategori
-          open: Açık
-          published: Yayınlanan
+          open: Aç
+          published: Yayınlandı
           related_to: İle ilgili
-          scope: kapsam
+          scope: Kapsam
           search: Arama
-          state: Belirtmek, bildirmek
-          withdrawn: çekilmiş
+          state: Statü
+          withdrawn: Geri çekildi
         filters_small_view:
-          close_modal: Yakın kalıcı
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         new:
           send: Devam et
-          title: İşbirlikçi taslak oluştur
+          title: Ortak taslak oluştur
         new_collaborative_draft_button:
-          new_collaborative_draft: Yeni işbirlikçi taslak
+          new_collaborative_draft: Yeni ortak taslak
         orders:
-          label: 'Sıralama taslakları:'
+          label: 'Taslakları şuna göre sırala:'
           most_contributed: En çok katkıda bulunan
-          random: rasgele
-          recent: Son
+          random: Rastgele
+          recent: En son
         requests:
           accepted_request:
-            error: Ortak çalışan olarak kabul edilemedi, daha sonra tekrar deneyin.
+            error: Ortak çalışan olarak kabul edilemedi, lütfen daha sonra tekrar deneyin.
             success: "@%{user} , ortak çalışan olarak başarıyla kabul edildi"
           access_requested:
-            error: İsteğiniz tamamlanamadı, daha sonra tekrar deneyin.
+            error: İsteğiniz tamamlanamadı, lütfen daha sonra tekrar deneyin.
             success: Ortak çalışma isteğiniz başarıyla gönderildi
           collaboration_requests:
-            accept_request: Kabul etmek
-            reject_request: reddetmek
+            accept_request: Kabul Et
+            reject_request: Reddet
             title: İşbirliği istekleri
           rejected_request:
-            error: Ortak çalışan olarak reddedilemedi, daha sonra tekrar deneyin.
-            success: "@%{user} , ortak çalışan olarak başarıyla reddedildi"
+            error: Ortak çalışan olarak reddedilemedi, lütfen daha sonra tekrar deneyin.
+            success: "@%{user}, ortak çalışan olarak başarıyla reddedildi"
         show:
           back: Geri
           edit: Ortak taslak düzenle
           final_proposal: son teklif
-          final_proposal_help_text: Bu taslak bitti. Son bitirme teklifini görebilirsiniz
+          final_proposal_help_text: Bu taslak bitti. Son teklife göz atın
           hidden_authors_count:
             one: ve %{count} kişi daha
             other: ve %{count} kişi daha
-          info-message: Bu, bir teklif için <strong>ortak çalışma taslağı</strong> . Bu, yazarlarının aşağıdaki yorum bölümünü kullanarak teklifi şekillendirmesine yardımcı olabilir veya düzenleme için erişim isteğinde bulunarak doğrudan iyileştirebilirsiniz. Yazarlar size erişim izni verdiğinde, bu taslakta değişiklikler yapabileceksiniz.
+          info-message: Bu, bir teklif için <strong> ortak çalışmaya dayalı bir taslaktır </strong>. Bu, yazarlarının aşağıdaki yorum bölümünü kullanarak teklifi şekillendirmesine veya düzenleme erişimi isteyerek doğrudan iyileştirmesine yardımcı olabileceğiniz anlamına gelir. Yazarlar size erişim izni verdikten sonra, bu taslakta değişiklik yapabileceksiniz.
           publish: Yayınla
-          publish_info: Taslak bu sürümünü yayınlayın veya
+          publish_info: Taslağın bu sürümünü yayınlayın veya
           published_proposal: yayınlanan teklif
-          request_access: Erişim talep etmek
+          request_access: Erişim talep et
           requested_access: Erişim istendi
           version_history: bu teklifin sürüm geçmişini gör
           withdraw: taslağı geri çekmek
         states:
           open: Açık
-          published: Yayınlanan
-          withdrawn: çekilmiş
+          published: Yayınlandı
+          withdrawn: Geri çekildi
         update:
           error: Ortak taslak kaydedilirken hatalar oluştu.
-          success: İşbirliği taslağı başarıyla güncellendi.
+          success: Ortak taslak başarıyla güncellendi.
           title: Ortak çalışma taslağını düzenleyin
         wizard_aside:
           back: Geri
@@ -660,62 +660,62 @@ tr:
           back_from_step_2: Ortak çalışmaya dayalı taslaklara dön
           back_from_step_3: Ortak taslakları karşılaştırmak için geri dön
           back_from_step_4: Taslağı düzenlemeye dön
-          info: <strong>ortak çalışma taslağı</strong>.
+          info: <strong> Ortak çalışmaya dayalı bir taslak </strong> oluşturuyorsunuz.
         wizard_steps:
           current_step: Geçerli adım
-          see_steps: adımları görmek
-          step_1: İşbirlikçi taslağını oluştur
-          step_2: Ortak taslaklarla karşılaştır
-          step_3: İşbirlikçi taslağınızı tamamlayın
+          see_steps: adımları gör
+          step_1: Ortak çalışmaya dayalı taslağınızı oluşturun
+          step_2: Ortak çalışmaya dayalı taslaklarla karşılaştırın
+          step_3: Ortak çalışma taslağınızı tamamlayın
           step_of: '%{total_steps}adımdan %{current_step_num}'
           title: İşbirliğine dayalı taslak oluşturma adımları
       create:
-        error: Teklif kaydedilirken hatalar oluştu.
+        error: Teklif kaydedilirken bir sorun oluştu.
         success: Teklif başarıyla oluşturuldu. Taslak olarak kaydedildi.
       destroy_draft:
-        error: Teklif taslağını silerken hatalar oluştu.
-        success: Teklif taslak başarıyla silindi.
+        error: Ortak çalışma taslağı silinirken bir sorun oluştu.
+        success: Teklif taslağı başarıyla silindi.
       last_activity:
-        new_proposal_at_html: "<span>Yeni teklif %{link}</span>"
+        new_proposal_at_html: "<span>%{link} adresinde yeni teklif</span>"
       models:
         collaborative_draft:
           fields:
             authors: Yazarlar
             comments: Yorumlar
-            contributions: Katılımlar
+            contributions: Katkılar
         proposal:
           fields:
             category: Kategori
             comments: Yorumlar
             id: İD
-            notes: notlar
+            notes: Notlar
             official_proposal: Resmi teklif
             published_answer: Yayınlanan cevap
             published_at: Yayınlandı
-            scope: kapsam
-            state: Belirtmek, bildirmek
+            scope: Kapsam
+            state: Durum
             title: Başlık
             valuator: Bilirkişi
             valuators: Bilirkişiler
-            votes: oy
+            votes: Oylar
       new:
         limit_reached: Sınırı aştığınız için yeni teklifler oluşturamazsınız.
       participatory_text_proposal:
         alternative_title: Şu anda katılımcı metin yok
         buttons:
-          amend: değiştirmek
+          amend: Düzelt
           comment: Yorum Yap
           comments: Yorumlar
       proposal_votes:
         create:
-          error: Teklif oylanırken hatalar oluştu.
+          error: Teklifi destekleyen bir sorun vardı.
       proposals:
         compare:
           continue: Devam et
           no_similars_found: Aferin! Benzer teklif bulunamadı
           title: Benzer teklifler
         complete:
-          send: göndermek
+          send: Gönder
           title: Teklifinizi tamamlayın
         count:
           proposals_count:
@@ -730,40 +730,40 @@ tr:
           delete_image: Resmi sil
           gallery_legend: "(İsteğe bağlı) Teklif kartına bir resim ekleyin"
           select_a_category: Lütfen bir kategori seçin
-          send: göndermek
+          send: Gönder
           title: Teklifi düzenle
         edit_draft:
           discard: Bu taslağı sil
           discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
           send: Ön izleme
-          title: Teklif Taslaklarını Düzenle
+          title: Teklif Taslağını Düzenle
         filters:
           activity: Aktivitelerim
           all: Tümü
-          amendment_type: tip
+          amendment_type: Tür
           category: Kategori
           my_proposals: Tekliflerim
-          origin: Menşei
+          origin: Orijin
           related_to: İle ilgili
-          scope: kapsam
+          scope: Kapsam
           search: Arama
-          state: Belirtmek, bildirmek
+          state: Statü
           type: tip
-          voted: oy
+          voted: Desteklenmiş
         filters_small_view:
-          close_modal: Yakın kalıcı
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         index:
-          collaborative_drafts_list: Ortak taslaklara erişme
+          collaborative_drafts_list: Ortak çalışmaya dayalı taslaklara erişin
           new_proposal: Yeni teklif
           see_all_withdrawn: Geri çekilen tüm tekliflere bakın
           view_proposal: Teklifi görüntüle
         linked_proposals:
           proposal_votes:
-            one: oy
-            other: oy
+            one: destek
+            other: destekler
         new:
           send: Devam et
           title: Teklifinizi Oluşturun
@@ -772,9 +772,9 @@ tr:
           most_commented: En çok yorum yapılan
           most_endorsed: En çok onaylanan
           most_followed: En çok takip edilen
-          most_voted: En çok oylanan
-          random: rasgele
-          recent: Son
+          most_voted: En çok desteklenen
+          random: Rastgele
+          recent: En son
           with_more_authors: Daha fazla yazarlı
         participatory_texts:
           index:
@@ -784,8 +784,8 @@ tr:
         preview:
           modify: Teklifi değiştir
           proposal_edit_before_minutes:
-            one: Teklifin yayınlanmasından sonraki ilk dakika boyunca bu teklifi düzenleyebileceksiniz. Bu zaman penceresi geçtikten sonra teklifi düzenleyemezsiniz.
-            other: Teklifin yayınlanmasından sonraki ilk %{count} dakika içinde bu teklifi düzenleyebileceksiniz. Bu zaman penceresi geçtikten sonra teklifi düzenleyemezsiniz.
+            one: Teklif yayınlandıktan sonraki ilk dakika içinde bu teklifi düzenleyebileceksiniz. Bu zaman aralığı geçtikten sonra teklifi düzenleyemezsiniz.
+            other: Bu teklifi, teklif yayınlandıktan sonraki ilk %{count} dakika içinde düzenleyebileceksiniz. Bu zaman aralığı geçtikten sonra teklifi düzenleyemezsiniz.
           publish: Yayınla
           title: Teklifinizi yayınlayın
         proposal:
