@@ -168,7 +168,7 @@ describe "Admin manages votings", type: :system do
     before do
       click_link translated(voting.title)
     end
-    
+
     it "does not update the voting" do
       attach_file :voting_banner_image, image_invalid_path
 
