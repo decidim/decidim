@@ -397,7 +397,7 @@ en:
           proposalcreator: Proposal creator
         error: There was a problem during the import
         help:
-          proposalcreator: When importing proposals, the file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
+          proposalcreator: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
         import_from_file: Import from a file
         invalid_lines: Found error in resource number %{invalid_lines}
         new:

@@ -11,6 +11,7 @@ module Decidim
       attribute :user_group_id, Integer
 
       validates :file, presence: true
+      validates :creator, presence: true
       validate :accepted_mime_type
 
       def file_path

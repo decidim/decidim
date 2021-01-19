@@ -13,8 +13,7 @@
       <div class="row column">
         <%=
           form.select :creator,
-          @import.creators.map { |m| [t("decidim.admin.imports.creators.#{m[:name]}"), m[:creator]] },
-          { include_blank: false }
+          @import.creators.map { |m| [t("decidim.admin.imports.creators.#{m[:name]}"), m[:creator]] }
         %>
       </div>
       <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
@@ -35,7 +34,7 @@
               <%= t(".file_legend", valid_mime_types: mime_types).html_safe %>
               <div class="guidances">
                 <% @import.creators.each do |creator| %>
-                  <%= content_tag :div do %>
+                  <%= content_tag :div, class: "guidance creator-#{creator[:name]}" do %>
                     <% t("decidim.admin.imports.help.#{creator[:name]}") %>
                   <% end %>
                 <% end %>
@@ -53,3 +52,5 @@
     <%= form.submit t(".import") %>
   </div>
 <% end -%>
+
+<%= javascript_include_tag "decidim/admin/import_guidance" %>
