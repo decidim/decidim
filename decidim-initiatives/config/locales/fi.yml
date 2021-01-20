@@ -208,6 +208,7 @@ fi:
           edit:
             accept: Hyväksy aloite
             confirm: Oletko varma?
+            confirm_send_to_technical_validation: Oletko varma?
             discard: Hylkää aloite
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa allekirjoitukset

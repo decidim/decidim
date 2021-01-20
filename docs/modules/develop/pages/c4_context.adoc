@@ -1,10 +1,9 @@
 [plantuml]
 ....
 @startuml
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Context.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
-LAYOUT_TOP_DOWN
-' uncommetn the following line to make proposals
+' uncomment the following line to make proposals
 'LAYOUT_AS_SKETCH
 
 title System Context diagram for Decidim Applications (https://decidim.org)

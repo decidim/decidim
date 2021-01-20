@@ -90,7 +90,10 @@ pl:
         name: Nazwa
         organization: Organizacja
         plural: Liczba mnoga
+      settings:
+        scope_id: Zakres
       static_page:
+        allow_public_access: Zezwalaj na dostęp bez uwierzytelniania
         changed_notably: Nastąpiły zauważalne zmiany.
         content: Zawartość
         organization: Organizacja
@@ -224,6 +227,11 @@ pl:
       autocomplete:
         no_results: Brak wyników
         search_prompt: Wpisz co najmniej trzy znaki żeby wyszukać
+      block_user:
+        new:
+          action: Zablokuj konto i wyślij uzasadnienie
+          justification: Uzasadnienie
+          title: Zablokuj użytkownika %{name}
       categories:
         create:
           error: Podczas tworzenia tej kategorii wystąpił błąd.
@@ -279,6 +287,19 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania tego komponentu.
           success: Komponent został pomyślnie zaktualizowany.
+      conflicts:
+        attempts: Próby
+        'false': 'Nie'
+        solved: Rozwiązane
+        title: Konflikty weryfikacji
+        transfer:
+          email: E-mail
+          name: Nazwa
+          reason: Powód
+          success: Bieżący transfer został pomyślnie zakończony.
+          title: Transfer
+        'true': 'Tak'
+        user_name: Użytkownik
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
@@ -581,6 +602,7 @@ pl:
         index:
           actions: Działania
           badge: Odznaka
+          block: Zablokuj użytkownika
           created_at: Utworzono
           name: Nazwa
           nickname: Pseudonim
@@ -591,6 +613,7 @@ pl:
           reports: Raporty
           show_email: Pokaż adres e-mail
           status: Status
+          unblock: Odblokuj użytkownika
           unofficialize: Nieoficjalne
         new:
           badge: Odznaka oficjalności
@@ -604,6 +627,9 @@ pl:
           hidden: ukryty
           show: Pokaż
           title: Pokaż adres e-mail użytkownika
+        unblock:
+          error: Wystąpił błąd podczas odblokowania użytkownika
+          success: Użytkownik odblokowany pomyślnie
       organization:
         edit:
           title: Edytuj organizację

@@ -1,1 +1,60 @@
 tr:
+  decidim:
+    admin:
+      menu:
+        templates: Şablonlar
+      templates:
+        apply:
+          error: Bu şablonu uygularken bir sorun oluştu.
+          success: Şablon başarıyla uygulandı
+        copy:
+          error: Bu şablonu kopyalarken bir sorun oluştu.
+          success: Şablon başarıyla kopyalandı
+        create:
+          error: Bu şablonu oluştururken bir hata oluştu.
+          success: Şablon başarıyla oluşturuldu
+        destroy:
+          success: Şablon başarıyla silindi
+        empty: Burada henüz şablon yok.
+        update:
+          error: Bu şablonu güncellerken bir sorun oluştu.
+          success: Şablon başarıyla güncellendi
+      titles:
+        template_types:
+          questionnaires: Anket şablonları
+        templates: Şablonlar
+    models:
+      questionnaire_template:
+        fields:
+          questions: Soruların sayısı
+          title: Anket Başlığı
+      template:
+        fields:
+          created_at: Oluşturuldu
+        name: Şablon
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Şablondan Oluştur
+            description: Yeni bir anket oluşturmak üzeresiniz. Önceden tanımlanmış bir şablon seçebilir ve daha sonra değiştirebilirsiniz.
+            label: Şablon seç
+            placeholder: Şablon seç
+            skip_template: Atla
+          edit:
+            edit: Düzenle
+            empty: Henüz bir soru yok
+            questionnaire: Anket
+          form:
+            save: Kaydet
+            template_title: Şablon Bilgisi
+            title: '%{questionnaire_for} için anket şablonu'
+          index:
+            confirm_delete: Bu şablonu silmek istediğinizden emin misiniz?
+            title: Anket şablonları
+          preview:
+            current_step: '%{step} adım'
+            of_total_steps: '%{total_steps}'
+            tos_agreement: Katılarak, Hizmet Şartları'nı kabul etmiş olursunuz
+      template_types:
+        questionnaires: Anketler
