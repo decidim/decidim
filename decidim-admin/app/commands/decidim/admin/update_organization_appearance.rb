@@ -85,15 +85,6 @@ module Decidim
         }
       end
 
-      def omnipresent_banner_attributes
-        {
-          enable_omnipresent_banner: form.enable_omnipresent_banner,
-          omnipresent_banner_url: form.omnipresent_banner_url,
-          omnipresent_banner_short_description: form.omnipresent_banner_short_description,
-          omnipresent_banner_title: form.omnipresent_banner_title
-        }
-      end
-
       def colors_attributes
         {
           colors: {
@@ -105,6 +96,15 @@ module Decidim
             highlight: form.highlight_color,
             "highlight-alternative": form.highlight_alternative_color
           }
+        }
+      end
+
+      def omnipresent_banner_attributes
+        {
+          enable_omnipresent_banner: form.enable_omnipresent_banner,
+          omnipresent_banner_url: form.omnipresent_banner_url,
+          omnipresent_banner_short_description: form.omnipresent_banner_short_description,
+          omnipresent_banner_title: form.omnipresent_banner_title
         }
       end
     end
