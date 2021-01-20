@@ -1,4 +1,4 @@
-name: "[CI] Proposals (system public)"
+name: "[CI] Proposals (system public2)"
 on:
   push:
     branches:
@@ -53,7 +53,11 @@ jobs:
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
-      - run: bundle exec rspec spec/system/ --exclude-pattern 'spec/system/admin/**/*_spec.rb'
+      - run: |
+          count=$(ls spec/system/*_spec.rb | wc -l | tr -d ' ')
+          half=$(expr $count / 2)
+          list_of_files=$(ls spec/system/*_spec.rb | sed -n "$(expr $half + 1), $(echo $count)p" | xargs)
+          bundle exec rspec $list_of_files
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: ./.github/upload_coverage.sh decidim-proposals-system-public $GITHUB_EVENT_PATH
