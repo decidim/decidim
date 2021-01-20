@@ -127,7 +127,7 @@ en:
         authorize_url: Authorize URL
         client_id: Client ID
         client_secret: Client Secret
-        organization_name: Organization name
+        organization_name: Organization nameNew %{name}
         organization_url: Organization URL
         redirect_uri: Redirect URI
         site: Website
@@ -138,7 +138,9 @@ en:
         browse: Browse
         export: Export
         manage: Manage
-        new: New %{name}
+        new_n: New %{name}
+        new_m: New %{name}
+        new_f: New %{name}
         per_page: Per page
         permissions: Permissions
         reject: Reject

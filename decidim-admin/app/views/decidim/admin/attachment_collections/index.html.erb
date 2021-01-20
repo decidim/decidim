@@ -3,7 +3,7 @@
     <h2 class='card-title'>
       <%= t("attachment_collections.index.attachment_collections_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :attachment_collection %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.attachment_collection.name", scope: "decidim.admin")), url_for(action: :new), class: "button tiny button--title new" %>
+        <%= link_to t("actions.new_n", scope: "decidim.admin", name: t("models.attachment_collection.name", scope: "decidim.admin")), url_for(action: :new), class: "button tiny button--title new" %>
       <% end %>
     </h2>
   </div>
