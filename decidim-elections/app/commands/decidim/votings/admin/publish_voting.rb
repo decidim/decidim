@@ -18,6 +18,8 @@ module Decidim
         #
         # Broadcasts :ok if published, :invalid otherwise.
         def call
+          return broadcast(:invalid) if voting.nil? || voting.published?
+
           publish_voting
 
           broadcast(:ok, voting)

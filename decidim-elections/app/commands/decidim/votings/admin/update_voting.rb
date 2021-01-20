@@ -41,7 +41,13 @@ module Decidim
 
         def update_voting!
           voting.assign_attributes(attributes)
-          voting.save! if voting.valid?
+          return unless voting.valid?
+
+          voting.save!
+
+          Decidim.traceability.perform_action!(:update, voting, form.current_user) do
+            voting
+          end
         end
 
         def attributes
