@@ -1,4 +1,4 @@
-name: "[CI] Meetings"
+name: "[CI] Meetings (system public)"
 on:
   push:
     branches:
@@ -53,10 +53,10 @@ jobs:
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
-      - run: bundle exec rake
+      - run: bundle exec rspec spec/system/ --exclude-pattern 'spec/system/admin/**/*_spec.rb'
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+      - run: ./.github/upload_coverage.sh decidim-meetings-system-public $GITHUB_EVENT_PATH
         name: Upload coverage
       - uses: actions/upload-artifact@v2-preview
         if: always()
