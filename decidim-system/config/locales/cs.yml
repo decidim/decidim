@@ -59,7 +59,7 @@ cs:
           success: Správce byl úspěšně aktualizován
       default_pages:
         placeholders:
-          content: Přidejte významný obsah na statickou stránku %{page} na řídicím panelu administrátora.
+          content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
           title: Výchozí název pro %{page}
       menu:
         admins: Správci
