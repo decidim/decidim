@@ -5,7 +5,6 @@ module Decidim
     class ImportForm < Form
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
 
-      attribute :current_component, Decidim::Component
       attribute :creator, String, default: ->(form, _attribute) { form.creators.first[:creator].to_s }
       attribute :file
       attribute :user_group_id, Integer

@@ -26,7 +26,7 @@ module Decidim
       end
 
       context "when content type is not accepted" do
-        let(:params) { { file: another_file } }
+        let(:params) { { file: another_file, creator: creator } }
 
         it { is_expected.not_to be_valid }
       end

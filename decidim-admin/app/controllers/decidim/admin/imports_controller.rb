@@ -7,7 +7,14 @@ module Decidim
       include Decidim::ComponentPathHelper
       def new
         enforce_permission_to :import, :component_data, component: current_component
-        @import = Admin::ImportForm.new(current_component: current_component)
+        @import = form(Admin::ImportForm).from_params(
+          {
+            # We need to set "default" creator because form-class doesn't have context / current_component
+            # when it sets it's default values.
+            creator: current_component.manifest.import_manifests.first.creator
+          },
+          current_component: current_component
+        )
       end
 
       def create
@@ -29,12 +36,12 @@ module Decidim
 
           on(:invalid_lines) do |invalid_lines|
             flash[:alert] = t("decidim.admin.imports.invalid_lines", invalid_lines: invalid_lines.join(","))
-            redirect_back(fallback_location: manage_component_path(current_component))
+            render :new
           end
 
           on(:invalid) do
-            flash[:alert] = t("decidim.admin.imports.error")
-            redirect_back(fallback_location: manage_component_path(current_component))
+            flash.now[:alert] = t("decidim.admin.imports.error")
+            render :new
           end
         end
       end
