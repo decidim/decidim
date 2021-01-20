@@ -5,22 +5,21 @@ module Decidim
     # This controller takes queries from an HTTP endpoint and sends them out to
     # the Schema to be executed, later returning the response as JSON.
     class QueriesController < Api::ApplicationController
-
       def create
         variables = prepare_variables(params[:variables])
         query = params[:query]
         operation_name = params[:operationName]
         result = Schema.execute(query, variables: variables, context: context, operation_name: operation_name)
         render json: result
-      rescue StandardError => error
-        logger.error error.message
-        logger.error error.backtrace.join("\n")
+      rescue StandardError => e
+        logger.error e.message
+        logger.error e.backtrace.join("\n")
 
-        if Rails.env.development?
-          message = { message: error.message, backtrace: error.backtrace }
-        else
-          message = { message: "Internal Server error"}
-        end
+        message = if Rails.env.development?
+                    { message: e.message, backtrace: e.backtrace }
+                  else
+                    { message: "Internal Server error" }
+                  end
 
         render json: { errors: [message], data: {} }, status: :internal_server_error
       end
