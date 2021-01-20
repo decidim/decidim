@@ -131,7 +131,7 @@ en:
         authorize_url: Authorize URL
         client_id: Client ID
         client_secret: Client Secret
-        organization_name: Organization nameNew %{name}
+        organization_name: Organization name
         organization_url: Organization URL
         redirect_uri: Redirect URI
         site: Website
