@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "decidim/api/component_interface"
-require "decidim/api/participatory_space_interface"
+# require "decidim/api/component_interface"
+# require "decidim/api/participatory_space_interface"
 
 module Decidim
   # This module's job is to extend the API with custom fields related to
