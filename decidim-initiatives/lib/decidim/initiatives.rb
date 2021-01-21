@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/initiatives/admin"
+require "decidim/initiatives/api"
 require "decidim/initiatives/engine"
 require "decidim/initiatives/admin_engine"
 require "decidim/initiatives/participatory_space"

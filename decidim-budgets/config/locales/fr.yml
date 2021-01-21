@@ -45,6 +45,8 @@ fr:
             title: Modifier le budget
             update: Mettre à jour le budget
           index:
+            finished_orders: Commandes terminées
+            pending_orders: Votes en cours
             title: Budgets
           new:
             create: Créer un budget
@@ -52,6 +54,8 @@ fr:
           update:
             invalid: Un problème est survenu lors de la mise à jour de ce budget
             success: Budget mis à jour avec succès
+        exports:
+          projects: Projets
         models:
           budget:
             name: Budget

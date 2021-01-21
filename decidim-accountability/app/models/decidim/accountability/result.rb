@@ -89,6 +89,15 @@ module Decidim
         can_participate_in_space?(user)
       end
 
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_accountability_results"."id" as text)})
+      end
+
+      # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+      ransacker :title do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      end
+
       private
 
       # Private: When a row uses weight 1 and there's more than one, weight shouldn't be considered

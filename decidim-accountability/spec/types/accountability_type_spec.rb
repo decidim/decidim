@@ -7,7 +7,7 @@ require "decidim/core/test"
 module Decidim
   module Accountability
     describe AccountabilityType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:accountability_component) }
 
       describe "" do

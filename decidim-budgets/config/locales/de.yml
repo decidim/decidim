@@ -54,6 +54,8 @@ de:
           update:
             invalid: Es gab ein Problem beim Aktualisieren dieses Budgets
             success: Budget erfolgreich aktualisiert
+        exports:
+          projects: Projekte
         models:
           budget:
             name: Bugdet
