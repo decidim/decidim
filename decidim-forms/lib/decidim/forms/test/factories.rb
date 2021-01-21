@@ -93,7 +93,7 @@ FactoryBot.define do
     session_token { Digest::MD5.hexdigest(user.id.to_s) }
 
     trait :with_attachments do
-      after(:create) do |answer, evaluator|
+      after(:create) do |answer, _evaluator|
         create :attachment, :with_image, attached_to: answer
         create :attachment, :with_pdf, attached_to: answer
       end

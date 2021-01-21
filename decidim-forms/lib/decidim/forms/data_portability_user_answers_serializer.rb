@@ -34,7 +34,7 @@ module Decidim
       end
 
       def attachments_for(resource)
-        return unless resource.attachments.present?
+        return if resource.attachments.blank?
 
         resource.attachments.map(&:url)
       end

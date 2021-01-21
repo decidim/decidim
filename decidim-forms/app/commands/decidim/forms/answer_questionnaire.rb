@@ -60,8 +60,11 @@ module Decidim
               # attachments
               @form = form_answer
               @attached_to = answer
+
               build_attachments
+
               return broadcast(:invalid) if attachments_invalid?
+
               create_attachments if process_attachments?
               document_cleanup!
             end
