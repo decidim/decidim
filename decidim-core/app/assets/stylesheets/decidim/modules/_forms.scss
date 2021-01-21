@@ -43,6 +43,13 @@ label,
   display: block;
   font-size: $input-error-font-size;
   font-weight: $input-error-font-weight;
+  margin-top: $form-spacing * -1;
+}
+
+.user-nickname{
+  .form-input-extra-before{
+    margin-top: 0;
+  }
 }
 
 .form-input-extra-before{
