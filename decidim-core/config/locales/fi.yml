@@ -335,6 +335,7 @@ fi:
         body_2: 'Syy: %{justification}'
         greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
+        subject: Käyttäjätilisi on estetty palvelussa %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: ja %{count} lisää

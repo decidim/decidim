@@ -266,7 +266,7 @@ en:
             update: Update
           form:
             authorizations: Authorization settings
-            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-jauges and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
+            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-scopes and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
             only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
             options: Options
             title: General information
@@ -328,10 +328,10 @@ en:
           back_to_initiatives: Back to initiatives
           callout_text: Congratulations! Your initiative has been successfully created.
           confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
-          edit_my_initiative: Edit my initiatives
+          edit_my_initiative: Edit my initiative
           go_to_my_initiatives: Go to my initiatives
           more_information: "(More information)"
-          send_my_initiative: Send my initiative
+          send_my_initiative: Send my initiative to technical validation
         finish_help:
           access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
@@ -488,13 +488,7 @@ en:
           section: 'If requested by the organization, please print and fill out this form to submit where indicated:'
           signature: Signature
         result:
-          answer_title:
-            accepted: This proposal has been accepted because
-            created: This proposal has been created
-            discarded: This proposal has been discarded because
-            published: This proposal is published because
-            rejected: This proposal has been rejected because
-            validating: This proposal is being evaluated
+          answer_title: This initiative has been answered
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This initiative collects both online and in-person signatures.

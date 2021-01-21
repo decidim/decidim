@@ -75,6 +75,10 @@ fi:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
           empty: Yksikään keskustelu ei vastannut näitä hakukriteerejä.
+          form:
+            debate_type: Keskustelun tyyppi
+            finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
+            open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
           index:
             title: Keskustelut
           new:
@@ -167,6 +171,7 @@ fi:
           groups_count: Ryhmiä
           last_comment_by: Viimeisin kommentti käyttäjältä
           no_comments_yet: Ei vielä kommentteja
+          open: Avoin keskustelu
           participants_count: Osallistujia
         update:
           invalid: Keskustelun päivittäminen epäonnistui.

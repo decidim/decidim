@@ -139,8 +139,12 @@ fi-pl:
       models:
         result:
           fields:
+            category: Aihepiiri
+            created_at: Luontiaika
             end_date: Päättymispäivä
+            id: ID
             progress: Edistyminen
+            scope: Teema
             start_date: Alkamispäivä
             status: Tila
             title: Otsikko
@@ -187,6 +191,15 @@ fi-pl:
             votes: Kannatukset
         timeline:
           title: Projektin kehitys
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Aihepiiri
+          scope_id_eq:
+            label: Teema
+          status_id_eq:
+            label: Tila
     components:
       accountability:
         name: Vastuullisuus
