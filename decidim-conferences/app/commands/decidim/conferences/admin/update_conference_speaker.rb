@@ -25,9 +25,10 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
           return broadcast(:invalid) unless conference_speaker
 
-          # We are using going to assign the attributes only to handle the validation of the avatar before accessing
-          # update_conference_speaker! which uses update! with bang, and this will render an ActiveRecord::RecordInvalid error
-          # After we assign and check if the object is valid, then we reload the model to let it be handled the old way
+          # We are going to assign the attributes only to handle the validation of the avatar before accessing
+          # `update_conference_speaker!` which uses `update!`. Without this step, the image validation may render
+          # an ActiveRecord::RecordInvalid error
+          # After we assign and check if the object is valid, we reload the model to let it be handled the old way
           # If there is an error we add the error to the form
           conference_speaker.assign_attributes(attributes)
 
