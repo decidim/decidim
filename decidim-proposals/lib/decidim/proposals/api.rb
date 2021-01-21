@@ -2,6 +2,5 @@
 
 module Decidim
   module Proposals
-
   end
 end
