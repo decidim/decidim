@@ -2,6 +2,12 @@
 
 module Decidim
   module Core
+    autoload :CategoryType, "decidim/api/types/category_type"
+    autoload :MetricHistoryType, "decidim/api/types/metric_history_type"
+    autoload :TranslatedFieldType, "decidim/api/types/translated_field_type"
+    autoload :ScopeApiType, "decidim/api/types/scope_api_type"
+    autoload :UserType, "decidim/api/types/user_type"
+
     autoload :ParticipatorySpaceInterface, "decidim/api/interfaces/participatory_space_interface"
     autoload :ComponentInterface, "decidim/api/interfaces/component_interface"
     autoload :AuthorInterface, "decidim/api/interfaces/author_interface"

@@ -2,5 +2,6 @@
 
 module Decidim
   module Consultations
+    autoload :ConsultationType, "decidim/api/consultation_type"
   end
 end

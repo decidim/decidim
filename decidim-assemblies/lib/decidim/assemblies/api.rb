@@ -2,5 +2,6 @@
 
 module Decidim
   module Assemblies
+    autoload :AssemblyType, "decidim/api/assembly_type"
   end
 end
