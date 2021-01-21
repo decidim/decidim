@@ -6,7 +6,7 @@ module Decidim
     class AssembliesTypeType < Decidim::Api::Types::BaseObject
       description "An assemblies type"
 
-      field :id, ID, "The assemblies type's unique ID", null: false
+      field :id, GraphQL::Types::ID, "The assemblies type's unique ID", null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title of this assemblies type.", null: false
       field :created_at, Decidim::Core::DateTimeType, "The time this assemblies type was created", null: false
       field :updated_at, Decidim::Core::DateTimeType, "The time this assemblies type was updated", null: false
