@@ -6,6 +6,7 @@ module Decidim
     class Answer < Forms::ApplicationRecord
       include Decidim::DataPortability
       include Decidim::NewsletterParticipant
+      include Decidim::HasAttachments
 
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id", optional: true
       belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id"
@@ -19,6 +20,8 @@ module Decidim
 
       validate :user_questionnaire_same_organization
       validate :question_belongs_to_questionnaire
+
+      delegate :organization, to: :user
 
       def self.user_collection(user)
         where(decidim_user_id: user.id)

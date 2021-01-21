@@ -4,6 +4,8 @@ module Decidim
   module Forms
     # This command is executed when the user answers a Questionnaire.
     class AnswerQuestionnaire < Rectify::Command
+      include ::Decidim::MultipleAttachmentsMethods
+
       # Initializes a AnswerQuestionnaire Command.
       #
       # form - The form from which to get the data.
@@ -51,6 +53,20 @@ module Decidim
             end
 
             answer.save!
+            @main_form = @form
+
+            if form_answer.question.has_attachments?
+              # The attachments module expects `@form` to be the form with the
+              # attachments
+              @form = form_answer
+              @attached_to = answer
+              build_attachments
+              return broadcast(:invalid) if attachments_invalid?
+              create_attachments if process_attachments?
+              document_cleanup!
+            end
+
+            @form = @main_form
           end
         end
       end

@@ -81,6 +81,10 @@ module Decidim
       def separator?
         question_type.to_s == SEPARATOR_TYPE
       end
+
+      def has_attachments?
+        question_type.to_s == "files"
+      end
     end
   end
 end
