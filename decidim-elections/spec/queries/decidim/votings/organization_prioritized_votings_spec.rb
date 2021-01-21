@@ -19,6 +19,10 @@ module Decidim::Votings
              organization: organization)
     end
 
+    let!(:external_non_promoted_voting) do
+      create(:voting, :published)
+    end
+
     before { create(:voting) }
 
     describe "query" do
