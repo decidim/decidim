@@ -8,24 +8,18 @@ module Decidim
       graphql_name "Pages"
       description "A pages component of a participatory space."
 
-      field :pages, PageType.connection_type, null: true, connection: true
+      field :pages, Decidim::Pages::PageType.connection_type, null: true, connection: true
 
       def pages
-        PagesTypeHelper.base_scope(object).includes(:component)
+        Page.where(component: object).includes(:component)
       end
 
-      field :page, PageType, null: true do
-        argument :id, ID, required: true
+      field :page, Decidim::Pages::PageType, null: true do
+        argument :id, GraphQL::Types::ID, required: true
       end
 
       def page(**args)
-        PagesTypeHelper.base_scope(object).find_by(id: args[:id])
-      end
-    end
-
-    module PagesTypeHelper
-      def self.base_scope(component)
-        Page.where(component: component)
+        Page.where(component: object).find_by(id: args[:id])
       end
     end
   end
