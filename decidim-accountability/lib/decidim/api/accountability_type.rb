@@ -8,24 +8,18 @@ module Decidim
       graphql_name "Accountability"
       description "An accountability component of a participatory space."
 
-      field :results, ResultType.connection_type, null: true, connection: true
+      field :results, Decidim::Accountability::ResultType.connection_type, null: true, connection: true
 
       def results
-        ResultTypeHelper.base_scope(object).includes(:component)
+        Result.where(component: object).includes(:component)
       end
 
-      field :result, ResultType, null: true do
+      field :result, Decidim::Accountability::ResultType, null: true do
         argument :id, ID, required: true
       end
 
       def result(**args)
-        ResultTypeHelper.base_scope(object).find_by(id: args[:id])
-      end
-    end
-
-    module ResultTypeHelper
-      def self.base_scope(component)
-        Result.where(component: component)
+        Result.where(component: object).find_by(id: args[:id])
       end
     end
   end
