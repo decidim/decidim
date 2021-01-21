@@ -68,3 +68,7 @@ Then the result would be:
      start_path: docs
      branches: develop
 ----
+
+== Add a new link in the sidebar
+
+For adding a new link in the sidebar you need to add it in https://raw.githubusercontent.com/decidim/documentation/master/en/modules/ROOT/nav.adoc[nav.adoc file]
