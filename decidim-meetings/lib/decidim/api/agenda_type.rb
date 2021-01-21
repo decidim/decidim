@@ -6,9 +6,9 @@ module Decidim
       graphql_name "MeetingAgenda"
       description "A meeting agenda"
 
-      field :id, ID, "The ID for the agenda", null: false
+      field :id, GraphQL::Types::ID, "The ID for the agenda", null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title for the agenda", null: true
-      field :items, [AgendaItemType, { null: true }], "Items and sub-items of the agenda", method: :agenda_items, null: false
+      field :items, [Decidim::Meetings::AgendaItemType, { null: true }], "Items and sub-items of the agenda", method: :agenda_items, null: false
       # probably useful in the future, when handling user permissions
       # field :visible, !types.Boolean, "Whether this minutes is public or not", property: :visible
 
