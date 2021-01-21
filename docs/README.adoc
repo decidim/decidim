@@ -1,4 +1,4 @@
-= Decidim Developer Docmentation
+= Decidim Developer Documentation
 
 == What's this?
 
@@ -25,3 +25,46 @@ kramdoc --format=GFM --output=your-doc.adoc --wrap=ventilate your-doc.md
 ----
 
 The nice thing about Antora is that you can have multi-repositories for your documentation, so we have some technical sections in this repository (like Install, Customize and Develop) and other sections that are not for developers or system administrators on the https://github.com/decidim/documentation[other repository].
+
+== Local development 
+
+If you want to try changes in this folder and how it'd be shown in https://docs.decidim.org[Decidim Documentation site], you need to do these next steps: 
+
+. Clone the repository 
+. Install dependencies
+. Change the antora-playbook.yml url key in source
+. Build the antora playbook
+. Open the generated website with your web browser
+
+In detail each one of these steps are: 
+
+[source,bash]
+----
+# 1. Clone the repository
+git clone https://github.com/decidim/documentation
+# 2. Install dependencies
+npm install
+# 3. Change the antora-playbook.yml url key in source
+# 4. Build the antora playbook
+./bin/build
+# 5. Open the generated website with your web browser
+xdg-open build/site/index.html
+----
+
+Regarding "3. Change the antora-playbook.yml url key in source", if this is the configuration at antora-playbook.yml:
+
+[source,yaml]
+----
+   - url: https://github.com/decidim/decidim
+     start_path: docs
+     branches: develop
+----
+
+Then the result would be:
+
+[source,yaml]
+----
+   - url: /home/youruser/Work/decidim/decidim
+     start_path: docs
+     branches: develop
+----
