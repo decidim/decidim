@@ -25,11 +25,11 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          # We are using going to assign the attributes only to handle the validation of the avatar before accessing
-          # create_conference_speaker! which uses create! with bang, and this will render an ActiveRecord::RecordInvalid error
-          # After we assign and check if the object is valid, then we will not save the model to let it be handled the old way
+          # We are going to assign the attributes only to handle the validation of the avatar before accessing
+          # `create_conference_speaker!` which uses `create!`, and this will render an ActiveRecord::RecordInvalid error
+          # After we assign and check if the object is valid, we will not save the model to let it be handled the old way
           # If there is an error we add the error to the form
-          # We are using this method to assign the conference as if we are trying to assign all at once, there will be thrown a
+          # We are using this method to assign the conference because if we are trying to assign all at once, there will be thrown a
           # Delegation error
 
           if conference_speaker_with_attributes.valid?
