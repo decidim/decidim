@@ -6,7 +6,7 @@ module Decidim
     class Question < Forms::ApplicationRecord
       include Decidim::TranslatableResource
 
-      QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting matrix_single matrix_multiple).freeze
+      QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting files matrix_single matrix_multiple).freeze
       SEPARATOR_TYPE = "separator"
       TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE]).freeze
 
