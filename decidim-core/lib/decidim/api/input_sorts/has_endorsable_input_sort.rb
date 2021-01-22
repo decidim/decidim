@@ -5,7 +5,7 @@ module Decidim
     module HasEndorsableInputSort
       def self.included(child_class)
         child_class.argument :endorsement_count,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "Sort by number of endorsements, valid values are ASC or DESC",
                              required: false,
                              as: :endorsements_count

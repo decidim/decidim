@@ -5,7 +5,7 @@ module Decidim
     module HasPublishableInputFilter
       def self.included(child_class)
         child_class.argument :published_before,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "List result published **before** (and **excluding**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
                              prepare: ->(date, _ctx) do
@@ -14,7 +14,7 @@ module Decidim
                                end
                              end
         child_class.argument :published_since,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "List result published after (and **including**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
                              prepare: ->(date, _ctx) do

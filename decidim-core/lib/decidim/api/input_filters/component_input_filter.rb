@@ -10,14 +10,14 @@ module Decidim
       description "A type used for filtering any component parent objects"
 
       argument :type,
-               type: String,
+               type: GraphQL::Types::String,
                description: "Filters by type of component",
                required: false,
                prepare: ->(value, _ctx) do
                           { manifest_name: value.downcase }
                         end
       argument :name,
-               type: String,
+               type: GraphQL::Types::String,
                description: "Filters by name of the component, additional locale parameter can be provided to specify in which to search",
                required: false,
                prepare: ->(search, ctx) do
@@ -29,7 +29,7 @@ module Decidim
                         end
 
       argument :with_geolocation_enabled,
-               type: Boolean,
+               type: GraphQL::Types::Boolean,
                description: "Returns components with geolocation activated (may be Proposals or Meetings)",
                required: false,
                prepare: ->(active, _ctx) do
@@ -37,7 +37,7 @@ module Decidim
                         end
 
       argument :with_comments_enabled,
-               type: Boolean,
+               type: GraphQL::Types::Boolean,
                description: "Returns components with comments enabled globally (can still be deactivated in the current step if the component has steps)",
                required: false,
                prepare: ->(active, _ctx) do

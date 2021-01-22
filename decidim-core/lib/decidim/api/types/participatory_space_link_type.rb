@@ -5,10 +5,10 @@ module Decidim
     class ParticipatorySpaceLinkType < Decidim::Api::Types::BaseObject
       description "A link representation between participatory spaces"
 
-      field :id, ID, "The id of this participatory space link", null: false
-      field :from_type, String, "The origin participatory space type for this participatory space link", null: false
-      field :to_type, String, "The destination participatory space type for this participatory space link", null: false
-      field :name, String, "The name (purpose) of this participatory space link", null: false
+      field :id, GraphQL::Types::ID, "The id of this participatory space link", null: false
+      field :from_type, GraphQL::Types::String, "The origin participatory space type for this participatory space link", null: false
+      field :to_type, GraphQL::Types::String, "The destination participatory space type for this participatory space link", null: false
+      field :name, GraphQL::Types::String, "The name (purpose) of this participatory space link", null: false
       field :participatory_space, ParticipatorySpaceInterface, description: "The linked participatory space (polymorphic)", null: false
 
       def participatory_space

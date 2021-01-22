@@ -13,7 +13,7 @@ module Decidim
       field :tos, Decidim::Core::TranslatedFieldType, "The Terms of Service for this questionnaire.", null: true
       field :for_type, GraphQL::Types::String, "Type of entity using this questionnaire.", method: :questionnaire_for_type, null: true
       field :for_entity, QuestionnaireEntityInterface, "Entity using this questionnaire.", method: :questionnaire_for, null: true
-      field :questions, [QuestionType, { null: true }], "Questions in this questionnaire.", null: false
+      field :questions, [Decidim::Forms::QuestionType, { null: true }], "Questions in this questionnaire.", null: false
     end
   end
 end

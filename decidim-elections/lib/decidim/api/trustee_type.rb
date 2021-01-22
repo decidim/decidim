@@ -8,9 +8,9 @@ module Decidim
 
       description "A trustee for an election"
 
-      field :id, ID, "The internal ID of this trustee", null: false
+      field :id, GraphQL::Types::ID, "The internal ID of this trustee", null: false
       field :user, Decidim::Core::UserType, "The corresponding decidim user", null: true
-      field :public_key, String, "The public key of a trustee", null: true
+      field :public_key, GraphQL::Types::String, "The public key of a trustee", null: true
     end
   end
 end

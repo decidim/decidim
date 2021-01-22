@@ -5,7 +5,7 @@ module Decidim
     class TraceVersionType < Decidim::Api::Types::BaseObject
       description "A trace version type"
 
-      field :id, ID, "The ID of the version", null: false
+      field :id, GraphQL::Types::ID, "The ID of the version", null: false
       field :created_at, Decidim::Core::DateTimeType, description: "The date and time this version was created", null: true
       field :editor, Decidim::Core::AuthorInterface, description: "The editor/author of this version", null: true
 
