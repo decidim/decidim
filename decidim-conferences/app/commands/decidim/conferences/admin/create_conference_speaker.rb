@@ -33,8 +33,6 @@ module Decidim
           # Delegation error
 
           if conference_speaker_with_attributes.valid?
-            # Do not persist this. Please see the comment above!
-            # conference_speaker_with_attributes.save
 
             transaction do
               create_conference_speaker!
