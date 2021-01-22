@@ -2,6 +2,8 @@
 
 module Decidim
   module Api
+    autoload :QueryType, "decidim/api/query_type"
+    autoload :MutationType, "decidim/api/mutation_type"
     module Types
       autoload :BaseArgument, "decidim/api/types/base_argument"
       autoload :BaseEnum, "decidim/api/types/base_enum"
