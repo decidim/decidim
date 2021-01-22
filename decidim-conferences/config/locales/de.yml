@@ -273,12 +273,12 @@ de:
         registration_type:
           create: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} erstellt"
           publish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} veröffentlicht"
-          unpublish: "%{user_name} Anmeldetyp %{resource_name} in der %{space_name} Konferenz nicht veröffentlicht"
-          update: "%{user_name} Eintragstyp %{resource_name} in der %{space_name} Konferenz aktualisiert"
+          unpublish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} auf \"unveröffentlicht\" gesetzt"
+          update: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} aktualisiert"
       media_link:
-        create: "%{user_name} hat den %{resource_name} Medienlink in der %{space_name} Konferenz erstellt"
-        delete: "%{user_name} den Medienlink %{resource_name} von der %{space_name} Konferenz entfernt"
-        update: "%{user_name} hat den %{resource_name} Medienlink in der %{space_name} Konferenz aktualisiert"
+        create: "%{user_name} hat den Medienlink %{resource_name} in der Konferenz %{space_name} erstellt"
+        delete: "%{user_name} hat den Medienlink %{resource_name} aus der Konferenz %{space_name} entfernt"
+        update: "%{user_name} hat den Medienlink %{resource_name} in der Konferenz %{space_name} aktualisiert"
     conference_program:
       index:
         title: Programm
