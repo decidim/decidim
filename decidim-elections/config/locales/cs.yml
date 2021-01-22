@@ -405,6 +405,38 @@ cs:
     participatory_processes:
       statistics:
         elections_count: Volby
+    votings:
+      admin:
+        index:
+          not_published: Nezveřejněno
+          published: Zveřejněno
+        menu:
+          votings: Hlasování
+        models:
+          voting:
+            fields:
+              created_at: Vytvořeno v
+              published: Publikováno
+              title: Název
+        titles:
+          votings: Hlasování
+        votings:
+          actions:
+            new_voting: Nové hlasovací místo
+          create:
+            invalid: Při vytváření tohoto hlasování došlo k chybě
+            success: Hlasování bylo úspěšně vytvořeno
+          form:
+            slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            title: Název
+          new:
+            create: Vytvořit
+            title: Nové hlasování
+      admin_log:
+        voting:
+          create: "%{user_name} vytvořil %{resource_name} hlasování"
+          publish: "%{user_name} zveřejnil %{resource_name} hlasování"
+          unpublish: "%{user_name} zrušil publikování %{resource_name} hlasování"
   layouts:
     decidim:
       election_votes_header:
