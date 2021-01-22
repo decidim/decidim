@@ -5,12 +5,12 @@ module Decidim
     class CommentableMutationType < Decidim::Api::Types::BaseObject
       description "A commentable which includes its available mutations"
 
-      field :id, ID, "The Commentable's unique ID", null: false
+      field :id, GraphQL::Types::ID, "The Commentable's unique ID", null: false
 
       field :add_comment, Decidim::Comments::CommentType, description: "Add a new comment to a commentable", null: true do
-        argument :body, String, "The comments's body", required: true
-        argument :alignment, Integer, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'", default_value: 0, required: false
-        argument :user_group_id, ID, "The comment's user group id. Replaces the author.", required: false
+        argument :body, GraphQL::Types::String, "The comments's body", required: true
+        argument :alignment, GraphQL::Types::Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'", default_value: 0, required: false
+        argument :user_group_id, GraphQL::Types::ID, "The comment's user group id. Replaces the author.", required: false
       end
 
       def add_comment(body:, alignment: nil, user_group_id: nil)

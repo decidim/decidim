@@ -6,7 +6,7 @@ module Decidim
       graphql_name "CommentMutation"
       description "A comment which includes its available mutations"
 
-      field :id, ID, "The Comment's unique ID", null: false
+      field :id, GraphQL::Types::ID, "The Comment's unique ID", null: false
 
       field :up_vote, Decidim::Comments::CommentType, null: true
       def up_vote(args: {})
