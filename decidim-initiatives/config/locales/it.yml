@@ -298,10 +298,8 @@ it:
         finish:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
-          edit_my_initiative: Modifica le mie iniziative
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"
-          send_my_initiative: Invia la mia iniziativa
         previous_form:
           back: Indietro
           continue: Continua
@@ -410,13 +408,6 @@ it:
         print:
           city: Città
         result:
-          answer_title:
-            accepted: Questa proposta è stata accettata perché
-            created: Questa proposta è stata creata
-            discarded: Questa proposta è stata scartata perché
-            published: Questa proposta è pubblicata perché
-            rejected: Questa proposta è stata respinta perché
-            validating: Questa proposta è in corso di valutazione
           initiative_rejected_reason: Questa iniziativa è stata respinta a causa della mancanza di firme.
         show:
           follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
