@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/consultations/admin"
+require "decidim/consultations/api"
 require "decidim/consultations/engine"
 require "decidim/consultations/admin_engine"
 require "decidim/consultations/participatory_space"
