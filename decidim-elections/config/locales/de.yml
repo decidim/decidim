@@ -393,6 +393,21 @@ de:
     participatory_processes:
       statistics:
         elections_count: Wahlen
+    votings:
+      admin:
+        index:
+          not_published: Unveröffentlicht
+          published: Veröffentlicht
+        menu:
+          votings: Abstimmungen
+        models:
+          voting:
+            fields:
+              created_at: Erstellt am
+              published: Veröffentlicht
+              title: Titel
+        titles:
+          votings: Abstimmungen
   layouts:
     decidim:
       election_votes_header:
