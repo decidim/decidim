@@ -294,6 +294,7 @@ ignore_unused:
   - decidim.debates.debate_m.commented_time_ago
   - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
   - decidim.elections.feedback.answer.*
+  - decidim.votings.admin_log.*
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

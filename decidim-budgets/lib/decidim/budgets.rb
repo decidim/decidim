@@ -2,6 +2,7 @@
 
 require "decidim/budgets/workflows"
 require "decidim/budgets/admin"
+require "decidim/budgets/api"
 require "decidim/budgets/engine"
 require "decidim/budgets/admin_engine"
 require "decidim/budgets/component"
