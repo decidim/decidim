@@ -9,10 +9,7 @@ module Decidim
     #   name
     # }
     #
-    class UserEntityFinder < GraphQL::Function
-      argument :id, types.ID, "The ID of the participant"
-      argument :nickname, types.String, "The @nickname of the participant"
-
+    class UserEntityFinder
       def call(_obj, args, ctx)
         filters = {
           organization: ctx[:current_organization]

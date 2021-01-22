@@ -25,7 +25,7 @@ module Decidim
     # For an example check
     # decidim-proposals/app/types/decidim/proposals/proposals_type.rb
     #
-    class ComponentListBase < GraphQL::Function
+    class ComponentListBase
       include NeedsApiFilterAndOrder
       attr_reader :model_class
 

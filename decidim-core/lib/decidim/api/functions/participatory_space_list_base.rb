@@ -7,7 +7,7 @@ module Decidim
     # as is shown in ParticipatorySpaceList
     # + info:
     # https://github.com/rmosolgo/graphql-ruby/blob/v1.6.8/guides/fields/function.md
-    class ParticipatorySpaceListBase < GraphQL::Function
+    class ParticipatorySpaceListBase
       include NeedsApiFilterAndOrder
       attr_reader :manifest
 

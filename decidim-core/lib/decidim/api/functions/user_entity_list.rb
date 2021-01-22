@@ -9,10 +9,8 @@ module Decidim
     #   name
     # }
     #
-    class UserEntityList < GraphQL::Function
+    class UserEntityList
       include NeedsApiFilterAndOrder
-      argument :order, UserEntityInputSort, "Provides several methods to order the results"
-      argument :filter, UserEntityInputFilter, "Provides several methods to filter the results"
 
       def initialize
         @model_class = Decidim::UserBaseEntity

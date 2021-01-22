@@ -14,7 +14,7 @@ module Decidim
     #
     # For an example check
     # decidim-proposals/app/types/decidim/proposals/proposals_type.rb
-    class ComponentFinderBase < GraphQL::Function
+    class ComponentFinderBase
       attr_reader :model_class
 
       def initialize(model_class:)
