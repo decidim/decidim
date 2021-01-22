@@ -50,6 +50,6 @@
   &:hover,
   &:focus,
   &.is-active{
-    background-color: $secondary;
+    background-color: var(--secondary);
   }
 }

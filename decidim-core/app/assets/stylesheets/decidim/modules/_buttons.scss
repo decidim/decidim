@@ -123,6 +123,10 @@
     }
   }
 
+  &.primary{
+    @include button-hollow-variant(var(--primary));
+  }
+
   &.secondary{
     @include button-hollow-variant(var(--secondary));
   }
@@ -152,6 +156,10 @@
       &:focus{
         background-color: transparent;
       }
+    }
+
+    &.primary{
+      color: var(--primary);
     }
 
     &.secondary{
@@ -339,7 +347,7 @@
   background-color: $muted;
 
   &:hover{
-    background-color: var(--secondary);
+    background-color: var(--primary);
   }
 
   &.hollow{
@@ -371,7 +379,7 @@
 
 .link{
   cursor: pointer;
-  color: $anchor-color;
+  color: var(--secondary);
   font-weight: 600;
 
   &:hover{
