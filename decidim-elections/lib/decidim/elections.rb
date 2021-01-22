@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/elections/admin"
+require "decidim/elections/api"
 require "decidim/elections/trustee_zone"
 require "decidim/elections/engine"
 require "decidim/elections/admin_engine"
