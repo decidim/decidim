@@ -294,10 +294,8 @@ pt:
         finish:
           back: Retroceder
           back_to_initiatives: Retroceder para as iniciativas
-          edit_my_initiative: Editar as minhas iniciativas
           go_to_my_initiatives: Ir para as minhas iniciativas
           more_information: "(Mais informações)"
-          send_my_initiative: Enviar a minha iniciativa
         previous_form:
           back: Retroceder
           continue: Continuar
@@ -406,13 +404,6 @@ pt:
         print:
           city: Cidade
         result:
-          answer_title:
-            accepted: Esta proposta foi aceite porque
-            created: Esta proposta foi criada
-            discarded: Esta proposta foi descartada porque
-            published: Esta proposta está publicada porque
-            rejected: Esta proposta foi rejeitada porque
-            validating: Esta proposta está sob avaliação
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de assinaturas.
         show:
           follow_description: Receber uma notificação quando houverem notícias nesta iniciativa
