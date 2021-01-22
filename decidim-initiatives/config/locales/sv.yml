@@ -310,10 +310,8 @@ sv:
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
-          edit_my_initiative: Redigera mina initiativ
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
-          send_my_initiative: Skicka mitt initiativ
         previous_form:
           back: Tillbaka
           continue: Fortsätt
@@ -425,13 +423,6 @@ sv:
         print:
           city: Stad
         result:
-          answer_title:
-            accepted: Detta förslag har accepterats eftersom
-            created: Detta förslag har skapats
-            discarded: Detta förslag har förkastats eftersom
-            published: Detta förslag publiceras eftersom
-            rejected: Detta förslag har avslagits eftersom
-            validating: Detta förslag utvärderas
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
           follow_description: Få ett meddelande när det finns nyheter om detta initiativ
