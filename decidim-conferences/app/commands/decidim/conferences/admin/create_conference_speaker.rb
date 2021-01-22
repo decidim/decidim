@@ -25,17 +25,51 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          transaction do
-            create_conference_speaker!
-            link_meetings(@conference_speaker)
-          end
+          # We are going to assign the attributes only to handle the validation of the avatar before accessing
+          # `create_conference_speaker!` which uses `create!`, and this will render an ActiveRecord::RecordInvalid error
+          # After we assign and check if the object is valid, we will not save the model to let it be handled the old way
+          # If there is an error we add the error to the form
+          # We are using this method to assign the conference because if we are trying to assign all at once, there will be thrown a
+          # Delegation error
 
-          broadcast(:ok)
+          if conference_speaker_with_attributes.valid?
+
+            transaction do
+              create_conference_speaker!
+              link_meetings(@conference_speaker)
+            end
+            broadcast(:ok)
+          else
+            form.errors.add(:avatar, conference_speaker_with_attributes.errors[:avatar]) if conference_speaker_with_attributes.errors.include? :avatar
+
+            broadcast(:invalid)
+          end
         end
 
         private
 
         attr_reader :form, :conference, :current_user
+
+        def conference_speaker_with_attributes
+          attrs = form.attributes.slice(
+            :full_name,
+            :twitter_handle,
+            :personal_url,
+            :avatar,
+            :remove_avatar,
+            :position,
+            :affiliation,
+            :short_bio
+          ).merge(
+            decidim_conference_id: conference.id,
+            conference: conference,
+            user: form.user
+          )
+          conference_speaker = conference.speakers.build
+          conference_speaker.conference = conference
+          conference_speaker.assign_attributes(attrs)
+          conference_speaker
+        end
 
         def create_conference_speaker!
           log_info = {
@@ -50,19 +84,7 @@ module Decidim
           @conference_speaker = Decidim.traceability.create!(
             Decidim::ConferenceSpeaker,
             current_user,
-            form.attributes.slice(
-              :full_name,
-              :position,
-              :affiliation,
-              :short_bio,
-              :twitter_handle,
-              :personal_url,
-              :avatar,
-              :remove_avatar
-            ).merge(
-              conference: conference,
-              user: form.user
-            ),
+            conference_speaker_with_attributes.attributes,
             log_info
           )
         end
