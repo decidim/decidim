@@ -20,12 +20,12 @@ module Decidim
                description: "Sort by name of the component, alphabetically, valid values are ASC or DESC",
                required: false,
                as: :name,
-               prepare: ->(direction, ctx) do
+               prepare: lambda { |direction, ctx|
                           lambda { |locale|
                             locale = ctx[:current_organization].default_locale if locale.blank?
                             [Arel.sql("name->? #{direction.upcase}"), locale]
                           }
-                        end
+                        }
     end
   end
 end
