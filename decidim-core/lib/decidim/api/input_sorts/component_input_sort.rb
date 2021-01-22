@@ -8,15 +8,15 @@ module Decidim
       graphql_name "ComponentSort"
       description "A type used for sorting any component parent objects"
 
-      argument :id, String, "Sort by ID, valid values are ASC or DESC", required: false
-      argument :weight, String, "Sort by weight (order in the website), valid values are ASC or DESC", required: false
+      argument :id, GraphQL::Types::String, "Sort by ID, valid values are ASC or DESC", required: false
+      argument :weight, GraphQL::Types::String, "Sort by weight (order in the website), valid values are ASC or DESC", required: false
       argument :type,
-               type: String,
+               type: GraphQL::Types::String,
                description: "Sort by type of component, alphabetically, valid values are ASC or DESC",
                required: false,
                as: :manifest_name
       argument :name,
-               type: String,
+               type: GraphQL::Types::String,
                description: "Sort by name of the component, alphabetically, valid values are ASC or DESC",
                required: false,
                as: :name,

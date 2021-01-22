@@ -5,7 +5,7 @@ module Decidim
     module HasLocalizedInputFilter
       def self.included(child_class)
         child_class.argument :locale,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "Specify the locale to use when searching translated fields, otherwise default organization language will be used",
                              required: false,
                              prepare: ->(locale, ctx) do

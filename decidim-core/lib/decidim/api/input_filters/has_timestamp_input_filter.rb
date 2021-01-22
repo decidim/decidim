@@ -5,7 +5,7 @@ module Decidim
     module HasTimestampInputFilter
       def self.included(child_class)
         child_class.argument :created_before,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "List result created **before** (and **excluding**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
                              prepare: ->(date, _ctx) do
@@ -14,7 +14,7 @@ module Decidim
                                end
                              end
         child_class.argument :created_since,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "List result created after (and **including**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
                              prepare: ->(date, _ctx) do
@@ -23,7 +23,7 @@ module Decidim
                                end
                              end
         child_class.argument :updated_before,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "List result updated **before** (and **excluding**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
                              prepare: ->(date, _ctx) do
@@ -32,7 +32,7 @@ module Decidim
                                end
                              end
         child_class.argument :updated_since,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "List result updated after (and **including**) this date. Expected format `YYYY-MM-DD`",
                              required: false,
                              prepare: ->(date, _ctx) do

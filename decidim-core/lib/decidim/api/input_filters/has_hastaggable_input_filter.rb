@@ -5,7 +5,7 @@ module Decidim
     module HasHastaggableInputFilter
       def self.included(child_class)
         child_class.argument :hashtag,
-                             type: String,
+                             type: GraphQL::Types::String,
                              description: "List result having this hashtag",
                              required: false,
                              prepare: ->(hashtag, _ctx) { "##{hashtag.sub(/^#/, "")}" }
