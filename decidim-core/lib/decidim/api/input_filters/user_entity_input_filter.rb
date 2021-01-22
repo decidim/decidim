@@ -31,39 +31,39 @@ module Decidim
                type: String,
                description: "Filters by type of entity (User or UserGroup)",
                required: false,
-               prepare: ->(value, _ctx) do
+               prepare: lambda { |value, _ctx|
                           type = value.downcase.camelcase
                           type = "UserGroup" if %w(Group Usergroup).include?(type)
                           { type: "Decidim::#{type}" }
-                        end
+                        }
       argument :name,
                type: String,
                description: "Filters by name of the user entity. Searches (case insensitive) any fragment of the provided string",
                required: false,
-               prepare: ->(value, _ctx) do
+               prepare: lambda { |value, _ctx|
                  [
                    lambda { |model_class, _locale|
                      model_class.arel_table[:name].matches("%#{value}%")
                    }
                  ]
-               end
+               }
       argument :nickname,
                type: String,
                description: "Filters by nickname of the user entity. Searches (case insensitive) any fragment of the provided string",
                required: false,
-               prepare: ->(value, _ctx) do
+               prepare: lambda { |value, _ctx|
                           value = value[1..-1] if value.starts_with? "@"
                           [
                             lambda { |model_class, _locale|
                               model_class.arel_table[:nickname].matches("%#{value}%")
                             }
                           ]
-                        end
+                        }
       argument :wildcard,
                type: String,
                description: "Filters by nickname or name of the user entity. Searches (case insensitive) any fragment of the provided string",
                required: false,
-               prepare: ->(value, _ctx) do
+               prepare: lambda { |value, _ctx|
                           value = value[1..-1] if value.starts_with? "@"
                           [
                             lambda { |model_class, _locale|
@@ -72,18 +72,18 @@ module Decidim
                               op_name.or(op_nick)
                             }
                           ]
-                        end
+                        }
       argument :exclude_ids,
                type: [ID],
                description: "Excludes users contained in given ids. Valid values are one or more IDs (passed as an array)",
                required: false,
-               prepare: ->(value, _ctx) do
+               prepare: lambda { |value, _ctx|
                           [
                             lambda { |model_class, _locale|
                               model_class.arel_table[:id].not_in(value)
                             }
                           ]
-                        end
+                        }
     end
   end
 end

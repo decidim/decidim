@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-
     autoload :AmendmentType, "decidim/api/types/amendment_type"
     autoload :AreaApiType, "decidim/api/types/area_api_type"
     autoload :AreaTypeType, "decidim/api/types/area_type_type"
