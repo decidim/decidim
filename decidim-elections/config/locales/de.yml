@@ -408,6 +408,12 @@ de:
               title: Titel
         titles:
           votings: Abstimmungen
+        votings:
+          actions:
+            new_voting: Neue Abstimmung
+          create:
+            invalid: Beim Erstellen dieser Abstimmung ist ein Problem aufgetreten
+            success: Abstimmung erfolgreich erstellt
   layouts:
     decidim:
       election_votes_header:
