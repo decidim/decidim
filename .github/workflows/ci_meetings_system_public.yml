@@ -1,4 +1,4 @@
-name: "[CI] Proposals (system public)"
+name: "[CI] Meetings (system public)"
 on:
   push:
     branches:
@@ -14,7 +14,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 2.7.1
-  DECIDIM_MODULE: decidim-proposals
+  DECIDIM_MODULE: decidim-meetings
 
 jobs:
   main:
@@ -56,7 +56,7 @@ jobs:
       - run: bundle exec rspec spec/system/ --exclude-pattern 'spec/system/admin/**/*_spec.rb'
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: ./.github/upload_coverage.sh decidim-proposals-system-public $GITHUB_EVENT_PATH
+      - run: ./.github/upload_coverage.sh decidim-meetings-system-public $GITHUB_EVENT_PATH
         name: Upload coverage
       - uses: actions/upload-artifact@v2-preview
         if: always()
