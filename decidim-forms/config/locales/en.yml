@@ -119,7 +119,7 @@ en:
           resize_and_pad: Resized and padded to
           resize_to_fit: Resized to fit
       question_types:
-        file: Files
+        files: Files
         long_answer: Long answer
         matrix_multiple: Matrix (Multiple option)
         matrix_single: Matrix (Single option)
