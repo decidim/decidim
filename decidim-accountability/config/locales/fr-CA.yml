@@ -139,8 +139,12 @@ fr-CA:
       models:
         result:
           fields:
+            category: Catégorie
+            created_at: Créé le
             end_date: Date de fin
+            id: ID
             progress: Avancement
+            scope: Secteur
             start_date: Date de début
             status: Statut
             title: Titre
@@ -187,6 +191,15 @@ fr-CA:
             votes: Votes
         timeline:
           title: Évolution du projet
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Catégorie
+          scope_id_eq:
+            label: Secteur
+          status_id_eq:
+            label: Statut
     components:
       accountability:
         name: Suivi
