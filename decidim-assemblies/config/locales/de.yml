@@ -255,8 +255,8 @@ de:
         update: "%{user_name} hat den Gremientyp %{resource_name} aktualisiert"
       assembly_user_role:
         create: "%{user_name} hat %{resource_name} zum Gremium %{space_name} eingeladen"
-        delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Assembly"
-        update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Assembly geändert"
+        delete: "%{user_name} hat %{resource_name} aus dem Gremium %{space_name} entfernt"
+        update: "%{user_name} hat die Rolle von %{resource_name} im Gremium %{space_name} geändert"
     assemblies:
       admin:
         assemblies:
