@@ -48,9 +48,9 @@ en:
           index:
             finished_orders: Finished votes
             pending_orders: Pending votes
+            title: Budgets
             users_with_finished_orders: Users with finished votes
             users_with_pending_orders: Users with pending votes
-            title: Budgets
           new:
             create: Create budget
             title: New budget
