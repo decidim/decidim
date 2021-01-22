@@ -36,10 +36,9 @@ module Decidim
       #
       def text_link_to_current_or_new_conversation_with(user, body = t("decidim.profiles.show.send_private_message"))
         conversation_path = current_or_new_conversation_path_with(user)
-        if conversation_path
-          link_to body, conversation_path, title: body
-        end
+        link_to body, conversation_path, title: body if conversation_path
       end
+
       #
       # Finds the right path to the conversation the current user and another
       # user (the interlocutor).
