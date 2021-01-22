@@ -1136,9 +1136,9 @@ en:
         groups: Groups
         members: Members
         officialized: Official participant
+        send_private_message: Send private message
         timeline: Timeline
         view_full_profile: View full profile
-        send_private_message: Send private message
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
