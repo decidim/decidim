@@ -253,7 +253,7 @@ sv:
           error: Det gick inte att skapa komponenten.
           success: Komponenten har skapats.
         destroy:
-          error: Det har inträffat ett fel som förstörde komponenten.
+          error: Ett fel uppstod när komponenten skulle förstöras.
           success: Komponenten har raderats.
         edit:
           title: Redigera komponent
