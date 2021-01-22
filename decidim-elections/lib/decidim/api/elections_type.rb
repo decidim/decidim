@@ -8,14 +8,14 @@ module Decidim
       graphql_name "Elections"
       description "An elections component of a participatory space."
 
-      field :elections, ElectionType.connection_type, null: true, connection: true
+      field :elections, Decidim::Elections::ElectionType.connection_type, null: true, connection: true
 
       def elections
         ElectionsTypeHelper.base_scope(object).includes(:component)
       end
 
-      field :election, ElectionType, null: true do
-        argument :id, ID, required: true
+      field :election, Decidim::Elections::ElectionType, null: true do
+        argument :id, GraphQL::Types::ID, required: true
       end
 
       def election(**args)
