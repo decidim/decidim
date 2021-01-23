@@ -50,7 +50,7 @@ module Decidim
           @conference_speaker = collection.find(params[:id])
           enforce_permission_to :update, :conference_speaker, speaker: @conference_speaker
           @form = form(ConferenceSpeakerForm).from_params(params)
-          @form.avatar = @conference_speaker.avatar if @form.avatar.blank?
+
           UpdateConferenceSpeaker.call(@form, @conference_speaker) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_speakers.update.success", scope: "decidim.admin")

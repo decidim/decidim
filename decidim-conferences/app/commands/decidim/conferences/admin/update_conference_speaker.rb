@@ -11,6 +11,7 @@ module Decidim
         # form - A form object with the params.
         # conference_speaker - The ConferenceSpeaker to update
         def initialize(form, conference_speaker)
+          form.avatar = conference_speaker.avatar if form.avatar.blank?
           @form = form
           @conference_speaker = conference_speaker
         end

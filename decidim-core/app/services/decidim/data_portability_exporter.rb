@@ -60,7 +60,7 @@ module Decidim
         klass = Object.const_get(object)
         export_data << [klass.model_name.name.parameterize.pluralize, Exporters.find_exporter(format).new(klass.user_collection(user), klass.export_serializer).export]
         attachments = klass.data_portability_images(user)
-        export_attachments << [klass.model_name.name.parameterize.pluralize, attachments.flatten] unless attachments.nil?
+        export_attachments << [klass.model_name.name.parameterize.pluralize, attachments.flatten.try(:first)] unless attachments.nil?
       end
 
       [export_data, export_attachments]

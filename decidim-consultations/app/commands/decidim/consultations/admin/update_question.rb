@@ -11,6 +11,9 @@ module Decidim
         # question - the Question to update
         # form - A form object with the params.
         def initialize(question, form)
+          form.hero_image = question.hero_image if form.hero_image.blank?
+          form.banner_image = question.banner_image if form.banner_image.blank?
+
           @question = question
           @form = form
         end

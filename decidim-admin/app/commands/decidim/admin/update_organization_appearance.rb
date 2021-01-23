@@ -10,6 +10,9 @@ module Decidim
       # organization - The Organization that will be updated.
       # form - A form object with the params.
       def initialize(organization, form)
+        image_fields.each do |field|
+          form.send("#{field}=".to_sym, organization.send(field)) if form.send(field).blank?
+        end
         @organization = organization
         @form = form
       end
@@ -27,7 +30,7 @@ module Decidim
           update_organization
           broadcast(:ok, organization)
         rescue ActiveRecord::RecordInvalid
-          [:highlighted_content_banner_image, :logo, :favicon, :official_img_header, :official_img_footer].each do |field|
+          image_fields.each do |field|
             form.errors.add(field, organization.errors[field]) if organization.errors.include? field
           end
           broadcast(:invalid)
@@ -35,6 +38,10 @@ module Decidim
       end
 
       private
+
+      def image_fields
+        [:highlighted_content_banner_image, :logo, :favicon, :official_img_header, :official_img_footer]
+      end
 
       attr_reader :form, :organization
 
@@ -51,9 +58,10 @@ module Decidim
           .merge(highlighted_content_banner_attributes)
           .merge(omnipresent_banner_attributes)
           .merge(colors_attributes)
+          .delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
           .tap do |attributes|
             attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
-          end.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
+          end
       end
 
       def appearance_attributes

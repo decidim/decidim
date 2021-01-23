@@ -29,6 +29,8 @@ module Decidim::Conferences
         current_user: current_user,
         full_name: "New name",
         user: user,
+        avatar: Decidim::Dev.test_file("avatar.jpg", "image/jpeg"),
+        remove_avatar: false,
         attributes: {
           full_name: "New name",
           position: { en: "new position" },
@@ -36,7 +38,7 @@ module Decidim::Conferences
           short_bio: Decidim::Faker::Localized.sentence(word_count: 5),
           twitter_handle: "full_name",
           personal_url: Faker::Internet.url,
-          meeting_ids: meeting_ids
+          meeting_ids: meeting_ids,
         }
       )
     end

@@ -8,6 +8,7 @@ module Decidim
     # form - A form object with the params.
     # user_group - The user group to update
     def initialize(form, user_group)
+      form.avatar = user_group.avatar if form.avatar.blank?
       @form = form
       @user_group = user_group
     end

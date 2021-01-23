@@ -52,8 +52,6 @@ module Decidim
           @form = consultation_form
                   .from_params(params.except(:slug), consultation_id: current_consultation.id)
 
-          @form.banner_image = current_consultation.banner_image if @form.banner_image.blank?
-          @form.introductory_image = current_consultation.introductory_image if @form.introductory_image.blank?
           UpdateConsultation.call(current_consultation, @form) do
             on(:ok) do |consultation|
               flash[:notice] = I18n.t("consultations.update.success", scope: "decidim.admin")
