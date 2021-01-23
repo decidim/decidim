@@ -5,6 +5,12 @@ require "decidim/core/api"
 require "decidim/core/version"
 # Decidim configuration.
 module Decidim
+  autoload :LayoutHelper, "decidim/helpers/layout_helper"
+  autoload :CurrentOrganization, "decidim/middleware/current_organization"
+  autoload :StripXForwardedHost, "decidim/middleware/strip_x_forwarded_host"
+  autoload :EventsManager, "decidim/services/events_manager"
+  autoload :SettingsChange, "decidim/services/settings_change"
+
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
