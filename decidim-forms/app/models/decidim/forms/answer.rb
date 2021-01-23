@@ -21,8 +21,6 @@ module Decidim
       validate :user_questionnaire_same_organization
       validate :question_belongs_to_questionnaire
 
-      delegate :organization, to: :user
-
       def self.user_collection(user)
         where(decidim_user_id: user.id)
       end
@@ -40,6 +38,11 @@ module Decidim
                                         .where(questionnaire: questionnaires)
 
         answers.pluck(:decidim_user_id).flatten.compact.uniq
+      end
+
+      def organization
+        user.organization if user.present?
+        questionnaire&.questionnaire_for.try(:organization)
       end
 
       private
