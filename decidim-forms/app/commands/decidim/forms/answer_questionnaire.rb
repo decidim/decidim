@@ -23,14 +23,34 @@ module Decidim
         return broadcast(:invalid) if @form.invalid?
 
         answer_questionnaire
-        broadcast(:ok)
+
+        if @errors
+          reset_form_attachments
+          broadcast(:invalid)
+        else
+          broadcast(:ok)
+        end
       end
 
       attr_reader :form
 
       private
 
+      # This method will add an error to the `add_documents` field only if there's
+      # any error in any other field or an error in another answer in the
+      # questionnaire. This is needed because when the form has
+      # an error, the attachments are lost, so we need a way to inform the user
+      # of this problem.
+      def reset_form_attachments
+        @form.responses.each do |answer|
+          answer.errors.add(:add_documents, :needs_to_be_reattached) if answer.has_attachments?
+        end
+      end
+
       def answer_questionnaire
+        @main_form = @form
+        @errors = nil
+
         Answer.transaction do
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_answer|
             answer = Answer.new(
@@ -53,24 +73,27 @@ module Decidim
             end
 
             answer.save!
-            @main_form = @form
 
-            if form_answer.question.has_attachments?
-              # The attachments module expects `@form` to be the form with the
-              # attachments
-              @form = form_answer
-              @attached_to = answer
+            next unless form_answer.question.has_attachments?
 
-              build_attachments
+            # The attachments module expects `@form` to be the form with the
+            # attachments
+            @form = form_answer
+            @attached_to = answer
 
-              return broadcast(:invalid) if attachments_invalid?
+            build_attachments
 
-              create_attachments if process_attachments?
-              document_cleanup!
+            if attachments_invalid?
+              @errors = true
+              next
             end
 
-            @form = @main_form
+            create_attachments if process_attachments?
+            document_cleanup!
           end
+
+          @form = @main_form
+          raise ActiveRecord::Rollback if @errors
         end
       end
     end

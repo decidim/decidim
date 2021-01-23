@@ -21,8 +21,6 @@ module Decidim
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
       validate :documents_present, if: -> { question.question_type == "files" && question.mandatory? }
 
-      validate :notify_missing_attachment_if_errored
-
       delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
 
       attr_writer :question
@@ -59,6 +57,10 @@ module Decidim
           answer = context.responses&.find { |r| r.question_id&.to_i == condition.condition_question.id }
           condition.fulfilled?(answer)
         end
+      end
+
+      def has_attachments?
+        question.has_attachments? && errors[:add_documents].empty? && add_documents.present?
       end
 
       private
@@ -99,16 +101,8 @@ module Decidim
         I18n.t("questionnaires.question.max_choices", scope: "decidim.forms", n: question.max_choices)
       end
 
-      # This method will add an error to the `add_documents` field only if there's
-      # any error in any other field. This is needed because when the form has
-      # an error, the attachments are lost, so we need a way to inform the user
-      # of this problem.
-      def notify_missing_attachment_if_errored
-        errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
-      end
-
       def documents_present
-        errors.add(:add_documents, :blank) if add_documents.length.zero?
+        errors.add(:add_documents, :blank) if add_documents.empty? && errors[:add_documents].empty?
       end
     end
   end
