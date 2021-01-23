@@ -16,6 +16,7 @@ module Decidim
     autoload :CommentVoteSerializer, "decidim/comments/comment_vote_serializer"
     autoload :Export, "decidim/comments/export"
     autoload :Markdown, "decidim/comments/markdown"
+    autoload :CommentCreation, "decidim/comments/services/comment_creation"
 
     def self.data_portable_entities
       ["Decidim::Comments::Comment", "Decidim::Comments::CommentVote"]
