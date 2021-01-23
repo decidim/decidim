@@ -63,11 +63,11 @@ module Decidim
       end
 
       def mandatory_body?
-        mandatory? && !multiple_choice?
+        mandatory? && !multiple_choice? && !has_attachments?
       end
 
       def mandatory_choices?
-        mandatory? && multiple_choice?
+        mandatory? && multiple_choice? && !has_attachments?
       end
 
       def number_of_options

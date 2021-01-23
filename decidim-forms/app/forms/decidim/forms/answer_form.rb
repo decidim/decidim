@@ -19,6 +19,7 @@ module Decidim
       validate :max_choices, if: -> { question.max_choices }
       validate :all_choices, if: -> { question.question_type == "sorting" }
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
+      validate :documents_present, if: -> { question.question_type == "files" && question.mandatory? }
 
       validate :notify_missing_attachment_if_errored
 
@@ -104,6 +105,10 @@ module Decidim
       # of this problem.
       def notify_missing_attachment_if_errored
         errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
+      end
+
+      def documents_present
+        errors.add(:add_documents, :blank) if add_documents.length.zero?
       end
     end
   end
