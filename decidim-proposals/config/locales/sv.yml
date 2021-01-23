@@ -519,7 +519,7 @@ sv:
       answers:
         accepted: Accepterat
         evaluating: Utvärderas
-        not_answered: Ej besvarade
+        not_answered: Ej besvarat
         rejected: Avvisat
         withdrawn: Tillbakadragna
       application_helper:
@@ -534,11 +534,11 @@ sv:
         filter_scope_values:
           all: Alla
         filter_state_values:
-          accepted: Accepterat
+          accepted: Accepterade
           all: Alla
           evaluating: Utvärderas
           not_answered: Ej besvarade
-          rejected: Avvisat
+          rejected: Avvisade
         filter_type_values:
           all: Alla
           amendments: Ändringsförslag
