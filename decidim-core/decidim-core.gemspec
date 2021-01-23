@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "autoprefixer-rails", "~> 8.0"
   s.add_dependency "batch-loader", "~> 1.2"
   s.add_dependency "browser", "~> 2.7"
-  s.add_dependency "carrierwave", "~> 1.3"
+  s.add_dependency "carrierwave", "= 2.0"
   s.add_dependency "cells-erb", "~> 0.1.0"
   s.add_dependency "cells-rails", "~> 0.0.9"
   s.add_dependency "charlock_holmes", "~> 0.7"

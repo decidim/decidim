@@ -16,6 +16,9 @@ module Decidim
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationAppearanceForm).from_params(params)
 
+        [:highlighted_content_banner_image, :logo, :favicon, :official_img_header, :official_img_footer].each do |field|
+          @form.send("#{field}=".to_sym, current_organization.send(field)) if @form.send(field).blank?
+        end
         UpdateOrganizationAppearance.call(current_organization, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("organization.update.success", scope: "decidim.admin")

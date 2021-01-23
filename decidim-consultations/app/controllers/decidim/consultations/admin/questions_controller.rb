@@ -48,6 +48,9 @@ module Decidim
           @form = question_form
                   .from_params(params, question_id: current_question.id, current_consultation: current_consultation)
 
+          @form.hero_image = current_question.hero_image if @form.hero_image.blank?
+          @form.banner_image = current_question.banner_image if @form.banner_image.blank?
+
           UpdateQuestion.call(current_question, @form) do
             on(:ok) do |question|
               flash[:notice] = I18n.t("questions.update.success", scope: "decidim.admin")

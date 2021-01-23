@@ -27,8 +27,9 @@ module Decidim
           update_organization
           broadcast(:ok, organization)
         rescue ActiveRecord::RecordInvalid
-          form.errors.add(:official_img_header, organization.errors[:official_img_header]) if organization.errors.include? :official_img_header
-          form.errors.add(:official_img_footer, organization.errors[:official_img_footer]) if organization.errors.include? :official_img_footer
+          [:highlighted_content_banner_image, :logo, :favicon, :official_img_header, :official_img_footer].each do |field|
+            form.errors.add(field, organization.errors[field]) if organization.errors.include? field
+          end
           broadcast(:invalid)
         end
       end
@@ -52,7 +53,7 @@ module Decidim
           .merge(colors_attributes)
           .tap do |attributes|
             attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
-          end
+          end.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
       end
 
       def appearance_attributes

@@ -56,14 +56,19 @@ module Decidim
             :full_name,
             :twitter_handle,
             :personal_url,
-            :avatar,
-            :remove_avatar,
             :position,
             :affiliation,
             :short_bio
           ).merge(
             user: form.user
-          )
+          ).merge(uploader_attributes)
+        end
+
+        def uploader_attributes
+          {
+            avatar: form.avatar,
+            remove_avatar: form.remove_avatar
+          }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
         end
 
         def update_conference_speaker!
