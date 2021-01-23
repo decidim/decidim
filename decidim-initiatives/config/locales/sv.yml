@@ -282,12 +282,12 @@ sv:
         filter_scope_values:
           all: Alla
         filter_state_values:
-          accepted: Nog med signaturer
+          accepted: Tillräckligt många underskrifter
           all: Alla
-          answered: Besvarad
+          answered: Besvarade
           closed: Stängda
           open: Öppna
-          rejected: Inte tillräckligt med signaturer
+          rejected: Inte tillräckligt många underskrifter
         filter_type_values:
           all: Alla
       committee_requests:
