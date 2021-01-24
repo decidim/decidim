@@ -15,13 +15,14 @@ module Decidim::Conferences
         invalid?: invalid,
         current_user: current_user,
         full_name: "New name",
+        logo: Decidim::Dev.test_file("avatar.jpg", "image/jpeg"),
+        remove_logo: false,
         attributes: {
           name: "New name",
           weight: 2,
           partner_type: "collaborator",
           logo: Decidim::Dev.test_file("avatar.jpg", "image/jpeg"),
-          link: Faker::Internet.url,
-          remove_logo: false
+          link: Faker::Internet.url
         }
       )
     end

@@ -38,7 +38,7 @@ module Decidim::Conferences
           short_bio: Decidim::Faker::Localized.sentence(word_count: 5),
           twitter_handle: "full_name",
           personal_url: Faker::Internet.url,
-          meeting_ids: meeting_ids,
+          meeting_ids: meeting_ids
         }
       )
     end
