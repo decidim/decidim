@@ -141,8 +141,12 @@ cs:
       models:
         result:
           fields:
+            category: Kategorie
+            created_at: Vytvořeno
             end_date: Datum ukončení
+            id: ID
             progress: Pokrok
+            scope: Oblast působnosti
             start_date: Počáteční datum
             status: Stav
             title: Název
@@ -191,6 +195,15 @@ cs:
             votes: Podporuje
         timeline:
           title: Vývoj projektu
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Oblast působnosti
+          status_id_eq:
+            label: Stav
     components:
       accountability:
         name: Odpovědnost

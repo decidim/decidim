@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Api
     describe MutationType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       describe "commentable" do
         let!(:commentable) { create(:dummy_resource) }

@@ -5,6 +5,8 @@ require "active_support/all"
 require "decidim/core"
 require "wicked_pdf"
 
+require "decidim/conferences/query_extensions"
+
 module Decidim
   module Conferences
     # Decidim's Conferences Rails Engine.
@@ -78,6 +80,10 @@ module Decidim
           content_block.cell = "decidim/conferences/content_blocks/highlighted_conferences"
           content_block.public_name_key = "decidim.conferences.content_blocks.highlighted_conferences.name"
         end
+      end
+
+      initializer "decidim_conferences.query_extensions" do
+        Decidim::Api::QueryType.include Decidim::Conferences::QueryExtensions
       end
     end
   end

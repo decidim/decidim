@@ -133,7 +133,10 @@ sv:
       models:
         result:
           fields:
+            category: Kategori
+            created_at: Skapad
             end_date: Slutdatum
+            id: ID
             progress: Behandling
             start_date: Startdatum
             status: Status
@@ -178,6 +181,13 @@ sv:
             votes: Stöd
         timeline:
           title: Projektutveckling
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Ansvarsskyldighet

@@ -10,21 +10,19 @@ module Decidim
       # type - A GraphQL::BaseType to extend.
       #
       # Returns nothing.
-      def self.define(type)
-        type.field :commentable do
-          type !CommentableType
-
-          argument :id, !types.String, "The commentable's ID"
-          argument :type, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
-          argument :locale, !types.String, "The locale for which to get the comments text"
-          argument :toggleTranslations, !types.Boolean, "Whether the user asked to toggle the machine translations or not."
-
-          resolve lambda { |_obj, args, _ctx|
-            I18n.locale = args[:locale].presence
-            RequestStore.store[:toggle_machine_translations] = args[:toggleTranslations]
-            args[:type].constantize.find(args[:id])
-          }
+      def self.included(type)
+        type.field :commentable, CommentableType, null: false do
+          argument :id, GraphQL::Types::String, "The commentable's ID", required: true
+          argument :type, GraphQL::Types::String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`", required: true
+          argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
+          argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
         end
+      end
+
+      def commentable(id:, locale:, toggle_translations:, type:)
+        I18n.locale = locale.presence
+        RequestStore.store[:toggle_machine_translations] = toggle_translations
+        type.constantize.find(id)
       end
     end
   end
