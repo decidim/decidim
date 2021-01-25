@@ -2,7 +2,6 @@
 
 shared_context "with a component" do
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
-
   let(:user) { create :user, :confirmed, organization: organization }
 
   let!(:organization) { create(:organization, *organization_traits, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }

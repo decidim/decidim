@@ -81,8 +81,8 @@ describe "Admin manages answers", type: :system do
     end
   end
 
-  context "when the election has started" do
-    let(:election) { create(:election, :started, component: current_component) }
+  context "when the election was created on the bulletin board" do
+    let(:election) { create(:election, :created, component: current_component) }
 
     it "cannot add a new answer" do
       expect(page).to have_no_content("New Answer")
@@ -124,8 +124,8 @@ describe "Admin manages answers", type: :system do
       end
     end
 
-    context "when the election has started" do
-      let(:election) { create(:election, :started, component: current_component) }
+    context "when the election was created on the bulletin board" do
+      let(:election) { create(:election, :created, component: current_component) }
 
       it "cannot update the answer" do
         within find("tr", text: translated(answer.title)) do
@@ -152,8 +152,8 @@ describe "Admin manages answers", type: :system do
       end
     end
 
-    context "when the election has started" do
-      let(:election) { create(:election, :started, component: current_component) }
+    context "when the election was created on the bulletin board" do
+      let(:election) { create(:election, :created, component: current_component) }
 
       it "cannot delete the question" do
         within find("tr", text: translated(answer.title)) do
