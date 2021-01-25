@@ -25,6 +25,17 @@ module Decidim
       Decidim::AdminLog::ImpersonationLogPresenter
     end
 
+    def ensure_not_expired!
+      Rails.logger.info("================== EXPIRY TIME: #{(started_at + SESSION_TIME_IN_MINUTES.minutes).inspect}")
+      Rails.logger.info("================== CURRENT TIME: #{Time.current.inspect}")
+      Rails.logger.info("================== RUN EXPIRE!: #{(started_at + SESSION_TIME_IN_MINUTES.minutes < Time.current).inspect}")
+      expire! if started_at + SESSION_TIME_IN_MINUTES.minutes < Time.current
+    end
+
+    def expire!
+      update!(expired_at: Time.current)
+    end
+
     private
 
     def same_organization

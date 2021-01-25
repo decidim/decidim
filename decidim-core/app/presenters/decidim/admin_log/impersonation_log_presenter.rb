@@ -32,7 +32,7 @@ module Decidim
       end
 
       def resource_presenter
-        @resource_presenter ||= Decidim::Log::UserPresenter.new(action_log.resource.user, h, action_log.extra["resource"])
+        @resource_presenter ||= Decidim::Log::UserPresenter.new(action_log.resource&.user, h, action_log.extra["resource"])
       end
     end
   end

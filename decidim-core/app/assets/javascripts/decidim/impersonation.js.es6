@@ -12,7 +12,7 @@
       }
     }, 1000);
 
-    // TODO: Explain
+    // Prevent reload when page is already unloading, otherwise it may cause infinite reloads.
     window.onbeforeunload = () => {
       clearInterval(exitInterval);
     };

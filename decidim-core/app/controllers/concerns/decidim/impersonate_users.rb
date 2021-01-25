@@ -56,22 +56,42 @@ module Decidim
       # Returns the managed user impersonated by an admin if exists
       def managed_user
         return unless can_impersonate_users?
+        return if impersonation_log.blank?
 
-        impersonation_log&.user
+        @managed_user ||= begin
+          impersonation_log.ensure_not_expired!
+          impersonation_log.user
+        end
       end
 
       # Check if the active impersonation session has expired or not.
       def check_impersonation_log_expired
-        byebug
-        return unless can_impersonate_users? && expired_log
+        # Rails.logger.info("can_impersonate_users?: #{can_impersonate_users?}")
+        # Rails.logger.info("expired_log: #{expired_log}")
+        # Rails.logger.info("request.xhr?: #{request.xhr?}")
+        # Rails.logger.info("orginal_url: #{request.original_url}")
 
-        expired_log.ended_at = Time.current
-        expired_log.save!
+        # Do not redirect on ajax requests
+        # raise request.xhr?.inspect
+        return if request && request.xhr?
+        # TODO: Explain why we don't run it on non-HTML responses
+        return if request && request.negotiate_mime([Mime[:html]]).blank?
+        return unless can_impersonate_users?
+        return unless expired_log
+
+        # respond_to do |format|
+        #   format.html do
+        #   end
+        # end
+        expired_log.update!(ended_at: Time.current)
         flash[:alert] = I18n.t("managed_users.expired_session", scope: "decidim")
+        Rails.logger.info("REDIRECT TO: #{decidim_admin.impersonatable_users_path}")
+        # close_session
         redirect_to decidim_admin.impersonatable_users_path
       end
 
       def can_impersonate_users?
+        # real_user && allowed_to?(:impersonate, :managed_user, { skip_ensure_not_expired: true }, [Decidim::Admin::Permissions], real_user)
         real_user && allowed_to?(:impersonate, :managed_user, {}, [Decidim::Admin::Permissions], real_user)
       end
 

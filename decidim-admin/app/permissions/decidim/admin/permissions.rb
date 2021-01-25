@@ -158,6 +158,11 @@ module Decidim
         when :promote
           subject_user.managed? && Decidim::ImpersonationLog.active.where(admin: user).empty?
         when :impersonate
+          # Rails.logger.info("context[:skip_ensure_not_expired]: #{context[:skip_ensure_not_expired]}")
+          # unless context[:skip_ensure_not_expired]
+          #   current_logs = Decidim::ImpersonationLog.where(admin: user, expired_at: nil).or(Decidim::ImpersonationLog.where(admin: user, ended_at: nil))
+          #   current_logs.each(&:ensure_not_expired!) if current_logs.any?
+          # end
           available_authorization_handlers? &&
             !subject_user.admin? &&
             subject_user.roles.empty? &&
