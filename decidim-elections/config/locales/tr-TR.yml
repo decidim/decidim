@@ -299,7 +299,6 @@ tr:
             elections:
               list:
                 election: Seçim
-                status: Statü
                 voting_period: Oylama süresi
               no_elections: Vekil olarak hareket ettiğiniz hiçbir seçim yoktur.
               title: Seçimler
