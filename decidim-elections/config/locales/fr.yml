@@ -479,11 +479,29 @@ fr:
             success: Élection publiée avec succès
           unpublish:
             success: Élection publiée avec succès
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de cette élection
+            success: Élection mise à jour avec succès
       admin_log:
         voting:
           create: "%{user_name} a créé l'élection %{resource_name}"
           publish: "%{user_name} a publié l'élection %{resource_name}"
           unpublish: "%{user_name} a annulé la publication de l'élection %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Élections remarquables
+      votings:
+        count:
+          title:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        filters:
+          active: Actifs
+          all: Tous
+          finished: Terminées
+          search: Rechercher
+          state: Statut
+          upcoming: À venir
   layouts:
     decidim:
       election_votes_header:
