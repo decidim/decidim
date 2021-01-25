@@ -495,6 +495,32 @@ de:
             other: "%{count} Abstimmungen"
         filters:
           active: Aktiv
+          all: Alle
+          finished: Abgeschlossen
+          search: Suchen
+          state: Status
+          upcoming: Zukünftig
+        filters_small_view:
+          close_modal: Dialog schließen
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Aufklappen
+        index:
+          title: Abstimmungen
+        orders:
+          label: 'Abstimmungen sortieren nach:'
+          random: Zufällig
+          recent: Neueste zuerst
+        show:
+          dates: Daten
+      votings_m:
+        badge_name:
+          finished: Abgeschlossen
+          ongoing: Aktuell
+          upcoming: Zukünftig
+        footer_button_text:
+          view: Anzeigen
+        unspecified: Keine Angabe
   layouts:
     decidim:
       election_votes_header:
