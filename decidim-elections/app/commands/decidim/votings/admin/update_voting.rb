@@ -3,12 +3,15 @@
 module Decidim
   module Votings
     module Admin
-      # A command with all the business logic when creating a new voting space
-      class CreateVoting < Rectify::Command
+      # A command with all the business logic when updating an existing
+      # voting in the system.
+      class UpdateVoting < Rectify::Command
         # Public: Initializes the command.
         #
+        # voting - the Voting to update
         # form - A form object with the params.
-        def initialize(form)
+        def initialize(voting, form)
+          @voting = voting
           @form = form
         end
 
@@ -21,9 +24,9 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          voting = create_voting!
+          update_voting!
 
-          if voting.persisted?
+          if voting.valid?
             broadcast(:ok, voting)
           else
             form.errors.add(:banner_image, voting.errors[:banner_image]) if voting.errors.include? :banner_image
@@ -34,22 +37,37 @@ module Decidim
 
         private
 
-        attr_reader :form
+        attr_reader :form, :voting
 
-        def create_voting!
-          Decidim.traceability.create(
-            Voting,
-            form.current_user,
-            organization: form.current_organization,
+        def update_voting!
+          voting.assign_attributes(attributes)
+          return unless voting.valid?
+
+          voting.save!
+
+          Decidim.traceability.perform_action!(:update, voting, form.current_user) do
+            voting
+          end
+        end
+
+        def attributes
+          {
             title: form.title,
-            slug: form.slug,
             description: form.description,
-            scope: form.scope,
+            slug: form.slug,
             start_time: form.start_time,
             end_time: form.end_time,
+            scope: form.scope
+          }.merge(uploader_attributes)
+        end
+
+        def uploader_attributes
+          {
             banner_image: form.banner_image,
-            introductory_image: form.introductory_image
-          )
+            remove_banner_image: form.remove_banner_image,
+            introductory_image: form.introductory_image,
+            remove_introductory_image: form.remove_introductory_image
+          }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
         end
       end
     end

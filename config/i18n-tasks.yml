@@ -188,6 +188,11 @@ ignore_unused:
   - decidim.consultations.admin_log.*
   - decidim.consultations.consultations.orders.*
   - decidim.consultations.show.badge_name.*
+  - decidim.votings.admin_log.*
+  - decidim.votings.votings.filters.*
+  - decidim.votings.votings.orders.*
+  - decidim.votings.votings_m.badge_name.*
+  - decidim.votings.votings_m.footer_button_text.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
@@ -216,6 +221,7 @@ ignore_unused:
   - decidim.initiatives.content_blocks.*.name
   - decidim.consultations.content_blocks.*.name
   - decidim.meetings.content_blocks.*.name
+  - decidim.votings.content_blocks.*.name
   - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
   - decidim.proposals.collaborative_drafts.orders*
   - decidim.proposals.collaborative_drafts.filters*
