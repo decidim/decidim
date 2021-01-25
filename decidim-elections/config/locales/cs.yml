@@ -309,7 +309,6 @@ cs:
             elections:
               list:
                 election: Volby
-                status: Stav
                 voting_period: Hlasovací období
               no_elections: Neexistují žádné volby, ve kterých byste jednal jako správce.
               title: Volby
