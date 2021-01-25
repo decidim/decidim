@@ -30,13 +30,13 @@ module Decidim
       def votings(filter: {}, order: {})
         manifest = Decidim.participatory_space_manifests.select { |m| m.name == :votings }.first
 
-        Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+        Decidim::Core::ParticipatorySpaceListBase.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
       end
 
       def voting(id: nil)
         manifest = Decidim.participatory_space_manifests.select { |m| m.name == :votings }.first
 
-        Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
+        Decidim::Core::ParticipatorySpaceFinderBase.new(manifest: manifest).call(object, { id: id }, context)
       end
     end
   end
