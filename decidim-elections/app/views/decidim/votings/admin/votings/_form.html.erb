@@ -27,6 +27,13 @@
     </div>
 
     <div class="row column">
+      <%= form.select :voting_type,
+                  @form.voting_type_select,
+                  { include_blank: t(".select_a_voting_type") },
+                  { multiple: false } %>
+    </div>
+
+    <div class="row column">
       <%= scopes_picker_field form, :scope_id, root: nil %>
     </div>
 

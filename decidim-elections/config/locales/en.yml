@@ -554,8 +554,13 @@ en:
           edit:
             update: Update
           form:
+            select_a_voting_type: Please select a voting type
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
+            voting_type:
+              hybrid: Hybrid
+              in_person: In person
+              online: Online
           new:
             create: Create
             title: New Voting
