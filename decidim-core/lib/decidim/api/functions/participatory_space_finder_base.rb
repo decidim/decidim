@@ -5,7 +5,7 @@ module Decidim
     # An abstract base class resolver for the GraphQL endpoint for a single participatory space
     # Inherit from this class and add search arguments to create finder participatory classes
     # as is shown in ParticipatorySpaceFinder
-    class ParticipatorySpaceFinderBase < GraphQL::Function
+    class ParticipatorySpaceFinderBase
       attr_reader :manifest
 
       def initialize(manifest:)

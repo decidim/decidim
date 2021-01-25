@@ -14,7 +14,7 @@ module Decidim
     # This is used by ParticipatorySpaceInterface to apply filter/orders when
     # searching raw components. When listing properly defined components,
     # use ComponentListBase instead
-    class ComponentList < GraphQL::Function
+    class ComponentList
       include NeedsApiFilterAndOrder
       attr_reader :model_class
 
