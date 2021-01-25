@@ -13,7 +13,6 @@ module Decidim
 
       routes do
         resources :debates do
-          post :archive, on: :member
           resources :debate_closes, only: [:edit, :update]
         end
         root to: "debates#index"
