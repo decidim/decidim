@@ -6,7 +6,6 @@ require "decidim/core"
 require "decidim/initiatives/current_locale"
 require "decidim/initiatives/initiatives_filter_form_builder"
 require "decidim/initiatives/initiative_slug"
-require "decidim/initiatives/api"
 require "decidim/initiatives/query_extensions"
 
 module Decidim
