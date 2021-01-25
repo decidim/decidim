@@ -64,7 +64,6 @@ fi-pl:
         new: Uusi %{name}
         preview: Esikatsele
         publish: Julkaise
-        setup: Asetukset
         title: Toiminnot
         unpublish: Lopeta julkaisu
       admin:
@@ -113,9 +112,6 @@ fi-pl:
             title: Uusi vaali
           publish:
             success: Vaalin julkaisu onnistui.
-          setup:
-            invalid: Vaalin asetusten määrittäminen epäonnistui
-            success: Vaalin lähetys ilmoitustaululle onnistui
           unpublish:
             success: Vaalin julkaisu epäonnistui.
           update:
@@ -160,29 +156,6 @@ fi-pl:
           update:
             invalid: Kysymyksen päivitys epäonnistui
             success: Kysymyksen päivitys onnistui
-        setup:
-          errors:
-            max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
-            minimum_answers: Kysymyksillä on oltava <strong>vähintään yksi vastaus</strong>.
-            minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
-            published: Vaalia <strong>ei ole julkaistu</strong>
-            time_before: Aloitusaika on <strong>alle 3 tuntia</strong> ennen vaalin alkamista
-            trustee_public_key: luottamushenkilöllä ei ole <strong>kelvollista julkista avainta</strong>
-            trustees_quorum: Luottamushenkilöiden määrä <strong>ei vastaa vaadittua luottamushenkilöiden määrää</strong>
-          requirements:
-            max_selections: Kaikilla kysymyksillä on oikea arvo asetukselle <strong>vastausten maksimimäärä</strong>
-            minimum_answers: Jokaisella kysymyksellä on <strong>vähintään 2 vastausta</strong>
-            minimum_questions: Vaalilla on <strong>vähintään 1 kysymys</strong>
-            published: Vaali <strong>on julkaistu</strong>
-            time_before: Vaalin määritys tulee tapahtua <strong>vähintään 3 tuntia</strong> ennen sen alkamista
-            trustee_public_key: luottamushenkilöllä on <strong>kelvollinen julkinen avain</strong>
-            trustees_quorum: Tämän luottamushenkilölistan henkilöiden määrä on oikea ja se vaatii <strong>vähintään %{quorum} luottamushenkilöä</strong> ääntenlaskuprosessin suorittamiseksi
-          show:
-            setup: Määritä vaali
-            title: Vaalin asetukset
-          update:
-            setup: Määritä vaali
-            title: Vaalin asetukset
         trustees_participatory_spaces:
           actions:
             disable: Poista käytöstä
