@@ -31,7 +31,7 @@ module Decidim
 
     # As of Carrierwave 2.0 fog_provider method has been deprecated, and is throwing RuntimeError
     # RuntimeError: Carrierwave fog_provider not supported: DEPRECATION WARNING: #fog_provider is deprecated...
-    # We are attempting to fetch the provider form credentials, if not we consider to be file
+    # We are attempting to fetch the provider from credentials, if not we consider to be file
     def provider
       fog_credentials.fetch(:provider, "file").downcase
     end
