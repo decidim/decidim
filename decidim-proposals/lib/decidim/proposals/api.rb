@@ -2,5 +2,9 @@
 
 module Decidim
   module Proposals
+    autoload :ProposalInputFilter, "decidim/api/proposal_input_filter"
+    autoload :ProposalInputSort, "decidim/api/proposal_input_sort"
+    autoload :ProposalType, "decidim/api/proposal_type"
+    autoload :ProposalsType, "decidim/api/proposals_type"
   end
 end
