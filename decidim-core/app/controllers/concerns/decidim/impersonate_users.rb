@@ -8,7 +8,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      before_action :check_impersonation_log_expired
+      before_action :check_impersonation_log_expired # Exclude xhr (ajax) requests --- RUN THIS ONLY IF NORMAL REQUEST WHERE WE RENDER HTML
 
       helper_method :impersonation_session_ends_at, :impersonation_session_remaining_duration_in_minutes, :current_user_impersonated?
 
@@ -62,6 +62,7 @@ module Decidim
 
       # Check if the active impersonation session has expired or not.
       def check_impersonation_log_expired
+        byebug
         return unless can_impersonate_users? && expired_log
 
         expired_log.ended_at = Time.current
