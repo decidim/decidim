@@ -16,6 +16,9 @@ fr-CA:
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
+      voting:
+        end_time: Fin
+        start_time: Heure de début
     errors:
       models:
         answer:
@@ -28,6 +31,8 @@ fr-CA:
               needs_to_be_reattached: Doit être téléchargé de nouveau
         trustee:
           attributes:
+            name:
+              cant_be_changed: ne peut pas être modifié
             public_key:
               cant_be_changed: ne peut être modifiée
   activerecord:
@@ -41,6 +46,9 @@ fr-CA:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/voting:
+        one: Vote
+        other: Votes
   decidim:
     components:
       elections:
@@ -64,7 +72,6 @@ fr-CA:
         new: Nouveau %{name}
         preview: Aperçu
         publish: Publier
-        setup: Configurer
         title: Actions
         unpublish: Dépublier
       admin:
@@ -113,9 +120,6 @@ fr-CA:
             title: Nouvelle élection
           publish:
             success: L'élection a été publiée avec succès.
-          setup:
-            invalid: Une erreur est survenue lors de la création de l'élection
-            success: Élection envoyée avec succès au Bulletin
           unpublish:
             success: L'élection a été dépubliée avec succès.
           update:
@@ -160,29 +164,6 @@ fr-CA:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour de cette question
             success: Question mise à jour avec succès
-        setup:
-          errors:
-            max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
-            minimum_answers: Les questions doivent avoir <strong>au moins une réponse</strong>.
-            minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
-            published: L'élection n'est <strong>pas publiée</strong>
-            time_before: L'heure de début se situe <strong>moins de 3 heures</strong> avant le début de l'élection
-            trustee_public_key: n'a pas de <strong>clé publique valide</strong>
-            trustees_quorum: Le nombre de garants <strong>ne correspond pas au quorum des garants</strong> requis
-          requirements:
-            max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>
-            minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>
-            minimum_questions: L'élection a <strong>au moins 1 question</strong>
-            published: L'élection est <strong>publiée</strong>
-            time_before: La configuration est réalisée <strong>au moins 3 heures</strong> avant le début de l'élection
-            trustee_public_key: a une <strong>clé publique valide</strong>
-            trustees_quorum: La taille de cette liste des garants est correcte et il sera nécessaire d'avoir <strong>au moins %{quorum} de garants </strong> pour effectuer le processus de comptabilisation
-          show:
-            setup: Configurer l'élection
-            title: Configuration de l'élection
-          update:
-            setup: Configurer l'élection
-            title: Configuration de l'élection
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
@@ -292,12 +273,50 @@ fr-CA:
         older: Les plus anciens
         recent: Les plus récents
       trustee_zone:
+        elections:
+          backup_modal:
+            description: Cette élection est en cours de création dans le Tableau d'Affichage. Il est très important que chaque Mandataire qui y participe fasse une sauvegarde de ces clés et les stocke dans un endroit sûr. Ensuite, le processus se poursuit.
+            download_election_keys: Télécharger les clés
+            download_icon: Icône indiquant une action de téléchargement
+            title: Sauvegarder les clés d'élection pour %{election}
+          key_ceremony_steps:
+            back: Retour
+            description: Cette élection est en cours de création dans le Tableau d'Affichage. Pour compléter ce processus, votre participation en tant que Mandataire est nécessaire.
+            keys:
+              create_election: Génération des clés
+              key_ceremony:
+                joint_election_key: Génération de la clé conjointe
+                step_1: Publication des clés
+            list:
+              status: Statut
+              task: Tâche
+            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les Mandataires doivent être connectés pour le compléter.
+            start: Démarrer
+            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
+            status:
+              completed: Terminé
+              pending: En attente
+              processing: Traitement en cours
+            title: Créer des clés d'élection pour %{election}
+          restore_modal:
+            description: Le Tableau d'Affichage a des informations pour vous en temps que Mandataire de cette élection. Pour continuer le processus, commencer par télécharger le fichier de sauvegarde généré pendant la session précédente.
+            title: Restaurer les clés d'élection pour %{election}
+            upload_election_keys: Télécharger les clés d'élection
+            upload_icon: Icône indiquant une action de téléchargement
+          update:
+            error: Le statut de l'élection n'a pas été mis à jour.
+            success: 'Le statut de l''élection est : %{status}'
         menu:
           trustee_zone: Espace de garant
         trustees:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'Non'
+                  name: Action requise ?
+                  'true': Effectuer l'action
+                bb_status: Statut
                 election: Élection
                 voting_period: Période de vote
               no_elections: Il n'y a pas d'élections dans lesquelles vous êtes garant.
@@ -387,6 +406,8 @@ fr-CA:
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+    menu:
+      votings: Élections
     pages:
       home:
         statistics:
@@ -411,21 +432,49 @@ fr-CA:
           votings: Élections
         votings:
           actions:
+            confirm_destroy: Êtes-vous sûr(e) ?
+            destroy: Supprimer
             new_voting: Nouvel espace de vote
+            publish: Publier
+            unpublish: Annuler la publication
           create:
             invalid: Une erreur s'est produite lors de la création de cette élection
             success: Élection créée avec succès
+          edit:
+            update: Mettre à jour
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Titre
           new:
             create: Créer
             title: Nouvelle élection
+          publish:
+            success: Élection publiée avec succès
+          unpublish:
+            success: Élection publiée avec succès
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de cette élection
+            success: Élection mise à jour avec succès
       admin_log:
         voting:
           create: "%{user_name} a créé l'élection %{resource_name}"
           publish: "%{user_name} a publié l'élection %{resource_name}"
           unpublish: "%{user_name} a annulé la publication de l'élection %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Élections remarquables
+      votings:
+        count:
+          title:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        filters:
+          active: Actifs
+          all: Tous
+          finished: Terminées
+          search: Rechercher
+          state: Statut
+          upcoming: À venir
   layouts:
     decidim:
       election_votes_header:
