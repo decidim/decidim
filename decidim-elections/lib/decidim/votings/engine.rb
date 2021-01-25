@@ -14,7 +14,6 @@ module Decidim
       routes do
         resources :votings, param: :slug, only: [:index, :show, :update]
       end
-
       initializer "decidim_votings.assets" do |app|
         app.config.assets.precompile += %w(
           decidim_votings_manifest.js

@@ -264,7 +264,7 @@ fr:
             update: Mettre à jour
           form:
             authorizations: Paramètres d'autorisation
-            child_scope_threshold_enabled_help: 'Cette option de configuration ne gère pas les votes hors-ligne. Elle permet d''activer des sous-jauges et fonctionne nécessairement avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner une telle autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les portées doivent être configurées de manière hiérarchique : 1 Parent - n Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, voir sur ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.'
+            child_scope_threshold_enabled_help: 'Cette option de configuration ne gère pas les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner une telle autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurées de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, cliquez <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">ici</a>.'
             only_global_scope_enabled_help: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configuré la portée globale comme votre portée parente. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.
             options: Paramètres
             title: informations générales
@@ -326,10 +326,10 @@ fr:
           back_to_initiatives: Retour à l'index des initiatives
           callout_text: Bravo ! Votre pétition a été créée avec succès.
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
-          edit_my_initiative: Modifier mes initiatives
+          edit_my_initiative: Modifier mon initiative
           go_to_my_initiatives: Consulter mes initiatives
           more_information: "(Plus d'informations)"
-          send_my_initiative: Envoyer mon initiative
+          send_my_initiative: Envoyer mon initiative pour la validation technique
         finish_help:
           access_reminder: Vous pouvez accéder à vos pétitions via le filtre %{link} sur la page Pétitions.
           publish_helper_text: N'oubliez pas que pour que votre pétition soit publiée, vous devez compléter les informations requises et <strong>l'envoyer à la validation technique</strong> pour qu'un administrateur puisse l'examiner.
@@ -486,13 +486,7 @@ fr:
           section: 'Si l''organisme le demande, veuillez imprimer et remplir ce formulaire pour soumettre si indiqué:'
           signature: Signature
         result:
-          answer_title:
-            accepted: Cette proposition a été acceptée car
-            created: Cette proposition a été créée
-            discarded: Cette proposition a été rejetée car
-            published: Cette proposition est publiée parce que
-            rejected: Cette proposition a été rejetée parce que
-            validating: Cette proposition est en cours d'évaluation
+          answer_title: Cette initiative a reçu une réponse
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
           any_vote_method: Cette pétition recueille des signatures en ligne ainsi qu'en présentiel.
