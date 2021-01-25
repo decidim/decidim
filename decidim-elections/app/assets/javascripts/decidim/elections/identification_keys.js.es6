@@ -4,7 +4,7 @@
 
 ((exports) => {
   class IdentificationKeys {
-    constructor(trusteeId, storedPublicKey) {
+    constructor(trusteeUniqueId, storedPublicKey) {
       this.format = "jwk";
       this.algorithm = {
         name: "RSASSA-PKCS1-v1_5",
@@ -16,11 +16,11 @@
       this.publicKeyAttrs = ["alg", "e", "kty", "n"];
       this.jwtHeader = this._encode64(JSON.stringify({alg: "RS256", typ: "JWT"}));
 
-      this.trusteeId = trusteeId;
+      this.trusteeUniqueId = trusteeUniqueId;
       this.privateKey = null;
       this.publicKey = null;
       this.storedPublicKey = JSON.parse(storedPublicKey || null);
-      this.keyIdentifier = `${trusteeId}_identification_key`;
+      this.keyIdentifier = `${trusteeUniqueId}-private-key`;
       this.browserSupport = this._checkBrowserSupport();
       this.textEncoder = new TextEncoder("utf-8");
 
@@ -113,15 +113,14 @@
       return this._clear();
     }
 
-    sign(payload) {
+    async sign(payload) {
       if (!this.browserSupport || this.privateKey === null) {
         return false;
       }
 
       const data = `${this.jwtHeader}.${this._encode64(JSON.stringify(payload))}`;
-      const signature = this.crypto.subtle.sign(this.algorithm.name, this.privateKey, this.textEncoder.encode(data));
-
-      return `${data}.${this._encode64(signature)}`;
+      const signature = await this.crypto.subtle.sign(this.algorithm, this.privateKey, this.textEncoder.encode(data));
+      return `${data}.${btoa(Reflect.apply(String.fromCharCode, null, new Uint8Array(signature))).replace(/[=]/g, "").replace(/\+/g, "-").replace(/\//g, "_")}`;
     }
 
     _checkBrowserSupport() {
