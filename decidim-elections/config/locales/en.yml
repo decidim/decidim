@@ -531,6 +531,7 @@ en:
             attachment_collections: Folders
             attachment_files: Files
             attachments: Attachments
+            components: Components
             info: Information
         models:
           voting:

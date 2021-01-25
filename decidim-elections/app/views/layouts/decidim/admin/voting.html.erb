@@ -9,6 +9,28 @@
         </li>
       <% end %>
 
+      <% if allowed_to? :read, :component, voting: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_votings.components_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("components", scope: "decidim.votings.admin.menu.votings_submenu"), decidim_admin_votings.components_path(current_participatory_space) %>
+          <ul>
+            <% current_participatory_space.components.each do |component| %>
+              <% if component.manifest.admin_engine %>
+                <li <% if is_active_link?(manage_component_path(component)) %> class="is-active" <% end %>>
+                  <%= link_to manage_component_path(component) do %>
+                    <%= translated_attribute component.name %>
+                    <% if component.primary_stat.present? %>
+                      <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>">
+                        <%= component.primary_stat %>
+                      </span>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+
       <% if allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment) %>
         <li>
           <span class="secondary-nav__subtitle"><%= t("attachments", scope: "decidim.votings.admin.menu.votings_submenu") %></span>

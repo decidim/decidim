@@ -5,6 +5,7 @@ module Decidim
     class Voting < ApplicationRecord
       include Traceable
       include Loggable
+      include Decidim::Followable
       include Decidim::Participable
       include Decidim::ParticipatorySpaceResourceable
       include Decidim::Randomable
@@ -98,6 +99,10 @@ module Decidim
 
       def attachment_context
         :admin
+      end
+
+      def scopes_enabled
+        true
       end
 
       def hybrid_voting?
