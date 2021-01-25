@@ -2,8 +2,8 @@
 
 module Decidim
   module Votings
-    # This cell renders the Medium (:m) question card
-    # for an given instance of a Question
+    # This cell renders the Medium (:m) voting card
+    # for an given instance of a Voting
     class VotingMCell < Decidim::CardMCell
       private
 

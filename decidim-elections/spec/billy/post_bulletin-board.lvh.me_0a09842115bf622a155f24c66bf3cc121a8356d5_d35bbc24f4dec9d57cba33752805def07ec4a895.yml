@@ -1,0 +1,28 @@
+---
+:scope: trustee 2 download
+:url: http://bulletin-board.lvh.me/api
+:body: '{"operationName":"ProcessKeyCeremonyStep","variables":{"signedData":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTAzNzkwNTIsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjQyLmtleV9jZXJlbW9ueS5zdGVwXzErdC50cnVzdGVlLTEiLCJjb250ZW50Ijoie1wiZWxlY3Rpb25fcHVibGljX2tleVwiOjcsXCJvd25lcl9pZFwiOlwidHJ1c3RlZS0xXCJ9In0.bNgc7fHLtQrDTNrG1wqrqZxOKcSB9_mfmN6UBoY5dt85LZfjOEDAR17iAzPsfGPvUHVhCmT3fnFXOtAuOe8WUgxQhN6E_HfIXQj4xhR7225KSyzdhVPZVNmhoy_jC_22m6I5XCm4zZATzTUenS0zIFDa-YeKzul32nx3LAmgXS1SHtQex5f3ZaNZNMcn5OjNFh4Bcof-P5EtArEFf9GHAqxyHpADmJmh7C_lia3PU3bfP2Ca-jaZ3auuJrs1zpVcX0CF56BcZJjT7V75sv7lbCFGt4UZH6caSgo3ZW_6_sGelmxbpAO0BpzF3rQIsievy9h6-_jXw6njwC3CEnVtES7vLTmZq7iyX3FvrTwVYCLmLHmqXZ-g0F6_mdnnYBLIOS3GZ_q_9dTVuCyi3wSxwCJlAM2QwUwy0R4JvW1penK1piWKg3L_9NIwInfzjL499oYn4zfmHxSLuQWfBybwdUfrAIDbEEaQ3PwF44BVSW-DNFHsh7j7idYk4Mdf_Rcz6LHOn5ngn6ysO0N-Z3F_tv-X85DCtdCcayyKs_uDn0nSqAxv9nZMxnFMXO3F3EvtvyXKUqmzj5ZTFC2acFT9tY2tT6GpZnPcOy-FH0EONxlw2OGsvt2wPGuJ2ZXpbBhhwSiMmNtrlTe2aeYotK8Q_dgw-0dlUwDsM4eD2dwJqf8","messageId":"decidim-test-authority.42.key_ceremony.step_1+t.trustee-1"},"query":"mutation
+  ProcessKeyCeremonyStep($messageId: String!, $signedData: String!) {\n  processKeyCeremonyStep(messageId:
+  $messageId, signedData: $signedData) {\n    pendingMessage {\n      signedData\n      __typename\n    }\n    error\n    __typename\n  }\n}\n"}'
+:status: 200
+:method: post
+:headers:
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Allow-Methods: GET, POST, PATCH, PUT
+  Access-Control-Expose-Headers: ''
+  Access-Control-Max-Age: '7200'
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Download-Options: noopen
+  X-Permitted-Cross-Domain-Policies: none
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"098beac2425ac8ffcca40a7b28246ac4"
+  Cache-Control: max-age=0, private, must-revalidate
+  X-Request-Id: 18ac8082-207f-4c60-9664-bd8047288242
+  X-Runtime: '0.117522'
+  Vary: Origin
+  Connection: close
+  Transfer-Encoding: chunked
+:content: '{"data":{"processKeyCeremonyStep":{"pendingMessage":{"signedData":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTAzNzkwNTIsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjQyLmtleV9jZXJlbW9ueS5zdGVwXzErdC50cnVzdGVlLTEiLCJjb250ZW50Ijoie1wiZWxlY3Rpb25fcHVibGljX2tleVwiOjcsXCJvd25lcl9pZFwiOlwidHJ1c3RlZS0xXCJ9In0.bNgc7fHLtQrDTNrG1wqrqZxOKcSB9_mfmN6UBoY5dt85LZfjOEDAR17iAzPsfGPvUHVhCmT3fnFXOtAuOe8WUgxQhN6E_HfIXQj4xhR7225KSyzdhVPZVNmhoy_jC_22m6I5XCm4zZATzTUenS0zIFDa-YeKzul32nx3LAmgXS1SHtQex5f3ZaNZNMcn5OjNFh4Bcof-P5EtArEFf9GHAqxyHpADmJmh7C_lia3PU3bfP2Ca-jaZ3auuJrs1zpVcX0CF56BcZJjT7V75sv7lbCFGt4UZH6caSgo3ZW_6_sGelmxbpAO0BpzF3rQIsievy9h6-_jXw6njwC3CEnVtES7vLTmZq7iyX3FvrTwVYCLmLHmqXZ-g0F6_mdnnYBLIOS3GZ_q_9dTVuCyi3wSxwCJlAM2QwUwy0R4JvW1penK1piWKg3L_9NIwInfzjL499oYn4zfmHxSLuQWfBybwdUfrAIDbEEaQ3PwF44BVSW-DNFHsh7j7idYk4Mdf_Rcz6LHOn5ngn6ysO0N-Z3F_tv-X85DCtdCcayyKs_uDn0nSqAxv9nZMxnFMXO3F3EvtvyXKUqmzj5ZTFC2acFT9tY2tT6GpZnPcOy-FH0EONxlw2OGsvt2wPGuJ2ZXpbBhhwSiMmNtrlTe2aeYotK8Q_dgw-0dlUwDsM4eD2dwJqf8","__typename":"PendingMessage"},"error":null,"__typename":"ProcessKeyCeremonyStepMutationPayload"}}}'

@@ -132,7 +132,13 @@ describe "Admin manages elections", type: :system do
 
   describe "set up an election" do
     context "when the election is published", :vcr do
-      let!(:election) { create :election, :published, :ready_for_setup, component: current_component }
+      let!(:election) { create :election, :published, :ready_for_setup, trustee_keys: trustee_keys, component: current_component }
+      let(:trustee_keys) do
+        {
+          "Trustee 1" => File.read(Decidim::Dev.asset("public_key.jwk")),
+          "Trustee 2" => File.read(Decidim::Dev.asset("public_key2.jwk"))
+        }
+      end
 
       it "sets up an election" do
         within find("tr", text: translated(election.title)) do

@@ -12,6 +12,8 @@ module Decidim
 
         def show
           enforce_permission_to :view, :trustee, trustee: trustee
+
+          trustee.name ||= current_user.name
         end
 
         def update
