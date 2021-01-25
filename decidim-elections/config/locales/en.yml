@@ -17,6 +17,9 @@ en:
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title
+      voting:
+        end_time: End time
+        start_time: Start time
     errors:
       models:
         answer:
@@ -44,6 +47,9 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/voting:
+        one: Voting
+        other: Votings
   decidim:
     components:
       elections:
@@ -429,6 +435,8 @@ en:
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+    menu:
+      votings: Votings
     pages:
       home:
         statistics:
@@ -436,6 +444,87 @@ en:
     participatory_processes:
       statistics:
         elections_count: Elections
+    votings:
+      admin:
+        index:
+          not_published: Unpublished
+          published: Published
+        menu:
+          votings: Votings
+        models:
+          voting:
+            fields:
+              created_at: Created at
+              published: Published
+              title: Title
+        titles:
+          votings: Votings
+        votings:
+          actions:
+            confirm_destroy: Are you sure?
+            destroy: Destroy
+            new_voting: New Voting Space
+            publish: Publish
+            unpublish: Unpublish
+          create:
+            invalid: There was a problem creating this voting
+            success: Voting successfully created
+          edit:
+            update: Update
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            title: Title
+          new:
+            create: Create
+            title: New Voting
+          publish:
+            success: Voting successfully published
+          unpublish:
+            success: Voting successfully unpublished
+          update:
+            invalid: There was a problem updating this voting
+            success: Voting successfully updated
+      admin_log:
+        voting:
+          create: "%{user_name} created the %{resource_name} voting"
+          publish: "%{user_name} published the %{resource_name} voting"
+          unpublish: "%{user_name} unpublished the %{resource_name} voting"
+      content_blocks:
+        highlighted_votings:
+          name: Highlighted votings
+      votings:
+        count:
+          title:
+            one: "%{count} voting"
+            other: "%{count} votings"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          title: Votings
+        orders:
+          label: 'Sort votings by:'
+          random: Random
+          recent: Most recent
+        show:
+          dates: Dates
+      votings_m:
+        badge_name:
+          finished: Finished
+          ongoing: Ongoing
+          upcoming: Upcoming
+        footer_button_text:
+          view: View
+        unspecified: Not specified
   layouts:
     decidim:
       election_votes_header:

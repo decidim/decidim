@@ -1,4 +1,36 @@
 tr:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth Uygulama Adı
+        organization_logo: Kuruluş logosu (kare)
+        organization_name: Kuruluş
+        organization_url: Kuruluş URL'si
+        redirect_uri: Yönlendirme URL'si
+      organization:
+        address: SMTP Sunucu Adı
+        from_email: E-posta adresi
+        from_label: Etiket
+        password: Şifre
+        port: Port
+        user_name: Kullanıcı adı
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Yönetici MIME türleri
+          default: Varsayılan MIME türleri
+        allowed_file_extensions:
+          admin: Yönetici dosya uzantıları
+          default: Varsayılan dosya uzantıları
+          image: Görüntü dosyası uzantıları
+        maximum_file_size:
+          avatar: Avatar dosya boyutu
+          default: Varsayılan dosya boyutu
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Yönlendirme URI'sı bir SSL URI olmalıdır
   decidim:
     system:
       actions:
@@ -32,6 +64,7 @@ tr:
       menu:
         admins: Yöneticiler
         dashboard: Pano
+        oauth_applications: OAuth uygulamaları
         organizations: Organizasyonlar
       models:
         admin:
@@ -41,26 +74,99 @@ tr:
           name: yönetim
           validations:
             email_uniqueness: aynı e-postaya sahip başka bir yönetici zaten var
+        oauth_application:
+          fields:
+            created_at: Oluşturuldu
+            name: OAuth Uygulama Adı
+            organization_name: Kuruluş
+          name: OAuth uygulaması
         organization:
           actions:
             save_and_invite: Kuruluş oluşturun ve yöneticiyi davet edin
           fields:
-            created_at: Adresinde düzenlendi
-            name: isim
+            created_at: Oluşturuldu
+            file_upload_settings: Dosya yükleme ayarları
+            name: Adı
+            omniauth_settings: Omniauth ayarları
             smtp_settings: SMTP ayarları
           name: organizasyon
+      oauth_applications:
+        create:
+          error: Bu uygulama oluşturulurken bir hata oluştu.
+          success: Uygulama başarıyla oluşturuldu.
+        destroy:
+          error: Bu uygulamayı yok ederken bir sorun oluştu.
+          success: Uygulama başarıyla yok edildi.
+        edit:
+          save: Kaydet
+          title: Uygulamayı düzenle
+        form:
+          select_organization: Bir kuruluş seçin
+        index:
+          confirm_delete: Bu uygulamayı silmek istediğinizden emin misiniz?
+          title: OAuth uygulamaları
+        new:
+          save: Kaydet
+          title: Yeni uygulama
+        update:
+          error: Bu uygulama güncellenirken bir hata oluştu.
+          success: Uygulama başarıyla güncellendi.
       organizations:
         create:
           error: Yeni bir organizasyon oluştururken bir sorun oluştu.
           success: Kuruluş başarıyla oluşturuldu.
         edit:
           secondary_hosts_hint: Her birini yeni bir satıra girin
+        file_upload_settings:
+          content_types:
+            admin_hint: Bu MIME türlerine yönetici bölümü yüklemeleri için izin verilir. Yönetici kullanıcılar, bazı belge biçimlerini yüklemenin risklerinin farkında olmalıdır, böylece dosya yüklemelerinde daha dikkatli olmalarını bekleyebilirsiniz.
+            default_hint: Bu MIME türlerine varsayılan olarak tüm kullanıcılar için izin verilir.
+            intro_html: MIME türleri için yıldız karakterli joker karakterler eklersiniz, ör. <code> resim / * </code>.
+            title: İzin verilen MIME türleri
+          file_extensions:
+            admin_hint: Bu dosya uzantılarına yönetici bölümü yüklemeleri için izin verilir. Yönetici kullanıcılar, bazı belge biçimlerini yüklemenin risklerinin farkında olmalıdır, böylece dosya yüklemelerinde daha dikkatli olmalarını bekleyebilirsiniz.
+            default_hint: Bu dosya uzantılarına varsayılan olarak tüm kullanıcılar için izin verilir.
+            image_hint: Bu dosya uzantılarına her türlü resim yüklemesi için izin verilir.
+            title: İzin verilen dosya uzantıları
+          file_sizes:
+            avatar_hint: Megabayt (MB). Bu dosya boyutu sınırı, avatar resmi yüklemeleri için kullanılır.
+            default_hint: Megabayt (MB). Bu dosya boyutu sınırı, aksi belirtilmedikçe tüm dosya yüklemeleri için kullanılan varsayılandır.
+            title: Maksimum dosya boyutu
+          intro: |
+            Lütfen bu ayarları değiştirmeyi düşünürken çok dikkatli olun. Ne kadar az izin verirseniz o kadar iyi.
+            Belirli dosya uzantılarına veya MIME türlerine izin vermek, sistem kullanıcılarını güvenlik risklerine maruz bırakabilir ve ayrıca web sitesinin erişilebilirliğini etkileyebilir.
         index:
           title: Organizasyonlar
         new:
           reference_prefix_hint: Başvuru öneki, tüm kuruluştaki kaynakları benzersiz şekilde tanımlamak için kullanılır
           secondary_hosts_hint: Her birini yeni bir satıra girin
           title: Yeni organizasyon
+        omniauth_settings:
+          decidim:
+            client_id: Client ID
+            client_secret: Client secret
+            site_url: Site URL'si
+          enabled: Etkinleştirildi
+          enabled_by_default: Bu sağlayıcı varsayılan olarak etkindir. Düzenlenebilir ancak devre dışı bırakılamaz.
+          facebook:
+            app_id: App ID
+            app_secret: App secret
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Client secret
+          icon: İkon
+          icon_path: İkon yolu
+          twitter:
+            api_key: API anahtarı
+            api_secret: API secret
+        smtp_settings:
+          fieldsets:
+            sender: Gönderen
+          instructions:
+            from_label: 'E-posta göndereni: "your-organization-name <your-organization@example.org>" olacaktır. ''E-posta adresini'' etiket olarak kullanmak için boş bırakın'
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: your-organization-name
         update:
           error: Bu kuruluş güncellenirken bir sorun oluştu.
           success: Kuruluş başarıyla güncellendi.

@@ -219,6 +219,12 @@ nl:
       autocomplete:
         no_results: geen resultaten gevonden
         search_prompt: Typ minimaal drie tekens om te zoeken
+      block_user:
+        new:
+          action: Blokkeer account en verzend reden
+          description: Een gebruiker blokkeren zal zijn account onbruikbaar maken, je kan in de toelichting en richtlijnen aangeven wanneer het deblokkeren van de gebruiker wordt overwogen.
+          justification: Reden
+          title: Gebruiker %{name} blokkeren
       categories:
         create:
           error: Er is een fout opgetreden bij het maken van deze categorie.
@@ -547,6 +553,9 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
       officializations:
+        block:
+          error: Er was een probleem bij het blokkeren van de deelnemer
+          success: Deelnemer met succes geblokkeerd
         create:
           success: Deelnemer met succes officieel gemaakt
         destroy:
@@ -554,6 +563,7 @@ nl:
         index:
           actions: acties
           badge: badge
+          block: Gebruiker blokkeren
           created_at: Aangemaakt op
           name: Naam
           nickname: Gebruikersnaam
@@ -563,6 +573,7 @@ nl:
           reofficialize: Hervalideren
           show_email: Toon e-mailadres
           status: status
+          unblock: Deblokkeer gebruiker
           unofficialize: Ingetrokken
         new:
           badge: Bevestigings badge
@@ -576,6 +587,9 @@ nl:
           hidden: hidden
           show: Weergeven
           title: Toon e-mailadres van gebruiker
+        unblock:
+          error: Er was een probleem bij het deblokkeren van de deelnemer
+          success: Deelnemer met succes gedeblokkeerd
       organization:
         edit:
           title: Organisatie bewerken

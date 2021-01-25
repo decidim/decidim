@@ -326,7 +326,6 @@ lv:
         actions:
           preview: Priekšskatīt
         exports:
-          comments: Komentāri
           proposals: Priekšlikumi
         models:
           proposal:

@@ -9,7 +9,7 @@ module Decidim
 
         mimic :debate
 
-        translatable_attribute :conclusions, String do |translated_attribute, locale|
+        translatable_attribute :conclusions, Decidim::Attributes::CleanString do |translated_attribute, locale|
           validates translated_attribute, presence: true, if: ->(record) { record.default_locale?(locale) }
           validates translated_attribute, length: { minimum: 10, maximum: 10_000 }, if: ->(record) { record.default_locale?(locale) }
         end

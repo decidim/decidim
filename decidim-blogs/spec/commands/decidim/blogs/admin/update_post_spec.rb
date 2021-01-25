@@ -56,6 +56,10 @@ module Decidim
           it "broadcasts ok" do
             expect { subject.call }.to broadcast(:ok)
           end
+
+          it "creates a searchable resource" do
+            expect { subject.call }.to change(Decidim::SearchableResource, :count).by_at_least(1)
+          end
         end
       end
     end

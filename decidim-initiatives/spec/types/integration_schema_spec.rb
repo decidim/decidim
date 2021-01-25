@@ -5,7 +5,7 @@ require "decidim/api/test/type_context"
 require "decidim/initiatives/test/factories"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql type"
+  include_context "with a graphql class type"
   let(:schema) { Decidim::Api::Schema }
 
   let(:locale) { "en" }

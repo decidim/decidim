@@ -102,6 +102,7 @@ eu:
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
+            amendments_visibility_help: Zuzenketak egileentzat bakarrik ikusgai" aukera hautatzen bada, parte-hartzaileek saioa hasi beharko dute egindako zuzenketak ikusteko.
             announcement: Anuntzio
             automatic_hashtags: Hashtags proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
@@ -208,6 +209,7 @@ eu:
           email_subject: '%{resource_title} Proposamenaren kategoria eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
         proposal_update_scope:
+          email_intro: 'Administratzaile batek %{resource_title} zure proposamenaren eremua eguneratu du, orri honetan egiazta dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi orri honetan parte hartzea:'
@@ -280,7 +282,6 @@ eu:
         actions:
           preview: Aurreikusi
         exports:
-          comments: Iruzkinak
           proposals: Proposamenak
         models:
           proposal:

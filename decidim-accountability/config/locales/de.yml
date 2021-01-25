@@ -42,6 +42,7 @@ de:
         title: Aktionen
       admin:
         exports:
+          result_comments: Bemerkungen
           results: Ergebnisse
         import_results:
           new:
@@ -138,8 +139,12 @@ de:
       models:
         result:
           fields:
+            category: Kategorie
+            created_at: Erstellt am
             end_date: Enddatum
+            id: ID
             progress: Fortschritt
+            scope: Themenbereich
             start_date: Startdatum
             status: Status
             title: Titel
@@ -186,6 +191,15 @@ de:
             votes: Unterstützt
         timeline:
           title: Projektentwicklung
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Themenbereich
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Rechenschaftspflicht

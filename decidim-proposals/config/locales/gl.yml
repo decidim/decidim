@@ -280,7 +280,6 @@ gl:
         actions:
           preview: Vista previa
         exports:
-          comments: Comentarios
           proposals: Propostas
         models:
           proposal:

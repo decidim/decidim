@@ -327,7 +327,6 @@ sk:
         actions:
           preview: Náhľad
         exports:
-          comments: Komentáre
           proposals: Návrhy
         models:
           proposal:
