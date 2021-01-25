@@ -16,6 +16,9 @@ de:
         max_selections: Maximale Anzahl von Auswahlen
         min_selections: Nichts davon
         title: Titel
+      voting:
+        end_time: Endzeit
+        start_time: Startzeit
     errors:
       models:
         answer:
@@ -28,6 +31,8 @@ de:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
         trustee:
           attributes:
+            name:
+              cant_be_changed: kann nicht geändert werden
             public_key:
               cant_be_changed: kann nicht geändert werden
   activerecord:
@@ -41,6 +46,9 @@ de:
       decidim/elections/question:
         one: Frage
         other: Fragen
+      decidim/votings/voting:
+        one: Abstimmung
+        other: Abstimmungen
   decidim:
     components:
       elections:
@@ -290,14 +298,51 @@ de:
         older: Chronologisch
         recent: Kürzlich hinzugefügt
       trustee_zone:
+        elections:
+          backup_modal:
+            description: Diese Wahl wird im Bulletin Board erstellt. Es ist sehr wichtig dass alle Wahlhelfer, welche daran teilnehmen, eine Sicherungskopie dieser Schlüssel erstellen und sie an einem sicheren Ort speichern. Danach wird der Prozess fortgesetzt.
+            download_election_keys: Schlüssel herunterladen
+            download_icon: Symbol, das eine Download-Aktion anzeigt
+            title: Wahl-Schlüssel für %{election} sichern
+          key_ceremony_steps:
+            back: Zurück
+            description: Diese Wahl wird im Bulletin Board erstellt. Um diesen Prozess abzuschliessen, ist Ihre Teilnahme als Wahlhelfer nötig.
+            keys:
+              create_election: Schlüssel erstellen
+              key_ceremony:
+                joint_election_key: Gemeinsame Schlüssel erstellen
+                step_1: Schlüssel veröffentlichen
+            list:
+              status: Status
+              task: Aufgabe
+            process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
+            start: Start
+            start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
+            status:
+              completed: Abgeschlossen
+              pending: Ausstehend
+              processing: In Verarbeitung
+            title: Wahl-Schlüssel für %{election} erstellen
+          restore_modal:
+            description: Das Bulletin Board hat Informationen von Ihnen als Wahlhelfer zu dieser Wahl. Um den Vorgang fortzusetzen, laden Sie zuerst die Sicherungsdatei hoch, die während der vorherigen Sitzung erstellt wurde.
+            title: Wahl-Schlüssel für %{election} wiederherstellen
+            upload_election_keys: Wahl-Schlüssel hochladen
+            upload_icon: Symbol, das eine Download-Aktion anzeigt
+          update:
+            error: Der Wahlstatus wurde nicht aktualisiert.
+            success: 'Der Wahlstatus ist: %{status}'
         menu:
           trustee_zone: Wahlhelfer Zone
         trustees:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'Nein'
+                  name: Aktion erforderlich?
+                  'true': Aktion ausführen
+                bb_status: Status
                 election: Wahl
-                status: Status
                 voting_period: Abstimmungsperiode
               no_elections: Es gibt keine Wahlen, bei denen Sie als Wahlhelfer agieren.
               title: Wahlen
@@ -386,6 +431,8 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer für %{resource_name} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für %{resource_name}.
             notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
+    menu:
+      votings: Abstimmungen
     pages:
       home:
         statistics:
@@ -410,21 +457,44 @@ de:
           votings: Abstimmungen
         votings:
           actions:
+            confirm_destroy: Sind Sie sicher?
+            destroy: Löschen
             new_voting: Neue Abstimmung
+            publish: Veröffentlichen
+            unpublish: Veröffentlichung rückgängig machen
           create:
             invalid: Beim Erstellen dieser Abstimmung ist ein Problem aufgetreten
             success: Abstimmung erfolgreich erstellt
+          edit:
+            update: Aktualisieren
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Titel
           new:
             create: Erstellen
             title: Neue Abstimmung
+          publish:
+            success: Abstimmung erfolgreich veröffentlicht
+          unpublish:
+            success: Veröffentlichung der Abstimmung erfolgreich rückgängig gemacht
+          update:
+            invalid: Beim Aktualisieren dieser Abstimmung ist ein Problem aufgetreten
+            success: Abstimmung erfolgreich aktualisiert
       admin_log:
         voting:
           create: "%{user_name} hat die Abstimmung %{resource_name} erstellt"
           publish: "%{user_name} hat die Abstimmung %{resource_name} veröffentlicht"
           unpublish: "%{user_name} hat die Abstimmung %{resource_name} auf \"unveröffentlicht\" gesetzt"
+      content_blocks:
+        highlighted_votings:
+          name: Hervorgehobene Abstimmungen
+      votings:
+        count:
+          title:
+            one: "%{count} Abstimmung"
+            other: "%{count} Abstimmungen"
+        filters:
+          active: Aktiv
   layouts:
     decidim:
       election_votes_header:
