@@ -14,7 +14,7 @@
       </div>
     <% end %>
     <div class="row column text-center">
-      <%= link_to t(".mine_is_different"), complete_collaborative_draft_path(collaborative_draft: { title: @form.title, body: @form.body }), class: "button small" %>
+      <%= link_to t(".mine_is_different"), complete_collaborative_draft_path(@collaborative_draft), class: "button small" %>
     </div>
   </div>
   <div class="columns large-3"></div>

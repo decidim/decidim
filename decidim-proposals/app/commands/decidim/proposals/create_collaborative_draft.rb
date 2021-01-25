@@ -47,6 +47,7 @@ module Decidim
           draft = CollaborativeDraft.new(
             title: title_with_hashtags,
             body: body_with_hashtags,
+            state: :draft,
             category: form.category,
             component: form.component
           )

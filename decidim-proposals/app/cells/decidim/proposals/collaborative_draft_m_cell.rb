@@ -14,6 +14,10 @@ module Decidim
 
       private
 
+      def preview?
+        options[:preview]
+      end
+
       def has_state?
         true
       end
@@ -27,7 +31,7 @@ module Decidim
       end
 
       def has_badge?
-        true
+        !preview?
       end
 
       def badge_classes
@@ -37,7 +41,13 @@ module Decidim
       end
 
       def statuses
+        return [] if preview?
+
         [:creation_date, :follow, :comments_count]
+      end
+
+      def has_footer?
+        !preview?
       end
     end
   end

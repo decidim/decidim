@@ -43,6 +43,7 @@ module Decidim
             patch :update_draft
             get :preview
             post :publish
+            post :publish_wizard
             delete :destroy_draft
             put :withdraw
           end

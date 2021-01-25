@@ -108,6 +108,8 @@ module Decidim
         case permission_action.action
         when :create
           can_create_collaborative_draft?
+        when :edit_wizard
+          can_edit_wizard_collaborative_draft?
         when :edit
           can_edit_collaborative_draft?
         when :publish
@@ -137,6 +139,12 @@ module Decidim
         return toggle_allow(false) unless collaborative_drafts_enabled? && collaborative_draft.open?
 
         toggle_allow(collaborative_draft.editable_by?(user))
+      end
+
+      def can_edit_wizard_collaborative_draft?
+        return toggle_allow(false) unless collaborative_drafts_enabled? && collaborative_draft.draft?
+
+        toggle_allow(collaborative_draft.created_by?(user))
       end
 
       def can_publish_collaborative_draft?

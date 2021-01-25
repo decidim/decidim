@@ -56,8 +56,6 @@ module Decidim
       # step - A symbol of the target step
       # current_step - A symbol of the current step
       def proposal_wizard_stepper_step(step, current_step)
-        return if step == :step_4 && type_of == :collaborative_drafts
-
         attributes = { class: proposal_wizard_step_classes(step, current_step).to_s }
         step_title = proposal_wizard_step_name(step)
         if step.to_s.split("_").last.to_i == proposal_wizard_step_number(current_step)
@@ -128,14 +126,7 @@ module Decidim
       private
 
       def total_steps
-        case type_of
-        when :collaborative_drafts
-          3
-        when :proposals
-          4
-        else
-          4
-        end
+        4
       end
 
       def wizard_aside_info_text

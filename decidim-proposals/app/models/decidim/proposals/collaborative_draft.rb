@@ -54,6 +54,10 @@ module Decidim
         state == "open"
       end
 
+      def draft?
+        state == "draft"
+      end
+
       def withdrawn?
         state == "withdrawn"
       end
