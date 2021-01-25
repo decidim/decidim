@@ -37,8 +37,7 @@ module Decidim
           ) do
             form.debate.update!(
               conclusions: form.conclusions,
-              closed_at: form.closed_at,
-              archived_at: (Time.zone.now if form.archive)
+              closed_at: form.closed_at
             )
           end
 
