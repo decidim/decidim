@@ -299,7 +299,6 @@ fi:
             elections:
               list:
                 election: Vaali
-                status: Tila
                 voting_period: Äänestysaika
               no_elections: Sellaisia vaaleja ei ole, joissa sinä toimit luottamushenkilönä.
               title: Vaalit
