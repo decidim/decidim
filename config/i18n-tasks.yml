@@ -291,6 +291,7 @@ ignore_unused:
   - decidim.debates.debate_m.commented_time_ago
   - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
   - decidim.elections.feedback.answer.*
+  - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
   - decidim.votings.admin_log.*
 
 
