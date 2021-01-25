@@ -299,7 +299,6 @@ fr-CA:
             elections:
               list:
                 election: Élection
-                status: Statut
                 voting_period: Période de vote
               no_elections: Il n'y a pas d'élections dans lesquelles vous êtes garant.
               title: Élections
@@ -395,6 +394,38 @@ fr-CA:
     participatory_processes:
       statistics:
         elections_count: Élections
+    votings:
+      admin:
+        index:
+          not_published: Non-publié
+          published: Publié
+        menu:
+          votings: Élections
+        models:
+          voting:
+            fields:
+              created_at: Créée le
+              published: Publié
+              title: Titre
+        titles:
+          votings: Élections
+        votings:
+          actions:
+            new_voting: Nouvel espace de vote
+          create:
+            invalid: Une erreur s'est produite lors de la création de cette élection
+            success: Élection créée avec succès
+          form:
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            title: Titre
+          new:
+            create: Créer
+            title: Nouvelle élection
+      admin_log:
+        voting:
+          create: "%{user_name} a créé l'élection %{resource_name}"
+          publish: "%{user_name} a publié l'élection %{resource_name}"
+          unpublish: "%{user_name} a annulé la publication de l'élection %{resource_name}"
   layouts:
     decidim:
       election_votes_header:
