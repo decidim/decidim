@@ -72,7 +72,6 @@ de:
         new: Neue(r/s) %{name}
         preview: Vorschau
         publish: Veröffentlichen
-        setup: Einstellungen
         title: Aktionen
         unpublish: Veröffentlichung rückgängig machen
       admin:
@@ -121,9 +120,6 @@ de:
             title: Neue Wahl
           publish:
             success: Die Wahl wurde erfolgreich veröffentlicht.
-          setup:
-            invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
-            success: Wahl erfolgreich an das Bulletin Board gesendet
           unpublish:
             success: Die Veröffentlichung der Wahl wurde erfolgreich zurückgezogen.
           update:
@@ -168,29 +164,6 @@ de:
           update:
             invalid: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten
             success: Frage wurde erfolgreich aktualisiert
-        setup:
-          errors:
-            max_selections: Die Fragen haben keinen <strong>korrekten Wert für die Anzahl der Antworten</strong>
-            minimum_answers: Fragen müssen <strong>mindestens eine Antwort</strong> haben.
-            minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
-            published: Die Wahl ist <strong>nicht veröffentlicht</strong>
-            time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl
-            trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
-            trustees_quorum: Die Anzahl der Vertrauensperson <strong>entspricht nicht der erforderlichen Vertrauenspersonquorum</strong>
-          requirements:
-            max_selections: Alle Fragen haben einen korrekten Wert für <strong>maximum of answers</strong>
-            minimum_answers: Jede Frage hat <strong>mindestens 2 Antworten</strong>
-            minimum_questions: Jede Frage hat <strong>mindestens eine Antwort</strong>
-            published: Die Wahl ist <strong>veröffentlicht</strong>
-            time_before: Die Einrichtung ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl fertig gestellt worden
-            trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
-            trustees_quorum: Die Grösse dieser Liste von Wahlhelfern ist korrekt, und es werden <strong>mindestens %{quorum} Wahlhelfer</strong> benötigt um die Stimmen zu zählen
-          show:
-            setup: Wahl einrichten
-            title: Einrichtung der Wahl
-          update:
-            setup: Wahl einrichten
-            title: Einrichtung der Wahl
         trustees_participatory_spaces:
           actions:
             disable: Deaktivieren
