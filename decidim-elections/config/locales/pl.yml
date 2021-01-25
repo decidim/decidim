@@ -245,7 +245,6 @@ pl:
             elections:
               list:
                 election: Wybór
-                status: Status
               title: Wybory
             identification_keys:
               cancel: Anuluj
