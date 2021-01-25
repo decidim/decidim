@@ -23,7 +23,11 @@ module Decidim
             log_action
             notify_trustee_about_election
             setup_election
-          end && broadcast(:ok, election)
+          end
+
+          broadcast(:ok, election)
+        rescue StandardError => e
+          broadcast(:invalid, e.message)
         end
 
         private
@@ -126,9 +130,6 @@ module Decidim
         def setup_election
           bb_election = bulletin_board.create_election(election.id, election_data)
           store_bulletin_board_status(bb_election.status)
-        rescue StandardError => e
-          broadcast(:invalid, e.message)
-          raise ActiveRecord::Rollback
         end
 
         def log_action

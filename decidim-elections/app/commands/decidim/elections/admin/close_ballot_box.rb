@@ -21,7 +21,11 @@ module Decidim
           transaction do
             log_action
             close_ballot_box
-          end && broadcast(:ok)
+          end
+
+          broadcast(:ok)
+        rescue StandardError => e
+          broadcast(:invalid, e.message)
         end
 
         private
@@ -42,9 +46,6 @@ module Decidim
         def close_ballot_box
           bb_election = bulletin_board.close_ballot_box(election.id)
           store_bulletin_board_status(bb_election.status)
-        rescue StandardError => e
-          broadcast(:invalid, e.message)
-          raise ActiveRecord::Rollback
         end
 
         def store_bulletin_board_status(bb_status)

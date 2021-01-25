@@ -106,7 +106,8 @@ FactoryBot.define do
     end
 
     trait :results do
-      vote
+      created
+      ongoing
       finished
       bb_status { "results" }
 
@@ -234,5 +235,12 @@ FactoryBot.define do
     trait :trustee_ready do
       association :trustee, :with_public_key
     end
+  end
+
+  factory :vote, class: "Decidim::Elections::Vote" do
+    election { create(:election) }
+    sequence(:voter_id) { |n| "voter_#{n}" }
+    encrypted_vote_hash { "adf89asd0f89das7f" }
+    status { Decidim::Elections::Vote::PENDING_STATUS }
   end
 end

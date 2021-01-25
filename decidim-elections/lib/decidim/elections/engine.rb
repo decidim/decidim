@@ -15,7 +15,9 @@ module Decidim
             post :answer
           end
 
-          resource :vote
+          resource :vote, only: [:new] do
+            post :cast
+          end
         end
 
         root to: "elections#index"
