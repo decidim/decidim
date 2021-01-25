@@ -17,7 +17,7 @@ fr:
         min_selections: Aucune des options ci-dessus
         title: Titre
       voting:
-        end_time: Heure de fin
+        end_time: Fin
         start_time: Heure de début
     errors:
       models:
@@ -300,6 +300,13 @@ fr:
         older: Les plus anciens
         recent: Les plus récents
       trustee_zone:
+        elections:
+          backup_modal:
+            download_election_keys: Télécharger les clés
+            download_icon: Icône indiquant une action de téléchargement
+            title: Sauvegarder les clés d'élection pour %{election}
+          key_ceremony_steps:
+            back: Retour
         menu:
           trustee_zone: Espace de garant
         trustees:
