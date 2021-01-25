@@ -16,6 +16,9 @@ fr:
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
+      voting:
+        end_time: Heure de fin
+        start_time: Heure de début
     errors:
       models:
         answer:
@@ -28,6 +31,8 @@ fr:
               needs_to_be_reattached: Doit être téléchargé de nouveau
         trustee:
           attributes:
+            name:
+              cant_be_changed: ne peut pas être modifié
             public_key:
               cant_be_changed: ne peut être modifiée
   activerecord:
@@ -41,6 +46,9 @@ fr:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/voting:
+        one: Vote
+        other: Votes
   decidim:
     components:
       elections:
