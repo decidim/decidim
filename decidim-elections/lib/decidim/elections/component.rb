@@ -113,7 +113,7 @@ Decidim.register_component(:elections) do |component|
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
-            max_selections: Faker::Number.between(from: 1, to: 5),
+            max_selections: Faker::Number.between(from: 1, to: 3),
             weight: Faker::Number.number(digits: 1),
             random_answers_order: Faker::Boolean.boolean(true_ratio: 0.5),
             min_selections: Faker::Number.between(from: 0, to: 1)
@@ -121,7 +121,7 @@ Decidim.register_component(:elections) do |component|
           visibility: "all"
         )
 
-        rand(2...5).times do
+        rand(upcoming_question.max_selections...5).times do
           answer = Decidim.traceability.create!(
             Decidim::Elections::Answer,
             admin_user,

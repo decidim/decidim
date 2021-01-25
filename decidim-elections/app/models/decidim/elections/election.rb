@@ -112,6 +112,10 @@ module Decidim
         end
       end
 
+      def trustee_action_required?
+        bb_key_ceremony? || bb_tally?
+      end
+
       # Public: Checks if the election has a blocked_at value
       #
       # Returns a boolean.

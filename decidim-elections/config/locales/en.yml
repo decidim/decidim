@@ -17,6 +17,9 @@ en:
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title
+      voting:
+        end_time: End time
+        start_time: Start time
     errors:
       models:
         answer:
@@ -29,6 +32,8 @@ en:
               needs_to_be_reattached: Needs to be reattached
         trustee:
           attributes:
+            name:
+              cant_be_changed: can't be changed
             public_key:
               cant_be_changed: can't be changed
   activerecord:
@@ -42,6 +47,9 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/voting:
+        one: Voting
+        other: Votings
   decidim:
     components:
       elections:
@@ -294,14 +302,51 @@ en:
         older: Older
         recent: Recent
       trustee_zone:
+        elections:
+          backup_modal:
+            description: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place. After that, the process continues.
+            download_election_keys: Download keys
+            download_icon: Icon that indicates a download action
+            title: Backup election keys for %{election}
+          key_ceremony_steps:
+            back: Back
+            description: This election is being created in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
+            keys:
+              create_election: Keys generation
+              key_ceremony:
+                joint_election_key: Joint Key generation
+                step_1: Keys publishing
+            list:
+              status: Status
+              task: Task
+            process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
+            start: Start
+            start_icon: Icon that indicates a start button to start the election keys generation
+            status:
+              completed: Completed
+              pending: Pending
+              processing: Processing
+            title: Create election keys for %{election}
+          restore_modal:
+            description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
+            title: Restore election keys for %{election}
+            upload_election_keys: Upload election keys
+            upload_icon: Icon that indicates a download action
+          update:
+            error: The election status wasn't updated.
+            success: 'The election status is: %{status}'
         menu:
           trustee_zone: Trustee zone
         trustees:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'No'
+                  name: Action required?
+                  'true': Perform action
+                bb_status: Status
                 election: Election
-                status: Status
                 voting_period: Voting period
               no_elections: There are no elections where you act as a Trustee.
               title: Elections
@@ -390,6 +435,8 @@ en:
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+    menu:
+      votings: Votings
     pages:
       home:
         statistics:
@@ -414,21 +461,70 @@ en:
           votings: Votings
         votings:
           actions:
+            confirm_destroy: Are you sure?
+            destroy: Destroy
             new_voting: New Voting Space
+            publish: Publish
+            unpublish: Unpublish
           create:
             invalid: There was a problem creating this voting
             success: Voting successfully created
+          edit:
+            update: Update
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
           new:
             create: Create
             title: New Voting
+          publish:
+            success: Voting successfully published
+          unpublish:
+            success: Voting successfully unpublished
+          update:
+            invalid: There was a problem updating this voting
+            success: Voting successfully updated
       admin_log:
         voting:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
           unpublish: "%{user_name} unpublished the %{resource_name} voting"
+      content_blocks:
+        highlighted_votings:
+          name: Highlighted votings
+      votings:
+        count:
+          title:
+            one: "%{count} voting"
+            other: "%{count} votings"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          title: Votings
+        orders:
+          label: 'Sort votings by:'
+          random: Random
+          recent: Most recent
+        show:
+          dates: Dates
+      votings_m:
+        badge_name:
+          finished: Finished
+          ongoing: Ongoing
+          upcoming: Upcoming
+        footer_button_text:
+          view: View
+        unspecified: Not specified
   layouts:
     decidim:
       election_votes_header:

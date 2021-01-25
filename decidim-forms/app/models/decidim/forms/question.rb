@@ -6,7 +6,7 @@ module Decidim
     class Question < Forms::ApplicationRecord
       include Decidim::TranslatableResource
 
-      QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting matrix_single matrix_multiple).freeze
+      QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting files matrix_single matrix_multiple).freeze
       SEPARATOR_TYPE = "separator"
       TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE]).freeze
 
@@ -63,11 +63,11 @@ module Decidim
       end
 
       def mandatory_body?
-        mandatory? && !multiple_choice?
+        mandatory? && !multiple_choice? && !has_attachments?
       end
 
       def mandatory_choices?
-        mandatory? && multiple_choice?
+        mandatory? && multiple_choice? && !has_attachments?
       end
 
       def number_of_options
@@ -80,6 +80,10 @@ module Decidim
 
       def separator?
         question_type.to_s == SEPARATOR_TYPE
+      end
+
+      def has_attachments?
+        question_type.to_s == "files"
       end
     end
   end
