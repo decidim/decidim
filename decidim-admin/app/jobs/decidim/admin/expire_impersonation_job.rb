@@ -9,7 +9,6 @@ module Decidim
         impersonation_log = Decidim::ImpersonationLog.where(admin: current_user, user: user).active.first
         return unless impersonation_log
 
-        Rails.logger.info("==================== EXPIRE IMPERSONATION LOG")
         impersonation_log.expire!
       end
     end

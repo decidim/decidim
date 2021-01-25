@@ -3,7 +3,7 @@
 module Decidim
   # ImpersonationLogs are created whenever an admin impersonate a managed user
   class ImpersonationLog < ApplicationRecord
-    SESSION_TIME_IN_MINUTES = 1
+    SESSION_TIME_IN_MINUTES = 30
 
     belongs_to :admin, foreign_key: "decidim_admin_id", class_name: "Decidim::User"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
@@ -26,9 +26,6 @@ module Decidim
     end
 
     def ensure_not_expired!
-      Rails.logger.info("================== EXPIRY TIME: #{(started_at + SESSION_TIME_IN_MINUTES.minutes).inspect}")
-      Rails.logger.info("================== CURRENT TIME: #{Time.current.inspect}")
-      Rails.logger.info("================== RUN EXPIRE!: #{(started_at + SESSION_TIME_IN_MINUTES.minutes < Time.current).inspect}")
       expire! if started_at + SESSION_TIME_IN_MINUTES.minutes < Time.current
     end
 
