@@ -335,6 +335,7 @@ fr:
         body_2: 'Motif : %{justification}'
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
+        subject: Votre compte a été bloqué par %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: et %{count} plus
