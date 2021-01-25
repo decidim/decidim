@@ -38,7 +38,7 @@
 
 .button{
   position: relative;
-  background-color: var(--secondary);
+  background-color: var(--primary);
 
   &.focus,
   &:focus{
@@ -105,8 +105,8 @@
       &:hover,
       &.focus,
       &:focus{
-        border-color: var(--secondary);
-        background-color: var(--secondary);
+        border-color: var(--primary);
+        background-color: var(--primary);
         color: $white;
       }
 
@@ -121,10 +121,6 @@
         }
       }
     }
-  }
-
-  &.primary{
-    @include button-hollow-variant(var(--primary));
   }
 
   &.secondary{
@@ -156,14 +152,6 @@
       &:focus{
         background-color: transparent;
       }
-    }
-
-    &.primary{
-<<<<<<< HEAD
-      color: var(--primary);
-=======
-      color: var(--secondary);
->>>>>>> 9710c1b0091072f63c556bf464e58a075d6a2c60
     }
 
     &.secondary{
