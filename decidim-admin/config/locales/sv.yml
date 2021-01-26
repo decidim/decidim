@@ -90,6 +90,8 @@ sv:
         name: Namn
         organization: Organisation
         plural: Flertal
+      settings:
+        scope_id: Omfång
       static_page:
         changed_notably: Det har skett större förändringar.
         content: Innehåll
@@ -145,6 +147,7 @@ sv:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
+          accept: Jag godkänner villkoren
           are_you_sure: Vill du avvisa villkoren för administratörer?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
@@ -223,6 +226,10 @@ sv:
       autocomplete:
         no_results: Hittade inga resultat
         search_prompt: Sök genom att skriva minst tre tecken
+      block_user:
+        new:
+          justification: Motivering
+          title: Blockera användare %{name}
       categories:
         create:
           error: Det gick inte att skapa kategorin.
@@ -278,6 +285,16 @@ sv:
         update:
           error: Det gick inte att uppdatera komponenten.
           success: Komponenten har uppdaterats.
+      conflicts:
+        attempts: Försök
+        'false': 'Nej'
+        solved: Löst
+        transfer:
+          email: E-post
+          name: Namn
+          reason: Anledning
+        'true': 'Ja'
+        user_name: Användare
       dashboard:
         show:
           view_more_logs: Visa fler loggar
