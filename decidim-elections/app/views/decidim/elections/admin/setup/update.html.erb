@@ -1,7 +1,0 @@
-<%= decidim_form_for(@form, html: { class: "form setup_election" }) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
-
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".setup") %>
-  </div>
-<% end %>

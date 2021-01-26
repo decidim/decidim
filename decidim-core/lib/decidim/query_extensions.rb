@@ -64,12 +64,12 @@ module Decidim
 
     def participatory_processes(filter: {}, order: {})
       manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
-      Decidim::ParticipatoryProcesses::ParticipatoryProcessList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+      Decidim::Core::ParticipatorySpaceListBase.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
     end
 
     def participatory_process(id: nil, slug: nil)
       manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
-      Decidim::ParticipatoryProcesses::ParticipatoryProcessFinder.new(manifest: manifest).call(object, { id: id, slug: slug }, context)
+      Decidim::Core::ParticipatorySpaceFinderBase.new(manifest: manifest).call(object, { id: id, slug: slug }, context)
     end
 
     def component(id: {})
@@ -112,8 +112,8 @@ module Decidim
       end
     end
 
-    def user(id: nil)
-      Core::UserEntityFinder.new.call(object, { id: id }, context)
+    def user(id: nil, nickname: nil)
+      Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
     end
 
     def users(filter: {}, order: {})

@@ -1,3 +1,4 @@
+/* eslint-disable prefer-reflect */
 /**
  * IdentificationKeys component.
  */

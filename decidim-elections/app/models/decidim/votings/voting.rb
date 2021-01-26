@@ -13,6 +13,8 @@ module Decidim
       include Decidim::ScopableParticipatorySpace
       include Decidim::Publicable
       include Decidim::HasUploadValidations
+      include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
 
       translatable_fields :title, :description
 
@@ -83,6 +85,10 @@ module Decidim
 
       def to_param
         slug
+      end
+
+      def attachment_context
+        :admin
       end
     end
   end

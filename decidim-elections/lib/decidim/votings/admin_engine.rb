@@ -15,6 +15,9 @@ module Decidim
             put :publish
             put :unpublish
           end
+
+          resources :attachments, controller: "voting_attachments"
+          resources :attachment_collections, controller: "voting_attachment_collections"
         end
       end
 
