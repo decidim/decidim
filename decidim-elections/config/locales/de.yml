@@ -456,7 +456,7 @@ de:
             header: Stimme nicht gefunden!
             info: Diese Kennung wurde nicht in der Wahlurne %{link} gefunden. Versuchen Sie es erneut.
           form:
-            back: Zurück zum Decidim
+            back: Zurück zu Decidim
             submit: Überprüfen
             vote_identifier: 'Kennung:'
           header:
@@ -488,6 +488,10 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer für %{resource_name} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für %{resource_name}.
             notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          title: Was sind Abstimmungen?
     menu:
       votings: Abstimmungen
     pages:
@@ -504,6 +508,11 @@ de:
           published: Veröffentlicht
         menu:
           votings: Abstimmungen
+          votings_submenu:
+            attachment_collections: Ordner
+            attachment_files: Dateien
+            attachments: Dateianhänge
+            info: Information
         models:
           voting:
             fields:
