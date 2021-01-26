@@ -150,6 +150,7 @@ en:
           new: New %{name}
         attachment_collection:
           new: New %{name}
+        new: New %{name}
         per_page: Per page
         permissions: Permissions
         reject: Reject
