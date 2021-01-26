@@ -30,21 +30,38 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
 
   participatory_space.seeds do
     organization = Decidim::Organization.first
+    base_params = {
+      organization: organization,
+      title: Decidim::Faker::Localized.sentence(word_count: 5),
+      slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
+      description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
+      end,
+      banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
+      published_at: 2.weeks.ago,
+      start_time: 3.weeks.from_now,
+      end_time: 3.weeks.from_now + 4.hours
+    }
 
     2.times do |n|
-      params = {
-        organization: organization,
-        title: Decidim::Faker::Localized.sentence(word_count: 5),
-        slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end,
-        published_at: 2.weeks.ago,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
-        scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first
-      }
+      params = base_params.merge(scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first)
+      voting = Decidim.traceability.perform_action!(
+        "publish",
+        Decidim::Votings::Voting,
+        organization.users.first,
+        visibility: "all"
+      ) do
+        Decidim::Votings::Voting.create!(params)
+      end
+      voting.add_to_index_as_search_resource
+    end
 
+    2.times do |n|
+      params = base_params.merge(
+        scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first,
+        banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
+        promoted: true
+      )
       voting = Decidim.traceability.perform_action!(
         "publish",
         Decidim::Votings::Voting,

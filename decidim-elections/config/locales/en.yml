@@ -539,3 +539,9 @@ en:
     decidim:
       election_votes_header:
         exit: Exit
+      votings:
+        index:
+          promoted_votings: Highlighted votings
+        promoted_voting:
+          more_info: More info
+          vote: Vote

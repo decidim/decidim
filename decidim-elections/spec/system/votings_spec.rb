@@ -68,4 +68,21 @@ describe "Votings", type: :system do
       expect(page).to have_content(translated(votings.last.title))
     end
   end
+
+  context "when there are promoted votings" do
+    let!(:highlighted_voting) { create(:voting, :published, :promoted, organization: organization) }
+    let!(:other_voting) { create(:voting, :published, organization: organization) }
+
+    before do
+      switch_to_host(organization.host)
+      visit decidim_votings.votings_path
+    end
+
+    it "lists all the highlighted votings" do
+      within "#highlighted-votings" do
+        expect(page).to have_content(translated(highlighted_voting.title, locale: :en))
+        expect(page).to have_selector(".card--full", count: 1)
+      end
+    end
+  end
 end
