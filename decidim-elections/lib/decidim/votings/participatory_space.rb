@@ -28,13 +28,8 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
     context.layout = "layouts/decidim/admin/voting"
   end
 
-  # participatory_space.register_on_destroy_account do |user|
-  #   Decidim::VotingsUserRole.where(user: user).destroy_all
-  # end
-
   participatory_space.seeds do
     organization = Decidim::Organization.first
-    # seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
     2.times do |n|
       params = {

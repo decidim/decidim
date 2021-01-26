@@ -47,12 +47,12 @@ module Decidim
 
       def assemblies(filter: {}, order: {})
         manifest = Decidim.participatory_space_manifests.select { |m| m.name == :assemblies }.first
-        Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+        Decidim::Core::ParticipatorySpaceListBase.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
       end
 
       def assembly(id: nil)
         manifest = Decidim.participatory_space_manifests.select { |m| m.name == :assemblies }.first
-        Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
+        Decidim::Core::ParticipatorySpaceFinderBase.new(manifest: manifest).call(object, { id: id }, context)
       end
     end
   end

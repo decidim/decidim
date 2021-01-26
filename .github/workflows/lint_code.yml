@@ -21,6 +21,7 @@ jobs:
     name: Lint code
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
         if: "github.ref != 'refs/heads/master' && github.ref != 'refs/heads/develop'"

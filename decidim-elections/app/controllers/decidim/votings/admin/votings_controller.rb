@@ -6,7 +6,7 @@ module Decidim
       # This controller allows to create or update an election.
       class VotingsController < Admin::ApplicationController
         include Decidim::Votings::Admin::Filterable
-        helper_method :votings, :voting
+        helper_method :votings, :current_voting, :current_participatory_space
 
         def index
           enforce_permission_to :read, :votings
@@ -36,63 +36,48 @@ module Decidim
         end
 
         def edit
-          # enforce_permission_to :update, :voting, voting: voting
-          # @form = form(VotingForm).from_model(voting)
+          enforce_permission_to :update, :voting, voting: current_voting
+          @form = form(VotingForm).from_model(current_voting)
+          render layout: "decidim/admin/voting"
         end
 
         def update
-          # enforce_permission_to :update, :voting, voting: voting
-          # @form = form(VotingForm).from_params(params)
-          #
-          # UpdateVoting.call(@form, voting) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("votings.update.success", scope: "decidim.votings.admin")
-          #     redirect_to votings_path
-          #   end
-          #
-          #   on(:invalid) do
-          #     flash.now[:alert] = I18n.t("votings.update.invalid", scope: "decidim.votings.admin")
-          #     render action: "edit"
-          #   end
-          # end
-        end
+          enforce_permission_to :update, :voting, voting: current_voting
+          @form = form(VotingForm).from_params(params, voting_id: current_voting.id)
 
-        def destroy
-          # enforce_permission_to :delete, :voting, voting: voting
-          #
-          # DestroyVoting.call(voting, current_user) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("votings.destroy.success", scope: "decidim.votings.admin")
-          #   end
-          #
-          #   on(:invalid) do
-          #     flash.now[:alert] = I18n.t("votings.destroy.invalid", scope: "decidim.votings.admin")
-          #   end
-          # end
-          #
-          # redirect_to votings_path
+          UpdateVoting.call(current_voting, @form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("votings.update.success", scope: "decidim.votings.admin")
+              redirect_to edit_voting_path(voting)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("votings.update.invalid", scope: "decidim.votings.admin")
+              render action: "edit"
+            end
+          end
         end
 
         def publish
-          # enforce_permission_to :publish, :voting, voting: voting
-          #
-          # PublishVoting.call(voting, current_user) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("admin.votings.publish.success", scope: "decidim.votings")
-          #     redirect_to votings_path
-          #   end
-          # end
+          enforce_permission_to :publish, :voting, voting: current_voting
+
+          PublishVoting.call(current_voting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("votings.publish.success", scope: "decidim.votings.admin")
+              redirect_to edit_voting_path(voting)
+            end
+          end
         end
 
         def unpublish
-          # enforce_permission_to :unpublish, :voting, voting: voting
-          #
-          # UnpublishVoting.call(voting, current_user) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("admin.votings.unpublish.success", scope: "decidim.votings")
-          #     redirect_to votings_path
-          #   end
-          # end
+          enforce_permission_to :unpublish, :voting, voting: current_voting
+
+          UnpublishVoting.call(current_voting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("votings.unpublish.success", scope: "decidim.votings.admin")
+              redirect_to edit_voting_path(voting)
+            end
+          end
         end
 
         private
@@ -105,9 +90,13 @@ module Decidim
           @collection ||= OrganizationVotings.new(current_user.organization).query
         end
 
-        def voting
-          @voting ||= votings.find_by(id: params[:id])
+        def current_voting
+          @current_voting ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
+          ).first
         end
+
+        alias current_participatory_space current_voting
       end
     end
   end

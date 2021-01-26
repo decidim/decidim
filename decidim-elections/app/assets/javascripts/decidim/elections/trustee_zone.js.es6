@@ -7,10 +7,10 @@ window.Decidim = window.Decidim || {};
 $(() => {
   function identificationKeys() {
     const $form = $(".trustee_zone form");
-    const $trusteeId = $("#trustee_id", $form);
+    const $trusteeUniqueId = $("#trustee_unique_id", $form);
     const $trusteePublicKey = $("#trustee_public_key", $form);
 
-    window.trusteeIdentificationKeys = new window.Decidim.IdentificationKeys(`trustee-${$trusteeId.val()}`, $trusteePublicKey.val());
+    window.trusteeIdentificationKeys = new window.Decidim.IdentificationKeys($trusteeUniqueId.val(), $trusteePublicKey.val());
     if (!window.trusteeIdentificationKeys.browserSupport) {
       $("#not_supported_browser").addClass("visible");
       return;

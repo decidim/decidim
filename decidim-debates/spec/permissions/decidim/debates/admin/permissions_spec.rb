@@ -89,34 +89,4 @@ describe Decidim::Debates::Admin::Permissions do
       it { is_expected.to eq false }
     end
   end
-
-  describe "debate archive" do
-    let(:action) do
-      { scope: :admin, action: :archive, subject: :debate }
-    end
-
-    context "when the debate is closed" do
-      let(:debate) { create :debate, :closed, component: debates_component }
-
-      it { is_expected.to eq true }
-
-      context "and it is not official" do
-        let(:debate) { create :debate, :closed, author: user, component: debates_component }
-
-        it { is_expected.to eq true }
-      end
-    end
-
-    context "when debate is open" do
-      let(:debate) { create :debate, component: debates_component }
-
-      it { is_expected.to eq true }
-
-      context "and it is not official" do
-        let(:debate) { create :debate, author: user, component: debates_component }
-
-        it { is_expected.to eq true }
-      end
-    end
-  end
 end

@@ -1,0 +1,44 @@
+<h2><%= t(".title", election: translated_attribute(election.title)) %></h2>
+<p><%= t(".description") %></p>
+<div class="callout alert">
+  <p><%= t(".process_warning") %></p>
+</div>
+
+<div class="table-scroll">
+  <table class="table-list">
+    <thead>
+      <tr>
+        <th><%= t(".list.task") %></th>
+        <th><%= t(".list.status") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% %w(create_election key_ceremony.step_1 key_ceremony.joint_election_key).each do |step| %>
+      <tr>
+        <td><%= t(".keys.#{step}") %></td>
+        <td id="<%= step.gsub(".", "-") %>" class="step_status" data-step-status="pending">
+          <span class="pending"><%= t(".status.pending") %></span>
+          <span class="processing"><%= t(".status.processing") %></span>
+          <span class="completed"><%= t(".status.completed") %></span>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= render("backup_modal") %>
+  <%= render("restore_modal") %>
+</div>
+
+<button class="button start" disabled>
+  <%= icon "power-standby", class: "icon", role: "img", aria_label: t(".start_icon") %>
+  <span><%= t(".start") %></span>
+</button>
+
+<%= link_to trustee_path, class: "back button hide" do %>
+  <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+  <%= t(".back") %>
+<% end %>
+
+<div class="election-status">
+  <%= link_to "", trustee_election_elections_path(election), method: :put, class: "hide" %>
+</div>
