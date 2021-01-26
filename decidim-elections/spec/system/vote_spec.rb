@@ -9,6 +9,9 @@ describe "Vote in an election", type: :system do
   let!(:elections) do
     create_list(:election, 2, :vote, component: component)
   end
+  let(:vote) { create :vote, election: election, user: user}
+  let(:message_id) { vote.message_id }
+  let(:vote_id) { vote.id }
 
   before do
     election.reload

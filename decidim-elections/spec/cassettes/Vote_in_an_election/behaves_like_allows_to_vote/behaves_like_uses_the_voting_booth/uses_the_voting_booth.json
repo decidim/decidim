@@ -1,1 +1,163 @@
-{"http_interactions":[{"request":{"method":"post","uri":"http://bulletin-board.lvh.me:8000/api","body":{"encoding":"UTF-8","string":"{\"query\":\"mutation GraphQL__Client__OperationDefinition_164680 {\\n  vote(messageId: \\\"decidim-test-authority.10002.vote.cast+v.2b4ed424cb13184168b02ff54e0fc1d00ca666548007e5309c95faa92fe4e0f4\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJ1bmlxdWVcIixcInF1ZXN0aW9uXzg2MVwiOltcIjU4MDhcIl0sXCJxdWVzdGlvbl84NjNcIjpbXCI1ODI0XCIsXCI1ODIxXCIsXCI1ODE5XCJdLFwicXVlc3Rpb25fODYyXCI6W1wiNTgxOFwiLFwiNTgxNVwiLFwiNTgxN1wiLFwiNTgxNFwiLFwiNTgxMlwiXX0iLCJpYXQiOjE2MTA1Njc4NDQsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEwMDAyLnZvdGUuY2FzdCt2LjJiNGVkNDI0Y2IxMzE4NDE2OGIwMmZmNTRlMGZjMWQwMGNhNjY2NTQ4MDA3ZTUzMDljOTVmYWE5MmZlNGUwZjQifQ.eSnPvE3_Ty6IkTX-DFRGkH1tfBzpuFlqdgPo2EVz8laCznNN_xb_EwbMPHAtH0hrB0vT5slrPaM1HczUxylbrOIOwvziisccGe4Ey-mOaM56w8SicIJJjmx6E6f1LeRukoTkzvO2Qmn2U13Majzx0LPkkVTwIJw9rkgvIDfVre0l0qUn_yRlV2opJslmLPpjtBTZ-xvi35qu_J5C2GJzVAvb31CMgZUAKMLx75wyfqy2O0Els6C-jItMCR0xStfkNnI5QS5IkgA4L-rNLkOBEEuq2R4UJ4qiPHr2ZiFIUxP_g-Xd7fwRxQfzgt0dgxEVZYPE2DvtsAmaSEOT0VMymkjjsZzp7CtQf5dYEdXrpN4BRAf64gQ13MPh6NOnrLWlYNqlR7KhmxK4lr0LgosFdbD6xhXN8n37lNHz-u2CWs2XJgIDpEe9TOSlCj0GPpjV4jwRCrPUOtfx8_fUaxs2NhPrMTZGgshA7v_W4SGFZWb3ughPXV8XF5tauDnLTB2Ln-GKO9A4mQ-Wh1OXfUsdv_wLidtIOotzf62oujAHCJQHtlhMNsU-dLDpLlyxeHoaBY16j2pM46ufle7nCOMxg3TSZtfAuGoIjiAf9lRXyHRf5MLFPLVitO2-zV3xS4xPRL7WC7YvvpAGHK5Opq4xG_cnXht38VJrBIAuIbWL1hU\\\") {\\n    pendingMessage {\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_164680\",\"variables\":{}}"},"headers":{"Authorization":["89Ht70GZNcicu8WEyagz_rRae6brbqZAGuBEICYBCii-PTV3MAstAtx1aRVe5H5YfODi-JgYPvyf9ZMH7tOeZ15e3mf9B2Ymgw7eknvBFMRP213YFGo1SPn_C4uLK90G"],"User-Agent":["Faraday v1.0.1"],"Content-Type":["application/json"],"Accept-Encoding":["gzip;q=1.0,deflate;q=0.6,identity;q=0.3"],"Accept":["*/*"]}},"response":{"status":{"code":200,"message":"OK"},"headers":{"X-Frame-Options":["SAMEORIGIN"],"X-Xss-Protection":["1; mode=block"],"X-Content-Type-Options":["nosniff"],"X-Download-Options":["noopen"],"X-Permitted-Cross-Domain-Policies":["none"],"Referrer-Policy":["strict-origin-when-cross-origin"],"Content-Type":["application/json; charset=utf-8"],"Etag":["W/\"2c609107c088369467170808644ee7a0\""],"Cache-Control":["max-age=0, private, must-revalidate"],"X-Request-Id":["f9f150f0-edc5-4962-bf5b-24b8f5ebda87"],"X-Runtime":["0.147028"],"Vary":["Origin"],"Transfer-Encoding":["chunked"]},"body":{"encoding":"UTF-8","string":"{\"data\":{\"vote\":{\"pendingMessage\":{\"status\":\"enqueued\"},\"error\":null}}}"}},"recorded_at":"Wed, 13 Jan 2021 19:57:25 GMT"}],"recorded_with":"VCR 6.0.0"}
+{
+  "http_interactions": [
+    {
+      "request": {
+        "method": "post",
+        "uri": "http://bulletin-board.lvh.me:8000/api",
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"query\":\"mutation GraphQL__Client__OperationDefinition_174180 {\\n  vote(messageId: \\\"decidim-test-authority.10002.vote.cast+v.3fdabe9a1524cb505e93fb751f29213ee0451f7ace1ddd5d13461dd42a074adc\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJ1bmlxdWVcIixcInF1ZXN0aW9uXzQwNVwiOltcIjI3MzBcIl0sXCJxdWVzdGlvbl80MDdcIjpbXCIyNzQ0XCIsXCIyNzQxXCIsXCIyNzQzXCJdLFwicXVlc3Rpb25fNDA2XCI6W1wiMjczNFwiLFwiMjczMVwiLFwiMjc0MFwiLFwiMjczOVwiLFwiMjczNlwiXX0iLCJpYXQiOjE2MTE1OTUxNzIsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEwMDAyLnZvdGUuY2FzdCt2LjNmZGFiZTlhMTUyNGNiNTA1ZTkzZmI3NTFmMjkyMTNlZTA0NTFmN2FjZTFkZGQ1ZDEzNDYxZGQ0MmEwNzRhZGMifQ.hopfT7LSBMb35_VnumXrTmGx-v6ThnZ_hM9pvpBEvByLDkBB01P4arCC_CSl4eeZ4U7oSz_ljPsVjfEiC3KKEN173HztMTtsT0wApq4in15JdHmF3admq_-15BJZvdeLlLL0hRH-C5Chz86apkj3qL8OYnJtRo0XB-p14X1r8SC8teMzzRjSr3BllT6gwz74x7hHei36wray4VLae7MW_pAYkXRT57bkoDGcei6SAwOzjmf7nDmcLtZhK3Rojg0KyZht9WeVmg38ZrLyxRM91tDACUbP6ZV7lZ6R2KFoMOTp5xMkGAElHBX5lMHgLTCmY1BW_neHgfXykNGQYUoFX4IECJwVamh-0HK8hxWFqhv3h-4QY6eug1Ge3aWDxdXxley94Fcgs53uYrP-QQAmLScc7UnosdPmswP8Ksp3S1KHkgPjxT6tNwENfjPt2ngIGsL5YDWjoTTiPb-WacpMVlNsPZnmnfuImsOGBAnJxilhKBqT04JfVdGwGabtIXAJaQsRZ-GG2-DEMkNnI7gxw01ECHvwjp5RLjX8n5qmiD8evLIrvv4_GDLxlhnkeB_YXwJ6au4SzgLhFBdvS69A9zyKTTVoDjVqpolJCww-oCtCxzblMg5yOUefSBT28dYod37YhvRzdh5YX1G46UjND5K9NHwZ0zuyk1s_xC3Ip9I\\\") {\\n    pendingMessage {\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_174180\",\"variables\":{}}"
+        },
+        "headers": {
+          "Authorization": [
+            "89Ht70GZNcicu8WEyagz_rRae6brbqZAGuBEICYBCii-PTV3MAstAtx1aRVe5H5YfODi-JgYPvyf9ZMH7tOeZ15e3mf9B2Ymgw7eknvBFMRP213YFGo1SPn_C4uLK90G"
+          ],
+          "User-Agent": [
+            "Faraday v1.0.1"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ],
+          "Accept": [
+            "*/*"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Etag": [
+            "W/\"2c609107c088369467170808644ee7a0\""
+          ],
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "X-Request-Id": [
+            "9234ddd9-5708-4582-bb11-85f4418ffc9f"
+          ],
+          "X-Runtime": [
+            "0.495513"
+          ],
+          "Vary": [
+            "Origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"data\":{\"vote\":{\"pendingMessage\":{\"status\":\"enqueued\"},\"error\":null}}}"
+        }
+      },
+      "recorded_at": "Mon, 25 Jan 2021 17:19:33 GMT"
+    },
+    {
+      "request": {
+        "method": "post",
+        "uri": "http://bulletin-board.lvh.me:8000/api",
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"query\":\"query GraphQL__Client__OperationDefinition_180400 {\\n  pendingMessage(messageId: \\\"decidim-test-authority.10002.vote.cast+v.3fdabe9a1524cb505e93fb751f29213ee0451f7ace1ddd5d13461dd42a074adc\\\") {\\n    status\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_180400\",\"variables\":{}}"
+        },
+        "headers": {
+          "Authorization": [
+            "89Ht70GZNcicu8WEyagz_rRae6brbqZAGuBEICYBCii-PTV3MAstAtx1aRVe5H5YfODi-JgYPvyf9ZMH7tOeZ15e3mf9B2Ymgw7eknvBFMRP213YFGo1SPn_C4uLK90G"
+          ],
+          "User-Agent": [
+            "Faraday v1.0.1"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ],
+          "Accept": [
+            "*/*"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Etag": [
+            "W/\"a503317c02073262d737ee47b069a91f\""
+          ],
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "X-Request-Id": [
+            "0aaf12e9-0798-486f-b978-780b2167852d"
+          ],
+          "X-Runtime": [
+            "0.031308"
+          ],
+          "Vary": [
+            "Origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"data\":{\"pendingMessage\":{\"status\":\"accepted\"}}}"
+        }
+      },
+      "recorded_at": "Mon, 25 Jan 2021 17:19:34 GMT"
+    }
+  ],
+  "recorded_with": "VCR 6.0.0"
+}

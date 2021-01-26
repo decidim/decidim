@@ -7,11 +7,11 @@ describe Decidim::Elections::Votes::VoteAcceptedEvent do
 
   let(:event_name) { "decidim.events.elections.votes.accepted_votes" }
   let(:vote) { create(:vote) }
-  let(:extra) { { vote: vote }}
+  let(:extra) { { vote: vote } }
   let(:resource) { vote.election }
   let(:encrypted_vote_hash) { vote.encrypted_vote_hash }
   let(:resource_name) { resource.title["en"] }
-  let(:verify_url) { Decidim::EngineRouter.main_proxy(resource.component).verify_election_vote_url(resource)}
+  let(:verify_url) { Decidim::EngineRouter.main_proxy(resource.component).verify_election_vote_url(resource) }
 
   it_behaves_like "a simple event"
 

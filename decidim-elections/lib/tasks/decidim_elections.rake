@@ -60,6 +60,7 @@ namespace :decidim_elections do
           puts "\n✗ Vote status failed. Message: #{message}\n"
         end
       end
+      puts "\n"
     end
   end
 end

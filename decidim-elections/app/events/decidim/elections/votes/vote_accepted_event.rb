@@ -12,7 +12,7 @@ module Decidim
         end
 
         def encrypted_vote_hash
-          extra[:vote].encrypted_vote_hash
+          extra[:vote]["encrypted_vote_hash"]
         end
 
         def verify_url

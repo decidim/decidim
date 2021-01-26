@@ -420,6 +420,7 @@ en:
           question: Question %{count}
         confirmed:
           back: Back to elections
+          error: Sorry, there was an error confirming the vote. Please vote again.
           experience: How was your experience?
           feedback: Give us some feedback
           header: Vote confirmed
@@ -452,6 +453,9 @@ en:
         processing:
           header: Processing vote...
           text: Your vote has been received and it is being processing. Please wait.
+        update:
+          error: There was a problem updating the vote status
+          success: Vote status successfully updated
         verify:
           content:
             heading: Verify your vote

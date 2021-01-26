@@ -23,7 +23,7 @@ module Decidim
             cast_vote_on_bulletin_board
           end
 
-          broadcast(:ok)
+          broadcast(:ok, store_vote)
         rescue StandardError => e
           broadcast(:invalid, e.message)
         end
@@ -47,7 +47,7 @@ module Decidim
         end
 
         def store_vote
-          Vote.create!(
+          @store_vote ||= Vote.create!(
             message_id: cast_vote_message_id,
             election: form.election,
             voter_id: form.voter_id,

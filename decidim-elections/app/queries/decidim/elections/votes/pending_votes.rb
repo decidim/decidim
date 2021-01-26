@@ -12,7 +12,7 @@ module Decidim
 
         # Finds the votes with pending status
         def query
-          Decidim::Elections::Vote.where(status: "pending")
+          Decidim::Elections::Vote.pending
         end
       end
     end
