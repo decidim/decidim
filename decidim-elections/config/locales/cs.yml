@@ -435,9 +435,14 @@ cs:
           header: Hlasování potvrzeno
           lead: Váš hlas již byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
         encrypting:
           header: Zakódování hlasů...
           text: Váš hlas je šifrován, abyste ho mohli anonymně posílat.
+        failed:
+          header: Hlasování se nezdařilo
+          lead: Váš hlas nebyl odeslán!
+          text: Něco se pokazilo, zkuste to prosím znovu.
         header:
           confirm: Potvrďte svůj hlas
           confirmed: Hlasování potvrzeno
@@ -454,6 +459,25 @@ cs:
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
+        processing:
+          header: Zpracovávám hlasování...
+          text: Váš hlas byl přijat a právě se zpracovává. Počkejte prosím.
+        verify:
+          content:
+            heading: Ověřte svůj hlas
+            info: Tento ověřovatel kontroluje, že váš hlas, identifikovaný šifrovaným textovým řetězcem, byl odeslán správně a je uvnitř volební urny.
+          error:
+            header: Hlasování nenalezeno!
+            info: Kód hlasu nebyl nalezen v %{link} volebních urnám, zkuste to znovu.
+          form:
+            back: Zpět na Deidim
+            submit: Ověřit
+            vote_identifier: 'Identifikační kód:'
+          header:
+            title: Ověřte svůj hlas
+          success:
+            header: Hlas lokalizován!
+            info: Váš zašifrovaný hlas je v %{link} volebních urnách
         voting_step:
           back: Zpět
           continue: Další
@@ -478,6 +502,14 @@ cs:
             email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce %{resource_name}.
             email_subject: Jste správcem %{resource_name}.
             notification_title: Jste správce pro <a href="%{participatory_space_url}">%{resource_name}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p> <strong>Hlasování</strong> je prostor, který vám umožňuje položit jasnou otázku všem lidem, kteří tvoří organizaci, vyzvat k účasti na hlasování, rozdmýchání a uspořádání rozpravy pro nebo proti reakci. Až nastane datum hlasování, můžete hlasovat a zveřejnit výsledky hlasování.</p> <p>Příklady: Hlasování se může týkat téměř jakéhokoliv aspektu, který ovlivňuje organizaci: některé příklady mění název nebo logo organizace nabízející několik alternativ, rozhodne, zda se stane součástí větší organizace, potvrdí nebo odmítne nový strategický plán nebo výsledek pracovní skupiny, nebo definovat, zda by pozice měly zůstat nejvýše v délce 1, 2 nebo 3 mandátů.</p>\n"
+          page: "<p> <strong>Hlasování</strong> je prostor, který vám umožňuje položit jasnou otázku všem lidem, kteří tvoří organizaci, vyzvat k účasti na hlasování, rozdmýchání a uspořádání rozpravy pro nebo proti reakci. Až nastane datum hlasování, můžete hlasovat a zveřejnit výsledky hlasování.</p> <p>Příklady: Hlasování se může týkat téměř jakéhokoliv aspektu, který ovlivňuje organizaci: některé příklady mění název nebo logo organizace nabízející několik alternativ, rozhodne, zda se stane součástí větší organizace, potvrdí nebo odmítne nový strategický plán nebo výsledek pracovní skupiny, nebo definovat, zda by pozice měly zůstat nejvýše v délce 1, 2 nebo 3 mandátů.</p>\n"
+          title: Co jsou hlasování?
+    menu:
+      votings: Hlasování
     pages:
       home:
         statistics:
@@ -492,6 +524,11 @@ cs:
           published: Zveřejněno
         menu:
           votings: Hlasování
+          votings_submenu:
+            attachment_collections: Složky
+            attachment_files: Soubory
+            attachments: Přílohy
+            info: Informace
         models:
           voting:
             fields:
@@ -502,21 +539,72 @@ cs:
           votings: Hlasování
         votings:
           actions:
+            confirm_destroy: Jsi si jist?
+            destroy: Zničit
             new_voting: Nové hlasovací místo
+            publish: Publikovat
+            unpublish: Zrušit publikování
           create:
             invalid: Při vytváření tohoto hlasování došlo k chybě
             success: Hlasování bylo úspěšně vytvořeno
+          edit:
+            update: Aktualizovat
           form:
             slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
           new:
             create: Vytvořit
             title: Nové hlasování
+          publish:
+            success: Hlasování bylo úspěšně publikováno
+          unpublish:
+            success: Hlasování bylo úspěšně zrušeno
+          update:
+            invalid: Při aktualizaci tohoto hlasování došlo k chybě
+            success: Hlasování bylo úspěšně aktualizováno
       admin_log:
         voting:
           create: "%{user_name} vytvořil %{resource_name} hlasování"
           publish: "%{user_name} zveřejnil %{resource_name} hlasování"
           unpublish: "%{user_name} zrušil publikování %{resource_name} hlasování"
+      content_blocks:
+        highlighted_votings:
+          name: Zvýrazněné hlasování
+      votings:
+        count:
+          title:
+            one: "%{count} hlasování"
+            few: "%{count} hlasování"
+            many: "%{count} hlasování"
+            other: "%{count} hlasů"
+        filters:
+          active: Aktivní
+          all: Vše
+          finished: Dokončeno
+          search: Hledat
+          state: Stav
+          upcoming: Nadcházející
+        filters_small_view:
+          close_modal: Zavřít modal
+          filter: Filtr
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
+        index:
+          title: Hlasování
+        orders:
+          label: 'Seřadit hlasy podle:'
+          random: Náhodně
+          recent: Nejnovější
+        show:
+          dates: Data
+      votings_m:
+        badge_name:
+          finished: Dokončeno
+          ongoing: Probíhající
+          upcoming: Nadcházející
+        footer_button_text:
+          view: Zobrazit
+        unspecified: Nespecifikováno
   layouts:
     decidim:
       election_votes_header:
