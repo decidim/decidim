@@ -15,16 +15,13 @@ en:
         description: Description
         file: File
         title: Attachment or image name
-        new: New %{name}
       attachment_collection:
         description: Description
         name: Name
-        new: New %{name}
       category:
         description: Description
         name: Name
         parent_id: Parent
-        new: New %{name}
       component:
         name: Name
         published_at: Published at
@@ -33,7 +30,6 @@ en:
       newsletter:
         body: Body
         subject: Subject
-        new: New %{name}
       organization:
         alert_color: Alert
         badges_enabled: Enable badges
@@ -142,7 +138,18 @@ en:
         browse: Browse
         export: Export
         manage: Manage
-        new: New %{name}
+        user:
+          new: New %{name}
+        participatory_space_private_user:
+          new: New %{name}
+        newsletter:
+          new: New %{name}
+        category:
+          new: New %{name}
+        attachment:
+          new: New %{name}
+        attachment_collection:
+          new: New %{name}
         per_page: Per page
         permissions: Permissions
         reject: Reject
@@ -463,7 +470,6 @@ en:
           name: Newsletter
         participatory_space_private_user:
           name: Participatory space private participant
-          new: New %{name}
         scope:
           fields:
             name: Name
@@ -495,7 +501,6 @@ en:
               admin: Admin
               user_manager: Participant manager
           name: Participant
-          new: New %{name}
         user_group:
           fields:
             actions: Actions
