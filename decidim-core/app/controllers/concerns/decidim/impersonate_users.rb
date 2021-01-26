@@ -68,7 +68,7 @@ module Decidim
       def check_impersonation_log_expired
         # Prevent ajax requests to follow redirect
         return if request && request.xhr?
-        # Prevent redirect on non-HTML requests, because we want redirect AFTER impersonation.js inits a reload.
+        # Prevent redirect on non-HTML responses, because we want redirect AFTER impersonation.js inits a reload.
         return if request && request.negotiate_mime([Mime[:html]]).blank?
         return unless can_impersonate_users?
         return unless expired_log
