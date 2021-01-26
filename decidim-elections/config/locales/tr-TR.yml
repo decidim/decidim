@@ -316,7 +316,6 @@ tr:
           header: Oy onaylandı
           lead: Oyunuz çoktan verildi!
           text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
-          verify_text: Kontrol etmek için, tanımlayıcıyı kopyalayın ve <a href="evote-verify"> oy doğrulama sayfasına </a> yapıştırın
         encrypting:
           header: Oy kodlanıyor...
           text: Anonim olarak kullanabilmeniz için oyunuz şifreleniyor.
