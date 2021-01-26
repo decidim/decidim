@@ -135,26 +135,26 @@ en:
     admin:
       actions:
         add: Add
-        browse: Browse
-        export: Export
-        manage: Manage
-        user:
-          new: New %{name}
-        participatory_space_private_user:
-          new: New %{name}
-        newsletter:
-          new: New %{name}
-        category:
-          new: New %{name}
         attachment:
           new: New %{name}
         attachment_collection:
           new: New %{name}
+        browse: Browse
+        category:
+          new: New %{name}
+        export: Export
+        manage: Manage
         new: New %{name}
+        newsletter:
+          new: New %{name}
+        participatory_space_private_user:
+          new: New %{name}
         per_page: Per page
         permissions: Permissions
         reject: Reject
         share: Share
+        user:
+          new: New %{name}
         verify: Verify
       admin_terms_of_use:
         accept:
