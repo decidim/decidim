@@ -346,12 +346,50 @@ cs:
         older: Starší
         recent: Nedávné
       trustee_zone:
+        elections:
+          backup_modal:
+            description: Tyto volby se konají v Bulletin Board. Je velmi důležité, aby každý správce, který se na něm podílí, vytvořil záložní kopii těchto klíčů a uložil je na bezpečném místě. Poté proces pokračuje.
+            download_election_keys: Stáhnout klíče
+            download_icon: Ikona, která indikuje akci ke stažení
+            title: Zálohovat volební klíče pro %{election}
+          key_ceremony_steps:
+            back: Zpět
+            description: Tyto volby se odehrávají v Bulletin Board. Pro dokončení tohoto procesu je nutná vaše účast jako správce.
+            keys:
+              create_election: Generování klíčů
+              key_ceremony:
+                joint_election_key: Vytvoření společného klíče
+                step_1: Vydávání klíčů
+            list:
+              status: Stav
+              task: Úkol
+            process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni správci by měli být k dokončení připojeni.
+            start: Začít
+            start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
+            status:
+              completed: Dokončeno
+              pending: Čekající
+              processing: Zpracovávání
+            title: Vytvořit volební klíče pro %{election}
+          restore_modal:
+            description: Bulletin Board má od vás jako správce informace o těchto volbách. Chcete-li pokračovat v procesu, nejprve nahrajte záložní soubor generovaný během předchozí relace.
+            title: Obnovit volební klíče pro %{election}
+            upload_election_keys: Nahrát volební klíče
+            upload_icon: Ikona, která indikuje akci ke stažení
+          update:
+            error: Stav voleb nebyl aktualizován.
+            success: 'Stav voleb je: %{status}'
         menu:
           trustee_zone: Zóna správce
         trustees:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'Ne'
+                  name: Je vyžadována akce?
+                  'true': Provést akci
+                bb_status: Stav
                 election: Volby
                 voting_period: Hlasovací období
               no_elections: Neexistují žádné volby, ve kterých byste jednal jako správce.
