@@ -122,6 +122,12 @@ sv:
           back: Tillbaka
           create: Skapa
           title: Ny debatt
+        orders:
+          commented: Mest kommenterade
+          label: Sortera debater efter
+          random: Slumpmässig ordning
+          recent: Senaste
+          updated: Senast uppdaterade
         show:
           back: Tillbaka till listan
           close_debate: Stäng debatt
