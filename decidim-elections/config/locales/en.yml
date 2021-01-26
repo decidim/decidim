@@ -492,6 +492,12 @@ en:
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>A <strong>voting</strong> is a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the voting, spark and order the debate for or against a response. When the voting date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The votings can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>A <strong>voting</strong> is a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the voting, spark and order the debate for or against a response. When the voting date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The votings can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          title: What are votings?
     menu:
       votings: Votings
     pages:
