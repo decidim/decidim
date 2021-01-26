@@ -56,11 +56,6 @@ module Decidim
       def organization_primary_color
         organization.colors["primary"]
       end
-
-      def organization_secondary_color
-        organization.colors["secondary"]
-        organization.colors["primary"]
-      end
     end
   end
 end
