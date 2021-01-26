@@ -16,6 +16,9 @@ cs:
         max_selections: Maximální počet výběrů
         min_selections: Žádná z výše uvedených možností
         title: Název
+      voting:
+        end_time: Čas ukončení
+        start_time: Datum zahájení
     errors:
       models:
         answer:
