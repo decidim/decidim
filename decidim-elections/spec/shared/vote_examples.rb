@@ -80,7 +80,7 @@ shared_examples "uses the voting booth" do
     )
   end
 
-  it "uses the voting booth", :vcr, :billy, :slow do
+  it "uses the voting booth", :vcr, :billy, :slow do # rubocop:disable RSpec/ExampleLength
     selected_answers = []
     non_selected_answers = []
 

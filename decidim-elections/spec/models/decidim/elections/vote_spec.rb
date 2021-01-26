@@ -23,6 +23,6 @@ describe Decidim::Elections::Vote do
   end
 
   it "is invalid with a status that is not included in the allowed status" do
-    expect {subject.status("foo")}.to raise_error(ArgumentError)
+    expect { subject.status("foo") }.to raise_error(ArgumentError)
   end
 end

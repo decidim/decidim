@@ -57,7 +57,7 @@ module Decidim
       end
 
       def pending_vote?
-        Decidim::Elections::Votes::PendingVotes.for.where(user: current_user, election: election).exists?
+        Decidim::Elections::Votes::PendingVotes.for.exists?(user: current_user, election: election)
       end
 
       def booth_mode
@@ -78,10 +78,10 @@ module Decidim
 
       def pending_vote_path
         @pending_vote_path ||= if allowed_to? :view, :election, election: election
-                                verify_election_vote_path(election)
-                              else
-                                elections_path
-                              end
+                                 verify_election_vote_path(election)
+                               else
+                                 elections_path
+                               end
       end
 
       def elections
