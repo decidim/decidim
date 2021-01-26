@@ -213,7 +213,6 @@ ca:
           header: Vot confirmat
           lead: El teu vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="evote-verify">pàgina de verificació de vot</a>
         encrypting:
           header: Codificant el vot...
           text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
