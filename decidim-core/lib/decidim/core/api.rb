@@ -2,6 +2,15 @@
 
 module Decidim
   module Core
+    autoload :ComponentFinderBase, "decidim/api/functions/component_finder_base"
+    autoload :ComponentList, "decidim/api/functions/component_list"
+    autoload :ComponentListBase, "decidim/api/functions/component_list_base"
+    autoload :NeedsApiFilterAndOrder, "decidim/api/functions/needs_api_filter_and_order"
+    autoload :ParticipatorySpaceFinderBase, "decidim/api/functions/participatory_space_finder_base"
+    autoload :ParticipatorySpaceListBase, "decidim/api/functions/participatory_space_list_base"
+    autoload :UserEntityFinder, "decidim/api/functions/user_entity_finder"
+    autoload :UserEntityList, "decidim/api/functions/user_entity_list"
+
     autoload :AmendmentType, "decidim/api/types/amendment_type"
     autoload :AreaApiType, "decidim/api/types/area_api_type"
     autoload :AreaTypeType, "decidim/api/types/area_type_type"

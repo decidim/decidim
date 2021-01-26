@@ -64,11 +64,18 @@ module Decidim
         started? && !finished?
       end
 
-      # Public: Checks if the election start_time is minimum 3 hours later than the present time
+      # Public: Checks if the election start_time is minimum some hours later than the present time
       #
       # Returns a boolean.
-      def minimum_three_hours_before_start?
-        start_time > (Time.zone.at(3.hours.from_now))
+      def minimum_hours_before_start?
+        start_time > (Time.zone.at(Decidim::Elections.setup_minimum_hours_before_start.hours.from_now))
+      end
+
+      # Public: Checks if the election start_time is maximum some hours before than the present time
+      #
+      # Returns a boolean.
+      def maximum_hours_before_start?
+        start_time < (Time.zone.at(Decidim::Elections.open_ballot_box_maximum_hours_before_start.hours.from_now))
       end
 
       # Public: Checks if the number of answers are minimum 2 for each question
@@ -110,6 +117,10 @@ module Decidim
         else
           :upcoming
         end
+      end
+
+      def trustee_action_required?
+        bb_key_ceremony? || bb_tally?
       end
 
       # Public: Checks if the election has a blocked_at value

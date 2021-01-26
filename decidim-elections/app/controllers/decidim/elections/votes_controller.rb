@@ -13,7 +13,22 @@ module Decidim
       delegate :count, to: :questions, prefix: true
 
       def new
+        @form = form(Voter::EncryptedVoteForm).instance(election: election)
         redirect_to(return_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless booth_mode
+      end
+
+      def cast
+        @form = form(Voter::EncryptedVoteForm).from_params(params, election: election)
+        return render :cast_success if preview?
+
+        Voter::CastVote.call(@form) do
+          on(:ok) do
+            render :cast_success
+          end
+          on(:invalid) do
+            render :cast_failed
+          end
+        end
       end
 
       private
@@ -44,6 +59,10 @@ module Decidim
 
       def questions
         @questions ||= election.questions.includes(:answers).order(weight: :asc, id: :asc)
+      end
+
+      def preview?
+        booth_mode == :preview
       end
     end
   end

@@ -1,15 +1,17 @@
 /* eslint-disable require-jsdoc, prefer-template, func-style, id-length, no-use-before-define, init-declarations, no-invalid-this */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
+// = require decidim/bulletin_board/decidim-bulletin_board
 
 $(() => {
-  const $vote = $(".focus");
-  const $continueButton = $vote.find("a.focus__next");
-  const $confirmButton = $vote.find("a.focus__next.confirm");
-  const $continueSpan = $vote.find("span.disabled-continue");
+  const { Voter, Client } = decidimBulletinBoard;
+  const $voteWrapper = $(".vote-wrapper");
+  const $continueButton = $voteWrapper.find("a.focus__next");
+  const $confirmButton = $voteWrapper.find("a.focus__next.confirm");
+  const $continueSpan = $voteWrapper.find("span.disabled-continue");
   let $answerCounter = 0;
   let $currentStep,
       $currentStepMaxSelection = "";
-  let $formData = $vote.find(".answer_input");
+  let $formData = $voteWrapper.find(".answer_input");
 
   function initStep() {
     setCurrentStep();
@@ -23,7 +25,7 @@ $(() => {
   initStep()
 
   function setCurrentStep() {
-    $currentStep = $vote.find(".focus__step:visible")
+    $currentStep = $voteWrapper.find(".focus__step:visible")
     setSelections();
     onSelectionChange();
   }
@@ -120,13 +122,13 @@ $(() => {
 
   // get form Data
   function getFormData(formData) {
-    let unindexedArray = formData.serializeArray();
-    let indexedArray = {};
-    $.map(unindexedArray, function(n, i) {
-      indexedArray[n.name] = n.value;
-    });
-
-    return indexedArray;
+    return formData.serializeArray().reduce((acc, {name, value}) => {
+      if (!acc[name]) {
+        acc[name] = [];
+      }
+      acc[name] = [...acc[name], value];
+      return acc;
+    }, {"ballot_style": "unique"});
   }
 
   // confirm vote
@@ -137,15 +139,61 @@ $(() => {
   });
 
   // cast vote
-  function castVote(boothMode, formData) {
-    // log form Data
-    console.log(`Your vote got encrypted successfully. The booth mode is ${boothMode}. Your vote content is:`, formData) // eslint-disable-line no-console
+  function castVote(_boothMode, formData) {
+    const bulletinBoardClient = new Client({
+      apiEndpointUrl: $voteWrapper.data("apiEndpointUrl"),
+      wsEndpointUrl: $voteWrapper.data("websocketUrl")
+    });
 
-    window.setTimeout(function() {
-      $($vote).find("#encrypting").addClass("hide")
-      $($vote).find("#confirmed_page").removeClass("hide")
+    const voter = new Voter({
+      id: $voteWrapper.data("voterId"),
+      bulletinBoardClient,
+      electionContext: {
+        id: $voteWrapper.data("electionUniqueId")
+      }
+    });
+
+    let encryptedVoteHashToVerify = null;
+
+    voter.encrypt(formData).then((encryptedVoteAsJSON) => {
+      return crypto.subtle.digest("SHA-256", new TextEncoder().encode(encryptedVoteAsJSON)).then((hashBuffer) => {
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+
+        return {
+          encryptedVote: encryptedVoteAsJSON,
+          encryptedVoteHash: hashHex
+        };
+      })
+    }).then(({ encryptedVote, encryptedVoteHash}) => {
+      encryptedVoteHashToVerify = encryptedVoteHash;
+
+      return $.ajax({
+        method: "POST",
+        url: $voteWrapper.data("castVoteUrl"),
+        contentType: "application/json",
+        data: JSON.stringify({ encrypted_vote: encryptedVote, encrypted_vote_hash: encryptedVoteHash }), // eslint-disable-line camelcase
+        headers: {
+          "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+        }
+      });
+    }).then(() => {
+      $voteWrapper.find("#encrypting").addClass("hide");
+      $voteWrapper.find("#confirmed_page").removeClass("hide");
+      $voteWrapper.find(".vote-confirmed-result").hide();
       window.confirmed = true;
-    }, 3000)
+
+      if ($voteWrapper.data("booth-mode") === "preview") {
+        return new Promise((resolve) => {
+          setTimeout(resolve, 500);
+        });
+      }
+
+      return voter.verifyVote(encryptedVoteHashToVerify);
+    }).then(() => {
+      $voteWrapper.find(".vote-confirmed-processing").hide();
+      $voteWrapper.find(".vote-confirmed-result").show();
+    })
   }
 
   // exit message before confirming

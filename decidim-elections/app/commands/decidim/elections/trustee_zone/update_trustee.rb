@@ -31,6 +31,7 @@ module Decidim
 
         def update_trustee!
           trustee.update!(
+            name: form.name,
             public_key: form.public_key
           )
         end
