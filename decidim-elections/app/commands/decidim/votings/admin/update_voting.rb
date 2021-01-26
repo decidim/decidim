@@ -11,6 +11,9 @@ module Decidim
         # voting - the Voting to update
         # form - A form object with the params.
         def initialize(voting, form)
+          image_fields.each do |field|
+            form.send("#{field}=".to_sym, voting.send(field)) if form.send(field).blank?
+          end
           @voting = voting
           @form = form
         end
@@ -29,8 +32,9 @@ module Decidim
           if voting.valid?
             broadcast(:ok, voting)
           else
-            form.errors.add(:banner_image, voting.errors[:banner_image]) if voting.errors.include? :banner_image
-            form.errors.add(:introductory_image, voting.errors[:introductory_image]) if voting.errors.include? :introductory_image
+            image_fields.each do |field|
+              form.errors.add(field, voting.errors[field]) if voting.errors.include? field
+            end
             broadcast(:invalid)
           end
         end
@@ -38,6 +42,10 @@ module Decidim
         private
 
         attr_reader :form, :voting
+
+        def image_fields
+          [:banner_image, :introductory_image]
+        end
 
         def update_voting!
           voting.assign_attributes(attributes)
