@@ -17,6 +17,7 @@ module Decidim
 
           resource :vote, only: [:new] do
             post :cast
+            get :verify
           end
         end
 
