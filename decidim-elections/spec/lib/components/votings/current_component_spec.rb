@@ -21,7 +21,7 @@ module Decidim
         { "decidim.current_organization" => organization }
       end
 
-      context "when the params contain an voting id" do
+      context "when the params contain a voting id" do
         before do
           params["voting_slug"] = current_voting.id.to_s
         end
