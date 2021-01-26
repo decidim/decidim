@@ -101,7 +101,7 @@ module TranslationHelpers
   def clear_editor(locator)
     page.execute_script <<-SCRIPT
       $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "<p><br></p>";
-      $('##{locator}').val("<p><br></p>")
+      $('##{locator}').val("")
     SCRIPT
   end
 

@@ -33,7 +33,7 @@ module Decidim
         section_id: id
       )
 
-      if content.present? && content.values.any? { |translation| translation.gsub(%r{</?[^>]*>}, "").present? }
+      if content.present? && content.values.any?(&:present?)
         item.update!(content: content)
       else
         item.destroy!
