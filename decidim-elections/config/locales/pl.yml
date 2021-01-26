@@ -258,7 +258,6 @@ pl:
           header: Oddanie głosu potwierdzone
           lead: Twój głos został już wysłany!
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Aby to sprawdzić, skopiuj identyfikator i wklej go na <a href="evote-verify">stronie weryfikacji głosu</a>
         encrypting:
           header: Kodowanie głosu...
           text: Twój głos jest szyfrowany, aby mieć pewność, że przekazałeś go anonimowo.
