@@ -10,6 +10,8 @@ module Decidim
       attribute :body, String
       attribute :choices, Array[AnswerChoiceForm]
       attribute :matrix_choices, Array[AnswerChoiceForm]
+      attribute :documents, Array[String]
+      attribute :add_documents, Array
 
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?
@@ -17,6 +19,7 @@ module Decidim
       validate :max_choices, if: -> { question.max_choices }
       validate :all_choices, if: -> { question.question_type == "sorting" }
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
+      validate :documents_present, if: -> { question.question_type == "files" && question.mandatory? }
 
       delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
 
@@ -56,6 +59,10 @@ module Decidim
         end
       end
 
+      def has_attachments?
+        question.has_attachments? && errors[:add_documents].empty? && add_documents.present?
+      end
+
       private
 
       def mandatory_body?
@@ -92,6 +99,10 @@ module Decidim
 
       def max_choices_label
         I18n.t("questionnaires.question.max_choices", scope: "decidim.forms", n: question.max_choices)
+      end
+
+      def documents_present
+        errors.add(:add_documents, :blank) if add_documents.empty? && errors[:add_documents].empty?
       end
     end
   end

@@ -15,7 +15,7 @@ Individual workflows with changes:
 - run: bundle install --path vendor/bundle --jobs 4 --retry 3
   name: Install Ruby deps
 - run: cp -R vendor/bundle decidim-generators
-- run: bundle exec rake
+- run: bundle exec rspec
   name: RSpec
   working-directory: ${{ env.DECIDIM_MODULE }}
 ```

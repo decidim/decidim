@@ -65,7 +65,7 @@ module Decidim
             toggle_allow(user.admin?) if permission_action.action == :read
           when :voting
             case permission_action.action
-            when :read, :create, :publish
+            when :read, :create, :publish, :unpublish
               allow!
             when :update, :preview
               toggle_allow(voting.present?)
