@@ -13,7 +13,7 @@ de:
         title: Titel
       question:
         description: Beschreibung
-        max_selections: Maximale Anzahl von Auswahlen
+        max_selections: Maximale Anzahl Antworten
         min_selections: Nichts davon
         title: Titel
     errors:
@@ -193,7 +193,7 @@ de:
         question:
           fields:
             answers: Antworten
-            max_selections: Maximale Auswahl
+            max_selections: Max. Antworten
             title: Titel
       orders:
         label: Wahlen ordnen nach
