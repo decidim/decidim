@@ -15,17 +15,12 @@ module Decidim
         end
 
         attribute :debate, Debate
-        attribute :archive, Boolean
 
         validates :debate, presence: true
         validate :user_can_close_debate
 
         def closed_at
           debate&.closed_at || Time.current
-        end
-
-        def map_model(model)
-          self.archive = model.archived_at.present?
         end
 
         private
