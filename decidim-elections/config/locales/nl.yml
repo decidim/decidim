@@ -215,7 +215,6 @@ nl:
           header: Stem bevestigd
           lead: Je stem is al verstuurd!
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Om het te controleren, kopieer de identificatie en plak het op de <a href="evote-verify">stem verificatie pagina</a>
         encrypting:
           header: Stem coderen...
           text: Je stem wordt versleuteld om ervoor te zorgen dat je deze anoniem kunt werpen.
