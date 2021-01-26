@@ -177,7 +177,6 @@ it:
           header: Voto confermato
           lead: Il tuo voto è già stato espresso!
           text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Per controllarlo, copia l'identificatore e incollalo nella pagina <a href="evote-verify">di verifica del voto</a>
         encrypting:
           header: Codifica del voto...
           text: Il tuo voto viene crittografato per assicurarti di poterlo lanciare in modo anonimo.
