@@ -207,6 +207,27 @@ cs:
           ready:
             errors:
               time_before: Volby jsou připraveny k zahájení. Pro otevření volební urny musíte počkat až %{hours} hodin před začátkem (%{start_time}).
+            invalid: Při otevírání volebních uren došlo k chybě
+            requirements:
+              time_before: Volby začnou brzy. Hlasovací urny můžete otevřít ručně, nebo budou automaticky otevřeny před počáteční dobou v %{start_time}.
+            submit: Otevřít hlasovací urnu
+            success: Hlasovací urna byla úspěšně otevřena v Bulletin Board
+            title: Připraveno k zahájení
+          results:
+            title: Výsledky spočítány
+          results_published:
+            title: Výsledky publikovány
+          tally:
+            title: Proces spojení
+          vote:
+            errors:
+              time_after: Volby stále probíhají. Musíte počkat na konec (%{end_time}) před uzavřením volebních uren.
+            invalid: Při uzavírání volebních uren došlo k chybě
+            requirements:
+              time_after: Volba skončila. Hlasovací urnu můžete zavřít ručně, nebo bude za několik minut automaticky uzavřena.
+            submit: Zavřít hlasovací urnu
+            success: Hlasovací urna byla úspěšně uzavřena ve Bulletin Boardu
+            title: Období hlasování
         trustees_participatory_spaces:
           actions:
             disable: Zakázat
@@ -230,7 +251,10 @@ cs:
             success: Správce %{trustee} úspěšně aktualizován
       admin_log:
         election:
+          close_ballot_box: "%{user_name} uzavřel hlasovací urnu pro volby do Bulletin Boardu %{resource_name}"
+          open_ballot_box: "%{user_name} otevřel volební urnu pro volby v %{resource_name} na Bulletin Boardu"
           publish: "%{user_name} zveřejnil volby %{resource_name}"
+          setup: "%{user_name} vytvořil %{resource_name} volby na Bulletin Boardu"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
         badge_name:
@@ -281,6 +305,7 @@ cs:
         show:
           back: Dostupné volby
           preview: Náhled
+          verify: Ověřit
           vote: Hlasování
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
@@ -298,6 +323,7 @@ cs:
             title: Název
         election:
           fields:
+            bb_status: Stav Bulletin Boardu
             end_time: Končí v
             start_time: Začíná v
             title: Název
