@@ -326,7 +326,6 @@ cs:
           header: Hlasování potvrzeno
           lead: Váš hlas již byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="evote-verify">stránku pro ověření hlasování</a>
         encrypting:
           header: Zakódování hlasů...
           text: Váš hlas je šifrován, abyste ho mohli anonymně posílat.
