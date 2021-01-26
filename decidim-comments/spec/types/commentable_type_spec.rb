@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Comments
     describe CommentableType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:dummy_resource) }
       let!(:comments) { create_list(:comment, 3, commentable: model) }

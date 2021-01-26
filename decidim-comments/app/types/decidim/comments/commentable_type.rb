@@ -3,13 +3,10 @@
 module Decidim
   module Comments
     # This type represents a commentable object.
-    CommentableType = GraphQL::ObjectType.define do
-      name "Commentable"
+    class CommentableType < Decidim::Api::Types::BaseObject
       description "A commentable object"
 
-      interfaces [
-        -> { Decidim::Comments::CommentableInterface }
-      ]
+      implements Decidim::Comments::CommentableInterface
     end
   end
 end

@@ -1,9 +1,8 @@
 [plantuml]
 ....
 @startuml
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
-LAYOUT_TOP_DOWN
 ' uncomment the following line to make proposals
 'LAYOUT_AS_SKETCH
 

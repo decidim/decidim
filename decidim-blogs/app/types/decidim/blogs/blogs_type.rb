@@ -2,29 +2,28 @@
 
 module Decidim
   module Blogs
-    BlogsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class BlogsType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Blogs"
+      graphql_name "Blogs"
       description "A blogs component of a participatory space."
 
-      connection :posts,
-                 type: PostType.connection_type,
-                 description: "List all posts",
-                 function: PostListHelper.new(model_class: Post)
-      field :post,
-            type: PostType,
-            description: "Finds one post",
-            function: PostFinderHelper.new(model_class: Post)
-    end
+      field :posts, type: PostType.connection_type, description: "List all posts", connection: true, null: false do
+        argument :order, PostInputSort, "Provides several methods to order the results", required: false
+        argument :filter, PostInputFilter, "Provides several methods to filter the results", required: false
+      end
 
-    class PostListHelper < Decidim::Core::ComponentListBase
-      argument :order, PostInputSort, "Provides several methods to order the results"
-      argument :filter, PostInputFilter, "Provides several methods to filter the results"
-    end
+      field :post, type: PostType, description: "Finds one post", null: true do
+        argument :id, ID, "The ID of the post", required: true
+      end
 
-    class PostFinderHelper < Decidim::Core::ComponentFinderBase
-      argument :id, !types.ID, "The ID of the post"
+      def posts(filter: {}, order: {})
+        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, { filter: filter, order: order }, context)
+      end
+
+      def post(id:)
+        Decidim::Core::ComponentFinderBase.new(model_class: Post).call(object, { id: id }, context)
+      end
     end
   end
 end

@@ -214,7 +214,7 @@ cs:
           edit:
             accept: Přijmout iniciativu
             confirm: Jste si jisti?
-            confirm_send_to_technical_validation: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
+            confirm_send_to_technical_validation: Jste si jistý?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
             export_votes: Podpora exportu
@@ -271,7 +271,7 @@ cs:
             update: Aktualizovat
           form:
             authorizations: Nastavení autorizace
-            child_scope_threshold_enabled_help: 'Tento znak konfigurace nepodporuje offline hlasování, umožňuje dílčí hlasování a pracuje s autorizačním handlerem, který uživateli přiřazuje oblast působnosti. Ujistěte se, že jste vybrali tuto autorizaci, níže v nastavení autorizace. Aby fungovala oblast působnosti, musí být nastavena hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.'
+            child_scope_threshold_enabled_help: 'Tento příznak konfigurace nepodporuje offline hlasování, povoluje dílčí oblasti působnosti a pracuje s obslužnou rutinou autorizace, která přidruží oblast působnosti uživateli. ujistěte se, že jste vybrali tuto autorizaci níže v nastavení autorizace. Aby to fungovalo, je třeba hierarchicky nakonfigurovat oblasti působnosti: 1 Nadřazený - N Podřazených. Další informace o tom, jak tato konfigurace funguje, naleznete v tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> odkazu </a>.'
             only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.
             options: Možnosti
             title: Obecná informace
@@ -333,10 +333,10 @@ cs:
           back_to_initiatives: Zpět na iniciativy
           callout_text: Blahopřejeme! Vaše iniciativa byla úspěšně vytvořena.
           confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
-          edit_my_initiative: Upravit mé iniciativy
+          edit_my_initiative: Upravit moji iniciativu
           go_to_my_initiatives: Jít na mé iniciativy
           more_information: "(Více informací)"
-          send_my_initiative: Poslat moji iniciativu
+          send_my_initiative: Poslat moji iniciativu na technické ověření
         finish_help:
           access_reminder: K iniciativám můžete přistupovat prostřednictvím filtru %{link} na stránce Iniciativy.
           publish_helper_text: Nezapomeňte, že pro publikování vaší iniciativy musíte vyplnit požadované informace a <strong>je zašlete na technické potvrzení</strong>, aby ji správce mohl zkontrolovat.
@@ -499,13 +499,7 @@ cs:
           section: 'Pokud o to organizace požádá, vytiskněte a vyplňte tento formulář pro odeslání, pokud je uvedeno:'
           signature: Podpis
         result:
-          answer_title:
-            accepted: Tento návrh byl přijat, protože
-            created: Tento návrh byl vytvořen
-            discarded: Tento návrh byl odstraněn, protože
-            published: Tento návrh je zveřejněn protože
-            rejected: Tento návrh byl zamítnut, protože
-            validating: Tento návrh se hodnotí
+          answer_title: Tato iniciativa byla zodpovězena
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.

@@ -208,7 +208,7 @@ de:
           edit:
             accept: Initiative akzeptieren
             confirm: Bist du sicher?
-            confirm_send_to_technical_validation: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
+            confirm_send_to_technical_validation: Sind Sie sicher?
             discard: Verwerfen Sie die Initiative
             export_pdf_signatures: Exportieren von PDF-Signaturen
             export_votes: Export unterstützt
@@ -328,7 +328,7 @@ de:
           edit_my_initiative: Meine Initiativen bearbeiten
           go_to_my_initiatives: Geh zu meinen Initiativen
           more_information: "(Weitere Informationen)"
-          send_my_initiative: Meine Initiativen senden
+          send_my_initiative: Meine Initiative zur technischen Validierung senden
         finish_help:
           access_reminder: Sie können auf Ihre Initiativen über den Filter %{link} auf der Seite Initiativen zugreifen.
           publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
@@ -485,13 +485,7 @@ de:
           section: 'Falls von der Organisation angefragt, drucken Sie bitte dieses Formular aus und füllen Sie es aus, um dort einzureichen, wo angegeben wurde:'
           signature: Unterschrift
         result:
-          answer_title:
-            accepted: Dieser Vorschlag wurde angenommen, weil
-            created: Dieser Vorschlag wurde erstellt
-            discarded: Dieser Vorschlag wurde verworfen, weil
-            published: Dieser Vorschlag wird veröffentlicht, weil
-            rejected: Dieser Vorschlag wurde abgelehnt, weil
-            validating: Dieser Vorschlag wird geprüft
+          answer_title: Diese Initiative wurde beantwortet
           initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
           any_vote_method: Diese Bürgerinitiative sammelt sowohl online als auch persönlich Unterschriften.

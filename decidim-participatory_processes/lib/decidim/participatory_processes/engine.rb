@@ -51,9 +51,7 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
+        Decidim::Api::QueryType.include Decidim::ParticipatoryProcesses::QueryExtensions
       end
 
       initializer "decidim_participatory_processes.add_cells_view_paths" do

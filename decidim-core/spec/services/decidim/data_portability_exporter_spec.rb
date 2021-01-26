@@ -30,7 +30,6 @@ module Decidim
         decidim-conferences-conferenceinvites-
         decidim-comments-comments-
         decidim-comments-commentvotes-
-        decidim-demographics-demographics-
         decidim-users/avatar.jpg
       )
     end

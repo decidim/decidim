@@ -9,8 +9,8 @@ module Decidim
     has_many :reports, class_name: "Decidim::UserReport", dependent: :destroy
 
     delegate :organization, to: :user
-    scope :blocked, -> { joins(:user).where(decidim_users: { suspended: true }) }
-    scope :unblocked, -> { joins(:user).where(decidim_users: { suspended: false }) }
+    scope :blocked, -> { joins(:user).where(decidim_users: { blocked: true }) }
+    scope :unblocked, -> { joins(:user).where(decidim_users: { blocked: false }) }
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserModerationPresenter

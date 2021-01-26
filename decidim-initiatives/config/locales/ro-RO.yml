@@ -292,10 +292,8 @@ ro:
         finish:
           back: Înapoi
           back_to_initiatives: Înapoi la inițiative
-          edit_my_initiative: Editează inițiativele mele
           go_to_my_initiatives: Mergeți la inițiativele mele
           more_information: "(Informaţii principale)"
-          send_my_initiative: Trimite-mi inițiativa
         previous_form:
           back: Înapoi
           continue: Continuă
@@ -407,13 +405,6 @@ ro:
         print:
           city: Oraș
         result:
-          answer_title:
-            accepted: Această propunere a fost acceptată deoarece
-            created: Această propunere a fost creată
-            discarded: Această propunere a fost respinsă deoarece
-            published: Această propunere este publicată deoarece
-            rejected: Această propunere a fost respinsă deoarece
-            validating: Această propunere este în curs de evaluare
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
         show:
           follow_description: Primiți o notificare atunci când există știri în această inițiativă
