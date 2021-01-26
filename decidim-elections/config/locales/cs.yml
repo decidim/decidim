@@ -187,6 +187,26 @@ cs:
             not_used_trustee: "(nepoužito)"
             public_key:
               'false': nemá <strong>veřejný klíč</strong>
+              'true': má <strong>veřejný klíč</strong>
+            requirements:
+              max_selections: Všechny otázky mají správnou hodnotu pro <strong>maximum odpovědí</strong>.
+              minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>.
+              minimum_questions: Volba má <strong>alespoň jednu otázku</strong>.
+              published: Volby jsou <strong>publikovány</strong>.
+              time_before: Nastavení se provádí <strong>alespoň %{hours} hodin</strong> před zahájením voleb.
+              trustees_number: Participační prostor má <strong>alespoň %{number} správců s veřejným klíčem</strong>.
+            submit: Nastavení voleb
+            success: Volba byla úspěšně odeslána do Bulletin Board
+            title: Nastavení voleb
+            trustees: Volební správci
+          index:
+            title: Správa volebních kroků na Bulletin Board
+          key_ceremony:
+            title: Slavnostní ceremoniál
+            trustees: Správci
+          ready:
+            errors:
+              time_before: Volby jsou připraveny k zahájení. Pro otevření volební urny musíte počkat až %{hours} hodin před začátkem (%{start_time}).
         trustees_participatory_spaces:
           actions:
             disable: Zakázat
