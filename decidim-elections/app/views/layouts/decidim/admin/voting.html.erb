@@ -1,11 +1,11 @@
 <% content_for :secondary_nav do %>
   <div class="secondary-nav secondary-nav--subnav">
     <ul>
-      <%= public_page_link decidim_votings.voting_path(current_voting) %>
-      <% if allowed_to? :update, :voting, voting: current_voting %>
-        <li <% if is_active_link?(decidim_admin_votings.edit_voting_path(current_voting)) %> class="is-active" <% end %>>
+      <%= public_page_link decidim_votings.voting_path(current_participatory_space) %>
+      <% if allowed_to? :update, :voting, voting: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_votings.edit_voting_path(current_participatory_space)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
-                                    decidim_admin_votings.edit_voting_path(current_voting) %>
+                                    decidim_admin_votings.edit_voting_path(current_participatory_space) %>
         </li>
       <% end %>
 
@@ -55,7 +55,7 @@
 <%= render "layouts/decidim/admin/application" do %>
   <div class="process-title">
     <div class="process-title-content">
-      <%= link_to translated_attribute(current_voting.title), decidim_votings.voting_path(current_voting), target: "_blank" %>
+      <%= link_to translated_attribute(current_participatory_space.title), decidim_votings.voting_path(current_participatory_space), target: "_blank" %>
     </div>
   </div>
 
