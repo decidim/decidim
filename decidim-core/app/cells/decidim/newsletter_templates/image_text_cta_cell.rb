@@ -58,11 +58,8 @@ module Decidim
       end
 
       def organization_secondary_color
-<<<<<<< HEAD
         organization.colors["secondary"]
-=======
         organization.colors["primary"]
->>>>>>> 9710c1b0091072f63c556bf464e58a075d6a2c60
       end
     end
   end
