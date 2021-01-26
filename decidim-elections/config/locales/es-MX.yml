@@ -213,7 +213,6 @@ es-MX:
           header: Voto confirmado
           lead: '¡Tu voto ha sido emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Para comprobarlo, copia el identificador y pégalo en la <a href="evote-verify">página de verificación de voto</a>
         encrypting:
           header: Codificando voto...
           text: Tu voto está siendo cifrado para asegurar que se emite de forma anónima.
