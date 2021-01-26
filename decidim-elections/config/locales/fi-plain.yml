@@ -316,7 +316,6 @@ fi-pl:
           header: Ääni vahvistettu
           lead: Olet jo äänestänyt!
           text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Tarkastaaksesi tämän, voit syöttää äänen tunnisteen <a href="evote-verify">äänten vahvistussivulle</a>
         encrypting:
           header: Ääntäsi salataan...
           text: Äänesi salataan, jotta henkilöllisyyttäsi ei voida selvittää äänesi perusteella.
