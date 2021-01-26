@@ -362,7 +362,6 @@ fr-CA:
           header: Vote confirmé
           lead: Votre vote a déjà été exprimé!
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté à la zone des urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Pour vérifier, copiez l'identifiant et collez-le sur la <a href="evote-verify">page de vérification de vote</a>
         encrypting:
           header: Encodage du vote...
           text: Votre vote est en cours de cryptage pour vous assurer que vous pouvez le diffuser de manière anonyme.
