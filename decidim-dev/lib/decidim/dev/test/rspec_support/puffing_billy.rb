@@ -12,9 +12,17 @@ Billy.configure do |config|
 end
 
 RSpec.configure do |config|
-  config.before :each, :billy do
+  base_cache_path = Billy.config.cache_path
+
+  config.before :each, :billy do |example|
     driven_by :selenium_chrome_headless_billy
     switch_to_secure_context_host
     WebMock::HttpLibAdapters::EmHttpRequestAdapter.disable!
+
+    feature_name = example.metadata[:example_group][:description].underscore.gsub(" ", "_")
+    scenario_name = example.metadata[:description].underscore.gsub(" ", "_")
+    cache_scenario_folder_path = File.join(base_cache_path, feature_name, scenario_name)
+    FileUtils.mkdir_p(cache_scenario_folder_path)
+    Billy.config.cache_path = cache_scenario_folder_path
   end
 end

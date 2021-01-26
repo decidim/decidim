@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
   subject { described_class.new(election, required_status) }
 
-  let(:election) { create :election, :started }
+  let(:election) { create :election, :created }
   let(:required_status) { :key_ceremony }
   let(:new_status) { :ready }
   let(:response) { new_status }

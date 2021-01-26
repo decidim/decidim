@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Key ceremony", type: :system do
-  let!(:election) { create :election, :published, :ready_for_setup, id: 42, trustee_keys: trustee_keys, component: current_component }
+  let!(:election) { create :election, :ready_for_setup, id: 42, trustee_keys: trustee_keys, component: current_component }
 
   let(:manifest_name) { "elections" }
   let(:trustee_keys) do
@@ -24,8 +24,8 @@ describe "Key ceremony", type: :system do
       let(:admin_component_organization_traits) { [:secure_context] }
     end
 
-    context "when performing the key ceremony", :billy, :vcr do
-      it "generates backup keys, restores them and creates election keys", :slow, download: true do
+    context "when performing the key ceremony", :vcr, :billy, :slow, download: true do
+      it "generates backup keys, restores them and creates election keys" do
         setup_election(election)
 
         proxy.cache.with_scope("trustee 1 download") { download_election_keys(0) }
@@ -41,12 +41,10 @@ describe "Key ceremony", type: :system do
       visit_component_admin
 
       within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--setup-election").click
+        page.find(".action-icon--manage-steps").click
       end
 
-      within ".setup_election" do
-        page.find(".button").click
-      end
+      click_button "Setup election"
 
       election.reload
     end
@@ -91,6 +89,8 @@ describe "Key ceremony", type: :system do
       expect(page).to have_css("#key_ceremony-joint_election_key", text: "Pending")
 
       expect(page).to have_selector("button.start:not(disabled)")
+
+      sleep(1)
 
       click_button "Start"
 
