@@ -33,7 +33,7 @@ module Decidim
         section_id: id
       )
 
-      if content.present? && content.values.any?(&:present?)
+      if content.present? && content.values.any? { |translation| translation.present? && translation != "<p><br></p>" }
         item.update!(content: content)
       else
         item.destroy!
