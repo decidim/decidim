@@ -6,13 +6,13 @@ es:
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
-        end_date: Fin
+        end_date: Fecha de finalización
         progress: Progreso
         project_ids: Proyectos incluidos
         proposals: Propuestas incluidas
-        start_date: Inicio
+        start_date: Fecha de inicio
         title: Título
-        updated_at: Actualizado en
+        updated_at: Actualizado el
       status:
         description: Descripción
         key: Clave
