@@ -277,6 +277,8 @@ ca:
         name: Autorització d'exemple
       dummy_authorization_workflow:
         name: Flux de treball d'autorització d'exemple
+      errors:
+        duplicate_authorization: Ja hi ha una participant autoritzada amb les mateixes dades. Una administradora es posarà en contacte amb tu per verificar les teves dades.
       expired_at: Vençut el %{timestamp}
       expires_at: Venç en %{timestamp}
       foo_authorization:
@@ -328,7 +330,7 @@ ca:
         body_2: 'Motiu: %{justification}'
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
-        subject: '%{organization_name} ha bloquejat el vostre compte'
+        subject: El teu compte ha estat bloquejat per %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: i %{count} més
