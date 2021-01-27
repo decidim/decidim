@@ -79,6 +79,7 @@ es:
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
+      blocked: Esta cuenta ha sido bloqueada por una violación de los Términos y Condiciones de uso
       data_portability_export:
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
@@ -142,10 +143,12 @@ es:
         delete: "%{user_name} eliminó la página estática %{resource_name}"
         update: "%{user_name} actualizó la página estática %{resource_name}"
       user:
+        block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
         invite: "%{user_name} invitó a la participante %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó a la participante %{resource_name}"
         remove_from_admin: "%{user_name} eliminó a la participante %{resource_name} con el rol: %{role}"
         show_email: "%{user_name} ha recuperado el correo electrónico de la participante %{resource_name}"
+        unblock: "%{user_name} desoficializó a la usuaria %{resource_name}"
         unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
@@ -314,6 +317,12 @@ es:
           title: Confirma tu email
       show:
         close_modal: Cerrar el modal
+    block_user_mailer:
+      notify:
+        body_1: Tu cuenta ha sido bloqueda.
+        body_2: 'Motivo: %{justification}'
+        greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola,
     collapsible_list:
       hidden_elements_count:
         one: y %{count} más
@@ -1070,6 +1079,7 @@ es:
       not_allowed: No tienes permiso para visualizar este contenido
     profile:
       deleted: Participante eliminada
+      inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
       view: Ver
     profiles:
       default_officialization_text_for_user_groups: Este grupo está verificado públicamente, su nombre se ha verificado para que se corresponda con su nombre real
