@@ -134,14 +134,26 @@ cs:
     admin:
       actions:
         add: Přidat
+        attachment:
+          new: Nová příloha
+        attachment_collection:
+          new: Nová sbírka příloh
         browse: Procházet
+        category:
+          new: Nová kategorie
         export: Exportovat
         manage: Spravovat
         new: Nová %{name}
+        newsletter:
+          new: Nový zpravodaj
+        participatory_space_private_user:
+          new: Nový soukromý uživatel participačního prostoru
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
         share: Sdílet
+        user:
+          new: Nový uživatel
         verify: Ověřit
       admin_terms_of_use:
         accept:
