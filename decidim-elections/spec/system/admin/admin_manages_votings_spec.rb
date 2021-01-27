@@ -61,6 +61,7 @@ describe "Admin manages votings", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
+      expect(page).to have_admin_callout("You don't have any election configured")
 
       within ".container" do
         expect(page).to have_current_path decidim_admin_votings.votings_path
@@ -116,11 +117,15 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "updating a voting" do
+    let(:elections_component) { create(:elections_component, participatory_space: voting) }
+
     before do
       click_link translated(voting.title)
     end
 
     it "updates a voting" do
+      create(:election, component: elections_component)
+
       fill_in_i18n(
         :voting_title,
         "#voting-title-tabs",
@@ -136,6 +141,7 @@ describe "Admin manages votings", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
+      expect(page).not_to have_admin_callout("You don't have any election configured")
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")

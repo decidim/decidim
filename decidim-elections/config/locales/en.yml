@@ -550,6 +550,7 @@ en:
             publish: Publish
             unpublish: Unpublish
           create:
+            add_election_component: You don't have any election configured for this voting. Please add it in the Components section 
             invalid: There was a problem creating this voting
             success: Voting successfully created
           edit:
@@ -570,6 +571,7 @@ en:
           unpublish:
             success: Voting successfully unpublished
           update:
+            add_election_component: You don't have any election configured for this voting. Please add it in the Components section 
             invalid: There was a problem updating this voting
             success: Voting successfully updated
       admin_log:

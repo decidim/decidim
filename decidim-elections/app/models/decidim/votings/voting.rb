@@ -112,6 +112,22 @@ module Decidim
       def online_voting?
         voting_type == "online"
       end
+
+      def inperson_voting?
+        voting_type == "in_person"
+      end
+
+      def needs_elections?
+        !inperson_voting? && !has_elections?
+      end
+
+      private
+
+      def has_elections?
+        components.where(manifest_name: :elections).any? do |component|
+          Decidim::Elections::Election.where(component: component).any?
+        end
+      end
     end
   end
 end
