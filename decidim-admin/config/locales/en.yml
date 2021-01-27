@@ -138,7 +138,7 @@ en:
         attachment:
           new: New attachment
         attachment_collection:
-          new: New attachment_collection
+          new: New attachment collection
         browse: Browse
         category:
           new: New category
@@ -148,7 +148,7 @@ en:
         newsletter:
           new: New newsletter
         participatory_space_private_user:
-          new: New participatory_space_private_user
+          new: New participatory space private user
         per_page: Per page
         permissions: Permissions
         reject: Reject
