@@ -118,7 +118,7 @@ de:
         manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
       moderation:
         hide: "%{user_name} hat eine Ressource vom Typ %{resource_type} in %{space_name} versteckt"
-        unreport: "%{user_name} hat eine gemeldete Ressource vom Typ %{resource_type} in %{space_name} als unproblematisch markiert"
+        unreport: "%{user_name} hat die Meldung einer Ressource vom Typ %{resource_type} in %{space_name} aufgehoben"
       newsletter:
         create: "%{user_name} hat den Newsletter %{resource_name} erstellt"
         delete: "%{user_name} hat den Newsletter %{resource_name} gelöscht"
@@ -152,13 +152,13 @@ de:
         promote: "%{user_name} hat %{resource_name} befördert"
         remove_from_admin: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} entfernt"
         show_email: "%{user_name} hat die E-Mail des Teilnehmers %{resource_name} abgerufen"
-        transfer: "%{user_name} hat den Teilnehmer %{resource_name} anerkannt"
+        transfer: "%{user_name} hat den Teilnehmer %{resource_name} verschoben"
         unblock: "%{user_name} hat die Blockierung von %{resource_name} aufgehoben"
-        unofficialize: "%{user_name} inoffizialisierte den Benutzer %{resource_name}"
+        unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
       user_group:
-        reject: "%{user_name} wies die %{resource_name} - Benutzergruppe Verifikations"
-        verify: "%{user_name} die %{resource_name} Benutzergruppe verifiziert"
-        verify_via_csv: "%{user_name} die %{resource_name} Benutzergruppe über eine CSV-Datei überprüft"
+        reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
+        verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
+        verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
       user_moderation:
         unreport: "%{user_name} hat die Meldung auf %{resource_type} - %{unreported_user_name} aufgehoben"
     admin_terms_of_use:
