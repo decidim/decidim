@@ -555,7 +555,7 @@ ca:
       officializations:
         block:
           error: S'ha produït un error en bloquejar a la participant
-          success: Participant convidada correctament
+          success: Participant bloqueada correctament
         create:
           success: La participant s'ha oficialitzat correctament
         destroy:
@@ -563,7 +563,7 @@ ca:
         index:
           actions: Accions
           badge: Insígnia
-          block: Usuària bloquejada
+          block: Bloquejar usuària
           created_at: Creat el
           name: Nom
           nickname: Àlies
