@@ -352,6 +352,7 @@ es:
         actions:
           preview: Previsualizar
         exports:
+          proposal_comments: Comentarios
           proposals: Propuestas
         models:
           proposal:
