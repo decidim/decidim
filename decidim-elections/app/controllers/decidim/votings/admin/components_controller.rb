@@ -8,7 +8,7 @@ module Decidim
       class ComponentsController < Decidim::Admin::ComponentsController
         layout "decidim/admin/voting"
 
-        include NeedsVoting
+        include VotingAdmin
       end
     end
   end

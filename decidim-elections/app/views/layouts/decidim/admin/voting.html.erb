@@ -53,13 +53,13 @@
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <div class="process-title">
-    <div class="process-title-content">
+  <div class="voting-title">
+    <div class="voting-title-content">
       <%= link_to translated_attribute(current_participatory_space.title), decidim_votings.voting_path(current_participatory_space), target: "_blank" %>
     </div>
   </div>
 
-  <div class="process-content">
+  <div class="voting-content">
     <%= yield %>
   </div>
 <% end %>
