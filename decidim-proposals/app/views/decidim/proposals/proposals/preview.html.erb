@@ -3,9 +3,16 @@
 <div class="row">
   <%= render partial: "wizard_aside" %>
 
-  <div class="columns large-6">
+  <div class="columns large-9">
     <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
-    <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
+
+    <div class="row column view-header">
+      <h3 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h3>
+      <%= render_proposal_body(@proposal) %>
+    </div>
+    <div class="row column">
+      <%= attachments_for @proposal %>
+    </div>
 
     <% if component_settings.geocoding_enabled? %>
       <% if has_position?(@proposal) %>
