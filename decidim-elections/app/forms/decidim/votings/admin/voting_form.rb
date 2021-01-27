@@ -13,11 +13,10 @@ module Decidim
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :scope_id, Integer
+        attribute :remove_banner_image
         attribute :banner_image, String
+        attribute :remove_introductory_image
         attribute :introductory_image, String
-        # attribute :attachment, AttachmentForm
-        # attribute :photos, Array[String]
-        # attribute :add_photos, Array
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -27,7 +26,6 @@ module Decidim
         validates :end_time, presence: true, date: { after: :start_time }
         validates :banner_image, passthru: { to: Decidim::Votings::Voting }
         validates :introductory_image, passthru: { to: Decidim::Votings::Voting }
-        # validate :notify_missing_attachment_if_errored
 
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
 
@@ -54,15 +52,6 @@ module Decidim
                         .any?
 
           errors.add(:slug, :taken)
-        end
-
-        # This method will add an error to the `photos` field only if there's
-        # any error in any other field. This is needed because when the form has
-        # an error, the attachment is lost, so we need a way to inform the user of
-        # this problem.
-        def notify_missing_attachment_if_errored
-          errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
-          errors.add(:add_photos, :needs_to_be_reattached) if errors.any? && add_photos.present?
         end
       end
     end

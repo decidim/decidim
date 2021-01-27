@@ -7,17 +7,22 @@ module Decidim
       include Loggable
       include Decidim::Participable
       include Decidim::ParticipatorySpaceResourceable
+      include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::ScopableParticipatorySpace
       include Decidim::Publicable
       include Decidim::HasUploadValidations
+      include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
 
       translatable_fields :title, :description
 
       belongs_to :organization,
                  foreign_key: "decidim_organization_id",
                  class_name: "Decidim::Organization"
+
+      has_many :components, as: :participatory_space, dependent: :destroy
 
       validates :slug, uniqueness: { scope: :organization }
       validates :slug, presence: true, format: { with: Decidim::Votings::Voting.slug_format }
@@ -27,6 +32,37 @@ module Decidim
 
       validates_upload :introductory_image
       mount_uploader :introductory_image, Decidim::BannerImageUploader
+
+      scope :upcoming, -> { published.where("start_time > ?", Time.now.utc) }
+      scope :active, lambda {
+        published
+          .where("start_time <= ?", Time.now.utc)
+          .where("end_time >= ?", Time.now.utc)
+      }
+      scope :finished, -> { published.where("end_time < ?", Time.now.utc) }
+      scope :order_by_most_recent, -> { order(created_at: :desc) }
+
+      def upcoming?
+        start_time > Time.now.utc
+      end
+
+      def active?
+        start_time <= Time.now.utc && end_time >= Time.now.utc
+      end
+
+      def finished?
+        end_time < Time.now.utc
+      end
+
+      def period_status
+        if finished?
+          :finished
+        elsif active?
+          :ongoing
+        else
+          :upcoming
+        end
+      end
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -47,9 +83,12 @@ module Decidim
         Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       end
 
-      # should remove this method when we have public views
-      def self.public_spaces
-        none
+      def to_param
+        slug
+      end
+
+      def attachment_context
+        :admin
       end
     end
   end
