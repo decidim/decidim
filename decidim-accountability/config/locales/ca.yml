@@ -10,7 +10,7 @@ ca:
         progress: Progrés
         project_ids: Projectes inclosos
         proposals: Propostes incloses
-        start_date: Inici
+        start_date: Data d'inici
         title: Títol
         updated_at: Actualitzat el
       status:
@@ -35,9 +35,9 @@ ca:
         attachment_collections: Carpetes
         attachments: Fitxers adjunts
         confirm_destroy: Segur que vols suprimir aquest %{name}?
-        destroy: Esborra
-        edit: Edita
-        import_csv: Importa CSV
+        destroy: Esborrar
+        edit: Editar
+        import_csv: Importar CSV
         new: Nou/va %{name}
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
@@ -69,7 +69,7 @@ ca:
           destroy:
             success: Resultat eliminat correctament
           edit:
-            title: Edita resultat
+            title: Editar resultat
             update: Actualitzar resultat
           index:
             title: Resultats
@@ -151,6 +151,8 @@ ca:
           fields:
             description: Descripció
             entry_date: Data
+      result_m:
+        view: Veure
       results:
         count:
           results_count:
@@ -181,6 +183,15 @@ ca:
             votes: Suports
         timeline:
           title: Evolució del projecte
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Àmbit
+          status_id_eq:
+            label: Estat
     components:
       accountability:
         name: Seguiment
