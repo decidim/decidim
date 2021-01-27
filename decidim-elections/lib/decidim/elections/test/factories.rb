@@ -15,6 +15,10 @@ FactoryBot.define do
   end
 
   factory :election, class: "Decidim::Elections::Election" do
+    transient do
+      organization { build(:organization) }
+    end
+
     upcoming
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -23,18 +27,19 @@ FactoryBot.define do
     blocked_at { nil }
     bb_status { nil }
     questionnaire
-    component { create(:elections_component) }
+    component { create(:elections_component, organization: organization) }
+
+    trait :bb_test do
+      bb_status { "key_ceremony" }
+      id { (10_000 + Decidim::Elections::Election.bb_statuses.keys.index(bb_status)) }
+    end
 
     trait :upcoming do
       start_time { 1.day.from_now }
-      blocked_at { Time.current }
-      bb_status { "key_ceremony" }
     end
 
     trait :started do
       start_time { 2.days.ago }
-      blocked_at { Time.current }
-      bb_status { "key_ceremony" }
     end
 
     trait :ongoing do
@@ -45,7 +50,6 @@ FactoryBot.define do
       started
       end_time { 1.day.ago }
       blocked_at { Time.current }
-      bb_status { "key_ceremony" }
     end
 
     trait :published do
@@ -63,9 +67,13 @@ FactoryBot.define do
 
     trait :ready_for_setup do
       transient do
-        trustee_keys { 2.times.map { generate(:private_key).export.to_json } }
+        trustee_keys { 2.times.map { [Faker::Name.name, generate(:private_key).export.to_json] }.to_h }
       end
+
+      upcoming
+      published
       complete
+
       after(:create) do |election, evaluator|
         evaluator.trustee_keys.each do |name, key|
           create(:trustee, :with_public_key, name: name, election: election, public_key: key)
@@ -73,22 +81,48 @@ FactoryBot.define do
       end
     end
 
+    trait :created do
+      ready_for_setup
+      blocked_at { start_time - 1.day }
+
+      start_time { 1.hour.from_now }
+      bb_status { "key_ceremony" }
+
+      after(:create) do |election|
+        trustees_participatory_spaces = Decidim::Elections::TrusteesParticipatorySpace.where(participatory_space: election.component.participatory_space)
+        election.trustees << trustees_participatory_spaces.map(&:trustee)
+      end
+    end
+
+    trait :ready do
+      created
+      bb_status { "ready" }
+    end
+
+    trait :vote do
+      created
+      ongoing
+      bb_status { "vote" }
+    end
+
     trait :results do
-      started
-      end_time { 1.day.ago }
-      blocked_at { Time.current }
+      created
+      ongoing
+      finished
       bb_status { "results" }
-      after(:build) do |election, _evaluator|
-        election.questions << build_list(:question, 3, :with_votes, election: election)
+
+      after(:build) do |election|
+        election.questions.each do |question|
+          question.answers.each do |answer|
+            answer.votes_count = Faker::Number.number(digits: 1)
+          end
+        end
       end
     end
 
     trait :results_published do
-      finished
+      results
       bb_status { "results_published" }
-      after(:build) do |election, _evaluator|
-        election.questions << build_list(:question, 3, :with_votes, election: election)
-      end
     end
   end
 
@@ -163,11 +197,12 @@ FactoryBot.define do
 
   factory :trustee, class: "Decidim::Elections::Trustee" do
     transient do
-      organization { election&.component&.participatory_space&.organization || create(:organization) }
       election { nil }
+      organization { election&.component&.participatory_space&.organization || create(:organization) }
     end
+
     public_key { nil }
-    user { create(:user, organization: organization) }
+    user { build(:user, organization: organization) }
 
     trait :considered do
       after(:build) do |trustee, evaluator|
@@ -176,8 +211,8 @@ FactoryBot.define do
     end
 
     trait :with_elections do
-      after(:build) do |trustee, _evaluator|
-        trustee.elections << build(:election, :upcoming)
+      after(:build) do |trustee, evaluator|
+        trustee.elections << build(:election, :upcoming, organization: evaluator.organization)
       end
     end
 
@@ -200,5 +235,12 @@ FactoryBot.define do
     trait :trustee_ready do
       association :trustee, :with_public_key
     end
+  end
+
+  factory :vote, class: "Decidim::Elections::Vote" do
+    election { create(:election) }
+    sequence(:voter_id) { |n| "voter_#{n}" }
+    encrypted_vote_hash { "adf89asd0f89das7f" }
+    status { Decidim::Elections::Vote::PENDING_STATUS }
   end
 end

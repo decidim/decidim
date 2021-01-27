@@ -85,6 +85,7 @@ $(() => {
           }
         }
       });
+      window.keyCeremony = keyCeremony;
 
       $startButton.on("click", async () => {
         $startButton.prop("disabled", true);
