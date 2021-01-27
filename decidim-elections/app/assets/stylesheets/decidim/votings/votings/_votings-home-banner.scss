@@ -1,0 +1,11 @@
+.votings-home-banner{
+  .votings-header__main{
+    &::after{
+      display: none;
+    }
+  }
+
+  .votings-header__container{
+    min-height: 8rem;
+  }
+}

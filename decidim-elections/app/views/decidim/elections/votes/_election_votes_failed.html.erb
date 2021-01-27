@@ -1,0 +1,21 @@
+<%= render("election_votes_header", header_title: t("decidim.elections.votes.header.confirmed")) %>
+
+<div class="focus__content evote">
+  <div class="row">
+    <h1 class="heading2">
+      <%= t("decidim.elections.votes.failed.header") %>
+    </h1>
+    <h2 class="h4"><%= t("decidim.elections.votes.failed.lead") %></h2>
+    <div class="evote__content">
+      <%= t("decidim.elections.votes.failed.text") %>
+    </div>
+
+    <%= link_to :elections, class: "button" do %>
+      <%= t("decidim.elections.votes.confirmed.back") %>
+    <% end %>
+    <div>
+      <%= t("decidim.elections.votes.confirmed.experience") %>
+      <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election) %>
+    </div>
+  </div>
+</div>

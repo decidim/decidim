@@ -18,7 +18,9 @@ describe Decidim::Votings::Admin::CreateVoting do
       slug: slug,
       scope: scope,
       current_user: user,
-      current_organization: organization
+      current_organization: organization,
+      banner_image: nil,
+      introductory_image: nil
     )
   end
 
