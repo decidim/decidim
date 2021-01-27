@@ -78,7 +78,7 @@ ca:
             title: Nou resultat
           update:
             invalid: S'ha produït un error en actualitzar aquest resultat
-            success: El resultat ha estat actualitzat correctament
+            success: Resultat actualitzat correctament
         shared:
           subnav:
             statuses: Estats
