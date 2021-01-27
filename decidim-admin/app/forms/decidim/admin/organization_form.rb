@@ -24,7 +24,6 @@ module Decidim
       attribute :comments_max_length, Integer
       attribute :rich_text_editor_in_public_views, Boolean
       attribute :enable_machine_translations, Boolean
-      attribute :demographics_data_collection, Boolean
       attribute :machine_translation_display_priority, String
 
       attribute :send_welcome_notification, Boolean
