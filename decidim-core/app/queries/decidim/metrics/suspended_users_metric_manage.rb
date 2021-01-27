@@ -13,7 +13,7 @@ module Decidim
       def query
         return @query if @query
 
-        @query = Decidim::User.where(organization: @organization, suspended: true)
+        @query = Decidim::User.blocked.where(organization: @organization)
         @query
       end
 
