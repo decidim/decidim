@@ -34,7 +34,7 @@ es:
       actions:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
-        confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
+        confirm_destroy: '¿Seguro que quieres eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
         import_csv: Importar CSV
@@ -54,20 +54,20 @@ es:
             title: Importar resultados vía CSV
         imports:
           create:
-            success: Se está importando el fichero. Recibirás un mail en los próximos minutos con el resultado de la importación
+            success: Se está importando el fichero. Recibirás un correo electrónico en los próximos minutos con el resultado de la importación
         models:
           result:
             name: Resultado
           status:
             name: Estado
           timeline_entry:
-            name: Evolución del proyecto
+            name: Entrada de la cronología
         results:
           create:
             invalid: Se ha producido un error al crear este resultado
-            success: El resultado ha sido creado correctamente
+            success: Resultado creado correctamente
           destroy:
-            success: El resultado se ha eliminado correctamente
+            success: Resultado eliminado correctamente
           edit:
             title: Editar resultado
             update: Actualizar resultado
