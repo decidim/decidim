@@ -44,6 +44,11 @@ require "anchored"
 
 require "decidim/api"
 
+require_relative "../../../app/helpers/decidim/layout_helper"
+require_relative "../../../app/middleware/decidim/current_organization"
+require_relative "../../../app/middleware/decidim/strip_x_forwarded_host"
+require_relative "../../../app/services/decidim/events_manager"
+require_relative "../../../app/services/decidim/settings_change"
 module Decidim
   module Core
     # Decidim's core Rails Engine.
