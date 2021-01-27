@@ -902,7 +902,7 @@ de:
             success: Ressource erfolgreich ausgeblendet.
           unreport:
             invalid: Es ist ein Problem aufgetreten, die Ressource nicht zu melden.
-            success: Die Ressource wurde erfolgreich nicht gemeldet.
+            success: Die Meldung der Ressource wurde erfolgreich aufgehoben.
       models:
         moderation:
           fields:
