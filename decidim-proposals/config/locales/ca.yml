@@ -352,6 +352,7 @@ ca:
         actions:
           preview: Previsualitzar
         exports:
+          proposal_comments: Comentaris
           proposals: Propostes
         models:
           proposal:
