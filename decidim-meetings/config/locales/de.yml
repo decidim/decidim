@@ -325,20 +325,20 @@ de:
             success: Registrierungscode erfolgreich validiert
       admin_log:
         invite:
-          create: "%{user_name} hat %{attendee_name} eingeladen, am Treffen %{resource_name} in %{space_name} teilzunehmen"
-          deleted: "%{user_name} ungebeten %{attendee_name} von %{resource_name} Treffen auf dem %{space_name} Platz"
-          update: "%{user_name} lud %{attendee_name} , %{resource_name} Treffen auf den %{space_name} Feldern beizutreten"
+          create: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
+          deleted: "%{user_name} hat die Einladung von %{attendee_name} zur Sitzung %{resource_name} in %{space_name} entfernt"
+          update: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
         meeting:
-          close: "%{user_name} schloss das %{resource_name} Treffen auf dem %{space_name} Platz"
-          create: "%{user_name} erstellt das %{resource_name} Treffen auf dem %{space_name} Platz"
-          delete: "%{user_name} löschte das %{resource_name} Treffen auf dem %{space_name} Platz"
+          close: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} geschlossen"
+          create: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
           export_registrations: "%{user_name} exportierte die Registrierungen der %{resource_name} Sitzung auf den %{space_name} Feldern"
-          update: "%{user_name} aktualisiert das %{resource_name} Treffen auf dem %{space_name} Platz"
+          update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
           value_types:
             organizer_presenter:
               not_found: 'Der Organisator wurde nicht in der Datenbank gefunden (ID: %{id})'
         minutes:
-          create: "%{user_name} erstellt das Protokoll des Treffens %{resource_name} auf dem %{space_name} Feld"
+          create: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} erstellt"
           update: "%{user_name} aktualisiert das Protokoll der Sitzung %{resource_name} auf den %{space_name} Feldern"
       calendar_modal:
         calendar_url: Kalender-URL
