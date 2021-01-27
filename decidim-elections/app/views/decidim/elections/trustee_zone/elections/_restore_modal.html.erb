@@ -15,10 +15,11 @@
 
   <div class="row">
     <div class="columns medium-5 medium-centered">
-      <button class="button upload-election-keys">
+      <label class="button upload-election-keys">
         <%= icon "data-transfer-upload", class: "icon", role: "img", aria_label: t(".upload_icon") %>
         <span><%= t(".upload_election_keys") %></span>
-      </button>
+        <input class="restore-button-input" style="display: none" type="file" />
+      </label>
     </div>
   </div>
 </div>
