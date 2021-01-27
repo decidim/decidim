@@ -325,7 +325,7 @@ de:
             success: Registrierungscode erfolgreich validiert
       admin_log:
         invite:
-          create: "%{user_name} lud %{attendee_name} , %{resource_name} Treffen auf den %{space_name} Feldern beizutreten"
+          create: "%{user_name} hat %{attendee_name} eingeladen, am Treffen %{resource_name} in %{space_name} teilzunehmen"
           deleted: "%{user_name} ungebeten %{attendee_name} von %{resource_name} Treffen auf dem %{space_name} Platz"
           update: "%{user_name} lud %{attendee_name} , %{resource_name} Treffen auf den %{space_name} Feldern beizutreten"
         meeting:
