@@ -78,7 +78,7 @@ es:
             title: Nuevo resultado
           update:
             invalid: Se ha producido un error al actualizar este resultado
-            success: El resultado ha actualizado correctamente
+            success: Resultado actualizado correctamente
         shared:
           subnav:
             statuses: Estados
