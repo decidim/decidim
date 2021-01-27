@@ -491,6 +491,8 @@ de:
     help:
       participatory_spaces:
         votings:
+          contextual: "<p>Eine <strong>Abstimmung</strong> erlaubt es Ihnen, eine klare Frage an alle Personen einer Organisation zu stellen, zur Teilnahme an der Abstimmung aufzurufen und die Debatte für oder gegen eine Antwort zu eröffnen. Am Abstimmungsdatum können Sie abstimmen und die Resultate der Abstimmung veröffentlichen.</p> <p>Beispiele: Die Abstimmungen können fast beliebige Aspekte einer Organisation betreffen. Zum Beispiel kann über verschiedene Varianten des Namens oder des Logos der Organisation abgestimmt werden, Sie können sich dafür oder dagegen entscheiden, Teil einer grösseren Organisation zu werden, eine neue Strategie oder das Resultat einer Arbeitsgruppe bestätigen oder ablehnen oder die Anzahl Mandate in der Organisation definieren.</p>\n"
+          page: "<p>Eine <strong>Abstimmung</strong> erlaubt es Ihnen, eine klare Frage an alle Personen einer Organisation zu stellen, zur Teilnahme an der Abstimmung aufzurufen und die Debatte für oder gegen eine Antwort zu eröffnen. Am Abstimmungsdatum können Sie abstimmen und die Resultate der Abstimmung veröffentlichen.</p> <p>Beispiele: Die Abstimmungen können fast beliebige Aspekte einer Organisation betreffen. Zum Beispiel kann über verschiedene Varianten des Namens oder des Logos der Organisation abgestimmt werden, Sie können sich dafür oder dagegen entscheiden, Teil einer grösseren Organisation zu werden, eine neue Strategie oder das Resultat einer Arbeitsgruppe bestätigen oder ablehnen oder die Anzahl Mandate in der Organisation definieren.</p>\n"
           title: Was sind Abstimmungen?
     menu:
       votings: Abstimmungen
