@@ -321,7 +321,7 @@ es:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
         body_2: 'Motivo: %{justification}'
-        greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        greetings: Saludos, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
     collapsible_list:
       hidden_elements_count:
