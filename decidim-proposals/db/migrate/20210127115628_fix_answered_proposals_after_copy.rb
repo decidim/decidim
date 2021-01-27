@@ -6,6 +6,9 @@ class FixAnsweredProposalsAfterCopy < ActiveRecord::Migration[5.2]
 
     result = Decidim::Proposals::Proposal.where.not(state_published_at: nil).where(state: nil, id: proposals_after_copy)
 
-    result.update_all(state_published_at: nil)
+    result.find_each do |proposal|
+      proposal.state_published_at = nil
+      proposal.save!
+    end
   end
 end
