@@ -6,11 +6,11 @@ ca:
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
-        end_date: Fi
+        end_date: Data de finalització
         progress: Progrés
         project_ids: Projectes inclosos
         proposals: Propostes incloses
-        start_date: Inici
+        start_date: Data d'inici
         title: Títol
         updated_at: Actualitzat el
       status:
@@ -22,7 +22,7 @@ ca:
         description: Descripció
         entry_date: Data
     models:
-      decidim/accountability/proposal_linked_event: Proposta inclosa en un resultat
+      decidim/accountability/proposal_linked_event: Proposta inclosa a un resultat
       decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
   activerecord:
     models:
