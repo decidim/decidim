@@ -114,6 +114,8 @@ ca:
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
         unpublish: "%{user_name} ha despublicat el component %{resource_name} de l'espai %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} ha gestionat a %{resource_name} perquè %{reason}"
       moderation:
         hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
         unreport: "%{user_name} ha desfet la denuncia d'un recurs del tipus %{resource_type} a l'espai %{space_name}"
@@ -130,6 +132,7 @@ ca:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       participatory_space_private_user:
         create: "%{user_name} ha convidat %{resource_name} com a participant privada"
+        create_via_csv: "%{user_name} ha convidat %{resource_name} via CSV per a ser participant privada"
         delete: "%{user_name} ha eliminat %{resource_name} com a participant privada"
       scope:
         create: "%{user_name} ha creat l'àmbit %{resource_name}"
@@ -146,8 +149,10 @@ ca:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
         officialize: "%{user_name} ha oficialitzat la participant %{resource_name}"
+        promote: "%{user_name} ha promocionat a %{resource_name}"
         remove_from_admin: "%{user_name} ha eliminat a la participant %{resource_name} amb el rol: %{role}"
         show_email: "%{user_name} ha recuperat el correu de la participant %{resource_name}"
+        transfer: "%{user_name} ha transferit a la participant %{resource_name}"
         unblock: "%{user_name} ha desbloquejat a la usuària %{resource_name}"
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
