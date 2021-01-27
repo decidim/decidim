@@ -19,10 +19,19 @@ bundle exec erblint -la -a
 
 We use i18n-tasks gem to keep translations ordered and without missing/unused keys.
 
+To fix the order of the keys, run:
+
 [source,console]
 ----
 # from the root of the project
 bundle exec i18n-tasks normalize --locales en
+----
+
+To list unused i18n keys, run:
+
+[source,console]
+----
+bundle exec  i18n-tasks unused --locales en
 ----
 
 == JavaScript linter

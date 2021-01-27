@@ -10,7 +10,15 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :votings, param: :slug, except: [:show, :destroy]
+        resources :votings, param: :slug do
+          member do
+            put :publish
+            put :unpublish
+          end
+
+          resources :attachments, controller: "voting_attachments"
+          resources :attachment_collections, controller: "voting_attachment_collections"
+        end
       end
 
       initializer "decidim_votings.admin_menu" do

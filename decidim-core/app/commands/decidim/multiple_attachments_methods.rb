@@ -17,11 +17,15 @@ module Decidim
 
     def attachments_invalid?
       @documents.each do |file|
-        if file.invalid? && file.errors.has_key?(:file)
-          @form.errors.add(:add_documents, file.errors[:file])
-          return true
+        next if file.valid? || !file.errors.has_key?(:file)
+
+        file.errors[:file].each do |error|
+          @form.errors.add(:add_documents, error)
         end
+
+        return true
       end
+
       false
     end
 

@@ -31,7 +31,8 @@
         "SVGInjector": false,
         "require": false,
         "DecidimAdmin": false,
-        "L": false
+        "L": false,
+        "decidimBulletinBoard": false
     },
     "rules": {
         "accessor-pairs": "error",
