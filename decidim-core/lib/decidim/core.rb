@@ -3,11 +3,6 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
-require_relative "../../app/helpers/decidim/layout_helper"
-require_relative "../../app/middleware/decidim/current_organization"
-require_relative "../../app/middleware/decidim/strip_x_forwarded_host"
-require_relative "../../app/services/decidim/events_manager"
-require_relative "../../app/services/decidim/settings_change"
 # Decidim configuration.
 module Decidim
   autoload :Deprecations, "decidim/deprecations"

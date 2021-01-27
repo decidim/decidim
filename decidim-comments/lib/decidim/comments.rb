@@ -4,7 +4,6 @@ require "decidim/comments/admin"
 require "decidim/comments/api"
 require "decidim/comments/engine"
 require "decidim/comments/admin_engine"
-require_relative "../../app/services/decidim/comments/comment_creation"
 
 module Decidim
   # This module contains all the logic related to the comments component.
