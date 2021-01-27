@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency "erb_lint", "~> 0.0.28"
   s.add_dependency "i18n-tasks", "~> 0.9.18"
   s.add_dependency "mdl", "~> 0.5"
-  s.add_dependency "nokogiri", ">= 1.10.8"
+  s.add_dependency "nokogiri", "~> 1.11", ">= 1.11.1"
   s.add_dependency "puffing-billy", "~> 2.4.0"
   s.add_dependency "puma", ">= 4.3"
   s.add_dependency "rails-controller-testing", "~> 1.0"
