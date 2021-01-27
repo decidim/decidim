@@ -79,6 +79,7 @@ ca:
       logo: "Logo oficial de %{organization}"
       skip_button: Vés al contingut principal
     account:
+      blocked: Aquest compte ha estat bloquejada degut a una violació dels Termes i Condicions d'ús
       data_portability_export:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
@@ -142,10 +143,12 @@ ca:
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
         update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
       user:
+        block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
         officialize: "%{user_name} ha oficialitzat la participant %{resource_name}"
         remove_from_admin: "%{user_name} ha eliminat a la participant %{resource_name} amb el rol: %{role}"
         show_email: "%{user_name} ha recuperat el correu de la participant %{resource_name}"
+        unblock: "%{user_name} ha desbloquejat a la usuària %{resource_name}"
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
