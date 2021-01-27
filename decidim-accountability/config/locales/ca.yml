@@ -44,6 +44,7 @@ ca:
         title: Accions
       admin:
         exports:
+          result_comments: Comentaris
           results: Resultats
         import_results:
           new:
