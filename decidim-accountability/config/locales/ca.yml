@@ -32,6 +32,8 @@ ca:
   decidim:
     accountability:
       actions:
+        attachment_collections: Carpetes
+        attachments: Arxius adjunts
         confirm_destroy: Estàs segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
