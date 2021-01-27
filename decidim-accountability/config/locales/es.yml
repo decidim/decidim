@@ -10,7 +10,7 @@ es:
         progress: Progreso
         project_ids: Proyectos incluidos
         proposals: Propuestas incluidas
-        start_date: Fecha de inicio
+        start_date: Inicio
         title: Título
         updated_at: Actualizado el
       status:
