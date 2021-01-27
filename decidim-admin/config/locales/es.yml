@@ -567,7 +567,7 @@ es:
       officializations:
         block:
           error: Se ha producido un error al bloquear a la participante
-          success: Participante invitada correctamente
+          success: Participante bloqueada correctamente
         create:
           success: La participante se ha oficializado correctamente
         destroy:
