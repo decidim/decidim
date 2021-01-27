@@ -319,6 +319,10 @@ ca:
         close_modal: Tancar el modal
     block_user_mailer:
       notify:
+        body_1: El teu compte ha estat bloquejat.
+        body_2: 'Motiu: %{justification}'
+        greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola,
         subject: '%{organization_name} ha bloquejat el vostre compte'
     collapsible_list:
       hidden_elements_count:
@@ -1084,6 +1088,7 @@ ca:
       not_allowed: No tens permís per visualitzar aquest contingut
     profile:
       deleted: Participant eliminada
+      inaccessible_message: Aquest perfil és inaccessible degut a la violació dels Termes i Condicions d'ús!
       view: Veure
     profiles:
       default_officialization_text_for_user_groups: Aquest grup està verificat públicament, el seu nom s'ha verificat per correspondre amb el seu nom real
