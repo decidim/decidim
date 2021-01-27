@@ -379,6 +379,13 @@ es:
             dummy_step_translatable_text: Fase de ejemplo traducible
     contact: Contacto
     content_blocks:
+      cta:
+        name: Imagen, texto y botón de acción
+      cta_settings_form:
+        background_image: Imagen de fondo
+        button_text: Texto del botón de acción
+        button_url: URL del botón de acción
+        description: Descripción
       footer_sub_hero:
         name: Banner de sub-hero de pie de página
       hero:
@@ -388,6 +395,11 @@ es:
         welcome_text: Texto de bienvenida
       highlighted_content_banner:
         name: Banner de contenido destacado
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Ordenar elementos por:'
+          random: Aleatorio
+          recent: Más recientes
       how_to_participate:
         name: Cómo participar
       html:
