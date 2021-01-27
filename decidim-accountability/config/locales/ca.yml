@@ -10,7 +10,7 @@ ca:
         progress: Progrés
         project_ids: Projectes inclosos
         proposals: Propostes incloses
-        start_date: Data d'inici
+        start_date: Inici
         title: Títol
         updated_at: Actualitzat el
       status:
