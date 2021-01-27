@@ -105,25 +105,25 @@ de:
         cancel: Stornieren
     admin_log:
       area:
-        create: "%{user_name} hat den %{resource_name} Bereich erstellt"
-        delete: "%{user_name} hat den %{resource_name} Bereich gelöscht"
-        update: "%{user_name} hat den %{resource_name} Bereich aktualisiert"
+        create: "%{user_name} hat den Bereich %{resource_name} erstellt"
+        delete: "%{user_name} hat den Bereich %{resource_name} gelöscht"
+        update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
       component:
-        create: "%{user_name} hat die %{resource_name} Komponente zu %{space_name} hinzugefügt"
-        delete: "%{user_name} hat die %{resource_name} Komponente von dem %{space_name} ... entfernt"
-        publish: "%{user_name} veröffentlichte die %{resource_name} Komponente in dem %{space_name} Raum"
-        unpublish: "%{user_name} unveröffentlicht die %{resource_name} Komponente aus dem %{space_name} Leerzeichen"
+        create: "%{user_name} hat die Komponente %{resource_name} zu %{space_name} hinzugefügt"
+        delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
+        publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
+        unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
       moderation:
-        hide: "%{user_name} versteckte eine Ressource vom Typ %{resource_type} in dem %{space_name} Raum"
-        unreport: "%{user_name} eine Ressource vom Typ %{resource_type} in den %{space_name} Feldern nicht gemeldet"
+        hide: "%{user_name} hat eine Ressource vom Typ %{resource_type} in %{space_name} versteckt"
+        unreport: "%{user_name} hat eine gemeldete Ressource vom Typ %{resource_type} in %{space_name} als unproblematisch markiert"
       newsletter:
-        create: "%{user_name} hat den %{resource_name} Newsletter erstellt"
-        delete: "%{user_name} löschte den %{resource_name} Newsletter"
-        deliver: "%{user_name} lieferte den %{resource_name} Newsletter"
-        update: "%{user_name} aktualisierte den %{resource_name} Newsletter"
+        create: "%{user_name} hat den Newsletter %{resource_name} erstellt"
+        delete: "%{user_name} hat den Newsletter %{resource_name} gelöscht"
+        deliver: "%{user_name} hat den Newsletter %{resource_name} abgesendet"
+        update: "%{user_name} hat den Newsletter %{resource_name} aktualisiert"
       oauth_application:
-        create: "%{user_name} hat die %{resource_name} OAuth-Anwendung erstellt"
-        delete: "%{user_name} löschte die %{resource_name} OAuth-Anwendung"
+        create: "%{user_name} hat die OAuth-Applikation %{resource_name} erstellt"
+        delete: "%{user_name} hat die OAuth-Applikation %{resource_name} gelöscht"
         update: "%{user_name} hat die %{resource_name} OAuth-Anwendung aktualisiert"
       organization:
         update: "%{user_name} aktualisiert die Organisationseinstellungen"
