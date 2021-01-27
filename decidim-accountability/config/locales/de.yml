@@ -32,6 +32,8 @@ de:
   decidim:
     accountability:
       actions:
+        attachment_collections: Ordner
+        attachments: Anhänge
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
