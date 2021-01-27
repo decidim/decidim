@@ -60,6 +60,11 @@
   </div>
 
   <div class="voting-content">
+    <% if current_participatory_space.needs_elections? %>
+      <div class="callout alert callout--full">
+        <span class="callout-text"><%= t("votings.edit.add_election_component", scope: "decidim.votings.admin") %></span>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 <% end %>

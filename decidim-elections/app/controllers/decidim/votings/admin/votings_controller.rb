@@ -23,9 +23,8 @@ module Decidim
           @form = form(VotingForm).from_params(params)
 
           CreateVoting.call(@form) do
-            on(:ok) do |voting|
+            on(:ok) do
               flash[:notice] = I18n.t("votings.create.success", scope: "decidim.votings.admin")
-              flash[:alert] = I18n.t("votings.create.add_election_component", scope: "decidim.votings.admin") if voting.needs_elections?
               redirect_to votings_path
             end
 
@@ -49,7 +48,6 @@ module Decidim
           UpdateVoting.call(current_voting, @form) do
             on(:ok) do |voting|
               flash[:notice] = I18n.t("votings.update.success", scope: "decidim.votings.admin")
-              flash[:alert] = I18n.t("votings.update.add_election_component", scope: "decidim.votings.admin") if voting.needs_elections?
               redirect_to edit_voting_path(voting)
             end
 
