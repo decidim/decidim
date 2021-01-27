@@ -332,14 +332,14 @@ de:
           close: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} geschlossen"
           create: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
-          export_registrations: "%{user_name} exportierte die Registrierungen der %{resource_name} Sitzung auf den %{space_name} Feldern"
+          export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
           update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
           value_types:
             organizer_presenter:
               not_found: 'Der Organisator wurde nicht in der Datenbank gefunden (ID: %{id})'
         minutes:
           create: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} erstellt"
-          update: "%{user_name} aktualisiert das Protokoll der Sitzung %{resource_name} auf den %{space_name} Feldern"
+          update: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} aktualisiert"
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
