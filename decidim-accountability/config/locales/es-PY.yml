@@ -32,6 +32,8 @@ es-PY:
   decidim:
     accountability:
       actions:
+        attachment_collections: Carpetas
+        attachments: Archivos adjuntos
         confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
