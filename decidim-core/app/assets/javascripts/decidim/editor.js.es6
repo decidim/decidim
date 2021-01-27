@@ -59,7 +59,7 @@
       });
       container.dispatchEvent(event);
 
-      if (text === "\n") {
+      if (text === "\n" || text === "\n\n") {
         $input.val("");
       } else {
         $input.val(quill.root.innerHTML);

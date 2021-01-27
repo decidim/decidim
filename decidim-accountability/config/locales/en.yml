@@ -33,6 +33,8 @@ en:
   decidim:
     accountability:
       actions:
+        attachment_collections: Folders
+        attachments: Attachments
         confirm_destroy: Are you sure you want to delete this %{name}?
         destroy: Delete
         edit: Edit

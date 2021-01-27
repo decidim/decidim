@@ -6,6 +6,7 @@ module Decidim
     class Answer < Forms::ApplicationRecord
       include Decidim::DataPortability
       include Decidim::NewsletterParticipant
+      include Decidim::HasAttachments
 
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id", optional: true
       belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id"
@@ -37,6 +38,11 @@ module Decidim
                                         .where(questionnaire: questionnaires)
 
         answers.pluck(:decidim_user_id).flatten.compact.uniq
+      end
+
+      def organization
+        user.organization if user.present?
+        questionnaire&.questionnaire_for.try(:organization)
       end
 
       private

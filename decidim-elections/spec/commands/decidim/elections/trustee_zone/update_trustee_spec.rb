@@ -10,10 +10,12 @@ describe Decidim::Elections::TrusteeZone::UpdateTrustee do
     double(
       invalid?: invalid,
       public_key: public_key,
-      trustee: trustee
+      trustee: trustee,
+      name: trustee_name
     )
   end
   let(:public_key) { "asadasfdafadssda" }
+  let(:trustee_name) { "Sheldon" }
   let(:invalid) { false }
 
   it "updates the trustee" do

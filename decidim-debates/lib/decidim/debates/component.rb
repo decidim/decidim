@@ -121,17 +121,12 @@ Decidim.register_component(:debates) do |component|
       Decidim::Comments::Seed.comments_for(debate)
     end
 
-    Decidim::Debates::Debate.last(2).each do |debate|
-      debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(sentence_count: 3)
-      end
-      debate.closed_at = Time.current
-      debate.save!
+    closed_debate = Decidim::Debates::Debate.last
+    closed_debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.paragraph(sentence_count: 3)
     end
-
-    archived_debate = Decidim::Debates::Debate.last
-    archived_debate.archived_at = Time.current
-    archived_debate.save!
+    closed_debate.closed_at = Time.current
+    closed_debate.save!
 
     params = {
       component: component,
