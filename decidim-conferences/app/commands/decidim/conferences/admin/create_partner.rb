@@ -25,11 +25,17 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          transaction do
-            create_partner!
-          end
+          if conference_partner.valid?
+            transaction do
+              create_partner!
+            end
 
-          broadcast(:ok)
+            broadcast(:ok)
+          else
+            form.errors.add(:logo, conference_partner.errors[:logo]) if conference_partner.errors.include? :logo
+
+            broadcast(:invalid)
+          end
         end
 
         private
@@ -49,17 +55,30 @@ module Decidim
           @partner = Decidim.traceability.create!(
             Decidim::Conferences::Partner,
             form.current_user,
-            { conference: conference }.merge(
-              form.attributes.slice(
-                :name,
-                :weight,
-                :link,
-                :partner_type,
-                :logo,
-                :remove_avatar
-              )
-            ),
+            attributes,
             log_info
+          )
+        end
+
+        def conference_partner
+          return @conference_partner if defined?(@conference_partner)
+
+          @conference_partner = conference.partners.build
+          @conference_partner.conference = conference
+          @conference_partner.assign_attributes(attributes)
+          @conference_partner
+        end
+
+        def attributes
+          { conference: conference }.merge(
+            form.attributes.slice(
+              :name,
+              :weight,
+              :link,
+              :partner_type,
+              :logo,
+              :remove_avatar
+            )
           )
         end
       end
