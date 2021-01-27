@@ -3,14 +3,13 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
+require_relative "../../app/helpers/decidim/layout_helper"
+require_relative "../../app/middleware/decidim/current_organization"
+require_relative "../../app/middleware/decidim/strip_x_forwarded_host"
+require_relative "../../app/services/decidim/events_manager"
+require_relative "../../app/services/decidim/settings_change"
 # Decidim configuration.
 module Decidim
-  autoload :LayoutHelper, "decidim/helpers/layout_helper"
-  autoload :CurrentOrganization, "decidim/middleware/current_organization"
-  autoload :StripXForwardedHost, "decidim/middleware/strip_x_forwarded_host"
-  autoload :EventsManager, "decidim/services/events_manager"
-  autoload :SettingsChange, "decidim/services/settings_change"
-
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
