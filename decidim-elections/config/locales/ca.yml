@@ -245,6 +245,12 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: La votació %{resource_title} ja està activa a %{participatory_space_title}.
           notification_title: La votació <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està activa.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara a tota la gent que forma una organització, fer una crida a participar en la votació i generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar el resultat dels vots.</p> <p>Exemples: Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització: alguns exemples serien canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir un màxim d'un, dos o tres mandats.</p>\n"
+          page: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara a tota la gent que forma una organització, fer una crida a participar en la votació i generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar el resultat dels vots.</p> <p>Exemples: Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització: alguns exemples serien canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir un màxim d'un, dos o tres mandats.</p>\n"
+          title: Què són les votacions?
     pages:
       home:
         statistics:
