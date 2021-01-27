@@ -47,6 +47,23 @@ describe "Show a Proposal", type: :system do
           end
         end
       end
+
+      describe "author tooltip" do
+        let(:user) { create(:user, :confirmed, organization: organization) }
+
+        before do
+          WebMock.allow_net_connect!(net_http_connect_on_start: true)
+          login_as user, scope: :user
+          visit current_path
+        end
+
+        it "includes a link to message the proposal author" do
+          within ".author-data" do
+            find_link.hover
+          end
+          expect(page).to have_link("Send private message")
+        end
+      end
     end
   end
 end
