@@ -277,6 +277,8 @@ es:
         name: Autorización de ejemplo
       dummy_authorization_workflow:
         name: Flujo de trabajo de autorización de ejemplo
+      errors:
+        duplicate_authorization: Ya hay una participante autorizada con los mismos datos. Una administradora se pondrá en contacto contigo para verificar tus datos.
       expired_at: Caducado el %{timestamp}
       expires_at: Caduca el %{timestamp}
       foo_authorization:
@@ -328,6 +330,7 @@ es:
         body_2: 'Motivo: %{justification}'
         greetings: Saludos, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
+        subject: Tu cuenta fue bloqueada por %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: y %{count} más
