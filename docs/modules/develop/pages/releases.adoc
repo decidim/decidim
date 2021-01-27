@@ -173,6 +173,4 @@ After that, the header with the current version and link like `+## [0.20.0](http
 
 == Docker images for each release
 
-. After each release, you should update our https://github.com/decidim/docker[Docker repository] so new images are build for the new release.
-To do it, create a PR that just updates `DECIDIM_VERSION` at https://github.com/decidim/docker/blob/master/circle.yml[circle.yml].
-Then the continous integration circleci build will generate the images and they will be published to docker hub when the PR is merged.
+Each release triggers a [Github workflow](https://github.com/decidim/decidim/blob/develop/.github/workflows/on_release.yml) that re-builds and publishes the [decidim/docker images](https://github.com/decidim/docker) to [Github Container Registry](https://github.com/orgs/decidim/packages) and [Docker Hub](https://hub.docker.com/repository/docker/decidim/decidim).
