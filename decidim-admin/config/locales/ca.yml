@@ -224,6 +224,12 @@ ca:
       autocomplete:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar
+      block_user:
+        new:
+          action: Bloquejar compte i enviar justificació
+          description: El bloqueig d'una usuària deixarà el seu compte inservible, pots facilitar a la teva justificació i directrius les maneres que consideris per tal de desbloquejar a la usuària.
+          justification: Justificació
+          title: Bloquejar a la usuària %{name}
       categories:
         create:
           error: S'ha produït un error en crear aquesta categoria.
@@ -547,6 +553,9 @@ ca:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
+        block:
+          error: S'ha produït un error en bloquejar a la participant
+          success: Participant convidada correctament
         create:
           success: La participant s'ha oficialitzat correctament
         destroy:
@@ -554,6 +563,7 @@ ca:
         index:
           actions: Accions
           badge: Insígnia
+          block: Usuària bloquejada
           created_at: Creat el
           name: Nom
           nickname: Àlies
@@ -563,6 +573,7 @@ ca:
           reofficialize: Torna a oficialitzar
           show_email: Mostra l'adreça de correu
           status: Estat
+          unblock: Desbloquejar usuària
           unofficialize: Des-oficialitzar
         new:
           badge: Insígnia d'oficialització
@@ -576,6 +587,9 @@ ca:
           hidden: ocult
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
+        unblock:
+          error: S'ha produït un error al desbloquejar a la participant
+          success: Participant desbloquejada correctament
       organization:
         edit:
           title: Edita organització
