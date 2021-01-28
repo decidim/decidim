@@ -16,6 +16,9 @@ fi:
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
+      voting:
+        end_time: Päättymisaika
+        start_time: Alkamisaika
     errors:
       models:
         answer:
@@ -28,6 +31,8 @@ fi:
               needs_to_be_reattached: Liitettävä uudestaan
         trustee:
           attributes:
+            name:
+              cant_be_changed: tietoa ei voi muuttaa
             public_key:
               cant_be_changed: tietoa ei voi muuttaa
   activerecord:
@@ -41,6 +46,9 @@ fi:
       decidim/elections/question:
         one: Kysymys
         other: Kysymykset
+      decidim/votings/voting:
+        one: Äänestys
+        other: Äänestykset
   decidim:
     components:
       elections:
@@ -61,6 +69,7 @@ fi:
         import: Tuo ehdotuksia vastauksiin
         manage_answers: Hallitse vastauksia
         manage_questions: Hallinnoi kysymyksiä
+        manage_steps: Hallinnoi vaiheita
         new: Uusi %{name}
         preview: Esikatsele
         publish: Julkaise
@@ -156,6 +165,39 @@ fi:
           update:
             invalid: Kysymyksen päivitys epäonnistui
             success: Kysymyksen päivitys onnistui
+        steps:
+          create_election:
+            errors:
+              max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
+              minimum_answers: Kysymyksillä on oltava <strong>vähintään yksi vastaus</strong>.
+              minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
+              published: Vaalia <strong>ei ole julkaistu</strong>.
+              time_before: Alkamisaika on <strong>alle 3 tuntia</strong> ennen vaalin alkua.
+              trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
+            invalid: Vaalin asetusten määrittäminen epäonnistui
+            no_trustees: Tähän osallistumistilaan ei ole määritetty luottamushenkilöitä
+            not_used_trustee: "(ei käytössä)"
+            public_key:
+              'false': vaalilla ei ole <strong>julkista avainta</strong>
+              'true': vaalilla on <strong>julkinen avain</strong>
+            requirements:
+              max_selections: Kaikilla kysymyksillä on oikea arvo asetukselle <strong>vastausten maksimimäärä</strong>.
+              minimum_answers: Jokaisella kysymyksellä on <strong>vähintään 2 vastausta</strong>.
+              minimum_questions: Vaalilla on <strong>vähintään 1 kysymys</strong>.
+              published: Vaalia <strong>ei ole julkaistu</strong>.
+              time_before: Vaalin määritys tulee tapahtua <strong>vähintään %{hours} tuntia</strong> ennen sen alkamista.
+              trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
+            submit: Määritä vaali
+            title: Määritä vaali
+            trustees: Vaalin luottamushenkilöt
+          key_ceremony:
+            trustees: Luottamushenkilöt
+          ready:
+            errors:
+              time_before: Vaali on valmis käynnistymään. Sinun täytyy odottaa %{hours} tuntia ennen alkamisaikaa (%{start_time}) avataksesi äänestyslaatikon.
+            invalid: Äänestyslaatikon avaaminen epäonnistui
+            requirements:
+              time_before: Vaali alkaa pian. Voit avata äänestyslaatikon manuaalisesti tai se avataan automaattisesti ennen alkamisaikaa, klo %{start_time}.
         trustees_participatory_spaces:
           actions:
             disable: Poista käytöstä
