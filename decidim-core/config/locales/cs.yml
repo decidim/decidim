@@ -92,7 +92,6 @@ cs:
         file_no_exists: Soubor neexistuje
         notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       delete:
-        alert: Tuto akci nelze vrátit zpět. Pokud odstraníte svůj účet, nebudete se moci přihlásit.
         confirm:
           close: Zavřete okno
           ok: Ano, chci smazat účet
