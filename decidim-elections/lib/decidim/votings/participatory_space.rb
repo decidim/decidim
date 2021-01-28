@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../../../app/types/decidim/votings/voting_type"
+
 Decidim.register_participatory_space(:votings) do |participatory_space|
   participatory_space.icon = "decidim/votings/icon.svg"
   participatory_space.model_class_name = "Decidim::Votings::Voting"
