@@ -131,7 +131,7 @@ describe Decidim::Votings::Admin::VotingForm do
 
     it { is_expected.not_to be_valid }
   end
-  
+
   describe "when voting_type is missing" do
     let(:voting_type) { nil }
 
