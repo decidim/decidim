@@ -82,7 +82,6 @@
         file_no_exists: Filen finnes ikke
         notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
       delete:
-        alert: Denne handlingen er endelig. Hvis du sletter denne kontoen vil du ikke kunne logge deg inn igjen.
         confirm:
           close: Lukk vindu
           ok: Ja, jeg ønsker å slette kontoen min
