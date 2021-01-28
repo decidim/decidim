@@ -84,7 +84,6 @@ es:
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       delete:
-        alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
