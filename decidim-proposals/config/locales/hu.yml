@@ -641,6 +641,7 @@ hu:
         update:
           error: Hiba történt a közösen szerkesztett vázlat mentése során.
           success: Közös vázlat frissítése sikeres.
+          title: Közös vázlat szerkesztése
         wizard_aside:
           back: Vissza
           info: Épp egy <strong>közös vázlat</strong> hozol létre.
