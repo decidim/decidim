@@ -630,6 +630,7 @@ sk:
         update:
           error: Pri ukladaní schéme spolupráce došlo k chybám.
           success: Protokol o spolupráci bol úspešne aktualizovaný.
+          title: Úprava konceptu spolupráce
         wizard_aside:
           back: Zadná
           info: Pri vytváraní <strong> spolupráca návrhu </strong>.
@@ -638,7 +639,7 @@ sk:
           step_1: Vytvorte návrh spolupráca
           step_2: Porovnajte s návrhmi spolupráce
           step_3: Dokončite návrh spolupráca
-          step_of: Krok%{current_step_num} z%{total_steps}
+          step_of: Krok %{current_step_num} z %{total_steps}
       create:
         error: Pri ukladaní návrhu došlo k chybám.
         success: Návrh bol úspešne vytvorený. Uložené ako návrh.
