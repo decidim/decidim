@@ -230,6 +230,10 @@ uk:
           official: Службове
         filter_state_values:
           not_answered: Без відповідей
+      collaborative_drafts:
+        wizard_steps:
+          see_steps: переглянути кроки
+          step_of: '%{current_step_num}-й крок з %{total_steps} кроків'
       create:
         error: При спробі збереження цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено. Збережено як чернетку.
