@@ -791,6 +791,8 @@ en:
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_title: Your proposal has not yet been published
+          announcement_body: Your proposal has been saved as a draft. It needs to be published for it to appear on the site.
           modify: Modify the proposal
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
