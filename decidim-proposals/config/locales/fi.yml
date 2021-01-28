@@ -555,7 +555,7 @@ fi:
           publish:
             error: Yhteistyöluonnoksen julkaiseminen epäonnistui.
             irreversible_action_modal:
-              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Ehdotus ei hyväksy uusia tekijöitä tai osallistumisia.
+              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Uusia tekijöitä tai muutoksia ehdotukseen ei enää hyväksytä tämän jälkeen.
               cancel: Peruuta
               ok: Julkaise ehdotuksena
               title: Seuraavat toimenpiteet ovat peruuttamattomia
