@@ -69,6 +69,7 @@ fr:
         import: Importer des propositions dans les réponses
         manage_answers: Gérer les réponses
         manage_questions: Gérer les questions
+        manage_steps: Gérer les étapes
         new: Nouveau %{name}
         preview: Aperçu
         publish: Publier
@@ -164,6 +165,50 @@ fr:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour de cette question
             success: Question mise à jour avec succès
+        steps:
+          create_election:
+            errors:
+              max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
+              minimum_answers: Les questions doivent avoir <strong>au moins une réponse</strong>.
+              minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
+              published: L'élection n'est <strong>pas publiée</strong>.
+              time_before: L'heure de début se situe<strong>moins 3 heures</strong> avant le commencement de l'élection.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} mandataires avec la clé publique</strong>.
+            invalid: Une erreur est survenue lors de la création de l'élection
+            no_trustees: Il n'y a pas de Mandataires configurés pour cet espace participatif
+            not_used_trustee: "(non utilisé)"
+            public_key:
+              'false': n'a pas de <strong>clé publique</strong>
+              'true': a une <strong>clé publique</strong>
+            requirements:
+              max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>.
+              minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>.
+              minimum_questions: L'élection a <strong>au moins 1 question</strong>.
+              published: L'élection est <strong>publiée</strong>.
+              time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} mandataires avec la clé publique</strong>.
+            submit: Configurer l'élection
+            success: Élection envoyée avec succès au Tableau de Bord
+            title: Configurer l'élection
+            trustees: Mandataire de l'élection
+          index:
+            title: Gérer les étapes des élections sur le Tableau de Bord
+          key_ceremony:
+            title: Cérémonie des clés
+            trustees: Mandataires
+          ready:
+            errors:
+              time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour ouvrir les urnes.
+            invalid: Une erreur est survenue lors de l'ouverture de l'urne
+            requirements:
+              time_before: L'élection va bientôt commencer. Vous pouvez ouvrir l'urne de vote manuellement, ou elle sera ouvert automatiquement avant l'heure de départ, à %{start_time}.
+            submit: Ouvrir l'urne
+            success: Les urnes ont été ouvertes avec succès dans le Tableau de Bord
+            title: Prêt à commencer
+          results:
+            title: Résultats calculés
+          results_published:
+            title: Résultats publiés
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
@@ -405,6 +450,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Une <strong>votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à la votation, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque n'importe quel aspect qui affectent une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de faire d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
+          page: "<p>Une <strong>votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à la votation, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque n'importe quel aspect qui affectent une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de faire d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
     menu:
       votings: Élections
     pages:
@@ -421,6 +471,11 @@ fr:
           published: Publié
         menu:
           votings: Élections
+          votings_submenu:
+            attachment_collections: Dossiers
+            attachment_files: Fichiers
+            attachments: Pièces jointes
+            info: Information
         models:
           voting:
             fields:
@@ -474,6 +529,27 @@ fr:
           search: Rechercher
           state: Statut
           upcoming: À venir
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Dérouler
+        index:
+          title: Votations
+        orders:
+          label: 'Trier les votations par:'
+          random: Aléatoire
+          recent: Les plus récentes
+        show:
+          dates: Dates
+      votings_m:
+        badge_name:
+          finished: Passées
+          ongoing: En cours
+          upcoming: À venir
+        footer_button_text:
+          view: Voir
+        unspecified: Non précisées
   layouts:
     decidim:
       election_votes_header:
