@@ -80,7 +80,7 @@ shared_examples "uses the voting booth" do
     )
   end
 
-  it "uses the voting booth", :vcr, :billy, :slow do # rubocop:disable RSpec/ExampleLength
+  it "uses the voting booth", :vcr, :billy, :slow do
     selected_answers = []
     non_selected_answers = []
 
@@ -156,7 +156,6 @@ shared_examples "uses the voting booth" do
 
     # confirmed vote page
     non_question_step("#confirmed_page") do
-      expect(page).to have_content("Processing vote")
       expect(page).to have_content("Vote confirmed")
       expect(page).to have_content("Your vote has already been cast!")
     end

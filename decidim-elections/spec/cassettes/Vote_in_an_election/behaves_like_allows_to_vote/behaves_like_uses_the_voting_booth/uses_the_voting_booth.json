@@ -6,7 +6,7 @@
         "uri": "http://bulletin-board.lvh.me:8000/api",
         "body": {
           "encoding": "UTF-8",
-          "string": "{\"query\":\"mutation GraphQL__Client__OperationDefinition_174180 {\\n  vote(messageId: \\\"decidim-test-authority.10002.vote.cast+v.3fdabe9a1524cb505e93fb751f29213ee0451f7ace1ddd5d13461dd42a074adc\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJ1bmlxdWVcIixcInF1ZXN0aW9uXzQwNVwiOltcIjI3MzBcIl0sXCJxdWVzdGlvbl80MDdcIjpbXCIyNzQ0XCIsXCIyNzQxXCIsXCIyNzQzXCJdLFwicXVlc3Rpb25fNDA2XCI6W1wiMjczNFwiLFwiMjczMVwiLFwiMjc0MFwiLFwiMjczOVwiLFwiMjczNlwiXX0iLCJpYXQiOjE2MTE1OTUxNzIsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEwMDAyLnZvdGUuY2FzdCt2LjNmZGFiZTlhMTUyNGNiNTA1ZTkzZmI3NTFmMjkyMTNlZTA0NTFmN2FjZTFkZGQ1ZDEzNDYxZGQ0MmEwNzRhZGMifQ.hopfT7LSBMb35_VnumXrTmGx-v6ThnZ_hM9pvpBEvByLDkBB01P4arCC_CSl4eeZ4U7oSz_ljPsVjfEiC3KKEN173HztMTtsT0wApq4in15JdHmF3admq_-15BJZvdeLlLL0hRH-C5Chz86apkj3qL8OYnJtRo0XB-p14X1r8SC8teMzzRjSr3BllT6gwz74x7hHei36wray4VLae7MW_pAYkXRT57bkoDGcei6SAwOzjmf7nDmcLtZhK3Rojg0KyZht9WeVmg38ZrLyxRM91tDACUbP6ZV7lZ6R2KFoMOTp5xMkGAElHBX5lMHgLTCmY1BW_neHgfXykNGQYUoFX4IECJwVamh-0HK8hxWFqhv3h-4QY6eug1Ge3aWDxdXxley94Fcgs53uYrP-QQAmLScc7UnosdPmswP8Ksp3S1KHkgPjxT6tNwENfjPt2ngIGsL5YDWjoTTiPb-WacpMVlNsPZnmnfuImsOGBAnJxilhKBqT04JfVdGwGabtIXAJaQsRZ-GG2-DEMkNnI7gxw01ECHvwjp5RLjX8n5qmiD8evLIrvv4_GDLxlhnkeB_YXwJ6au4SzgLhFBdvS69A9zyKTTVoDjVqpolJCww-oCtCxzblMg5yOUefSBT28dYod37YhvRzdh5YX1G46UjND5K9NHwZ0zuyk1s_xC3Ip9I\\\") {\\n    pendingMessage {\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_174180\",\"variables\":{}}"
+          "string": "{\"query\":\"mutation GraphQL__Client__OperationDefinition_277340 {\\n  vote(messageId: \\\"decidim-test-authority.10002.vote.cast+v.b9564e232293f22824525af701530f940f9ec13b4ec896644ac75a35a36c787a\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJ1bmlxdWVcIixcInF1ZXN0aW9uXzE0MDhcIjpbXCI4NjkyXCJdLFwicXVlc3Rpb25fMTQxMFwiOltcIjg3MDdcIixcIjg3MDhcIixcIjg3MDlcIl0sXCJxdWVzdGlvbl8xNDA5XCI6W1wiODcwM1wiLFwiODY5OVwiLFwiODY5OFwiLFwiODY5NFwiLFwiODY5N1wiXX0iLCJpYXQiOjE2MTE4NDk2MDEsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEwMDAyLnZvdGUuY2FzdCt2LmI5NTY0ZTIzMjI5M2YyMjgyNDUyNWFmNzAxNTMwZjk0MGY5ZWMxM2I0ZWM4OTY2NDRhYzc1YTM1YTM2Yzc4N2EifQ.odtvop8FcmcldYtCM4iE_fvS9g_fIlkt7-7GHP3HACg6kztaQHNdi26PDOs4SAowRLuqqywbDeqyWbOLc_urZYoUYHnp4T3xIfPMhlSa_I4s5G-gd9s68hU5MabGPHiogTB5KgtdTTdn0y1zaSgCSnVOsz1ev7Ngo6sC9L15ZpAKtfJNybxR5TWiM-VjUKBszmWqLVGsZgfo0h732LIGrV3keSzgr8jU7N-w35oApR0dWHb4cib-xRi-zEq8LfotXAWk1N4rxY1q3nTBDYGnwST7Pc7ipGv-xXd-WSMo2JHBszasslsgjnZJFBEkYG8BaDJUA-kcXmRNENW21EJnVW8T_nfiU0Xu7moi5XmcjaSgTsJVNuNCkoKZZZ69CLQdTHI9gsYvCcRo2i-FBEOZMO3RhPO-8B9xN0arhoN_zIB-tCpAkVsHz_M0m9H3p-OjbI1Xj_QZNaEgW8GLiwfIOYFPvqF5S5KuAd8yaya3EQnqAc6dt3UNom6LdWdmofdTlsmNE2HsJVYpBxq5FNOjtMF2y3Hh_sb3QMlCyXQbtd1AeY3KmgMNuhN-eg0mN-aviDiYZdWR36x3crxIMePO49e61uVtGjFlZA1XtUlG1ZyofLKZB2UBtlL95fKfvMv100kPocoYIuk6Za6vrJqTTXvWIGIjoVTSKmHvxuKIaZI\\\") {\\n    pendingMessage {\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_277340\",\"variables\":{}}"
         },
         "headers": {
           "Authorization": [
@@ -60,10 +60,10 @@
             "max-age=0, private, must-revalidate"
           ],
           "X-Request-Id": [
-            "9234ddd9-5708-4582-bb11-85f4418ffc9f"
+            "52b903cb-1b28-4958-ad1e-5cf1bc465e53"
           ],
           "X-Runtime": [
-            "0.495513"
+            "0.191738"
           ],
           "Vary": [
             "Origin"
@@ -77,7 +77,7 @@
           "string": "{\"data\":{\"vote\":{\"pendingMessage\":{\"status\":\"enqueued\"},\"error\":null}}}"
         }
       },
-      "recorded_at": "Mon, 25 Jan 2021 17:19:33 GMT"
+      "recorded_at": "Thu, 28 Jan 2021 16:00:02 GMT"
     },
     {
       "request": {
@@ -85,7 +85,7 @@
         "uri": "http://bulletin-board.lvh.me:8000/api",
         "body": {
           "encoding": "UTF-8",
-          "string": "{\"query\":\"query GraphQL__Client__OperationDefinition_180400 {\\n  pendingMessage(messageId: \\\"decidim-test-authority.10002.vote.cast+v.3fdabe9a1524cb505e93fb751f29213ee0451f7ace1ddd5d13461dd42a074adc\\\") {\\n    status\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_180400\",\"variables\":{}}"
+          "string": "{\"query\":\"query GraphQL__Client__OperationDefinition_282500 {\\n  pendingMessage(messageId: \\\"decidim-test-authority.10002.vote.cast+v.b9564e232293f22824525af701530f940f9ec13b4ec896644ac75a35a36c787a\\\") {\\n    status\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_282500\",\"variables\":{}}"
         },
         "headers": {
           "Authorization": [
@@ -139,10 +139,10 @@
             "max-age=0, private, must-revalidate"
           ],
           "X-Request-Id": [
-            "0aaf12e9-0798-486f-b978-780b2167852d"
+            "2db656c7-e17c-423e-a537-c66477ed48dd"
           ],
           "X-Runtime": [
-            "0.031308"
+            "0.015022"
           ],
           "Vary": [
             "Origin"
@@ -156,7 +156,7 @@
           "string": "{\"data\":{\"pendingMessage\":{\"status\":\"accepted\"}}}"
         }
       },
-      "recorded_at": "Mon, 25 Jan 2021 17:19:34 GMT"
+      "recorded_at": "Thu, 28 Jan 2021 16:00:03 GMT"
     }
   ],
   "recorded_with": "VCR 6.0.0"

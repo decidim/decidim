@@ -210,6 +210,13 @@ $(() => {
     }).then((pendingMessage) => {
       const $voteId = $voteWrapper.find(".vote-confirmed-result").data("voteId");
 
+      if (isPreview || pendingMessage.status === "accepted") {
+        $voteWrapper.find("#encrypting").addClass("hide");
+        $voteWrapper.find("#confirmed_page").removeClass("hide");
+        $voteWrapper.find(".vote-confirmed-result").hide();
+        window.confirmed = true;
+      }
+
       if (isPreview) {
         return simulatePreviewDelay()
       }
@@ -220,14 +227,9 @@ $(() => {
         return null
       }
 
-      $voteWrapper.find("#encrypting").addClass("hide");
-      $voteWrapper.find("#confirmed_page").removeClass("hide");
-      $voteWrapper.find(".vote-confirmed-result").hide();
-      window.confirmed = true;
-
       return voter.verifyVote(encryptedVoteHashToVerify);
     }).then((logEntry) => {
-      if (logEntry) {
+      if (isPreview || logEntry) {
         $voteWrapper.find(".vote-confirmed-processing").hide();
         $voteWrapper.find(".vote-confirmed-result").show();
       } else {
