@@ -659,7 +659,7 @@ fi:
           back_from_step_1: Takaisin yhteistyöluonnoksiin
           back_from_step_2: Takaisin yhteistyöluonnoksiin
           back_from_step_3: Takaisin yhteistyöluonnoksen vertailuun
-          back_from_step_4: Takaisin yhteistyöluonnoksen muokkaukseen
+          back_from_step_4: Takaisin luonnoksen muokkaukseen
           info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
         wizard_steps:
           current_step: Tämänhetkinen vaihe
