@@ -24,7 +24,6 @@
 
   <div class="answers">
     <% participant.answers.each do |answer| %>
-      <% next if answer.body == Decidim::Forms::Question::SEPARATOR_TYPE %>
       <h3 class="question"><%= answer.question %></h3>
       <p><%= answer.body %></p>
     <% end %>
