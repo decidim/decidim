@@ -652,7 +652,7 @@ tr:
         update:
           error: Ortak taslak kaydedilirken hatalar oluştu.
           success: Ortak taslak başarıyla güncellendi.
-          title: Ortak çalışma taslağını düzenleyin
+          title: Ortak taslak düzenle
         wizard_aside:
           back: Geri
           back_from_collaborative_draft: Ortak çalışmaya dayalı taslaklara dön
@@ -663,7 +663,7 @@ tr:
           info: <strong> Ortak çalışmaya dayalı bir taslak </strong> oluşturuyorsunuz.
         wizard_steps:
           current_step: Geçerli adım
-          see_steps: adımları gör
+          see_steps: adımları görmek
           step_1: Ortak çalışmaya dayalı taslağınızı oluşturun
           step_2: Ortak çalışmaya dayalı taslaklarla karşılaştırın
           step_3: Ortak çalışma taslağınızı tamamlayın
