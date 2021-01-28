@@ -505,6 +505,9 @@ de:
         elections_count: Wahlen
     votings:
       admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Maximale Anzahl angezeigte Elemente
         index:
           not_published: Unveröffentlicht
           published: Veröffentlicht
@@ -519,6 +522,7 @@ de:
           voting:
             fields:
               created_at: Erstellt am
+              promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
         titles:
@@ -556,6 +560,12 @@ de:
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Aktive Abstimmungen
+            see_all_votings: Alle Abstimmungen ansehen
+            votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
       votings:
         count:
           title:
@@ -593,3 +603,9 @@ de:
     decidim:
       election_votes_header:
         exit: Beenden
+      votings:
+        index:
+          promoted_votings: Hervorgehobene Abstimmungen
+        promoted_voting:
+          more_info: Mehr Informationen
+          vote: Abstimmen
