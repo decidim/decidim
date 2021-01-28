@@ -4,10 +4,9 @@ require "spec_helper"
 
 module Decidim::Initiatives
   describe InitiativeSerializer do
-    let(:initiative) { create(:initiative, :with_area) }
-
     subject { described_class.new(initiative) }
 
+    let(:initiative) { create(:initiative, :with_area) }
     let(:serialized) { subject.serialize }
 
     describe "#serialize" do
