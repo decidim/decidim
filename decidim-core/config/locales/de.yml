@@ -84,7 +84,7 @@ de:
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       delete:
-        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr einloggen. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber Ihre Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
+        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr einloggen. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
         confirm:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
