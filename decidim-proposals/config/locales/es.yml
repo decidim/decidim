@@ -652,7 +652,7 @@ es:
         update:
           error: Se ha producido un error al guardar el borrador colaborativo.
           success: Borrador colaborativo actualizado correctamente.
-          title: Editar el borrador colaborativo
+          title: Editar borrador colaborativo
         wizard_aside:
           back: Volver
           back_from_collaborative_draft: Volver a borradores colaborativos
@@ -662,12 +662,12 @@ es:
           back_from_step_4: Volver a editar borrador
           info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_steps:
-          current_step: Fase actual
+          current_step: Paso actual
           see_steps: ver las fases
           step_1: Crea tu borrador colaborativo
           step_2: Comparar con borradores colaborativos
           step_3: Completa tu borrador colaborativo
-          step_of: Paso %{current_step_num} de %{total_steps}
+          step_of: Fase %{current_step_num} de %{total_steps}
           title: Pasos para la creación del borrador colaborativo
       create:
         error: Se ha producido un error al guardar la propuesta.
