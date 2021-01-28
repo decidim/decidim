@@ -63,6 +63,7 @@ module Decidim
           "created_at",
           "updated_at",
           "state",
+          "state_published_at",
           "answer",
           "answered_at",
           "decidim_component_id",
