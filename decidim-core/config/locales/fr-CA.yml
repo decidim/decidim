@@ -84,7 +84,6 @@ fr-CA:
         file_no_exists: Le fichier n'existe pas
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
-        alert: Cette action ne peut pas être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter.
         confirm:
           close: Fermer la fenêtre
           ok: Oui, je souhaite supprimer mon compte
