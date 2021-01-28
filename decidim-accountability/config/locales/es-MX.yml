@@ -44,6 +44,7 @@ es-MX:
         title: Acciones
       admin:
         exports:
+          result_comments: Comentarios
           results: Resultados
         import_results:
           new:
@@ -180,6 +181,15 @@ es-MX:
             votes: Soportes
         timeline:
           title: Evolución del proyecto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Ámbito
+          status_id_eq:
+            label: Estado
     components:
       accountability:
         name: Seguimiento
