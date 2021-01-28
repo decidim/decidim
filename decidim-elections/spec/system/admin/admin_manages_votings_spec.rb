@@ -61,7 +61,6 @@ describe "Admin manages votings", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_admin_callout("You don't have any election configured")
 
       within ".container" do
         expect(page).to have_current_path decidim_admin_votings.votings_path
