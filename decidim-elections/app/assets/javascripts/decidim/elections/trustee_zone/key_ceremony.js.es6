@@ -1,6 +1,11 @@
 // = require ../identification_keys
 // = require decidim/bulletin_board/decidim-bulletin_board
 
+/**
+ * This file is responsible to generate election keys,
+ * create a backup of keys for the trustee and
+ * update the election bulletin board status
+ */
 $(() => {
   const { KeyCeremonyComponent, MessageIdentifier, MESSAGE_RECEIVED } = window.decidimBulletinBoard;
 
@@ -63,14 +68,14 @@ $(() => {
           let messageIdentifier = MessageIdentifier.parse(
             event.message.messageId
           );
-  
+
           if (event.type === MESSAGE_RECEIVED) {
             if (currentStep && currentStep !== messageIdentifier.typeSubtype) {
               const $previousStep = getStepRow(currentStep);
               $previousStep.attr("data-step-status", "completed");
             }
             currentStep = messageIdentifier.typeSubtype;
-  
+
             const $currentStep = getStepRow(currentStep);
             if ($currentStep.data("step-status") !== "completed") {
               $currentStep.attr("data-step-status", "processing");
@@ -83,7 +88,7 @@ $(() => {
         onComplete() {
           const $allSteps = $(".step_status");
           $allSteps.attr("data-step-status", "completed");
-      
+
           $startButton.addClass("hide");
           $backButton.removeClass("hide");
 
