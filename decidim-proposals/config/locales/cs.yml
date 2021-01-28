@@ -579,13 +579,6 @@ cs:
               ok: Vyjměte návrh spolupráce
               title: Následující akce je nevratná
             success: Kolaborativní návrh byl úspěšně zrušen.
-        compare:
-          mine_is_different: Můj návrh spolupráce je jiný
-          no_similars_found: Výborně! Žádný podobný návrh spolupráce nebyl nalezen
-          title: Podobné návrhy spolupráce
-        complete:
-          send: Poslat
-          title: Dokončete návrh spolupráce
         count:
           drafts_count:
             one: "%{count} návrh spolupráce"
@@ -619,7 +612,6 @@ cs:
           unfold: Rozvinout
         new:
           send: Pokračovat
-          title: Vytvořte návrh spolupráce
         new_collaborative_draft_button:
           new_collaborative_draft: Nový návrh spolupráce
         orders:
@@ -666,23 +658,11 @@ cs:
         update:
           error: Při ukládání schématu spolupráce došlo k chybám.
           success: Protokol o spolupráci byl úspěšně aktualizován.
-          title: Upravit koncept spolupráce
         wizard_aside:
-          back: Zadní
           back_from_collaborative_draft: Zpět na koncepty spolupráce
-          back_from_step_1: Zpět na koncepty spolupráce
-          back_from_step_2: Zpět na koncepty spolupráce
-          back_from_step_3: Zpět k porovnání konceptů spolupráce
-          back_from_step_4: Zpět k úpravě konceptu
           info: Při vytváření <strong>spolupráce návrhu</strong>.
-        wizard_steps:
-          current_step: Aktuální krok
-          see_steps: viz kroky
-          step_1: Vytvořte návrh spolupráce
-          step_2: Porovnejte s návrhy spolupráce
-          step_3: Dokončete návrh spolupráce
-          step_of: Krok %{current_step_num} z %{total_steps}
-          title: Kroky pro vytvoření společného návrhu
+        wizard_header:
+          title: Vytvořte návrh spolupráce
       content_blocks:
         highlighted_proposals:
           proposals: Návrhy
