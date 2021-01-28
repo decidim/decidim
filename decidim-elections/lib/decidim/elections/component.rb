@@ -9,9 +9,10 @@ Decidim.register_component(:elections) do |component|
   component.stylesheet = "decidim/elections/elections"
   component.permissions_class_name = "Decidim::Elections::Permissions"
   component.query_type = "Decidim::Elections::ElectionsType"
-  # component.on(:before_destroy) do |instance|
-  #   # Code executed before removing the component
-  # end
+
+  component.on(:before_destroy) do |instance|
+    raise StandardError, "Can't remove this component" if Decidim::Elections::Election.where(component: instance).any?
+  end
 
   # These actions permissions can be configured in the admin panel
   component.actions = %w(vote)
