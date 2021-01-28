@@ -1,11 +1,40 @@
 ((exports) => {
   const Quill = exports.Quill;
   const Delta = Quill.import("delta");
+  const { attributeDiff } = exports.Decidim.Editor;
+
+  const previousChar = (quill, range) => {
+    return quill.getText(range.index - 1, 1);
+  }
+
+  const beforePreviousChar = (quill, range) => {
+    return quill.getText(range.index - 2, 1);
+  }
+
+  const nextChar = (quill, range) => {
+    return quill.getText(range.index, 1);
+  }
+
+  const handleListSelection = (quill, range) => {
+    const lastCharacterOfPreviousLine = quill.getText(range.index - 3, 1);
+    if (nextChar(quill, range) === "\n" || lastCharacterOfPreviousLine !== "\n") {
+      quill.setSelection(range.index - 1, Quill.sources.SILENT);
+    } else {
+      quill.setSelection(range.index - 3, Quill.sources.SILENT);
+    }
+  }
+
+  const moveSelectionToPreviousLine = (quill, range) => {
+    const lastCharacterOfPreviousLine = quill.getText(range.index - 3, 1);
+    if (nextChar(quill, range) === "\n" || lastCharacterOfPreviousLine !== "\n") {
+      quill.setSelection(range.index - 1, Quill.sources.SILENT);
+    } else {
+      quill.setSelection(range.index - 3, Quill.sources.SILENT);
+    }
+  }
+
   const backspaceBindings = (quill) => {
-    const { attributeDiff } = exports.Decidim.Editor;
     quill.keyboard.addBinding({ key: 8, offset: 1, collapsed: true }, (range, context) => {
-      const previousChar = quill.getText(range.index - 1, 1);
-      const nextChar = quill.getText(range.index, 1);
       let length = 1
       if (/[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix)) {
         length = 2;
@@ -17,9 +46,10 @@
       let formats = {};
       const [line] = quill.getLine(range.index);
       let delta = new Delta().retain(range.index - length).delete(length);
-      if (context.offset === 1 && previousChar === "\n") {
+      if (context.offset === 1 && previousChar(quill, range) === "\n") {
         const [prev] = quill.getLine(range.index - 2);
         if (prev && prev.statics.blotName === "list-item") {
+          formats = handleListSelection(quill, range);
           if (prev !== null && prev.length() > 1) {
             let curFormats = line.formats();
             let prevFormats = quill.getFormat(range.index - 2, 1);
@@ -27,17 +57,13 @@
             length += 1;
           }
           delta = new Delta().retain(range.index - 2).delete(2);
-          const lastCharacterOfPreviousLine = quill.getText(range.index - 3, 1);
-          if (nextChar === "\n" || lastCharacterOfPreviousLine !== "\n") {
-            quill.setSelection(range.index - 1, Quill.sources.SILENT);
-          } else {
-            quill.setSelection(range.index - 3, Quill.sources.SILENT);
-          }
+          moveSelectionToPreviousLine(quill, range);
         } else {
-          // if (range.index >= 2) {
           delta = new Delta().retain(range.index - 1).delete(1);
           if (range.index < 2) {
             delta = new Delta().delete(1).retain(range.index + line.length() - 1);
+          } else if (previousChar(quill, range) === "\n" && beforePreviousChar(quill, range) === "\n") {
+            delta = new Delta().retain(range.index - 2).delete(2);
           }
         }
       } else {
