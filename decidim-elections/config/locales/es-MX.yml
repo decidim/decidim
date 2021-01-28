@@ -245,6 +245,12 @@ es-MX:
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La votación %{resource_title} en %{participatory_space_title} ya está activa.
           notification_title: La votación <a href="%{resource_path}">%{resource_title}</a> ya está activa en %{participatory_space_title}.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Una <strong>votación</strong> es un espacio que os permite hacer una pregunta clara al conjunto de miembros de una organización, hacer un llamamiento a participar en una votación, generar y ordenar el debate a favor o en contra de una respuesta. cunado llega la fecha de la votación, podéis votar y publicar el resultado.</p> <p> Las votaciones pueden ser prácticamente de cualquier aspecto que afecte a la organización. Algunos ejemplos serían: cambiar el nombre o el logotipo de la organización ofreciendo diversas alternativas, decidir si pasar a formar parte de una organización más grande o no, validar o desestimar un nuevo plan estratégico o el resultado de un gruipo de trabajo, o definir si los cargos deberían tener una duración máxima de uno, dos o tres mandatos.</p>"
+          page: "<p>Una <strong>votación</strong> es un espacio que os permite hacer una pregunta clara al conjunto de miembros de una organización, hacer un llamamiento a participar en una votación, generar y ordenar el debate a favor o en contra de una respuesta. cunado llega la fecha de la votación, podéis votar y publicar el resultado.</p> <p> Las votaciones pueden ser prácticamente de cualquier aspecto que afecte a la organización. Algunos ejemplos serían: cambiar el nombre o el logotipo de la organización ofreciendo diversas alternativas, decidir si pasar a formar parte de una organización más grande o no, validar o desestimar un nuevo plan estratégico o el resultado de un gruipo de trabajo, o definir si los cargos deberían tener una duración máxima de uno, dos o tres mandatos.</p>"
+          title: '¿Qué son las votaciones?'
     participatory_processes:
       statistics:
         elections_count: Votaciones
