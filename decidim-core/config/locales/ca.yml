@@ -84,7 +84,6 @@ ca:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       delete:
-        alert: Aquesta acció no es pot desfer. Si elimines el teu compte, no podràs iniciar sessió.
         confirm:
           close: Tancar finestra
           ok: Sí, vull eliminar el meu compte
