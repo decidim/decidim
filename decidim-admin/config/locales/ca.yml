@@ -132,14 +132,26 @@ ca:
     admin:
       actions:
         add: Afegir
+        attachment:
+          new: Nou arxiu adjunt
+        attachment_collection:
+          new: Nova col·lecció d'arxius adjunts
         browse: Explorar
+        category:
+          new: Nova categoria
         export: Exporta
         manage: Gestionar
         new: Nou %{name}
+        newsletter:
+          new: Nou butlletí
+        participatory_space_private_user:
+          new: Nou usuari privat de l'espai participatiu
         per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
         share: Compartir
+        user:
+          new: Nou usuari
         verify: Verificar
       admin_terms_of_use:
         accept:
