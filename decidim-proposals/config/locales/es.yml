@@ -563,13 +563,6 @@ es:
               ok: Retirar el borrador colaborativo
               title: La siguiente acción es irreversible
             success: Borrador colaborativo retirado correctamente.
-        compare:
-          mine_is_different: Mi borrador colaborativo es diferente
-          no_similars_found: '¡Enhorabuena! No se encontraron borradores colaborativos similares'
-          title: Borradores colaborativos similares
-        complete:
-          send: Enviar
-          title: Completa tu borrador colaborativo
         count:
           drafts_count:
             one: "%{count} borrador colaborativo"
@@ -601,7 +594,6 @@ es:
           unfold: Desplegar
         new:
           send: Continuar
-          title: Crea tu borrador colaborativo
         new_collaborative_draft_button:
           new_collaborative_draft: Nuevo borrador colaborativo
         orders:
@@ -646,23 +638,11 @@ es:
         update:
           error: Se ha producido un error al guardar el borrador colaborativo.
           success: Borrador colaborativo actualizado correctamente.
-          title: Editar el borrador colaborativo
         wizard_aside:
-          back: Volver
           back_from_collaborative_draft: Volver a borradores colaborativos
-          back_from_step_1: Volver a borradores colaborativos
-          back_from_step_2: Volver a borradores colaborativos
-          back_from_step_3: Volver a comparar los borradores colaborativos
-          back_from_step_4: Volver a editar borrador
           info: Estás creando un borrador colaborativo <strong></strong>.
-        wizard_steps:
-          current_step: Fase actual
-          see_steps: ver las fases
-          step_1: Crea tu borrador colaborativo
-          step_2: Comparar con borradores colaborativos
-          step_3: Completa tu borrador colaborativo
-          step_of: Paso %{current_step_num} de %{total_steps}
-          title: Pasos para la creación del borrador colaborativo
+        wizard_header:
+          title: Crea tu borrador colaborativo
       create:
         error: Se ha producido un error al guardar la propuesta.
         success: Propuesta creada correctamente. Guardada como borrador.
