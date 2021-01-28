@@ -2,12 +2,12 @@
   <div class="m-bottom">
     <%= link_to :back do %>
       <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= wizard_aside_back_text("collaborative_draft") %>
+      <%= t("back_from_collaborative_draft", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe %>
     <% end %>
   </div>
   <div class="section">
     <p>
-      <%= wizard_aside_info_text %>
+      <%= t("info", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe %>
     </p>
   </div>
 </div>
