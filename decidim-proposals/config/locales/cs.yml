@@ -666,7 +666,7 @@ cs:
         update:
           error: Při ukládání schématu spolupráce došlo k chybám.
           success: Protokol o spolupráci byl úspěšně aktualizován.
-          title: Upravit koncept spolupráce
+          title: Úprava konceptu spolupráce
         wizard_aside:
           back: Zadní
           back_from_collaborative_draft: Zpět na koncepty spolupráce
