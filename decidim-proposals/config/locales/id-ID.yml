@@ -528,6 +528,7 @@ id:
         update:
           error: Sudah ada kesalahan saat menyimpan draf kolaboratif.
           success: Draf kolaboratif berhasil diperbarui.
+          title: Edit draf kolaboratif
         wizard_aside:
           back: Kembali
           info: Anda membuat <strong>draf kolaboratif</strong>.
