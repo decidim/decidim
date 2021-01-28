@@ -205,7 +205,11 @@ fi:
           results_published:
             title: Tulokset julkaistu
           vote:
+            errors:
+              time_after: Nämä vaalit ovat edelleen käynnissä. Sinun täytyy odottaa päättymisaikaan asti (%{end_time}) sulkeaksesi vaaliuurnan.
             invalid: Vaaliuurnan sulkeminen epäonnistui
+            requirements:
+              time_after: Nämä vaalit ovat päättyneet. Voit sulkea vaaliuurnan manuaalisesti tai se suljetaan automaattisesti muutamassa minuutissa.
             submit: Sulje vaaliuurna
             title: Äänestysaika
         trustees_participatory_spaces:
@@ -332,6 +336,7 @@ fi:
             list:
               status: Tila
               task: Tehtävä
+            process_warning: Kun prosessi on käynnistetty, sinun ei tule poistua tältä sivulta ennen kuin prosessi päättyy. Se kestää useita minuutteja, koska kaikkiin luottamushenkilöihin tulee olla yhteydessä, jotta prosessi voidaan päättää.
             start: Aloita
             start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnille
             status:
@@ -406,6 +411,10 @@ fi:
         encrypting:
           header: Ääntäsi salataan...
           text: Äänesi salataan, jotta henkilöllisyyttäsi ei voida selvittää äänesi perusteella.
+        failed:
+          header: Äänestys epäonnistui
+          lead: Ääntäsi ei ole annettu!
+          text: Jokin meni pieleen, yritä uudelleen.
         header:
           confirm: Vahvista äänesi
           confirmed: Ääni vahvistettu
@@ -422,6 +431,25 @@ fi:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
+        processing:
+          header: Käsitellään ääntä...
+          text: Äänesi on vastaanotettu ja sitä käsitellään. Odota hetki.
+        verify:
+          content:
+            heading: Vahvista äänesi
+            info: Tämä tarkastustyökalu varmentaa, että salatulla merkkijonolla löytyvä äänesi on annettu oikein ja se on vaaliuurnassa.
+          error:
+            header: Ääntä ei löytynyt!
+            info: Äänestyskoodia ei löytynyt vaaliuurnasta %{link}, yritä uudelleen.
+          form:
+            back: Takaisin Decidimiin
+            submit: Tarkista
+            vote_identifier: 'Äänen tunniste:'
+          header:
+            title: Vahvista äänesi
+          success:
+            header: Äänesi löytyi!
+            info: Salattu äänesi on vaaliuurnassa %{link}
         voting_step:
           back: Takaisin
           continue: Seuraava
@@ -446,6 +474,12 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_name}.
             email_subject: Olet luottamushenkilö kohteessa %{resource_name}.
             notification_title: Olet luottamushenkilö kohteessa <a href="%{participatory_space_url}">%{resource_name}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          title: Mitä ovat äänestykset?
+    menu:
+      votings: Äänestykset
     pages:
       home:
         statistics:
@@ -455,6 +489,26 @@ fi:
         elections_count: Vaalia
     votings:
       admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Näytettävien elementtien enimmäismäärä
+        index:
+          not_published: Julkaisematon
+          published: Julkaistu
+        menu:
+          votings: Äänestykset
+          votings_submenu:
+            attachment_collections: Kansiot
+            attachment_files: Tiedostot
+            attachments: Liitteet
+            info: Tiedot
+        models:
+          voting:
+            fields:
+              created_at: Luonnin ajankohta
+              promoted: Korostettu
+              published: Julkaistu
+              title: Otsikko
         titles:
           votings: Äänestykset
         votings:
@@ -494,7 +548,47 @@ fi:
           highlighted_votings:
             active_votings: Aktiiviset äänestykset
             see_all_votings: Näytä kaikki äänestykset
+            votings_button_title: Linkki kaikkien äänestysten sivulle
+      votings:
+        count:
+          title:
+            one: "%{count} äänestys"
+            other: "%{count} äänestystä"
+        filters:
+          active: Aktiiviset
+          all: Kaikki
+          finished: Päättyneet
+          search: Hae
+          state: Tila
+          upcoming: Tulevat
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Suodata
+          filter_by: Suodata
+          unfold: Avaa
+        index:
+          title: Äänestykset
+        orders:
+          label: 'Järjestä äänestykset:'
+          random: Satunnainen
+          recent: Viimeisimmät
+        show:
+          dates: Päivämäärät
+      votings_m:
+        badge_name:
+          finished: Päättynyt
+          ongoing: Käynnissä
+          upcoming: Tulossa
+        footer_button_text:
+          view: Näytä
+        unspecified: Ei määritetty
   layouts:
     decidim:
       election_votes_header:
         exit: Poistu
+      votings:
+        index:
+          promoted_votings: Korostetut äänestykset
+        promoted_voting:
+          more_info: Lisätiedot
+          vote: Äänestä
