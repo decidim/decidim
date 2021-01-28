@@ -534,6 +534,7 @@ gl:
         update:
           error: Produciuse un erro ao gardar o borrador colaborativo.
           success: Proxecto colaborativo actualizado correctamente.
+          title: Editar borrador colaborativo
         wizard_aside:
           back: De volta
           info: Está creando un <strong>proxecto de colaboración</strong>.
