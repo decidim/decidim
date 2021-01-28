@@ -82,7 +82,6 @@ sv:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
-        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in.
         confirm:
           close: Stäng fönster
           ok: Ja, radera mitt konto
