@@ -179,6 +179,10 @@ is-IS:
           official: Opinber
         filter_state_values:
           not_answered: Ekki svarað
+      collaborative_drafts:
+        wizard_steps:
+          see_steps: sjá skref
+          step_of: Skref %{current_step_num} af %{total_steps}
       models:
         proposal:
           fields:
