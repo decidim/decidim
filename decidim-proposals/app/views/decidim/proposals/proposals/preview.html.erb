@@ -5,7 +5,7 @@
 
   <div class="columns large-9">
     <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
-    <div class="card">
+    <div class="card card__content">
       <div class="row column view-header">
         <h3 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h3>
         <% unless component_settings.participatory_texts_enabled? %>
