@@ -44,7 +44,6 @@ module Decidim
 
       def new
         enforce_permission_to :create, :collaborative_draft
-        @step = :step_1
 
         @form = form(CollaborativeDraftForm).from_params(
           attachment: form(AttachmentForm).from_params({})
@@ -53,7 +52,6 @@ module Decidim
 
       def create
         enforce_permission_to :create, :collaborative_draft
-        @step = :step_3
         @form = form(CollaborativeDraftForm).from_params(params)
 
         CreateCollaborativeDraft.call(@form, current_user) do
