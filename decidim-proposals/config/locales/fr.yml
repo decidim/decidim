@@ -652,9 +652,9 @@ fr:
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
           success: Brouillon collaboratif mis à jour avec succès.
-          title: Modifier le brouillon collaboratif
+          title: Modifier un brouillon collaboratif
         wizard_aside:
-          back: Arrière
+          back: Retour
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
           back_from_step_1: Retour aux brouillons collaboratifs
           back_from_step_2: Retour aux brouillons collaboratifs
@@ -667,7 +667,7 @@ fr:
           step_1: Créez votre projet collaboratif
           step_2: Comparer avec les projets collaboratifs
           step_3: Complétez votre projet collaboratif
-          step_of: Etape %{current_step_num} sur %{total_steps}
+          step_of: Étape %{current_step_num} sur %{total_steps}
           title: Étapes de création du brouillon collaboratif
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
