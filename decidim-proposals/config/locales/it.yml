@@ -639,11 +639,11 @@ it:
           info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_steps:
           current_step: Fase attuale
-          see_steps: visualizza le fasi
+          see_steps: vedere i passaggi
           step_1: Crea la tua bozza collaborativa
           step_2: Confronta con bozze collaborative
           step_3: Completa la tua bozza collaborativa
-          step_of: Passaggio %{current_step_num} di %{total_steps}
+          step_of: Step %{current_step_num} di %{total_steps}
           title: Fasi di creazione bozza collaborativa
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
