@@ -20,6 +20,9 @@
     }
   })
 
+  if ($creatorSelect.children("option").length < 2) {
+    $("label[for='import_creator']").hide();
+  }
   $creatorGuidances.hide();
   $creatorGuidances.first().show();
 })();

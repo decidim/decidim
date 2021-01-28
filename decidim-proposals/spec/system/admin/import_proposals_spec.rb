@@ -22,11 +22,6 @@ describe "Import proposals", type: :system do
       expect(page).to have_content("Import")
     end
 
-    it "has guidance when creator is selected" do
-      select "Proposal creator", from: "import_creator"
-      expect(page).to have_content("The file must have column names title/en and body/en")
-    end
-
     it "returns error without a file" do
       click_button "Import"
       expect(page).to have_content("There was a problem during the import")
