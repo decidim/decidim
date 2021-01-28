@@ -509,6 +509,9 @@ en:
         elections_count: Elections
     votings:
       admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Maximum amount of elements to show
         index:
           not_published: Unpublished
           published: Published
@@ -523,6 +526,7 @@ en:
           voting:
             fields:
               created_at: Created at
+              promoted: Highlighted
               published: Published
               title: Title
         titles:
@@ -560,6 +564,12 @@ en:
       content_blocks:
         highlighted_votings:
           name: Highlighted votings
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Active votings
+            see_all_votings: See all votings
+            votings_button_title: Link to the Votings page displaying all the votings
       votings:
         count:
           title:
@@ -597,3 +607,9 @@ en:
     decidim:
       election_votes_header:
         exit: Exit
+      votings:
+        index:
+          promoted_votings: Highlighted votings
+        promoted_voting:
+          more_info: More info
+          vote: Vote

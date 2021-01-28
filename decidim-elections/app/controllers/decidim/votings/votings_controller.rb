@@ -13,7 +13,7 @@ module Decidim
       include Paginable
       include Decidim::Votings::Orderable
 
-      helper_method :collection, :votings, :finished_votings, :active_votings, :filter
+      helper_method :collection, :votings, :filter, :promoted_votings
 
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
@@ -41,6 +41,10 @@ module Decidim
         @votings = search.results
         @votings = reorder(@votings)
         @votings = paginate(@votings)
+      end
+
+      def promoted_votings
+        @promoted_votings ||= PromotedVotings.new
       end
 
       alias collection votings
