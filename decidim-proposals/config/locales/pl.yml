@@ -575,13 +575,6 @@ pl:
               ok: Wycofaj wspólny szkic
               title: Poniższe działanie jest nieodwracalne
             success: Wspólny szkic został wycofany.
-        compare:
-          mine_is_different: Mój wspólny szkic jest inny
-          no_similars_found: Dobra robota! Nie znaleziono podobnych wspólnych szkiców
-          title: Podobne wspólne szkice
-        complete:
-          send: Wyślij
-          title: Uzupełnij swój wspólny szkic
         count:
           drafts_count:
             one: "%{count} wspólny szkic"
@@ -615,7 +608,6 @@ pl:
           unfold: Rozwiń
         new:
           send: Dalej
-          title: Utwórz swój wspólny szkic
         new_collaborative_draft_button:
           new_collaborative_draft: Nowy wspólny szkic
         orders:
@@ -662,23 +654,11 @@ pl:
         update:
           error: Wystąpił błąd podczas zapisywania wspólnego szkicu.
           success: Zaktualizowano wspólny szkic.
-          title: Edytuj wspólny szkic
         wizard_aside:
-          back: Wróć
           back_from_collaborative_draft: Powrót do wspólnych szkiców
-          back_from_step_1: Powrót do wspólnych szkiców
-          back_from_step_2: Powrót do wspólnych szkiców
-          back_from_step_3: Powrót do porównania wspólnych szkiców
-          back_from_step_4: Wróć do edycji szkicu
           info: Tworzysz <strong>wspólny szkic</strong>.
-        wizard_steps:
-          current_step: Bieżący krok
-          see_steps: zobacz kroki
-          step_1: Utwórz swój wspólny szkic
-          step_2: Porównaj ze wspólnymi szkicami
-          step_3: Uzupełnij swój wspólny szkic
-          step_of: Krok %{current_step_num} z %{total_steps}
-          title: Kroki tworzenia wspólnego szkicu
+        wizard_header:
+          title: Utwórz swój wspólny szkic
       create:
         error: Podczas zapisywania propozycji wystąpił błąd.
         success: Propozycja została utworzona. Zapisano jako szkic.
