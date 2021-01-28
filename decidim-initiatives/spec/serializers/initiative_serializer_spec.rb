@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Initiatives
   describe InitiativeSerializer do
-    let(:initiative) { create(:initiative) }
+    let(:initiative) { create(:initiative, :with_area) }
 
     subject { described_class.new(initiative) }
 
@@ -61,6 +61,10 @@ module Decidim::Initiatives
 
       it "includes the authors' names" do
         expect(serialized[:authors]).to include(name: initiative.author_users.map(&:name))
+      end
+
+      it "includes the area name" do
+        expect(serialized[:area]).to include(name: initiative.area.name)
       end
     end
   end
