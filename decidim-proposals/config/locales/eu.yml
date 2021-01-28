@@ -536,6 +536,7 @@ eu:
         update:
           error: Lankidetza zirriborroa gordetzean erroreak gertatu dira.
           success: Laguntza-proiektua ondo eguneratu da.
+          title: Editatu lankidetza zirriborroa
         wizard_aside:
           back: Back
           info: Bat sortzen ari zara <strong>elkarlanerako zirriborroa</strong>.
@@ -544,7 +545,7 @@ eu:
           step_1: Sortu zure lankidetza zirriborroa
           step_2: Konparatu zirriborroekin alderatu
           step_3: Bete lankidetza zirriborroa
-          step_of: Step %{current_step_num} of %{total_steps}
+          step_of: Urratsa %{current_step_num} de %{total_steps}
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Onartutako proposamena. Zirriborro gisa gorde da.
