@@ -356,7 +356,6 @@ en:
         actions:
           preview: Preview
         exports:
-          comments: Comments
           proposal_comments: Comments
           proposals: Proposals
         models:
@@ -803,9 +802,6 @@ en:
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
-        text_and_attachments:
-          comments: Comments
-          edit_proposal: Edit proposal
         proposals:
           empty: There is no proposal yet
           empty_filters: There isn't any proposal with this criteria
