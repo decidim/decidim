@@ -1,6 +1,8 @@
 es-PY:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de montaje
@@ -60,6 +62,7 @@ es-PY:
         full_name: Nombre completo
         gender: Género
         position: Posición
+        user_id: Usuaria
       assembly_user_role:
         email: Correo electrónico
         name: Nombre
