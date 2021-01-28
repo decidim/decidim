@@ -626,6 +626,7 @@ lv:
         update:
           error: Sadarbības projekta saglabāšanas laikā radās problēma.
           success: Sadarbības projekts ir veiksmīgi saglabāts
+          title: Rediģēt sadarbības projektu
         wizard_aside:
           back: Atpakaļ
           info: Jūs veidojat <strong>sadarbības projektu</strong>.
