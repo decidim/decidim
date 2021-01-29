@@ -49,6 +49,7 @@ gl:
             title: título
       posts:
         show:
+          back: Volver á listaxe
           comments: Comentarios
           view: Ver
         sidebar_blog:
@@ -66,6 +67,8 @@ gl:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            endorsements_blocked: Adhesións bloqueadas
+            endorsements_enabled: Adhesións habilitadas
     events:
       blogs:
         post_created:
