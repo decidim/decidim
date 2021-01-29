@@ -77,9 +77,9 @@ cs:
     models:
       decidim/assembly:
         one: Shromáždění
-        few: Sestavy
-        many: Sestavy
-        other: Sestavy
+        few: Shromáždění
+        many: Shromáždění
+        other: Shromáždění
       decidim/assembly_member:
         one: Člen shromáždění
         few: Členové shromáždění
@@ -188,7 +188,7 @@ cs:
           error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
       menu:
-        assemblies: Sestavy
+        assemblies: Shromáždění
         assemblies_settings: Nastavení
         assemblies_submenu:
           assembly_admins: Administrátoři shromáždění
@@ -239,7 +239,7 @@ cs:
             moderator: Moderátor
             valuator: Hodnotitel
       titles:
-        assemblies: Sestavy
+        assemblies: Shromáždění
         assemblies_types: Typy shromáždění
     admin_log:
       assembly:
