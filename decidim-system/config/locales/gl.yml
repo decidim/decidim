@@ -1,8 +1,20 @@
 gl:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_name: Organización
+        organization_url: URL da organización
+      organization:
+        address: Nome do servidor SMTP
+        from_email: Enderezo de correo electrónico
+        from_label: Etiqueta
+        password: Contrasinal
+        port: Porto
+        user_name: Nome de usuario
   decidim:
     system:
       actions:
-        confirm_destroy: Estás seguro de que queres eliminar isto?
+        confirm_destroy: Estás certo/a de querer eliminar isto?
         destroy: Eliminar
         edit: Editar
         new: Novo
@@ -48,18 +60,41 @@ gl:
             created_at: Creado en
             name: Nome
           name: Organización
+      oauth_applications:
+        edit:
+          save: Gardar
+        form:
+          select_organization: Seleccionar unha organización
+        index:
+          confirm_delete: Estás certo/a de querer eliminar esta aplicación?
+        new:
+          save: Gardar
+          title: Nova aplicación
+        update:
+          error: Produciuse un erro ao actualizar esta aplicación.
       organizations:
         create:
           error: Produciuse un erro ao crear unha nova organización.
           success: Organización creada con éxito.
         edit:
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
+        file_upload_settings:
+          file_extensions:
+            title: Extensións de ficheiro permitidas
         index:
           title: Organizacións
         new:
           reference_prefix_hint: O prefixo de referencia utilízase para identificar de forma exclusiva recursos en todas as organizacións
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
           title: Nova organización
+        smtp_settings:
+          fieldsets:
+            sender: Remitente
+          instructions:
+            from_label: 'O remitente do correo será: "o-nome-da-tua-organizacion <your-organization@example.org>". Deixar baleiro para empregar ''Correo electrónico'' como etiqueta'
+          placeholder:
+            from_email: a-tua-organizacion@exemplo.org
+            from_label: o-nome-da-tua-organizacion
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
