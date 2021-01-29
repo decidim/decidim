@@ -7,13 +7,13 @@ gl:
         offline_explanation: Instrucións para a verificación sen conexión
         online: En liña
       id_document_information:
-        document_number: Número do documento (con letra)
-        document_type: Tipo do documento
+        document_number: Número de documento (con letra)
+        document_type: Tipo de documento
       id_document_upload:
-        document_number: Número do documento (con letra)
-        document_type: Tipo do documento
+        document_number: Número de documento (con letra)
+        document_type: Tipo do teu documento
         user: Usuario
-        verification_attachment: Copia escaneada do documento
+        verification_attachment: Copia escaneada do teu documento
       offline_confirmation:
         email: Correo electrónico do usuario
       postal_letter_address:
@@ -26,6 +26,13 @@ gl:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          button: Rexeitar todo
+          button_before: Rexeitar antes da data
+          destroy:
+            confirm: O rexeitamento de autorizacións anteriores a esta data non se pode desfacer. Estas certo/a de querer continuar?
+            confirm_all: O rexeitamento de autorizacións non se pode desfacer. Estas certo/a de querer continuar?
+          title: Rexeitamento das autorizacións
         authorization_workflows: Verificacións
     admin_log:
       organization:
@@ -65,6 +72,9 @@ gl:
         name: Código por carta postal
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Estes son os datos da verificación actual:'
+          no_data_stored: Sen datos almacenados.
         create:
           error: Produciuse un erro ao crear a autorización.
           success: Autorizouse con éxito.
@@ -79,11 +89,18 @@ gl:
             postal_letter: Verifique a recepción dun código de verificación a través do correo postal
           title: Verifica a túa identidade
           verify_with_these_options: 'Estas son as opcións dispoñibles para verificar a súa identidade:'
+        index:
+          show_renew_info: Premer para anovar a verificación
+          unauthorized_verification: Nova verificación
         new:
           authorize: Enviar
           authorize_with: Verifica con %{authorizer}
         renew_modal:
           cancel: Cancelar
+          close: pechar
+          continue: Continuar
+          info_renew: Se queres actualizar a data, continua coa anovación
+          title: Anovar verificación
         skip_verification: Podes ignorar isto por agora e %{link}
         start_exploring: comezar a explorar
       csv_census:
@@ -105,6 +122,7 @@ gl:
             body: Para iso debes ingresar na administración do sistema e engadir as autorizacións csv_census á organización
           new:
             file: "Ficheiro .csv con datos de correo electrónico"
+            info: 'Ten de ser un ficheiro en formato CSV cunha soa columna co correo electrónico:'
             submit: Cargar ficheiro
             title: Suba un novo censo
         authorizations:
