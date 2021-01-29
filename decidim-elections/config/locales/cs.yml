@@ -519,6 +519,9 @@ cs:
         elections_count: Volby
     votings:
       admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Maximální počet prvků k zobrazení
         index:
           not_published: Nezveřejněno
           published: Zveřejněno
@@ -533,6 +536,7 @@ cs:
           voting:
             fields:
               created_at: Vytvořeno v
+              promoted: Zvýrazněno
               published: Publikováno
               title: Název
         titles:
