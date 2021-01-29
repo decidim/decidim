@@ -577,7 +577,9 @@ cs:
       pages:
         home:
           highlighted_votings:
+            active_votings: Aktivní hlasování
             see_all_votings: Zobrazit všechna hlasování
+            votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
       votings:
         count:
           title:
@@ -617,3 +619,9 @@ cs:
     decidim:
       election_votes_header:
         exit: Ukončit
+      votings:
+        index:
+          promoted_votings: Zvýrazněné hlasování
+        promoted_voting:
+          more_info: Více informací
+          vote: Hlasovat
