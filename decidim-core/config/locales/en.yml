@@ -1581,6 +1581,11 @@ en:
         instagram: "%{organization} at Instagram"
         twitter: "%{organization} at Twitter"
         youtube: "%{organization} at YouTube"
+      timeout_modal:
+        body: If you don't continue using this site, we are going to automatically log you out soon.
+        keep_session_open: Keep session open
+        sign_out: Sign out
+        title: Do you want to continue this session?
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
