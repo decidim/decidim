@@ -19,7 +19,7 @@ module Decidim
         @organization = env["decidim.current_organization"]
         return false unless @organization
 
-        current_voting(env, request.params) ? true : false
+        current_voting(env, request.params).present?
       end
 
       private

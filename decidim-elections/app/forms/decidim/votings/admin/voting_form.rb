@@ -42,7 +42,7 @@ module Decidim
           @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
 
-        def voting_type_select
+        def options_for_voting_type_select
           Voting.voting_types.map do |key, value|
             [
               I18n.t("voting_type.#{key}", scope: "decidim.votings.admin.votings.form"),
