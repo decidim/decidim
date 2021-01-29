@@ -32,6 +32,45 @@ gl:
         edit: Editar
         edit_answers: Editar respostas
         edit_questions: Editar preguntas
+        new: Nova %{name}
+        publish: Publicar
+        title: Accións
+      admin:
+        answers:
+          index:
+            title: Respostas
+          new:
+            create: Crear resposta
+            title: Nova resposta
+        models:
+          answer:
+            name: Resposta
+          question:
+            name: Pregunta
+      election_m:
+        badge_name:
+          finished: Finalizada
+          ongoing: Activa
+          upcoming: Vindeiras
+        footer:
+          view: Ver
+          vote: Votar
+        label:
+          date: Datas
+        questions: Preguntas %{count}
+        unspecified: Sen especificar
       elections:
+        filters:
+          active: Activa
+          all: Todas
+          finished: Finalizada
+          search: Procurar
+          state: Estado
+          upcoming: Vindeiras
+        filters_small_view:
+          filter_by: Filtrar por
         show:
           back: Todas as votacións
+      votes:
+        confirmed:
+          verify_text: Para verificalo, copia o identificador e pégao na <a href="evote-verify">páxina de verificación de voto</a>
