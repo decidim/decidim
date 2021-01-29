@@ -558,7 +558,7 @@ module Decidim
     organization = begin
       if model.is_a?(Decidim::Organization)
         model
-      elsif model.respond_to?(:organization)
+      elsif model.respond_to?(:organization) && model.organization.present?
         model.organization
       end
     end

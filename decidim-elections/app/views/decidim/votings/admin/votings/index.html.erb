@@ -24,9 +24,18 @@
           <% votings.each do |voting| %>
             <tr>
               <td>
-                <%= translated_attribute(voting.title) %>
+                <% if allowed_to? :update, :voting, voting: voting %>
+                  <%= link_to translated_attribute(voting.title), edit_voting_path(voting) %>
+                  <br>
+                <% elsif allowed_to? :preview, :voting, voting: voting %>
+                  <%= link_to translated_attribute(voting.title),
+                              decidim_votings.voting_path(voting),
+                              target: "_blank" %>
+                  <br>
+                <% else %>
+                  <%= translated_attribute(voting.title) %>
+                <% end %>
               </td>
-
               <td>
                 <%= l voting.created_at, format: :short %>
               </td>
@@ -43,6 +52,24 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
+                <% if allowed_to? :update, :voting, voting: voting %>
+                  <%= icon_link_to "pencil",
+                                   edit_voting_path(voting),
+                                   t("actions.configure", scope: "decidim.admin"),
+                                   class: "action-icon--edit" %>
+                <% else %>
+                  <span class="action-space icon"></span>
+                <% end %>
+
+                <% if allowed_to? :preview, :voting, voting: voting %>
+                  <%= icon_link_to "eye",
+                                   decidim_votings.voting_path(voting),
+                                   t("actions.preview", scope: "decidim.admin"),
+                                   class: "action-icon--preview",
+                                   target: "_blank" %>
+                <% else %>
+                  <span class="action-space icon"></span>
+                <% end %>
               </td>
             </tr>
           <% end %>

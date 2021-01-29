@@ -7,7 +7,7 @@ module Decidim
       graphql_name "Add comment"
       description "Add a new comment"
 
-      field :comment, CommentType, null: true, description: "The new created comment"
+      field :comment, Decidim::Comments::CommentType, null: true, description: "The new created comment"
     end
   end
 end

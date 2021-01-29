@@ -86,6 +86,14 @@
                   <%= icon_link_to "pencil", edit_result_path(result), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
                 <% end %>
 
+                <% if allowed_to? :update, :result, result: result %>
+                    <%= icon_link_to "folder", result_attachment_collections_path(result), t("actions.attachment_collections", scope: "decidim.accountability"), class: "action-icon--attachment_collections" %>
+                <% end %>
+
+                <% if allowed_to? :update, :result, result: result %>
+                  <%= icon_link_to "paperclip", result_attachments_path(result), t("actions.attachments", scope: "decidim.accountability"), class: "action-icon--attachments" %>
+                <% end %>
+
                 <% if allowed_to? :destroy, :result, result: result %>
                   <%= icon_link_to "circle-x", result_path(result), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) } %>
                 <% end %>

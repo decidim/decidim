@@ -46,7 +46,7 @@ git clone https://github.com/decidim/documentation
 npm install
 # 3. Change the antora-playbook.yml url key in source
 # 4. Build the antora playbook
-./bin/build
+npm run build
 # 5. Open the generated website with your web browser
 xdg-open build/site/index.html
 ----
