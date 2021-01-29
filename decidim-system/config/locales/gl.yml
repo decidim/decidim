@@ -36,14 +36,14 @@ gl:
           title: Novo administrador
         update:
           error: Houbo un erro ao actualizar este administrador.
-          success: Admin actualizouse con éxito
+          success: Administrador actualizado con éxito
       default_pages:
         placeholders:
-          content: Engade contido significativo á páxina %{page} estática no taboleiro de administrador.
-          title: Título predeterminado para %{page}
+          content: Por favor, engade contido signification á páxina estática %{page} no panel do administrador.
+          title: Título predefinido para %{page}
       menu:
         admins: Administradores
-        dashboard: Taboleiro de instrumentos
+        dashboard: Panel de control
         organizations: Organizacións
       models:
         admin:
