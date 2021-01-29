@@ -81,7 +81,7 @@ fi:
           error: Kuulemisen julkaiseminen epäonnistui.
           success: Kuulemisen julkaiseminen onnistui.
         destroy:
-          error: Kuulemisen julkaisun peruminen epäonnistui.
+          error: Kuulemisen julkaisun lopettaminen epäonnistui.
           success: Kuulemisen julkaisun peruminen onnistui.
       consultation_results_publications:
         create:
