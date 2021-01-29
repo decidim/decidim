@@ -169,7 +169,6 @@ fr:
           create_election:
             errors:
               max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
-              minimum_answers: Les questions doivent avoir <strong>au moins une réponse</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
               published: L'élection n'est <strong>pas publiée</strong>.
               time_before: L'heure de début se situe<strong>moins 3 heures</strong> avant le commencement de l'élection.
