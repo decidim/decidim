@@ -8,6 +8,13 @@ edit_link(
 <% provide :meta_title, t("votings.index.title", scope: "decidim.votings") %>
 
 <%= participatory_space_wrapper do %>
+  <% if promoted_votings.any? %>
+    <section id="highlighted-votings" class="row section">
+      <h1 class="section-heading"><%= t("votings.index.promoted_votings", scope: "layouts.decidim") %></h1>
+      <%= render partial: "promoted_voting", collection: promoted_votings, as: :promoted_voting %>
+    </section>
+  <% end %>
+
   <div class="row columns">
     <div class="title-action">
       <div class="row collapse">

@@ -14,7 +14,9 @@ describe Decidim::Elections::Voter::CastVote do
       election_id: election_id,
       election_unique_id: election_unique_id,
       voter_id: voter_id,
-      bulletin_board: bulletin_board
+      bulletin_board: bulletin_board,
+      current_user: user,
+      current_organization: organization
     )
   end
   let(:invalid) { false }
@@ -24,15 +26,21 @@ describe Decidim::Elections::Voter::CastVote do
   let(:election_id) { election.id }
   let(:election_unique_id) { "decidim-test-authority.#{election.id}" }
   let(:voter_id) { "voter.1" }
+  let(:organization) { create(:organization) }
+  let(:user) { create :user, :confirmed, organization: organization }
+  let(:cast_vote_method) { :cast_vote }
+  let(:cast_vote_message_id_method) { :cast_vote_message_id }
 
-  let(:method_name) { :cast_vote }
   let(:response) { OpenStruct.new(id: 1, status: "enqueued") }
+  let(:response_1) { "#{election.id}.vote.cast+x.#{voter_id}" }
+
   let(:bulletin_board) do
     double(Decidim::Elections.bulletin_board)
   end
 
   before do
-    allow(bulletin_board).to receive(method_name).and_return(response)
+    allow(bulletin_board).to receive(cast_vote_method).and_return(response)
+    allow(bulletin_board).to receive(cast_vote_message_id_method).and_return(response_1)
   end
 
   it "broadcasts ok" do
@@ -46,12 +54,18 @@ describe Decidim::Elections::Voter::CastVote do
     expect(last_vote.election).to eq(election)
     expect(last_vote.voter_id).to eq("voter.1")
     expect(last_vote.encrypted_vote_hash).to eq("1234")
-    expect(last_vote.status).to eq(Decidim::Elections::Vote::PENDING_STATUS)
+    expect(last_vote.status).to eq("pending")
+    expect(last_vote.user).to eq(user)
   end
 
   it "calls the bulletin board cast_vote method with the correct params" do
     subject.call
-    expect(bulletin_board).to have_received(method_name).with(election_id, voter_id, encrypted_vote)
+    expect(bulletin_board).to have_received(cast_vote_method).with(election_id, voter_id, encrypted_vote)
+  end
+
+  it "calls the bulletin board cast_vote_method_id method with the correct params" do
+    subject.call
+    expect(bulletin_board).to have_received(cast_vote_message_id_method).with(election_id, voter_id)
   end
 
   context "when the form is not valid" do
@@ -64,7 +78,7 @@ describe Decidim::Elections::Voter::CastVote do
 
   context "when the bulletin board returns an error message" do
     before do
-      allow(bulletin_board).to receive(method_name).and_raise(StandardError.new("An error!"))
+      allow(bulletin_board).to receive(cast_vote_method).and_raise(StandardError.new("An error!"))
     end
 
     it "is not valid" do

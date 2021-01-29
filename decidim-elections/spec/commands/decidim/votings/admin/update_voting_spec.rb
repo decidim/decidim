@@ -22,7 +22,8 @@ module Decidim
               decidim_scope_id: voting.scope.id,
               start_time: voting.start_time,
               end_time: voting.end_time,
-              introductory_image: voting.introductory_image
+              introductory_image: voting.introductory_image,
+              promoted: voting.promoted
             }
           }
         end

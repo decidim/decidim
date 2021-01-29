@@ -208,12 +208,9 @@ ignore_unused:
   - decidim.admin.models.*.name
   - decidim.admin.models.*.name.*
   - password_validator.*
+  - decidim.*.pages.home.highlighted_*.*
   - decidim.participatory_processes.participatory_processes.filters.*
-  - decidim.participatory_processes.pages.home.highlighted_processes.*
   - decidim.participatory_processes.show.related_assemblies
-  - decidim.consultations.pages.home.highlighted_consultations.*
-  - decidim.assemblies.pages.home.highlighted_assemblies.*
-  - decidim.initiatives.pages.home.highlighted_initiatives.*
   - decidim.content_blocks.*.name
   - decidim.participatory_processes.content_blocks.*.name
   - decidim.participatory_process_groups.content_blocks.*.name

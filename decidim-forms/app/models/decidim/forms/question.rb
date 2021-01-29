@@ -48,6 +48,8 @@ module Decidim
 
       validates :question_type, inclusion: { in: TYPES }
 
+      scope :not_separator, -> { where.not(question_type: SEPARATOR_TYPE) }
+
       scope :with_body, -> { where(question_type: %w(short_answer long_answer)) }
       scope :with_choices, -> { where.not(question_type: %w(short_answer long_answer)) }
 

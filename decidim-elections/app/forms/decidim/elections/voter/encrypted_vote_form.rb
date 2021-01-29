@@ -31,11 +31,11 @@ module Decidim
           @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
         end
 
-        private
-
         def current_user
           @current_user ||= context[:current_user]
         end
+
+        private
 
         # Private: check if the hash sent by the browser is correct.
         def hash_is_valid

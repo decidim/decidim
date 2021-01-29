@@ -8,22 +8,37 @@ module Decidim
       include FormFactory
 
       helper VotesHelper
-      helper_method :elections, :election, :questions, :questions_count, :booth_mode
+      helper_method :elections, :election, :questions, :questions_count, :booth_mode, :vote
 
       delegate :count, to: :questions, prefix: true
 
       def new
-        @form = form(Voter::EncryptedVoteForm).instance(election: election)
-        redirect_to(return_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless booth_mode
+        if pending_vote?
+          redirect_to(pending_vote_path) unless booth_mode
+        else
+          @form = form(Voter::EncryptedVoteForm).instance(election: election)
+          redirect_to(return_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless booth_mode
+        end
+      end
+
+      def update
+        Voter::UpdateVoteStatus.call(vote) do
+          on(:ok) do
+            flash[:notice] = I18n.t("votes.update.success", scope: "decidim.elections")
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("votes.update.error", scope: "decidim.elections")
+          end
+        end
       end
 
       def cast
         @form = form(Voter::EncryptedVoteForm).from_params(params, election: election)
-        return render :cast_success if preview?
+        return render :cast_success, locals: { message_id: "PreviewMessageId", vote_id: nil } if preview?
 
         Voter::CastVote.call(@form) do
-          on(:ok) do
-            render :cast_success
+          on(:ok) do |vote|
+            render :cast_success, locals: { message_id: vote.message_id, vote_id: vote.id }
           end
           on(:invalid) do
             render :cast_failed
@@ -36,6 +51,14 @@ module Decidim
       end
 
       private
+
+      def vote
+        @vote ||= Decidim::Elections::Vote.find_by(id: params[:vote_id])
+      end
+
+      def pending_vote?
+        Decidim::Elections::Votes::PendingVotes.for.exists?(user: current_user, election: election)
+      end
 
       def booth_mode
         @booth_mode ||= if allowed_to? :vote, :election, election: election
@@ -51,6 +74,14 @@ module Decidim
                          else
                            elections_path
                          end
+      end
+
+      def pending_vote_path
+        @pending_vote_path ||= if allowed_to? :view, :election, election: election
+                                 verify_election_vote_path(election)
+                               else
+                                 elections_path
+                               end
       end
 
       def elections

@@ -1,7 +1,7 @@
 ---
 :scope: trustee 2 download
 :url: http://bulletin-board.lvh.me/api
-:body: '{"operationName":"GetElectionLogEntries","variables":{"electionUniqueId":"decidim-test-authority.42","after":"8"},"query":"query
+:body: '{"operationName":"GetElectionLogEntries","variables":{"electionUniqueId":"decidim-test-authority.42","after":"69"},"query":"query
   GetElectionLogEntries($electionUniqueId: String!, $after: String) {\n  election(uniqueId:
   $electionUniqueId) {\n    logEntries(after: $after) {\n      id\n      messageId\n      signedData\n      __typename\n    }\n    __typename\n  }\n}\n"}'
 :status: 200
@@ -20,8 +20,8 @@
   Content-Type: application/json; charset=utf-8
   ETag: W/"14668fa8732050881aef2ce979bf1528"
   Cache-Control: max-age=0, private, must-revalidate
-  X-Request-Id: 620f88a4-cce5-44dd-be0a-21ecbc0e705e
-  X-Runtime: '0.025421'
+  X-Request-Id: a9bdb98f-0dc6-4e0a-a759-b5de253dc740
+  X-Runtime: '0.015141'
   Vary: Origin
   Connection: close
   Transfer-Encoding: chunked

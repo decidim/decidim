@@ -8,10 +8,24 @@ $(() => {
   const $continueButton = $voteWrapper.find("a.focus__next");
   const $confirmButton = $voteWrapper.find("a.focus__next.confirm");
   const $continueSpan = $voteWrapper.find("span.disabled-continue");
+
   let $answerCounter = 0;
   let $currentStep,
       $currentStepMaxSelection = "";
   let $formData = $voteWrapper.find(".answer_input");
+
+  // Updates the status of the vote
+  const updateVoteStatus = (id) => {
+    $.ajax({
+      method: "PATCH",
+      url: $voteWrapper.data("updateVoteStatusUrl"),
+      contentType: "application/json",
+      data: JSON.stringify({ vote_id: id }), // eslint-disable-line camelcase
+      headers: {
+        "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+      }
+    });
+  }
 
   function initStep() {
     setCurrentStep();
@@ -138,6 +152,14 @@ $(() => {
     castVote(boothMode, formData)
   });
 
+  const isPreview = $voteWrapper.data("booth-mode") === "preview";
+
+  function simulatePreviewDelay() {
+    return new Promise((resolve) => {
+      setTimeout(resolve, 500);
+    })
+  }
+
   // cast vote
   function castVote(_boothMode, formData) {
     const bulletinBoardClient = new Client({
@@ -176,23 +198,44 @@ $(() => {
         headers: {
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
-      });
+      })
     }).then(() => {
-      $voteWrapper.find("#encrypting").addClass("hide");
-      $voteWrapper.find("#confirmed_page").removeClass("hide");
-      $voteWrapper.find(".vote-confirmed-result").hide();
-      window.confirmed = true;
+      const $messageId = $voteWrapper.find(".vote-confirmed-result").data("messageId");
 
-      if ($voteWrapper.data("booth-mode") === "preview") {
-        return new Promise((resolve) => {
-          setTimeout(resolve, 500);
-        });
+      if (isPreview) {
+        return simulatePreviewDelay()
+      }
+
+      return voter.waitForPendingMessageToBeProcessed($messageId)
+    }).then((pendingMessage) => {
+      const $voteId = $voteWrapper.find(".vote-confirmed-result").data("voteId");
+
+      if (isPreview || pendingMessage.status === "accepted") {
+        $voteWrapper.find("#encrypting").addClass("hide");
+        $voteWrapper.find("#confirmed_page").removeClass("hide");
+        $voteWrapper.find(".vote-confirmed-result").hide();
+        window.confirmed = true;
+      }
+
+      if (isPreview) {
+        return simulatePreviewDelay()
+      }
+
+      updateVoteStatus($voteId)
+
+      if (pendingMessage.status === "rejected") {
+        return null
       }
 
       return voter.verifyVote(encryptedVoteHashToVerify);
-    }).then(() => {
-      $voteWrapper.find(".vote-confirmed-processing").hide();
-      $voteWrapper.find(".vote-confirmed-result").show();
+    }).then((logEntry) => {
+      if (isPreview || logEntry) {
+        $voteWrapper.find(".vote-confirmed-processing").hide();
+        $voteWrapper.find(".vote-confirmed-result").show();
+      } else {
+        const $error = $voteWrapper.find(".vote-confirmed-result").data("error");
+        alert($error); // eslint-disable-line no-alert
+      }
     })
   }
 
