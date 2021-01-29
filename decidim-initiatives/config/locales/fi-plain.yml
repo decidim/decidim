@@ -326,8 +326,10 @@ fi-pl:
           back_to_initiatives: Takaisin aloitteisiin
           callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
           confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
+          edit_my_initiative: Muokkaa aloitettani
           go_to_my_initiatives: Siirry omiin aloitteisiini
           more_information: "(Lisää tietoa)"
+          send_my_initiative: Lähetä aloitteeni tekniseen tarkastukseen
         finish_help:
           access_reminder: Pääset käsiksi aloitteisiin suodatuslinkin %{link} kautta aloitteiden sivulla.
           publish_helper_text: Saadaksesi aloitteesi julkaistuksi, sinun tulee viimeistellä vaaditut tiedot ja <strong>lähettää aloite hallintakäyttäjän tekniseen tarkastukseen</strong>.
@@ -484,6 +486,7 @@ fi-pl:
           section: 'Pyydettäessä tulostakaa ja täyttäkää tämä lomake lähettääksenne sen osoitettuun paikkaan:'
           signature: Allekirjoitus
         result:
+          answer_title: Tähän aloitteeseen on vastattu
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei saanut tarpeeksi kannatusta.
         show:
           any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
