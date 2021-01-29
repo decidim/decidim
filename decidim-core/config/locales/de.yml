@@ -1131,6 +1131,7 @@ de:
         groups: Gruppen
         members: Mitglieder
         officialized: Offizieller Teilnehmer
+        send_private_message: Private Nachricht senden
         timeline: Zeitleiste
         view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
       sidebar:
