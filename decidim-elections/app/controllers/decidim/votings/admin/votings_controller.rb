@@ -83,19 +83,16 @@ module Decidim
         private
 
         def votings
-          @votings ||= Decidim::Votings::Voting.where(organization: current_user.organization)
-        end
-
-        def collection
-          @collection ||= OrganizationVotings.new(current_user.organization).query
+          @votings ||= OrganizationVotings.new(current_user.organization).query
         end
 
         def current_voting
-          @current_voting ||= collection.where(slug: params[:slug]).or(
-            collection.where(id: params[:slug])
+          @current_voting ||= votings.where(slug: params[:slug]).or(
+            votings.where(id: params[:slug])
           ).first
         end
 
+        alias collection votings
         alias current_participatory_space current_voting
       end
     end

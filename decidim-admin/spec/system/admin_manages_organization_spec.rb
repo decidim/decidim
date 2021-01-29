@@ -56,6 +56,13 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq("<p><br></p>")
         end
 
+        it "deletes paragraph changes pressing backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys "ef", [:enter], "gh", [:backspace], [:backspace], [:backspace], [:backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>e</p>".gsub("\n", ""))
+        end
+
         it "deletes linebreaks when pressing backspace" do
           find('div[contenteditable="true"].ql-editor').send_keys "a", [:left], [:enter], [:shift, :enter], [:backspace], [:backspace]
           expect(find(

@@ -41,6 +41,7 @@ module Decidim
       }
       scope :finished, -> { published.where("end_time < ?", Time.now.utc) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
+      scope :promoted, -> { published.where(promoted: true) }
 
       def upcoming?
         start_time > Time.now.utc
@@ -85,6 +86,12 @@ module Decidim
 
       def to_param
         slug
+      end
+
+      def cta_button_text_key
+        return :vote if published? && active?
+
+        :more_info
       end
 
       def attachment_context

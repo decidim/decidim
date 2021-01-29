@@ -11,6 +11,8 @@ module Decidim
         # form - A form object with the params.
         # conference_partner - The ConferencePartner to update
         def initialize(form, conference_partner)
+          form.logo = conference_partner.logo if form.logo.blank?
+
           @form = form
           @conference_partner = conference_partner
         end
