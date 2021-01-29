@@ -29,3 +29,46 @@ gl:
       elections:
         actions:
           vote: Votar
+    elections:
+      actions:
+        confirm_destroy: Estás certo/a?
+        edit: Editar
+        new: Nova %{name}
+        publish: Publicar
+        title: Accións
+      admin:
+        answers:
+          index:
+            title: Respostas
+          new:
+            create: Crear resposta
+            title: Nova resposta
+        models:
+          answer:
+            name: Resposta
+          question:
+            name: Pregunta
+      election_m:
+        badge_name:
+          finished: Finalizada
+          ongoing: Activa
+          upcoming: Vindeiras
+        footer:
+          view: Ver
+          vote: Votar
+        label:
+          date: Datas
+        questions: Preguntas %{count}
+        unspecified: Sen especificar
+      elections:
+        filters:
+          active: Activa
+          all: Todas
+          finished: Finalizada
+          search: Procurar
+          state: Estado
+          upcoming: Vindeiras
+        filters_small_view:
+          filter_by: Filtrar por
+        preview:
+          available_answers: Respostas dispoñibles
