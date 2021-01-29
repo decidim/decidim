@@ -257,8 +257,11 @@ gl:
           back: De volta
           back_to_initiatives: Volver a iniciativas
           callout_text: Parabéns! A túa iniciativa cidadá creouse con éxito.
+          confirm: Confirmar
+          edit_my_initiative: Editar as miñas iniciativas
           go_to_my_initiatives: Vaia ás miñas iniciativas
           more_information: "(Máis información)"
+          send_my_initiative: Enviar as miñas iniciativas
         finish_help:
           access_reminder: Lembre que sempre poderá acceder ás túas iniciativas a través do menú do usuario.
           help_for_organizations: Se es unha asociación terá que subir as actas do consello de administración de todas as organizacións que forman a Comisión de Promoción
