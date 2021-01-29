@@ -55,15 +55,15 @@ gl:
             - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
             - Enche a información presente na imaxe cargada.
             - A información debe coincidir co que o usuario enche.
-            - Se non pode ver claramente a información ou non pode verificala, pode rexeitar a solicitude e o usuario poderá solucionalo.
+            - Se non podes ver claramente a información ou non consegues verificala, podes rexeitar a solicitude e o usuario poderá corrixila.
         postal_letter:
           help:
             - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
             - Envía a carta ao seu enderezo co código de verificación.
             - Marca a letra como enviada.
-            - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
+            - Despois de marcar a carta como enviada, o participante poderá inserir o código e ser verificado.
       csv_census:
-        explanation: Verifícase mediante o censo da organización
+        explanation: Verifícate mediante o censo da organización
         name: Censo da organización
       direct: Directo
       help: Axuda
@@ -75,6 +75,10 @@ gl:
       postal_letter:
         explanation: Enviarémosche unha carta postal cun código que terás que ingresar para poder verificar a túa dirección
         name: Código por carta postal
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: P participante <a href="%{resource_path}">%{resource_title}</a> tentou a verificación de si mesmo/a cos datos do participante xestionado <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -84,6 +88,9 @@ gl:
           error: Produciuse un erro ao crear a autorización.
           success: Autorizouse con éxito.
           unconfirmed: Debes confirmar o teu correo electrónico para autorizarte.
+        destroy:
+          error: Produciuse un problema ao eliminar a autorización.
+          success: Eliminaches a autorización con éxito.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifique contra outro exemplo de controlador de autorización
@@ -92,9 +99,12 @@ gl:
             dummy_authorization_workflow: Verifique contra o fluxo de traballo de autorización de exemplo
             id_documents: Verifique a carga do documento de identidade
             postal_letter: Verifique a recepción dun código de verificación a través do correo postal
+            sms: Verifícate ao recibir un SMS co código de verificación
           title: Verifica a túa identidade
           verify_with_these_options: 'Estas son as opcións dispoñibles para verificar a súa identidade:'
         index:
+          expired_verification: Verificación caducada
+          pending_verification: Verificación pendente
           show_renew_info: Premer para anovar a verificación
           unauthorized_verification: Nova verificación
         new:
@@ -139,6 +149,7 @@ gl:
           postal_codes:
             one: A participación está restrinxida aos usuarios co código postal %{postal_codes}.
             other: 'A participación está restrinxida aos usuarios que conteñan algún dos seguintes códigos postais: %{postal_codes}.'
+          scope: A participación está restrinxida aos participantes no ámbito de %{scope_name}.
       id_documents:
         admin:
           config:
