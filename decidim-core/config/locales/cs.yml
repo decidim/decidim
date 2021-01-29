@@ -161,7 +161,7 @@ cs:
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
     admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
+      default_body: "<h2>ADMINISTRÁTORSKÉ ZÁSADY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
     alert:
       dismiss: Odmítnout oznámení
     amendments:
