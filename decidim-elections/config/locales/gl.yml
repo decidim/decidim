@@ -3,6 +3,7 @@ gl:
     attributes:
       answer:
         description: Descrición
+        image: Imaxe
         proposals: Propostas relacionadas
         title: Título
       election:
@@ -33,11 +34,17 @@ gl:
       actions:
         confirm_destroy: Estás certo/a?
         edit: Editar
+        manage_answers: Xestionar respostas
+        manage_questions: Xestionar preguntas
+        manage_steps: Xestionar pasos
         new: Nova %{name}
         publish: Publicar
         title: Accións
       admin:
         answers:
+          edit:
+            title: Editar resposta
+            update: Actualizar resposta
           index:
             title: Respostas
           new:
@@ -48,6 +55,18 @@ gl:
             name: Resposta
           question:
             name: Pregunta
+        questions:
+          edit:
+            title: Editar pregunta
+            update: Actualizar pregunta
+          index:
+            title: Preguntas
+          new:
+            create: Crear pregunta
+            title: Nova pregunta
+        steps:
+          create_election:
+            not_used_trustee: "(non usada)"
       election_m:
         badge_name:
           finished: Finalizada
@@ -69,6 +88,58 @@ gl:
           state: Estado
           upcoming: Vindeiras
         filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtrar
           filter_by: Filtrar por
         preview:
           available_answers: Respostas dispoñibles
+        results:
+          selected: Seleccionado
+        show:
+          verify: Verificar
+      models:
+        answer:
+          fields:
+            title: Título
+        election:
+          fields:
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            title: Título
+        trustees_participatory_space:
+          fields:
+            inactive: inactivo
+      trustee_zone:
+        elections:
+          key_ceremony_steps:
+            back: Volver
+            list:
+              status: Estado
+              task: Tarefa
+            start: Comezar
+            status:
+              pending: Pendente
+              processing: Procesando
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Non'
+                  name: Acción requirida?
+                bb_status: Estado
+            identification_keys:
+              submit: Enviar
+      votes:
+        confirmed:
+          experience: Como valoras a túa experiencia?
+          feedback: Dános a túa opinión
+          header: Voto confirmado
+        header:
+          confirm: Confirma o teu voto
+          confirmed: Voto confirmado
+          encrypting: Confirmando o voto
+        modal:
+          close: Pechar
