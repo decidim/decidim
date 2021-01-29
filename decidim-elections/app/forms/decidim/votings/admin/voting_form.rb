@@ -28,7 +28,7 @@ module Decidim
         validates :end_time, presence: true, date: { after: :start_time }
         validates :banner_image, passthru: { to: Decidim::Votings::Voting }
         validates :introductory_image, passthru: { to: Decidim::Votings::Voting }
-        validates :voting_type, presence: true, inclusion: { in: Votings::Voting::VOTING_TYPE, message: "%{value} is not a valid voting type" }
+        validates :voting_type, presence: true, inclusion: { in: Votings::Voting.voting_types, message: "%{value} is not a valid voting type" }
 
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
 
@@ -43,10 +43,10 @@ module Decidim
         end
 
         def voting_type_select
-          Voting::VOTING_TYPE.map do |type|
+          Voting.voting_types.map do |key, value|
             [
-              I18n.t("voting_type.#{type}", scope: "decidim.votings.admin.votings.form"),
-              type
+              I18n.t("voting_type.#{key}", scope: "decidim.votings.admin.votings.form"),
+              value
             ]
           end
         end

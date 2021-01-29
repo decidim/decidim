@@ -17,7 +17,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
 
-      VOTING_TYPE = %w(in_person online hybrid).freeze
+      enum voting_type: [:in_person, :online, :hybrid].map { |type| [type, type.to_s] }.to_h, _suffix: :voting
 
       translatable_fields :title, :description
 
@@ -105,20 +105,8 @@ module Decidim
         true
       end
 
-      def hybrid_voting?
-        voting_type == "hybrid"
-      end
-
-      def online_voting?
-        voting_type == "online"
-      end
-
-      def inperson_voting?
-        voting_type == "in_person"
-      end
-
       def needs_elections?
-        !inperson_voting? && !has_elections?
+        !in_person_voting? && !has_elections?
       end
 
       private
