@@ -63,7 +63,7 @@ gl:
         file_no_exists: O ficheiro non existe
         notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
-        alert: Non se pode desfacer esta acción. Se eliminas a túa conta non poderás iniciar sesión.
+        alert: Esta acción no se pode desfacer. Se eliminas a túa conta non poderás iniciar sesión.
         confirm:
           close: Pechar xanela
           ok: Si, quero eliminar a miña conta
@@ -316,6 +316,7 @@ gl:
           email_already_exists: Outra conta usa o mesmo enderezo de correo electrónico
         new:
           complete_profile: Perfil completo
+          nickname_help: O teu alcume en %{organization}
           sign_up: Completa o teu perfil
           subtitle: Encha o seguinte formulario para completar o rexistro
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
@@ -324,6 +325,7 @@ gl:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
+          nickname_help: O teu alcume en %{organization}
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
