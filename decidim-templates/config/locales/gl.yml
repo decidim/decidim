@@ -1,1 +1,12 @@
 gl:
+  decidim:
+    admin:
+      menu:
+        templates: Padróns
+      templates:
+        apply:
+          error: Produciuse un problema ao aplicar o padrón.
+          success: Padrón aplicado con éxito
+        copy:
+          error: Produciuse un problema ao copiar o padrón.
+          success: Padrón copiado con éxito
