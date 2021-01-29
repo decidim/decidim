@@ -94,6 +94,7 @@ gl:
             description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
           description: Que proxectos crees que deberiamos asignar orzamento para? Asigne polo menos %{minimum_budget} aos proxectos que desexe e vote coas súas preferencias para definir o orzamento.
+          description_minimum_projects_rule: Que proxectos cres que debemos destinar o orzamento? Selecciona polo menos %{minimum_number} proxectos que desexes e vota segundo as túas preferencias para definir o orzamento.
           title: Vostede decide o orzamento
         count:
           projects_count:
