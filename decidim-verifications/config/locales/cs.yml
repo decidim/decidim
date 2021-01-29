@@ -211,7 +211,7 @@ cs:
             error: Při načítání dokumentu došlo k problému
             success: Dokument byl úspěšně obnoven
         dni: DNI
-        nie: NIE
+        nie: Občanský průkaz
         passport: Cestovní pas
       postal_letter:
         admin:
