@@ -2,7 +2,7 @@ cs:
   activemodel:
     attributes:
       assemblies_setting:
-        enable_organization_chart: Povolit organizační graf
+        enable_organization_chart: Povolit schéma organizace
       assembly:
         area_id: Oblast
         assembly_type: Typ shromáždění
