@@ -463,6 +463,9 @@ cs:
         processing:
           header: Zpracovávám hlasování...
           text: Váš hlas byl přijat a právě se zpracovává. Počkejte prosím.
+        update:
+          error: Při aktualizaci stavu hlasování došlo k chybě
+          success: Stav hlasování byl úspěšně aktualizován
         verify:
           content:
             heading: Ověřte svůj hlas
@@ -503,6 +506,12 @@ cs:
             email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce %{resource_name}.
             email_subject: Jste správcem %{resource_name}.
             notification_title: Jste správce pro <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Váš hlas byl přijat! Pomocí tvého hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
+            email_outro: Obdrželi jste toto oznámení, protože jste hlasovali pro hlasování %{resource_name}.
+            email_subject: Váš hlas pro %{resource_name} byl přijat.
+            notification_title: 'Váš hlas byl přijat. Ověřte svůj hlas <a href="%{verify_url}">zde</a> pomocí hlasovacího tokenu: %{encrypted_vote_hash}'
     help:
       participatory_spaces:
         votings:
