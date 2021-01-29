@@ -25,17 +25,17 @@ gl:
           error: Produciuse un erro ao crear un administrador novo.
           success: O administrador creouse con éxito
         destroy:
-          success: O administrador eliminouse con éxito
+          success: Administrador eliminado con éxito
         edit:
           title: Editar administrador
-          update: Actualización
+          update: Actualizar
         index:
           title: Administradores
         new:
           create: Crear
           title: Novo administrador
         update:
-          error: Houbo un erro ao actualizar este administrador.
+          error: Produciuse un problema ao actualizar este administrador.
           success: Administrador actualizado con éxito
       default_pages:
         placeholders:
@@ -50,19 +50,31 @@ gl:
           fields:
             created_at: Creado en
             email: Correo electrónico
-          name: Admin
+          name: Administrador
           validations:
             email_uniqueness: xa existe outro administrador co mesmo correo electrónico
+        oauth_application:
+          fields:
+            organization_name: Organización
         organization:
           actions:
             save_and_invite: Crear organización e invitar administrador
           fields:
             created_at: Creado en
+            file_upload_settings: Axustes de subida de ficheiros
             name: Nome
+            smtp_settings: Axustes SMTP
           name: Organización
       oauth_applications:
+        create:
+          error: Produciuse un problema ao crear esta aplicación.
+          success: Aplicación creada con éxito.
+        destroy:
+          error: Produciuse un problema ao destruír esta aplicación.
+          success: Aplicación destruída con éxito.
         edit:
           save: Gardar
+          title: Editar aplicación
         form:
           select_organization: Seleccionar unha organización
         index:
@@ -87,6 +99,24 @@ gl:
           reference_prefix_hint: O prefixo de referencia utilízase para identificar de forma exclusiva recursos en todas as organizacións
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
           title: Nova organización
+        omniauth_settings:
+          decidim:
+            client_id: ID do cliente
+            client_secret: Segredo do cliente
+            site_url: URL do sitio
+          enabled: Habilitado
+          enabled_by_default: Este provedor esta habilitado de xeito predefinido. Pódese editar pero non deshabilitar.
+          facebook:
+            app_id: ID da app
+            app_secret: Segredo da app
+          google_oauth2:
+            client_id: ID do cliente
+            client_secret: Segredo do cliente
+          icon: Icona
+          icon_path: Ruta da icona
+          twitter:
+            api_key: Clave da API
+            api_secret: Segredo da API
         smtp_settings:
           fieldsets:
             sender: Remitente
@@ -101,10 +131,10 @@ gl:
         users_registration_mode:
           disabled: O acceso só se pode facer con contas externas
           enabled: Permitir aos usuarios rexistrarse e iniciar sesión
-          existing: Non permita que os usuarios se rexistren, pero permiten que os usuarios xa teñan acceso
+          existing: Non permitir que os usuarios se rexistren, mais permitir que os usuarios existentes inicien sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear unha organización para comezar. Asegúrate de ler %{guide} antes de continuar.
           our_getting_started_guide: a nosa guía de inicio
       titles:
-        dashboard: Taboleiro de instrumentos
+        dashboard: Panel de control
