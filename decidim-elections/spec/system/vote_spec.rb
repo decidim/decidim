@@ -19,7 +19,7 @@ describe "Vote in an election", type: :system do
     let(:organization_traits) { [:secure_context] }
   end
 
-  it_behaves_like "allows to vote"
+  # it_behaves_like "allows to vote"
 
   shared_examples "allow admins to preview the voting booth" do
     let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }

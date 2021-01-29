@@ -29,7 +29,7 @@ module Decidim
         attr_reader :election, :required_status
 
         def update_election_status!
-          status = Decidim::Elections.bulletin_board.get_status(election.id)
+          status = Decidim::Elections.bulletin_board.get_election_status(election.id)
           election.bb_status = status
           election.save!
         end
