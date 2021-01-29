@@ -7,10 +7,10 @@ cs:
         offline_explanation: Pokyny pro ověření offline
         online: Online
       id_document_information:
-        document_number: Číslo dokumentu (s písmenem)
+        document_number: Číslo dokladu (jen číslice)
         document_type: Typ dokumentu
       id_document_upload:
-        document_number: Číslo dokumentu (s písmenem)
+        document_number: Číslo dokladu (jen číslice)
         document_type: Typ dokumentu
         user: Uživatel
         verification_attachment: Naskenovaná kopie dokumentu
@@ -74,7 +74,7 @@ cs:
       name: název
       postal_letter:
         explanation: Pošleme vám poštovní dopis s kódem, který budete muset zadat, abychom mohli ověřit vaši adresu
-        name: Kód poštovním dopisem
+        name: Kód v listovní zásilce
     events:
       verifications:
         verify_with_managed_user:
