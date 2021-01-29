@@ -133,13 +133,7 @@ edit_link(
 
 <%= comments_for debate %>
 
-<%=
-  render partial: "decidim/shared/flag_modal", locals: {
-    reportable: debate,
-    form: report_form,
-    url: decidim.report_path(sgid: debate.to_sgid.to_s)
-  }
-%>
+<%= cell("decidim/flag_modal", debate) %>
 <%=
   render partial: "close_debate_modal", locals: {
     debate: debate,
