@@ -393,12 +393,12 @@ en:
           activity: My activity
           all: All
           category: Category
-          my_meetings: My meetings
           date: Date
           date_values:
             all: All
             past: Past
             upcoming: Upcoming
+          my_meetings: My meetings
           origin: Origin
           origin_values:
             all: All
