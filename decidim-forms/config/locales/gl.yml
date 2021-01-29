@@ -33,6 +33,7 @@ gl:
           form:
             add_question: Engadir pregunta
             already_answered_warning: Algúns usuarios xa responderon o cuestionario para que non poida modificar as súas preguntas.
+            title: Editar formulario
           matrix_row:
             remove: Quitar
             statement: Declaración
