@@ -27,11 +27,16 @@ gl:
     admin:
       menu:
         authorization_revocation:
+          before_date_info: Útil se o proceso ten comezado e queres rexeitar os permisos do proceso anterior.
           button: Rexeitar todo
           button_before: Rexeitar antes da data
           destroy:
             confirm: O rexeitamento de autorizacións anteriores a esta data non se pode desfacer. Estas certo/a de querer continuar?
             confirm_all: O rexeitamento de autorizacións non se pode desfacer. Estas certo/a de querer continuar?
+          destroy_nok: Produciuse un problema ao rexeitar as autorizacións.
+          destroy_ok: Todas as autorizacións coincidentes foron rexeitadas con éxito!
+          info: Hai un total de %{count} participantes verificados.
+          no_data: Sen participantes verificados
           title: Rexeitamento das autorizacións
         authorization_workflows: Verificacións
     admin_log:
