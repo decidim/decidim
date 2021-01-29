@@ -106,6 +106,7 @@ gl:
           view: Ver
         project:
           view: Ver
+          you_voted: Votaches
         show:
           budget: Orzamento
           view_all_projects: Ver todos os proxectos
