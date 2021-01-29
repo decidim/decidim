@@ -1,1 +1,31 @@
 gl:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrición
+        proposals: Propostas relacionadas
+        title: Título
+      election:
+        description: Descrición
+        end_time: A votación remata ás
+        start_time: A votación comeza ás
+        title: Título
+      question:
+        description: Descrición
+        title: Título
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Resposta
+        other: Respostas
+      decidim/elections/question:
+        one: Pregunta
+        other: Preguntas
+      decidim/votings/voting:
+        one: Votación
+        other: Votacións
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Votar
