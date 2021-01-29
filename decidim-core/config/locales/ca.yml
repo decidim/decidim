@@ -1120,6 +1120,7 @@ ca:
         groups: Grups
         members: Membres
         officialized: Participant oficial
+        send_private_message: Envieu un missatge privat
         timeline: Línia de temps
         view_full_profile: Mostra el perfil complet
       sidebar:
