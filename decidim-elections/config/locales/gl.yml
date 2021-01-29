@@ -1,1 +1,9 @@
 gl:
+  decidim:
+    elections:
+      actions:
+        edit_answers: Editar respostas
+        edit_questions: Editar preguntas
+      elections:
+        show:
+          back: Todas as votacións
