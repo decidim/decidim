@@ -3,6 +3,7 @@ gl:
     attributes:
       answer:
         description: Descrición
+        image: Imaxe
         proposals: Propostas relacionadas
         title: Título
       election:
@@ -37,6 +38,9 @@ gl:
         title: Accións
       admin:
         answers:
+          edit:
+            title: Editar resposta
+            update: Actualizar resposta
           index:
             title: Respostas
           new:
@@ -47,6 +51,15 @@ gl:
             name: Resposta
           question:
             name: Pregunta
+        questions:
+          edit:
+            title: Editar pregunta
+            update: Actualizar pregunta
+          index:
+            title: Preguntas
+          new:
+            create: Crear pregunta
+            title: Nova pregunta
       election_m:
         badge_name:
           finished: Finalizada
@@ -68,9 +81,31 @@ gl:
           state: Estado
           upcoming: Vindeiras
         filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtrar
           filter_by: Filtrar por
         show:
           back: Todas as votacións
+      models:
+        answer:
+          fields:
+            title: Título
+        election:
+          fields:
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            title: Título
       votes:
         confirmed:
+          experience: Como valoras a túa experiencia?
+          feedback: Dános a túa opinión
+          header: Voto confirmado
           verify_text: Para verificalo, copia o identificador e pégao na <a href="evote-verify">páxina de verificación de voto</a>
+        header:
+          confirm: Confirma o teu voto
+          confirmed: Voto confirmado
+          encrypting: Confirmando o voto
+        modal:
+          close: Pechar
