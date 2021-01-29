@@ -172,7 +172,7 @@ cs:
               verify: Ověřte
           offline_confirmations:
             create:
-              error: Ověření neodpovídá. Zkuste to znovu nebo řekněte uživateli, že ho změní
+              error: Ověření neodpovídá vloženým údajům. Zkuste to znovu, nebo řekněte uživateli, ať si je změní
               success: Uživatel úspěšně ověřen
             new:
               cancel: zrušení
@@ -180,7 +180,7 @@ cs:
               verify: Ověřte
           pending_authorizations:
             index:
-              config: Config
+              config: Konfigurace
               offline_verification: Ověření offline
               title: Čekající ověření online
               verification_number: 'Ověření #%{n}'
