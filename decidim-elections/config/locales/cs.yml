@@ -177,6 +177,7 @@ cs:
           create_election:
             errors:
               max_selections: Otázky nemají <strong>správnou hodnotu pro množství odpovědí</strong>
+              minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
               minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
               published: Volby <strong>nejsou publikovány</strong>.
               time_before: Počáteční čas je za <strong>méně než 3 hodiny</strong> před zahájením voleb.
@@ -429,6 +430,7 @@ cs:
           question: Otázka %{count}
         confirmed:
           back: Zpět k volbám
+          error: Omlouváme se, došlo k chybě při potvrzení hlasování. Prosím, hlasujte znovu.
           experience: Jaká byla vaše zkušenost?
           feedback: Dejte nám zpětnou vazbu
           header: Hlasování potvrzeno
