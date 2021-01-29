@@ -169,7 +169,6 @@ fi-pl:
           create_election:
             errors:
               max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
-              minimum_answers: Kysymyksillä on oltava <strong>vähintään yksi vastaus</strong>.
               minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
               published: Vaalia <strong>ei ole julkaistu</strong>.
               time_before: Alkamisaika on <strong>alle 3 tuntia</strong> ennen vaalin alkua.
