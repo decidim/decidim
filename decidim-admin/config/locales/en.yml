@@ -880,14 +880,14 @@ en:
           reason: You need to provide a reason when managing a non managed participant
     metrics:
       reported_users:
-        title: Reported users
         object: reported users
+        title: Reported users
       suspended_users:
-        title: Blocked users
         object: blocked users
+        title: Blocked users
       user_reports:
-        title: User reports
         object: user reports
+        title: User reports
     moderations:
       actions:
         expand: Expand
