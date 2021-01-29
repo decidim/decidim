@@ -85,7 +85,7 @@ gl:
           close: Pechar
           description: Este proxecto supera o orzamento máximo e non se pode engadir. Se o desexa, pode eliminar un proxecto que xa seleccionou para engadir ou facer o seu voto coas súas preferencias.
           ok: Ok
-          title: O orzamento máximo excedeu
+          title: Orzamento máximo excedido
         budget_summary:
           are_you_sure: Estás certo de querer cancelar o teu voto?
           assigned: 'Asignado:'
@@ -142,7 +142,7 @@ gl:
             comments_enabled: Comentarios habilitados
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
-            resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
+            resources_permissions_enabled: Os permisos de acción pódense definir para cada reunión
             title: Título
             total_budget: Orzamento total
             vote_threshold_percent: Porcentaxe de límite de voto
