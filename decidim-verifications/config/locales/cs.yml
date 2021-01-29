@@ -63,8 +63,8 @@ cs:
             - Označte písmeno jako odesláno.
             - Jakmile označíte odeslané písmeno, uživatel bude schopen kód zadat a ověřit.
       csv_census:
-        explanation: Získejte ověření pomocí sčítání organizace
-        name: Sčítání organizace
+        explanation: Získejte ověření pomocí členů organizace
+        name: Členové organizace
       direct: Přímo
       help: Pomoc
       id_documents:
@@ -94,7 +94,7 @@ cs:
         first_login:
           actions:
             another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
-            csv_census: Ověřte sčítání organizace
+            csv_census: Ověřte prostřednictvím členů organizace
             dummy_authorization_handler: Ověřte proti příkladu pověření autorizace
             dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
             id_documents: Získejte ověření odesláním dokladu totožnosti
@@ -122,28 +122,28 @@ cs:
         admin:
           census:
             create:
-              error: Při importu sčítání došlo k chybě.
+              error: Při importu členů organizace došlo k chybě.
               success: Úspěšně importováno %{count} položek (%{errors} chyb)
             destroy_all:
-              success: Všechna data sčítání byly smazány
+              success: Všechna data členů organizace byly smazány
           destroy:
-            confirm: Odstranit veškeré sčítání nelze vrátit zpět. Jste si jistý, že chcete pokračovat?
-            title: Smazat všechna data sčítání
+            confirm: Odstranění veškerých kontaktů členů organizace nelze vrátit zpět. Jste si jistý, že chcete pokračovat?
+            title: Smazat všechna data členů organizace
           index:
             data: Celkem bylo načteno celkem %{count} záznamů. Poslední nahraje datum %{due_date}
-            empty: Neexistují údaje o sčítání. Pomocí níže uvedeného formuláře jej importujte pomocí souboru CSV.
-            title: Aktuální údaje o sčítání
+            empty: Neexistují data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
+            title: Aktuální údaje o členech organizace
           instructions:
-            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění csv_census organizaci
-            title: Musíte aktivovat CSV sčítání pro tuto organizaci
+            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
+            title: Musíte aktivovat CSV s kontakty členů organizace
           new:
             file: ".csv soubor s daty e-mailů"
-            info: 'Must být souborem ve formátu CSV s pouze jedním sloupcem s e-mailovou adresou:'
+            info: 'Must být soubor ve formátu CSV s pouze jedním sloupcem s e-mailovou adresou:'
             submit: Nahrát soubor
-            title: Nahrajte nové sčítání
+            title: Nahrajte nové členy organizace
         authorizations:
           new:
-            error: Váš účet nebyl ověřen, nebo nejste v sčítání organizace.
+            error: Váš účet nebyl ověřen, nebo nejste členem organizace.
             success: Účet byl úspěšně ověřen.
       dummy_authorization:
         extra_explanation:
