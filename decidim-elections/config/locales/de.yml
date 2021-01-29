@@ -169,6 +169,7 @@ de:
           create_election:
             errors:
               max_selections: Die <strong>maximale Anzahl Antworten</strong> für die Fragen ist inkorrekt
+              minimum_answers: Fragen müssen <strong>mindestens zwei Antworten</strong> haben.
               minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
               published: Die Wahl ist <strong>nicht veröffentlicht</strong>.
               time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl.
@@ -415,6 +416,7 @@ de:
           question: Frage %{count}
         confirmed:
           back: Zurück zu den Wahlen
+          error: Leider ist ein Fehler bei der Bestätigung der Abstimmung aufgetreten. Bitte erneut abstimmen.
           experience: Wie war Ihre Erfahrung mit uns?
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
@@ -447,6 +449,9 @@ de:
         processing:
           header: Stimme wird verarbeitet...
           text: Ihre Stimme wurde empfangen und wird verarbeitet. Bitte warten.
+        update:
+          error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
+          success: Abstimmung erfolgreich aktualisiert
         verify:
           content:
             heading: Stimme verifizieren
@@ -487,6 +492,12 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer für %{resource_name} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für %{resource_name}.
             notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Deine Stimme wurde angenommen! Benutze deinen Stimm-Token: %{encrypted_vote_hash}, du kannst deine Stimme <a href="%{verify_url}">hier verifizieren</a>.'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie für die %{resource_name} -Wahl gestimmt haben.
+            email_subject: Deine Stimme für %{resource_name} wurde angenommen.
+            notification_title: 'Deine Stimme wurde akzeptiert. Verifiziere deine Stimme <a href="%{verify_url}">hier</a> mit deinem Voting-Token: %{encrypted_vote_hash}'
     help:
       participatory_spaces:
         votings:
