@@ -570,13 +570,6 @@ en:
               ok: Withdraw the collaborative draft
               title: The following action is irreversible
             success: Collaborative draft withdrawn successfully.
-        compare:
-          mine_is_different: My collaborative draft is different
-          no_similars_found: Well done! No similar collaborative drafts found
-          title: Similar collaborative drafts
-        complete:
-          send: Send
-          title: Complete your collaborative draft
         count:
           drafts_count:
             one: "%{count} collaborative draft"
@@ -608,7 +601,6 @@ en:
           unfold: Unfold
         new:
           send: Continue
-          title: Create Your collaborative draft
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
         orders:
@@ -653,23 +645,11 @@ en:
         update:
           error: There was a problem saving the collaborative draft.
           success: Collaborative draft successfully updated.
-          title: Edit collaborative draft
         wizard_aside:
-          back: Back
           back_from_collaborative_draft: Back to collaborative drafts
-          back_from_step_1: Back to collaborative drafts
-          back_from_step_2: Back to collaborative drafts
-          back_from_step_3: Back to compare collaborative drafts
-          back_from_step_4: Back to edit draft
           info: You are creating a <strong>collaborative draft</strong>.
-        wizard_steps:
-          current_step: Current step
-          see_steps: see steps
-          step_1: Create your collaborative draft
-          step_2: Compare with collaborative drafts
-          step_3: Complete your collaborative draft
-          step_of: Step %{current_step_num} of %{total_steps}
-          title: Collaborative draft creation steps
+        wizard_header:
+          title: Create your collaborative draft
       content_blocks:
         highlighted_proposals:
           proposals: Proposals

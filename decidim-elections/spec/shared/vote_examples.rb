@@ -65,6 +65,10 @@ shared_examples "uses the voting booth" do
       headers: { "Access-Control-Allow-Origin" => "*" },
       json: {
         data: {
+          pendingMessage: {
+            status: "accepted",
+            __typename: "PendingMessage"
+          },
           logEntry: {
             messageId: "decidim-test-authority.10002.vote.cast+v.2b4ed424cb13184168b02ff54e0fc1d00ca666548007e5309c95faa92fe4e0f4",
             signedData: "eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJ1bmlxdWVcIixcInF1ZXN0aW9uXzg2MVwiOltcIjU4MDhcIl0sXCJxdWVzdGlvbl84NjNcIjpbXCI1ODI0XCIsXCI1ODIxXCIsXCI1ODE5XCJdLFwicXVlc3Rpb25fODYyXCI6W1wiNTgxOFwiLFwiNTgxNVwiLFwiNTgxN1wiLFwiNTgxNFwiLFwiNTgxMlwiXX0iLCJpYXQiOjE2MTA1Njc4NDQsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEwMDAyLnZvdGUuY2FzdCt2LjJiNGVkNDI0Y2IxMzE4NDE2OGIwMmZmNTRlMGZjMWQwMGNhNjY2NTQ4MDA3ZTUzMDljOTVmYWE5MmZlNGUwZjQifQ.eSnPvE3_Ty6IkTX-DFRGkH1tfBzpuFlqdgPo2EVz8laCznNN_xb_EwbMPHAtH0hrB0vT5slrPaM1HczUxylbrOIOwvziisccGe4Ey-mOaM56w8SicIJJjmx6E6f1LeRukoTkzvO2Qmn2U13Majzx0LPkkVTwIJw9rkgvIDfVre0l0qUn_yRlV2opJslmLPpjtBTZ-xvi35qu_J5C2GJzVAvb31CMgZUAKMLx75wyfqy2O0Els6C-jItMCR0xStfkNnI5QS5IkgA4L-rNLkOBEEuq2R4UJ4qiPHr2ZiFIUxP_g-Xd7fwRxQfzgt0dgxEVZYPE2DvtsAmaSEOT0VMymkjjsZzp7CtQf5dYEdXrpN4BRAf64gQ13MPh6NOnrLWlYNqlR7KhmxK4lr0LgosFdbD6xhXN8n37lNHz-u2CWs2XJgIDpEe9TOSlCj0GPpjV4jwRCrPUOtfx8_fUaxs2NhPrMTZGgshA7v_W4SGFZWb3ughPXV8XF5tauDnLTB2Ln-GKO9A4mQ-Wh1OXfUsdv_wLidtIOotzf62oujAHCJQHtlhMNsU-dLDpLlyxeHoaBY16j2pM46ufle7nCOMxg3TSZtfAuGoIjiAf9lRXyHRf5MLFPLVitO2-zV3xS4xPRL7WC7YvvpAGHK5Opq4xG_cnXht38VJrBIAuIbWL1hU",
@@ -145,9 +149,13 @@ shared_examples "uses the voting booth" do
       click_link("Confirm")
     end
 
+    # encrpyting vote page
+    non_question_step("#encrypting") do
+      expect(page).to have_content("Encoding vote...")
+    end
+
     # confirmed vote page
     non_question_step("#confirmed_page") do
-      expect(page).to have_content("Processing vote")
       expect(page).to have_content("Vote confirmed")
       expect(page).to have_content("Your vote has already been cast!")
     end

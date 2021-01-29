@@ -25,6 +25,9 @@
       })
       /* eslint-disable max-params */
       this.quill.on(Quill.events.EDITOR_CHANGE, (eventName, delta, oldDelta, source) => {
+        if (!delta) {
+          return;
+        }
         if (!this.init && eventName === "selection-change") {
           this.stack.undo[0].index = delta.index;
         }

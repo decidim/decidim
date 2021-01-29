@@ -17,12 +17,14 @@ module Decidim::Conferences
         current_user: current_user,
         full_name: "New name",
         errors: ActiveModel::Errors.new(Admin::PartnerForm),
+        logo: logo,
+        remove_logo: false,
         attributes: {
           name: "New name",
           weight: 2,
           partner_type: "collaborator",
-          logo: logo,
           link: Faker::Internet.url,
+          logo: logo,
           remove_logo: false
         }
       )

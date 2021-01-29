@@ -5,7 +5,9 @@
   data-election-unique-id="<%= @form.election_unique_id %>"
   data-voter-id="<%= @form.voter_id %>"
   data-cast-vote-url="<%= cast_election_vote_url(election) %>"
+  data-update-vote-status-url="<%= election_vote_url(election) %>"
   data-booth-mode="<%= booth_mode %>">
+
   <% questions.each_with_index do |step_question, step_index| %>
     <div id="step-<%= step_index %>" class="focus__step <%= "hide" if step_index.positive? %>"
     data-toggler=".hide">

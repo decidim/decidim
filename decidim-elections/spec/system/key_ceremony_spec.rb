@@ -54,7 +54,7 @@ describe "Key ceremony", type: :system do
 
       perform_key_ceremony_action
 
-      click_button "Download keys"
+      click_link "Download keys"
 
       content = download_content("#{trustee.unique_id}-*.bak")
       expect(content).to have_content(%(trusteeId":"#{trustee.unique_id}))
@@ -105,7 +105,7 @@ describe "Key ceremony", type: :system do
       expect(page).to have_content("Restore election keys for #{translated(election.title, locale: :en)}")
 
       attach_file(download_path("#{trustee.unique_id}-*.bak")) do
-        click_button "Upload election keys"
+        page.find_all(:xpath, "//*[normalize-space(text())='Upload election keys']").first.click
       end
 
       expect(page).to have_css("#create_election", text: "Completed")

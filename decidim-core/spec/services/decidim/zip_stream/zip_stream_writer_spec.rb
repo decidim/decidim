@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module ZipStream
-    DummyUploader = Struct.new(:fog_provider, :file)
+    DummyUploader = Struct.new(:provider, :file)
     class ZipStreamWriterWrapper
       include ::Decidim::ZipStream::Writer
     end
