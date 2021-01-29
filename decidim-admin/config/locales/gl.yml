@@ -125,6 +125,9 @@ gl:
         permissions: Permisos
         reject: Rexeitar
         verify: Verifique
+      admin_terms_of_use:
+        actions:
+          accept: Concordo con estes termos de administrador
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
@@ -505,6 +508,7 @@ gl:
           error: Produciuse un erro ao eliminar un usuario privado deste espazo participativo.
           success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
         index:
+          import_via_csv: Importar a través de csv
           title: Espazo participativo usuario privado
         new:
           create: Crear
