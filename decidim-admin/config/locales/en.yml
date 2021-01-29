@@ -881,10 +881,13 @@ en:
     metrics:
       reported_users:
         title: Reported users
+        object: reported users
       suspended_users:
         title: Blocked users
+        object: blocked users
       user_reports:
         title: User reports
+        object: user reports
     moderations:
       actions:
         expand: Expand
