@@ -66,6 +66,8 @@ gl:
             title: Nova pregunta
         steps:
           create_election:
+            errors:
+              minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
             not_used_trustee: "(non usada)"
       election_m:
         badge_name:
@@ -134,6 +136,7 @@ gl:
               submit: Enviar
       votes:
         confirmed:
+          error: Sentímolo, produciuse un erro confirmando o voto. Por favor, vota de novo.
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
           header: Voto confirmado
@@ -143,3 +146,6 @@ gl:
           encrypting: Confirmando o voto
         modal:
           close: Pechar
+        update:
+          error: Produciuse un problema ao actualizar o estado do voto
+          success: Estado do voto actualizado con éxito
