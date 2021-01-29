@@ -110,7 +110,7 @@ edit_link(
       <%= render_debate_description(debate) %>
 
       <% if debate.closed? %>
-        <%= cell("decidim/announcement", { announcement: { title: t(".debate_conclusions_are", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success" }) %>
+        <%= cell("decidim/announcement", { title: t(".debate_conclusions_are", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success") %>
       <% end %>
 
       <% if translated_attribute(debate.instructions).present? %>

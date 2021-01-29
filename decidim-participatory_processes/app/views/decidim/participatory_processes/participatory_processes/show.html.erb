@@ -21,10 +21,7 @@
              locals: { text: t("private_space", scope: "decidim.participatory_processes.show") } %>
 <% end %>
 
-<% if translated_attribute(current_participatory_space.announcement).present? %>
-  <%= render partial: "decidim/shared/announcement",
-             locals: { announcement: current_participatory_space.announcement } %>
-<% end %>
+<%= cell("decidim/announcement", current_participatory_space.announcement) %>
 
 <div class="row column">
   <div class="row">
