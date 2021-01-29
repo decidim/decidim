@@ -149,3 +149,11 @@ gl:
         update:
           error: Produciuse un problema ao actualizar o estado do voto
           success: Estado do voto actualizado con éxito
+    events:
+      elections:
+        votes:
+          accepted_votes:
+            email_intro: 'O teu voto foi aceptado! Empregando o teu token de votación: %{encrypted_vote_hash}, podes verificar o teu voto <a href="%{verify_url}">aquí</a>.'
+            email_outro: Recibiches esta notificación porque votaches pola elección de %{resource_name}.
+            email_subject: O teu voto por %{resource_name} foi aceptado.
+            notification_title: 'O teu voto foi aceptado, verifícao <a href="%{verify_url}">aquí</a> empregando o teu token de votación: %{encrypted_vote_hash}'
