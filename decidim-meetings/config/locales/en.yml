@@ -390,7 +390,10 @@ en:
           title: Edit Your Meeting
           update: Update
         filters:
+          activity: My activity
+          all: All
           category: Category
+          my_meetings: My meetings
           date: Date
           date_values:
             all: All

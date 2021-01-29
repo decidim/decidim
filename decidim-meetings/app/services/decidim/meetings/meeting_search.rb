@@ -36,6 +36,17 @@ module Decidim
         end
         query.merge(temp_query)
       end
+
+      # Handle the activity filter
+      def search_activity
+        case activity
+        when "my_proposals"
+          query
+            .where(decidim_author_id: user.id)
+        else # Assume 'all'
+        query
+        end
+      end
     end
   end
 end

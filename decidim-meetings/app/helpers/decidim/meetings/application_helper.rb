@@ -48,6 +48,15 @@ module Decidim
           ]
         )
       end
+
+      # Options to filter Proposals by activity.
+      def activity_filter_values
+        base = [
+          ["all", t(".all")],
+          ["my_proposals", t(".my_meetings")]
+        ]
+        base
+      end
     end
   end
 end
