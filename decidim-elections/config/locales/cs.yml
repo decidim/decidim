@@ -574,6 +574,10 @@ cs:
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
+      pages:
+        home:
+          highlighted_votings:
+            see_all_votings: Zobrazit všechna hlasování
       votings:
         count:
           title:
