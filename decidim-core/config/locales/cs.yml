@@ -1088,7 +1088,7 @@ cs:
           headline: Metriky
         statistics:
           answers_count: Dokončené průzkumy
-          assemblies_count: Sestavy
+          assemblies_count: Shromáždění
           comments_count: Komentáře
           conferences_count: Konference
           debates_count: Debaty
@@ -1193,7 +1193,7 @@ cs:
         subject: Byl ohlášen zdroj
     reports:
       create:
-        error: Při vytváření sestavy došlo k chybě. Zkuste to znovu.
+        error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
     resource_endorsements:
       create:
