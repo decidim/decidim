@@ -452,9 +452,9 @@ gl:
               title: A seguinte acción é irreversible
             success: Proxecto colaborativo retirado con éxito.
         compare:
-          mine_is_different: O meu proxecto de colaboración é diferente
-          no_similars_found: Ben feito! Non se atoparon borradores colaborativos similares
-          title: Borradores colaborativos similares
+          mine_is_different: O meu borrador colaborativo é diferente
+          no_similars_found: Parabéns! Non se atoparon borradores colaborativos semellantes
+          title: Borradores colaborativos semellantes
         complete:
           send: Enviar
           title: Completa o teu borrador colaborativo
@@ -537,6 +537,7 @@ gl:
           title: Editar borrador colaborativo
         wizard_aside:
           back: De volta
+          back_from_step_3: Volver a comparación de borradores colaborativos
           info: Está creando un <strong>proxecto de colaboración</strong>.
         wizard_steps:
           see_steps: ver pasos
@@ -544,6 +545,7 @@ gl:
           step_2: Comparar con borradores colaborativos
           step_3: Completa o teu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
+          title: Pasos para a creación dun borrador colaborativo
       create:
         error: Produciuse un erro ao gardar a proposta.
         success: Proposta creada con éxito. Gardado como borrador.
