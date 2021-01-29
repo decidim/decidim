@@ -85,7 +85,7 @@ gl:
           title: Confirmar voto
         budget_excess:
           budget_excess:
-            title: O orzamento máximo excedeu
+            title: Orzamento máximo excedido
           close: Pechar
           ok: Ok
         budget_summary:
