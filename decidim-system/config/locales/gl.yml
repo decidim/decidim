@@ -2,8 +2,11 @@ gl:
   activemodel:
     attributes:
       oauth_application:
+        name: Nome da aplicación OAuth
+        organization_logo: Logo da organización (cadrado)
         organization_name: Organización
         organization_url: URL da organización
+        redirect_uri: URI de redirección
       organization:
         address: Nome do servidor SMTP
         from_email: Enderezo de correo electrónico
@@ -11,6 +14,23 @@ gl:
         password: Contrasinal
         port: Porto
         user_name: Nome de usuario
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipos MIME do panel de administración
+          default: Tipos MIME predefinidos
+        allowed_file_extensions:
+          admin: Extensións de ficheiros do panel de administrador
+          default: Extensións predefinidas de ficheiro
+          image: Extensións dos ficheiros de imaxe
+        maximum_file_size:
+          avatar: Tamaño do ficheiro do avatar
+          default: Tamaño de ficheiro predefinido
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: A URI de redirección ten de ser un URI SSL
   decidim:
     system:
       actions:
@@ -44,6 +64,7 @@ gl:
       menu:
         admins: Administradores
         dashboard: Panel de control
+        oauth_applications: Aplicacións OAuth
         organizations: Organizacións
       models:
         admin:
@@ -55,7 +76,10 @@ gl:
             email_uniqueness: xa existe outro administrador co mesmo correo electrónico
         oauth_application:
           fields:
+            created_at: Creado o
+            name: Nome da aplicación OAuth
             organization_name: Organización
+          name: Aplicacións OAuth
         organization:
           actions:
             save_and_invite: Crear organización e invitar administrador
@@ -79,11 +103,13 @@ gl:
           select_organization: Seleccionar unha organización
         index:
           confirm_delete: Estás certo/a de querer eliminar esta aplicación?
+          title: Aplicacións OAuth
         new:
           save: Gardar
           title: Nova aplicación
         update:
           error: Produciuse un erro ao actualizar esta aplicación.
+          success: Aplicación actualizada con éxito.
       organizations:
         create:
           error: Produciuse un erro ao crear unha nova organización.
@@ -91,8 +117,15 @@ gl:
         edit:
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
         file_upload_settings:
+          content_types:
+            title: Tipos MiME permitidos
           file_extensions:
             title: Extensións de ficheiro permitidas
+          file_sizes:
+            title: Tamaño máximo de ficheiros
+          intro: |
+            Por favor, ten moita precaución á hora de mudar estes axustes. Cantas menos opcións permitas, mellor.
+            Permitir extensións especificas ou tipos MIME, pode expor os usuarios do sistema a riscos de seguranza e tamén pode afectar á accesibilidade do sitio web.
         index:
           title: Organizacións
         new:
