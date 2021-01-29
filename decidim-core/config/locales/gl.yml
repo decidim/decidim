@@ -109,6 +109,7 @@ gl:
         update: "%{user_name} actualizou a configuración da organización"
       participatory_space_private_user:
         create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        create_via_csv: "%{user_name} convidou a %{resource_name} vía csv a ser un participante privado"
         delete: "%{user_name} eliminou o usuario %{resource_name} como usuario privado"
       scope:
         create: "O %{user_name} creou o alcance %{resource_name}"
@@ -540,6 +541,9 @@ gl:
       default_image: Imaxe predeterminada
       errors:
         error: Hai un erro neste campo.
+      file_help:
+        file:
+          message_2: Nas imaxes, emprega preferiblemente as apaisadas, o servizo recorta a imaxe.
       remove_this_file: Elimina este ficheiro
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
