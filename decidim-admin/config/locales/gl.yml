@@ -238,6 +238,9 @@ gl:
       block_user:
         new:
           action: Bloquear conta e enviar xustificante
+          description: O bloqueo dun usuario/a deixará a súa conta inservible, podes fornecer no teu xustificante e directrices de que xeito é posible desbloquear o usuario/a.
+          justification: Xustificante
+          title: Bloquear ao usuario %{name}
       categories:
         create:
           error: Houbo un erro ao crear esta categoría.
@@ -259,6 +262,7 @@ gl:
           success: A categoría actualizouse con éxito.
       component_permissions:
         update:
+          error: Produciuse un problema ao actualizar os permisos deste compoñente.
           success: Permisos actualizados con éxito.
       components:
         create:
@@ -279,6 +283,7 @@ gl:
           headers:
             actions: Accións
             name: Nome do compoñente
+            scope: Ámbito do compoñente
             type: Tipo de compoñente
         new:
           add: Engadir compoñente
@@ -291,6 +296,13 @@ gl:
         update:
           error: Houbo un erro ao actualizar este compoñente.
           success: O compoñente foi actualizado correctamente.
+      conflicts:
+        'false': 'Non'
+        solved: Resolto
+        title: Conflitos de verificación
+        transfer:
+          name: Nome
+          reason: Motivo
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
@@ -453,9 +465,24 @@ gl:
             does_not_belong: Non pertence
             offensive: Ofensivo
             spam: Correo non desexado
+        reports:
+          index:
+            reported_content: Contido reportado
+            see_current: Ver actual
+            see_original: Ver orixinal
+          show:
+            report_details: Detalles do motivo
+            report_language: Idioma do informe
+            report_reason: Motivo
+            title: Detalles do motivo
       newsletter_templates:
         index:
           preview_template: Vista previa
+          title: Padróns para boletíns
+          use_template: Empregar este padrón
+        show:
+          preview: 'Vista previa do padrón: %{template_name}'
+          use_template: Empregar este padrón
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
@@ -470,7 +497,17 @@ gl:
           save_and_preview: Gardar e previsualizar
           title: Editar boletín informativo
         index:
+          all: todos
+          all_users: 'Todos os usuarios '
+          and: 'e '
           confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
+          followers: 'seguidores '
+          has_been_sent_to: 'Foi enviado a: '
+          no_scopes: Sen ámbitos
+          not_sent: Sen enviar
+          participants: 'participantes '
+          segmented_to: 'Segmentado para %{subject}: '
+          subscribed_count: 'Subscrito/a:'
           title: Boletíns informativos
         new:
           save: Gardar
