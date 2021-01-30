@@ -149,7 +149,7 @@ cs:
             proposal_limit: Limit návrhu na uživatele
             proposal_wizard_step_1_help_text: Návrh průvodce "Vytvořit" pomocný text kroku
             proposal_wizard_step_2_help_text: Průvodce návrhem "Porovnat" krok nápovědy
-            proposal_wizard_step_3_help_text: Návrh průvodce "Kompletní" pomocný text kroku
+            proposal_wizard_step_3_help_text: Text nápovědy k průvodci krokem návrhu „Dokončit“
             proposal_wizard_step_4_help_text: Průvodce návrhem "Publikovat" pomocný text kroku
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
             scope_id: Oblast působnosti
@@ -169,7 +169,7 @@ cs:
               participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
-            answers_with_costs: Povoleny náklady v odpovědi návrhu
+            answers_with_costs: Povolit finanční náklady v odpovědích návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
@@ -177,7 +177,7 @@ cs:
             endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
-            suggested_hashtags: Hashtags navrhl uživatelům nové návrhy
+            suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasování bylo blokováno
             votes_enabled: Hlasování povoleno
             votes_hidden: Hlasy skryté (pokud jsou povoleny hlasy, při kontrole se skryje počet hlasů)
@@ -890,7 +890,7 @@ cs:
           see_steps: viz kroky
           step_1: Vytvořte svůj návrh
           step_2: Porovnejte
-          step_3: Kompletní
+          step_3: Dokončete
           step_4: Publikujte svůj návrh
           step_of: Krok %{current_step_num} z %{total_steps}
           title: Kroky vytváření návrhů
