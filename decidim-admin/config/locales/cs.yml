@@ -166,7 +166,7 @@ cs:
           title: Souhlasit s podmínkami používání
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
-          callout: Věnujte prosím chvilku a přečtěte si administrátorské podmínky použití. V opačném případě nebudete moci platformu spravovat.
+          callout: Věnujte prosím chvilku a přečtěte si administrátorské podmínky použití. V opačném případě nebudete moci platformu spravovat. MUSÍTE KLIKNOUT NA ZELENÉ TLAČÍTKO.
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
