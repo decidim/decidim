@@ -901,7 +901,7 @@ cs:
       no_members: Tato skupina uživatelů zatím nemá žádného člena.
     menu:
       help: Pomoc
-      home: Domov
+      home: Úvod
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
