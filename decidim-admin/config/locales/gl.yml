@@ -12,7 +12,7 @@ gl:
       attachment:
         attachment_collection_id: Cartafol
         description: Descrición
-        file: Arquivo
+        file: Ficheiro
         title: Anexo ou nome da imaxe
       attachment_collection:
         description: Descrición
@@ -514,24 +514,35 @@ gl:
           title: Novo boletín informativo
         select_recipients_to_deliver:
           all_spaces: Todos
-          all_users_help: Enviar boletíns a todos os participantes confirmados.
+          all_users_help: Enviar boletíns a todos os usuarios confirmados.
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
-          followers_help: Enviar boletíns a todos os participantes confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
+          followers_help: Enviar boletíns a todos os usuarios confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
           none: Ningún
-          participants_help: Enviar boletíns a todos os participantes confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
-          recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> participantes.
-          scopes_help: Envía o boletín ao participantes que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
-          select_scopes: Filtrar polos participantes que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
+          participants_help: Enviar boletíns a todos os usuarios confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
+          recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> usuarios.
+          scopes_help: Envía o boletín ao usuarios que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
+          select_scopes: Filtrar polos usuarios que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
           select_spaces: Seleccionar espazos para segmentar o boletín
-          select_users: Selecciona a que participantes queres enviar o boletín
+          select_users: Selecciona a que usuarios queres enviar o boletín
+          send_to_all_users: Enviar a todos os usuarios
+          send_to_followers: Enviar aos seguidores
+          send_to_participants: Enviar aos participantes
+          title: Seleccionar os destinatarios
+          warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
+        send:
+          no_recipients: Sen destinatarios para esta selección
         show:
           preview: Vista previa
+          select_recipients_to_deliver: Seleccionar os destinatarios
           subject: Asunto
         update:
           error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
       officializations:
+        block:
+          error: Produciuse un erro ao bloquear o participante
+          success: Participante bloqueado con éxito
         create:
           success: O usuario oficializouse con éxito
         destroy:
@@ -539,6 +550,7 @@ gl:
         index:
           actions: Accións
           badge: Insignia
+          block: Bloquear usuario
           created_at: Creado en
           name: Nome
           nickname: Alcume
@@ -546,12 +558,21 @@ gl:
           officialize: Organizar
           officialized: Oficializado
           reofficialize: Reofficializar
+          reports: Informes
+          show_email: Amosar enderezo de correo
           status: Estado
+          unblock: Desbloquear usuario
           unofficialize: Non oficializar
         new:
           badge: Insignia de oficialización
           officialize: Organizar
           title: Clasificar o usuario "%{name}"
+        show_email_modal:
+          close_modal: Pechar modal
+          description: Se precisas contactar cun participante directamente, podes premer no botón Amosar para ver o seu enderezo de correo. Está acción será rexistrada.
+          email_address: Enderezo de correo electrónico
+          full_name: Nome completo
+          hidden: oculto
       organization:
         edit:
           title: Editar organización
