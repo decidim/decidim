@@ -570,7 +570,7 @@ cs:
       initiatives_type:
         actions:
           title: Akce
-          vote: Hlasování
+          vote: Podepsat
   layouts:
     decidim:
       admin:
