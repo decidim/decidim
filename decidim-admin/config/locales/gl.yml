@@ -160,6 +160,9 @@ gl:
           are_you_sure: Estás certo/a de querer rexeitar os termos de uso do panel de administración?
           refuse: Rexeitar os termos de uso
           title: Concordo cos termos e condicións de uso
+        required_review:
+          alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
+          callout: Por favor, dedícalle un anaco de tempo á revisión da actualización dos nosos Termos de uso do panel de administración. No caso contrario, non poderás administrar a plataforma.
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
