@@ -45,6 +45,7 @@ gl:
         github_handler: Xestor de GitHub
         header_snippets: Fragmentos de cabeceira
         highlight_alternative_color: Realzado, alternativo
+        highlight_color: Realzado
         highlighted_content_banner_action_subtitle: Subtítulo do botón de acción
         highlighted_content_banner_action_title: Título do botón de acción
         highlighted_content_banner_action_url: URL do botón de acción
@@ -54,6 +55,9 @@ gl:
         highlighted_content_banner_title: Título
         instagram_handler: Administrador de Instagram
         logo: Logo
+        machine_translation_display_priority: Prioridade ao amosar as traducións automáticas
+        machine_translation_display_priority_original: Primeiro o texto orixinal
+        machine_translation_display_priority_translation: Primeiro o texto traducido
         name: Nome
         official_img_footer: Footer do logotipo oficial
         official_img_header: Cabeceira do logotipo oficial
@@ -63,13 +67,18 @@ gl:
         omnipresent_banner_url: URL
         primary_color: Primaria
         reference_prefix: Prefijo de referencia
+        rich_text_editor_in_public_views: Habilitar o editor de texto avanzado para os participantes
         secondary_color: Secundaria
+        send_welcome_notification: Enviar notificación de benvida
         show_statistics: Amosar estatísticas
         success_color: Éxito
+        time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
         user_groups_enabled: Activar grupos de usuarios
         warning_color: Aviso
+        welcome_notification_body: Corpo da notificación de benvida
+        welcome_notification_subject: Asunto da notificación de benvida
         youtube_handler: Xestor de YouTube
       scope:
         code: Código
@@ -127,12 +136,25 @@ gl:
         export: Exportar
         manage: Xestionar
         new: Novo %{name}
+        per_page: Por páxina
         permissions: Permisos
         reject: Rexeitar
+        share: Compartir
         verify: Verifique
       admin_terms_of_use:
+        accept:
+          error: Produciuse un erro ao aceptar os termos de uso do panel de administración.
+          success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
           accept: Concordo con estes termos de administrador
+          are_you_sure: Estás certo/a de querer rexeitar os termos de uso do panel de administración?
+          refuse: Rexeitar os termos de uso
+          title: Concordo cos termos e condicións de uso
+        required_review:
+          alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
+          callout: Por favor, dedícalle un anaco de tempo á revisión da actualización dos nosos Termos de uso do panel de administración. No caso contrario, non poderás administrar a plataforma.
+          cta: Revísaos agora.
+        title: Termos de uso do panel de administración
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
@@ -153,6 +175,7 @@ gl:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
         destroy:
+          has_spaces: A área ten espazos dependentes, non poderá ter dependencias para poder ser eliminada.
           success: Área destruída con éxito
         edit:
           title: Editar área
@@ -223,6 +246,7 @@ gl:
           success: A categoría actualizouse con éxito.
       component_permissions:
         update:
+          error: Produciuse un problema ao actualizar os permisos deste compoñente.
           success: Permisos actualizados con éxito.
       components:
         create:
@@ -243,6 +267,7 @@ gl:
           headers:
             actions: Accións
             name: Nome do compoñente
+            scope: Ámbito do compoñente
             type: Tipo de compoñente
         new:
           add: Engadir compoñente
@@ -420,6 +445,11 @@ gl:
       newsletter_templates:
         index:
           preview_template: Vista previa
+          title: Padróns para boletíns
+          use_template: Empregar este padrón
+        show:
+          preview: 'Vista previa do padrón: %{template_name}'
+          use_template: Empregar este padrón
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
@@ -434,14 +464,35 @@ gl:
           save_and_preview: Gardar e previsualizar
           title: Editar boletín informativo
         index:
+          all: todos
+          all_users: 'Todos os usuarios '
+          and: 'e '
           confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
+          followers: 'seguidores '
+          has_been_sent_to: 'Foi enviado a: '
+          no_scopes: Sen ámbitos
+          not_sent: Sen enviar
+          participants: 'participantes '
+          segmented_to: 'Segmentado para %{subject}: '
+          subscribed_count: 'Subscrito/a:'
           title: Boletíns informativos
         new:
           save: Gardar
           title: Novo boletín informativo
         select_recipients_to_deliver:
+          all_spaces: Todos
+          all_users_help: Enviar boletíns a todos os participantes confirmados.
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
+          followers_help: Enviar boletíns a todos os participantes confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
+          none: Ningún
+          participants_help: Enviar boletíns a todos os participantes confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
+          recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> participantes.
+          scopes_help: Envía o boletín ao participantes que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
+          select_scopes: Filtrar polos participantes que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
+          select_spaces: Seleccionar espazos para segmentar o boletín
+          select_users: Selecciona a que participantes queres enviar o boletín
+          send_to_all_users: Enviar a todos os participantesss
         show:
           preview: Vista previa
           subject: Asunto
