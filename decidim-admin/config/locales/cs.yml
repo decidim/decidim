@@ -337,7 +337,7 @@ cs:
         officialized_at_null:
           label: Stav
           values:
-            'false': Úředně
+            'false': Ověřeno
             'true': Není oficializováno
         private_space_eq:
           label: Soukromé
@@ -627,8 +627,8 @@ cs:
           name: název
           nickname: Přezdívka
           not_officialized: Není oficializováno
-          officialize: Úředně
-          officialized: Úředně
+          officialize: Ověřit
+          officialized: Ověřen
           reofficialize: Reofficialize
           reports: Hlášení
           show_email: Zobrazit e-mailovou adresu
@@ -637,7 +637,7 @@ cs:
           unofficialize: Odebrat oficializaci
         new:
           badge: Oficializační odznak
-          officialize: Úředně
+          officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
         show_email_modal:
           close_modal: Zavřít okno
