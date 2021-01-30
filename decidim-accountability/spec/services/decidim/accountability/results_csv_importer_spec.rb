@@ -5,7 +5,7 @@ require "decidim/core/test/factories"
 require "decidim/accountability/test/factories"
 require "decidim/participatory_processes/test/factories"
 
-describe Decidim::Accountability::ResultsCSVImporter do
+describe Decidim::Accountability::ResultsCsvImporter do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:current_user) { create :user, organization: organization }
   let(:participatory_process) { create :participatory_process, organization: organization }

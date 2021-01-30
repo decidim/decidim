@@ -53,8 +53,8 @@ module Decidim
       if options[:block]
         options[:block].call(self)
       elsif options[:fields]
-        options[:fields].each_with_object({}) do |field, result|
-          result[field] = send(field)
+        options[:fields].index_with do |field|
+          send(field)
         end
       else
         raise "Fingerprinting needs to be set up via the `fingerprint` class method."

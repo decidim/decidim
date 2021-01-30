@@ -12,6 +12,7 @@ require "autoprefixer-rails"
 
 require "decidim/comments/query_extensions"
 require "decidim/comments/mutation_extensions"
+require_relative "../../../app/services/decidim/comments/comment_creation"
 
 module Decidim
   module Comments

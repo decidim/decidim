@@ -104,13 +104,11 @@ module Decidim
 
             expect do
               post :create
-            end.to have_enqueued_job(ActionMailer::DeliveryJob).with(
+            end.to have_enqueued_job(ActionMailer::MailDeliveryJob).with(
               "Decidim::DecidimDeviseMailer",
               "confirmation_instructions",
               "deliver_now",
-              user,
-              kind_of(String),
-              {}
+              { args: [user, kind_of(String), {}] }
             )
           end
 

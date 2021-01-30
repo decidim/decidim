@@ -60,8 +60,13 @@ module Decidim
       end
 
       def append_assets
-        append_file "app/assets/javascripts/application.js", "//= require decidim"
-        gsub_file "app/assets/javascripts/application.js", %r{//= require turbolinks\n}, ""
+        create_file "app/assets/javascripts/application.js", <<~FILE
+          //= require rails-ujs
+          //= require activestorage
+          //= require_tree .
+          //= require decidim
+        FILE
+        append_file "app/assets/config/manifest.js", "//= link_directory ../javascripts .js"
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
           "*= require decidim\n "

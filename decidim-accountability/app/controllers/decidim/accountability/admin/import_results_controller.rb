@@ -13,7 +13,7 @@ module Decidim
           @csv_file = params[:csv_file]
           redirect_to(new_import_path) && return if @csv_file.blank?
 
-          Decidim::Accountability::Admin::ImportResultsCSVJob.perform_later(current_user, current_component, @csv_file.read.force_encoding("utf-8").encode("utf-8"))
+          Decidim::Accountability::Admin::ImportResultsCsvJob.perform_later(current_user, current_component, @csv_file.read.force_encoding("utf-8").encode("utf-8"))
 
           flash[:notice] = I18n.t("imports.create.success", scope: "decidim.accountability.admin")
           redirect_to import_results_path(current_participatory_process, current_component)
