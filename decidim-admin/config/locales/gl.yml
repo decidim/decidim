@@ -13,6 +13,7 @@ gl:
         attachment_collection_id: Cartafol
         description: Descrición
         file: Arquivo
+        title: Anexo ou nome da imaxe
       attachment_collection:
         description: Descrición
         name: Nome
@@ -31,13 +32,16 @@ gl:
       organization:
         alert_color: Alerta
         badges_enabled: Activar emblemas
+        comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
         cta_button_path: Camiño do botón de chamada a acción
         cta_button_text: Texto do botón de chamada a acción
+        customize_welcome_notification: Personalizar a notificación de benvida
         default_locale: Configuración predeterminada
         description: Descrición
         enable_omnipresent_banner: Mostrar o banner omnipresente
         facebook_handler: Administrador de Facebook
         favicon: Ícona
+        from: Correo electrónico do remitente
         github_handler: Xestor de GitHub
         header_snippets: Fragmentos de cabeceira
         highlighted_content_banner_action_subtitle: Subtítulo do botón de acción
