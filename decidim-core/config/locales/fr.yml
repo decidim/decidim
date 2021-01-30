@@ -1126,6 +1126,7 @@ fr:
         groups: Groupes
         members: Membres
         officialized: Participant officiel
+        send_private_message: Envoyer un message privé
         timeline: Chronologie
         view_full_profile: Voir le profil complet
       sidebar:
