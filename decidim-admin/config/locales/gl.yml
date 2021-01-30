@@ -12,7 +12,7 @@ gl:
       attachment:
         attachment_collection_id: Cartafol
         description: Descrición
-        file: Arquivo
+        file: Ficheiro
         title: Anexo ou nome da imaxe
       attachment_collection:
         description: Descrición
@@ -91,6 +91,8 @@ gl:
         name: Nome
         organization: Organización
         plural: Plural
+      settings:
+        scope_id: Ámbito
       static_page:
         changed_notably: Houbo cambios notables.
         content: Contido
@@ -286,16 +288,38 @@ gl:
           welcome: Benvido ao Panel de administración de decisións.
       exports:
         export_as: "%{name} como %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
       filters:
         category_id_eq:
           label: Categoría
+        filter_label: Filtrar
         officialized_at_null:
           label: Estado
           values:
             'false': Oficializado
             'true': Non oficializado
+        private_space_eq:
+          label: Privado
+          values:
+            'false': Público
+            'true': Privado
+        published_at_null:
+          label: Publicado
+          values:
+            'false': Publicado
+        scope_id_eq:
+          label: Ámbito
         search_label: Busca
+        search_placeholder:
+          name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
+          title_cont: Procurar %{collection} por título.
+        state_eq:
+          label: Estado
       help_sections:
         error: Produciuse un erro ao actualizar as seccións de axuda
         form:
@@ -365,6 +389,9 @@ gl:
         static_pages: Páxinas
         user_groups: Grupos de usuarios
         users: Usuarios
+      metrics:
+        metrics:
+          see_more_metrics: Veer máis métricas
       models:
         area:
           fields:
@@ -398,6 +425,7 @@ gl:
             created_at: Creado en
             progress: Progreso
             sent_at: Enviado en
+            sent_to: Enviado a
             subject: Asunto
           name: Boletín informativo
         participatory_space_private_user:
@@ -410,6 +438,13 @@ gl:
           fields:
             name: Nome
             plural: Plural
+        share_token:
+          fields:
+            created_at: Creado o
+            expires_at: Caduca o
+            last_used_at: Empregado por última vez
+            token: Token
+            user: Creado por
         static_page:
           fields:
             created_at: Creado en
@@ -481,20 +516,27 @@ gl:
           title: Novo boletín informativo
         select_recipients_to_deliver:
           all_spaces: Todos
-          all_users_help: Enviar boletíns a todos os participantes confirmados.
+          all_users_help: Enviar boletíns a todos os usuarios confirmados.
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
-          followers_help: Enviar boletíns a todos os participantes confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
+          followers_help: Enviar boletíns a todos os usuarios confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
           none: Ningún
-          participants_help: Enviar boletíns a todos os participantes confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
-          recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> participantes.
-          scopes_help: Envía o boletín ao participantes que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
-          select_scopes: Filtrar polos participantes que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
+          participants_help: Enviar boletíns a todos os usuarios confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
+          recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> usuarios.
+          scopes_help: Envía o boletín ao usuarios que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
+          select_scopes: Filtrar polos usuarios que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
           select_spaces: Seleccionar espazos para segmentar o boletín
-          select_users: Selecciona a que participantes queres enviar o boletín
-          send_to_all_users: Enviar a todos os participantesss
+          select_users: Selecciona a que usuarios queres enviar o boletín
+          send_to_all_users: Enviar a todos os usuarios
+          send_to_followers: Enviar aos seguidores
+          send_to_participants: Enviar aos participantes
+          title: Seleccionar os destinatarios
+          warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
+        send:
+          no_recipients: Sen destinatarios para esta selección
         show:
           preview: Vista previa
+          select_recipients_to_deliver: Seleccionar os destinatarios
           subject: Asunto
         update:
           error: Produciuse un erro ao actualizar este boletín informativo.
@@ -514,12 +556,21 @@ gl:
           officialize: Organizar
           officialized: Oficializado
           reofficialize: Reofficializar
+          show_email: Amosar enderezo de correo
           status: Estado
           unofficialize: Non oficializar
         new:
           badge: Insignia de oficialización
           officialize: Organizar
           title: Clasificar o usuario "%{name}"
+        show_email_modal:
+          close_modal: Pechar modal
+          description: Se precisas contactar cun participante directamente, podes premer no botón Amosar para ver o seu enderezo de correo. Está acción será rexistrada.
+          email_address: Enderezo de correo electrónico
+          full_name: Nome completo
+          hidden: oculto
+          show: Amosar
+          title: Amosar o correo electrónico do participante
       organization:
         edit:
           title: Editar organización
@@ -528,6 +579,7 @@ gl:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Nalgúns cadros de texto, os participantes poderán inserir algunhas etiquetas HTML empregando o editor de texto avanzado.
           social_handlers: Social
           twitter: Twitter
           url: Url
@@ -548,6 +600,7 @@ gl:
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           images:
             layout_appearance_title: Editar aspecto de deseño
+            preview: Vista Previa
           omnipresent_banner_appearance_title: Editar o banner omnipresente
       organization_homepage:
         edit:
@@ -569,12 +622,24 @@ gl:
         new:
           create: Crear
           title: Novo usuario privado do espazo participativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Produciuse un erro ao ler o ficheiro CSV.
+          success: Ficheiro CSV subido con éxito, estamos a enviar un correo de invitación aos participantes. Isto pode levar un pouco de tempo.
+        new:
+          explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
+          title: Sube o teu ficheiro CSV
+          upload: Subir
       resource_permissions:
         edit:
           submit: Enviar
           title: Editar permisos
         update:
           success: Permisos actualizados correctamente.
+      resources:
+        index:
+          headers:
+            scope: Ámbito
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.
@@ -606,6 +671,17 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este alcance.
           success: Ámbito actualizado con éxito
+      share_tokens:
+        actions:
+          confirm_destroy: Estás certo/a de querer eliminar este token?
+          destroy: Eliminar
+          share: Compartir
+        share_tokens:
+          title: Compartir tokens
+      shared:
+        gallery:
+          add_images: Engadir imaxes
+          delete_image: Eliminar imaxe
       static_page_topics:
         create:
           error: Produciuse un erro ao crear un tema novo.
@@ -656,10 +732,12 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios xestionables
         impersonations: Xestión dos usuarios
+        metrics: Métricas
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas
+        statistics: Actividade
         user_groups: Grupos de usuarios
         users: Usuarios
       user_group:
@@ -708,6 +786,9 @@ gl:
       users_statistics:
         users_count:
           admins: Administradores
+          last_day: Último día
+          last_month: O mes pasado
+          last_week: A semana pasada
           participants: Participantes
       view_public_page: Ver páxina pública
     forms:
