@@ -1052,7 +1052,7 @@ cs:
           headline: Metriky
         statistics:
           answers_count: Dokončené průzkumy
-          assemblies_count: Sestavy
+          assemblies_count: Shromáždění
           comments_count: Komentáře
           conferences_count: Konference
           debates_count: Debaty
@@ -1153,7 +1153,7 @@ cs:
         subject: Byl ohlášen zdroj
     reports:
       create:
-        error: Při vytváření sestavy došlo k chybě. Zkuste to znovu.
+        error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
     resource_endorsements:
       create:
@@ -1495,7 +1495,7 @@ cs:
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
       not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
-      not_locked: nebyla zamčená
+      not_locked: nebyl uzamčen
       not_saved:
         one: 'Při zpracování vašeho požadavku došlo k chybě:'
         few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
@@ -1571,7 +1571,7 @@ cs:
         see_more: Vidět víc
   locale:
     name: Čeština
-    name_with_error: Angličtina (chyba!)
+    name_with_error: Čeština
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu
