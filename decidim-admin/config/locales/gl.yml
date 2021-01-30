@@ -90,6 +90,8 @@ gl:
         name: Nome
         organization: Organización
         plural: Plural
+      settings:
+        scope_id: Ámbito
       static_page:
         allow_public_access: Permitir o acceso sen autenticación
         changed_notably: Houbo cambios notables.
@@ -303,22 +305,51 @@ gl:
         transfer:
           name: Nome
           reason: Motivo
+          success: A transferencia actual completouse con éxito.
+          title: Transferir
+        'true': 'Si'
+        user_name: Usuario
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
           welcome: Benvido ao Panel de administración de decisións.
       exports:
         export_as: "%{name} como %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
       filters:
         category_id_eq:
           label: Categoría
+        filter_label: Filtrar
+        moderations:
+          reportable_type_string_eq:
+            label: Tipo
         officialized_at_null:
           label: Estado
           values:
             'false': Oficializado
             'true': Non oficializado
+        private_space_eq:
+          label: Privado
+          values:
+            'false': Público
+            'true': Privado
+        published_at_null:
+          label: Publicado
+          values:
+            'false': Publicado
+        scope_id_eq:
+          label: Ámbito
         search_label: Busca
+        search_placeholder:
+          name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
+          title_cont: Procurar %{collection} por título.
+        state_eq:
+          label: Estado
       help_sections:
         error: Produciuse un erro ao actualizar as seccións de axuda
         form:
@@ -382,6 +413,7 @@ gl:
         impersonations: Impersonacións
         newsletters: Boletíns informativos
         participants: Participantes
+        reported_users: Usuarios denunciados
         scope_types: Tipos de alcance
         scopes: Ámbitos
         settings: Configuración
@@ -421,6 +453,7 @@ gl:
             created_at: Creado en
             progress: Progreso
             sent_at: Enviado en
+            sent_to: Enviado a
             subject: Asunto
           name: Boletín informativo
         participatory_space_private_user:
@@ -433,6 +466,13 @@ gl:
           fields:
             name: Nome
             plural: Plural
+        share_token:
+          fields:
+            created_at: Creado o
+            expires_at: Caduca o
+            last_used_at: Empregado por última vez
+            token: Token
+            user: Creado por
         static_page:
           fields:
             created_at: Creado en
@@ -457,6 +497,13 @@ gl:
             phone: Teléfono
             state: Estado
             users_count: Usuarios contan
+      moderated_users:
+        index:
+          actions:
+            title: Accións
+          name: Nome
+          nickname: Alcume
+          reason: Motivo
       moderations:
         index:
           title: Moderacións
