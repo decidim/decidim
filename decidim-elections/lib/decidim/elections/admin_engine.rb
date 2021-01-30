@@ -13,7 +13,9 @@ module Decidim
         get "/answer_options", to: "feedback_forms#answer_options", as: :answer_options_election_feedback, defaults: { format: "json" }
 
         resources :elections do
-          resources :steps, only: [:index, :update]
+          resources :steps, only: [:index, :update] do
+            get :stats
+          end
           member do
             put :publish
             put :unpublish
