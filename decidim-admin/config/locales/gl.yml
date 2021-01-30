@@ -687,12 +687,24 @@ gl:
         new:
           create: Crear
           title: Novo usuario privado do espazo participativo.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Produciuse un erro ao ler o ficheiro CSV.
+          success: Ficheiro CSV subido con éxito, estamos a enviar un correo de invitación aos participantes. Isto pode levar un pouco de tempo.
+        new:
+          explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
+          title: Sube o teu ficheiro CSV
+          upload: Subir
       resource_permissions:
         edit:
           submit: Enviar
           title: Editar permisos
         update:
           success: Permisos actualizados correctamente.
+      resources:
+        index:
+          headers:
+            scope: Ámbito
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.
@@ -724,6 +736,17 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este alcance.
           success: Ámbito actualizado con éxito
+      share_tokens:
+        actions:
+          confirm_destroy: Estás certo/a de querer eliminar este token?
+          destroy: Eliminar
+          share: Compartir
+        share_tokens:
+          title: Compartir tokens
+      shared:
+        gallery:
+          add_images: Engadir imaxes
+          delete_image: Eliminar imaxe
       static_page_topics:
         create:
           error: Produciuse un erro ao crear un tema novo.
@@ -774,10 +797,13 @@ gl:
         dashboard: Taboleiro de instrumentos
         impersonatable_users: Usuarios xestionables
         impersonations: Xestión dos usuarios
+        metrics: Métricas
+        panel: Administrador
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
         static_pages: Páxinas
+        statistics: Actividade
         user_groups: Grupos de usuarios
         users: Usuarios
       user_group:
@@ -826,6 +852,9 @@ gl:
       users_statistics:
         users_count:
           admins: Administradores
+          last_day: Último día
+          last_month: O mes pasado
+          last_week: A semana pasada
           participants: Participantes
       view_public_page: Ver páxina pública
     forms:
