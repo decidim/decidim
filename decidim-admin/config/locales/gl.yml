@@ -513,8 +513,14 @@ gl:
           save: Gardar
           title: Novo boletín informativo
         select_recipients_to_deliver:
+          all_spaces: Todos
+          all_users_help: Enviar boletíns a todos os participantes confirmados.
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
+          followers_help: Enviar boletíns a todos os participantes confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
+          none: Ningún
+          participants_help: Enviar boletíns a todos os participantes confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
+          recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> participantes.
         show:
           preview: Vista previa
           subject: Asunto
