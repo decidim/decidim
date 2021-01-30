@@ -40,7 +40,7 @@ cs:
         destroy: Odstranit
         edit: Upravit
         import_csv: Importovat CSV
-        new: Nová %{name}
+        new: Nový %{name}
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
