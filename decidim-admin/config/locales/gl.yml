@@ -163,6 +163,8 @@ gl:
         required_review:
           alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
           callout: Por favor, dedícalle un anaco de tempo á revisión da actualización dos nosos Termos de uso do panel de administración. No caso contrario, non poderás administrar a plataforma.
+          cta: Revísaos agora.
+        title: Termos de uso do panel de administración
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
@@ -183,6 +185,7 @@ gl:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
         destroy:
+          has_spaces: A área ten espazos dependentes, non poderá ter dependencias para poder ser eliminada.
           success: Área destruída con éxito
         edit:
           title: Editar área
@@ -232,6 +235,9 @@ gl:
       autocomplete:
         no_results: Non se atoparon resultados
         search_prompt: Escriba polo menos tres caracteres para buscar
+      block_user:
+        new:
+          action: Bloquear conta e enviar xustificante
       categories:
         create:
           error: Houbo un erro ao crear esta categoría.
