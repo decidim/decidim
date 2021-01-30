@@ -43,7 +43,7 @@ cs:
       organization_data:
         address: Adresa
         id_document: Doklad totožnosti
-        name: Kompletní jméno
+        name: Úplný název
     errors:
       models:
         initiative:
