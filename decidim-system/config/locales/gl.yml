@@ -87,6 +87,7 @@ gl:
             created_at: Creado en
             file_upload_settings: Axustes de subida de ficheiros
             name: Nome
+            omniauth_settings: Axustes do Omniauth
             smtp_settings: Axustes SMTP
           name: Organización
       oauth_applications:
@@ -118,10 +119,14 @@ gl:
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
         file_upload_settings:
           content_types:
+            default_hint: Estas tipos MIME están permitidos de xeito predefinido para todos os usuarios.
             title: Tipos MiME permitidos
           file_extensions:
+            default_hint: Estas extensións de ficheiro están permitidas de xeito predefinido para todos os usuarios.
             title: Extensións de ficheiro permitidas
           file_sizes:
+            avatar_hint: Megabytes (MB). Este límite no tamaño de ficheiro é o empregado para subir a imaxe do avatar.
+            default_hint: Megabytes (MB). Este límite no tamaño de ficheiro é o predefinido a empregar para todos os ficheiros a subir agás se especifique o contrario.
             title: Tamaño máximo de ficheiros
           intro: |
             Por favor, ten moita precaución á hora de mudar estes axustes. Cantas menos opcións permitas, mellor.
