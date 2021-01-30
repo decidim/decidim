@@ -244,7 +244,7 @@ cs:
       participatory_processes:
         create:
           error: Při vytváření nového participačního procesu došlo k chybě.
-          success: Účastnící proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
+          success: Participační proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
         edit:
           update: Aktualizace
         index:
