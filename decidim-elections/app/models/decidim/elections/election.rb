@@ -24,6 +24,7 @@ module Decidim
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
       has_many :elections_trustees, foreign_key: "decidim_elections_election_id", dependent: :destroy
       has_many :trustees, through: :elections_trustees
+      has_many :votes, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Vote", dependent: :destroy
       has_many :actions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Action", dependent: :restrict_with_exception
 
       scope :active, lambda {
