@@ -44,6 +44,8 @@ gl:
         from: Correo electrónico do remitente
         github_handler: Xestor de GitHub
         header_snippets: Fragmentos de cabeceira
+        highlight_alternative_color: Realzado, alternativo
+        highlight_color: Realzado
         highlighted_content_banner_action_subtitle: Subtítulo do botón de acción
         highlighted_content_banner_action_title: Título do botón de acción
         highlighted_content_banner_action_url: URL do botón de acción
@@ -53,6 +55,9 @@ gl:
         highlighted_content_banner_title: Título
         instagram_handler: Administrador de Instagram
         logo: Logo
+        machine_translation_display_priority: Prioridade ao amosar as traducións automáticas
+        machine_translation_display_priority_original: Primeiro o texto orixinal
+        machine_translation_display_priority_translation: Primeiro o texto traducido
         name: Nome
         official_img_footer: Footer do logotipo oficial
         official_img_header: Cabeceira do logotipo oficial
@@ -62,12 +67,17 @@ gl:
         omnipresent_banner_url: URL
         primary_color: Primaria
         reference_prefix: Prefijo de referencia
+        rich_text_editor_in_public_views: Habilitar o editor de texto avanzado para os participantes
         secondary_color: Secundaria
+        send_welcome_notification: Enviar notificación de benvida
         success_color: Éxito
+        time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
         user_groups_enabled: Activar grupos de usuarios
         warning_color: Aviso
+        welcome_notification_body: Corpo da notificación de benvida
+        welcome_notification_subject: Asunto da notificación de benvida
         youtube_handler: Xestor de YouTube
       scope:
         code: Código
@@ -81,6 +91,7 @@ gl:
         organization: Organización
         plural: Plural
       static_page:
+        allow_public_access: Permitir o acceso sen autenticación
         changed_notably: Houbo cambios notables.
         content: Contido
         organization: Organización
@@ -121,13 +132,34 @@ gl:
     admin:
       actions:
         add: Engadir
+        attachment:
+          new: Novo anexo
+        attachment_collection:
+          new: Nova colección de anexos
         browse: Buscar
+        category:
+          new: Nova categoría
         export: Exportar
         manage: Xestionar
         new: Novo %{name}
+        newsletter:
+          new: Novo boletín
+        per_page: Por páxina
         permissions: Permisos
         reject: Rexeitar
+        share: Compartir
+        user:
+          new: Novo usuario
         verify: Verifique
+      admin_terms_of_use:
+        accept:
+          error: Produciuse un erro ao aceptar os termos de uso do panel de administración.
+          success: Xenial! Aceptaches os termos de uso do panel de administración.
+        actions:
+          accept: Concordo con seguintes termos
+          are_you_sure: Estás certo/a de querer rexeitar os termos de uso do panel de administración?
+          refuse: Rexeitar os termos de uso
+          title: Concordo cos termos e condicións de uso
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
