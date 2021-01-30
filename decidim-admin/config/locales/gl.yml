@@ -521,6 +521,10 @@ gl:
           none: Ningún
           participants_help: Enviar boletíns a todos os participantes confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
           recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> participantes.
+          scopes_help: Envía o boletín ao participantes que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
+          select_scopes: Filtrar polos participantes que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
+          select_spaces: Seleccionar espazos para segmentar o boletín
+          select_users: Selecciona a que participantes queres enviar o boletín
         show:
           preview: Vista previa
           subject: Asunto
