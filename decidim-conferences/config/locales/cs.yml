@@ -143,10 +143,10 @@ cs:
           media_links_title: Odkazy na média
         new:
           create: Vytvořit
-          title: Odkaz na media
+          title: Odkaz na média
         update:
           error: Při aktualizaci tohoto odkazu na média došlo k chybě.
-          success: Media Link byl úspěšně aktualizován.
+          success: Odkaz na média byl úspěšně aktualizován.
       menu:
         conferences: Konference
         conferences_submenu:
@@ -195,7 +195,7 @@ cs:
             date: datum
             link: Odkaz
             title: Název
-          name: Media Link
+          name: Odkaz na média
         partner:
           fields:
             link: Odkaz
@@ -282,9 +282,9 @@ cs:
           unpublish: "%{user_name} nepublikováno %{resource_name} typ registrace na %{space_name} konferencích"
           update: "%{user_name} aktualizoval typ registrace %{resource_name} na konferenci %{space_name}"
       media_link:
-        create: "%{user_name} vytvořilo %{resource_name} mediální odkaz na konferenci %{space_name}"
-        delete: "%{user_name} odstranilo %{resource_name} odkaz na média z %{space_name} konferencí"
-        update: "%{user_name} aktualizovalo %{resource_name} odkaz na média v %{space_name} konferenci"
+        create: "%{user_name} vytvořil %{resource_name} odkaz na média v konferenci %{space_name}"
+        delete: "%{user_name} odstranil %{resource_name} odkaz na média z konference %{space_name}"
+        update: "%{user_name} aktualizoval %{resource_name} odkaz na média v konferenci %{space_name}"
     conference_program:
       index:
         title: Program
@@ -388,11 +388,11 @@ cs:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Vaše registrace pro konferenci <a href="%{url}">%{title}</a> byla potvrzena.
-          details_1: 'Jste přihlášeni do konference s typem %{registration_type}. Má cenu %{price} a můžete se zúčastnit následujících akcí:'
+          details_1: 'Jste přihlášeni do konference s typem %{registration_type}. Stojí %{price} a můžete se zúčastnit následujících akcí:'
           details_2: Podrobnosti o konferenci naleznete v příloze.
         pending_validation:
           confirmation_pending: Potvrzení obdržíte brzy
-          details: 'Zaregistrovali jste se na typ %{registration_type} s cenou %{price} a můžete se zúčastnit následujících událostí:'
+          details: 'Zaregistrovali jste se na typ konference %{registration_type} s cenou %{price} a můžete se zúčastnit následujících událostí:'
           pending_html: Vaše registrace pro konferenci <a href="%{url}">%{title}</a> čeká na potvrzení.
       conference_registrations:
         create:
