@@ -20,6 +20,7 @@ gl:
         settings:
           global:
             announcement: Anuncio
+            scope_id: Ámbito
           step:
             allow_answers: Permitir respostas
             announcement: Anuncio
