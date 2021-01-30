@@ -426,7 +426,7 @@ cs:
         create:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
-          complete_profile: Kompletní profil
+          complete_profile: Dokončit profil
           nickname_help: Vaše přezdívka v %{organization}
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
@@ -865,7 +865,7 @@ cs:
       no_members: Tato skupina uživatelů zatím nemá žádného člena.
     menu:
       help: Pomoc
-      home: Domov
+      home: Úvod
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
@@ -1040,7 +1040,7 @@ cs:
           meetings_explanation: Zjistěte, kde a kdy se můžete účastnit veřejných setkání.
           more_info: Více informací
           proposals: Návrhy
-          proposals_explanation: Udělat návrhy, podpořit existující a podporovat změny, které chcete vidět.
+          proposals_explanation: Vytvářejte návrhy, podporujte stávající a prosazujte změny, které chcete vidět.
         footer_sub_hero:
           footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
