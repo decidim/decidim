@@ -411,6 +411,7 @@ gl:
         help_sections: Seccións de axuda
         homepage: Páxina de inicio
         impersonations: Impersonacións
+        moderation: Moderacións globais
         newsletters: Boletíns informativos
         participants: Participantes
         reported_users: Usuarios denunciados
@@ -420,6 +421,9 @@ gl:
         static_pages: Páxinas
         user_groups: Grupos de usuarios
         users: Usuarios
+      metrics:
+        metrics:
+          see_more_metrics: Veer máis métricas
       models:
         area:
           fields:
@@ -504,6 +508,10 @@ gl:
           name: Nome
           nickname: Alcume
           reason: Motivo
+        report:
+          reasons:
+            offensive: Ofensivo
+            spam: Lixo
       moderations:
         index:
           title: Moderacións
@@ -514,6 +522,10 @@ gl:
             spam: Correo non desexado
         reports:
           index:
+            author: Autor(es)
+            callout_html: Un contido aparece no panel de moderación cando é reportado por un usuario/a (pode ser calquera conta rexistrada) ao premer na etiqueta %{icon} xunto ao elemento.
+            content_original_language: Idioma do contido orixinal
+            participatory_space: Espazo participativo
             reported_content: Contido reportado
             see_current: Ver actual
             see_original: Ver orixinal
@@ -620,6 +632,11 @@ gl:
           email_address: Enderezo de correo electrónico
           full_name: Nome completo
           hidden: oculto
+          show: Amosar
+          title: Amosar o correo electrónico do participante
+        unblock:
+          error: Produciuse un erro ao desbloquear o participante
+          success: Participante desbloqueado con éxito
       organization:
         edit:
           title: Editar organización
@@ -628,8 +645,10 @@ gl:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Nalgúns cadros de texto, os participantes poderán inserir algunhas etiquetas HTML empregando o editor de texto avanzado.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: Produciuse un erro ao actualizar esta organización.
@@ -647,6 +666,7 @@ gl:
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           images:
             layout_appearance_title: Editar aspecto de deseño
+            preview: Vista Previa
           omnipresent_banner_appearance_title: Editar o banner omnipresente
       organization_homepage:
         edit:
@@ -836,15 +856,24 @@ gl:
           fields:
             hidden_at: Oculto en
             report_count: Conde
+            reportable_id: Id
+            reportable_type: Tipo
             reported_content_url: URL de contido reportado
             reports: Informes
             visit_url: Visita o URL
+        report:
+          fields:
+            details: Detalles do motivo
+            locale: Idioma
+            reason: Motivo
   errors:
     messages:
       invalid_json: JSON non válido
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderacións globais
         newsletters:
           title: Boletíns informativos
         settings:
