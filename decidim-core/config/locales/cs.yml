@@ -454,7 +454,7 @@ cs:
         create:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
-          complete_profile: Kompletní profil
+          complete_profile: Dokončit profil
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
