@@ -85,7 +85,7 @@ en:
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       delete:
-        alert: This action cannot be undone. If you delete your account you won't be able to log in.
+        alert: This action cannot be undone. If you delete your account you won't be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
         confirm:
           close: Close window
           ok: Yes, I want to delete my account
@@ -1136,6 +1136,7 @@ en:
         groups: Groups
         members: Members
         officialized: Official participant
+        send_private_message: Send private message
         timeline: Timeline
         view_full_profile: View full profile
       sidebar:

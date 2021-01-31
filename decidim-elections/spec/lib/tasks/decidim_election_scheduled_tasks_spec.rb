@@ -41,4 +41,25 @@ describe "decidim_elections:scheduled_tasks", type: :task do
       expect(election2.reload).to be_bb_vote
     end
   end
+
+  context "with pending votes", :vcr do
+    let!(:vote) { create :vote }
+
+    before { task.execute }
+
+    it "updates the vote status" do
+      check_message_printed("Checking status for Vote #{vote.id}:")
+      check_message_printed("Vote status updated")
+    end
+  end
+
+  context "with votes that shouldn't be affected" do
+    let!(:vote) { create :vote, status: "accepted" }
+
+    before { task.execute }
+
+    it "doesn't update the status" do
+      expect(vote.reload).to be_accepted
+    end
+  end
 end

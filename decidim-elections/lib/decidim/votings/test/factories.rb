@@ -42,5 +42,9 @@ FactoryBot.define do
       start_time { 1.month.ago - 7.days }
       end_time { 7.days.ago }
     end
+
+    trait :promoted do
+      promoted { true }
+    end
   end
 end

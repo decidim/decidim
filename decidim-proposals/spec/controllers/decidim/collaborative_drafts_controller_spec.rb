@@ -56,44 +56,6 @@ module Decidim
             expect(subject).to render_template(:new)
           end
         end
-
-        describe "GET compare" do
-          let!(:similar_collaborative_draft) { create(:collaborative_draft, component: component, title: collaborative_draft.title, body: collaborative_draft.body) }
-          let(:params) do
-            {
-              component_id: component.id,
-              collaborative_draft: {
-                title: collaborative_draft.title,
-                body: collaborative_draft.body
-              }
-            }
-          end
-
-          it "renders a list of similar collaborative_drafts" do
-            get :compare, params: params
-            expect(response).to have_http_status(:ok)
-            expect(assigns[:similar_collaborative_drafts]).not_to be_empty
-            expect(subject).to render_template(:compare)
-          end
-        end
-
-        describe "GET complete" do
-          let(:params) do
-            {
-              component_id: component.id,
-              collaborative_draft: {
-                title: collaborative_draft.title,
-                body: collaborative_draft.body
-              }
-            }
-          end
-
-          it "renders the complete form" do
-            get :complete, params: params
-            expect(response).to have_http_status(:ok)
-            expect(subject).to render_template(:complete)
-          end
-        end
       end
 
       describe "POST create" do
