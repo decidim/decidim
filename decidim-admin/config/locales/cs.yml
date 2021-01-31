@@ -174,7 +174,7 @@ cs:
           error: Při vytváření nového typu oblasti došlo k chybě.
           success: Typ oblasti byl úspěšně vytvořen.
         destroy:
-          success: Typ prostoru úspěšně zničen
+          success: Typ oblasti byl úspěšně smazán
         edit:
           title: Upravit typ oblasti
           update: Aktualizace
