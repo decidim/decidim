@@ -88,7 +88,7 @@ module Decidim
         end
 
         def vote_counts
-          @vote_counts ||= election.votes.where(status: "accepted").pluck("COUNT(id)", "COUNT(distinct voter_id)").first
+          @vote_counts ||= Decidim::Elections::Admin::VotesForStatistics.for(election)
         end
       end
     end
