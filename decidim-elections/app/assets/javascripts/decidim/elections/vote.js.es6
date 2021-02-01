@@ -163,8 +163,7 @@ $(() => {
   // cast vote
   function castVote(_boothMode, formData) {
     const bulletinBoardClient = new Client({
-      apiEndpointUrl: $voteWrapper.data("apiEndpointUrl"),
-      wsEndpointUrl: $voteWrapper.data("websocketUrl")
+      apiEndpointUrl: $voteWrapper.data("apiEndpointUrl")
     });
 
     const voter = new Voter({
@@ -206,7 +205,7 @@ $(() => {
         return simulatePreviewDelay()
       }
 
-      return voter.waitForPendingMessageToBeProcessed($messageId)
+      return bulletinBoardClient.waitForPendingMessageToBeProcessed($messageId)
     }).then((pendingMessage) => {
       const $voteId = $voteWrapper.find(".vote-confirmed-result").data("voteId");
 
