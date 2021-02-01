@@ -43,8 +43,8 @@ module Decidim
         when "my_meetings"
           query
             .where(decidim_author_id: user.id)
-        else # Assume 'all'
-        query
+        else
+          query
         end
       end
     end
