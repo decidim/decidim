@@ -234,10 +234,7 @@ en:
             success: Start tally request was successfully sent to the Bulletin Board
             title: Vote period ended
           vote_stats:
-            accepted: Accepted
-            casted: Casted
             no_vote_statistics_yet: No vote statistics yet
-            rejected: Rejected
             title: Vote Statistics
             voters: Voters
             votes: Votes
