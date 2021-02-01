@@ -19,36 +19,33 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           transaction do
-            store_vote
-            cast_vote_on_bulletin_board
+            cast_vote
           end
 
-          broadcast(:ok, store_vote)
+          broadcast(:ok, vote)
         rescue StandardError => e
           broadcast(:invalid, e.message)
         end
 
         private
 
-        attr_reader :form
+        attr_reader :form, :vote
 
         delegate :bulletin_board, to: :form
 
-        def cast_vote_message_id
-          bulletin_board.cast_vote_message_id(form.election_id, form.voter_id)
-        end
-
-        def cast_vote_on_bulletin_board
-          bulletin_board.cast_vote(form.election_id, form.voter_id, form.encrypted_vote)
+        def cast_vote
+          bulletin_board.cast_vote(form.election_id, form.voter_id, form.encrypted_vote) do |message_id|
+            store_vote(message_id)
+          end
         end
 
         def user
           @user ||= form.current_organization.users.find_by(id: form.current_user)
         end
 
-        def store_vote
-          @store_vote ||= Vote.create!(
-            message_id: cast_vote_message_id,
+        def store_vote(message_id)
+          @vote ||= Vote.create!(
+            message_id: message_id,
             election: form.election,
             voter_id: form.voter_id,
             encrypted_vote_hash: form.encrypted_vote_hash,

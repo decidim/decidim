@@ -3,16 +3,16 @@
 module Decidim
   module Elections
     module Admin
-      # This command gets called to close the ballot box in the Bulletin Board.
-      class CloseBallotBox < Rectify::Command
+      # This command gets called to start the key ceremony in the Bulletin Board.
+      class StartKeyCeremony < Rectify::Command
         # Public: Initializes the command.
         #
-        # form - A BallotBoxForm object with the information needed to open or close the ballot box
+        # form - An ActionForm object with the information needed to perform an action
         def initialize(form)
           @form = form
         end
 
-        # Public: Close the ballot box for the Election.
+        # Public: Starts the key ceremony for the Election.
         #
         # Broadcasts :ok if setup, :invalid otherwise.
         def call
@@ -20,7 +20,7 @@ module Decidim
 
           transaction do
             log_action
-            close_ballot_box
+            start_key_ceremony
           end
 
           broadcast(:ok)
@@ -34,23 +34,29 @@ module Decidim
 
         delegate :election, :bulletin_board, to: :form
 
+
         def log_action
           Decidim.traceability.perform_action!(
-            :close_ballot_box,
+            :start_key_ceremony,
             election,
             form.current_user,
             visibility: "all"
           )
         end
 
-        def close_ballot_box
-          bb_election = bulletin_board.close_ballot_box(election.id)
-          store_bulletin_board_status(bb_election.status)
+        def start_key_ceremony
+          bulletin_board.start_key_ceremony(election.id) do |message_id|
+            create_election_action(message_id)
+          end
         end
 
-        def store_bulletin_board_status(bb_status)
-          election.bb_status = bb_status
-          election.save
+        def create_election_action(message_id)
+          Decidim::Elections::Action.create!(
+            election: election,
+            action: :start_key_ceremony,
+            message_id: message_id,
+            status: :pending
+          )
         end
       end
     end

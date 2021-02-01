@@ -3,16 +3,16 @@
 module Decidim
   module Elections
     module Admin
-      # This command gets called to open the ballot box in the Bulletin Board.
-      class OpenBallotBox < Rectify::Command
+      # This command gets called to start the voting period in the Bulletin Board.
+      class StartVote < Rectify::Command
         # Public: Initializes the command.
         #
-        # form - A BallotBoxForm object with the information needed to open or close the ballot box
+        # form - A VotePeriodForm object with the information needed to start or end the vote period
         def initialize(form)
           @form = form
         end
 
-        # Public: Open the ballot box for the Election.
+        # Public: Starts the voting period for the Election.
         #
         # Broadcasts :ok if setup, :invalid otherwise.
         def call
@@ -20,7 +20,7 @@ module Decidim
 
           transaction do
             log_action
-            open_ballot_box
+            start_vote
           end
 
           broadcast(:ok)
@@ -34,26 +34,29 @@ module Decidim
 
         delegate :election, :bulletin_board, to: :form
 
+
         def log_action
           Decidim.traceability.perform_action!(
-            :open_ballot_box,
+            :start_vote,
             election,
             form.current_user,
             visibility: "all"
           )
         end
 
-        def open_ballot_box
-          bb_election = bulletin_board.open_ballot_box(election.id)
-          store_bulletin_board_status(bb_election.status)
-        rescue StandardError => e
-          broadcast(:invalid, e.message)
-          raise ActiveRecord::Rollback
+        def start_vote
+          bulletin_board.start_vote(election.id) do |message_id|
+            create_election_action(message_id)
+          end
         end
 
-        def store_bulletin_board_status(bb_status)
-          election.bb_status = bb_status
-          election.save
+        def create_election_action(message_id)
+          Decidim::Elections::Action.create!(
+            election: election,
+            action: :start_vote,
+            message_id: message_id,
+            status: :pending
+          )
         end
       end
     end

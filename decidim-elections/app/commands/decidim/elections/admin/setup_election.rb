@@ -19,8 +19,8 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           transaction do
-            add_trustees_to_election
             log_action
+            update_election
             notify_trustee_about_election
             setup_election
           end
@@ -48,16 +48,17 @@ module Decidim
           @trustees ||= Decidim::Elections::Trustee.where(id: form.trustee_ids)
         end
 
-        def add_trustees_to_election
+        def update_election
           return if election.trustees.exists?(id: form.trustee_ids)
 
           election.trustees << trustees
-          election.save!
+          election.blocked_at = Time.current
+          election.bb_created!
         end
 
         def election_data
           {
-            iat: Time.now.to_i,
+            iat: Time.current.to_i,
             scheme: bulletin_board.scheme,
             authority: {
               name: bulletin_board.authority_name,
@@ -129,7 +130,8 @@ module Decidim
 
         def setup_election
           bb_election = bulletin_board.create_election(election.id, election_data)
-          store_bulletin_board_status(bb_election.status)
+
+          raise StandardError, "Wrong status for the created election" if bb_election.status != "created"
         end
 
         def log_action
@@ -151,12 +153,6 @@ module Decidim
           }
 
           Decidim::EventsManager.publish(data)
-        end
-
-        def store_bulletin_board_status(bb_status)
-          election.blocked_at = Time.current
-          election.bb_status = bb_status
-          election.save
         end
       end
     end
