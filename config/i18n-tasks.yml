@@ -98,6 +98,7 @@ ignore_missing:
   - notification_title
   - decidim.wizard_step_form_cell.*
   - decidim.proposals.application_helper.activity_filter_values.*
+  - decidim.meetings.application_helper.activity_filter_values.*
   - decidim.content_blocks.*_settings_form.show.*
   - decidim.newsletter_templates.*_settings_form.show.*
   - participate_in
