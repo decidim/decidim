@@ -26,12 +26,12 @@ describe "Admin manages votings", type: :system do
 
     it "creates a new voting" do
       page.execute_script("$('#voting_start_time').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
       page.find(".datepicker-dropdown .minute", text: "10:50").click
 
       page.execute_script("$('#voting_end_time').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 
@@ -77,12 +77,12 @@ describe "Admin manages votings", type: :system do
 
     it "fails to create a new voting" do
       page.execute_script("$('#voting_start_time').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
       page.find(".datepicker-dropdown .minute", text: "10:50").click
 
       page.execute_script("$('#voting_end_time').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 
