@@ -86,7 +86,7 @@
               <%= form.upload :file, optional: false %>
               <% if proposal.documents.present? %>
                 <%= form.hidden_field :id, value: proposal.documents.first.id %>
-                <%= form.check_box :delete_file, label: t('.delete_attachment'), value: proposal.documents.first.id %>
+                <%= form.check_box :delete_file, label: t(".delete_attachment"), value: proposal.documents.first.id %>
               <% end %>
             </div>
           <% end %>
