@@ -192,35 +192,47 @@ en:
             success: Election successfully sent to the Bulletin Board
             title: Setup election
             trustees: Election Trustees
+          created:
+            invalid: There was a problem starting the key ceremony
+            success: Start key ceremony request was successfully sent to the Bulletin Board
+            submit: Start the key ceremony
+            title: Election created
+            trustees: Trustees
           index:
-            title: Manage elections steps on the Bulletin Board
+            pending_action: There is a pending action being processed...
           key_ceremony:
             title: Key ceremony
             trustees: Trustees
-          ready:
+          key_ceremony_ended:
             errors:
-              time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to open the ballot box.
-            invalid: There was a problem opening the ballot box
+              time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to start the voting period.
+            invalid: There was a problem starting the voting period
             requirements:
-              time_before: The election will start soon. You can open the ballot box manually, or it will be opened automatically before the starting time, at %{start_time}.
-            submit: Open ballot box
-            success: The ballot box was successfully opened in the Bulletin Board
+              time_before: The election will start soon. You can start the voting period manually, or it will be started automatically before the starting time, at %{start_time}.
+            submit: Start voting period
+            success: Start voting period request was successfully sent to the Bulletin Board
             title: Ready to start
-          results:
-            title: Results calculated
+          processing: Processing...
           results_published:
             title: Results published
           tally:
             title: Tally process
+          tally_ended:
+            title: Results calculated
           vote:
             errors:
-              time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to close the ballot box.
-            invalid: There was a problem closing the ballot box
+              time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
+            invalid: There was a problem endind the voting period
             requirements:
-              time_after: The election has ended. You can close the ballot box manually, or it will be closed automatically in a few minutes.
-            submit: Close ballot box
-            success: The ballot box was successfully closed in the Bulletin Board
+              time_after: The election has ended. You can end the voting period manually, or it will be ended automatically in a few minutes.
+            submit: End voting period
+            success: End voting period request was successfully sent to the Bulletin Board
             title: Vote period
+          vote_ended:
+            invalid: There was a problem starting the tally
+            submit: Start tally
+            success: Start tally request was successfully sent to the Bulletin Board
+            title: Vote period ended
         trustees_participatory_spaces:
           actions:
             disable: Disable
@@ -244,8 +256,10 @@ en:
             success: Trustee %{trustee} successfully updated
       admin_log:
         election:
-          close_ballot_box: "%{user_name} closed the ballot box for the %{resource_name} election on the Bulletin Board"
-          open_ballot_box: "%{user_name} opened the ballot box for the %{resource_name} election on the Bulletin Board"
+          end_vote: "%{user_name} ended the voting period for the %{resource_name} election on the Bulletin Board"
+          start_key_ceremony: "%{user_name} started the key ceremony for the %{resource_name} election on the Bulletin Board"
+          start_tally: "%{user_name} started the tally for the %{resource_name} election on the Bulletin Board"
+          start_vote: "%{user_name} started the voting period for the %{resource_name} election on the Bulletin Board"
           publish: "%{user_name} published the %{resource_name} election"
           setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
