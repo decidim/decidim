@@ -139,9 +139,7 @@ module Decidim
           check_delete_file = params[:proposal][:attachment][:delete_file]
           attachment_id = params[:proposal][:attachment][:id].to_i
 
-          if check_delete_file == "1" && attachment_id == proposal.documents.first.id
-            Attachment.find(params[:proposal][:attachment][:id].to_i).delete
-          end
+          Attachment.find(params[:proposal][:attachment][:id].to_i).delete if check_delete_file == "1" && attachment_id == proposal.documents.first.id
 
           Admin::UpdateProposal.call(@form, @proposal) do
             on(:ok) do |_proposal|
