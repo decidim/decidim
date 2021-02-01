@@ -40,7 +40,7 @@ module Decidim
       # Handle the activity filter
       def search_activity
         case activity
-        when "my_proposals"
+        when "my_meetings"
           query
             .where(decidim_author_id: user.id)
         else # Assume 'all'
