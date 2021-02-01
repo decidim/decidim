@@ -371,6 +371,9 @@ en:
             success: 'The election status is: %{status}'
         menu:
           trustee_zone: Trustee zone
+        no_bulletin_board:
+          body: A configured Bulletin Board is required for this section. Contact the Administrator for more details.
+          title: Sorry, the Bulletin Board is not configured yet.
         trustees:
           show:
             elections:
