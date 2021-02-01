@@ -124,13 +124,25 @@ module Decidim
         def edit
           enforce_permission_to :edit, :proposal, proposal: proposal
           @form = form(Admin::ProposalForm).from_model(proposal)
-          @form.attachment = form(AttachmentForm).from_params({})
+          document = proposal.documents.first
+          @form.attachment = if document.present?
+                               form(AttachmentForm).from_params({ file: document.file, title: translated_attribute(document.title) })
+                             else
+                               form(AttachmentForm).from_params({})
+                             end
         end
 
         def update
           enforce_permission_to :edit, :proposal, proposal: proposal
 
           @form = form(Admin::ProposalForm).from_params(params)
+          check_delete_file = params[:proposal][:attachment][:delete_file]
+          attachment_id = params[:proposal][:attachment][:id].to_i
+
+          if check_delete_file == "1" && attachment_id == proposal.documents.first.id
+            Attachment.find(params[:proposal][:attachment][:id].to_i).delete
+          end
+
           Admin::UpdateProposal.call(@form, @proposal) do
             on(:ok) do |_proposal|
               flash[:notice] = t("proposals.update.success", scope: "decidim")
