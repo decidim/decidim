@@ -4,11 +4,11 @@ In some cases is useful to access the `localhost` environment under SSL (ie: `ht
 
 A typical use case is when you want to test login integration with 3rd party systems using OAuth (which in the latests versions only the HTTPS protocol is allowed).
 
-Using Puma, the default server for Rails you can easily do the trick by creating a self-signed certificate and using it when starting your development environment.
+Using Puma, the default server for Rails, you can easily do the trick by creating a self-signed certificate and using it when starting your development environment.
 
 == Create a self-signed certificate for localhost
 
-First you need a SSL certificate for the `localhost` domain, you only need to do this once with this command:
+First you need a SSL certificate for the `localhost` domain (you only need to execute this command once):
 
 [source,bash]
 ----
@@ -18,7 +18,7 @@ openssl req -x509 -out localhost.crt -keyout localhost.key \
    printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 ----
 
-This will generate two files: `localhost.crt` and `localhost.key`, you can store anywhere you want to use them later. In this example we'll suppose we have them in `/home/alice/certs/`:
+This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we'll suppose we have them in `/home/alice/certs/`:
 
 [source,bash]
 ----
@@ -29,13 +29,13 @@ mv localhost.key /home/alice/certs/
 
 == Starting development in SSL mode
 
-Once you have your certificate generated, just use the next command in order to start puma instead of the typical `bin/rails s`:
+Once you have your certificate is generated, just use the next command in order to start puma instead of the typical `bin/rails s`:
 
 [source,bash]
 ----
 bin/rails s -b 'ssl://127.0.0.1:3000?key=/home/alice/certs/localhost.key&cert=/home/alice/certs/localhost.crt'
 ----
 
-Now you are ready to visit your favorite browser the address `https://localhost:3000/` (note "https").
+Now you are ready to visit your favorite browser at the address `https://localhost:3000/` (note "https").
 
 Note: Your browser is going to complain as this is a self-signed certificate, that's ok for development, just add an exception and accept the certificate.
