@@ -20,6 +20,9 @@ gl:
         settings:
           global:
             announcement: Anuncio
+            clean_after_publish: Eliminar as respostas ao publicar a enquisa
+            ends_at: Respostas aceptadas até
+            ends_at_help: Deixar baleiro de non especificar unha data
             scope_id: Ámbito
           step:
             allow_answers: Permitir respostas
