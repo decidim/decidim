@@ -18,39 +18,39 @@ namespace :decidim_elections do
   end
 
   desc "Scheduled tasks"
-  task :scheduled_tasks do
-    Decidim::Elections::ElectionsReadyToOpen.for.each do |election|
-      puts "\nOpening Election ##{election.id}:"
-      form = Decidim::Elections::Admin::BallotBoxForm.new.with_context(election: election, current_user: nil)
-      Decidim::Elections::Admin::OpenBallotBox.call(form) do
+  task :scheduled_tasks, [] => :environment do
+    Decidim::Elections::ElectionsReadyToStart.for.each do |election|
+      puts "\nStarting vote period for election ##{election.id}:"
+      form = Decidim::Elections::Admin::VotingPeriodForm.new.with_context(election: election, current_user: nil)
+      Decidim::Elections::Admin::StartVote.call(form) do
         on(:ok) do
-          puts "\n✓ Ballot Box opened. New bulletin board status: #{election.bb_status}\n"
+          puts "\n✓ Voting period start requested.\n"
         end
 
         on(:invalid) do |message|
-          puts "\n✗ Ballot Box not opened. Message: #{message}\n"
+          puts "\n✗ Voting period not started. Message: #{message}\n"
         end
       end
       puts "\n"
     end
 
-    Decidim::Elections::ElectionsFinishedToClose.for.each do |election|
-      puts "\nClosing Election ##{election.id}:"
-      form = Decidim::Elections::Admin::BallotBoxForm.new.with_context(election: election, current_user: nil)
-      Decidim::Elections::Admin::CloseBallotBox.call(form) do
+    Decidim::Elections::ElectionsFinishedToEnd.for.each do |election|
+      puts "\nEnding vote period for election ##{election.id}:"
+      form = Decidim::Elections::Admin::VotingPeriodForm.new.with_context(election: election, current_user: nil)
+      Decidim::Elections::Admin::EndVote.call(form) do
         on(:ok) do
-          puts "\n✓ Ballot Box closed. New bulletin board status: #{election.bb_status}\n"
+          puts "\n✓ Voting period end requested.\n"
         end
 
         on(:invalid) do |message|
-          puts "\n✗ Ballot Box not closed. Message: #{message}\n"
+          puts "\n✗ Voting period not ended. Message: #{message}\n"
         end
       end
       puts "\n"
     end
 
     Decidim::Elections::Votes::PendingVotes.for.each do |vote|
-      puts "\nChecking status for Vote #{vote.id}:"
+      puts "\nChecking status for Vote ##{vote.id}:"
       Decidim::Elections::Voter::UpdateVoteStatus.call(vote) do
         on(:ok) do
           puts "\n✓ Vote status updated\n"
@@ -58,6 +58,19 @@ namespace :decidim_elections do
 
         on(:invalid) do |message|
           puts "\n✗ Vote status failed. Message: #{message}\n"
+        end
+      end
+      puts "\n"
+    end
+
+    Decidim::Elections::Admin::PendingActions.for.each do |action|
+      puts "\nChecking status for action '#{action.action}' for election ##{action.election_id}:"
+      Decidim::Elections::Admin::UpdateActionStatus.call(action) do
+        on(:ok) do
+          puts "\n✓ Action status updated\n"
+        end
+        on(:invalid) do |message|
+          puts "\n✗ Update status failed. Message: #{message}\n"
         end
       end
       puts "\n"

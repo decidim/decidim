@@ -2,8 +2,8 @@
 
 module Decidim
   module Elections
-    # A class used to find elections ready and near to start to open their ballot boxes
-    class ElectionsReadyToOpen < Rectify::Query
+    # A class used to find elections ready and near to start the voting period
+    class ElectionsReadyToStart < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       def self.for
         new.query
@@ -11,7 +11,7 @@ module Decidim
 
       # Finds the Elections that should be opened.
       def query
-        Decidim::Elections::Election.bb_ready
+        Decidim::Elections::Election.bb_key_ceremony_ended
                                     .where("start_time <= ?", minimum_start_time)
       end
 
