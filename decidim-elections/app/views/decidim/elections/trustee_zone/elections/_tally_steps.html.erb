@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <% %w(restore_trustee tally.share tally.cast).each do |step| %>
+      <% %w(tally.cast tally.share end_tally).each do |step| %>
       <tr>
         <td><%= t(".keys.#{step}") %></td>
         <td id="<%= step.gsub(".", "-") %>" class="step_status" data-step-status="pending">

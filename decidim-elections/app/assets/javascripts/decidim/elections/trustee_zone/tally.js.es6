@@ -39,6 +39,7 @@ $(() => {
   const bindComponentEvents = async () => {
     await component.bindEvents({
       onEvent(event) {
+        console.log(event);
         let messageIdentifier = MessageIdentifier.parse(
           event.message.messageId
         );
@@ -76,6 +77,9 @@ $(() => {
           method: "PATCH",
           url: $tally.data("updateElectionStatusUrl"),
           contentType: "application/json",
+          data: JSON.stringify({
+            status: "tally"
+          }),
           headers: {
             "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
           }

@@ -100,6 +100,9 @@ $(() => {
             method: "PATCH",
             url: $keyCeremony.data("updateElectionStatusUrl"),
             contentType: "application/json",
+            data: JSON.stringify({
+              status: "key_ceremony"
+            }),
             headers: {
               "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
             }

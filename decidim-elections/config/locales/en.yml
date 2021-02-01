@@ -219,6 +219,7 @@ en:
             title: Tally process
           tally_ended:
             title: Results calculated
+            submit: TODO
           vote:
             errors:
               time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
@@ -379,7 +380,7 @@ en:
             back: Back
             description: TODO
             keys:
-              restore_trustee: Restore status
+              end_tally: Tally ended
               tally:
                 share: Tally share
                 cast: Tally cast
