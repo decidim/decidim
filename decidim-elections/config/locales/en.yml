@@ -307,7 +307,9 @@ en:
             other: "%{count} votes"
             zero: "%{count} votes"
         show:
+          already-voted-callout: You have already voted for this election. You can choose to change your vote or verify it.
           back: Available elections
+          change-vote: Change your vote
           preview: Preview
           verify: Verify
           vote: Vote

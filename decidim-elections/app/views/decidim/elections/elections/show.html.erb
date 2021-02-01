@@ -45,16 +45,20 @@ edit_link(
   <div class="columns medium-8 mediumlarge-7">
     <div class="section">
       <%= decidim_sanitize(simple_format(translated_attribute(election.description))) %>
-
-      <% if election.published? && election.ongoing? %>
+      <% if election.can_cast_vote? && already_voted? %>
+        <div class="callout warning">
+          <span class="callout-text"><%= t(".already-voted-callout") %></span>
+        </div>
+      <% end %>
+      <% if election.can_cast_vote? %>
         <%= action_authorized_link_to :vote, new_election_vote_path(election), resource: election, class: "title-action__action button small" do %>
-          <%= t(".vote") %>
+          <%= already_voted? ? t(".change-vote") : t(".vote") %>
         <% end %>
       <% else %>
         <span class="button disabled"><%= t(".vote") %></span>
       <% end %>
 
-      <% if election.ongoing? || election.finished? %>
+      <% if election.can_verify_vote? %>
         <%= link_to verify_election_vote_path(election), class: "title-action__action button secondary small" do %>
           <%= t(".verify") %>
         <% end %>

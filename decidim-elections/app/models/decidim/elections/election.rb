@@ -136,6 +136,16 @@ module Decidim
       def allow_resource_permissions?
         true
       end
+
+      # Public: determines if votes can be casted for this election
+      def can_cast_vote?
+        published? && ongoing?
+      end
+
+      # Public: determines if votes can be verified for this election
+      def can_verify_vote?
+        ongoing? || finished?
+      end
     end
   end
 end
