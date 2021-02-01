@@ -375,6 +375,25 @@ en:
               pending: Pending
               processing: Processing
             title: Create election keys for %{election}
+          tally_steps:
+            back: Back
+            description: TODO
+            keys:
+              restore_trustee: Restore status
+              tally:
+                share: Tally share
+                cast: Tally cast
+            list:
+              status: Status
+              task: Task
+            process_warning: TODO
+            start: Start
+            start_icon: Icon that indicates a start button to start the election keys generation
+            status:
+              completed: Completed
+              pending: Pending
+              processing: Processing
+            title: TODO for %{election}
           restore_modal:
             description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
             title: Restore election keys for %{election}
