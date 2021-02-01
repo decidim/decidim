@@ -59,7 +59,7 @@ module Decidim
           menu.item I18n.t("menu.assemblies", scope: "decidim"),
                     decidim_assemblies.assemblies_path,
                     position: 2.5,
-                    if: Decidim::Assembly.where(organization: current_organization).published.any?,
+                    if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
                     active: :inclusive
         end
       end
