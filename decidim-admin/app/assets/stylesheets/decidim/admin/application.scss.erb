@@ -1,5 +1,5 @@
 @import "decidim";
-@import "extra/extra";
+@import "extra/*";
 
 <% Decidim.component_manifests.map(&:admin_stylesheet).compact.each do |stylesheet| %>
 @import "<%= stylesheet %>";
