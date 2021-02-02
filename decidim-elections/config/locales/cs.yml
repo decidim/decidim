@@ -541,6 +541,7 @@ cs:
             attachment_collections: Složky
             attachment_files: Soubory
             attachments: Přílohy
+            components: Komponenty
             info: Informace
         models:
           voting:
@@ -562,10 +563,16 @@ cs:
             invalid: Při vytváření tohoto hlasování došlo k chybě
             success: Hlasování bylo úspěšně vytvořeno
           edit:
+            add_election_component: Pro toto hlasování nemáte nakonfigurovány žádné volby. Přidejte jej prosím do sekce Komponenty
             update: Aktualizovat
           form:
+            select_a_voting_type: Vyberte prosím typ hlasování
             slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
+            voting_type:
+              hybrid: Hybridní
+              in_person: Osobní
+              online: Online
           new:
             create: Vytvořit
             title: Nové hlasování
