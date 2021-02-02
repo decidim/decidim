@@ -53,14 +53,9 @@ end
 
 shared_examples "uses the voting booth" do
   include_context "with elections router"
+  include_context "when mocking the bulletin board in the browser"
 
   before do
-    proxy.stub("http://bulletin-board.lvh.me:8000/api", method: "options").and_return(
-      headers: { "Access-Control-Allow-Origin" => "*",
-                 "Access-Control-Allow-Headers" => "content-type" },
-      text: ""
-    )
-
     proxy.stub("http://bulletin-board.lvh.me:8000/api", method: "post").and_return(
       headers: { "Access-Control-Allow-Origin" => "*" },
       json: {

@@ -20,6 +20,8 @@ describe "Key ceremony", type: :system do
   end
 
   describe "key ceremony process" do
+    include_context "when mocking the bulletin board in the browser"
+
     include_context "when managing a component as an admin" do
       let(:admin_component_organization_traits) { [:secure_context] }
     end
