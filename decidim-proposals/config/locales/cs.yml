@@ -787,6 +787,8 @@ cs:
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Váš návrh byl uložen jako návrh. Musí být zveřejněn, aby se mohl zobrazit na webu.
+          announcement_title: Váš návrh ještě nebyl zveřejněn
           modify: Upravte návrh
           proposal_edit_before_minutes:
             one: Tento návrh budete moci upravit během první minuty po zveřejnění návrhu. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
