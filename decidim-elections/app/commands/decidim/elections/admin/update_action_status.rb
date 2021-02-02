@@ -29,6 +29,7 @@ module Decidim
         private
 
         attr_reader :action
+
         delegate :election, to: :action
 
         def update_pending_message_status

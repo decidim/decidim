@@ -34,7 +34,6 @@ module Decidim
 
         delegate :election, :bulletin_board, to: :form
 
-
         def log_action
           Decidim.traceability.perform_action!(
             :start_key_ceremony,

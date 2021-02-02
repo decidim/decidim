@@ -35,7 +35,7 @@ module Decidim
 
         def cast_vote
           bulletin_board.cast_vote(form.election_id, form.voter_id, form.encrypted_vote) do |message_id|
-            store_vote(message_id)
+            create_vote(message_id)
           end
         end
 
@@ -43,8 +43,8 @@ module Decidim
           @user ||= form.current_organization.users.find_by(id: form.current_user)
         end
 
-        def store_vote(message_id)
-          @vote ||= Vote.create!(
+        def create_vote(message_id)
+          @vote = Vote.create!(
             message_id: message_id,
             election: form.election,
             voter_id: form.voter_id,
