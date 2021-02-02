@@ -367,6 +367,9 @@ de:
             success: 'Der Wahlstatus ist: %{status}'
         menu:
           trustee_zone: Wahlhelfer Zone
+        no_bulletin_board:
+          body: Ein konfiguriertes Bulletin-Board ist für diesen Bereich erforderlich. Kontaktieren Sie den Administrator für weitere Informationen.
+          title: Leider ist das Bulletin Board noch nicht eingerichtet.
         trustees:
           show:
             elections:
