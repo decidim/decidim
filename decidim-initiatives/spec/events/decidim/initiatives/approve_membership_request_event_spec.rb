@@ -37,7 +37,7 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("#{author_nickname} Accepted your application to the promoter committee")
+      expect(subject.email_subject).to eq("#{author_nickname} accepted your application to the promoter committee")
     end
   end
 
@@ -50,7 +50,7 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You received this notification because you applied to this initiative : #{resource_title}")
+        .to eq("You received this notification because you applied to this initiative: #{resource_title}")
     end
   end
 
