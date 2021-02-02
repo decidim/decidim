@@ -29,6 +29,10 @@ gl:
         preview: Vista previa
         title: Accións
       admin:
+        budgets:
+          index:
+            pending_orders: Votos pendentes
+            users_with_pending_orders: Usuarios con votos pendentes
         exports:
           projects: Proxectos
         models:
