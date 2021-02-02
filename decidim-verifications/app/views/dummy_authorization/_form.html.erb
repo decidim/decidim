@@ -1,10 +1,10 @@
 <% if request["postal_codes"].present?
   postal_codes = request["postal_codes"].split(",") %>
-  <p><%= t("extra_explanation.postal_codes", scope: "decidim.verifications.dummy_authorization", postal_codes: postal_codes.join(", "), count: postal_codes.count) %></p>
+  <p><%= t("extra_explanation.postal_codes", scope: "decidim.verifications.dummy_authorization", postal_codes: postal_codes.join(", "), count: postal_codes.count, user_postal_code: request["user_postal_code"]) %></p>
 <% end %>
 
 <% if request["scope"] && (scope = Decidim::Scope.find(request["scope"]&.to_i)) %>
-  <p><%= t("extra_explanation.scope", scope: "decidim.verifications.dummy_authorization", scope_name: translated_attribute(scope.name)) %></p>
+  <p><%= t("extra_explanation.scope", scope: "decidim.verifications.dummy_authorization", scope_name: translated_attribute(scope.name), user_scope_name: request["user_scope_name"]) %></p>
 <% end %>
 
 <div class="partial-demo">
