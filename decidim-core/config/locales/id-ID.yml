@@ -60,7 +60,6 @@ id:
         file_no_exists: File tidak ada
         notice: Data Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       delete:
-        alert: Tindakan ini tidak bisa dibatalkan. Jika Anda menghapus akun Anda, Anda tidak akan dapat masuk.
         confirm:
           close: Tutup jendela
           ok: Ya, saya ingin menghapus akun saya

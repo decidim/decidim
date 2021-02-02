@@ -448,7 +448,7 @@ sv:
           highlighted_processes:
             processes_button_title: Länk till sidan som visar alla dialoger
       show:
-        related_assemblies: Relaterade sammankomster
+        related_assemblies: Relaterade grupper
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt

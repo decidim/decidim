@@ -58,7 +58,6 @@ nl:
         new: Nieuwe %{name}
         preview: Voorvertoning
         publish: Publiceren
-        setup: Instellen
         title: acties
         unpublish: Depubliceer
       admin:
@@ -97,9 +96,6 @@ nl:
             title: Nieuwe verkiezing
           publish:
             success: De verkiezing is succesvol gepubliceerd.
-          setup:
-            invalid: Er is een fout opgetreden bij het maken van deze stemronde
-            success: Stemronde succesvol verzonden naar het Bulletin Board
           unpublish:
             success: De verkiezing is succesvol gedepubliceerd.
           update:
@@ -142,29 +138,6 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van deze vraag
             success: Vraag met succes bijgewerkt
-        setup:
-          errors:
-            max_selections: De vragen hebben geen <strong>juiste waarde voor het aantal antwoorden</strong>
-            minimum_answers: Vragen moeten <strong>minstens één antwoord</strong> hebben.
-            minimum_questions: De stemronde <strong>moet ten minste één vraag</strong> hebben.
-            published: De stemronde is <strong>niet gepubliceerd</strong>
-            time_before: De starttijd van de stemronde is over <strong>minder dan 3 uur</strong>
-            trustee_public_key: heeft geen <strong>geldige publieke sleutel</strong>
-            trustees_quorum: De hoeveelheid trustees <strong>komt niet overeen met het vereiste quotum</strong>
-          requirements:
-            max_selections: Alle vragen hebben een correcte waarde voor <strong>maximum van antwoorden</strong>
-            minimum_answers: Elke vraag heeft <strong>minstens 2 antwoorden</strong>
-            minimum_questions: De stemronde <strong>moet minstens 1 vraag</strong> hebben
-            published: De stemronde is <strong>gepubliceerd</strong>
-            time_before: Over <strong>minder dan 3 uur</strong> wordt de stemronde ingesteld
-            trustee_public_key: heeft een <strong>geldige publieke sleutel</strong>
-            trustees_quorum: Het aantal trustees is correct en er zullen <strong>minstens %{quorum} trustees </strong> nodig zijn om het turvingsproces uit te voeren
-          show:
-            setup: Nieuwe stemronde
-            title: Instellen van stemrondes
-          update:
-            setup: Nieuwe stemronde
-            title: Instellen van stemrondes
         trustees_participatory_spaces:
           actions:
             disable: Uitschakelen
@@ -242,7 +215,6 @@ nl:
           header: Stem bevestigd
           lead: Je stem is al verstuurd!
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Om het te controleren, kopieer de identificatie en plak het op de <a href="evote-verify">stem verificatie pagina</a>
         encrypting:
           header: Stem coderen...
           text: Je stem wordt versleuteld om ervoor te zorgen dat je deze anoniem kunt werpen.

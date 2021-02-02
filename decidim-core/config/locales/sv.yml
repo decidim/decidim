@@ -82,7 +82,6 @@ sv:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
-        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in.
         confirm:
           close: Stäng fönster
           ok: Ja, radera mitt konto
@@ -403,7 +402,7 @@ sv:
         create:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
-          complete_profile: Slutför profil
+          complete_profile: Komplettera profil
           sign_up: Var god slutför din profil
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
@@ -1073,6 +1072,7 @@ sv:
         groups: Grupper
         members: Medlemmar
         officialized: Officiell deltagare
+        send_private_message: Skicka privat meddelande
         timeline: Tidslinje
         view_full_profile: Visa fullständig profil
       sidebar:

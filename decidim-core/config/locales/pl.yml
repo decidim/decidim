@@ -90,7 +90,6 @@ pl:
         file_no_exists: Plik nie istnieje
         notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       delete:
-        alert: Nie można cofnąć tej czynności. Jeśli usuniesz konto, nie będzie można się już na nie logować.
         confirm:
           close: Zamknij okno
           ok: Tak, chcę usunąć moje konto

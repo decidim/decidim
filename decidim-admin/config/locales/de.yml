@@ -134,14 +134,26 @@ de:
     admin:
       actions:
         add: Hinzufügen
+        attachment:
+          new: Neuer Anhang
+        attachment_collection:
+          new: Neuer Ordner
         browse: Durchsuchen
+        category:
+          new: Neue Kategorie
         export: Export
         manage: Verwalten
         new: Neu %{name}
+        newsletter:
+          new: Neuer Newsletter
+        participatory_space_private_user:
+          new: Neuer privater Benutzer
         per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
         share: Teilen
+        user:
+          new: Neuer Benutzer
         verify: Überprüfen
       admin_terms_of_use:
         accept:
@@ -890,7 +902,7 @@ de:
             success: Ressource erfolgreich ausgeblendet.
           unreport:
             invalid: Es ist ein Problem aufgetreten, die Ressource nicht zu melden.
-            success: Die Ressource wurde erfolgreich nicht gemeldet.
+            success: Die Meldung der Ressource wurde erfolgreich aufgehoben.
       models:
         moderation:
           fields:

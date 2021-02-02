@@ -82,7 +82,6 @@ pt:
         file_no_exists: Ficheiro não existente
         notice: A transferência dos seus dados está atualmente em progresso. Receberá um e-mail quando estiver concluído.
       delete:
-        alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
           ok: Sim, eu quero cancelar a minha conta
