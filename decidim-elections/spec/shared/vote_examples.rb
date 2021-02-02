@@ -41,7 +41,7 @@ shared_examples "allows to change the vote" do
 
     click_link translated(election.title)
 
-    expect(page).to have_content("You have already voted for this election.")
+    expect(page).to have_content("You have already voted in this election.")
     click_link "Change your vote"
   end
 
