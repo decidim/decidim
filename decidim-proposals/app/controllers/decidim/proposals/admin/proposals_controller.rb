@@ -136,8 +136,11 @@ module Decidim
           enforce_permission_to :edit, :proposal, proposal: proposal
 
           @form = form(Admin::ProposalForm).from_params(params)
-          check_delete_file = params[:proposal][:attachment][:delete_file]
-          attachment_id = params[:proposal][:attachment][:id].to_i
+
+          if params[:proposal][:attachment].present?
+            check_delete_file = params[:proposal][:attachment][:delete_file]
+            attachment_id = params[:proposal][:attachment][:id].to_i
+          end
 
           Attachment.find(params[:proposal][:attachment][:id].to_i).delete if check_delete_file == "1" && attachment_id == proposal.documents.first.id
 
