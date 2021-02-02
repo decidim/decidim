@@ -159,6 +159,8 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     end
 
     def user_scope_id
+      return unless authorization
+
       @user_scope_id ||= authorization.metadata["scope_id"]&.to_i
     end
 
@@ -167,7 +169,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     end
 
     def disallowed_user_user_scope
-      return if allowed_scope.blank?
+      return unless user_scope || allowed_scope.present?
 
       allowed_scope_id != user_scope_id
     end

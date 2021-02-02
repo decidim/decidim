@@ -112,7 +112,6 @@ describe "Action Authorization", type: :system do
 
           expect(page).to have_content("Not authorized")
           expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data doesn't match.")
-          expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567. Your postal code is 1234.")
           expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{other_scope.name["en"]}.")
         end
       end
@@ -146,7 +145,6 @@ describe "Action Authorization", type: :system do
 
             expect(page).to have_content("Not authorized")
             expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data doesn't match.")
-            expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567. Your postal code is 1234.")
             expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
           end
         end
