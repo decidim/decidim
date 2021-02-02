@@ -138,6 +138,10 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van deze vraag
             success: Vraag met succes bijgewerkt
+        steps:
+          create_election:
+            errors:
+              minimum_answers: Vragen moeten <strong>minstens twee antwoorden</strong> hebben.
         trustees_participatory_spaces:
           actions:
             disable: Uitschakelen
@@ -199,6 +203,10 @@ nl:
             notification: Notificatie verzonden op
             public_key: Publieke sleutel
             status: Status
+      trustee_zone:
+        no_bulletin_board:
+          body: Er is een geconfigureerd Bulletin Board nodig voor dit onderdeel. Neem contact op met de beheerder voor meer informatie.
+          title: Sorry, het Bulletin Board is nog niet geconfigureerd.
       votes:
         confirm:
           answer: Beantwoorden
@@ -210,6 +218,7 @@ nl:
           question: Vraag %{count}
         confirmed:
           back: Terug naar verkiezingen
+          error: Sorry, er is iets misgegaan bij het bevestigen van de stem. Probeer het nog eens.
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
@@ -255,6 +264,20 @@ nl:
     participatory_processes:
       statistics:
         elections_count: Verkiezingen
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            components: Onderdelen
+        votings:
+          edit:
+            add_election_component: Er zijn geen verkiezingen geconfigureerd voor deze stemming. Voeg deze toe in de Componenten sectie
+          form:
+            select_a_voting_type: Selecteer een type stemming
+            voting_type:
+              hybrid: Hybride
+              in_person: In persoon
+              online: Online
   layouts:
     decidim:
       election_votes_header:
