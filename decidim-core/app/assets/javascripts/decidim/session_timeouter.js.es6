@@ -26,5 +26,23 @@
         popup.open();
       }
     }, 10000);
+
+    console.log("SET AJAX EVENTS")
+    $(document).on("ajax:send", () => {
+      console.log("TESTIAJAX SEND")
+    });
+    $(document).on("ajax:complete", () => {
+      console.log("TESTIAJAX COMPLETE")
+    });
   })
 })(window)
+
+// $(document).ajaxComplete(function() {
+//   $(".log").text( "Triggered ajaxComplete handler.");
+//   console.log("TESTIAJAX")
+// });
+
+// $( document ).ajaxSend(function() {
+//   // $( ".log" ).text( "Triggered ajaxSend handler." );
+//   console.log("TESTIAJAX")
+// });
