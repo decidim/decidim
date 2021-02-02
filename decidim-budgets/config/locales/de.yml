@@ -45,8 +45,6 @@ de:
             title: Budget bearbeiten
             update: Budget aktualisieren
           index:
-            finished_orders: Abgeschlossene Stimmen
-            pending_orders: Ausstehende Stimmen
             title: Budgets
           new:
             create: Budget erstellen
