@@ -47,8 +47,6 @@ cs:
             title: Upravit rozpočet
             update: Aktualizovat rozpočet
           index:
-            finished_orders: Dokončené objednávky
-            pending_orders: Nevyřízené objednávky
             title: Rozpočty
           new:
             create: Vytvořit rozpočet

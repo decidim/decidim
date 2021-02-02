@@ -48,6 +48,8 @@ de:
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
             title: Budgets
+            users_with_finished_orders: Benutzer mit abgeschlossenen Stimmen
+            users_with_pending_orders: Benutzer mit ausstehenden Stimmen
           new:
             create: Budget erstellen
             title: Neues Budget
