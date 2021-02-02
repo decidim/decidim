@@ -1,4 +1,4 @@
-// = require decidim/bulletin_board/decidim-bulletin_board.dev
+// = require decidim/bulletin_board/decidim-bulletin_board
 // = require ./questions.component
 
 $(async () => {
