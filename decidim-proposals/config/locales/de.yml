@@ -574,7 +574,7 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
           title: Ähnliche kollaborative Entwürfe
         complete:
-          send: Absenden
+          send: Abschicken
           title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
           drafts_count:
@@ -652,7 +652,7 @@ de:
         update:
           error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
           success: Collaborative Draft wurde erfolgreich aktualisiert.
-          title: gemeinsamen Entwurf bearbeiten
+          title: Gemeinsamen Entwurf bearbeiten
         wizard_aside:
           back: Zurück
           back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen

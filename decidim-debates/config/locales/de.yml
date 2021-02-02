@@ -78,9 +78,9 @@ de:
             name: Debatte
       admin_log:
         debate:
-          close: "%{user_name} hat die %{resource_name} Debatte im %{space_name} Bereich beendet"
-          create: "%{user_name} erstellt die %{resource_name} Debatte über die %{space_name} Räume"
-          update: "%{user_name} aktualisierte die %{resource_name} Debatte über die %{space_name} Räume"
+          close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
+          create: "%{user_name} hat die Debatte %{resource_name} in %{space_name} erstellt"
+          update: "%{user_name} hat die Debatte %{resource_name} in %{space_name} aktualisiert"
       debate_m:
         commented_time_ago: Vor %{time} kommentiert
       debates:

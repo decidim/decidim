@@ -234,6 +234,8 @@ gl:
             success: Reunión eliminada correctamente
           edit:
             update: Actualización
+          form:
+            location_hints_help: 'Suxestións de localización: información adicional. Exemplo: o chan do edificio'
           index:
             title: Reunións
           new:
@@ -345,6 +347,8 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        form:
+          location_hints_help: 'Suxestións de localización: información adicional. Exemplo: o chan do edificio'
         meeting_minutes:
           meeting_minutes: Minutos de reunión
           related_information: Información relacionada

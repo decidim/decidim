@@ -230,6 +230,10 @@ ru:
           official: Служебные
         filter_state_values:
           not_answered: Без ответов
+      collaborative_drafts:
+        wizard_steps:
+          see_steps: просмотреть шаги
+          step_of: Шаг %{current_step_num} из %{total_steps}
       create:
         error: При попытке сохранить это предложение произошли ошибки.
         success: Предложение успешно создано. Сохранено как черновик.

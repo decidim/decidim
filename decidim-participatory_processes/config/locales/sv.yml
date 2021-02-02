@@ -244,7 +244,7 @@ sv:
           success: Dialoggruppen har skapats.
       titles:
         participatory_process_groups: Dialoggrupper
-        participatory_processes: Dialoggrupper
+        participatory_processes: Dialoger
       users:
         resend_invitation:
           error: Det gick inte att skicka inbjudan igen.
@@ -358,11 +358,11 @@ sv:
             active_step: Aktivt steg
             more_information: Mer information
             participate: Delta
-            participate_in: Delta i processen %{resource_name}
+            participate_in: Delta i dialogen %{resource_name}
             see_all_processes: Visa alla dialoger
       participatory_process_steps:
         index:
-          back_to_process: Tillbaka till processsidan
+          back_to_process: Tillbaka till dialogsidan
       participatory_processes:
         filters:
           counters:
@@ -442,13 +442,13 @@ sv:
           more_info: Mer information
           more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
-          take_part_in: Delta i processen %{resource_name}
+          take_part_in: Delta i dialogen %{resource_name}
         promoted_process:
           active_step: 'Aktuellt steg:'
           more_info: Mer information
-          more_info_about: Mer information om processen %{resource_name}
+          more_info_about: Mer information om dialogen %{resource_name}
           take_part: Delta
-          take_part_in: Delta i processen %{resource_name}
+          take_part_in: Delta i dialogen %{resource_name}
       process_header_steps:
         step: Steg %{current} av %{total}
         view_steps: Visa steg

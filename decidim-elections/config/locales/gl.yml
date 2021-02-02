@@ -1,1 +1,111 @@
 gl:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrición
+        image: Imaxe
+        proposals: Propostas relacionadas
+        title: Título
+      election:
+        description: Descrición
+        end_time: A votación remata ás
+        start_time: A votación comeza ás
+        title: Título
+      question:
+        description: Descrición
+        title: Título
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Resposta
+        other: Respostas
+      decidim/elections/question:
+        one: Pregunta
+        other: Preguntas
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Votar
+    elections:
+      actions:
+        confirm_destroy: Estás certo/a?
+        edit: Editar
+        edit_answers: Editar respostas
+        edit_questions: Editar preguntas
+        new: Nova %{name}
+        publish: Publicar
+        title: Accións
+      admin:
+        answers:
+          edit:
+            title: Editar resposta
+            update: Actualizar resposta
+          index:
+            title: Respostas
+          new:
+            create: Crear resposta
+            title: Nova resposta
+        models:
+          answer:
+            name: Resposta
+          question:
+            name: Pregunta
+        questions:
+          edit:
+            title: Editar pregunta
+            update: Actualizar pregunta
+          index:
+            title: Preguntas
+          new:
+            create: Crear pregunta
+            title: Nova pregunta
+      election_m:
+        badge_name:
+          finished: Finalizada
+          ongoing: Activa
+          upcoming: Vindeiras
+        footer:
+          view: Ver
+          vote: Votar
+        label:
+          date: Datas
+        questions: Preguntas %{count}
+        unspecified: Sen especificar
+      elections:
+        filters:
+          active: Activa
+          all: Todas
+          finished: Finalizada
+          search: Procurar
+          state: Estado
+          upcoming: Vindeiras
+        filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtrar
+          filter_by: Filtrar por
+        show:
+          back: Todas as votacións
+      models:
+        answer:
+          fields:
+            title: Título
+        election:
+          fields:
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            title: Título
+      votes:
+        confirmed:
+          experience: Como valoras a túa experiencia?
+          feedback: Dános a túa opinión
+          header: Voto confirmado
+          verify_text: Para verificalo, copia o identificador e pégao na <a href="evote-verify">páxina de verificación de voto</a>
+        header:
+          confirm: Confirma o teu voto
+          confirmed: Voto confirmado
+          encrypting: Confirmando o voto
+        modal:
+          close: Pechar

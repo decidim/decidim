@@ -575,6 +575,7 @@
         update:
           error: Det oppstod et problem med å lagre samarbeids utkastet.
           success: Samarbeids utkast oppdatert.
+          title: Rediger samarbeids utkastet
         wizard_aside:
           back: Tilbake
           info: Du oppretter et <strong>samarbeids utkast</strong>.

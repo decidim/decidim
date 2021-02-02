@@ -161,7 +161,7 @@ cs:
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
     admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
+      default_body: "<h2>ADMINISTRÁTORSKÉ ZÁSADY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
     alert:
       dismiss: Odmítnout oznámení
     amendments:
@@ -426,7 +426,7 @@ cs:
         create:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
-          complete_profile: Kompletní profil
+          complete_profile: Dokončit profil
           nickname_help: Vaše přezdívka v %{organization}
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
@@ -865,7 +865,7 @@ cs:
       no_members: Tato skupina uživatelů zatím nemá žádného člena.
     menu:
       help: Pomoc
-      home: Domov
+      home: Úvod
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
@@ -1040,7 +1040,7 @@ cs:
           meetings_explanation: Zjistěte, kde a kdy se můžete účastnit veřejných setkání.
           more_info: Více informací
           proposals: Návrhy
-          proposals_explanation: Udělat návrhy, podpořit existující a podporovat změny, které chcete vidět.
+          proposals_explanation: Vytvářejte návrhy, podporujte stávající a prosazujte změny, které chcete vidět.
         footer_sub_hero:
           footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
@@ -1052,7 +1052,7 @@ cs:
           headline: Metriky
         statistics:
           answers_count: Dokončené průzkumy
-          assemblies_count: Sestavy
+          assemblies_count: Shromáždění
           comments_count: Komentáře
           conferences_count: Konference
           debates_count: Debaty
@@ -1153,7 +1153,7 @@ cs:
         subject: Byl ohlášen zdroj
     reports:
       create:
-        error: Při vytváření sestavy došlo k chybě. Zkuste to znovu.
+        error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
     resource_endorsements:
       create:
@@ -1495,7 +1495,7 @@ cs:
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
       not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
-      not_locked: nebyla zamčená
+      not_locked: nebyl uzamčen
       not_saved:
         one: 'Při zpracování vašeho požadavku došlo k chybě:'
         few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
@@ -1571,7 +1571,7 @@ cs:
         see_more: Vidět víc
   locale:
     name: Čeština
-    name_with_error: Angličtina (chyba!)
+    name_with_error: Čeština
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu

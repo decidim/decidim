@@ -645,7 +645,7 @@ ja:
         update:
           error: 共同作業のドラフトを保存する際に問題が発生しました。
           success: 共同作業の下書きが正常に更新されました。
-          title: 共同草案の下書きを編集
+          title: 共同作業の下書きを編集
         wizard_aside:
           back: 戻る
           back_from_collaborative_draft: 共同草案に戻る

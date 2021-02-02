@@ -19,7 +19,7 @@ cs:
       initiative_author:
         address: Adresa
         city: Město
-        id_document: DNI / NIE
+        id_document: IČ / Občanský průkaz
         name: Jméno a příjmení
         phone_number: Telefonní číslo
         post_code: PSČ
@@ -51,7 +51,7 @@ cs:
       organization_data:
         address: Adresa
         id_document: Doklad totožnosti
-        name: Kompletní jméno
+        name: Úplný název
     errors:
       models:
         initiative:
@@ -533,7 +533,7 @@ cs:
       initiatives_type:
         actions:
           title: Akce
-          vote: Hlasování
+          vote: Podepsat
   layouts:
     decidim:
       admin:

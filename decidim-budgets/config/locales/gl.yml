@@ -1,6 +1,9 @@
 gl:
   activemodel:
     attributes:
+      budget:
+        description: Descripción
+        title: Título
       project:
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
@@ -20,7 +23,9 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar este proxecto?
         destroy: Eliminar
         edit: Editar
+        edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
+        new: Novo %{name}
         preview: Vista previa
         title: Accións
       admin:
@@ -39,6 +44,7 @@ gl:
           index:
             finished_orders: Votos rematados
             pending_orders: Votos pendentes
+            selected: Seleccionado
             title: Proxectos
           new:
             create: Crear
@@ -59,7 +65,13 @@ gl:
           create: "%{user_name} creou o proxecto %{resource_name} no espazo %{space_name}"
           delete: "%{user_name} eliminou o %{resource_name} proxecto no espazo %{space_name}"
           update: "%{user_name} actualizou o proxecto %{resource_name} no espazo %{space_name}"
+      budget_information_modal:
+        continue: Continuar
+        more_information: Máis información
       models:
+        budget:
+          fields:
+            name: Nome
         project:
           fields:
             title: Título
@@ -73,15 +85,16 @@ gl:
           close: Pechar
           description: Este proxecto supera o orzamento máximo e non se pode engadir. Se o desexa, pode eliminar un proxecto que xa seleccionou para engadir ou facer o seu voto coas súas preferencias.
           ok: Ok
-          title: O orzamento máximo excedeu
+          title: Orzamento máximo excedido
         budget_summary:
-          are_you_sure: '¿Estás seguro de que queres cancelar o teu voto?'
+          are_you_sure: Estás certo de querer cancelar o teu voto?
           assigned: 'Asignado:'
           cancel_order: elimine o seu voto e volva comezar
           checked_out:
             description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
           description: Que proxectos crees que deberiamos asignar orzamento para? Asigne polo menos %{minimum_budget} aos proxectos que desexe e vote coas súas preferencias para definir o orzamento.
+          description_minimum_projects_rule: Que proxectos cres que debemos destinar o orzamento? Selecciona polo menos %{minimum_number} proxectos que desexes e vota segundo as túas preferencias para definir o orzamento.
           title: Vostede decide o orzamento
         count:
           projects_count:
@@ -91,6 +104,9 @@ gl:
           category: Categoría
           scope: Alcance
           search: Busca
+          status: Estado
+          status_values:
+            all: Todos
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -104,8 +120,15 @@ gl:
             one: proxecto seleccionado
             other: proxectos seleccionados
           view: Ver
+        orders:
+          label: Ordenar proxectos por
         project:
           view: Ver
+          votes:
+            one: voto
+            other: votos
+          you_voted: Votaches
+        projects_for: Proxectos para %{name}
         show:
           budget: Orzamento
           view_all_projects: Ver todos os proxectos
@@ -118,14 +141,17 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
-            resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
+            resources_permissions_enabled: Os permisos de acción pódense definir para cada reunión
+            title: Título
             total_budget: Orzamento total
             vote_threshold_percent: Porcentaxe de límite de voto
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar votos
+            title: Título
             votes_choices:
               enabled: Votación habilitada
     orders:

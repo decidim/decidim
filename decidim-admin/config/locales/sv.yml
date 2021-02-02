@@ -91,6 +91,8 @@ sv:
         name: Namn
         organization: Organisation
         plural: Flertal
+      settings:
+        scope_id: Omfång
       static_page:
         changed_notably: Det har skett större förändringar.
         content: Innehåll
@@ -253,7 +255,7 @@ sv:
           error: Det gick inte att skapa komponenten.
           success: Komponenten har skapats.
         destroy:
-          error: Det har inträffat ett fel som förstörde komponenten.
+          error: Ett fel uppstod när komponenten skulle förstöras.
           success: Komponenten har raderats.
         edit:
           title: Redigera komponent

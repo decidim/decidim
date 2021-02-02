@@ -531,11 +531,12 @@ pt:
         update:
           error: Houve erros ao salvar o rascunho colaborativo.
           success: Rascunho colaborativo atualizado com sucesso.
+          title: Editar rascunho colaborativo
         wizard_aside:
           back: Costas
           info: Você está criando um <strong>projecto de colaboração</strong>.
         wizard_steps:
-          see_steps: ver passos
+          see_steps: ver etapas
           step_1: Crie seu rascunho colaborativo
           step_2: Comparar com rascunhos colaborativos
           step_3: Complete seu rascunho colaborativo

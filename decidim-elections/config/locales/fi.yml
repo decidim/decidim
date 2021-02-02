@@ -140,7 +140,7 @@ fi:
       admin_log:
         election:
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
-          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen"
+          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun"
       election_m:
         badge_name:
           finished: Valmis

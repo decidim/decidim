@@ -141,7 +141,7 @@ sv:
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             proposal_wizard_step_2_help_text: Hjälptext till steget "Jämför" i förslagsguiden
-            proposal_wizard_step_3_help_text: Hjälptext till steget "Komplett" i förslagsguiden
+            proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
             proposal_wizard_step_4_help_text: Förslagsguidens hjälptext för steg "Publicera"
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
             threshold_per_proposal: Tröskel per förslag
@@ -524,7 +524,7 @@ sv:
       answers:
         accepted: Accepterat
         evaluating: Utvärderas
-        not_answered: Ej besvarade
+        not_answered: Ej besvarat
         rejected: Avvisat
         withdrawn: Tillbakadragna
       application_helper:
@@ -539,11 +539,11 @@ sv:
         filter_scope_values:
           all: Alla
         filter_state_values:
-          accepted: Accepterat
+          accepted: Accepterade
           all: Alla
           evaluating: Utvärderas
           not_answered: Ej besvarade
-          rejected: Avvisat
+          rejected: Avvisade
         filter_type_values:
           all: Alla
           amendments: Ändringsförslag
@@ -859,7 +859,7 @@ sv:
           see_steps: visa steg
           step_1: Skapa ditt förslag
           step_2: Jämför
-          step_3: Slutför
+          step_3: Komplettera
           step_4: Publicera ditt förslag
           step_of: Steg %{current_step_num} av %{total_steps}
           title: Steg för att skapa förslag

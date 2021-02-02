@@ -630,7 +630,7 @@ nl:
         update:
           error: Er is een fout opgetreden bij het opslaan van de gezamenlijke conceptversie.
           success: Samenwerkingsconcept met succes bijgewerkt.
-          title: Samenwerkend concept bewerken
+          title: Bewerk gezamenlijk ontwerp
         wizard_aside:
           back: Terug
           back_from_collaborative_draft: Terug naar gezamenlijke concepten
@@ -641,7 +641,7 @@ nl:
           info: U maakt een <strong>gezamenlijk ontwerp</strong>.
         wizard_steps:
           current_step: Huidige stap
-          see_steps: zie stappen
+          see_steps: Bekijk stappen
           step_1: Maak uw gezamenlijk ontwerp
           step_2: Vergelijk met gezamenlijke ontwerpen
           step_3: Voltooi uw gezamenlijke ontwerp

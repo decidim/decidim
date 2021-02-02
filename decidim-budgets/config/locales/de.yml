@@ -87,13 +87,13 @@ de:
             select_component: Bitte wählen Sie eine Komponente aus
       admin_log:
         budget:
-          create: "%{user_name} erstellte das %{resource_name} Budget in dem %{space_name} Raum"
-          delete: "%{user_name} löschte das %{resource_name} Budget in dem %{space_name} Raum"
-          update: "%{user_name} aktualisierte das %{resource_name} Budget in dem %{space_name} Raum"
+          create: "%{user_name} hat das Budget %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Budget %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Budget %{resource_name} in %{space_name} aktualisiert"
         project:
-          create: "%{user_name} erstellt das %{resource_name} Projekt in dem %{space_name} Raum"
-          delete: "%{user_name} löschte das %{resource_name} Projekt in den %{space_name} Leerzeichen"
-          update: "%{user_name} aktualisiert das %{resource_name} Projekt in den %{space_name} Räumen"
+          create: "%{user_name} hat das Projekt %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Projekt %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Projekt %{resource_name} in %{space_name} aktualisiert"
       budget:
         view: Alle Budgetprojekte anzeigen
       budget_information_modal:

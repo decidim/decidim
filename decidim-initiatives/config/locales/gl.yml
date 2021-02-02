@@ -212,6 +212,7 @@ gl:
             destroy: Eliminar
             update: Actualización
           form:
+            child_scope_threshold_enabled_help: 'Este axuste de configuración non soporta a recollida de sinaturas presenciais. Habilita indicadores de sinaturas por subámbitos e funciona cun controlador de autorizacións que asocia un ámbito ao usuario. Asegúrate de seleccionar esta autorización máis abaixo, na configuración da autorización. Para que funcione tense de configurar de xeito xerárquico: 1 ámbito - N subámbitos. Para obter máis información sobre o funcionamento deste axuste, consulta esta <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">ligazón</a>.'
             title: Información xeral
           initiative_type_scopes:
             title: Alcances para o tipo de iniciativa
@@ -257,12 +258,15 @@ gl:
           back: De volta
           back_to_initiatives: Volver a iniciativas
           callout_text: Parabéns! A túa iniciativa cidadá creouse con éxito.
+          confirm: Confirmar
+          edit_my_initiative: Editar as miñas iniciativas
           go_to_my_initiatives: Vaia ás miñas iniciativas
           more_information: "(Máis información)"
+          send_my_initiative: Enviar as miñas iniciativas
         finish_help:
-          access_reminder: Lembre que sempre poderá acceder ás túas iniciativas a través do menú do usuario.
-          help_for_organizations: Se es unha asociación terá que subir as actas do consello de administración de todas as organizacións que forman a Comisión de Promoción
-          help_in_person_signatures: Se escolleu recoller as sinaturas en persoa ou combinadas con liña, terá que subir a información necesaria.
+          access_reminder: Lembra que sempre poderás acceder ás túas iniciativas a través do menú de participante.
+          help_for_organizations: Se es unha asociación, terás que subir as actas do consello de administración de todas as organizacións que forman a Comisión Promotora
+          help_in_person_signatures: Se escolliches recoller as sinaturas persoalmente ou combinalas coa recollida en liña, terás de subir a información necesaria.
           help_text: Lembra que para procesar correctamente a iniciativa debes acceder ao panel de administración onde atoparás o menú de usuario, cargarás a información que necesitas e enviala para o seu procesamento.
           initiatives_page_link: Podes buscar toda esta información no %{link} dedicado a informar sobre iniciativas.
           page: páxina
