@@ -18,14 +18,11 @@ module Decidim
         def ensure_configured_bulletin_board!
           return if Decidim::Elections.bulletin_board.configured?
 
-          announcement_args = {
-            callout_class: "alert",
-            announcement: {
-              title: "<strong>#{t("no_bulletin_board.title", scope: "decidim.elections.trustee_zone")}</strong>",
-              body: t("no_bulletin_board.body", scope: "decidim.elections.trustee_zone")
-            }
+          announcement = {
+            title: "<strong>#{t("no_bulletin_board.title", scope: "decidim.elections.trustee_zone")}</strong>",
+            body: t("no_bulletin_board.body", scope: "decidim.elections.trustee_zone")
           }
-          render html: cell("decidim/announcement", announcement_args), layout: true
+          render html: cell("decidim/announcement", announcement, callout_class: "alert"), layout: true
         end
 
         def trustee
