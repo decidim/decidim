@@ -219,7 +219,7 @@ en:
             title: Tally process
           tally_ended:
             title: Results calculated
-            submit: TODO
+            submit: Publish results
           vote:
             errors:
               time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
@@ -378,7 +378,7 @@ en:
             title: Create election keys for %{election}
           tally_steps:
             back: Back
-            description: TODO
+            description: This election results are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
               end_tally: Tally ended
               tally:
@@ -387,14 +387,14 @@ en:
             list:
               status: Status
               task: Task
-            process_warning: TODO
+            process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
             start: Start
             start_icon: Icon that indicates a start button to start the election keys generation
             status:
               completed: Completed
               pending: Pending
               processing: Processing
-            title: TODO for %{election}
+            title: Tally for %{election}
           restore_modal:
             description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
             title: Restore election keys for %{election}
