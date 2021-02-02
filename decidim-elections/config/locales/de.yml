@@ -527,6 +527,7 @@ de:
             attachment_collections: Ordner
             attachment_files: Dateien
             attachments: Dateianhänge
+            components: Komponenten
             info: Information
         models:
           voting:
@@ -548,6 +549,7 @@ de:
             invalid: Beim Erstellen dieser Abstimmung ist ein Problem aufgetreten
             success: Abstimmung erfolgreich erstellt
           edit:
+            add_election_component: Sie haben keine Wahl für diese Abstimmung konfiguriert. Bitte fügen Sie sie im Abschnitt Komponenten hinzu
             update: Aktualisieren
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
