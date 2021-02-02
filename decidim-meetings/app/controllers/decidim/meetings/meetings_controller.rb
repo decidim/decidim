@@ -53,8 +53,6 @@ module Decidim
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
 
-        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
-
         return if meeting.current_user_can_visit_meeting?(current_user)
 
         flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
