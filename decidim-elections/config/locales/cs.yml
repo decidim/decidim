@@ -381,6 +381,9 @@ cs:
             success: 'Stav voleb je: %{status}'
         menu:
           trustee_zone: Zóna správce
+        no_bulletin_board:
+          body: Konfigurovaný bulletin Board je vyžadován pro tuto sekci. Pro více informací kontaktujte správce.
+          title: Omlouváme se, ale Bulletin Board ještě není nakonfigurován.
         trustees:
           show:
             elections:
