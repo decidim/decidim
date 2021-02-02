@@ -4,10 +4,8 @@ module Decidim
   module Elections
     module TrusteeZone
       # Handles the KeyCeremony for trustee users
-      class ElectionsController < ::Decidim::ApplicationController
-        include Decidim::UserProfile
-
-        helper_method :election, :trustee
+      class ElectionsController < Decidim::Elections::TrusteeZone::ApplicationController
+        helper_method :election
 
         def show
           enforce_permission_to :view, :election, trustee: trustee
@@ -28,23 +26,8 @@ module Decidim
 
         private
 
-        def permission_scope
-          :trustee_zone
-        end
-
-        def permission_class_chain
-          [
-            Decidim::Elections::Permissions,
-            Decidim::Permissions
-          ]
-        end
-
         def election
           @election ||= Decidim::Elections::Election.find(params[:election_id])
-        end
-
-        def trustee
-          @trustee ||= Decidim::Elections::Trustee.for(current_user)
         end
       end
     end
