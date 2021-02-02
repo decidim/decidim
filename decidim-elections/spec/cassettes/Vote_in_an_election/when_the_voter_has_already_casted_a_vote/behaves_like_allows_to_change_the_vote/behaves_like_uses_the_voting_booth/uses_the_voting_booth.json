@@ -1,0 +1,163 @@
+{
+  "http_interactions": [
+    {
+      "request": {
+        "method": "post",
+        "uri": "http://bulletin-board.lvh.me:8000/api",
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"query\":\"mutation GraphQL__Client__OperationDefinition_203040 {\\n  vote(messageId: \\\"decidim-test-authority.10002.vote.cast+v.b3dd7710faf072f3685713cfe9892c852cea6eac2e542b7446370fadd3901149\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJ1bmlxdWVcIixcInF1ZXN0aW9uXzE0MDFcIjpbXCI5NDUyXCJdLFwicXVlc3Rpb25fMTQwM1wiOltcIjk0NjRcIixcIjk0NjZcIixcIjk0NjlcIl0sXCJxdWVzdGlvbl8xNDAyXCI6W1wiOTQ2M1wiLFwiOTQ1NlwiLFwiOTQ1OVwiLFwiOTQ1NFwiLFwiOTQ1N1wiXX0iLCJpYXQiOjE2MTIyNTUwNTUsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEwMDAyLnZvdGUuY2FzdCt2LmIzZGQ3NzEwZmFmMDcyZjM2ODU3MTNjZmU5ODkyYzg1MmNlYTZlYWMyZTU0MmI3NDQ2MzcwZmFkZDM5MDExNDkifQ.HTPBZjABG-HyW6zQhJDJm7OjrBQuKI8_L_Zx4oSG8k5Al-kjC8NHtpHfnBBiV7d52FqzfdoRgSou6bh6DTRiiMNzCFTOquSgjYCcFaYp9uoseEWP0phKN6_Kljn17QoRxGxTUTnhRqW9WJuP4keDYcou9BeXipQ4HYt5Jh97eLoUJzl-Hh-B9tWd0R4qztVvLbwQScd2eFPlwzkCcE1VUvvzpUFv3ecZCNQq94sH6MBI0yuAH1phwFyxxqqVcShPmPOcTIJryOVPlO9uM8d3VNoTRa1nNh3SNNj72iMYtKM1qgAQApcq-8H7RwHwQRt2f84MzeLEJ27v4okrNZpkDqHLBzyWaEJhh5Fk2CNwEba_XN2Ew5emyxHs5bxHCqOUg91zXvdOXVomAEDLeVwAN5cO4hNPLyYuHklrck9axJRA_HMvQ-McaFydZLo4BzxBmAKrgqSLM069zlWBDP55lNN1vjd-49xRQ3LXE78RQ8VJMdwxzJps_iBVUsnmAEyE-DeVZtsCZU50quA0dQPVCWmEQJM8D7IIvJvvpVo5rFj8kJFlthKc_N1egMO2fZJWswh4pL8Y5CYr1KYHpW5atvzZrIQxmHdarNOtWcSeQ6LHDXsy02TmreY3Ir_piQVVgX8qHKVtfXaaWF92INaHMJq8ColjXH_OOPFYA1y5lYA\\\") {\\n    pendingMessage {\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_203040\",\"variables\":{}}"
+        },
+        "headers": {
+          "Authorization": [
+            "89Ht70GZNcicu8WEyagz_rRae6brbqZAGuBEICYBCii-PTV3MAstAtx1aRVe5H5YfODi-JgYPvyf9ZMH7tOeZ15e3mf9B2Ymgw7eknvBFMRP213YFGo1SPn_C4uLK90G"
+          ],
+          "User-Agent": [
+            "Faraday v1.0.1"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ],
+          "Accept": [
+            "*/*"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Etag": [
+            "W/\"2c609107c088369467170808644ee7a0\""
+          ],
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "X-Request-Id": [
+            "3322c0e0-2532-4501-93b4-46f9fd28c2cf"
+          ],
+          "X-Runtime": [
+            "0.102558"
+          ],
+          "Vary": [
+            "Origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"data\":{\"vote\":{\"pendingMessage\":{\"status\":\"enqueued\"},\"error\":null}}}"
+        }
+      },
+      "recorded_at": "Tue, 02 Feb 2021 08:37:35 GMT"
+    },
+    {
+      "request": {
+        "method": "post",
+        "uri": "http://bulletin-board.lvh.me:8000/api",
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"query\":\"query GraphQL__Client__OperationDefinition_206580 {\\n  pendingMessage(messageId: \\\"decidim-test-authority.10002.vote.cast+v.b3dd7710faf072f3685713cfe9892c852cea6eac2e542b7446370fadd3901149\\\") {\\n    status\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_206580\",\"variables\":{}}"
+        },
+        "headers": {
+          "Authorization": [
+            "89Ht70GZNcicu8WEyagz_rRae6brbqZAGuBEICYBCii-PTV3MAstAtx1aRVe5H5YfODi-JgYPvyf9ZMH7tOeZ15e3mf9B2Ymgw7eknvBFMRP213YFGo1SPn_C4uLK90G"
+          ],
+          "User-Agent": [
+            "Faraday v1.0.1"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "Accept-Encoding": [
+            "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          ],
+          "Accept": [
+            "*/*"
+          ]
+        }
+      },
+      "response": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "headers": {
+          "X-Frame-Options": [
+            "SAMEORIGIN"
+          ],
+          "X-Xss-Protection": [
+            "1; mode=block"
+          ],
+          "X-Content-Type-Options": [
+            "nosniff"
+          ],
+          "X-Download-Options": [
+            "noopen"
+          ],
+          "X-Permitted-Cross-Domain-Policies": [
+            "none"
+          ],
+          "Referrer-Policy": [
+            "strict-origin-when-cross-origin"
+          ],
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ],
+          "Etag": [
+            "W/\"8bc96b2218459304ebb02aea2be8054c\""
+          ],
+          "Cache-Control": [
+            "max-age=0, private, must-revalidate"
+          ],
+          "X-Request-Id": [
+            "f212baa7-7267-47fa-a45e-dce1e7f5637f"
+          ],
+          "X-Runtime": [
+            "0.019142"
+          ],
+          "Vary": [
+            "Origin"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
+          ]
+        },
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"data\":{\"pendingMessage\":{\"status\":\"rejected\"}}}"
+        }
+      },
+      "recorded_at": "Tue, 02 Feb 2021 08:37:37 GMT"
+    }
+  ],
+  "recorded_with": "VCR 6.0.0"
+}
