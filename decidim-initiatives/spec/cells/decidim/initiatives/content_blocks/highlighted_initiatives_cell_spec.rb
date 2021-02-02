@@ -54,7 +54,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
       end
     end
 
-    context "when sorting by default" do
+    context "when sorting by default (least recent)" do
       let(:settings) do
         {
           "order" => "default"

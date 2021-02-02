@@ -15,9 +15,9 @@ module Decidim
       context "when querying by default order" do
         let(:order) { "default" }
 
-        it "returns initiatives ordered by unordered list" do
+        it "returns initiatives ordered by least recent" do
           expect(subject.count).to eq(6)
-          expect(subject.first).not_to eq(most_recent_initiative)
+          expect(subject.query.last).to eq(most_recent_initiative)
         end
       end
 
@@ -26,7 +26,7 @@ module Decidim
 
         it "returns initiatives ordered by most recent" do
           expect(subject.count).to eq(6)
-          expect(subject).not_to eq(most_recent_initiative)
+          expect(subject.query.first).to eq(most_recent_initiative)
         end
       end
     end

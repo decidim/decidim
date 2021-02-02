@@ -20,6 +20,6 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesSettingsForm
   describe "#order_select" do
     subject { cell.order_select }
 
-    it { is_expected.to eq([["Default (unordered)", "default"], ["Most recent", "most_recent"]]) }
+    it { is_expected.to eq([["Default (Least recent)", "default"], ["Most recent", "most_recent"]]) }
   end
 end
