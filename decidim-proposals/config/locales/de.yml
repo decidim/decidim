@@ -769,6 +769,8 @@ de:
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Ihr Vorschlag wurde als Entwurf gespeichert. Er muss veröffentlicht werden, damit er auf der Seite erscheint.
+          announcement_title: Ihr Vorschlag wurde noch nicht veröffentlicht
           modify: Vorschlag ändern
           proposal_edit_before_minutes:
             one: Sie können diesen Vorschlag in der ersten Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
