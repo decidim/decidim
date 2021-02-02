@@ -52,8 +52,8 @@ module Decidim
       # Options to filter meetings by activity.
       def activity_filter_values
         [
-          ["all", t(".all")],
-          ["my_meetings", t(".my_meetings")]
+          ["all", t("decidim.meetings.meetings.filters.all")],
+          ["my_meetings", t("decidim.meetings.meetings.filters.my_meetings")]
         ]
       end
     end
