@@ -882,7 +882,7 @@ en:
       reported_users:
         object: reported users
         title: Reported users
-      suspended_users:
+      blocked_users:
         object: blocked users
         title: Blocked users
       user_reports:

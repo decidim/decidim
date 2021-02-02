@@ -3,9 +3,9 @@
 module Decidim
   module Metrics
     # Metric manager for User's registries
-    class SuspendedUsersMetricManage < Decidim::MetricManage
+    class BlockedUsersMetricManage < Decidim::MetricManage
       def metric_name
-        "suspended_users"
+        "blocked_users"
       end
 
       private
