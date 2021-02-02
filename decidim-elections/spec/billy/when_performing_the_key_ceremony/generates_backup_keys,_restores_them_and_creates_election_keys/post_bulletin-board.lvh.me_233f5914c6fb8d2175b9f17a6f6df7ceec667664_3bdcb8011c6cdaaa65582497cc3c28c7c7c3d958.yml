@@ -1,9 +1,9 @@
 ---
-:scope: trustee 2 download
+:scope:
 :url: http://bulletin-board.lvh.me/api
-:body: '{"operationName":"GetElectionLogEntries","variables":{"electionUniqueId":"decidim-test-authority.42","after":"69"},"query":"query
-  GetElectionLogEntries($electionUniqueId: String!, $after: String) {\n  election(uniqueId:
-  $electionUniqueId) {\n    logEntries(after: $after) {\n      id\n      messageId\n      signedData\n      __typename\n    }\n    __typename\n  }\n}\n"}'
+:body: '{"operationName":"GetPendingMessageByMessageId","variables":{"messageId":"decidim-test-authority.42.start_key_ceremony+a.decidim-test-authority"},"query":"query
+  GetPendingMessageByMessageId($messageId: String!) {\n  pendingMessage(messageId:
+  $messageId) {\n    status\n    __typename\n  }\n}\n"}'
 :status: 200
 :method: post
 :headers:
@@ -18,11 +18,11 @@
   X-Permitted-Cross-Domain-Policies: none
   Referrer-Policy: strict-origin-when-cross-origin
   Content-Type: application/json; charset=utf-8
-  ETag: W/"14668fa8732050881aef2ce979bf1528"
+  ETag: W/"010fb861072a4a93c9740f31004a4ff7"
   Cache-Control: max-age=0, private, must-revalidate
-  X-Request-Id: a9bdb98f-0dc6-4e0a-a759-b5de253dc740
-  X-Runtime: '0.015141'
+  X-Request-Id: 61103466-fd52-4f64-aea7-b38341996f3e
+  X-Runtime: '0.032911'
   Vary: Origin
   Connection: close
   Transfer-Encoding: chunked
-:content: '{"data":{"election":{"logEntries":[],"__typename":"Election"}}}'
+:content: '{"data":{"pendingMessage":{"status":"accepted","__typename":"PendingMessage"}}}'

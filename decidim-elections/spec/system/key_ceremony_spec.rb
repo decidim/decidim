@@ -48,6 +48,12 @@ describe "Key ceremony", type: :system do
 
       click_button "Setup election"
 
+      click_button "Start the key ceremony"
+
+      within ".content.key_ceremony" do
+        expect(page).to have_content("Key ceremony")
+      end
+
       election.reload
     end
 
@@ -60,7 +66,7 @@ describe "Key ceremony", type: :system do
 
       content = download_content("#{trustee.unique_id}-*.bak")
       expect(content).to have_content(%(trusteeId":"#{trustee.unique_id}))
-      expect(content).to have_content('"status":"key_ceremony.step_1"')
+      expect(content).to have_content('"status":1')
     end
 
     def access_trustee_zone(trustee_index, upload_keys = true) # rubocop:disable Style/OptionalBooleanParameter
@@ -116,7 +122,7 @@ describe "Key ceremony", type: :system do
       expect(page).not_to have_selector("button.start")
       expect(page).to have_link("Back")
 
-      expect(page).to have_content("The election status is: ready")
+      expect(page).to have_content("The election status is: key_ceremony_ended")
     end
 
     def check_key_ceremony_completed(trustee_index)
@@ -126,7 +132,7 @@ describe "Key ceremony", type: :system do
 
       within ".trustee_zone table" do
         expect(page).to have_content(translated(election.title, locale: :en))
-        expect(page).to have_content("ready")
+        expect(page).to have_content("key_ceremony_ended")
         expect(page).not_to have_link("Perform action")
       end
     end
