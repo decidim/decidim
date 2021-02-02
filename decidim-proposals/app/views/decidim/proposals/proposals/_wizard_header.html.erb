@@ -4,7 +4,10 @@
   <%
     locals = {
       callout_class: "warning",
-      announcement: t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
+      announcement: {
+        title: t("decidim.proposals.proposals.preview.announcement_title"),
+        body: "#{t("decidim.proposals.proposals.preview.announcement_body")}<br><br>#{t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)}"
+      }
     }
   %>
   <%= render partial: "decidim/shared/announcement", locals: locals %>
