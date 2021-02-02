@@ -2,7 +2,7 @@
 
 In some cases is useful to access the `localhost` environment under SSL (ie: `https://localhost:3000/`).
 
-A typical use case is when you want to test login integration with 3rd party systems using OAuth (which in the latests versions only the HTTPS protocol is allowed).
+A typical use case is when you want to test login integration with 3rd party systems using OAuth (which in the latest versions only the HTTPS protocol is allowed).
 
 Using Puma, the default server for Rails, you can easily do the trick by creating a self-signed certificate and using it when starting your development environment.
 
@@ -18,13 +18,13 @@ openssl req -x509 -out localhost.crt -keyout localhost.key \
    printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 ----
 
-This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we'll suppose we have them in `/home/alice/certs/`:
+This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we'll suppose we have them in the folder `certs` in our root user home:
 
 [source,bash]
 ----
-mkdir /home/alice/certs/
-mv localhost.crt /home/alice/certs/
-mv localhost.key /home/alice/certs/
+mkdir ~/certs/
+mv localhost.crt ~/certs/
+mv localhost.key ~/certs/
 ----
 
 == Starting development in SSL mode
@@ -33,7 +33,7 @@ Once you have your certificate is generated, just use the next command in order 
 
 [source,bash]
 ----
-bin/rails s -b 'ssl://127.0.0.1:3000?key=/home/alice/certs/localhost.key&cert=/home/alice/certs/localhost.crt'
+bin/rails s -b "ssl://127.0.0.1:3000?key=$HOME/certs/localhost.key&cert=$HOME/certs/localhost.crt"
 ----
 
 Now you are ready to visit your favorite browser at the address `https://localhost:3000/` (note "https").
@@ -48,9 +48,9 @@ You can also test the multi-tenant capabilities of Decidim by using alternative 
 
 Just access your `/system` admin and create new organization with some subdomain of `lvh.me`: `organization.lvh.me`, `tenant2.lvh.me`, etc.
 
-You can combine this with the previously generated certificate (your browser is going to complaint but just tell him to proceed vising the site).
+You can combine this with the previously generated certificate (your browser is going to complaint but just tell it to proceed vising the site).
 
-Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you've started rails):
+Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you've started Rails):
 
 `http://someorg.lvh.me:3000/`
 
