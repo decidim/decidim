@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Admin::BallotBoxForm do
+describe Decidim::Elections::Admin::VotePeriodForm do
   subject { described_class.from_params(attributes).with_context(context) }
 
   let(:context) do
@@ -18,7 +18,7 @@ describe Decidim::Elections::Admin::BallotBoxForm do
   let(:attributes) { {} }
 
   describe "for an election ready to start" do
-    let(:election) { create :election, :ready, start_time: start_time }
+    let(:election) { create :election, :key_ceremony_ended, start_time: start_time }
     let(:start_time) { 1.hour.from_now }
     let(:formatted_start_time) { I18n.l(start_time, format: :long) }
 
@@ -26,7 +26,7 @@ describe Decidim::Elections::Admin::BallotBoxForm do
 
     it "shows a message" do
       expect(subject.messages).to eq({
-                                       time_before: "The election will start soon. You can open the ballot box manually, or it will be opened automatically before the starting time, at #{formatted_start_time}."
+                                       time_before: "The election will start soon. You can start the voting period manually, or it will be start automatically before the starting time, at #{formatted_start_time}."
                                      })
     end
 
@@ -38,7 +38,7 @@ describe Decidim::Elections::Admin::BallotBoxForm do
       it "shows an error message" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                time_before: ["The election is ready to start. You have to wait until 6 hours before the starting time (#{formatted_start_time}) to open the ballot box."]
+                                                time_before: ["The election is ready to start. You have to wait until 6 hours before the starting time (#{formatted_start_time}) to start the voting period."]
                                               })
       end
     end
@@ -53,7 +53,7 @@ describe Decidim::Elections::Admin::BallotBoxForm do
 
     it "shows a message" do
       expect(subject.messages).to eq({
-                                       time_after: "The election has ended. You can close the ballot box manually, or it will be closed automatically in a few minutes."
+                                       time_after: "The election has ended. You can end the voting period manually, or it will be ended automatically in a few minutes."
                                      })
     end
 
@@ -65,7 +65,7 @@ describe Decidim::Elections::Admin::BallotBoxForm do
       it "shows an error message" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                time_after: ["The election is still ongoing. You have to wait until the ending time (#{formatted_end_time}) to close the ballot box."]
+                                                time_after: ["The election is still ongoing. You have to wait until the ending time (#{formatted_end_time}) to end the voting period."]
                                               })
       end
     end

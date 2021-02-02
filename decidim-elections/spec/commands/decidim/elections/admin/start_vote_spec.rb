@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Admin::CloseBallotBox do
+describe Decidim::Elections::Admin::StartVote do
   subject { described_class.new(form) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
@@ -10,7 +10,7 @@ describe Decidim::Elections::Admin::CloseBallotBox do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
-  let(:election) { create :election, :vote }
+  let(:election) { create :election, :key_ceremony_ended }
   let(:form) do
     double(
       invalid?: invalid,
@@ -22,8 +22,9 @@ describe Decidim::Elections::Admin::CloseBallotBox do
     )
   end
 
-  let(:method_name) { :close_ballot_box }
-  let(:response) { OpenStruct.new(status: "tally") }
+  let(:method_name) { :start_vote }
+  let(:response) { OpenStruct.new(status: "enqueued") }
+  let(:action) { Decidim::Elections::Action.last }
 
   let(:bulletin_board) do
     double(Decidim::Elections.bulletin_board)
@@ -39,18 +40,14 @@ describe Decidim::Elections::Admin::CloseBallotBox do
                                                              })
     allow(bulletin_board).to receive(:authority_name).and_return("Decidim Test Authority")
     allow(bulletin_board).to receive(:authority_slug).and_return("decidim-test-authority")
-    allow(bulletin_board).to receive(method_name).and_return(response)
+    allow(bulletin_board).to receive(method_name).and_yield("a.message+id").and_return(response)
   end
 
   context "when valid form" do
-    it "updates the election status" do
-      expect { subject.call }.to change { election.reload.bb_status }.from("vote").to("tally")
-    end
-
     it "logs the performed action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(:close_ballot_box, election, user, visibility: "all")
+        .with(:start_vote, election, user, visibility: "all")
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -58,7 +55,16 @@ describe Decidim::Elections::Admin::CloseBallotBox do
       expect(action_log.version).to be_present
     end
 
-    it "calls the bulletin board create_election method with the correct params" do
+    it "creates an action" do
+      expect { subject.call }.to change { Decidim::Elections::Action.count }.by(1)
+
+      expect(action.election).to eq(election)
+      expect(action.message_id).to eq "a.message+id"
+      expect(action).to be_pending
+      expect(action).to be_start_vote
+    end
+
+    it "calls the bulletin board method with the correct params" do
       subject.call
       expect(bulletin_board).to have_received(method_name).with(election.id)
     end

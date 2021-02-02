@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Admin::OpenBallotBox do
+describe Decidim::Elections::Admin::PublishResults do
   subject { described_class.new(form) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
@@ -10,7 +10,9 @@ describe Decidim::Elections::Admin::OpenBallotBox do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
-  let(:election) { create :election, :ready }
+  let!(:election) { create :election, :complete }
+  let(:trustees) { create_list :trustee, 5, :with_public_key }
+  let(:trustee_ids) { trustees.pluck(:id) }
   let(:form) do
     double(
       invalid?: invalid,
@@ -18,12 +20,20 @@ describe Decidim::Elections::Admin::OpenBallotBox do
       current_user: user,
       current_component: current_component,
       current_organization: organization,
+      trustee_ids: trustee_ids,
       bulletin_board: bulletin_board
     )
   end
-
-  let(:method_name) { :open_ballot_box }
-  let(:response) { OpenStruct.new(status: "vote") }
+  let(:scheme) do
+    {
+      name: "dummy",
+      parameters: {
+        quorum: 2
+      }
+    }
+  end
+  let(:method_name) { :publish_results }
+  let(:response) { OpenStruct.new(status: "results_published") }
 
   let(:bulletin_board) do
     double(Decidim::Elections.bulletin_board)
@@ -39,18 +49,19 @@ describe Decidim::Elections::Admin::OpenBallotBox do
                                                              })
     allow(bulletin_board).to receive(:authority_name).and_return("Decidim Test Authority")
     allow(bulletin_board).to receive(:authority_slug).and_return("decidim-test-authority")
+    allow(bulletin_board).to receive(:scheme).and_return(scheme)
     allow(bulletin_board).to receive(method_name).and_return(response)
   end
 
   context "when valid form" do
     it "updates the election status" do
-      expect { subject.call }.to change(election, :bb_status).from("ready").to("vote")
+      expect { subject.call }.to change { Decidim::Elections::Election.last.bb_status }.from(nil).to("results_published")
     end
 
     it "logs the performed action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(:open_ballot_box, election, user, visibility: "all")
+        .with(:publish_results, election, user, visibility: "all")
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -58,7 +69,7 @@ describe Decidim::Elections::Admin::OpenBallotBox do
       expect(action_log.version).to be_present
     end
 
-    it "calls the bulletin board create_election method with the correct params" do
+    it "calls the bulletin board method with the correct params" do
       subject.call
       expect(bulletin_board).to have_received(method_name).with(election.id)
     end
