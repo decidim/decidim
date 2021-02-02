@@ -41,6 +41,24 @@ module Decidim
         request.referer || super
       end
 
+      def heartbeat
+        raise params.inspect
+        respond_to do |format|
+          format.js do
+            flash[:notice] = "Such message."
+          end
+        end
+      end
+
+      def timeout
+        destroy
+        respond_to do |format|
+          format.js do
+            flash[:notice] = t(".session_timeout")
+          end
+        end
+      end
+
       private
 
       def check_sign_in_enabled

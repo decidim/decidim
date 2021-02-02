@@ -466,6 +466,8 @@ en:
           register: Create an account
           sign_in_disabled: You can access with an external account
           sign_up_disabled: Sign up is disabled, you can use an existing account to access
+        timeout:
+          session_timeout: Your session has been timeouted
       shared:
         newsletter_modal:
           buttons:
