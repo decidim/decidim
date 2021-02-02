@@ -44,8 +44,6 @@ ca:
             title: Edita el pressupost
             update: Actualitza el pressupost
           index:
-            finished_orders: Comandes acabades
-            pending_orders: Comandes pendents
             title: Pressupostos
           new:
             create: Crea pressupost
