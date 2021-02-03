@@ -16,6 +16,15 @@ module Decidim
       )
     end
 
+    def delete_attachment(attachment)
+      if attachment.present?
+        check_delete_file = attachment[:delete_file]
+        attachment_id = attachment[:id].to_i
+
+        Attachment.find(attachment_id).delete if check_delete_file == "1" && attachment_id == proposal.documents.first.id
+      end
+    end
+
     def attachment_invalid?
       if attachment.invalid? && attachment.errors.has_key?(:file)
         @form.attachment.errors.add :file, attachment.errors[:file]
