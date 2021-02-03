@@ -51,7 +51,7 @@ module Decidim
         end
 
         def update_election
-          election.bb_publish_results!
+          election.bb_results_published!
         end
       end
     end

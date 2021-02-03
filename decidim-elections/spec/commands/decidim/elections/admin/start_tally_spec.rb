@@ -61,7 +61,7 @@ describe Decidim::Elections::Admin::StartTally do
       expect(action.election).to eq(election)
       expect(action.message_id).to eq "a.message+id"
       expect(action).to be_pending
-      expect(action).to be_start_vote
+      expect(action).to be_start_tally
     end
 
     it "calls the bulletin board method with the correct params" do

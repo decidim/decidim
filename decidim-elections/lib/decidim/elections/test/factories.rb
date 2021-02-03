@@ -125,8 +125,18 @@ FactoryBot.define do
       end
     end
 
-    trait :results_published do
+    trait :tally do
       vote_ended
+      bb_status { "tally" }
+    end
+
+    trait :tally_ended do
+      tally
+      bb_status { "tally_ended" }
+    end
+
+    trait :results_published do
+      tally_ended
       bb_status { "results_published" }
     end
   end

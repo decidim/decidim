@@ -5,6 +5,7 @@ require "spec_helper"
 describe Decidim::Elections::Admin::ActionForm do
   subject(:form) { described_class.from_params(attributes).with_context(context) }
 
+  let(:attributes) { {} }
   let(:context) do
     {
       current_organization: component.organization,

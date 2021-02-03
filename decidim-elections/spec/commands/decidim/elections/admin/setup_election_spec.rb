@@ -33,7 +33,7 @@ describe Decidim::Elections::Admin::SetupElection do
     }
   end
   let(:method_name) { :create_election }
-  let(:response) { OpenStruct.new(status: "key_ceremony") }
+  let(:response) { OpenStruct.new(status: "created") }
 
   let(:bulletin_board) do
     double(Decidim::Elections.bulletin_board)
@@ -55,7 +55,7 @@ describe Decidim::Elections::Admin::SetupElection do
 
   context "when valid form" do
     it "updates the election status" do
-      expect { subject.call }.to change { Decidim::Elections::Election.last.bb_status }.from(nil).to("key_ceremony")
+      expect { subject.call }.to change { Decidim::Elections::Election.last.bb_status }.from(nil).to("created")
     end
 
     it "logs the performed action", versioning: true do
@@ -80,7 +80,7 @@ describe Decidim::Elections::Admin::SetupElection do
           event: "decidim.events.elections.trustees.new_election",
           event_class: Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent,
           resource: election,
-          affected_users: trustees.collect(&:user)
+          affected_users: trustees.collect(&:user).sort_by(&:id)
         )
       subject.call
     end

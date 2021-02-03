@@ -26,7 +26,7 @@ describe Decidim::Elections::Admin::VotePeriodForm do
 
     it "shows a message" do
       expect(subject.messages).to eq({
-                                       time_before: "The election will start soon. You can start the voting period manually, or it will be start automatically before the starting time, at #{formatted_start_time}."
+                                       time_before: "The election will start soon. You can start the voting period manually, or it will be started automatically before the starting time, at #{formatted_start_time}."
                                      })
     end
 

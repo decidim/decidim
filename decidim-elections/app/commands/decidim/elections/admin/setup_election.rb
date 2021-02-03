@@ -45,7 +45,7 @@ module Decidim
         end
 
         def trustees
-          @trustees ||= Decidim::Elections::Trustee.where(id: form.trustee_ids)
+          @trustees ||= Decidim::Elections::Trustee.where(id: form.trustee_ids).order(:id)
         end
 
         def update_election

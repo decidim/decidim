@@ -39,7 +39,6 @@ $(() => {
   const bindComponentEvents = async () => {
     await component.bindEvents({
       onEvent(event) {
-        console.log(event);
         let messageIdentifier = MessageIdentifier.parse(
           event.message.messageId
         );

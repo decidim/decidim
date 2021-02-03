@@ -194,12 +194,10 @@ en:
             trustees: Election Trustees
           created:
             invalid: There was a problem starting the key ceremony
-            success: Start key ceremony request was successfully sent to the Bulletin Board
             submit: Start the key ceremony
+            success: Start key ceremony request was successfully sent to the Bulletin Board
             title: Election created
             trustees: Trustees
-          index:
-            pending_action: There is a pending action being processed...
           key_ceremony:
             title: Key ceremony
             trustees: Trustees
@@ -218,8 +216,8 @@ en:
           tally:
             title: Tally process
           tally_ended:
-            title: Results calculated
             submit: Publish results
+            title: Results calculated
           vote:
             errors:
               time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
@@ -258,11 +256,11 @@ en:
       admin_log:
         election:
           end_vote: "%{user_name} ended the voting period for the %{resource_name} election on the Bulletin Board"
+          publish: "%{user_name} published the %{resource_name} election"
+          setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
           start_key_ceremony: "%{user_name} started the key ceremony for the %{resource_name} election on the Bulletin Board"
           start_tally: "%{user_name} started the tally for the %{resource_name} election on the Bulletin Board"
           start_vote: "%{user_name} started the voting period for the %{resource_name} election on the Bulletin Board"
-          publish: "%{user_name} published the %{resource_name} election"
-          setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
         badge_name:
@@ -376,14 +374,19 @@ en:
               pending: Pending
               processing: Processing
             title: Create election keys for %{election}
+          restore_modal:
+            description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
+            title: Restore election keys for %{election}
+            upload_election_keys: Upload election keys
+            upload_icon: Icon that indicates a download action
           tally_steps:
             back: Back
             description: This election results are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
               end_tally: Tally ended
               tally:
-                share: Tally share
                 cast: Tally cast
+                share: Tally share
             list:
               status: Status
               task: Task
@@ -395,11 +398,6 @@ en:
               pending: Pending
               processing: Processing
             title: Tally for %{election}
-          restore_modal:
-            description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
-            title: Restore election keys for %{election}
-            upload_election_keys: Upload election keys
-            upload_icon: Icon that indicates a download action
           update:
             error: The election status wasn't updated.
             success: 'The election status is: %{status}'
