@@ -33,6 +33,7 @@ module Decidim
       def accepted_mime_type
         accepted_mime_types = ACCEPTED_MIME_TYPES.values
         return true if accepted_mime_types.include?(mime_type)
+        # Avoid duplicating error messages
         return false if errors[:file].present?
 
         errors.add(
