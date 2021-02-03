@@ -124,12 +124,6 @@ module Decidim
         def edit
           enforce_permission_to :edit, :proposal, proposal: proposal
           @form = form(Admin::ProposalForm).from_model(proposal)
-          document = proposal.documents.first
-          @form.attachment = if document.present?
-                               form(AttachmentForm).from_params({ file: document.file, title: translated_attribute(document.title) })
-                             else
-                               form(AttachmentForm).from_params({})
-                             end
         end
 
         def update
