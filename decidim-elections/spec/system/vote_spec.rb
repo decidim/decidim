@@ -68,7 +68,7 @@ describe "Vote in an election", type: :system do
       visit_component
 
       click_link translated(election.title)
-      click_link "Vote"
+      click_link "Start voting"
 
       expect(page).to have_content("Authorization required")
     end
@@ -93,7 +93,7 @@ describe "Vote in an election", type: :system do
       visit_component
 
       click_link translated(election.title)
-      click_link "Vote"
+      click_link "Start voting"
 
       expect(page).to have_content("Authorization required")
     end
@@ -106,7 +106,7 @@ describe "Vote in an election", type: :system do
       visit_component
 
       click_link translated(election.title)
-      click_link "Vote"
+      click_link "Start voting"
 
       dismiss_prompt do
         page.find("a.focus__exit").click

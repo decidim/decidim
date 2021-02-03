@@ -25,7 +25,7 @@ shared_examples "allows to vote" do
     visit_component
 
     click_link translated(election.title)
-    click_link "Vote"
+    click_link "Start voting"
   end
 
   it_behaves_like "uses the voting booth"
