@@ -10,15 +10,9 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        form.context[:user_group] = user_group
-
-        importer = importer_for(form.file_path, form.mime_type)
-        imported_data = importer.prepare
-
-        return broadcast(:invalid_lines, importer.invalid_lines) unless importer.invalid_lines.empty?
-
+        imported_data = form.importer.prepare
         transaction do
-          importer.import!
+          form.importer.import!
 
           return broadcast(:ok, imported_data)
         rescue StandardError
@@ -30,24 +24,6 @@ module Decidim
       end
 
       attr_reader :form
-
-      private
-
-      def importer_for(filepath, mime_type)
-        Import::ImporterFactory.build(
-          filepath,
-          mime_type,
-          context: form.context,
-          creator: form.creator_class
-        )
-      end
-
-      def user_group
-        @user_group ||= Decidim::UserGroup.find_by(
-          organization: form.context.current_organization,
-          id: form.user_group_id.to_i
-        )
-      end
     end
   end
 end

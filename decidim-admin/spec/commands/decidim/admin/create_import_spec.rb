@@ -29,6 +29,8 @@ module Decidim::Admin
         record = double("record", save!: double("record"))
         importer = instance_double("importer", prepare: [record], invalid_lines: [], import!: record.save!)
         allow(subject).to receive(:importer_for).and_return(importer)
+        allow(form).to receive(:check_invalid_lines).and_return([])
+        allow(form).to receive(:importer).and_return(importer)
         expect do
           subject.call
         end.to broadcast(:ok)
@@ -42,6 +44,8 @@ module Decidim::Admin
         expect(importer).to receive(:prepare)
         allow(importer).to receive(:invalid_lines).and_return([])
         allow(importer).to receive(:import!).and_raise(StandardError)
+        allow(form).to receive(:check_invalid_lines).and_return([])
+        allow(form).to receive(:importer).and_return(importer)
         expect { subject.call }.to broadcast(:invalid)
       end
     end

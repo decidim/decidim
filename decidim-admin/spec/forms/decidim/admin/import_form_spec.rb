@@ -22,7 +22,10 @@ module Decidim
       end
 
       context "when everything is OK" do
-        it { is_expected.to be_valid }
+        it do
+          allow(form).to receive(:check_invalid_lines).and_return([])
+          expect(subject).to be_valid
+        end
       end
 
       context "when content type is not accepted" do

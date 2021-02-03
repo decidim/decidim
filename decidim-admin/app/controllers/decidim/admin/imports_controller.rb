@@ -5,9 +5,10 @@ module Decidim
     # This controller allows admins to import resources from a file.
     class ImportsController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
+
       def new
         enforce_permission_to :import, :component_data, component: current_component
-        @import = form(Admin::ImportForm).from_params(
+        @form = form(Admin::ImportForm).from_params(
           {
             # We need to set "default" creator because form-class doesn't have context / current_component
             # when it sets it's default values.
@@ -20,13 +21,13 @@ module Decidim
       def create
         enforce_permission_to :import, :component_data, component: current_component
 
-        @import = form(Admin::ImportForm).from_params(
+        @form = form(Admin::ImportForm).from_params(
           params,
           current_component: current_component,
           current_organization: current_organization
         )
 
-        CreateImport.call(@import) do
+        CreateImport.call(@form) do
           on(:ok) do |imported_data|
             flash[:notice] = t("decidim.admin.imports.notice",
                                number: imported_data.length,
