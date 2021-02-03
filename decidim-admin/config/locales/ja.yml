@@ -90,6 +90,8 @@ ja:
         name: 名前
         organization: 組織
         plural: 複数形
+      settings:
+        scope_id: スコープ
       static_page:
         changed_notably: 目立つ変更がありました。
         content: コンテンツ
@@ -132,19 +134,28 @@ ja:
       actions:
         add: 追加
         browse: 検索
+        category:
+          new: 新しいカテゴリ
         export: エクスポート
         manage: 管理
         new: 新しい %{name}
+        newsletter:
+          new: 新しいニュースレター
+        participatory_space_private_user:
+          new: 新しい参加スペースのプライベートユーザー
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
         share: 共有
+        user:
+          new: 新規ユーザー
         verify: 確認する
       admin_terms_of_use:
         accept:
           error: 管理者の利用規約に同意中にエラーが発生しました。
           success: 素晴らしい！管理者の利用規約に同意しました。
         actions:
+          accept: 次の規約に同意します
           are_you_sure: 管理者の条件を拒否してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
