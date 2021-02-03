@@ -1,5 +1,5 @@
 <% if current_user %>
-  <div class="reveal" id="timeoutModal" data-reveal data-multiple-opened data-session-timeout="<%= Devise.timeout_in.to_i %>">
+  <div class="reveal" id="timeoutModal" data-close-on-click="false" data-close-on-esc="false" data-session-timeout="<%= Devise.timeout_in.to_i %>" data-reveal >
     <h2><%= t(".title") %></h2>
     <p><%= t(".body") %></p>
 

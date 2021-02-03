@@ -18,9 +18,8 @@
       endsAt = exports.moment().add(sessionTime, "seconds")
     }
 
+    // Ajax request is made at timeout_modal.html.erb
     $continueSessionButton.on("click", () => {
-      console.log("CLICK CONTINUE SESSION")
-      // jQuery("#timeoutModal").foundation("close")
       $("#timeoutModal").foundation("close")
       // In admin panel we have to hide all overlays..
       $(".reveal-overlay").css("display", "none");
@@ -29,47 +28,50 @@
     console.log("sessionTime", sessionTime)
     console.log("timeOutMessage", timeOutMessage)
 
-    if (sessionTime) {
-      setInterval(() => {
-        const diff = calculateEndingTime();
-        const diffInMinutes = Math.round(diff / 60000);
-
-        console.log("Difference in minutes", diffInMinutes)
-        // console.log("signOutLink", $signOutLink)
-
-        if (diffInMinutes === 7) {
-          $.ajax({
-            method: "DELETE",
-            url: "/session_timeout",
-            // dataType: "script",
-            // contentType: "application/javascript",
-            headers: {
-              "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
-            },
-            success: () => {
-              document.location.href = "/users/sign_in"
-            }
-          })
-        } else if (diffInMinutes <= 10) {
-          // jQuery("#timeoutModal").foundation("open")
-          $("#timeoutModal").foundation("open")
-          popup.open();
-        }
-      }, 10000);
-
-      // Set ajax events
-      $(document).on("ajax:complete", () => {
-        resetTimer();
-      });
-
-      $(document).ajaxComplete(function() {
-        resetTimer();
-      });
+    if (!sessionTime) {
+      return;
     }
+
+    const exitInterval = setInterval(() => {
+      const diff = calculateEndingTime();
+      const diffInMinutes = Math.round(diff / 60000);
+
+      console.log("Difference in minutes", diffInMinutes)
+      // console.log("signOutLink", $signOutLink)
+
+      if (diffInMinutes <= 1) {
+        $.ajax({
+          method: "DELETE",
+          url: "/session_timeout",
+          // dataType: "script",
+          // contentType: "application/javascript",
+          headers: {
+            "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+          },
+          success: () => {
+            document.location.href = "/users/sign_in";
+          }
+        })
+      } else if (diffInMinutes <= 10) {
+        // jQuery("#timeoutModal").foundation("open")
+        $("#timeoutModal").foundation("open");
+        popup.open();
+      }
+    }, 10000);
+
+    // Set ajax events
+    $(document).on("ajax:complete", () => {
+      console.log("AJAX")
+      resetTimer();
+    });
+
+    $(document).ajaxComplete(() => {
+      console.log("AJAX2")
+      resetTimer();
+    });
+
+    window.onbeforeunload = () => {
+      clearInterval(exitInterval);
+    };
   })
 })(window)
-
-// $( document ).ajaxSend(function() {
-//   // $( ".log" ).text( "Triggered ajaxSend handler." );
-//   console.log("TESTIAJAX")
-// });
