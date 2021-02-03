@@ -35,7 +35,7 @@ module Decidim
 
       class_option :edge, type: :boolean,
                           default: false,
-                          desc: "Use GitHub's edge version from develop branch"
+                          desc: "Use GitHub's edge version from main branch"
 
       class_option :branch, type: :string,
                             default: nil,
@@ -103,7 +103,7 @@ module Decidim
         gem_modifier = if options[:path]
                          "path: \"#{options[:path]}\""
                        elsif options[:edge]
-                         "git: \"https://github.com/decidim/decidim.git\", branch: \"develop\""
+                         "git: \"https://github.com/decidim/decidim.git\", branch: \"main\""
                        elsif options[:branch]
                          "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
                        else
