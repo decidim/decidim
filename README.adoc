@@ -1,6 +1,6 @@
 :doctype: book
 
-image::https://cdn.rawgit.com/decidim/decidim/develop/logo.svg[Decidim Logo,400]
+image::https://cdn.rawgit.com/decidim/decidim/main/logo.svg[Decidim Logo,400]
 
 The participatory democracy framework.
 
@@ -19,35 +19,35 @@ image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gem
 
 Code quality
 
-image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim] image:http://inch-ci.org/github/decidim/decidim.svg?branch=develop[Inline docs,link=http://inch-ci.org/github/decidim/decidim] image:https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/[Accessibility issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y] image:https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/[HTML issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html]
+image:https://codecov.io/gh/decidim/decidim/branch/main/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim] image:http://inch-ci.org/github/decidim/decidim.svg?branch=main[Inline docs,link=http://inch-ci.org/github/decidim/decidim] image:https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/[Accessibility issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y] image:https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/[HTML issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html]
 
 Test suite
 
 +++<details>++++++<summary>+++See all+++</summary>+++
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Accountability/develop.svg?label=%5BCI%5D%20Accountability[Accountability,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Api/develop.svg?label=%5BCI%5D%20Api[Api,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Assemblies/develop.svg?label=%5BCI%5D%20Assemblies[Assemblies,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Blogs/develop.svg?label=%5BCI%5D%20Blogs[Blogs,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Budgets/develop.svg?label=%5BCI%5D%20Budgets[Budgets,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Comments/develop.svg?label=%5BCI%5D%20Comments[Comments,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Conferences/develop.svg?label=%5BCI%5D%20Conferences[Conferences,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Consultations/develop.svg?label=%5BCI%5D%20Consultations[Consultations,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Core/develop.svg?label=%5BCI%5D%20Core[Core,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Debates/develop.svg?label=%5BCI%5D%20Debates[Debates,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Forms/develop.svg?label=%5BCI%5D%20Forms[Forms,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Generators/develop.svg?label=%5BCI%5D%20Generators[Generators,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Initiatives/develop.svg?label=%5BCI%5D%20Initiatives[Initiatives,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Main%20folder/develop.svg?label=%5BCI%5D%20Main[Main,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Meetings/develop.svg?label=%5BCI%5D%20Meetings[Meetings,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Pages/develop.svg?label=%5BCI%5D%20Pages[Pages,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Participatory%20processes/develop.svg?label=%5BCI%5D%20Participatory%20processes[Participatory processes,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20admin)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20admin)[Proposals (system admin),link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20public)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20public)[Proposals (system admin),link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(unit%20tests)/develop.svg?label=%5BCI%5D%20Proposals%20(unit%20tests)[Proposals (unit tests),link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Sortitions/develop.svg?label=%5BCI%5D%20Sortitions[Sortitions,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Surveys/develop.svg?label=%5BCI%5D%20Surveys[Surveys,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20System/develop.svg?label=%5BCI%5D%20System[System,link=https://github.com/decidim/decidim/actions]
-image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Verifications/develop.svg?label=%5BCI%5D%20Verifications[Verifications,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Accountability/main.svg?label=%5BCI%5D%20Accountability[Accountability,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Api/main.svg?label=%5BCI%5D%20Api[Api,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Assemblies/main.svg?label=%5BCI%5D%20Assemblies[Assemblies,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Blogs/main.svg?label=%5BCI%5D%20Blogs[Blogs,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Budgets/main.svg?label=%5BCI%5D%20Budgets[Budgets,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Comments/main.svg?label=%5BCI%5D%20Comments[Comments,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Conferences/main.svg?label=%5BCI%5D%20Conferences[Conferences,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Consultations/main.svg?label=%5BCI%5D%20Consultations[Consultations,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Core/main.svg?label=%5BCI%5D%20Core[Core,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Debates/main.svg?label=%5BCI%5D%20Debates[Debates,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Forms/main.svg?label=%5BCI%5D%20Forms[Forms,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Generators/main.svg?label=%5BCI%5D%20Generators[Generators,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Initiatives/main.svg?label=%5BCI%5D%20Initiatives[Initiatives,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Main%20folder/main.svg?label=%5BCI%5D%20Main[Main,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Meetings/main.svg?label=%5BCI%5D%20Meetings[Meetings,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Pages/main.svg?label=%5BCI%5D%20Pages[Pages,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Participatory%20processes/main.svg?label=%5BCI%5D%20Participatory%20processes[Participatory processes,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20admin)/main.svg?label=%5BCI%5D%20Proposals%20(system%20admin)[Proposals (system admin),link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20public)/main.svg?label=%5BCI%5D%20Proposals%20(system%20public)[Proposals (system admin),link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(unit%20tests)/main.svg?label=%5BCI%5D%20Proposals%20(unit%20tests)[Proposals (unit tests),link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Sortitions/main.svg?label=%5BCI%5D%20Sortitions[Sortitions,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Surveys/main.svg?label=%5BCI%5D%20Surveys[Surveys,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20System/main.svg?label=%5BCI%5D%20System[System,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Verifications/main.svg?label=%5BCI%5D%20Verifications[Verifications,link=https://github.com/decidim/decidim/actions]
 +++</details>+++
 
 '''
