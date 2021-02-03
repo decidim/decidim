@@ -36,6 +36,7 @@ Maybe this is already done, as it was included in the Decidim applications gener
   bulletin_board:
     identification_private_key: <%= ENV["BULLETIN_BOARD_IDENTIFICATION_PRIVATE_KEY"] %>
     server: <%= ENV["BULLETIN_BOARD_SERVER"] %>
+    server_public_key: <%= ENV["BULLETIN_BOARD_SERVER_PUBLIC_KEY"] %>
     api_key: <%= ENV["BULLETIN_BOARD_API_KEY"] %>
     number_of_trustees: <%= ENV["BULLETIN_BOARD_NUMBER_OF_TRUSTEES"] %>
     authority_name: <%= ENV["BULLETIN_BOARD_AUTHORITY_NAME"] %>
