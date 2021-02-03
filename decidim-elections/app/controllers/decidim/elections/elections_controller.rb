@@ -8,7 +8,7 @@ module Decidim
       include Paginable
       include Decidim::Elections::Orderable
 
-      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?, :already_voted?
+      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?, :last_vote
 
       def index
         redirect_to election_path(single, single: true) if single?
@@ -39,11 +39,8 @@ module Decidim
         elections.first if single?
       end
 
-      # Public: Checks if the user has already casted at least one vote for the current election.
-      #
-      # Returns Boolean.
-      def already_voted?
-        @already_voted ||= Decidim::Elections::Votes::UserElectionVotes.new(current_user, election).query.any?
+      def last_vote
+        @last_vote ||= Decidim::Elections::Votes::UserElectionLastVote.new(current_user, election).query
       end
 
       def paginated_elections

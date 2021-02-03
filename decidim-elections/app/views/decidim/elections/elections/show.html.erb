@@ -47,15 +47,15 @@ edit_link(
       <%= decidim_sanitize(simple_format(translated_attribute(election.description))) %>
       <% if election.ongoing? && already_voted? %>
         <div class="callout warning">
-          <span class="callout-text"><%= t(".already-voted-callout") %></span>
+          <span class="callout-text"><%= callout_text %></span>
         </div>
       <% end %>
       <% if election.ongoing? %>
         <%= action_authorized_link_to :vote, new_election_vote_path(election), resource: election, class: "title-action__action button small" do %>
-          <%= already_voted? ? t(".change-vote") : t(".vote") %>
+          <%= vote_action_button %>
         <% end %>
       <% else %>
-        <span class="button disabled"><%= t(".vote") %></span>
+        <span class="button disabled"><%= t(".action-button.vote") %></span>
       <% end %>
 
       <% if election.started? %>

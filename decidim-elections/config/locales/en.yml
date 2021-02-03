@@ -307,12 +307,16 @@ en:
             other: "%{count} votes"
             zero: "%{count} votes"
         show:
-          already-voted-callout: You have already voted in this election. You can change your vote or verify it.
+          action-button:
+            change-vote: Change your vote
+            vote: Vote
+            vote-again: Vote again
+          callout:
+            already-voted: You have already voted in this election. You can change your vote or verify it.
+            vote-rejected: It was not possible to verify your vote. Please cast it again.
           back: Available elections
-          change-vote: Change your vote
           preview: Preview
           verify: Verify
-          vote: Vote
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
             ongoing: Voting ends on %{end_time}

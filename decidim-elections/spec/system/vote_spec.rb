@@ -117,7 +117,7 @@ describe "Vote in an election", type: :system do
   end
 
   context "when the voter has already casted a vote" do
-    let!(:vote) { create :vote, election: election, user: user }
+    let!(:vote) { create :vote, election: election, user: user, status: "accepted" }
 
     it_behaves_like "allows to change the vote"
   end
