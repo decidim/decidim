@@ -60,11 +60,6 @@ module Decidim
         Decidim::Log::DiffChangesetCalculator.new(original, fields, i18n_labels_scope).changeset
       end
 
-      # If the action is officialization, then we want to show the diff
-      def has_diff?
-        %w(officialize unofficialize block).include?(action)
-      end
-
       def diff_actions
         %w(officialize unofficialize block)
       end
