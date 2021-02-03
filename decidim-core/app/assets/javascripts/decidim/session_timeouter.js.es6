@@ -52,7 +52,7 @@
             document.location.href = "/users/sign_in";
           }
         })
-      } else if (diffInMinutes <= 10) {
+      } else if (diffInMinutes <= 2) {
         // jQuery("#timeoutModal").foundation("open")
         $("#timeoutModal").foundation("open");
         popup.open();
