@@ -311,10 +311,10 @@ en:
             change-vote: Change your vote
             vote: Vote
             vote-again: Vote again
+          back: Available elections
           callout:
             already-voted: You have already voted in this election. You can change your vote or verify it.
             vote-rejected: It was not possible to verify your vote. Please cast it again.
-          back: Available elections
           preview: Preview
           verify: Verify
           voting_period_status:

@@ -7,14 +7,14 @@ module Decidim
     module ElectionsHelper
       def vote_action_button
         if already_voted?
-          last_vote_accepted? ? t(".action-button.change-vote") : t(".action-button.vote-again")
+          last_vote_accepted? ? t("change-vote", scope: "decidim.elections.elections.show.action-button") : t("vote-again", scope: "decidim.elections.elections.show.action-button")
         else
-          t(".action-button.vote")
+          t("vote", scope: "decidim.elections.elections.show.action-button")
         end
       end
 
       def callout_text
-        last_vote_accepted? ? t(".callout.already-voted") : t(".callout.vote-rejected")
+        last_vote_accepted? ? t("already-voted", scope: "decidim.elections.elections.show.callout") : t("vote-rejected", scope: "decidim.elections.elections.show.callout")
       end
 
       def already_voted?
