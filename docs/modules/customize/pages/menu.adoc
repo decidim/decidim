@@ -21,5 +21,5 @@ Depending in the kind of space and module, then you can see or not some of the s
 
 There's also a https://github.com/OpenSourcePolitics/decidim-module-navbar_links[NavBar links module] made by the community that you can use to add your custom links.
 
-Finally if you want to dive in the code that handles this, a good starting point is the https://rubydoc.info/github/decidim/decidim/develop/Decidim/Menu[Menu API].
+Finally if you want to dive in the code that handles this, a good starting point is the https://rubydoc.info/github/decidim/decidim/main/Decidim/Menu[Menu API].
 

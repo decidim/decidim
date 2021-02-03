@@ -2,24 +2,24 @@
 
 == GitFlow Branching model
 
-The Decidim respository follows the GitFlow branching model. There are good documentations on it at:
+The Decidim repository loosely follows the GitFlow branching model. There are good documentations on it at:
 
 * https://nvie.com/posts/a-successful-git-branching-model/[the original post]
 * https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow[Atlassian tutorial]
 
-This model introduces the `develop` branch as a kind of queue for new features to enter into the next release.
+This model introduces the `develop` branch as a kind of queue for new features to enter into the next release. Instead, Decidim uses `main` for this role and does not use the `master` branch at all.
 
-In summary, Decidim developers that work on `+feature/...+` or `+fix/...+` branches will branch off from `develop` and must be merged back into `develop`.
+In summary, Decidim developers that work on `+feature/...+` or `+fix/...+` branches will branch off from `main` and must be merged back into `main`.
 
-Then, to start a new feature branch off from `develop` in the following way:
+Then, to start a new feature branch off from `main` in the following way:
 
 [source,bash]
 ----
-git checkout develop
+git checkout main
 git checkout -b feature/xxx
 ----
 
-Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
+Implement the feature, and open a Pull Request as normal, checking that it goes against `main` branch. As this is the most common operation, `main` is the default branch.
 
 Please note that Decidim does not use the `master` branch.
 

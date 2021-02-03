@@ -9,7 +9,7 @@ Please note that by making a Pull Request in this repository you're agreeing wit
 == Did you find a bug?
 
 * *Do not open up a GitHub issue if the bug is a security vulnerability in Decidim*, and instead send us an email to security [at] decidim.org.
-See https://github.com/decidim/decidim/blob/develop/SECURITY.adoc[full security policy].
+See https://github.com/decidim/decidim/blob/main/SECURITY.adoc[full security policy].
 * *Ensure the bug was not already reported* by searching on GitHub under https://github.com/decidim/decidim/issues[Issues] and on https://meta.decidim.org/processes/bug-report/f/210/proposals[Metadecidim].
 * If you're unable to find an open issue addressing the problem, https://github.com/decidim/decidim/issues/new?template=Bug_report.md[open a new one on GitHub].
 Be sure to include a *title and clear description*, as much relevant information as possible, and a *code sample* or an *executable test case* demonstrating the expected behavior that is not occurring.
@@ -45,7 +45,7 @@ You can read in detail about this process in https://docs.decidim.org/en/governa
 
 == Do you want to contribute to Decidim design?
 
-* Go to the https://github.com/decidim/decidim/tree/develop/decidim_app-design[Decidim design folder] and propose the changes that you want.
+* Go to the https://github.com/decidim/decidim/tree/main/decidim_app-design[Decidim design folder] and propose the changes that you want.
 
 == Do you want to improve an existing language in Decidim?
 

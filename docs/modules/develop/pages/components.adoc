@@ -4,7 +4,7 @@ Components are the core contract between external xref:develop:modules.adoc[modu
 
 == Creating a new component
 
-If you want to create a new component, you can use https://github.com/decidim/decidim/tree/develop/decidim-generators[decidim-generators] to
+If you want to create a new component, you can use https://github.com/decidim/decidim/tree/main/decidim-generators[decidim-generators] to
 automatically generate a decidim component skeleton, or copy the basic structure
 of an existing mantained plugin.
 
@@ -13,7 +13,7 @@ of an existing mantained plugin.
 decidim --component engine_name
 ----
 
-Components are just gems with one or more Rails engines included in it. You can use as an example https://github.com/decidim/decidim/tree/develop/decidim-pages[decidim-pages].
+Components are just gems with one or more Rails engines included in it. You can use as an example https://github.com/decidim/decidim/tree/main/decidim-pages[decidim-pages].
 
 Check out the `lib/decidim/pages` folder: It includes several files, the most important of which is `component.rb`.
 
@@ -125,4 +125,4 @@ This sections explains how to add dummy content to a development application.
 === Tips and Tricks
 
 * Take advantage of the Faker gem, already in decidim.
-* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/faker/localized.rb[Localizaed], which uses `Faker` internally.
+* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/main/decidim-core/lib/decidim/faker/localized.rb[Localizaed], which uses `Faker` internally.

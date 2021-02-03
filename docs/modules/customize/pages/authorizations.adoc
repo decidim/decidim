@@ -19,4 +19,4 @@ Each decidim instance is in full control of its authorizations, and can customiz
 * The different methods to be used by users to get verified. For example, through a census, by uploading their identity documents, or by receiving a verification home at their address.
 * The different actions in decidim that require authorization, and which authorization method they require. For example, a decidim instance might choose to require census authorization to create proposals, but a fully verified address via a verification code sent by postal mail for voting on proposals.
 
-See https://github.com/decidim/decidim/blob/develop/decidim-verifications/README.md[decidim-verifications's README] and https://decidim.org/modules[Decidim's Modules page].
+See https://github.com/decidim/decidim/blob/main/decidim-verifications/README.md[decidim-verifications's README] and https://decidim.org/modules[Decidim's Modules page].
