@@ -20,7 +20,10 @@
 
     $continueSessionButton.on("click", () => {
       console.log("CLICK CONTINUE SESSION")
-      jQuery("#timeoutModal").foundation("close")
+      // jQuery("#timeoutModal").foundation("close")
+      $("#timeoutModal").foundation("close")
+      // In admin panel we have to hide all overlays..
+      $(".reveal-overlay").css("display", "none");
     })
 
     console.log("sessionTime", sessionTime)
@@ -34,50 +37,32 @@
         console.log("Difference in minutes", diffInMinutes)
         // console.log("signOutLink", $signOutLink)
 
-        if (diffInMinutes === 9) {
-          console.log("LOGOUTTAA")
-          // document.getElementById("reveal-sign-out").click();
-          // $.ajax({
-          //   method: "DELETE",
-          //   url: "/users/sign_out",
-          //   dataType: "script",
-          //   contentType: "application/javascript",
-          //   headers: {
-          //     "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
-          //   },
-          //   success: (data) => {
-          //     console.log("success data", data)
-          //     document.location.href = "/users/sign_in"
-          //   }
-          // })
+        if (diffInMinutes === 7) {
           $.ajax({
             method: "DELETE",
             url: "/session_timeout",
-            dataType: "script",
+            // dataType: "script",
             // contentType: "application/javascript",
             headers: {
               "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
             },
-            success: (data) => {
-              console.log("success data", data)
-              // document.location.href = "/users/sign_in"
-              document.location.href = "/"
+            success: () => {
+              document.location.href = "/users/sign_in"
             }
           })
         } else if (diffInMinutes <= 10) {
-          jQuery("#timeoutModal").foundation("open")
+          // jQuery("#timeoutModal").foundation("open")
+          $("#timeoutModal").foundation("open")
           popup.open();
         }
       }, 10000);
 
       // Set ajax events
       $(document).on("ajax:complete", () => {
-        console.log("TESTIAJAX COMPLETE")
         resetTimer();
       });
 
       $(document).ajaxComplete(function() {
-        console.log("TESTIAJAX")
         resetTimer();
       });
     }

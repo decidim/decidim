@@ -42,11 +42,8 @@ module Decidim
       end
 
       def heartbeat
-        raise params.inspect
         respond_to do |format|
-          format.js do
-            flash[:notice] = "Such message."
-          end
+          format.js
         end
       end
 
