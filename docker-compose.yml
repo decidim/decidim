@@ -3,7 +3,7 @@ services:
   decidim:
     image: decidim/decidim-dev:latest
     entrypoint: /usr/local/bin/entrypoint.sh
-    command: decidim decidim-app
+    command: decidim
     working_dir: /code
     ports:
       - 3000:3000
