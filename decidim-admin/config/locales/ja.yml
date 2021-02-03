@@ -91,6 +91,8 @@ ja:
         name: 名前
         organization: 組織
         plural: 複数形
+      settings:
+        scope_id: スコープ
       static_page:
         changed_notably: 目立つ変更がありました。
         content: コンテンツ
