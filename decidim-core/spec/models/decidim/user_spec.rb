@@ -14,7 +14,7 @@ module Decidim
     it { is_expected.to be_valid }
 
     it "has traceability" do
-      is_expected.to be_a(Decidim::Traceable)
+      expect(subject).to be_a(Decidim::Traceable)
     end
 
     it "overwrites the log presenter" do
