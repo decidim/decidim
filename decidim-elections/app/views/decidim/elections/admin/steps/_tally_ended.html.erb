@@ -1,9 +1,31 @@
 <div class="card">
   <div class="card-divider">
-    <h2 class="card-title"><%= t(".title") %></h2>
+    <h2 class="card-title">
+      <%= t(".title") %>
+    </h2>
   </div>
-
-  <div class="card-section">
-    Tally ended
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th><%= t(".question") %></th>
+          <th><%= t(".answer") %></th>
+          <th><%= t(".result") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% form.answers.each do |answer| %>
+          <tr>
+            <td><%= translated_attribute(answer.question.title) %></td>
+            <td><%= translated_attribute(answer.title) %></td>
+            <% if answer.votes_count > 0 %>
+              <td class="text-success"><%= answer.votes_count %></td>
+            <% else %>
+              <td><%= answer.votes_count %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
