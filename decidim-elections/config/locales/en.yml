@@ -309,17 +309,19 @@ en:
         show:
           action-button:
             change-vote: Change your vote
-            vote: Vote
+            vote: Start voting
             vote-again: Vote again
           back: Available elections
           callout:
             already-voted: You have already voted in this election. You can change your vote or verify it.
             vote-rejected: It was not possible to verify your vote. Please cast it again.
           preview: Preview
-          verify: Verify
+          verify:
+            already-voted: Already voted?
+            verify-here: Check your vote here.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
-            ongoing: Voting ends on %{end_time}
+            ongoing: 'Active voting until: %{end_time}'
             upcoming: Voting begins on %{start_time}
       feedback:
         answer:
