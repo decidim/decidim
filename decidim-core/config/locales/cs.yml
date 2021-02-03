@@ -251,7 +251,7 @@ cs:
           '1': Vytvořte svůj pozměňovací návrh
           '2': Srovnejte váš pozměňovací návrh
           '3': Dokončete váš pozměňovací návrh
-          '4': Zveřejnit svůj pozměňovací návrh
+          '4': Zveřejněte svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       collection:
