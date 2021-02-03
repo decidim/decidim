@@ -319,6 +319,7 @@ en:
           verify:
             already-voted: Already voted?
             verify-here: Check your vote here.
+            will-verify: You will be able to verify your vote once the election is started.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
             ongoing: 'Active voting until: %{end_time}'

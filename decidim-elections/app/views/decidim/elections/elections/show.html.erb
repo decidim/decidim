@@ -57,6 +57,11 @@ edit_link(
         <% else %>
           <span class="button disabled"><%= t(".action-button.vote") %></span>
         <% end %>
+        <% if allowed_to? :preview, :election, election: election %>
+          <%= link_to new_election_vote_path(election), class: "button" do %>
+            <%= t(".preview") %>
+          <% end %>
+        <% end %>
       </div>
 
       <% if election.started? %>
@@ -67,13 +72,7 @@ edit_link(
           <% end %>
         </p>
       <% else %>
-        <span class="button disabled"><%= t(".verify") %></span>
-      <% end %>
-
-      <% if allowed_to? :preview, :election, election: election %>
-        <%= link_to new_election_vote_path(election), class: "button" do %>
-          <%= t(".preview") %>
-        <% end %>
+        <span class="disabled text-sm"><%= t(".verify.will-verify") %></span>
       <% end %>
     </div>
   </div>
