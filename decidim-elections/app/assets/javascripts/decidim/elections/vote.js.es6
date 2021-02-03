@@ -1,8 +1,8 @@
 // = require decidim/bulletin_board/decidim-bulletin_board
-// = require ./questions.component
+// = require ./vote_questions.component
 
 $(async () => {
-  const { QuestionsComponent } = window.Decidim;
+  const { VoteQuestionsComponent } = window.Decidim;
   const { VoteComponent } = window.decidimBulletinBoard;
 
   // UI Elements
@@ -16,7 +16,7 @@ $(async () => {
   const voterUniqueId = $voteWrapper.data("voterId");
 
   // Use the questions component
-  const questionsComponent = new QuestionsComponent($voteWrapper);
+  const questionsComponent = new VoteQuestionsComponent($voteWrapper);
   questionsComponent.init();
   $(document).on("on.zf.toggler", () => {
     // continue and back btn

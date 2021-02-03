@@ -1,9 +1,9 @@
 /**
- * Questions component.
+ * Vote Questions component.
  */
 
 ((exports) => {
-  class QuestionsComponent {
+  class VoteQuestionsComponent {
     constructor($voteWrapper) {
       this.$voteWrapper = $voteWrapper;
       this.$continueButton = this.$voteWrapper.find("a.focus__next");
@@ -125,5 +125,5 @@
   }
 
   exports.Decidim = exports.Decidim || {};
-  exports.Decidim.QuestionsComponent = QuestionsComponent;
+  exports.Decidim.VoteQuestionsComponent = VoteQuestionsComponent;
 })(window)

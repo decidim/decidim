@@ -2,8 +2,7 @@
 
 module Decidim
   module Elections
-    # The data store for an Answer in the Decidim::Elections component. It stores a
-    # title, description and related resources and attachments.
+    # The data store for tracking asynchronous Actions done in the Bulletin Board from the Decidim::Elections component.
     class Action < ApplicationRecord
       belongs_to :election, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Election"
 
