@@ -2,7 +2,7 @@ name: "[CI] Generators"
 on:
   push:
     branches:
-      - develop
+      - main
       - release/*
       - "*-stable"
   pull_request:
@@ -38,7 +38,7 @@ jobs:
       DATABASE_HOST: localhost
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
-        if: "github.ref != 'refs/heads/develop'"
+        if: "github.ref != 'refs/heads/main'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/checkout@v2.0.0
