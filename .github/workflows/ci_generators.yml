@@ -36,7 +36,6 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      BUNDLE_GEMFILE: decidim-generators/Gemfile
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
         if: "github.ref != 'refs/heads/develop'"
@@ -49,6 +48,7 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
+          working-directory: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec rspec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
