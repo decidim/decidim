@@ -439,6 +439,14 @@ it:
           fields:
             name: Nome
             plural: Plurale
+        share_token:
+          fields:
+            created_at: Creato il
+            expires_at: Scade il
+            last_used_at: Ultimo utilizzo
+            times_used: Volte usate
+            token: Token
+            user: Creata da
         static_page:
           fields:
             created_at: Creato il
