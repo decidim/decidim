@@ -12,8 +12,8 @@ module Decidim
 
       def destroy
         current_user.invalidate_all_sessions!
-        if params[:timeout] == "true"
-          super { set_flash_message! :notice, :timed_out, { scope: "decidim.devise.sessions" } }
+        if params[:translation_suffix].present?
+          super { set_flash_message! :notice, params[:translation_suffix], { scope: "decidim.devise.sessions" } }
         else
           super
         end
