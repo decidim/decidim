@@ -5,7 +5,6 @@ require "spec_helper"
 describe "Session timeout", type: :system do
   let(:organization) { create(:organization) }
   let(:current_user) { create :user, organization: organization }
-  # let!(:session_controller) { Decidim::Devise::SessionsController.new }
 
   context "when session is about to timeout" do
     before do
