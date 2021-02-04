@@ -3,12 +3,12 @@
 ((exports) => {
   exports.$(() => {
     const Foundation = exports.Foundation;
-    const $myModal = jQuery("#timeoutModal")
-    const sessionTime = $myModal.attr("data-session-timeout")
+    const $timeoutModal = $("#timeoutModal")
+    const sessionTime = $timeoutModal.attr("data-session-timeout")
     let endsAt = exports.moment().add(sessionTime, "seconds")
-    const popup = new Foundation.Reveal($myModal);
+    const popup = new Foundation.Reveal($timeoutModal);
     const $continueSessionButton = $("#continueSession")
-    const timeOutMessage = $myModal.attr("data-timeout-message")
+    const timeOutMessage = $timeoutModal.attr("data-timeout-message")
 
     const calculateEndingTime = () => {
       return endsAt - exports.moment();
@@ -36,24 +36,9 @@
       const diff = calculateEndingTime();
       const diffInMinutes = Math.round(diff / 60000);
 
-      console.log("Difference in minutes", diffInMinutes)
-      // console.log("signOutLink", $signOutLink)
-
       if (diffInMinutes <= 9) {
-        $.ajax({
-          method: "DELETE",
-          url: "/users/sign_out",
-          data: JSON.stringify({ timeout: "true" }),
-          contentType: "application/json",
-          headers: {
-            "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
-          },
-          success: () => {
-            document.location.href = "/users/sign_in";
-          }
-        })
+        $timeoutModal.find("#reveal-hidden-sign-out")[0].click();
       } else if (diffInMinutes <= 10) {
-        // jQuery("#timeoutModal").foundation("open")
         $("#timeoutModal").foundation("open");
         popup.open();
       }
@@ -61,12 +46,10 @@
 
     // Set ajax events
     $(document).on("ajax:complete", () => {
-      console.log("AJAX")
       resetTimer();
     });
 
     $(document).ajaxComplete(() => {
-      console.log("AJAX2")
       resetTimer();
     });
 
