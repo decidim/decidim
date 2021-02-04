@@ -39,12 +39,12 @@
       console.log("Difference in minutes", diffInMinutes)
       // console.log("signOutLink", $signOutLink)
 
-      if (diffInMinutes <= 1) {
+      if (diffInMinutes <= 9) {
         $.ajax({
           method: "DELETE",
-          url: "/session_timeout",
-          // dataType: "script",
-          // contentType: "application/javascript",
+          url: "/users/sign_out",
+          data: JSON.stringify({ timeout: "true" }),
+          contentType: "application/json",
           headers: {
             "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
           },
@@ -52,7 +52,7 @@
             document.location.href = "/users/sign_in";
           }
         })
-      } else if (diffInMinutes <= 2) {
+      } else if (diffInMinutes <= 10) {
         // jQuery("#timeoutModal").foundation("open")
         $("#timeoutModal").foundation("open");
         popup.open();

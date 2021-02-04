@@ -466,8 +466,8 @@ en:
           register: Create an account
           sign_in_disabled: You can access with an external account
           sign_up_disabled: Sign up is disabled, you can use an existing account to access
-        timeout:
-          session_timeout: Your session has been timeouted
+        user:
+          timed_out: You have been signed out from the service
       shared:
         newsletter_modal:
           buttons:
@@ -1585,9 +1585,9 @@ en:
         youtube: "%{organization} at YouTube"
       timeout_modal:
         body: If you don't continue using this site, we are going to automatically log you out soon.
-        keep_session_open: Keep session open
+        continue_session: Continue session
         sign_out: Sign out
-        title: Do you want to continue this session?
+        title: Would you like to continue your session?
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard

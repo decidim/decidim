@@ -12,7 +12,11 @@ module Decidim
 
       def destroy
         current_user.invalidate_all_sessions!
-        super
+        if params[:timeout] == "true"
+          super { set_flash_message! :notice, :timed_out, { scope: "decidim.devise.sessions" } }
+        else
+          super
+        end
       end
 
       def after_sign_in_path_for(user)
@@ -44,15 +48,6 @@ module Decidim
       def heartbeat
         respond_to do |format|
           format.js
-        end
-      end
-
-      def timeout
-        destroy
-        respond_to do |format|
-          format.js do
-            flash[:notice] = t(".session_timeout")
-          end
         end
       end
 

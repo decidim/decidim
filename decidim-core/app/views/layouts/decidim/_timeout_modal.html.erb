@@ -5,7 +5,7 @@
 
     <div class="reveal__buttons">
       <%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, id: "reveal-sign-out", class: "button warning" %>
-      <%= button_to t(".keep_session_open"),
+      <%= button_to t(".continue_session"),
         decidim.session_heartbeat_path,
         id: "continueSession",
         class: "button primary",
@@ -14,6 +14,6 @@
       %>
     </div>
   </div>
-
-  <%= javascript_include_tag "decidim/session_timeouter" %>
 <% end %>
+
+<%= javascript_include_tag "decidim/session_timeouter" %>
