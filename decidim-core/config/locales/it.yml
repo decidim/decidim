@@ -79,10 +79,12 @@ it:
       logo: "Logo ufficiale di %{organization}"
       skip_button: Vai al contenuto principale
     account:
+      blocked: Questo account è stato bloccato a causa della violazione di Termini e Condizioni
       data_portability_export:
         file_no_exists: Il file non esiste
         notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
+        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai accedere con le tue credenziali. La cancellazione del tuo account comporterà l'anonimizzazione dei tuoi contributi. Sarai ancora in grado di creare un nuovo account, ma questi contributi non saranno associati ad esso.
         confirm:
           close: Chiudere finestra
           ok: Sì, voglio eliminare il mio account
@@ -112,6 +114,8 @@ it:
         delete: "%{user_name} rimosso il componente %{resource_name} dallo spazio %{space_name}"
         publish: "%{user_name} ha pubblicato il componente %{resource_name} nello spazio %{space_name}"
         unpublish: "%{user_name} non pubblicato il componente %{resource_name} dallo spazio %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} è stato moderato %{resource_name} perché %{reason}"
       moderation:
         hide: "%{user_name} nascosto una risorsa di tipo %{resource_type} nel %{space_name} spazio"
         unreport: "%{user_name} non segnalata una risorsa di tipo %{resource_type} nel %{space_name} spazio"
@@ -128,6 +132,7 @@ it:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
       participatory_space_private_user:
         create: "%{user_name} invitato %{resource_name} a essere un utente privato"
+        create_via_csv: "%{user_name} ha invitato %{resource_name} tramite csv a unirsi come partecipante privato"
         delete: "%{user_name} rimosso l'utente %{resource_name} come utente privato"
       scope:
         create: "%{user_name} ha creato l'ambito %{resource_name}"
@@ -141,15 +146,21 @@ it:
         delete: "%{user_name} cancellato il %{resource_name} pagina statica"
         update: "%{user_name} aggiornato il %{resource_name} pagina statica"
       user:
+        block: "%{user_name} ha bloccato l'utente %{resource_name}"
         invite: "%{user_name} ha invitato l'utente %{resource_name} con ruolo: %{role}"
         officialize: "%{user_name} ha ufficializzato l'utente %{resource_name}"
+        promote: "%{user_name} ha promosso %{resource_name}"
         remove_from_admin: "%{user_name} rimosso l'utente %{resource_name} con ruolo: %{role}"
         show_email: "%{user_name} ha ricevuto l'email del partecipante %{resource_name}"
+        transfer: "%{user_name} ha trasferito l'utente %{resource_name}"
+        unblock: "%{user_name} ha sbloccato l'utente %{resource_name}"
         unofficialize: "%{user_name} utente non ufficiale %{resource_name}"
       user_group:
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
         verify: "%{user_name} verificato il %{resource_name} gruppo di utenti"
         verify_via_csv: "%{user_name} verificato il %{resource_name} gruppo di utenti tramite un file CSV"
+      user_moderation:
+        unreport: "%{user_name} ha de-segnalato un %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>TERMINI DI UTILIZZO DELL' AMMINISTRATORE</h2><p>Ci auguriamo che tu abbia ricevuto la usuale raccomandazione dall'amministratore del sistema locale. Solitamente si riduce a queste tre cose:</p><ol><li>Rispetta la privacy degli altri.</li><li>Pensa prima di cliccare.</li><li>Da grande potenzialità derivano grandi responsabilità.</li></ol>"
     alert:
@@ -271,6 +282,8 @@ it:
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
+      errors:
+        duplicate_authorization: Un utente è già autorizzato con gli stessi dati. Un amministratore ti contatterà per verificare i tuoi dettagli.
       expired_at: Scaduto a %{timestamp}
       expires_at: Scade a %{timestamp}
       foo_authorization:
@@ -316,6 +329,13 @@ it:
           title: conferma la tua email
       show:
         close_modal: Chiudi modalità
+    block_user_mailer:
+      notify:
+        body_1: Il tuo account è stato bloccato.
+        body_2: 'Motivo: %{justification}'
+        greetings: Salve,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Ciao,
+        subject: Il tuo account è stato bloccato da %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: e altri %{count}
@@ -364,6 +384,12 @@ it:
             dummy_step_translatable_text: Testo traducibile Dummy
     contact: Contatto
     content_blocks:
+      cta:
+        name: Immagine, testo e pulsante della chiamata all'azione
+      cta_settings_form:
+        background_image: Immagine di sfondo
+        button_text: Testo di "Invito all'azione"
+        button_url: URL del pulsante "Chiamata all'azione"
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
       hero:
