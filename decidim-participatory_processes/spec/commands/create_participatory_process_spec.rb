@@ -43,13 +43,8 @@ module Decidim::ParticipatoryProcesses
         area: area,
         errors: errors,
         related_process_ids: related_process_ids,
-        participatory_process_group: participatory_process_group,
-        sidebar_content_block_enabled: false,
-        sidebar_content_block: sidebar_content_block
+        participatory_process_group: participatory_process_group
       )
-    end
-    let(:sidebar_content_block) do
-      instance_double(Decidim::Admin::ContentBlockForm, settings: true)
     end
     let(:invalid) { false }
 

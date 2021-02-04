@@ -36,15 +36,9 @@ module Decidim::ParticipatoryProcesses
             participatory_process_group: my_process.participatory_process_group,
             show_metrics: my_process.show_metrics,
             show_statistics: my_process.show_statistics,
-            private_space: my_process.private_space,
-            sidebar_content_block_enabled: false,
-            sidebar_content_block: sidebar_content_block
+            private_space: my_process.private_space
           }
         }
-      end
-
-      let(:sidebar_content_block) do
-        instance_double(Decidim::Admin::ContentBlockForm, settings: true, to_hash: {})
       end
 
       let(:user) { create :user, :admin, :confirmed, organization: my_process.organization }

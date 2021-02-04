@@ -24,14 +24,8 @@ module Decidim
             description: participatory_process.description,
             short_description: participatory_process.short_description,
             slug: participatory_process.slug,
-            scopes_enabled: participatory_process.scopes_enabled,
-            sidebar_content_block_enabled: true,
-            sidebar_content_block: sidebar_content_block
+            scopes_enabled: participatory_process.scopes_enabled
           }
-        end
-
-        let(:sidebar_content_block) do
-          instance_double(Decidim::Admin::ContentBlockForm, settings: true, to_hash: {})
         end
 
         before do
