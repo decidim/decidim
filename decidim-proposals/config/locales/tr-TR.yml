@@ -569,13 +569,6 @@ tr:
               ok: İşbirliği taslağını geri çekme
               title: Aşağıdaki işlem geri alınamaz
             success: Ortak taslak başarıyla geri çekildi.
-        compare:
-          mine_is_different: Ortak çalışma taslağım farklı
-          no_similars_found: Benzer ortak taslak bulunamadı
-          title: Benzer işbirliği taslakları
-        complete:
-          send: Gönder
-          title: Ortak çalışma taslağınızı tamamlayın
         count:
           drafts_count:
             one: "%{count} ortak taslak"
@@ -607,7 +600,6 @@ tr:
           unfold: Aç
         new:
           send: Devam et
-          title: Ortak taslak oluştur
         new_collaborative_draft_button:
           new_collaborative_draft: Yeni ortak taslak
         orders:
@@ -652,23 +644,11 @@ tr:
         update:
           error: Ortak taslak kaydedilirken hatalar oluştu.
           success: Ortak taslak başarıyla güncellendi.
-          title: Ortak çalışma taslağını düzenleyin
         wizard_aside:
-          back: Geri
           back_from_collaborative_draft: Ortak çalışmaya dayalı taslaklara dön
-          back_from_step_1: Ortak çalışmaya dayalı taslaklara dön
-          back_from_step_2: Ortak çalışmaya dayalı taslaklara dön
-          back_from_step_3: Ortak taslakları karşılaştırmak için geri dön
-          back_from_step_4: Taslağı düzenlemeye dön
           info: <strong> Ortak çalışmaya dayalı bir taslak </strong> oluşturuyorsunuz.
-        wizard_steps:
-          current_step: Geçerli adım
-          see_steps: adımları gör
-          step_1: Ortak çalışmaya dayalı taslağınızı oluşturun
-          step_2: Ortak çalışmaya dayalı taslaklarla karşılaştırın
-          step_3: Ortak çalışma taslağınızı tamamlayın
-          step_of: '%{total_steps}adımdan %{current_step_num}'
-          title: İşbirliğine dayalı taslak oluşturma adımları
+        wizard_header:
+          title: Ortak çalışmaya dayalı taslağınızı oluşturun
       content_blocks:
         highlighted_proposals:
           proposals: Teklifler

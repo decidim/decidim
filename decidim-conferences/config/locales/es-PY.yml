@@ -402,6 +402,7 @@ es-PY:
         personal_website: Sitio web personal
         show:
           more_info: más información
+          speaking_at: Interviene en
       conference_speaker_cell:
         personal_url:
           personal_website: Sitio web personal
@@ -543,7 +544,7 @@ es-PY:
       participatory_spaces:
         conferences:
           contextual: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>\n"
-          page: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>\n"
+          page: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>"
           title: '¿Qué son las conferencias?'
     log:
       value_types:

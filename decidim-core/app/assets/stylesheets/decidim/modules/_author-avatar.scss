@@ -11,13 +11,13 @@ $author-data-color: $muted;
   @include flex;
   @include flex-align($x: left, $y: middle);
 
-  color: $author-data-color;
+  color: var(--secondary);
   font-size: .9rem;
   padding-left: 30px;
   position: relative;
 
   .author__name{
-    color: $anchor-color;
+    color: var(--secondary);
     margin-bottom: 0;
   }
 

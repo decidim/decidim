@@ -43,7 +43,7 @@ cs:
       organization_data:
         address: Adresa
         id_document: Doklad totožnosti
-        name: Kompletní jméno
+        name: Úplný název
     errors:
       models:
         initiative:
@@ -570,7 +570,7 @@ cs:
       initiatives_type:
         actions:
           title: Akce
-          vote: Hlasování
+          vote: Podepsat
   layouts:
     decidim:
       admin:

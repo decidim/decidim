@@ -24,6 +24,9 @@ module Decidim
           authors: {
             id: resource.author_users.map(&:id),
             name: resource.author_users.map(&:name)
+          },
+          area: {
+            name: resource.area&.name
           }
         }
       end

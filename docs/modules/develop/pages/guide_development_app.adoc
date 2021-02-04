@@ -14,7 +14,7 @@ bundle exec rake development_app
 cd development_app
 ----
 
-A development_app/ entry appears in the .gitignore file, so you don't have to worry about commiting the development app by mistake.
+A development_app/ entry appears in the .gitignore file, so you don't have to worry about committing the development app by mistake.
 
 On creation, this steps are automatically invoked by the generator:
 

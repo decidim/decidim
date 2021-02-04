@@ -339,7 +339,7 @@
   background-color: $muted;
 
   &:hover{
-    background-color: var(--secondary);
+    background-color: var(--primary);
   }
 
   &.hollow{
@@ -371,7 +371,7 @@
 
 .link{
   cursor: pointer;
-  color: $anchor-color;
+  color: var(--secondary);
   font-weight: 600;
 
   &:hover{

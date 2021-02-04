@@ -15,6 +15,7 @@ describe Decidim::Votings::Admin::VotingForm do
   let(:end_time) { start_time + 1.month }
   let(:promoted) { true }
   let(:banner_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+  let(:voting_type) { "online" }
 
   let(:attributes) do
     {
@@ -26,7 +27,8 @@ describe Decidim::Votings::Admin::VotingForm do
         end_time: end_time,
         scope_id: scope&.id,
         banner_image: banner_image,
-        promoted: promoted
+        promoted: promoted,
+        voting_type: voting_type
       }
     }
   end
@@ -128,5 +130,17 @@ describe Decidim::Votings::Admin::VotingForm do
     let(:banner_image) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
 
     it { is_expected.not_to be_valid }
+  end
+
+  describe "when voting_type is missing" do
+    let(:voting_type) { nil }
+
+    it { is_expected.to be_invalid }
+  end
+
+  describe "when voting_type is not in the accepted values" do
+    let(:voting_type) { "invalid option" }
+
+    it { is_expected.to be_invalid }
   end
 end

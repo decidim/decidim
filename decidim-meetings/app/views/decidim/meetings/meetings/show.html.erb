@@ -176,10 +176,4 @@ edit_link(
 <%= comments_for meeting %>
 <%= pad_iframe_for meeting %>
 
-<%=
-  render partial: "decidim/shared/flag_modal", locals: {
-    reportable: meeting,
-    form: @report_form,
-    url: decidim.report_path(sgid: meeting.to_sgid.to_s)
-  }
-%>
+<%= cell("decidim/flag_modal", meeting) %>
