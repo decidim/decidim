@@ -100,23 +100,6 @@ module Decidim
           expect(controller.current_user).to be_nil
         end
       end
-
-      describe "DELETE timeout" do
-        let(:user) { create(:user, :confirmed) }
-
-        before do
-          request.env["decidim.current_organization"] = user.organization
-          request.env["devise.mapping"] = ::Devise.mappings[:user]
-
-          sign_in user
-        end
-
-        it "clears the current user" do
-          delete :timeout, xhr: true
-
-          expect(controller.current_user).to be_nil
-        end
-      end
     end
   end
 end

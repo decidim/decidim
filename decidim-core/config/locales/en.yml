@@ -467,7 +467,7 @@ en:
           sign_in_disabled: You can access with an external account
           sign_up_disabled: Sign up is disabled, you can use an existing account to access
         user:
-          timed_out: You have been signed out from the service
+          timed_out: You have been signed out from the service because you have been idle for too long.
       shared:
         newsletter_modal:
           buttons:
@@ -1584,7 +1584,7 @@ en:
         twitter: "%{organization} at Twitter"
         youtube: "%{organization} at YouTube"
       timeout_modal:
-        body: If you don't continue using this site, we are going to automatically log you out soon.
+        body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
         continue_session: Continue session
         sign_out: Sign out
         title: Would you like to continue your session?

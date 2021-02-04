@@ -16,7 +16,7 @@ describe "Session timeout", type: :system do
     it "shows modal" do
       Devise.timeout_in = 2.minutes
       visit decidim.root_path
-      expect(page).to have_content("Do you want to continue this session?", wait: 11)
+      expect(page).to have_content("If you continue being inactive", wait: 11)
     end
 
     it "timeouts if user does nothing" do
@@ -25,7 +25,7 @@ describe "Session timeout", type: :system do
       allow_any_instance_of(Decidim::Devise::SessionsController).to receive(:current_user).and_return(current_user)
       # rubocop:enable RSpec/AnyInstance
       visit decidim.root_path
-      expect(page).to have_content("Your session has been timeouted", wait: 15)
+      expect(page).to have_content("You have been signed out from the service", wait: 15)
     end
   end
 end
