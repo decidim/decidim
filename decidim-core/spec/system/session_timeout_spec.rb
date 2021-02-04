@@ -24,7 +24,7 @@ describe "Session timeout", type: :system do
       allow_any_instance_of(Decidim::Devise::SessionsController).to receive(:current_user).and_return(current_user)
       # rubocop:enable RSpec/AnyInstance
       visit decidim.root_path
-      expect(page).to have_content("You have been signed out from the service", wait: 15)
+      expect(page).to have_content("You were inactive for too long", wait: 15)
     end
   end
 end

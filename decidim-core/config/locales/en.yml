@@ -467,7 +467,7 @@ en:
           sign_in_disabled: You can access with an external account
           sign_up_disabled: Sign up is disabled, you can use an existing account to access
         user:
-          timed_out: You have been signed out from the service because you have been idle for too long.
+          timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
       shared:
         newsletter_modal:
           buttons:
