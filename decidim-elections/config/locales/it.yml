@@ -179,6 +179,30 @@ it:
             not_used_trustee: "(non utilizzato)"
             public_key:
               'false': non ha una <strong>chiave pubblica</strong>
+              'true': ha una <strong>chiave pubblica</strong>
+            requirements:
+              max_selections: Tutti i quesiti hanno un valore corretto per <strong>massimo di risposte</strong>.
+              minimum_answers: Ogni quesito ha <strong>almeno 2 risposte</strong>.
+              minimum_questions: L'elezione ha <strong>almeno 1 quesito</strong>.
+              published: L'elezione è <strong>pubblicata</strong>.
+              time_before: La configurazione viene eseguita <strong>almeno %{hours} ore</strong> prima dell'inizio delle elezioni.
+              trustees_number: Lo spazio partecipativo ha <strong>almeno %{number} fiduciari con chiave pubblica</strong>.
+            submit: Imposta elezione
+            success: Elezione inviata con successo al Bollettino
+            title: Imposta elezione
+            trustees: Fiduciari Delle Elezioni
+          index:
+            title: Gestire i passaggi delle elezioni sul Bollettino
+          key_ceremony:
+            title: Cerimonia chiave
+            trustees: Fiduciari
+          ready:
+            errors:
+              time_before: L'elezione è pronta per iniziare. Devi aspettare fino a %{hours} ore prima dell'ora di inizio (%{start_time}) per aprire la scheda elettorale.
+            invalid: Si è verificato un errore durante l'apertura delle urne
+            requirements:
+              time_before: L'elezione inizierà presto. È possibile aprire la scheda elettorale manualmente, o sarà aperta automaticamente prima dell'orario di partenza, a %{start_time}.
+            submit: Apertura urne
       admin_log:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
@@ -188,13 +212,27 @@ it:
           elections_count:
             one: "%{count} elezione"
             other: "%{count} elezioni"
+        results:
+          description: Questi sono i risultati della votazione, per ogni quesito
+          selected: Selezionato
+          title: Risultati delle elezioni
+          votes:
+            one: "%{count} voto"
+            other: "%{count} voti"
         show:
+          back: Elezioni disponibili
           preview: Anteprima
+          verify: Verifica
           vote: Vota
           voting_period_status:
             finished: La votazione è iniziata il %{start_time} ed è terminata il %{end_time}
             ongoing: La votazione termina il %{end_time}
             upcoming: La votazione inizia il %{start_time}
+      feedback:
+        answer:
+          invalid: Si è verificato un errore durante l'invio del tuo feedback.
+          spam_detected: C'è stato un problema nelle risposte ai quesiti. Forse sei stato troppo veloce, puoi riprovare?
+          success: Feedback inviato con successo.
       models:
         answer:
           fields:
@@ -202,6 +240,7 @@ it:
             title: Titolo
         election:
           fields:
+            bb_status: Stato scheda bollettino
             end_time: Finisce il
             start_time: Inizia il
             title: Titolo
@@ -210,6 +249,37 @@ it:
             answers: Risposte
             max_selections: Max. selezioni
             title: Titolo
+        trustees_participatory_space:
+          fields:
+            considered: considerato
+            email: Email
+            inactive: inattivo
+            name: Nome
+            notification: Notifica inviata a
+            public_key: Chiave Pubblica
+            status: Stato
+      orders:
+        label: Ordina le elezioni per
+        older: Meno recente
+        recent: Recenti
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Questa elezione è in corso di creazione nel Bollettino. È molto importante che ogni fiduciario che partecipa crei una copia di backup di queste chiavi e le memorizzi in un luogo sicuro. Dopo di che, il processo continuerà.
+            download_election_keys: Scarica le chiavi
+            download_icon: Icona che indica un'azione di download
+            title: Backup delle chiavi elettorali per %{election}
+          key_ceremony_steps:
+            back: Indietro
+            description: Questa elezione è in fase di creazione nel Bollettino. Per completare questo processo, è necessaria la vostra partecipazione come fiduciario.
+            keys:
+              create_election: Generazione chiavi
+              key_ceremony:
+                joint_election_key: Generazione chiave congiunta
+                step_1: Pubblicazione delle chiavi
+            list:
+              status: Stato
+              task: Attività
       votes:
         confirm:
           answer: Risposta
