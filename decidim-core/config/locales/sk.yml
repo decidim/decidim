@@ -87,7 +87,6 @@ sk:
         file_no_exists: Súbor neexistuje
         notice: Sťahovanie Vašich dát momentálne prebieha. Po dokončení dostanete e-mail.
       delete:
-        alert: Táto akcia sa nedá vrátiť späť. Ak odstránite svoj účet, nebudete sa viac môcť prihlásiť.
         confirm:
           close: Zavrieť okno
           ok: Áno, chcem zmazať účet
@@ -274,8 +273,6 @@ sk:
         name: Príklad autorizácie
       dummy_authorization_workflow:
         name: Pracovný postup autorizácie
-      errors:
-        duplicate_authorization: Účastník je už autorizovaný s rovnakými dátami.
       expired_at: Platnosť vypršala v %{timestamp}
       expires_at: Platnosť vyprší v %{timestamp}
       foo_authorization:

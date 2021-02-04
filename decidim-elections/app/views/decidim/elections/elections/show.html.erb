@@ -47,15 +47,23 @@ edit_link(
       <%= decidim_sanitize(simple_format(translated_attribute(election.description))) %>
 
       <% if election.published? && election.ongoing? %>
-        <%= action_authorized_link_to :vote, new_election_vote_path(election.id), resource: election, class: "title-action__action button small" do %>
+        <%= action_authorized_link_to :vote, new_election_vote_path(election), resource: election, class: "title-action__action button small" do %>
           <%= t(".vote") %>
         <% end %>
       <% else %>
         <span class="button disabled"><%= t(".vote") %></span>
       <% end %>
 
+      <% if election.ongoing? || election.finished? %>
+        <%= link_to verify_election_vote_path(election), class: "title-action__action button secondary small" do %>
+          <%= t(".verify") %>
+        <% end %>
+      <% else %>
+        <span class="button disabled"><%= t(".verify") %></span>
+      <% end %>
+
       <% if allowed_to? :preview, :election, election: election %>
-        <%= link_to new_election_vote_path(election.id), class: "button" do %>
+        <%= link_to new_election_vote_path(election), class: "button" do %>
           <%= t(".preview") %>
         <% end %>
       <% end %>

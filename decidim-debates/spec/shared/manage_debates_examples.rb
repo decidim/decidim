@@ -61,7 +61,7 @@ RSpec.shared_examples "manage debates" do
     end
   end
 
-  it "creates a new debate" do
+  it "creates a new finite debate" do
     within ".card-title" do
       click_link "New Debate"
     end
@@ -88,17 +88,68 @@ RSpec.shared_examples "manage debates" do
         es: "Instrucciones más largas",
         ca: "Instruccions més llargues"
       )
+
+      choose "Finite"
     end
 
     page.execute_script("$('#debate_start_time').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "10:00").click
     page.find(".datepicker-dropdown .minute", text: "10:50").click
 
     page.execute_script("$('#debate_end_time').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "12:00").click
     page.find(".datepicker-dropdown .minute", text: "12:50").click
+
+    within ".new_debate" do
+      select translated(category.name), from: :debate_decidim_category_id
+
+      find("*[type=submit]").click
+    end
+
+    within ".callout-wrapper" do
+      expect(page).to have_content("successfully")
+    end
+
+    within "table" do
+      expect(page).to have_content("My debate")
+    end
+  end
+
+  it "creates a new open debate" do
+    within ".card-title" do
+      click_link "New Debate"
+    end
+
+    within ".new_debate" do
+      fill_in_i18n(
+        :debate_title,
+        "#debate-title-tabs",
+        en: "My debate",
+        es: "Mi debate",
+        ca: "El meu debat"
+      )
+      fill_in_i18n_editor(
+        :debate_description,
+        "#debate-description-tabs",
+        en: "Long description",
+        es: "Descripción más larga",
+        ca: "Descripció més llarga"
+      )
+      fill_in_i18n_editor(
+        :debate_instructions,
+        "#debate-instructions-tabs",
+        en: "Long instructions",
+        es: "Instrucciones más largas",
+        ca: "Instruccions més llargues"
+      )
+
+      choose "Open"
+    end
+
+    expect(page).not_to have_selector "#debate_start_time"
+    expect(page).not_to have_selector "#debate_end_time"
 
     within ".new_debate" do
       select translated(category.name), from: :debate_decidim_category_id
@@ -189,48 +240,6 @@ RSpec.shared_examples "manage debates" do
           expect(page).to have_no_selector(".action-icon--close")
         end
       end
-    end
-  end
-
-  describe "archiving a debate" do
-    let!(:debate) { create(:debate, :closed, component: current_component) }
-
-    it "archives a debate" do
-      within find("tr", text: translated(debate.title)) do
-        page.find(".action-icon--archive").click
-      end
-
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
-
-      expect(page).to have_no_content(translated(debate.title))
-
-      click_link "Archived debates"
-      expect(page).to have_content(translated(debate.title))
-    end
-  end
-
-  describe "unarchiving a debate" do
-    let!(:debate) { create(:debate, :closed, component: current_component, archived_at: 1.day.ago) }
-
-    before do
-      click_link "Archived debates"
-    end
-
-    it "unarchives a debate" do
-      within find("tr", text: translated(debate.title)) do
-        page.find(".action-icon--archive").click
-      end
-
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
-
-      expect(page).to have_no_content(translated(debate.title))
-
-      click_link "Active debates"
-      expect(page).to have_content(translated(debate.title))
     end
   end
 end

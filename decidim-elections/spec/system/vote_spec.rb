@@ -4,19 +4,23 @@ require "spec_helper"
 
 describe "Vote in an election", type: :system do
   let(:manifest_name) { "elections" }
-  let(:election) { create :election, :complete, :published, :ongoing, component: component }
-  let(:user) { create(:user, :confirmed, organization: component.organization) }
+  let(:election) { create :election, :bb_test, :vote, component: component }
+  let(:user) { create(:user, :confirmed, created_at: Date.civil(2020, 1, 1), organization: component.organization) }
   let!(:elections) do
-    create_list(:election, 2, :complete, :published, :ongoing, component: component)
+    create_list(:election, 2, :vote, component: component)
   end
+  let(:vote) { create :vote, election: election, user: user }
+  let(:message_id) { vote.message_id }
+  let(:vote_id) { vote.id }
 
   before do
     election.reload
-    switch_to_host(organization.host)
     login_as user, scope: :user
   end
 
-  include_context "with a component"
+  include_context "with a component" do
+    let(:organization_traits) { [:secure_context] }
+  end
 
   it_behaves_like "allows to vote"
 
@@ -95,17 +99,6 @@ describe "Vote in an election", type: :system do
     end
 
     it_behaves_like "allow admins to preview the voting booth"
-  end
-
-  context "when the voting is confirmed" do
-    before do
-      visit_component
-
-      click_link translated(election.title)
-      click_link "Vote"
-    end
-
-    it_behaves_like "uses the voting booth"
   end
 
   context "when the voting is not confirmed" do

@@ -1,15 +1,31 @@
 /* eslint-disable require-jsdoc, prefer-template, func-style, id-length, no-use-before-define, init-declarations, no-invalid-this */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
+// = require decidim/bulletin_board/decidim-bulletin_board
 
 $(() => {
-  const $vote = $(".focus");
-  const $continueButton = $vote.find("a.focus__next");
-  const $confirmButton = $vote.find("a.focus__next.confirm");
-  const $continueSpan = $vote.find("span.disabled-continue");
+  const { Voter, Client } = decidimBulletinBoard;
+  const $voteWrapper = $(".vote-wrapper");
+  const $continueButton = $voteWrapper.find("a.focus__next");
+  const $confirmButton = $voteWrapper.find("a.focus__next.confirm");
+  const $continueSpan = $voteWrapper.find("span.disabled-continue");
+
   let $answerCounter = 0;
   let $currentStep,
       $currentStepMaxSelection = "";
-  let $formData = $vote.find(".answer_input");
+  let $formData = $voteWrapper.find(".answer_input");
+
+  // Updates the status of the vote
+  const updateVoteStatus = (id) => {
+    $.ajax({
+      method: "PATCH",
+      url: $voteWrapper.data("updateVoteStatusUrl"),
+      contentType: "application/json",
+      data: JSON.stringify({ vote_id: id }), // eslint-disable-line camelcase
+      headers: {
+        "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+      }
+    });
+  }
 
   function initStep() {
     setCurrentStep();
@@ -23,7 +39,7 @@ $(() => {
   initStep()
 
   function setCurrentStep() {
-    $currentStep = $vote.find(".focus__step:visible")
+    $currentStep = $voteWrapper.find(".focus__step:visible")
     setSelections();
     onSelectionChange();
   }
@@ -120,13 +136,13 @@ $(() => {
 
   // get form Data
   function getFormData(formData) {
-    let unindexedArray = formData.serializeArray();
-    let indexedArray = {};
-    $.map(unindexedArray, function(n, i) {
-      indexedArray[n.name] = n.value;
-    });
-
-    return indexedArray;
+    return formData.serializeArray().reduce((acc, {name, value}) => {
+      if (!acc[name]) {
+        acc[name] = [];
+      }
+      acc[name] = [...acc[name], value];
+      return acc;
+    }, {"ballot_style": "unique"});
   }
 
   // confirm vote
@@ -136,16 +152,91 @@ $(() => {
     castVote(boothMode, formData)
   });
 
-  // cast vote
-  function castVote(boothMode, formData) {
-    // log form Data
-    console.log(`Your vote got encrypted successfully. The booth mode is ${boothMode}. Your vote content is:`, formData) // eslint-disable-line no-console
+  const isPreview = $voteWrapper.data("booth-mode") === "preview";
 
-    window.setTimeout(function() {
-      $($vote).find("#encrypting").addClass("hide")
-      $($vote).find("#confirmed_page").removeClass("hide")
-      window.confirmed = true;
-    }, 3000)
+  function simulatePreviewDelay() {
+    return new Promise((resolve) => {
+      setTimeout(resolve, 500);
+    })
+  }
+
+  // cast vote
+  function castVote(_boothMode, formData) {
+    const bulletinBoardClient = new Client({
+      apiEndpointUrl: $voteWrapper.data("apiEndpointUrl"),
+      wsEndpointUrl: $voteWrapper.data("websocketUrl")
+    });
+
+    const voter = new Voter({
+      id: $voteWrapper.data("voterId"),
+      bulletinBoardClient,
+      electionContext: {
+        id: $voteWrapper.data("electionUniqueId")
+      }
+    });
+
+    let encryptedVoteHashToVerify = null;
+
+    voter.encrypt(formData).then((encryptedVoteAsJSON) => {
+      return crypto.subtle.digest("SHA-256", new TextEncoder().encode(encryptedVoteAsJSON)).then((hashBuffer) => {
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+
+        return {
+          encryptedVote: encryptedVoteAsJSON,
+          encryptedVoteHash: hashHex
+        };
+      })
+    }).then(({ encryptedVote, encryptedVoteHash}) => {
+      encryptedVoteHashToVerify = encryptedVoteHash;
+
+      return $.ajax({
+        method: "POST",
+        url: $voteWrapper.data("castVoteUrl"),
+        contentType: "application/json",
+        data: JSON.stringify({ encrypted_vote: encryptedVote, encrypted_vote_hash: encryptedVoteHash }), // eslint-disable-line camelcase
+        headers: {
+          "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+        }
+      })
+    }).then(() => {
+      const $messageId = $voteWrapper.find(".vote-confirmed-result").data("messageId");
+
+      if (isPreview) {
+        return simulatePreviewDelay()
+      }
+
+      return voter.waitForPendingMessageToBeProcessed($messageId)
+    }).then((pendingMessage) => {
+      const $voteId = $voteWrapper.find(".vote-confirmed-result").data("voteId");
+
+      if (isPreview || pendingMessage.status === "accepted") {
+        $voteWrapper.find("#encrypting").addClass("hide");
+        $voteWrapper.find("#confirmed_page").removeClass("hide");
+        $voteWrapper.find(".vote-confirmed-result").hide();
+        window.confirmed = true;
+      }
+
+      if (isPreview) {
+        return simulatePreviewDelay()
+      }
+
+      updateVoteStatus($voteId)
+
+      if (pendingMessage.status === "rejected") {
+        return null
+      }
+
+      return voter.verifyVote(encryptedVoteHashToVerify);
+    }).then((logEntry) => {
+      if (isPreview || logEntry) {
+        $voteWrapper.find(".vote-confirmed-processing").hide();
+        $voteWrapper.find(".vote-confirmed-result").show();
+      } else {
+        const $error = $voteWrapper.find(".vote-confirmed-result").data("error");
+        alert($error); // eslint-disable-line no-alert
+      }
+    })
   }
 
   // exit message before confirming

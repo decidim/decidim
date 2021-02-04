@@ -9,6 +9,7 @@ $order-border: $border;
   flex-wrap: wrap;
 
   a:hover{
+    color: var(--secondary);
     text-decoration: underline;
   }
 

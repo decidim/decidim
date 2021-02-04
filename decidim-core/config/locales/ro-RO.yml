@@ -86,7 +86,6 @@ ro:
         file_no_exists: Fișierul nu există
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       delete:
-        alert: Această acțiune nu poate fi anulată. Dacă ștergeți contul dvs. nu veți putea să vă autentificați.
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
@@ -278,8 +277,6 @@ ro:
         name: Exemplu de autorizare
       dummy_authorization_workflow:
         name: Flux de lucru autorizare fictiv
-      errors:
-        duplicate_authorization: Un participant este deja autorizat cu aceleași date.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:

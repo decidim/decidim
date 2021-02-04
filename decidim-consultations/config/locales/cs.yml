@@ -11,7 +11,7 @@ cs:
         questions: Otázky
         slug: URL slug
         start_voting_date: Hlasování začíná
-        subtitle: Titulky
+        subtitle: Podtitul
         title: Titul
       question:
         banner_image: Obrázek banneru
@@ -31,7 +31,7 @@ cs:
         reference: Odkaz
         scope: Městská oblast
         slug: URL slug
-        subtitle: Titulky
+        subtitle: Podtitul
         vote: Externí hlasovací systém
         what_is_decided: Co se rozhodlo
       response:
@@ -102,6 +102,7 @@ cs:
         create:
           error: Při vytváření nové konzultace došlo k chybě.
           success: Konzultace byla úspěšně vytvořena.
+        deprecation_warning: Modul konzultace bude v blízké budoucnosti zastaralý. Pracujeme na další zabezpečené verzi, nazvané Hlasování.
         edit:
           update: Aktualizace
         form:

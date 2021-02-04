@@ -42,8 +42,6 @@ module Decidim
 
       scope :open, -> { where(closed_at: nil) }
       scope :closed, -> { where.not(closed_at: nil) }
-      scope :archived, -> { where.not(archived_at: nil) }
-      scope :not_archived, -> { where(archived_at: nil) }
       scope :authored_by, ->(author) { where(author: author) }
       scope :commented_by, lambda { |author|
         joins(:comments).where(
@@ -98,13 +96,6 @@ module Decidim
         (ama? && open_ama?) || !ama?
       end
 
-      # Public: Checks if the debate is archived or not.
-      #
-      # Returns a boolean.
-      def archived?
-        archived_at.present?
-      end
-
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         component.settings.comments_enabled?
@@ -150,10 +141,13 @@ module Decidim
       end
 
       def self.newsletter_participant_ids(component)
-        Decidim::Debates::Debate.where(component: component).joins(:component)
-                                .where(decidim_author_type: Decidim::UserBaseEntity.name)
-                                .where.not(author: nil)
-                                .pluck(:decidim_author_id).flatten.compact.uniq
+        authors_ids = Decidim::Debates::Debate.where(component: component)
+                                              .where(decidim_author_type: Decidim::UserBaseEntity.name)
+                                              .where.not(author: nil)
+                                              .group(:decidim_author_id)
+                                              .pluck(:decidim_author_id).flatten.compact
+        commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Debates::Debate.where(component: component))
+        (authors_ids + commentators_ids).flatten.compact.uniq
       end
 
       # Checks whether the user can edit the debate.
@@ -173,13 +167,6 @@ module Decidim
       #
       # user - the user to check for authorship
       def closeable_by?(user)
-        authored_by?(user)
-      end
-
-      # Checks whether the user can archive the debate.
-      #
-      # user - the user to check for authorship
-      def archivable_by?(user)
         authored_by?(user)
       end
 

@@ -52,6 +52,8 @@ fr-CA:
           update:
             invalid: Un problème est survenu lors de la mise à jour de ce budget
             success: Budget mis à jour avec succès
+        exports:
+          projects: Projets
         models:
           budget:
             name: Budget

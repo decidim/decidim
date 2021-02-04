@@ -295,10 +295,8 @@ lv:
         finish:
           back: Atpakaļ
           back_to_initiatives: Atpakaļ pie iniciatīvām
-          edit_my_initiative: Rediģēt manas iniciatīvas
           go_to_my_initiatives: Doties pie manām iniciatīvām
           more_information: "(Papildu informācija)"
-          send_my_initiative: Nosūtīt manu iniciatīvu
         previous_form:
           back: Atpakaļ
           continue: Turpināt
@@ -405,13 +403,6 @@ lv:
         print:
           city: Pilsēta
         result:
-          answer_title:
-            accepted: Šis priekšlikums ir pieņemts, jo
-            created: Šis priekšlikums ir izveidots
-            discarded: Šis priekšlikums ir atmests, jo
-            published: Šis priekšlikums ir publicēts, jo
-            rejected: Šis priekšlikums ir noraidīts, jo
-            validating: Šis priekšlikums tiek vērtēts
           initiative_rejected_reason: Šī iniciatīva ir noraidīta parakstu trūkuma dēļ.
         show:
           follow_description: Saņemiet paziņojumu, kad ir jaunumi par šo iniciatīvu

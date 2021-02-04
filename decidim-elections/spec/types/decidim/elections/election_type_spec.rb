@@ -8,7 +8,7 @@ require "decidim/core/test/shared_examples/traceable_interface_examples"
 module Decidim
   module Elections
     describe ElectionType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:election, :published, :complete) }
 
@@ -70,7 +70,7 @@ module Decidim
         let(:query) { "{ blocked }" }
 
         context "when the election's parameters are blocked" do
-          let!(:model) { create(:election, :started, :ready_for_setup) }
+          let!(:model) { create(:election, :created) }
 
           it "returns true " do
             expect(response["blocked"]).to be true

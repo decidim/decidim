@@ -10,6 +10,8 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
   let!(:processes) { create_list :participatory_process, 5, organization: organization }
   let(:settings) { {} }
 
+  let(:highlighted_processes) { subject.find("#highlighted-processes") }
+
   controller Decidim::PagesController
 
   before do
@@ -18,9 +20,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
 
   context "when the content block has no settings" do
     it "shows 4 processes" do
-      within "#highlighted-processes" do
-        expect(subject).to have_selector(".card--process", count: 4)
-      end
+      expect(highlighted_processes).to have_selector("a.card--process", count: 4)
     end
   end
 
@@ -32,9 +32,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
     end
 
     it "shows up to 8 processes" do
-      within "#highlighted-processes" do
-        expect(subject).to have_selector(".card--process", count: 5)
-      end
+      expect(highlighted_processes).to have_selector("a.card--process", count: 5)
     end
   end
 end

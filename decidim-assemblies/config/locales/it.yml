@@ -1,6 +1,8 @@
 it:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Abilita il grafico dell'organizzazione
       assembly:
         area_id: Area
         assembly_type: Tipo di assemblea
@@ -60,6 +62,7 @@ it:
         full_name: Nome e cognome
         gender: Genere
         position: Posizione
+        user_id: Utente
       assembly_user_role:
         email: E-mail
         name: Nome

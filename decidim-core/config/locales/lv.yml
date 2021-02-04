@@ -82,7 +82,6 @@ lv:
         file_no_exists: Fails neeksistē
         notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       delete:
-        alert: Šo darbību nevar atsaukt. Ja dzēsīsiet kontu, nevarēsiet ar to vairs pierakstīties.
         confirm:
           close: Aizvērt logu
           ok: Jā, es gribu dzēst savu kontu
@@ -266,8 +265,6 @@ lv:
         name: Autorizācijas paraugs
       dummy_authorization_workflow:
         name: Viettura autorizācijas darbplūsma
-      errors:
-        duplicate_authorization: Dalībnieks jau ir autorizēts ar tiem pašiem datiem.
       expired_at: Termiņš beidzās plkst. %{timestamp}
       expires_at: Termiņš beigsies plkst. %{timestamp}
       foo_authorization:

@@ -151,6 +151,8 @@ ignore_unused:
   - decidim.system.default_pages.placeholders.*
   - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{dni,nie,passport}
+  - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}
+  - decidim.verifications.dummy_authorization.extra_explanation.user_scope
   - errors.messages.*
   - invisible_captcha.*
   - decidim.pages.home.statistics.*
@@ -188,6 +190,11 @@ ignore_unused:
   - decidim.consultations.admin_log.*
   - decidim.consultations.consultations.orders.*
   - decidim.consultations.show.badge_name.*
+  - decidim.votings.admin_log.*
+  - decidim.votings.votings.filters.*
+  - decidim.votings.votings.orders.*
+  - decidim.votings.votings_m.badge_name.*
+  - decidim.votings.votings_m.footer_button_text.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
@@ -203,12 +210,9 @@ ignore_unused:
   - decidim.admin.models.*.name
   - decidim.admin.models.*.name.*
   - password_validator.*
+  - decidim.*.pages.home.highlighted_*.*
   - decidim.participatory_processes.participatory_processes.filters.*
-  - decidim.participatory_processes.pages.home.highlighted_processes.*
   - decidim.participatory_processes.show.related_assemblies
-  - decidim.consultations.pages.home.highlighted_consultations.*
-  - decidim.assemblies.pages.home.highlighted_assemblies.*
-  - decidim.initiatives.pages.home.highlighted_initiatives.*
   - decidim.content_blocks.*.name
   - decidim.participatory_processes.content_blocks.*.name
   - decidim.participatory_process_groups.content_blocks.*.name
@@ -216,6 +220,7 @@ ignore_unused:
   - decidim.initiatives.content_blocks.*.name
   - decidim.consultations.content_blocks.*.name
   - decidim.meetings.content_blocks.*.name
+  - decidim.votings.content_blocks.*.name
   - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
   - decidim.proposals.collaborative_drafts.orders*
   - decidim.proposals.collaborative_drafts.filters*
@@ -288,6 +293,8 @@ ignore_unused:
   - decidim.debates.debate_m.commented_time_ago
   - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
   - decidim.elections.feedback.answer.*
+  - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
+  - decidim.votings.admin_log.*
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

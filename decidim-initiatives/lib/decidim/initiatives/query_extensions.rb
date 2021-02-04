@@ -10,30 +10,53 @@ module Decidim
       # type - A GraphQL::BaseType to extend.
       #
       # Returns nothing.
-      def self.define(type)
-        type.field :initiativesTypes do
-          type !types[InitiativeApiType]
+      def self.included(type)
+        type.field :initiatives_types, [InitiativeApiType], null: false do
           description "Lists all initiative types"
-
-          resolve lambda { |_obj, _args, ctx|
-            Decidim::InitiativesType.where(
-              organization: ctx[:current_organization]
-            )
-          }
         end
 
-        type.field :initiativesType do
-          type InitiativeApiType
-          description "Finds a initiative type"
-          argument :id, !types.ID, "The ID of the initiative type"
-
-          resolve lambda { |_obj, args, ctx|
-            Decidim::InitiativesType.find_by(
-              organization: ctx[:current_organization],
-              id: args[:id]
-            )
-          }
+        type.field :initiatives_type, InitiativeApiType, null: true, description: "Finds a initiative type" do
+          argument :id, GraphQL::Types::ID, "The ID of the initiative type", required: true
         end
+
+        type.field :initiatives,
+                   [Decidim::Initiatives::InitiativeType],
+                   null: true,
+                   description: "Lists all initiatives" do
+          argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument lets you filter the results", required: false
+          argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument lets you order the results", required: false
+        end
+
+        type.field :initiative,
+                   Decidim::Initiatives::InitiativeType,
+                   null: true,
+                   description: "Finds a initiative" do
+          argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
+        end
+      end
+
+      def initiatives_types
+        Decidim::InitiativesType.where(
+          organization: context[:current_organization]
+        )
+      end
+
+      def initiatives_type(id:)
+        Decidim::InitiativesType.find_by(
+          organization: context[:current_organization],
+          id: id
+        )
+      end
+
+      def initiatives(filter: {}, order: {})
+        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :initiatives }.first
+        Decidim::Core::ParticipatorySpaceListBase.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+      end
+
+      def initiative(id: nil)
+        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :initiatives }.first
+
+        Decidim::Core::ParticipatorySpaceFinderBase.new(manifest: manifest).call(object, { id: id }, context)
       end
     end
   end

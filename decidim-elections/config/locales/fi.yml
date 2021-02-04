@@ -16,6 +16,9 @@ fi:
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
+      voting:
+        end_time: Päättymisaika
+        start_time: Alkamisaika
     errors:
       models:
         answer:
@@ -28,6 +31,8 @@ fi:
               needs_to_be_reattached: Liitettävä uudestaan
         trustee:
           attributes:
+            name:
+              cant_be_changed: tietoa ei voi muuttaa
             public_key:
               cant_be_changed: tietoa ei voi muuttaa
   activerecord:
@@ -41,6 +46,9 @@ fi:
       decidim/elections/question:
         one: Kysymys
         other: Kysymykset
+      decidim/votings/voting:
+        one: Äänestys
+        other: Äänestykset
   decidim:
     components:
       elections:
@@ -61,10 +69,10 @@ fi:
         import: Tuo ehdotuksia vastauksiin
         manage_answers: Hallitse vastauksia
         manage_questions: Hallinnoi kysymyksiä
+        manage_steps: Hallinnoi vaiheita
         new: Uusi %{name}
         preview: Esikatsele
         publish: Julkaise
-        setup: Asetukset
         title: Toiminnot
         unpublish: Lopeta julkaisu
       admin:
@@ -113,9 +121,6 @@ fi:
             title: Uusi vaali
           publish:
             success: Vaalin julkaisu onnistui.
-          setup:
-            invalid: Vaalin asetusten määrittäminen epäonnistui
-            success: Vaalin lähetys ilmoitustaululle onnistui
           unpublish:
             success: Vaalin julkaisu epäonnistui.
           update:
@@ -160,29 +165,52 @@ fi:
           update:
             invalid: Kysymyksen päivitys epäonnistui
             success: Kysymyksen päivitys onnistui
-        setup:
-          errors:
-            max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
-            minimum_answers: Kysymyksillä on oltava <strong>vähintään yksi vastaus</strong>.
-            minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
-            published: Vaalia <strong>ei ole julkaistu</strong>
-            time_before: Aloitusaika on <strong>alle 3 tuntia</strong> ennen vaalin alkamista
-            trustee_public_key: luottamushenkilöllä ei ole <strong>kelvollista julkista avainta</strong>
-            trustees_quorum: Luottamushenkilöiden määrä <strong>ei vastaa vaadittua luottamushenkilöiden määrää</strong>
-          requirements:
-            max_selections: Kaikilla kysymyksillä on oikea arvo asetukselle <strong>vastausten maksimimäärä</strong>
-            minimum_answers: Jokaisella kysymyksellä on <strong>vähintään 2 vastausta</strong>
-            minimum_questions: Vaalilla on <strong>vähintään 1 kysymys</strong>
-            published: Vaali <strong>on julkaistu</strong>
-            time_before: Vaalin määritys tulee tapahtua <strong>vähintään 3 tuntia</strong> ennen sen alkamista
-            trustee_public_key: luottamushenkilöllä on <strong>kelvollinen julkinen avain</strong>
-            trustees_quorum: Tämän luottamushenkilölistan henkilöiden määrä on oikea ja se vaatii <strong>vähintään %{quorum} luottamushenkilöä</strong> ääntenlaskuprosessin suorittamiseksi
-          show:
-            setup: Määritä vaali
-            title: Vaalin asetukset
-          update:
-            setup: Määritä vaali
-            title: Vaalin asetukset
+        steps:
+          create_election:
+            errors:
+              max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
+              minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
+              published: Vaalia <strong>ei ole julkaistu</strong>.
+              time_before: Alkamisaika on <strong>alle 3 tuntia</strong> ennen vaalin alkua.
+              trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
+            invalid: Vaalin asetusten määrittäminen epäonnistui
+            no_trustees: Tähän osallistumistilaan ei ole määritetty luottamushenkilöitä
+            not_used_trustee: "(ei käytössä)"
+            public_key:
+              'false': vaalilla ei ole <strong>julkista avainta</strong>
+              'true': vaalilla on <strong>julkinen avain</strong>
+            requirements:
+              max_selections: Kaikilla kysymyksillä on oikea arvo asetukselle <strong>vastausten maksimimäärä</strong>.
+              minimum_answers: Jokaisella kysymyksellä on <strong>vähintään 2 vastausta</strong>.
+              minimum_questions: Vaalilla on <strong>vähintään 1 kysymys</strong>.
+              published: Vaalia <strong>ei ole julkaistu</strong>.
+              time_before: Vaalin määritys tulee tapahtua <strong>vähintään %{hours} tuntia</strong> ennen sen alkamista.
+              trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
+            submit: Määritä vaali
+            title: Määritä vaali
+            trustees: Vaalin luottamushenkilöt
+          key_ceremony:
+            trustees: Luottamushenkilöt
+          ready:
+            errors:
+              time_before: Vaali on valmis käynnistymään. Sinun täytyy odottaa %{hours} tuntia ennen alkamisaikaa (%{start_time}) avataksesi vaaliuurnan.
+            invalid: Vaaliuurnan avaaminen epäonnistui
+            requirements:
+              time_before: Vaali alkaa pian. Voit avata vaaliuurnan manuaalisesti tai se avataan automaattisesti ennen alkamisaikaa, klo %{start_time}.
+            submit: Avaa vaaliuurna
+            title: Valmis aloitettavaksi
+          results:
+            title: Tulokset laskettu
+          results_published:
+            title: Tulokset julkaistu
+          vote:
+            errors:
+              time_after: Nämä vaalit ovat edelleen käynnissä. Sinun täytyy odottaa päättymisaikaan asti (%{end_time}) sulkeaksesi vaaliuurnan.
+            invalid: Vaaliuurnan sulkeminen epäonnistui
+            requirements:
+              time_after: Nämä vaalit ovat päättyneet. Voit sulkea vaaliuurnan manuaalisesti tai se suljetaan automaattisesti muutamassa minuutissa.
+            submit: Sulje vaaliuurna
+            title: Äänestysaika
         trustees_participatory_spaces:
           actions:
             disable: Poista käytöstä
@@ -207,7 +235,7 @@ fi:
       admin_log:
         election:
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
-          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen"
+          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun"
       election_m:
         badge_name:
           finished: Valmis
@@ -253,6 +281,7 @@ fi:
         show:
           back: Käynnissä olevat vaalit
           preview: Esikatsele
+          verify: Vahvista
           vote: Äänestä
           voting_period_status:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
@@ -292,14 +321,47 @@ fi:
         older: Vanhimmat
         recent: Uusimmat
       trustee_zone:
+        elections:
+          backup_modal:
+            download_election_keys: Lataa avaimet
+            download_icon: Kuvake, joka ilmaisee lataustoiminnon
+            title: Varmuuskopioi vaaliavaimet kohteelle %{election}
+          key_ceremony_steps:
+            back: Takaisin
+            keys:
+              create_election: Avainten luonti
+              key_ceremony:
+                step_1: Avainten julkaisu
+            list:
+              status: Tila
+              task: Tehtävä
+            process_warning: Kun prosessi on käynnistetty, sinun ei tule poistua tältä sivulta ennen kuin prosessi päättyy. Se kestää useita minuutteja, koska kaikkiin luottamushenkilöihin tulee olla yhteydessä, jotta prosessi voidaan päättää.
+            start: Aloita
+            start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnille
+            status:
+              completed: Valmis
+              pending: Odottaa
+              processing: Käsitellään
+            title: Luo vaaliavaimet kohteelle %{election}
+          restore_modal:
+            title: Palauta vaaliavaimet kohteelle %{election}
+            upload_election_keys: Lataa vaaliavaimet
+            upload_icon: Kuvake, joka ilmaisee lataustoiminnon
+          update:
+            error: Vaalin tilaa ei päivitetty.
+            success: 'Vaalin tila on: %{status}'
         menu:
           trustee_zone: Luottamushenkilön alue
         trustees:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'Ei'
+                  name: Tarvitaanko toimenpiteitä?
+                  'true': Suorita toimenpide
+                bb_status: Tila
                 election: Vaali
-                status: Tila
                 voting_period: Äänestysaika
               no_elections: Sellaisia vaaleja ei ole, joissa sinä toimit luottamushenkilönä.
               title: Vaalit
@@ -344,10 +406,14 @@ fi:
           header: Ääni vahvistettu
           lead: Olet jo äänestänyt!
           text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Tarkastaaksesi tämän, voit syöttää äänen tunnisteen <a href="evote-verify">äänten vahvistussivulle</a>
+          verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
         encrypting:
           header: Ääntäsi salataan...
           text: Äänesi salataan, jotta henkilöllisyyttäsi ei voida selvittää äänesi perusteella.
+        failed:
+          header: Äänestys epäonnistui
+          lead: Ääntäsi ei ole annettu!
+          text: Jokin meni pieleen, yritä uudelleen.
         header:
           confirm: Vahvista äänesi
           confirmed: Ääni vahvistettu
@@ -364,6 +430,25 @@ fi:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
+        processing:
+          header: Käsitellään ääntä...
+          text: Äänesi on vastaanotettu ja sitä käsitellään. Odota hetki.
+        verify:
+          content:
+            heading: Vahvista äänesi
+            info: Tämä tarkastustyökalu varmentaa, että salatulla merkkijonolla löytyvä äänesi on annettu oikein ja se on vaaliuurnassa.
+          error:
+            header: Ääntä ei löytynyt!
+            info: Äänestyskoodia ei löytynyt vaaliuurnasta %{link}, yritä uudelleen.
+          form:
+            back: Takaisin Decidimiin
+            submit: Tarkista
+            vote_identifier: 'Äänen tunniste:'
+          header:
+            title: Vahvista äänesi
+          success:
+            header: Äänesi löytyi!
+            info: Salattu äänesi on vaaliuurnassa %{link}
         voting_step:
           back: Takaisin
           continue: Seuraava
@@ -388,6 +473,12 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_name}.
             email_subject: Olet luottamushenkilö kohteessa %{resource_name}.
             notification_title: Olet luottamushenkilö kohteessa <a href="%{participatory_space_url}">%{resource_name}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          title: Mitä ovat äänestykset?
+    menu:
+      votings: Äänestykset
     pages:
       home:
         statistics:
@@ -395,7 +486,108 @@ fi:
     participatory_processes:
       statistics:
         elections_count: Vaalia
+    votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Näytettävien elementtien enimmäismäärä
+        index:
+          not_published: Julkaisematon
+          published: Julkaistu
+        menu:
+          votings: Äänestykset
+          votings_submenu:
+            attachment_collections: Kansiot
+            attachment_files: Tiedostot
+            attachments: Liitteet
+            info: Tiedot
+        models:
+          voting:
+            fields:
+              created_at: Luonnin ajankohta
+              promoted: Korostettu
+              published: Julkaistu
+              title: Otsikko
+        titles:
+          votings: Äänestykset
+        votings:
+          actions:
+            confirm_destroy: Oletko varma?
+            destroy: Tuhoa
+            new_voting: Uusi äänestystila
+            publish: Julkaise
+            unpublish: Lopeta julkaisu
+          create:
+            invalid: Äänestyksen luonti epäonnistui
+            success: Äänestyksen luonti onnistui
+          edit:
+            update: Päivitä
+          form:
+            title: Otsikko
+          new:
+            create: Luo
+            title: Uusi äänestys
+          publish:
+            success: Äänestyksen julkaisu onnistui
+          unpublish:
+            success: Äänestyksen julkaisun lopetus onnistui
+          update:
+            invalid: Äänestyksen päivitys epäonnistui
+            success: Äänestyksen päivitys onnistui
+      admin_log:
+        voting:
+          create: "%{user_name} loi äänestyksen %{resource_name}"
+          publish: "%{user_name} julkaisi äänestyksen %{resource_name}"
+          unpublish: "%{user_name} lopetti äänestyksen %{resource_name} julkaisun"
+      content_blocks:
+        highlighted_votings:
+          name: Korostetut äänestykset
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Aktiiviset äänestykset
+            see_all_votings: Näytä kaikki äänestykset
+            votings_button_title: Linkki kaikkien äänestysten sivulle
+      votings:
+        count:
+          title:
+            one: "%{count} äänestys"
+            other: "%{count} äänestystä"
+        filters:
+          active: Aktiiviset
+          all: Kaikki
+          finished: Päättyneet
+          search: Hae
+          state: Tila
+          upcoming: Tulevat
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Suodata
+          filter_by: Suodata
+          unfold: Avaa
+        index:
+          title: Äänestykset
+        orders:
+          label: 'Järjestä äänestykset:'
+          random: Satunnainen
+          recent: Viimeisimmät
+        show:
+          dates: Päivämäärät
+      votings_m:
+        badge_name:
+          finished: Päättynyt
+          ongoing: Käynnissä
+          upcoming: Tulossa
+        footer_button_text:
+          view: Näytä
+        unspecified: Ei määritetty
   layouts:
     decidim:
       election_votes_header:
         exit: Poistu
+      votings:
+        index:
+          promoted_votings: Korostetut äänestykset
+        promoted_voting:
+          more_info: Lisätiedot
+          vote: Äänestä

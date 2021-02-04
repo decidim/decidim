@@ -6,6 +6,12 @@
   <%= text_editor_for_debate_description(form) %>
 </div>
 
+<% if current_component.has_subscopes? %>
+  <div class="row column">
+    <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
+  </div>
+<% end %>
+
 <% if current_participatory_space.categories&.any? %>
   <div class="field">
     <%= form.categories_select :category_id, current_participatory_space.categories, include_blank: t(".select_a_category"), disable_parents: false %>

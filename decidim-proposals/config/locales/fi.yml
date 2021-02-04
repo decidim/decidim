@@ -355,7 +355,7 @@ fi:
         actions:
           preview: Esikatsele
         exports:
-          comments: Kommentit
+          proposal_comments: Kommentit
           proposals: Ehdotukset
         models:
           proposal:
@@ -555,7 +555,7 @@ fi:
           publish:
             error: Yhteistyöluonnoksen julkaiseminen epäonnistui.
             irreversible_action_modal:
-              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Ehdotus ei hyväksy uusia tekijöitä tai osallistumisia.
+              body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Uusia tekijöitä tai muutoksia ehdotukseen ei enää hyväksytä tämän jälkeen.
               cancel: Peruuta
               ok: Julkaise ehdotuksena
               title: Seuraavat toimenpiteet ovat peruuttamattomia
@@ -569,13 +569,6 @@ fi:
               ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnoksen peruuttaminen onnistui.
-        compare:
-          mine_is_different: Yhteistyöehdotukseni on erilainen
-          no_similars_found: Hyvin tehty! Vastaavanlaisia ​​yhteistyöluonnoksia ei löytynyt
-          title: Vastaavia yhteistyöluonnoksia
-        complete:
-          send: Lähetä
-          title: Viimeistele yhteistyöluonnoksesi
         count:
           drafts_count:
             one: "%{count} yhteistyöluonnos"
@@ -607,7 +600,6 @@ fi:
           unfold: Avaa
         new:
           send: Jatka
-          title: Luo yhteistyöluonnoksesi
         new_collaborative_draft_button:
           new_collaborative_draft: Uusi yhteistyöluonnos
         orders:
@@ -652,23 +644,11 @@ fi:
         update:
           error: Yhteistyöluonnoksen tallennus epäonnistui.
           success: Yhteistyöluonnoksen päivitys onnistui.
-          title: Muokkaa yhteistyöluonnosta
         wizard_aside:
-          back: Takaisin
           back_from_collaborative_draft: Takaisin yhteistyöluonnoksiin
-          back_from_step_1: Takaisin yhteistyöluonnoksiin
-          back_from_step_2: Takaisin yhteistyöluonnoksiin
-          back_from_step_3: Takaisin yhteistyöluonnoksen vertailuun
-          back_from_step_4: Takaisin yhteistyöluonnoksen muokkaukseen
           info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
-        wizard_steps:
-          current_step: Tämänhetkinen vaihe
-          see_steps: näytä vaiheet
-          step_1: Luo yhteistyöluonnoksesi
-          step_2: Vertaa yhteistyöluonnoksiin
-          step_3: Tee yhteistyöluonnoksesi valmiiksi
-          step_of: Vaihe %{current_step_num} / %{total_steps}
-          title: Yhteistyölunnoksen luonnin vaiheet
+        wizard_header:
+          title: Luo yhteistyöluonnoksesi
       content_blocks:
         highlighted_proposals:
           proposals: Ehdotukset

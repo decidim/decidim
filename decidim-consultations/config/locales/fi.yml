@@ -81,7 +81,7 @@ fi:
           error: Kuulemisen julkaiseminen epäonnistui.
           success: Kuulemisen julkaiseminen onnistui.
         destroy:
-          error: Kuulemisen julkaisun peruminen epäonnistui.
+          error: Kuulemisen julkaisun lopettaminen epäonnistui.
           success: Kuulemisen julkaisun peruminen onnistui.
       consultation_results_publications:
         create:
@@ -94,6 +94,7 @@ fi:
         create:
           error: Kuulemisen luonti epäonnistui.
           success: Kuulemisen luonti onnistui.
+        deprecation_warning: Kuulemiset-moduuli poistuu käytössä lähitulevaisuudessa. Kryptografisesti turvallisempi Äänestykset-moduuli korvaa kyseisen moduulin jatkossa.
         edit:
           update: Päivitä
         form:

@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module ParticipatoryProcesses
     describe ParticipatoryProcessGroupType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:participatory_process_group) }
 

@@ -197,6 +197,7 @@ nl:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
             success: Agenda succesvol bijgewerkt
         exports:
+          meeting_comments: Reacties
           meetings: vergaderingen
           registrations: registraties
         invite_join_meeting_mailer:
