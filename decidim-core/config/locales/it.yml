@@ -390,6 +390,7 @@ it:
         background_image: Immagine di sfondo
         button_text: Testo di "Invito all'azione"
         button_url: URL del pulsante "Chiamata all'azione"
+        description: Descrisione
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
       hero:
@@ -399,6 +400,11 @@ it:
         welcome_text: Testo di benvenuto
       highlighted_content_banner:
         name: Banner dei contenuti evidenziati
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Ordina gli elementi per:'
+          random: Casuale
+          recent: Più recente
       how_to_participate:
         name: Come partecipare
       html:
@@ -433,6 +439,7 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
+          nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           sign_up: Completa il tuo profilo
           subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
@@ -441,6 +448,7 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
+          nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
@@ -628,6 +636,14 @@ it:
           notification_title: Il gruppo utenti %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.
+          email_outro: Hai ricevuto questa notifica perché sei tra gli autori di "%{resource_title}".
+          email_subject: Il tuo %{resource_type} è stato rimosso
+          notification_title: |-
+            Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e partecipa:'
         email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. Puoi smettere di ricevere notifiche seguendo il link precedente.
@@ -941,6 +957,8 @@ it:
         update:
           error: Messaggio non inviato a causa di un errore
     metrics:
+      download:
+        csv: Scarica i dati (CSV)
       followers:
         description: Numero di utenti che seguono questo spazio di partecipazione
         object: Followers
@@ -1099,6 +1117,7 @@ it:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
       deleted: Utente eliminato
+      inaccessible_message: Questo profilo è inaccessibile a causa della violazione di Termini e Condizioni!
       view: vista
     profiles:
       default_officialization_text_for_user_groups: Questo gruppo di utenti è verificato pubblicamente, il suo nome è stato verificato per corrispondere con il suo vero nome
@@ -1112,6 +1131,7 @@ it:
         groups: gruppi
         members: Utenti
         officialized: Partecipante ufficiale
+        send_private_message: Invia messaggio privato
         timeline: Ultime attività
         view_full_profile: Visualizza il profilo completo
       sidebar:
@@ -1139,12 +1159,15 @@ it:
       report:
         authors: Autori
         content: Contenuto segnalato
+        content_original_language: Lingua originale del contenuto
         date: Segnalato il
         details: Dettagli
         hello: Ciao %{name},
+        id: ID
         participatory_space: Spazio partecipativo
         reason: Motivazione
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato segnalato.</p>
+        see_report: Vedi rapporto
         subject: Un contenuto è stato denunciato
     reports:
       create:
@@ -1217,6 +1240,15 @@ it:
         report: Rapporto
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
+      flag_user_modal:
+        already_reported: Questo contenuto è già stato segnalato e sarà esaminato da un amministratore.
+        close: Chiudi
+        description: Che cosa è inappropriato riguardo all'utente?
+        does_not_belong: Contiene attività illegali, istigazione al suicidio, informazioni personali o riservate, o altre cose che tu credi che non sono appropriato per %{organization_name}.
+        offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
+        report: Segnala
+        spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
+        title: Segnala utente inappropriato
       floating_help:
         close: Chiudi l'aiuto
         help: Aiuto
@@ -1292,6 +1324,13 @@ it:
       update:
         error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
         success: I tuoi interessi sono stati aggiornati con successo.
+    user_report_mailer:
+      notify:
+        body_1: L'utente %{user} è stato segnalato da %{token}
+        body_2: 'Motivo: %{reason}'
+        greetings: Salve,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Ciao %{admin},
+        subject: Un nuovo utente è stato segnalato in %{organization_name}
     version:
       show:
         back_to_resource: Torna indietro
