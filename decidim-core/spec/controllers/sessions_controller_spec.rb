@@ -52,6 +52,22 @@ module Decidim
 
                   it { is_expected.to eq("/") }
                 end
+
+                context "when the user is blocked" do
+                  before do
+                    user.blocked = true
+                  end
+
+                  it { is_expected.to eq("/") }
+                end
+
+                context "when the user is not blocked" do
+                  before do
+                    user.blocked = false
+                  end
+
+                  it { is_expected.to eq("/authorizations/first_login") }
+                end
               end
 
               context "and otherwise", with_authorization_workflows: [] do

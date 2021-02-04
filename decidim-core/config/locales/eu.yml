@@ -63,7 +63,6 @@ eu:
         file_no_exists: Fitxategia ez dago
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
-        alert: Ekintza hau ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi.
         confirm:
           close: Itxi leihoa
           ok: Bai, nire kontua ezabatu nahi dut
@@ -207,8 +206,6 @@ eu:
         name: Adibidez baimena
       dummy_authorization_workflow:
         name: Dummy baimena eragiketa
-      errors:
-        duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
       expired_at: '%{timestamp} iraungita dago'
       expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
@@ -713,6 +710,7 @@ eu:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
           close: Itxi modal
+          from: Nork
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
         reply:
@@ -976,6 +974,8 @@ eu:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
     user_conversations:
+      index:
+        from: Nork
       update:
         error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
@@ -1149,6 +1149,9 @@ eu:
       must_start_with_caps: letra maiuskulaz hasi behar da
       nesting_too_deep: ezin da egon azpikategoria batean
       not_locked: ez zen blokeatuta
+      not_saved:
+        one: 'Errorea gertatu da zure eskaera prozesatzean:'
+        other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
       too_short: laburra da (15 karaktere baino gutxiago)

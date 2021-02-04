@@ -52,6 +52,8 @@ fi:
           update:
             invalid: Budjetin päivitys epäonnistui
             success: Budjetin päivitys onnistui
+        exports:
+          projects: Suunnitelmat
         models:
           budget:
             name: Budjetti

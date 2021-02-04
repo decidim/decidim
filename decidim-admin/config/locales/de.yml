@@ -90,8 +90,10 @@ de:
         name: Name
         organization: Organisation
         plural: Plural
+      settings:
+        scope_id: Umfang
       static_page:
-        allow_public_access: Zugriff ohne Authentisierung erlauben
+        allow_public_access: Zugriff ohne Authentifizierung erlauben
         changed_notably: Es gab bemerkenswerte Änderungen.
         content: Inhalt
         organization: Organisation
@@ -132,14 +134,26 @@ de:
     admin:
       actions:
         add: Hinzufügen
+        attachment:
+          new: Neuer Anhang
+        attachment_collection:
+          new: Neuer Ordner
         browse: Durchsuchen
+        category:
+          new: Neue Kategorie
         export: Export
         manage: Verwalten
         new: Neu %{name}
+        newsletter:
+          new: Neuer Newsletter
+        participatory_space_private_user:
+          new: Neuer privater Benutzer
         per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
         share: Teilen
+        user:
+          new: Neuer Benutzer
         verify: Überprüfen
       admin_terms_of_use:
         accept:
@@ -225,6 +239,12 @@ de:
       autocomplete:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
+      block_user:
+        new:
+          action: Konto sperren und Begründung senden
+          description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
+          justification: Begründung
+          title: Benutzer %{name} blockieren
       categories:
         create:
           error: Beim Erstellen dieser Kategorie ist ein Fehler aufgetreten.
@@ -280,6 +300,21 @@ de:
         update:
           error: Beim Aktualisieren dieser Komponente ist ein Fehler aufgetreten.
           success: Die Komponente wurde erfolgreich aktualisiert.
+      conflicts:
+        attempts: Versuche
+        'false': 'Nein'
+        managed_user_name: Verwalteter Benutzer
+        solved: Gelöst
+        title: Konflikte von Überprüfungen
+        transfer:
+          email: E-Mail
+          error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
+          name: Name
+          reason: Grund
+          success: Übertragung erfolgreich.
+          title: Übertragung
+        'true': 'Ja'
+        user_name: Nutzer
       dashboard:
         show:
           view_more_logs: Weitere Protokolle anzeigen
@@ -577,6 +612,9 @@ de:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
+        block:
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
+          success: Teilnehmer erfolgreich blockiert
         create:
           success: Benutzer wurde offiziell anerkannt
         destroy:
@@ -584,6 +622,7 @@ de:
         index:
           actions: Aktionen
           badge: Abzeichen
+          block: Benutzer blockieren
           created_at: Hergestellt in
           name: Name
           nickname: Spitzname
@@ -594,6 +633,7 @@ de:
           reports: Berichte
           show_email: E-Mail-Adresse anzeigen
           status: Status
+          unblock: Blockierung des Users aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
@@ -607,6 +647,9 @@ de:
           hidden: versteckt
           show: Anzeigen
           title: Teilnehmer E-Mail-Adresse anzeigen
+        unblock:
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
+          success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
       organization:
         edit:
           title: Organisation bearbeiten
@@ -859,7 +902,7 @@ de:
             success: Ressource erfolgreich ausgeblendet.
           unreport:
             invalid: Es ist ein Problem aufgetreten, die Ressource nicht zu melden.
-            success: Die Ressource wurde erfolgreich nicht gemeldet.
+            success: Die Meldung der Ressource wurde erfolgreich aufgehoben.
       models:
         moderation:
           fields:

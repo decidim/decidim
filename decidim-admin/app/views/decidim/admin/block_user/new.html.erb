@@ -1,0 +1,22 @@
+<h2 class="process-title-summary">
+  <%= t(".title", name: user.name) %>
+</h2>
+
+<%= decidim_form_for(@form, html: { class: "form new_user_block" }, url: user_block_path(user_id: user.id), method: :post) do |f| %>
+  <div class="card">
+    <div class="card-section">
+      <div class="row column">
+        <%= t(".description") %>
+      </div>
+      <br>
+      <div class="row column">
+        <%= f.hidden_field :user_id %>
+        <%= f.text_area :justification, required: true, label: t(".justification") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".action") %>
+  </div>
+<% end %>

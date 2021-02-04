@@ -33,6 +33,8 @@ en:
   decidim:
     accountability:
       actions:
+        attachment_collections: Folders
+        attachments: Attachments
         confirm_destroy: Are you sure you want to delete this %{name}?
         destroy: Delete
         edit: Edit
@@ -43,6 +45,7 @@ en:
         title: Actions
       admin:
         exports:
+          result_comments: Comments
           results: Results
         import_results:
           new:
@@ -139,8 +142,12 @@ en:
       models:
         result:
           fields:
+            category: Category
+            created_at: Created
             end_date: End date
+            id: ID
             progress: Progress
+            scope: Scope
             start_date: Start date
             status: Status
             title: Title
@@ -187,6 +194,15 @@ en:
             votes: Supports
         timeline:
           title: Project evolution
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Category
+          scope_id_eq:
+            label: Scope
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Accountability

@@ -58,6 +58,10 @@ nl:
           edit:
             title: Bewerk debat
             update: Update debat
+          form:
+            debate_type: Type debat
+            finite: Einde (met begin- en eindtijden)
+            open: Start (geen begin- of eindtijden)
           index:
             title: Debatten
           new:
@@ -129,6 +133,7 @@ nl:
           back: Terug naar het overzicht
           date: 'Datum:'
           edit_debate: Bewerk debat
+          open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
           success: Debat succesvol bijgewerkt.

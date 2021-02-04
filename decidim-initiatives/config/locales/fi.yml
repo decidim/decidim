@@ -208,7 +208,7 @@ fi:
           edit:
             accept: Hyväksy aloite
             confirm: Oletko varma?
-            confirm_send_to_technical_validation: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
+            confirm_send_to_technical_validation: Oletko varma?
             discard: Hylkää aloite
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa allekirjoitukset
@@ -265,7 +265,6 @@ fi:
             update: Päivitä
           form:
             authorizations: Varmennuksen asetukset
-            child_scope_threshold_enabled_help: 'Tämä asetus ei toimi fyysisesti kerätyille allekirjoituksille. Se mahdollistaa arvioinnit ja toimii sellaisten varmennusten kanssa, jotka määrittävät käyttäjälle tietyn teeman. Valitse kyseinen varmennustapa varmennuksen asetuksista alapuolelta. Toimiakseen, teemat tulee olla määritelty hierarkisesti: 1 yläteema - N alateemaa. Lisätietoja tästä ominaisuudesta löydät <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">hallinnointikäyttäjän ohjeista</a>.'
             only_global_scope_enabled_help: Ota tämä asetus käyttöön, jos otit köyttöön "alateemojen allekirjoitukset" ja asetit järjestelmänlaajuisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
             options: Valinnat
             title: Yleistä tietoa
@@ -327,10 +326,10 @@ fi:
           back_to_initiatives: Takaisin aloitteisiin
           callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
           confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
-          edit_my_initiative: Muokkaa omia aloitteita
+          edit_my_initiative: Muokkaa aloitettani
           go_to_my_initiatives: Siirry omiin aloitteisiini
           more_information: "(Lisää tietoa)"
-          send_my_initiative: Lähetä aloitteeni
+          send_my_initiative: Lähetä aloitteeni tekniseen tarkastukseen
         finish_help:
           access_reminder: Pääset käsiksi aloitteisiin suodatuslinkin %{link} kautta aloitteiden sivulla.
           publish_helper_text: Saadaksesi aloitteesi julkaistuksi, sinun tulee viimeistellä vaaditut tiedot ja <strong>lähettää aloite hallintakäyttäjän tekniseen tarkastukseen</strong>.
@@ -487,13 +486,7 @@ fi:
           section: 'Pyydettäessä tulostakaa ja täyttäkää tämä lomake lähettääksenne sen osoitettuun paikkaan:'
           signature: Allekirjoitus
         result:
-          answer_title:
-            accepted: Tämä ehdotus on hyväksytty, koska
-            created: Tämä ehdotus on luotu
-            discarded: Tämä ehdotus jätetään huomiotta, koska
-            published: Tämä ehdotus on julkaistu, koska
-            rejected: Tämä ehdotus on hylätty, koska
-            validating: Tätä ehdotusta arvioidaan
+          answer_title: Tähän aloitteeseen on vastattu
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
           any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.

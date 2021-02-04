@@ -1,0 +1,28 @@
+---
+:scope: trustee 2 download
+:url: http://bulletin-board.lvh.me/api
+:body: '{"operationName":"ProcessKeyCeremonyStep","variables":{"messageId":"decidim-test-authority.42.key_ceremony.step_1+t.trustee-2","signedData":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTE4NDg2ODIsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjQyLmtleV9jZXJlbW9ueS5zdGVwXzErdC50cnVzdGVlLTIiLCJjb250ZW50Ijoie1wiZWxlY3Rpb25fcHVibGljX2tleVwiOjcsXCJvd25lcl9pZFwiOlwidHJ1c3RlZS0yXCJ9In0.hxsTjmmCsbtblaequaYV9OXu7zywGso6gOxQmkDkFpkJuWNWxWICjwklLxuRbzFSln0ZH5Jxmu0YLhQ5_UnaKaOpVm6cmjA9iv2zTP2otTpMLR5B5SXXfmnSTpsOsTOCybtrGkBDRgmmymHGTM4RwpES1J4tjEUyU6T0sHBG1N2rx8Ar9yyR24BP-bbO_EX7Hes1W94Nhe7yQ8PwaahuRSq7jojR9uRNiRzOPYrK82rng0Q9gRlsRIqj4QS9RvLlSY4Bmb5w9Y8KKTZf-5G8Bxa2mNzxAN-uBrIM55KM1H3Bs-E-9N8qM0itAOkDKrMxvUENgkfFxXuYLyoQoueGS0uJWeV_KBfjYWTCE0cYos_yraKZEx_OEgxVneKBNjgx4vTmLVQYR5EhwB0PcUTH4SsnP9G70giEtzUp312K0rEWRh6-JJdZeezn4dObnw1NtY5z2P41SWAwMokQZIXm8ztsLm2A1wjnyux6Jx-Duu9FRcXlR4bqKsZqrzx7krHVqJ8d3H6Y3ZpYhZOpO0a5l6XeHT1PXE0_eg4g3RSR2Vzv5B0ZClL1y7F1Um67tO2GPf3zk7B7tPXg3TWfQRoZ-n_0Lcc59brlrlROPuyhYiQ61YAgVs_p0IZ20s_cRqVre8xaGTNAoSUAOoZybCqWUmkOFYANOd7Ygh8TlREjkyI"},"query":"mutation
+  ProcessKeyCeremonyStep($messageId: String!, $signedData: String!) {\n  processKeyCeremonyStep(messageId:
+  $messageId, signedData: $signedData) {\n    pendingMessage {\n      signedData\n      __typename\n    }\n    error\n    __typename\n  }\n}\n"}'
+:status: 200
+:method: post
+:headers:
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Allow-Methods: GET, POST, PATCH, PUT
+  Access-Control-Expose-Headers: ''
+  Access-Control-Max-Age: '7200'
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Download-Options: noopen
+  X-Permitted-Cross-Domain-Policies: none
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"a0a59a19fc8c0dd7c6e5fcea75148477"
+  Cache-Control: max-age=0, private, must-revalidate
+  X-Request-Id: 0efbcb87-ad1d-46d5-992e-2602872cfc3d
+  X-Runtime: '0.028914'
+  Vary: Origin
+  Connection: close
+  Transfer-Encoding: chunked
+:content: '{"data":{"processKeyCeremonyStep":{"pendingMessage":{"signedData":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTE4NDg2ODIsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjQyLmtleV9jZXJlbW9ueS5zdGVwXzErdC50cnVzdGVlLTIiLCJjb250ZW50Ijoie1wiZWxlY3Rpb25fcHVibGljX2tleVwiOjcsXCJvd25lcl9pZFwiOlwidHJ1c3RlZS0yXCJ9In0.hxsTjmmCsbtblaequaYV9OXu7zywGso6gOxQmkDkFpkJuWNWxWICjwklLxuRbzFSln0ZH5Jxmu0YLhQ5_UnaKaOpVm6cmjA9iv2zTP2otTpMLR5B5SXXfmnSTpsOsTOCybtrGkBDRgmmymHGTM4RwpES1J4tjEUyU6T0sHBG1N2rx8Ar9yyR24BP-bbO_EX7Hes1W94Nhe7yQ8PwaahuRSq7jojR9uRNiRzOPYrK82rng0Q9gRlsRIqj4QS9RvLlSY4Bmb5w9Y8KKTZf-5G8Bxa2mNzxAN-uBrIM55KM1H3Bs-E-9N8qM0itAOkDKrMxvUENgkfFxXuYLyoQoueGS0uJWeV_KBfjYWTCE0cYos_yraKZEx_OEgxVneKBNjgx4vTmLVQYR5EhwB0PcUTH4SsnP9G70giEtzUp312K0rEWRh6-JJdZeezn4dObnw1NtY5z2P41SWAwMokQZIXm8ztsLm2A1wjnyux6Jx-Duu9FRcXlR4bqKsZqrzx7krHVqJ8d3H6Y3ZpYhZOpO0a5l6XeHT1PXE0_eg4g3RSR2Vzv5B0ZClL1y7F1Um67tO2GPf3zk7B7tPXg3TWfQRoZ-n_0Lcc59brlrlROPuyhYiQ61YAgVs_p0IZ20s_cRqVre8xaGTNAoSUAOoZybCqWUmkOFYANOd7Ygh8TlREjkyI","__typename":"PendingMessage"},"error":null,"__typename":"ProcessKeyCeremonyStepMutationPayload"}}}'

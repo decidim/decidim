@@ -355,7 +355,7 @@ fr:
         actions:
           preview: Aperçu
         exports:
-          comments: Commentaires
+          proposal_comments: Commentaires
           proposals: Propositions
         models:
           proposal:
@@ -569,13 +569,6 @@ fr:
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
             success: Brouillon collaboratif retiré avec succès.
-        compare:
-          mine_is_different: Mon brouillon collaboratif est différent
-          no_similars_found: Bien joué! Aucun brouillon collaboratif similaire n'a été trouvé
-          title: Brouillons collaboratifs similaires
-        complete:
-          send: Envoyer
-          title: Complétez votre brouillon collaboratif
         count:
           drafts_count:
             one: "%{count} brouillon collaboratif"
@@ -607,7 +600,6 @@ fr:
           unfold: Se dérouler
         new:
           send: Continuer
-          title: Créez votre brouillon collaboratif
         new_collaborative_draft_button:
           new_collaborative_draft: Nouveau brouillon collaboratif
         orders:
@@ -652,23 +644,11 @@ fr:
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
           success: Brouillon collaboratif mis à jour avec succès.
-          title: Modifier le brouillon collaboratif
         wizard_aside:
-          back: Arrière
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
-          back_from_step_1: Retour aux brouillons collaboratifs
-          back_from_step_2: Retour aux brouillons collaboratifs
-          back_from_step_3: Retour à la comparaison des brouillons collaboratifs
-          back_from_step_4: Retour à l'édition du brouillon
           info: Vous créez un <strong>projet collaboratif</strong>.
-        wizard_steps:
-          current_step: Étape actuelle
-          see_steps: voir les étapes
-          step_1: Créez votre projet collaboratif
-          step_2: Comparer avec les projets collaboratifs
-          step_3: Complétez votre projet collaboratif
-          step_of: Etape %{current_step_num} sur %{total_steps}
-          title: Étapes de création du brouillon collaboratif
+        wizard_header:
+          title: Créez votre projet collaboratif
       content_blocks:
         highlighted_proposals:
           proposals: Propositions

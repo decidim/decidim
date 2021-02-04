@@ -90,8 +90,9 @@ module Decidim::Messaging
     end
 
     context "when the form is valid" do
+      let(:body) { "<3 from Patagonia" }
       let(:params) do
-        { body: "<3 from Patagonia" }
+        { body: body }
       end
 
       it_behaves_like "valid message with receipts", 2
@@ -137,6 +138,18 @@ module Decidim::Messaging
           it_behaves_like "valid message with receipts", 3
           it_behaves_like "send emails", 1
         end
+      end
+
+      context "and the body has just the right length without carriage returns" do
+        let(:body) { "This text is just the correct length\r\nwith the carriage return characters removed" }
+
+        before do
+          allow(Decidim.config).to receive(
+            :maximum_conversation_message_length
+          ).and_return(80)
+        end
+
+        it_behaves_like "valid message with receipts", 2
       end
     end
   end

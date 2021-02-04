@@ -1,6 +1,9 @@
 gl:
   activemodel:
     attributes:
+      budget:
+        description: Descripción
+        title: Título
       project:
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
@@ -20,10 +23,14 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar este proxecto?
         destroy: Eliminar
         edit: Editar
+        edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
+        new: Novo %{name}
         preview: Vista previa
         title: Accións
       admin:
+        exports:
+          projects: Proxectos
         models:
           project:
             name: Proxecto
@@ -39,6 +46,7 @@ gl:
           index:
             finished_orders: Votos rematados
             pending_orders: Votos pendentes
+            selected: Seleccionado
             title: Proxectos
           new:
             create: Crear
@@ -59,7 +67,13 @@ gl:
           create: "%{user_name} creou o proxecto %{resource_name} no espazo %{space_name}"
           delete: "%{user_name} eliminou o %{resource_name} proxecto no espazo %{space_name}"
           update: "%{user_name} actualizou o proxecto %{resource_name} no espazo %{space_name}"
+      budget_information_modal:
+        continue: Continuar
+        more_information: Máis información
       models:
+        budget:
+          fields:
+            name: Nome
         project:
           fields:
             title: Título
@@ -71,17 +85,18 @@ gl:
           title: Confirmar voto
         budget_excess:
           budget_excess:
-            title: O orzamento máximo excedeu
+            title: Orzamento máximo excedido
           close: Pechar
           ok: Ok
         budget_summary:
-          are_you_sure: '¿Estás seguro de que queres cancelar o teu voto?'
+          are_you_sure: Estás certo de querer cancelar o teu voto?
           assigned: 'Asignado:'
           cancel_order: elimine o seu voto e volva comezar
           checked_out:
             description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
           title: Vostede decide o orzamento
+          total_projects: Votos totais
         count:
           projects_count:
             one: 1 proxecto
@@ -90,6 +105,9 @@ gl:
           category: Categoría
           scope: Alcance
           search: Busca
+          status: Estado
+          status_values:
+            all: Todos
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -103,8 +121,14 @@ gl:
             one: proxecto seleccionado
             other: proxectos seleccionados
           view: Ver
+        orders:
+          label: Ordenar proxectos por
         project:
           view: Ver
+          votes:
+            one: voto
+            other: votos
+        projects_for: Proxectos para %{name}
         show:
           budget: Orzamento
           view_all_projects: Ver todos os proxectos
@@ -117,13 +141,16 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
+            title: Título
             total_budget: Orzamento total
             vote_threshold_percent: Porcentaxe de límite de voto
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar votos
+            title: Título
             votes_choices:
               enabled: Votación habilitada
     orders:

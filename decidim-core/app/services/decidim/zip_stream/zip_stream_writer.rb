@@ -24,10 +24,10 @@ module Decidim
           attachment_block.last.each do |attachment_uploader|
             next if attachment_uploader.file.nil?
 
-            case attachment_uploader.fog_provider
-            when "fog" # file system
+            case attachment_uploader.provider
+            when "file" # file system
               next unless File.exist?(attachment_uploader.file.file)
-            when "fog/aws"
+            when "aws"
               cache_attachment_from_aws(attachment_uploader)
             else
               Rails.logger.info "Carrierwave fog_provider not supported by DataPortabilityExporter for attachment: #{attachment_uploader}"

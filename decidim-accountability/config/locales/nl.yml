@@ -42,6 +42,7 @@ nl:
         title: acties
       admin:
         exports:
+          result_comments: Reacties
           results: Resultaten
         import_results:
           new:

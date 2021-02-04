@@ -7,10 +7,12 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
 
   let(:trustee) { create(:trustee, public_key: public_key) }
   let(:public_key) { nil }
+  let(:trustee_name) { "Shelton Runolfsson Sr." }
   let(:new_public_key) { "1234567890abcde" }
   let(:attributes) do
     {
-      public_key: new_public_key
+      public_key: new_public_key,
+      name: trustee_name
     }
   end
   let(:context) do
@@ -29,6 +31,12 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
 
   context "when the trustee already has a public key" do
     let(:public_key) { "1234567890abcde" }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  context "when the trustee already has a name" do
+    let(:trustee) { create(:trustee, public_key: public_key, name: "Sheldon") }
 
     it { is_expected.not_to be_valid }
   end

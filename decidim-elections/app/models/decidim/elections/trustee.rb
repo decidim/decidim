@@ -17,6 +17,10 @@ module Decidim
       def self.for(user)
         find_by(user: user)
       end
+
+      def unique_id
+        name.parameterize
+      end
     end
   end
 end

@@ -76,6 +76,10 @@ en:
       postal_letter:
         explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
         name: Code by postal letter
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: The participant <a href="%{resource_path}">%{resource_title}</a> has tried to verify herself with the data of the managed participant <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -148,6 +152,10 @@ en:
             one: Participation is restricted to participants with the postal code %{postal_codes}.
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}.'
           scope: Participation is restricted to participants with the scope %{scope_name}.
+          user_postal_codes:
+            one: Participation is restricted to participants with the postal code %{postal_codes}, and your postal code is %{user_postal_code}.
+            other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}. Your postal code is %{user_postal_code}.'
+          user_scope: Participation is restricted to participants with the scope %{scope_name}, and your scope is %{user_scope_name}.
       id_documents:
         admin:
           config:

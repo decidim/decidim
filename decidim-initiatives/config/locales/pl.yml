@@ -316,10 +316,8 @@ pl:
         finish:
           back: Wróć
           back_to_initiatives: Wróć do inicjatyw
-          edit_my_initiative: Edytuj moje inicjatywy
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
-          send_my_initiative: Wyślij moją inicjatywę
         previous_form:
           back: Wróć
           continue: Dalej
@@ -437,13 +435,6 @@ pl:
         print:
           city: Miasto
         result:
-          answer_title:
-            accepted: Ta propozycja została zaakceptowana, ponieważ
-            created: Ta propozycja została utworzona
-            discarded: Ta propozycja została porzucona, ponieważ
-            published: Ta propozycja została opublikowana, ponieważ
-            rejected: Ta propozycja została odrzucona, ponieważ
-            validating: Ta propozycja jest oceniana
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy

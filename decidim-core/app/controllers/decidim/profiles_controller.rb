@@ -13,6 +13,7 @@ module Decidim
     before_action :ensure_profile_holder
     before_action :ensure_profile_holder_is_a_group, only: [:members]
     before_action :ensure_profile_holder_is_a_user, only: [:groups, :following]
+    before_action :ensure_user_not_blocked, only: [:following, :followers, :badges]
 
     def show
       return redirect_to profile_timeline_path(nickname: params[:nickname]) if profile_holder == current_user
@@ -62,6 +63,10 @@ module Decidim
     end
 
     private
+
+    def ensure_user_not_blocked
+      raise ActionController::RoutingError, "Blocked User" if profile_holder&.blocked? && !current_user&.admin?
+    end
 
     def ensure_profile_holder_is_a_group
       raise ActionController::RoutingError, "No user group with the given nickname" unless profile_holder.is_a?(Decidim::UserGroup)

@@ -79,7 +79,6 @@ ja:
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       delete:
-        alert: この操作は元に戻せません。アカウントを削除するとログインできなくなります。
         confirm:
           close: ウィンドウを閉じる
           ok: はい、アカウントを削除します
@@ -265,8 +264,6 @@ ja:
         name: 許可の例：
       dummy_authorization_workflow:
         name: ダミー認証ワークフロー
-      errors:
-        duplicate_authorization: 同じデータを持つ参加者はすでに承認されています．
       expired_at: '%{timestamp} で期限切れ'
       expires_at: '%{timestamp} で期限切れ'
       foo_authorization:

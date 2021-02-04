@@ -45,27 +45,18 @@ de:
             endorsements_enabled: Bestätigungen aktiviert
     debates:
       actions:
-        active: Aktive Debatten
-        archive: Archiv 
-        archived: Archivierte Debatten
         close: Schließen
         confirm_destroy: Bist du sicher?
         destroy: Löschen
         edit: Bearbeiten
         new: Neu %{name}
         title: Aktionen
-        unarchive: Aus Archiv zurückholen
       admin:
         debate_closes:
           edit:
-            archive: Diese Debatte archivieren
-            archive_help: Die Archivierung dieser Debatte wird sie aus den öffentlich einsehbaren Debatten entfernen
             close: Schließen
             title: Debatte schließen
         debates:
-          archive:
-            invalid: Es gab ein Problem bei der Archivierung der Debatte.
-            success: Debatte erfolgreich archiviert.
           create:
             invalid: Es gab ein Problem beim Erstellen der Debatte.
             success: Diskussion erfolgreich erstellt
@@ -74,26 +65,28 @@ de:
           edit:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
-          empty: Es gibt keine Debatten, die diesen Kriterien entsprechen.
+          form:
+            debate_type: Debatten-Typ
+            finite: Zeitlich begrenzt (mit Start- und Endzeit)
+            open: Offen (keine Start- und Endzeit)
           index:
             title: Debatten
           new:
             create: Erstelle eine Debatte
             title: Neue Debatte
-          unarchive:
-            invalid: Es gab ein Problem bei der Entarchivierung der Debatte.
-            success: Debatte erfolgreich entarchiviert.
           update:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
+        exports:
+          comments: Kommentare
         models:
           debate:
             name: Debatte
       admin_log:
         debate:
-          close: "%{user_name} hat die %{resource_name} Debatte im %{space_name} Bereich beendet"
-          create: "%{user_name} erstellt die %{resource_name} Debatte über die %{space_name} Räume"
-          update: "%{user_name} aktualisierte die %{resource_name} Debatte über die %{space_name} Räume"
+          close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
+          create: "%{user_name} hat die Debatte %{resource_name} in %{space_name} erstellt"
+          update: "%{user_name} hat die Debatte %{resource_name} in %{space_name} aktualisiert"
       debate_m:
         commented_time_ago: Vor %{time} kommentiert
       debates:
@@ -165,6 +158,7 @@ de:
           groups_count: Gruppen
           last_comment_by: Letzter Kommentar von
           no_comments_yet: Noch keine Kommentare
+          open: Offene Debatte
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.

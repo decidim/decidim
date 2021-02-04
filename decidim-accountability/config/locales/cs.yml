@@ -34,16 +34,19 @@ cs:
   decidim:
     accountability:
       actions:
+        attachment_collections: Složky
+        attachments: Přílohy
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
         import_csv: Importovat CSV
-        new: Nová %{name}
+        new: Nový %{name}
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
       admin:
         exports:
+          result_comments: Komentáře
           results: Výsledky
         import_results:
           new:
@@ -140,8 +143,12 @@ cs:
       models:
         result:
           fields:
+            category: Kategorie
+            created_at: Vytvořeno
             end_date: Datum ukončení
+            id: ID
             progress: Pokrok
+            scope: Oblast působnosti
             start_date: Počáteční datum
             status: Stav
             title: Název
@@ -190,6 +197,15 @@ cs:
             votes: Podporuje
         timeline:
           title: Vývoj projektu
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Oblast působnosti
+          status_id_eq:
+            label: Stav
     components:
       accountability:
         name: Odpovědnost

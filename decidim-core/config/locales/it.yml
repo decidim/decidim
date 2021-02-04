@@ -83,7 +83,6 @@ it:
         file_no_exists: Il file non esiste
         notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
-        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
         confirm:
           close: Chiudere finestra
           ok: Sì, voglio eliminare il mio account
@@ -272,8 +271,6 @@ it:
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
-      errors:
-        duplicate_authorization: Esiste già un utente autorizzato con questi dati.
       expired_at: Scaduto a %{timestamp}
       expires_at: Scade a %{timestamp}
       foo_authorization:

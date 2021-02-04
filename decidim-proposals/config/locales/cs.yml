@@ -152,7 +152,7 @@ cs:
             proposal_limit: Limit návrhu na uživatele
             proposal_wizard_step_1_help_text: Návrh průvodce "Vytvořit" pomocný text kroku
             proposal_wizard_step_2_help_text: Průvodce návrhem "Porovnat" krok nápovědy
-            proposal_wizard_step_3_help_text: Návrh průvodce "Kompletní" pomocný text kroku
+            proposal_wizard_step_3_help_text: Text nápovědy k průvodci krokem návrhu „Dokončit“
             proposal_wizard_step_4_help_text: Průvodce návrhem "Publikovat" pomocný text kroku
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
             scope_id: Oblast působnosti
@@ -172,7 +172,7 @@ cs:
               participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
-            answers_with_costs: Povoleny náklady v odpovědi návrhu
+            answers_with_costs: Povolit finanční náklady v odpovědích návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
@@ -180,7 +180,7 @@ cs:
             endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
-            suggested_hashtags: Hashtags navrhl uživatelům nové návrhy
+            suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasování bylo blokováno
             votes_enabled: Hlasování povoleno
             votes_hidden: Hlasy skryté (pokud jsou povoleny hlasy, při kontrole se skryje počet hlasů)
@@ -363,7 +363,7 @@ cs:
         actions:
           preview: Náhled
         exports:
-          comments: Komentáře
+          proposal_comments: Komentáře
           proposals: Návrhy
         models:
           proposal:
@@ -579,13 +579,6 @@ cs:
               ok: Vyjměte návrh spolupráce
               title: Následující akce je nevratná
             success: Kolaborativní návrh byl úspěšně zrušen.
-        compare:
-          mine_is_different: Můj návrh spolupráce je jiný
-          no_similars_found: Výborně! Žádný podobný návrh spolupráce nebyl nalezen
-          title: Podobné návrhy spolupráce
-        complete:
-          send: Poslat
-          title: Dokončete návrh spolupráce
         count:
           drafts_count:
             one: "%{count} návrh spolupráce"
@@ -619,7 +612,6 @@ cs:
           unfold: Rozvinout
         new:
           send: Pokračovat
-          title: Vytvořte návrh spolupráce
         new_collaborative_draft_button:
           new_collaborative_draft: Nový návrh spolupráce
         orders:
@@ -666,23 +658,11 @@ cs:
         update:
           error: Při ukládání schématu spolupráce došlo k chybám.
           success: Protokol o spolupráci byl úspěšně aktualizován.
-          title: Upravit koncept spolupráce
         wizard_aside:
-          back: Zadní
           back_from_collaborative_draft: Zpět na koncepty spolupráce
-          back_from_step_1: Zpět na koncepty spolupráce
-          back_from_step_2: Zpět na koncepty spolupráce
-          back_from_step_3: Zpět k porovnání konceptů spolupráce
-          back_from_step_4: Zpět k úpravě konceptu
           info: Při vytváření <strong>spolupráce návrhu</strong>.
-        wizard_steps:
-          current_step: Aktuální krok
-          see_steps: viz kroky
-          step_1: Vytvořte návrh spolupráce
-          step_2: Porovnejte s návrhy spolupráce
-          step_3: Dokončete návrh spolupráce
-          step_of: Krok %{current_step_num} z %{total_steps}
-          title: Kroky pro vytvoření společného návrhu
+        wizard_header:
+          title: Vytvořte návrh spolupráce
       content_blocks:
         highlighted_proposals:
           proposals: Návrhy
@@ -807,6 +787,8 @@ cs:
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Váš návrh byl uložen jako návrh. Musí být zveřejněn, aby se mohl zobrazit na webu.
+          announcement_title: Váš návrh ještě nebyl zveřejněn
           modify: Upravte návrh
           proposal_edit_before_minutes:
             one: Tento návrh budete moci upravit během první minuty po zveřejnění návrhu. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
@@ -898,7 +880,7 @@ cs:
           see_steps: viz kroky
           step_1: Vytvořte svůj návrh
           step_2: Porovnejte
-          step_3: Kompletní
+          step_3: Dokončete
           step_4: Publikujte svůj návrh
           step_of: Krok %{current_step_num} z %{total_steps}
           title: Kroky vytváření návrhů

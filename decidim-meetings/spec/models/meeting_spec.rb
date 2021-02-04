@@ -177,6 +177,14 @@ module Decidim::Meetings
 
         it { is_expected.to be_resource_visible }
       end
+
+      context "when Meeting is moderated" do
+        let!(:moderation) { create(:moderation, :hidden, reportable: meeting) }
+
+        before { subject.reload }
+
+        it { is_expected.not_to be_resource_visible }
+      end
     end
 
     describe "pad_is_visible?" do

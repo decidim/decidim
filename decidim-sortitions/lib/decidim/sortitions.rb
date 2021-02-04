@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/sortitions/admin"
+require "decidim/sortitions/api"
 require "decidim/sortitions/engine"
 require "decidim/sortitions/admin_engine"
 require "decidim/sortitions/component"

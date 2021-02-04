@@ -8,7 +8,13 @@ module Decidim
 
     let!(:questionnaire) { create(:questionnaire) }
     let!(:user) { create(:user, organization: questionnaire.questionnaire_for.organization) }
-    let!(:questions) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire: questionnaire, position: n } }
+    let!(:questions) do
+      [
+        create(:questionnaire_question, questionnaire: questionnaire, position: 1),
+        create(:questionnaire_question, :separator, questionnaire: questionnaire, position: 2),
+        create(:questionnaire_question, questionnaire: questionnaire, position: 3)
+      ]
+    end
     let!(:answers) do
       questions.map { |question| create :answer, user: user, questionnaire: questionnaire, question: question }.sort_by { |a| a.question.position }
     end
@@ -53,8 +59,9 @@ module Decidim
     end
 
     describe "answers" do
-      it "returns the participant's answers" do
-        expect(subject.answers.map(&:answer)).to eq(answers)
+      it "returns the participant's answers without the separators" do
+        expect(subject.answers.map(&:answer)).to eq([answers.first, answers.last])
+        expect(subject.answers.map(&:answer)).not_to include(answers.second)
       end
     end
 

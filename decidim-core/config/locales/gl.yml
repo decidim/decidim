@@ -63,7 +63,6 @@ gl:
         file_no_exists: O ficheiro non existe
         notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
-        alert: Non se pode desfacer esta acción. Se eliminas a túa conta non poderás iniciar sesión.
         confirm:
           close: Pechar xanela
           ok: Si, quero eliminar a miña conta
@@ -207,8 +206,6 @@ gl:
         name: Autorización de exemplo
       dummy_authorization_workflow:
         name: Fluxo de traballo de autorización dummy
-      errors:
-        duplicate_authorization: Un usuario xa está autorizado cos mesmos datos.
       expired_at: Caducou en %{timestamp}
       expires_at: Caduca no %{timestamp}
       foo_authorization:
