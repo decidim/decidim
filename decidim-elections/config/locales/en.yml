@@ -536,13 +536,44 @@ en:
             attachments: Attachments
             components: Components
             info: Information
+            polling_stations: Polling Stations
         models:
+          polling_station:
+            name: Polling Station
+            fields:
+              created_at: Created at
+              title: Title
+              address: Address
+              location: Location
+              location_hint: Location hint
           voting:
             fields:
               created_at: Created at
               promoted: Highlighted
               published: Published
               title: Title
+        polling_stations:
+          create:
+            invalid: There was a problem creating this polling station
+            success: Polling station successfully created
+          destroy:
+            invalid: There was a problem deleting this polling station
+            success: Polling station successfully deleted
+          edit:
+            title: Edit polling station
+            update: Update polling station
+          form:
+            address_help: 'Address: used by Geocoder to find the location'
+            location_help: 'Location: message directed to the voters implying the exact place of the polling station'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
+          index:
+            title: Polling stations
+          new:
+            create: Create
+            title: Create polling station
+          update:
+            invalid: There was a problem updating this polling station
+            success: Polling station successfully updated
         titles:
           votings: Votings
         votings:
@@ -590,6 +621,13 @@ en:
             active_votings: Active votings
             see_all_votings: See all votings
             votings_button_title: Link to the Votings page displaying all the votings
+      polling_stations:
+        actions:
+          confirm_destroy: Are you sure?
+          destroy: Delete
+          edit: Edit
+          new: New
+          title: Actions
       votings:
         count:
           title:
