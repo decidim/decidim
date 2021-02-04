@@ -15,6 +15,7 @@ ja:
   decidim:
     comments:
       comments_count: コメント数
+      comments_title: コメント
       last_activity:
         new_comment_at_html: "<span> %{link}に新しいコメント</span>"
       view: 表示
