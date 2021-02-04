@@ -516,8 +516,8 @@ en:
           actions:
             block: Block
             title: Actions
-            unreport: Unreport
             unblock: Unlock
+            unreport: Unreport
           name: Name
           nickname: Nickname
           reason: Reason
