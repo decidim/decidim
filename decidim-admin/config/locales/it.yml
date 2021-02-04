@@ -308,6 +308,13 @@ it:
         title: Conflitti delle verifiche
         transfer:
           email: Email
+          error: Si è verificato un problema nel trasferimento dell'utente corrente a partecipante gestito.
+          name: Nome
+          reason: Motivazione
+          success: Il trasferimento è stato completato con successo.
+          title: Trasferimento
+        'true': 'Si'
+        user_name: Utente
       dashboard:
         show:
           view_more_logs: Visualizza più registri
@@ -324,6 +331,9 @@ it:
         category_id_eq:
           label: Categorie
         filter_label: Filtro
+        moderations:
+          reportable_type_string_eq:
+            label: Tipo
         officialized_at_null:
           label: Stato
           values:
@@ -344,6 +354,7 @@ it:
         search_label: Ricerca
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
+          reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile.
           title_cont: Cerca %{collection} per titolo.
         state_eq:
           label: Stato
@@ -408,8 +419,10 @@ it:
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
+        moderation: Moderazione globale
         newsletters: Newsletters
         participants: Partecipanti
+        reported_users: Utenti Segnalati
         scope_types: Tipi di ambito
         scopes: Ambito tematico
         settings: Impostazioni
@@ -465,6 +478,14 @@ it:
           fields:
             name: Nome
             plural: Plurale
+        share_token:
+          fields:
+            created_at: Creato il
+            expires_at: Scade il
+            last_used_at: Ultimo utilizzo
+            times_used: Volte usate
+            token: Token
+            user: Creata da
         static_page:
           fields:
             created_at: Creato il
@@ -489,6 +510,20 @@ it:
             phone: Telefono
             state: Stato
             users_count: Conteggio dei partecipanti
+      moderated_users:
+        index:
+          actions:
+            title: Azioni
+            unreport: Non inserire
+          name: Nome
+          nickname: Nickname
+          reason: Motivazione
+          title: Elencando gli utenti segnalati
+        report:
+          reasons:
+            does_not_belong: Non appartiene
+            offensive: Offensivo
+            spam: Spam
       moderations:
         index:
           title: Moderazione
@@ -497,6 +532,10 @@ it:
             does_not_belong: Non appartiene
             offensive: Offensivo
             spam: Spam
+        reports:
+          index:
+            author: Autore(i)
+            callout_html: Un contenuto appare nel pannello di moderazione quando è stato segnalato da un utente (può essere chiunque abbia un account registrato) cliccando sul flag %{icon} accanto all'elemento.
       newsletter_templates:
         index:
           preview_template: Anteprima
