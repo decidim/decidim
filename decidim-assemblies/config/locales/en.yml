@@ -394,13 +394,13 @@ en:
         orders_count: Supports
         pages_count: Pages
         participants_count: Participants
-        processes_count: Processes
         posts_count: Posts
+        processes_count: Processes
         projects_count: Projects
         proposals_count: Proposals
         results_count: Results
-        surveys_count: Surveys
         supports_count: Supports
+        surveys_count: Surveys
         users_count: Participants
         votes_count: Supports
     assembly_members:
