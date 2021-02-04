@@ -124,6 +124,7 @@ ja:
       content_blocks:
         highlighted_results:
           results: 結果
+          unspecified: 指定なし
       import_mailer:
         import:
           errors: エラー
@@ -140,6 +141,7 @@ ja:
             end_date: 終了日
             id: ID
             progress: 進捗状況
+            scope: スコープ
             start_date: 開始日
             status: ステータス
             title: タイトル
