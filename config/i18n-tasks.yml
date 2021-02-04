@@ -293,6 +293,7 @@ ignore_unused:
   - decidim.elections.feedback.answer.*
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
   - decidim.votings.admin_log.*
+  - decidim.devise.sessions.user.timed_out
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
