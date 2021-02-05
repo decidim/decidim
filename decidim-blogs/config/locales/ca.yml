@@ -29,6 +29,7 @@ ca:
             success: La publicació s'ha eliminat correctament
           edit:
             save: Actualitza
+            title: Editar publicació
           index:
             title: Publicacions
           new:

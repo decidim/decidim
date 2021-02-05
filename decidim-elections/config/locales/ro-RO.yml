@@ -179,7 +179,6 @@ ro:
           header: Votare confirmată
           lead: Votul tău a fost deja exprimat!
           text: 'Poți verifica dacă votul tău a fost adăugat cu succes în urna de vot cu următorul identificator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Pentru a verifica, copiați identificatorul și lipiți-l pe pagina <a href="evote-verify">pentru verificarea votului</a>
         encrypting:
           header: Codificarea votului...
           text: Votul tău este criptat pentru a te asigura că îl poți trimite anonim.

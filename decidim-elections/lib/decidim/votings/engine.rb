@@ -13,6 +13,26 @@ module Decidim
 
       routes do
         resources :votings, param: :slug, only: [:index, :show, :update]
+
+        get "votings/:voting_id", to: redirect { |params, _request|
+          voting = Decidim::Votings::Voting.find(params[:voting_id])
+          voting ? "/votings/#{voting.slug}" : "/404"
+        }, constraints: { voting_id: /[0-9]+/ }
+
+        get "/votings/:voting_id/f/:component_id", to: redirect { |params, _request|
+          voting = Decidim::Votings::Voting.find(params[:voting_id])
+          voting ? "/votings/#{voting.slug}/f/#{params[:component_id]}" : "/404"
+        }, constraints: { voting_id: /[0-9]+/ }
+
+        scope "/votings/:voting_slug/f/:component_id" do
+          Decidim.component_manifests.each do |manifest|
+            next unless manifest.engine
+
+            constraints CurrentComponent.new(manifest) do
+              mount manifest.engine, at: "/", as: "decidim_voting_#{manifest.name}"
+            end
+          end
+        end
       end
 
       initializer "decidim_votings.assets" do |app|

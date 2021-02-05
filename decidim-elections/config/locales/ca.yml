@@ -213,7 +213,6 @@ ca:
           header: Vot confirmat
           lead: El teu vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="evote-verify">pàgina de verificació de vot</a>
         encrypting:
           header: Codificant el vot...
           text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
@@ -246,6 +245,12 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: La votació %{resource_title} ja està activa a %{participatory_space_title}.
           notification_title: La votació <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està activa.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara al conjunt de membres d'una organització, fer una crida a participar en la votació, generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar-ne el resultat.</p> <p>Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització. Alguns exemples serien: canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir una durada màxima d'un, dos o tres mandats.</p>"
+          page: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara al conjunt de membres d'una organització, fer una crida a participar en la votació, generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar-ne el resultat.</p> <p>Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització. Alguns exemples serien: canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir una durada màxima d'un, dos o tres mandats.</p>"
+          title: Què són les votacions?
     pages:
       home:
         statistics:

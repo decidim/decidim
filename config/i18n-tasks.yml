@@ -151,6 +151,8 @@ ignore_unused:
   - decidim.system.default_pages.placeholders.*
   - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{dni,nie,passport}
+  - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}
+  - decidim.verifications.dummy_authorization.extra_explanation.user_scope
   - errors.messages.*
   - invisible_captcha.*
   - decidim.pages.home.statistics.*

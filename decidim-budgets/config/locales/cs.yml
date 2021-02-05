@@ -47,8 +47,6 @@ cs:
             title: Upravit rozpočet
             update: Aktualizovat rozpočet
           index:
-            finished_orders: Dokončené objednávky
-            pending_orders: Nevyřízené objednávky
             title: Rozpočty
           new:
             create: Vytvořit rozpočet
@@ -249,7 +247,7 @@ cs:
                 budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
-            projects_per_page: Projekty na stránku
+            projects_per_page: Počet projektů na stránku
             resources_permissions_enabled: Oprávnění k akcím lze nastavit pro každý projekt
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny

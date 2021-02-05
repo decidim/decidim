@@ -23,7 +23,8 @@ module Decidim
               start_time: voting.start_time,
               end_time: voting.end_time,
               introductory_image: voting.introductory_image,
-              promoted: voting.promoted
+              promoted: voting.promoted,
+              voting_type: voting.voting_type
             }
           }
         end

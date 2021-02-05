@@ -63,7 +63,6 @@ eu:
         file_no_exists: Fitxategia ez dago
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
-        alert: Ekintza hau ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi.
         confirm:
           close: Itxi leihoa
           ok: Bai, nire kontua ezabatu nahi dut
