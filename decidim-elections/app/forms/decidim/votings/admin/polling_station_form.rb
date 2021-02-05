@@ -7,19 +7,6 @@ module Decidim
       class PollingStationForm < Decidim::Form
         include TranslatableAttributes
 
-        translatable_attribute :title, String
-        translatable_attribute :location, String
-        translatable_attribute :location_hints, String
-        attribute :address, String
-        attribute :latitude, Float
-        attribute :longitude, Float
-
-        validates :title, translatable_presence: true
-        validates :location, translatable_presence: true
-        validates :location_hints, translatable_presence: true
-        validates :address, presence: true
-        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
-
         def geocoding_enabled?
           Decidim::Map.available?(:geocoding)
         end
@@ -35,6 +22,21 @@ module Decidim
         def voting
           @voting ||= context[:voting]
         end
+
+        translatable_attribute :title, String
+        translatable_attribute :location, String
+        translatable_attribute :location_hints, String
+        attribute :address, String
+        attribute :latitude, Float
+        attribute :longitude, Float
+
+        validates :title, translatable_presence: true
+        validates :location, translatable_presence: true
+        validates :location_hints, translatable_presence: true
+        validates :address, presence: true
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
+
+        alias component voting
       end
     end
   end

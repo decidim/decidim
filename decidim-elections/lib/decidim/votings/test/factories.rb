@@ -48,4 +48,14 @@ FactoryBot.define do
       promoted { true }
     end
   end
+
+  factory :polling_station, class: "Decidim::Votings::PollingStation" do
+    title { generate_localized_title }
+    location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    address { Faker::Lorem.sentence(word_count: 3) }
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
+    voting { create(:voting) }
+  end
 end
