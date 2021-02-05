@@ -53,7 +53,8 @@
       window.exitUrl = event.currentTarget.action;
     });
 
-    $(window).on("beforeunload", () => {
+    window.addEventListener("beforeunload", (event) => {
+      event.preventDefault();
       const exitUrl = window.exitUrl;
       const hasChanged = $form.data("changed");
       window.exitUrl = null;
