@@ -244,13 +244,16 @@ $(() => {
   if ($form.length > 0) {
 
     $(window).on("beforeunload", () => {
+      console.log("VOTE BEFORE UNLOAD");
       const voteCast = window.confirmed;
 
       if (voteCast) {
-        return null;
+        console.log("BEFORE UNLOAD FALSE");
+        return false;
       }
 
-      return "";
+      console.log("BEFORE UNLOAD TRUE");
+      return true;
     });
   }
 

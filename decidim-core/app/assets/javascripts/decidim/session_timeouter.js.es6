@@ -50,8 +50,9 @@
       resetTimer();
     });
 
-    $(window).on("beforeunload", () => {
-      clearInterval(exitInterval);
-    });
+    // $(window).on("beforeunload", (ev) => {
+    //   clearInterval(exitInterval);
+    //   return ev.result;
+    // });
   })
 })(window)

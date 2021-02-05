@@ -59,10 +59,12 @@ $(() => {
       window.exitUrl = null;
 
       if (currentAllocation === 0 || (exitUrl && exitUrl.startsWith(safeUrl))) {
-        return null;
+        console.log("BEFORE UNLOAD FALSE");
+        return false;
       }
 
-      return "";
+      console.log("BEFORE UNLOAD TRUE");
+      return true;
     });
   }
 });
