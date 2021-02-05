@@ -50,8 +50,8 @@
       resetTimer();
     });
 
-    window.onbeforeunload = () => {
+    $(window).on("beforeunload", () => {
       clearInterval(exitInterval);
-    };
+    });
   })
 })(window)

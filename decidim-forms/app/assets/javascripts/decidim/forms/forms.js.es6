@@ -53,7 +53,7 @@
       window.exitUrl = event.currentTarget.action;
     });
 
-    window.onbeforeunload = () => {
+    $(window).on("beforeunload", () => {
       const exitUrl = window.exitUrl;
       const hasChanged = $form.data("changed");
       window.exitUrl = null;
@@ -63,6 +63,6 @@
       }
 
       return "";
-    }
+    });
   }
 })(window);

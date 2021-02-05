@@ -53,7 +53,7 @@ $(() => {
       }
     });
 
-    window.onbeforeunload = () => {
+    $(window).on("beforeunload", () => {
       const currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
       const exitUrl = window.exitUrl;
       window.exitUrl = null;
@@ -63,6 +63,6 @@ $(() => {
       }
 
       return "";
-    }
+    });
   }
 });

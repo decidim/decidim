@@ -243,7 +243,7 @@ $(() => {
   const $form = $(".evote__options");
   if ($form.length > 0) {
 
-    window.onbeforeunload = () => {
+    $(window).on("beforeunload", () => {
       const voteCast = window.confirmed;
 
       if (voteCast) {
@@ -251,7 +251,7 @@ $(() => {
       }
 
       return "";
-    }
+    });
   }
 
   $(document).on("on.zf.toggler", (event) => {
