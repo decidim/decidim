@@ -202,6 +202,7 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest ordre del dia
             success: Ordre del dia actualitzat correctament
         exports:
+          meeting_comments: Comentaris
           meetings: Trobades
           registrations: Inscripcions
         invite_join_meeting_mailer:

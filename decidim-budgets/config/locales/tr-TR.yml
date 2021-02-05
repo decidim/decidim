@@ -45,8 +45,6 @@ tr:
             title: Bütçeyi düzenle
             update: Bütçeyi güncelle
           index:
-            finished_orders: Tamamlanan siparişler
-            pending_orders: Bekleyen Siparişler
             title: Bütçeler
           new:
             create: Bütçe oluştur

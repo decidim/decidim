@@ -3,9 +3,25 @@
 <div class="row">
   <%= render partial: "wizard_aside" %>
 
-  <div class="columns large-6">
+  <div class="columns large-9">
     <%= render partial: "wizard_header", locals: { callout_help_text_class: "warning" } %>
-    <%= render partial: "proposal_preview", locals: { proposal: @proposal } %>
+    <div class="card card__content">
+      <div class="row column view-header">
+        <h3 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h3>
+        <% unless component_settings.participatory_texts_enabled? %>
+          <%= cell("decidim/coauthorships", @proposal, has_actions: false, size: 3, context: { current_user: current_user }) %>
+        <% end %>
+
+        <%= render_proposal_body(@proposal) %>
+
+      </div>
+      <div class="row column">
+        <%= cell "decidim/proposals/proposal_tags", @proposal %>
+      </div>
+    </div>
+    <div class="row column">
+      <%= attachments_for @proposal %>
+    </div>
 
     <% if component_settings.geocoding_enabled? %>
       <% if has_position?(@proposal) %>

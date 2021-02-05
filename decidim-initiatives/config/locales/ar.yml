@@ -379,13 +379,6 @@ ar:
         print:
           city: مدينة
         result:
-          answer_title:
-            accepted: تم قبول هذا الاقتراح بسبب
-            created: تم إنشاء هذا الاقتراح
-            discarded: تم تجاهل هذا الاقتراح بسبب
-            published: تم نشر هذا الاقتراح بسبب
-            rejected: تم رفض هذا الاقتراح بسبب
-            validating: هذا الاقتراح قيد التقييم
           initiative_rejected_reason: تم رفض هذه المبادرة بسبب افتقارها للتوقيعات.
         show:
           follow_description: تلقي إشعار عند وجود أخبار في هذه المبادرة

@@ -1,6 +1,6 @@
 :doctype: book
 
-image::https://cdn.rawgit.com/decidim/decidim/master/logo.svg[Decidim Logo,400]
+image::https://cdn.rawgit.com/decidim/decidim/develop/logo.svg[Decidim Logo,400]
 
 The participatory democracy framework.
 
@@ -19,7 +19,7 @@ image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gem
 
 Code quality
 
-image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim] image:http://inch-ci.org/github/decidim/decidim.svg?branch=master[Inline docs,link=http://inch-ci.org/github/decidim/decidim] image:https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/[Accessibility issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y] image:https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/[HTML issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html]
+image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim] image:http://inch-ci.org/github/decidim/decidim.svg?branch=develop[Inline docs,link=http://inch-ci.org/github/decidim/decidim] image:https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/[Accessibility issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y] image:https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/[HTML issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html]
 
 Test suite
 
@@ -73,7 +73,7 @@ decidim decidim_application
 ----
 
 We've set up a guide on how to install, set up and upgrade Decidim.
-See the https://github.com/decidim/decidim/blob/master/docs/getting_started.md[Getting started guide].
+See the https://github.com/decidim/decidim/blob/develop/docs/getting_started.md[Getting started guide].
 
 == How to contribute
 

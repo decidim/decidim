@@ -239,7 +239,7 @@ fi:
       assembly:
         create: "%{user_name} loi %{resource_name} ryhmän"
         publish: "%{user_name} julkaisi %{resource_name} ryhmän"
-        unpublish: "%{user_name} lopetti %{resource_name} ryhmän julkaisemisen"
+        unpublish: "%{user_name} lopetti ryhmän %{resource_name} julkaisun"
         update: "%{user_name} päivitti %{resource_name} ryhmän"
       assembly_member:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"

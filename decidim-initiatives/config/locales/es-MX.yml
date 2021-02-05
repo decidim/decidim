@@ -259,7 +259,6 @@ es-MX:
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
-            child_scope_threshold_enabled_help: 'Este ajuste de configuración no soporta recogida de firmas en persona, habilita indicadores de firmas por subámbitos y funciona con un controlador de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización más abajo, en la configuración de autorización. Para que funcione debe configurarse de manera jerárquica : 1 ámbito - N subámbitos. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.'
             only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.
             options: Opciones
             title: Información general
@@ -320,10 +319,8 @@ es-MX:
           back: Volver
           back_to_initiatives: Volver a iniciativas
           callout_text: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
-          edit_my_initiative: Editar mis iniciativas
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
-          send_my_initiative: Enviar la meva iniciativa
         previous_form:
           back: Volver
           continue: Continuar
@@ -437,13 +434,6 @@ es-MX:
         print:
           city: Ciudad
         result:
-          answer_title:
-            accepted: Esta propuesta ha sido aceptada porque
-            created: Esta propuesta ha sido creada.
-            discarded: Esta propuesta ha sido descartada porque.
-            published: Esta propuesta se publica porque
-            rejected: Esta propuesta ha sido rechazada porque
-            validating: Esta propuesta está siendo evaluada.
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de apoyo.
         show:
           any_vote_method: Esta iniciativa recoge firmas digitales y presenciales.

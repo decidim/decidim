@@ -36,7 +36,6 @@ module Decidim
       def show
         raise ActionController::RoutingError, "Not Found" unless retrieve_collaborative_draft
 
-        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
         @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params({})
         @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params({})
         @reject_request_form = form(RejectAccessToCollaborativeDraftForm).from_params({})
