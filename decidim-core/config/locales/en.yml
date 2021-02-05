@@ -1336,13 +1336,6 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
-    user_suspension_mailer:
-      notify:
-        body_1: Your account was blocked.
-        body_2: 'Reason: %{justification}'
-        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Hello,
-        subject: Your account was blocked by %{organization_name}?
     version:
       show:
         back_to_resource: Go back

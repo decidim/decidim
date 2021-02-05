@@ -334,8 +334,8 @@ module Decidim
           end
         end
 
-        Decidim.metrics_registry.register(:suspended_users) do |metric_registry|
-          metric_registry.manager_class = "Decidim::Metrics::SuspendedUsersMetricManage"
+        Decidim.metrics_registry.register(:blocked_users) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::BlockedUsersMetricManage"
 
           metric_registry.settings do |settings|
             settings.attribute :highlighted, type: :boolean, default: false

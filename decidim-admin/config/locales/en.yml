@@ -891,12 +891,12 @@ en:
         impersonate_user:
           reason: You need to provide a reason when managing a non managed participant
     metrics:
+      blocked_users:
+        object: blocked users
+        title: Blocked users
       reported_users:
         object: reported users
         title: Reported users
-      suspended_users:
-        object: blocked users
-        title: Blocked users
       user_reports:
         object: user reports
         title: User reports

@@ -11,6 +11,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
     include Decidim::UserReportable
+    include Decidim::Traceable
 
     class Roles
       def self.all
