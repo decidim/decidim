@@ -52,6 +52,7 @@
 
     window.addEventListener("beforeunload", () => {
       clearInterval(exitInterval);
+      return;
     });
   })
 })(window)
