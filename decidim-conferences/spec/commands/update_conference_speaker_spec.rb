@@ -31,6 +31,8 @@ module Decidim::Conferences
         full_name: "New name",
         user: user,
         errors: ActiveModel::Errors.new(Admin::ConferenceSpeakerForm),
+        avatar: avatar,
+        remove_avatar: false,
         attributes: {
           full_name: "New name",
           position: { en: "new position" },
@@ -38,8 +40,7 @@ module Decidim::Conferences
           short_bio: Decidim::Faker::Localized.sentence(word_count: 5),
           twitter_handle: "full_name",
           personal_url: Faker::Internet.url,
-          meeting_ids: meeting_ids,
-          avatar: avatar
+          meeting_ids: meeting_ids
         }
       )
     end

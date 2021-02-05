@@ -5,6 +5,7 @@ module Decidim
     class Voting < ApplicationRecord
       include Traceable
       include Loggable
+      include Decidim::Followable
       include Decidim::Participable
       include Decidim::ParticipatorySpaceResourceable
       include Decidim::Randomable
@@ -15,6 +16,8 @@ module Decidim
       include Decidim::HasUploadValidations
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
+
+      enum voting_type: [:in_person, :online, :hybrid].map { |type| [type, type.to_s] }.to_h, _suffix: :voting
 
       translatable_fields :title, :description
 
@@ -41,6 +44,7 @@ module Decidim
       }
       scope :finished, -> { published.where("end_time < ?", Time.now.utc) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
+      scope :promoted, -> { published.where(promoted: true) }
 
       def upcoming?
         start_time > Time.now.utc
@@ -87,8 +91,30 @@ module Decidim
         slug
       end
 
+      def cta_button_text_key
+        return :vote if published? && active?
+
+        :more_info
+      end
+
       def attachment_context
         :admin
+      end
+
+      def scopes_enabled
+        true
+      end
+
+      def needs_elections?
+        !in_person_voting? && !has_elections?
+      end
+
+      private
+
+      def has_elections?
+        components.where(manifest_name: :elections).any? do |component|
+          Decidim::Elections::Election.where(component: component).any?
+        end
       end
     end
   end

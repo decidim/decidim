@@ -13,6 +13,9 @@ describe Decidim::Votings::Admin::VotingForm do
   let(:slug) { "voting-slug" }
   let(:start_time) { 1.day.from_now }
   let(:end_time) { start_time + 1.month }
+  let(:promoted) { true }
+  let(:banner_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+  let(:voting_type) { "online" }
 
   let(:attributes) do
     {
@@ -22,7 +25,10 @@ describe Decidim::Votings::Admin::VotingForm do
         slug: slug,
         start_time: start_time,
         end_time: end_time,
-        scope_id: scope&.id
+        scope_id: scope&.id,
+        banner_image: banner_image,
+        promoted: promoted,
+        voting_type: voting_type
       }
     }
   end
@@ -107,5 +113,34 @@ describe Decidim::Votings::Admin::VotingForm do
     let(:scope) { nil }
 
     it { is_expected.to be_valid }
+  end
+
+  context "when banner_image is too big" do
+    before do
+      organization.settings.tap do |settings|
+        settings.upload.maximum_file_size.default = 5
+      end
+      expect(subject.banner_image).to receive(:size).and_return(6.megabytes)
+    end
+
+    it { is_expected.not_to be_valid }
+  end
+
+  context "when images are not the expected type" do
+    let(:banner_image) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when voting_type is missing" do
+    let(:voting_type) { nil }
+
+    it { is_expected.to be_invalid }
+  end
+
+  describe "when voting_type is not in the accepted values" do
+    let(:voting_type) { "invalid option" }
+
+    it { is_expected.to be_invalid }
   end
 end

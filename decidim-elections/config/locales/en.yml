@@ -170,7 +170,7 @@ en:
           create_election:
             errors:
               max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
-              minimum_answers: Questions must have <strong>at least one answer</strong>.
+              minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
               published: The election is <strong>not published</strong>.
               time_before: The start time is in <strong>less than 3 hours</strong> before the election starts.
@@ -371,6 +371,9 @@ en:
             success: 'The election status is: %{status}'
         menu:
           trustee_zone: Trustee zone
+        no_bulletin_board:
+          body: A configured Bulletin Board is required for this section. Contact the Administrator for more details.
+          title: Sorry, the Bulletin Board is not configured yet.
         trustees:
           show:
             elections:
@@ -420,6 +423,7 @@ en:
           question: Question %{count}
         confirmed:
           back: Back to elections
+          error: Sorry, there was an error confirming the vote. Please vote again.
           experience: How was your experience?
           feedback: Give us some feedback
           header: Vote confirmed
@@ -452,6 +456,9 @@ en:
         processing:
           header: Processing vote...
           text: Your vote has been received and it is being processing. Please wait.
+        update:
+          error: There was a problem updating the vote status
+          success: Vote status successfully updated
         verify:
           content:
             heading: Verify your vote
@@ -492,6 +499,12 @@ en:
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Your vote was accepted! Using your voting token: %{encrypted_vote_hash}, you can verify your vote <a href="%{verify_url}">here</a>.'
+            email_outro: You have received this notification because you've voted for the %{resource_name} election.
+            email_subject: Your vote for %{resource_name} was accepted.
+            notification_title: 'Your vote was accepted. Verify your vote <a href="%{verify_url}">here</a> using your vote token: %{encrypted_vote_hash}'
     help:
       participatory_spaces:
         votings:
@@ -509,6 +522,9 @@ en:
         elections_count: Elections
     votings:
       admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Maximum amount of elements to show
         index:
           not_published: Unpublished
           published: Published
@@ -518,11 +534,13 @@ en:
             attachment_collections: Folders
             attachment_files: Files
             attachments: Attachments
+            components: Components
             info: Information
         models:
           voting:
             fields:
               created_at: Created at
+              promoted: Highlighted
               published: Published
               title: Title
         titles:
@@ -538,10 +556,16 @@ en:
             invalid: There was a problem creating this voting
             success: Voting successfully created
           edit:
+            add_election_component: You don't have any election configured for this voting. Please add it in the Components section
             update: Update
           form:
+            select_a_voting_type: Please select a voting type
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
+            voting_type:
+              hybrid: Hybrid
+              in_person: In person
+              online: Online
           new:
             create: Create
             title: New Voting
@@ -560,6 +584,12 @@ en:
       content_blocks:
         highlighted_votings:
           name: Highlighted votings
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Active votings
+            see_all_votings: See all votings
+            votings_button_title: Link to the Votings page displaying all the votings
       votings:
         count:
           title:
@@ -597,3 +627,9 @@ en:
     decidim:
       election_votes_header:
         exit: Exit
+      votings:
+        index:
+          promoted_votings: Highlighted votings
+        promoted_voting:
+          more_info: More info
+          vote: Vote

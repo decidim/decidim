@@ -15,7 +15,7 @@ module Decidim
             post :answer
           end
 
-          resource :vote, only: [:new] do
+          resource :vote, only: [:new, :update] do
             post :cast
             get :verify
           end

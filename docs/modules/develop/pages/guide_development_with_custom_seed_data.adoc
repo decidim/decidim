@@ -4,14 +4,14 @@ The seed data is not only useful for local development, but also for staging env
 
 == Customizing seed data via the `db/seeds.rb` file
 
-One wy to customize the seed data is to use the `db/seeds.rb` file in your application. You'll see a call to genenrate Decidim seeds:
+One way to customize the seed data is to use the `db/seeds.rb` file in your application. You'll see a call to generate the Decidim seeds:
 
 [source,ruby]
 ----
 Decidim.seed!
 ----
 
-This will generate all the needed seed data. But after that you might want to, for example, create some specific scopes, or change the default user password. You can do anything here.
+This will generate all the needed seed data. But after that you might want to, for example, create some specific scopes, or change the default user password. You can do anything from that file.
 
 == Customizing the seed data via environment variables
 
@@ -25,7 +25,7 @@ If you set the variables _before_ creating the seeds data, the values in those v
 * `SMTP_PASSWORD`: The password required by your email sending system.
 * `SMTP_ADDRESS`: The address where your email sending system lives.
 * `SMTP_PORT`: The port used to connect to your email sending system.
-* `DECIDIM_SYSTEM_USER_PASSWORD`: Used to set the password for the System user. Useful to hide access to the System panel, where the SMTP config can be retrieved in plain text.
+* `DECIDIM_SYSTEM_USER_PASSWORD`: The password for the System user. Useful to hide access to the System panel, where the SMTP config can be retrieved in plain text.
 
-This is useful, for example, to set up a staging application open to anyone, and use Sendgrid as a mailing system. By changing thr default password nobody will be able to access the System panel, so they won't be able to see the credentials used to connect to Sendgrid.
+This is useful, for example, to set up a staging application open to anyone, and use Sendgrid as a mailing system. By changing the default password only you will be able to access the System panel, so nobody will be able to see the credentials used to connect to Sendgrid.
 

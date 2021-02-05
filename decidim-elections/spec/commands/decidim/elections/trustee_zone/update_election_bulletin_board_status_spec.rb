@@ -11,7 +11,7 @@ describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
   let(:response) { new_status }
 
   before do
-    allow(Decidim::Elections.bulletin_board).to receive(:get_status).and_return(response)
+    allow(Decidim::Elections.bulletin_board).to receive(:get_election_status).and_return(response)
   end
 
   it "broadcasts ok" do

@@ -444,13 +444,6 @@ gl:
               ok: Retire o borrador colaborativo
               title: A seguinte acción é irreversible
             success: Proxecto colaborativo retirado con éxito.
-        compare:
-          mine_is_different: O meu proxecto de colaboración é diferente
-          no_similars_found: Ben feito! Non se atoparon borradores colaborativos similares
-          title: Borradores colaborativos similares
-        complete:
-          send: Enviar
-          title: Completa o teu borrador colaborativo
         count:
           drafts_count:
             one: "%{count} borrador colaborativo"
@@ -482,7 +475,6 @@ gl:
           unfold: Despregar
         new:
           send: Continuar
-          title: Crea o teu borrador colaborativo
         new_collaborative_draft_button:
           new_collaborative_draft: Novo borrador colaborativo
         orders:
@@ -528,14 +520,9 @@ gl:
           error: Produciuse un erro ao gardar o borrador colaborativo.
           success: Proxecto colaborativo actualizado correctamente.
         wizard_aside:
-          back: De volta
           info: Está creando un <strong>proxecto de colaboración</strong>.
-        wizard_steps:
-          see_steps: ver pasos
-          step_1: Crea o teu borrador colaborativo
-          step_2: Comparar con borradores colaborativos
-          step_3: Completa o teu borrador colaborativo
-          step_of: Paso %{current_step_num} de %{total_steps}
+        wizard_header:
+          title: Crea o teu borrador colaborativo
       create:
         error: Produciuse un erro ao gardar a proposta.
         success: Proposta creada con éxito. Gardado como borrador.

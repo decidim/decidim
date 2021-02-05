@@ -277,10 +277,10 @@ de:
             success: Der Initiativentyp wurde erfolgreich aktualisiert
       admin_log:
         initiative:
-          publish: "%{user_name} veröffentlichte die %{resource_name} Initiative"
-          send_to_technical_validation: "%{user_name} schickte die %{resource_name} Initiative zur technischen Validierung"
-          unpublish: "%{user_name} verworfen die %{resource_name} Initiative"
-          update: "%{user_name} aktualisierte die %{resource_name} Initiative"
+          publish: "%{user_name} hat die Initiative %{resource_name} veröffentlicht"
+          send_to_technical_validation: "%{user_name} hat die Initiative %{resource_name} zur technischen Validierung gesendet"
+          unpublish: "%{user_name} hat die Initiative %{resource_name} verworfen"
+          update: "%{user_name} hat die Initiative %{resource_name} aktualisiert"
       admin_states:
         accepted: Ausreichend Unterschriften
         created: Erstellt

@@ -125,10 +125,4 @@
 <%= attachments_for @collaborative_draft %>
 <%= comments_for @collaborative_draft %>
 
-<%=
-  render partial: "decidim/shared/flag_modal", locals: {
-    reportable: @collaborative_draft,
-    form: @report_form,
-    url: decidim.report_path(sgid: @collaborative_draft.to_sgid.to_s)
-  }
-%>
+<%= cell("decidim/flag_modal", @collaborative_draft) %>

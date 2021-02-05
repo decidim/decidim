@@ -19,6 +19,7 @@ FactoryBot.define do
     decidim_scope_id { create(:scope, organization: organization).id }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    voting_type { "online" }
 
     trait :unpublished do
       published_at { nil }
@@ -41,6 +42,10 @@ FactoryBot.define do
     trait :finished do
       start_time { 1.month.ago - 7.days }
       end_time { 7.days.ago }
+    end
+
+    trait :promoted do
+      promoted { true }
     end
   end
 end

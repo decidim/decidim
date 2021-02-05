@@ -1,1 +1,159 @@
 gl:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrición
+        image: Imaxe
+        proposals: Propostas relacionadas
+        title: Título
+      election:
+        description: Descrición
+        end_time: A votación remata ás
+        start_time: A votación comeza ás
+        title: Título
+      question:
+        description: Descrición
+        title: Título
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Resposta
+        other: Respostas
+      decidim/elections/question:
+        one: Pregunta
+        other: Preguntas
+      decidim/votings/voting:
+        one: Votación
+        other: Votacións
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Votar
+    elections:
+      actions:
+        confirm_destroy: Estás certo/a?
+        edit: Editar
+        manage_answers: Xestionar respostas
+        manage_questions: Xestionar preguntas
+        manage_steps: Xestionar pasos
+        new: Nova %{name}
+        publish: Publicar
+        title: Accións
+      admin:
+        answers:
+          edit:
+            title: Editar resposta
+            update: Actualizar resposta
+          index:
+            title: Respostas
+          new:
+            create: Crear resposta
+            title: Nova resposta
+        models:
+          answer:
+            name: Resposta
+          question:
+            name: Pregunta
+        questions:
+          edit:
+            title: Editar pregunta
+            update: Actualizar pregunta
+          index:
+            title: Preguntas
+          new:
+            create: Crear pregunta
+            title: Nova pregunta
+        steps:
+          create_election:
+            errors:
+              minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
+            not_used_trustee: "(non usada)"
+      election_m:
+        badge_name:
+          finished: Finalizada
+          ongoing: Activa
+          upcoming: Vindeiras
+        footer:
+          view: Ver
+          vote: Votar
+        label:
+          date: Datas
+        questions: Preguntas %{count}
+        unspecified: Sen especificar
+      elections:
+        filters:
+          active: Activa
+          all: Todas
+          finished: Finalizada
+          search: Procurar
+          state: Estado
+          upcoming: Vindeiras
+        filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtrar
+          filter_by: Filtrar por
+        preview:
+          available_answers: Respostas dispoñibles
+        results:
+          selected: Seleccionado
+        show:
+          verify: Verificar
+      models:
+        answer:
+          fields:
+            title: Título
+        election:
+          fields:
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            title: Título
+        trustees_participatory_space:
+          fields:
+            inactive: inactivo
+      trustee_zone:
+        elections:
+          key_ceremony_steps:
+            back: Volver
+            list:
+              status: Estado
+              task: Tarefa
+            start: Comezar
+            status:
+              pending: Pendente
+              processing: Procesando
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Non'
+                  name: Acción requirida?
+                bb_status: Estado
+            identification_keys:
+              submit: Enviar
+      votes:
+        confirmed:
+          error: Sentímolo, produciuse un erro confirmando o voto. Por favor, vota de novo.
+          experience: Como valoras a túa experiencia?
+          feedback: Dános a túa opinión
+          header: Voto confirmado
+        header:
+          confirm: Confirma o teu voto
+          confirmed: Voto confirmado
+          encrypting: Confirmando o voto
+        modal:
+          close: Pechar
+        update:
+          error: Produciuse un problema ao actualizar o estado do voto
+          success: Estado do voto actualizado con éxito
+    events:
+      elections:
+        votes:
+          accepted_votes:
+            email_intro: 'O teu voto foi aceptado! Empregando o teu token de votación: %{encrypted_vote_hash}, podes verificar o teu voto <a href="%{verify_url}">aquí</a>.'
+            email_outro: Recibiches esta notificación porque votaches pola elección de %{resource_name}.
+            email_subject: O teu voto por %{resource_name} foi aceptado.
+            notification_title: 'O teu voto foi aceptado, verifícao <a href="%{verify_url}">aquí</a> empregando o teu token de votación: %{encrypted_vote_hash}'

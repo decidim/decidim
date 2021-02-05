@@ -24,6 +24,11 @@
           <% votings.each do |voting| %>
             <tr>
               <td>
+                <% if voting.promoted? %>
+                  <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.voting.fields.promoted", scope: "decidim.votings.admin") %>">
+                    <%= icon "star" %>
+                  </span>
+                <% end %>
                 <% if allowed_to? :update, :voting, voting: voting %>
                   <%= link_to translated_attribute(voting.title), edit_voting_path(voting) %>
                   <br>
