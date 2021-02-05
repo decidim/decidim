@@ -8,6 +8,8 @@ module Decidim
       include Loggable
 
       belongs_to :voting, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::Voting", inverse_of: :polling_stations
+
+      geocoded_by :address
     end
   end
 end

@@ -539,13 +539,10 @@ en:
             polling_stations: Polling Stations
         models:
           polling_station:
-            name: Polling Station
             fields:
-              created_at: Created at
-              title: Title
               address: Address
-              location: Location
-              location_hint: Location hint
+              title: Title
+            name: Polling Station
           voting:
             fields:
               created_at: Created at

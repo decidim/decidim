@@ -19,7 +19,7 @@ FactoryBot.define do
     decidim_scope_id { create(:scope, organization: organization).id }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-    voting_type { "online" }
+    voting_type { "hybrid" }
 
     trait :unpublished do
       published_at { nil }
