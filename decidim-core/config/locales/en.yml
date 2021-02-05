@@ -430,7 +430,7 @@ en:
         ready: Ready
       show:
         download_data: Download the data
-        download_data_description: A file with all the information associated with your account will be sent to <strong>%{user_email}</strong>. This mail will contain a .zip file, and the associated password that will allow you to open this file. In order to open this file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/en/">Keka</a> (for MacOS).
+        download_data_description: A file with all the information associated with your account will be sent to <strong>%{user_email}</strong>. This mail will contain a .zip file, and the associated password that will allow you to open this file.<br/><br/> In order to open this file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/en/">Keka</a> (for MacOS).
         request_data: Request data
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
@@ -662,7 +662,7 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: 'Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/en/">Keka</a> (for MacOS) to open it. <br/> Password: %{password}'
+        click_button: 'Click the next button to download your data.<br/>You will have the file available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/en/">Keka</a> (for MacOS) to open it. Password: %{password}'
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
