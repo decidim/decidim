@@ -1,6 +1,4 @@
-@import "focus/accordion";
-@import "focus/evote";
-@import "focus/focus";
+@import "focus/*";
 
 .card__icondata ul li:not(:first-child) strong,
 .card__block ul li:not(:first-child) strong{
