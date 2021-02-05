@@ -45,27 +45,18 @@ tr:
             endorsements_enabled: Onaylar etkinleştirildi
     debates:
       actions:
-        active: Aktif tartışmalar
-        archive: Arşivle
-        archived: Arşivlenmiş tartışmalar
         close: Kapat
         confirm_destroy: Emin misiniz?
         destroy: Sil
         edit: Düzenle
         new: Yeni %{name}
         title: Eylemler
-        unarchive: Arşivden çıkar
       admin:
         debate_closes:
           edit:
-            archive: Bu tartışmayı arşivleyin
-            archive_help: Bu tartışmayı arşivlemek, onu kamuya açık tartışmalar bölümünden gizleyecektir
             close: Kapat
             title: Tartışmayı kapat
         debates:
-          archive:
-            invalid: Tartışmayı arşivlerken bir sorun oluştu.
-            success: Tartışma başarıyla arşivlendi.
           create:
             invalid: Tartışmayı oluştururken bir sorun oluştu.
             success: Tartışma başarıyla oluşturuldu.
@@ -74,7 +65,6 @@ tr:
           edit:
             title: Tartışmayı düzenle
             update: Tartışmayı güncelle
-          empty: Bu kriterlere uyan tartışma yok.
           form:
             debate_type: Tartışma türü
             finite: Sonlu (Başlangıç ​​ve bitiş saatleri ile)
@@ -84,9 +74,6 @@ tr:
           new:
             create: Tartışma oluştur
             title: Yeni tartışma
-          unarchive:
-            invalid: Tartışmayı arşivden çıkarırken bir sorun oluştu.
-            success: Tartışma başarıyla arşivden çıkarıldı.
           update:
             invalid: Bu tartışmayı güncellerken bir sorun oluştu.
             success: Tartışma başarıyla güncellendi.

@@ -265,7 +265,7 @@ tr:
             update: Güncelle
           form:
             authorizations: Yetkilendirme ayarları
-            child_scope_threshold_enabled_help: 'Bu yapılandırma bayrağı çevrimdışı oyları desteklemez, alt ölçekleri etkinleştirir ve kullanıcıyla bir kapsamı ilişkilendiren bir yetkilendirme işleyicisi ile çalışır, aşağıdaki yetkilendirme ayarlarında bu yetkiyi seçtiğinizden emin olun. Çalışması için kapsamların hiyerarşik şekilde yapılandırılması gerekir: 1 Ana - N tane Alt. Bu yapılandırmanın nasıl çalıştığı hakkında daha fazla bilgi için bu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> bağlantıya </a> bakın.'
+            child_scope_threshold_enabled_help: 'Bu yapılandırma bayrağı çevrimdışı oyları desteklemez, alt kapsamları etkinleştirir ve kullanıcıyla bir kapsamı ilişkilendiren bir yetkilendirme işleyicisi ile çalışır, aşağıdaki yetkilendirme ayarlarında bu yetkilendirmeyi seçtiğinizden emin olun. Çalışması için kapsamların hiyerarşik şekilde yapılandırılması gerekir: 1 Ana - N Alt. Bu yapılandırmanın nasıl çalıştığı hakkında daha fazla bilgi için bu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> bağlantıya </a> bakın.'
             only_global_scope_enabled_help: '"Alt kapsam imzasını" etkinleştirdiyseniz ve genel kapsamı ana kapsamınız olarak yapılandırdıysanız bu bayrağı işaretleyin. Bunu etkinleştirdiğinizde, girişim oluşturma sihirbazında girişim türü seçimi atlanacaktır. Bu yapılandırmanın nasıl çalıştığı hakkında daha fazla bilgi için bu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> bağlantıya </a> bakın.'
             options: Seçenekler
             title: Genel bilgi
@@ -327,10 +327,10 @@ tr:
           back_to_initiatives: Girişimlere geri dön
           callout_text: Tebrikler! Girişiminiz başarıyla oluşturuldu.
           confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
-          edit_my_initiative: Girişimlerimi düzenle
+          edit_my_initiative: Girişimimi düzenle
           go_to_my_initiatives: Benim girişimlerime git
           more_information: "(Daha fazla bilgi)"
-          send_my_initiative: Girişimimi gönder
+          send_my_initiative: Girişimimi teknik doğrulamaya gönder
         finish_help:
           access_reminder: Girişimlerinize Girişimler sayfasındaki %{link} filtresinden erişebilirsiniz.
           publish_helper_text: Girişiminizin yayınlanması için gerekli bilgileri tamamlamanız ve bir yöneticinin incelemesi için <strong> teknik doğrulamaya göndermeniz </strong> gerektiğini unutmayın.
@@ -487,13 +487,7 @@ tr:
           section: 'Kuruluş tarafından istenirse, lütfen belirtilen yerlerde göndermek için bu formu yazdırın ve doldurun:'
           signature: İmza
         result:
-          answer_title:
-            accepted: Bu teklif kabul edildi çünkü
-            created: Bu teklif oluşturuldu
-            discarded: Bu teklif atıldı çünkü
-            published: Bu teklif yayınlandı çünkü
-            rejected: Bu teklif reddedildi, çünkü
-            validating: Bu teklif değerlendiriliyor
+          answer_title: Bu girişim cevaplandı
           initiative_rejected_reason: Bu girişim, imza eksikliği nedeniyle reddedildi.
         show:
           any_vote_method: Bu girişim hem çevrimiçi hem de şahsen imzaları toplar.

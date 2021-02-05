@@ -349,13 +349,6 @@ eu:
         print:
           city: hiria
         result:
-          answer_title:
-            accepted: Proposamen hau onartu egin delako
-            created: Proposamen hau sortu da
-            discarded: Proposamen hau baztertu egin da
-            published: Proposamen hau argitaratzen delako
-            rejected: Proposamen hau baztertu egin delako
-            validating: Proposamen hau ebaluatzen ari da
           initiative_rejected_reason: Ekimen hau baztertu egin da laguntza faltagatik.
         show:
           follow_description: Jakinarazpen bat jasotzen denean ekimen honetako berriak daude

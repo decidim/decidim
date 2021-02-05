@@ -53,6 +53,7 @@ describe "Admin manages votings", type: :system do
         fill_in :voting_slug, with: "slug"
         attach_file :voting_banner_image, image1_path
         attach_file :voting_introductory_image, image2_path
+        select "Online", from: :voting_voting_type
 
         scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
 
@@ -102,6 +103,7 @@ describe "Admin manages votings", type: :system do
           ca: "Descripció més llarga"
         )
         fill_in :voting_slug, with: "slug"
+        select "Online", from: :voting_voting_type
         attach_file :voting_banner_image, image1_path
         attach_file :voting_introductory_image, image2_path
         scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
@@ -114,11 +116,15 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "updating a voting" do
+    let(:elections_component) { create(:elections_component, participatory_space: voting) }
+
     before do
       click_link translated(voting.title)
     end
 
     it "updates a voting" do
+      create(:election, component: elections_component)
+
       fill_in_i18n(
         :voting_title,
         "#voting-title-tabs",
@@ -127,12 +133,14 @@ describe "Admin manages votings", type: :system do
         ca: "El meu nou títol"
       )
       attach_file :voting_banner_image, image3_path
+      select "Online", from: :voting_voting_type
 
       within ".edit_voting" do
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
+      expect(page).not_to have_admin_callout("You don't have any election configured")
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")

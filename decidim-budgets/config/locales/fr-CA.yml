@@ -45,8 +45,6 @@ fr-CA:
             title: Modifier le budget
             update: Mettre à jour le budget
           index:
-            finished_orders: Commandes terminées
-            pending_orders: Votes en cours
             title: Budgets
           new:
             create: Créer un budget

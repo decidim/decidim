@@ -29,6 +29,7 @@ es-PY:
             success: Publicación eliminada con éxito
           edit:
             save: Actualizar
+            title: Editar publicación
           index:
             title: Publicaciones
           new:

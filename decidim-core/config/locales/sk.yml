@@ -87,7 +87,6 @@ sk:
         file_no_exists: Súbor neexistuje
         notice: Sťahovanie Vašich dát momentálne prebieha. Po dokončení dostanete e-mail.
       delete:
-        alert: Táto akcia sa nedá vrátiť späť. Ak odstránite svoj účet, nebudete sa viac môcť prihlásiť.
         confirm:
           close: Zavrieť okno
           ok: Áno, chcem zmazať účet

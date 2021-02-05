@@ -102,18 +102,17 @@ module Decidim
         it_behaves_like "a new production application"
       end
 
-      if ENV["GITHUB_REF"] && ENV["GITHUB_REF"].match?("develop")
-        context "with --edge flag" do
-          let(:command) { "decidim --edge #{test_app}" }
+      context "with --edge flag" do
+        let(:command) { "decidim --edge #{test_app}" }
 
-          it_behaves_like "a new production application"
-        end
+        it_behaves_like "a new production application"
+      end
 
-        context "with --branch flag" do
-          let(:command) { "decidim --branch master #{test_app}" }
+      context "with --branch flag" do
+        let(:default_branch) { "develop" }
+        let(:command) { "decidim --branch #{default_branch} #{test_app}" }
 
-          it_behaves_like "a new production application"
-        end
+        it_behaves_like "a new production application"
       end
 
       context "with --path flag" do

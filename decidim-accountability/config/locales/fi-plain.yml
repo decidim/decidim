@@ -32,6 +32,8 @@ fi-pl:
   decidim:
     accountability:
       actions:
+        attachment_collections: Kansiot
+        attachments: Liitteet
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa

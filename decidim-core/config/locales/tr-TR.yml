@@ -84,7 +84,6 @@ tr:
         file_no_exists: Dosya bulunmuyor
         notice: Verilerinizin indirilmesi şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       delete:
-        alert: Bu eylem geri alınamaz. Hesabınızı silerseniz, giriş yapamazsınız.
         confirm:
           close: Pencereyi kapat
           ok: Evet, hesabımı silmek istiyorum

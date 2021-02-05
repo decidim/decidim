@@ -92,4 +92,4 @@ gem "decidim-dev", DECIDIM_VERSION
 . Make a full backup of the database before updating, just in case something unexpected happens.
 . If you are more than update away. Always update from one version to the immediately next one and then repeat the process until you are up to date.
 . Always check the instructions for a certain version upgrade in https://github.com/decidim/decidim/releases. Some releases require to perform certain actions as they may change some database structures. Follow that instructions if you are affected.
-. Check also the file https://github.com/decidim/decidim/blob/master/CHANGELOG.md It may have relevant information for updates between versions.
+. Check also the file https://github.com/decidim/decidim/blob/develop/CHANGELOG.md It may have relevant information for updates between versions.
