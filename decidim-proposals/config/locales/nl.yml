@@ -544,13 +544,6 @@ nl:
               ok: Trek het gezamenlijk ontwerp in
               title: De volgende actie is onomkeerbaar
             success: Gezamenlijk ontwerp is succesvol ingetrokken.
-        compare:
-          mine_is_different: Mijn gezamenlijk ontwerp is anders
-          no_similars_found: Goed gedaan! Geen vergelijkbare gezamenlijke ontwerpen gevonden
-          title: Vergelijkbare gezamenlijke ontwerpen
-        complete:
-          send: Verzenden
-          title: Voltooi uw gezamenlijk ontwerp
         count:
           drafts_count:
             one: "%{count} gezamenlijk ontwerp"
@@ -582,7 +575,6 @@ nl:
           unfold: Ontvouwen
         new:
           send: Doorgaan met
-          title: Creëer uw gezamenlijk ontwerp
         new_collaborative_draft_button:
           new_collaborative_draft: Nieuw gezamenlijk ontwerp
         orders:
@@ -627,23 +619,11 @@ nl:
         update:
           error: Er is een fout opgetreden bij het opslaan van de gezamenlijke conceptversie.
           success: Samenwerkingsconcept met succes bijgewerkt.
-          title: Samenwerkend concept bewerken
         wizard_aside:
-          back: Terug
           back_from_collaborative_draft: Terug naar gezamenlijke concepten
-          back_from_step_1: Terug naar gezamenlijke concepten
-          back_from_step_2: Terug naar gezamenlijke concepten
-          back_from_step_3: Terug naar vergelijking van concepten voor samenwerking
-          back_from_step_4: Terug naar het ontwerp bewerken
           info: U maakt een <strong>gezamenlijk ontwerp</strong>.
-        wizard_steps:
-          current_step: Huidige stap
-          see_steps: zie stappen
-          step_1: Maak uw gezamenlijk ontwerp
-          step_2: Vergelijk met gezamenlijke ontwerpen
-          step_3: Voltooi uw gezamenlijke ontwerp
-          step_of: Stap %{current_step_num} van %{total_steps}
-          title: Gezamenlijke ontwerpontwerp-creatie stappen
+        wizard_header:
+          title: Maak uw gezamenlijk ontwerp
       create:
         error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.

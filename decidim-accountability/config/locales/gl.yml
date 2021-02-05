@@ -9,7 +9,7 @@ gl:
         end_date: Data de finalización
         progress: Progreso
         project_ids: Proxectos incluídos
-        proposals: Propostas incluidas
+        proposals: Propostas incluídas
         start_date: Data de inicio
         title: Título
         updated_at: Actualizado en
@@ -32,16 +32,24 @@ gl:
   decidim:
     accountability:
       actions:
+        attachment_collections: Cartafoles
         confirm_destroy: Estás seguro de que queres eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
+        import_csv: Importar CSV
         new: Novo %{name}
         preview: Vista previa
         timeline_entries: Evolución do proxecto
         title: Accións
       admin:
         exports:
+          result_comments: Comentarios
           results: Resultados
+        import_results:
+          new:
+            import: Importar
+            link: ligazón
+            title: Importar resultados dun CSV
         models:
           result:
             name: Resultado
@@ -111,12 +119,26 @@ gl:
         value_types:
           parent_presenter:
             not_found: 'Non se atopou o pai na base de datos (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datas
+          results: Resultados
+          unspecified: Sen especificar
+      import_mailer:
+        import:
+          errors: Erros
+          errors_present: Produciuse un erro ao importar os resultados
+          row_number: Fila
+          subject: Resultados importados con éxito
+          success: Resultados importados con éxito. Podes revisar os resultados no panel de administración.
       last_activity:
         new_result_at_html: "<span>Novo resultado en %{link}</span>"
       models:
         result:
           fields:
+            category: Categoría
             end_date: Data de finalización
+            id: ID
             progress: Progreso
             start_date: Data de inicio
             status: Estado
@@ -161,6 +183,13 @@ gl:
             votes: Soporta
         timeline:
           title: Evolución do proxecto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoría
+          status_id_eq:
+            label: Estado
     components:
       accountability:
         name: Responsabilidade
@@ -168,6 +197,7 @@ gl:
           global:
             categories_label: Nome para "Categorías"
             comments_enabled: Comentarios habilitados
+            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             display_progress_enabled: Mostrar o progreso
             heading_leaf_level_results: Nome para "Proxectos"
             heading_parent_level_results: Nome para "Resultados"
@@ -192,6 +222,9 @@ gl:
         description: Número de resultados xerados
         object: resultados
         title: Resultados
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ver todos os resultados (%{count})
     resource_links:
       included_projects:
         result_project: Proxectos incluídos neste resultado

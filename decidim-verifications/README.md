@@ -166,7 +166,7 @@ on the context where the authorization is being performed.
 
 For example, you can require authorization for supporting proposals in a participatory
 process, and also restrict it to users with postal codes 12345 and 12346. The
-[example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb)
+[example authorization handler](https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb)
 included in this module allows to do that. As an admin user, you should visit
 the proposals componenent permissions screen, choose the `Example authorization`
 as the authorization handler name for the `vote` action and enter "12345, 12346"
@@ -204,8 +204,8 @@ Decidim::Verifications.register_workflow(:my_verification) do |workflow|
 end
 ```
 
-Check the [example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb)
-and the [DefaultActionAuthorizer class](https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/default_action_authorizer.rb)
+Check the [example authorization handler](https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb)
+and the [DefaultActionAuthorizer class](https://github.com/decidim/decidim/blob/develop/decidim-verifications/lib/decidim/verifications/default_action_authorizer.rb)
 for additional technical details.
 
 ## How Handlers work
@@ -241,8 +241,8 @@ See [Decidim](https://github.com/decidim/decidim).
 
 See [Decidim](https://github.com/decidim/decidim).
 
-[authorization handler base class]: https://github.com/decidim/decidim/blob/master/decidim-verifications/app/services/decidim/authorization_handler.rb
-[example SMS gateway]: https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/sms/example_gateway.rb
+[authorization handler base class]: https://github.com/decidim/decidim/blob/develop/decidim-verifications/app/services/decidim/authorization_handler.rb
+[example SMS gateway]: https://github.com/decidim/decidim/blob/develop/decidim-verifications/lib/decidim/verifications/sms/example_gateway.rb
 
 [Decidim Barcelona]: https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb
 [Decidim Terrassa]: https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb

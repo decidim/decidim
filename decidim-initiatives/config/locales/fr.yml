@@ -208,6 +208,7 @@ fr:
           edit:
             accept: Accepter l'initiative
             confirm: Êtes-vous sûr(e) ?
+            confirm_send_to_technical_validation: Êtes-vous sûr(e) ?
             discard: Dépublier l'initiative
             export_pdf_signatures: Exporter PDF des signatures
             export_votes: Exporter la liste des votes

@@ -134,14 +134,26 @@ fi-pl:
     admin:
       actions:
         add: Lisää
+        attachment:
+          new: Uusi liite
+        attachment_collection:
+          new: Uusi kansio
         browse: Selaa
+        category:
+          new: Uusi aihepiiri
         export: Vie
         manage: Hallitse
         new: Uusi %{name}
+        newsletter:
+          new: Uusi uutiskirje
+        participatory_space_private_user:
+          new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
         share: Jaa
+        user:
+          new: Uusi käyttäjä
         verify: Vahvista
       admin_terms_of_use:
         accept:

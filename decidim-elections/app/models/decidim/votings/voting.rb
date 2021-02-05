@@ -5,6 +5,7 @@ module Decidim
     class Voting < ApplicationRecord
       include Traceable
       include Loggable
+      include Decidim::Followable
       include Decidim::Participable
       include Decidim::ParticipatorySpaceResourceable
       include Decidim::Randomable
@@ -15,6 +16,8 @@ module Decidim
       include Decidim::HasUploadValidations
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
+
+      enum voting_type: [:in_person, :online, :hybrid].map { |type| [type, type.to_s] }.to_h, _suffix: :voting
 
       translatable_fields :title, :description
 
@@ -96,6 +99,22 @@ module Decidim
 
       def attachment_context
         :admin
+      end
+
+      def scopes_enabled
+        true
+      end
+
+      def needs_elections?
+        !in_person_voting? && !has_elections?
+      end
+
+      private
+
+      def has_elections?
+        components.where(manifest_name: :elections).any? do |component|
+          Decidim::Elections::Election.where(component: component).any?
+        end
       end
     end
   end

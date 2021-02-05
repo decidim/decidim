@@ -1,6 +1,8 @@
 ca:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Àrea
         assembly_type: Tipus d'assemblea
@@ -34,7 +36,7 @@ ca:
         meta_scope: Metadades d'àmbit
         parent_id: Assemblea principal
         participatory_processes_ids: Processos participatius relacionats
-        participatory_scope: Què es decideix
+        participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
         private_space: Espai privat
         promoted: Destacat
@@ -60,6 +62,7 @@ ca:
         full_name: Nom complet
         gender: Gènere
         position: Posició
+        user_id: Usuària
       assembly_user_role:
         email: Correu electrònic
         name: Nom
@@ -305,6 +308,9 @@ ca:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membres

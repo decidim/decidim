@@ -45,8 +45,6 @@ fi:
             title: Muokkaa budjettia
             update: Päivitä budjetti
           index:
-            finished_orders: Valmiit äänet
-            pending_orders: Odottavat äänet
             title: Budjetit
           new:
             create: Luo budjetti

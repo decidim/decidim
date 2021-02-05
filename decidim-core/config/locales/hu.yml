@@ -79,7 +79,6 @@ hu:
         file_no_exists: Fájl nem létezik
         notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
-        alert: Ez a művelet nem visszavonható. Ha törlöd a fiókod, akkor nem tudsz bejelentkezni.
         confirm:
           close: Ablak bezárása
           ok: Igen, törölni szeretném a fiókomat
