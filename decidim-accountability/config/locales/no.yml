@@ -32,6 +32,8 @@
   decidim:
     accountability:
       actions:
+        attachment_collections: Mapper
+        attachments: Vedlegg
         confirm_destroy: Er du sikker på at du vil slette dette %{name}?
         destroy: Slett
         edit: Redigere
@@ -42,6 +44,7 @@
         title: Handlinger
       admin:
         exports:
+          result_comments: Kommentarer
           results: Resultater
         import_results:
           new:
@@ -121,6 +124,11 @@
         value_types:
           parent_presenter:
             not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datoer
+          results: Resultater
+          unspecified: Ikke spesifisert
       import_mailer:
         import:
           errors: Feil
@@ -133,6 +141,7 @@
       models:
         result:
           fields:
+            category: Kategori
             end_date: Sluttdato
             progress: Framgang
             start_date: Startdato

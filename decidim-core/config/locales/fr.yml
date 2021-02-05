@@ -84,7 +84,7 @@ fr:
         file_no_exists: Le fichier n'existe pas
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
-        alert: Cette action ne peut pas être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter.
+        alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez pas vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais ces contributions ne seront pas associées.
         confirm:
           close: Fermer la fenêtre
           ok: Oui, je souhaite supprimer mon compte
@@ -335,6 +335,7 @@ fr:
         body_2: 'Motif : %{justification}'
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
+        subject: Votre compte a été bloqué par %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: et %{count} plus
@@ -1125,6 +1126,7 @@ fr:
         groups: Groupes
         members: Membres
         officialized: Participant officiel
+        send_private_message: Envoyer un message privé
         timeline: Chronologie
         view_full_profile: Voir le profil complet
       sidebar:

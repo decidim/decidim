@@ -83,7 +83,6 @@ nl:
         file_no_exists: Bestand bestaat niet
         notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
-        alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
           close: Sluit venster
           ok: Ja, ik wil mijn account verwijderen

@@ -83,7 +83,6 @@ it:
         file_no_exists: Il file non esiste
         notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
-        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
         confirm:
           close: Chiudere finestra
           ok: Sì, voglio eliminare il mio account

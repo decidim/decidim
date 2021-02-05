@@ -47,8 +47,6 @@ pl:
             title: Edytuj budżet
             update: Aktualizuj budżet
           index:
-            finished_orders: Zakończone zamówienia
-            pending_orders: Zamówienia oczekujące
             title: Budżety
           new:
             create: Utwórz budżet
