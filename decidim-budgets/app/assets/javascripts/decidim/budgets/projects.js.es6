@@ -53,18 +53,16 @@ $(() => {
       }
     });
 
-    $(window).on("beforeunload", () => {
+    window.addEventListener("beforeunload", (event) => {
       const currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
       const exitUrl = window.exitUrl;
       window.exitUrl = null;
 
       if (currentAllocation === 0 || (exitUrl && exitUrl.startsWith(safeUrl))) {
-        console.log("BEFORE UNLOAD FALSE");
-        return false;
+        return;
       }
 
-      console.log("BEFORE UNLOAD TRUE");
-      return true;
+      event.returnValue = true;
     });
   }
 });

@@ -45,35 +45,24 @@
       $form.data("changed", true);
     });
 
-    let exitUrl = null;
     const safePath = $form.data("safe-path").split("?")[0];
     $(document).on("click", "a", (event) => {
-      exitUrl = event.currentTarget.href;
+      window.exitUrl = event.currentTarget.href;
     });
     $(document).on("submit", "form", (event) => {
-      exitUrl = event.currentTarget.action;
+      window.exitUrl = event.currentTarget.action;
     });
 
-    $(window).on("beforeunload", (ev) => {
-      const currentExitUrl = exitUrl;
+    window.addEventListener("beforeunload", (event) => {
+      const exitUrl = window.exitUrl;
       const hasChanged = $form.data("changed");
-      exitUrl = null;
+      window.exitUrl = null;
 
-      console.log(ev);
-
-      if (!hasChanged || (currentExitUrl && currentExitUrl.includes(safePath))) {
-        console.log("BEFORE UNLOAD FALSE");
-        // Linter doesn't like returning undefined, so we need to remove the
-        // result value manually in order to achieve this.
-        Reflect.deleteProperty(ev, "result");
+      if (!hasChanged || (exitUrl && exitUrl.includes(safePath))) {
         return;
       }
 
-      // TODO: Here you should return something that works in FF, IE and Chrome
-      //       Returning "test" would cause IE to show message "test".
-      //       Returning "" does not seem to work in FF => how we can get it to work?
-      console.log("BEFORE UNLOAD TRUE");
-      ev.result = "test";
+      event.returnValue = true;
     });
   }
 })(window);

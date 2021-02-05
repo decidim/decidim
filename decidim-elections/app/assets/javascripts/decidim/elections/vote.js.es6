@@ -243,17 +243,14 @@ $(() => {
   const $form = $(".evote__options");
   if ($form.length > 0) {
 
-    $(window).on("beforeunload", () => {
-      console.log("VOTE BEFORE UNLOAD");
+    window.addEventListener("beforeunload", (event) => {
       const voteCast = window.confirmed;
 
       if (voteCast) {
-        console.log("BEFORE UNLOAD FALSE");
-        return false;
+        return;
       }
 
-      console.log("BEFORE UNLOAD TRUE");
-      return true;
+      event.returnValue = true;
     });
   }
 
