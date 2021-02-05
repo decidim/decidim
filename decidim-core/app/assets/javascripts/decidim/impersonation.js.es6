@@ -13,8 +13,9 @@
     }, 1000);
 
     // Prevent reload when page is already unloading, otherwise it may cause infinite reloads.
-    $(window).on("beforeunload", () => {
+    window.addEventListener("beforeunload", () => {
       clearInterval(exitInterval);
+      return;
     });
   });
 })(window);
