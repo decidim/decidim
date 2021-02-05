@@ -17,7 +17,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
 
-      enum voting_type: [:in_person, :online, :hybrid].map { |type| [type, type.to_s] }.to_h, _suffix: :voting
+      enum voting_type: [:in_person, :online, :hybrid].index_with(&:to_s), _suffix: :voting
 
       translatable_fields :title, :description
 
