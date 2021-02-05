@@ -1,0 +1,63 @@
+= Testing SSL in localhost
+
+In some cases is useful to access the `localhost` environment under SSL (ie: `https://localhost:3000/`).
+
+A typical use case is when you want to test login integration with 3rd party systems using OAuth (which in the latest versions only the HTTPS protocol is allowed).
+
+Using Puma, the default server for Rails, you can easily do the trick by creating a self-signed certificate and using it when starting your development environment.
+
+== Create a self-signed certificate for localhost
+
+First you need a SSL certificate for the `localhost` domain (you only need to execute this command once):
+
+[source,bash]
+----
+openssl req -x509 -out localhost.crt -keyout localhost.key \
+  -newkey rsa:2048 -nodes -sha256 \
+  -subj '/CN=localhost' -extensions EXT -config <( \
+   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
+----
+
+This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we'll suppose we have them in the folder `certs` in our root user home:
+
+[source,bash]
+----
+mkdir ~/certs/
+mv localhost.crt ~/certs/
+mv localhost.key ~/certs/
+----
+
+== Starting development in SSL mode
+
+Once you have your certificate is generated, just use the next command in order to start puma instead of the typical `bin/rails s`:
+
+[source,bash]
+----
+bin/rails s -b "ssl://127.0.0.1:3000?key=$HOME/certs/localhost.key&cert=$HOME/certs/localhost.crt"
+----
+
+Now you are ready to visit your favorite browser at the address `https://localhost:3000/` (note "https").
+
+Note: Your browser is going to complain as this is a self-signed certificate, that's ok for development, just add an exception and accept the certificate.
+
+Also take into account that starting Puma in SSL mode will disable accessing it in non-ssl mode (normal `http` protocol).
+
+== Testing tenants using lvh.me
+
+You can also test the multi-tenant capabilities of Decidim by using alternative domains or subdomains that points to your local machine. `lvh.me` is a service that does just that without configuring anything in your machine (an alternative is to add entries in your `/etc/hosts` with a testing domain of your choice). Just point your browser to any subdomain of `lvh.me` and you'll be in your own machine.
+
+Just access your `/system` admin and create new organization with some subdomain of `lvh.me`: `organization.lvh.me`, `tenant2.lvh.me`, etc.
+
+You can combine this with the previously generated certificate (your browser is going to complaint but just tell it to proceed vising the site).
+
+Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you've started Rails):
+
+`http://someorg.lvh.me:3000/`
+
+`https://someorg.lvh.me:3000/`
+
+`http://anotherorg.lvh.me:3000/`
+
+`https://anotherorg.lvh.me:3000/`
+
+etc.

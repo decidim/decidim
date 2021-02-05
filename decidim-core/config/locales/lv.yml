@@ -82,7 +82,6 @@ lv:
         file_no_exists: Fails neeksistē
         notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       delete:
-        alert: Šo darbību nevar atsaukt. Ja dzēsīsiet kontu, nevarēsiet ar to vairs pierakstīties.
         confirm:
           close: Aizvērt logu
           ok: Jā, es gribu dzēst savu kontu

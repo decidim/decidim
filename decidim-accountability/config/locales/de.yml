@@ -32,6 +32,8 @@ de:
   decidim:
     accountability:
       actions:
+        attachment_collections: Ordner
+        attachments: Anhänge
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
@@ -116,7 +118,7 @@ de:
             success: Eintrag erfolgreich aktualisiert
       admin_log:
         result:
-          create: "%{user_name} hat Ergebnis %{resource_name} in %{space_name} erstellt"
+          create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
           update: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} aktualisiert"
         value_types:

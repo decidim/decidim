@@ -31,7 +31,7 @@ cs:
         show_statistics: Zobrazit statistiky
         slug: URL slug
         start_date: Počáteční datum
-        subtitle: Titulky
+        subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
       participatory_process_group:
@@ -244,7 +244,7 @@ cs:
       participatory_processes:
         create:
           error: Při vytváření nového participačního procesu došlo k chybě.
-          success: Účastnící proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
+          success: Participační proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
         edit:
           update: Aktualizace
         index:

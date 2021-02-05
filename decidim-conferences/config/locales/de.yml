@@ -249,36 +249,36 @@ de:
         conferences: Konferenzen
     admin_log:
       conference:
-        create: "%{user_name} erstellt die %{resource_name} Konferenz"
-        publish: "%{user_name} veröffentlichte die %{resource_name} Konferenz"
-        send_conference_diplomas: "%{user_name} sendeten Teilnahmebescheinigungen an die %{resource_name} Konferenzteilnehmer"
-        unpublish: "%{user_name} unveröffentlichte die %{resource_name} Konferenz"
-        update: "%{user_name} hat die %{resource_name} Konferenz aktualisiert"
-        update_diploma: "%{user_name} hat die Konfiguration der Teilnahmezertifikate für %{resource_name} Konferenz aktualisiert"
+        create: "%{user_name} hat die Konferenz %{resource_name} erstellt"
+        publish: "%{user_name} hat die Konferenz %{resource_name} veröffentlicht"
+        send_conference_diplomas: "%{user_name} hat Teilnahmebescheinigungen an die Teilnehmenden der Konferenz %{resource_name} gesendet"
+        unpublish: "%{user_name} hat die Konferenz %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        update: "%{user_name} hat die Konferenz %{resource_name} aktualisiert"
+        update_diploma: "%{user_name} hat die Konfiguration der Teilnahmebescheinigungen für die Konferenz %{resource_name} aktualisiert"
       conference_speaker:
-        create: "%{user_name} hat den %{resource_name} Sprecher in der %{space_name} Konferenz erstellt"
-        delete: "%{user_name} entfernte den %{resource_name} Sprecher von der %{space_name} Konferenz"
-        update: "%{user_name} aktualisierte den %{resource_name} Sprecher in der %{space_name} Konferenz"
+        create: "%{user_name} hat den Sprecher %{resource_name} in der Konferenz %{space_name} erstellt"
+        delete: "%{user_name} hat den Sprecher %{resource_name} aus der Konferenz %{space_name} entfernt"
+        update: "%{user_name} hat den Sprecher %{resource_name} in der Konferenz %{space_name} aktualisiert"
       conference_user_role:
-        create: "%{user_name} lud %{resource_name} zu der %{space_name} Konferenz ein"
-        delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
-        update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Konferenz geändert"
+        create: "%{user_name} hat %{resource_name} zur Konferenz %{space_name} eingeladen"
+        delete: "%{user_name} hat den Admin %{resource_name} aus der Konferenz %{space_name} entfernt"
+        update: "%{user_name} hat die Rolle von %{resource_name} in der Konferenz %{space_name} geändert"
       conferences:
         conference_registration:
-          confirm: "%{user_name} bestätigte eine Konferenz Anmeldung in %{resource_name} Konferenz"
+          confirm: "%{user_name} hat eine Anmeldung zur Konferenz %{resource_name} bestätigt"
         partner:
-          create: "%{user_name} hat %{resource_name} zur %{space_name} Konferenz erstellt"
-          delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
-          update: "%{user_name} aktualisiert %{resource_name} in der %{space_name} Konferenz"
+          create: "%{user_name} hat %{resource_name} zur Konferenz %{space_name} hinzugefügt"
+          delete: "%{user_name} hat den Benutzer %{resource_name} aus der Konferenz %{space_name} entfernt"
+          update: "%{user_name} hat %{resource_name} in der Konferenz %{space_name} aktualisiert"
         registration_type:
-          create: "%{user_name} hat den %{resource_name} Registrierungstyp in der %{space_name} Konferenz erstellt"
-          publish: "%{user_name} hat die %{resource_name} Anmeldeart in der %{space_name} Konferenz veröffentlicht"
-          unpublish: "%{user_name} Anmeldetyp %{resource_name} in der %{space_name} Konferenz nicht veröffentlicht"
-          update: "%{user_name} Eintragstyp %{resource_name} in der %{space_name} Konferenz aktualisiert"
+          create: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} erstellt"
+          publish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} veröffentlicht"
+          unpublish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} auf \"unveröffentlicht\" gesetzt"
+          update: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} aktualisiert"
       media_link:
-        create: "%{user_name} hat den %{resource_name} Medienlink in der %{space_name} Konferenz erstellt"
-        delete: "%{user_name} den Medienlink %{resource_name} von der %{space_name} Konferenz entfernt"
-        update: "%{user_name} hat den %{resource_name} Medienlink in der %{space_name} Konferenz aktualisiert"
+        create: "%{user_name} hat den Medienlink %{resource_name} in der Konferenz %{space_name} erstellt"
+        delete: "%{user_name} hat den Medienlink %{resource_name} aus der Konferenz %{space_name} entfernt"
+        update: "%{user_name} hat den Medienlink %{resource_name} in der Konferenz %{space_name} aktualisiert"
     conference_program:
       index:
         title: Programm

@@ -14,6 +14,8 @@ fi:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Liitettävä uudelleen
             choices:
               missing: ovat puutteellisia
               too_many: liian monta
@@ -118,6 +120,7 @@ fi:
           resize_and_pad: Muutetaan kokoon ja täytetään
           resize_to_fit: Muutetaan mahtumaan kokoon
       question_types:
+        files: Tiedostot
         long_answer: Pitkä vastaus
         matrix_multiple: Matriisi (useat valinnat)
         matrix_single: Matriisi (yksi valinta)

@@ -343,13 +343,6 @@ id:
         print:
           city: Kota
         result:
-          answer_title:
-            accepted: Proposal ini telah diterima karena
-            created: Proposal ini telah dibuat
-            discarded: Proposal ini telah dibuang karena
-            published: Proposal ini diterbitkan karena
-            rejected: Proposal ini telah ditolak karena
-            validating: Proposal ini sedang dievaluasi
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
         show:
           follow_description: Terima pemberitahuan saat ada berita dalam inisiatif ini

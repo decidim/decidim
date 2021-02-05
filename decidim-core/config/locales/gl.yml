@@ -63,7 +63,6 @@ gl:
         file_no_exists: O ficheiro non existe
         notice: Os teus datos están en progreso. Recibirás un correo electrónico cando finalice.
       delete:
-        alert: Non se pode desfacer esta acción. Se eliminas a túa conta non poderás iniciar sesión.
         confirm:
           close: Pechar xanela
           ok: Si, quero eliminar a miña conta

@@ -1,6 +1,8 @@
 es:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de asamblea
@@ -60,6 +62,7 @@ es:
         full_name: Nombre completo
         gender: Género
         position: Posición
+        user_id: Usuaria
       assembly_user_role:
         email: Correo electrónico
         name: Nombre
@@ -305,6 +308,9 @@ es:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Miembros
