@@ -231,7 +231,7 @@ cs:
         index:
           attachments_title: Přílohy
         new:
-          create: Vytvoření přílohy
+          create: Vytvořit přílohu
           title: Nová příloha
         update:
           error: Při aktualizaci této přílohy došlo k chybě.
@@ -338,7 +338,7 @@ cs:
           label: Stav
           values:
             'false': Ověřeno
-            'true': Není oficializováno
+            'true': Neověřeno
         private_space_eq:
           label: Soukromé
           values:
@@ -351,7 +351,7 @@ cs:
             'true': Nezveřejněno
         scope_id_eq:
           label: Oblast působnosti
-        search_label: Vyhledávání
+        search_label: Hledat
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
@@ -383,7 +383,7 @@ cs:
       impersonations:
         close_session:
           error: Při zavírání aktuální relace správy účastníků došlo k potížím.
-          success: Aktuální relace zosobnění byla úspěšně ukončena.
+          success: Aktuální relace v zastoupení byla úspěšně ukončena.
         create:
           error: Došlo k chybě, která se vyskytuje u účastníka.
           success: Spravovaný účastník byl úspěšně vytvořen.
@@ -392,7 +392,7 @@ cs:
           name: Jméno
           reason: Důvod
         new:
-          impersonate: Vydávat se za uživatele
+          impersonate: V zastoupení
           impersonate_existing_managed_user: Spravovat účastníka "%{name}"
           impersonate_existing_user: Spravovat účastníka "%{name}"
           impersonate_new_managed_user: Spravovat nového účastníka
@@ -418,7 +418,7 @@ cs:
         dashboard: Ovládací panel
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
-        impersonations: Vydávání se za uživatele
+        impersonations: V zastoupení
         moderation: Globální moderace
         newsletters: Zpravodaje
         participants: Účastníci
@@ -626,17 +626,17 @@ cs:
           created_at: Vytvořeno na
           name: název
           nickname: Přezdívka
-          not_officialized: Není oficializováno
+          not_officialized: Neověřeno
           officialize: Ověřit
           officialized: Ověřen
-          reofficialize: Reofficialize
+          reofficialize: Znovu ověřit
           reports: Hlášení
           show_email: Zobrazit e-mailovou adresu
-          status: Postavení
+          status: Stav
           unblock: Odblokovat uživatele
-          unofficialize: Odebrat oficializaci
+          unofficialize: Zrušit ověření
         new:
-          badge: Oficializační odznak
+          badge: Odznak ověření
           officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
         show_email_modal:
@@ -678,9 +678,9 @@ cs:
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
           images:
-            layout_appearance_title: Upravit vzhled vzhledu
+            layout_appearance_title: Upravit vzhled zobrazení
             preview: Náhled
-          omnipresent_banner_appearance_title: Upravte všudypřítomný banner
+          omnipresent_banner_appearance_title: Upravit všudypřítomný banner
       organization_homepage:
         edit:
           active_content_blocks: Bloky aktivního obsahu
@@ -914,7 +914,7 @@ cs:
             reportable_type: Typ
             reported_content_url: Oznámená adresa URL obsahu
             reports: Zprávy
-            visit_url: Navštivte adresu URL
+            visit_url: Navštívit URL
         report:
           fields:
             details: Detaily důvodu
@@ -922,7 +922,7 @@ cs:
             reason: Důvod
   errors:
     messages:
-      invalid_json: Neplatná JSON
+      invalid_json: Neplatný JSON
   layouts:
     decidim:
       admin:
