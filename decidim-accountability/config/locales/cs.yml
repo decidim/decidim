@@ -7,17 +7,17 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         end_date: Datum ukončení
-        progress: Pokrok
+        progress: Průběh
         project_ids: Zahrnuté projekty
         proposals: Zahrnuté návrhy
-        start_date: Počáteční datum
+        start_date: Datum zahájení
         title: Titul
-        updated_at: Aktualizováno na
+        updated_at: Aktualizováno v
       status:
         description: Popis
         key: Klíč
         name: Název
-        progress: Pokrok
+        progress: Průběh
       timeline_entry:
         description: Popis
         entry_date: Datum
@@ -30,7 +30,7 @@ cs:
         one: Výsledek
         few: Výsledek
         many: Výsledek
-        other: Výsledek
+        other: Výsledků
   decidim:
     accountability:
       actions:
@@ -63,7 +63,7 @@ cs:
           status:
             name: Stav
           timeline_entry:
-            name: Časová položka
+            name: Záznam v harmonogramu
         results:
           create:
             invalid: Při vytváření tohoto výsledku došlo k problému
