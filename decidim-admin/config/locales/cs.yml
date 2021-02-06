@@ -59,8 +59,8 @@ cs:
         machine_translation_display_priority_original: Původní text přednostně
         machine_translation_display_priority_translation: Přeložený text přednostně
         name: Název
-        official_img_footer: Oficiální zápatí loga
-        official_img_header: Oficiální záhlaví loga
+        official_img_footer: Oficiální logo zápatí
+        official_img_header: Oficiální logo záhlaví
         official_url: Oficiální URL organizace
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Název
