@@ -22,6 +22,10 @@ it:
           attributes:
             attachment:
               needs_to_be_reattached: Necessita di essere riallegato
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necessita di essere riallegato
   activerecord:
     models:
       decidim/elections/answer:
@@ -69,6 +73,7 @@ it:
             title: Modifica risposta
             update: Aggiorna risposta
           index:
+            invalid_max_selections: Hai bisogno di %{missing_answers} altre risposte per scegliere le selezioni massime
             title: Risposte
           new:
             create: Crea risposta
@@ -87,6 +92,7 @@ it:
             title: Modifica elezione
             update: Aggiorna elezione
           index:
+            no_bulletin_board: Non è configurato alcun <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a> che sia necessario per usare questo modulo. Questa attività dovrebbe essere eseguita dall'amministratore di sistema.
             title: Elezioni
           new:
             create: Crea elezione
@@ -163,6 +169,10 @@ it:
             answers: Risposte
             max_selections: Max. selezioni
             title: Titolo
+      orders:
+        label: Ordina le elezioni per
+        older: Meno recente
+        recent: Recenti
       votes:
         confirm:
           answer: Risposta

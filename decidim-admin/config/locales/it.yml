@@ -55,6 +55,9 @@ it:
         highlighted_content_banner_title: Titolo
         instagram_handler: Gestore di Instagram
         logo: Logo
+        machine_translation_display_priority: Priorità di visualizzazione della traduzione automatica
+        machine_translation_display_priority_original: Prima il testo originale
+        machine_translation_display_priority_translation: Prima il testo tradotto
         name: Nome
         official_img_footer: Logo ufficiale nel footer
         official_img_header: Intestazione logo ufficiale
@@ -138,6 +141,7 @@ it:
         per_page: Per pagina
         permissions: Permessi
         reject: Rifiuta
+        share: Condividi
         verify: Verifica
       admin_terms_of_use:
         accept:
@@ -265,6 +269,7 @@ it:
           headers:
             actions: Azioni
             name: Nome del componente
+            scope: Ambito del componente
             type: Tipo di componente
         new:
           add: Aggiungi componente
@@ -434,6 +439,14 @@ it:
           fields:
             name: Nome
             plural: Plurale
+        share_token:
+          fields:
+            created_at: Creato il
+            expires_at: Scade il
+            last_used_at: Ultimo utilizzo
+            times_used: Volte usate
+            token: Token
+            user: Creata da
         static_page:
           fields:
             created_at: Creato il
