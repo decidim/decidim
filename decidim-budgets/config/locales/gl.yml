@@ -6,6 +6,7 @@ gl:
         description: Descripción
         title: Título
         total_budget: Orzamento total
+        weight: Peso
       project:
         budget_amount: Importe do orzamento
         decidim_category_id: Categoría
@@ -34,6 +35,7 @@ gl:
       admin:
         budgets:
           create:
+            invalid: Produciuse un problema ao crear este orzamento
             success: Orzamento creado con éxito
           destroy:
             invalid: Produciuse un problema ao eliminar este orzamento
@@ -85,15 +87,27 @@ gl:
           delete: "%{user_name} eliminou o %{resource_name} proxecto no espazo %{space_name}"
           update: "%{user_name} actualizou o proxecto %{resource_name} no espazo %{space_name}"
       budget_information_modal:
+        close_modal: Pechar modal
         continue: Continuar
         more_information: Máis información
+      budgets_list:
+        cancel_order:
+          more_than_one: eliminar o teu voto de %{name} e comezar de novo
+          only_one: eliminar o teu voto e comezar de novo.
+        highlighted_cta: Votar en %{name}
+        my_budgets: Os meus orzamentos
       models:
         budget:
           fields:
             name: Nome
+            projects_count: Número de proxectos
+            total_budget: Orzamento total
         project:
           fields:
             title: Título
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Os proxectos que seleccionaches son:'
       projects:
         budget_confirm:
           cancel: Cancelar
@@ -163,16 +177,22 @@ gl:
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
             resources_permissions_enabled: Os permisos de acción pódense definir para cada reunión
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             title: Título
             total_budget: Orzamento total
+            vote_minimum_budget_projects_number: Número mínimo de proxectos a votar
             vote_threshold_percent: Porcentaxe de límite de voto
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar votos
             title: Título
+            votes: Votación
             votes_choices:
+              disabled: Votación deshabilitada
               enabled: Votación habilitada
+              finished: Votación finalizada
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto
