@@ -7,7 +7,7 @@
 
       <div class="space-stats">
         <% if model.present? %>
-          <%= cell("decidim/participatory_processes/statistic", collection: model) %>
+          <%= cell("decidim/statistic", collection: model) %>
         <% else %>
           <span class="muted"><%= no_stats %></span>
         <% end %>
