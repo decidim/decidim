@@ -48,6 +48,9 @@ gl:
             import: Importar
             link: ligazón
             title: Importar resultados dun CSV
+        imports:
+          create:
+            success: Importando o ficheiro. Recibirás un correo electrónico nos vindeiros minutos co resultado da importación
         models:
           result:
             name: Resultado
@@ -186,6 +189,8 @@ gl:
             heading_leaf_level_results: Nome para "Proxectos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Intro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             subcategories_label: Nome para "Subcategorías"
           step:
             comments_blocked: Comentarios bloqueados
