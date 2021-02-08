@@ -18,8 +18,8 @@ en:
         min_selections: None of the above option
         title: Title
       voting:
-        end_time: End time
-        start_time: Start time
+        end_time: Voting Ends
+        start_time: Voting begings
     errors:
       models:
         answer:
@@ -643,6 +643,8 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
+          no_votings: No voting match your search criteria.
+          only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
         orders:
           label: 'Sort votings by:'
@@ -656,8 +658,15 @@ en:
           ongoing: Ongoing
           upcoming: Upcoming
         footer_button_text:
+          participate: Participate
           view: View
+          vote: Vote
         unspecified: Not specified
+        voting_type:
+          hybrid: Hybrid
+          in_person: In person
+          online: Online
+        voting_types_label: Voting type
   layouts:
     decidim:
       election_votes_header:

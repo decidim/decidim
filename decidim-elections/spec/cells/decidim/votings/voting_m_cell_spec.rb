@@ -13,7 +13,7 @@ module Decidim::Votings
     let(:cell_html) { my_cell.call }
     let(:start_time) { 2.days.ago }
     let(:end_time) { 1.day.from_now }
-    let!(:voting) { create(:voting, :published, start_time: start_time, end_time: end_time) }
+    let(:voting) { create(:voting, :published, start_time: start_time, end_time: end_time) }
     let(:model) { voting }
     let(:user) { create :user, organization: voting.organization }
 
@@ -42,12 +42,69 @@ module Decidim::Votings
         expect(subject).to have_css(".card__text", text: description)
       end
 
-      it "renders the badge name" do
-        expect(subject).to have_css(".card__text--status", text: "Ongoing")
-      end
-
       it "renders the banner image" do
         expect(subject).to have_css(".card__image")
+      end
+
+      describe "render different states" do
+        context "when the voting is ongoing" do
+          let!(:voting) { create(:voting, :ongoing) }
+
+          it "renders the ongoing state" do
+            expect(subject).to have_css(".card--voting.success")
+            expect(subject).to have_css(".card__text--status", text: "Ongoing")
+          end
+        end
+
+        context "when the voting is upcoming" do
+          let!(:voting) { create(:voting, :upcoming) }
+
+          it "renders the upcoming state" do
+            expect(subject).to have_css(".card--voting.warning")
+            expect(subject).to have_css(".card__text--status", text: "Upcoming")
+          end
+        end
+
+        context "when the voting is finished" do
+          let!(:voting) { create(:voting, :finished) }
+
+          it "renders the finished state" do
+            expect(subject).to have_css(".card--voting.muted")
+            expect(subject).to have_css(".card__text--status", text: "Finished")
+          end
+        end
+      end
+
+      describe "renders the different voting types" do
+        context "when the voting is online" do
+          let(:voting) { create(:voting, :online) }
+
+          it "renders the online type" do
+            within ".card-data__item" do
+              expect(page).to have_content("Online")
+            end
+          end
+        end
+
+        context "when the voting is in person" do
+          let(:voting) { create(:voting, :in_person) }
+
+          it "renders the in person type" do
+            within ".card-data__item" do
+              expect(page).to have_content("In person")
+            end
+          end
+        end
+
+        context "when the voting is hybrid" do
+          let(:voting) { create(:voting, :hybrid) }
+
+          it "renders the hybrid type" do
+            within ".card-data__item" do
+              expect(page).to have_content("Hybrid")
+            end
+          end
+        end
       end
     end
   end
