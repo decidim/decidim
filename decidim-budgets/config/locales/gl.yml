@@ -2,9 +2,12 @@ gl:
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Ámbito
         description: Descripción
         title: Título
+        total_budget: Orzamento total
       project:
+        budget_amount: Importe do orzamento
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
@@ -29,7 +32,23 @@ gl:
         preview: Vista previa
         title: Accións
       admin:
+        budgets:
+          create:
+            success: Orzamento creado con éxito
+          destroy:
+            invalid: Produciuse un problema ao eliminar este orzamento
+            success: Orzamento eliminado con éxito
+          edit:
+            title: Editar orzamento
+            update: Actualizar orzamento
+          index:
+            title: Orzamentos
+          new:
+            create: Crear orzamento
+            title: Novo orzamento
         models:
+          budget:
+            name: Orzamento
           project:
             name: Proxecto
         projects:

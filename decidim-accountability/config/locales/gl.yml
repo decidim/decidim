@@ -46,8 +46,12 @@ gl:
         import_results:
           new:
             import: Importar
+            info: "<p>Recomendámosche seguir os seguintes pasos:</p><ol><li>Crear os estados para os Resultados que desexes engadir (<a href='%{link_new_status}' target='_blank'>ligazón</a>)</li><li>Crear polo menos un Resultado de xeito manual a través deste panel de administrador (<a href='%{link_new_result}' target='_blank'>ligazón</a>) antes de usar Importar, para entender o formato e que precisas encher.</li><li>Descargar o ficheiro en formato CSV (%{link_export_csv})</li><li>Fai os trocos localmente. Só podes trocar as seguintes columnas do CSV:</li></ol><ul><li><b>category/id:</b> ID da categoría</li><li><b>scope/id:</b> ID do ámbito</li><li><b>parent/id:</b> ID do pai (para Resultados relacionados). Opcional</li><li><b>title/I18N:</b> Título no idioma X</li><li><b>description/I18N:</b> Descrición no idioma X</li><li><b>start_date:</b> data na que se inicia a execución do resultado (formato YYYY-MM-DD)</li><li><b>end_date:</b> data na que remata a execución (formato YYYY-MM-DD)</li><li><b>status/id:</b> ID do estado do resultado</li><li><b>progress:</b> Porcentaxe (de 0 a 100) da execución</li><li><b>proposals_ids:</b> ID interno das propostas relacionadas (separadas por comas). Isto converterase automaticamente en <span class='attribute-name'>proposal_url</span></li></ul>"
             link: ligazón
             title: Importar resultados dun CSV
+        imports:
+          create:
+            success: Importando o ficheiro. Recibirás un correo electrónico nos vindeiros minutos co resultado da importación
         models:
           result:
             name: Resultado
@@ -186,6 +190,8 @@ gl:
             heading_leaf_level_results: Nome para "Proxectos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Intro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             subcategories_label: Nome para "Subcategorías"
           step:
             comments_blocked: Comentarios bloqueados
