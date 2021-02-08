@@ -570,6 +570,7 @@ cs:
             title: Upravit volební místnost
             update: Aktualizovat volební místnost
           form:
+            address_help: 'Adresa: použita Geocoderem k nalezení polohy'
             location_help: 'Umístění: zpráva určená voličům s uvedením přesného místa volební místnosti'
             location_hints_help: 'Tipy k umístění: další informace. Příklad: patro budovy, kde se nachází volební místnost.'
           index:
@@ -579,6 +580,7 @@ cs:
             title: Vytvořit volební místnost
           update:
             invalid: Při aktualizaci této volební místnosti došlo k chybě
+            success: Volební místnost byla úspěšně aktualizována
         titles:
           votings: Hlasování
         votings:
