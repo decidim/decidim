@@ -312,6 +312,7 @@ gl:
           label: Publicado
           values:
             'false': Publicado
+            'true': Publicación borrada
         scope_id_eq:
           label: Ámbito
         search_label: Busca
@@ -682,6 +683,7 @@ gl:
         gallery:
           add_images: Engadir imaxes
           delete_image: Eliminar imaxe
+          gallery_legend: Engadir unha galería de imaxes (opcional)
       static_page_topics:
         create:
           error: Produciuse un erro ao crear un tema novo.
