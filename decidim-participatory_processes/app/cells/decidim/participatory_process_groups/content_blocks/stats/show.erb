@@ -5,9 +5,9 @@
 
   <div class="space-stats">
     <% if stats.collection.present? %>
-      <%= cell("decidim/participatory_processes/statistic", collection: stats.collection) %>
+      <%= cell("decidim/statistic", collection: stats.collection) %>
     <% else %>
-      <span class="muted"><%= t("decidim.participatory_processes.statistics.no_stats") %></span>
+      <span class="muted"><%= t("decidim.statistics.no_stats") %></span>
     <% end %>
   </div>
 </section>
