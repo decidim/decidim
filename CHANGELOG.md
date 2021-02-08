@@ -8,6 +8,33 @@
 
 **Fixed**
 
+- **decidim-admin**: Allow selecting multiple files on gallery forms [\#7064](https://github.com/decidim/decidim/pull/7064)
+- **decidim-proposals**: Fix proposals admin form when editing. Closes #7031 (#7042) [\#7051](https://github.com/decidim/decidim/pull/7051)
+- **decidim-admin**, **decidim-assemblies**, **decidim-core**: Add some missing i18n keys (#7039) [\#7043](https://github.com/decidim/decidim/pull/7043)
+- **decidim-participatory_processes**: Fix ParticipatoryProcess metrics ajax call in show (#6971) [\#6977](https://github.com/decidim/decidim/pull/6977)
+- **decidim-core**: Backport "Fix newsletter html containing style tag content" to 0.23-stable [\#6963](https://github.com/decidim/decidim/pull/6963)
+- **decidim-core**, **decidim-meetings**: Backport to 0.23-stable release of fix access to detail on a visible meeting [\#6934](https://github.com/decidim/decidim/pull/6934)
+- **decidim-meetings**: Backport to 0.23-stable release of fix visible_meetings_for scope [\#6932](https://github.com/decidim/decidim/pull/6932)
+- **decidim-all**: Fix broken dashboard action logs under certain conditions (#6857) [\#6930](https://github.com/decidim/decidim/pull/6930)
+- **decidim-assemblies**, **decidim-core**, **decidim-dev**: Fix traceability logs with invalid record (#6879) [\#6928](https://github.com/decidim/decidim/pull/6928)
+- **decidim-forms**: Backport "Fix mixing answers exports and admin management in questionnaires" to v0.23 [\#6906](https://github.com/decidim/decidim/pull/6906)
+- **decidim-templates**: Backport "Fix decidim-templates gem definition to include templates migrations" to v0.23 [\#6900](https://github.com/decidim/decidim/pull/6900)
+- **decidim-core**, **decidim-dev**, **decidim-system**: Backport 'Correct smtp_settings keys type #6908' on release/0.23-stable [\#6904](https://github.com/decidim/decidim/pull/6904)
+- **decidim-admin**, **decidim-core**: Fix newsletter delivery issue to all recipients with no scopes (#6875) [\#6909](https://github.com/decidim/decidim/pull/6909)
+- **decidim-core**: Backport 'backport smtp settings correction' to 0.23 [\#6877](https://github.com/decidim/decidim/pull/6877)
+- **decidim-all**: Backport "Add margin between back link and title" to v0.23 [\#6858](https://github.com/decidim/decidim/pull/6858)
+- **decidim-admin**: Backport "Fix color text on unpublish button" to v0.23 [\#6848](https://github.com/decidim/decidim/pull/6848)
+- **decidim-blogs**: Backport Add logic in view to prevent visual error in blog post [\#7278](https://github.com/decidim/decidim/pull/7278)
+- **decidim-consultations**: Backport 'Restore consultation's description rich text format' to v0.23 [\#7219](https://github.com/decidim/decidim/pull/7219)
+- **decidim-admin**, **decidim-budgets**, **decidim-comments**, **decidim-core**, **decidim-debates**, **decidim-dev**, **decidim-proposals**: Backport "Fix comments newsletter participant ids" to v0.23 [\#7184](https://github.com/decidim/decidim/pull/7184)
+- **decidim-core**: Quickfix bug in seeds for 0.23-stable [\#7061](https://github.com/decidim/decidim/pull/7061)
+- **decidim-participatory_processes**: Fix space private user in process admin [\#7073](https://github.com/decidim/decidim/pull/7073)
+- **decidim-core**: Backport "fix avoid removing tag style on custom sanitize" to v0.23-stable [\#7019](https://github.com/decidim/decidim/pull/7019)
+- **decidim-admin**, **decidim-core**: Fix editor image alt tag (#6920) [\#6990](https://github.com/decidim/decidim/pull/6990)
+- **decidim-meetings**: Backport "Fix visible_meeting_for scope if Decidim::Conference is not defined" to v0.23 [\#6980](https://github.com/decidim/decidim/pull/6980)
+- **decidim-admin**, **decidim-core**: Backport "Fix private participants pagination crash" [\#7000](https://github.com/decidim/decidim/pull/7000)
+- **decidim-core**: Remove sticky from tos agreement (#6716) [\#6954](https://github.com/decidim/decidim/pull/6954)
+
 **Removed**
 
 ## [0.23.1](https://github.com/decidim/decidim/tree/v0.23.1)
