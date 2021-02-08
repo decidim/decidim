@@ -520,6 +520,7 @@ cs:
           name: Jméno
           nickname: Přezdívka
           reason: Důvod
+          reports: Zprávy
           title: Seznam nahlášených uživatelů
         report:
           reasons:
