@@ -513,7 +513,7 @@ fr:
       moderated_users:
         index:
           actions:
-            block: Suspendre
+            block: Bloquer
             title: Actions
             unreport: Annuler le signalement
           name: Nom
