@@ -513,17 +513,23 @@ de:
       moderated_users:
         index:
           actions:
+            block: Blockieren
             title: Aktionen
+            unblock: Blockierung aufheben
             unreport: Meldung Rückgängig machen
           name: Name
           nickname: Spitzname
           reason: Grund
+          reports: Berichte
           title: Liste der gemeldeten Benutzer
         report:
           reasons:
             does_not_belong: Gehört nicht zu
             offensive: Offensiv
             spam: Spam
+        tabs:
+          blocked: Blockiert
+          unblocked: Nicht blockiert
       moderations:
         index:
           title: Moderationen
