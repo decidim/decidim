@@ -386,13 +386,19 @@ de:
         comments_count: Bemerkungen
         debates_count: Debatten
         endorsements_count: Empfehlungen
+        followers_count: Beobachter
+        headline: Statistiken
         meetings_count: Meetings
+        no_stats: Noch keine Statistik vorhanden.
         orders_count: Stimmen
         pages_count: Seiten
+        participants_count: Teilnehmer
         posts_count: Beiträge
+        processes_count: Prozesse
         projects_count: Projekte
         proposals_count: Vorschläge
         results_count: Ergebnisse
+        supports_count: Unterstützungen
         surveys_count: Umfragen
         users_count: Teilnehmer
         votes_count: Stimmen
