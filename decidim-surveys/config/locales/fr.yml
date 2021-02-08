@@ -20,7 +20,7 @@ fr:
         settings:
           global:
             announcement: Annonce
-            clean_after_publish: Supprimer les réponses lors de la publication de l'enquête
+            clean_after_publish: 'Supprimer les réponses lors de la publication de l''enquête - ATTENTION : décocher après avoir fini vos tests et avoir publié l''enquête'
             scope_id: Secteur
             scopes_enabled: Secteurs activés
           step:
