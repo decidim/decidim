@@ -514,17 +514,23 @@ en:
       moderated_users:
         index:
           actions:
+            block: Block
             title: Actions
+            unblock: Unlock
             unreport: Unreport
           name: Name
           nickname: Nickname
           reason: Reason
+          reports: Reports
           title: Listing reported users
         report:
           reasons:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+        tabs:
+          blocked: Blocked
+          unblocked: Unblocked
       moderations:
         index:
           title: Moderations
