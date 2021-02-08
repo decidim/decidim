@@ -8,16 +8,6 @@
 
 **Fixed**
 
-**Removed**
-
-## [0.23.2](https://github.com/decidim/decidim/tree/v0.23.2)
-
-**Added**
-
-**Changed**
-
-**Fixed**
-
 - **decidim-admin**: Allow selecting multiple files on gallery forms [\#7064](https://github.com/decidim/decidim/pull/7064)
 - **decidim-proposals**: Fix proposals admin form when editing. Closes #7031 (#7042) [\#7051](https://github.com/decidim/decidim/pull/7051)
 - **decidim-admin**, **decidim-assemblies**, **decidim-core**: Add some missing i18n keys (#7039) [\#7043](https://github.com/decidim/decidim/pull/7043)
