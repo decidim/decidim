@@ -532,13 +532,41 @@ de:
             attachments: Dateianhänge
             components: Komponenten
             info: Information
+            polling_stations: Wahllokale
         models:
+          polling_station:
+            fields:
+              address: Adresse
+              title: Titel
+            name: Wahllokal
           voting:
             fields:
               created_at: Erstellt am
               promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
+        polling_stations:
+          create:
+            invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich erfasst
+          destroy:
+            invalid: Beim Löschen dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich gelöscht
+          edit:
+            title: Wahllokal bearbeiten
+            update: Wahllokal aktualisieren
+          form:
+            address_help: 'Adresse: Wird vom Geocoder zur Lokalisierung verwendet'
+            location_help: 'Ort: Beschreibung des genauen Orts des Wahllokals für die Wähler'
+            location_hints_help: 'Ortshinweise: Zusätzliche Informationen. Beispiel: Das Stockwerk des Gebäudes in dem sich das Wahllokal befindet.'
+          index:
+            title: Wahllokale
+          new:
+            create: Erstellen
+            title: Wahllokal erstellen
+          update:
+            invalid: Beim Aktualisieren dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich aktualisiert
         titles:
           votings: Abstimmungen
         votings:
@@ -586,6 +614,13 @@ de:
             active_votings: Aktive Abstimmungen
             see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
+      polling_stations:
+        actions:
+          confirm_destroy: Sind Sie sicher?
+          destroy: Löschen
+          edit: Bearbeiten
+          new: Neu
+          title: Aktionen
       votings:
         count:
           title:
