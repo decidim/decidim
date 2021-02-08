@@ -18,6 +18,8 @@ en:
           attributes:
             add_documents:
               needs_to_be_reattached: Needs to be reattached
+            body:
+              too_long: is too long
             choices:
               missing: are not complete
               too_many: are too many

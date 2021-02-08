@@ -92,10 +92,10 @@ module Decidim
 
       def max_characters
         if body.present?
-          errors.add(:characters, :too_many) if body.size > question.max_characters
+          errors.add(:body, :too_long) if body.size > question.max_characters
         elsif custom_choices.any?
           custom_choices.each do |choice|
-            errors.add(:characters, :too_many) if choice.custom_body.size > question.max_characters
+            errors.add(:body, :too_long) if choice.custom_body.size > question.max_characters
           end
         end
       end
