@@ -401,6 +401,12 @@ cs:
           email_intro: "%{author_nickname} odmítl vaši žádost o členství funkcionáře ve výboru pro tuto iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
           email_subject: "%{author_nickname} odmítl vaši žádost na funkcionáře výboru"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> vás odmítl přihlásit se k účasti ve výboru funkcionáře pro následující iniciativu <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} požádal o funkci ve výboru vaší iniciativy %{resource_title}. Chcete-li přijmout nebo zamítnout žádost, přejděte na editační formulář vaší iniciativy."
+          email_outro: 'Obdrželi jste toto oznámení, protože jste autorem této iniciativy: %{resource_title}'
+          email_subject: "%{applicant_nickname} se chce připojit k vaší iniciativě"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
         add_attachments: Dokumenty
         attachment_legend: "(Volitelné) přidat přílohy"
