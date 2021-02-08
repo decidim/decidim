@@ -2,11 +2,11 @@
 
 require "spec_helper"
 
-module Decidim::ParticipatoryProcesses
+module Decidim::Assemblies
   describe Statistics, type: :cell do
     controller Decidim::ApplicationController
 
-    subject { cell("decidim/participatory_processes/statistics", model).call }
+    subject { cell("decidim/assemblies/statistics", model).call }
 
     let(:model) do
       [
