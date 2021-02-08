@@ -58,7 +58,7 @@ module Decidim
         end
 
         def allowed_voting_action?
-          return unless [:votings, :voting].member? permission_action.subject
+          return unless [:votings, :voting, :polling_station, :polling_stations].member? permission_action.subject
 
           case permission_action.subject
           when :votings
@@ -70,11 +70,24 @@ module Decidim
             when :update, :preview
               toggle_allow(voting.present?)
             end
+          when :polling_station
+            case permission_action.action
+            when :create
+              allow!
+            when :update, :delete
+              toggle_allow(polling_station.present?)
+            end
+          when :polling_stations
+            toggle_allow(user.admin?) if permission_action.action == :read
           end
         end
 
         def voting
           @voting ||= context.fetch(:voting, nil) || context.fetch(:participatory_space, nil)
+        end
+
+        def polling_station
+          @polling_station ||= context.fetch(:polling_station, nil)
         end
       end
     end

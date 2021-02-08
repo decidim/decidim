@@ -44,7 +44,7 @@ describe "User creates meeting", type: :system do
         let(:meeting_description) { Faker::Lorem.sentence(word_count: 2) }
         let(:meeting_location) { Faker::Lorem.sentence(word_count: 3) }
         let(:meeting_location_hints) { Faker::Lorem.sentence(word_count: 3) }
-        let(:meeting_address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:meeting_address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
         let!(:meeting_start_time) { Time.current + 2.days }
