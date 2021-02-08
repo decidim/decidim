@@ -303,6 +303,7 @@ gl:
         solved: Resolto
         title: Conflitos de verificación
         transfer:
+          email: Correo electrónico
           name: Nome
           reason: Motivo
           success: A transferencia actual completouse con éxito.
@@ -342,6 +343,7 @@ gl:
           label: Publicado
           values:
             'false': Publicado
+            'true': Publicación borrada
         scope_id_eq:
           label: Ámbito
         search_label: Busca
