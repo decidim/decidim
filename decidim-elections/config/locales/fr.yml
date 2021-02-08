@@ -479,13 +479,41 @@ fr:
             attachment_files: Fichiers
             attachments: Pièces jointes
             info: Information
+            polling_stations: Bureaux de vote
         models:
+          polling_station:
+            fields:
+              address: Adresse
+              title: Titre
+            name: Bureau de vote
           voting:
             fields:
               created_at: Créée le
               promoted: Mis en évidence
               published: Publié
               title: Titre
+        polling_stations:
+          create:
+            invalid: Une erreur est survenue lors de la création de ce bureau de vote
+            success: Le bureau de vote a été créée avec succès
+          destroy:
+            invalid: Une erreur est survenue lors de la suppression de ce bureau de vote
+            success: Le bureau de vote a bien été supprimé
+          edit:
+            title: Modifier le bureau de vote
+            update: Modifier le bureau de vote
+          form:
+            address_help: 'Adresse: utilisée par l''outil de géocadage pour trouver l''emplacement'
+            location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
+            location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple: l''étage du bâtiment où se trouve le bureau de vote.'
+          index:
+            title: Bureaux de vote
+          new:
+            create: Créer
+            title: Créer un bureau de vote
+          update:
+            invalid: Une erreur est survenue lors de la mise à jour de ce bureau de vote
+            success: Le bureau de vote a bien été mis à jour
         titles:
           votings: Élections
         votings:
@@ -527,6 +555,13 @@ fr:
             active_votings: Votations en cours
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_stations:
+        actions:
+          confirm_destroy: Êtes-vous sûr(e) ?
+          destroy: Supprimer
+          edit: Modifier
+          new: Nouveau
+          title: Actions
       votings:
         count:
           title:
