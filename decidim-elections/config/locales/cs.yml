@@ -547,12 +547,20 @@ cs:
             components: Komponenty
             info: Informace
         models:
+          polling_station:
+            fields:
+              address: Adresa
+              title: Název
+            name: Hlasovací místo
           voting:
             fields:
               created_at: Vytvořeno v
               promoted: Zvýrazněno
               published: Publikováno
               title: Název
+        polling_stations:
+          create:
+            invalid: Při vytváření tohoto hlasovacího místa došlo k chybě
         titles:
           votings: Hlasování
         votings:
