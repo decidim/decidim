@@ -1,0 +1,17 @@
+<section class="row statistics" id="participatory_process-statistics">
+  <div class="columns large-8">
+    <div class="row column">
+      <h3 class="section-heading">
+        <%= stats_heading %>
+      </h3>
+
+      <div class="space-stats">
+        <% if model.present? %>
+          <%= cell("decidim/assemblies/statistic", collection: model) %>
+        <% else %>
+          <span class="muted"><%= no_stats %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
