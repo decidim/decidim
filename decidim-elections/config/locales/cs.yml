@@ -561,6 +561,8 @@ cs:
         polling_stations:
           create:
             invalid: Při vytváření tohoto hlasovacího místa došlo k chybě
+          new:
+            create: Vytvořit
         titles:
           votings: Hlasování
         votings:
@@ -608,6 +610,13 @@ cs:
             active_votings: Aktivní hlasování
             see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
+      polling_stations:
+        actions:
+          confirm_destroy: Jste si jist?
+          destroy: Smazat
+          edit: Upravit
+          new: Nový
+          title: Akce
       votings:
         count:
           title:
