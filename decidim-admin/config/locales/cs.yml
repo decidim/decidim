@@ -513,7 +513,9 @@ cs:
       moderated_users:
         index:
           actions:
+            block: Blokovat
             title: Akce
+            unblock: Odemknout
             unreport: Zrušit nahlášení
           name: Jméno
           nickname: Přezdívka
@@ -524,6 +526,9 @@ cs:
             does_not_belong: Nepatří
             offensive: Urážlivý
             spam: Nevyžádané
+        tabs:
+          blocked: Blokováno
+          unblocked: Odblokováno
       moderations:
         index:
           title: Moderování
