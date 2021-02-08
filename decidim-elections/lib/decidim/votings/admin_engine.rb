@@ -17,6 +17,7 @@ module Decidim
           end
 
           resources :polling_stations
+          resources :polling_officers, only: [:new, :create, :destroy, :index]
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
         end
