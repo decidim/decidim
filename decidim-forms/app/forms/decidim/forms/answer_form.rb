@@ -20,6 +20,7 @@ module Decidim
       validate :all_choices, if: -> { question.question_type == "sorting" }
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
       validate :documents_present, if: -> { question.question_type == "files" && question.mandatory? }
+      validate :max_characters, if: -> { question.max_characters.positive? }
 
       delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
 
@@ -52,6 +53,10 @@ module Decidim
         choices.select(&:body)
       end
 
+      def custom_choices
+        choices.select(&:custom_body)
+      end
+
       def display_conditions_fulfilled?
         question.display_conditions.all? do |condition|
           answer = context.responses&.find { |r| r.question_id&.to_i == condition.condition_question.id }
@@ -82,6 +87,16 @@ module Decidim
           errors.add(:choices, :too_many) if grouped_choices.any? { |choices| choices.count > question.max_choices }
         elsif selected_choices.size > question.max_choices
           errors.add(:choices, :too_many)
+        end
+      end
+
+      def max_characters
+        if body.present?
+          errors.add(:characters, :too_many) if body.size > question.max_characters
+        elsif custom_choices.any?
+          custom_choices.each do |choice|
+            errors.add(:characters, :too_many) if choice.custom_body.size > question.max_characters
+          end
         end
       end
 
