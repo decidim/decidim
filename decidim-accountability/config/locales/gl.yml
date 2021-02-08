@@ -33,6 +33,7 @@ gl:
     accountability:
       actions:
         attachment_collections: Cartafoles
+        attachments: Ficheiros anexos
         confirm_destroy: Estás seguro de que queres eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
@@ -50,6 +51,9 @@ gl:
             import: Importar
             link: ligazón
             title: Importar resultados dun CSV
+        imports:
+          create:
+            success: Importando o ficheiro. Recibirás un correo electrónico nos vindeiros minutos co resultado da importación
         models:
           result:
             name: Resultado
@@ -137,9 +141,11 @@ gl:
         result:
           fields:
             category: Categoría
+            created_at: Creado
             end_date: Data de finalización
             id: ID
             progress: Progreso
+            scope: Ámbito
             start_date: Data de inicio
             status: Estado
             title: Título
@@ -153,6 +159,8 @@ gl:
           fields:
             description: Descrición
             entry_date: Data
+      result_m:
+        view: Ver
       results:
         count:
           results_count:
@@ -188,6 +196,8 @@ gl:
         results:
           category_id_eq:
             label: Categoría
+          scope_id_eq:
+            label: Ámbito
           status_id_eq:
             label: Estado
     components:
@@ -202,6 +212,8 @@ gl:
             heading_leaf_level_results: Nome para "Proxectos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Intro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             subcategories_label: Nome para "Subcategorías"
           step:
             comments_blocked: Comentarios bloqueados
