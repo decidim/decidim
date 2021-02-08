@@ -62,6 +62,7 @@ gl:
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
         show_replies: Amosar %{replies_count} respostas
+        single_comment_link_title: Obter ligazón a un único comentario
       comment_order_selector:
         order:
           best_rated: Mellor valorado
@@ -77,6 +78,7 @@ gl:
         comment_details_title: Detalles do comentario
         loading: Cargando comentarios ...
         single_comment_warning: Podes revisar os comentarios restantes <a href="%{url}">aquí</a>.
+        single_comment_warning_title: Estás a ver un único comentario
         title:
           one: "%{count} comentario"
           other: "%{count} comentarios"
