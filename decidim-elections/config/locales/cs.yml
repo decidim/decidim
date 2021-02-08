@@ -546,12 +546,13 @@ cs:
             attachments: Přílohy
             components: Komponenty
             info: Informace
+            polling_stations: Volební místnost
         models:
           polling_station:
             fields:
               address: Adresa
               title: Název
-            name: Hlasovací místo
+            name: Volební místnost
           voting:
             fields:
               created_at: Vytvořeno v
@@ -560,9 +561,24 @@ cs:
               title: Název
         polling_stations:
           create:
-            invalid: Při vytváření tohoto hlasovacího místa došlo k chybě
+            invalid: Při vytváření tohoto volebního místa došlo k chybě
+            success: Volební místnost byla úspěšně vytvořena
+          destroy:
+            invalid: Při mazání této volební místnosti došlo k chybě
+            success: Volební místnost byla úspěšně odstraněna
+          edit:
+            title: Upravit volební místnost
+            update: Aktualizovat volební místnost
+          form:
+            location_help: 'Umístění: zpráva určená voličům s uvedením přesného místa volební místnosti'
+            location_hints_help: 'Tipy k umístění: další informace. Příklad: patro budovy, kde se nachází volební místnost.'
+          index:
+            title: Volební místnosti
           new:
             create: Vytvořit
+            title: Vytvořit volební místnost
+          update:
+            invalid: Při aktualizaci této volební místnosti došlo k chybě
         titles:
           votings: Hlasování
         votings:
