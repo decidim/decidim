@@ -78,6 +78,7 @@
         form.number_field(
           :max_characters,
           disabled: !editable,
+          min: 0,
           label: t("activemodel.attributes.questionnaire_question.max_characters")
         )
       %>
