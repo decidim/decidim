@@ -107,6 +107,11 @@ fr:
           email_intro: Votre commentaire sur "%{resource_title}" a été voté négativement. Il a maintenant un total de %{upvotes} votes positifs et %{downvotes} votes négatifs.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de ce commentaire.
           email_subject: Votre commentaire sur "%{resource_title}" a été voté négativement.
+          notification_title: Votre <a href="%{resource_path}">commentaire</a> sur "%{resource_title}" a été voté négativement. Il a maintenant un total de %{upvotes} votes positifs et de %{downvotes} votes négatifs.
+        comment_upvoted:
+          email_intro: Votre commentaire dans "%{resource_title}" a été voté positivement. Il a maintenant un total de %{upvotes} votes positifs et %{downvotes} votes négatifs.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de ce commentaire.
+          email_subject: Votre commentaire sur "%{resource_title}" a été voté positivement.
         reply_created:
           email_intro: "%{author_name} a répondu à votre commentaire dans %{resource_title}. Vous pouvez le lire depuis la page suivante :"
           email_outro: Vous venez de recevoir une notification à votre commentaire.
