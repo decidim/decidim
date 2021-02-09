@@ -191,18 +191,9 @@ it:
             success: Elezione inviata con successo al Bollettino
             title: Imposta elezione
             trustees: Fiduciari Delle Elezioni
-          index:
-            title: Gestire i passaggi delle elezioni sul Bollettino
           key_ceremony:
             title: Cerimonia chiave
             trustees: Fiduciari
-          ready:
-            errors:
-              time_before: L'elezione è pronta per iniziare. Devi aspettare fino a %{hours} ore prima dell'ora di inizio (%{start_time}) per aprire la scheda elettorale.
-            invalid: Si è verificato un errore durante l'apertura delle urne
-            requirements:
-              time_before: L'elezione inizierà presto. È possibile aprire la scheda elettorale manualmente, o sarà aperta automaticamente prima dell'orario di partenza, a %{start_time}.
-            submit: Apertura urne
       admin_log:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
