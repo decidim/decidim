@@ -17,6 +17,10 @@ module Decidim
       default_path
     end
 
+    def skip_ssrf_protection?(_uri)
+      true
+    end
+
     protected
 
     # Validates that the associated model is always within an organization in
