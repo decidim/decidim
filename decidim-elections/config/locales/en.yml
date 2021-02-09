@@ -18,8 +18,8 @@ en:
         min_selections: None of the above option
         title: Title
       voting:
-        end_time: Voting Ends
-        start_time: Voting begings
+        end_time: Voting ends
+        start_time: Voting begins
     errors:
       models:
         answer:
@@ -643,7 +643,7 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
-          no_votings: No voting match your search criteria.
+          no_votings: No voting matches your search criteria.
           only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
         orders:
