@@ -53,11 +53,9 @@ module Decidim
           event: "decidim.events.comments.comment_#{upvote? ? "upvoted" : "downvoted"}",
           event_class: upvote? ? Decidim::Comments::CommentUpvotedEvent : Decidim::Comments::CommentDownvotedEvent,
           resource: @comment.commentable,
-          affected_users: [@author],
-          followers: [@comment.author],
+          affected_users: [@comment.author],
           extra: {
             comment_id: @comment.id,
-            author_id: @author.id,
             weight: @weight,
             downvotes: @comment.down_votes.count,
             upvotes: @comment.up_votes.count

@@ -69,11 +69,9 @@ module Decidim
                   event: "decidim.events.comments.comment_upvoted",
                   event_class: Decidim::Comments::CommentUpvotedEvent,
                   resource: commentable,
-                  affected_users: [author],
-                  followers: [comment.author],
+                  affected_users: [comment.author],
                   extra: {
                     comment_id: comment.id,
-                    author_id: author.id,
                     weight: weight,
                     upvotes: comment.up_votes.count + 1,
                     downvotes: comment.down_votes.count
@@ -93,11 +91,9 @@ module Decidim
                   event: "decidim.events.comments.comment_downvoted",
                   event_class: Decidim::Comments::CommentDownvotedEvent,
                   resource: commentable,
-                  affected_users: [author],
-                  followers: [comment.author],
+                  affected_users: [comment.author],
                   extra: {
                     comment_id: comment.id,
-                    author_id: author.id,
                     weight: weight,
                     upvotes: comment.up_votes.count,
                     downvotes: comment.down_votes.count + 1
