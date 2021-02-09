@@ -8,6 +8,16 @@
 
 **Fixed**
 
+**Removed**
+
+## [0.23.2](https://github.com/decidim/decidim/tree/v0.23.2)
+
+**Added**
+
+**Changed**
+
+**Fixed**
+
 - **decidim-admin**: Allow selecting multiple files on gallery forms [\#7064](https://github.com/decidim/decidim/pull/7064)
 - **decidim-proposals**: Fix proposals admin form when editing. Closes #7031 (#7042) [\#7051](https://github.com/decidim/decidim/pull/7051)
 - **decidim-admin**, **decidim-assemblies**, **decidim-core**: Add some missing i18n keys (#7039) [\#7043](https://github.com/decidim/decidim/pull/7043)
@@ -34,6 +44,10 @@
 - **decidim-meetings**: Backport "Fix visible_meeting_for scope if Decidim::Conference is not defined" to v0.23 [\#6980](https://github.com/decidim/decidim/pull/6980)
 - **decidim-admin**, **decidim-core**: Backport "Fix private participants pagination crash" [\#7000](https://github.com/decidim/decidim/pull/7000)
 - **decidim-core**: Remove sticky from tos agreement (#6716) [\#6954](https://github.com/decidim/decidim/pull/6954)
+- **decidim-admin**, **decidim-assemblies**, **decidim-participatory_processes**: Allow admin to be registered as a participatory space user [\#7316](https://github.com/decidim/decidim/pull/7316)
+- **decidim-core**: Fixing error caused by Missing Organization [\#7317](https://github.com/decidim/decidim/pull/7317)
+- **decidim-core**: Adding Organization scopes to uploaders [\#7318](https://github.com/decidim/decidim/pull/7318)
+- **decidim-core**, **decidim-forms**, **decidim-meetings**: Fix security token generation in anonymous surveys and pads [\#7327](https://github.com/decidim/decidim/pull/7327)
 
 **Removed**
 
