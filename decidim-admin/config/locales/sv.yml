@@ -133,6 +133,8 @@ sv:
     admin:
       actions:
         add: Lägg till
+        attachment:
+          new: Ny bifogad fil
         browse: Bläddra
         export: Exportera
         manage: Hantera
