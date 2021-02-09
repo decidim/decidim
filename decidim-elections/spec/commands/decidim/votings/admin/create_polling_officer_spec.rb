@@ -8,18 +8,20 @@ module Decidim
       describe CreatePollingOfficer do
         subject { described_class.new(form, current_user, voting) }
 
-        let!(:existing_user) { create :user, email: existing_user_email, organization: voting.organization }
+        let!(:existing_user) { create :user, email: user_email, organization: voting.organization }
         let!(:current_user) { create :user, email: ::Faker::Internet.email, organization: voting.organization }
         let(:voting) { create :voting }
         let(:name) { ::Faker::Name.name }
         let(:email) { ::Faker::Internet.email }
-        let(:existing_user_email) { "existing_user@example.org" }
+        let(:user) { existing_user }
+        let(:user_email) { "existing_user@example.org" }
         let(:form) do
           double(
             invalid?: invalid,
             email: email,
             name: name,
-            current_participatory_space: voting
+            current_participatory_space: voting,
+            user: user
           )
         end
         let(:invalid) { false }
@@ -32,7 +34,7 @@ module Decidim
           end
         end
 
-        context "when everything is ok" do
+        context "when using an existing user" do
           it "creates the polling officer" do
             subject.call
 
@@ -50,23 +52,23 @@ module Decidim
             action_log = Decidim::ActionLog.last
             expect(action_log.version).to be_present
           end
+        end
 
-          context "when there is no user with the given email" do
+        context "when inviting a new user" do
+          let(:user) { nil }
+
+          describe "when the email is not taken" do
             let(:email) { "not_yet_existing@example.com" }
 
-            it "creates a new user with the given email" do
+            it "creates a new user" do
               subject.call
               created_user = Decidim::User.last
               expect(created_user.email).to eq(email)
             end
           end
 
-          context "when the user already exists" do
-            let(:email) { existing_user_email }
-
-            before do
-              subject.call
-            end
+          describe "when the email already exists" do
+            let(:email) { user_email }
 
             it "doesn't create a new user" do
               expect { subject.call }.to broadcast(:ok)
@@ -75,14 +77,10 @@ module Decidim
 
               expect(polling_officers.count).to eq 1
             end
-          end
 
-          context "when the user hasn't accepted the invitation" do
-            before do
+            it "resends the invitation if the user hasn't accepted it yet" do
               existing_user.invite!
-            end
 
-            it "gets the invitation resent" do
               expect { subject.call }.to have_enqueued_job(ActionMailer::DeliveryJob)
             end
           end

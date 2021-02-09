@@ -6,41 +6,76 @@ module Decidim
   module Votings
     module Admin
       describe PollingOfficerForm do
-        subject(:form) { described_class.from_params(attributes) }
+        subject(:form) { described_class.from_params(attributes).with_context(context) }
 
-        let(:name) { ::Faker::Name.name }
-        let(:email) { ::Faker::Internet.email }
-        let(:attributes) do
+        let(:organization) { create :organization }
+        let(:context) do
           {
-            name: name,
-            email: email
+            current_organization: organization
           }
         end
 
-        it { is_expected.to be_valid }
-
-        describe "when email is invalid" do
-          let(:email) { "invalid#email.org" }
-
-          it { is_expected.not_to be_valid }
+        let(:name) { ::Faker::Name.name }
+        let(:email) { ::Faker::Internet.email }
+        let(:user_id) { nil }
+        let(:existing_user) { false }
+        let(:attributes) do
+          {
+            name: name,
+            email: email,
+            existing_user: existing_user,
+            user_id: user_id
+          }
         end
 
-        describe "when email is missing" do
-          let(:email) { nil }
+        context "when existing user is false" do
+          describe "when email and name are present" do
+            it { is_expected.to be_valid }
+          end
 
-          it { is_expected.not_to be_valid }
+          describe "when email is invalid" do
+            let(:email) { "invalid#email.org" }
+
+            it { is_expected.not_to be_valid }
+          end
+
+          describe "when name is invalid" do
+            let(:name) { "Miao<121" }
+
+            it { is_expected.not_to be_valid }
+          end
+
+          describe "when name is missing" do
+            let(:name) { nil }
+
+            it { is_expected.not_to be_valid }
+          end
+
+          describe "when email is missing" do
+            let(:email) { nil }
+
+            it { is_expected.not_to be_valid }
+          end
         end
 
-        describe "when name is invalid" do
-          let(:name) { "Miao<121" }
+        context "when existing user is true" do
+          let(:existing_user) { true }
 
-          it { is_expected.not_to be_valid }
-        end
+          describe "when name and email are missing but user_id is present" do
+            let(:name) { nil }
+            let(:email) { nil }
+            let(:user_id) { create(:user, organization: organization).id }
 
-        describe "when name is missing" do
-          let(:name) { nil }
+            it { is_expected.to be_valid }
+          end
 
-          it { is_expected.not_to be_valid }
+          describe "when name, email and user_id are missing" do
+            let(:name) { nil }
+            let(:email) { nil }
+            let(:user_id) { nil }
+
+            it { is_expected.not_to be_valid }
+          end
         end
       end
     end

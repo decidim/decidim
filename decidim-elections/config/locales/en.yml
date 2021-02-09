@@ -541,8 +541,8 @@ en:
         models:
           polling_officer:
             fields:
-              name: Name
               email: Email
+              name: Name
             name: Polling Officer
           polling_station:
             fields:
@@ -562,6 +562,11 @@ en:
           destroy:
             invalid: There was a problem deleting this polling officer
             success: Polling officer successfully deleted
+          form:
+            existing_user: Existing participant
+            non_user: Invite new participant
+            select_user: Search by name, email or nickname
+            user_type: Participant type
           index:
             title: Polling officers
           new:

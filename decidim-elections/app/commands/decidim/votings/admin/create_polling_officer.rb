@@ -41,7 +41,7 @@ module Decidim
         attr_reader :form, :voting, :current_user
 
         def retrieve_or_invite_user
-          existing_user || new_user
+          form.user || existing_user || new_user
         end
 
         def create_polling_officer(user)
@@ -58,8 +58,6 @@ module Decidim
               voting: voting
             )
           end
-
-          # TODO: send notitfication to user??
         end
 
         def existing_user
