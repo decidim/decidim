@@ -214,11 +214,23 @@ cs:
             invalid: Vyskytl se problém při zahájení hlasovacího období
             requirements:
               time_before: Volba začne brzy. Hlasovací období můžete začít ručně, nebo bude spuštěna automaticky před časem začátku v %{start_time}.
+            submit: Začátek doby hlasování
+            title: Připraveno k zahájení
+          processing: Zpracovávání...
           results_published:
             title: Výsledky publikovány
           tally:
             title: Proces spojení
+            trustees: Volební komisaři
+          tally_ended:
+            submit: Publikovat výsledky
+            title: Výsledky spočítány
           vote:
+            errors:
+              time_after: Volby stále probíhají. Musíte počkat na ukončení hlasovacího období (%{end_time}).
+            invalid: Při ukončení hlasovacího období došlo k chybě
+            submit: Konec doby hlasování
+            success: Žádost o ukončení hlasování byla úspěšně odeslána do Bulletin Board
             title: Období hlasování
         trustees_participatory_spaces:
           actions:
@@ -366,6 +378,18 @@ cs:
             title: Obnovit volební klíče pro %{election}
             upload_election_keys: Nahrát volební klíče
             upload_icon: Ikona, která indikuje akci ke stažení
+          tally_steps:
+            back: Zpět
+            list:
+              status: Stav
+              task: Úloha
+            process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni správci by měli být k dokončení připojeni.
+            start: Spustit
+            start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
+            status:
+              completed: Dokončeno
+              pending: Čekající
+              processing: Zpracovávání
           update:
             error: Stav voleb nebyl aktualizován.
             success: 'Stav voleb je: %{status}'
