@@ -36,7 +36,7 @@ en:
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
       decidim/removed_from_group: Removed from group
-      decidim/resource_endorsed_event: Resurce endorsed
+      decidim/resource_endorsed_event: Resource endorsed
   activerecord:
     attributes:
       decidim/user:
@@ -695,7 +695,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
-        participatory_space: Already following <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Following <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.
@@ -954,7 +954,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
-          not_allowed: This user does not accept any more direct messages.
+          not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
           send: Send
