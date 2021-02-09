@@ -1,5 +1,3 @@
-// = require foundation
-
 ((exports) => {
   exports.$(() => {
     const Foundation = exports.Foundation;
