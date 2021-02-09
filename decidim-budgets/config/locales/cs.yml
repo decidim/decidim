@@ -47,7 +47,11 @@ cs:
             title: Upravit rozpočet
             update: Aktualizovat rozpočet
           index:
+            finished_orders: Dokončené hlasy
+            pending_orders: Čekající hlasy
             title: Rozpočty
+            users_with_finished_orders: Uživatelé s dokončenými hlasy
+            users_with_pending_orders: Uživatelé s čekajícími hlasy
           new:
             create: Vytvořit rozpočet
             title: Nový rozpočet

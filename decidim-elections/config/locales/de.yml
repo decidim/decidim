@@ -191,34 +191,14 @@ de:
             success: Wahl erfolgreich an das Bulletin Board gesendet
             title: Wahl einrichten
             trustees: Wahlhelfer
-          index:
-            title: Wahlschritte im Bulletin Board verwalten
           key_ceremony:
             title: Schlüsselzeremonie
             trustees: Wahlhelfer
-          ready:
-            errors:
-              time_before: Die Wahl ist startbereit. Sie können die Wahlurne %{hours} Stunden vor der Startzeit (%{start_time}) eröffnen.
-            invalid: Beim Öffnen der Wahlurne ist ein Problem aufgetreten
-            requirements:
-              time_before: Die Wahl wird bald beginnen. Sie können die Wahlurne manuell öffnen, oder sie wird vor dem Start um %{start_time} automatisch geöffnet.
-            submit: Wahlurne öffnen
-            success: Die Wahlurne wurde erfolgreich im Bulletin Board geöffnet
-            title: Startbereit
-          results:
-            title: Ergebnisse berechnet
           results_published:
             title: Ergebnisse veröffentlicht
           tally:
             title: Stimmenzähl-Prozess
           vote:
-            errors:
-              time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Wahlurne zu schließen.
-            invalid: Beim Schließen der Wahlurne ist ein Problem aufgetreten
-            requirements:
-              time_after: Die Wahl ist beendet. Sie können die Wahlurne manuell schließen oder sie wird in wenigen Minuten automatisch geschlossen.
-            submit: Wahlurne schließen
-            success: Die Wahlurne wurde im Bulletin Board erfolgreich geschlossen
             title: Abstimmungsperiode
         trustees_participatory_spaces:
           actions:
@@ -242,8 +222,6 @@ de:
             success: Wahlhelfer %{trustee} erfolgreich aktualisiert
       admin_log:
         election:
-          close_ballot_box: "%{user_name} hat die Wahlurne für die Wahl %{resource_name} im Bulletin Board geschlossen"
-          open_ballot_box: "%{user_name} hat die Wahlurne für die Wahl %{resource_name} im Bulletin Board geöffnet"
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
           setup: "%{user_name} hat die Wahl %{resource_name} auf dem Bulletin Board erstellt"
           unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
@@ -532,13 +510,41 @@ de:
             attachments: Dateianhänge
             components: Komponenten
             info: Information
+            polling_stations: Wahllokale
         models:
+          polling_station:
+            fields:
+              address: Adresse
+              title: Titel
+            name: Wahllokal
           voting:
             fields:
               created_at: Erstellt am
               promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
+        polling_stations:
+          create:
+            invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich erfasst
+          destroy:
+            invalid: Beim Löschen dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich gelöscht
+          edit:
+            title: Wahllokal bearbeiten
+            update: Wahllokal aktualisieren
+          form:
+            address_help: 'Adresse: Wird vom Geocoder zur Lokalisierung verwendet'
+            location_help: 'Ort: Beschreibung des genauen Orts des Wahllokals für die Wähler'
+            location_hints_help: 'Ortshinweise: Zusätzliche Informationen. Beispiel: Das Stockwerk des Gebäudes in dem sich das Wahllokal befindet.'
+          index:
+            title: Wahllokale
+          new:
+            create: Erstellen
+            title: Wahllokal erstellen
+          update:
+            invalid: Beim Aktualisieren dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich aktualisiert
         titles:
           votings: Abstimmungen
         votings:
@@ -586,6 +592,13 @@ de:
             active_votings: Aktive Abstimmungen
             see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
+      polling_stations:
+        actions:
+          confirm_destroy: Sind Sie sicher?
+          destroy: Löschen
+          edit: Bearbeiten
+          new: Neu
+          title: Aktionen
       votings:
         count:
           title:

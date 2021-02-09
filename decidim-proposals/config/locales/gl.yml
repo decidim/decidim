@@ -621,6 +621,8 @@ gl:
           view_index:
             see_index: Ver índice
         preview:
+          announcement_body: A túa proposta gardouse coma borrador. É preciso que sexa publicada para aparecer no sitio.
+          announcement_title: A túa proposta aínda non foi publicada
           modify: Modificar a proposta
           proposal_edit_before_minutes:
             one: Poderá editar esta proposta durante o primeiro minuto despois de que a proposta se publique. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.

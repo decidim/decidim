@@ -41,6 +41,7 @@ ja:
         title: アクション
       admin:
         exports:
+          result_comments: コメント
           results: 結果
         import_results:
           new:
@@ -120,6 +121,10 @@ ja:
         value_types:
           parent_presenter:
             not_found: '親がデータベース上に見つかりませんでした (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: 結果
+          unspecified: 指定なし
       import_mailer:
         import:
           errors: エラー
@@ -132,8 +137,11 @@ ja:
       models:
         result:
           fields:
+            category: カテゴリ
             end_date: 終了日
+            id: ID
             progress: 進捗状況
+            scope: スコープ
             start_date: 開始日
             status: ステータス
             title: タイトル
@@ -147,6 +155,8 @@ ja:
           fields:
             description: 説明
             entry_date: 日付
+      result_m:
+        view: 表示
       results:
         count:
           results_count:
@@ -176,6 +186,15 @@ ja:
             votes: サポート
         timeline:
           title: プロジェクトの進化
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: カテゴリ
+          scope_id_eq:
+            label: スコープ
+          status_id_eq:
+            label: ステータス
     components:
       accountability:
         name: アカウンタビリティ
