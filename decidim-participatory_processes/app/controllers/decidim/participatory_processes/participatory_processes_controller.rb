@@ -98,7 +98,7 @@ module Decidim
       end
 
       def stats
-        @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
+        @stats ||= ParticipatorySpaceStatsPresenter.new(space: current_participatory_space)
       end
 
       def metrics
