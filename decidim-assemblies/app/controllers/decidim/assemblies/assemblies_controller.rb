@@ -81,7 +81,7 @@ module Decidim
       end
 
       def stats
-        @stats ||= AssemblyStatsPresenter.new(assembly: current_participatory_space)
+        @stats ||= ParticipatorySpaceStatsPresenter.new(space: current_participatory_space)
       end
 
       def assembly_participatory_processes
