@@ -7,6 +7,13 @@ es:
         organization_name: Organización
         organization_url: URL de organización
         redirect_uri: Redirigir URI
+      organization:
+        address: Nombre de host SMTP
+        from_email: Dirección de correo electrónico
+        from_label: Etiqueta
+        password: Contraseña
+        port: Puerto
+        user_name: Nombre de usuario
       organization_file_uploads:
         allowed_content_types:
           admin: Tipos MIME del panel de administración
@@ -153,6 +160,10 @@ es:
             api_key: Clave API
             api_secret: Secreto API
         smtp_settings:
+          fieldsets:
+            sender: Remitente
+          instructions:
+            from_label: 'El remitente de correo electrónico será: "su-nombre de organización <your-organization@example.org>". Déjalo en blanco para usar el campo ''Dirección de correo electrónico'' como etiqueta'
           placeholder:
             from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion
