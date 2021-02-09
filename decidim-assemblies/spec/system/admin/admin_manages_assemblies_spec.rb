@@ -51,6 +51,7 @@ describe "Admin manages assemblies", type: :system do
 
         fill_in :assembly_slug, with: "slug"
         fill_in :assembly_hashtag, with: "#hashtag"
+        fill_in :assembly_weight, with: 1
         attach_file :assembly_hero_image, image1_path
         attach_file :assembly_banner_image, image2_path
 
