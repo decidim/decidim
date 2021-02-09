@@ -769,6 +769,8 @@ fr:
         placeholder:
           address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
+          announcement_body: Votre proposition a été enregistrée en tant que brouillon. Elle doit être publiée pour qu'elle apparaisse sur le site.
+          announcement_title: Votre proposition n'a pas encore été publiée
           modify: Modifier la proposition
           proposal_edit_before_minutes:
             one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.

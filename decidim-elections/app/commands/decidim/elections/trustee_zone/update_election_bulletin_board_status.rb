@@ -17,7 +17,7 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:ok, election) unless election.bb_status.to_sym == required_status
+          return broadcast(:ok, election) unless election.bb_status.to_sym == required_status.to_sym
 
           update_election_status!
 

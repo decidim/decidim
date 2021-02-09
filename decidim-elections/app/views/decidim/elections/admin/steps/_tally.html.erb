@@ -4,6 +4,14 @@
   </div>
 
   <div class="card-section">
-    Tally
+    <h4><%= t(".trustees") %></h4>
+    <ul>
+      <% election.trustees.each do |trustee| %>
+        <li>
+          <%= trustee.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
   </div>
 </div>

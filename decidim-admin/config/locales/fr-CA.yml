@@ -513,17 +513,22 @@ fr-CA:
       moderated_users:
         index:
           actions:
+            block: Bloquer
             title: Actions
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
           reason: Raison du signalement
+          reports: Signalements
           title: Liste des utilisateurs signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
             offensive: Offensant
             spam: Spam
+        tabs:
+          blocked: Bloqué
+          unblocked: Débloqué
       moderations:
         index:
           title: Modérations
