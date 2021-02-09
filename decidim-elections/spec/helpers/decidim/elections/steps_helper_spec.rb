@@ -14,26 +14,30 @@ module Decidim
           it {
             expect(subject).to eq([
                                     ["create_election", "text-warning"],
+                                    ["created", "text-muted"],
                                     ["key_ceremony", "text-muted"],
-                                    ["ready", "text-muted"],
+                                    ["key_ceremony_ended", "text-muted"],
                                     ["vote", "text-muted"],
+                                    ["vote_ended", "text-muted"],
                                     ["tally", "text-muted"],
-                                    ["results", "text-muted"],
+                                    ["tally_ended", "text-muted"],
                                     ["results_published", "text-muted"]
                                   ])
           }
 
-          context "when current_step is ready" do
-            let(:current_step) { "ready" }
+          context "when current_step is ready to vote" do
+            let(:current_step) { "key_ceremony_ended" }
 
             it {
               expect(subject).to eq([
                                       ["create_election", "text-success"],
+                                      ["created", "text-success"],
                                       ["key_ceremony", "text-success"],
-                                      ["ready", "text-warning"],
+                                      ["key_ceremony_ended", "text-warning"],
                                       ["vote", "text-muted"],
+                                      ["vote_ended", "text-muted"],
                                       ["tally", "text-muted"],
-                                      ["results", "text-muted"],
+                                      ["tally_ended", "text-muted"],
                                       ["results_published", "text-muted"]
                                     ])
             }
@@ -45,11 +49,13 @@ module Decidim
             it {
               expect(subject).to eq([
                                       ["create_election", "text-success"],
+                                      ["created", "text-success"],
                                       ["key_ceremony", "text-success"],
-                                      ["ready", "text-success"],
+                                      ["key_ceremony_ended", "text-success"],
                                       ["vote", "text-success"],
+                                      ["vote_ended", "text-success"],
                                       ["tally", "text-success"],
-                                      ["results", "text-success"],
+                                      ["tally_ended", "text-success"],
                                       ["results_published", "text-warning"]
                                     ])
             }
