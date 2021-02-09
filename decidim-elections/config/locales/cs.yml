@@ -199,34 +199,14 @@ cs:
             success: Volba byla úspěšně odeslána do Bulletin Board
             title: Nastavení voleb
             trustees: Volební správci
-          index:
-            title: Správa volebních kroků na Bulletin Board
           key_ceremony:
             title: Slavnostní ceremoniál
             trustees: Správci
-          ready:
-            errors:
-              time_before: Volby jsou připraveny k zahájení. Pro otevření volební urny musíte počkat až %{hours} hodin před začátkem (%{start_time}).
-            invalid: Při otevírání volebních uren došlo k chybě
-            requirements:
-              time_before: Volby začnou brzy. Hlasovací urny můžete otevřít ručně, nebo budou automaticky otevřeny před počáteční dobou v %{start_time}.
-            submit: Otevřít hlasovací urnu
-            success: Hlasovací urna byla úspěšně otevřena v Bulletin Board
-            title: Připraveno k zahájení
-          results:
-            title: Výsledky spočítány
           results_published:
             title: Výsledky publikovány
           tally:
             title: Proces spojení
           vote:
-            errors:
-              time_after: Volby stále probíhají. Musíte počkat na konec (%{end_time}) před uzavřením volebních uren.
-            invalid: Při uzavírání volebních uren došlo k chybě
-            requirements:
-              time_after: Volba skončila. Hlasovací urnu můžete zavřít ručně, nebo bude za několik minut automaticky uzavřena.
-            submit: Zavřít hlasovací urnu
-            success: Hlasovací urna byla úspěšně uzavřena ve Bulletin Boardu
             title: Období hlasování
         trustees_participatory_spaces:
           actions:
@@ -251,8 +231,6 @@ cs:
             success: Správce %{trustee} úspěšně aktualizován
       admin_log:
         election:
-          close_ballot_box: "%{user_name} uzavřel hlasovací urnu pro volby do Bulletin Boardu %{resource_name}"
-          open_ballot_box: "%{user_name} otevřel volební urnu pro volby v %{resource_name} na Bulletin Boardu"
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           setup: "%{user_name} vytvořil %{resource_name} volby na Bulletin Boardu"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
@@ -381,6 +359,9 @@ cs:
             success: 'Stav voleb je: %{status}'
         menu:
           trustee_zone: Zóna správce
+        no_bulletin_board:
+          body: Konfigurovaný bulletin Board je vyžadován pro tuto sekci. Pro více informací kontaktujte správce.
+          title: Omlouváme se, ale Bulletin Board ještě není nakonfigurován.
         trustees:
           show:
             elections:
@@ -543,13 +524,41 @@ cs:
             attachments: Přílohy
             components: Komponenty
             info: Informace
+            polling_stations: Volební místnost
         models:
+          polling_station:
+            fields:
+              address: Adresa
+              title: Název
+            name: Volební místnost
           voting:
             fields:
               created_at: Vytvořeno v
               promoted: Zvýrazněno
               published: Publikováno
               title: Název
+        polling_stations:
+          create:
+            invalid: Při vytváření tohoto volebního místa došlo k chybě
+            success: Volební místnost byla úspěšně vytvořena
+          destroy:
+            invalid: Při mazání této volební místnosti došlo k chybě
+            success: Volební místnost byla úspěšně odstraněna
+          edit:
+            title: Upravit volební místnost
+            update: Aktualizovat volební místnost
+          form:
+            address_help: 'Adresa: použita Geocoderem k nalezení polohy'
+            location_help: 'Umístění: zpráva určená voličům s uvedením přesného místa volební místnosti'
+            location_hints_help: 'Tipy k umístění: další informace. Příklad: patro budovy, kde se nachází volební místnost.'
+          index:
+            title: Volební místnosti
+          new:
+            create: Vytvořit
+            title: Vytvořit volební místnost
+          update:
+            invalid: Při aktualizaci této volební místnosti došlo k chybě
+            success: Volební místnost byla úspěšně aktualizována
         titles:
           votings: Hlasování
         votings:
@@ -597,6 +606,13 @@ cs:
             active_votings: Aktivní hlasování
             see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
+      polling_stations:
+        actions:
+          confirm_destroy: Jste si jist?
+          destroy: Smazat
+          edit: Upravit
+          new: Nový
+          title: Akce
       votings:
         count:
           title:

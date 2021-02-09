@@ -191,25 +191,9 @@ fi-pl:
             trustees: Vaalin luottamushenkilöt
           key_ceremony:
             trustees: Luottamushenkilöt
-          ready:
-            errors:
-              time_before: Vaali on valmis käynnistymään. Sinun täytyy odottaa %{hours} tuntia ennen alkamisaikaa (%{start_time}) avataksesi vaaliuurnan.
-            invalid: Vaaliuurnan avaaminen epäonnistui
-            requirements:
-              time_before: Vaali alkaa pian. Voit avata vaaliuurnan manuaalisesti tai se avataan automaattisesti ennen alkamisaikaa, klo %{start_time}.
-            submit: Avaa vaaliuurna
-            title: Valmis aloitettavaksi
-          results:
-            title: Tulokset laskettu
           results_published:
             title: Tulokset julkaistu
           vote:
-            errors:
-              time_after: Nämä vaalit ovat edelleen käynnissä. Sinun täytyy odottaa päättymisaikaan asti (%{end_time}) sulkeaksesi vaaliuurnan.
-            invalid: Vaaliuurnan sulkeminen epäonnistui
-            requirements:
-              time_after: Nämä vaalit ovat päättyneet. Voit sulkea vaaliuurnan manuaalisesti tai se suljetaan automaattisesti muutamassa minuutissa.
-            submit: Sulje vaaliuurna
             title: Äänestysaika
         trustees_participatory_spaces:
           actions:

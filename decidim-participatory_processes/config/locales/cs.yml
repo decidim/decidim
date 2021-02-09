@@ -25,7 +25,7 @@ cs:
         related_process_ids: Související procesy
         scope_id: Rozsah
         scope_type_max_depth_id: Hloubka filtru rozsahu
-        scopes_enabled: Schopnosti povoleny
+        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_metrics: Zobrazit metriku
         show_statistics: Zobrazit statistiky

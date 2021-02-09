@@ -465,6 +465,9 @@
             phone: Telefon
             state: Stat
             users_count: Deltakere teller
+      moderated_users:
+        index:
+          nickname: Kallenavn
       moderations:
         index:
           title: Moderering
