@@ -10,6 +10,7 @@ cs:
         question_type: Typ
       questionnaire_question:
         mandatory: Povinné
+        max_characters: Limit znaků (ponechte na 0, pokud není limit)
     errors:
       models:
         answer:
