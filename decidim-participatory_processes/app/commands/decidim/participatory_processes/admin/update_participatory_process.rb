@@ -45,10 +45,6 @@ module Decidim
 
           @participatory_process.save!
 
-          @participatory_process.sidebar_content_block.published_at = (Time.zone.now if form.sidebar_content_block_enabled)
-          @participatory_process.sidebar_content_block.settings = form.sidebar_content_block.settings
-          @participatory_process.sidebar_content_block.save!
-
           Decidim.traceability.perform_action!(:update, @participatory_process, form.current_user) do
             @participatory_process
           end
