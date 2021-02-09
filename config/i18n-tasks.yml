@@ -151,6 +151,8 @@ ignore_unused:
   - decidim.system.default_pages.placeholders.*
   - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{dni,nie,passport}
+  - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}
+  - decidim.verifications.dummy_authorization.extra_explanation.user_scope
   - errors.messages.*
   - invisible_captcha.*
   - decidim.pages.home.statistics.*
@@ -292,6 +294,7 @@ ignore_unused:
   - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
   - decidim.elections.feedback.answer.*
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
+  - decidim.elections.trustee_zone.elections.tally_steps.keys.*
   - decidim.votings.admin_log.*
   - decidim.devise.sessions.user.timed_out
 

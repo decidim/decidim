@@ -203,6 +203,10 @@ en:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum amount of elements to show
+            order:
+              default: Default (Least recent)
+              label: 'Order element by:'
+              most_recent: Most recent
         exports:
           initiatives: Initiatives
         initiatives:
@@ -306,9 +310,13 @@ en:
         filter_type_values:
           all: All
       committee_requests:
+        approve:
+          success: Request has been approved.
         new:
           continue: Continue
           help_text: You are about to request becoming a member of the promoter committee of this initiative
+        revoke:
+          success: Request has been revoked.
         spawn:
           success: Your request has been sent to the initiative author.
       content_blocks:
@@ -369,6 +377,11 @@ en:
         title: Edit Initiative
         update: Update
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} accepted your application to be part of the promoter committee for the initiative %{resource_title}."
+          email_outro: 'You received this notification because you applied to this initiative: %{resource_title}'
+          email_subject: "%{author_nickname} accepted your application to the promoter committee"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> accepted your application to be part of the promoter committee for the following initiative <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
@@ -379,6 +392,16 @@ en:
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: Initiative endorsed by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} rejected your application to be part of the promoter committee for the following initiative %{resource_title}."
+          email_outro: 'You received this notification because you applied to this initiative : %{resource_title}.'
+          email_subject: "%{author_nickname} rejected your application to the promoter committee"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> rejected you application to be part of the promoter committee for the following initiative <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} applied for the promoter committee of your initiative %{resource_title}. To accept or reject the application, go to the edit form of your initiative."
+          email_outro: 'You received this notification because you are the author of this initiative : %{resource_title}'
+          email_subject: "%{applicant_nickname} wants to join your initiative"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> applied for the promoter committee of your initiative <a href="%{resource_url}">%{resource_title}</a>. To accept or reject click <a href="%{resource_url}/edit">here</a>.
       form:
         add_attachments: Documents
         attachment_legend: "(Optional) Add Attachments"

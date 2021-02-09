@@ -19,6 +19,7 @@ FactoryBot.define do
     decidim_scope_id { create(:scope, organization: organization).id }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    voting_type { "hybrid" }
 
     trait :unpublished do
       published_at { nil }
@@ -46,5 +47,15 @@ FactoryBot.define do
     trait :promoted do
       promoted { true }
     end
+  end
+
+  factory :polling_station, class: "Decidim::Votings::PollingStation" do
+    title { generate_localized_title }
+    location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    address { Faker::Lorem.sentence(word_count: 3) }
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
+    voting { create(:voting) }
   end
 end

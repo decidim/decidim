@@ -223,6 +223,12 @@ es-PY:
       autocomplete:
         no_results: No se han encontrado resultados
         search_prompt: Escriba al menos tres caracteres para buscar
+      block_user:
+        new:
+          action: Bloquear cuenta y enviar justificación
+          description: El bloqueo de una usuaria dejará su cuenta inservible, puede proporcionar en su justificación y directrices sobre las formas que consideres para desbloquear a la usuaria.
+          justification: Justificación
+          title: Bloquear a la usuaria %{name}
       categories:
         create:
           error: Se ha producido un error al crear esta categoría.
@@ -559,6 +565,9 @@ es-PY:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
       officializations:
+        block:
+          error: Se ha producido un error al bloquear a la participante
+          success: Participante bloqueada correctamente
         create:
           success: Usuario oficializado con éxito
         destroy:
@@ -566,6 +575,7 @@ es-PY:
         index:
           actions: Acciones
           badge: Distintivo
+          block: Bloquear usuaria
           created_at: Creado el
           name: Nombre
           nickname: Apodo
@@ -575,6 +585,7 @@ es-PY:
           reofficialize: Re-oficializar
           show_email: Mostrar la dirección de correo electrónico
           status: Estado
+          unblock: Desbloquear usuaria
           unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
@@ -588,6 +599,9 @@ es-PY:
           hidden: oculto
           show: Mostrar
           title: Mostrar dirección de correo del participante
+        unblock:
+          error: Se ha producido un error al desbloquear a la participante
+          success: Participante desbloqueada correctamente
       organization:
         edit:
           title: Editar organización

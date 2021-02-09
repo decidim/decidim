@@ -43,7 +43,7 @@ cs:
       organization_data:
         address: Adresa
         id_document: Doklad totožnosti
-        name: Kompletní jméno
+        name: Úplný název
     errors:
       models:
         initiative:
@@ -208,6 +208,10 @@ cs:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximální množství prvků, které chcete zobrazit
+            order:
+              default: Výchozí (nejmenší blízké)
+              label: 'Seřadit prvek podle:'
+              most_recent: Nejnovější
         exports:
           initiatives: Iniciativy
         initiatives:
@@ -311,9 +315,13 @@ cs:
         filter_type_values:
           all: Vše
       committee_requests:
+        approve:
+          success: Žádost byla schválena.
         new:
           continue: Pokračovat
           help_text: Chystáte se požádat o členství ve výboru promotéra této iniciativy
+        revoke:
+          success: Žádost byla zrušena.
         spawn:
           success: Vaše žádost byla zaslána autorovi iniciativy.
       content_blocks:
@@ -374,6 +382,11 @@ cs:
         title: Upravit iniciativu
         update: Aktualizovat
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} přijal vaši žádost o to, aby byla součástí propagačního výboru pro iniciativu %{resource_title}."
+          email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}'
+          email_subject: "Uživatel %{author_nickname} přijal vaši žádost k funkcionáři výboru"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> přijal vaši žádost o členství ve výboru funkcionářů pro iniciativu <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
@@ -384,6 +397,16 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Iniciativa byla schválena od %{author_nickname}
           notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} odmítl vaši žádost o členství funkcionáře ve výboru pro tuto iniciativu %{resource_title}."
+          email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
+          email_subject: "%{author_nickname} odmítl vaši žádost na funkcionáře výboru"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> vás odmítl přihlásit se k účasti ve výboru funkcionáře pro následující iniciativu <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} požádal o funkci ve výboru vaší iniciativy %{resource_title}. Chcete-li přijmout nebo zamítnout žádost, přejděte na editační formulář vaší iniciativy."
+          email_outro: 'Obdrželi jste toto oznámení, protože jste autorem této iniciativy: %{resource_title}'
+          email_subject: "%{applicant_nickname} se chce připojit k vaší iniciativě"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
         add_attachments: Dokumenty
         attachment_legend: "(Volitelné) přidat přílohy"
@@ -570,7 +593,7 @@ cs:
       initiatives_type:
         actions:
           title: Akce
-          vote: Hlasování
+          vote: Podepsat
   layouts:
     decidim:
       admin:

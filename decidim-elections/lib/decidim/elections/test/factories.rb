@@ -86,7 +86,7 @@ FactoryBot.define do
       blocked_at { start_time - 1.day }
 
       start_time { 1.hour.from_now }
-      bb_status { "key_ceremony" }
+      bb_status { "created" }
 
       after(:create) do |election|
         trustees_participatory_spaces = Decidim::Elections::TrusteesParticipatorySpace.where(participatory_space: election.component.participatory_space)
@@ -94,22 +94,27 @@ FactoryBot.define do
       end
     end
 
-    trait :ready do
+    trait :key_ceremony do
       created
-      bb_status { "ready" }
+      bb_status { "key_ceremony" }
+    end
+
+    trait :key_ceremony_ended do
+      key_ceremony
+      bb_status { "key_ceremony_ended" }
     end
 
     trait :vote do
-      created
+      key_ceremony_ended
       ongoing
       bb_status { "vote" }
     end
 
-    trait :results do
-      created
+    trait :vote_ended do
+      key_ceremony_ended
       ongoing
       finished
-      bb_status { "results" }
+      bb_status { "vote_ended" }
 
       after(:build) do |election|
         election.questions.each do |question|
@@ -120,8 +125,18 @@ FactoryBot.define do
       end
     end
 
+    trait :tally do
+      vote_ended
+      bb_status { "tally" }
+    end
+
+    trait :tally_ended do
+      tally
+      bb_status { "tally_ended" }
+    end
+
     trait :results_published do
-      results
+      tally_ended
       bb_status { "results_published" }
     end
   end
@@ -193,6 +208,13 @@ FactoryBot.define do
     trait :with_votes do
       votes_count { Faker::Number.number(digits: 1) }
     end
+  end
+
+  factory :action, class: "Decidim::Elections::Action" do
+    election
+    message_id { "a.message+id" }
+    status { :pending }
+    action { :start_key_ceremony }
   end
 
   factory :trustee, class: "Decidim::Elections::Trustee" do

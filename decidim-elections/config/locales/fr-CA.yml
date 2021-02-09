@@ -16,6 +16,9 @@ fr-CA:
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
+      voting:
+        end_time: Fin
+        start_time: Heure de début
     errors:
       models:
         answer:
@@ -28,6 +31,8 @@ fr-CA:
               needs_to_be_reattached: Doit être téléchargé de nouveau
         trustee:
           attributes:
+            name:
+              cant_be_changed: ne peut pas être modifié
             public_key:
               cant_be_changed: ne peut être modifiée
   activerecord:
@@ -41,6 +46,9 @@ fr-CA:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/voting:
+        one: Vote
+        other: Votes
   decidim:
     components:
       elections:
@@ -61,10 +69,10 @@ fr-CA:
         import: Importer des propositions dans les réponses
         manage_answers: Gérer les réponses
         manage_questions: Gérer les questions
+        manage_steps: Gérer les étapes
         new: Nouveau %{name}
         preview: Aperçu
         publish: Publier
-        setup: Configurer
         title: Actions
         unpublish: Dépublier
       admin:
@@ -113,9 +121,6 @@ fr-CA:
             title: Nouvelle élection
           publish:
             success: L'élection a été publiée avec succès.
-          setup:
-            invalid: Une erreur est survenue lors de la création de l'élection
-            success: Élection envoyée avec succès au Bulletin
           unpublish:
             success: L'élection a été dépubliée avec succès.
           update:
@@ -160,29 +165,37 @@ fr-CA:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour de cette question
             success: Question mise à jour avec succès
-        setup:
-          errors:
-            max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
-            minimum_answers: Les questions doivent avoir <strong>au moins une réponse</strong>.
-            minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
-            published: L'élection n'est <strong>pas publiée</strong>
-            time_before: L'heure de début se situe <strong>moins de 3 heures</strong> avant le début de l'élection
-            trustee_public_key: n'a pas de <strong>clé publique valide</strong>
-            trustees_quorum: Le nombre de garants <strong>ne correspond pas au quorum des garants</strong> requis
-          requirements:
-            max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>
-            minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>
-            minimum_questions: L'élection a <strong>au moins 1 question</strong>
-            published: L'élection est <strong>publiée</strong>
-            time_before: La configuration est réalisée <strong>au moins 3 heures</strong> avant le début de l'élection
-            trustee_public_key: a une <strong>clé publique valide</strong>
-            trustees_quorum: La taille de cette liste des garants est correcte et il sera nécessaire d'avoir <strong>au moins %{quorum} de garants </strong> pour effectuer le processus de comptabilisation
-          show:
-            setup: Configurer l'élection
-            title: Configuration de l'élection
-          update:
-            setup: Configurer l'élection
-            title: Configuration de l'élection
+        steps:
+          create_election:
+            errors:
+              max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
+              minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
+              minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
+              published: L'élection n'est <strong>pas publiée</strong>.
+              time_before: L'heure de début se situe<strong>moins 3 heures</strong> avant le commencement de l'élection.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} mandataires avec la clé publique</strong>.
+            invalid: Une erreur est survenue lors de la création de l'élection
+            no_trustees: Il n'y a pas de Mandataires configurés pour cet espace participatif
+            not_used_trustee: "(non utilisé)"
+            public_key:
+              'false': n'a pas de <strong>clé publique</strong>
+              'true': a une <strong>clé publique</strong>
+            requirements:
+              max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>.
+              minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>.
+              minimum_questions: L'élection a <strong>au moins 1 question</strong>.
+              published: L'élection est <strong>publiée</strong>.
+              time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} mandataires avec la clé publique</strong>.
+            submit: Configurer l'élection
+            success: Élection envoyée avec succès au Tableau de Bord
+            title: Configurer l'élection
+            trustees: Mandataire de l'élection
+          key_ceremony:
+            title: Cérémonie des clés
+            trustees: Mandataires
+          results_published:
+            title: Résultats publiés
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
@@ -292,14 +305,51 @@ fr-CA:
         older: Les plus anciens
         recent: Les plus récents
       trustee_zone:
+        elections:
+          backup_modal:
+            description: Cette élection est en cours de création dans le Tableau d'Affichage. Il est très important que chaque Mandataire qui y participe fasse une sauvegarde de ces clés et les stocke dans un endroit sûr. Ensuite, le processus se poursuit.
+            download_election_keys: Télécharger les clés
+            download_icon: Icône indiquant une action de téléchargement
+            title: Sauvegarder les clés d'élection pour %{election}
+          key_ceremony_steps:
+            back: Retour
+            description: Cette élection est en cours de création dans le Tableau d'Affichage. Pour compléter ce processus, votre participation en tant que Mandataire est nécessaire.
+            keys:
+              create_election: Génération des clés
+              key_ceremony:
+                joint_election_key: Génération de la clé conjointe
+                step_1: Publication des clés
+            list:
+              status: Statut
+              task: Tâche
+            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les Mandataires doivent être connectés pour le compléter.
+            start: Démarrer
+            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
+            status:
+              completed: Terminé
+              pending: En attente
+              processing: Traitement en cours
+            title: Créer des clés d'élection pour %{election}
+          restore_modal:
+            description: Le Tableau d'Affichage a des informations pour vous en temps que Mandataire de cette élection. Pour continuer le processus, commencer par télécharger le fichier de sauvegarde généré pendant la session précédente.
+            title: Restaurer les clés d'élection pour %{election}
+            upload_election_keys: Télécharger les clés d'élection
+            upload_icon: Icône indiquant une action de téléchargement
+          update:
+            error: Le statut de l'élection n'a pas été mis à jour.
+            success: 'Le statut de l''élection est : %{status}'
         menu:
           trustee_zone: Espace de garant
         trustees:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'Non'
+                  name: Action requise ?
+                  'true': Effectuer l'action
+                bb_status: Statut
                 election: Élection
-                status: Statut
                 voting_period: Période de vote
               no_elections: Il n'y a pas d'élections dans lesquelles vous êtes garant.
               title: Élections
@@ -344,7 +394,6 @@ fr-CA:
           header: Vote confirmé
           lead: Votre vote a déjà été exprimé!
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté à la zone des urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Pour vérifier, copiez l'identifiant et collez-le sur la <a href="evote-verify">page de vérification de vote</a>
         encrypting:
           header: Encodage du vote...
           text: Votre vote est en cours de cryptage pour vous assurer que vous pouvez le diffuser de manière anonyme.
@@ -388,6 +437,14 @@ fr-CA:
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Une <strong>votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à la votation, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque n'importe quel aspect qui affectent une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de faire d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
+          page: "<p>Une <strong>votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à la votation, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque n'importe quel aspect qui affectent une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de faire d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
+          title: Quelles sont les votations?
+    menu:
+      votings: Élections
     pages:
       home:
         statistics:
@@ -395,7 +452,144 @@ fr-CA:
     participatory_processes:
       statistics:
         elections_count: Élections
+    votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Nombre maximum d'éléments à afficher
+        index:
+          not_published: Non-publié
+          published: Publié
+        menu:
+          votings: Élections
+          votings_submenu:
+            attachment_collections: Dossiers
+            attachment_files: Fichiers
+            attachments: Pièces jointes
+            info: Information
+            polling_stations: Bureaux de vote
+        models:
+          polling_station:
+            fields:
+              address: Adresse
+              title: Titre
+            name: Bureau de vote
+          voting:
+            fields:
+              created_at: Créée le
+              promoted: Mis en évidence
+              published: Publié
+              title: Titre
+        polling_stations:
+          create:
+            invalid: Une erreur est survenue lors de la création de ce bureau de vote
+            success: Le bureau de vote a été créée avec succès
+          destroy:
+            invalid: Une erreur est survenue lors de la suppression de ce bureau de vote
+            success: Le bureau de vote a bien été supprimé
+          edit:
+            title: Modifier le bureau de vote
+            update: Modifier le bureau de vote
+          form:
+            address_help: 'Adresse: utilisée par l''outil de géocadage pour trouver l''emplacement'
+            location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
+            location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple: l''étage du bâtiment où se trouve le bureau de vote.'
+          index:
+            title: Bureaux de vote
+          new:
+            create: Créer
+            title: Créer un bureau de vote
+          update:
+            invalid: Une erreur est survenue lors de la mise à jour de ce bureau de vote
+            success: Le bureau de vote a bien été mis à jour
+        titles:
+          votings: Élections
+        votings:
+          actions:
+            confirm_destroy: Êtes-vous sûr(e) ?
+            destroy: Supprimer
+            new_voting: Nouvel espace de vote
+            publish: Publier
+            unpublish: Annuler la publication
+          create:
+            invalid: Une erreur s'est produite lors de la création de cette élection
+            success: Élection créée avec succès
+          edit:
+            update: Mettre à jour
+          form:
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            title: Titre
+          new:
+            create: Créer
+            title: Nouvelle élection
+          publish:
+            success: Élection publiée avec succès
+          unpublish:
+            success: Élection publiée avec succès
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de cette élection
+            success: Élection mise à jour avec succès
+      admin_log:
+        voting:
+          create: "%{user_name} a créé l'élection %{resource_name}"
+          publish: "%{user_name} a publié l'élection %{resource_name}"
+          unpublish: "%{user_name} a annulé la publication de l'élection %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Élections remarquables
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Votations en cours
+            see_all_votings: Voir toutes les votations
+            votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_stations:
+        actions:
+          confirm_destroy: Êtes-vous sûr(e) ?
+          destroy: Supprimer
+          edit: Modifier
+          new: Nouveau
+          title: Actions
+      votings:
+        count:
+          title:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        filters:
+          active: Actifs
+          all: Tous
+          finished: Terminées
+          search: Rechercher
+          state: Statut
+          upcoming: À venir
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Dérouler
+        index:
+          title: Votations
+        orders:
+          label: 'Trier les votations par:'
+          random: Aléatoire
+          recent: Les plus récentes
+        show:
+          dates: Dates
+      votings_m:
+        badge_name:
+          finished: Passées
+          ongoing: En cours
+          upcoming: À venir
+        footer_button_text:
+          view: Voir
+        unspecified: Non précisées
   layouts:
     decidim:
       election_votes_header:
         exit: Quitter
+      votings:
+        index:
+          promoted_votings: Votations remarquables
+        promoted_voting:
+          more_info: Plus d'informations
+          vote: Voter

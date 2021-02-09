@@ -25,7 +25,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "renders each stat" do
-        expect(subject).to have_css(".process-stats__data", count: 2)
+        expect(subject).to have_css(".space-stats__data", count: 2)
       end
     end
   end

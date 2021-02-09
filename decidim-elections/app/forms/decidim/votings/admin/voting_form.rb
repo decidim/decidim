@@ -18,6 +18,7 @@ module Decidim
         attribute :banner_image, String
         attribute :remove_introductory_image
         attribute :introductory_image, String
+        attribute :voting_type, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -27,6 +28,7 @@ module Decidim
         validates :end_time, presence: true, date: { after: :start_time }
         validates :banner_image, passthru: { to: Decidim::Votings::Voting }
         validates :introductory_image, passthru: { to: Decidim::Votings::Voting }
+        validates :voting_type, presence: true, inclusion: { in: Votings::Voting.voting_types, message: "%{value} is not a valid voting type" }
 
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
 
@@ -38,6 +40,15 @@ module Decidim
 
         def scope
           @scope ||= current_organization.scopes.find_by(id: scope_id)
+        end
+
+        def options_for_voting_type_select
+          Voting.voting_types.map do |key, value|
+            [
+              I18n.t("voting_type.#{key}", scope: "decidim.votings.admin.votings.form"),
+              value
+            ]
+          end
         end
 
         private

@@ -192,35 +192,47 @@ en:
             success: Election successfully sent to the Bulletin Board
             title: Setup election
             trustees: Election Trustees
-          index:
-            title: Manage elections steps on the Bulletin Board
+          created:
+            invalid: There was a problem starting the key ceremony
+            submit: Start the key ceremony
+            success: Start key ceremony request was successfully sent to the Bulletin Board
+            title: Election created
+            trustees: Trustees
           key_ceremony:
             title: Key ceremony
             trustees: Trustees
-          ready:
+          key_ceremony_ended:
             errors:
-              time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to open the ballot box.
-            invalid: There was a problem opening the ballot box
+              time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to start the voting period.
+            invalid: There was a problem starting the voting period
             requirements:
-              time_before: The election will start soon. You can open the ballot box manually, or it will be opened automatically before the starting time, at %{start_time}.
-            submit: Open ballot box
-            success: The ballot box was successfully opened in the Bulletin Board
+              time_before: The election will start soon. You can start the voting period manually, or it will be started automatically before the starting time, at %{start_time}.
+            submit: Start voting period
+            success: Start voting period request was successfully sent to the Bulletin Board
             title: Ready to start
-          results:
-            title: Results calculated
+          processing: Processing...
           results_published:
             title: Results published
           tally:
             title: Tally process
+            trustees: Trustees
+          tally_ended:
+            submit: Publish results
+            title: Results calculated
           vote:
             errors:
-              time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to close the ballot box.
-            invalid: There was a problem closing the ballot box
+              time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
+            invalid: There was a problem ending the voting period
             requirements:
-              time_after: The election has ended. You can close the ballot box manually, or it will be closed automatically in a few minutes.
-            submit: Close ballot box
-            success: The ballot box was successfully closed in the Bulletin Board
+              time_after: The election has ended. You can end the voting period manually, or it will be ended automatically in a few minutes.
+            submit: End voting period
+            success: End voting period request was successfully sent to the Bulletin Board
             title: Vote period
+          vote_ended:
+            invalid: There was a problem starting the tally
+            submit: Start tally
+            success: Start tally request was successfully sent to the Bulletin Board
+            title: Vote period ended
         trustees_participatory_spaces:
           actions:
             disable: Disable
@@ -244,10 +256,12 @@ en:
             success: Trustee %{trustee} successfully updated
       admin_log:
         election:
-          close_ballot_box: "%{user_name} closed the ballot box for the %{resource_name} election on the Bulletin Board"
-          open_ballot_box: "%{user_name} opened the ballot box for the %{resource_name} election on the Bulletin Board"
+          end_vote: "%{user_name} ended the voting period for the %{resource_name} election on the Bulletin Board"
           publish: "%{user_name} published the %{resource_name} election"
           setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
+          start_key_ceremony: "%{user_name} started the key ceremony for the %{resource_name} election on the Bulletin Board"
+          start_tally: "%{user_name} started the tally for the %{resource_name} election on the Bulletin Board"
+          start_vote: "%{user_name} started the voting period for the %{resource_name} election on the Bulletin Board"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
         badge_name:
@@ -366,11 +380,33 @@ en:
             title: Restore election keys for %{election}
             upload_election_keys: Upload election keys
             upload_icon: Icon that indicates a download action
+          tally_steps:
+            back: Back
+            description: This election results are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
+            keys:
+              end_tally: Tally ended
+              tally:
+                cast: Tally cast
+                share: Tally share
+            list:
+              status: Status
+              task: Task
+            process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
+            start: Start
+            start_icon: Icon that indicates a start button to start the election keys generation
+            status:
+              completed: Completed
+              pending: Pending
+              processing: Processing
+            title: Tally for %{election}
           update:
             error: The election status wasn't updated.
             success: 'The election status is: %{status}'
         menu:
           trustee_zone: Trustee zone
+        no_bulletin_board:
+          body: A configured Bulletin Board is required for this section. Contact the Administrator for more details.
+          title: Sorry, the Bulletin Board is not configured yet.
         trustees:
           show:
             elections:
@@ -531,14 +567,43 @@ en:
             attachment_collections: Folders
             attachment_files: Files
             attachments: Attachments
+            components: Components
             info: Information
+            polling_stations: Polling Stations
         models:
+          polling_station:
+            fields:
+              address: Address
+              title: Title
+            name: Polling Station
           voting:
             fields:
               created_at: Created at
               promoted: Highlighted
               published: Published
               title: Title
+        polling_stations:
+          create:
+            invalid: There was a problem creating this polling station
+            success: Polling station successfully created
+          destroy:
+            invalid: There was a problem deleting this polling station
+            success: Polling station successfully deleted
+          edit:
+            title: Edit polling station
+            update: Update polling station
+          form:
+            address_help: 'Address: used by Geocoder to find the location'
+            location_help: 'Location: message directed to the voters implying the exact place of the polling station'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
+          index:
+            title: Polling stations
+          new:
+            create: Create
+            title: Create polling station
+          update:
+            invalid: There was a problem updating this polling station
+            success: Polling station successfully updated
         titles:
           votings: Votings
         votings:
@@ -552,10 +617,16 @@ en:
             invalid: There was a problem creating this voting
             success: Voting successfully created
           edit:
+            add_election_component: You don't have any election configured for this voting. Please add it in the Components section
             update: Update
           form:
+            select_a_voting_type: Please select a voting type
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
+            voting_type:
+              hybrid: Hybrid
+              in_person: In person
+              online: Online
           new:
             create: Create
             title: New Voting
@@ -580,6 +651,13 @@ en:
             active_votings: Active votings
             see_all_votings: See all votings
             votings_button_title: Link to the Votings page displaying all the votings
+      polling_stations:
+        actions:
+          confirm_destroy: Are you sure?
+          destroy: Delete
+          edit: Edit
+          new: New
+          title: Actions
       votings:
         count:
           title:

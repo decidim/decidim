@@ -44,7 +44,11 @@ nl:
             title: Budget bewerken
             update: Budget bijwerken
           index:
+            finished_orders: Voltooide stemmen
+            pending_orders: Openstaande stemmen
             title: Budgetten
+            users_with_finished_orders: Gebruikers met voltooide stemmen
+            users_with_pending_orders: Gebruikers met openstaande stemmen
           new:
             create: Budget maken
             title: Nieuw budget

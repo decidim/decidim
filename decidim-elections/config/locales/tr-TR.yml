@@ -64,7 +64,6 @@ tr:
         new: Yeni %{name}
         preview: Önizleme
         publish: Yayınla
-        setup: Kur
         title: Eylemler
         unpublish: Yayımdan Kaldır
       admin:
@@ -113,9 +112,6 @@ tr:
             title: Yeni seçim
           publish:
             success: Seçim başarıyla yayınlandı.
-          setup:
-            invalid: Bu seçimi ayarlarken bir sorun oluştu
-            success: Seçim, Bülten Panosuna başarıyla gönderildi
           unpublish:
             success: Seçim başarılı bir şekilde yayınlanmadı.
           update:
@@ -160,29 +156,6 @@ tr:
           update:
             invalid: Bu soru güncellenirken bir hata oluştu
             success: Soru başarıyla güncellendi
-        setup:
-          errors:
-            max_selections: Sorular, <strong> yanıt miktarı için doğru değere </strong> sahip değildir
-            minimum_answers: Soruların <strong> en az bir cevabı </strong> olmalıdır.
-            minimum_questions: Seçim <strong> en az bir soruyu içermelidir </strong>.
-            published: Seçim <strong> yayınlanmadı </strong>
-            time_before: Kurulum, seçim başlamadan <strong> en az 3 saat </strong> önce yapılıyor
-            trustee_public_key: <strong> geçerli bir genel anahtara </strong> sahip değil
-            trustees_quorum: Vekil sayısı <strong> gerekli vekil heyetine uymuyor </strong>
-          requirements:
-            max_selections: Tüm sorular <strong> maksimum cevap </strong> için doğru değere sahiptir
-            minimum_answers: Her sorunun <strong> en az 2 cevabı </strong> vardır
-            minimum_questions: Seçimde <strong> en az 1 soru </strong> var
-            published: Seçim <strong> yayınlandı </strong>
-            time_before: Kurulum, seçim başlamadan <strong> en az 3 saat </strong> önce yapılıyor
-            trustee_public_key: <strong> geçerli bir genel anahtara </strong> sahiptir
-            trustees_quorum: Bu güvenilenler listesinin boyutu doğru ve çetele sürecini gerçekleştirmek için <strong> en az %{quorum} güvenilen kişi </strong> gerekecek
-          show:
-            setup: Seçim yarat
-            title: Seçim ayarları
-          update:
-            setup: Seçimi güncelle
-            title: Seçim ayarları
         trustees_participatory_spaces:
           actions:
             disable: Devre dışı
@@ -299,7 +272,6 @@ tr:
             elections:
               list:
                 election: Seçim
-                status: Statü
                 voting_period: Oylama süresi
               no_elections: Vekil olarak hareket ettiğiniz hiçbir seçim yoktur.
               title: Seçimler
@@ -344,7 +316,6 @@ tr:
           header: Oy onaylandı
           lead: Oyunuz çoktan verildi!
           text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
-          verify_text: Kontrol etmek için, tanımlayıcıyı kopyalayın ve <a href="evote-verify"> oy doğrulama sayfasına </a> yapıştırın
         encrypting:
           header: Oy kodlanıyor...
           text: Anonim olarak kullanabilmeniz için oyunuz şifreleniyor.

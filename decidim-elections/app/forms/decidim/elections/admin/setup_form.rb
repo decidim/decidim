@@ -15,6 +15,10 @@ module Decidim
           end
         end
 
+        def current_step; end
+
+        def pending_action; end
+
         def trustee_ids
           choose_random_trustees
         end

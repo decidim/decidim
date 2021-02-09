@@ -64,7 +64,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("elections.destroy.invalid", scope: "decidim.elections.admin")
+              flash[:alert] = I18n.t("elections.destroy.invalid", scope: "decidim.elections.admin")
             end
           end
 

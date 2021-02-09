@@ -6,7 +6,7 @@ require "decidim/proposals/test/capybara_proposals_picker"
 describe "Admin manages meetings", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component }
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
@@ -195,12 +195,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     select "Registration disabled", from: :meeting_registration_type
 
     page.execute_script("$('#meeting_start_time').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "10:00").click
     page.find(".datepicker-dropdown .minute", text: "10:50").click
 
     page.execute_script("$('#meeting_end_time').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
     page.find(".datepicker-dropdown .hour", text: "12:00").click
     page.find(".datepicker-dropdown .minute", text: "12:50").click
 
@@ -267,12 +267,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         select "Registration disabled", from: :meeting_registration_type
 
         page.execute_script("$('#meeting_start_time').focus()")
-        page.find(".datepicker-dropdown .day", text: "12").click
+        page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
         page.find(".datepicker-dropdown .hour", text: "10:00").click
         page.find(".datepicker-dropdown .minute", text: "10:50").click
 
         page.execute_script("$('#meeting_end_time').focus()")
-        page.find(".datepicker-dropdown .day", text: "12").click
+        page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
         page.find(".datepicker-dropdown .hour", text: "12:00").click
         page.find(".datepicker-dropdown .minute", text: "12:50").click
       end
@@ -356,12 +356,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       fill_in_geocoding :meeting_address, with: address
 
       page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
       page.find(".datepicker-dropdown .minute", text: "10:50").click
 
       page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 
@@ -470,12 +470,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       select "Registration disabled", from: :meeting_registration_type
 
       page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
       page.find(".datepicker-dropdown .minute", text: "10:50").click
 
       page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 

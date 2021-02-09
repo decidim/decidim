@@ -134,14 +134,26 @@ fr:
     admin:
       actions:
         add: Ajouter
+        attachment:
+          new: Nouvelle pièce jointe
+        attachment_collection:
+          new: Nouveau dossier
         browse: Parcourir
+        category:
+          new: Nouvelle catégorie
         export: Exporter
         manage: Gérer
         new: + %{name}
+        newsletter:
+          new: Nouvelle newsletter
+        participatory_space_private_user:
+          new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
         share: Partager
+        user:
+          new: Nouvel utilisateur
         verify: Vérifier
       admin_terms_of_use:
         accept:
@@ -501,17 +513,22 @@ fr:
       moderated_users:
         index:
           actions:
+            block: Bloquer
             title: Actions
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
           reason: Raison du signalement
+          reports: Signalements
           title: Liste des utilisateurs signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
             offensive: Offensant
             spam: Spam
+        tabs:
+          blocked: Bloqué
+          unblocked: Débloqué
       moderations:
         index:
           title: Modérations

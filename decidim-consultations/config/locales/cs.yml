@@ -11,7 +11,7 @@ cs:
         questions: Otázky
         slug: URL slug
         start_voting_date: Hlasování začíná
-        subtitle: Titulky
+        subtitle: Podtitul
         title: Titul
       question:
         banner_image: Obrázek banneru
@@ -31,7 +31,7 @@ cs:
         reference: Odkaz
         scope: Městská oblast
         slug: URL slug
-        subtitle: Titulky
+        subtitle: Podtitul
         vote: Externí hlasovací systém
         what_is_decided: Co se rozhodlo
       response:
@@ -90,13 +90,13 @@ cs:
           success: Konzultace byla zveřejněna úspěšně.
         destroy:
           error: Při této konzultaci došlo k chybě.
-          success: Konzultace byla nepublikována úspěšně.
+          success: Zveřejnění konzultace bylo úspěšně zrušeno.
       consultation_results_publications:
         create:
           error: Při publikování výsledků této konzultace došlo k chybě.
           success: Výsledky konzultací byly úspěšně publikovány.
         destroy:
-          error: Při zobrazování výsledků této konzultace došlo k chybě.
+          error: Při rušení publikování výsledků této konzultace došlo k chybě.
           success: Výsledky konzultací byly nepublikovány úspěšně.
       consultations:
         create:

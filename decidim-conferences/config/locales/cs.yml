@@ -19,7 +19,7 @@ cs:
         scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_statistics: Zobrazit statistiky
-        slogan: Heslo
+        slogan: Motto
         slug: URL slug
         title: Titul
       conference_speaker:
@@ -76,9 +76,9 @@ cs:
       conference_speakers:
         create:
           error: Při přidání řečníka k této konferenci došlo k chybě.
-          success: Přednášející byl úspěšně vytvořen pro tuto konferenci.
+          success: Řečník byl úspěšně vytvořen pro tuto konferenci.
         destroy:
-          success: Reproduktor byl úspěšně smazán pro tuto konferenci.
+          success: Řečník byl úspěšně smazán pro tuto konferenci.
         edit:
           title: Aktualizovat řečníka konference.
           update: Aktualizace
@@ -89,7 +89,7 @@ cs:
           title: Nový řečník konference.
         update:
           error: Při této konferenci došlo k chybě při aktualizaci řečníka.
-          success: Speaker se úspěšně pro tuto konferenci úspěšně aktualizoval.
+          success: Řečník konference byl úspěšně aktualizován.
       conference_user_roles:
         create:
           error: Při přidávání administrátora této konference došlo k chybě.
@@ -143,10 +143,10 @@ cs:
           media_links_title: Odkazy na média
         new:
           create: Vytvořit
-          title: Odkaz na media
+          title: Odkaz na média
         update:
           error: Při aktualizaci tohoto odkazu na média došlo k chybě.
-          success: Media Link byl úspěšně aktualizován.
+          success: Odkaz na média byl úspěšně aktualizován.
       menu:
         conferences: Konference
         conferences_submenu:
@@ -195,7 +195,7 @@ cs:
             date: datum
             link: Odkaz
             title: Název
-          name: Media Link
+          name: Odkaz na média
         partner:
           fields:
             link: Odkaz
@@ -263,7 +263,7 @@ cs:
         update_diploma: "%{user_name} aktualizovala certifikáty pro účast na %{resource_name} konferenci"
       conference_speaker:
         create: "%{user_name} vytvořil %{resource_name} řečníka na konferenci %{space_name}"
-        delete: "%{user_name} odstranila %{resource_name} reproduktor z %{space_name} konferencí"
+        delete: "%{user_name} odstranil řečníka %{resource_name} z konference %{space_name}"
         update: "%{user_name} aktualizoval %{resource_name} řečníka na konferenci %{space_name}"
       conference_user_role:
         create: "%{user_name} pozval %{resource_name} na konferenci %{space_name}"
@@ -282,9 +282,9 @@ cs:
           unpublish: "%{user_name} nepublikováno %{resource_name} typ registrace na %{space_name} konferencích"
           update: "%{user_name} aktualizoval typ registrace %{resource_name} na konferenci %{space_name}"
       media_link:
-        create: "%{user_name} vytvořilo %{resource_name} mediální odkaz na konferenci %{space_name}"
-        delete: "%{user_name} odstranilo %{resource_name} odkaz na média z %{space_name} konferencí"
-        update: "%{user_name} aktualizovalo %{resource_name} odkaz na média v %{space_name} konferenci"
+        create: "%{user_name} vytvořil %{resource_name} odkaz na média v konferenci %{space_name}"
+        delete: "%{user_name} odstranil %{resource_name} odkaz na média z konference %{space_name}"
+        update: "%{user_name} aktualizoval %{resource_name} odkaz na média v konferenci %{space_name}"
     conference_program:
       index:
         title: Program
@@ -380,7 +380,7 @@ cs:
         program_meeting:
           content: Obsah
           location: Umístění
-          speakers: Reproduktory
+          speakers: Řečníci
           streaming: Streamování
         show:
           day: Den
@@ -388,11 +388,11 @@ cs:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Vaše registrace pro konferenci <a href="%{url}">%{title}</a> byla potvrzena.
-          details_1: 'Jste přihlášeni do konference s typem %{registration_type}. Má cenu %{price} a můžete se zúčastnit následujících akcí:'
+          details_1: 'Jste přihlášeni do konference s typem %{registration_type}. Stojí %{price} a můžete se zúčastnit následujících akcí:'
           details_2: Podrobnosti o konferenci naleznete v příloze.
         pending_validation:
           confirmation_pending: Potvrzení obdržíte brzy
-          details: 'Zaregistrovali jste se na typ %{registration_type} s cenou %{price} a můžete se zúčastnit následujících událostí:'
+          details: 'Zaregistrovali jste se na typ konference %{registration_type} s cenou %{price} a můžete se zúčastnit následujících událostí:'
           pending_html: Vaše registrace pro konferenci <a href="%{url}">%{title}</a> čeká na potvrzení.
       conference_registrations:
         create:
@@ -418,7 +418,7 @@ cs:
           go_to_twitter: Přejděte na Twitter
       conference_speakers:
         index:
-          speakers: Reproduktory
+          speakers: Řečníci
       conferences:
         partners:
           collaborators: Partneři
@@ -593,6 +593,6 @@ cs:
       conferences_nav:
         conference_menu_item: Informace
         conference_partners_menu_item: Partneři
-        conference_speaker_menu_item: Reproduktory
+        conference_speaker_menu_item: Řečníci
         media: Média
         venues: Místa

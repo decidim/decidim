@@ -42,6 +42,7 @@ sv:
         title: Åtgärder
       admin:
         exports:
+          result_comments: Kommentarer
           results: Resultat
         import_results:
           new:
@@ -121,6 +122,11 @@ sv:
         value_types:
           parent_presenter:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datum
+          results: Resultat
+          unspecified: Ej angivet
       import_mailer:
         import:
           errors: Fel
@@ -138,6 +144,7 @@ sv:
             end_date: Slutdatum
             id: ID
             progress: Behandling
+            scope: Omfång
             start_date: Startdatum
             status: Status
             title: Titel
@@ -151,6 +158,9 @@ sv:
           fields:
             description: Beskrivning
             entry_date: Datum
+      result_m:
+        executed: Utfört
+        view: Visa
       results:
         count:
           results_count:
@@ -186,6 +196,8 @@ sv:
         results:
           category_id_eq:
             label: Kategori
+          scope_id_eq:
+            label: Omfång
           status_id_eq:
             label: Status
     components:

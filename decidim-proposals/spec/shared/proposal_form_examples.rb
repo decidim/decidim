@@ -149,7 +149,7 @@ shared_examples "a proposal form" do |options|
       end
 
       context "when the address is present" do
-        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:address) { "Some address" }
 
         before do
           stub_geocoding(address, [latitude, longitude])

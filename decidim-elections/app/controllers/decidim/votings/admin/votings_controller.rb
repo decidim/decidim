@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     module Admin
-      # This controller allows to create or update an election.
+      # This controller allows to create or update a voting.
       class VotingsController < Admin::ApplicationController
         include Decidim::Votings::Admin::Filterable
         helper_method :votings, :current_voting, :current_participatory_space
@@ -46,7 +46,7 @@ module Decidim
           @form = form(VotingForm).from_params(params, voting_id: current_voting.id)
 
           UpdateVoting.call(current_voting, @form) do
-            on(:ok) do
+            on(:ok) do |voting|
               flash[:notice] = I18n.t("votings.update.success", scope: "decidim.votings.admin")
               redirect_to edit_voting_path(voting)
             end
