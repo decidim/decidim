@@ -493,23 +493,6 @@ en:
         related_assemblies: Related assemblies
         related_consultations: Related Consultations
         related_participatory_processes: Related participatory processes
-      statistics:
-        answers_count: Answers
-        comments_count: Comments
-        conference_count: Conferences
-        debates_count: Debates
-        endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Supports
-        pages_count: Pages
-        posts_count: Posts
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Supports
     events:
       conferences:
         conference_registration_confirmed:
