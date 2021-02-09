@@ -191,22 +191,9 @@ fr:
             success: Élection envoyée avec succès au Tableau de Bord
             title: Configurer l'élection
             trustees: Mandataire de l'élection
-          index:
-            title: Gérer les étapes des élections sur le Tableau de Bord
           key_ceremony:
             title: Cérémonie des clés
             trustees: Mandataires
-          ready:
-            errors:
-              time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour ouvrir les urnes.
-            invalid: Une erreur est survenue lors de l'ouverture de l'urne
-            requirements:
-              time_before: L'élection va bientôt commencer. Vous pouvez ouvrir l'urne de vote manuellement, ou elle sera ouvert automatiquement avant l'heure de départ, à %{start_time}.
-            submit: Ouvrir l'urne
-            success: Les urnes ont été ouvertes avec succès dans le Tableau de Bord
-            title: Prêt à commencer
-          results:
-            title: Résultats calculés
           results_published:
             title: Résultats publiés
         trustees_participatory_spaces:
