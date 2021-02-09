@@ -215,6 +215,7 @@ cs:
             requirements:
               time_before: Volba začne brzy. Hlasovací období můžete začít ručně, nebo bude spuštěna automaticky před časem začátku v %{start_time}.
             submit: Začátek doby hlasování
+            success: Počátek období hlasování bylo úspěšně odesláno do Bulletin Board
             title: Připraveno k zahájení
           processing: Zpracovávání...
           results_published:
@@ -229,6 +230,8 @@ cs:
             errors:
               time_after: Volby stále probíhají. Musíte počkat na ukončení hlasovacího období (%{end_time}).
             invalid: Při ukončení hlasovacího období došlo k chybě
+            requirements:
+              time_after: Volba skončila. Hlasovací dobu můžete ukončit ručně, nebo bude automaticky ukončena za několik minut.
             submit: Konec doby hlasování
             success: Žádost o ukončení hlasování byla úspěšně odeslána do Bulletin Board
             title: Období hlasování
