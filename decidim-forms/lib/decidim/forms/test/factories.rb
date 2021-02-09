@@ -13,6 +13,7 @@ FactoryBot.define do
     end
     tos { generate_localized_title }
     questionnaire_for { build(:participatory_process) }
+    salt { SecureRandom.hex(32) }
 
     trait :with_questions do
       questions do
