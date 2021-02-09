@@ -199,9 +199,21 @@ cs:
             success: Volba byla úspěšně odeslána do Bulletin Board
             title: Nastavení voleb
             trustees: Volební správci
+          created:
+            invalid: Vyskytl se problém při zahájení ceremoniálu
+            submit: Zahájit ceremoniál
+            success: Počáteční žádost o ceremoniál byla úspěšně odeslána do Bulletin Board
+            title: Volba vytvořena
+            trustees: Volební komisaři
           key_ceremony:
             title: Slavnostní ceremoniál
             trustees: Správci
+          key_ceremony_ended:
+            errors:
+              time_before: Volby jsou připraveny k zahájení. Musíte počkat %{hours} hodin před začátkem období hlasování (%{start_time}).
+            invalid: Vyskytl se problém při zahájení hlasovacího období
+            requirements:
+              time_before: Volba začne brzy. Hlasovací období můžete začít ručně, nebo bude spuštěna automaticky před časem začátku v %{start_time}.
           results_published:
             title: Výsledky publikovány
           tally:
