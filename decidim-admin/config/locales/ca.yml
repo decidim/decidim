@@ -91,6 +91,8 @@ ca:
         name: Nom
         organization: Organització
         plural: Plural
+      settings:
+        scope_id: Àmbit
       static_page:
         changed_notably: S'han produït canvis notables.
         content: Contingut

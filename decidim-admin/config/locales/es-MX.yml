@@ -91,6 +91,8 @@ es-MX:
         name: Nombre
         organization: Organización
         plural: Plural
+      settings:
+        scope_id: Ámbito
       static_page:
         changed_notably: Ha habido cambios notables.
         content: Contenido
