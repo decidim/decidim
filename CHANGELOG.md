@@ -47,6 +47,7 @@
 - **decidim-admin**, **decidim-assemblies**, **decidim-participatory_processes**: Allow admin to be registered as a participatory space user [\#7316](https://github.com/decidim/decidim/pull/7316)
 - **decidim-core**: Fixing error caused by Missing Organization [\#7317](https://github.com/decidim/decidim/pull/7317)
 - **decidim-core**: Adding Organization scopes to uploaders [\#7318](https://github.com/decidim/decidim/pull/7318)
+- **decidim-core**, **decidim-forms**, **decidim-meetings**: Fix security token generation in anonymous surveys and pads [\#7327](https://github.com/decidim/decidim/pull/7327)
 
 **Removed**
 
