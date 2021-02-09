@@ -4,7 +4,9 @@
       <p class="heading2"><%= clean_title %></p>
 
       <% if has_array_body? %>
-
+        <% announcement[:body].each do |paragraph| %>
+          <%= clean_paragraph(paragraph) %>
+        <% end %>
       <% else %>
         <p><%= clean_body %></p>
       <% end %>

@@ -46,6 +46,10 @@ module Decidim
       clean(announcement[:body])
     end
 
+    def clean_paragraph(paragraph)
+      clean(paragraph)
+    end
+
     def clean_announcement
       clean(announcement)
     end
