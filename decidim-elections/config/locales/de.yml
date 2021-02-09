@@ -191,6 +191,12 @@ de:
             success: Wahl erfolgreich an das Bulletin Board gesendet
             title: Wahl einrichten
             trustees: Wahlhelfer
+          created:
+            invalid: Beim Starten der Schlüssel-Zeremonie ist ein Fehler aufgetreten
+            submit: Schlüssel-Zeremonie starten
+            success: Die Anfrage zum Starten der Schlüssel-Zeremonie wurde erfolgreich ans Bulletin Board gesendet
+            title: Wahl erstellt
+            trustees: Wahlhelfer
           key_ceremony:
             title: Schlüsselzeremonie
             trustees: Wahlhelfer
