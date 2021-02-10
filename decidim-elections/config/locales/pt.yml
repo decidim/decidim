@@ -142,7 +142,7 @@ pt:
         show:
           back: Todas as eleições
           preview: Pré-visualizar
-          vote: Voto
+          vote: Votar
           voting_period_status:
             finished: A votação começou em %{start_time} e terminou em %{end_time}
             ongoing: A votação termina em %{end_time}
