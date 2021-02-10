@@ -547,7 +547,7 @@ cs:
             notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Nová změna byla vytvořena pro hodnotu %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Nová změna byla vytvořena pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
             email_subject: Nový pozměňovací návrh pro. \ %{amendable_title}
             notification_title: Byl vytvořen nový pozměňovací návrh pro <a href="%{amendable_path}">%{amendable_title}</a>.
