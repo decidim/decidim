@@ -411,6 +411,10 @@ cs:
           impersonate_new_managed_user: Spravovat nového účastníka
       imports:
         error: Při importu došlo k chybě
+        help:
+          proposalcreator: Soubor musí mít názvy sloupců title/en a body/en (nebo jiné lokalizace, které dáváte. title/cs a body/cs). Podporovány jsou také sloupce pro scope/id a category/id.
+        import_from_file: Importovat ze souboru
+        invalid_lines: Nalezena chyba ve zdroji číslo %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
