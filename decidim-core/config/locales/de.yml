@@ -35,7 +35,6 @@ de:
       decidim/profile_updated_event: Profil aktualisiert
       decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
-      decidim/resource_endorsed_event: Ressource befürwortet
   activerecord:
     attributes:
       decidim/user:
@@ -429,7 +428,6 @@ de:
         ready: Bereit
       show:
         download_data: Daten herunterladen
-        download_data_description: Eine Datei mit allen Informationen, die mit diesem Konto verbunden sind, wird an <strong>%{user_email}</strong> gesendet
         request_data: Daten anfordern
     datepicker:
       help_text: 'Erwartetes Format: %{datepicker_format}'
@@ -657,7 +655,6 @@ de:
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
     export_mailer:
       data_portability_export:
-        click_button: 'Klicken Sie auf die Schaltfläche "Weiter", um Ihre Daten herunterzuladen. <br/> Sie haben die Datei bis %{date}verfügbar.'
         download: Herunterladen
       export:
         ready: Anbei finden Sie eine gezippte Version Ihres Exports.
@@ -690,7 +687,6 @@ de:
       create:
         button: Folgen
         error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
-        participatory_space: Sie folgen <span class="show-for-sr">%{resource_name}</span> bereits
       destroy:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
@@ -949,7 +945,6 @@ de:
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
-          not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
           title: Gespräch mit %{usernames}
         start:
           send: Senden
