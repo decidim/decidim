@@ -171,10 +171,8 @@ sv:
           unfold: Veckla ut
         show:
           preview: Förhandsgranska
-          vote: Rösta
           voting_period_status:
             finished: Omröstningen började den %{start_time} och slutade den %{end_time}
-            ongoing: Omröstningen slutar den %{end_time}
             upcoming: Omröstningen börjar den %{start_time}
       models:
         answer:

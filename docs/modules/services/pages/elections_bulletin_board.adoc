@@ -1,6 +1,9 @@
 = Elections Bulletin Board
 
-:warning: This is a work in progress and is not fully working yet.
+[CAUTION]
+====
+This is a work in progress and is not fully working yet.
+====
 
 In order to celebrate https://en.wikipedia.org/wiki/End-to-end_auditable_voting_systems[End-to-end auditable votings] using the Elections module, you will need to connect your Decidim instance with an instance of the https://github.com/decidim/decidim-bulletin-board/[Decidim Bulletin Board application], preferably run by an independent organization.
 
@@ -33,7 +36,6 @@ Maybe this is already done, as it was included in the Decidim applications gener
   bulletin_board:
     identification_private_key: <%= ENV["BULLETIN_BOARD_IDENTIFICATION_PRIVATE_KEY"] %>
     server: <%= ENV["BULLETIN_BOARD_SERVER"] %>
-    websocket_url: <%= ENV["BULLETIN_BOARD_WEBSOCKET_URL"] %>
     api_key: <%= ENV["BULLETIN_BOARD_API_KEY"] %>
     number_of_trustees: <%= ENV["BULLETIN_BOARD_NUMBER_OF_TRUSTEES"] %>
     authority_name: <%= ENV["BULLETIN_BOARD_AUTHORITY_NAME"] %>

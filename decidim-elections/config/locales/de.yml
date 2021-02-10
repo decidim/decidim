@@ -191,15 +191,47 @@ de:
             success: Wahl erfolgreich an das Bulletin Board gesendet
             title: Wahl einrichten
             trustees: Wahlhelfer
+          created:
+            invalid: Beim Starten der Schlüssel-Zeremonie ist ein Fehler aufgetreten
+            submit: Schlüssel-Zeremonie starten
+            success: Die Anfrage zum Starten der Schlüssel-Zeremonie wurde erfolgreich ans Bulletin Board gesendet
+            title: Wahl erstellt
+            trustees: Wahlhelfer
           key_ceremony:
             title: Schlüsselzeremonie
             trustees: Wahlhelfer
+          key_ceremony_ended:
+            errors:
+              time_before: Die Wahl ist startbereit. Sie können die Abstimmungsperiode frühestens %{hours} Stunden vor der Startzeit (%{start_time}) eröffnen.
+            invalid: Beim Starten der Abstimmungsperiode ist ein Fehler aufgetreten
+            requirements:
+              time_before: Die Wahl wird bald beginnen. Sie können die Abstimmungsperiode manuell eröffnen, oder sie wird automatisch zur Startzeit um %{start_time} eröffnet.
+            submit: Abstimmungsperiode eröffnen
+            success: Die Anfrage zum Starten der Abstimmungsperiode wurde erfolgreich ans Bulletin Board gesendet
+            title: Startbereit
+          processing: In Verarbeitung...
           results_published:
             title: Ergebnisse veröffentlicht
           tally:
             title: Stimmenzähl-Prozess
+            trustees: Wahlhelfer
+          tally_ended:
+            submit: Resultate veröffentlichen
+            title: Resultate berechnet
           vote:
+            errors:
+              time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
+            invalid: Beim Schließen der Abstimmungsperiode ist ein Fehler aufgetreten
+            requirements:
+              time_after: Die Wahl ist beendet. Sie können die Abstimmungsperiode manuell schließen, oder sie wird in wenigen Minuten automatisch geschlossen.
+            submit: Abstimmungsperiode schließen
+            success: Die Anfrage zum Schließen der Abstimmungsperiode wurde erfolgreich ans Bulletin Board gesendet
             title: Abstimmungsperiode
+          vote_ended:
+            invalid: Beim Starten der Stimmenzählung ist ein Fehler aufgetreten
+            submit: Stimmenzählung starten
+            success: Die Anfrage zum Starten der Stimmenzählung wurde erfolgreich ans Bulletin Board gesendet
+            title: Abstimmungsperiode abgeschlossen
         trustees_participatory_spaces:
           actions:
             disable: Deaktivieren
@@ -222,8 +254,12 @@ de:
             success: Wahlhelfer %{trustee} erfolgreich aktualisiert
       admin_log:
         election:
+          end_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board beendet"
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
           setup: "%{user_name} hat die Wahl %{resource_name} auf dem Bulletin Board erstellt"
+          start_key_ceremony: "%{user_name} hat die Schlüssel-Zeremonie für die Wahl %{resource_name} im Bulletin Board eröffnet"
+          start_tally: "%{user_name} hat die Stimmenzählung für die Wahl %{resource_name} im Bulletin Board eröffnet"
+          start_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board eröffnet"
           unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
       election_m:
         badge_name:
@@ -270,11 +306,8 @@ de:
         show:
           back: Verfügbare Wahlen
           preview: Vorschau
-          verify: Verifizieren
-          vote: Stimmen
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
-            ongoing: Die Abstimmung endet am %{end_time}
             upcoming: Die Abstimmung beginnt am %{start_time}
       feedback:
         answer:
@@ -340,6 +373,25 @@ de:
             title: Wahl-Schlüssel für %{election} wiederherstellen
             upload_election_keys: Wahl-Schlüssel hochladen
             upload_icon: Symbol, das eine Download-Aktion anzeigt
+          tally_steps:
+            back: Zurück
+            description: Die Ergebnisse dieser Wahl werden im Bulletin Board berechnet. Um diesen Prozess abzuschließen, ist Ihre Teilnahme als Wahlhelfer erforderlich.
+            keys:
+              end_tally: Stimmenzählung abgeschloßen
+              tally:
+                cast: Stimmzählung abgeben
+                share: Stimmzählung austauschen
+            list:
+              status: Status
+              task: Aufgabe
+            process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
+            start: Beginnen
+            start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
+            status:
+              completed: Abgeschlossen
+              pending: Ausstehend
+              processing: In Verarbeitung
+            title: Stimmenzählung für %{election}
           update:
             error: Der Wahlstatus wurde nicht aktualisiert.
             success: 'Der Wahlstatus ist: %{status}'

@@ -143,10 +143,8 @@ ro:
             other: "%{count} alegeri"
         show:
           preview: Previzualizare
-          vote: Votează
           voting_period_status:
             finished: Votarea a început la %{start_time} și s-a încheiat la %{end_time}
-            ongoing: Votarea se termină la %{end_time}
             upcoming: Votarea începe la %{start_time}
       models:
         answer:

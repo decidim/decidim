@@ -133,7 +133,13 @@ sv:
     admin:
       actions:
         add: Lägg till
+        attachment:
+          new: Ny bifogad fil
+        attachment_collection:
+          new: Ny mapp för bilagor
         browse: Bläddra
+        category:
+          new: Ny kategori
         export: Exportera
         manage: Hantera
         new: Ny %{name}
