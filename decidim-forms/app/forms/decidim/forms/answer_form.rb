@@ -10,8 +10,8 @@ module Decidim
       attribute :body, String
       attribute :choices, Array[AnswerChoiceForm]
       attribute :matrix_choices, Array[AnswerChoiceForm]
-      attribute :documents, Array[String]
-      attribute :add_documents, Array
+
+      attachments_attribute :documents
 
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?
