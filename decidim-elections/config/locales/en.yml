@@ -47,9 +47,25 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/polling_officer:
+        one: Polling officer
+        other: Polling officers
+      decidim/votings/polling_station:
+        one: Polling station
+        other: Polling stations
       decidim/votings/voting:
         one: Voting
         other: Votings
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            voting:
+              different_organization: The voting must be in the same organizatoin as the user
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: The polling officer must be in the same voting as the polling station
   decidim:
     components:
       elections:
