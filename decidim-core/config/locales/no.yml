@@ -35,7 +35,6 @@
       decidim/profile_updated_event: Profilen er oppdatert
       decidim/promote_to_admin: Forfremmet til gruppe-admin
       decidim/removed_from_group: Fjernet fra gruppen
-      decidim/resource_endorsed_event: Ressurs er tilsluttet
   activerecord:
     attributes:
       decidim/user:
@@ -392,7 +391,6 @@
         ready: Klar
       show:
         download_data: Last ned informasjonen
-        download_data_description: En fil med all informasjon tilknyttet kontoen vil bli sendt til <strong>%{user_email}</strong>
         request_data: Etterspør informasjonen
     datepicker:
       help_text: 'Forventet format: %{datepicker_format}'
@@ -615,7 +613,6 @@
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       data_portability_export:
-        click_button: 'Trykk på den neste knappen for å laste ned dataene dine. <br/> Du vil ha filen tilgjengelig frem til %{date}. <br/> Du vil trenge <a href=''https://www.7-zip.org/''>7-Zip</a> for å åpne den. Passord: %{password}'
         download: Last ned
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
@@ -648,7 +645,6 @@
       create:
         button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
-        participatory_space: Følger allerede deltakerområdet
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
