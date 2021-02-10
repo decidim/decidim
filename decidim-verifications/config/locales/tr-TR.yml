@@ -34,16 +34,8 @@ tr:
             confirm: Tarihten önce iptal yetkileri geri alınamaz. Devam etmek istediğine emin misin?
             confirm_all: Tüm yetkilendirmeler geri alınamaz. Devam etmek istediğine emin misin?
           destroy_nok: Yetkilendirmeler iptal edilirken bir sorun oluştu.
-          destroy_ok: Tüm eşleşen yetkiler başarıyla iptal edildi!
           info: Toplam %{count} doğrulanmış katılımcı var.
           no_data: Doğrulanmış katılımcı yok
-          title: Yetkinin iptali
-        authorization_workflows: Doğrulama
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name}, Kimlik Belgeleri doğrulama yapılandırmasını güncelledi"
-      user:
-        grant_id_documents_offline_verification: "%{user_name}, çevrimdışı Kimlik Belgeleri doğrulaması kullanarak %{resource_name} öğesini doğruladı"
     authorization_handlers:
       admin:
         csv_census:
