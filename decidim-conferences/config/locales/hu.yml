@@ -268,7 +268,7 @@ hu:
           confirm: "%{user_name} megerősítette konferencia regisztrációját a %{resource_name} konferencián"
         partner:
           create: "%{user_name} létrehozta a %{resource_name}-t a %{space_name} konferenciában"
-          delete: "%{user_name} eltávolította a %{resource_name} felhasználót a %{space_name} konferenciából"
+          delete: "%{user_name} eltávolította a felhasználó %{resource_name} -et a %{space_name} konferenciából"
           update: "%{user_name} frissítette a %{resource_name}-t a %{space_name} konferencián"
         registration_type:
           create: "%{user_name} létrehozta az %{resource_name} regisztrációs típust a %{space_name} konferencián"
