@@ -249,6 +249,7 @@ de:
         update: "%{user_name} hat die Gremieneinstellungen aktualisiert"
       assembly_type:
         create: "%{user_name} hat den Gremientyp %{resource_name} erstellt"
+        delete: "%{user_name} hat den Gremientyp %{resource_name} entfernt"
         publish: "%{user_name} hat den Gremientyp %{resource_name} veröffentlicht"
         unpublish: "%{user_name} hat den Gremientyp %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat den Gremientyp %{resource_name} aktualisiert"
@@ -447,6 +448,8 @@ de:
       home:
         hero:
           participate_title: Nehmen Sie an den Prozessen der Plattform teil
+        sub_hero:
+          register_title: Benutzerkonto registrieren
     participatory_processes:
       pages:
         home:
