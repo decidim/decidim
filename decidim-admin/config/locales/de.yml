@@ -26,6 +26,8 @@ de:
         published_at: Veröffentlicht unter
         weight: Reihenfolge
       id: ID
+      import:
+        user_group_id: Importierte Inhalte erstellen als
       newsletter:
         body: Haupttext
         subject: Betreff
@@ -116,6 +118,10 @@ de:
               allowed_file_content_types: Ungültige Bilddatei
             official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Ungültiger MIME-Typ
   activerecord:
     attributes:
       decidim/static_page:
@@ -142,6 +148,7 @@ de:
         category:
           new: Neue Kategorie
         export: Export
+        import: Importieren
         manage: Verwalten
         new: Neu %{name}
         newsletter:
