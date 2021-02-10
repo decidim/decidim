@@ -1,7 +1,7 @@
 [plantuml]
 ....
 @startuml
-!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.0.1/C4_Container.puml
 
 ' uncomment the following line to make proposals
 'LAYOUT_AS_SKETCH
