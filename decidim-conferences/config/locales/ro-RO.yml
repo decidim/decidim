@@ -220,10 +220,6 @@ ro:
       conferences:
         conference_registration:
           confirm: "%{user_name} a confirmat înregistrarea conferinței în %{resource_name} conferință"
-        partner:
-          create: "%{user_name} a creat %{resource_name} la conferința %{space_name}"
-          delete: "%{user_name} a eliminat administratorul %{resource_name} de la conferința %{space_name}"
-          update: "%{user_name} a actualizat %{resource_name} la conferința %{space_name}"
         registration_type:
           create: "%{user_name} a creat tipul de înregistrare %{resource_name} în conferința %{space_name}"
           publish: "%{user_name} a publicat tipul de înregistrare %{resource_name} în conferința %{space_name}"
