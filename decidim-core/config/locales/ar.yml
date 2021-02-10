@@ -343,7 +343,6 @@ ar:
         ready: جاهز
       show:
         download_data: قم بتنزيل البيانات
-        download_data_description: سيتم إرسال ملف به جميع المعلومات المرتبطة بالحساب إلى <strong>%{user_email}</strong>
         request_data: طلب البيانات
     datepicker:
       help_text: 'التنسيق المتوقع: %{datepicker_format}'
@@ -540,7 +539,6 @@ ar:
           notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
     export_mailer:
       data_portability_export:
-        click_button: 'انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.'
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
