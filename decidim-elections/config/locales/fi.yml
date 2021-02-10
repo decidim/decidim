@@ -265,11 +265,8 @@ fi:
         show:
           back: Käynnissä olevat vaalit
           preview: Esikatsele
-          verify: Vahvista
-          vote: Äänestä
           voting_period_status:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
-            ongoing: Äänestys päättyy %{end_time}
             upcoming: Äänestys alkaa %{start_time}
       feedback:
         answer:

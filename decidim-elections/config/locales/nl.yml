@@ -174,10 +174,8 @@ nl:
             other: "%{count} verkiezingen"
         show:
           preview: Voorvertoning
-          vote: Stemming
           voting_period_status:
             finished: De stemming begon op %{start_time} en eindigde op %{end_time}
-            ongoing: De stemming eindigt op %{end_time}
             upcoming: Stemmen begint op %{start_time}
       models:
         answer:

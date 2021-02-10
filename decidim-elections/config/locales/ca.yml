@@ -172,10 +172,8 @@ ca:
           unfold: Desplegar
         show:
           preview: Previsualitzar
-          vote: Votar
           voting_period_status:
             finished: La votació va començar el %{start_time} i va acabar el %{end_time}
-            ongoing: La votació finalitza el %{end_time}
             upcoming: La votació comença el %{start_time}
       models:
         answer:
