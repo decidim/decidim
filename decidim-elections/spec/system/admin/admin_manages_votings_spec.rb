@@ -273,10 +273,24 @@ describe "Admin manages votings", type: :system do
       visit decidim_admin_votings.votings_path
     end
 
-    it "doesn't let the admin manage assemblies form other organizations" do
+    it "doesn't let the admin manage votings form other organizations" do
       within "table" do
         expect(page).not_to have_content(external_voting.title["en"])
       end
+    end
+  end
+
+  it "has sub nav with Info active by default" do
+    within ".table-list" do
+      click_link translated(voting.title)
+    end
+
+    within ".secondary-nav--subnav" do
+      expect(page).to have_content("Information")
+      expect(page).to have_content("Landing Page")
+      expect(page).to have_content("Components")
+      expect(page).to have_content("Attachments")
+      expect(page).to have_css(".is-active", text: "Information")
     end
   end
 end

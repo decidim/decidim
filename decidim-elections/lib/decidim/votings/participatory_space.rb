@@ -32,32 +32,6 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
-    2.times do |n|
-      params = {
-        organization: organization,
-        title: Decidim::Faker::Localized.sentence(word_count: 5),
-        slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end,
-        scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first,
-        banner_image: File.new(File.join(seeds_root, "city.jpeg")),
-        published_at: 2.weeks.ago,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours
-      }
-
-      voting = Decidim.traceability.perform_action!(
-        "publish",
-        Decidim::Votings::Voting,
-        organization.users.first,
-        visibility: "all"
-      ) do
-        Decidim::Votings::Voting.create!(params)
-      end
-      voting.add_to_index_as_search_resource
-    end
-
     3.times do |n|
       params = {
         organization: organization,
@@ -84,6 +58,23 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
         Decidim::Votings::Voting.create!(params)
       end
       voting.add_to_index_as_search_resource
+
+      Decidim::ContentBlock.create(
+        organization: organization,
+        scope_name: :voting_landing_page,
+        manifest_name: :header,
+        weight: 2,
+        scoped_resource_id: voting.id,
+        published_at: Time.current
+      )
+      Decidim::ContentBlock.create(
+        organization: organization,
+        scope_name: :voting_landing_page,
+        manifest_name: :description,
+        weight: 1,
+        scoped_resource_id: voting.id,
+        published_at: Time.current
+      )
     end
   end
 end
