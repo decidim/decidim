@@ -70,6 +70,8 @@ search:
     - "*.jpeg"
     - "*.odt"
     - "*.docx"
+    - "*.xls"
+    - "*.xlsx"
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
@@ -296,6 +298,7 @@ ignore_unused:
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
   - decidim.elections.trustee_zone.elections.tally_steps.keys.*
   - decidim.votings.admin_log.*
+  - decidim.admin.forms.file_help.import.*
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
