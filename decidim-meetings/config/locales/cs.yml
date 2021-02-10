@@ -403,12 +403,15 @@ cs:
           title: Upravit schůzku
           update: Aktualizovat
         filters:
+          activity: Moje aktivita
+          all: Vše
           category: Kategorie
           date: datum
           date_values:
             all: Vše
             past: Minulé
             upcoming: Nadcházející
+          my_meetings: Moje schůzky
           origin: Původ
           origin_values:
             all: Vše
