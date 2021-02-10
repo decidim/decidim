@@ -33,6 +33,10 @@ module Decidim
         endpoints = component.manifest.admin_engine.try(:participatory_space_endpoints)
         endpoints && is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space), %r{/\d+/manage/(#{endpoints.join("|")})\b})
       end
+
+      def proposal_hidden?
+        
+      end
     end
   end
 end

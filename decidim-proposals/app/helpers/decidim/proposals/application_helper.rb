@@ -186,10 +186,6 @@ module Decidim
           origin_values
         )
       end
-       
-      def proposal_hidden?
-        proposal&.hidden_at&.present?
-      end
     end
   end
 end

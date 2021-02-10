@@ -61,11 +61,6 @@ module Decidim
 
         super
       end
-
-      def proposal_hidden?
-        :proposal != (:hidden_proposal)
-      end
-
     end
   end
 end
