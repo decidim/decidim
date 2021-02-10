@@ -33,7 +33,7 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :polling_station, voting: current_voting, polling_station: polling_station
-          @form = form(PollingStationForm).from_model(polling_station)
+          @form = form(PollingStationForm).from_model(polling_station, voting: current_voting)
         end
 
         def update

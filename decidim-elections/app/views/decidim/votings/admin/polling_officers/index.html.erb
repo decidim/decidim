@@ -20,10 +20,10 @@
           <% polling_officers.each do |polling_officer| %>
             <tr data-id="<%= polling_officer.id %>">
               <td>
-                <%= polling_officer.user.name %>
+                <%= polling_officer.name %>
               </td>
               <td>
-                <%= polling_officer.user.email %>
+                <%= polling_officer.email %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :delete, :polling_officer, voting: current_voting, polling_officer: polling_officer %>

@@ -37,6 +37,18 @@ en:
             public_key:
               cant_be_changed: can't be changed
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Polling officer already is a polling station president/manager
+            voting:
+              different_organization: The voting must be in the same organizatoin as the user
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: The polling officer must be in the same voting as the polling station
     models:
       decidim/elections/answer:
         one: Answer
@@ -56,16 +68,6 @@ en:
       decidim/votings/voting:
         one: Voting
         other: Votings
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            voting:
-              different_organization: The voting must be in the same organizatoin as the user
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: The polling officer must be in the same voting as the polling station
   decidim:
     components:
       elections:
@@ -641,6 +643,7 @@ en:
           polling_station:
             fields:
               address: Address
+              polling_station_president: President
               title: Title
             name: Polling Station
           voting:
@@ -680,6 +683,7 @@ en:
             address_help: 'Address: used by Geocoder to find the location'
             location_help: 'Location: message directed to the voters implying the exact place of the polling station'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
+            select_president: Select a polling officer as president of the polling station
           index:
             title: Polling stations
           new:

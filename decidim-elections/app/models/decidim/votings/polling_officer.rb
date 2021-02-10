@@ -19,6 +19,7 @@ module Decidim
 
       validates :user, uniqueness: { scope: :voting }
       validate :user_and_voting_same_organization
+      validate :either_president_or_manager
 
       delegate :name, :nickname, :email, to: :user
 
@@ -29,6 +30,13 @@ module Decidim
         return if voting.nil? || user.nil?
 
         errors.add(:voting, :different_organization) unless user.organization == voting.organization
+      end
+
+      # Private: check if the voting and the user have the same organization
+      def either_president_or_manager
+        return if presided_polling_station.nil? || managed_polling_station.nil?
+
+        errors.add(:presided_polling_station, :president_and_manager)
       end
     end
   end

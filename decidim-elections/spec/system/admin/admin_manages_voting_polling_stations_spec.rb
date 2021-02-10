@@ -17,6 +17,7 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
   include_context "when admin managing a voting"
 
   context "when processing polling stations" do
+    let!(:polling_officers) { create_list(:polling_officer, 3, voting: voting) }
     let!(:polling_station) { create(:polling_station, voting: voting) }
 
     before do
@@ -61,6 +62,8 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
           ca: "Location hints"
         )
 
+        autocomplete_select "#{polling_officers.first.name} (@#{polling_officers.first.nickname})", from: :polling_station_president_id
+
         find("*[type=submit]").click
       end
 
@@ -68,6 +71,7 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
 
       within "#polling_stations table" do
         expect(page).to have_text("Polling station")
+        expect(page).to have_text(polling_officers.first.name)
       end
     end
 
@@ -98,6 +102,8 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
         )
         fill_in :polling_station_address, with: address
 
+        autocomplete_select "#{polling_officers.last.name} (@#{polling_officers.last.nickname})", from: :polling_station_president_id
+
         find("*[type=submit]").click
       end
 
@@ -105,6 +111,7 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
 
       within "#polling_stations table" do
         expect(page).to have_text("Another polling station")
+        expect(page).to have_text(polling_officers.last.name)
       end
     end
   end

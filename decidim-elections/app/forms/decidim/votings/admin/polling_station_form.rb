@@ -7,6 +7,10 @@ module Decidim
       class PollingStationForm < Decidim::Form
         include TranslatableAttributes
 
+        def map_model(model)
+          self.polling_station_president_id = model.polling_station_president&.id
+        end
+
         def geocoding_enabled?
           Decidim::Map.available?(:geocoding)
         end
@@ -19,6 +23,14 @@ module Decidim
           latitude.present? && longitude.present?
         end
 
+        def polling_station_president
+          @polling_station_president ||= PollingOfficer.find_by(id: polling_station_president_id)
+        end
+
+        def polling_station_managers
+          @polling_station_managers ||= PollingOfficer.find_all_by_id(polling_station_managers_ids)
+        end
+
         def voting
           @voting ||= context[:voting]
         end
@@ -29,6 +41,8 @@ module Decidim
         attribute :address, String
         attribute :latitude, Float
         attribute :longitude, Float
+        attribute :polling_station_president_id, Integer
+        attribute :polling_station_managers_ids, Array[Integer]
 
         validates :title, translatable_presence: true
         validates :location, translatable_presence: true

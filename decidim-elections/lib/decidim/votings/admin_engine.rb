@@ -14,6 +14,7 @@ module Decidim
           member do
             put :publish
             put :unpublish
+            get :available_polling_officers
           end
 
           resource :landing_page, only: [:edit, :update], controller: "votings_landing_page" do
