@@ -226,10 +226,8 @@ tr:
         show:
           back: Mevcut seçimler
           preview: Önizleme
-          vote: Oy
           voting_period_status:
             finished: Oylama %{start_time} tarihinde başladı ve %{end_time} tarihinde sona erdi
-            ongoing: Oylama %{end_time} tarihinde sona eriyor
             upcoming: Oylama %{start_time} tarihinde başlıyor
       feedback:
         answer:

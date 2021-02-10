@@ -201,10 +201,8 @@ pl:
         show:
           back: Dostępne wybory
           preview: Podgląd
-          vote: Głosuj
           voting_period_status:
             finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
-            ongoing: Głosowanie kończy się %{end_time}
             upcoming: Głosowanie rozpoczyna się %{start_time}
       models:
         answer:
