@@ -306,11 +306,8 @@ de:
         show:
           back: Verfügbare Wahlen
           preview: Vorschau
-          verify: Verifizieren
-          vote: Stimmen
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
-            ongoing: Die Abstimmung endet am %{end_time}
             upcoming: Die Abstimmung beginnt am %{start_time}
       feedback:
         answer:
