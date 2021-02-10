@@ -422,7 +422,9 @@ cs:
             xls: xls
           actions:
             back: Zpět
+          file_legend: Přidat importovaný soubor, který bude analyzován.
           import: Importovat
+        notice: "%{number} %{resource_name} úspěšně importováno"
       logs:
         logs_list:
           no_logs_yet: Dosud nejsou žádné protokoly
