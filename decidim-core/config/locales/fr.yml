@@ -35,7 +35,6 @@ fr:
       decidim/profile_updated_event: Profil mis à jour
       decidim/promote_to_admin: Promu au groupe admin
       decidim/removed_from_group: Retiré du groupe
-      decidim/resource_endorsed_event: Ressource soutenue
   activerecord:
     attributes:
       decidim/user:
@@ -429,7 +428,6 @@ fr:
         ready: Prêt
       show:
         download_data: Télécharger les données
-        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
         request_data: Demander les données
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
@@ -652,7 +650,6 @@ fr:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
-        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu''au %{date}. <br/> Vous aurez besoin de <a href=''''https://www.7-zip.org/''''>7-Zip</a> pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -685,7 +682,6 @@ fr:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
-        participatory_space: Déjà abonné <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -944,7 +940,6 @@ fr:
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
-          not_allowed: Cet utilisateur n'accepte plus de messages directs.
           title: Conversation avec %{usernames}
         start:
           send: Envoyer
