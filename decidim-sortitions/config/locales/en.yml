@@ -36,9 +36,6 @@ en:
       home:
         statistics:
           sortitions_count: Sortitions
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortitions
     sortitions:
       admin:
         actions:

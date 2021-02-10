@@ -517,9 +517,6 @@ en:
       home:
         statistics:
           elections_count: Elections
-    participatory_processes:
-      statistics:
-        elections_count: Elections
     votings:
       admin:
         content_blocks:
