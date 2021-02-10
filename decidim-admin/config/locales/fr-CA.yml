@@ -515,7 +515,6 @@ fr-CA:
           actions:
             block: Bloquer
             title: Actions
-            unblock: Débloquer
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
