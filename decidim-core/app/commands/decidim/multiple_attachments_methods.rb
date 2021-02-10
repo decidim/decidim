@@ -30,16 +30,16 @@ module Decidim
     end
 
     def create_attachments
-      @documents.map! do |file|
+      @documents.map! do |document|
         file.attached_to = documents_attached_to
         file.save!
-        @form.documents << file.id.to_s
+        @form.documents << document
       end
     end
 
     def document_cleanup!
       documents_attached_to.documents.each do |file|
-        file.destroy! if @form.documents.exclude? file.id.to_s
+        file.destroy! if @form.documents.map(&:id).exclude? file.id
       end
 
       documents_attached_to.reload
