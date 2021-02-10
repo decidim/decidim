@@ -131,10 +131,7 @@ pt:
             email_subject: Novo marco concluído!
             notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
         support_threshold_reached:
-          email_intro: A iniciativa %{resource_title} atingiu o limite de suporte
           email_outro: Recebeu esta notificação porque é administrador da plataforma.
-          email_subject: Limite de suporte atingido
-          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> atingiu o limite de suporte
     gamification:
       badges:
         initiatives:
