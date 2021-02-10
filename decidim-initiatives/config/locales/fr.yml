@@ -154,10 +154,7 @@ fr:
             email_subject: Nouvelle étape franchie !
             notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint les %{percentage}% de signatures.
         support_threshold_reached:
-          email_intro: L'initiative %{resource_title} a atteint le seuil de soutiens
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
-          email_subject: Seuil de soutiens atteint
-          notification_title: L'initiative <a href="%{resource_path}">%{resource_title}</a> a atteint le seuil de soutiens
     gamification:
       badges:
         initiatives:
@@ -393,12 +390,9 @@ fr:
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} a accepté votre candidature pour faire partie du comité de promotion de la pétition %{resource_title}."
-          email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à faire partie du comité de promotion de cette pétition : %{resource_title}.'
           email_subject: "%{author_nickname} a rejeté votre candidature au comité de promotion"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a rejeté votre candidature pour faire partie du comité de promotion de la pétition suivante <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} a postulé pour faire partie du comité de promotion de votre pétition %{resource_title}. Pour accepter ou rejeter la demande, allez dans le formulaire de modification de votre initiative."
-          email_outro: 'Vous avez reçu cette notification car vous êtes l''auteur de cette pétition : %{resource_title}'
           email_subject: "%{applicant_nickname} veut rejoindre le comité de promotion de votre pétition"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
