@@ -461,6 +461,7 @@ en:
         static_pages: Pages
         user_groups: Groups
         users: Participants
+        external_domain_whitelist: External domain whitelist
       metrics:
         metrics:
           see_more_metrics: See more metrics
@@ -719,6 +720,11 @@ en:
             layout_appearance_title: Edit layout appearance
             preview: Preview
           omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Update
+        form:
+          homepage_external_domain_whitelist_title: External domain whitelist
       organization_homepage:
         edit:
           active_content_blocks: Active content blocks
