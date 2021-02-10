@@ -387,7 +387,6 @@ de:
             upload_icon: Symbol, das eine Download-Aktion anzeigt
           tally_steps:
             back: Zurück
-            description: Die Ergebnisse dieser Wahl werden im Bulletin Board berechnet. Um diesen Prozess abzuschließen, ist Ihre Teilnahme als Wahlhelfer erforderlich.
             keys:
               end_tally: Stimmenzählung abgeschloßen
               tally:
