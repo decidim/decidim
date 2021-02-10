@@ -515,7 +515,6 @@ cs:
           actions:
             block: Blokovat
             title: Akce
-            unblock: Odemknout
             unreport: Zrušit nahlášení
           name: Jméno
           nickname: Přezdívka
