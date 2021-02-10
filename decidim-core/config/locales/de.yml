@@ -1020,8 +1020,10 @@ de:
       no_notifications: Noch keine Benachrichtigungen
     notifications_settings:
       show:
+        administrators: Administratoren
         allow_public_contact: Allen erlauben, mir Direktnachrichten zu senden, selbst wenn ich ihnen nicht folge.
         direct_messages: Direktnachrichten von allen erhalten
+        email_on_moderations: Ich möchte eine E-Mail erhalten, wenn etwas zur Moderation gemeldet wird.
         email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
