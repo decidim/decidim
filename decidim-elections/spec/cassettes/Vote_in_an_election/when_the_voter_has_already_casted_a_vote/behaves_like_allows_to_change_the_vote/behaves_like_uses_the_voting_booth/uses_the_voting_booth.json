@@ -6,7 +6,7 @@
         "uri": "http://bulletin-board.lvh.me:8000/api",
         "body": {
           "encoding": "UTF-8",
-          "string": "{\"query\":\"mutation GraphQL__Client__OperationDefinition_248040 {\\n  vote(messageId: \\\"decidim-test-authority.10003.vote.cast+v.a55155c9f3e89643438fbdc97194c97a7710fd8daca23c0e936e4ad9ebec090c\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJiYWxsb3Qtc3R5bGVcIixcImNvbnRlc3RzXCI6W3tcIm9iamVjdF9pZFwiOlwiY29udGVzdC01XCIsXCJiYWxsb3Rfc2VsZWN0aW9uc1wiOlt7XCJvYmplY3RfaWRcIjpcImNvbnRlc3QtNS1zZWxlY3Rpb24tOVwiLFwiY2lwaGVydGV4dFwiOjUwNjY5NTM4ODF9LHtcIm9iamVjdF9pZFwiOlwiY29udGVzdC01LXNlbGVjdGlvbi0xMFwiLFwiY2lwaGVydGV4dFwiOjEyNjQyNzg3ODM5fV19LHtcIm9iamVjdF9pZFwiOlwiY29udGVzdC02XCIsXCJiYWxsb3Rfc2VsZWN0aW9uc1wiOlt7XCJvYmplY3RfaWRcIjpcImNvbnRlc3QtNi1zZWxlY3Rpb24tMTFcIixcImNpcGhlcnRleHRcIjoxMTU2MDUyNTg0NX0se1wib2JqZWN0X2lkXCI6XCJjb250ZXN0LTYtc2VsZWN0aW9uLTEyXCIsXCJjaXBoZXJ0ZXh0XCI6MzE5NzU5MjI1NX1dfV19IiwiaWF0IjoxNjEyMzUyNzM3LCJtZXNzYWdlX2lkIjoiZGVjaWRpbS10ZXN0LWF1dGhvcml0eS4xMDAwMy52b3RlLmNhc3Qrdi5hNTUxNTVjOWYzZTg5NjQzNDM4ZmJkYzk3MTk0Yzk3YTc3MTBmZDhkYWNhMjNjMGU5MzZlNGFkOWViZWMwOTBjIn0.cjw9xKjX85MwQUacbjTyYYAF-6gRKemU2v0l6jjOwFXmLrggea1a1PpOKQlTtRo4jUVx9M4oeAzD-Z7V0ONPSRRsBdG0pRhR0TCo9--vRXyLFZqNihd-fxvvvExNQmfOXqpN6ckImsXEYYJZufHkUPGDtxLbmMJlo_cyxJjgROhVDZaJMhrjw5vAU4n23eZFopcHdiyMj5nuHq6L3nYh08grnW2_3Yn2DaQsVPPBnJyFviYBfxIwPY3DLIp5v4VwBPdad6LeV-Nlxgm1JCmX2Ssvn2Lx3HFwt1VVNbGFKHel09qjW66Ozt5xGyt0r73eAu6jQeWtlGRcpKQnPd9VAV8OPqnM9YIH1BzY1mFTEg733tTz3SeeWImj5rcVE_PkqJZaLc_N56BTzMmC4z5LgF6qqAMbPl3GB8S1KP5kekCbHRMlWR7pDpwFlupiCJ05K4JM1x2HOXl7pxndcxVssFbmRjbTejr07w2ZXHJUW_HAnmQfg61TYsKRp0lUkpxz-A2RmWzWgn6kHcqqW_OFu-uloYKgWAlG-cDK5Q3yjMZJYQiLRaorWviDUekqdCp7XB3P43T0B5dUJF4octB-Vbx_rsqP-lNJetfualzAdRrAspGchgR4fk-TstPg0m0XM7HqTWtIwZ3c_lja2WoFfwMwK7kqqGX7uBOPbp2h4fY\\\") {\\n    pendingMessage {\\n      messageId\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_248040\",\"variables\":{}}"
+          "string": "{\"query\":\"mutation GraphQL__Client__OperationDefinition_173580 {\\n  vote(messageId: \\\"decidim-test-authority.10003.vote.cast+v.300345a3c67af0d1853c86c927da2bc40b945ef26bc6cb7a33c33906c12f845e\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJiYWxsb3Qtc3R5bGVcIixcImNvbnRlc3RzXCI6W3tcIm9iamVjdF9pZFwiOlwiY29udGVzdC01XCIsXCJiYWxsb3Rfc2VsZWN0aW9uc1wiOlt7XCJvYmplY3RfaWRcIjpcImNvbnRlc3QtNS1zZWxlY3Rpb24tOVwiLFwiY2lwaGVydGV4dFwiOjEzNDc5MDgxMTk4fSx7XCJvYmplY3RfaWRcIjpcImNvbnRlc3QtNS1zZWxlY3Rpb24tMTBcIixcImNpcGhlcnRleHRcIjoxMTAxOTM5NDg0OH1dfSx7XCJvYmplY3RfaWRcIjpcImNvbnRlc3QtNlwiLFwiYmFsbG90X3NlbGVjdGlvbnNcIjpbe1wib2JqZWN0X2lkXCI6XCJjb250ZXN0LTYtc2VsZWN0aW9uLTExXCIsXCJjaXBoZXJ0ZXh0XCI6MTU4ODk1NzM4MjF9LHtcIm9iamVjdF9pZFwiOlwiY29udGVzdC02LXNlbGVjdGlvbi0xMlwiLFwiY2lwaGVydGV4dFwiOjE1Mjk5MjQ5MDk3fV19XX0iLCJpYXQiOjE2MTIzNTQ4NTQsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEwMDAzLnZvdGUuY2FzdCt2LjMwMDM0NWEzYzY3YWYwZDE4NTNjODZjOTI3ZGEyYmM0MGI5NDVlZjI2YmM2Y2I3YTMzYzMzOTA2YzEyZjg0NWUifQ.if_hmHDC_iawJR6KA07rZshQTstdbzbqNUwwEPbCjUhCV9C7fdaJzp0cBNB6TfHokJy4VMIEythcKzqTbkSf2LDVcWdRJfkx-2O_I5NzrW7prq7AwXmabQwif49IwBQ9fRZ9crfU_OlOZssW3_YuZRcWJTrhnSTz2DncmlJV3x4I5OtyBh9dHCOPQvJuJXKCTMJsxnDg3mX44S1ysNL2IjkfVB6f5x4DldDiz4S5h7EYpUY1SkpMeV3_J60jXNRmCk8UDBnvxRKsKBXA9H_2FQ0G-FV5CeipjevOrErMgxSWjuTMHnvWr9ZiitlRwqUcrtXLNHCuDZjAlVMIc43y9UFYO9WCKa0ItXMv3ZGaSN2Bo1vIKgGU3bQYIvnq-c0leQYvmex-oRFmFCDeCvKpMObiNdB4fOxLtjtdJfGNf1br3Q10sZ0bNM47-6h8pyN_1NpOXlbQ80t8KWcR6LVmEWcW-iiIsVEuAcue3W65BycxZ_HRUO9B7AOjWofw1JXEIYSt-g0EruXEixKUiU-xj87jOduALR4SkTcfpWg1bv419HpZnO_l8TQE37kp7hvRgJJeGq2n-tWPtyIlFVkBatcllsvaRDY1X0gEJVc7J-D-cCpFK9cDKX70I9t17c6AOoifXYAJbo3Vplfvap_7UfR7s557hDWxCnYA5kR-M7g\\\") {\\n    pendingMessage {\\n      messageId\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_173580\",\"variables\":{}}"
         },
         "headers": {
           "Authorization": [
@@ -54,16 +54,16 @@
             "application/json; charset=utf-8"
           ],
           "Etag": [
-            "W/\"d51c3a9010772a085c6e08fb1f9e8a72\""
+            "W/\"b3d3cec7c282ea2dea2081937094b94f\""
           ],
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
           "X-Request-Id": [
-            "dc600b47-e91a-4097-8445-9e325d4ca78d"
+            "d9644463-4c29-43cd-8aa5-e4ab7e68f874"
           ],
           "X-Runtime": [
-            "0.158748"
+            "0.404217"
           ],
           "Vary": [
             "Origin"
@@ -74,10 +74,10 @@
         },
         "body": {
           "encoding": "UTF-8",
-          "string": "{\"data\":{\"vote\":{\"pendingMessage\":{\"messageId\":\"decidim-test-authority.10003.vote.cast+v.a55155c9f3e89643438fbdc97194c97a7710fd8daca23c0e936e4ad9ebec090c\",\"status\":\"enqueued\"},\"error\":null}}}"
+          "string": "{\"data\":{\"vote\":{\"pendingMessage\":{\"messageId\":\"decidim-test-authority.10003.vote.cast+v.300345a3c67af0d1853c86c927da2bc40b945ef26bc6cb7a33c33906c12f845e\",\"status\":\"enqueued\"},\"error\":null}}}"
         }
       },
-      "recorded_at": "Wed, 03 Feb 2021 11:45:38 GMT"
+      "recorded_at": "Wed, 03 Feb 2021 12:20:56 GMT"
     },
     {
       "request": {
@@ -85,7 +85,7 @@
         "uri": "http://bulletin-board.lvh.me:8000/api",
         "body": {
           "encoding": "UTF-8",
-          "string": "{\"query\":\"query GraphQL__Client__OperationDefinition_251780 {\\n  pendingMessage(messageId: \\\"decidim-test-authority.10003.vote.cast+v.a55155c9f3e89643438fbdc97194c97a7710fd8daca23c0e936e4ad9ebec090c\\\") {\\n    status\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_251780\",\"variables\":{}}"
+          "string": "{\"query\":\"query GraphQL__Client__OperationDefinition_177760 {\\n  pendingMessage(messageId: \\\"decidim-test-authority.10003.vote.cast+v.300345a3c67af0d1853c86c927da2bc40b945ef26bc6cb7a33c33906c12f845e\\\") {\\n    status\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_177760\",\"variables\":{}}"
         },
         "headers": {
           "Authorization": [
@@ -139,10 +139,10 @@
             "max-age=0, private, must-revalidate"
           ],
           "X-Request-Id": [
-            "66ae5f38-c773-429c-9542-5d9eeac82b6a"
+            "bd07ce68-354f-4cdf-b5ff-a7294e0f5c15"
           ],
           "X-Runtime": [
-            "0.036304"
+            "0.143278"
           ],
           "Vary": [
             "Origin"
@@ -156,7 +156,7 @@
           "string": "{\"data\":{\"pendingMessage\":{\"status\":\"accepted\"}}}"
         }
       },
-      "recorded_at": "Wed, 03 Feb 2021 11:45:39 GMT"
+      "recorded_at": "Wed, 03 Feb 2021 12:20:58 GMT"
     }
   ],
   "recorded_with": "VCR 6.0.0"

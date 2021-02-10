@@ -9,7 +9,7 @@ describe "Vote in an election", type: :system do
   let!(:elections) do
     create_list(:election, 2, :vote, component: component)
   end
-  let(:vote) { create :vote, election: election, user: user }
+
   let(:message_id) { vote.message_id }
   let(:vote_id) { vote.id }
 
@@ -37,7 +37,7 @@ describe "Vote in an election", type: :system do
     it_behaves_like "allow admins to preview the voting booth"
   end
 
-  context "when the election did not started yet" do
+  context "when the election has not started yet" do
     let(:election) { create :election, :upcoming, :published, :complete, component: component }
 
     it_behaves_like "doesn't allow to vote"
@@ -68,7 +68,7 @@ describe "Vote in an election", type: :system do
       visit_component
 
       click_link translated(election.title)
-      click_link "Vote"
+      click_link "Start voting"
 
       expect(page).to have_content("Authorization required")
     end
@@ -93,7 +93,7 @@ describe "Vote in an election", type: :system do
       visit_component
 
       click_link translated(election.title)
-      click_link "Vote"
+      click_link "Start voting"
 
       expect(page).to have_content("Authorization required")
     end
@@ -106,7 +106,7 @@ describe "Vote in an election", type: :system do
       visit_component
 
       click_link translated(election.title)
-      click_link "Vote"
+      click_link "Start voting"
 
       dismiss_prompt do
         page.find("a.focus__exit").click
@@ -114,5 +114,11 @@ describe "Vote in an election", type: :system do
 
       expect(page).to have_content("Next")
     end
+  end
+
+  context "when the voter has already casted a vote" do
+    let!(:vote) { create :vote, election: election, user: user, status: "accepted" }
+
+    it_behaves_like "allows to change the vote"
   end
 end
