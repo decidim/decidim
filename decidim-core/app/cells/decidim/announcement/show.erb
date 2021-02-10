@@ -5,12 +5,11 @@
 
       <% if has_array_body? %>
         <% announcement[:body].each do |paragraph| %>
-          <%= clean_paragraph(paragraph) %>
+          <p><%= clean_paragraph(paragraph) %></p>
         <% end %>
       <% else %>
         <p><%= clean_body %></p>
       <% end %>
-
     <% else %>
       <%= clean_announcement %>
     <% end %>
