@@ -94,7 +94,6 @@ nl:
         create:
           error: Er was een probleem bij het creëren van een nieuwe raadpleging.
           success: Overleg succesvol aangemaakt.
-        deprecation_warning: Consultatiemodule zal in de nabije toekomst niet meer worden ondersteund. We werken aan de volgende veilig versleutelde versie genaamd Votings.
         edit:
           update: Bijwerken
         form:
