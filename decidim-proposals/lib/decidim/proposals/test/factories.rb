@@ -411,6 +411,18 @@ FactoryBot.define do
         create_list(:proposal_amendment, 5, amendable: proposal)
       end
     end
+
+    trait :with_photo do
+      after :create do |proposal|
+        proposal.attachments << create(:attachment, :with_image, attached_to: proposal)
+      end
+    end
+
+    trait :with_document do
+      after :create do |proposal|
+        proposal.attachments << create(:attachment, :with_pdf, attached_to: proposal)
+      end
+    end
   end
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
