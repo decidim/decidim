@@ -546,6 +546,7 @@ de:
           actions:
             block: Blockieren
             title: Aktionen
+            unblock: Blockierung aufheben
             unreport: Meldung Rückgängig machen
           name: Name
           nickname: Spitzname
