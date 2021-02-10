@@ -26,6 +26,8 @@ cs:
         published_at: Publikováno v
         weight: Váha
       id: ID
+      import:
+        user_group_id: Vytvořit importy jako
       newsletter:
         body: Tělo
         subject: Předmět
@@ -116,6 +118,10 @@ cs:
               allowed_file_content_types: Neplatný soubor s obrázkem
             official_img_header:
               allowed_file_content_types: Neplatný soubor s obrázkem
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Neplatný typ mime
   activerecord:
     attributes:
       decidim/static_page:
@@ -142,6 +148,7 @@ cs:
         category:
           new: Nová kategorie
         export: Exportovat
+        import: Importovat
         manage: Spravovat
         new: Nová %{name}
         newsletter:
