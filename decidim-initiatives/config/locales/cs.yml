@@ -160,10 +160,7 @@ cs:
             email_subject: Nový milník dokončen!
             notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
         support_threshold_reached:
-          email_intro: Iniciativa %{resource_title} dosáhla prahu podpory
           email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
-          email_subject: Dosažen práh podpory
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla prahu podpory
     gamification:
       badges:
         initiatives:
@@ -399,12 +396,9 @@ cs:
           notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} odmítl vaši žádost o členství funkcionáře ve výboru pro tuto iniciativu %{resource_title}."
-          email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
           email_subject: "%{author_nickname} odmítl vaši žádost na funkcionáře výboru"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> vás odmítl přihlásit se k účasti ve výboru funkcionáře pro následující iniciativu <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} požádal o funkci ve výboru vaší iniciativy %{resource_title}. Chcete-li přijmout nebo zamítnout žádost, přejděte na editační formulář vaší iniciativy."
-          email_outro: 'Obdrželi jste toto oznámení, protože jste autorem této iniciativy: %{resource_title}'
           email_subject: "%{applicant_nickname} se chce připojit k vaší iniciativě"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
