@@ -34,16 +34,8 @@ sk:
             confirm: Zrušenie všetkých autorizácií pred dátumom je nenávratné. Ste si istí, že chcete pokračovať?
             confirm_all: Zrušenie všetkých autorizácií je nenávratné. Ste si istí, že chcete pokračovať?
           destroy_nok: Pri rušení autorizácií nastal problém.
-          destroy_ok: Všetky zvolené autorizácie boli úspešne zrušené!
           info: Je tu celkovo %{count} overených účastníkov.
           no_data: Žiadni overení účastníci
-          title: Zrušenie verifikácie
-        authorization_workflows: Overenie
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} aktualizovala konfiguráciu overenie dokumentov identít"
-      user:
-        grant_id_documents_offline_verification: "% {USER_NAME} overené% {resource_name} pomocou overenia dokumentov offline"
     authorization_handlers:
       admin:
         csv_census:
