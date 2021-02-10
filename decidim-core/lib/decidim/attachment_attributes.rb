@@ -25,11 +25,6 @@ module Decidim
       #   # In addition, it will generate the getter method for the attribute
       #   # returning an array of the Decidim::Attachment records.
       #
-      #   translatable_attribute(:name, String) do |name, locale|
-      #     # Do something, like adding validations.
-      #     # name would be `name_ca`, `name_en` and locale `ca` and `en`.
-      #   end
-      #
       # Returns nothing.
       def attachments_attribute(name)
         attribute name, Array[String]
