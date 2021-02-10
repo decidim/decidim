@@ -95,7 +95,7 @@ en:
         create:
           error: There was a problem creating a new consultation.
           success: Consultation successfully created.
-        deprecation_warning: Consultations module will be deprecated in the near future. We’re working on the next cryptographiclly secure version called Votings.
+        deprecation_warning: Consultations module will be deprecated in the near future. We’re working on the next cryptographically secure version called Votings.
         edit:
           update: Update
         form:
