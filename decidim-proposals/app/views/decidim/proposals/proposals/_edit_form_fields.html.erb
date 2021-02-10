@@ -67,7 +67,6 @@
     <% if @form.photos.any? %>
       <% @form.photos.each do |photo| %>
         <div class="callout gallery__item" data-closable>
-          <%# raise photo.inspect %>
           <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
           <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
           <button class="close-button"
