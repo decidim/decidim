@@ -833,7 +833,6 @@ hu:
           title: Válasz
         show:
           chat_with: Beszélgetés vele
-          not_allowed: Ez a felhasználó nem fogad el több közvetlen üzenetet.
           title: 'Beszélgetés vele: %{usernames}'
         start:
           send: Küldés
