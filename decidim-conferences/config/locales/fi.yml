@@ -266,10 +266,6 @@ fi:
       conferences:
         conference_registration:
           confirm: "%{user_name} vahvisti konferenssin %{resource_name} ilmoittautumisen"
-        partner:
-          create: "%{user_name} loi %{resource_name} konferenssiin %{space_name}"
-          delete: "%{user_name} poisti hallintakäyttäjän %{resource_name} konferenssista %{space_name}"
-          update: "%{user_name} päivitti %{resource_name} konferenssiin %{space_name}"
         registration_type:
           create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
           publish: "%{user_name} julkaisi ilmoittautumistyypin %{resource_name} konferenssissa %{space_name}"
