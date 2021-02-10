@@ -1037,6 +1037,7 @@ cs:
       no_notifications: Zatím žádné oznámení.
     notifications_settings:
       show:
+        administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_notification: Chci dostávat e-mail pokaždé, když obdržím oznámení.
