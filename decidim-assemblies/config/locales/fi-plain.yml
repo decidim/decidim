@@ -249,7 +249,6 @@ fi-pl:
         update: "%{user_name} päivitti ryhmän asetuksia"
       assembly_type:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
         publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
         unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
         update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
@@ -442,8 +441,6 @@ fi-pl:
       home:
         hero:
           participate_title: Osallistu palvelun prosesseihin
-        sub_hero:
-          register_title: Kirjaudu sisään tai luo tili alustalle
     participatory_processes:
       pages:
         home:
