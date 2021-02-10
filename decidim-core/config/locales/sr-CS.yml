@@ -64,8 +64,6 @@ sr:
         index:
           new_conversation: Novi razgovor
           next: Slеdеćе
-        show:
-          not_allowed: Ovaj učesnik više ne prima direktne poruke.
     newsletter_templates:
       basic_only_text:
         body_preview: 'Probni tekst za pasus: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
