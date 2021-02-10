@@ -249,7 +249,6 @@ it:
         update: "%{user_name} ha aggiornato le impostazioni delle assemblee"
       assembly_type:
         create: "%{user_name} ha creato il tipo di assemblea %{resource_name}"
-        delete: "%{user_name} ha rimosso il %{resource_name} membro dal tipo di assemblea %{space_name}"
         publish: "%{user_name} ha creato il tipo di assemblea %{resource_name}"
         unpublish: "%{user_name} ha rimosso la pubblicazione del tipo di assemblea %{resource_name}"
         update: "%{user_name} ha aggiornato il tipo di assemblea %{resource_name}"
@@ -442,8 +441,6 @@ it:
       home:
         hero:
           participate_title: Partecipa ai processi della piattaforma
-        sub_hero:
-          register_title: Iscriviti per creare un account sulla piattaforma
     participatory_processes:
       pages:
         home:
