@@ -3,13 +3,7 @@
     <% if has_title? %>
       <p class="heading2"><%= clean_title %></p>
 
-      <% if has_array_body? %>
-        <% announcement[:body].each do |paragraph| %>
-          <p><%= clean_paragraph(paragraph) %></p>
-        <% end %>
-      <% else %>
-        <p><%= clean_body %></p>
-      <% end %>
+      <%= clean_body %>
     <% else %>
       <%= clean_announcement %>
     <% end %>

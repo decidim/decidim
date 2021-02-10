@@ -43,11 +43,7 @@ module Decidim
     end
 
     def clean_body
-      clean(announcement[:body])
-    end
-
-    def clean_paragraph(paragraph)
-      clean(paragraph)
+      Array(announcement[:body]).map { |paragraph| tag.p(clean(paragraph)) }.join("")
     end
 
     def clean_announcement
