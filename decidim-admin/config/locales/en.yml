@@ -27,6 +27,8 @@ en:
         published_at: Published at
         weight: Weight
       id: ID
+      import:
+        user_group_id: Create imports as
       newsletter:
         body: Body
         subject: Subject
@@ -117,6 +119,10 @@ en:
               allowed_file_content_types: Invalid image file
             official_img_header:
               allowed_file_content_types: Invalid image file
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Invalid mime type
   activerecord:
     attributes:
       decidim/static_page:
@@ -143,6 +149,7 @@ en:
         category:
           new: New category
         export: Export
+        import: Import
         manage: Manage
         new: New %{name}
         newsletter:
@@ -359,6 +366,12 @@ en:
           title_cont: Search %{collection} by title.
         state_eq:
           label: State
+      forms:
+        file_help:
+          import:
+            explanation: 'Guidance for file:'
+            message_1: CSV, JSON and Excel (.xls) files are supported
+            message_2: For CSV files, the separator between columns must be a semicolon (";")
       help_sections:
         error: There was a problem updating the help sections
         form:
@@ -397,6 +410,24 @@ en:
           impersonate_existing_managed_user: Manage participant "%{name}"
           impersonate_existing_user: Manage participant "%{name}"
           impersonate_new_managed_user: Manage new participant
+      imports:
+        creators:
+          proposalcreator: Proposal creator
+        error: There was a problem during the import
+        help:
+          proposalcreator: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
+        import_from_file: Import from a file
+        invalid_lines: Found error in resource number %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Back
+          file_legend: Add an import file that will be parsed.
+          import: Import
+        notice: "%{number} %{resource_name} successfully imported"
       logs:
         logs_list:
           no_logs_yet: There are no logs yet
@@ -514,17 +545,23 @@ en:
       moderated_users:
         index:
           actions:
+            block: Block
             title: Actions
+            unblock: Unblock
             unreport: Unreport
           name: Name
           nickname: Nickname
           reason: Reason
+          reports: Reports
           title: Listing reported users
         report:
           reasons:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+        tabs:
+          blocked: Blocked
+          unblocked: Unblocked
       moderations:
         index:
           title: Moderations

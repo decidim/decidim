@@ -153,6 +153,10 @@ Decidim.register_component(:proposals) do |component|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
+  component.imports :proposals do |imports|
+    imports.creator Decidim::Proposals::ProposalCreator
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,

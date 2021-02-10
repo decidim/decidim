@@ -737,6 +737,8 @@ nl:
           view_index:
             see_index: Zie index
         preview:
+          announcement_body: Jouw voorstel is opgeslagen als concept. Het moet gepubliceerd worden om het op de site te laten verschijnen.
+          announcement_title: Je voorstel is nog niet gepubliceerd
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
             one: Je kan dit voorstel bewerken in de eerste minuut nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.

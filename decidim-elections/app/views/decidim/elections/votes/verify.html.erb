@@ -1,7 +1,6 @@
 <div class="vote-verify-wrapper"
   data-election-id="<%= election.id %>"
   data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
-  data-websocket-url="<%= Rails.application.secrets.bulletin_board[:websocket_url] %>"
   data-election-unique-id="<%= @form.election_unique_id %>">
 
   <div class="focus__header">
@@ -76,4 +75,4 @@
 
 </div>
 
-<%= javascript_include_tag("decidim/elections/vote_verify") %>
+<%= javascript_include_tag "decidim/elections/vote_verify", integrity: true %>

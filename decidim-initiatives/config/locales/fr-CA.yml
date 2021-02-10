@@ -202,6 +202,10 @@ fr-CA:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantité maximale d'éléments à afficher
+            order:
+              default: Défaut (moins récent)
+              label: 'Trier l''élément par :'
+              most_recent: Les plus récentes
         exports:
           initiatives: Initiatives
         initiatives:
@@ -305,9 +309,13 @@ fr-CA:
         filter_type_values:
           all: Tout
       committee_requests:
+        approve:
+          success: La demande a été approuvée.
         new:
           continue: Continuer
           help_text: Vous êtes sur le point de demander à devenir membre du Comité de promotion de cette initiative
+        revoke:
+          success: La demande a été révoquée.
         spawn:
           success: Votre demande a été envoyée à l'auteur de l'initiative.
       content_blocks:
@@ -368,6 +376,11 @@ fr-CA:
         title: Modifier la pétition
         update: Mettre à jour
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} a accepté votre candidature pour faire partie du comité de promotion de la pétition %{resource_title}."
+          email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à faire partie du comité de promotion de cette pétition: %{resource_title}'
+          email_subject: "%{author_nickname} a accepté votre demande de rejoindre le comité de promotion"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a accepté votre candidature pour faire partie du comité de promotion de la pétition suivante <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle initiative, lisez -la et contribuez :"
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
@@ -378,6 +391,16 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Initiative soutenue par %{author_nickname}
           notification_title: L'initiative<a href="%{resource_path}">%{resource_title}</a> a été soutenue par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} a accepté votre candidature pour faire partie du comité de promotion de la pétition %{resource_title}."
+          email_outro: 'Vous avez reçu cette notification parce que vous avez demandé à faire partie du comité de promotion de cette pétition : %{resource_title}.'
+          email_subject: "%{author_nickname} a rejeté votre candidature au comité de promotion"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a rejeté votre candidature pour faire partie du comité de promotion de la pétition suivante <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} a postulé pour faire partie du comité de promotion de votre pétition %{resource_title}. Pour accepter ou rejeter la demande, allez dans le formulaire de modification de votre initiative."
+          email_outro: 'Vous avez reçu cette notification car vous êtes l''auteur de cette pétition : %{resource_title}'
+          email_subject: "%{applicant_nickname} veut rejoindre le comité de promotion de votre pétition"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
         add_attachments: Pièces-jointes
         attachment_legend: "(Facultatif) Ajouter une pièce jointe"

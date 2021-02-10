@@ -303,6 +303,7 @@ gl:
         solved: Resolto
         title: Conflitos de verificación
         transfer:
+          email: Correo electrónico
           name: Nome
           reason: Motivo
           success: A transferencia actual completouse con éxito.
@@ -342,6 +343,7 @@ gl:
           label: Publicado
           values:
             'false': Publicado
+            'true': Publicación borrada
         scope_id_eq:
           label: Ámbito
         search_label: Busca
@@ -683,6 +685,7 @@ gl:
           error: Produciuse un erro ao eliminar un usuario privado deste espazo participativo.
           success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
         index:
+          import_via_csv: Importar a través de CSV
           title: Espazo participativo usuario privado
         new:
           create: Crear
@@ -747,6 +750,7 @@ gl:
         gallery:
           add_images: Engadir imaxes
           delete_image: Eliminar imaxe
+          gallery_legend: Engadir unha galería de imaxes (opcional)
       static_page_topics:
         create:
           error: Produciuse un erro ao crear un tema novo.
@@ -863,6 +867,7 @@ gl:
           reason: Debe proporcionar un motivo ao suplantar a un usuario non xestionado
     moderations:
       actions:
+        expand: Expandir
         hidden: Oculto
         hide: Ocultar
         not_hidden: Non escondido
@@ -883,6 +888,7 @@ gl:
       models:
         moderation:
           fields:
+            created_at: Data de creación
             hidden_at: Oculto en
             report_count: Conde
             reportable_id: Id

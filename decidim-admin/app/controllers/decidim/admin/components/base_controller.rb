@@ -14,6 +14,7 @@ module Decidim
 
         helper Decidim::ResourceHelper
         helper Decidim::Admin::ExportsHelper
+        helper Decidim::Admin::ImportsHelper
         helper Decidim::Admin::BulkActionsHelper
         helper Decidim::Admin::ResourcePermissionsHelper
 

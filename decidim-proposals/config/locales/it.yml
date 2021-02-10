@@ -731,6 +731,8 @@ it:
           view_index:
             see_index: Vedi indice
         preview:
+          announcement_body: La tua proposta è stata salvata come bozza. Deve essere pubblicata affinché appaia sul sito.
+          announcement_title: La tua proposta non è stata ancora pubblicata
           modify: Modifica la proposta
           proposal_edit_before_minutes:
             one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.

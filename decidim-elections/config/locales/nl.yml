@@ -138,6 +138,10 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van deze vraag
             success: Vraag met succes bijgewerkt
+        steps:
+          create_election:
+            errors:
+              minimum_answers: Vragen moeten <strong>minstens twee antwoorden</strong> hebben.
         trustees_participatory_spaces:
           actions:
             disable: Uitschakelen
@@ -170,10 +174,8 @@ nl:
             other: "%{count} verkiezingen"
         show:
           preview: Voorvertoning
-          vote: Stemming
           voting_period_status:
             finished: De stemming begon op %{start_time} en eindigde op %{end_time}
-            ongoing: De stemming eindigt op %{end_time}
             upcoming: Stemmen begint op %{start_time}
       models:
         answer:
@@ -199,6 +201,10 @@ nl:
             notification: Notificatie verzonden op
             public_key: Publieke sleutel
             status: Status
+      trustee_zone:
+        no_bulletin_board:
+          body: Er is een geconfigureerd Bulletin Board nodig voor dit onderdeel. Neem contact op met de beheerder voor meer informatie.
+          title: Sorry, het Bulletin Board is nog niet geconfigureerd.
       votes:
         confirm:
           answer: Beantwoorden
@@ -210,6 +216,7 @@ nl:
           question: Vraag %{count}
         confirmed:
           back: Terug naar verkiezingen
+          error: Sorry, er is iets misgegaan bij het bevestigen van de stem. Probeer het nog eens.
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
@@ -232,6 +239,9 @@ nl:
           preview_alert: Dit is een voorbeeld van de stembooth.
           question_steps: Vraag %{current_step} van %{total_steps}
           selections: "%{selected} van %{max_selections}<br> selecties"
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van de status van de stem
+          success: Status stemming succesvol bijgewerkt
         voting_step:
           back: Achterzijde
           continue: Volgende
@@ -252,9 +262,29 @@ nl:
             email_outro: Je hebt deze melding ontvangen omdat je bent toegevoegd als trustee van %{resource_name}.
             email_subject: Je bent een trustee van %{resource_name}.
             notification_title: Je bent een trustee van <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Je stem is geaccepteerd! Met je stem token %{encrypted_vote_hash}, controleer je je stem <a href="%{verify_url}">hier</a>.'
+            email_outro: Je hebt deze melding ontvangen omdat je hebt gestemd in de %{resource_name} verkiezing.
+            email_subject: Je stem voor %{resource_name} werd geaccepteerd.
+            notification_title: 'Je stem is geaccepteerd. Controleer je stem <a href="%{verify_url}">hier</a> met behulp van je stem token: %{encrypted_vote_hash}'
     participatory_processes:
       statistics:
         elections_count: Verkiezingen
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            components: Onderdelen
+        votings:
+          edit:
+            add_election_component: Er zijn geen verkiezingen geconfigureerd voor deze stemming. Voeg deze toe in de Componenten sectie
+          form:
+            select_a_voting_type: Selecteer een type stemming
+            voting_type:
+              hybrid: Hybride
+              in_person: In persoon
+              online: Online
   layouts:
     decidim:
       election_votes_header:

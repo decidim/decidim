@@ -103,6 +103,16 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" oder seinem Autor folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
           notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Ihr Kommentar in "%{resource_title}" wurde negativ bewertet. Er hat nun insgesamt %{upvotes} positive und %{downvotes} negative Stimmen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
+          email_subject: Ihr Kommentar in "%{resource_title}" wurde negativ bewertet.
+          notification_title: Ihr <a href="%{resource_path}">Kommentar</a> in "%{resource_title}" wurde negativ bewertet. Er hat nun insgesamt %{upvotes} positive und %{downvotes} negative Stimmen.
+        comment_upvoted:
+          email_intro: Ihr Kommentar in "%{resource_title}" wurde positiv bewertet. Er hat nun insgesamt %{upvotes} positive und %{downvotes} negative Stimmen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
+          email_subject: Ihr Kommentar in "%{resource_title}" wurde positiv bewertet.
+          notification_title: Ihr <a href="%{resource_path}">Kommentar</a> in "%{resource_title}" wurde positiv bewertet. Er hat nun insgesamt %{upvotes} positive und %{downvotes} negative Stimmen.
         reply_created:
           email_intro: "%{author_name} hat auf Ihren Kommentar zu %{resource_title} geantwortet. Sie können das auf dieser Seite lesen:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.

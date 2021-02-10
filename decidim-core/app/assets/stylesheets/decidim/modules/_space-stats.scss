@@ -1,0 +1,53 @@
+.space-stats{
+  overflow: hidden;
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__title{
+    color: $muted;
+    font-size: .9rem;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  &__data{
+    text-align: center;
+    padding: 1rem .25rem;
+    width: calc(50% - 1rem);
+    margin: .5rem;
+    position: relative;
+
+    &::after{
+      content: "";
+      display: inline-block;
+      border-left: 2px solid $primary;
+      height: 2rem;
+      position: absolute;
+      left: 0;
+      top: calc(50% - 1rem);
+    }
+
+    @include breakpoint(medium down){
+      &:nth-child(odd)::after{
+        border: none;
+      }
+    }
+
+    @include breakpoint(mediumlarge){
+      width: calc(25% - 1rem);
+
+      &:nth-child(4n + 1)::after{
+        border: none;
+      }
+    }
+  }
+
+  &__number{
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1;
+  }
+}
