@@ -33,7 +33,6 @@ sk:
       decidim/profile_updated_event: Profil aktualizovaný
       decidim/promote_to_admin: Povýšený na správcu skupiny
       decidim/removed_from_group: Odstránený zo skupiny
-      decidim/resource_endorsed_event: Zdroj podporený
   activerecord:
     attributes:
       decidim/user:
@@ -395,7 +394,6 @@ sk:
         ready: Pripravený
       show:
         download_data: Stiahnuť dáta
-        download_data_description: Súbor so všetkými informáciami pridruženými k účtu bude odoslaný na <strong>%{user_email} </strong>
         request_data: Vyžiadať dáta
     datepicker:
       help_text: 'Očakávaný formát:%{datepicker_format}'
@@ -598,7 +596,6 @@ sk:
           notification_title: <a href="%{resource_path}"> profilová stránka </a> od%{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
     export_mailer:
       data_portability_export:
-        click_button: 'Kliknite na tlačítko pre stiahnutie Vašich dát. <br/> Súbor bude dostupný do %{date}. <br/> Budete potrebovať <a href=''https://www.7-zip.org/''>7-Zip software</a> na jeho otvorenie a rozbalenie. Heslo: %{password}'
         download: Stiahnutie
       export:
         ready: V prílohe nájdete exportovanú exportovanú verziu.
@@ -628,7 +625,6 @@ sk:
       create:
         button: Sledovať
         error: Pri sledovaní tohto zdroja sa vyskytla chyba.
-        participatory_space: Už sledujete participatívny priestor
       destroy:
         button: Ukončiť sledovanie
         error: Pri sledovaní tohto zdroja sa vyskytla chyba.
@@ -832,7 +828,6 @@ sk:
           title: Odpověď
         show:
           chat_with: Konverzácia s
-          not_allowed: Tento používateľ neprijíma žiadne priame správy.
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
