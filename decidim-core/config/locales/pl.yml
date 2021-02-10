@@ -922,7 +922,7 @@ pl:
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
-          not_allowed: Ten użytkownik nie przyjmuje więcej prywatnych wiadomości.
+          not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
           title: Konwersacja z %{usernames}
         start:
           send: Wyślij
