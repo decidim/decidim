@@ -34,16 +34,8 @@ pl:
             confirm: Wycofanie uprawnień nadanych przed datą jest akcją, której nie można cofnąć. Na pewno chcesz kontynuować?
             confirm_all: Wycofanie wszystkich uprawnień nie jest akcją, którą można cofnąć. Na pewno chcesz kontynuować?
           destroy_nok: Wystąpił błąd podczas cofania uprawnień.
-          destroy_ok: Pomyślnie cofnięto wszystkie uprawnienia spełniające kryteria.
           info: 'Całkowita liczba zweryfikowanych użytkowników: %{count}.'
           no_data: Brak zweryfikowanych użytkowników
-          title: Cofnięcie autoryzacji
-        authorization_workflows: Weryfikacje
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} zaktualizował(a) konfigurację weryfikacji dokumentów tożsamości"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} zweryfikował(a) %{resource_name} przy użyciu weryfikacji dokumentów tożsamości offline"
     authorization_handlers:
       admin:
         csv_census:
