@@ -34,16 +34,8 @@ fi-pl:
             confirm: Et voi peruuttaa ennen tiettyä päivämäärää luotujen varmennusten kumoamista. Haluatko varmasti jatkaa?
             confirm_all: Et voi peruuttaa kaikkien varmennusten kumoamista. Haluatko varmasti jatkaa?
           destroy_nok: Varmennusten kumoamisessa tapahtui virhe.
-          destroy_ok: Kaikki pyyntöäsi vastaavat varmennukset kumottu onnistuneesti!
           info: Yhteensä %{count} varmennettua osallistujaa.
           no_data: Ei varmennettuja osallistujia
-          title: Vahvistusten kumoaminen
-        authorization_workflows: Vahvistukset
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} päivitti henkilöllisyystodistusvahvistuksen asetuksia"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} vahvisti käyttäjän %{resource_name} henkilöllisyystodistusten offline-varmennuksella"
     authorization_handlers:
       admin:
         csv_census:
