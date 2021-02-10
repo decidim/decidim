@@ -310,11 +310,8 @@ cs:
         show:
           back: Dostupné volby
           preview: Náhled
-          verify: Ověřit
-          vote: Hlasování
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
-            ongoing: Hlasování končí %{end_time}
             upcoming: Hlasování začíná %{start_time}
       feedback:
         answer:
