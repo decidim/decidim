@@ -120,14 +120,12 @@ ignore_unused:
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
-  - decidim.assemblies.statistics.*
   - decidim.components.*
   - decidim.filters.linked_classes.*
   - decidim.follows.create.participatory_space
   - decidim.forms.errors.*
   - decidim.forms.file_help.*
   - decidim.forms.user_answers_serializer.*
-  - decidim.participatory_processes.statistics.*
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
@@ -148,6 +146,7 @@ ignore_unused:
   - decidim.proposals.proposals.show.proposal_in_evaluation_reason
   - decidim.proposals.proposals.show.proposal_rejected_reason
   - decidim.resource_links.*
+  - decidim.statistics.*
   - decidim.system.default_pages.placeholders.*
   - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{dni,nie,passport}
@@ -229,7 +228,6 @@ ignore_unused:
   - decidim.conferences.content_blocks.*.name
   - decidim.conferences.pages.home.highlighted_conferences.*
   - decidim.conferences.conference_speaker.*
-  - decidim.conferences.statistics.*
   - decidim.conferences.show.*
   - decidim.conferences.models.conference_registration.fields.states.*
   - decidim.proposals.admin.participatory_texts.sections.*
