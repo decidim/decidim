@@ -249,7 +249,6 @@ ca:
         update: "%{user_name} ha actualitzat la configuració de les assemblees"
       assembly_type:
         create: "%{user_name} ha creat l'assemblea %{resource_name}"
-        delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         publish: "%{user_name} ha publicat el tipus d'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat el tipus d'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat el tipus d'assemblea %{resource_name}"
@@ -442,8 +441,6 @@ ca:
       home:
         hero:
           participate_title: Participa als processos de la plataforma
-        sub_hero:
-          register_title: Registra't per crear un compte a la plataforma
     participatory_processes:
       pages:
         home:
