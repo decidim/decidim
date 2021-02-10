@@ -39,6 +39,8 @@ module Decidim
         # The scope attribute is with different key (decidim_scope_id), so it
         # has to be manually mapped.
         self.scope_id = model.scope.id if model.scope
+
+        self.has_address = true if model.address.present?
       end
 
       # Finds the Category from the category_id.
@@ -66,7 +68,15 @@ module Decidim
         Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
       end
 
+      def address
+        return unless has_address
+
+        super
+      end
+
       def has_address?
+        return unless has_address
+
         geocoding_enabled? && address.present?
       end
 
