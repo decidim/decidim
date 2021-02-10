@@ -214,7 +214,6 @@ uk:
         ready: Готово
       show:
         download_data: Завантажити дані
-        download_data_description: Файл із усіма відомостями, пов'язаними з обліковим записом, буде відправлений на <strong>%{user_email}</strong>
         request_data: Подати запит на дані
     devise:
       omniauth_registrations:
@@ -306,7 +305,6 @@ uk:
           notification_title: Сторінка <a href="%{resource_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
     export_mailer:
       data_portability_export:
-        click_button: 'Натисніть наступну кнопку, щоб завантажити свої дані. <br/> Ваш файл буде доступним до %{date}.'
         download: Завантажити
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
