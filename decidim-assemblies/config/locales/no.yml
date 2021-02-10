@@ -246,7 +246,6 @@
         update: "%{user_name} oppdaterte forsamlingens innstillinger"
       assembly_type:
         create: "%{user_name} opprettet %{resource_name} forsamlingstypen"
-        delete: "%{user_name} fjernet %{resource_name} medlemmet fra %{space_name} forsamlingstypen"
         publish: "%{user_name} publiserte %{resource_name} forsamlingstypen"
         unpublish: "%{user_name} avpubliserte %{resource_name} forsamlingstypen"
         update: "%{user_name} oppdaterte %{resource_name} forsamlingstypen"
@@ -439,8 +438,6 @@
       home:
         hero:
           participate_title: Delta i plattformens prosesser
-        sub_hero:
-          register_title: Registrer deg for å opprette en konto på plattformen
     participatory_processes:
       pages:
         home:
