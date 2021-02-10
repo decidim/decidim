@@ -34,8 +34,11 @@ cs:
             confirm: Zrušení před datem autorizace nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
             confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
           destroy_nok: Při rušení autorizace došlo k chybě.
+          destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
           no_data: Žádní ověření účastníci
+          title: Zrušení autorizace
+        authorization_workflows: Autorizace
     authorization_handlers:
       admin:
         csv_census:
