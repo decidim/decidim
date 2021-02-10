@@ -154,10 +154,7 @@ fi-pl:
             email_subject: Uusi virstanpylväs saavutettu!
             notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
         support_threshold_reached:
-          email_intro: Aloite %{resource_title} on saavuttanut kannatuskynnyksen
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
-          email_subject: Kannatuskynnys saavutettu
-          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut kannatuskynnyksensä
     gamification:
       badges:
         initiatives:
