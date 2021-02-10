@@ -903,7 +903,7 @@ sv:
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
-          not_allowed: Användaren tar inte emot fler direktmeddelanden.
+          not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
           title: Samtal med %{usernames}
         start:
           send: Skicka
