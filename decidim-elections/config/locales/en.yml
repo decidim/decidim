@@ -639,10 +639,12 @@ en:
             fields:
               email: Email
               name: Name
+              polling_station: Polling station (role)
             name: Polling Officer
           polling_station:
             fields:
               address: Address
+              polling_station_managers: Managers
               polling_station_president: President
               title: Title
             name: Polling Station
@@ -665,6 +667,8 @@ en:
             select_user: Search by name, email or nickname
             user_type: Participant type
           index:
+            role_manager: manager
+            role_president: president
             title: Polling officers
           new:
             create: Create
@@ -683,6 +687,8 @@ en:
             address_help: 'Address: used by Geocoder to find the location'
             location_help: 'Location: message directed to the voters implying the exact place of the polling station'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
+            polling_station_managers_help: 'Polling station managers: the officers that will act as polling station managers. Make sure the officers have already been created in Polling Officers and that they are not already assigned to another polling station'
+            polling_station_president_help: 'Polling station officer: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station'
             select_president: Select a polling officer as president of the polling station
           index:
             title: Polling stations

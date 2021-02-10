@@ -27,6 +27,7 @@
       <%= form.autocomplete_select(:polling_station_president_id, form.object.polling_station_president.presence, { multiple: false }, prompt_options) do |polling_officer|
         { value: polling_officer.id, label: "#{polling_officer.name} (@#{polling_officer.nickname})" }
       end %>
+      <p class="help-text"><%= t(".polling_station_president_help") %></p>
     </div>
 
     <div class="row column user-fields--polling_station_managers-picker">
@@ -34,6 +35,7 @@
       <%= form.autocomplete_select(:polling_station_managers_ids, nil, { multiple: true }, prompt_options) do |polling_officer|
         { value: polling_officer.id, label: "#{polling_officer.name} (@#{polling_officer.nickname})" }
       end %>
+      <p class="help-text"><%= t(".polling_station_managers_help") %></p>
     </div>
   </div>
 </div>

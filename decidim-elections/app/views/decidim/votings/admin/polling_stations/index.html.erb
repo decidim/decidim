@@ -14,6 +14,7 @@
             <th><%= t("models.polling_station.fields.title", scope: "decidim.votings.admin") %></th>
             <th><%= t("models.polling_station.fields.address", scope: "decidim.votings.admin") %></th>
             <th><%= t("models.polling_station.fields.polling_station_president", scope: "decidim.votings.admin") %></th>
+            <th><%= t("models.polling_station.fields.polling_station_managers", scope: "decidim.votings.admin") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.votings.polling_stations") %></th>
           </tr>
         </thead>
@@ -28,6 +29,9 @@
               </td>
               <td>
                 <%= polling_station.polling_station_president&.name %>
+              </td>
+              <td>
+                <%= safe_join(polling_station.polling_station_managers.map{ |manager| manager.name }, ",") %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :polling_station, voting: current_voting, polling_station: polling_station %>
