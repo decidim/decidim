@@ -365,6 +365,12 @@ de:
           title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
+      forms:
+        file_help:
+          import:
+            explanation: 'Hinweise für die Datei:'
+            message_1: CSV, JSON und Excel (.xls) Dateien werden unterstützt
+            message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
@@ -403,6 +409,24 @@ de:
           impersonate_existing_managed_user: Angenommen, dass der Benutzer "%{name}" verwaltet wird
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
+      imports:
+        creators:
+          proposalcreator: Vorschlagsersteller
+        error: Beim Importieren ist ein Fehler aufgetreten
+        help:
+          proposalcreator: Die Datei muss die Spaltennamen title/de und body/de (oder andere Sprachen wie zum Beispiel title/en und body/en) enthalten. Zudem sind scope/id und category/id unterstützt.
+        import_from_file: Aus einer Datei importieren
+        invalid_lines: Fehler in der Ressource Nummer %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xls: XLS
+          actions:
+            back: Zurück
+          file_legend: Datei zum Importieren hinzufügen.
+          import: Importieren
+        notice: "%{number}%{resource_name} erfolgreich importiert"
       logs:
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle
