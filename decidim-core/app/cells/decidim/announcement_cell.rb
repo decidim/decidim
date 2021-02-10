@@ -26,10 +26,6 @@ module Decidim
       announcement.is_a?(Hash) && announcement.has_key?(:title)
     end
 
-    def has_array_body?
-      announcement.has_key?(:body) && announcement[:body].is_a?(Array)
-    end
-
     def callout_class
       options[:callout_class] ||= "secondary"
     end
