@@ -97,8 +97,6 @@ gl:
           available_answers: Respostas dispoñibles
         results:
           selected: Seleccionado
-        show:
-          verify: Verificar
       models:
         answer:
           fields:
