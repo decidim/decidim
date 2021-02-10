@@ -266,6 +266,10 @@ de:
       conferences:
         conference_registration:
           confirm: "%{user_name} hat eine Anmeldung zur Konferenz %{resource_name} bestätigt"
+        partner:
+          create: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} erstellt"
+          delete: "%{user_name} hat den Partner %{resource_name} aus der Konferenz %{space_name} entfernt"
+          update: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} aktualisiert"
         registration_type:
           create: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} erstellt"
           publish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} veröffentlicht"
