@@ -49,7 +49,7 @@ describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You received this notification because you are the author of this initiative : #{resource_title}")
+        .to eq("You received this notification because you are the author of this initiative: #{resource_title}")
     end
   end
 

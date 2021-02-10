@@ -391,7 +391,7 @@ en:
             upload_icon: Icon that indicates a download action
           tally_steps:
             back: Back
-            description: This election results are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
+            description: The results for this election are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
               end_tally: Tally ended
               tally:
