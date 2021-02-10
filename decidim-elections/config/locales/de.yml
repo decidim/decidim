@@ -304,10 +304,22 @@ de:
             one: "%{count} Stimme"
             other: "%{count} Stimmen"
         show:
+          action-button:
+            change-vote: Stimme ändern
+            vote: Jetzt abstimmen
+            vote-again: Erneut abstimmen
           back: Verfügbare Wahlen
+          callout:
+            already-voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
+            vote-rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
           preview: Vorschau
+          verify:
+            already-voted: Bereits abgestimmt?
+            verify-here: Stimme hier verifizieren.
+            will-verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
+            ongoing: 'Abstimmung aktiv bis: %{end_time}'
             upcoming: Die Abstimmung beginnt am %{start_time}
       feedback:
         answer:
