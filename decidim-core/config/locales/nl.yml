@@ -35,7 +35,6 @@ nl:
       decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
-      decidim/resource_endorsed_event: Resurce goedgekeurd
   activerecord:
     attributes:
       decidim/user:
@@ -405,7 +404,6 @@ nl:
         ready: Klaar
       show:
         download_data: Download de gegevens
-        download_data_description: Een bestand met alle informatie die aan het account is gekoppeld, wordt naar <strong>%{user_email}</strong>gestuurd
         request_data: Gegevens aanvragen
     datepicker:
       help_text: 'Verwacht formaat: %{datepicker_format}'
@@ -623,7 +621,6 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: 'Klik op de volgende knop om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href=''https://www.7-zip.org/''>7-Zip</a> nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -656,7 +653,6 @@ nl:
       create:
         button: Volgen
         error: Er is een fout opgetreden na deze bron.
-        participatory_space: volgen
       destroy:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
@@ -914,7 +910,6 @@ nl:
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
-          not_allowed: Deze gebruiker accepteert geen directe berichten meer.
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
