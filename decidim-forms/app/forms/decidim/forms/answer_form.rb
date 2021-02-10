@@ -5,6 +5,7 @@ module Decidim
     # This class holds a Form to save the questionnaire answers from Decidim's public page
     class AnswerForm < Decidim::Form
       include Decidim::TranslationsHelper
+      include Decidim::AttachmentAttributes
 
       attribute :question_id, String
       attribute :body, String

@@ -3,6 +3,8 @@
 module Decidim
   module DummyResources
     class DummyResourceForm < Decidim::Form
+      include Decidim::AttachmentAttributes
+
       mimic :dummy_resource
 
       attribute :title, String
