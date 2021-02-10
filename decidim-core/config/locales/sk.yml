@@ -838,7 +838,6 @@ sk:
           title: Odpověď
         show:
           chat_with: Konverzácia s
-          not_allowed: Tento používateľ neprijíma žiadne priame správy.
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
