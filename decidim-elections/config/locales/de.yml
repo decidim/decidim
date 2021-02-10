@@ -175,7 +175,7 @@ de:
         show:
           back: Alle Wahlen
           preview: Vorschau
-          vote: Stimmen
+          vote: Abstimmung
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
             ongoing: Die Abstimmung endet am %{end_time}
