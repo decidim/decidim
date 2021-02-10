@@ -303,7 +303,6 @@ gl:
         ready: Listo
       show:
         download_data: Descarga os datos
-        download_data_description: Un ficheiro con toda a información asociada á conta enviarase a <strong>%{user_email}</strong>
         request_data: Solicitar datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
@@ -496,7 +495,6 @@ gl:
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
       data_portability_export:
-        click_button: 'Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.'
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
