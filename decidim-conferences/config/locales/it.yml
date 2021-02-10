@@ -266,10 +266,6 @@ it:
       conferences:
         conference_registration:
           confirm: "%{user_name} confermato la registrazione alla conferenza %{resource_name}"
-        partner:
-          create: "%{user_name} ha aggiunto %{resource_name} alla conferenza%{space_name}"
-          delete: "%{user_name} ha rimosso l'Admin %{resource_name} dalla conferenza %{space_name}"
-          update: "%{user_name} ha aggiornato %{resource_name} nella conferenza %{space_name}"
         registration_type:
           create: "%{user_name} ha creato il %{resource_name} tipo di registrazione nella conferenza %{space_name}"
           publish: "%{user_name} ha pubblicato il %{resource_name} tipo di registrazione nella %{space_name} conferenza"
