@@ -497,14 +497,8 @@ nl:
             state: Staat
             users_count: Aantal deelnemers
       moderated_users:
-        index:
-          actions:
-            block: Blokkeren
-            unblock: Deblokkeren
-          reports: Meldingen
         tabs:
           blocked: Geblokkeerd
-          unblocked: Gedeblokkeerd
       moderations:
         index:
           title: Moderaties
