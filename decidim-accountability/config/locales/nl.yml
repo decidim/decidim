@@ -32,6 +32,7 @@ nl:
   decidim:
     accountability:
       actions:
+        attachment_collections: Mappen
         confirm_destroy: Weet u zeker dat u deze %{name} wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
