@@ -172,10 +172,10 @@ fr:
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
               published: L'élection n'est <strong>pas publiée</strong>.
-              time_before: L'heure de début se situe<strong>moins 3 heures</strong> avant le commencement de l'élection.
-              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} mandataires avec la clé publique</strong>.
+              time_before: L'heure de début se situe<strong>moins de 3 heures</strong> avant le commencement de l'élection.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             invalid: Une erreur est survenue lors de la création de l'élection
-            no_trustees: Il n'y a pas de Mandataires configurés pour cet espace participatif
+            no_trustees: Il n'y a pas de garants configurés pour cet espace participatif
             not_used_trustee: "(non utilisé)"
             public_key:
               'false': n'a pas de <strong>clé publique</strong>
@@ -186,11 +186,11 @@ fr:
               minimum_questions: L'élection a <strong>au moins 1 question</strong>.
               published: L'élection est <strong>publiée</strong>.
               time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
-              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} mandataires avec la clé publique</strong>.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
             success: Élection envoyée avec succès au Tableau de Bord
             title: Configurer l'élection
-            trustees: Mandataire de l'élection
+            trustees: Garants de l'élection
           created:
             invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés
             submit: Démarrer la cérémonie des clés
@@ -198,7 +198,7 @@ fr:
             trustees: Garants
           key_ceremony:
             title: Cérémonie des clés
-            trustees: Mandataires
+            trustees: Garants
           key_ceremony_ended:
             errors:
               time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour démarrer la période de vote.
@@ -450,6 +450,10 @@ fr:
         encrypting:
           header: Encodage du vote...
           text: Votre vote est en cours de cryptage pour vous assurer que vous pouvez le diffuser de manière anonyme.
+        failed:
+          header: Le vote a échoué
+          lead: Votre vote n'a pas été exprimé!
+          text: Une erreur est survenue, veuillez réessayer.
         header:
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
@@ -466,6 +470,17 @@ fr:
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
+        processing:
+          header: Traitement du vote...
+          text: Votre vote a été reçu et est en cours de traitement. Veuillez patienter.
+        update:
+          error: Un problème est survenu lors de la mise à jour du statut de vote
+          success: Statut du vote mis à jour avec succès
+        verify:
+          content:
+            heading: Vérifiez votre vote
+          error:
+            header: Vote introuvable !
         voting_step:
           back: Retour
           continue: Suivant
@@ -495,7 +510,7 @@ fr:
         votings:
           contextual: "<p>Une <strong>votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à la votation, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque n'importe quel aspect qui affectent une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de faire d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
           page: "<p>Une <strong>votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à la votation, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque n'importe quel aspect qui affectent une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de faire d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
-          title: Quelles sont les votations?
+          title: Que sont les élections ?
     menu:
       votings: Élections
     pages:
