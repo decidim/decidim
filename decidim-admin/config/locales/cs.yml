@@ -73,6 +73,7 @@ cs:
         omnipresent_banner_url: URL
         organization_admin_email: E-mail správce organizace
         organization_admin_name: Název správce organizace
+        organization_locales: Místa organizace
         primary_color: Hlavní
         reference_prefix: Referenční předpona
         rich_text_editor_in_public_views: Povolit plnohodnotný textový editor pro účastníky
