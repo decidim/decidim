@@ -39,6 +39,11 @@ fr:
           no_data: Aucun participant vérifié
           title: Révocation des autorisations
         authorization_workflows: Autorisations
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} a mis à jour la configuration de vérification des documents d’identité"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} a vérifié %{resource_name} au moyen d’une vérification de documents d’identité hors ligne"
     authorization_handlers:
       admin:
         csv_census:
