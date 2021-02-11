@@ -7,6 +7,13 @@ ja:
         organization_name: 組織
         organization_url: 組織のURL
         redirect_uri: リダイレクトURI
+      organization:
+        address: SMTPホスト名
+        from_email: メールアドレス
+        from_label: 送信者名
+        password: パスワード
+        port: ポート番号
+        user_name: ユーザー名
       organization_file_uploads:
         allowed_content_types:
           admin: 管理者が使えるMIMEタイプ
@@ -153,6 +160,10 @@ ja:
             api_key: API キー
             api_secret: API secret
         smtp_settings:
+          fieldsets:
+            sender: 送信者
+          instructions:
+            from_label: 'メール送信者は "your-organization-name <your-organization@example.org>"になります。メールアドレスをラベルとして使用する場合は空白のままにしてください。'
           placeholder:
             from_email: your-organization@example.org
             from_label: 組織名
