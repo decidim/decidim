@@ -235,6 +235,8 @@ cs:
             submit: Konec doby hlasování
             success: Žádost o ukončení hlasování byla úspěšně odeslána do Bulletin Board
             title: Období hlasování
+          vote_ended:
+            title: Období hlasování skončilo
         trustees_participatory_spaces:
           actions:
             disable: Zakázat
