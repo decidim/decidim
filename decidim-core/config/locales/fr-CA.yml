@@ -35,6 +35,7 @@ fr-CA:
       decidim/profile_updated_event: Profil mis à jour
       decidim/promote_to_admin: Promu au groupe admin
       decidim/removed_from_group: Retiré du groupe
+      decidim/resource_endorsed_event: Ressource soutenue
   activerecord:
     attributes:
       decidim/user:
@@ -83,7 +84,7 @@ fr-CA:
         file_no_exists: Le fichier n'existe pas
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
-        alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez pas vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais ces contributions ne seront pas associées.
+        alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez pas vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais vos anciennes contributions n'y seront plus associées.
         confirm:
           close: Fermer la fenêtre
           ok: Oui, je souhaite supprimer mon compte
@@ -428,6 +429,7 @@ fr-CA:
         ready: Prêt
       show:
         download_data: Télécharger les données
+        download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Demander les données
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
@@ -650,6 +652,7 @@ fr-CA:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
+        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -682,6 +685,7 @@ fr-CA:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
+        participatory_space: Suivre <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -940,6 +944,7 @@ fr-CA:
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
+          not_allowed: Cet utilisateur ne souhaite pas recevoir de messages directs.
           title: Conversation avec %{usernames}
         start:
           send: Envoyer
@@ -1010,8 +1015,10 @@ fr-CA:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
+        administrators: Administrateurs
         allow_public_contact: Permettre à quelqu'un de m'envoyer un message direct, même si je ne les suis pas.
         direct_messages: Recevoir des messages directs de n'importe qui
+        email_on_moderations: Je veux recevoir un email chaque fois que quelque chose est signalé pour modération.
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
