@@ -370,12 +370,15 @@ nl:
           title: Bewerk je vergadering
           update: Vernieuwen
         filters:
+          activity: Mijn activiteit
+          all: Alle
           category: Categorie
           date: Datum
           date_values:
             all: Allemaal
             past: Verleden
             upcoming: Aankomende
+          my_meetings: Mijn vergaderingen
           origin: Oorsprong
           origin_values:
             all: Allemaal
