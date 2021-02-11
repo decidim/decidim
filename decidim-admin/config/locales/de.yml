@@ -33,6 +33,7 @@ de:
         subject: Betreff
       organization:
         alert_color: Benachrichtigung
+        available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
         cta_button_path: Call To Action Schaltfläche Pfad
@@ -43,6 +44,8 @@ de:
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
         facebook_handler: Facebook-Handler
         favicon: Icon
+        force_authentication: Authentifizierung erforderlich
+        force_users_to_authenticate_before_access_organization: Benutzer müssen sich authentifizieren bevor sie auf die Organisation zugreifen können
         from: Absender E-Mail
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
@@ -55,6 +58,7 @@ de:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kurze Beschreibung
         highlighted_content_banner_title: Titel
+        host: Host
         instagram_handler: Instagram-Handler
         logo: Logo
         machine_translation_display_priority: Priorität der maschinellen Übersetzung
@@ -67,16 +71,21 @@ de:
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        organization_admin_email: E-Mail des Organisations-Admins
+        organization_admin_name: Name des Organisations-Admins
+        organization_locales: Verfügbare Sprachen
         primary_color: Primär
         reference_prefix: Referenzpräfix
         rich_text_editor_in_public_views: Rich-Text-Editor für Teilnehmer aktivieren
         secondary_color: Sekundär
+        secondary_hosts: Weitere Hosts
         send_welcome_notification: Willkommens-Benachrichtigung senden
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
+        users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
@@ -544,14 +553,11 @@ de:
       moderated_users:
         index:
           actions:
-            block: Blockieren
             title: Aktionen
-            unblock: Blockierung aufheben
             unreport: Meldung Rückgängig machen
           name: Name
           nickname: Spitzname
           reason: Grund
-          reports: Berichte
           title: Liste der gemeldeten Benutzer
         report:
           reasons:
@@ -560,7 +566,6 @@ de:
             spam: Spam
         tabs:
           blocked: Blockiert
-          unblocked: Nicht blockiert
       moderations:
         index:
           title: Moderationen
