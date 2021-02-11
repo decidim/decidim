@@ -343,6 +343,10 @@ nl:
         revoke_membership_request:
           email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van de promotiecommissie voor het volgende initiatief %{resource_title} aanvaard."
           email_subject: "%{author_nickname} heeft je aanvraag voor de promotiecommissie afgewezen"
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} wil graag toetreden tot de promotiecommissie van je initiatief %{resource_title}. Om de aanvraag te accepteren of af te wijzen, bewerk je je initiatief."
+          email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
       index:
         title: Initiatieven
       initiative_signatures:
