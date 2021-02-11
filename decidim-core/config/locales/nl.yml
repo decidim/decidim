@@ -623,7 +623,6 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: 'Klik op de volgende knop om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
