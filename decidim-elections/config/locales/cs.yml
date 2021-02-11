@@ -310,7 +310,12 @@ cs:
             many: "%{count} hlasů"
             other: "%{count} hlasů"
         show:
+          action-button:
+            change-vote: Změňte svůj hlas
+            vote: Zahájit hlasování
           back: Dostupné volby
+          callout:
+            already-voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
           preview: Náhled
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
