@@ -160,6 +160,7 @@ cs:
             email_subject: Nový milník dokončen!
             notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
         support_threshold_reached:
+          email_intro: Iniciativa %{resource_title} dosáhla limitu pro podporu
           email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
     gamification:
       badges:
