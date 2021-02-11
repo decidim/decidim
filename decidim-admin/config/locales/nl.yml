@@ -26,6 +26,8 @@ nl:
         published_at: Gepubliceerd op
         weight: Gewicht
       id: ID
+      import:
+        user_group_id: Import maken als
       newsletter:
         body: Body
         subject: Onderwerp
@@ -110,6 +112,10 @@ nl:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
             official_img_header:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Ongeldig mime-type
   activerecord:
     attributes:
       decidim/static_page:
@@ -130,6 +136,7 @@ nl:
         add: Toevoegen
         browse: Browsen
         export: Exporteren
+        import: Importeren
         manage: Beheer
         new: Nieuwe %{name}
         per_page: Per pagina
@@ -323,6 +330,12 @@ nl:
           title_cont: Zoek %{collection} op titel.
         state_eq:
           label: Provincie
+      forms:
+        file_help:
+          import:
+            explanation: 'Eigenschappen bestand:'
+            message_1: CSV, JSON en Excel (.xls) bestanden worden ondersteund
+            message_2: Voor CSV-bestanden moet het scheidingsteken tussen kolommen een puntkomma (";") zijn
       help_sections:
         error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
         form:
@@ -361,6 +374,24 @@ nl:
           impersonate_existing_managed_user: Beheer deelnemer "%{name}"
           impersonate_existing_user: Beheer deelnemer "%{name}"
           impersonate_new_managed_user: Beheer nieuwe deelnemer
+      imports:
+        creators:
+          proposalcreator: Maker van het voorstel
+        error: Er zijn fouten opgetreden bij het importeren
+        help:
+          proposalcreator: Het bestand moet kolomnamen titel/nl en body/en bevatten (of een andere locale die jij verkiest, bijv. title/ca en body/ca). Ook scope/id en category/id kolommen worden ondersteund.
+        import_from_file: Uit een bestand importeren
+        invalid_lines: Fout gevonden in bronnummer %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Terug
+          file_legend: Een importbestand toevoegen dat zal worden verwerkt.
+          import: Importeren
+        notice: "%{number} %{resource_name} succesvol geïmporteerd"
       logs:
         logs_list:
           no_logs_yet: Er zijn nog geen logs
