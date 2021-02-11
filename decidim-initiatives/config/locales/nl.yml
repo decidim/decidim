@@ -131,7 +131,10 @@ nl:
             email_subject: Nieuwe mijlpaal voltooid!
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft %{percentage}% handtekeningen behaald.
         support_threshold_reached:
+          email_intro: Het initiatief %{resource_title} heeft de drempelwaarde voor handtekeningen bereikt
           email_outro: Je hebt deze melding ontvangen omdat je beheerder bent van het platform.
+          email_subject: Drempel handtekeningen bereikt
+          notification_title: Het initiatief <a href="%{resource_path}">%{resource_title}</a> heeft de drempel voor handtekeningen bereikt
     gamification:
       badges:
         initiatives:
