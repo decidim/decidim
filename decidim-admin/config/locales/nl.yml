@@ -500,6 +500,7 @@ nl:
         index:
           actions:
             block: Blokkeren
+            unblock: Deblokkeren
           reports: Meldingen
         tabs:
           blocked: Geblokkeerd
