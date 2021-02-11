@@ -481,6 +481,8 @@ cs:
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu
           sign_up_disabled: Registrace je zakázána, k přístupu můžete použít existující účet
+        user:
+          timed_out: Byli jste příliš dlouho neaktivní a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se znovu.
       shared:
         newsletter_modal:
           buttons:
@@ -1607,6 +1609,10 @@ cs:
         instagram: "%{organization} na Instagramu"
         twitter: "%{organization} na Twitteru"
         youtube: "%{organization} na YouTube"
+      timeout_modal:
+        continue_session: Pokračovat v relaci
+        sign_out: Odhlásit se
+        title: Chcete pokračovat v relaci?
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
