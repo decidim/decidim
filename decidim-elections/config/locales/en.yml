@@ -578,8 +578,14 @@ en:
             attachments: Attachments
             components: Components
             info: Information
+            polling_officers: Polling Officers
             polling_stations: Polling Stations
         models:
+          polling_officer:
+            fields:
+              email: Email
+              name: Name
+            name: Polling Officer
           polling_station:
             fields:
               address: Address
@@ -591,6 +597,23 @@ en:
               promoted: Highlighted
               published: Published
               title: Title
+        polling_officers:
+          create:
+            invalid: There was a problem creating this polling officer
+            success: Polling officer successfully created
+          destroy:
+            invalid: There was a problem deleting this polling officer
+            success: Polling officer successfully deleted
+          form:
+            existing_user: Existing participant
+            non_user: Invite new participant
+            select_user: Search by name, email or nickname
+            user_type: Participant type
+          index:
+            title: Polling officers
+          new:
+            create: Create
+            title: Create polling officer
         polling_stations:
           create:
             invalid: There was a problem creating this polling station
@@ -660,6 +683,12 @@ en:
             active_votings: Active votings
             see_all_votings: See all votings
             votings_button_title: Link to the Votings page displaying all the votings
+      polling_officers:
+        actions:
+          confirm_destroy: Are you sure?
+          destroy: Delete
+          new: New
+          title: Actions
       polling_stations:
         actions:
           confirm_destroy: Are you sure?
