@@ -410,6 +410,8 @@ cs:
           impersonate_existing_user: Spravovat účastníka "%{name}"
           impersonate_new_managed_user: Spravovat nového účastníka
       imports:
+        creators:
+          proposalcreator: Tvůrce návrhu
         error: Při importu došlo k chybě
         help:
           proposalcreator: Soubor musí mít názvy sloupců title/en a body/en (nebo jiné lokalizace, které dáváte. title/cs a body/cs). Podporovány jsou také sloupce pro scope/id a category/id.
