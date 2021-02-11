@@ -544,14 +544,11 @@ cs:
       moderated_users:
         index:
           actions:
-            block: Blokovat
             title: Akce
-            unblock: Odblokovat
             unreport: Zrušit nahlášení
           name: Jméno
           nickname: Přezdívka
           reason: Důvod
-          reports: Zprávy
           title: Seznam nahlášených uživatelů
         report:
           reasons:
@@ -560,7 +557,6 @@ cs:
             spam: Nevyžádané
         tabs:
           blocked: Blokováno
-          unblocked: Odblokováno
       moderations:
         index:
           title: Moderování
