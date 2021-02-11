@@ -31,6 +31,7 @@ ja:
   decidim:
     accountability:
       actions:
+        attachment_collections: フォルダー
         confirm_destroy: この %{name} を削除してもよろしいですか？
         destroy: 削除
         edit: 編集
@@ -123,6 +124,7 @@ ja:
             not_found: '親がデータベース上に見つかりませんでした (ID: %{id})'
       content_blocks:
         highlighted_results:
+          dates: 日付
           results: 結果
           unspecified: 指定なし
       import_mailer:
