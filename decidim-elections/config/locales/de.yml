@@ -574,8 +574,14 @@ de:
             attachments: Dateianhänge
             components: Komponenten
             info: Information
+            polling_officers: Wahllokal-Mitarbeitende
             polling_stations: Wahllokale
         models:
+          polling_officer:
+            fields:
+              email: E-Mail
+              name: Name
+            name: Wahllokal-Mitarbeitender
           polling_station:
             fields:
               address: Adresse
@@ -587,6 +593,13 @@ de:
               promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
+        polling_officers:
+          create:
+            invalid: Beim Erfassen dieses Wahllokal-Mitarbeiters ist ein Fehler aufgetreten
+            success: Wahllokal-Mitarbeitender wurde erfolgreich erfasst
+          destroy:
+            invalid: Beim Entfernen dieses Wahllokal-Mitarbeitenden ist ein Fehler aufgetreten
+            success: Wahllokal-Mitarbeitender wurde erfolgreich entfernt
         polling_stations:
           create:
             invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
