@@ -77,12 +77,14 @@ cs:
         reference_prefix: Referenční předpona
         rich_text_editor_in_public_views: Povolit plnohodnotný textový editor pro účastníky
         secondary_color: Sekundární
+        secondary_hosts: Sekundární hostitelé
         send_welcome_notification: Odeslat uvítací oznámení
         success_color: Úspěch
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
         user_groups_enabled: Povolit skupiny
+        users_registration_mode: Režim registrace uživatelů
         warning_color: Varování
         welcome_notification_body: Tělo uvítacího oznámení
         welcome_notification_subject: Předmět uvítacího oznámení
@@ -550,11 +552,14 @@ cs:
       moderated_users:
         index:
           actions:
+            block: Blokovat uživatele
             title: Akce
+            unblock: Odblokovat uživatele
             unreport: Zrušit nahlášení
           name: Jméno
           nickname: Přezdívka
           reason: Důvod
+          reports: Počet zpráv
           title: Seznam nahlášených uživatelů
         report:
           reasons:
@@ -563,6 +568,7 @@ cs:
             spam: Nevyžádané
         tabs:
           blocked: Blokováno
+          unblocked: Neblokováno
       moderations:
         index:
           title: Moderování
@@ -922,6 +928,16 @@ cs:
       errors:
         impersonate_user:
           reason: Při správě nespravovaného účastníka musíte uvést důvod
+    metrics:
+      blocked_users:
+        object: blokovaní uživatelé
+        title: Blokovaní uživatelé
+      reported_users:
+        object: nahlášení uživatelé
+        title: Nahlášení uživatelé
+      user_reports:
+        object: uživatelská hlášení
+        title: Uživatelská hlášení
     moderations:
       actions:
         expand: Rozbalit
