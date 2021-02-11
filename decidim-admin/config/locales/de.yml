@@ -553,11 +553,14 @@ de:
       moderated_users:
         index:
           actions:
+            block: Benutzer blockieren
             title: Aktionen
+            unblock: Blockierung des Benutzers aufheben
             unreport: Meldung Rückgängig machen
           name: Name
           nickname: Spitzname
           reason: Grund
+          reports: Anzahl Meldungen
           title: Liste der gemeldeten Benutzer
         report:
           reasons:
@@ -566,6 +569,7 @@ de:
             spam: Spam
         tabs:
           blocked: Blockiert
+          unblocked: Nicht blockiert
       moderations:
         index:
           title: Moderationen
@@ -925,6 +929,16 @@ de:
       errors:
         impersonate_user:
           reason: Sie müssen einen Grund angeben, wenn Sie sich als nicht verwalteter Benutzer ausgeben
+    metrics:
+      blocked_users:
+        object: blockierte Benutzer
+        title: Blockierte Benutzer
+      reported_users:
+        object: gemeldete Benutzer
+        title: Gemeldete Benutzer
+      user_reports:
+        object: Benutzer-Meldungen
+        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen
