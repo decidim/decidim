@@ -152,7 +152,7 @@ fr:
             title: JavaScript est désactivé
           questionnaire_not_published:
             body: Ce formulaire n'est pas encore publié.
-          tos_agreement: En participant, vous acceptez ses conditions d'utilisation
+          tos_agreement: En participant, vous acceptez ces conditions d'utilisation
       step_navigation:
         show:
           are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
