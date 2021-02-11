@@ -466,6 +466,8 @@ en:
           register: Create an account
           sign_in_disabled: You can access with an external account
           sign_up_disabled: Sign up is disabled, you can use an existing account to access
+        user:
+          timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
       shared:
         newsletter_modal:
           buttons:
@@ -1583,6 +1585,11 @@ en:
         instagram: "%{organization} at Instagram"
         twitter: "%{organization} at Twitter"
         youtube: "%{organization} at YouTube"
+      timeout_modal:
+        body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
+        continue_session: Continue session
+        sign_out: Sign out
+        title: Would you like to continue your session?
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
