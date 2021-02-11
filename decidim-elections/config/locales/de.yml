@@ -600,6 +600,16 @@ de:
           destroy:
             invalid: Beim Entfernen dieses Wahllokal-Mitarbeitenden ist ein Fehler aufgetreten
             success: Wahllokal-Mitarbeitender wurde erfolgreich entfernt
+          form:
+            existing_user: Existierender Benutzer
+            non_user: Neuen Benutzer einladen
+            select_user: Suchen nach Name, E-Mail oder Benutzername
+            user_type: Benutzertyp
+          index:
+            title: Wahllokal-Mitarbeitende
+          new:
+            create: Erfassen
+            title: Wahllokal-Mitarbeiter erfassen
         polling_stations:
           create:
             invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
@@ -669,6 +679,12 @@ de:
             active_votings: Aktive Abstimmungen
             see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
+      polling_officers:
+        actions:
+          confirm_destroy: Sind Sie sicher?
+          destroy: Entfernen
+          new: Neu
+          title: Aktionen
       polling_stations:
         actions:
           confirm_destroy: Sind Sie sicher?
