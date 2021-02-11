@@ -554,14 +554,14 @@ en:
       moderated_users:
         index:
           actions:
-            block: Block
+            block: Block User
             title: Actions
-            unblock: Unblock
+            unblock: Unblock User
             unreport: Unreport
           name: Name
           nickname: Nickname
           reason: Reason
-          reports: Reports
+          reports: Reports count
           title: Listing reported users
         report:
           reasons:
@@ -570,7 +570,7 @@ en:
             spam: Spam
         tabs:
           blocked: Blocked
-          unblocked: Unblocked
+          unblocked: Not Blocked
       moderations:
         index:
           title: Moderations
@@ -930,6 +930,16 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non managed participant
+    metrics:
+      blocked_users:
+        object: blocked users
+        title: Blocked users
+      reported_users:
+        object: reported users
+        title: Reported users
+      user_reports:
+        object: user reports
+        title: User reports
     moderations:
       actions:
         expand: Expand
