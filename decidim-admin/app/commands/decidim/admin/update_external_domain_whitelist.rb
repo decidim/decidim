@@ -12,10 +12,19 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        raise form.add_external_domain.inspect
-        current_organization.external_domain_whitelist = form.add_external_domain
+        save_domains!
 
         broadcast(:ok)
+      end
+
+      private
+
+      def save_domains!
+        current_organization.external_domain_whitelist = form.external_domains.filter_map do |domain|
+          domain.url unless domain.deleted
+        end.flatten
+
+        current_organization.save!
       end
     end
   end

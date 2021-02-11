@@ -5,9 +5,11 @@ module Decidim
     class OrganizationExternalDomainWhitelistController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
+      helper_method :blank_external_url
+
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
-        @form = form(OrganizationExternalDomainWhitelistForm).from_model(current_organization.external_domain_whitelist)
+        @form = form(OrganizationExternalDomainWhitelistForm).from_model(current_organization)
       end
 
       def update
@@ -16,12 +18,18 @@ module Decidim
 
         UpdateExternalDomainWhitelist.call(@form) do
           on(:ok) do
-            redirect_to edit_organization_external_domain_whitelist_path
+            render :edit
           end
           on(:invalid) do
-            redirect_to edit_organization_external_domain_whitelist_path
+            render :edit
           end
         end
+      end
+
+      private
+
+      def blank_external_url
+        @blank_external_url ||= Admin::ExternalUrlForm.new
       end
     end
   end
