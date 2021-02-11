@@ -35,6 +35,7 @@ cs:
       decidim/profile_updated_event: profil aktualizován
       decidim/promote_to_admin: Propagováno na správu skupiny
       decidim/removed_from_group: Odstraněna ze skupiny
+      decidim/resource_endorsed_event: Zdroj byl schválen
   activerecord:
     attributes:
       decidim/user:
@@ -444,6 +445,7 @@ cs:
         ready: Připraven
       show:
         download_data: Stáhnout data
+        download_data_description: Soubor obsahující všechny informace spojené s vaším účtem bude odeslán na adresu <strong>%{user_email}</strong>. Tento e-mail bude obsahovat .zip soubor a heslo pro jeho otevření.<br/><br/>Pro rozbalení souboru budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows) nebo <a href="https://www.keka.io/">Keku</a> (pro MacOS). Pokud používáte Linux, většinou jej budete mít nainstalovaný ve výchozím nastavení. Pokud ne, můžete použít <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> nebo <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Vyžádat data
     datepicker:
       help_text: 'Očekávaný formát: %{datepicker_format}'
@@ -675,6 +677,7 @@ cs:
           notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
+        click_button: 'Klikněte na tlačítko Další pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
         download: Stažení
       export:
         ready: V příloze naleznete exportovanou exportovanou verzi.
@@ -709,6 +712,7 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
+        participatory_space: Sleduje <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
@@ -967,6 +971,7 @@ cs:
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
+          not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
@@ -1040,6 +1045,7 @@ cs:
         administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
         direct_messages: Přijímat přímé zprávy od kohokoli
+        email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno pro moderování.
         email_on_notification: Chci dostávat e-mail pokaždé, když obdržím oznámení.
         everything_followed: Všechno, co sleduji
         newsletter_notifications: Chci dostávat zpravodaje
