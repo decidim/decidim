@@ -39,6 +39,11 @@ cs:
           no_data: Žádní ověření účastníci
           title: Zrušení autorizace
         authorization_workflows: Autorizace
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} aktualizoval konfiguraci autorizace dokladů totožnosti"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ověřil %{resource_name} pomocí offline autorizace dokladů totožnosti"
     authorization_handlers:
       admin:
         csv_census:
