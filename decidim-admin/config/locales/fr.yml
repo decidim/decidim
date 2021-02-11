@@ -544,14 +544,11 @@ fr:
       moderated_users:
         index:
           actions:
-            block: Bloquer
             title: Actions
-            unblock: Débloquer
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
           reason: Raison du signalement
-          reports: Signalements
           title: Liste des utilisateurs signalés
         report:
           reasons:
@@ -560,7 +557,6 @@ fr:
             spam: Spam
         tabs:
           blocked: Bloqué
-          unblocked: Débloqué
       moderations:
         index:
           title: Modérations
