@@ -176,6 +176,10 @@ nl:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum aantal elementen dat kan worden weergegeven
+            order:
+              default: Default (Minst Recent)
+              label: 'Sorteer volgens:'
+              most_recent: Meest recent
         exports:
           initiatives: Initiatieven
         initiatives:
@@ -274,9 +278,13 @@ nl:
         filter_type_values:
           all: Allemaal
       committee_requests:
+        approve:
+          success: Het verzoek is goedgekeurd.
         new:
           continue: Doorgaan met
           help_text: U staat op het punt lid te worden van de promotieraad van dit initiatief
+        revoke:
+          success: Verzoek is ingetrokken.
         spawn:
           success: Je verzoek is verzonden aan de auteur van het initiatief.
       content_blocks:
@@ -318,6 +326,10 @@ nl:
           continue: Mijn initiatief is anders
           more_information: "(Meer informatie)"
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van het promotiecomité %{resource_title} aanvaard."
+          email_subject: "%{author_nickname} heeft je aanvraag voor de promotiecommissie geaccepteerd"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> heeft je aanvraag om deel uit te maken van de promotiecommissie voor het volgende initiatief <a href="%{resource_url}">%{resource_title}</a> aanvaard.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, die je volgt, heeft een nieuw initiatief gemaakt, bekijk het en draag bij:"
           email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van notificaties door te klikken op de voorgaande link.
@@ -328,6 +340,9 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kunt stoppen met het ontvangen van meldingen via deze link.
           email_subject: Initiatief goedgekeurd door %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief werd goedgekeurd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van de promotiecommissie voor het volgende initiatief %{resource_title} aanvaard."
+          email_subject: "%{author_nickname} heeft je aanvraag voor de promotiecommissie afgewezen"
       index:
         title: Initiatieven
       initiative_signatures:
