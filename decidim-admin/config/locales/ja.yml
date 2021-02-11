@@ -491,6 +491,8 @@ ja:
             users_count: 参加者数
       moderated_users:
         index:
+          actions:
+            unblock: ブロック解除
           nickname: ニックネーム
       moderations:
         index:
