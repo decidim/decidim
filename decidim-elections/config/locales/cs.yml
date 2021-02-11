@@ -204,7 +204,7 @@ cs:
             submit: Zahájit ceremoniál
             success: Počáteční žádost o ceremoniál byla úspěšně odeslána do Bulletin Board
             title: Volba vytvořena
-            trustees: Volební důvěrníci
+            trustees: Důvěrníci
           key_ceremony:
             title: Slavnostní ceremoniál
             trustees: Důvěrníci
@@ -236,6 +236,7 @@ cs:
             success: Žádost o ukončení hlasování byla úspěšně odeslána do Bulletin Board
             title: Období hlasování
           vote_ended:
+            submit: Začít Volební listinu
             title: Období hlasování skončilo
         trustees_participatory_spaces:
           actions:
@@ -396,6 +397,11 @@ cs:
           tally_steps:
             back: Zpět
             description: Výsledky těchto voleb jsou vypočítány v Bulletin Board. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
+            keys:
+              end_tally: Volební listina uzavřena
+              tally:
+                cast: Obsazení volební listiny
+                share: Podíly Volební listiny
             list:
               status: Stav
               task: Úloha
@@ -406,6 +412,7 @@ cs:
               completed: Dokončeno
               pending: Čekající
               processing: Zpracovávání
+            title: Volební listina pro %{election}
           update:
             error: Stav voleb nebyl aktualizován.
             success: 'Stav voleb je: %{status}'
@@ -431,7 +438,7 @@ cs:
               cancel: Zrušit
               generate: Generovat identifikační klíče
               generate_error: Při generování identifikačních klíčů došlo k chybě.
-              generate_legend: Musíte vytvořit pár identifikačních klíčů pro účast ve volbách jako správce.
+              generate_legend: Musíte vytvořit pár identifikačních klíčů pro účast ve volbách jako důvěrník.
               generate_legend_1: Po stisknutí tlačítka byste měli stáhnout soubor s vygenerovanými identifikačními klíči.
               generate_legend_2: Kopírovat stažený soubor do čistého USB zařízení
               generate_legend_3: Ujistěte se, že váš počítač nemá kopii souboru (např. zkontrolujte složky Stahování a plocha).
@@ -439,7 +446,7 @@ cs:
               submit: Odeslat
               submit_legend: Po splnění všech výše uvedených kroků dokončete proces odesílání veřejného identifikačního klíče na server Decidim.
               submit_title: Odeslat veřejný identifikační klíč
-              title: Identifikační klíče správce
+              title: Identifikační klíče důvěrníka
               upload: Nahrajte své identifikační klíče
               upload_error:
                 invalid_format: Nahraný soubor neobsahuje žádný identifikační klíč.
@@ -447,8 +454,8 @@ cs:
                 invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají veřejnému identifikačnímu klíči uloženému v Decidim.
               upload_legend: Decidim má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
             not_supported_browser_description: Vypadá to, že používáte webový prohlížeč, který nelze použít jako správce. Ujistěte se, že používáte nejnovější verzi prohlížeče, nebo zkuste použít některý z nejpopulárnějších prohlížečů, abyste mohli dokončit své úkoly správce.
-            not_supported_browser_title: Upgradujte prohlížeč abyste mohl fungovat jako správce
-            trustee_role_description: Byl jste pověřen, abyste v některých volbách, které na této platformě probíhají, jednal jako správce.
+            not_supported_browser_title: Upgradujte prohlížeč abyste mohl fungovat jako důvěrník
+            trustee_role_description: Byl jste pověřen, abyste v některých volbách, které na této platformě probíhají, jednal jako důvěrník.
           update:
             success: Váš identifikační veřejný klíč byl úspěšně uložen.
       votes:
@@ -530,15 +537,15 @@ cs:
           notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
         trustees:
           new_election:
-            email_intro: Přidali jste jako správce pro volby %{resource_title}.
-            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce pro %{resource_title} volby.
-            email_subject: Jste správcem pro %{resource_title} volby..
-            notification_title: Jste správcem volby <a href="%{resource_path}">%{resource_title}</a>.
+            email_intro: Přidali jste jako důvěrník pro volby %{resource_title}.
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako důvěrník pro %{resource_title} volby.
+            email_subject: Jste důvěrníkem pro %{resource_title} volby..
+            notification_title: Jste důvěrníkem volby <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
-            email_intro: Administrátor vás přidal jako správce pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší správcovské zóně</a>
-            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce %{resource_name}.
+            email_intro: Administrátor vás přidal jako důvěrníka pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší zóně důvěrníka</a>
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako důvěrník %{resource_name}.
             email_subject: Jste správcem %{resource_name}.
-            notification_title: Jste správce pro <a href="%{participatory_space_url}">%{resource_name}</a>.
+            notification_title: Jste důvěrník pro <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Váš hlas byl přijat! Pomocí tvého hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
@@ -576,8 +583,14 @@ cs:
             attachments: Přílohy
             components: Komponenty
             info: Informace
+            polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
+          polling_officer:
+            fields:
+              email: E-mail
+              name: Jméno
+            name: Volební komisař
           polling_station:
             fields:
               address: Adresa
@@ -589,6 +602,23 @@ cs:
               promoted: Zvýrazněno
               published: Publikováno
               title: Název
+        polling_officers:
+          create:
+            invalid: Při vytváření tohoto volebního komisaře došlo k chybě
+            success: Volební komisař byla úspěšně vytvořen
+          destroy:
+            invalid: Při mazání tohoto volebního komisaře došlo k chybě
+            success: Volební komisař byla úspěšně smazán
+          form:
+            existing_user: Existující účastník
+            non_user: Pozvat nového účastníka
+            select_user: Hledat podle jména, e-mailu nebo přezdívky
+            user_type: Typ účastníka
+          index:
+            title: Volební komisaři
+          new:
+            create: Vytvořit
+            title: Vytvořit volebního komisaře
         polling_stations:
           create:
             invalid: Při vytváření tohoto volebního místa došlo k chybě
@@ -658,6 +688,12 @@ cs:
             active_votings: Aktivní hlasování
             see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
+      polling_officers:
+        actions:
+          confirm_destroy: Jste si jisti?
+          destroy: Smazat
+          new: Nový
+          title: Akce
       polling_stations:
         actions:
           confirm_destroy: Jste si jist?
