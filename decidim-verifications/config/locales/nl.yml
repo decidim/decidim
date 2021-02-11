@@ -34,8 +34,16 @@ nl:
             confirm: Intrekken voor de datum kan niet ongedaan worden gemaakt. Weet u zeker dat u wilt doorgaan?
             confirm_all: Het intrekken van alle autorisaties kan niet ongedaan worden gemaakt. Weet u zeker dat u wilt doorgaan?
           destroy_nok: Er is een probleem opgetreden tijdens het intrekken van autorisaties.
+          destroy_ok: Alle overeenkomstige autorisaties zijn ingetrokken.
           info: Er zijn een totaal van %{count} geverifieerde deelnemers.
           no_data: Geen geverifieerde deelnemers
+          title: Autorisaties intrekken
+        authorization_workflows: Authorisaties
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} heeft de configuratie voor de authorisatie van identiteitsdocumenten bijgewerkt"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} heeft %{resource_name} gecontroleerd aan de hand van offline verificatie van identiteitsdocumenten"
     authorization_handlers:
       admin:
         csv_census:
