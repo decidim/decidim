@@ -5,7 +5,7 @@
       <%= link_to t("actions.new", scope: "decidim.votings.polling_stations", name: t("models.polling_station.name", scope: "decidim.votings.admin")), new_voting_polling_station_path(current_voting), class: "button tiny button--title" if allowed_to? :create, :polling_station, voting: current_voting %>
     </h2>
   </div>
-
+  <%= admin_filter_selector %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <% polling_stations.each do |polling_station| %>
+          <% filtered_polling_stations.each do |polling_station| %>
             <tr data-id="<%= polling_station.id %>">
               <td>
                 <%= translated_attribute(polling_station.title) %>

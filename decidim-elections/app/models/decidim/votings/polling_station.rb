@@ -6,6 +6,9 @@ module Decidim
     class PollingStation < ApplicationRecord
       include Traceable
       include Loggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :location, :location_hints
 
       belongs_to :voting, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::Voting", inverse_of: :polling_stations
       has_many :polling_station_managers,
@@ -21,6 +24,23 @@ module Decidim
 
       validate :polling_station_managers_same_voting
       validate :polling_station_president_same_voting
+
+      # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+      ransacker :title do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      end
+
+      ransacker :officer_name do
+        Arel.sql("decidim_users.name")
+      end
+
+      ransacker :officer_email do
+        Arel.sql("decidim_users.email")
+      end
+
+      ransacker :officer_nickname do
+        Arel.sql("decidim_users.nickname")
+      end
 
       geocoded_by :address
 

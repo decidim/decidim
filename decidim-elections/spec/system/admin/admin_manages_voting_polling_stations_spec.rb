@@ -25,10 +25,50 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
       visit current_path
     end
 
-    it "lists all the polling stations for the voting" do
-      within "#polling_stations table" do
-        expect(page).to have_content(translated(polling_station.title, locale: :en))
-        expect(page).to have_content(polling_station.address)
+    context "when listing the polling stations" do
+      include_context "with filterable context"
+      # Need to override these 2 variables from 'with filterable context'
+      # because it does not support nested modules (Votings::PollingStations in this case)
+      let(:model_name) { Decidim::Votings::PollingStation.model_name }
+      let(:module_name) { "Votings::PollingStations" }
+
+      it "lists all the polling stations for the voting" do
+        within "#polling_stations table" do
+          expect(page).to have_content(translated(polling_station.title, locale: :en))
+          expect(page).to have_content(polling_station.address)
+        end
+      end
+
+      context "when searching by title" do
+        let(:searched_station) { create(:polling_station, voting: voting) }
+
+        it "filters the results as expected" do
+          search_by_text(translated(searched_station.title))
+          expect(page).to have_content(translated(searched_station.title))
+          expect(page).not_to have_content(translated(polling_station.title))
+        end
+      end
+
+      context "when searching by president name" do
+        let(:searched_station) { create(:polling_station, voting: voting) }
+        let(:president) { create(:polling_officer, voting: voting, presided_polling_station: searched_station) }
+
+        it "filters the results as expected" do
+          search_by_text(president.name)
+          expect(page).to have_content(translated(searched_station.title))
+          expect(page).not_to have_content(translated(polling_station.title))
+        end
+      end
+
+      context "when searching by manager email" do
+        let(:searched_station) { create(:polling_station, voting: voting) }
+        let(:manager) { create(:polling_officer, voting: voting, managed_polling_station: searched_station) }
+
+        it "filters the results as expected" do
+          search_by_text(manager.email)
+          expect(page).to have_content(translated(searched_station.title))
+          expect(page).not_to have_content(translated(polling_station.title))
+        end
       end
     end
 
