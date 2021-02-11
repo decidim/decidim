@@ -145,7 +145,7 @@ cs:
           question:
             name: Otázka
           trustee:
-            name: Správce
+            name: Důvěrník
         proposals_imports:
           create:
             invalid: Při importu návrhů do odpovědí došlo k potížím
@@ -181,9 +181,9 @@ cs:
               minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
               published: Volby <strong>nejsou publikovány</strong>.
               time_before: Počáteční čas je za <strong>méně než 3 hodiny</strong> před zahájením voleb.
-              trustees_number: Participační prostor <strong>musí mít alespoň %{number} správců s veřejným klíčem</strong>.
+              trustees_number: Participační prostor <strong>musí mít alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             invalid: Při zřizování těchto voleb došlo k chybě
-            no_trustees: Pro tento participační prostor nejsou nakonfigurováni žádní správci
+            no_trustees: Pro tento participační prostor nejsou nakonfigurováni žádní důvěrníci
             not_used_trustee: "(nepoužito)"
             public_key:
               'false': nemá <strong>veřejný klíč</strong>
@@ -194,20 +194,20 @@ cs:
               minimum_questions: Volba má <strong>alespoň jednu otázku</strong>.
               published: Volby jsou <strong>publikovány</strong>.
               time_before: Nastavení se provádí <strong>alespoň %{hours} hodin</strong> před zahájením voleb.
-              trustees_number: Participační prostor má <strong>alespoň %{number} správců s veřejným klíčem</strong>.
+              trustees_number: Participační prostor má <strong>alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             submit: Nastavení voleb
             success: Volba byla úspěšně odeslána do Bulletin Board
             title: Nastavení voleb
-            trustees: Volební správci
+            trustees: Volební důvěrníci
           created:
             invalid: Vyskytl se problém při zahájení ceremoniálu
             submit: Zahájit ceremoniál
             success: Počáteční žádost o ceremoniál byla úspěšně odeslána do Bulletin Board
             title: Volba vytvořena
-            trustees: Volební komisaři
+            trustees: Volební důvěrníci
           key_ceremony:
             title: Slavnostní ceremoniál
-            trustees: Správci
+            trustees: Důvěrníci
           key_ceremony_ended:
             errors:
               time_before: Volby jsou připraveny k zahájení. Musíte počkat %{hours} hodin před začátkem období hlasování (%{start_time}).
@@ -222,7 +222,7 @@ cs:
             title: Výsledky publikovány
           tally:
             title: Proces spojení
-            trustees: Volební komisaři
+            trustees: Volební důvěrníci
           tally_ended:
             submit: Publikovat výsledky
             title: Výsledky spočítány
@@ -242,26 +242,27 @@ cs:
             disable: Zakázat
             enable: Zvážit
           create:
-            exists: Správce existuje pro tento participační prostor
-            invalid: Při vytváření správce došlo k chybě
-            success: Správce úspěšně vytvořen
+            exists: Důvěrník existuje pro tento participační prostor
+            invalid: Při vytváření důvěrníka došlo k chybě
+            success: Důvěrník úspěšně vytvořen
           delete:
-            invalid: Při odstraňování tohoto správce došlo k chybě
-            success: Správce byl úspěšně odstraněn
+            invalid: Při odstraňování tohoto důvěrníka došlo k chybě
+            success: Důvěrník byl úspěšně odstraněn
           form:
             select_user: Vybrat uživatele
           index:
-            title: Správci
+            title: Důvěrníci
           new:
-            create: Vytvořit správce
-            title: Nový správce
+            create: Vytvořit důvěrníka
+            title: Nový důvěrník
           update:
-            invalid: Při aktualizaci správce %{trustee} došlo k chybě
-            success: Správce %{trustee} úspěšně aktualizován
+            invalid: Při aktualizaci důvěrníka %{trustee} došlo k chybě
+            success: Důvěrník %{trustee} úspěšně aktualizován
       admin_log:
         election:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           setup: "%{user_name} vytvořil %{resource_name} volby na Bulletin Boardu"
+          start_vote: "%{user_name} zahájil hlasovací období pro volby v %{resource_name} na Bulletin Boardu"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
         badge_name:
@@ -313,12 +314,19 @@ cs:
           action-button:
             change-vote: Změňte svůj hlas
             vote: Zahájit hlasování
+            vote-again: Znovu hlasovat
           back: Dostupné volby
           callout:
             already-voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
+            vote-rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
           preview: Náhled
+          verify:
+            already-voted: Již jste hlasovali?
+            verify-here: Zkontrolujte svůj hlas zde.
+            will-verify: Své hlasování budete moci ověřit hned po zahájení voleb.
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
+            ongoing: 'Aktivní hlasování do: %{end_time}'
             upcoming: Hlasování začíná %{start_time}
       feedback:
         answer:
@@ -357,13 +365,13 @@ cs:
       trustee_zone:
         elections:
           backup_modal:
-            description: Tyto volby se konají v Bulletin Board. Je velmi důležité, aby každý správce, který se na něm podílí, vytvořil záložní kopii těchto klíčů a uložil je na bezpečném místě. Poté proces pokračuje.
+            description: Tyto volby se konají v Bulletin Board. Je velmi důležité, aby každý důvěrník, který se na něm podílí, vytvořil záložní kopii těchto klíčů a uložil je na bezpečném místě. Poté proces pokračuje.
             download_election_keys: Stáhnout klíče
             download_icon: Ikona, která indikuje akci ke stažení
             title: Zálohovat volební klíče pro %{election}
           key_ceremony_steps:
             back: Zpět
-            description: Tyto volby se odehrávají v Bulletin Board. Pro dokončení tohoto procesu je nutná vaše účast jako správce.
+            description: Tyto volby se odehrávají v Bulletin Board. Pro dokončení tohoto procesu je nutná vaše účast jako důvěrníka.
             keys:
               create_election: Generování klíčů
               key_ceremony:
@@ -372,7 +380,7 @@ cs:
             list:
               status: Stav
               task: Úkol
-            process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni správci by měli být k dokončení připojeni.
+            process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni důvěrníci by měli být k dokončení připojeni.
             start: Začít
             start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
             status:
@@ -381,16 +389,17 @@ cs:
               processing: Zpracovávání
             title: Vytvořit volební klíče pro %{election}
           restore_modal:
-            description: Bulletin Board má od vás jako správce informace o těchto volbách. Chcete-li pokračovat v procesu, nejprve nahrajte záložní soubor generovaný během předchozí relace.
+            description: Bulletin Board má od vás jako důvěrníka informace o těchto volbách. Chcete-li pokračovat v procesu, nejprve nahrajte záložní soubor generovaný během předchozí relace.
             title: Obnovit volební klíče pro %{election}
             upload_election_keys: Nahrát volební klíče
             upload_icon: Ikona, která indikuje akci ke stažení
           tally_steps:
             back: Zpět
+            description: Výsledky těchto voleb jsou vypočítány v Bulletin Board. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
             list:
               status: Stav
               task: Úloha
-            process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni správci by měli být k dokončení připojeni.
+            process_warning: Po spuštění procesu byste neměli tuto stránku ukončit, dokud proces neskončí. Trvá to několik minut, protože všichni důvěrníci by měli být k dokončení připojeni.
             start: Spustit
             start_icon: Ikona, která označuje tlačítko pro spuštění generování volebních klíčů
             status:
@@ -401,7 +410,7 @@ cs:
             error: Stav voleb nebyl aktualizován.
             success: 'Stav voleb je: %{status}'
         menu:
-          trustee_zone: Zóna správce
+          trustee_zone: Zóna důvěrníků
         no_bulletin_board:
           body: Konfigurovaný bulletin Board je vyžadován pro tuto sekci. Pro více informací kontaktujte správce.
           title: Omlouváme se, ale Bulletin Board ještě není nakonfigurován.
@@ -416,7 +425,7 @@ cs:
                 bb_status: Stav
                 election: Volby
                 voting_period: Hlasovací období
-              no_elections: Neexistují žádné volby, ve kterých byste jednal jako správce.
+              no_elections: Nejsou žádné volby, ve kterých byste jednal jako důvěrník.
               title: Volby
             identification_keys:
               cancel: Zrušit
