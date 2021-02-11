@@ -10,12 +10,15 @@ cs:
         question_type: Typ
       questionnaire_question:
         mandatory: Povinné
+        max_characters: Limit znaků (ponechte na 0, pokud není limit)
     errors:
       models:
         answer:
           attributes:
             add_documents:
               needs_to_be_reattached: Potřebuje být znovu připojen
+            body:
+              too_long: je příliš dlouhý
             choices:
               missing: nejsou úplné
               too_many: jsou příliš mnoho

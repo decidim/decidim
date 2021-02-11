@@ -36,7 +36,7 @@ en:
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
       decidim/removed_from_group: Removed from group
-      decidim/resource_endorsed_event: Resurce endorsed
+      decidim/resource_endorsed_event: Resource endorsed
   activerecord:
     attributes:
       decidim/user:
@@ -430,7 +430,7 @@ en:
         ready: Ready
       show:
         download_data: Download the data
-        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Request data
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
@@ -662,7 +662,7 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: 'Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href=''https://www.7-zip.org/''>7-Zip</a> to open it. Password: %{password}'
+        click_button: 'Click the next button to download your data.<br/>You will have the file available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
@@ -695,7 +695,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
-        participatory_space: Already following <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Following <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.
@@ -954,7 +954,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
-          not_allowed: This user does not accept any more direct messages.
+          not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
           send: Send
@@ -1025,8 +1025,10 @@ en:
       no_notifications: No notifications yet.
     notifications_settings:
       show:
+        administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
         direct_messages: Receive direct messages from anyone
+        email_on_moderations: I want to receive an email every time something is reported for moderation.
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters

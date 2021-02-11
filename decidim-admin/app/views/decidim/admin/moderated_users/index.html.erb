@@ -35,7 +35,7 @@
           <th><%= t(".name") %></th>
           <th><%= t(".nickname") %></th>
           <th><%= t(".reason") %></th>
-          <th><%= t(".reports") %></th>
+          <th><%= sort_link(query, :report_count, t(".reports"), default_order: :desc) %></th>
           <th class="actions"><%= t(".actions.title") %></th>
         </tr>
         </thead>
@@ -68,7 +68,6 @@
                   <%= icon_link_to "ban", new_user_block_path(user_id: moderation.user.id), t(".actions.block"), class: "action-icon action-icon" %>
                 <% end %>
               <% end %>
-
             </td>
           </tr>
         <% end %>

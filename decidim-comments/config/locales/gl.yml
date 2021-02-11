@@ -16,8 +16,14 @@ gl:
         other: Votos
   decidim:
     comments:
+      comments:
+        create:
+          error: Produciuse un problema ao crear o comentario.
+      comments_count: Número de comentarios
+      comments_title: Comentarios
       last_activity:
         new_comment_at_html: "<span>Novo comentario en %{link}</span>"
+      view: Ver
       votes:
         create:
           error: Houbo erros ao votar o comentario.
@@ -42,6 +48,7 @@ gl:
           against: Contra
           in_favor: A favor
         deleted_user: Usuario eliminado
+        hide_replies: Ocultar respostas
         reply: Responder
         report:
           action: Informe
@@ -53,6 +60,9 @@ gl:
             does_not_belong: Contén actividades ilegais, ameazas de suicidio, información persoal ou outra cousa que pensas que non pertence a %{organization_name}.
             offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
             spam: Contén clic, publicidade, fraudes ou bots de script.
+          title: Denunciar contido inapropiado
+        show_replies: Amosar %{replies_count} respostas
+        single_comment_link_title: Obter ligazón a un único comentario
       comment_order_selector:
         order:
           best_rated: Mellor valorado
@@ -65,7 +75,17 @@ gl:
       comments:
         blocked_comments_for_user_warning: Non podes comentar neste momento, pero podes ler os anteriores.
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
+        comment_details_title: Detalles do comentario
         loading: Cargando comentarios ...
+        single_comment_warning: Podes revisar os comentarios restantes <a href="%{url}">aquí</a>.
+        single_comment_warning_title: Estás a ver un único comentario
+        title:
+          one: "%{count} comentario"
+          other: "%{count} comentarios"
+      down_vote_button:
+        text: Non estou de acordo con este comentario
+      up_vote_button:
+        text: Estou de acordo con este comentario
     events:
       comments:
         comment_by_followed_user:

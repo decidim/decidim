@@ -1,7 +1,6 @@
 <div class="vote-wrapper"
   data-election-id="<%= election.id %>"
   data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
-  data-websocket-url="<%= Rails.application.secrets.bulletin_board[:websocket_url] %>"
   data-election-unique-id="<%= @form.election_unique_id %>"
   data-voter-id="<%= @form.voter_id %>"
   data-cast-vote-url="<%= cast_election_vote_url(election) %>"
@@ -50,4 +49,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag("decidim/elections/vote") %>
+<%= javascript_include_tag "decidim/elections/vote", integrity: true %>

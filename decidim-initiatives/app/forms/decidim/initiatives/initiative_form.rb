@@ -52,6 +52,38 @@ module Decidim
         @area_updatable ||= current_user.admin? || context.initiative.created?
       end
 
+      # Public: Returns a collection of photo attachments.
+      #
+      # We need this method because when an initiative has documents and there's a
+      # validation error in any other field the view template can't render if
+      # they aren't a collection of attachments but they would be a collection
+      # of String.
+      def documents
+        @documents = super.map do |document|
+          if document.is_a?(String)
+            Decidim::Attachment.find(document)
+          else
+            document
+          end
+        end
+      end
+
+      # Public: Returns a collection of photo attachments.
+      #
+      # We need this method because when an initiative has photos and there's a
+      # validation error in any other field the view template can't render if
+      # they aren't a collection of attachments but they would be a collection
+      # of String.
+      def photos
+        @photos = super.map do |photo|
+          if photo.is_a?(String)
+            Decidim::Attachment.find(photo)
+          else
+            photo
+          end
+        end
+      end
+
       def scope_id
         return nil if initiative_type.only_global_scope_enabled?
 

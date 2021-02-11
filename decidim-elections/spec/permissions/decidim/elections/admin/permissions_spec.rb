@@ -196,7 +196,7 @@ describe Decidim::Elections::Admin::Permissions do
     end
 
     describe "select answer" do
-      let(:election) { create :election, :results, component: elections_component }
+      let(:election) { create :election, :tally_ended, component: elections_component }
 
       let(:action) do
         { scope: :admin, action: :select, subject: :answer }

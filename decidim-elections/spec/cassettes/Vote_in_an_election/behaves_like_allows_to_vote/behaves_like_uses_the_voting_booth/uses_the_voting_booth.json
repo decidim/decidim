@@ -6,7 +6,7 @@
         "uri": "http://bulletin-board.lvh.me:8000/api",
         "body": {
           "encoding": "UTF-8",
-          "string": "{\"query\":\"mutation GraphQL__Client__OperationDefinition_277340 {\\n  vote(messageId: \\\"decidim-test-authority.10002.vote.cast+v.b9564e232293f22824525af701530f940f9ec13b4ec896644ac75a35a36c787a\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJ1bmlxdWVcIixcInF1ZXN0aW9uXzE0MDhcIjpbXCI4NjkyXCJdLFwicXVlc3Rpb25fMTQxMFwiOltcIjg3MDdcIixcIjg3MDhcIixcIjg3MDlcIl0sXCJxdWVzdGlvbl8xNDA5XCI6W1wiODcwM1wiLFwiODY5OVwiLFwiODY5OFwiLFwiODY5NFwiLFwiODY5N1wiXX0iLCJpYXQiOjE2MTE4NDk2MDEsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEwMDAyLnZvdGUuY2FzdCt2LmI5NTY0ZTIzMjI5M2YyMjgyNDUyNWFmNzAxNTMwZjk0MGY5ZWMxM2I0ZWM4OTY2NDRhYzc1YTM1YTM2Yzc4N2EifQ.odtvop8FcmcldYtCM4iE_fvS9g_fIlkt7-7GHP3HACg6kztaQHNdi26PDOs4SAowRLuqqywbDeqyWbOLc_urZYoUYHnp4T3xIfPMhlSa_I4s5G-gd9s68hU5MabGPHiogTB5KgtdTTdn0y1zaSgCSnVOsz1ev7Ngo6sC9L15ZpAKtfJNybxR5TWiM-VjUKBszmWqLVGsZgfo0h732LIGrV3keSzgr8jU7N-w35oApR0dWHb4cib-xRi-zEq8LfotXAWk1N4rxY1q3nTBDYGnwST7Pc7ipGv-xXd-WSMo2JHBszasslsgjnZJFBEkYG8BaDJUA-kcXmRNENW21EJnVW8T_nfiU0Xu7moi5XmcjaSgTsJVNuNCkoKZZZ69CLQdTHI9gsYvCcRo2i-FBEOZMO3RhPO-8B9xN0arhoN_zIB-tCpAkVsHz_M0m9H3p-OjbI1Xj_QZNaEgW8GLiwfIOYFPvqF5S5KuAd8yaya3EQnqAc6dt3UNom6LdWdmofdTlsmNE2HsJVYpBxq5FNOjtMF2y3Hh_sb3QMlCyXQbtd1AeY3KmgMNuhN-eg0mN-aviDiYZdWR36x3crxIMePO49e61uVtGjFlZA1XtUlG1ZyofLKZB2UBtlL95fKfvMv100kPocoYIuk6Za6vrJqTTXvWIGIjoVTSKmHvxuKIaZI\\\") {\\n    pendingMessage {\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_277340\",\"variables\":{}}"
+          "string": "{\"query\":\"mutation GraphQL__Client__OperationDefinition_248040 {\\n  vote(messageId: \\\"decidim-test-authority.10003.vote.cast+v.a55155c9f3e89643438fbdc97194c97a7710fd8daca23c0e936e4ad9ebec090c\\\", signedData: \\\"eyJhbGciOiJSUzI1NiJ9.eyJjb250ZW50Ijoie1wiYmFsbG90X3N0eWxlXCI6XCJiYWxsb3Qtc3R5bGVcIixcImNvbnRlc3RzXCI6W3tcIm9iamVjdF9pZFwiOlwiY29udGVzdC01XCIsXCJiYWxsb3Rfc2VsZWN0aW9uc1wiOlt7XCJvYmplY3RfaWRcIjpcImNvbnRlc3QtNS1zZWxlY3Rpb24tOVwiLFwiY2lwaGVydGV4dFwiOjUwNjY5NTM4ODF9LHtcIm9iamVjdF9pZFwiOlwiY29udGVzdC01LXNlbGVjdGlvbi0xMFwiLFwiY2lwaGVydGV4dFwiOjEyNjQyNzg3ODM5fV19LHtcIm9iamVjdF9pZFwiOlwiY29udGVzdC02XCIsXCJiYWxsb3Rfc2VsZWN0aW9uc1wiOlt7XCJvYmplY3RfaWRcIjpcImNvbnRlc3QtNi1zZWxlY3Rpb24tMTFcIixcImNpcGhlcnRleHRcIjoxMTU2MDUyNTg0NX0se1wib2JqZWN0X2lkXCI6XCJjb250ZXN0LTYtc2VsZWN0aW9uLTEyXCIsXCJjaXBoZXJ0ZXh0XCI6MzE5NzU5MjI1NX1dfV19IiwiaWF0IjoxNjEyMzUyNzM3LCJtZXNzYWdlX2lkIjoiZGVjaWRpbS10ZXN0LWF1dGhvcml0eS4xMDAwMy52b3RlLmNhc3Qrdi5hNTUxNTVjOWYzZTg5NjQzNDM4ZmJkYzk3MTk0Yzk3YTc3MTBmZDhkYWNhMjNjMGU5MzZlNGFkOWViZWMwOTBjIn0.cjw9xKjX85MwQUacbjTyYYAF-6gRKemU2v0l6jjOwFXmLrggea1a1PpOKQlTtRo4jUVx9M4oeAzD-Z7V0ONPSRRsBdG0pRhR0TCo9--vRXyLFZqNihd-fxvvvExNQmfOXqpN6ckImsXEYYJZufHkUPGDtxLbmMJlo_cyxJjgROhVDZaJMhrjw5vAU4n23eZFopcHdiyMj5nuHq6L3nYh08grnW2_3Yn2DaQsVPPBnJyFviYBfxIwPY3DLIp5v4VwBPdad6LeV-Nlxgm1JCmX2Ssvn2Lx3HFwt1VVNbGFKHel09qjW66Ozt5xGyt0r73eAu6jQeWtlGRcpKQnPd9VAV8OPqnM9YIH1BzY1mFTEg733tTz3SeeWImj5rcVE_PkqJZaLc_N56BTzMmC4z5LgF6qqAMbPl3GB8S1KP5kekCbHRMlWR7pDpwFlupiCJ05K4JM1x2HOXl7pxndcxVssFbmRjbTejr07w2ZXHJUW_HAnmQfg61TYsKRp0lUkpxz-A2RmWzWgn6kHcqqW_OFu-uloYKgWAlG-cDK5Q3yjMZJYQiLRaorWviDUekqdCp7XB3P43T0B5dUJF4octB-Vbx_rsqP-lNJetfualzAdRrAspGchgR4fk-TstPg0m0XM7HqTWtIwZ3c_lja2WoFfwMwK7kqqGX7uBOPbp2h4fY\\\") {\\n    pendingMessage {\\n      messageId\\n      status\\n    }\\n    error\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_248040\",\"variables\":{}}"
         },
         "headers": {
           "Authorization": [
@@ -54,16 +54,16 @@
             "application/json; charset=utf-8"
           ],
           "Etag": [
-            "W/\"2c609107c088369467170808644ee7a0\""
+            "W/\"d51c3a9010772a085c6e08fb1f9e8a72\""
           ],
           "Cache-Control": [
             "max-age=0, private, must-revalidate"
           ],
           "X-Request-Id": [
-            "52b903cb-1b28-4958-ad1e-5cf1bc465e53"
+            "dc600b47-e91a-4097-8445-9e325d4ca78d"
           ],
           "X-Runtime": [
-            "0.191738"
+            "0.158748"
           ],
           "Vary": [
             "Origin"
@@ -74,10 +74,10 @@
         },
         "body": {
           "encoding": "UTF-8",
-          "string": "{\"data\":{\"vote\":{\"pendingMessage\":{\"status\":\"enqueued\"},\"error\":null}}}"
+          "string": "{\"data\":{\"vote\":{\"pendingMessage\":{\"messageId\":\"decidim-test-authority.10003.vote.cast+v.a55155c9f3e89643438fbdc97194c97a7710fd8daca23c0e936e4ad9ebec090c\",\"status\":\"enqueued\"},\"error\":null}}}"
         }
       },
-      "recorded_at": "Thu, 28 Jan 2021 16:00:02 GMT"
+      "recorded_at": "Wed, 03 Feb 2021 11:45:38 GMT"
     },
     {
       "request": {
@@ -85,7 +85,7 @@
         "uri": "http://bulletin-board.lvh.me:8000/api",
         "body": {
           "encoding": "UTF-8",
-          "string": "{\"query\":\"query GraphQL__Client__OperationDefinition_282500 {\\n  pendingMessage(messageId: \\\"decidim-test-authority.10002.vote.cast+v.b9564e232293f22824525af701530f940f9ec13b4ec896644ac75a35a36c787a\\\") {\\n    status\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_282500\",\"variables\":{}}"
+          "string": "{\"query\":\"query GraphQL__Client__OperationDefinition_251780 {\\n  pendingMessage(messageId: \\\"decidim-test-authority.10003.vote.cast+v.a55155c9f3e89643438fbdc97194c97a7710fd8daca23c0e936e4ad9ebec090c\\\") {\\n    status\\n  }\\n}\",\"operationName\":\"GraphQL__Client__OperationDefinition_251780\",\"variables\":{}}"
         },
         "headers": {
           "Authorization": [
@@ -139,10 +139,10 @@
             "max-age=0, private, must-revalidate"
           ],
           "X-Request-Id": [
-            "2db656c7-e17c-423e-a537-c66477ed48dd"
+            "66ae5f38-c773-429c-9542-5d9eeac82b6a"
           ],
           "X-Runtime": [
-            "0.015022"
+            "0.036304"
           ],
           "Vary": [
             "Origin"
@@ -156,7 +156,7 @@
           "string": "{\"data\":{\"pendingMessage\":{\"status\":\"accepted\"}}}"
         }
       },
-      "recorded_at": "Thu, 28 Jan 2021 16:00:03 GMT"
+      "recorded_at": "Wed, 03 Feb 2021 11:45:39 GMT"
     }
   ],
   "recorded_with": "VCR 6.0.0"

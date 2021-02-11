@@ -169,6 +169,7 @@ fr-CA:
           create_election:
             errors:
               max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
+              minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
               published: L'élection n'est <strong>pas publiée</strong>.
               time_before: L'heure de début se situe<strong>moins 3 heures</strong> avant le commencement de l'élection.
@@ -190,22 +191,9 @@ fr-CA:
             success: Élection envoyée avec succès au Tableau de Bord
             title: Configurer l'élection
             trustees: Mandataire de l'élection
-          index:
-            title: Gérer les étapes des élections sur le Tableau de Bord
           key_ceremony:
             title: Cérémonie des clés
             trustees: Mandataires
-          ready:
-            errors:
-              time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour ouvrir les urnes.
-            invalid: Une erreur est survenue lors de l'ouverture de l'urne
-            requirements:
-              time_before: L'élection va bientôt commencer. Vous pouvez ouvrir l'urne de vote manuellement, ou elle sera ouvert automatiquement avant l'heure de départ, à %{start_time}.
-            submit: Ouvrir l'urne
-            success: Les urnes ont été ouvertes avec succès dans le Tableau de Bord
-            title: Prêt à commencer
-          results:
-            title: Résultats calculés
           results_published:
             title: Résultats publiés
         trustees_participatory_spaces:
@@ -278,10 +266,8 @@ fr-CA:
         show:
           back: Élections disponibles
           preview: Aperçu
-          vote: Voter
           voting_period_status:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
-            ongoing: Le vote se termine le %{end_time}
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
@@ -479,13 +465,41 @@ fr-CA:
             attachment_files: Fichiers
             attachments: Pièces jointes
             info: Information
+            polling_stations: Bureaux de vote
         models:
+          polling_station:
+            fields:
+              address: Adresse
+              title: Titre
+            name: Bureau de vote
           voting:
             fields:
               created_at: Créée le
               promoted: Mis en évidence
               published: Publié
               title: Titre
+        polling_stations:
+          create:
+            invalid: Une erreur est survenue lors de la création de ce bureau de vote
+            success: Le bureau de vote a été créée avec succès
+          destroy:
+            invalid: Une erreur est survenue lors de la suppression de ce bureau de vote
+            success: Le bureau de vote a bien été supprimé
+          edit:
+            title: Modifier le bureau de vote
+            update: Modifier le bureau de vote
+          form:
+            address_help: 'Adresse: utilisée par l''outil de géocadage pour trouver l''emplacement'
+            location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
+            location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple: l''étage du bâtiment où se trouve le bureau de vote.'
+          index:
+            title: Bureaux de vote
+          new:
+            create: Créer
+            title: Créer un bureau de vote
+          update:
+            invalid: Une erreur est survenue lors de la mise à jour de ce bureau de vote
+            success: Le bureau de vote a bien été mis à jour
         titles:
           votings: Élections
         votings:
@@ -527,6 +541,13 @@ fr-CA:
             active_votings: Votations en cours
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_stations:
+        actions:
+          confirm_destroy: Êtes-vous sûr(e) ?
+          destroy: Supprimer
+          edit: Modifier
+          new: Nouveau
+          title: Actions
       votings:
         count:
           title:

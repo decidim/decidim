@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage proposals" do
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: participatory_process_scope) }

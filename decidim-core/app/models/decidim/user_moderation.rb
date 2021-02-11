@@ -8,6 +8,9 @@ module Decidim
     belongs_to :user, foreign_key: :decidim_user_id, class_name: "Decidim::UserBaseEntity"
     has_many :reports, class_name: "Decidim::UserReport", dependent: :destroy
 
+    scope :blocked, -> { joins(:user).where(decidim_users: { blocked: true }) }
+    scope :unblocked, -> { joins(:user).where(decidim_users: { blocked: false }) }
+
     delegate :organization, to: :user
     scope :blocked, -> { joins(:user).where(decidim_users: { blocked: true }) }
     scope :unblocked, -> { joins(:user).where(decidim_users: { blocked: false }) }
