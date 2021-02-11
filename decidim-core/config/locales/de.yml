@@ -657,7 +657,6 @@ de:
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
     export_mailer:
       data_portability_export:
-        click_button: 'Klicken Sie auf die Schaltfläche, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
         download: Herunterladen
       export:
         ready: Anbei finden Sie eine gezippte Version Ihres Exports.
