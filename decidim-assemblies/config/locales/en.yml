@@ -250,7 +250,7 @@ en:
         update: "%{user_name} updated the assemblies settings"
       assembly_type:
         create: "%{user_name} created the %{resource_name} assembly type"
-        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly type"
+        delete: "%{user_name} removed the %{resource_name} assembly type"
         publish: "%{user_name} published the %{resource_name} assembly type"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
         update: "%{user_name} updated the %{resource_name} assembly type"
@@ -450,7 +450,7 @@ en:
         hero:
           participate_title: Participate to the platform's processes
         sub_hero:
-          register_title: Sign up to create an account on the platform
+          register_title: Sign up to create an account
     participatory_processes:
       pages:
         home:

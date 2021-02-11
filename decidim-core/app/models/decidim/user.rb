@@ -11,6 +11,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
     include Decidim::UserReportable
+    include Decidim::Traceable
 
     class Roles
       def self.all
@@ -54,6 +55,9 @@ module Decidim
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
+
+    scope :blocked, -> { where(blocked: true) }
+    scope :not_blocked, -> { where(blocked: false) }
 
     scope :interested_in_scopes, lambda { |scope_ids|
       actual_ids = scope_ids.select(&:presence)

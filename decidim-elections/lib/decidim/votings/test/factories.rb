@@ -58,4 +58,9 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     voting { create(:voting) }
   end
+
+  factory :polling_officer, class: "Decidim::Votings::PollingOfficer" do
+    user
+    voting { create :voting, organization: user.organization }
+  end
 end

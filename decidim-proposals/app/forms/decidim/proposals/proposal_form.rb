@@ -5,6 +5,7 @@ module Decidim
     # A form object to be used when public users want to create a proposal.
     class ProposalForm < Decidim::Proposals::ProposalWizardCreateStepForm
       include Decidim::TranslatableAttributes
+      include Decidim::AttachmentAttributes
 
       mimic :proposal
 
@@ -16,10 +17,9 @@ module Decidim
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
-      attribute :photos, Array[String]
-      attribute :add_photos, Array
-      attribute :documents, Array[String]
-      attribute :add_documents, Array
+
+      attachments_attribute :photos
+      attachments_attribute :documents
 
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
       validates :address, presence: true, if: ->(form) { form.has_address? }
