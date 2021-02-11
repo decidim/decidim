@@ -32,6 +32,7 @@ ja:
     accountability:
       actions:
         attachment_collections: フォルダー
+        attachments: 添付ファイル
         confirm_destroy: この %{name} を削除してもよろしいですか？
         destroy: 削除
         edit: 編集
@@ -140,6 +141,7 @@ ja:
         result:
           fields:
             category: カテゴリ
+            created_at: 作成日時
             end_date: 終了日
             id: ID
             progress: 進捗状況
@@ -158,6 +160,7 @@ ja:
             description: 説明
             entry_date: 日付
       result_m:
+        executed: 実行日時
         view: 表示
       results:
         count:
