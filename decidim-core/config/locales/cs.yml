@@ -679,6 +679,7 @@ cs:
           notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
+        click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
         download: Stažení
       export:
         ready: V příloze naleznete exportovanou exportovanou verzi.
@@ -1610,6 +1611,7 @@ cs:
         twitter: "%{organization} na Twitteru"
         youtube: "%{organization} na YouTube"
       timeout_modal:
+        body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
         continue_session: Pokračovat v relaci
         sign_out: Odhlásit se
         title: Chcete pokračovat v relaci?
