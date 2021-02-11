@@ -236,7 +236,9 @@ cs:
             success: Žádost o ukončení hlasování byla úspěšně odeslána do Bulletin Board
             title: Období hlasování
           vote_ended:
+            invalid: Vyskytl se problém při startu Volební listiny
             submit: Začít Volební listinu
+            success: Požadavek zahájení Volební listiny byl úspěšně odeslán na Bulletin Board
             title: Období hlasování skončilo
         trustees_participatory_spaces:
           actions:
@@ -261,8 +263,11 @@ cs:
             success: Důvěrník %{trustee} úspěšně aktualizován
       admin_log:
         election:
+          end_vote: "%{user_name} ukončil hlasovací období pro volby v %{resource_name} na Bulletin Board"
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           setup: "%{user_name} vytvořil %{resource_name} volby na Bulletin Boardu"
+          start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby ve Bulletin Board %{resource_name}"
+          start_tally: "%{user_name} zahájil Volební listinu pro volby v %{resource_name} na Bulletin Board"
           start_vote: "%{user_name} zahájil hlasovací období pro volby v %{resource_name} na Bulletin Boardu"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
