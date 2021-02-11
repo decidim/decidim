@@ -214,6 +214,9 @@ nl:
             public_key: Publieke sleutel
             status: Status
       trustee_zone:
+        elections:
+          tally_steps:
+            description: De resultaten voor deze verkiezingen worden berekend in de Bulletin Board. Om dit proces te voltooien, is uw deelname als Trustee nodig.
         no_bulletin_board:
           body: Er is een geconfigureerd Bulletin Board nodig voor dit onderdeel. Neem contact op met de beheerder voor meer informatie.
           title: Sorry, het Bulletin Board is nog niet geconfigureerd.
