@@ -3,13 +3,15 @@
 module Decidim
   module DummyResources
     class DummyResourceForm < Decidim::Form
+      include Decidim::AttachmentAttributes
+
       mimic :dummy_resource
 
       attribute :title, String
       attribute :body, String
       attribute :attachment, AttachmentForm
-      attribute :photos, Array[String]
-      attribute :add_photos, Array
+
+      attachments_attribute :photos
 
       validates :title, :body, presence: true, etiquette: true
       validates :title, length: { maximum: 150 }

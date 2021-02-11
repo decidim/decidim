@@ -115,6 +115,56 @@ module Decidim
         end
       end
 
+      describe "PATCH update" do
+        let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
+        let(:proposal) { create(:proposal, component: component, users: [user]) }
+        let(:proposal_params) do
+          {
+            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            body: "Ut sed dolor vitae purus volutpat venenatis. Donec sit amet sagittis sapien. Curabitur rhoncus ullamcorper feugiat. Aliquam et magna metus."
+          }
+        end
+        let(:params) do
+          {
+            id: proposal.id,
+            proposal: proposal_params
+          }
+        end
+
+        before { sign_in user }
+
+        it "updates the proposal" do
+          patch :update, params: params
+
+          expect(flash[:notice]).not_to be_empty
+          expect(response).to have_http_status(:found)
+        end
+
+        context "when the existing proposal has attachments and there are other errors on the form" do
+          include_context "with controller rendering the view" do
+            let(:proposal_params) do
+              {
+                title: "Short",
+                # When the proposal has existing photos or documents, their IDs
+                # will be sent as Strings in the form payload.
+                photos: proposal.photos.map { |a| a.id.to_s },
+                documents: proposal.documents.map { |a| a.id.to_s }
+              }
+            end
+            let(:proposal) { create(:proposal, :with_photo, :with_document, component: component, users: [user]) }
+
+            it "displays the editing form with errors" do
+              patch :update, params: params
+
+              expect(flash[:alert]).not_to be_empty
+              expect(response).to have_http_status(:ok)
+              expect(subject).to render_template(:edit)
+              expect(response.body).to include("There was a problem saving")
+            end
+          end
+        end
+      end
+
       describe "withdraw a proposal" do
         let(:component) { create(:proposal_component, :with_creation_enabled) }
 
