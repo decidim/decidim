@@ -108,6 +108,8 @@ Decidim::Core::Engine.routes.draw do
 
   get "/search", to: "searches#index", as: :search
 
+  get "/link", to: "links#new", as: :link
+
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map

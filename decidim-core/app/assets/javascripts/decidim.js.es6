@@ -43,6 +43,7 @@
 // = require decidim/configuration
 // = require decidim/assets
 // = require decidim/floating_help
+// = require decidim/external_link_warning
 
 /* globals svg4everybody */
 

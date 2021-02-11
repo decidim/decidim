@@ -1,0 +1,14 @@
+<div>
+  <h1 style="color:red;">YMMÄRTHÄN ETTÄ OLET POISTUMASSA TÄLTÄ SIVULTA</h1>
+
+  <div>
+    Osoitteeseen: <%= params[:external_link] %>
+  </div>
+
+  Haluatko jatkaa?
+  <div>
+    <%= link_to "KYLLÄ", params[:external_link], class: "button warning" %>
+    <button class="button primary">EN</button>
+  </div>
+</div>
+
