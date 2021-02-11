@@ -26,6 +26,8 @@ fr:
         published_at: Publiée à
         weight: Rang d'affichage
       id: ID
+      import:
+        user_group_id: Créer des imports en tant que
       newsletter:
         body: Corps de texte
         subject: Objet
