@@ -288,6 +288,35 @@ nl:
         menu:
           votings_submenu:
             components: Onderdelen
+            polling_stations: Stembureau
+        models:
+          polling_station:
+            fields:
+              address: Adres
+              title: Titel
+            name: Stembureau
+        polling_stations:
+          create:
+            invalid: Er is een fout opgetreden bij het maken van dit stembureau
+            success: Stembureau succesvol aangemaakt
+          destroy:
+            invalid: Er is een probleem opgetreden bij het wissen van dit stembureau
+            success: Stembureau succesvol verwijderd
+          edit:
+            title: Bewerk stembureau
+            update: Stembureau bijwerken
+          form:
+            address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
+            location_help: 'Locatie: boodschap aan de kiezers met de exacte plaats van het stembureau'
+            location_hints_help: "Locatie hints: aanvullende informatie. Voorbeeld: de verdieping van het gebouw waar het stembureau \nzich bevindt."
+          index:
+            title: Stembureaus
+          new:
+            create: Aanmaken
+            title: Stembureau aanmaken
+          update:
+            invalid: Er is een fout opgetreden bij het bewerken van dit stembureau
+            success: Stembureau succesvol bijgewerkt
         votings:
           edit:
             add_election_component: Er zijn geen verkiezingen geconfigureerd voor deze stemming. Voeg deze toe in de Componenten sectie
@@ -297,6 +326,13 @@ nl:
               hybrid: Hybride
               in_person: In persoon
               online: Online
+      polling_stations:
+        actions:
+          confirm_destroy: Ben je zeker?
+          destroy: Verwijderen
+          edit: Bewerken
+          new: Nieuw
+          title: Acties
   layouts:
     decidim:
       election_votes_header:
