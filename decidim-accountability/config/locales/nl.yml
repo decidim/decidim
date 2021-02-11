@@ -33,6 +33,7 @@ nl:
     accountability:
       actions:
         attachment_collections: Mappen
+        attachments: Bijlagen
         confirm_destroy: Weet u zeker dat u deze %{name} wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
