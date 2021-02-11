@@ -191,11 +191,41 @@ fr:
             success: Élection envoyée avec succès au Tableau de Bord
             title: Configurer l'élection
             trustees: Mandataire de l'élection
+          created:
+            invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés
+            submit: Démarrer la cérémonie des clés
+            title: Élection créée
+            trustees: Garants
           key_ceremony:
             title: Cérémonie des clés
             trustees: Mandataires
+          key_ceremony_ended:
+            errors:
+              time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour démarrer la période de vote.
+            invalid: Il y a eu un problème au démarrage de la période de vote
+            requirements:
+              time_before: L'élection va bientôt commencer. Vous pouvez démarrer la période de vote manuellement, ou elle sera démarrée automatiquement avant l'heure de départ, à %{start_time}.
+            submit: Commencer la période de vote
+            title: Prêt à commencer
+          processing: Traitement en cours...
           results_published:
             title: Résultats publiés
+          tally:
+            trustees: Garants
+          tally_ended:
+            submit: Publier les résultats
+            title: Résultats calculés
+          vote:
+            errors:
+              time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
+            invalid: Un problème est survenu lors de la clôture de la période de vote
+            requirements:
+              time_after: L'élection est terminée. Vous pouvez terminer la période de vote manuellement, ou elle se terminera automatiquement dans quelques minutes.
+            submit: Fin de la période de vote
+            success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
+            title: Période de vote
+          vote_ended:
+            title: Période de vote terminée
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
@@ -264,10 +294,22 @@ fr:
             one: "%{count} vote"
             other: "%{count} votes"
         show:
+          action-button:
+            change-vote: Changer votre vote
+            vote: Commencer à voter
+            vote-again: Voter à nouveau
           back: Élections disponibles
+          callout:
+            already-voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
+            vote-rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           preview: Aperçu
+          verify:
+            already-voted: Déjà voté?
+            verify-here: Vérifiez votre vote ici.
+            will-verify: Vous pourrez vérifier votre vote une fois l'élection commencée.
           voting_period_status:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
+            ongoing: 'Vote actif jusqu''au : %{end_time}'
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
@@ -333,6 +375,19 @@ fr:
             title: Restaurer les clés d'élection pour %{election}
             upload_election_keys: Télécharger les clés d'élection
             upload_icon: Icône indiquant une action de téléchargement
+          tally_steps:
+            back: Retour
+            description: Les résultats de cette élection sont calculés dans le Bulletin Board et pour compléter ce processus, votre participation en tant que garant est nécessaire.
+            list:
+              status: Statut
+              task: Tâche
+            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
+            start: Démarrer
+            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
+            status:
+              completed: Terminé
+              pending: En attente
+              processing: Traitement en cours
           update:
             error: Le statut de l'élection n'a pas été mis à jour.
             success: 'Le statut de l''élection est : %{status}'
