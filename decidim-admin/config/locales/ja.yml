@@ -504,9 +504,7 @@ ja:
       moderated_users:
         index:
           actions:
-            block: ブロック
             title: アクション
-            unblock: ブロック解除
             unreport: 報告解除
           nickname: ニックネーム
       moderations:
