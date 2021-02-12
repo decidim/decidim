@@ -598,8 +598,8 @@ en:
             edit:
               update: Update
           edit:
-            active_content_blocks: Active Content Blocks
-            inactive_content_blocks: Inactive Content Blocks
+            active_content_blocks: Active content blocks
+            inactive_content_blocks: Inactive content blocks
         menu:
           votings: Votings
           votings_submenu:

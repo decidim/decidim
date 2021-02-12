@@ -59,22 +59,18 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
       end
       voting.add_to_index_as_search_resource
 
-      Decidim::ContentBlock.create(
-        organization: organization,
-        scope_name: :voting_landing_page,
-        manifest_name: :header,
-        weight: 2,
-        scoped_resource_id: voting.id,
-        published_at: Time.current
-      )
-      Decidim::ContentBlock.create(
-        organization: organization,
-        scope_name: :voting_landing_page,
-        manifest_name: :description,
-        weight: 1,
-        scoped_resource_id: voting.id,
-        published_at: Time.current
-      )
+      landing_page_content_blocks = [:header, :description, :elections, :polling_stations, :attachments_and_folders, :stats, :metrics]
+
+      landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
+        Decidim::ContentBlock.create(
+          organization: organization,
+          scope_name: :voting_landing_page,
+          manifest_name: manifest_name,
+          weight: index,
+          scoped_resource_id: voting.id,
+          published_at: Time.current
+        )
+      end
     end
   end
 end

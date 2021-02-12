@@ -2,14 +2,11 @@
 
 module Decidim
   module Votings
-    class ContentBlockCell < Decidim::ViewModel
-      include Decidim::IconHelper
+    class ContentBlockCell < Decidim::Admin::ContentBlockCell
+      delegate :scoped_resource, to: :controller
 
-      delegate :public_name_key, :has_settings?, to: :model
-      delegate :current_participatory_space, to: :controller
-
-      def manifest_name
-        model.try(:manifest_name) || model.name
+      def edit_content_block_path
+        decidim_votings.edit_voting_landing_page_content_block_path(scoped_resource, manifest_name)
       end
 
       def decidim_votings

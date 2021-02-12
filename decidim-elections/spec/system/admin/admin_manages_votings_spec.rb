@@ -273,14 +273,14 @@ describe "Admin manages votings", type: :system do
       visit decidim_admin_votings.votings_path
     end
 
-    it "doesn't let the admin manage votings form other organizations" do
+    it "doesn't let the admin manage votings from other organizations" do
       within "table" do
         expect(page).not_to have_content(external_voting.title["en"])
       end
     end
   end
 
-  it "has sub nav with Info active by default" do
+  it "renders the sub nav to manage voting's settings" do
     within ".table-list" do
       click_link translated(voting.title)
     end

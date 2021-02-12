@@ -3,62 +3,43 @@
 module Decidim
   module Votings
     module Admin
-      # Controller that allows managing the participatory process group landing
-      # page
+      # Controller that allows to (de)activate the content blocks from a voting landing page
       class VotingsLandingPageController < Decidim::Votings::Admin::ApplicationController
-        helper_method :active_blocks, :inactive_blocks, :current_participatory_space
+        include Decidim::Admin::LandingPage
 
-        def edit
-          enforce_permission_to :update, :voting, voting: current_participatory_space
-          render layout: "decidim/admin/voting"
+        layout "decidim/admin/voting"
+
+        helper_method :current_participatory_space
+
+        def content_block_scope
+          :voting_landing_page
         end
 
-        def update
-          enforce_permission_to :update, :voting, voting: current_participatory_space
-          Decidim::Admin::ReorderContentBlocks.call(current_organization, :voting_landing_page, params[:manifests], current_participatory_space.id) do
-            on(:ok) do
-              head :ok
-            end
-            on(:invalid) do
-              head :bad_request
-            end
-          end
+        def scoped_resource
+          @scoped_resource ||= Voting.find_by(slug: params[:voting_slug])
         end
 
-        def current_participatory_space
-          @current_participatory_space ||= collection.find_by(id: params[:voting_id]) || collection.find_by(slug: params[:voting_slug])
+        def enforce_permission_to_update_resource
+          enforce_permission_to :manage_landing_page, :voting, voting: scoped_resource
         end
 
-        private
-
-        def collection
-          @collection ||= OrganizationVotings.new(current_user.organization).query
+        def resource_sort_url
+          voting_landing_page_path(scoped_resource)
         end
 
-        def content_blocks
-          @content_blocks ||= Decidim::ContentBlock.for_scope(
-            :voting_landing_page,
-            organization: current_organization
-          ).where(scoped_resource_id: current_participatory_space.id)
+        def active_content_blocks_title
+          t("landing_page.edit.active_content_blocks", scope: "decidim.votings.admin")
         end
 
-        def active_blocks
-          @active_blocks ||= content_blocks.published
+        def inactive_content_blocks_title
+          t("landing_page.edit.inactive_content_blocks", scope: "decidim.votings.admin")
         end
 
-        def inactive_blocks
-          @inactive_blocks ||= content_blocks.unpublished + unused_manifests
+        def resource_content_block_cell
+          "decidim/votings/content_block"
         end
 
-        def used_manifests
-          @used_manifests ||= content_blocks.map(&:manifest_name)
-        end
-
-        def unused_manifests
-          @unused_manifests ||= Decidim.content_blocks.for(:voting_landing_page).reject do |manifest|
-            used_manifests.include?(manifest.name.to_s)
-          end
-        end
+        alias current_participatory_space scoped_resource
       end
     end
   end
