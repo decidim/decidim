@@ -10,6 +10,18 @@
 
 **Removed**
 
+## [0.23.3](https://github.com/decidim/decidim/tree/v0.23.3)
+
+**Added**
+
+**Changed**
+
+**Fixed**
+
+- **decidim-initiatives**: Fix initiatives type permissions page [\#7357](https://github.com/decidim/decidim/pull/7357)
+
+**Removed**
+
 ## [0.23.2](https://github.com/decidim/decidim/tree/v0.23.2)
 
 **Added**
