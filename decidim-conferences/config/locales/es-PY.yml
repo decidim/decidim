@@ -268,7 +268,7 @@ es-PY:
           confirm: "%{user_name} ha confirmado su inscripción a la conferencia %{resource_name}"
         partner:
           create: "%{user_name} ha creado %{resource_name} en la conferencia %{space_name}"
-          delete: "%{user_name} ha eliminado al usuario %{resource_name} de la conferencia %{space_name}"
+          delete: "%{user_name} quitó el usuario %{resource_name} de la %{space_name} conferencia"
           update: "%{user_name} ha actualizado %{resource_name} en la conferencia %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"

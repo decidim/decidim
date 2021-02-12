@@ -183,7 +183,7 @@ cs:
         show:
           back: Všechny volby
           preview: Náhled
-          vote: Hlasování
+          vote: Hlasovat
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
             ongoing: Hlasování končí %{end_time}

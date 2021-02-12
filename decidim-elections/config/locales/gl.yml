@@ -86,6 +86,7 @@ gl:
           filter_by: Filtrar por
         show:
           back: Todas as votacións
+          vote: Votar
       models:
         answer:
           fields:

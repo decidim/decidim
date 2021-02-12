@@ -24,7 +24,7 @@ ja:
       component:
         name: 名前
         published_at: 公開日時
-        weight: 重量
+        weight: 重みづけ
       id: ID
       newsletter:
         body: 本文
@@ -812,7 +812,7 @@ ja:
         not_hidden: 非表示にしない
         title: アクション
         unhide: Unhide
-        unreport: 未報告
+        unreport: 報告解除
       admin:
         reportable:
           hide:
@@ -822,7 +822,7 @@ ja:
             invalid: リソースの非表示解除中に問題が発生しました。
             success: リソースの非表示を解除しました。
           unreport:
-            invalid: リソースの未報告中に問題が発生しました。
+            invalid: リソースの報告解除中に問題が発生しました。
             success: リソースの報告を解除しました。
       models:
         moderation:

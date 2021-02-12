@@ -915,7 +915,7 @@ tr:
         show:
           back: Tüm görüşmelere dön
           chat_with: ile görüşme
-          not_allowed: Bu katılımcı artık doğrudan mesaj kabul etmiyor.
+          not_allowed: Bu kullanıcı artık doğrudan mesaj kabul etmiyor.
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder

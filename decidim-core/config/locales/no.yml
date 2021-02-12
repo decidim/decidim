@@ -911,6 +911,7 @@
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
+          not_allowed: Denne brukeren godtar ingen flere direktemeldinger.
           title: Samtale med %{usernames}
         start:
           send: Send
