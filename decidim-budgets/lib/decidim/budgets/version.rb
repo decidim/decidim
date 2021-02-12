@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-budgets version.
   module Budgets
     def self.version
-      "0.23.2"
+      "0.23.3"
     end
   end
 end
