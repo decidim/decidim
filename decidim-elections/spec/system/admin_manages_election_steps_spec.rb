@@ -152,7 +152,7 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
       end
     end
   end
-  
+
   describe "end the voting period" do
     let!(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
 
