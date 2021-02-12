@@ -104,6 +104,41 @@ module Decidim
                     if: allowed_to?(:enter, :space_area, space_name: :processes) || allowed_to?(:enter, :space_area, space_name: :process_groups)
         end
       end
+
+      initializer "decidim_participatory_processes.admin_participatory_processes_menu" do
+        Decidim.menu :admin_participatory_processes_menu do |menu|
+          menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
+                    decidim_admin_participatory_processes.participatory_processes_path,
+                    position: 1,
+                    if: allowed_to?(:enter, :space_area, space_name: :processes),
+                    active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path)
+
+          menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
+                    decidim_admin_participatory_processes.participatory_process_groups_path,
+                    position: 2,
+                    if: allowed_to?(:enter, :space_area, space_name: :process_groups),
+                    active: is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path)
+        end
+      end
+      initializer "decidim_participatory_processes.admin_process_group_menu" do
+        Decidim.menu :admin_participatory_process_menu do |menu|
+        end
+      end
+
+      initializer "decidim_participatory_processes.admin_process_group_menu" do
+        Decidim.menu :admin_participatory_process_group_menu do |menu|
+          menu.item I18n.t("info", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
+                    decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group),
+                    position: 1,
+                    if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
+                    active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group))
+          menu.item I18n.t("landing_page", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
+                    decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group),
+                    position: 2,
+                    if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
+                    active: is_active_link?(decidim_admin_participatory_processes.participatory_process_group_landing_page_path(participatory_process_group))
+        end
+      end
     end
   end
 end
