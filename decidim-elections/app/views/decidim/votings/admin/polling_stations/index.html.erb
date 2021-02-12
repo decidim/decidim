@@ -31,7 +31,7 @@
                 <%= polling_station.polling_station_president&.name %>
               </td>
               <td>
-                <%= safe_join(polling_station.polling_station_managers.map{ |manager| manager.name }, ",") %>
+                <%= safe_join(polling_station.polling_station_managers.map{ |manager| manager.name }, ", ") %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :polling_station, voting: current_voting, polling_station: polling_station %>

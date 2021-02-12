@@ -17,15 +17,14 @@ module Decidim
             def base_query
               collection
                 # Includes the officers (president and managers) and their correspective decidim users when they(=officers) are present
-                .joins("LEFT JOIN decidim_votings_polling_officers ON
-                        (decidim_votings_polling_officers.presided_polling_station_id = decidim_votings_polling_stations.id OR
-                        decidim_votings_polling_officers.managed_polling_station_id = decidim_votings_polling_stations.id)
-                        LEFT JOIN decidim_users ON
-                        decidim_users.id = decidim_votings_polling_officers.decidim_user_id")
+                .joins("LEFT JOIN decidim_votings_polling_officers president ON president.presided_polling_station_id = decidim_votings_polling_stations.id
+                        LEFT JOIN decidim_users president_user ON president_user.id = president.decidim_user_id
+                        LEFT JOIN decidim_votings_polling_officers managers ON managers.managed_polling_station_id = decidim_votings_polling_stations.id
+                        LEFT JOIN decidim_users manager_user ON manager_user.id = managers.decidim_user_id")
             end
 
             def search_field_predicate
-              :title_or_officer_name_or_officer_email_or_officer_nickname_cont
+              :title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
             end
 
             def filters

@@ -30,7 +30,7 @@ module Decidim
               longitude: 7.321,
               voting: polling_station.voting,
               polling_station_president_id: updated_president&.id,
-              polling_station_managers_ids: updated_managers.pluck(:id)
+              polling_station_manager_ids: updated_managers.pluck(:id)
             }
           }
         end

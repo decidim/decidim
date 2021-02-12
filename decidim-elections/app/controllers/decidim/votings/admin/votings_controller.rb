@@ -84,11 +84,7 @@ module Decidim
           respond_to do |format|
             format.json do
               if (term = params[:term].to_s).present?
-                query = current_voting
-                        .polling_officers
-                        .where(presided_polling_station_id: nil)
-                        .where(managed_polling_station_id: nil)
-                        .joins(:user)
+                query = current_voting.available_polling_officers.joins(:user)
                 query = if term.start_with?("@")
                           query.where("nickname ILIKE ?", "#{term.delete("@")}%")
                         else
@@ -102,6 +98,10 @@ module Decidim
               end
             end
           end
+        end
+
+        def polling_officers_picker
+          render :polling_officers_picker, layout: false
         end
 
         private

@@ -26,7 +26,7 @@ module Decidim
             polling_station_president: president,
             polling_station_president_id: president&.id,
             polling_station_managers: managers,
-            polling_station_managers_ids: managers.pluck(:id),
+            polling_station_manager_ids: managers.pluck(:id),
             current_user: user,
             current_organization: organization,
             voting: voting

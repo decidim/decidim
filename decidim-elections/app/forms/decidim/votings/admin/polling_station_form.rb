@@ -9,6 +9,7 @@ module Decidim
 
         def map_model(model)
           self.polling_station_president_id = model.polling_station_president&.id
+          self.polling_station_manager_ids = model.polling_station_managers.pluck(:id)
         end
 
         def geocoding_enabled?
@@ -28,7 +29,7 @@ module Decidim
         end
 
         def polling_station_managers
-          @polling_station_managers ||= PollingOfficer.find_all_by_id(polling_station_managers_ids)
+          @polling_station_managers ||= PollingOfficer.where(id: polling_station_manager_ids)
         end
 
         def voting
@@ -42,7 +43,7 @@ module Decidim
         attribute :latitude, Float
         attribute :longitude, Float
         attribute :polling_station_president_id, Integer
-        attribute :polling_station_managers_ids, Array[Integer]
+        attribute :polling_station_manager_ids, Array[Integer]
 
         validates :title, translatable_presence: true
         validates :location, translatable_presence: true

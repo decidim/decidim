@@ -18,7 +18,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           update_polling_station!
-          manage_polling_officers(polling_station, form.polling_station_president_id, form.polling_station_managers_ids)
+          manage_polling_officers(polling_station, form.polling_station_president_id, form.polling_station_manager_ids)
 
           broadcast(:ok, polling_station)
         end

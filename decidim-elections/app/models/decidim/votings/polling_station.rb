@@ -30,16 +30,12 @@ module Decidim
         Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       end
 
-      ransacker :officer_name do
-        Arel.sql("decidim_users.name")
-      end
-
-      ransacker :officer_email do
-        Arel.sql("decidim_users.email")
-      end
-
-      ransacker :officer_nickname do
-        Arel.sql("decidim_users.nickname")
+      [:manager, :president].each do |role|
+        [:name, :email, :nickname].each do |field|
+          ransacker "#{role}_#{field}".to_sym do
+            Arel.sql("#{role}_user.#{field}")
+          end
+        end
       end
 
       geocoded_by :address

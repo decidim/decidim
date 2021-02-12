@@ -111,6 +111,12 @@ module Decidim
         !in_person_voting? && !has_elections?
       end
 
+      def available_polling_officers
+        polling_officers
+          .where(presided_polling_station_id: nil)
+          .where(managed_polling_station_id: nil)
+      end
+
       private
 
       def has_elections?
