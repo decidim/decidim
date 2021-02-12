@@ -307,13 +307,22 @@ en:
             other: "%{count} votes"
             zero: "%{count} votes"
         show:
+          action-button:
+            change-vote: Change your vote
+            vote: Start voting
+            vote-again: Vote again
           back: Available elections
+          callout:
+            already-voted: You have already voted in this election. You can change your vote or verify it.
+            vote-rejected: It was not possible to verify your vote. Please cast it again.
           preview: Preview
-          verify: Verify
-          vote: Vote
+          verify:
+            already-voted: Already voted?
+            verify-here: Check your vote here.
+            will-verify: You will be able to verify your vote once the election is started.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
-            ongoing: Voting ends on %{end_time}
+            ongoing: 'Active voting until: %{end_time}'
             upcoming: Voting begins on %{start_time}
       feedback:
         answer:
@@ -382,7 +391,7 @@ en:
             upload_icon: Icon that indicates a download action
           tally_steps:
             back: Back
-            description: This election results are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
+            description: The results for this election are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
               end_tally: Tally ended
               tally:
@@ -569,8 +578,14 @@ en:
             attachments: Attachments
             components: Components
             info: Information
+            polling_officers: Polling Officers
             polling_stations: Polling Stations
         models:
+          polling_officer:
+            fields:
+              email: Email
+              name: Name
+            name: Polling Officer
           polling_station:
             fields:
               address: Address
@@ -582,6 +597,23 @@ en:
               promoted: Highlighted
               published: Published
               title: Title
+        polling_officers:
+          create:
+            invalid: There was a problem creating this polling officer
+            success: Polling officer successfully created
+          destroy:
+            invalid: There was a problem deleting this polling officer
+            success: Polling officer successfully deleted
+          form:
+            existing_user: Existing participant
+            non_user: Invite new participant
+            select_user: Search by name, email or nickname
+            user_type: Participant type
+          index:
+            title: Polling officers
+          new:
+            create: Create
+            title: Create polling officer
         polling_stations:
           create:
             invalid: There was a problem creating this polling station
@@ -651,6 +683,12 @@ en:
             active_votings: Active votings
             see_all_votings: See all votings
             votings_button_title: Link to the Votings page displaying all the votings
+      polling_officers:
+        actions:
+          confirm_destroy: Are you sure?
+          destroy: Delete
+          new: New
+          title: Actions
       polling_stations:
         actions:
           confirm_destroy: Are you sure?

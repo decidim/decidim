@@ -108,6 +108,9 @@ module TranslationHelpers
   private
 
   def fill_in_i18n_fields(field, tab_selector, localized_values)
+    # Ensure the field is visible in the view to avoid "element has zero size"
+    # errors
+    scroll_to(find(tab_selector))
     localized_values.each do |locale, value|
       within tab_selector do
         click_link I18n.with_locale(locale) { t("name", scope: "locale") }
@@ -117,6 +120,9 @@ module TranslationHelpers
   end
 
   def clear_i18n_fields(field, tab_selector, locales)
+    # Ensure the field is visible in the view to avoid "element has zero size"
+    # errors
+    scroll_to(find(tab_selector))
     locales.each do |locale|
       within tab_selector do
         click_link I18n.with_locale(locale) { t("name", scope: "locale") }

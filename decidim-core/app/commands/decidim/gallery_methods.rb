@@ -39,13 +39,13 @@ module Decidim
       @gallery.map! do |photo|
         photo.attached_to = gallery_attached_to
         photo.save!
-        @form.photos << photo.id.to_s
+        @form.photos << photo
       end
     end
 
     def photo_cleanup!
       gallery_attached_to.photos.each do |photo|
-        photo.destroy! if @form.photos.exclude? photo.id.to_s
+        photo.destroy! if @form.photos.map(&:id).exclude? photo.id
       end
       # manually reset cached photos
       gallery_attached_to.reload

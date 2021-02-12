@@ -390,12 +390,15 @@ en:
           title: Edit Your Meeting
           update: Update
         filters:
+          activity: My activity
+          all: All
           category: Category
           date: Date
           date_values:
             all: All
             past: Past
             upcoming: Upcoming
+          my_meetings: My meetings
           origin: Origin
           origin_values:
             all: All

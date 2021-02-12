@@ -266,10 +266,8 @@ fr:
         show:
           back: Élections disponibles
           preview: Aperçu
-          vote: Voter
           voting_period_status:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
-            ongoing: Le vote se termine le %{end_time}
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:

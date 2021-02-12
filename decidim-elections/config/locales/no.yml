@@ -22,10 +22,8 @@
             other: "%{count} valg"
         show:
           preview: Forhåndsvisning
-          vote: Stem
           voting_period_status:
             finished: Stemmegivningen startet %{start_time} og opphørte %{end_time}
-            ongoing: Avstemmingen avsluttes %{end_time}
             upcoming: Avstemming begynner %{start_time}
       votes:
         confirm:

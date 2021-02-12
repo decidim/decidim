@@ -25,7 +25,24 @@ shared_examples "allows to vote" do
     visit_component
 
     click_link translated(election.title)
-    click_link "Vote"
+    click_link "Start voting"
+  end
+
+  it_behaves_like "uses the voting booth"
+
+  it "doesn't show the preview alert" do
+    expect(page).not_to have_content("This is a preview of the voting booth.")
+  end
+end
+
+shared_examples "allows to change the vote" do
+  before do
+    visit_component
+
+    click_link translated(election.title)
+
+    expect(page).to have_content("You have already voted in this election.")
+    click_link "Change your vote"
   end
 
   it_behaves_like "uses the voting booth"

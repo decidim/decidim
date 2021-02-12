@@ -28,6 +28,7 @@ module Decidim
       @user.newsletter_notifications_at = @form.newsletter_notifications_at
       @user.notification_types = @form.notification_types
       @user.direct_message_types = @form.direct_message_types
+      @user.email_on_moderations = @form.email_on_moderations
     end
   end
 end
