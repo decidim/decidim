@@ -10,6 +10,7 @@ module Decidim
       end
 
       def call
+        raise "INVALIDFORM" if form.invalid?
         return broadcast(:invalid) if form.invalid?
 
         save_domains!
@@ -21,7 +22,7 @@ module Decidim
 
       def save_domains!
         current_organization.external_domain_whitelist = form.external_domains.filter_map do |domain|
-          domain.url unless domain.deleted
+          domain.value unless domain.deleted
         end.flatten
 
         current_organization.save!

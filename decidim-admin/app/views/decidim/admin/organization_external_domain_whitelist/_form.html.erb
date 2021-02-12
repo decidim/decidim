@@ -16,20 +16,20 @@
       <% end %>
 
       <div class="external-domains">
-        <%= fields_for "external_domain_whitelist[#{blank_external_url.to_param}]", blank_external_url do |external_url_form| %>
+        <%= fields_for "external_domains[#{blank_external_domain.to_param}]", blank_external_domain do |external_domain_form| %>
           <script type="text/template" class="decidim-template">
             <%= render "external_domain",
-            form: external_url_form,
-            id: blank_external_url.to_param %>
+            form: external_domain_form,
+            id: blank_external_domain.to_param %>
           </script>
         <% end %>
 
         <div class="external-domains-list">
-          <% @form.external_domains.each do |external_url| %>
-            <%= fields_for "external_domain_whitelist[external_domains]", external_url do |external_url_form| %>
+          <% @form.external_domains.each do |external_domain| %>
+            <%= fields_for "external_domains[]", external_domain do |external_domain_form| %>
               <%= render "external_domain",
-              form: external_url_form,
-              id: external_url.to_param %>
+              form: external_domain_form,
+              id: external_domain.to_param %>
             <% end %>
           <% end %>
         </div>
