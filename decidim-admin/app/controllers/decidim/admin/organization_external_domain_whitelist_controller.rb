@@ -29,7 +29,7 @@ module Decidim
       private
 
       def blank_external_url
-        @blank_external_url ||= Admin::ExternalUrlForm.new
+        @blank_external_url ||= Admin::ExternalDomainForm.new
       end
     end
   end

@@ -1,29 +1,23 @@
 ((exports) => {
-  const { AutoLabelByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoButtonsByPositionComponent, AutoLabelByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
 
   const dynamicFieldDefinitions = [
     {
-      placeHolderId: "url-id",
-      wrapperSelector: ".recipient-group-recipients",
-      fieldSelector: ".feedback-recipient",
-      addFieldSelector: ".add-recipient"
+      placeHolderId: "external-domain-id",
+      wrapperSelector: ".external-domains",
+      fieldSelector: ".external-domain",
+      addFieldSelector: ".add-external-domain"
     }
   ];
 
-  const createSortableList = () => {
-    createSortList(".recipient-group-recipients-list:not(.published)", {
-      handle: ".feedback-recipient-divider",
-      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
-      forcePlaceholderSize: true,
-      onSortUpdate: () => {
-        // autoLabelByPosition.run();
-        // autoButtonsByPosition.run();
-      }
-    });
-  };
-
   dynamicFieldDefinitions.forEach((section) => {
     const fieldSelectorSuffix = section.fieldSelector.replace(".", "");
+
+    const autoButtonsByPosition = new AutoButtonsByPositionComponent({
+      listSelector: `${section.fieldSelector}:not(.hidden)`,
+      hideOnFirstSelector: ".move-up-question",
+      hideOnLastSelector: ".move-down-question"
+    });
 
     const autoLabelByPosition = new AutoLabelByPositionComponent({
       listSelector: `${section.fieldSelector}:not(.hidden)`,
@@ -32,6 +26,18 @@
         $(el).find("input[name$=\\[position\\]]").val(idx);
       }
     });
+
+    const createSortableList = () => {
+      createSortList(".external-domains-list:not(.published)", {
+        handle: ".external-domain-divider",
+        placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
+        forcePlaceholderSize: true,
+        onSortUpdate: () => {
+          autoLabelByPosition.run();
+          autoButtonsByPosition.run();
+        }
+      });
+    };
 
     const hideDeletedItem = ($target) => {
       const inputDeleted = $target.find("input[name$=\\[deleted\\]]").val();
@@ -55,21 +61,25 @@
       moveUpFieldButtonSelector: ".move-up-question",
       moveDownFieldButtonSelector: ".move-down-question",
       onAddField: () => {
+        createSortableList();
+
         autoLabelByPosition.run();
+        autoButtonsByPosition.run();
       },
       onRemoveField: ($field) => {
         autoLabelByPosition.run();
+        autoButtonsByPosition.run();
 
         // Allows re-submitting of the form
         $("input", $field).removeAttr("required");
       },
       onMoveUpField: () => {
         autoLabelByPosition.run();
-        // autoButtonsByPosition.run();
+        autoButtonsByPosition.run();
       },
       onMoveDownField: () => {
         autoLabelByPosition.run();
-        // autoButtonsByPosition.run();
+        autoButtonsByPosition.run();
       }
     });
 
@@ -82,5 +92,6 @@
     });
 
     autoLabelByPosition.run();
+    autoButtonsByPosition.run();
   });
 })(window);

@@ -1,6 +1,6 @@
 <% external_url = form.object %>
-<div class="card feedback-recipient">
-  <div class="card-divider feedback-recipient-divider">
+<div class="card external-domain" id="<%= id %>-field">
+  <div class="card-divider external-domain-divider">
     <h2 class="card-title">
       <span><%== icon("move") %></span>
       <span><%= ".external_url" %></span>
@@ -13,7 +13,7 @@
         <%== "#{icon("arrow-bottom")} #{".down"}" %>
       </button>
 
-      <button class="button small alert hollow remove-feedback-recipient button--title">
+      <button class="button small alert hollow remove-external-domain button--title">
         <%= ".remove" %>
       </button>
     </h2>

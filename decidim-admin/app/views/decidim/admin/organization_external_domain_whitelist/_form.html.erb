@@ -15,22 +15,26 @@
         </div>
       <% end %>
 
-      <div class="recipient-group-recipients">
-        <%= fields_for "external_domains[#{blank_external_url.to_param}]", blank_external_url do |external_url_form| %>
+      <div class="external-domains">
+        <%= fields_for "external_domain_whitelist[#{blank_external_url.to_param}]", blank_external_url do |external_url_form| %>
           <script type="text/template" class="decidim-template">
-            <%= render "external_domain", form: external_url_form %>
+            <%= render "external_domain",
+            form: external_url_form,
+            id: blank_external_url.to_param %>
           </script>
         <% end %>
 
-        <div class="recipient-group-recipients-list">
+        <div class="external-domains-list">
           <% @form.external_domains.each do |external_url| %>
-            <%= fields_for "external_domains[]", external_url do |external_url_form| %>
-              <%= render "external_domain", form: external_url_form %>
+            <%= fields_for "external_domain_whitelist[external_domains]", external_url do |external_url_form| %>
+              <%= render "external_domain",
+              form: external_url_form,
+              id: external_url.to_param %>
             <% end %>
           <% end %>
         </div>
 
-        <button class="button small hollow add-recipient"><%= ".add_external_domain" %></button>
+        <button class="button small hollow add-external-domain"><%= ".add_external_domain" %></button>
       </div>
     </div>
   </div>

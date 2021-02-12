@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class ExternalUrlForm < Form
+    class ExternalDomainForm < Form
       mimic :feedback_recipient
 
       attribute :url, String
@@ -14,7 +14,7 @@ module Decidim
       def to_param
         return id if id.present?
 
-        "url-id"
+        "external-domain-id"
       end
     end
   end
