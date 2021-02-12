@@ -1,6 +1,5 @@
 ((exports) => {
-  const { AutoLabelByPositionComponent, createDynamicFields } = exports.DecidimAdmin;
-  console.log("JAVASCRIPT LOADED")
+  const { AutoLabelByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
 
   const dynamicFieldDefinitions = [
     {
@@ -10,6 +9,18 @@
       addFieldSelector: ".add-recipient"
     }
   ];
+
+  const createSortableList = () => {
+    createSortList(".recipient-group-recipients-list:not(.published)", {
+      handle: ".feedback-recipient-divider",
+      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
+      forcePlaceholderSize: true,
+      onSortUpdate: () => {
+        // autoLabelByPosition.run();
+        // autoButtonsByPosition.run();
+      }
+    });
+  };
 
   dynamicFieldDefinitions.forEach((section) => {
     const fieldSelectorSuffix = section.fieldSelector.replace(".", "");
@@ -41,6 +52,8 @@
       fieldSelector: section.fieldSelector,
       addFieldButtonSelector: section.addFieldSelector,
       removeFieldButtonSelector: `.remove-${fieldSelectorSuffix}`,
+      moveUpFieldButtonSelector: ".move-up-question",
+      moveDownFieldButtonSelector: ".move-down-question",
       onAddField: () => {
         autoLabelByPosition.run();
       },
@@ -49,8 +62,18 @@
 
         // Allows re-submitting of the form
         $("input", $field).removeAttr("required");
+      },
+      onMoveUpField: () => {
+        autoLabelByPosition.run();
+        // autoButtonsByPosition.run();
+      },
+      onMoveDownField: () => {
+        autoLabelByPosition.run();
+        // autoButtonsByPosition.run();
       }
     });
+
+    createSortableList();
 
     $(section.fieldSelector).each((_idx, el) => {
       const $target = $(el);
