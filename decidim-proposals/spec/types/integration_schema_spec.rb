@@ -189,7 +189,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
   end
 
@@ -290,7 +290,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
 
     it do
