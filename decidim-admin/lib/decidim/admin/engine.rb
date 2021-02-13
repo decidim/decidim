@@ -97,6 +97,19 @@ module Decidim
       end
 
       initializer "decidim_admin.menu" do
+        Decidim.menu :admin_global_moderation_menu do |menu|
+          menu.item I18n.t("actions.not_hidden", scope: "decidim.moderations"),
+                    decidim_admin.moderations_path,
+                    position: 1,
+                    active: params[:hidden].blank?
+
+          menu.item I18n.t("actions.hidden", scope: "decidim.moderations"),
+                    decidim_admin.moderations_path(hidden: true),
+                    position: 2,
+                    active: params[:hidden].present?
+        end
+      end
+      initializer "decidim_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.dashboard", scope: "decidim.admin"),
                     decidim_admin.root_path,
