@@ -184,7 +184,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
 
     it { expect(response["participatoryProcess"]["components"].first).to eq(accountability_data) }
@@ -288,7 +288,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
 
     it { expect(response["participatoryProcess"]["components"].first["result"]).to eq(accountability_single_result) }
