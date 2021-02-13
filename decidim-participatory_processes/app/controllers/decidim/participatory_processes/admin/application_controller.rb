@@ -5,7 +5,6 @@ module Decidim
     module Admin
       # The main admin application controller for participatory processes
       class ApplicationController < Decidim::Admin::ApplicationController
-        helper ParticipatoryProcessesMenuHelper
         register_permissions(::Decidim::ParticipatoryProcesses::Admin::ApplicationController,
                              ::Decidim::ParticipatoryProcesses::Permissions,
                              ::Decidim::Admin::Permissions)
