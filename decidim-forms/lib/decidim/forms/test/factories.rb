@@ -19,8 +19,9 @@ FactoryBot.define do
       questions do
         position = 0
         qs = %w(short_answer long_answer).collect do |text_question_type|
-          build(:questionnaire_question, question_type: text_question_type, position: position)
+          q = build(:questionnaire_question, question_type: text_question_type, position: position)
           position += 1
+          q
         end
         qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option, position: position)
         qs
