@@ -60,7 +60,10 @@ is-IS:
         reference_prefix: Tilvísunarnúmer
         secondary_color: Til vara
         show_statistics: Sýna tölfræði
+        success_color: Tókst
+        time_zone: Tímabelti
         twitter_handler: Twitter handler
+        user_groups_enabled: Virkja hópa
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
       scope:
@@ -74,6 +77,8 @@ is-IS:
         name: Nafn
         organization: Skipulag
         plural: Fleirtala
+      settings:
+        scope_id: Svæði
       static_page:
         content: Innihald
         organization: Skipulag
@@ -88,6 +93,14 @@ is-IS:
         weight: Þyngd
       user_group_csv_verification:
         file: Skrá
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Vitlaus myndskrá
+            official_img_header:
+              allowed_file_content_types: Vitlaus myndskrá
   activerecord:
     attributes:
       decidim/static_page:
