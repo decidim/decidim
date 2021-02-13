@@ -93,6 +93,12 @@ module Decidim
         app.config.assets.precompile += %w(admin/decidim_participatory_processes_manifest.js)
       end
 
+      initializer "decidim_participatory_processes.action_controller" do |_app|
+        ActiveSupport.on_load :action_controller do
+          helper Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesMenuHelper if respond_to?(:helper)
+        end
+      end
+
       initializer "decidim_participatory_processes.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),

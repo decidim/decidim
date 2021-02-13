@@ -4,6 +4,8 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       module ParticipatoryProcessesMenuHelper
+        include Decidim::Admin::SidebarMenuHelper
+
         def participatory_process_menu
           @participatory_process_menu ||= sidebar_menu(:admin_participatory_process_menu)
         end
@@ -14,12 +16,6 @@ module Decidim
 
         def participatory_processes_menu
           @participatory_processes_menu ||= sidebar_menu(:admin_participatory_processes_menu)
-        end
-
-        protected
-
-        def sidebar_menu(target_menu)
-          ::Decidim::Admin::SecondaryMenuPresenter.new(target_menu, self, active_class: "is-active")
         end
       end
     end
