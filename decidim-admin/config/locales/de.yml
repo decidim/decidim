@@ -44,7 +44,7 @@ de:
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
         facebook_handler: Facebook-Handler
         favicon: Icon
-        force_authentication: Authentifizierung erforderlich
+        force_authentication: Authentifizierung erzwingen
         force_users_to_authenticate_before_access_organization: Benutzer müssen sich authentifizieren bevor sie auf die Organisation zugreifen können
         from: Absender E-Mail
         github_handler: GitHub-Handler
