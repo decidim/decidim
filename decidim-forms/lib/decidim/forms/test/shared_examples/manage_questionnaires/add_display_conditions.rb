@@ -39,18 +39,21 @@ shared_examples_for "add display conditions" do
     context "when questionnaire has more than one question" do
       let!(:question_short_answer) do
         create(:questionnaire_question,
+               position: 0,
                questionnaire: questionnaire,
                body: Decidim::Faker::Localized.sentence,
                question_type: "short_answer")
       end
       let!(:question_long_answer) do
         create(:questionnaire_question,
+               position: 1,
                questionnaire: questionnaire,
                body: Decidim::Faker::Localized.sentence,
                question_type: "long_answer")
       end
       let!(:question_single_option) do
         create(:questionnaire_question,
+               position: 2,
                questionnaire: questionnaire,
                body: Decidim::Faker::Localized.sentence,
                question_type: "single_option",
@@ -58,6 +61,7 @@ shared_examples_for "add display conditions" do
       end
       let!(:question_multiple_option) do
         create(:questionnaire_question,
+               position: 3,
                questionnaire: questionnaire,
                body: Decidim::Faker::Localized.sentence,
                question_type: "multiple_option",
