@@ -148,6 +148,7 @@ is-IS:
             description: Lýsing
             entry_date: Dagsetning
       result_m:
+        executed: Framkvæmt
         view: Skoða
       results:
         count:
@@ -184,6 +185,10 @@ is-IS:
         results:
           category_id_eq:
             label: Flokkur
+          scope_id_eq:
+            label: Gildissvið
+          status_id_eq:
+            label: Staða
     components:
       accountability:
         name: Ábyrgð
@@ -195,6 +200,8 @@ is-IS:
             heading_leaf_level_results: Nafn fyrir "Verkefni"
             heading_parent_level_results: Nafn fyrir "Úrslit"
             intro: Intro
+            scope_id: Gildissvið
+            scopes_enabled: Umfang virkt
             subcategories_label: Nafn fyrir "undirflokka"
           step:
             comments_blocked: Athugasemdir læst
