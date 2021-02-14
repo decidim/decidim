@@ -3,8 +3,6 @@
 module Decidim
   module Admin
     class SecondaryMenuPresenter < Decidim::MenuPresenter
-      delegate :concat, :capture, to: :@view
-
       def render(render_options = {}, &block)
         styles = %w(secondary-nav)
         styles.push "secondary-nav--subnav" unless render_options.fetch(:title, false)

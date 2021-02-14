@@ -18,6 +18,10 @@ module Decidim
       def global_moderation_menu
         @global_moderation_menu ||= sidebar_menu(:admin_global_moderation_menu)
       end
+
+      def organization_settings_menu
+        @organization_settings_menu ||= sidebar_menu(:admin_settings_menu)
+      end
     end
   end
 end
