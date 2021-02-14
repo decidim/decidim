@@ -23,8 +23,8 @@ describe "Registration", type: :system do
     describe "on first sight" do
       it "shows fields empty" do
         expect(page).to have_content("Sign up to participate")
-        expect(page).to have_field("registration_user_name", with: "")
-        expect(page).to have_field("registration_user_nickname", with: "")
+        expect(page).to have_field("registration_user_name", with: "", placeholder: "Foo Bar")
+        expect(page).to have_field("registration_user_nickname", with: "", placeholder: "foobar")
         expect(page).to have_field("registration_user_email", with: "")
         expect(page).to have_field("registration_user_password", with: "")
         expect(page).to have_field("registration_user_password_confirmation", with: "")
