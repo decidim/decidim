@@ -27,7 +27,7 @@ module Decidim
 
     def render
       content_tag :li, class: link_wrapper_classes do
-        output = [ link_to(composed_label, url) ]
+        output = [link_to(composed_label, url)]
         output.push(@view.send(@menu_item.submenu).render) if @menu_item.submenu
         safe_join(output)
       end

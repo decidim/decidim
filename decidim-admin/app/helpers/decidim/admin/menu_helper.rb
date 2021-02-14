@@ -22,6 +22,18 @@ module Decidim
       def organization_settings_menu
         @organization_settings_menu ||= sidebar_menu(:admin_settings_menu)
       end
+
+      def workflows_menu
+        @workflows_menu ||= ::Decidim::Admin::SimpleMenuPresenter.new(:workflows_menu, self, active_class: "is-active")
+      end
+
+      def impersonate_menu
+        @impersonate_menu ||= ::Decidim::Admin::SimpleMenuPresenter.new(:impersonate_menu, self, active_class: "is-active")
+      end
+
+      def admin_user_menu
+        @admin_user_menu ||= sidebar_menu(:admin_user_menu)
+      end
     end
   end
 end
