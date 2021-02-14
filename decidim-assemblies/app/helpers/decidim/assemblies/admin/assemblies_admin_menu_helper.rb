@@ -7,7 +7,7 @@ module Decidim
         include Decidim::Admin::SidebarMenuHelper
 
         def admin_assemblies_menu
-          @admin_initiatives_menu ||= sidebar_menu(:admin_assemblies_menu)
+          @admin_assemblies_menu ||= sidebar_menu(:admin_assemblies_menu)
         end
       end
     end
