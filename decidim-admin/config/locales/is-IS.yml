@@ -13,6 +13,7 @@ is-IS:
         attachment_collection_id: Mappa
         description: Lýsing
         file: Skrá
+        title: Nafn viðhengis eða myndar
       attachment_collection:
         description: Lýsing
         name: Nafn
@@ -30,6 +31,7 @@ is-IS:
         subject: Efni
       organization:
         alert_color: Viðvörun
+        badges_enabled: Virkja merki
         cta_button_path: Hringja til aðgerða hnappaslóð
         cta_button_text: Hringja í aðgerð hnappinn texta
         default_locale: Sjálfgefið tungumál
@@ -123,8 +125,10 @@ is-IS:
         export: Útflutningur
         manage: Stjórna
         new: Nýtt %{name}
+        per_page: Á hveri síðu
         permissions: Heimildir
         reject: Hafna
+        share: Deila
         verify: Staðfestu
       area_types:
         create:
