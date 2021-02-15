@@ -73,16 +73,19 @@ fi:
         omnipresent_banner_url: URL
         organization_admin_email: Organisaation hallintakäyttäjän sähköposti
         organization_admin_name: Organisaation hallintakäyttäjän nimi
+        organization_locales: Organisaation kielet
         primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
         rich_text_editor_in_public_views: Ota käyttöön rikas tekstieditori osallistujille
         secondary_color: Toissijainen
+        secondary_hosts: Toissijaiset osoitteet
         send_welcome_notification: Lähetä tervetuloilmoitus
         success_color: Onnistuminen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
+        users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
@@ -124,6 +127,10 @@ fi:
               allowed_file_content_types: Virheellinen kuvatiedosto
             official_img_header:
               allowed_file_content_types: Virheellinen kuvatiedosto
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Virheellinen mime-tyyppi
   activerecord:
     attributes:
       decidim/static_page:
@@ -150,6 +157,7 @@ fi:
         category:
           new: Uusi aihepiiri
         export: Vie
+        import: Tuo
         manage: Hallitse
         new: Uusi %{name}
         newsletter:
@@ -366,6 +374,12 @@ fi:
           title_cont: '%{collection}: Hae otsikon perusteella'
         state_eq:
           label: Tila
+      forms:
+        file_help:
+          import:
+            explanation: 'Tiedoston ohjeistus:'
+            message_1: CSV-, JSON- ja Excel-tiedostoja (.xls) tuetaan
+            message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
       help_sections:
         error: Ohjeosioiden päivitys epäonnistui
         form:
@@ -404,6 +418,24 @@ fi:
           impersonate_existing_managed_user: Esiinny hallittuna käyttäjänä "%{name}"
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
+      imports:
+        creators:
+          proposalcreator: Ehdotuksen luoja
+        error: Tuonti epäonnistui
+        help:
+          proposalcreator: Tiedostossa on oltava sarakenimet title/fi otsikoille ja body/fi kuvausteksteille (tai toiseen kieleen viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
+        import_from_file: Tuo tiedostosta
+        invalid_lines: Tuontitiedostossa on virheitä riveillä %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Takaisin
+          file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
+          import: Tuo
+        notice: "%{number} kpl kohteita %{resource_name} tuotu onnistuneesti"
       logs:
         logs_list:
           no_logs_yet: Ei vielä lokitietoja
@@ -521,17 +553,23 @@ fi:
       moderated_users:
         index:
           actions:
+            block: Estä käyttäjä
             title: Toiminnot
+            unblock: Poista käyttäjän esto
             unreport: Poista ilmoitus
           name: Nimi
           nickname: Nimimerkki
           reason: Syy
+          reports: Ilmoitusten määrä
           title: Ilmoitettujen käyttäjien lista
         report:
           reasons:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
+        tabs:
+          blocked: Estetty
+          unblocked: Ei estetty
       moderations:
         index:
           title: Moderoinnit
@@ -891,6 +929,16 @@ fi:
       errors:
         impersonate_user:
           reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
+    metrics:
+      blocked_users:
+        object: estetyt käyttäjät
+        title: Estetyt käyttäjät
+      reported_users:
+        object: ilmoitetut käyttäjät
+        title: Ilmoitetut käyttäjät
+      user_reports:
+        object: ilmoitukset käyttäjistä
+        title: Ilmoitukset käyttäjistä
     moderations:
       actions:
         expand: Avaa
