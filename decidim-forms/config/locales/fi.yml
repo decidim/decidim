@@ -10,12 +10,15 @@ fi:
         question_type: Tyyppi
       questionnaire_question:
         mandatory: Pakollinen
+        max_characters: Merkkimäärärajoitus (jätä arvoksi 0, jos merkkimäärää ei ole rajoitettu)
     errors:
       models:
         answer:
           attributes:
             add_documents:
               needs_to_be_reattached: Liitettävä uudelleen
+            body:
+              too_long: liian pitkä
             choices:
               missing: ovat puutteellisia
               too_many: liian monta
