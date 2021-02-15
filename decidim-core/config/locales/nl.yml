@@ -373,6 +373,13 @@ nl:
             dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
+      cta:
+        name: Afbeelding, tekst en knop “Call to action”
+      cta_settings_form:
+        background_image: Achtergrondafbeelding
+        button_text: Call To Action tekst
+        button_url: Call To Action URL
+        description: Beschrijving
       footer_sub_hero:
         name: Voettekst sub hero banner
       hero:
@@ -382,6 +389,11 @@ nl:
         welcome_text: Welkom tekst
       highlighted_content_banner:
         name: Gemarkeerde inhoudsbanner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sorteer elementen op:'
+          random: Willekeurig
+          recent: Meest recent
       how_to_participate:
         name: Hoe deel te nemen
       html:
