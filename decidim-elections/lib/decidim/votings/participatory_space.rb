@@ -58,7 +58,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
       voting.add_to_index_as_search_resource
     end
 
-    2.times do |n|
+    3.times do |n|
       params = {
         organization: organization,
         title: Decidim::Faker::Localized.sentence(word_count: 5),
@@ -69,9 +69,10 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
         scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first,
         banner_image: File.new(File.join(seeds_root, "city.jpeg")),
         published_at: 2.weeks.ago,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
-        promoted: true
+        start_time: n.weeks.from_now,
+        end_time: (n + 1).weeks.from_now + 4.hours,
+        voting_type: Decidim::Votings::Voting.voting_types.values.sample,
+        promoted: n.odd?
       }
 
       voting = Decidim.traceability.perform_action!(
