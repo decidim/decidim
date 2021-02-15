@@ -16,9 +16,6 @@ fi:
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
-      voting:
-        end_time: Päättymisaika
-        start_time: Alkamisaika
     errors:
       models:
         answer:
