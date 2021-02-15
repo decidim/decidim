@@ -1,29 +1,29 @@
 ((exports) => {
   $(() => {
-    const currentDomainAndPort = window.location.host
-    const whitelist = exports.Decidim.config.get("external_domain_whitelist").concat(window.location.hostname);
-    // console.log("whitelist", whitelist)
+    const currentDomain = window.location.hostname
+    const whitelist = exports.Decidim.config.get("external_domain_whitelist").concat(currentDomain);
 
     if (window.location.pathname === "/link") {
       return;
     }
 
     $(() => {
-      $("a").attr("href", (_n, link) => {
-        if (!link) {
+      $("a").attr("href", (_n, href) => {
+        if (!href) {
           return "";
         }
 
-        if (["#", "/"].includes(link[0])) {
-          return link;
+        if (["#", "/"].includes(href[0])) {
+          return href;
         }
 
-        const parts = link.match(/^(([a-z]+):)?\/\/([^/]+)(\/.*)?$/)
+        const parts = href.match(/^(([a-z]+):)?\/\/([^/]+)(\/.*)?$/)
         const domain = parts[3].replace(/^www\./, "")
         if (whitelist.includes(domain)) {
-          return link;
+          return href;
         }
-        return  `${currentDomainAndPort}/link?external_link=${link}`
+        // return  `${currentDomainAndPort}/link?external_link=${link}`
+        return  `/link?external_link=${href}`
       });
     });
   });
