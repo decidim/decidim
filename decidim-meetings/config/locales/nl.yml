@@ -387,6 +387,8 @@ nl:
             user_groups: Groepen
           scope: Bereik
           search: Zoeken
+          type_values:
+            hybrid: Beide
         filters_small_view:
           close_modal: Sluit modaal
           filter: Filter
@@ -480,6 +482,8 @@ nl:
         destroy:
           invalid: Er is een probleem opgetreden bij het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
+      type_of_meeting:
+        hybrid: Beide
       types:
         private_meeting: Privé vergadering
         transparent: Transparant
