@@ -17,8 +17,8 @@ de:
         min_selections: Nichts davon
         title: Titel
       voting:
-        end_time: Die Abstimmung endet
-        start_time: Die Abstimmung beginnt
+        end_time: Abstimmung endet
+        start_time: Abstimmung beginnt
     errors:
       models:
         answer:
@@ -711,7 +711,7 @@ de:
           unfold: Aufklappen
         index:
           no_votings: Keine Abstimmung gefunden, die Ihren Suchkriterien entspricht.
-          only_finished: Momentan gibt es keine geplaten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
+          only_finished: Momentan gibt es keine geplanten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
           title: Abstimmungen
         orders:
           label: 'Abstimmungen sortieren nach:'
@@ -733,6 +733,7 @@ de:
           hybrid: Hybrid
           in_person: Persönlich
           online: Online
+        voting_types_label: Abstimmungsart
   layouts:
     decidim:
       election_votes_header:
