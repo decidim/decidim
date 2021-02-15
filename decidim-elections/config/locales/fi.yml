@@ -220,6 +220,8 @@ fi:
             title: Äänestysaika
           vote_ended:
             invalid: Ääntenlaskennan käynnistäminen epäonnistui
+            submit: Aloita ääntenlaskenta
+            title: Äänestysaika on päättynyt
         trustees_participatory_spaces:
           actions:
             disable: Poista käytöstä
