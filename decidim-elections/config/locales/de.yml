@@ -16,6 +16,9 @@ de:
         max_selections: Maximale Anzahl Antworten
         min_selections: Nichts davon
         title: Titel
+      voting:
+        end_time: Die Abstimmung endet
+        start_time: Die Abstimmung beginnt
     errors:
       models:
         answer:
@@ -707,6 +710,8 @@ de:
           filter_by: Filtern nach
           unfold: Aufklappen
         index:
+          no_votings: Keine Abstimmung gefunden, die Ihren Suchkriterien entspricht.
+          only_finished: Momentan gibt es keine geplaten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
           title: Abstimmungen
         orders:
           label: 'Abstimmungen sortieren nach:'
@@ -720,8 +725,13 @@ de:
           ongoing: Aktuell
           upcoming: Zukünftig
         footer_button_text:
+          participate: Mitmachen
           view: Anzeigen
+          vote: Abstimmen
         unspecified: Keine Angabe
+        voting_type:
+          in_person: Persönlich
+          online: Online
   layouts:
     decidim:
       election_votes_header:
