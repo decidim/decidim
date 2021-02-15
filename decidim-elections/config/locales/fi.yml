@@ -569,21 +569,64 @@ fi:
             attachments: Liitteet
             components: Komponentit
             info: Tiedot
+            polling_officers: Äänestysvirkailijat
+            polling_stations: Äänestyspaikat
         models:
           polling_officer:
             fields:
               email: Sähköposti
               name: Nimi
+            name: Äänestysvirkailija
           polling_station:
             fields:
               address: Osoite
               title: Otsikko
+            name: Äänestyspaikka
           voting:
             fields:
               created_at: Luonnin ajankohta
               promoted: Korostettu
               published: Julkaistu
               title: Otsikko
+        polling_officers:
+          create:
+            invalid: Äänestysvirkailijan luonti epäonnistui
+            success: Äänestysvirkailijan luonti onnistui
+          destroy:
+            invalid: Äänestysvirkailijan poistaminen epäonnistui
+            success: Äänestysvirkailijan poistaminen onnistui
+          form:
+            existing_user: Olemassa oleva osallistuja
+            non_user: Kutsu uusi osallistuja
+            select_user: Etsi nimellä, sähköpostilla tai nimimerkillä
+            user_type: Osallistujan tyyppi
+          index:
+            title: Äänestysvirkailijat
+          new:
+            create: Luo
+            title: Luo äänestysvirkailija
+        polling_stations:
+          create:
+            invalid: Äänestyspaikan luonti epäonnistui
+            success: Äänestyspaikan luonti onnistui
+          destroy:
+            invalid: Äänestyspaikan poistaminen epäonnistui
+            success: Äänestyspaikan poistaminen onnistui
+          edit:
+            title: Muokkaa äänestyspaikkaa
+            update: Päivitä äänestyspaikkaa
+          form:
+            address_help: 'Osoite: käytetään geokoodauksessa sijainnin löytämiseen'
+            location_help: 'Sijaintitieto: äänestäjille näytettävä viesti, jolla selvennetään äänestyspaikan tarkkaa sijaintia'
+            location_hints_help: 'Sijainnin lisätiedot: sijaintia tarkentava lisätieto. Esimerkiksi: äänestyspaikan kerros rakennuksessa.'
+          index:
+            title: Äänestyspaikat
+          new:
+            create: Luo
+            title: Luo äänestyspaikka
+          update:
+            invalid: Äänestyspaikan luonti epäonnistui
+            success: Äänestyspaikan päivitys onnistui
         titles:
           votings: Äänestykset
         votings:
@@ -597,8 +640,10 @@ fi:
             invalid: Äänestyksen luonti epäonnistui
             success: Äänestyksen luonti onnistui
           edit:
+            add_election_component: Tälle äänestykselle ei ole määritetty vaalia. Lisää vaali Komponentit-osiosta
             update: Päivitä
           form:
+            select_a_voting_type: Valitse äänestystapa
             title: Otsikko
           new:
             create: Luo
@@ -642,6 +687,7 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         index:
+          only_finished: Tällä hetkellä ei ole yhtään ajastettua äänestystä, mutta täältä näet kaikki päättyneet äänestykset.
           title: Äänestykset
         orders:
           label: 'Järjestä äänestykset:'
@@ -655,8 +701,15 @@ fi:
           ongoing: Käynnissä
           upcoming: Tulossa
         footer_button_text:
+          participate: Osallistu
           view: Näytä
+          vote: Äänestä
         unspecified: Ei määritetty
+        voting_type:
+          hybrid: Yhdistetty äänestystapa
+          in_person: Fyysinen äänestys
+          online: Verkkoäänestys
+        voting_types_label: Äänestystapa
   layouts:
     decidim:
       election_votes_header:
