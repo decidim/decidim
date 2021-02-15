@@ -27,13 +27,13 @@ fi:
         weight: Painoarvo
       id: ID
       import:
-        user_group_id: Tee tuonti käyttäjänä
+        user_group_id: Tuo käyttäjänä
       newsletter:
         body: Runko
         subject: Otsikko
       organization:
         alert_color: Ilmoitus
-        available_authorizations: Käytettävissä olevat valtuutukset
+        available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
         comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
         cta_button_path: Call To Action -painikkeen polku
