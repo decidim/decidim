@@ -14,7 +14,7 @@ module Decidim
       attachments_attribute :photos
 
       validates :title, :body, presence: true, etiquette: true
-      validates :title, length: { maximum: 150 }
+      validates :title, length: { in: 15..150 }
     end
   end
 end
