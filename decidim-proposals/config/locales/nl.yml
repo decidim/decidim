@@ -624,6 +624,9 @@ nl:
           info: U maakt een <strong>gezamenlijk ontwerp</strong>.
         wizard_header:
           title: Maak uw gezamenlijk ontwerp
+      content_blocks:
+        highlighted_proposals:
+          proposals: Voorstellen
       create:
         error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.
