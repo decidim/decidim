@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages polling officers", type: :system do
-  include_context "when administrating a voting"
+  include_context "when admin managing a voting"
 
   let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
   let!(:polling_officer) { create :polling_officer, user: other_user, voting: voting }
