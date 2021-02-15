@@ -164,7 +164,7 @@ describe "Admin manages answers", type: :system do
   end
 
   context "when answer has votes" do
-    let!(:election) { create :election, :results, component: current_component }
+    let!(:election) { create :election, :tally_ended, component: current_component }
     let!(:question) { election.questions.first }
     let!(:answer) { question.answers.first }
 

@@ -2,19 +2,22 @@
 
 require "spec_helper"
 
-describe "Admin manages election steps", type: :system do
+describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   let(:manifest_name) { "elections" }
 
-  include_context "when managing a component as an admin"
+  include_context "when mocking the bulletin board in the browser"
+
+  include_context "when managing a component as an admin" do
+    let(:admin_component_organization_traits) { [:secure_context] }
+  end
 
   before do
     election
-    switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
   end
 
-  describe "setup an election", :vcr do
+  describe "setup an election" do
     let!(:election) { create :election, :ready_for_setup, component: current_component }
 
     it "performs the action successfully" do
@@ -36,6 +39,33 @@ describe "Admin manages election steps", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
+      within ".form.created" do
+        expect(page).to have_content("Election created")
+        expect(page).to have_content("Start the key ceremony")
+      end
+    end
+  end
+
+  describe "start the key ceremony" do
+    let!(:election) { create :election, :bb_test, :created, component: current_component }
+
+    it "performs the action successfully" do
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--manage-steps").click
+      end
+
+      within ".form.created" do
+        expect(page).to have_content("Trustees")
+
+        click_button "Start the key ceremony"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within ".form.created" do
+        expect(page).to have_content("Processing...")
+      end
+
       within ".content.key_ceremony" do
         expect(page).to have_content("Key ceremony")
       end
@@ -43,7 +73,7 @@ describe "Admin manages election steps", type: :system do
   end
 
   describe "view key ceremony step" do
-    let!(:election) { create :election, :created, component: current_component }
+    let!(:election) { create :election, :key_ceremony, component: current_component }
 
     it "shows the step information" do
       within find("tr", text: translated(election.title)) do
@@ -56,29 +86,33 @@ describe "Admin manages election steps", type: :system do
     end
   end
 
-  describe "open the ballot box", :vcr do
-    let!(:election) { create :election, :bb_test, :ready, component: current_component }
+  describe "start the voting period" do
+    let!(:election) { create :election, :bb_test, :key_ceremony_ended, component: current_component }
 
     it "performs the action successfully" do
       within find("tr", text: translated(election.title)) do
         page.find(".action-icon--manage-steps").click
       end
 
-      within "form.ready" do
+      within ".form.key_ceremony_ended" do
         expect(page).to have_content("The election will start soon.")
 
-        click_button "Open ballot box"
+        click_button "Start voting period"
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within "form.vote" do
+      within ".form.key_ceremony_ended" do
+        expect(page).to have_content("Processing...")
+      end
+
+      within ".form.vote" do
         expect(page).to have_content("Vote period")
       end
     end
   end
 
-  describe "close the ballot box", :vcr do
+  describe "end the voting period" do
     let!(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
 
     it "performs the action successfully" do
@@ -86,13 +120,43 @@ describe "Admin manages election steps", type: :system do
         page.find(".action-icon--manage-steps").click
       end
 
-      within "form.vote" do
+      within ".form.vote" do
         expect(page).to have_content("The election has ended.")
 
-        click_button "Close ballot box"
+        click_button "End voting period"
       end
 
       expect(page).to have_admin_callout("successfully")
+
+      within ".form.vote" do
+        expect(page).to have_content("Processing...")
+      end
+
+      within ".form.vote_ended" do
+        expect(page).to have_content("Start tally")
+      end
+    end
+  end
+
+  describe "start the tally" do
+    let!(:election) { create :election, :bb_test, :vote_ended, component: current_component }
+
+    it "performs the action successfully" do
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--manage-steps").click
+      end
+
+      within ".form.vote_ended" do
+        expect(page).to have_content("Vote period ended")
+
+        click_button "Start tally"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within ".form.vote_ended" do
+        expect(page).to have_content("Processing...")
+      end
 
       within ".content.tally" do
         expect(page).to have_content("Tally")

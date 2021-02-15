@@ -191,35 +191,47 @@ de:
             success: Wahl erfolgreich an das Bulletin Board gesendet
             title: Wahl einrichten
             trustees: Wahlhelfer
-          index:
-            title: Wahlschritte im Bulletin Board verwalten
+          created:
+            invalid: Beim Starten der Schlüssel-Zeremonie ist ein Fehler aufgetreten
+            submit: Schlüssel-Zeremonie starten
+            success: Die Anfrage zum Starten der Schlüssel-Zeremonie wurde erfolgreich ans Bulletin Board gesendet
+            title: Wahl erstellt
+            trustees: Wahlhelfer
           key_ceremony:
             title: Schlüsselzeremonie
             trustees: Wahlhelfer
-          ready:
+          key_ceremony_ended:
             errors:
-              time_before: Die Wahl ist startbereit. Sie können die Wahlurne %{hours} Stunden vor der Startzeit (%{start_time}) eröffnen.
-            invalid: Beim Öffnen der Wahlurne ist ein Problem aufgetreten
+              time_before: Die Wahl ist startbereit. Sie können die Abstimmungsperiode frühestens %{hours} Stunden vor der Startzeit (%{start_time}) eröffnen.
+            invalid: Beim Starten der Abstimmungsperiode ist ein Fehler aufgetreten
             requirements:
-              time_before: Die Wahl wird bald beginnen. Sie können die Wahlurne manuell öffnen, oder sie wird vor dem Start um %{start_time} automatisch geöffnet.
-            submit: Wahlurne öffnen
-            success: Die Wahlurne wurde erfolgreich im Bulletin Board geöffnet
+              time_before: Die Wahl wird bald beginnen. Sie können die Abstimmungsperiode manuell eröffnen, oder sie wird automatisch zur Startzeit um %{start_time} eröffnet.
+            submit: Abstimmungsperiode eröffnen
+            success: Die Anfrage zum Starten der Abstimmungsperiode wurde erfolgreich ans Bulletin Board gesendet
             title: Startbereit
-          results:
-            title: Ergebnisse berechnet
+          processing: In Verarbeitung...
           results_published:
             title: Ergebnisse veröffentlicht
           tally:
             title: Stimmenzähl-Prozess
+            trustees: Wahlhelfer
+          tally_ended:
+            submit: Resultate veröffentlichen
+            title: Resultate berechnet
           vote:
             errors:
-              time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Wahlurne zu schließen.
-            invalid: Beim Schließen der Wahlurne ist ein Problem aufgetreten
+              time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
+            invalid: Beim Schließen der Abstimmungsperiode ist ein Fehler aufgetreten
             requirements:
-              time_after: Die Wahl ist beendet. Sie können die Wahlurne manuell schließen oder sie wird in wenigen Minuten automatisch geschlossen.
-            submit: Wahlurne schließen
-            success: Die Wahlurne wurde im Bulletin Board erfolgreich geschlossen
+              time_after: Die Wahl ist beendet. Sie können die Abstimmungsperiode manuell schließen, oder sie wird in wenigen Minuten automatisch geschlossen.
+            submit: Abstimmungsperiode schließen
+            success: Die Anfrage zum Schließen der Abstimmungsperiode wurde erfolgreich ans Bulletin Board gesendet
             title: Abstimmungsperiode
+          vote_ended:
+            invalid: Beim Starten der Stimmenzählung ist ein Fehler aufgetreten
+            submit: Stimmenzählung starten
+            success: Die Anfrage zum Starten der Stimmenzählung wurde erfolgreich ans Bulletin Board gesendet
+            title: Abstimmungsperiode abgeschlossen
         trustees_participatory_spaces:
           actions:
             disable: Deaktivieren
@@ -242,10 +254,12 @@ de:
             success: Wahlhelfer %{trustee} erfolgreich aktualisiert
       admin_log:
         election:
-          close_ballot_box: "%{user_name} hat die Wahlurne für die Wahl %{resource_name} im Bulletin Board geschlossen"
-          open_ballot_box: "%{user_name} hat die Wahlurne für die Wahl %{resource_name} im Bulletin Board geöffnet"
+          end_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board beendet"
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
           setup: "%{user_name} hat die Wahl %{resource_name} auf dem Bulletin Board erstellt"
+          start_key_ceremony: "%{user_name} hat die Schlüssel-Zeremonie für die Wahl %{resource_name} im Bulletin Board eröffnet"
+          start_tally: "%{user_name} hat die Stimmenzählung für die Wahl %{resource_name} im Bulletin Board eröffnet"
+          start_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board eröffnet"
           unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
       election_m:
         badge_name:
@@ -292,11 +306,8 @@ de:
         show:
           back: Verfügbare Wahlen
           preview: Vorschau
-          verify: Verifizieren
-          vote: Stimmen
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
-            ongoing: Die Abstimmung endet am %{end_time}
             upcoming: Die Abstimmung beginnt am %{start_time}
       feedback:
         answer:
@@ -362,6 +373,25 @@ de:
             title: Wahl-Schlüssel für %{election} wiederherstellen
             upload_election_keys: Wahl-Schlüssel hochladen
             upload_icon: Symbol, das eine Download-Aktion anzeigt
+          tally_steps:
+            back: Zurück
+            description: Die Ergebnisse dieser Wahl werden im Bulletin Board berechnet. Um diesen Prozess abzuschließen, ist Ihre Teilnahme als Wahlhelfer erforderlich.
+            keys:
+              end_tally: Stimmenzählung abgeschloßen
+              tally:
+                cast: Stimmzählung abgeben
+                share: Stimmzählung austauschen
+            list:
+              status: Status
+              task: Aufgabe
+            process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
+            start: Beginnen
+            start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
+            status:
+              completed: Abgeschlossen
+              pending: Ausstehend
+              processing: In Verarbeitung
+            title: Stimmenzählung für %{election}
           update:
             error: Der Wahlstatus wurde nicht aktualisiert.
             success: 'Der Wahlstatus ist: %{status}'
@@ -532,13 +562,41 @@ de:
             attachments: Dateianhänge
             components: Komponenten
             info: Information
+            polling_stations: Wahllokale
         models:
+          polling_station:
+            fields:
+              address: Adresse
+              title: Titel
+            name: Wahllokal
           voting:
             fields:
               created_at: Erstellt am
               promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
+        polling_stations:
+          create:
+            invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich erfasst
+          destroy:
+            invalid: Beim Löschen dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich gelöscht
+          edit:
+            title: Wahllokal bearbeiten
+            update: Wahllokal aktualisieren
+          form:
+            address_help: 'Adresse: Wird vom Geocoder zur Lokalisierung verwendet'
+            location_help: 'Ort: Beschreibung des genauen Orts des Wahllokals für die Wähler'
+            location_hints_help: 'Ortshinweise: Zusätzliche Informationen. Beispiel: Das Stockwerk des Gebäudes in dem sich das Wahllokal befindet.'
+          index:
+            title: Wahllokale
+          new:
+            create: Erstellen
+            title: Wahllokal erstellen
+          update:
+            invalid: Beim Aktualisieren dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich aktualisiert
         titles:
           votings: Abstimmungen
         votings:
@@ -586,6 +644,13 @@ de:
             active_votings: Aktive Abstimmungen
             see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
+      polling_stations:
+        actions:
+          confirm_destroy: Sind Sie sicher?
+          destroy: Löschen
+          edit: Bearbeiten
+          new: Neu
+          title: Aktionen
       votings:
         count:
           title:

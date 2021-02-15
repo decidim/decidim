@@ -268,9 +268,9 @@ en:
         conference_registration:
           confirm: "%{user_name} confirmed a conference registration in %{resource_name} conference"
         partner:
-          create: "%{user_name} created %{resource_name} to the %{space_name} conference"
-          delete: "%{user_name} removed the admin %{resource_name} from the %{space_name} conference"
-          update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
+          create: "%{user_name} created the partner %{resource_name} in the %{space_name} conference"
+          delete: "%{user_name} removed the partner %{resource_name} from the %{space_name} conference"
+          update: "%{user_name} updated the partner %{resource_name} in the %{space_name} conference"
         registration_type:
           create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
           publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"

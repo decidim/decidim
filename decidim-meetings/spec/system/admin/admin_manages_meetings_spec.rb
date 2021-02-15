@@ -6,7 +6,7 @@ require "decidim/proposals/test/capybara_proposals_picker"
 describe "Admin manages meetings", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component }
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }

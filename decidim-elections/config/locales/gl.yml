@@ -97,8 +97,6 @@ gl:
           available_answers: Respostas dispoñibles
         results:
           selected: Seleccionado
-        show:
-          verify: Verificar
       models:
         answer:
           fields:
@@ -157,3 +155,15 @@ gl:
             email_outro: Recibiches esta notificación porque votaches pola elección de %{resource_name}.
             email_subject: O teu voto por %{resource_name} foi aceptado.
             notification_title: 'O teu voto foi aceptado, verifícao <a href="%{verify_url}">aquí</a> empregando o teu token de votación: %{encrypted_vote_hash}'
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            components: Compoñentes
+        votings:
+          form:
+            select_a_voting_type: Por favor, selecciona un tipo de votación
+            voting_type:
+              hybrid: Híbrido
+              in_person: En persoa
+              online: En liña

@@ -1,4 +1,3 @@
-// = require ../identification_keys
 // = require decidim/bulletin_board/decidim-bulletin_board
 
 /**
@@ -7,7 +6,12 @@
  * update the election bulletin board status
  */
 $(() => {
-  const { KeyCeremonyComponent, MessageIdentifier, MESSAGE_RECEIVED } = window.decidimBulletinBoard;
+  const {
+    KeyCeremonyComponent,
+    MessageIdentifier,
+    IdentificationKeys,
+    MESSAGE_RECEIVED
+  } = window.decidimBulletinBoard;
 
   // UI Elements
   const $keyCeremony = $(".key-ceremony");
@@ -31,7 +35,7 @@ $(() => {
     publicKeyJSON: JSON.stringify($keyCeremony.data("trusteePublicKey"))
   };
   let currentStep = null;
-  const trusteeIdentificationKeys = new window.Decidim.IdentificationKeys(
+  const trusteeIdentificationKeys = new IdentificationKeys(
     trusteeContext.uniqueId,
     trusteeContext.publicKeyJSON
   );
@@ -96,6 +100,9 @@ $(() => {
             method: "PATCH",
             url: $keyCeremony.data("updateElectionStatusUrl"),
             contentType: "application/json",
+            data: JSON.stringify({
+              status: "key_ceremony"
+            }),
             headers: {
               "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
             }

@@ -23,6 +23,11 @@ module Decidim
 
           @form = form(current_step_form_class).from_params(params, election: election)
 
+          if @form.pending_action
+            Decidim::Elections::Admin::UpdateActionStatus.call(@form.pending_action)
+            return redirect_to election_steps_path(election)
+          end
+
           current_step_command_class.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("steps.#{current_step}.success", scope: "decidim.elections.admin")
@@ -40,16 +45,22 @@ module Decidim
         def current_step_form_class
           @current_step_form_class ||= {
             "create_election" => SetupForm,
-            "ready" => BallotBoxForm,
-            "vote" => BallotBoxForm
+            "created" => ActionForm,
+            "key_ceremony_ended" => VotePeriodForm,
+            "vote" => VotePeriodForm,
+            "vote_ended" => ActionForm,
+            "tally_ended" => ActionForm
           }[current_step]
         end
 
         def current_step_command_class
           @current_step_command_class ||= {
             "create_election" => SetupElection,
-            "ready" => OpenBallotBox,
-            "vote" => CloseBallotBox
+            "created" => StartKeyCeremony,
+            "key_ceremony_ended" => StartVote,
+            "vote" => EndVote,
+            "vote_ended" => StartTally,
+            "tally_ended" => PublishResults
           }[current_step]
         end
 

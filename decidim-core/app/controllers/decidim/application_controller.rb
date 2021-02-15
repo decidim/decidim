@@ -17,7 +17,6 @@ module Decidim
     include ForceAuthentication
     include SafeRedirect
     include NeedsSnippets
-
     include UserBlockedChecker
 
     helper Decidim::MetaTagsHelper
@@ -63,6 +62,27 @@ module Decidim
 
       value = redirect_url || request.url
       store_location_for(:user, value)
+    end
+
+    # This overrides Devise's method for extracting the path from the URL. We
+    # want to ensure the path to be stored in the cookie is not too long in
+    # order to avoid ActionDispatch::Cookies::CookieOverflow exception. If the
+    # session cookie (containing all the session data) is over 4 KB in length,
+    # it would lead to an exception if the cookie store is being used. This is
+    # a hard constraint set by ActionDispatch because some browsers do not allow
+    # cookies over 4 KB.
+    #
+    # Original code in Devise: https://git.io/Jt6wt
+    def extract_path_from_location(location)
+      path = super
+      return path unless Rails.application.config.session_store == ActionDispatch::Session::CookieStore
+
+      # Allow 3 KB size for the path because there can be also some other
+      # session variables out there.
+      return path if path.bytesize <= ActionDispatch::Cookies::MAX_COOKIE_SIZE - 1024
+
+      # For too long paths, remove the URL parameters
+      path.split("?").first
     end
 
     # We store whether the user is requesting to toggle the translations or not.

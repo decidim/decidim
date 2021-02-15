@@ -188,20 +188,29 @@ describe "Assemblies", type: :system do
             expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
           end
         end
+      end
 
-        it "shows the stats for those components" do
-          within ".process_stats" do
-            expect(page).to have_content("3 PROPOSALS")
-            expect(page).not_to have_content("0 MEETINGS")
+      context "and the process statistics are enabled" do
+        let(:show_statistics) { true }
+
+        it "the stats for those components are visible" do
+          within "#participatory_process-statistics" do
+            expect(page).to have_css("h3.section-heading", text: "STATISTICS")
+            expect(page).to have_css(".space-stats__title", text: "PROPOSALS")
+            expect(page).to have_css(".space-stats__number", text: "3")
+            expect(page).to have_no_css(".space-stats__title", text: "MEETINGS")
+            expect(page).to have_no_css(".space-stats__number", text: "0")
           end
         end
+      end
 
-        context "when the assembly stats are not enabled" do
-          let(:show_statistics) { false }
+      context "and the process statistics are not enabled" do
+        let(:show_statistics) { false }
 
-          it "the stats for those components are not visible" do
-            expect(page).not_to have_content("3 PROPOSALS")
-          end
+        it "the stats for those components are not visible" do
+          expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
+          expect(page).to have_no_css(".space-stats__title", text: "PROPOSALS")
+          expect(page).to have_no_css(".space-stats__number", text: "3")
         end
       end
 

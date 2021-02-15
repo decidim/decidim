@@ -308,6 +308,9 @@ it:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantità massima di elementi da mostrare
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Utenti
@@ -383,7 +386,6 @@ it:
         comments_count: Commenti
         debates_count: Discussioni
         endorsements_count: Mi piace
-        headline: Attività
         meetings_count: Riunioni
         orders_count: Supporti
         pages_count: Pagine
