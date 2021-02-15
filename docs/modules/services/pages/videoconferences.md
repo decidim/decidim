@@ -25,8 +25,8 @@ and then in `config/secrets.yml`:
 ```yaml
   videoconferences:
     jitsi:
-      domain: <%= ENV["JITSI_DOMAIN"] %>
-      api_url: <%= ENV["JITSI_API_URL"] %>
+      domain: <%= ENV["JITSI_DOMAIN"] %> # e.g. meet.jit.si
+      api_url: <%= ENV["JITSI_API_URL"] %> # e.g. https://meet.jit.si/external_api.js 
 ```
 
 ### How is Jitsi integrated in Meetings?
