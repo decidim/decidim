@@ -192,9 +192,13 @@ fi:
             title: Määritä vaali
             trustees: Vaalin luottamushenkilöt
           created:
+            invalid: Avainseremonian käynnistäminen epäonnistui
+            submit: Aloita avainseremonia
+            success: Avainseremonian aloituspyyntö on onnistuneesti lähetetty äänestystaululle
             title: Vaali luotu
             trustees: Luottamushenkilöt
           key_ceremony:
+            title: Avainseremonia
             trustees: Luottamushenkilöt
           key_ceremony_ended:
             errors:
