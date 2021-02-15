@@ -16,9 +16,6 @@ de:
         max_selections: Maximale Anzahl Antworten
         min_selections: Nichts davon
         title: Titel
-      voting:
-        end_time: Endzeit
-        start_time: Startzeit
     errors:
       models:
         answer:
