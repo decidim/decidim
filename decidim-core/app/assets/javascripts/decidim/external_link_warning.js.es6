@@ -14,10 +14,13 @@
           console.log("not a link")
           return "";
         }
+
         if (["#", "/"].includes(link[0])) {
           return link;
         }
-        const domain = new URL(link).hostname.replace(/^www\./, "")
+
+        const parts = link.match(/^(([a-z]+):)?\/\/([^/]+)(\/.*)?$/)
+        const domain = parts[3].replace(/^www\./, "")
         if (whitelist.includes(domain)) {
           return link;
         }

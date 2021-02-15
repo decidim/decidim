@@ -26,3 +26,17 @@
     height: .9rem;
   }
 }
+
+.external-link-page-content{
+  .external-link{
+    background-color: $light-gray;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid $black;
+    border-radius: 5px;
+
+    .highlight{
+      color: $primary-color;
+    }
+  }
+}

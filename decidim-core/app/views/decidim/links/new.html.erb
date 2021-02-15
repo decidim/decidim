@@ -1,14 +1,27 @@
-<div>
-  <h1 style="color:red;">YMMÄRTHÄN ETTÄ OLET POISTUMASSA TÄLTÄ SIVULTA</h1>
-
-  <div>
-    Osoitteeseen: <%= params[:external_link] %>
-  </div>
-
-  Haluatko jatkaa?
-  <div>
-    <%= link_to "KYLLÄ", params[:external_link], class: "button warning" %>
-    <button class="button primary">EN</button>
+<div class="wrapper">
+  <h1 class="text-center">External link warning</h1>
+  <div class="row columns large-centered large-8">
+    <div class="card">
+      <div class="external-link-page-content">
+        <div class="card-section">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti. Lorem ipsum ligula ut hendrerit mollis.
+        </div>
+        <div class="card-section">
+          <div class="row">
+            <div class="columns large-centered large-12">
+              <p class="heading4">External link:</p>
+              <div class="text-center external-link">
+                <%= highlight_domain(params[:external_link]) %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="columns large-12 text-center">
+              <%= link_to "PROCEED", params[:external_link], class: "button expanded primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
