@@ -852,6 +852,12 @@ en:
       index:
         last_activity: Last activity
         resource_type: Type
+    links:
+      new:
+        body: You are about to visit and external link and we would like to pause for a moment out of an abundance of caution. Links to proof-of-concepts are generally benign but may often be accompanied by unintentional consequences. At a minimum, you should consider using a separate browser or virtual machine before proceeding.
+        external_link: 'External link:'
+        proceed: Proceed
+        title: External link warning
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"

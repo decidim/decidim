@@ -723,7 +723,14 @@ en:
       organization_external_domain_whitelist:
         edit:
           update: Update
+        external_domain:
+          down: Down
+          external_domain: External domain
+          remove: Remove
+          up: Up
         form:
+          add: Add to whitelist
+          external_domains: External domains
           homepage_external_domain_whitelist_title: External domain whitelist
       organization_homepage:
         edit:

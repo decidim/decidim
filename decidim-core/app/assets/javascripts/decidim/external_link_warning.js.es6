@@ -2,7 +2,7 @@
   $(() => {
     const currentDomain = window.location.host
     const whitelist = exports.Decidim.config.get("external_domain_whitelist");
-    console.log("whitelist", whitelist)
+    // console.log("whitelist", whitelist)
 
     if (window.location.pathname === "/link") {
       return;
@@ -11,7 +11,7 @@
     $(() => {
       $("a").attr("href", (_n, link) => {
         if (!link) {
-          console.log("not a link")
+          // console.log("not a link")
           return "";
         }
 
