@@ -35,6 +35,7 @@ fi:
       decidim/profile_updated_event: Profiili päivitetty
       decidim/promote_to_admin: Nimetty ryhmän ylläpitäjäksi
       decidim/removed_from_group: Poistettu ryhmästä
+      decidim/resource_endorsed_event: Kohdetta suositeltu
   activerecord:
     attributes:
       decidim/user:
