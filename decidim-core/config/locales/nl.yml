@@ -668,7 +668,7 @@ nl:
         error: Er is een fout in dit veld.
       file_help:
         file:
-          explanation: 'Begeleiding voor bestand:'
+          explanation: 'Eigenschappen bestand:'
           message_1: Moet een afbeelding of een document zijn.
           message_2: Voor afbeeldingen, gebruik bij voorkeur liggende beeldschermen, de service gewassen de afbeelding.
         image:
