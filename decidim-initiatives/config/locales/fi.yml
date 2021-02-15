@@ -154,7 +154,10 @@ fi:
             email_subject: Uusi virstanpylväs saavutettu!
             notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
         support_threshold_reached:
+          email_intro: Aloite %{resource_title} on kerännyt tarpeeksi monta allekirjoitusta
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
+          email_subject: Allekirjoitusten kynnysarvo on saavutettu
+          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on kerännyt tarpeeksi monta allekirjoitusta
     gamification:
       badges:
         initiatives:
@@ -199,6 +202,10 @@ fi:
         content_blocks:
           highlighted_initiatives:
             max_results: Näytettävien elementtien enimmäismäärä
+            order:
+              default: Oletus (vanhin ensin)
+              label: 'Järjestä elementit:'
+              most_recent: Uusimmat
         exports:
           initiatives: Aloitteet
         initiatives:
@@ -301,9 +308,13 @@ fi:
         filter_type_values:
           all: Kaikki
       committee_requests:
+        approve:
+          success: Pyyntö on hyväksytty.
         new:
           continue: Jatka
           help_text: Olet hakemassa jäsenyyttä tämän aloitteen kannatuskomiteasta
+        revoke:
+          success: Pyyntöä ei hyväksytty.
         spawn:
           success: Hakemuksesi on lähetetty aloitteen laatijalle.
       content_blocks:
@@ -364,6 +375,11 @@ fi:
         title: Muokkaa aloitetta
         update: Päivitä
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} hyväksyi hakemuksesi kannatuskomitean jäseneksi aloitteelle %{resource_title}."
+          email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet tehnyt hakemuksen aloitteelle: %{resource_title}'
+          email_subject: "%{author_nickname} hyväksyi hakemuksesi kannatuskomitean jäseneksi"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hyväksyi hakemuksesi kannatuskomitean jäseneksi aloitteelle <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on luonut uuden aloitteen. Tutustu siihen ja osallistu:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -374,6 +390,15 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_nickname} on suositellut aloitetta'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} hylkäsi hakemuksesi kannatuskomitean jäseneksi aloitteelle %{resource_title}."
+          email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet tehnyt hakemuksen aloitteelle: %{resource_title}.'
+          email_subject: "%{author_nickname} hylkäsi hakemuksesi kannatuskomitean jäseneksi"
+          notification_title: '<a href="%{author_profile_url}">%{author_nickname}</a> hylkäsi hakemuksesi kannatuskomitean jäseneksi aloitteelle: <a href="%{resource_url}">%{resource_title}</a>.'
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} hakee jäseneksi kannatuskomiteaan aloitteellesi %{resource_title}. Voit hyväksyä tai hylätä hakemuksen aloitteen muokkauslomakkeen kautta."
+          email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet luonut aloitteen %{resource_title}'
+          email_subject: "%{applicant_nickname} haluaa liittyä mukaan aloitteeseesi"
       form:
         add_attachments: Asiakirjat
         attachment_legend: "(Vapaaehtoinen) Lisää liitteitä"
