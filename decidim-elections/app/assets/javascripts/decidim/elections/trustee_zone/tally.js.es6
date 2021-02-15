@@ -4,7 +4,7 @@ $(() => {
   const { TallyComponent, IdentificationKeys, MessageIdentifier, MESSAGE_RECEIVED } = window.decidimBulletinBoard;
 
   // UI Elements
-  const $tally = $(".tally");
+  const $tally = $(".trustee-step");
   const $startButton = $tally.find(".start");
   const getStepRow = (step) => {
     return $(`#${step.replace(".", "-")}`);
@@ -17,7 +17,9 @@ $(() => {
   const bulletinBoardClientParams = {
     apiEndpointUrl: $tally.data("apiEndpointUrl")
   };
-  const electionUniqueId = `${$tally.data("authorityUniqueId")}.${$tally.data("electionId")}`
+  const electionUniqueId = `${$tally.data("authoritySlug")}.${$tally.data("electionId")}`
+  const authorityPublicKeyJSON = JSON.stringify($tally.data("authorityPublicKey"))
+
   const trusteeContext = {
     uniqueId: $tally.data("trusteeUniqueId"),
     publicKeyJSON: JSON.stringify($tally.data("trusteePublicKey"))
@@ -31,6 +33,7 @@ $(() => {
   // Use the tally component and bind all UI events
   const component = new TallyComponent({
     bulletinBoardClientParams,
+    authorityPublicKeyJSON,
     electionUniqueId,
     trusteeUniqueId: trusteeContext.uniqueId,
     trusteeIdentificationKeys

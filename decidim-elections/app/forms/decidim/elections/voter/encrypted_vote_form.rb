@@ -14,12 +14,12 @@ module Decidim
         delegate :id, to: :election, prefix: true
 
         def election_unique_id
-          @election_unique_id ||= Decidim::BulletinBoard::MessageIdentifier.unique_election_id(bulletin_board.authority_slug, election_id)
+          @election_unique_id ||= Decidim::BulletinBoard::MessageIdentifier.unique_election_id(bulletin_board.authority_name.parameterize, election_id)
         end
 
         # Public: computes a unique id for the voter/election pair.
         def voter_id
-          @voter_id ||= Digest::SHA256.hexdigest([current_user.created_at, current_user.id, election.id, bulletin_board.authority_slug].join("."))
+          @voter_id ||= Digest::SHA256.hexdigest([current_user.created_at, current_user.id, election.id, bulletin_board.authority_name.parameterize].join("."))
         end
 
         # Public: returns the associated election for the vote.

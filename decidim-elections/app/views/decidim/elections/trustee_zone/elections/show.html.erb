@@ -1,38 +1,21 @@
 <%= stylesheet_link_tag "decidim/elections/trustee_zone", media: "all" %>
 
-<% if election.bb_key_ceremony? %>
-  <div class="key-ceremony"
+<% if current_step %>
+  <div class="trustee-step"
     data-election-id="<%= election.id %>"
     data-trustee-public-key="<%= trustee.public_key %>"
-    data-trustee-unique-id="<%= trustee.unique_id %>"
-    data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
-    data-authority-unique-id="<%= Rails.application.secrets.bulletin_board[:authority_name].parameterize %>"
+    data-trustee-slug="<%= trustee.slug %>"
+    data-api-endpoint-url="<%= server %>"
+    data-authority-slug="<%= authority_slug %>"
+    data-authority-public-key="<%= authority_public_key %>"
     data-update-election-status-url="<%= trustee_election_elections_path(election) %>"
     data-backup="false">
 
-    <div class="key-ceremony-result">
+    <div class="js-step-result">
     </div>
 
-    <div class="election-key-generation">
-      <%= render("key_ceremony_steps") %>
-    </div>
+    <%= render("#{current_step}_steps") %>
   </div>
 
-  <%= javascript_include_tag "decidim/elections/trustee_zone/key_ceremony", integrity: true %>
-<% elsif election.bb_tally? %>
-  <div class="tally"
-    data-election-id="<%= election.id %>"
-    data-trustee-public-key="<%= trustee.public_key %>"
-    data-trustee-unique-id="<%= trustee.unique_id %>"
-    data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
-    data-authority-unique-id="<%= Rails.application.secrets.bulletin_board[:authority_name].parameterize %>"
-    data-update-election-status-url="<%= trustee_election_elections_path(election) %>">
-
-    <div class="tally-result">
-    </div>
-
-    <%= render("tally_steps") %>
-  </div>
-
-  <%= javascript_include_tag "decidim/elections/trustee_zone/tally", integrity: true %>
+  <%= javascript_include_tag "decidim/elections/trustee_zone/#{current_step}", integrity: true %>
 <% end %>

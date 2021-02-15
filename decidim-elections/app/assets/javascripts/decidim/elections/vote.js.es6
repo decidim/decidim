@@ -13,6 +13,7 @@ $(async () => {
     apiEndpointUrl: $voteWrapper.data("apiEndpointUrl")
   };
   const electionUniqueId = $voteWrapper.data("electionUniqueId");
+  const authorityPublicKeyJSON = JSON.stringify($voteWrapper.data("authorityPublicKey"))
   const voterUniqueId = $voteWrapper.data("voterId");
 
   // Use the questions component
@@ -26,6 +27,7 @@ $(async () => {
   // Use the voter component and bind all UI events
   const voteComponent = new VoteComponent({
     bulletinBoardClientParams,
+    authorityPublicKeyJSON,
     electionUniqueId,
     voterUniqueId
   });

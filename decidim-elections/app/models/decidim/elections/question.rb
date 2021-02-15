@@ -23,14 +23,6 @@ module Decidim
         max_selections <= answers.count
       end
 
-      def vote_variation
-        if max_selections == 1
-          "one_of_m"
-        else
-          "n_of_m"
-        end
-      end
-
       def total_votes
         answers.sum(:votes_count)
       end
