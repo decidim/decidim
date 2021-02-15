@@ -16,9 +16,6 @@ fr-CA:
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
-      voting:
-        end_time: Fin
-        start_time: Heure de début
     errors:
       models:
         answer:
