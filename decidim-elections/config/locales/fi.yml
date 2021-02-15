@@ -16,6 +16,9 @@ fi:
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
+      voting:
+        end_time: Äänestyksen päättymisaika
+        start_time: Äänestyksen alkamisaika
     errors:
       models:
         answer:
@@ -166,6 +169,7 @@ fi:
           create_election:
             errors:
               max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
+              minimum_answers: Kysymyksillä on oltava <strong>vähintään kaksi vastausta</strong>.
               minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
               published: Vaalia <strong>ei ole julkaistu</strong>.
               time_before: Alkamisaika on <strong>alle 3 tuntia</strong> ennen vaalin alkua.
@@ -186,12 +190,36 @@ fi:
             submit: Määritä vaali
             title: Määritä vaali
             trustees: Vaalin luottamushenkilöt
+          created:
+            title: Vaali luotu
+            trustees: Luottamushenkilöt
           key_ceremony:
             trustees: Luottamushenkilöt
+          key_ceremony_ended:
+            invalid: Äänestysajan käynnistäminen epäonnistui
+            requirements:
+              time_before: 'Äänestys alkaa pian. Voit käynnistää äänestysajan manuaalisesti tai se käynnistetään automaattisesti ennen alkamisaikaa: %{start_time}.'
+            submit: Käynnistä äänestys
+            title: Valmis alkamaan
+          processing: Käsitellään...
           results_published:
             title: Tulokset julkaistu
+          tally:
+            title: Ääntenlaskun prosessi
+            trustees: Luottamushenkilöt
+          tally_ended:
+            submit: Julkaise tulokset
+            title: Tulokset laskettu
           vote:
+            errors:
+              time_after: Vaali on edelleen käynnissä. Sinun on odotettava päättymisaikaan saakka (%{end_time}) päättääksesi äänestyksen.
+            invalid: Äänestysajan päättäminen epäonnistui
+            requirements:
+              time_after: Äänestys on päättynyt. Voit sulkea äänestysajan manuaalisesti tai se suljetaan automaattisesti muutaman minuutin päästä.
+            submit: Päätä äänestysaika
             title: Äänestysaika
+          vote_ended:
+            invalid: Ääntenlaskennan käynnistäminen epäonnistui
         trustees_participatory_spaces:
           actions:
             disable: Poista käytöstä
