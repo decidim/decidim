@@ -99,6 +99,7 @@ nl:
         organization: Organisatie
         plural: Meervoud
       static_page:
+        allow_public_access: Toegang zonder authenticatie toestaan
         changed_notably: Er zijn merkbare veranderingen geweest.
         content: Inhoud
         organization: Organisatie
