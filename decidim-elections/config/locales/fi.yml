@@ -254,6 +254,7 @@ fi:
           end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} äänestystaululla"
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
           setup: "%{user_name} loi vaalin %{resource_name} äänestystaululle"
+          start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} äänestystaululla"
           start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} äänestystaululla"
           start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} äänestystalululla"
           unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun"
@@ -360,6 +361,7 @@ fi:
             title: Varmuuskopioi vaaliavaimet kohteelle %{election}
           key_ceremony_steps:
             back: Takaisin
+            description: Näitä vaaleja luodaan parhaillaan äänestystaululle. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
             keys:
               create_election: Avainten luonti
               key_ceremony:
