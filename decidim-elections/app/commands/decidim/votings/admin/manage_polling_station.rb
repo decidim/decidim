@@ -35,10 +35,7 @@ module Decidim
         end
 
         def unassign_all_managers(polling_station)
-          polling_station.polling_station_managers.each do |manager|
-            manager.managed_polling_station = nil
-            manager.save!
-          end
+          polling_station.polling_station_managers.each { |manager| manager.update(managed_polling_station: nil) }
         end
 
         def assign_new_managers(polling_station, managers_ids)

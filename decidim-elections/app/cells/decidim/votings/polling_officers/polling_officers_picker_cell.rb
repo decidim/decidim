@@ -10,11 +10,9 @@ module Decidim
         MAX_POLLING_OFFICERS = 1000
 
         def show
-          if filtered?
-            render :polling_officers
-          else
-            render
-          end
+          return render :polling_officers if filtered?
+
+          render
         end
 
         alias component model

@@ -27,7 +27,7 @@ $(() => {
       })
     } else {
       $("#polling_officers_list li").each((index, li) => {
-        $(li).toggle(li.textContent.toLowerCase().indexOf(filter) > -1)
+        $(li).toggle(li.textContent.toLowerCase().includes(filter))
       })
       toggleNoPollingOfficers()
     }
