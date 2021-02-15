@@ -35,7 +35,6 @@ FactoryBot.define do
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
     component { build(:component, manifest_name: "meetings") }
-    salt { SecureRandom.hex(32) }
 
     author do
       component.try(:organization)
