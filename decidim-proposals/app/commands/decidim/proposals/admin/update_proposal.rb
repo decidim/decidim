@@ -28,10 +28,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          if defined?(params)
-            attachment = params[:proposal][:attachment]
-            delete_attachment(attachment)
-          end
+          delete_attachment(form.attachment) if delete_attachment?
 
           if process_attachments?
             @proposal.attachments.destroy_all
