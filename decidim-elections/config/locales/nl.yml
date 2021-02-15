@@ -15,6 +15,9 @@ nl:
         description: Beschrijving
         max_selections: Maximum aantal selecties
         title: Aanspreektitel
+      voting:
+        end_time: Stemmen eindigt
+        start_time: Stemmen begint
     errors:
       models:
         answer:
@@ -399,7 +402,11 @@ nl:
         content_blocks:
           highlighted_votings:
             max_results: Maximum aantal elementen dat kan worden weergegeven
+        index:
+          not_published: Niet-gepubliceerd
+          published: Gepubliceerd
         menu:
+          votings: Stemrondes
           votings_submenu:
             attachment_collections: Mappen
             attachment_files: Bestanden
@@ -415,7 +422,10 @@ nl:
             name: Stembureau
           voting:
             fields:
+              created_at: Aangemaakt op
               promoted: In de kijker
+              published: Gepubliceerd
+              title: Titel
         polling_stations:
           create:
             invalid: Er is een fout opgetreden bij het maken van dit stembureau
@@ -438,21 +448,32 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bewerken van dit stembureau
             success: Stembureau succesvol bijgewerkt
+        titles:
+          votings: Stemrondes
         votings:
           actions:
             confirm_destroy: Ben je zeker?
             destroy: Verwijder
+            new_voting: Nieuwe stemruimte
             publish: Publiceer
             unpublish: Publicatie ongedaan maken
+          create:
+            invalid: Er is een probleem opgetreden bij het aanmaken van deze stemronde
+            success: Stemronde succesvol aangemaakt
           edit:
             add_election_component: Er zijn geen verkiezingen geconfigureerd voor deze stemming. Voeg deze toe in de Componenten sectie
             update: Bijwerken
           form:
             select_a_voting_type: Selecteer een type stemming
+            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+            title: Titel
             voting_type:
               hybrid: Hybride
               in_person: In persoon
               online: Online
+          new:
+            create: Aanmaken
+            title: Nieuwe stemronde
           publish:
             success: Stemronde succesvol gepubliceerd
           unpublish:
@@ -460,6 +481,11 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze stemronde
             success: Vergadering succesvol bijgewerkt
+      admin_log:
+        voting:
+          create: "%{user_name} heeft de stemronde %{resource_name} aangemaakt"
+          publish: "%{user_name} heeft de stemronde %{resource_name} gepubliceerd"
+          unpublish: "%{user_name} heeft de publicatie van de stemronde %{resource_name} ongedaan gemaakt"
       content_blocks:
         highlighted_votings:
           name: Stemrondes in de kijker
@@ -487,6 +513,18 @@ nl:
         filters_small_view:
           close_modal: Sluit venster
           filter: Filter
+        index:
+          no_votings: Er zijn geen stemrondes die voldoen aan jouw zoekcriteria.
+          only_finished: Momenteel zijn er geen geplande stemrondes, maar hier vind je alle afgelopen stemrondes.
+      votings_m:
+        footer_button_text:
+          participate: Deelnemen
+          vote: Stemmen
+        voting_type:
+          hybrid: Hybride
+          in_person: In persoon
+          online: Online
+        voting_types_label: Soort stemronde
   layouts:
     decidim:
       election_votes_header:
