@@ -378,14 +378,37 @@ fi:
               processing: Käsitellään
             title: Luo vaaliavaimet kohteelle %{election}
           restore_modal:
+            description: Äänestystaululle on liitetty tieto sinusta näiden vaalien luottamushenkilönä. Jatkaaksesi tätä prosessia, lataa oma varmuuskopiotiedostosi, joka luotiin edellisen istuntosi yhteydessä.
             title: Palauta vaaliavaimet kohteelle %{election}
             upload_election_keys: Lataa vaaliavaimet
             upload_icon: Kuvake, joka ilmaisee lataustoiminnon
+          tally_steps:
+            back: Takaisin
+            description: Näiden vaalien tuloksia lasketaan parhaillaan äänestystaululla. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
+            keys:
+              end_tally: Ääntenlaskennan päättyminen
+              tally:
+                cast: Ääntenlaskennan tuloksen valmistuminen
+                share: Ääntenlaskennan tulosten jakaminen
+            list:
+              status: Tila
+              task: Tehtävä
+            process_warning: Kun prosessi on aloitettu, sinun ei tule poistua tältä sivulta ennen kuin prosessi saatetaan päätökseen. Tämä kestää useita minuutteja, koska kaikkien luottamushenkilöiden tulee olla yhteydessä samanaikaisesti, jotta prosessi voidaan päättää.
+            start: Aloita
+            start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnille
+            status:
+              completed: Suoritettu
+              pending: Odottaa
+              processing: Käsitellään
+            title: Ääntenlaskenta vaaleille %{election}
           update:
             error: Vaalin tilaa ei päivitetty.
             success: 'Vaalin tila on: %{status}'
         menu:
           trustee_zone: Luottamushenkilön alue
+        no_bulletin_board:
+          body: Tätä osiota varten vaaditaan äänestystaulupalvelin. Ota yhteyttä järjestelmänvalvojaan saadaksesi lisätietoja tästä.
+          title: Pahoittelut, äänestystalulua ei ole vielä määritetty.
         trustees:
           show:
             elections:
@@ -435,6 +458,7 @@ fi:
           question: Kysymys %{count}
         confirmed:
           back: Takaisin vaaleihin
+          error: Pahoittelut, äänen vahvistaminen epäonnistui. Ole hyvä ja äänestä uudestaan.
           experience: Minkälainen käyttökokemuksesi oli?
           feedback: Jätä meille palautetta
           header: Ääni vahvistettu
@@ -467,6 +491,9 @@ fi:
         processing:
           header: Käsitellään ääntä...
           text: Äänesi on vastaanotettu ja sitä käsitellään. Odota hetki.
+        update:
+          error: Äänen tilan päivitys epäonnistui
+          success: Äänen tilan päivitys onnistui
         verify:
           content:
             heading: Vahvista äänesi
@@ -507,6 +534,12 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_name}.
             email_subject: Olet luottamushenkilö kohteessa %{resource_name}.
             notification_title: Olet luottamushenkilö kohteessa <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Äänesi hyväksyttiin! Voit <a href="%{verify_url}">tarkastaa äänesi täältä</a> käyttäen äänestystunnustasi: %{encrypted_vote_hash}.'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska äänestit vaaleissa %{resource_name}.
+            email_subject: Äänesi vaaleihin %{resource_name} hyväksyttiin.
+            notification_title: 'Äänesi hyväksyttiin. Voit <a href="%{verify_url}">tarkastaa äänesi täältä</a> käyttäen äänestystunnustasi: %{encrypted_vote_hash}'
     help:
       participatory_spaces:
         votings:
@@ -534,8 +567,17 @@ fi:
             attachment_collections: Kansiot
             attachment_files: Tiedostot
             attachments: Liitteet
+            components: Komponentit
             info: Tiedot
         models:
+          polling_officer:
+            fields:
+              email: Sähköposti
+              name: Nimi
+          polling_station:
+            fields:
+              address: Osoite
+              title: Otsikko
           voting:
             fields:
               created_at: Luonnin ajankohta
