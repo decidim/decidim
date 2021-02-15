@@ -225,7 +225,7 @@ fi:
             requirements:
               time_after: Äänestys on päättynyt. Voit sulkea äänestysajan manuaalisesti tai se suljetaan automaattisesti muutaman minuutin päästä.
             submit: Päätä äänestysaika
-            success: Pyyntösi lopettaa äänestysaika on onnistuneesti lähetetty äänestystaululle
+            success: Pyyntösi päättää äänestysaika on onnistuneesti lähetetty äänestystaululle
             title: Äänestysaika
           vote_ended:
             invalid: Ääntenlaskennan käynnistäminen epäonnistui
@@ -505,7 +505,7 @@ fi:
             info: Tämä tarkastustyökalu varmentaa, että salatulla merkkijonolla löytyvä äänesi on annettu oikein ja se on vaaliuurnassa.
           error:
             header: Ääntä ei löytynyt!
-            info: Äänestyskoodia ei löytynyt vaaliuurnasta %{link}, yritä uudelleen.
+            info: Äänestystunnusta ei löytynyt vaaliuurnasta %{link}, yritä uudelleen.
           form:
             back: Takaisin Decidimiin
             submit: Tarkista
