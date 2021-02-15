@@ -389,6 +389,7 @@ fi:
           title: Muokkaa tapaamista
           update: Päivitä
         filters:
+          activity: Oma toiminta
           all: Kaikki
           category: Aihepiiri
           date: Päivämäärä
