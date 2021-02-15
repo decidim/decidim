@@ -21,7 +21,7 @@ $(() => {
   const authorityPublicKeyJSON = JSON.stringify($tally.data("authorityPublicKey"))
 
   const trusteeContext = {
-    uniqueId: $tally.data("trusteeUniqueId"),
+    uniqueId: $tally.data("trusteeSlug"),
     publicKeyJSON: JSON.stringify($tally.data("trusteePublicKey"))
   };
   const trusteeIdentificationKeys = new IdentificationKeys(
