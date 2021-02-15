@@ -399,6 +399,7 @@ fi:
           email_intro: "%{applicant_nickname} hakee jäseneksi kannatuskomiteaan aloitteellesi %{resource_title}. Voit hyväksyä tai hylätä hakemuksen aloitteen muokkauslomakkeen kautta."
           email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet luonut aloitteen %{resource_title}'
           email_subject: "%{applicant_nickname} haluaa liittyä mukaan aloitteeseesi"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> haki jäseneksi aloitteesi <a href="%{resource_url}">%{resource_title}</a> kannatuskomiteaan. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}/edit">aloitteen muokkaussivulta</a>.
       form:
         add_attachments: Asiakirjat
         attachment_legend: "(Vapaaehtoinen) Lisää liitteitä"
