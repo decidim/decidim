@@ -644,7 +644,12 @@ fi:
             update: Päivitä
           form:
             select_a_voting_type: Valitse äänestystapa
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
+            voting_type:
+              hybrid: Yhdistetty äänestystapa
+              in_person: Fyysinen äänestys
+              online: Verkkoäänestys
           new:
             create: Luo
             title: Uusi äänestys
@@ -669,6 +674,19 @@ fi:
             active_votings: Aktiiviset äänestykset
             see_all_votings: Näytä kaikki äänestykset
             votings_button_title: Linkki kaikkien äänestysten sivulle
+      polling_officers:
+        actions:
+          confirm_destroy: Oletko varma?
+          destroy: Poista
+          new: Uusi
+          title: Toiminnot
+      polling_stations:
+        actions:
+          confirm_destroy: Oletko varma?
+          destroy: Poista
+          edit: Muokkaa
+          new: Uusi
+          title: Toiminnot
       votings:
         count:
           title:
@@ -687,6 +705,7 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         index:
+          no_votings: Hakuehdoillasi ei löytynyt yhtään äänestystä.
           only_finished: Tällä hetkellä ei ole yhtään ajastettua äänestystä, mutta täältä näet kaikki päättyneet äänestykset.
           title: Äänestykset
         orders:
