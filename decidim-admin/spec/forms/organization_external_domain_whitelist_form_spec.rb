@@ -9,10 +9,22 @@ module Decidim
         described_class.from_model(organization)
       end
 
-      let(:organization) { create(:organization, external_domain_whitelist: ["example.org"]) }
+      context "when domain whitelist is empty" do
+        let(:organization) { create(:organization, external_domain_whitelist: []) }
 
-      context "when everything is OK" do
         it { is_expected.to be_valid }
+      end
+
+      context "when everything is ok" do
+        let(:organization) { create(:organization, external_domain_whitelist: ["decidim.org", "github.com", "example.org"]) }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when whitelist item is too short" do
+        let(:organization) { create(:organization, external_domain_whitelist: ["example.org", ".gg"]) }
+
+        it { is_expected.not_to be_valid }
       end
     end
   end

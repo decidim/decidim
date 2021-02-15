@@ -327,6 +327,12 @@ en:
         show:
           view_more_logs: View more logs
           welcome: Welcome to the Decidim Admin Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domain too short
+        update:
+          error: Failed to update domain whitelist
+          success: Domain whitelist updated successfully
       exports:
         export_as: "%{name} as %{export_format}"
         formats:

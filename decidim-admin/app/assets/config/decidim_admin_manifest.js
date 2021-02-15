@@ -6,4 +6,3 @@
 //= link decidim/admin/application.css
 //= link decidim/admin/form.js
 //= link decidim/admin/import_guidance.js
-//= link decidim/admin/external_domain_whitelist.js

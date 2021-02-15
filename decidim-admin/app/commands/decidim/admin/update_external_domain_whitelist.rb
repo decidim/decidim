@@ -3,14 +3,14 @@
 module Decidim
   module Admin
     class UpdateExternalDomainWhitelist < Rectify::Command
-      attr_reader :form
+      attr_reader :form, :organization
 
-      def initialize(form)
+      def initialize(form, organization)
         @form = form
+        @organization = organization
       end
 
       def call
-        raise "INVALIDFORM" if form.invalid?
         return broadcast(:invalid) if form.invalid?
 
         save_domains!
@@ -21,11 +21,11 @@ module Decidim
       private
 
       def save_domains!
-        current_organization.external_domain_whitelist = form.external_domains.filter_map do |domain|
-          domain.value unless domain.deleted
+        organization.external_domain_whitelist = form.external_domains.filter_map do |external_domain_form|
+          external_domain_form.value unless external_domain_form.deleted
         end.flatten
 
-        current_organization.save!
+        organization.save!
       end
     end
   end
