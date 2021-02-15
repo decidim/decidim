@@ -36,6 +36,8 @@ fi:
           destroy_nok: Vahvistusten kumoaminen epäonnistui.
           info: Yhteensä %{count} vahvistettua osallistujaa.
           no_data: Ei vahvistettuja osallistujia
+          title: Valtuutusten peruuttaminen
+        authorization_workflows: Tunnistautumistavat
     authorization_handlers:
       admin:
         csv_census:
