@@ -244,6 +244,7 @@ nl:
             destroy: Verwijder
             update: Bijwerken
           form:
+            child_scope_threshold_enabled_help: 'Deze configuratie-vlag biedt geen ondersteuning voor offline stemmen, het maakt subscopes mogelijk en werkt met een autorisatieverwerker die een scope associeert met de gebruiker. Zorg ervoor dat je deze machtiging selecteert, onderaan in de autorisatie-instellingen. Om de toepassingsmogelijkheden te kunnen laten werken moet het op hiërarchische wijze worden geconfigureerd: 1 ouder - N kind. Voor meer informatie over hoe deze configuratie werkt, zie deze <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a> .'
             title: Algemene informatie
           initiative_type_scopes:
             title: Scopes voor het initiatieftype
@@ -305,8 +306,10 @@ nl:
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
+          edit_my_initiative: Mijn initiatieven bewerken
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
+          send_my_initiative: Stuur mijn initiatief naar technische validatie
         previous_form:
           back: Terug
           continue: Doorgaan met
@@ -430,6 +433,7 @@ nl:
         print:
           city: stad
         result:
+          answer_title: Dit initiatief is beantwoord
           initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
         show:
           follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
