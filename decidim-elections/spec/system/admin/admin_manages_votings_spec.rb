@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages votings", type: :system do
-  include_context "when administrating a voting"
+  include_context "when admin managing a voting"
 
   before do
     switch_to_host(organization.host)
