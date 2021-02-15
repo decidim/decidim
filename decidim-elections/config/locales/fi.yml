@@ -369,6 +369,7 @@ fi:
             keys:
               create_election: Avainten luonti
               key_ceremony:
+                joint_election_key: Yhteisen avaimen luonti
                 step_1: Avainten julkaisu
             list:
               status: Tila
