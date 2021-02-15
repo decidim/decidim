@@ -548,6 +548,8 @@ fi:
     help:
       participatory_spaces:
         votings:
+          contextual: "<p><strong>Äänestys</strong> on osallistumistila, jossa voit kysyä selkeitä kysymyksiä kaikilta organisaation ihmisiltä, päättää äänestykseen osallistumisesta sekä kannustaa ja järjestää keskusteluita tietyn lopputuloksen puolesta tai sitä vastaan. Kun äänestysaika alkaa, voit äänestää ja julkaista äänestystuloksen.</p> <p>Esimerkkejä: äänestyksiä voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
+          page: "<p><strong>Äänestys</strong> on osallistumistila, jossa voit kysyä selkeitä kysymyksiä kaikilta organisaation ihmisiltä, päättää äänestykseen osallistumisesta sekä kannustaa ja järjestää keskusteluita tietyn lopputuloksen puolesta tai sitä vastaan. Kun äänestysaika alkaa, voit äänestää ja julkaista äänestystuloksen.</p> <p>Esimerkkejä: äänestyksiä voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
           title: Mitä ovat äänestykset?
     menu:
       votings: Äänestykset
