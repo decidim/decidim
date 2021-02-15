@@ -249,6 +249,7 @@ fi:
         update: "%{user_name} päivitti ryhmän asetuksia"
       assembly_type:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
+        delete: "%{user_name} poisti ryhmätyypin %{resource_name}"
         publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
         unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
         update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
@@ -385,6 +386,8 @@ fi:
         comments_count: Kommenttia
         debates_count: Keskustelua
         endorsements_count: Suositusta
+        followers_count: Seuraajat
+        headline: Tilastot
         meetings_count: Tapaamista
         orders_count: Kannatusta
         pages_count: Sivua
