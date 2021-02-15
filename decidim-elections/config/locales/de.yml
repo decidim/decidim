@@ -730,6 +730,7 @@ de:
           vote: Abstimmen
         unspecified: Keine Angabe
         voting_type:
+          hybrid: Hybrid
           in_person: Persönlich
           online: Online
   layouts:
