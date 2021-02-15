@@ -441,18 +441,18 @@ en:
         new:
           complete_profile: Complete profile
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
-          nickname_placeholder: "foobar"
+          nickname_placeholder: foobar
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
-          username_placeholder: "Foo Bar"
+          username_placeholder: Foo Bar
       registrations:
         new:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
-          nickname_placeholder: "foobar"
+          nickname_placeholder: foobar
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up
@@ -463,7 +463,7 @@ en:
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
-          username_placeholder: "Foo Bar"
+          username_placeholder: Foo Bar
       sessions:
         new:
           are_you_new?: New to the platform?
