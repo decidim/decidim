@@ -16,6 +16,9 @@ fr-CA:
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
+      voting:
+        end_time: Le vote se termine
+        start_time: Le vote commence le
     errors:
       models:
         answer:
@@ -633,6 +636,8 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Dérouler
         index:
+          no_votings: Aucun vote ne correspond à votre recherche.
+          only_finished: À l'heure actuelle, il n'y a pas de votes planifiés, mais vous trouverez ici une liste de tous les votes passées.
           title: Votations
         orders:
           label: 'Trier les votations par:'
@@ -646,8 +651,15 @@ fr-CA:
           ongoing: En cours
           upcoming: À venir
         footer_button_text:
+          participate: Participer
           view: Voir
+          vote: Voter
         unspecified: Non précisées
+        voting_type:
+          hybrid: Hybride
+          in_person: En présentiel
+          online: En ligne
+        voting_types_label: Type de vote
   layouts:
     decidim:
       election_votes_header:
