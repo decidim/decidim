@@ -188,6 +188,7 @@ fi:
               time_before: Vaalin määritys tulee tapahtua <strong>vähintään %{hours} tuntia</strong> ennen sen alkamista.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             submit: Määritä vaali
+            success: Vaalin lähetys äänestystaululle onnistui
             title: Määritä vaali
             trustees: Vaalin luottamushenkilöt
           created:
@@ -196,10 +197,13 @@ fi:
           key_ceremony:
             trustees: Luottamushenkilöt
           key_ceremony_ended:
+            errors:
+              time_before: Vaali on valmis alkamaan. Vaalin äänestysaika voidaan käynnistää aikaisintaan %{hours} tuntia ennen alkamisaikaa (%{start_time}).
             invalid: Äänestysajan käynnistäminen epäonnistui
             requirements:
               time_before: 'Äänestys alkaa pian. Voit käynnistää äänestysajan manuaalisesti tai se käynnistetään automaattisesti ennen alkamisaikaa: %{start_time}.'
             submit: Käynnistä äänestys
+            success: Pyyntösi aloittaa äänestysaika on onnistuneesti lähetetty äänestystaululle
             title: Valmis alkamaan
           processing: Käsitellään...
           results_published:
@@ -217,10 +221,12 @@ fi:
             requirements:
               time_after: Äänestys on päättynyt. Voit sulkea äänestysajan manuaalisesti tai se suljetaan automaattisesti muutaman minuutin päästä.
             submit: Päätä äänestysaika
+            success: Pyyntösi lopettaa äänestysaika on onnistuneesti lähetetty äänestystaululle
             title: Äänestysaika
           vote_ended:
             invalid: Ääntenlaskennan käynnistäminen epäonnistui
             submit: Aloita ääntenlaskenta
+            success: Pyyntösi aloittaa ääntenlaskenta on onnistuneesti lähetetty äänestystaululle
             title: Äänestysaika on päättynyt
         trustees_participatory_spaces:
           actions:
@@ -245,7 +251,11 @@ fi:
             success: Luottamushenkilön %{trustee} päivittäminen onnistui
       admin_log:
         election:
+          end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} äänestystaululla"
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
+          setup: "%{user_name} loi vaalin %{resource_name} äänestystaululle"
+          start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} äänestystaululla"
+          start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} äänestystalululla"
           unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun"
       election_m:
         badge_name:
@@ -290,10 +300,22 @@ fi:
             one: "%{count} ääni"
             other: "%{count} ääntä"
         show:
+          action-button:
+            change-vote: Muuta ääntäsi
+            vote: Aloita äänestys
+            vote-again: Äänestä uudelleen
           back: Käynnissä olevat vaalit
+          callout:
+            already-voted: Olet jo äänestänyt näissä vaaleissa. Voit muuttaa ääntäsi tai tarkastaa sen.
+            vote-rejected: Ääntäsi ei voida tarkastaa. Ole hyvä ja lähetä äänesi uudestaan.
           preview: Esikatsele
+          verify:
+            already-voted: Oletko jo äänestänyt?
+            verify-here: Tarkista äänesi täältä.
+            will-verify: Voit tarkistaa äänesi, kun vaalit ovat alkaneet.
           voting_period_status:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
+            ongoing: 'Äänestysaika päättyy: %{end_time}'
             upcoming: Äänestys alkaa %{start_time}
       feedback:
         answer:
@@ -307,6 +329,7 @@ fi:
             title: Otsikko
         election:
           fields:
+            bb_status: Äänestystaulun tila
             end_time: Päättymisaika
             start_time: Alkamisaika
             title: Otsikko
@@ -331,6 +354,7 @@ fi:
       trustee_zone:
         elections:
           backup_modal:
+            description: Näitä vaaleja luodaan äänestystaululle. On erityisen tärkeää, että jokainen luottamushenkilö luo varmuuskopion näistä avaimista ja tallentaa sen turvalliseen paikkaan. Tämän jälkeen, prosessi jatkuu.
             download_election_keys: Lataa avaimet
             download_icon: Kuvake, joka ilmaisee lataustoiminnon
             title: Varmuuskopioi vaaliavaimet kohteelle %{election}
