@@ -16,6 +16,9 @@ cs:
         max_selections: Maximální počet výběrů
         min_selections: Žádná z výše uvedených možností
         title: Název
+      voting:
+        end_time: Hlasování končí
+        start_time: Hlasování začíná
     errors:
       models:
         answer:
@@ -723,6 +726,8 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozbalit
         index:
+          no_votings: Žádné hlasování neodpovídá vašim kritériím hledání.
+          only_finished: Momentálně nejsou žádné naplánované hlasování, ale zde můžete najít dokončené hlasování uvedené v seznamu.
           title: Hlasování
         orders:
           label: 'Seřadit hlasy podle:'
@@ -736,8 +741,15 @@ cs:
           ongoing: Probíhající
           upcoming: Nadcházející
         footer_button_text:
+          participate: Účastnit se
           view: Zobrazit
+          vote: Hlasovat
         unspecified: Nespecifikováno
+        voting_type:
+          hybrid: Hybridní
+          in_person: Osobně
+          online: Online
+        voting_types_label: Typ hlasování
   layouts:
     decidim:
       election_votes_header:
