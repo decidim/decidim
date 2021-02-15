@@ -143,14 +143,26 @@ nl:
     admin:
       actions:
         add: Toevoegen
+        attachment:
+          new: Nieuwe bijlage
+        attachment_collection:
+          new: Nieuwe groep bijlagen
         browse: Browsen
+        category:
+          new: Nieuwe categorie
         export: Exporteren
         import: Importeren
         manage: Beheer
         new: Nieuwe %{name}
+        newsletter:
+          new: Nieuwe nieuwsbrief
+        participatory_space_private_user:
+          new: Nieuwe privégebruiker van de burgerinspraak
         per_page: Per pagina
         permissions: Permissies
         reject: Weigeren
+        user:
+          new: Nieuwe gebruiker
         verify: Verifiëren
       admin_terms_of_use:
         accept:
