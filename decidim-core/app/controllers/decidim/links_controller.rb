@@ -2,7 +2,7 @@
 
 module Decidim
   class LinksController < Decidim::ApplicationController
-    helper Decidim::ExternalLinkPageHelper
+    helper Decidim::ExternalDomainHelper
 
     def new; end
   end

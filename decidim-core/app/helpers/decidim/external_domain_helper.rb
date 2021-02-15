@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ExternalLinkPageHelper
+  module ExternalDomainHelper
     def highlight_domain(url)
       parts = url.match %r{^(([a-z]+):)?//([^/]+)(/.*)?$}
       tag.p do

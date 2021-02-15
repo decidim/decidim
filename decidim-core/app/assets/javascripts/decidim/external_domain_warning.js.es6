@@ -1,7 +1,7 @@
 ((exports) => {
   $(() => {
-    const currentDomain = window.location.host
-    const whitelist = exports.Decidim.config.get("external_domain_whitelist");
+    const currentDomainAndPort = window.location.host
+    const whitelist = exports.Decidim.config.get("external_domain_whitelist").concat(window.location.hostname);
     // console.log("whitelist", whitelist)
 
     if (window.location.pathname === "/link") {
@@ -11,7 +11,6 @@
     $(() => {
       $("a").attr("href", (_n, link) => {
         if (!link) {
-          // console.log("not a link")
           return "";
         }
 
@@ -24,7 +23,7 @@
         if (whitelist.includes(domain)) {
           return link;
         }
-        return  `${currentDomain}/link?external_link=${link}`
+        return  `${currentDomainAndPort}/link?external_link=${link}`
       });
     });
   });
