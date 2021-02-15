@@ -135,8 +135,12 @@ nl:
       models:
         result:
           fields:
+            category: Categorie
+            created_at: Aangemaakt
             end_date: Einddatum
+            id: ID
             progress: Vooruitgang
+            scope: Scope
             start_date: Startdatum
             status: Status
             title: Titel
@@ -180,6 +184,15 @@ nl:
             votes: Ondersteunt
         timeline:
           title: Project evolutie
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Scope
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Opvolging
