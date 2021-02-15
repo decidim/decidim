@@ -17,12 +17,7 @@ module Decidim
     end
 
     def delete_attachment(attachment)
-      if attachment.present?
-        check_delete_file = attachment[:delete_file]
-        attachment_id = attachment[:id].to_i
-
-        Attachment.find(attachment_id).delete if check_delete_file == "1" && attachment_id == proposal.documents.first.id
-      end
+      Attachment.find(attachment.id).delete if attachment.id == proposal.documents.first.id
     end
 
     def attachment_invalid?
@@ -51,6 +46,10 @@ module Decidim
 
     def process_attachments?
       attachments_allowed? && attachment_present? && attachment_file_uploaded?
+    end
+
+    def delete_attachment?
+      @form.attachment&.delete_file.present?
     end
   end
 end
