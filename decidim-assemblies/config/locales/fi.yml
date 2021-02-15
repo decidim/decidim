@@ -389,12 +389,16 @@ fi:
         followers_count: Seuraajat
         headline: Tilastot
         meetings_count: Tapaamista
+        no_stats: Tilastoja ei vielä ole.
         orders_count: Kannatusta
         pages_count: Sivua
+        participants_count: Osallistujaa
         posts_count: Artikkeleja
+        processes_count: Prosessia
         projects_count: Suunnitelmaa
         proposals_count: Ehdotusta
         results_count: Tulosta
+        supports_count: Kannatusta
         surveys_count: Kyselyä
         users_count: Osallistujaa
         votes_count: Kannatusta
@@ -444,6 +448,8 @@ fi:
       home:
         hero:
           participate_title: Osallistu palvelun prosesseihin
+        sub_hero:
+          register_title: Rekisteröidy luodaksesi itsellesi oman tilin
     participatory_processes:
       pages:
         home:
