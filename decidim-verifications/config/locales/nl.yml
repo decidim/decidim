@@ -131,6 +131,7 @@ nl:
             title: Huidige censusgegevens
           instructions:
             body: Hiervoor moet u het systeembeheer invoeren en de csv_census-autorisaties toevoegen aan de organisatie
+            title: Je moet de CSV-census voor deze organisatie activeren
           new:
             file: ".csv-bestand met e-mailgegevens"
             info: 'Moet een bestand zijn in CSV formaat met slechts één kolom met het e-mailadres:'
