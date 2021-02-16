@@ -428,6 +428,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
+          nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
@@ -436,6 +437,7 @@ nl:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
+          nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
