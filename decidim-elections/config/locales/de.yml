@@ -349,6 +349,7 @@ de:
             title: Titel
         trustees_participatory_space:
           fields:
+            considered: berücksichtigt
             email: E-Mail
             inactive: inaktiv
             name: Name
@@ -568,6 +569,17 @@ de:
         content_blocks:
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
+          landing_page:
+            attachments_and_folders:
+              name: Materialien und Verzeichnisse zur Abstimmung
+            description:
+              name: Beschreibung der Abstimmung
+            html_block_1:
+              name: Abstimmung html Block 1
+            html_block_2:
+              name: Abstimmung html Block 2
+            html_block_3:
+              name: Abstimmung html Block 3
         index:
           not_published: Unveröffentlicht
           published: Veröffentlicht
