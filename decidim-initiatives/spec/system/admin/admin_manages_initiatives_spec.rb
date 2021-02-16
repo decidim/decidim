@@ -8,6 +8,7 @@ describe "Admin manages initiatives", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, organization: organization) }
   let(:model_name) { Decidim::Initiative.model_name }
+  let(:resource_controller) { Decidim::Initiatives::Admin::InitiativesController }
   let(:type1) { create :initiatives_type, organization: organization }
   let(:type2) { create :initiatives_type, organization: organization }
   let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
