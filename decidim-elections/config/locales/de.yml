@@ -232,6 +232,11 @@ de:
             submit: Stimmenzählung starten
             success: Die Anfrage zum Starten der Stimmenzählung wurde erfolgreich ans Bulletin Board gesendet
             title: Abstimmungsperiode abgeschlossen
+          vote_stats:
+            no_vote_statistics_yet: Noch keine Statistiken zur Abstimmung
+            title: Statistiken zur Abstimmung
+            voters: Wähler
+            votes: Stimmen
         trustees_participatory_spaces:
           actions:
             disable: Deaktivieren
