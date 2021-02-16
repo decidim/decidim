@@ -112,6 +112,47 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
     end
   end
 
+  describe "voting period" do
+    let!(:election) { create :election, :bb_test, :vote, component: current_component }
+
+    context "with no vote statistics" do
+      it "shows text about vote statistics" do
+        within find("tr", text: translated(election.title)) do
+          page.find(".action-icon--manage-steps").click
+        end
+
+        within "#vote-stats" do
+          expect(page).to have_content("Vote Statistics")
+          expect(page).to have_content("No vote statistics yet")
+        end
+      end
+    end
+
+    context "with vote statistics" do
+      let!(:user_1) { create :user, :confirmed }
+      let!(:user_2) { create :user, :confirmed }
+      let!(:user_1_votes) { create_list :vote, 3, election: election, status: "accepted", voter_id: "voter_#{user_1.id}" }
+      let!(:user_2_votes) { create :vote, election: election, status: "accepted", voter_id: "voter_#{user_2.id}" }
+
+      it "shows votes and unique voters" do
+        within find("tr", text: translated(election.title)) do
+          page.find(".action-icon--manage-steps").click
+        end
+
+        within "#vote-stats" do
+          expect(page).to have_content("Votes")
+          expect(page).to have_content("Voters")
+
+          votes = find(:xpath, '//*[@id="vote-stats"]/div/div[2]/table/tbody/tr/td[2]')
+          expect(votes).to have_content("4")
+
+          voters = find(:xpath, '//*[@id="vote-stats"]/div/div[2]/table/tbody/tr/td[3]')
+          expect(voters).to have_content("2")
+        end
+      end
+    end
+  end
+
   describe "end the voting period" do
     let!(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
 
