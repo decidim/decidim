@@ -1063,7 +1063,7 @@ cs:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     own_user_groups:
       index:
-        pending: čekající
+        pending: Čekající
         rejected: Odmítnuto
         verified: Ověřeno
     pad_iframe:
