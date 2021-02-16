@@ -407,9 +407,39 @@ nl:
         content_blocks:
           highlighted_votings:
             max_results: Maximum aantal elementen dat kan worden weergegeven
+          landing_page:
+            attachments_and_folders:
+              name: Stemronde bijlagen en mappen
+            description:
+              name: Beschrijving stemronde
+            elections:
+              name: Stemronde verkiezingen
+            header:
+              name: Stemronde koptekst
+            html_block_1:
+              name: Voting html blok 1
+            html_block_2:
+              name: Voting html blok 2
+            html_block_3:
+              name: Voting html blok 3
+            metrics:
+              name: Stemronde cijfers
+            polling_stations:
+              name: Stembureaus
+            stats:
+              name: Stemronde statistieken
+            timeline:
+              name: Stemronde tijdlijn
         index:
           not_published: Niet-gepubliceerd
           published: Gepubliceerd
+        landing_page:
+          content_blocks:
+            edit:
+              update: Bijwerken
+          edit:
+            active_content_blocks: Actieve inhoudsblokken
+            inactive_content_blocks: Inactieve inhoudsblokken
         menu:
           votings: Stemrondes
           votings_submenu:
@@ -418,6 +448,7 @@ nl:
             attachments: Bijlagen
             components: Onderdelen
             info: Informatie
+            landing_page: Landingspagina
             polling_stations: Stembureau
         models:
           polling_station:
