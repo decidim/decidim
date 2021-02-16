@@ -658,6 +658,7 @@ nl:
           rich_text_editor_in_public_views_help: In bepaalde teksten kunnen deelnemers enkele HTML-tags toevoegen door gebruik te maken van de rich text-editor.
           social_handlers: Sociaal
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
@@ -692,6 +693,7 @@ nl:
           error: Er was een probleem met het verwijderen van een privé-deelnemer voor deze participatieruimte.
           success: De toegang van de privé deelnemer voor burgerinspraak is met succes verwijderd.
         index:
+          import_via_csv: Importeren via csv
           title: Participerende ruimte voor privé deelnemer
         new:
           create: creëren
