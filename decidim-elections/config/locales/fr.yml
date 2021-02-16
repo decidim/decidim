@@ -226,6 +226,11 @@ fr:
             title: Période de vote
           vote_ended:
             title: Période de vote terminée
+          vote_stats:
+            no_vote_statistics_yet: Pas encore de statistiques sur le vote
+            title: Statistiques du vote
+            voters: Votants
+            votes: Votes
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
