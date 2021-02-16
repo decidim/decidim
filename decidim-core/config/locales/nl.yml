@@ -129,6 +129,7 @@ nl:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
         create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd als privé deelnemer"
         delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
@@ -937,6 +938,8 @@ nl:
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:
+      download:
+        csv: Gegevens downloaden (csv)
       followers:
         description: Aantal deelnemers dat deze participatieruimte volgt
         object: volgers
