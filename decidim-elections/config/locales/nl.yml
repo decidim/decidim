@@ -331,6 +331,18 @@ nl:
               submit: Verzenden
               submit_legend: Na het volgen van alle bovenstaande stappen, voltooi het proces door de publieke identificatiesleutel naar de Decidim server te sturen.
               submit_title: Vul de publieke identificatiesleutel in
+              title: Trustee identificatiesleutels
+              upload: Upload jouw identificatiesleutels
+              upload_error:
+                invalid_format: Het geüploade bestand bevat geen identificatiesleutel.
+                invalid_key: De identificatiesleutels in het geüploade bestand kunnen niet worden geladen.
+                invalid_public_key: De identificatiesleutels in het geüploade bestand komen niet overeen met de publieke identificatiesleutel die door Decidim is opgeslagen.
+              upload_legend: Decidim heeft jouw publieke identificatiesleutels, maar je browser heeft deze nog niet. Je moet het bestand met jouw identificatiesleutels importeren naar je computer, vanuit de back-up die je hebt gemaakt na het genereren ervan.
+            not_supported_browser_description: Het lijkt erop dat je een webbrowser gebruikt die niet kan gebruikt worden als Trustee. Zorg ervoor dat je de meest recente versie van je browser gebruikt, of probeer een van de populairste browsers te gebruiken om je Trustee taken te voltooien.
+            not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
+            trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
+          update:
+            success: Jouw publieke identificatiesleutel werd succesvol opgeslagen.
       votes:
         confirm:
           answer: Beantwoorden
@@ -409,6 +421,7 @@ nl:
             email_subject: Je bent trustee voor de %{resource_title} stemronde..
             notification_title: Je bent trustee voor <a href="%{resource_path}">%{resource_title}</a> stemronde.
           new_trustee:
+            email_intro: Een beheerder heeft u toegevoegd als Trustee voor %{resource_name}. Je moet jouw openbare sleutel maken <a href='%{trustee_zone_url}'>in je Trustee zone</a>
             email_outro: Je hebt deze melding ontvangen omdat je bent toegevoegd als trustee van %{resource_name}.
             email_subject: Je bent een trustee van %{resource_name}.
             notification_title: Je bent een trustee van <a href="%{participatory_space_url}">%{resource_name}</a>.
