@@ -12,7 +12,7 @@ module Decidim
 
       def query
         Rectify::Query.merge(
-          OrganizationPublishedVotings.new(@organization, @user),
+          OrganizationPublishedVotings.new(@organization),
           PrioritizedVotings.new
         ).query
       end

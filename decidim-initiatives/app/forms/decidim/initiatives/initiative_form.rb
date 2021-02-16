@@ -5,6 +5,7 @@ module Decidim
     # A form object used to collect the data for a new initiative.
     class InitiativeForm < Form
       include TranslatableAttributes
+      include AttachmentAttributes
 
       mimic :initiative
 
@@ -18,10 +19,10 @@ module Decidim
       attribute :signature_end_date, Date
       attribute :state, String
       attribute :attachment, AttachmentForm
-      attribute :documents, Array[String]
-      attribute :add_documents, Array
-      attribute :photos, Array[String]
       attribute :hashtag, String
+
+      attachments_attribute :photos
+      attachments_attribute :documents
 
       validates :title, :description, presence: true
       validates :title, length: { maximum: 150 }
@@ -50,38 +51,6 @@ module Decidim
 
       def area_updatable?
         @area_updatable ||= current_user.admin? || context.initiative.created?
-      end
-
-      # Public: Returns a collection of photo attachments.
-      #
-      # We need this method because when an initiative has documents and there's a
-      # validation error in any other field the view template can't render if
-      # they aren't a collection of attachments but they would be a collection
-      # of String.
-      def documents
-        @documents = super.map do |document|
-          if document.is_a?(String)
-            Decidim::Attachment.find(document)
-          else
-            document
-          end
-        end
-      end
-
-      # Public: Returns a collection of photo attachments.
-      #
-      # We need this method because when an initiative has photos and there's a
-      # validation error in any other field the view template can't render if
-      # they aren't a collection of attachments but they would be a collection
-      # of String.
-      def photos
-        @photos = super.map do |photo|
-          if photo.is_a?(String)
-            Decidim::Attachment.find(photo)
-          else
-            photo
-          end
-        end
       end
 
       def scope_id

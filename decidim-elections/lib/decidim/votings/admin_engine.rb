@@ -16,7 +16,12 @@ module Decidim
             put :unpublish
           end
 
+          resource :landing_page, only: [:edit, :update], controller: "votings_landing_page" do
+            resources :content_blocks, only: [:edit, :update], controller: "votings_landing_page_content_blocks"
+          end
+
           resources :polling_stations
+          resources :polling_officers, only: [:new, :create, :destroy, :index]
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
         end

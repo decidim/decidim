@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_context "when administrating a voting" do
+shared_context "when admin managing a voting" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 

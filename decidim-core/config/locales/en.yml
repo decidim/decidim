@@ -466,6 +466,8 @@ en:
           register: Create an account
           sign_in_disabled: You can access with an external account
           sign_up_disabled: Sign up is disabled, you can use an existing account to access
+        user:
+          timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
       shared:
         newsletter_modal:
           buttons:
@@ -662,7 +664,7 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: 'Click the next button to download your data.<br/>You will have the file available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
+        click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
@@ -1590,6 +1592,11 @@ en:
         instagram: "%{organization} at Instagram"
         twitter: "%{organization} at Twitter"
         youtube: "%{organization} at YouTube"
+      timeout_modal:
+        body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
+        continue_session: Continue session
+        sign_out: Sign out
+        title: Would you like to continue your session?
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard

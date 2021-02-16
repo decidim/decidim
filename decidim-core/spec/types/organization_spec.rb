@@ -25,7 +25,7 @@ describe "Decidim::Api::QueryType" do
 
   describe "valid query" do
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
 
     it "has name" do

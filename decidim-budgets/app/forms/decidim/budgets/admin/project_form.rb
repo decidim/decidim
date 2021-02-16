@@ -6,6 +6,7 @@ module Decidim
       # This class holds a Form to create/update projects from Decidim's admin panel.
       class ProjectForm < Decidim::Form
         include TranslatableAttributes
+        include AttachmentAttributes
         include TranslationsHelper
         include Decidim::ApplicationHelper
 
@@ -17,9 +18,9 @@ module Decidim
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
         attribute :attachment, AttachmentForm
-        attribute :photos, Array[String]
-        attribute :add_photos, Array
         attribute :selected, Boolean
+
+        attachments_attribute :photos
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

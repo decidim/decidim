@@ -334,6 +334,36 @@ module Decidim
           end
         end
 
+        Decidim.metrics_registry.register(:blocked_users) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::BlockedUsersMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
+
+        Decidim.metrics_registry.register(:user_reports) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::UserReportsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
+
+        Decidim.metrics_registry.register(:reported_users) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::ReportedUsersMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
+
         Decidim.metrics_registry.register(:participants) do |metric_registry|
           metric_registry.manager_class = "Decidim::Metrics::ParticipantsMetricManage"
 

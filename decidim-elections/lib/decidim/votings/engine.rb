@@ -73,6 +73,66 @@ module Decidim
             settings.attribute :max_results, type: :integer, default: 4
           end
         end
+
+        Decidim.content_blocks.register(:voting_landing_page, :header) do |content_block|
+          content_block.cell = "decidim/votings/content_blocks/landing_page/header"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.header.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :description) do |content_block|
+          content_block.cell = "decidim/votings/content_blocks/landing_page/description"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.description.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :elections) do |content_block|
+          content_block.cell = "decidim/votings/content_blocks/landing_page/elections"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.elections.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :polling_stations) do |content_block|
+          content_block.cell = "decidim/votings/content_blocks/landing_page/polling_stations"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.polling_stations.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :attachments_and_folders) do |content_block|
+          content_block.cell = "decidim/votings/content_blocks/landing_page/attachments_and_folders"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.attachments_and_folders.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :stats) do |content_block|
+          content_block.cell = "decidim/votings/content_blocks/landing_page/stats"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.stats.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :metrics) do |content_block|
+          content_block.cell = "decidim/votings/content_blocks/landing_page/metrics"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.metrics.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:voting_landing_page, :timeline) do |content_block|
+          content_block.cell = "decidim/votings/content_blocks/landing_page/timeline"
+          content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.timeline.name"
+          content_block.default!
+        end
+
+        1.upto(3) do |i|
+          Decidim.content_blocks.register(:voting_landing_page, "html_block_#{i}".to_sym) do |content_block|
+            content_block.cell = "decidim/content_blocks/html"
+            content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.html_block_#{i}.name"
+            content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
+
+            content_block.settings do |settings|
+              settings.attribute :html_content, type: :text, translated: true
+            end
+          end
+        end
       end
 
       initializer "decidim_votings.query_extensions" do
