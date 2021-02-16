@@ -32,6 +32,8 @@ nl:
           attributes:
             name:
               cant_be_changed: kan niet worden gewijzigd
+            public_key:
+              cant_be_changed: kan niet worden gewijzigd
   activerecord:
     models:
       decidim/elections/answer:
@@ -225,6 +227,7 @@ nl:
             change-vote: Wijzig je stem
             vote: Begin met stemmen
             vote-again: Stem nogmaals
+          back: Beschikbare verkiezingen
           callout:
             already-voted: Je hebt al gestemd in deze verkiezing. Je kunt je stem wijzigen of controleren.
             vote-rejected: Het was niet mogelijk om je stem te verifiëren. Gelieve je stem opnieuw uit te brengen.
@@ -298,6 +301,8 @@ nl:
           update:
             error: De verkiezingsstatus is niet bijgewerkt.
             success: 'De verkiezingsstatus is: %{status}'
+        menu:
+          trustee_zone: Trustee zone
         no_bulletin_board:
           body: Er is een geconfigureerd Bulletin Board nodig voor dit onderdeel. Neem contact op met de beheerder voor meer informatie.
           title: Sorry, het Bulletin Board is nog niet geconfigureerd.
@@ -310,6 +315,22 @@ nl:
                   name: Actie vereist?
                   'true': Actie uitvoeren
                 bb_status: Status
+                election: Verkiezing
+                voting_period: Stemperiode
+              no_elections: Er zijn geen verkiezingen waar jij als trustee optreedt.
+              title: Verkiezingen
+            identification_keys:
+              cancel: Annuleer
+              generate: Genereer identificatiesleutels
+              generate_error: Er is een fout opgetreden bij het genereren van de identificatiesleutels.
+              generate_legend: Je moet een paar identificatiesleutels genereren om als Trustee deel te nemen aan verkiezingen.
+              generate_legend_1: Na het indrukken van de knop moet je het bestand downloaden met de gegenereerde identificatiesleutels.
+              generate_legend_2: Kopieer het gedownloade bestand naar een veilig USB-apparaat
+              generate_legend_3: Zorg ervoor dat uw computer geen kopie van het bestand heeft (kijk bijvoorbeeld naar de downloads en Desktop-mappen).
+              generate_legend_4: Maak nog een kopie van het bestand op een ander extern apparaat en sla het op een zeer veilige plaats.
+              submit: Verzenden
+              submit_legend: Na het volgen van alle bovenstaande stappen, voltooi het proces door de publieke identificatiesleutel naar de Decidim server te sturen.
+              submit_title: Vul de publieke identificatiesleutel in
       votes:
         confirm:
           answer: Beantwoorden
