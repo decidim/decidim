@@ -305,6 +305,9 @@ nl:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum aantal elementen dat kan worden weergegeven
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Leden
