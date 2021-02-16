@@ -1,10 +1,13 @@
 <% if @step == :step_4 %>
+  <% edit_time_message = component_settings.proposal_edit_time == "infinite" ?
+    t("decidim.proposals.proposals.preview.proposal_edit_before_closing") :
+    t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes) %>
   <%= cell(
     "decidim/announcement",
     {
       title: t("decidim.proposals.proposals.preview.announcement_title"),
       body: [t("decidim.proposals.proposals.preview.announcement_body"),
-             t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)]
+             edit_time_message]
     },
     callout_class: "warning"
   ) %>
