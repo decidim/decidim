@@ -15,7 +15,7 @@
 
     $("a").filter((_i, link) => {
       const $link = $(link);
-      const parts = $link.attr("href").match(/^(([a-z]+):)?\/\/([^/]+)(\/.*)?$/);
+      const parts = $link.attr("href").match(/^(([a-z]+):)?\/\/([^/]+)(\/.*)?$/) || null;
       if (!parts) {
         return false;
       }
