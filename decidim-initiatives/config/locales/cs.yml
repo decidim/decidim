@@ -17,7 +17,7 @@ cs:
         state: Stav
         title: Titul
       initiatives_committee_member:
-        user: člen komise
+        user: Člen výboru
       initiatives_type:
         area_enabled: Povolit autorům vybrat oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
@@ -202,9 +202,9 @@ cs:
             approve: Schvalovat
             confirm_revoke: Jste si jisti?
             invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
-            no_members_yet: V komisi promotérů nejsou žádní členové
+            no_members_yet: Ve výboru promotérů nejsou žádní členové
             revoke: Zrušit
-            title: členové komise
+            title: Členové výboru
         content_blocks:
           highlighted_initiatives:
             max_results: Maximální množství prvků, které chcete zobrazit
@@ -355,7 +355,7 @@ cs:
           more_information: "(Více informací)"
         promotal_committee:
           back: Zpět
-          individual_help_text: Tento druh iniciativy vyžaduje promoterskou komisi skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
+          individual_help_text: Tento druh iniciativy vyžaduje promotérský výbor skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
           more_information: "(Více informací)"
         select_initiative_type:
           back: Zpět
@@ -599,7 +599,7 @@ cs:
       admin:
         initiative:
           attachments: Přílohy
-          committee_members: členové komise
+          committee_members: Členové výboru
           components: Komponenty
           information: Informace
       initiative_creation_header:
