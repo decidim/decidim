@@ -240,6 +240,7 @@ de:
         trustees_participatory_spaces:
           actions:
             disable: Deaktivieren
+            enable: Berücksichtigen
           create:
             exists: Ein Wahlhelfer existiert für diesen partizipativen Raum
             invalid: Es ist ein Problem beim erstellen des Wahlhelfers aufgetreten
@@ -580,9 +581,24 @@ de:
               name: Abstimmung html Block 2
             html_block_3:
               name: Abstimmung html Block 3
+            metrics:
+              name: Abstimmungsmetriken
+            polling_stations:
+              name: Wahllokale
+            stats:
+              name: Abstimmungsstatistiken
+            timeline:
+              name: Abstimmungs Timeline
         index:
           not_published: Unveröffentlicht
           published: Veröffentlicht
+        landing_page:
+          content_blocks:
+            edit:
+              update: Aktualisieren
+          edit:
+            active_content_blocks: Aktive Inhaltsblöcke
+            inactive_content_blocks: Inaktive Inhaltsblöcke
         menu:
           votings: Abstimmungen
           votings_submenu:
@@ -591,6 +607,7 @@ de:
             attachments: Dateianhänge
             components: Komponenten
             info: Information
+            landing_page: Landing-Page
             polling_officers: Wahllokal-Mitarbeitende
             polling_stations: Wahllokale
         models:
