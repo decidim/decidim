@@ -240,6 +240,9 @@ cs:
             submit: Začít Volební listinu
             success: Požadavek zahájení Volební listiny byl úspěšně odeslán na Bulletin Board
             title: Období hlasování skončilo
+          vote_stats:
+            title: Statistiky hlasování
+            voters: Voliči
         trustees_participatory_spaces:
           actions:
             disable: Zakázat
@@ -577,9 +580,18 @@ cs:
         content_blocks:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
+          landing_page:
+            description:
+              name: Popis hlasování
         index:
           not_published: Nezveřejněno
           published: Zveřejněno
+        landing_page:
+          content_blocks:
+            edit:
+              update: Aktualizovat
+          edit:
+            inactive_content_blocks: Neaktivní bloky obsahu
         menu:
           votings: Hlasování
           votings_submenu:
@@ -588,6 +600,7 @@ cs:
             attachments: Přílohy
             components: Komponenty
             info: Informace
+            landing_page: Vstupní stránka
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
