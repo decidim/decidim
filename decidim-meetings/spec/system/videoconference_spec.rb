@@ -49,7 +49,54 @@ describe "Videoconference", type: :system do
             expect(page).to have_selector("iframe")
           end
         end
+
+        describe "jitsi configuration" do
+          let(:iframe_config) { parse_iframe_config(page.find("iframe")) }
+
+          it "reads the user info" do
+            expect(iframe_config["userInfo.email"]).to eq(user.email)
+            expect(iframe_config["userInfo.displayName"]).to eq(user.name)
+          end
+
+          it "has the right interface settings" do
+            expect(iframe_config["interfaceConfig.SHOW_JITSI_WATERMARK"]).to eq(false)
+            expect(iframe_config["interfaceConfig.HIDE_INVITE_MORE_HEADER"]).to eq(true)
+            %w(
+              camera
+              chat
+              closedcaptions
+              desktop
+              download
+              etherpad
+              feedback
+              filmstrip
+              fodeviceselection
+              fullscreen
+              hangup
+              help
+              microphone
+              profile
+              raisehand
+              shortcuts
+              tileview
+              videobackgroundblur
+              videoquality
+            ).each { |button| expect(iframe_config["interfaceConfig.TOOLBAR_BUTTONS"]).to include(button) }
+          end
+
+          it "has the right config settings" do
+            expect(iframe_config["config.disableInviteFunctions"]).to eq(true)
+            expect(iframe_config["config.disableSimulcast"]).to eq(false)
+            expect(iframe_config["config.startWithAudioMuted"]).to eq(false)
+            expect(iframe_config["config.startWithVideoMuted"]).to eq(false)
+          end
+        end
       end
     end
+  end
+
+  def parse_iframe_config(iframe)
+    src = Rack::Utils.parse_nested_query(iframe[:src])
+    src.transform_values { |v| JSON.parse(v) }
   end
 end
