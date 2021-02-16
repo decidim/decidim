@@ -32,7 +32,9 @@ nl:
         title: Titel
         transparent: Transparant
       minutes:
+        audio_url: Audio URL
         description: Beschrijving
+        video_url: Video URL
         visible: Is zichtbaar
     errors:
       models:
