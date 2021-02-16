@@ -170,6 +170,7 @@ nl:
           error: Er is een fout opgetreden bij het accepteren van de admin gebruiksvoorwaarden.
           success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
         actions:
+          accept: Ik ga akkoord met de volgende voorwaarden
           are_you_sure: Weet u zeker dat u de admin gebruiksvoorwaarden wilt weigeren?
           refuse: Weiger de admin gebruiksvoorwaarden
           title: Ga akkoord met de gebruiksvoorwaarden
