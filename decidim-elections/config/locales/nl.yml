@@ -184,6 +184,11 @@ nl:
             title: Turfproces
           vote:
             title: Stemperiode
+          vote_stats:
+            no_vote_statistics_yet: Nog geen stemstatistieken
+            title: Stemstatistieken
+            voters: Kiezers
+            votes: Stemmen
         trustees_participatory_spaces:
           actions:
             disable: Uitschakelen
