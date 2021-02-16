@@ -123,7 +123,9 @@ shared_examples "manage impersonations examples" do
 
     it "redirects normally when session expires while reload" do
       expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
-      travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes + 1.second
+      travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2
+      visit current_path
+      travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2 + 1.second
       visit current_path
       expect(page).to have_content("expired")
       expect(page).to have_link("Impersonate")
