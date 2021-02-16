@@ -210,6 +210,10 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: De %{resource_title} verkiezing is nu actief voor %{participatory_space_title}.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> verkiezing is nu actief voor %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Verkiezingen
     participatory_processes:
       statistics:
         elections_count: Verkiezingen
