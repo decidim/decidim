@@ -164,6 +164,16 @@ module Decidim::Meetings
 
         subject.call
       end
+
+      context "when it's an embedded videoconference" do
+        let(:embedded_videoconference) { true }
+
+        it "does not store online_meeting_url if it's an embedded_videoconference" do
+          subject.call
+
+          expect(meeting.online_meeting_url).to be_blank
+        end
+      end
     end
   end
 end

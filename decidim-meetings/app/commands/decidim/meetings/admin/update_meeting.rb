@@ -48,7 +48,7 @@ module Decidim
             description: parsed_description,
             end_time: form.end_time,
             start_time: form.start_time,
-            online_meeting_url: form.online_meeting_url,
+            online_meeting_url: (form.online_meeting_url unless form.embedded_videoconference),
             embedded_videoconference: form.embedded_videoconference,
             registration_type: form.registration_type,
             registration_url: form.registration_url,

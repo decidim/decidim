@@ -101,6 +101,16 @@ module Decidim::Meetings
         end
       end
 
+      context "when it's an embedded videoconference" do
+        let(:embedded_videoconference) { true }
+
+        it "does not store online_meeting_url if it's an embedded_videoconference" do
+          subject.call
+
+          expect(meeting.online_meeting_url).to be_blank
+        end
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
