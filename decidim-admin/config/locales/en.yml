@@ -463,6 +463,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        external_domain_whitelist: External domain whitelist
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
@@ -476,7 +477,6 @@ en:
         static_pages: Pages
         user_groups: Groups
         users: Participants
-        external_domain_whitelist: External domain whitelist
       metrics:
         metrics:
           see_more_metrics: See more metrics
