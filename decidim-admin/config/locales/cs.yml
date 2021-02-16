@@ -580,7 +580,7 @@ cs:
             spam: Spam
         reports:
           index:
-            author: Autor(ři)
+            author: Autor (autoři)
             callout_html: Obsah se zobrazí v panelu moderátora, když byl signalizován uživatelem (může to být někdo s registrovaným účtem) kliknutím na vlaječku %{icon} vedle položky.
             content_original_language: Původní jazyk obsahu
             participatory_space: Participační prostor
