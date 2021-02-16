@@ -433,6 +433,10 @@ nl:
             notification_title: 'Je stem is geaccepteerd. Controleer je stem <a href="%{verify_url}">hier</a> met behulp van je stem token: %{encrypted_vote_hash}'
     menu:
       votings: Stemronde
+    pages:
+      home:
+        statistics:
+          elections_count: Verkiezingen
     participatory_processes:
       statistics:
         elections_count: Verkiezingen
