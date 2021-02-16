@@ -63,7 +63,6 @@ pt:
         file_no_exists: O arquivo não existe
         notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       delete:
-        alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
           ok: Sim, eu quero excluir minha conta
@@ -207,8 +206,6 @@ pt:
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
-      errors:
-        duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
       expired_at: Expirou em %{timestamp}
       expires_at: Expira em %{timestamp}
       foo_authorization:

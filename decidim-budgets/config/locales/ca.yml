@@ -51,6 +51,8 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquest pressupost
             success: Pressupost actualitzat correctament
+        exports:
+          projects: Projectes
         models:
           budget:
             name: Pressupost

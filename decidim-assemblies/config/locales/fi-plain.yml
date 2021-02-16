@@ -1,6 +1,8 @@
 fi-pl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Ota organisaatiokaavio käyttöön
       assembly:
         area_id: Alue
         assembly_type: Ryhmän tyyppi
@@ -60,6 +62,7 @@ fi-pl:
         full_name: Koko nimi
         gender: Sukupuoli
         position: Asema
+        user_id: Käyttäjä
       assembly_user_role:
         email: Sähköposti
         name: Nimi
@@ -383,7 +386,6 @@ fi-pl:
         comments_count: Kommentteja
         debates_count: Keskusteluja
         endorsements_count: Suosituksia
-        headline: Tilastot
         meetings_count: Tapaamisia
         orders_count: Ääniä
         pages_count: Sivuja

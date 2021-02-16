@@ -79,11 +79,11 @@ es-PY:
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
+      blocked: Esta cuenta ha sido bloqueada por una violación de los Términos y Condiciones de uso
       data_portability_export:
         file_no_exists: El archivo no existe
         notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
       delete:
-        alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
@@ -113,6 +113,8 @@ es-PY:
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
         hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
@@ -129,6 +131,7 @@ es-PY:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
         create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
+        create_via_csv: "%{user_name} invitó a %{resource_name} vía CSV a ser un participante privada"
         delete: "%{user_name} eliminado el usuario %{resource_name} como un usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
@@ -142,10 +145,14 @@ es-PY:
         delete: "%{user_name} eliminó la página estática %{resource_name}"
         update: "%{user_name} actualizó la página estática %{resource_name}"
       user:
+        block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó al usuario %{resource_name}"
+        promote: "%{user_name} ha promocionado a %{resource_name}"
         remove_from_admin: "%{user_name} eliminó al usuario %{resource_name} con el rol: %{role}"
         show_email: "%{user_name} ha recuperado el correo electrónico de la participante %{resource_name}"
+        transfer: "%{user_name} ha transferido a la participante %{resource_name}"
+        unblock: "%{user_name} desoficializó a la usuaria %{resource_name}"
         unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
@@ -273,7 +280,7 @@ es-PY:
       dummy_authorization_workflow:
         name: Flujo de trabajo de autorización de ejemplo
       errors:
-        duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
+        duplicate_authorization: Ya hay una participante autorizada con los mismos datos. Una administradora se pondrá en contacto contigo para verificar tus datos.
       expired_at: Caducado el %{timestamp}
       expires_at: Caduca en %{timestamp}
       foo_authorization:
@@ -319,6 +326,13 @@ es-PY:
           title: Confirma tu email
       show:
         close_modal: Cerrar el modal
+    block_user_mailer:
+      notify:
+        body_1: Tu cuenta ha sido bloqueda.
+        body_2: 'Motivo: %{justification}'
+        greetings: Saludos, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola,
+        subject: Tu cuenta fue bloqueada por %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: y %{count} más
@@ -367,6 +381,13 @@ es-PY:
             dummy_step_translatable_text: Fase de ejemplo traducible
     contact: Contacto
     content_blocks:
+      cta:
+        name: Imagen, texto y botón de acción
+      cta_settings_form:
+        background_image: Imagen de fondo
+        button_text: Texto del botón de acción
+        button_url: URL del botón de acción
+        description: Descripción
       footer_sub_hero:
         name: Banner de sub-hero de pie de página
       hero:
@@ -376,6 +397,11 @@ es-PY:
         welcome_text: Texto de bienvenida
       highlighted_content_banner:
         name: Banner de contenido resaltado
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Ordenar elementos por:'
+          random: Aleatorio
+          recent: Más recientes
       how_to_participate:
         name: Como participar
       html:
@@ -1075,6 +1101,7 @@ es-PY:
       not_allowed: No puedes ver este contenido
     profile:
       deleted: Usuario eliminado
+      inaccessible_message: '¡Este perfil es inaccesible debido a la violación de Términos y Condiciones de uso!'
       view: Ver
     profiles:
       default_officialization_text_for_user_groups: Este grupo de usuarios se verifica públicamente, tu nombre se ha verificado para que se corresponda con tu nombre real

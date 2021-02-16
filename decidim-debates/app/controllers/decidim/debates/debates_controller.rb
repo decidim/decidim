@@ -13,7 +13,7 @@ module Decidim
       include Flaggable
       include Decidim::Debates::Orderable
 
-      helper_method :debates, :debate, :form_presenter, :paginated_debates, :report_form, :close_debate_form
+      helper_method :debates, :debate, :form_presenter, :paginated_debates, :close_debate_form
 
       def new
         enforce_permission_to :create, :debate
@@ -103,10 +103,6 @@ module Decidim
 
       def debate
         @debate ||= debates.find_by(id: params[:id])
-      end
-
-      def report_form
-        @report_form ||= form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
       def close_debate_form

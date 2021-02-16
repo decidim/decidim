@@ -1,0 +1,28 @@
+---
+:scope:
+:url: http://bulletin-board.lvh.me/api
+:body: '{"operationName":"GetPendingMessageByMessageId","variables":{"messageId":"decidim-test-authority.10000.start_key_ceremony+a.decidim-test-authority"},"query":"query
+  GetPendingMessageByMessageId($messageId: String!) {\n  pendingMessage(messageId:
+  $messageId) {\n    status\n    __typename\n  }\n}\n"}'
+:status: 200
+:method: post
+:headers:
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Allow-Methods: GET, POST, PATCH, PUT
+  Access-Control-Expose-Headers: ''
+  Access-Control-Max-Age: '7200'
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Download-Options: noopen
+  X-Permitted-Cross-Domain-Policies: none
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"010fb861072a4a93c9740f31004a4ff7"
+  Cache-Control: max-age=0, private, must-revalidate
+  X-Request-Id: 7aaddf3d-6729-4002-9b36-63400860d137
+  X-Runtime: '0.013820'
+  Vary: Origin
+  Connection: close
+  Transfer-Encoding: chunked
+:content: '{"data":{"pendingMessage":{"status":"accepted","__typename":"PendingMessage"}}}'

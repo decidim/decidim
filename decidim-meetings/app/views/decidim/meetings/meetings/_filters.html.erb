@@ -31,4 +31,8 @@
   <% if component_settings.creation_enabled_for_participants? %>
     <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin") %>
   <% end %>
+
+  <% if current_user %>
+    <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, { legend_title: t(".activity") }, "aria-controls": "meetings" %>
+  <% end %>
 <% end %>

@@ -7,12 +7,9 @@ module Decidim
       class SetupElection < Rectify::Command
         # Public: Initializes the command.
         #
-        # election - The election to setup.
-        # bulletin_board - The BulletinBoard Client that includes the GraphLient Client
-        def initialize(form, bulletin_board: Decidim::Elections.bulletin_board)
-          @election = form.election
+        # form - A SetupForm object with the information needed to setup the election
+        def initialize(form)
           @form = form
-          @bulletin_board = bulletin_board
         end
 
         # Public: Setup the Election.
@@ -22,22 +19,22 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           transaction do
-            add_trustees_to_election
-            setup_election
             log_action
+            update_election
             notify_trustee_about_election
+            setup_election
           end
 
-          if form.errors.any?
-            broadcast(:invalid)
-          else
-            broadcast(:ok, election)
-          end
+          broadcast(:ok, election)
+        rescue StandardError => e
+          broadcast(:invalid, e.message)
         end
 
         private
 
-        attr_reader :election, :form, :bulletin_board
+        attr_reader :form
+
+        delegate :election, :bulletin_board, :current_organization, to: :form
 
         def questions
           @questions ||= election.questions
@@ -48,39 +45,37 @@ module Decidim
         end
 
         def trustees
-          @trustees ||= Decidim::Elections::Trustee.where(id: form.trustee_ids)
+          @trustees ||= Decidim::Elections::Trustee.where(id: form.trustee_ids).order(:id)
         end
 
-        def add_trustees_to_election
+        def update_election
           return if election.trustees.exists?(id: form.trustee_ids)
 
           election.trustees << trustees
-          election.save!
-        end
-
-        def election_id
-          "#{bulletin_board.authority_slug}.#{election.id}"
+          election.blocked_at = Time.current
+          election.bb_created!
         end
 
         def election_data
           {
-            iat: Time.now.to_i,
-            election_id: election_id,
-            message_id: "#{election_id}.create_election+a.#{bulletin_board.authority_slug}",
-            type: "create_election",
+            iat: Time.current.to_i,
             scheme: bulletin_board.scheme,
+            authority: {
+              name: bulletin_board.authority_name,
+              public_key: bulletin_board.public_key
+            },
             trustees:
               trustees.collect do |trustee|
                 {
-                  name: trustee.user.name,
+                  name: trustee.name,
                   public_key: trustee.public_key
                 }
               end,
             description: {
               name: {
                 text: [{
-                  value: election.title[I18n.locale.to_s],
-                  language: I18n.locale.to_s
+                  value: election.title[current_organization.default_locale.to_s],
+                  language: current_organization.default_locale.to_s
                 }]
               },
               start_date: election.start_time,
@@ -91,8 +86,8 @@ module Decidim
                       object_id: answer.id.to_s,
                       ballot_name: {
                         text: [{
-                          value: answer.title[I18n.locale.to_s],
-                          language: I18n.locale.to_s
+                          value: answer.title[current_organization.default_locale.to_s],
+                          language: current_organization.default_locale.to_s
                         }]
                       }
                     }
@@ -104,19 +99,19 @@ module Decidim
                     object_id: question.id.to_s,
                     sequence_order: question.weight,
                     vote_variation: question.vote_variation,
-                    name: question.title[I18n.locale.to_s],
+                    name: question.title[current_organization.default_locale.to_s],
                     number_elected: question.answers.count,
                     votes_allowed: 1,
                     ballot_title: {
                       text: [{
-                        value: question.title[I18n.locale.to_s],
-                        language: I18n.locale.to_s
+                        value: question.title[current_organization.default_locale.to_s],
+                        language: current_organization.default_locale.to_s
                       }]
                     },
                     ballot_subtitle: {
                       text: [{
-                        value: question.description[I18n.locale.to_s],
-                        language: I18n.locale.to_s
+                        value: question.description[current_organization.default_locale.to_s],
+                        language: current_organization.default_locale.to_s
                       }]
                     },
                     ballot_selections:
@@ -134,15 +129,9 @@ module Decidim
         end
 
         def setup_election
-          response = bulletin_board.setup_election(election_data)
+          bb_election = bulletin_board.create_election(election.id, election_data)
 
-          if response.error.present?
-            error = response.error
-            form.errors.add(:base, error)
-            raise ActiveRecord::Rollback
-          else
-            store_bulletin_board_status(response.election.status)
-          end
+          raise StandardError, "Wrong status for the created election" if bb_election.status != "created"
         end
 
         def log_action
@@ -164,13 +153,6 @@ module Decidim
           }
 
           Decidim::EventsManager.publish(data)
-        end
-
-        def store_bulletin_board_status(bb_status)
-          @election.update!(
-            blocked_at: Time.current,
-            bb_status: bb_status
-          )
         end
       end
     end

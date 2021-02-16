@@ -352,7 +352,7 @@ ca:
         actions:
           preview: Previsualitzar
         exports:
-          comments: Comentaris
+          proposal_comments: Comentaris
           proposals: Propostes
         models:
           proposal:
@@ -426,7 +426,7 @@ ca:
             cancel: Cancel·lar
             change_category: Canvia la categoria
             change_scope: Canviar àmbit
-            merge: Uneix-te a un de nou
+            merge: Fusionar a una nova
             merge_button: Fusionar
             publish: Publica
             publish_answers: Publica respostes
@@ -563,13 +563,6 @@ ca:
               ok: Retira l'esborrany col·laboratiu
               title: La següent acció és irreversible
             success: L'esborrany col·laboratiu s'ha retirat correctamente.
-        compare:
-          mine_is_different: El meu esborrany col·laboratiu és diferent
-          no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
-          title: Esborranys col·laboratius similars
-        complete:
-          send: Enviar
-          title: Completa el teu esborrany col·laboratiu
         count:
           drafts_count:
             one: "%{count} esborrany de col·laboració"
@@ -601,7 +594,6 @@ ca:
           unfold: Desplega
         new:
           send: Continua
-          title: Crea el teu esborrany col·laboratiu
         new_collaborative_draft_button:
           new_collaborative_draft: Nou esborrany col·laboratiu
         orders:
@@ -646,23 +638,11 @@ ca:
         update:
           error: S'ha produït un error en desar l'esborrany col·laboratiu.
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
-          title: Editar l'esborrany col·laboratiu
         wizard_aside:
-          back: Torna
           back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
-          back_from_step_1: Tornar a l'esborrany col·laboratiu
-          back_from_step_2: Tornar a l'esborrany col·laboratiu
-          back_from_step_3: Tornar a comparar els esborranys col·laboratius
-          back_from_step_4: Tornar a editar l'esborrany
           info: Estàs creant un <strong>esborrany col·laboratiu</strong>.
-        wizard_steps:
-          current_step: Fase actual
-          see_steps: veure els passos
-          step_1: Crea el teu esborrany col·laboratiu
-          step_2: Compara amb esborranys col·laboratius
-          step_3: Completa el teu esborrany col·laboratiu
-          step_of: Pas %{current_step_num} de %{total_steps}
-          title: Passos per a la creació d'un esborrany col·laboratiu
+        wizard_header:
+          title: Crea el teu esborrany col·laboratiu
       create:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.

@@ -77,7 +77,6 @@ zh-CN:
         file_no_exists: 文件不存在
         notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       delete:
-        alert: 此操作无法撤销。如果您删除您的帐户，您将无法登录。
         confirm:
           close: 关闭窗口
           ok: 是，我想要删除我的帐户
@@ -254,8 +253,6 @@ zh-CN:
         name: 示例授权
       dummy_authorization_workflow:
         name: 虚拟授权 Workflow
-      errors:
-        duplicate_authorization: 参与者已经被授权使用相同的数据。
       expired_at: 过期时间为 %{timestamp}
       expires_at: 于 %{timestamp} 过期
       foo_authorization:

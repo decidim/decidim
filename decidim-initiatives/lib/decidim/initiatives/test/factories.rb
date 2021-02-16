@@ -190,6 +190,42 @@ FactoryBot.define do
                type: create(:initiatives_type, :with_user_extra_fields_collection, organization: organization))
       end
     end
+
+    trait :with_area do
+      area { create(:area, organization: organization) }
+    end
+
+    trait :with_documents do
+      transient do
+        documents_number { 2 }
+      end
+
+      after :create do |initiative, evaluator|
+        evaluator.documents_number.times do
+          initiative.attachments << create(
+            :attachment,
+            :with_pdf,
+            attached_to: initiative
+          )
+        end
+      end
+    end
+
+    trait :with_photos do
+      transient do
+        photos_number { 2 }
+      end
+
+      after :create do |initiative, evaluator|
+        evaluator.photos_number.times do
+          initiative.attachments << create(
+            :attachment,
+            :with_image,
+            attached_to: initiative
+          )
+        end
+      end
+    end
   end
 
   factory :initiative_user_vote, class: "Decidim::InitiativesVote" do

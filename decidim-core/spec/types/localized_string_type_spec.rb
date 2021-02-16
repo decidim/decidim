@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe LocalizedStringType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) do
         OpenStruct.new(locale: "en", text: "A test locale.")

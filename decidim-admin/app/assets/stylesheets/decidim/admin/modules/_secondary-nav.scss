@@ -62,7 +62,8 @@ $process-title-height: 3rem;
 }
 
 .secondary-nav__title,
-.process-title-content{
+.process-title-content,
+.voting-title-content{
   margin-bottom: 1.5rem;
   font-size: .8rem;
   letter-spacing: .1em;
@@ -90,13 +91,15 @@ $process-title-height: 3rem;
   color: $body-font-color;
 }
 
-.process-title{
+.process-title,
+.voting-title{
   @include breakpoint(large){
     margin-bottom: $process-title-height;
   }
 }
 
-.process-title-content{
+.process-title-content,
+.voting-title-content{
   @include breakpoint(large){
     position: absolute;
     left: 120px;

@@ -383,7 +383,6 @@ sv:
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Instämmanden
-        headline: Aktivitet
         meetings_count: Möten
         orders_count: Stöd
         pages_count: Sidor
@@ -448,7 +447,7 @@ sv:
           highlighted_processes:
             processes_button_title: Länk till sidan som visar alla dialoger
       show:
-        related_assemblies: Relaterade sammankomster
+        related_assemblies: Relaterade grupper
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt

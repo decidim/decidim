@@ -1,0 +1,28 @@
+name: "On Release"
+on:
+  release:
+    types: [published]
+
+jobs:
+  trigger_docker_build:
+    name: Trigger decidim/docker build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - name: Send dispatch for Github Container Registry build
+      run: |
+        curl --request POST \
+        --user "decidim-bot:${{ secrets.DOCKER_WORKFLOW_PAT }}" \
+        --header "Accept: application/vnd.github.everest-preview+json" \
+        --header "Content-Type: application/json" \
+        https://api.github.com/repos/decidim/docker/actions/workflows/github_registry.yml/dispatches \
+        --data '{"ref": "master"}'
+    - name: Send dispatch for Docker Hub build
+      run: |
+        curl --request POST \
+        --user "decidim-bot:${{ secrets.DOCKER_WORKFLOW_PAT }}" \
+        --header "Accept: application/vnd.github.everest-preview+json" \
+        --header "Content-Type: application/json" \
+        https://api.github.com/repos/decidim/docker/actions/workflows/dockerhub.yml/dispatches \
+        --data '{"ref": "master"}'
+

@@ -83,7 +83,6 @@ ar:
         file_no_exists: الملف غير موجود
         notice: يتم تنزيل بياناتك حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
       delete:
-        alert: لا يمكن التراجع عن هذا الإجراء. إذا حذفت حسابك ، فلن تتمكن من تسجيل الدخول.
         confirm:
           close: أغلق النافذة
           ok: نعم ، أريد حذف حسابي
@@ -255,8 +254,6 @@ ar:
         name: مثال إذن
       dummy_authorization_workflow:
         name: سير العمل التخويل وهمية
-      errors:
-        duplicate_authorization: مشارك مفوض بالفعل مع نفس البيانات.
       expired_at: انتهت في %{timestamp}
       expires_at: تنتهي في %{timestamp}
       foo_authorization:

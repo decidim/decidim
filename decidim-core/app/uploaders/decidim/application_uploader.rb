@@ -29,6 +29,18 @@ module Decidim
       raise CarrierWave::ProcessingError, I18n.t("carrierwave.errors.general")
     end
 
+    # As of Carrierwave 2.0 fog_provider method has been deprecated, and is throwing RuntimeError
+    # RuntimeError: Carrierwave fog_provider not supported: DEPRECATION WARNING: #fog_provider is deprecated...
+    # We are attempting to fetch the provider from credentials, if not we consider to be file
+    def provider
+      fog_credentials.fetch(:provider, "file").downcase
+    end
+
+    # We overwrite the downloader to be able to fetch some elements from URL.
+    def downloader
+      Decidim::Downloader
+    end
+
     protected
 
     # Validates that the associated model is always within an organization in

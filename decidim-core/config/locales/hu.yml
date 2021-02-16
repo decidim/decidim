@@ -79,7 +79,6 @@ hu:
         file_no_exists: Fájl nem létezik
         notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
-        alert: Ez a művelet nem visszavonható. Ha törlöd a fiókod, akkor nem tudsz bejelentkezni.
         confirm:
           close: Ablak bezárása
           ok: Igen, törölni szeretném a fiókomat
@@ -262,8 +261,6 @@ hu:
         name: Példa feljogosításra
       dummy_authorization_workflow:
         name: Dummy feljogosítási folyamat
-      errors:
-        duplicate_authorization: Egy résztvevő ezekkel az adatokkal már engedélyezésre került.
       expired_at: 'Lejárat: %{timestamp}'
       expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:

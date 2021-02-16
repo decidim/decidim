@@ -3,11 +3,11 @@
 module Decidim
   module Meetings
     # This interface represents a categorizable object.
-    ServicesInterface = GraphQL::InterfaceType.define do
-      name "ServicesInterface"
+    module ServicesInterface
+      include Decidim::Api::Types::BaseInterface
       description "An interface that can be used with services."
 
-      field :services, !types[ServiceType], "The object's services"
+      field :services, [Decidim::Meetings::ServiceType, { null: true }], "The object's services", null: false
     end
   end
 end

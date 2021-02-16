@@ -35,16 +35,16 @@ en:
             confirm: Revoke before date authorizations can not be undone. Are you sure you want to continue?
             confirm_all: Revoke all the authorizations can not be undone. Are you sure you want to continue?
           destroy_nok: There's been a problem while revoking authorizations.
-          destroy_ok: All matched authorizations had been revocated successfully!
+          destroy_ok: All matched authorizations have been revocated successfully.
           info: There are a total of %{count} verified participants.
           no_data: No verified participants
-          title: Verifications's revocation
-        authorization_workflows: Verifications
+          title: Authorizations revocation
+        authorization_workflows: Authorizations
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} updated the Identity Documents authorization configuration"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents authorization"
     authorization_handlers:
       admin:
         csv_census:
@@ -76,6 +76,10 @@ en:
       postal_letter:
         explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
         name: Code by postal letter
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: The participant <a href="%{resource_path}">%{resource_title}</a> has tried to verify herself with the data of the managed participant <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -148,6 +152,10 @@ en:
             one: Participation is restricted to participants with the postal code %{postal_codes}.
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}.'
           scope: Participation is restricted to participants with the scope %{scope_name}.
+          user_postal_codes:
+            one: Participation is restricted to participants with the postal code %{postal_codes}, and your postal code is %{user_postal_code}.
+            other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}. Your postal code is %{user_postal_code}.'
+          user_scope: Participation is restricted to participants with the scope %{scope_name}, and your scope is %{user_scope_name}.
       id_documents:
         admin:
           config:

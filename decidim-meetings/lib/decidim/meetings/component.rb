@@ -48,6 +48,18 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Meetings::MeetingSerializer
   end
 
+  component.exports :meeting_comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Meetings::Meeting, component_instance
+      )
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   component.actions = %w(join)
 
   component.settings(:global) do |settings|
@@ -98,8 +110,10 @@ Decidim.register_component(:meetings) do |component|
       global = nil
     end
 
-    2.times do
-      Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
+    Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
+      2.times do
+        start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
+
         params = {
           component: component,
           scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
@@ -109,8 +123,11 @@ Decidim.register_component(:meetings) do |component|
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           location_hints: Decidim::Faker::Localized.sentence,
-          start_time: 3.weeks.from_now,
-          end_time: 3.weeks.from_now + 4.hours,
+          start_time: start_time,
+          end_time: start_time + rand(1..4).hours,
+          address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
+          latitude: Faker::Address.latitude,
+          longitude: Faker::Address.longitude,
           registrations_enabled: [true, false].sample,
           available_slots: (10..50).step(10).to_a.sample,
           author: participatory_space.organization,
@@ -120,20 +137,20 @@ Decidim.register_component(:meetings) do |component|
           type_of_meeting: type
         }
 
-        if type.in?(%w(online hybrid))
-          embedded_videoconference = Faker::Boolean.boolean(true_ratio: 0.5)
-          params.merge!(
-            online_meeting_url: ("http://example.org" unless embedded_videoconference),
-            embedded_videoconference: embedded_videoconference
-          )
-        end
-
         if type.in?(%w(in_person hybrid))
           params.merge!(
             address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
             location: Decidim::Faker::Localized.sentence,
             latitude: Faker::Address.latitude,
             longitude: Faker::Address.longitude
+          )
+        end
+
+        if type.in?(%w(online hybrid))
+          embedded_videoconference = Faker::Boolean.boolean(true_ratio: 0.5)
+          params.merge!(
+            online_meeting_url: ("http://example.org" unless embedded_videoconference),
+            embedded_videoconference: embedded_videoconference
           )
         end
 
@@ -227,6 +244,7 @@ Decidim.register_component(:meetings) do |component|
         author = user_group.users.sample
       end
 
+      start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
       params = {
         component: component,
         scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
@@ -237,8 +255,8 @@ Decidim.register_component(:meetings) do |component|
         end,
         location: Decidim::Faker::Localized.sentence,
         location_hints: Decidim::Faker::Localized.sentence,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
+        start_time: start_time,
+        end_time: start_time + rand(1..4).hours,
         address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude,

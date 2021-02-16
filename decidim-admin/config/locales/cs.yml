@@ -59,8 +59,8 @@ cs:
         machine_translation_display_priority_original: Původní text přednostně
         machine_translation_display_priority_translation: Přeložený text přednostně
         name: Název
-        official_img_footer: Oficiální zápatí loga
-        official_img_header: Oficiální záhlaví loga
+        official_img_footer: Oficiální logo zápatí
+        official_img_header: Oficiální logo záhlaví
         official_url: Oficiální URL organizace
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Název
@@ -90,19 +90,22 @@ cs:
         name: Název
         organization: Organizace
         plural: Množné číslo
+      settings:
+        scope_id: Oblast působnosti
       static_page:
+        allow_public_access: Povolit přístup bez autentizace
         changed_notably: Došlo ke znatelným změnám.
         content: Obsah
         organization: Organizace
         show_in_footer: Zobrazit v zápatí
         slug: URL slug
         title: Titul
-        weight: Hmotnost
+        weight: Váha
       static_page_topic:
         description: Popis
         show_in_footer: Zobrazit v zápatí
         title: Titul
-        weight: Hmotnost
+        weight: Váha
       user_group_csv_verification:
         file: Soubor
     errors:
@@ -131,14 +134,26 @@ cs:
     admin:
       actions:
         add: Přidat
+        attachment:
+          new: Nová příloha
+        attachment_collection:
+          new: Nová sbírka příloh
         browse: Procházet
+        category:
+          new: Nová kategorie
         export: Exportovat
         manage: Spravovat
         new: Nová %{name}
+        newsletter:
+          new: Nový zpravodaj
+        participatory_space_private_user:
+          new: Nový soukromý uživatel participačního prostoru
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
         share: Sdílet
+        user:
+          new: Nový uživatel
         verify: Ověřit
       admin_terms_of_use:
         accept:
@@ -151,7 +166,7 @@ cs:
           title: Souhlasit s podmínkami používání
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
-          callout: Věnujte prosím chvilku a přečtěte si administrátorské podmínky použití. V opačném případě nebudete moci platformu spravovat.
+          callout: Věnujte prosím chvilku a přečtěte si administrátorské podmínky použití. V opačném případě nebudete moci platformu spravovat. MUSÍTE KLIKNOUT NA ZELENÉ TLAČÍTKO.
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -159,7 +174,7 @@ cs:
           error: Při vytváření nového typu oblasti došlo k chybě.
           success: Typ oblasti byl úspěšně vytvořen.
         destroy:
-          success: Typ prostoru úspěšně zničen
+          success: Typ oblasti byl úspěšně smazán
         edit:
           title: Upravit typ oblasti
           update: Aktualizace
@@ -216,7 +231,7 @@ cs:
         index:
           attachments_title: Přílohy
         new:
-          create: Vytvoření přílohy
+          create: Vytvořit přílohu
           title: Nová příloha
         update:
           error: Při aktualizaci této přílohy došlo k chybě.
@@ -224,6 +239,12 @@ cs:
       autocomplete:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
+      block_user:
+        new:
+          action: Blokovat účet a odeslat odůvodnění
+          description: Blokováním uživatele bude jeho účet nepoužitelný, ve svém odůvodnění a pokynech můžete uvést způsob, jaký považujete za vhodný k odblokování uživatele.
+          justification: Odůvodnění
+          title: Blokovat uživatele %{name}
       categories:
         create:
           error: Při vytváření této kategorie došlo k chybě.
@@ -279,6 +300,21 @@ cs:
         update:
           error: Při aktualizaci této komponenty došlo k chybě.
           success: Komponenta byla úspěšně aktualizována.
+      conflicts:
+        attempts: Pokusy
+        'false': 'Ne'
+        managed_user_name: Spravovaný uživatel
+        solved: Vyřešeno
+        title: Konflikty ověření
+        transfer:
+          email: E-mail
+          error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
+          name: Jméno
+          reason: Důvod
+          success: Aktuální převod byl úspěšně dokončen.
+          title: Převod
+        'true': 'Ano'
+        user_name: Uživatel
       dashboard:
         show:
           view_more_logs: Zobrazit další protokoly
@@ -301,8 +337,8 @@ cs:
         officialized_at_null:
           label: Stav
           values:
-            'false': Úředně
-            'true': Není oficializováno
+            'false': Ověřeno
+            'true': Neověřeno
         private_space_eq:
           label: Soukromé
           values:
@@ -315,7 +351,7 @@ cs:
             'true': Nezveřejněno
         scope_id_eq:
           label: Oblast působnosti
-        search_label: Vyhledávání
+        search_label: Hledat
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
@@ -347,7 +383,7 @@ cs:
       impersonations:
         close_session:
           error: Při zavírání aktuální relace správy účastníků došlo k potížím.
-          success: Aktuální relace zosobnění byla úspěšně ukončena.
+          success: Aktuální relace v zastoupení byla úspěšně ukončena.
         create:
           error: Došlo k chybě, která se vyskytuje u účastníka.
           success: Spravovaný účastník byl úspěšně vytvořen.
@@ -356,7 +392,7 @@ cs:
           name: Jméno
           reason: Důvod
         new:
-          impersonate: Vydávat se za uživatele
+          impersonate: V zastoupení
           impersonate_existing_managed_user: Spravovat účastníka "%{name}"
           impersonate_existing_user: Spravovat účastníka "%{name}"
           impersonate_new_managed_user: Spravovat nového účastníka
@@ -382,7 +418,7 @@ cs:
         dashboard: Ovládací panel
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
-        impersonations: Vydávání se za uživatele
+        impersonations: V zastoupení
         moderation: Globální moderace
         newsletters: Zpravodaje
         participants: Účastníci
@@ -477,17 +513,23 @@ cs:
       moderated_users:
         index:
           actions:
+            block: Blokovat
             title: Akce
+            unblock: Odemknout
             unreport: Zrušit nahlášení
           name: Jméno
           nickname: Přezdívka
           reason: Důvod
+          reports: Zprávy
           title: Seznam nahlášených uživatelů
         report:
           reasons:
             does_not_belong: Nepatří
             offensive: Urážlivý
             spam: Nevyžádané
+        tabs:
+          blocked: Blokováno
+          unblocked: Odblokováno
       moderations:
         index:
           title: Moderování
@@ -576,6 +618,9 @@ cs:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       officializations:
+        block:
+          error: Při blokování uživatele došlo k chybě
+          success: Uživatel byl úspěšně zablokován
         create:
           success: Uživatel úspěšně oficializován
         destroy:
@@ -583,20 +628,22 @@ cs:
         index:
           actions: Akce
           badge: Odznak
+          block: Zablokovat uživatele
           created_at: Vytvořeno na
           name: název
           nickname: Přezdívka
-          not_officialized: Není oficializováno
-          officialize: Úředně
-          officialized: Úředně
-          reofficialize: Reofficialize
+          not_officialized: Neověřeno
+          officialize: Ověřit
+          officialized: Ověřen
+          reofficialize: Znovu ověřit
           reports: Hlášení
           show_email: Zobrazit e-mailovou adresu
-          status: Postavení
-          unofficialize: Odebrat oficializaci
+          status: Stav
+          unblock: Odblokovat uživatele
+          unofficialize: Zrušit ověření
         new:
-          badge: Oficializační odznak
-          officialize: Úředně
+          badge: Odznak ověření
+          officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
         show_email_modal:
           close_modal: Zavřít okno
@@ -606,6 +653,9 @@ cs:
           hidden: skrytý
           show: Zobrazit
           title: Zobrazit e-mailovou adresu účastníka
+        unblock:
+          error: Při odblokování uživatele došlo k chybě
+          success: Uživatel byl úspěšně odblokován
       organization:
         edit:
           title: Upravit organizaci
@@ -634,9 +684,9 @@ cs:
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
           images:
-            layout_appearance_title: Upravit vzhled vzhledu
+            layout_appearance_title: Upravit vzhled zobrazení
             preview: Náhled
-          omnipresent_banner_appearance_title: Upravte všudypřítomný banner
+          omnipresent_banner_appearance_title: Upravit všudypřítomný banner
       organization_homepage:
         edit:
           active_content_blocks: Bloky aktivního obsahu
@@ -870,7 +920,7 @@ cs:
             reportable_type: Typ
             reported_content_url: Oznámená adresa URL obsahu
             reports: Zprávy
-            visit_url: Navštivte adresu URL
+            visit_url: Navštívit URL
         report:
           fields:
             details: Detaily důvodu
@@ -878,7 +928,7 @@ cs:
             reason: Důvod
   errors:
     messages:
-      invalid_json: Neplatná JSON
+      invalid_json: Neplatný JSON
   layouts:
     decidim:
       admin:

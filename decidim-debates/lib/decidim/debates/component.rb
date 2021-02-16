@@ -94,7 +94,8 @@ Decidim.register_component(:debates) do |component|
       Decidim::Component.create!(params)
     end
 
-    5.times do
+    5.times do |x|
+      finite = x != 2
       params = {
         component: component,
         category: participatory_space.categories.sample,
@@ -105,8 +106,8 @@ Decidim.register_component(:debates) do |component|
         instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
+        start_time: (3.weeks.from_now if finite),
+        end_time: (3.weeks.from_now + 4.hours if finite),
         author: component.organization
       }
 
@@ -120,17 +121,12 @@ Decidim.register_component(:debates) do |component|
       Decidim::Comments::Seed.comments_for(debate)
     end
 
-    Decidim::Debates::Debate.last(2).each do |debate|
-      debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(sentence_count: 3)
-      end
-      debate.closed_at = Time.current
-      debate.save!
+    closed_debate = Decidim::Debates::Debate.last
+    closed_debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.paragraph(sentence_count: 3)
     end
-
-    archived_debate = Decidim::Debates::Debate.last
-    archived_debate.archived_at = Time.current
-    archived_debate.save!
+    closed_debate.closed_at = Time.current
+    closed_debate.save!
 
     params = {
       component: component,

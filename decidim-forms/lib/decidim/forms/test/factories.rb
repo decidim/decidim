@@ -17,10 +17,13 @@ FactoryBot.define do
 
     trait :with_questions do
       questions do
+        position = 0
         qs = %w(short_answer long_answer).collect do |text_question_type|
-          build(:questionnaire_question, question_type: text_question_type)
+          q = build(:questionnaire_question, question_type: text_question_type, position: position)
+          position += 1
+          q
         end
-        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option)
+        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option, position: position)
         qs
       end
     end
@@ -91,6 +94,13 @@ FactoryBot.define do
     question { create(:questionnaire_question, questionnaire: questionnaire) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization) }
     session_token { Digest::MD5.hexdigest(user.id.to_s) }
+
+    trait :with_attachments do
+      after(:create) do |answer, _evaluator|
+        create :attachment, :with_image, attached_to: answer
+        create :attachment, :with_pdf, attached_to: answer
+      end
+    end
   end
 
   factory :answer_option, class: "Decidim::Forms::AnswerOption" do

@@ -3,7 +3,7 @@
     <%= t("decidim.participatory_process_groups.content_blocks.stats.name") %>
   </h2>
 
-  <div class="process-stats">
+  <div class="space-stats">
     <% if stats.collection.present? %>
       <%= cell("decidim/participatory_processes/statistic", collection: stats.collection) %>
     <% else %>

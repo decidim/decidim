@@ -87,11 +87,12 @@ cs:
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
+      blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
       data_portability_export:
         file_no_exists: Soubor neexistuje
         notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       delete:
-        alert: Tuto akci nelze vrátit zpět. Pokud odstraníte svůj účet, nebudete se moci přihlásit.
+        alert: Tuto akci nelze vrátit zpět. Pokud smažete svůj účet, nebudete se moci přihlásit pomocí přihlašovacích údajů. Odstranění vašeho účtu povede k anonymizaci vašich příspěvků. Stále budete moci vytvořit nový účet, ale tyto příspěvky s ním nebudou spojeny.
         confirm:
           close: Zavřete okno
           ok: Ano, chci smazat účet
@@ -121,6 +122,8 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
+      impersonation_log:
+        manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
         hide: "%{user_name} skryje zdroj typu %{resource_type} v prostoru %{space_name}"
         unreport: "%{user_name} unreported zdroj typu %{resource_type} ve %{space_name} prostoru"
@@ -151,10 +154,14 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
         update: "%{user_name} aktualizovala %{resource_name} statickou stránku"
       user:
+        block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
         officialize: "%{user_name} oficializoval uživatele %{resource_name}"
+        promote: "%{user_name} vytvořil %{resource_name}"
         remove_from_admin: "%{user_name} odstranil uživatele %{resource_name} s rolí: %{role}"
         show_email: "%{user_name} získal e-mail uživatele %{resource_name}"
+        transfer: "%{user_name} převedl uživatele %{resource_name}"
+        unblock: "%{user_name} odblokoval uživatele %{resource_name}"
         unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
@@ -163,7 +170,7 @@ cs:
       user_moderation:
         unreport: "%{user_name} vyjmut z nahlášení v %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
+      default_body: "<h2>ADMINISTRÁTORSKÉ ZÁSADY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
     alert:
       dismiss: Odmítnout oznámení
     amendments:
@@ -242,9 +249,9 @@ cs:
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
-          '2': Srovnejte váš pozměňovací návrh
+          '2': Porovnejte váš pozměňovací návrh
           '3': Dokončete váš pozměňovací návrh
-          '4': Zveřejnit svůj pozměňovací návrh
+          '4': Zveřejněte svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       collection:
@@ -290,7 +297,7 @@ cs:
       dummy_authorization_workflow:
         name: Pracovní postup autorizace
       errors:
-        duplicate_authorization: Účastník je již autorizován se stejnými daty.
+        duplicate_authorization: Uživatel má již oprávnění se stejnými daty. Administrátor vás bude kontaktovat k ověření vašich údajů.
       expired_at: Platnost vypršela v %{timestamp}
       expires_at: Platnost vyprší v %{timestamp}
       foo_authorization:
@@ -336,6 +343,13 @@ cs:
           title: Potvrdit svůj email
       show:
         close_modal: Zavřít okno
+    block_user_mailer:
+      notify:
+        body_1: Váš účet byl zablokován.
+        body_2: 'Důvod: %{justification}'
+        greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Dobrý den,
+        subject: Váš účet byl zablokován od %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: a %{count} dalších
@@ -440,7 +454,7 @@ cs:
         create:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
-          complete_profile: Kompletní profil
+          complete_profile: Dokončit profil
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
@@ -887,7 +901,7 @@ cs:
       no_members: Tato skupina uživatelů zatím nemá žádného člena.
     menu:
       help: Pomoc
-      home: Domov
+      home: Úvod
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
@@ -1062,7 +1076,7 @@ cs:
           meetings_explanation: Zjistěte, kde a kdy se můžete účastnit veřejných setkání.
           more_info: Více informací
           proposals: Návrhy
-          proposals_explanation: Udělat návrhy, podpořit existující a podporovat změny, které chcete vidět.
+          proposals_explanation: Vytvářejte návrhy, podporujte stávající a prosazujte změny, které chcete vidět.
         footer_sub_hero:
           footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
@@ -1074,7 +1088,7 @@ cs:
           headline: Metriky
         statistics:
           answers_count: Dokončené průzkumy
-          assemblies_count: Sestavy
+          assemblies_count: Shromáždění
           comments_count: Komentáře
           conferences_count: Konference
           debates_count: Debaty
@@ -1125,6 +1139,7 @@ cs:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     profile:
       deleted: Vymazaný uživatel
+      inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
       view: Pohled
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému jménu
@@ -1138,6 +1153,7 @@ cs:
         groups: Skupiny
         members: Členové
         officialized: Oficiální účastník
+        send_private_message: Odeslat soukromou zprávu
         timeline: Časová osa
         view_full_profile: Zobrazit celý profil
       sidebar:
@@ -1177,7 +1193,7 @@ cs:
         subject: Byl ohlášen zdroj
     reports:
       create:
-        error: Při vytváření sestavy došlo k chybě. Zkuste to znovu.
+        error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
     resource_endorsements:
       create:
@@ -1535,7 +1551,7 @@ cs:
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
       not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
-      not_locked: nebyla zamčená
+      not_locked: nebyl uzamčen
       not_saved:
         one: 'Při zpracování vašeho požadavku došlo k chybě:'
         few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
@@ -1592,7 +1608,7 @@ cs:
         youtube: "%{organization} na YouTube"
       user_menu:
         account: 'Uživatelský účet: %{name}'
-        admin_dashboard: Správní panel
+        admin_dashboard: Ovládací panel
         conversations: Konverzace
         notifications: Oznámení
         profile: Můj účet
@@ -1611,7 +1627,7 @@ cs:
         see_more: Vidět víc
   locale:
     name: Čeština
-    name_with_error: Angličtina (chyba!)
+    name_with_error: Čeština
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu

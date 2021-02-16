@@ -294,7 +294,12 @@ shared_examples "manage impersonations examples" do
 
   def simulate_session_expiration
     expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
-    travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
+    session_time = Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
+    first_travel_time = session_time.even? ? session_time / 2 : (session_time / 2) + 1
+    travel first_travel_time
+    # Simulates as if the user were doing something during a impersonated session to prevent a timeout warning popup
+    visit current_path
+    travel session_time / 2
     Decidim::Admin::ExpireImpersonationJob.perform_now(impersonated_user, user)
   end
 

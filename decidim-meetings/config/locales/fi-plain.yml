@@ -207,6 +207,7 @@ fi-pl:
             invalid: Tämän esityslistan päivityksessä esiintyi ongelma
             success: Esityslista päivitettiin onnistuneesti
         exports:
+          meeting_comments: Kommentit
           meetings: Tapahtumat
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
@@ -405,6 +406,7 @@ fi-pl:
           type: Tyyppi
           type_values:
             all: Kaikki
+            hybrid: Molemmat
             in_person: Fyysinen
             online: Verkossa
         filters_small_view:
@@ -504,6 +506,7 @@ fi-pl:
           invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       type_of_meeting:
+        hybrid: Molemmat
         in_person: Fyysinen
         online: Verkossa
       types:

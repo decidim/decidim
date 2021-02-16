@@ -16,26 +16,30 @@ module Decidim
     end
 
     def attachments_invalid?
-      @documents.each do |file|
-        if file.invalid? && file.errors.has_key?(:file)
-          @form.errors.add(:add_documents, file.errors[:file])
-          return true
+      @documents.each do |document|
+        next if document.valid? || !document.errors.has_key?(:file)
+
+        document.errors[:file].each do |error|
+          @form.errors.add(:add_documents, error)
         end
+
+        return true
       end
+
       false
     end
 
     def create_attachments
-      @documents.map! do |file|
-        file.attached_to = documents_attached_to
-        file.save!
-        @form.documents << file.id.to_s
+      @documents.map! do |document|
+        document.attached_to = documents_attached_to
+        document.save!
+        @form.documents << document
       end
     end
 
     def document_cleanup!
-      documents_attached_to.documents.each do |file|
-        file.destroy! if @form.documents.exclude? file.id.to_s
+      documents_attached_to.documents.each do |document|
+        document.destroy! if @form.documents.map(&:id).exclude? document.id
       end
 
       documents_attached_to.reload

@@ -6,6 +6,8 @@ module Decidim
     # title, description and any other useful information to render a custom result.
     class Result < Accountability::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::ScopableResource
       include Decidim::HasCategory
@@ -87,6 +89,15 @@ module Decidim
       # Public: Whether the object can have new comments or not.
       def user_allowed_to_comment?(user)
         can_participate_in_space?(user)
+      end
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_accountability_results"."id" as text)})
+      end
+
+      # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+      ransacker :title do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       end
 
       private

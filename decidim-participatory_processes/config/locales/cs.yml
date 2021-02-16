@@ -25,13 +25,13 @@ cs:
         related_process_ids: Související procesy
         scope_id: Rozsah
         scope_type_max_depth_id: Hloubka filtru rozsahu
-        scopes_enabled: Schopnosti povoleny
+        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_metrics: Zobrazit metriku
         show_statistics: Zobrazit statistiky
         slug: URL slug
         start_date: Počáteční datum
-        subtitle: Titulky
+        subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
       participatory_process_group:
@@ -244,13 +244,13 @@ cs:
       participatory_processes:
         create:
           error: Při vytváření nového participačního procesu došlo k chybě.
-          success: Účastnící proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
+          success: Participační proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
         edit:
           update: Aktualizace
         index:
           not_published: Není zveřejněno
           private: Soukromé
-          public: Veřejnost
+          public: Veřejné
           published: Publikováno
         new:
           create: Vytvořit

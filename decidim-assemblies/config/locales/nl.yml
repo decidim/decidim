@@ -192,7 +192,7 @@ nl:
           info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
-        assemblies_types: Soorten Buurderijen
+        assemblies_types: Soorten groepen
       models:
         assemblies_types:
           fields:
@@ -228,7 +228,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
-            valuator: 'Waarde:'
+            valuator: Beoordelaar
       titles:
         assemblies: Groepen
         assemblies_types: Groepstype
@@ -380,7 +380,6 @@ nl:
         comments_count: Reacties
         debates_count: Debatten
         endorsements_count: Aanbevelingen
-        headline: Activiteit
         meetings_count: Events
         orders_count: Ondersteunt
         pages_count: Pagina's

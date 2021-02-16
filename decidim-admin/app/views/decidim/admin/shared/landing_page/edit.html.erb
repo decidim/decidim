@@ -1,0 +1,47 @@
+<div class="grid-container full">
+  <div class="grid-x grid-margin-x card-grid">
+    <div class="cell small-6">
+      <div class="card">
+        <div class="card-section">
+          <h5><%= active_content_blocks_title %></h5>
+
+          <ul class="draggable-list js-connect js-list-actives" data-sort-url="<%= resource_sort_url %>">
+            <% active_blocks.each do |content_block| %>
+              <%= cell resource_content_block_cell, content_block %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cell small-6">
+      <div class="card">
+        <div class="card-section">
+          <h5><%= inactive_content_blocks_title %></h5>
+
+          <ul class="draggable-list js-connect js-list-availables">
+            <% inactive_blocks.each do |content_block_or_manifest| %>
+              <%= cell resource_content_block_cell, content_block_or_manifest %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("dragend", function (event) {
+    var activeBlocks = Array.prototype.slice.call(document.querySelectorAll(".js-list-actives li"));
+    var activeBlocksManifestName = activeBlocks.map(block => block.dataset.contentBlockManifestName);
+    var sortUrl = document.querySelector(".js-list-actives").dataset.sortUrl;
+    var target = event.target;
+
+    $.ajax({
+      method: "PUT",
+      url: sortUrl,
+      contentType: "application/json",
+      data: JSON.stringify({ manifests: activeBlocksManifestName })
+    });
+  })
+</script>
