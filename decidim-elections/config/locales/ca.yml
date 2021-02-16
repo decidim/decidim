@@ -138,6 +138,12 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquesta pregunta
             success: La pregunta s'ha actualitzat correctament
+        steps:
+          vote_stats:
+            no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
+            title: Estadístiques de les votacions
+            voters: Votants
+            votes: Vots
       admin_log:
         election:
           publish: "%{user_name} ha publicat la votació %{resource_name}"
