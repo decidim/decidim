@@ -3,14 +3,17 @@
 module Decidim
   module Votings
     module VotingsHelper
-      # Returns options for state filter selector.
-      def options_for_state_filter
-        [
-          ["all", t("votings.filters.all", scope: "decidim.votings")],
-          ["active", t("votings.filters.active", scope: "decidim.votings")],
-          ["upcoming", t("votings.filters.upcoming", scope: "decidim.votings")],
-          ["finished", t("votings.filters.finished", scope: "decidim.votings")]
-        ]
+      include Decidim::CheckBoxesTreeHelper
+
+      def filter_states_values
+        TreeNode.new(
+          TreePoint.new("", t("votings.filters.all", scope: "decidim.votings")),
+          [
+            TreePoint.new("active", t("votings.filters.active", scope: "decidim.votings")),
+            TreePoint.new("upcoming", t("votings.filters.upcoming", scope: "decidim.votings")),
+            TreePoint.new("finished", t("votings.filters.finished", scope: "decidim.votings"))
+          ]
+        )
       end
     end
   end

@@ -67,7 +67,7 @@ module Decidim
             case permission_action.action
             when :read, :create, :publish, :unpublish
               allow!
-            when :update, :preview
+            when :update, :preview, :manage_landing_page
               toggle_allow(voting.present?)
             end
           when :polling_station

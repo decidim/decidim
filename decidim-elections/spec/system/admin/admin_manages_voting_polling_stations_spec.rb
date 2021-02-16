@@ -14,7 +14,7 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
     click_link "Polling Stations"
   end
 
-  include_context "when admin administrating a voting"
+  include_context "when admin managing a voting"
 
   context "when processing polling stations" do
     let!(:polling_station) { create(:polling_station, voting: voting) }

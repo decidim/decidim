@@ -18,8 +18,8 @@ en:
         min_selections: None of the above option
         title: Title
       voting:
-        end_time: End time
-        start_time: Start time
+        end_time: Voting ends
+        start_time: Voting begins
     errors:
       models:
         answer:
@@ -233,6 +233,11 @@ en:
             submit: Start tally
             success: Start tally request was successfully sent to the Bulletin Board
             title: Vote period ended
+          vote_stats:
+            no_vote_statistics_yet: No vote statistics yet
+            title: Vote Statistics
+            voters: Voters
+            votes: Votes
         trustees_participatory_spaces:
           actions:
             disable: Disable
@@ -567,9 +572,39 @@ en:
         content_blocks:
           highlighted_votings:
             max_results: Maximum amount of elements to show
+          landing_page:
+            attachments_and_folders:
+              name: Voting attachments and folders
+            description:
+              name: Voting description
+            elections:
+              name: Voting elections
+            header:
+              name: Voting header
+            html_block_1:
+              name: Voting html block 1
+            html_block_2:
+              name: Voting html block 2
+            html_block_3:
+              name: Voting html block 3
+            metrics:
+              name: Voting metrics
+            polling_stations:
+              name: Voting polling stations
+            stats:
+              name: Voting statistics
+            timeline:
+              name: Voting timeline
         index:
           not_published: Unpublished
           published: Published
+        landing_page:
+          content_blocks:
+            edit:
+              update: Update
+          edit:
+            active_content_blocks: Active content blocks
+            inactive_content_blocks: Inactive content blocks
         menu:
           votings: Votings
           votings_submenu:
@@ -578,6 +613,7 @@ en:
             attachments: Attachments
             components: Components
             info: Information
+            landing_page: Landing Page
             polling_officers: Polling Officers
             polling_stations: Polling Stations
         models:
@@ -714,6 +750,8 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
+          no_votings: No voting matches your search criteria.
+          only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
         orders:
           label: 'Sort votings by:'
@@ -727,8 +765,15 @@ en:
           ongoing: Ongoing
           upcoming: Upcoming
         footer_button_text:
+          participate: Participate
           view: View
+          vote: Vote
         unspecified: Not specified
+        voting_type:
+          hybrid: Hybrid
+          in_person: In person
+          online: Online
+        voting_types_label: Voting type
   layouts:
     decidim:
       election_votes_header:

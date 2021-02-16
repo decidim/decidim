@@ -11,6 +11,10 @@ module Decidim
         model.try(:manifest_name) || model.name
       end
 
+      def edit_content_block_path
+        decidim_admin.edit_organization_homepage_content_block_path(manifest_name)
+      end
+
       def decidim_admin
         Decidim::Admin::Engine.routes.url_helpers
       end
