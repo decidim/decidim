@@ -241,6 +241,7 @@ cs:
             success: Požadavek zahájení Volební listiny byl úspěšně odeslán na Bulletin Board
             title: Období hlasování skončilo
           vote_stats:
+            no_vote_statistics_yet: Zatím žádné statistiky hlasování
             title: Statistiky hlasování
             voters: Voliči
         trustees_participatory_spaces:
