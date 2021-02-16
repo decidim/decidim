@@ -32,7 +32,7 @@ cs:
       decidim/gamification/level_up_event: Vy jste vyrovnali
       decidim/join_request_accepted_event: Připojit žádost přijatou
       decidim/join_request_rejected_event: Připojit žádost zamítnuta
-      decidim/profile_updated_event: profil aktualizován
+      decidim/profile_updated_event: Profil aktualizován
       decidim/promote_to_admin: Propagováno na správu skupiny
       decidim/removed_from_group: Odstraněna ze skupiny
       decidim/resource_endorsed_event: Zdroj byl schválen
@@ -873,8 +873,8 @@ cs:
         resource_type: Typ
     log:
       base_presenter:
-        create: "%{user_name} vytvořil(a) %{resource_name}"
-        create_with_space: "%{user_name} vytvořil(a) %{resource_name} v %{space_name}"
+        create: "%{user_name} vytvořil %{resource_name}"
+        create_with_space: "%{user_name} vytvořil %{resource_name} v %{space_name}"
         delete: "%{user_name} odstraněno %{resource_name}"
         delete_with_space: "%{user_name} smazán %{resource_name} v %{space_name}"
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
@@ -1284,7 +1284,7 @@ cs:
         sign_in_before_follow: Před provedením této akce se prosím přihlaste
       login_modal:
         close_modal: Zavřít okno
-        please_sign_in: prosím přihlašte se
+        please_sign_in: Přihlaste se, prosím
         sign_up: Přihlásit se
       participatory_space_filters:
         filters:
@@ -1462,7 +1462,7 @@ cs:
       password_change:
         greeting: Dobrý den %{recipient}!
         message: Kontaktujeme vás, abyste vás upozornili, že vaše heslo bylo změněno.
-        subject: heslo změněno
+        subject: Heslo změněno
       reset_password_instructions:
         action: Změňte heslo
         greeting: Dobrý den %{recipient}!
@@ -1581,8 +1581,8 @@ cs:
     decidim:
       cookie_warning:
         description_html: Tento web používá cookies. Pokračováním v procházení webu souhlasíte s používáním souborů cookie. Zjistěte více o tom %{link}.
-        link_label: zde
-        ok: souhlasím
+        link_label: Zjistěte více o cookies
+        ok: Souhlasím
       edit_link:
         edit: Upravit
       footer:
@@ -1695,7 +1695,7 @@ cs:
       choose_diff_view_html: 'Režim HTML zobrazení:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
       option_escaped: Escapované
-      option_split: Vedle sebe (Sbs)
+      option_split: Vedle sebe
       option_unescaped: Neošetřené Esc
       option_unified: Sjednocené
   views:
