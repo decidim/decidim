@@ -244,6 +244,7 @@ cs:
             no_vote_statistics_yet: Zatím žádné statistiky hlasování
             title: Statistiky hlasování
             voters: Voliči
+            votes: Hlasy
         trustees_participatory_spaces:
           actions:
             disable: Zakázat
@@ -582,8 +583,28 @@ cs:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
           landing_page:
+            attachments_and_folders:
+              name: Přílohy a složky hlasování
             description:
               name: Popis hlasování
+            elections:
+              name: Hlasovací volby
+            header:
+              name: Záhlaví hlasování
+            html_block_1:
+              name: Html blok 1 hlasování
+            html_block_2:
+              name: Html blok 2 hlasování
+            html_block_3:
+              name: Html blok 3 hlasování
+            metrics:
+              name: Metriky hlasování
+            polling_stations:
+              name: Volební místnosti hlasování
+            stats:
+              name: Statistiky hlasování
+            timeline:
+              name: Časová osa hlasování
         index:
           not_published: Nezveřejněno
           published: Zveřejněno
@@ -592,6 +613,7 @@ cs:
             edit:
               update: Aktualizovat
           edit:
+            active_content_blocks: Aktivní bloky obsahu
             inactive_content_blocks: Neaktivní bloky obsahu
         menu:
           votings: Hlasování
