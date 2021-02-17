@@ -24,6 +24,8 @@ module Decidim
 
       validates :initiative, :signer, presence: true
 
+      validates :authorized_scopes, presence: true
+
       with_options if: :required_personal_data? do
         validates :name_and_surname, :document_number, :date_of_birth, :postal_code, :encrypted_metadata, :hash_id, presence: true
         validate :document_number_authorized?
