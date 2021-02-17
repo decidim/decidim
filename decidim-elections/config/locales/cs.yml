@@ -690,6 +690,8 @@ cs:
           polling_officers_picker:
             choose_polling_officers: Vybrat volební komisaře
             close: Zavřít
+            more_polling_officers: Existuje ještě %{number} volebních komisařů. Upřesněte vyhledávání a najděte je.
+            no_polling_officers: Žádní volební komisaři neodpovídají vašim kritériím vyhledávání, nebo zde není žádný volební komisař.
         polling_stations:
           create:
             invalid: Při vytváření tohoto volebního místa došlo k chybě
@@ -704,6 +706,9 @@ cs:
             address_help: 'Adresa: použita Geocoderem k nalezení polohy'
             location_help: 'Umístění: zpráva určená voličům s uvedením přesného místa volební místnosti'
             location_hints_help: 'Tipy k umístění: další informace. Příklad: patro budovy, kde se nachází volební místnost.'
+            polling_station_managers_help: 'Manažeři volební místnosti: úředníci, kteří budou působit jako správci volebních místností. Ujistěte se, že úředníci již byli vytvořeni pro volební místnosti a zda již nejsou přiděleni do jiné volební místnosti'
+            polling_station_president_help: 'Komisař volební místnosti: úředník, který bude předsedat volební místnosti. Ujistěte se, že úředník již byl vytvořen ve volební místnosti a zda již není přiřazen(a) k jiné volební místnosti'
+            select_president: Vyberte volebního komisaře jako předsedu volební místnosti
           index:
             title: Volební místnosti
           new:
