@@ -232,6 +232,11 @@ fi-pl:
             submit: Aloita ääntenlaskenta
             success: Pyyntösi aloittaa ääntenlaskenta on onnistuneesti lähetetty äänestystaululle
             title: Äänestysaika on päättynyt
+          vote_stats:
+            no_vote_statistics_yet: Ei vielä äänitilastoja
+            title: Äänten tilastot
+            voters: Äänestäjät
+            votes: Äänet
         trustees_participatory_spaces:
           actions:
             disable: Poista käytöstä
@@ -565,9 +570,39 @@ fi-pl:
         content_blocks:
           highlighted_votings:
             max_results: Näytettävien elementtien enimmäismäärä
+          landing_page:
+            attachments_and_folders:
+              name: Äänestyksen liitteet ja kansiot
+            description:
+              name: Äänestyksen kuvaus
+            elections:
+              name: Äänestyksen vaalit
+            header:
+              name: Äänestyksen otsikko
+            html_block_1:
+              name: Äänestyksen HTML-lohko 1
+            html_block_2:
+              name: Äänestyksen HTML-lohko 2
+            html_block_3:
+              name: Äänestyksen HTML-lohko 3
+            metrics:
+              name: Äänestyksen tilastomittarit
+            polling_stations:
+              name: Äänestyspaikat
+            stats:
+              name: Äänestyksen tilastot
+            timeline:
+              name: Äänestyksen aikajana
         index:
           not_published: Julkaisematon
           published: Julkaistu
+        landing_page:
+          content_blocks:
+            edit:
+              update: Päivitä
+          edit:
+            active_content_blocks: Aktiiviset sisältölohkot
+            inactive_content_blocks: Käytöstä poistetut sisältölohkot
         menu:
           votings: Äänestykset
           votings_submenu:
@@ -576,6 +611,7 @@ fi-pl:
             attachments: Liitteet
             components: Komponentit
             info: Tiedot
+            landing_page: Laskeutumissivu
             polling_officers: Äänestysvirkailijat
             polling_stations: Äänestyspaikat
         models:
