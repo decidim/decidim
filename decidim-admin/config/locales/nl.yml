@@ -44,13 +44,13 @@ nl:
         enable_omnipresent_banner: Toon permanente header
         facebook_handler: Facebook naam
         favicon: Pictogram
-        force_authentication: Dwing authenticatie af
-        force_users_to_authenticate_before_access_organization: Dwing gebruikers om zich aan te melden voor toegang tot de organisatie
+        force_authentication: Verplicht aanmelden
+        force_users_to_authenticate_before_access_organization: Verplicht gebruikers om zich aan te melden voor toegang tot de organisatie
         from: Afzender van de e-mail
         github_handler: GitHub gebruikersnaam
         header_snippets: Elementen om toe te voegen tussen HTML-tags
-        highlight_alternative_color: Hoogte, alternatief
-        highlight_color: Markeren
+        highlight_alternative_color: In de kijker, alternatief
+        highlight_color: In de kijker zetten
         highlighted_content_banner_action_subtitle: Ondertitel actieknop
         highlighted_content_banner_action_title: Titel actieknop
         highlighted_content_banner_action_url: URL actieknop
@@ -68,7 +68,7 @@ nl:
         omnipresent_banner_short_description: Korte beschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        organization_admin_email: E-mailadres organisator beheerder
+        organization_admin_email: E-mailadres beheerder organisatie
         organization_admin_name: Naam beheerder organisatie
         organization_locales: Lokalisaties organisatie
         primary_color: Primaire
@@ -802,7 +802,7 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Beheersbare deelnemers
         impersonations: Beheer van deelnemers
-        metrics: Statistieken
+        metrics: Cijfers
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
