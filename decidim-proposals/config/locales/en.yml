@@ -141,7 +141,7 @@ en:
             participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
-            proposal_edit_time: Infinite edit time
+            proposal_edit_time: Proposal editing
             proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per participant
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
@@ -155,7 +155,7 @@ en:
             vote_limit: Support limit per participant
             proposal_edit_time_choices:
               infinite: Allow editing proposals for an infinite amount of time
-              limit: Allow editing of proposals within a specific timeframe
+              limited: Allow editing of proposals within a specific timeframe
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_creation_enabled_help: Participant can amend proposals.
@@ -777,7 +777,6 @@ en:
           announcement_body: Your proposal has been saved as a draft. It needs to be published for it to appear on the site.
           announcement_title: Your proposal has not yet been published
           modify: Modify the proposal
-          proposal_edit_before_closing: You will be able to edit this proposal as long as the proposal creation is enabled.
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
