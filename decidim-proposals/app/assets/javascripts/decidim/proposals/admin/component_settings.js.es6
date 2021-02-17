@@ -1,20 +1,20 @@
 $(() => {
-  const $labelFalse = $("label[for='component_settings_proposal_edit_time_limited']")
-  const $inputFalse = $("#component_settings_proposal_edit_time_limited")
-  const $inputTrue = $("#component_settings_proposal_edit_time_infinite")
+  const $limitiedTimeLabel = $("label[for='component_settings_proposal_edit_time_limited']")
+  const $limitedTimeRadioButton = $("#component_settings_proposal_edit_time_limited")
+  const $infiniteTimeRadioButton = $("#component_settings_proposal_edit_time_infinite")
   const $editTimeContainer = $(".proposal_edit_before_minutes_container")
 
-  $editTimeContainer.detach().appendTo($labelFalse)
+  $editTimeContainer.detach().appendTo($limitiedTimeLabel)
 
-  if ($inputTrue.is(":checked")) {
+  if ($infiniteTimeRadioButton.is(":checked")) {
     $editTimeContainer.hide();
   }
 
-  $inputFalse.on("click", () => {
+  $limitedTimeRadioButton.on("click", () => {
     $editTimeContainer.show();
   })
 
-  $inputTrue.on("click", () => {
+  $infiniteTimeRadioButton.on("click", () => {
     $editTimeContainer.hide();
   })
 })
