@@ -203,6 +203,7 @@ es-MX:
             invalid: Ha habido un problema al actualizar el orden del día
             success: Orden del día actualizado correctamente
         exports:
+          meeting_comments: Comentarios
           meetings: Reuniones
           registrations: Inscripciones
         invite_join_meeting_mailer:

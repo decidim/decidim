@@ -32,15 +32,14 @@ describe Decidim::Elections::Voter::CastVote do
   let(:cast_vote_message_id_method) { :cast_vote_message_id }
 
   let(:response) { OpenStruct.new(id: 1, status: "enqueued") }
-  let(:response_1) { "#{election.id}.vote.cast+x.#{voter_id}" }
+  let(:message_id) { "#{election.id}.vote.cast+v.#{voter_id}" }
 
   let(:bulletin_board) do
     double(Decidim::Elections.bulletin_board)
   end
 
   before do
-    allow(bulletin_board).to receive(cast_vote_method).and_return(response)
-    allow(bulletin_board).to receive(cast_vote_message_id_method).and_return(response_1)
+    allow(bulletin_board).to receive(cast_vote_method).and_yield(message_id).and_return(response)
   end
 
   it "broadcasts ok" do
@@ -61,11 +60,6 @@ describe Decidim::Elections::Voter::CastVote do
   it "calls the bulletin board cast_vote method with the correct params" do
     subject.call
     expect(bulletin_board).to have_received(cast_vote_method).with(election_id, voter_id, encrypted_vote)
-  end
-
-  it "calls the bulletin board cast_vote_method_id method with the correct params" do
-    subject.call
-    expect(bulletin_board).to have_received(cast_vote_message_id_method).with(election_id, voter_id)
   end
 
   context "when the form is not valid" do

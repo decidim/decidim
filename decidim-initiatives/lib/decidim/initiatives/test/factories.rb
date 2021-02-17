@@ -190,6 +190,10 @@ FactoryBot.define do
                type: create(:initiatives_type, :with_user_extra_fields_collection, organization: organization))
       end
     end
+
+    trait :with_area do
+      area { create(:area, organization: organization) }
+    end
   end
 
   factory :initiative_user_vote, class: "Decidim::InitiativesVote" do

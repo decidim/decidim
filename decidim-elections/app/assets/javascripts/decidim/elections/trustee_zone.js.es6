@@ -1,16 +1,17 @@
 /* eslint-disable require-jsdoc, no-alert, func-style */
-
-// = require ./identification_keys
+// = require decidim/bulletin_board/decidim-bulletin_board
 
 window.Decidim = window.Decidim || {};
 
 $(() => {
+  const { IdentificationKeys } = window.decidimBulletinBoard;
+
   function identificationKeys() {
     const $form = $(".trustee_zone form");
     const $trusteeUniqueId = $("#trustee_unique_id", $form);
     const $trusteePublicKey = $("#trustee_public_key", $form);
 
-    window.trusteeIdentificationKeys = new window.Decidim.IdentificationKeys($trusteeUniqueId.val(), $trusteePublicKey.val());
+    window.trusteeIdentificationKeys = new IdentificationKeys($trusteeUniqueId.val(), $trusteePublicKey.val());
     if (!window.trusteeIdentificationKeys.browserSupport) {
       $("#not_supported_browser").addClass("visible");
       return;

@@ -412,13 +412,6 @@
         print:
           city: By
         result:
-          answer_title:
-            accepted: Dette forslaget ble akseptert fordi
-            created: Dette forslaget er opprettet
-            discarded: Dette forslaget har blitt forkastet fordi
-            published: Dette forslaget er publisert fordi
-            rejected: Dette forslaget ble avvist fordi
-            validating: Dette forslaget blir evaluert
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
           follow_description: Motta et varsel når det er nyheter i dette initiativet

@@ -14,6 +14,8 @@ de:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Muss erneut angehängt werden
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
@@ -118,6 +120,7 @@ de:
           resize_and_pad: in der Größe angepasst und gepolstert zu
           resize_to_fit: in der Größe verändert, damit es passt
       question_types:
+        files: Dateien
         long_answer: Lange Antwort
         matrix_multiple: Matrix (Mehrfachoption)
         matrix_single: Matrix (Einzelne Option)

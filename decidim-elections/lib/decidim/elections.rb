@@ -28,7 +28,7 @@ module Decidim
     end
 
     # Public Setting that defines how many hours the ballot box can be opened before the election starts
-    config_accessor :open_ballot_box_maximum_hours_before_start do
+    config_accessor :start_vote_maximum_hours_before_start do
       6
     end
   end

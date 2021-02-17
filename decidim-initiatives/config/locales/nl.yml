@@ -297,10 +297,8 @@ nl:
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
-          edit_my_initiative: Bewerk mijn initiatieven
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
-          send_my_initiative: Stuur mijn initiatief
         previous_form:
           back: Terug
           continue: Doorgaan met
@@ -411,13 +409,6 @@ nl:
         print:
           city: stad
         result:
-          answer_title:
-            accepted: Dit voorstel is geaccepteerd omdat
-            created: Dit voorstel is gemaakt
-            discarded: Dit voorstel is afgewezen omdat
-            published: Dit voorstel is gepubliceerd omdat
-            rejected: Dit voorstel is afgewezen omdat
-            validating: Dit voorstel wordt beoordeeld
           initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
         show:
           follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief

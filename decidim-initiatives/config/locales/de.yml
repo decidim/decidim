@@ -202,6 +202,10 @@ de:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+            order:
+              default: Standard (älteste zuerst)
+              label: 'Einträge ordnen nach:'
+              most_recent: Neueste zuerst
         exports:
           initiatives: Initiativen
         initiatives:
@@ -277,10 +281,10 @@ de:
             success: Der Initiativentyp wurde erfolgreich aktualisiert
       admin_log:
         initiative:
-          publish: "%{user_name} veröffentlichte die %{resource_name} Initiative"
-          send_to_technical_validation: "%{user_name} schickte die %{resource_name} Initiative zur technischen Validierung"
-          unpublish: "%{user_name} verworfen die %{resource_name} Initiative"
-          update: "%{user_name} aktualisierte die %{resource_name} Initiative"
+          publish: "%{user_name} hat die Initiative %{resource_name} veröffentlicht"
+          send_to_technical_validation: "%{user_name} hat die Initiative %{resource_name} zur technischen Validierung gesendet"
+          unpublish: "%{user_name} hat die Initiative %{resource_name} verworfen"
+          update: "%{user_name} hat die Initiative %{resource_name} aktualisiert"
       admin_states:
         accepted: Ausreichend Unterschriften
         created: Erstellt
@@ -303,9 +307,13 @@ de:
         filter_type_values:
           all: Alle
       committee_requests:
+        approve:
+          success: Anfrage wurde bestätigt.
         new:
           continue: Fortsetzen
           help_text: Sie sind dabei, ein Mitglied des Promoter-Komitees dieser Initiative zu werden
+        revoke:
+          success: Anfrage wurde zurückgezogen.
         spawn:
           success: Ihre Anfrage wurde an den Initiativautor gesendet.
       content_blocks:
@@ -366,6 +374,11 @@ de:
         title: Initiativen bearbeiten
         update: Aktualisieren
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} akzeptiert."
+          email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}'
+          email_subject: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee akzeptiert"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hat Ihre Anfrage fürs Promoter-Komittee der Initiative <a href="%{resource_url}">%{resource_title}</a> akzeptiert.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat eine neue Initiative erstellt, sehen Sie es sich an und reden Sie mit:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -376,6 +389,16 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Initiative wurde von %{author_nickname} unterstützt
           notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> unterstützt.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} abgelehnt."
+          email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}.'
+          email_subject: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee abgelehnt"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hat Ihre Anfrage fürs Promoter-Komittee der Initiative <a href="%{resource_url}">%{resource_title}</a> abgelehnt.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} hat sich fürs Promoter-Komittee Ihrer Initiative %{resource_title} beworben. Um die Anfrage zu akzeptieren oder abzulehnen, besuchen Sie das Bearbeitungsformular Ihrer Initiative."
+          email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
+          email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
         add_attachments: Dokumente
         attachment_legend: "(Optional) Anhang hinzufügen"

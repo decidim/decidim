@@ -269,18 +269,18 @@ de:
           success: Einladung wird erfolgreich erneut gesendet.
     admin_log:
       participatory_process:
-        create: "%{user_name} hat den %{resource_name} Partizipationsprozess erstellt"
-        publish: "%{user_name} veröffentlichte den %{resource_name} Partizipationsprozess"
-        unpublish: "%{user_name} unveröffentlicht den %{resource_name} Partizipationsprozess"
-        update: "%{user_name} hat den %{resource_name} Partizipationsprozess aktualisiert"
+        create: "%{user_name} hat den Partizipationsprozess %{resource_name} erstellt"
+        publish: "%{user_name} hat den Partizipationsprozess %{resource_name} veröffentlicht"
+        unpublish: "%{user_name} hat den Partizipationsprozess %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        update: "%{user_name} hat den Partizipationsprozess %{resource_name} aktualisiert"
       participatory_process_group:
-        create: "%{user_name} hat die Beteiligungsprozessgruppe %{resource_name} erstellt"
-        update: "%{user_name} hat die Beteiligungsprozessgruppe %{resource_name} aktualisiert"
+        create: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} erstellt"
+        update: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} aktualisiert"
       participatory_process_step:
-        activate: "%{user_name} den %{resource_name} Schritt im %{space_name} Partizipationsprozess aktiviert"
-        create: "%{user_name} erstellt den %{resource_name} Schritt in dem %{space_name} Partizipationsprozess"
-        delete: "%{user_name} löschte den %{resource_name} Schritt in dem %{space_name} Partizipationsprozess"
-        update: "%{user_name} hat den %{resource_name} Schritt im %{space_name} Partizipationsprozess aktualisiert"
+        activate: "%{user_name} hat den Schritt %{resource_name} in %{space_name} aktiviert"
+        create: "%{user_name} hat den Schritt %{resource_name} in %{space_name} erstellt"
+        delete: "%{user_name} hat den Schritt %{resource_name} aus %{space_name} gelöscht"
+        update: "%{user_name} hat den Schritt %{resource_name} in %{space_name} aktualisiert"
       participatory_process_user_role:
         create: "%{user_name} lud den Benutzer %{resource_name} zu dem %{space_name} Partizipationsprozess ein"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} aus dem %{space_name} Partizipationsprozess"

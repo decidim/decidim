@@ -45,9 +45,11 @@ fr:
             title: Modifier le budget
             update: Mettre à jour le budget
           index:
-            finished_orders: Commandes terminées
+            finished_orders: Votes terminés
             pending_orders: Votes en cours
             title: Budgets
+            users_with_finished_orders: Utilisateurs ayant fini leur vote
+            users_with_pending_orders: Utilisateurs ayant des votes en attente
           new:
             create: Créer un budget
             title: Nouveau budget

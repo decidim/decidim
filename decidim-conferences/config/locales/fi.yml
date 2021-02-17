@@ -61,7 +61,7 @@ fi:
           error: Konferenssin julkaiseminen epäonnistui.
           success: Konferenssin julkaisu onnistui.
         destroy:
-          error: Konferenssin julkaisun peruminen epäonnistui.
+          error: Konferenssin julkaisun lopettaminen epäonnistui.
           success: Konferenssin julkaisun peruminen onnistui.
       conference_registration:
         confirm:
@@ -228,7 +228,7 @@ fi:
           error: Ilmoittautumistyypin julkaisu epäonnistui.
           success: Ilmoittautumistyypin julkaisu onnistui.
         destroy:
-          error: Ilmoittautumistyypin julkaisun peruminen epäonnistui.
+          error: Ilmoittautumistyypin julkaisun lopettaminen epäonnistui.
           success: Ilmoittamistyypin julkaisun peruminen onnistui.
       registration_types:
         create:

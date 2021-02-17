@@ -16,8 +16,31 @@ module Decidim
             put :unpublish
           end
 
+          resources :polling_stations
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
+        end
+
+        scope "/votings/:voting_slug" do
+          resources :components do
+            resource :permissions, controller: "component_permissions"
+            member do
+              put :publish
+              put :unpublish
+              get :share
+            end
+            resources :exports, only: :create
+          end
+        end
+
+        scope "/votings/:voting_slug/components/:component_id/manage" do
+          Decidim.component_manifests.each do |manifest|
+            next unless manifest.admin_engine
+
+            constraints CurrentComponent.new(manifest) do
+              mount manifest.admin_engine, at: "/", as: "decidim_admin_voting_#{manifest.name}"
+            end
+          end
         end
       end
 

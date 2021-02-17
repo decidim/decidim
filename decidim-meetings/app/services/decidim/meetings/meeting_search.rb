@@ -30,11 +30,11 @@ module Decidim
 
       def search_type
         fields = Decidim::Meetings::Meeting::TYPE_OF_MEETING
-        temp_query = Decidim::Meetings::Meeting.where("1=2")
+        filtered = []
         options[:type].each do |inquiry|
-          temp_query = temp_query.or(Decidim::Meetings::Meeting.send(inquiry.to_sym)) if fields.include?(inquiry)
+          filtered.push(inquiry) if fields.include?(inquiry)
         end
-        query.merge(temp_query)
+        filtered.size.positive? ? query.where(decidim_meetings_meetings: { type_of_meeting: filtered }) : query
       end
     end
   end

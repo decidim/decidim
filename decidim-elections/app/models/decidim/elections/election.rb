@@ -16,13 +16,15 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
-      enum bb_status: [:key_ceremony, :ready, :vote, :tally, :results, :results_published].map { |status| [status, status.to_s] }.to_h, _prefix: :bb
+      enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally, :tally_ended, :results_published]
+        .map { |status| [status, status.to_s] }.to_h, _prefix: :bb
 
       component_manifest_name "elections"
 
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
       has_many :elections_trustees, foreign_key: "decidim_elections_election_id", dependent: :destroy
       has_many :trustees, through: :elections_trustees
+      has_many :actions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Action", dependent: :restrict_with_exception
 
       scope :active, lambda {
         where("start_time <= ?", Time.current)
@@ -75,7 +77,7 @@ module Decidim
       #
       # Returns a boolean.
       def maximum_hours_before_start?
-        start_time < (Time.zone.at(Decidim::Elections.open_ballot_box_maximum_hours_before_start.hours.from_now))
+        start_time < (Time.zone.at(Decidim::Elections.start_vote_maximum_hours_before_start.hours.from_now))
       end
 
       # Public: Checks if the number of answers are minimum 2 for each question
@@ -96,7 +98,7 @@ module Decidim
       #
       # Returns a boolean.
       def results?
-        bb_results?
+        bb_tally_ended?
       end
 
       # Public: Checks if the election questions are valid
