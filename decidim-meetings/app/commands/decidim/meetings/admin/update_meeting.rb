@@ -59,7 +59,9 @@ module Decidim
             location: form.location,
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
-            transparent: form.transparent
+            transparent: form.transparent,
+            customize_registration_email: form.customize_registration_email,
+            registration_email_custom_content: form.registration_email_custom_content
           )
         end
 

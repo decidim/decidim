@@ -22,11 +22,13 @@ module Decidim
         attribute :registration_type, String
         attribute :registration_url, String
         attribute :available_slots, Integer, default: 0
+        attribute :customize_registration_email, Boolean
 
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+        translatable_attribute :registration_email_custom_content, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
