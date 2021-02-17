@@ -22,6 +22,7 @@ module Decidim
           decidim_organization_id: assembly.decidim_organization_id,
           title: assembly.title,
           subtitle: assembly.subtitle,
+          weight: assembly.weight,
           short_description: assembly.short_description,
           description: assembly.description,
           remote_hero_image_url: Decidim::Assemblies::AssemblyPresenter.new(assembly).hero_image_url,

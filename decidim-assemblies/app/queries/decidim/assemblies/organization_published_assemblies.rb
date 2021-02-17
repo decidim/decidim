@@ -14,7 +14,7 @@ module Decidim
           OrganizationAssemblies.new(@organization),
           PublishedAssemblies.new,
           VisibleAssemblies.new(@user)
-        ).query
+        ).query.order(weight: :asc)
       end
     end
   end
