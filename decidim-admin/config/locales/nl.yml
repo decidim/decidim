@@ -44,8 +44,8 @@ nl:
         from: Afzender van de e-mail
         github_handler: GitHub gebruikersnaam
         header_snippets: Elementen om toe te voegen tussen HTML-tags
-        highlight_alternative_color: Hoogte, alternatief
-        highlight_color: Markeren
+        highlight_alternative_color: In de kijker, alternatief
+        highlight_color: In de kijker zetten
         highlighted_content_banner_action_subtitle: Ondertitel actieknop
         highlighted_content_banner_action_title: Titel actieknop
         highlighted_content_banner_action_url: URL actieknop
@@ -714,7 +714,7 @@ nl:
         dashboard: Dashboard
         impersonatable_users: Beheersbare deelnemers
         impersonations: Beheer van deelnemers
-        metrics: Statistieken
+        metrics: Cijfers
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
