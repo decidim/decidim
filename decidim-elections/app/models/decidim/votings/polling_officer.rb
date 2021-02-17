@@ -23,6 +23,20 @@ module Decidim
 
       delegate :name, :nickname, :email, to: :user
 
+      # Allow ransacker to search by presided/managed polling station title
+      %w(managed_station presided_station).each do |table|
+        ransacker "#{table}_title".to_sym do
+          Arel::Nodes::InfixOperation.new("->>", Arel.sql("#{table}.title"), Arel::Nodes.build_quoted(I18n.locale.to_s))
+        end
+      end
+
+      # Allow ransacker to search by user attributes
+      [:name, :email, :nickname].each do |field|
+        ransacker field do
+          Arel.sql("decidim_users.#{field}")
+        end
+      end
+
       private
 
       # Private: check if the voting and the user have the same organization
