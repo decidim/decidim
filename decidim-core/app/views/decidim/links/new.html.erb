@@ -8,12 +8,10 @@
           <p><%= t(".body_2") %></p>
         </div>
         <div class="card-section">
-          <div class="row">
-            <div class="columns large-centered large-12">
-              <div class="heading4"><%= t(".external_link") %></div>
-              <div class="text-center external-link">
-                <%= highlight_domain(params[:external_url]) %>
-              </div>
+          <div class="heading4"><%= t(".external_link") %></div>
+          <div class="card external-link">
+            <div class="card__content text-center">
+              <%= highlight_domain(params[:external_url]) %>
             </div>
           </div>
           <div class="row">
