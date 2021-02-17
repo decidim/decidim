@@ -856,7 +856,8 @@ en:
         resource_type: Type
     links:
       new:
-        body: You are about to visit and external link and we would like to pause for a moment out of an abundance of caution. Links to proof-of-concepts are generally benign but may often be accompanied by unintentional consequences. At a minimum, you should consider using a separate browser or virtual machine before proceeding.
+        body_1: You are about to visit an external link and we would like you to be cautious regarding the content in the external site. Most links on this site are safe to visit but occasionally there may be malicious users who try to take advantage of people not paying attention to the links they click.
+        body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
         cancel: To cancel, close this window
         external_link: 'External link:'
         proceed: Proceed

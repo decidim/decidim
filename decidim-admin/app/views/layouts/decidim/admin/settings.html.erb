@@ -4,9 +4,6 @@
       <%= t ".title" %>
     </div>
     <ul>
-      <li <% if is_active_link?(decidim_admin.edit_organization_external_domain_whitelist_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.external_domain_whitelist", scope: "decidim.admin"), decidim_admin.edit_organization_external_domain_whitelist_path %>
-      </li>
       <li <% if is_active_link?(decidim_admin.edit_organization_path) %> class="is-active" <% end %>>
         <%= link_to t("menu.configuration", scope: "decidim.admin"), decidim_admin.edit_organization_path %>
       </li>
@@ -30,6 +27,9 @@
       </li>
       <li <% if allowed_to?(:update, :help_sections) && is_active_link?(decidim_admin.help_sections_path) %> class="is-active" <% end %>>
         <%= link_to t("menu.help_sections", scope: "decidim.admin"), decidim_admin.help_sections_path %>
+      </li>
+      <li <% if is_active_link?(decidim_admin.edit_organization_external_domain_whitelist_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.external_domain_whitelist", scope: "decidim.admin"), decidim_admin.edit_organization_external_domain_whitelist_path %>
       </li>
     </ul>
   </div>
