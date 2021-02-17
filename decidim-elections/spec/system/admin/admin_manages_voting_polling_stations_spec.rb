@@ -70,6 +70,26 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
           expect(page).not_to have_content(translated(polling_station.title))
         end
       end
+
+      context "when filtering by assigned/unussigned" do
+        let(:polling_station_with_president) { create(:polling_station, voting: voting) }
+        let(:polling_station_with_both) { create(:polling_station, voting: voting) }
+        let!(:polling_station_unassigned) { create(:polling_station, voting: voting) }
+
+        let!(:president) { create(:polling_officer, voting: voting, presided_polling_station: polling_station_with_president) }
+        let!(:manager) { create(:polling_officer, voting: voting, managed_polling_station: polling_station_with_both) }
+        let!(:other_president) { create(:polling_officer, voting: voting, presided_polling_station: polling_station_with_both) }
+
+        it_behaves_like "a filtered collection", options: "Officers", filter: "Assigned" do
+          let(:in_filter) { translated(polling_station_with_both.title) }
+          let(:not_in_filter) { translated(polling_station_with_president.title) }
+        end
+
+        it_behaves_like "a filtered collection", options: "Officers", filter: "Not assigned" do
+          let(:in_filter) { translated(polling_station_unassigned.title) }
+          let(:not_in_filter) { translated(polling_station_with_both.title) }
+        end
+      end
     end
 
     it "can add a polling station to a process", :serves_geocoding_autocomplete do

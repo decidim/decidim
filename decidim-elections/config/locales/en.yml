@@ -71,6 +71,11 @@ en:
   decidim:
     admin:
       filters:
+        officers_assigned_eq:
+          label: Officers
+          values:
+            assigned: Assigned
+            unassigned: Not assigned
         search_placeholder:
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Search %{collection} by title, address or officer name/email/nickname.
