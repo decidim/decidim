@@ -391,7 +391,7 @@ cs:
               odt: Odt
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
             document_legend: 'Přidejte dokument nižší než 2 MB, každá sekce až do hloubky 3 úrovní bude analyzována do návrhů. Podporované formáty jsou: %{valid_mime_types}'
-            title: PŘIDAT DOKUMENT
+            title: Přidat dokument
             upload_document: Nahrát dokument
           publish:
             invalid: Nelze publikovat návrhy
