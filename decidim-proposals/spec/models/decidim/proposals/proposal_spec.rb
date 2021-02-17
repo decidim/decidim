@@ -202,7 +202,7 @@ module Decidim
             component.save!
           end
 
-          let(:proposal) { build :proposal, updated_at: 10.minutes.ago, component: component, users: [author] }
+          let(:proposal) { build :proposal, updated_at: 10.years.ago, component: component, users: [author] }
 
           it do
             proposal.add_coauthor(author)
