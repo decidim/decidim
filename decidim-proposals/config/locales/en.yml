@@ -142,6 +142,9 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_edit_time: Proposal editing
+            proposal_edit_time_choices:
+              infinite: Allow editing proposals for an infinite amount of time
+              limited: Allow editing of proposals within a specific timeframe
             proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per participant
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
@@ -153,9 +156,6 @@ en:
             scopes_enabled: Scopes enabled
             threshold_per_proposal: Threshold per proposal
             vote_limit: Support limit per participant
-            proposal_edit_time_choices:
-              infinite: Allow editing proposals for an infinite amount of time
-              limited: Allow editing of proposals within a specific timeframe
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_creation_enabled_help: Participant can amend proposals.
