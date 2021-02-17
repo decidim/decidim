@@ -17,6 +17,9 @@ en:
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title
+      voting:
+        end_time: Voting ends
+        start_time: Voting begins
     errors:
       models:
         answer:
@@ -29,9 +32,23 @@ en:
               needs_to_be_reattached: Needs to be reattached
         trustee:
           attributes:
+            name:
+              cant_be_changed: can't be changed
             public_key:
               cant_be_changed: can't be changed
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Polling officer already is a polling station president/manager
+            voting:
+              different_organization: The voting must be in the same organizatoin as the user
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: The polling officer must be in the same voting as the polling station
     models:
       decidim/elections/answer:
         one: Answer
@@ -42,7 +59,21 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/polling_officer:
+        one: Polling officer
+        other: Polling officers
+      decidim/votings/polling_station:
+        one: Polling station
+        other: Polling stations
+      decidim/votings/voting:
+        one: Voting
+        other: Votings
   decidim:
+    admin:
+      filters:
+        search_placeholder:
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Search %{collection} by title, address or officer name/email/nickname.
     components:
       elections:
         actions:
@@ -62,10 +93,10 @@ en:
         import: Import proposals to answers
         manage_answers: Manage answers
         manage_questions: Manage questions
+        manage_steps: Manage steps
         new: New %{name}
         preview: Preview
         publish: Publish
-        setup: Setup
         title: Actions
         unpublish: Unpublish
       admin:
@@ -114,9 +145,6 @@ en:
             title: New election
           publish:
             success: The election has been successfully published.
-          setup:
-            invalid: There was a problem setting up this election
-            success: Election successfully sent to the Bulletin Board
           unpublish:
             success: The election has been successfully unpublished.
           update:
@@ -161,29 +189,78 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
-        setup:
-          errors:
-            max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
-            minimum_answers: Questions must have <strong>at least one answer</strong>.
-            minimum_questions: The election <strong>must have at least one question</strong>.
-            published: The election is <strong>not published</strong>
-            time_before: The start time is in <strong>less than 3 hours</strong> before the election starts
-            trustee_public_key: does not have a <strong>valid public key</strong>
-            trustees_quorum: The amount of trustees <strong>does not correspond with the trustees quorum</strong> required
-          requirements:
-            max_selections: All the questions have a correct value for <strong>maximum of answers</strong>
-            minimum_answers: Each question has <strong>at least 2 answers</strong>
-            minimum_questions: The election has <strong>at least 1 question</strong>
-            published: The election is <strong>published</strong>
-            time_before: The setup is being done <strong>at least 3 hours</strong> before the election starts
-            trustee_public_key: has a <strong>valid public key</strong>
-            trustees_quorum: The size of this list of trustees is correct and it will be needed <strong>at least %{quorum} trustees </strong> to perform the tally process
-          show:
-            setup: Setup election
-            title: Election setup
-          update:
-            setup: Setup election
-            title: Election setup
+        steps:
+          create_election:
+            errors:
+              max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
+              minimum_answers: Questions must have <strong>at least two answers</strong>.
+              minimum_questions: The election <strong>must have at least one question</strong>.
+              published: The election is <strong>not published</strong>.
+              time_before: The start time is in <strong>less than 3 hours</strong> before the election starts.
+              trustees_number: The participatory space <strong>must have at least %{number} trustees with public key</strong>.
+            invalid: There was a problem setting up this election
+            no_trustees: There are no Trustees configured for this participatory space
+            not_used_trustee: "(not used)"
+            public_key:
+              'false': does not have a <strong>public key</strong>
+              'true': has a <strong>public key</strong>
+            requirements:
+              max_selections: All the questions have a correct value for <strong>maximum of answers</strong>.
+              minimum_answers: Each question has <strong>at least 2 answers</strong>.
+              minimum_questions: The election has <strong>at least 1 question</strong>.
+              published: The election is <strong>published</strong>.
+              time_before: The setup is being done <strong>at least %{hours} hours</strong> before the election starts.
+              trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
+            submit: Setup election
+            success: Election successfully sent to the Bulletin Board
+            title: Setup election
+            trustees: Election Trustees
+          created:
+            invalid: There was a problem starting the key ceremony
+            submit: Start the key ceremony
+            success: Start key ceremony request was successfully sent to the Bulletin Board
+            title: Election created
+            trustees: Trustees
+          key_ceremony:
+            title: Key ceremony
+            trustees: Trustees
+          key_ceremony_ended:
+            errors:
+              time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to start the voting period.
+            invalid: There was a problem starting the voting period
+            requirements:
+              time_before: The election will start soon. You can start the voting period manually, or it will be started automatically before the starting time, at %{start_time}.
+            submit: Start voting period
+            success: Start voting period request was successfully sent to the Bulletin Board
+            title: Ready to start
+          processing: Processing...
+          results_published:
+            title: Results published
+          tally:
+            title: Tally process
+            trustees: Trustees
+          tally_ended:
+            submit: Publish results
+            title: Results calculated
+          vote:
+            errors:
+              time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
+            invalid: There was a problem ending the voting period
+            requirements:
+              time_after: The election has ended. You can end the voting period manually, or it will be ended automatically in a few minutes.
+            submit: End voting period
+            success: End voting period request was successfully sent to the Bulletin Board
+            title: Vote period
+          vote_ended:
+            invalid: There was a problem starting the tally
+            submit: Start tally
+            success: Start tally request was successfully sent to the Bulletin Board
+            title: Vote period ended
+          vote_stats:
+            no_vote_statistics_yet: No vote statistics yet
+            title: Vote Statistics
+            voters: Voters
+            votes: Votes
         trustees_participatory_spaces:
           actions:
             disable: Disable
@@ -207,7 +284,12 @@ en:
             success: Trustee %{trustee} successfully updated
       admin_log:
         election:
+          end_vote: "%{user_name} ended the voting period for the %{resource_name} election on the Bulletin Board"
           publish: "%{user_name} published the %{resource_name} election"
+          setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
+          start_key_ceremony: "%{user_name} started the key ceremony for the %{resource_name} election on the Bulletin Board"
+          start_tally: "%{user_name} started the tally for the %{resource_name} election on the Bulletin Board"
+          start_vote: "%{user_name} started the voting period for the %{resource_name} election on the Bulletin Board"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
         badge_name:
@@ -253,12 +335,22 @@ en:
             other: "%{count} votes"
             zero: "%{count} votes"
         show:
+          action-button:
+            change-vote: Change your vote
+            vote: Start voting
+            vote-again: Vote again
           back: Available elections
+          callout:
+            already-voted: You have already voted in this election. You can change your vote or verify it.
+            vote-rejected: It was not possible to verify your vote. Please cast it again.
           preview: Preview
-          vote: Vote
+          verify:
+            already-voted: Already voted?
+            verify-here: Check your vote here.
+            will-verify: You will be able to verify your vote once the election is started.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
-            ongoing: Voting ends on %{end_time}
+            ongoing: 'Active voting until: %{end_time}'
             upcoming: Voting begins on %{start_time}
       feedback:
         answer:
@@ -272,6 +364,7 @@ en:
             title: Title
         election:
           fields:
+            bb_status: Bulletin Board status
             end_time: End at
             start_time: Starts at
             title: Title
@@ -294,14 +387,73 @@ en:
         older: Older
         recent: Recent
       trustee_zone:
+        elections:
+          backup_modal:
+            description: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place. After that, the process continues.
+            download_election_keys: Download keys
+            download_icon: Icon that indicates a download action
+            title: Backup election keys for %{election}
+          key_ceremony_steps:
+            back: Back
+            description: This election is being created in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
+            keys:
+              create_election: Keys generation
+              key_ceremony:
+                joint_election_key: Joint Key generation
+                step_1: Keys publishing
+            list:
+              status: Status
+              task: Task
+            process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
+            start: Start
+            start_icon: Icon that indicates a start button to start the election keys generation
+            status:
+              completed: Completed
+              pending: Pending
+              processing: Processing
+            title: Create election keys for %{election}
+          restore_modal:
+            description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
+            title: Restore election keys for %{election}
+            upload_election_keys: Upload election keys
+            upload_icon: Icon that indicates a download action
+          tally_steps:
+            back: Back
+            description: The results for this election are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
+            keys:
+              end_tally: Tally ended
+              tally:
+                cast: Tally cast
+                share: Tally share
+            list:
+              status: Status
+              task: Task
+            process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
+            start: Start
+            start_icon: Icon that indicates a start button to start the election keys generation
+            status:
+              completed: Completed
+              pending: Pending
+              processing: Processing
+            title: Tally for %{election}
+          update:
+            error: The election status wasn't updated.
+            success: 'The election status is: %{status}'
         menu:
           trustee_zone: Trustee zone
+        no_bulletin_board:
+          body: A configured Bulletin Board is required for this section. Contact the Administrator for more details.
+          title: Sorry, the Bulletin Board is not configured yet.
         trustees:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'No'
+                  name: Action required?
+                  'true': Perform action
+                bb_status: Status
                 election: Election
-                status: Status
                 voting_period: Voting period
               no_elections: There are no elections where you act as a Trustee.
               title: Elections
@@ -341,15 +493,20 @@ en:
           question: Question %{count}
         confirmed:
           back: Back to elections
+          error: Sorry, there was an error confirming the vote. Please vote again.
           experience: How was your experience?
           feedback: Give us some feedback
           header: Vote confirmed
           lead: Your vote has already been cast!
           text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: To check it, copy the identifier and paste it on the <a href="evote-verify">vote verification page</a>
+          verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote verification page</a>
         encrypting:
           header: Encoding vote...
           text: Your vote is being encrypted to ensure you can cast it anonymously.
+        failed:
+          header: Vote failed
+          lead: Your vote has not been casted!
+          text: Something went wrong, please try it again.
         header:
           confirm: Confirm your vote
           confirmed: Vote confirmed
@@ -366,6 +523,28 @@ en:
           preview_alert: This is a preview of the voting booth.
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
+        processing:
+          header: Processing vote...
+          text: Your vote has been received and it is being processing. Please wait.
+        update:
+          error: There was a problem updating the vote status
+          success: Vote status successfully updated
+        verify:
+          content:
+            heading: Verify your vote
+            info: This verifier checks that your vote, identified with an encrypted text string, has been cast correctly and is inside the ballot box.
+          error:
+            header: Vote not found!
+            info: The vote code was not found in the %{link} ballot box, try again.
+          form:
+            back: Back to Decidim
+            submit: Check
+            vote_identifier: 'Identifier code:'
+          header:
+            title: Verify your vote
+          success:
+            header: Vote located!
+            info: Your encrypted vote is in the %{link} ballot box
         voting_step:
           back: Back
           continue: Next
@@ -390,6 +569,20 @@ en:
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Your vote was accepted! Using your voting token: %{encrypted_vote_hash}, you can verify your vote <a href="%{verify_url}">here</a>.'
+            email_outro: You have received this notification because you've voted for the %{resource_name} election.
+            email_subject: Your vote for %{resource_name} was accepted.
+            notification_title: 'Your vote was accepted. Verify your vote <a href="%{verify_url}">here</a> using your vote token: %{encrypted_vote_hash}'
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>A <strong>voting</strong> is a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the voting, spark and order the debate for or against a response. When the voting date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The votings can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>A <strong>voting</strong> is a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the voting, spark and order the debate for or against a response. When the voting date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The votings can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          title: What are votings?
+    menu:
+      votings: Votings
     pages:
       home:
         statistics:
@@ -397,7 +590,233 @@ en:
     participatory_processes:
       statistics:
         elections_count: Elections
+    votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Maximum amount of elements to show
+          landing_page:
+            attachments_and_folders:
+              name: Voting attachments and folders
+            description:
+              name: Voting description
+            elections:
+              name: Voting elections
+            header:
+              name: Voting header
+            html_block_1:
+              name: Voting html block 1
+            html_block_2:
+              name: Voting html block 2
+            html_block_3:
+              name: Voting html block 3
+            metrics:
+              name: Voting metrics
+            polling_stations:
+              name: Voting polling stations
+            stats:
+              name: Voting statistics
+            timeline:
+              name: Voting timeline
+        index:
+          not_published: Unpublished
+          published: Published
+        landing_page:
+          content_blocks:
+            edit:
+              update: Update
+          edit:
+            active_content_blocks: Active content blocks
+            inactive_content_blocks: Inactive content blocks
+        menu:
+          votings: Votings
+          votings_submenu:
+            attachment_collections: Folders
+            attachment_files: Files
+            attachments: Attachments
+            components: Components
+            info: Information
+            landing_page: Landing Page
+            polling_officers: Polling Officers
+            polling_stations: Polling Stations
+        models:
+          polling_officer:
+            fields:
+              email: Email
+              name: Name
+              polling_station: Polling station (role)
+            name: Polling Officer
+          polling_station:
+            fields:
+              address: Address
+              polling_station_managers: Managers
+              polling_station_president: President
+              title: Title
+            name: Polling Station
+          voting:
+            fields:
+              created_at: Created at
+              promoted: Highlighted
+              published: Published
+              title: Title
+        polling_officers:
+          create:
+            invalid: There was a problem creating this polling officer
+            success: Polling officer successfully created
+          destroy:
+            invalid: There was a problem deleting this polling officer
+            success: Polling officer successfully deleted
+          form:
+            existing_user: Existing participant
+            non_user: Invite new participant
+            select_user: Search by name, email or nickname
+            user_type: Participant type
+          index:
+            role_manager: manager
+            role_president: president
+            title: Polling officers
+          new:
+            create: Create
+            title: Create polling officer
+          polling_officers_picker:
+            choose_polling_officers: Choose polling officers
+            close: Close
+            more_polling_officers: There are %{number} more polling officers. Refine your search to locate them.
+            no_polling_officers: No polling officers match your search criteria or there isn't any polling officer.
+        polling_stations:
+          create:
+            invalid: There was a problem creating this polling station
+            success: Polling station successfully created
+          destroy:
+            invalid: There was a problem deleting this polling station
+            success: Polling station successfully deleted
+          edit:
+            title: Edit polling station
+            update: Update polling station
+          form:
+            address_help: 'Address: used by Geocoder to find the location'
+            location_help: 'Location: message directed to the voters implying the exact place of the polling station'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
+            polling_station_managers_help: 'Polling station managers: the officers that will act as polling station managers. Make sure the officers have already been created in Polling Officers and that they are not already assigned to another polling station'
+            polling_station_president_help: 'Polling station officer: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station'
+            select_president: Select a polling officer as president of the polling station
+          index:
+            title: Polling stations
+          new:
+            create: Create
+            title: Create polling station
+          update:
+            invalid: There was a problem updating this polling station
+            success: Polling station successfully updated
+        titles:
+          votings: Votings
+        votings:
+          actions:
+            confirm_destroy: Are you sure?
+            destroy: Destroy
+            new_voting: New Voting Space
+            publish: Publish
+            unpublish: Unpublish
+          create:
+            invalid: There was a problem creating this voting
+            success: Voting successfully created
+          edit:
+            add_election_component: You don't have any election configured for this voting. Please add it in the Components section
+            update: Update
+          form:
+            select_a_voting_type: Please select a voting type
+            slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            title: Title
+            voting_type:
+              hybrid: Hybrid
+              in_person: In person
+              online: Online
+          new:
+            create: Create
+            title: New Voting
+          publish:
+            success: Voting successfully published
+          unpublish:
+            success: Voting successfully unpublished
+          update:
+            invalid: There was a problem updating this voting
+            success: Voting successfully updated
+      admin_log:
+        voting:
+          create: "%{user_name} created the %{resource_name} voting"
+          publish: "%{user_name} published the %{resource_name} voting"
+          unpublish: "%{user_name} unpublished the %{resource_name} voting"
+      content_blocks:
+        highlighted_votings:
+          name: Highlighted votings
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Active votings
+            see_all_votings: See all votings
+            votings_button_title: Link to the Votings page displaying all the votings
+      polling_officers:
+        actions:
+          confirm_destroy: Are you sure?
+          destroy: Delete
+          new: New
+          title: Actions
+      polling_stations:
+        actions:
+          confirm_destroy: Are you sure?
+          destroy: Delete
+          edit: Edit
+          new: New
+          title: Actions
+      votings:
+        count:
+          title:
+            one: "%{count} voting"
+            other: "%{count} votings"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          no_votings: No voting matches your search criteria.
+          only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
+          title: Votings
+        orders:
+          label: 'Sort votings by:'
+          random: Random
+          recent: Most recent
+        show:
+          dates: Dates
+      votings_m:
+        badge_name:
+          finished: Finished
+          ongoing: Ongoing
+          upcoming: Upcoming
+        footer_button_text:
+          participate: Participate
+          view: View
+          vote: Vote
+        unspecified: Not specified
+        voting_type:
+          hybrid: Hybrid
+          in_person: In person
+          online: Online
+        voting_types_label: Voting type
   layouts:
     decidim:
       election_votes_header:
         exit: Exit
+      votings:
+        index:
+          promoted_votings: Highlighted votings
+        promoted_voting:
+          more_info: More info
+          vote: Vote

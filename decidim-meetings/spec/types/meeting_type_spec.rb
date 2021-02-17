@@ -13,7 +13,7 @@ require "shared/linked_resources_interface_examples"
 module Decidim
   module Meetings
     describe MeetingType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:component) { create(:meeting_component) }
       let(:model) { create(:meeting, component: component) }
 

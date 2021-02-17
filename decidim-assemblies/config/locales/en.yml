@@ -53,6 +53,7 @@ en:
         target: Who participates
         title: Title
         twitter: Twitter
+        weight: Weight
         youtube: YouTube
       assembly_member:
         birthday: Birthday
@@ -250,7 +251,7 @@ en:
         update: "%{user_name} updated the assemblies settings"
       assembly_type:
         create: "%{user_name} created the %{resource_name} assembly type"
-        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly type"
+        delete: "%{user_name} removed the %{resource_name} assembly type"
         publish: "%{user_name} published the %{resource_name} assembly type"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
         update: "%{user_name} updated the %{resource_name} assembly type"
@@ -387,14 +388,19 @@ en:
         comments_count: Comments
         debates_count: Debates
         endorsements_count: Endorsements
-        headline: Activity
+        followers_count: Followers
+        headline: Statistics
         meetings_count: Meetings
+        no_stats: There are no statistics yet.
         orders_count: Supports
         pages_count: Pages
+        participants_count: Participants
         posts_count: Posts
+        processes_count: Processes
         projects_count: Projects
         proposals_count: Proposals
         results_count: Results
+        supports_count: Supports
         surveys_count: Surveys
         users_count: Participants
         votes_count: Supports
@@ -445,7 +451,7 @@ en:
         hero:
           participate_title: Participate to the platform's processes
         sub_hero:
-          register_title: Sign up to create an account on the platform
+          register_title: Sign up to create an account
     participatory_processes:
       pages:
         home:

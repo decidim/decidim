@@ -7,7 +7,7 @@ require "decidim/core/test/shared_examples/timestamps_interface_examples"
 module Decidim
   module Forms
     describe QuestionnaireType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:questionnaire) }
 
       include_examples "timestamps interface"
@@ -61,7 +61,7 @@ module Decidim
         end
 
         it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
-          expect(response["forEntity"]["id"]).to eq(meeting.id.to_s)
+          expect(response["forEntity"]["id"]).to eq(model.questionnaire_for.id.to_s)
         end
       end
     end

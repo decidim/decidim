@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - develop
-      - master
       - release/*
       - "*-stable"
   pull_request:
@@ -21,6 +20,7 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
     services:
       postgres:
         image: postgres:11
@@ -36,9 +36,10 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
-        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+        if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/checkout@v2.0.0
@@ -51,7 +52,7 @@ jobs:
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rake
+      - run: bundle exec rspec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH

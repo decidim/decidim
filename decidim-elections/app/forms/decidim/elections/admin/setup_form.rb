@@ -5,67 +5,73 @@ module Decidim
     module Admin
       # This class holds a form to setup elections from Decidim's admin panel.
       class SetupForm < Decidim::Form
-        include TranslatableAttributes
+        mimic :setup
 
         attribute :trustee_ids, Array[Integer]
 
-        validate :check_election_is_valid
+        validate do
+          validations.each do |message, t_args, valid|
+            errors.add(message, I18n.t("steps.create_election.errors.#{message}", **t_args, scope: "decidim.elections.admin")) unless valid
+          end
+        end
 
-        def map_model(model)
-          @election = model
-          @trustees = Decidim::Elections::Trustees::ByParticipatorySpace.new(election.component.participatory_space).to_a.sample(number_of_trustees).sort_by(&:id)
+        def current_step; end
 
-          self.trustee_ids = @trustees.pluck(:id)
+        def pending_action; end
+
+        def trustee_ids
+          choose_random_trustees
         end
 
         def trustees
-          @trustees = Decidim::Elections::Trustees::ByParticipatorySpace.new(election.component.participatory_space)
-
-          self.trustee_ids = @trustees.pluck(:id)
-
-          @trustees = Decidim::Elections::Trustees::ByParticipatorySpaceTrusteeIds.new(trustee_ids).to_a.sort_by(&:id)
-          @trustees
+          ids = trustee_ids
+          @trustees ||= Decidim::Elections::Trustees::ByParticipatorySpaceTrusteeIds.new(ids).to_a.sort_by(&:id)
         end
 
-        def number_of_trustees
-          Decidim::Elections.bulletin_board.number_of_trustees
+        def validations
+          @validations ||= [
+            [:minimum_questions, {}, election.questions.any?],
+            [:minimum_answers, {}, election.minimum_answers?],
+            [:max_selections, {}, election.valid_questions?],
+            [:published, {}, election.published_at.present?],
+            [:time_before, { hours: Decidim::Elections.setup_minimum_hours_before_start }, election.minimum_hours_before_start?],
+            [:trustees_number, { number: bulletin_board.number_of_trustees }, participatory_space_trustees_with_public_key.size >= bulletin_board.number_of_trustees]
+          ].freeze
         end
 
         def messages
-          { published: I18n.t("admin.setup.requirements.published", scope: "decidim.elections"),
-            time_before: I18n.t("admin.setup.requirements.time_before", scope: "decidim.elections"),
-            minimum_questions: I18n.t("admin.setup.requirements.minimum_questions", scope: "decidim.elections"),
-            minimum_answers: I18n.t("admin.setup.requirements.minimum_answers", scope: "decidim.elections"),
-            max_selections: I18n.t("admin.setup.requirements.max_selections", scope: "decidim.elections"),
-            trustees_quorum: I18n.t("admin.setup.requirements.trustees_quorum", scope: "decidim.elections", quorum: Decidim::Elections.bulletin_board.quorum) }
+          @messages ||= validations.map do |message, t_args, _valid|
+            [message, I18n.t("steps.create_election.requirements.#{message}", **t_args, scope: "decidim.elections.admin")]
+          end.to_h
+        end
+
+        def participatory_space_trustees
+          @participatory_space_trustees ||= Decidim::Elections::Trustees::ByParticipatorySpace.new(election.component.participatory_space).to_a
         end
 
         def election
           @election ||= context[:election]
         end
 
-        def check_election_is_valid
-          errors.add("published", I18n.t("admin.setup.errors.published", scope: "decidim.elections")) if election.published_at.blank?
-          errors.add("time_before", I18n.t("admin.setup.errors.time_before", scope: "decidim.elections")) unless election.minimum_three_hours_before_start?
-          errors.add("minimum_questions", I18n.t("admin.setup.errors.minimum_questions", scope: "decidim.elections")) if election.questions.empty?
-          errors.add("minimum_answers", I18n.t("admin.setup.errors.minimum_answers", scope: "decidim.elections")) unless election.minimum_answers?
-          errors.add("max_selections", I18n.t("admin.setup.errors.max_selections", scope: "decidim.elections")) unless election.valid_questions?
-          errors.add("trustees_quorum", I18n.t("admin.setup.errors.trustees_quorum", scope: "decidim.elections")) unless trustees_satisfy_quorum
-          check_trustees_public_keys
+        def bulletin_board
+          @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
         end
 
-        def trustees_satisfy_quorum
-          return if Decidim::Elections.bulletin_board.quorum.blank?
+        private
 
-          trustees.size >= Decidim::Elections.bulletin_board.quorum
+        def choose_random_trustees
+          return @trustee_ids if @trustee_ids.any? || defined?(@trustees)
+
+          @trustees = if participatory_space_trustees_with_public_key.count >= bulletin_board.number_of_trustees
+                        participatory_space_trustees_with_public_key.sample(bulletin_board.number_of_trustees)
+                      else
+                        []
+                      end
+          @trustee_ids = @trustees.pluck(:id)
         end
 
-        def check_trustees_public_keys
-          trustees.each do |trustee|
-            if trustee.public_key.blank?
-              errors.add("trustee_id_#{trustee.id}", "#{trustee.user.name} #{I18n.t("admin.setup.errors.trustee_public_key", scope: "decidim.elections")}")
-            end
-          end
+        def participatory_space_trustees_with_public_key
+          @participatory_space_trustees_with_public_key ||= participatory_space_trustees.filter { |trustee| trustee.public_key.present? }
         end
       end
     end

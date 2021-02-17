@@ -207,6 +207,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
         invite_join_meeting_mailer:

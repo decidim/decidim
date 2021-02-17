@@ -3,11 +3,14 @@
 module Decidim
   module Admin
     class ModeratedUsersController < Decidim::Admin::ApplicationController
+      include Decidim::Moderations::Admin::Filterable
+
       layout "decidim/admin/users"
 
       def index
         enforce_permission_to :read, :moderate_users
-        @moderated_users = UserModeration.page(params[:page]).per(15)
+
+        @moderated_users = filtered_collection.page(params[:page]).per(15)
       end
 
       def ignore
@@ -30,6 +33,11 @@ module Decidim
 
       def reportable
         @reportable ||= UserModeration.find(params[:id]).user
+      end
+
+      def collection
+        target_scope = params[:blocked] && params[:blocked] == "true" ? :blocked : :unblocked
+        UserModeration.send(target_scope)
       end
     end
   end

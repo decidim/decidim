@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - develop
-      - master
       - release/*
       - "*-stable"
   pull_request:
@@ -21,6 +20,7 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
     services:
       postgres:
         image: postgres:11
@@ -36,9 +36,10 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
-        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+        if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/checkout@v2.0.0
@@ -47,27 +48,13 @@ jobs:
       - uses: ruby/setup-ruby@master
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
-      - name: Recover Ruby dependency cache
-        uses: actions/cache@v1
-        with:
-          path: ./vendor/bundle
-          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
-            ${{ runner.OS }}-rubydeps-
-            ${{ runner.OS }}-
-      - name: Install Ruby deps
-        uses: nick-invision/retry@v1
-        with:
-          timeout_minutes: 10
-          max_attempts: 3
-          command: bundle install --path vendor/bundle --jobs 4 --retry 3
+          bundler-cache: true
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
-      - run: bundle exec rake
+      - run: bundle exec rspec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH

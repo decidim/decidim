@@ -2,7 +2,7 @@ cs:
   activemodel:
     attributes:
       assemblies_setting:
-        enable_organization_chart: Povolit organizační graf
+        enable_organization_chart: Povolit schéma organizace
       assembly:
         area_id: Oblast
         assembly_type: Typ shromáždění
@@ -48,7 +48,7 @@ cs:
         show_statistics: Zobrazit statistiky
         slug: URL slug
         special_features: Speciální funkce
-        subtitle: Titulky
+        subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
         twitter: Twitter
@@ -77,9 +77,9 @@ cs:
     models:
       decidim/assembly:
         one: Shromáždění
-        few: Sestavy
-        many: Sestavy
-        other: Sestavy
+        few: Shromáždění
+        many: Shromáždění
+        other: Shromáždění
       decidim/assembly_member:
         one: Člen shromáždění
         few: Členové shromáždění
@@ -105,7 +105,7 @@ cs:
         index:
           not_published: Není zveřejněno
           private: Soukromé
-          public: Veřejnost
+          public: Veřejné
           published: Publikováno
         new:
           create: Vytvořit
@@ -188,7 +188,7 @@ cs:
           error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
       menu:
-        assemblies: Sestavy
+        assemblies: Shromáždění
         assemblies_settings: Nastavení
         assemblies_submenu:
           assembly_admins: Administrátoři shromáždění
@@ -239,7 +239,7 @@ cs:
             moderator: Moderátor
             valuator: Hodnotitel
       titles:
-        assemblies: Sestavy
+        assemblies: Shromáždění
         assemblies_types: Typy shromáždění
     admin_log:
       assembly:
@@ -330,11 +330,11 @@ cs:
         working_group: Pracovní skupina
       content_blocks:
         highlighted_assemblies:
-          name: Zvýrazněné sestavy
+          name: Zvýrazněná shromáždění
       created_by:
         city_council: Městská rada
         others: Ostatní
-        public: Veřejnost
+        public: Veřejné
       filter:
         all: Všechny typy
         commission: Komise
@@ -392,14 +392,19 @@ cs:
         comments_count: Komentáře
         debates_count: Debaty
         endorsements_count: Schválení
-        headline: Aktivita
+        followers_count: Sledující
+        headline: Statistiky
         meetings_count: Setkání
+        no_stats: Zatím nejsou žádné statistiky.
         orders_count: Hlasy
         pages_count: Stránky
+        participants_count: Účastníci
         posts_count: Příspěvky
+        processes_count: Procesy
         projects_count: Projekty
         proposals_count: Návrhy
         results_count: Výsledky
+        supports_count: Podpory
         surveys_count: Průzkumy
         users_count: Účastníci
         votes_count: Hlasy

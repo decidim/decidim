@@ -4,7 +4,7 @@ Components are the core contract between external xref:develop:modules.adoc[modu
 
 == Creating a new component
 
-If you want to create a new component, you can use https://github.com/decidim/decidim/tree/master/decidim-generators[decidim-generators] to
+If you want to create a new component, you can use https://github.com/decidim/decidim/tree/develop/decidim-generators[decidim-generators] to
 automatically generate a decidim component skeleton, or copy the basic structure
 of an existing mantained plugin.
 
@@ -13,7 +13,7 @@ of an existing mantained plugin.
 decidim --component engine_name
 ----
 
-Components are just gems with one or more Rails engines included in it. You can use as an example https://github.com/decidim/decidim/tree/master/decidim-pages[decidim-pages].
+Components are just gems with one or more Rails engines included in it. You can use as an example https://github.com/decidim/decidim/tree/develop/decidim-pages[decidim-pages].
 
 Check out the `lib/decidim/pages` folder: It includes several files, the most important of which is `component.rb`.
 
@@ -65,6 +65,15 @@ Decidim.register_component(:my_component) do |component|
     end
 
     exports.serializer MyComponent::ResourceSerializer
+  end
+
+  # Import definitions allow data to be imported into a component.
+  #
+  # For now supported formats for imports are CSV, JSON and Excel (.xls).
+  # Every resource type needs it's own creator, which creates resource
+  # from parsed data.
+  component.imports :component_resources do |imports|
+    imports.creator MyComponent::ResourceCreator
   end
 end
 ----
@@ -125,4 +134,4 @@ This sections explains how to add dummy content to a development application.
 === Tips and Tricks
 
 * Take advantage of the Faker gem, already in decidim.
-* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/master/decidim-core/lib/decidim/faker/localized.rb[Localizaed], which uses `Faker` internally.
+* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/faker/localized.rb[Localizaed], which uses `Faker` internally.

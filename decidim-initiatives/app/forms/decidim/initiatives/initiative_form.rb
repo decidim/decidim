@@ -5,6 +5,7 @@ module Decidim
     # A form object used to collect the data for a new initiative.
     class InitiativeForm < Form
       include TranslatableAttributes
+      include AttachmentAttributes
 
       mimic :initiative
 
@@ -18,10 +19,10 @@ module Decidim
       attribute :signature_end_date, Date
       attribute :state, String
       attribute :attachment, AttachmentForm
-      attribute :documents, Array[String]
-      attribute :add_documents, Array
-      attribute :photos, Array[String]
       attribute :hashtag, String
+
+      attachments_attribute :photos
+      attachments_attribute :documents
 
       validates :title, :description, presence: true
       validates :title, length: { maximum: 150 }

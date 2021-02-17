@@ -30,6 +30,16 @@ module Decidim
       end
 
       #
+      # Same as #link_to_current_or_new_conversation_with, but with a text body instead of an icon
+      #
+      # Links to the conversation between the current user and another user
+      #
+      def text_link_to_current_or_new_conversation_with(user, body = t("decidim.profiles.show.send_private_message"))
+        conversation_path = current_or_new_conversation_path_with(user)
+        link_to body, conversation_path, title: body if conversation_path
+      end
+
+      #
       # Finds the right path to the conversation the current user and another
       # user (the interlocutor).
       #

@@ -16,6 +16,7 @@ module Decidim::ParticipatoryProcesses
             subtitle_en: my_process.subtitle,
             subtitle_ca: my_process.subtitle,
             subtitle_es: my_process.subtitle,
+            weight: my_process.weight,
             slug: my_process.slug,
             hashtag: my_process.hashtag,
             meta_scope: my_process.meta_scope,

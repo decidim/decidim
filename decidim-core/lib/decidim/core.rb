@@ -94,6 +94,7 @@ module Decidim
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
+  autoload :AttachmentAttributes, "decidim/attachment_attributes"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -558,7 +559,7 @@ module Decidim
     organization = begin
       if model.is_a?(Decidim::Organization)
         model
-      elsif model.respond_to?(:organization)
+      elsif model.respond_to?(:organization) && model.organization.present?
         model.organization
       end
     end

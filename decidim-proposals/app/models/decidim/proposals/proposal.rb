@@ -107,7 +107,7 @@ module Decidim
         return unless author.is_a?(Decidim::User)
 
         joins(:coauthorships)
-          .where("decidim_coauthorships.coauthorable_type = ?", name)
+          .where(decidim_coauthorships: { coauthorable_type: name })
           .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
       end
 
@@ -131,7 +131,9 @@ module Decidim
                                                             .where(decidim_author_type: "Decidim::UserBaseEntity")
                                                             .pluck(:decidim_author_id).to_a.compact.uniq
 
-        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids).flatten.compact.uniq
+        commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(proposals)
+
+        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
       end
 
       # Public: Updates the vote count of this proposal.

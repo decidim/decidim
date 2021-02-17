@@ -134,14 +134,26 @@ fr:
     admin:
       actions:
         add: Ajouter
+        attachment:
+          new: Nouvelle pièce jointe
+        attachment_collection:
+          new: Nouveau dossier
         browse: Parcourir
+        category:
+          new: Nouvelle catégorie
         export: Exporter
         manage: Gérer
         new: + %{name}
+        newsletter:
+          new: Nouvelle newsletter
+        participatory_space_private_user:
+          new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
         share: Partager
+        user:
+          new: Nouvel utilisateur
         verify: Vérifier
       admin_terms_of_use:
         accept:
@@ -227,6 +239,12 @@ fr:
       autocomplete:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche
+      block_user:
+        new:
+          action: Bloquer le compte et envoyer la justification
+          description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification et vos directives les conditions de déblocage de l'utilisateur.
+          justification: Justification
+          title: Bloquer l'utilisateur %{name}
       categories:
         create:
           error: Une erreur s'est produite lors de la création de cette catégorie.
@@ -282,6 +300,21 @@ fr:
         update:
           error: Une erreur est survenue lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
+      conflicts:
+        attempts: Tentatives
+        'false': 'Non'
+        managed_user_name: Utilisateur représenté
+        solved: Résolu
+        title: Conflits de vérification
+        transfer:
+          email: Email
+          error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
+          name: Nom
+          reason: Raison
+          success: Le transfert a bien été effectué.
+          title: Transfert
+        'true': 'Oui'
+        user_name: Utilisateur
       dashboard:
         show:
           view_more_logs: Afficher plus
@@ -480,17 +513,23 @@ fr:
       moderated_users:
         index:
           actions:
+            block: Bloquer
             title: Actions
+            unblock: Débloquer
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
           reason: Raison du signalement
+          reports: Signalements
           title: Liste des utilisateurs signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
             offensive: Offensant
             spam: Spam
+        tabs:
+          blocked: Bloqué
+          unblocked: Débloqué
       moderations:
         index:
           title: Modérations
@@ -579,6 +618,9 @@ fr:
           error: Erreur lors de la mise à jour de la newsletter.
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
       officializations:
+        block:
+          error: Une erreur s'est produite lors du blocage du participant
+          success: Participant bloqué avec succès
         create:
           success: Utilisateur validé avec succès
         destroy:
@@ -586,6 +628,7 @@ fr:
         index:
           actions: Actions
           badge: Badge
+          block: Bloquer l'utilisateur
           created_at: Créée le
           name: Nom
           nickname: Pseudonyme
@@ -596,6 +639,7 @@ fr:
           reports: Signalements
           show_email: Montrer les adresses e-mail
           status: Statut
+          unblock: Débloquer l'utilisateur
           unofficialize: Invalider
         new:
           badge: Badge de validation
@@ -609,6 +653,9 @@ fr:
           hidden: masqués
           show: Afficher
           title: Afficher l'adresse e-mail des participants
+        unblock:
+          error: Une erreur s'est produite lors du déblocage du participant
+          success: Participant débloqué avec succès
       organization:
         edit:
           title: Modifier l'organisation

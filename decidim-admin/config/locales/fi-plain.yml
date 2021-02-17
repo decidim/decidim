@@ -134,14 +134,26 @@ fi-pl:
     admin:
       actions:
         add: Lisää
+        attachment:
+          new: Uusi liite
+        attachment_collection:
+          new: Uusi kansio
         browse: Selaa
+        category:
+          new: Uusi aihepiiri
         export: Vie
         manage: Hallitse
         new: Uusi %{name}
+        newsletter:
+          new: Uusi uutiskirje
+        participatory_space_private_user:
+          new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
         share: Jaa
+        user:
+          new: Uusi käyttäjä
         verify: Vahvista
       admin_terms_of_use:
         accept:
@@ -227,6 +239,12 @@ fi-pl:
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
+      block_user:
+        new:
+          action: Estä tili ja lähetä perustelut
+          description: Estämällä käyttäjän estät kyseisen käyttäjän pääsyn hänen omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä kyseinen käyttäjä voi tehdä palauttaakseen pääsyn tililleen.
+          justification: Perustelut
+          title: Estä käyttäjä %{name}
       categories:
         create:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
@@ -282,6 +300,21 @@ fi-pl:
         update:
           error: Tämän komponentin päivittämisessä tapahtui virhe.
           success: Komponentti päivitetty onnistuneesti.
+      conflicts:
+        attempts: Yritykset
+        'false': 'Ei'
+        managed_user_name: Hallittu käyttäjä
+        solved: Ratkaistu
+        title: Tarkistusten ristiriidat
+        transfer:
+          email: Sähköposti
+          error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
+          name: Nimi
+          reason: Syy
+          success: Siirto onnistui.
+          title: Siirrä
+        'true': 'Kyllä'
+        user_name: Käyttäjä
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja
@@ -579,6 +612,9 @@ fi-pl:
           error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
       officializations:
+        block:
+          error: Käyttäjän estäminen epäonnistui
+          success: Käyttäjän estäminen onnistui
         create:
           success: Käyttäjä virallistettu onnistuneesti
         destroy:
@@ -586,6 +622,7 @@ fi-pl:
         index:
           actions: Toiminnot
           badge: Kunniamerkki
+          block: Estä käyttäjä
           created_at: Luontihetki
           name: Nimi
           nickname: Nimimerkki
@@ -596,6 +633,7 @@ fi-pl:
           reports: Ilmoitukset
           show_email: Näytä sähköpostiosoite
           status: Tila
+          unblock: Poista käyttäjän esto
           unofficialize: Poista virallistaminen
         new:
           badge: Virallistamismerkki
@@ -609,6 +647,9 @@ fi-pl:
           hidden: piilotettu
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
+        unblock:
+          error: Käyttäjän eston poistaminen epäonnistui
+          success: Käyttäjän eston poistaminen onnistui
       organization:
         edit:
           title: Muokkaa organisaatiota

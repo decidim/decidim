@@ -54,6 +54,8 @@ pl:
           update:
             invalid: Podczas aktualizowania budżetu wystąpił błąd
             success: Budżet został zaktualizowany
+        exports:
+          projects: Projekty
         models:
           budget:
             name: Budżet

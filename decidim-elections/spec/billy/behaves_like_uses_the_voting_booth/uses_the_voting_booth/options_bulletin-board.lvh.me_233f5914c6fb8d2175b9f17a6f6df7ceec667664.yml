@@ -1,0 +1,15 @@
+---
+:scope:
+:url: http://bulletin-board.lvh.me/api
+:body: ''
+:status: 200
+:method: options
+:headers:
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Allow-Methods: GET, POST, PATCH, PUT
+  Access-Control-Expose-Headers: ''
+  Access-Control-Max-Age: '7200'
+  Access-Control-Allow-Headers: content-type
+  Connection: close
+  Transfer-Encoding: chunked
+:content: ''

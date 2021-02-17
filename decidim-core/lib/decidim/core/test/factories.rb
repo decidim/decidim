@@ -136,9 +136,17 @@ FactoryBot.define do
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
+    email_on_moderations { true }
 
     trait :confirmed do
       confirmed_at { Time.current }
+    end
+
+    trait :blocked do
+      blocked { true }
+      blocked_at { Time.current }
+      extended_data { { "user_name": generate(:name) } }
+      name { "Blocked user" }
     end
 
     trait :deleted do

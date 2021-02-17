@@ -29,6 +29,7 @@ es:
             success: La publicación se ha eliminado correctamente
           edit:
             save: Actualizar
+            title: Editar publicación
           index:
             title: Publicaciones
           new:

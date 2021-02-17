@@ -248,6 +248,29 @@ shared_examples "proposals wizards" do |options|
              participatory_space: participatory_process)
     end
 
+    context "when in step_4: edit proposal draft" do
+      let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: address, component: component, title: proposal_title, body: proposal_body) }
+
+      before do
+        proposal_draft.update!(latitude: latitude, longitude: longitude)
+        visit "#{component_path.proposal_path(proposal_draft)}/edit_draft"
+      end
+
+      it "allows filling an empty address and unchecking the has address checkbox" do
+        within "form.edit_proposal" do
+          fill_in :proposal_address, with: ""
+        end
+        uncheck "proposal_has_address"
+        click_button "Preview"
+
+        expect(page).to have_content(proposal_title)
+        expect(page).to have_content(proposal_body)
+        expect(page).not_to have_field("proposal_address")
+        expect(page).not_to have_field("proposal_longitude")
+        expect(page).not_to have_field("proposal_latitude")
+      end
+    end
+
     context "when in step_4: Publish" do
       let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: address, component: component, title: proposal_title, body: proposal_body) }
 

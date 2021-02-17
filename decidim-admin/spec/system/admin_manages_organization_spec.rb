@@ -55,6 +55,27 @@ describe "Admin manages organization", type: :system do
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p><br></p>")
         end
+
+        it "deletes paragraph changes pressing backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys "ef", [:enter], "gh", [:backspace], [:backspace], [:backspace], [:backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>e</p>".gsub("\n", ""))
+        end
+
+        it "deletes linebreaks when pressing backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys "a", [:left], [:enter], [:shift, :enter], [:backspace], [:backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>a</p>".gsub("\n", ""))
+        end
+
+        it "creates and deletes linebreaks with enter, shift+enter and backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys "acd", [:left], [:left], [:enter], [:shift, :enter], [:shift, :enter], "b", [:left], [:backspace], [:backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>abcd</p>".gsub("\n", ""))
+        end
       end
 
       context "when the admin terms of use content has a list" do
@@ -160,6 +181,24 @@ describe "Admin manages organization", type: :system do
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>foo<br>bar</p>".gsub("\n", ""))
+        end
+
+        describe "editor history" do
+          it "has undo" do
+            find('div[contenteditable="true"].ql-editor').send_keys("foo", [:shift, :enter], "bar", [:control, "z"], [:control, "z"],
+                                                                    [:control, "z"], [:control, "z"], [:control, "z"], [:control, "z"],
+                                                                    [:control, "z"])
+            expect(find(
+              "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
+          end
+
+          it "has redo" do
+            find('div[contenteditable="true"].ql-editor').send_keys [:shift, :enter], "X", [:control, "z"], [:control, :shift, "z"]
+            expect(find(
+              "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            )["innerHTML"]).to eq("<p>Paragraph</p><p>Some<br>text<br>here</p><p>Another paragraph<br>X</p>".gsub("\n", ""))
+          end
         end
       end
 

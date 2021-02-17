@@ -78,11 +78,11 @@ nl:
       logo: "Logo van %{organization}"
       skip_button: Ga naar de hoofdinhoud
     account:
+      blocked: Dit account is geblokkeerd vanwege schending van de Algemene Voorwaarden
       data_portability_export:
         file_no_exists: Bestand bestaat niet
         notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
-        alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
           close: Sluit venster
           ok: Ja, ik wil mijn account verwijderen
@@ -141,10 +141,12 @@ nl:
         delete: "%{user_name} heeft de statische pagina %{resource_name} verwijderd"
         update: "%{user_name} heeft de statische pagina %{resource_name} bijgewerkt"
       user:
+        block: "%{user_name} geblokkeerde gebruiker %{resource_name}"
         invite: "%{user_name} nodigde de deelnemer %{resource_name} met rol: %{role} uit"
         officialize: "%{user_name} heeft de deelnemer %{resource_name} gevalideerd"
         remove_from_admin: "%{user_name} de deelnemer %{resource_name} met rol: %{role} verwijderd"
         show_email: "%{user_name} heeft het e-mailadres van de gebruiker %{resource_name} opgehaald"
+        unblock: "%{user_name} gedeblokkeerde gebruiker %{resource_name}"
         unofficialize: "%{user_name} heeft de deelnemer %{resource_name} ingetrokken"
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroepverificatie geweigerd"
@@ -316,6 +318,12 @@ nl:
           title: bevestig je email
       show:
         close_modal: Sluit venster
+    block_user_mailer:
+      notify:
+        body_1: Je account werd geblokkeerd
+        body_2: 'Reden: %{justification}'
+        greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo,
     collapsible_list:
       hidden_elements_count:
         one: en %{count} meer
@@ -1072,6 +1080,7 @@ nl:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde gebruiker
+      inaccessible_message: Dit profiel is niet toegankelijk vanwege schending van de Algemene Voorwaarden!
       view: Bekijk
     profiles:
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam

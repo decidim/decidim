@@ -10,10 +10,15 @@ cs:
         question_type: Typ
       questionnaire_question:
         mandatory: Povinné
+        max_characters: Limit znaků (ponechte na 0, pokud není limit)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Potřebuje být znovu připojen
+            body:
+              too_long: je příliš dlouhý
             choices:
               missing: nejsou úplné
               too_many: jsou příliš mnoho
@@ -118,6 +123,7 @@ cs:
           resize_and_pad: Zmenšeno a odsazeno k
           resize_to_fit: Upravena velikost na vyplnění
       question_types:
+        files: Soubory
         long_answer: Dlouhá odpověď
         matrix_multiple: Matice (Více možností)
         matrix_single: Matice (Jedna možnost)

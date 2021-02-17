@@ -64,7 +64,7 @@ describe "Initiatives", type: :system do
       end
 
       it "displays the filter initiative type filter" do
-        within ".new_filter[action='/initiatives']" do
+        within ".new_filter[action$='/initiatives']" do
           expect(page).to have_content(/Type/i)
         end
       end
@@ -73,7 +73,7 @@ describe "Initiatives", type: :system do
         let!(:unpublished_initiative) { nil }
 
         it "doesn't display the initiative type filter" do
-          within ".new_filter[action='/initiatives']" do
+          within ".new_filter[action$='/initiatives']" do
             expect(page).not_to have_content(/Type/i)
           end
         end

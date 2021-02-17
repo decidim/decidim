@@ -1,0 +1,1 @@
+$('#confirmed_page').html('<%= j(render(partial: "election_votes_confirmed", locals: { encrypted_vote_hash: @form.encrypted_vote_hash, message_id: message_id, vote_id: vote_id })) %>')

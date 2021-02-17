@@ -1,4 +1,9 @@
 "no":
+  activemodel:
+    attributes:
+      organization_file_uploads:
+        maximum_file_size:
+          default: Standard filstørrelse
   decidim:
     system:
       actions:
@@ -56,6 +61,11 @@
           success: Organisasjonen ble opprettet.
         edit:
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
+        file_upload_settings:
+          file_sizes:
+            avatar_hint: Megabyte (MB). Denne begrensning på filstørrelse brukes for opplasting av avatarbilde.
+            default_hint: Megabyte (MB). Denne filstørrelsesgrensen er standardverdien som brukes for alle filopplastinger med mindre annet er angitt.
+            title: Maks filstørrelse
         index:
           title: Organisasjoner
         new:

@@ -76,6 +76,12 @@ module Decidim
             expect(proposal.body[I18n.locale.to_s]).to eq form_params[:body]
           end
 
+          it "doesn't create a searchable resource" do
+            command.call
+
+            expect { command.call }.not_to change(Decidim::SearchableResource, :count)
+          end
+
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:perform_action!)

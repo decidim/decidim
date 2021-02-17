@@ -79,11 +79,12 @@ de:
       logo: "Offizielles Logo von %{organization}"
       skip_button: Zu Hauptinhalten überspringen
     account:
+      blocked: Dieses Konto wurde wegen Verletzung der Allgemeinen Geschäftsbedingungen gesperrt
       data_portability_export:
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       delete:
-        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr anmelden.
+        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr einloggen. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
         confirm:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
@@ -105,57 +106,59 @@ de:
         cancel: Stornieren
     admin_log:
       area:
-        create: "%{user_name} hat den %{resource_name} Bereich erstellt"
-        delete: "%{user_name} hat den %{resource_name} Bereich gelöscht"
-        update: "%{user_name} hat den %{resource_name} Bereich aktualisiert"
+        create: "%{user_name} hat den Bereich %{resource_name} erstellt"
+        delete: "%{user_name} hat den Bereich %{resource_name} gelöscht"
+        update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
       component:
-        create: "%{user_name} hat die %{resource_name} Komponente zu %{space_name} hinzugefügt"
-        delete: "%{user_name} hat die %{resource_name} Komponente von dem %{space_name} ... entfernt"
-        publish: "%{user_name} veröffentlichte die %{resource_name} Komponente in dem %{space_name} Raum"
-        unpublish: "%{user_name} unveröffentlicht die %{resource_name} Komponente aus dem %{space_name} Leerzeichen"
+        create: "%{user_name} hat die Komponente %{resource_name} zu %{space_name} hinzugefügt"
+        delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
+        publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
+        unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
       impersonation_log:
         manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
       moderation:
-        hide: "%{user_name} versteckte eine Ressource vom Typ %{resource_type} in dem %{space_name} Raum"
-        unreport: "%{user_name} eine Ressource vom Typ %{resource_type} in den %{space_name} Feldern nicht gemeldet"
+        hide: "%{user_name} hat eine Ressource vom Typ %{resource_type} in %{space_name} versteckt"
+        unreport: "%{user_name} hat die Meldung einer Ressource vom Typ %{resource_type} in %{space_name} aufgehoben"
       newsletter:
-        create: "%{user_name} hat den %{resource_name} Newsletter erstellt"
-        delete: "%{user_name} löschte den %{resource_name} Newsletter"
-        deliver: "%{user_name} lieferte den %{resource_name} Newsletter"
-        update: "%{user_name} aktualisierte den %{resource_name} Newsletter"
+        create: "%{user_name} hat den Newsletter %{resource_name} erstellt"
+        delete: "%{user_name} hat den Newsletter %{resource_name} gelöscht"
+        deliver: "%{user_name} hat den Newsletter %{resource_name} abgesendet"
+        update: "%{user_name} hat den Newsletter %{resource_name} aktualisiert"
       oauth_application:
-        create: "%{user_name} hat die %{resource_name} OAuth-Anwendung erstellt"
-        delete: "%{user_name} löschte die %{resource_name} OAuth-Anwendung"
-        update: "%{user_name} hat die %{resource_name} OAuth-Anwendung aktualisiert"
+        create: "%{user_name} hat die OAuth-Applikation %{resource_name} erstellt"
+        delete: "%{user_name} hat die OAuth-Applikation %{resource_name} gelöscht"
+        update: "%{user_name} hat die OAuth-Applikation %{resource_name} aktualisiert"
       organization:
-        update: "%{user_name} aktualisiert die Organisationseinstellungen"
+        update: "%{user_name} hat die Organisationseinstellungen aktualisiert"
       participatory_space_private_user:
-        create: "%{user_name} lud %{resource_name} , ein privater Benutzer zu sein"
+        create: "%{user_name} hat %{resource_name} als privaten Benutzer eingeladen"
         create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
-        delete: "%{user_name} den Benutzer %{resource_name} als privaten Benutzer entfernt"
+        delete: "%{user_name} hat den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
-        create: "%{user_name} hat den %{resource_name} Bereich erstellt"
-        create_with_parent: "%{user_name} erstellte den %{resource_name} Bereich innerhalb des %{parent_scope} Bereichs"
-        delete: "%{user_name} löschte den %{resource_name} Bereich"
-        delete_with_parent: "%{user_name} löschte den %{resource_name} Bereich innerhalb des %{parent_scope} Bereichs"
-        update: "%{user_name} hat den %{resource_name} Bereich aktualisiert"
-        update_with_parent: "%{user_name} hat den %{resource_name} Bereich innerhalb des %{parent_scope} Bereichs aktualisiert"
+        create: "%{user_name} hat den Bereich %{resource_name} erstellt"
+        create_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} erstellt"
+        delete: "%{user_name} hat den Bereich %{resource_name} gelöscht"
+        delete_with_parent: "%{user_name} hat den Bereich %{resource_name} aus dem übergeordneten Bereich %{parent_scope} gelöscht"
+        update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
+        update_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} aktualisiert"
       static_page:
-        create: "%{user_name} hat die %{resource_name} statische Seite erstellt"
-        delete: "%{user_name} löschte die %{resource_name} statische Seite"
-        update: "%{user_name} hat die %{resource_name} statische Seite aktualisiert"
+        create: "%{user_name} hat die statische Seite %{resource_name} erstellt"
+        delete: "%{user_name} hat die statische Seite %{resource_name} gelöscht"
+        update: "%{user_name} hat die statische Seite %{resource_name} aktualisiert"
       user:
-        invite: "%{user_name} den Benutzer %{resource_name} mit der Rolle %{role}eingeladen"
-        officialize: "%{user_name} den Benutzer %{resource_name}offiziell anerkannt"
-        promote: "%{user_name} hat %{resource_name} aktualisiert"
-        remove_from_admin: "%{user_name} entfernte den Benutzer %{resource_name} mit der Rolle: %{role}"
+        block: "%{user_name} hat %{resource_name} blockiert"
+        invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
+        officialize: "%{user_name} den Benutzer %{resource_name} offiziell anerkannt"
+        promote: "%{user_name} hat %{resource_name} befördert"
+        remove_from_admin: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} entfernt"
         show_email: "%{user_name} hat die E-Mail des Teilnehmers %{resource_name} abgerufen"
-        transfer: "%{user_name} hat den Teilnehmer %{resource_name} anerkannt"
-        unofficialize: "%{user_name} inoffizialisierte den Benutzer %{resource_name}"
+        transfer: "%{user_name} hat den Teilnehmer %{resource_name} verschoben"
+        unblock: "%{user_name} hat die Blockierung von %{resource_name} aufgehoben"
+        unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
       user_group:
-        reject: "%{user_name} wies die %{resource_name} - Benutzergruppe Verifikations"
-        verify: "%{user_name} die %{resource_name} Benutzergruppe verifiziert"
-        verify_via_csv: "%{user_name} die %{resource_name} Benutzergruppe über eine CSV-Datei überprüft"
+        reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
+        verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
+        verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
       user_moderation:
         unreport: "%{user_name} hat die Meldung auf %{resource_type} - %{unreported_user_name} aufgehoben"
     admin_terms_of_use:
@@ -326,6 +329,13 @@ de:
           title: Bestätige deine E-Mail
       show:
         close_modal: Modal schließen
+    block_user_mailer:
+      notify:
+        body_1: Ihr Account wurde gesperrt.
+        body_2: 'Grund: %{justification}'
+        greetings: Guten Tag <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>,
+        hello: Hallo,
+        subject: Ihr Konto wurde von %{organization_name} gesperrt
     collapsible_list:
       hidden_elements_count:
         one: und %{count} mehr
@@ -1107,6 +1117,7 @@ de:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
     profile:
       deleted: Teilnehmer gelöscht
+      inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
       view: Anzeigen
     profiles:
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft, ihr Name wurde mit dem tatsächlichen Namen verifiziert
@@ -1120,6 +1131,7 @@ de:
         groups: Gruppen
         members: Mitglieder
         officialized: Offizieller Teilnehmer
+        send_private_message: Private Nachricht senden
         timeline: Zeitleiste
         view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
       sidebar:

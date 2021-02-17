@@ -67,7 +67,6 @@ pl:
         new: Nowy %{name}
         preview: Podgląd
         publish: Opublikuj
-        setup: Ustawienia
         title: Działania
         unpublish: Cofnij publikację
       admin:
@@ -116,8 +115,6 @@ pl:
             title: Nowy wybór
           publish:
             success: Wybór został opublikowany.
-          setup:
-            invalid: Wystąpił problem z konfiguracją tych wyborów
           unpublish:
             success: Cofnięto publikacje wyboru.
           update:
@@ -158,11 +155,6 @@ pl:
           update:
             invalid: Wystąpił błąd podczas aktualizowania tego pytania
             success: Pytanie zostało zaktualizowane
-        setup:
-          errors:
-            minimum_answers: Pytania muszą mieć <strong>co najmniej jedną odpowiedź</strong>.
-            minimum_questions: Wybór <strong>musi mieć co najmniej jedno pytanie</strong>.
-            published: Wybory <strong>nie zostały opublikowane</strong>
         trustees_participatory_spaces:
           actions:
             disable: Wyłącz
@@ -209,10 +201,8 @@ pl:
         show:
           back: Dostępne wybory
           preview: Podgląd
-          vote: Głosuj
           voting_period_status:
             finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
-            ongoing: Głosowanie kończy się %{end_time}
             upcoming: Głosowanie rozpoczyna się %{start_time}
       models:
         answer:
@@ -245,7 +235,6 @@ pl:
             elections:
               list:
                 election: Wybór
-                status: Status
               title: Wybory
             identification_keys:
               cancel: Anuluj
@@ -267,7 +256,6 @@ pl:
           header: Oddanie głosu potwierdzone
           lead: Twój głos został już wysłany!
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Aby to sprawdzić, skopiuj identyfikator i wklej go na <a href="evote-verify">stronie weryfikacji głosu</a>
         encrypting:
           header: Kodowanie głosu...
           text: Twój głos jest szyfrowany, aby mieć pewność, że przekazałeś go anonimowo.

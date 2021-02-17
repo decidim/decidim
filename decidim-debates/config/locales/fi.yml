@@ -45,27 +45,18 @@ fi:
             endorsements_enabled: Suositukset käytössä
     debates:
       actions:
-        active: Aktiiviset keskustelut
-        archive: Arkisto
-        archived: Arkistoidut keskustelut
         close: Sulje
         confirm_destroy: Oletko varma?
         destroy: Poista
         edit: Muokkaa
         new: Uusi %{name}
         title: Toiminnot
-        unarchive: Palauta arkistosta
       admin:
         debate_closes:
           edit:
-            archive: Arkistoi tämä keskustelu
-            archive_help: Tämän keskustelun arkistointi piilottaa sen julkisten keskustelujen osiosta
             close: Sulje
             title: Sulje keskustelu
         debates:
-          archive:
-            invalid: Keskustelun arkistointi epäonnistui.
-            success: Keskustelun arkistointi onnistui.
           create:
             invalid: Keskustelun luonti epäonnistui.
             success: Keskustelun luonti onnistui.
@@ -74,15 +65,15 @@ fi:
           edit:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
-          empty: Yksikään keskustelu ei vastannut näitä hakukriteerejä.
+          form:
+            debate_type: Keskustelun tyyppi
+            finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
+            open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
           index:
             title: Keskustelut
           new:
             create: Luo keskustelu
             title: Uusi keskustelu
-          unarchive:
-            invalid: Keskustelun palauttaminen arkistosta epäonnistui.
-            success: Keskustelun palauttaminen arkistosta onnistui.
           update:
             invalid: Keskustelun päivitys epäonnistui.
             success: Keskustelun päivitys onnistui.
@@ -167,6 +158,7 @@ fi:
           groups_count: Ryhmiä
           last_comment_by: Viimeisin kommentti käyttäjältä
           no_comments_yet: Ei vielä kommentteja
+          open: Avoin keskustelu
           participants_count: Osallistujia
         update:
           invalid: Keskustelun päivittäminen epäonnistui.

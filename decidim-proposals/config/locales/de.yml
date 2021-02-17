@@ -355,7 +355,7 @@ de:
         actions:
           preview: Vorschau
         exports:
-          comments: Kommentare
+          proposal_comments: Kommentare
           proposals: Vorschläge
         models:
           proposal:
@@ -569,13 +569,6 @@ de:
               ok: Ziehen Sie den gemeinsamen Entwurf zurück
               title: Die folgende Aktion ist irreversibel
             success: Kollaborativer Entwurf erfolgreich zurückgezogen.
-        compare:
-          mine_is_different: Mein gemeinsamer Entwurf ist anders
-          no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
-          title: Ähnliche kollaborative Entwürfe
-        complete:
-          send: Absenden
-          title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
           drafts_count:
             one: "%{count} kollaborativer Entwurf"
@@ -607,7 +600,6 @@ de:
           unfold: Aufklappen
         new:
           send: Fortsetzen
-          title: Gemeinsamen Entwurf erstellen
         new_collaborative_draft_button:
           new_collaborative_draft: Neuer gemeinsamer Entwurf
         orders:
@@ -652,23 +644,11 @@ de:
         update:
           error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
           success: Collaborative Draft wurde erfolgreich aktualisiert.
-          title: gemeinsamen Entwurf bearbeiten
         wizard_aside:
-          back: Zurück
           back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_1: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_2: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_3: Zurück zum Vergleich der gemeinschaftlichen Entwürfe
-          back_from_step_4: Zurück zum Entwurf bearbeiten
           info: Sie erstellen einen <strong>gemeinsamen Entwurf</strong>.
-        wizard_steps:
-          current_step: Aktueller Schritt
-          see_steps: siehe Schritte
-          step_1: Erstellen Sie Ihren gemeinsamen Entwurf
-          step_2: Vergleichen Sie mit gemeinsamen Entwürfen
-          step_3: Vervollständigen Sie Ihren gemeinsamen Entwurf
-          step_of: Schritt %{current_step_num} von %{total_steps}
-          title: Gemeinschaftliche Entwurfsschritte
+        wizard_header:
+          title: Erstellen Sie Ihren gemeinsamen Entwurf
       content_blocks:
         highlighted_proposals:
           proposals: Vorschläge
@@ -789,6 +769,8 @@ de:
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Ihr Vorschlag wurde als Entwurf gespeichert. Er muss veröffentlicht werden, damit er auf der Seite erscheint.
+          announcement_title: Ihr Vorschlag wurde noch nicht veröffentlicht
           modify: Vorschlag ändern
           proposal_edit_before_minutes:
             one: Sie können diesen Vorschlag in der ersten Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.

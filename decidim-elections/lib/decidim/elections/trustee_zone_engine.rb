@@ -11,7 +11,11 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resource :trustee, path: "/", only: [:show, :update]
+        resource :trustee, path: "/", only: [:show, :update] do
+          resources :election, only: [] do
+            resource :elections, only: [:show, :update]
+          end
+        end
       end
 
       def load_seed

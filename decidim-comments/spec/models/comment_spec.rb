@@ -5,7 +5,8 @@ require "spec_helper"
 module Decidim
   module Comments
     describe Comment do
-      let!(:commentable) { create(:dummy_resource) }
+      let(:component) { create(:component, manifest_name: "dummy") }
+      let!(:commentable) { create(:dummy_resource, component: component) }
       let!(:author) { create(:user, organization: commentable.organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: author) }
       let!(:replies) { create_list(:comment, 3, commentable: comment, root_commentable: commentable) }
@@ -79,6 +80,26 @@ module Decidim
       it "is not valid if alignment is not 0, 1 or -1" do
         comment.alignment = 2
         expect(comment).not_to be_valid
+      end
+
+      describe "#visible?" do
+        subject { comment.visible? }
+
+        context "when component is not published" do
+          before do
+            allow(component).to receive(:published?).and_return(false)
+          end
+
+          it { is_expected.not_to be_truthy }
+        end
+
+        context "when participatory space is visible" do
+          before do
+            allow(component.participatory_space).to receive(:visible?).and_return(false)
+          end
+
+          it { is_expected.not_to be_truthy }
+        end
       end
 
       describe "#up_voted_by?" do
@@ -228,6 +249,35 @@ module Decidim
                 expect(subject.errors[:body]).to eq ["is too long (maximum is 2000 characters)"]
               end
             end
+          end
+        end
+      end
+
+      describe "#user_commentators_ids_in" do
+        context "when commentors belong to the given resources" do
+          it "returns the autors of the resources' comments" do
+            ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
+            expect(ids).to match_array([author.id])
+          end
+        end
+
+        context "when commentors do not belong to the given resources" do
+          let(:other_component) { create(:dummy_component) }
+          let!(:other_commentable) { create(:dummy_resource, component: other_component) }
+
+          it "does not return them" do
+            ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
+            expect(ids).to match_array([author.id])
+          end
+        end
+
+        context "when resource is not commentable" do
+          let(:other_component) { create(:dummy_component) }
+          let!(:non_commentable) { create(:coauthorable_dummy_resource, component: other_component) }
+
+          it "returns nil" do
+            ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::CoauthorableDummyResource.where(component: other_component))
+            expect(ids).to be_nil
           end
         end
       end

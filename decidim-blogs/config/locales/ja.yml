@@ -28,6 +28,7 @@ ja:
             success: 投稿を削除しました
           edit:
             save: 更新
+            title: 投稿を編集
           index:
             title: 投稿
           new:

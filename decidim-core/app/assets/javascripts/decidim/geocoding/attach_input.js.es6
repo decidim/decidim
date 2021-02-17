@@ -83,22 +83,59 @@
       latitudeName: getCoordinateInputName("latitude", $input, attachOptions),
       longitudeName: getCoordinateInputName("longitude", $input, attachOptions)
     }, options);
+    let geocoded = false;
 
-    $input.on("geocoder-suggest-coordinates.decidim", (_ev, coordinates) => {
+    const createCoordinateFields = () => {
       let $latitude = $(`#${config.latitudeId}`);
-      let $longitude = $(`#${config.longitudeId}`);
       if ($latitude.length < 1) {
         $latitude = $(`<input type="hidden" name="${config.latitudeName}" id="${config.latitudeId}" />`);
         $input.after($latitude);
       }
+
+      let $longitude = $(`#${config.longitudeId}`);
       if ($longitude.length < 1) {
         $longitude = $(`<input type="hidden" name="${config.longitudeName}" id="${config.longitudeId}" />`);
         $input.after($longitude);
       }
+    }
+    const clearCoordinateFields = () => {
+      if (geocoded) {
+        return;
+      }
 
-      $latitude.val(coordinates[0]).attr("value", coordinates[0]);
-      $longitude.val(coordinates[1]).attr("value", coordinates[1]);
+      $(`#${config.latitudeId}`).val("").removeAttr("value");
+      $(`#${config.longitudeId}`).val("").removeAttr("value");
+    };
+    const setCoordinates = (coordinates) => {
+      createCoordinateFields();
+
+      $(`#${config.latitudeId}`).val(coordinates[0]).attr("value", coordinates[0]);
+      $(`#${config.longitudeId}`).val(coordinates[1]).attr("value", coordinates[1]);
+    }
+
+    // When the user changes the value of the coordinate field without selecting
+    // any of the geocoding autocomplete results, clear the current latitude and
+    // longitude values to let the backend do the geocoding. Once a geocoding
+    // autocomplete value has been selected, assume the user just wants to
+    // refine the address formatting without changing the location point value.
+    // If they want, they can still modify the point in the next step of the
+    // proposal creation/editing.
+    $input.on("change.decidim", () => {
+      clearCoordinateFields();
     });
+
+    // When we receive the geocoding event on the field, update the coordinate
+    // values.
+    $input.on("geocoder-suggest-coordinates.decidim", (_ev, coordinates) => {
+      setCoordinates(coordinates);
+      geocoded = true;
+    });
+
+    // Set the initial values if the field defines the coordinates
+    const coordinates = `${$input.data("coordinates")}`.split(",").map(parseFloat);
+    if (Array.isArray(coordinates) && coordinates.length === 2) {
+      setCoordinates(coordinates);
+    }
   };
 
   exports.Decidim = exports.Decidim || {};
