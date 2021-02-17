@@ -8,10 +8,9 @@ module Decidim::ParticipatoryProcesses
 
     let!(:organization) { create(:organization) }
     let!(:published_participatory_processes) do
-      create_list(:participatory_process,
-                  3,
-                  :published,
-                  organization: organization)
+      create(:participatory_process, :published, organization: organization, weight: 2)
+      create(:participatory_process, :published, organization: organization, weight: 3)
+      create(:participatory_process, :published, organization: organization, weight: 1)
     end
 
     let!(:unpublished_participatory_processes) do
@@ -36,6 +35,10 @@ module Decidim::ParticipatoryProcesses
 
       it "excludes other organization's published processes" do
         expect(subject).not_to include(*foreign_participatory_processes)
+      end
+
+      it "order published processes by weight" do
+        expect(subject.to_a.first.weight).to eq 1
       end
     end
   end
