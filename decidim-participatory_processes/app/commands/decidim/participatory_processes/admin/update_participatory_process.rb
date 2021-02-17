@@ -55,6 +55,7 @@ module Decidim
           {
             title: form.title,
             subtitle: form.subtitle,
+            weight: form.weight,
             slug: form.slug,
             hashtag: form.hashtag,
             promoted: form.promoted,
