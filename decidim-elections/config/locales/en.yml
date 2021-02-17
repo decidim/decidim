@@ -667,11 +667,11 @@ en:
               title: Title
         monitoring_committee_members:
           create:
-            invalid: There was a problem creating this monitoring committee memeber
-            success: Monitoring committee memeber successfully created
+            invalid: There was a problem creating this monitoring committee member
+            success: Monitoring committee member successfully created
           destroy:
-            invalid: There was a problem deleting this monitoring committee memeber
-            success: Monitoring committee memeber successfully deleted
+            invalid: There was a problem deleting this monitoring committee member
+            success: Monitoring committee member successfully deleted
           form:
             existing_user: Existing participant
             non_user: Invite new participant
@@ -681,7 +681,7 @@ en:
             title: Monitoring committee
           new:
             create: Create
-            title: Create monitoring committee memeber
+            title: Create monitoring committee member
         polling_officers:
           create:
             invalid: There was a problem creating this polling officer
