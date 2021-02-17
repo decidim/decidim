@@ -36,6 +36,18 @@ cs:
             public_key:
               cant_be_changed: nelze změnit
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Volební komisař je již prezident/manažer volební místnosti
+            voting:
+              different_organization: Hlasování musí být ve stejné organizaci jako je uživatel
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Volební komisař musí být ve stejném hlasování jako volební místnost
     models:
       decidim/elections/answer:
         one: Odpověď
@@ -52,12 +64,22 @@ cs:
         few: Otázek
         many: Otázek
         other: Otázek
+      decidim/votings/polling_officer:
+        one: Volební komisař
+        few: Volební komisaři
+        many: Volebních komisařů
+        other: Volební komisaři
       decidim/votings/voting:
         one: Hlasování
         few: Hlasování
         many: Hlasování
         other: Hlasování
   decidim:
+    admin:
+      filters:
+        search_placeholder:
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Hledat %{collection} podle názvu, adresy nebo jména úředníka/e-mailu/přezdívky.
     components:
       elections:
         actions:
@@ -631,10 +653,13 @@ cs:
             fields:
               email: E-mail
               name: Jméno
+              polling_station: Volební místnost (role)
             name: Volební komisař
           polling_station:
             fields:
               address: Adresa
+              polling_station_managers: Manažeři
+              polling_station_president: Předseda
               title: Název
             name: Volební místnost
           voting:
@@ -656,10 +681,15 @@ cs:
             select_user: Hledat podle jména, e-mailu nebo přezdívky
             user_type: Typ účastníka
           index:
+            role_manager: manažer
+            role_president: předseda
             title: Volební komisaři
           new:
             create: Vytvořit
             title: Vytvořit volebního komisaře
+          polling_officers_picker:
+            choose_polling_officers: Vybrat volební komisaře
+            close: Zavřít
         polling_stations:
           create:
             invalid: Při vytváření tohoto volebního místa došlo k chybě
