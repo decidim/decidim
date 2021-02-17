@@ -50,6 +50,7 @@ sv:
         target: Vem deltar
         title: Titel
         twitter: Twitter
+        weight: Vikt
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
