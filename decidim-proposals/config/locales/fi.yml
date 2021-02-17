@@ -422,6 +422,7 @@ fi:
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
+            delete_attachment: Poista liite
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
