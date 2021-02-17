@@ -108,6 +108,23 @@ shared_examples "comments" do
       end
     end
 
+    context "when user adds a new comment with a link" do
+      before do
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "Very nice http://www.debian.org linux distro"
+          click_button "Send"
+        end
+      end
+
+      it "adds external link css" do
+        expect(page).to have_css(".external-link-container", text: "http://www.debian.org")
+      end
+
+      it "changes link to point to /link" do
+        expect(page).to have_link("http://www.debian.org", href: "/link?external_url=http%3A%2F%2Fwww.debian.org")
+      end
+    end
+
     context "when the user has verified organizations" do
       let(:user_group) { create(:user_group, :verified) }
 

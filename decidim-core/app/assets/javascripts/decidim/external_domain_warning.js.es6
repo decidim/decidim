@@ -1,5 +1,5 @@
 ((exports) => {
-  $(() => {
+  const updateExternalDomainLinks = ($target) => {
     const currentDomain = window.location.host
     let whitelist = exports.Decidim.config.get("external_domain_whitelist")
 
@@ -13,7 +13,7 @@
       whitelist = [currentDomain]
     }
 
-    $("a").filter((_i, link) => {
+    $("a", $target).filter((_i, link) => {
       const $link = $(link);
       const parts = $link.attr("href").match(/^(([a-z]+):)?\/\/([^/]+)(\/.*)?$/) || null;
       if (!parts) {
@@ -28,8 +28,14 @@
       return true;
     }).each((_n, link) => {
       const $link = $(link);
-      const externalHref = `/link?external_link=${encodeURIComponent($link.attr("href"))}`;
+      const externalHref = `/link?external_url=${encodeURIComponent($link.attr("href"))}`;
       $link.attr("href", externalHref)
     });
+  }
+
+  $(() => {
+    updateExternalDomainLinks($("body"))
   });
+
+  exports.Decidim.updateExternalDomainLinks = updateExternalDomainLinks
 })(window)

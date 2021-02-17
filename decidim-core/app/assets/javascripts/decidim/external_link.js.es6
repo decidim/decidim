@@ -56,14 +56,19 @@
     }
   }
 
-  exports.Decidim = exports.Decidim || {};
-  exports.Decidim.ExternalLink = ExternalLink;
-
-  $(document).ready(function() {
-    $('a[target="_blank"]').each((_i, elem) => {
+  const updateExternalLinks = ($target) => {
+    $('a[target="_blank"]', $target).each((_i, elem) => {
       const $link = $(elem);
 
       $link.data("external-link", new ExternalLink($link));
     });
+  }
+
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.ExternalLink = ExternalLink;
+  exports.Decidim.updateExternalLinks = updateExternalLinks
+
+  $(() => {
+    updateExternalLinks($("body"))
   });
 })(window);

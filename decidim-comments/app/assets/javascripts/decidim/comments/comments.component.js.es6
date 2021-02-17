@@ -147,6 +147,12 @@
       if (exports.Decidim.createCharacterCounter) {
         exports.Decidim.createCharacterCounter($(".add-comment textarea", $container));
       }
+      if (exports.Decidim.updateExternalLinks) {
+        exports.Decidim.updateExternalLinks($container)
+      }
+      if (exports.Decidim.updateExternalDomainLinks) {
+        exports.Decidim.updateExternalDomainLinks($container)
+      }
     }
 
     /**
