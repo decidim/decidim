@@ -158,7 +158,7 @@ nl:
         newsletter:
           new: Nieuwe nieuwsbrief
         participatory_space_private_user:
-          new: Nieuwe privégebruiker van de burgerinspraak
+          new: Nieuwe privégebruiker van de inspraakruimte
         per_page: Per pagina
         permissions: Permissies
         reject: Weigeren
@@ -252,8 +252,8 @@ nl:
       block_user:
         new:
           action: Blokkeer account en verzend reden
-          description: Een gebruiker blokkeren zal zijn account onbruikbaar maken, je kan in de toelichting en richtlijnen aangeven wanneer het deblokkeren van de gebruiker wordt overwogen.
-          justification: Reden
+          description: Een gebruiker blokkeren zal zijn account onbruikbaar maken, je kan in de toelichting en de criteria aangeven wanneer deblokkeren van de gebruiker wordt overwogen.
+          justification: Toelichting
           title: Gebruiker %{name} blokkeren
       categories:
         create:
