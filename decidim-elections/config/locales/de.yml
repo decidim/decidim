@@ -36,6 +36,12 @@ de:
             public_key:
               cant_be_changed: kann nicht geändert werden
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            voting:
+              different_organization: Die Abstimmung muss in der selben Organisation wie der Benutzer sein
     models:
       decidim/elections/answer:
         one: Antwort
