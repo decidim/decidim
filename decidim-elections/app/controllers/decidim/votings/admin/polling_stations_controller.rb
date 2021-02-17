@@ -5,9 +5,11 @@ module Decidim
     module Admin
       # This controller allows to create or update a polling station.
       class PollingStationsController < Admin::ApplicationController
+        include Decidim::PollingStations::Admin::Filterable
+        helper Decidim::Votings::Admin::PollingOfficersPickerHelper
         include VotingAdmin
 
-        helper_method :current_voting, :polling_stations, :polling_station
+        helper_method :current_voting, :polling_station, :filtered_polling_stations
 
         def new
           enforce_permission_to :create, :polling_station, voting: current_voting
@@ -33,7 +35,7 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :polling_station, voting: current_voting, polling_station: polling_station
-          @form = form(PollingStationForm).from_model(polling_station)
+          @form = form(PollingStationForm).from_model(polling_station, voting: current_voting)
         end
 
         def update
@@ -78,6 +80,12 @@ module Decidim
         def polling_station
           @polling_station ||= polling_stations.find(params[:id])
         end
+
+        def filtered_polling_stations
+          filtered_collection.distinct
+        end
+
+        alias collection polling_stations
       end
     end
   end

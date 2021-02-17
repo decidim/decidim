@@ -7,6 +7,11 @@ module Decidim
     module Admin
       describe UpdatePollingStation do
         let(:polling_station) { create :polling_station }
+        let!(:president) { create :polling_officer, voting: polling_station.voting, presided_polling_station: polling_station }
+        let!(:managers) { create_list :polling_officer, 3, voting: polling_station.voting, managed_polling_station: polling_station }
+
+        let(:updated_president) { create :polling_officer, voting: polling_station.voting, presided_polling_station: nil }
+        let(:updated_managers) { create_list :polling_officer, 3, voting: polling_station.voting, managed_polling_station: nil }
         let(:params) do
           {
             polling_station: {
@@ -23,7 +28,9 @@ module Decidim
               address: "Updated address",
               latitude: 40.123,
               longitude: 7.321,
-              voting: polling_station.voting
+              voting: polling_station.voting,
+              polling_station_president_id: updated_president&.id,
+              polling_station_manager_ids: updated_managers.pluck(:id)
             }
           }
         end
@@ -81,6 +88,76 @@ module Decidim
             polling_station.reload
 
             expect(polling_station.address).to eq("Updated address")
+          end
+
+          context "when updating the polling station president" do
+            before do
+              expect { subject.call }.to broadcast(:ok)
+            end
+
+            context "when the president is nil" do
+              let(:updated_president) { nil }
+
+              it "unussigns the president" do
+                expect(president.reload.presided_polling_station).to be_nil
+                expect(polling_station.reload.polling_station_president).to be_nil
+              end
+            end
+
+            context "when there's a new president" do
+              it "assigns the new president" do
+                expect(updated_president.reload.presided_polling_station).to eq polling_station
+                expect(president.reload.presided_polling_station).to be_nil
+                expect(polling_station.reload.polling_station_president).to eq updated_president
+              end
+            end
+          end
+
+          context "when updating the polling station managers" do
+            before do
+              expect { subject.call }.to broadcast(:ok)
+              polling_station.reload
+            end
+
+            context "when the are no managers" do
+              let(:updated_managers) { [] }
+
+              it "unussigns all the managers" do
+                expect(polling_station.polling_station_managers.count).to eq updated_managers.count
+                managers.each do |manager|
+                  expect(manager.reload.managed_polling_station).to be_nil
+                end
+                expect(polling_station.polling_station_managers).to be_empty
+              end
+            end
+
+            context "when the managers are all new" do
+              it "assigns the new managers" do
+                expect(polling_station.polling_station_managers.count).to eq updated_managers.count
+                updated_managers.each do |updated_manager|
+                  expect(updated_manager.reload.managed_polling_station).to eq polling_station
+                  expect(polling_station.polling_station_managers).to include(updated_manager)
+                end
+                managers.each do |manager|
+                  expect(manager.reload.managed_polling_station).to be_nil
+                  expect(polling_station.polling_station_managers).not_to include(manager)
+                end
+              end
+            end
+
+            context "when there managers are added and removed" do
+              let(:old_manager) { managers.first }
+              let(:new_manager) { create(:polling_officer, voting: polling_station.voting) }
+              let(:updated_managers) { [old_manager, new_manager] }
+
+              it "assigns the added managers and unussigns the removed ones" do
+                expect(polling_station.polling_station_managers.count).to eq updated_managers.count
+                updated_managers.each do |updated_manager|
+                  expect(updated_manager.reload.managed_polling_station).to eq polling_station
+                  expect(polling_station.polling_station_managers).to include(updated_manager)
+                end
+              end
+            end
           end
         end
       end

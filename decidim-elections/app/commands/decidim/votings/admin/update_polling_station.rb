@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user updates a polling station
       # from the admin panel.
-      class UpdatePollingStation < Rectify::Command
+      class UpdatePollingStation < ManagePollingStation
         def initialize(form, polling_station)
           @form = form
           @polling_station = polling_station
@@ -18,6 +18,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           update_polling_station!
+          manage_polling_officers(polling_station, form.polling_station_president_id, form.polling_station_manager_ids)
 
           broadcast(:ok, polling_station)
         end

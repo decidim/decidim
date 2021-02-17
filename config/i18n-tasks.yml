@@ -117,6 +117,7 @@ ignore_unused:
   - activemodel.errors.*
   - activemodel.models.*
   - activerecord.attributes.*
+  - activerecord.errors.*
   - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'

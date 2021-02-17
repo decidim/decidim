@@ -14,6 +14,8 @@ module Decidim
           member do
             put :publish
             put :unpublish
+            get :available_polling_officers
+            get :polling_officers_picker
           end
 
           resource :landing_page, only: [:edit, :update], controller: "votings_landing_page" do
@@ -58,6 +60,10 @@ module Decidim
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :votings)
         end
+      end
+
+      initializer "decidim_votings.admin_assets" do |app|
+        app.config.assets.precompile += %w(admin/decidim_votings_manifest.js admin/decidim_votings_manifest.css)
       end
     end
   end
