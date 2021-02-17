@@ -430,6 +430,7 @@ cs:
           form:
             attachment_legend: "(Volitelné) Přidání přílohy"
             created_in_meeting: Tento návrh pochází z jednání
+            delete_attachment: Smazat přílohu
             select_a_category: Vyberte kategorii
             select_a_meeting: Vyberte schůzku
           index:
