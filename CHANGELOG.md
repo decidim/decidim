@@ -19,6 +19,7 @@
 **Fixed**
 
 - **decidim-initiatives**: Fix initiatives type permissions page [\#7357](https://github.com/decidim/decidim/pull/7357)
+- **decidim-core**: Fix subhero content block removing strip_tags from it [\#7414](https://github.com/decidim/decidim/pull/7414)
 
 **Removed**
 
