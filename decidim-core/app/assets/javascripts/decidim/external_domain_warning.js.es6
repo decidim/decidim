@@ -8,12 +8,12 @@
 
     $("a", $target).filter((_i, link) => {
       const $link = $(link);
-      const parts = $link.attr("href").match(/^(([a-z]+):)?\/\/([^/]+)(\/.*)?$/) || null;
+      const parts = $link.attr("href").match(/^(([a-z]+):)?\/\/([^/:]+)(:[0-9]*)?(\/.*)?$/) || null;
       if (!parts) {
         return false;
       }
 
-      const domain = parts[3].replace(/^www\./, "").split(":")[0]
+      const domain = parts[3].replace(/^www\./, "")
       if (whitelist.includes(domain)) {
         return false;
       }
