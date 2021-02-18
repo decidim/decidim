@@ -89,7 +89,7 @@
       <%= form.check_box :customize_registration_email, :"data-toggle" => "customize_registration_email-div" %>
     </div>
 
-    <div id="customize_registration_email-div" data-toggler=".hide" class="row column <%= @form.customize_registration_email? ? nil : 'hide' %>">
+    <div id="customize_registration_email-div" data-toggler=".hide" class="row column <%= @form.customize_registration_email? ? nil : "hide" %>">
       <%= form.translated :text_area, :registration_email_custom_content %>
       <p class="help-text"><%= t(".registration_email_help") %></p>
     </div>
