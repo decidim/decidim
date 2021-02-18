@@ -56,6 +56,21 @@ de:
         one: Abstimmung
         other: Abstimmungen
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Wahlvorstand
+          values:
+            assigned: Zugewiesen
+            unassigned: Nicht zugewiesen
+        role_eq:
+          label: Rolle
+          values:
+            manager: Manager
+            president: Präsident
+            unassigned: Nicht zugewiesen
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Suche %{collection} nach Name/E-Mail/Nickname oder Wahllokal.
     components:
       elections:
         actions:
