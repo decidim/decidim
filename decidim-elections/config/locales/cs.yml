@@ -781,6 +781,12 @@ cs:
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Jste si jisti?
+          destroy: Smazat
+          new: Nový člen
+          title: Akce
       pages:
         home:
           highlighted_votings:
