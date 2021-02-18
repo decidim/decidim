@@ -7,7 +7,7 @@ js_configs = {
       description: t("decidim.security.selfxss_warning.description")
     }
   },
-  external_domain_whitelist: current_organization.external_domain_whitelist
+  external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist
 }
 character_messages = {
   "charactersAtLeast": {

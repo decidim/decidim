@@ -7,12 +7,13 @@ module Decidim::Admin
     let(:organization) { create(:organization, external_domain_whitelist: []) }
     let(:form) { Decidim::Admin::OrganizationExternalDomainWhitelistForm.from_params(attributes) }
     let(:command) { described_class.new(form, organization) }
+    let(:domains) { ["erabaki.pamplona.es", "osallistu.hel.fi", "codefor.fr"] }
     let(:attributes) do
       {
         "external_domains": {
-          "1613404734167" => { "value" => "decidim.org", "id" => "", "position" => "0", "deleted" => "false" },
-          "1613404734172" => { "value" => "example.org", "id" => "", "position" => "1", "deleted" => "false" },
-          "1613404734961" => { "value" => "github.com", "id" => "", "position" => "2", "deleted" => "false" }
+          "1613404734167" => { "value" => domains[0], "id" => "", "position" => "0", "deleted" => "false" },
+          "1613404734172" => { "value" => domains[1], "id" => "", "position" => "1", "deleted" => "false" },
+          "1613404734961" => { "value" => domains[2], "id" => "", "position" => "2", "deleted" => "false" }
         }
       }
     end
@@ -26,9 +27,9 @@ module Decidim::Admin
         expect do
           command.call
         end.to change(organization, :external_domain_whitelist)
-        expect(organization.external_domain_whitelist).to include("decidim.org")
-        expect(organization.external_domain_whitelist).to include("example.org")
-        expect(organization.external_domain_whitelist).to include("github.com")
+        expect(organization.external_domain_whitelist).to include(domains[0])
+        expect(organization.external_domain_whitelist).to include(domains[1])
+        expect(organization.external_domain_whitelist).to include(domains[2])
         expect(organization.external_domain_whitelist.length).to eq(3)
       end
     end

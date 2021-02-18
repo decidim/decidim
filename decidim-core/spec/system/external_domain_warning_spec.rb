@@ -22,4 +22,13 @@ describe "ExternalDomainWarning", type: :system do
   it "doesnt show warning on whitelisted links" do
     expect(page).to have_link("Another link", href: "http://www.example.org")
   end
+
+  context "when url is invalid" do
+    let(:invalid_url) { "http://#{organization.host}/link?external_url=foo" }
+
+    it "shows invalid url alert" do
+      visit invalid_url
+      expect(page).to have_content("Invalid URL")
+    end
+  end
 end

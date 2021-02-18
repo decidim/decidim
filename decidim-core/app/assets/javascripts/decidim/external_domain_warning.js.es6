@@ -1,16 +1,9 @@
 ((exports) => {
   const updateExternalDomainLinks = ($target) => {
-    const currentDomain = window.location.host
-    let whitelist = exports.Decidim.config.get("external_domain_whitelist")
+    const whitelist = exports.Decidim.config.get("external_domain_whitelist")
 
     if (window.location.pathname === "/link") {
       return;
-    }
-
-    if (whitelist) {
-      whitelist = whitelist.concat(currentDomain)
-    } else {
-      whitelist = [currentDomain]
     }
 
     $("a", $target).filter((_i, link) => {
