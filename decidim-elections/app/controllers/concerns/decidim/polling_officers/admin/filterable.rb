@@ -14,12 +14,7 @@ module Decidim
           private
 
           def base_query
-            query =
-              collection
-              # Includes the presided and managed polling station
-              .joins("LEFT JOIN decidim_votings_polling_stations presided_station ON decidim_votings_polling_officers.presided_polling_station_id = presided_station.id
-                      LEFT JOIN decidim_votings_polling_stations managed_station ON decidim_votings_polling_officers.managed_polling_station_id = managed_station.id
-                      LEFT JOIN decidim_users ON decidim_users.id = decidim_votings_polling_officers.decidim_user_id")
+            query = Decidim::Votings::Admin::PollingOfficersJoinPollingStationsAndUser.for(collection)
 
             filter_by_role(query)
           end
