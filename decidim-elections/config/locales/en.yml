@@ -71,6 +71,11 @@ en:
   decidim:
     admin:
       filters:
+        officers_assigned_eq:
+          label: Officers
+          values:
+            assigned: Assigned
+            unassigned: Not assigned
         role_eq:
           label: Role
           values:
