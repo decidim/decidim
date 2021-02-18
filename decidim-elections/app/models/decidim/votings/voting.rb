@@ -116,6 +116,10 @@ module Decidim
         !in_person_voting? && !has_elections?
       end
 
+      def polling_stations_with_missing_officers?
+        !online_voting? && polling_stations.any?(&:missing_officers?)
+      end
+
       def available_polling_officers
         polling_officers
           .where(presided_polling_station_id: nil)

@@ -93,6 +93,11 @@
         <span class="callout-text"><%= t("votings.edit.add_election_component", scope: "decidim.votings.admin") %></span>
       </div>
     <% end %>
+    <% if current_participatory_space.polling_stations_with_missing_officers? %>
+      <div class="callout alert callout--full">
+        <span class="callout-text"><%= t("votings.edit.assign_missing_officers", scope: "decidim.votings.admin") %></span>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 <% end %>
