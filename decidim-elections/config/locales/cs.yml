@@ -646,9 +646,15 @@ cs:
             components: Komponenty
             info: Informace
             landing_page: Vstupní stránka
+            monitoring_committee_members: Monitorovací výbor
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
+          monitoring_committee_member:
+            fields:
+              email: E-mail
+              name: Název
+            name: Člen monitorovacího výboru
           polling_officer:
             fields:
               email: E-mail
@@ -668,6 +674,16 @@ cs:
               promoted: Zvýrazněno
               published: Publikováno
               title: Název
+        monitoring_committee_members:
+          create:
+            invalid: Při vytváření tohoto člena monitorovacího výboru došlo k potížím
+            success: Člen monitorovacího výboru byl úspěšně vytvořen
+          destroy:
+            invalid: Při mazání tohoto člena monitorovacího výboru došlo k potížím
+            success: Člen monitorovacího výboru byl úspěšně odstraněn
+          form:
+            existing_user: Existující účastník
+            non_user: Pozvat nového účastníka
         polling_officers:
           create:
             invalid: Při vytváření tohoto volebního komisaře došlo k chybě
