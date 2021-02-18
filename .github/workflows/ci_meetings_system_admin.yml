@@ -59,7 +59,7 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: ./.github/upload_coverage.sh decidim-meetings-system-admin $GITHUB_EVENT_PATH
         name: Upload coverage
-      - uses: actions/upload-artifact@v2-preview
+      - uses: actions/upload-artifact@v2
         if: always()
         with:
           name: screenshots
