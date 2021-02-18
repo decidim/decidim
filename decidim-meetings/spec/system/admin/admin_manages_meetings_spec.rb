@@ -34,7 +34,6 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       expect(help_text_for("label[for*='meeting_address']")).to be_present
       expect(help_text_for("div[data-tabs-content*='meeting-location']")).to be_present
       expect(help_text_for("div[data-tabs-content*='meeting-location_hints']")).to be_present
-      expect(help_text_for("div[data-tabs-content*='meeting-registration_email_custom_content']")).to be_present
     end
 
     context "when there are multiple locales" do
@@ -212,7 +211,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).not_to have_field("Custom content in registration email")
     # make the field visible
     find("#meeting_customize_registration_email").click
-    fill_in "#meeting_registration_email_custom_content_en", with: "We're very happy you registered for this event!"
+    expect(help_text_for("div[data-tabs-content*='meeting-registration_email_custom_content-tab']")).to be_present
+    fill_in_i18n(:meeting_registration_email_custom_content, "#meeting-registration_email_custom_content-tabs", { "en" => "We're very happy you registered for this event!" })
 
     within ".new_meeting" do
       find("*[type=submit]").click
