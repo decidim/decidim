@@ -625,6 +625,8 @@ de:
           polling_station:
             fields:
               address: Adresse
+              polling_station_managers: Manager
+              polling_station_president: Präsident
               title: Titel
             name: Wahllokal
           voting:
@@ -646,10 +648,13 @@ de:
             select_user: Suchen nach Name, E-Mail oder Benutzername
             user_type: Benutzertyp
           index:
+            role_president: Präsident
             title: Wahllokal-Mitarbeitende
           new:
             create: Erfassen
             title: Wahllokal-Mitarbeiter erfassen
+          polling_officers_picker:
+            close: Schließen
         polling_stations:
           create:
             invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
