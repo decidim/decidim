@@ -379,7 +379,7 @@ en:
         file_help:
           import:
             explanation: 'Guidance for file:'
-            message_1: CSV, JSON and Excel (.xls) files are supported
+            message_1: CSV, JSON and Excel (.xlsx) files are supported
             message_2: For CSV files, the separator between columns must be a semicolon (";")
       help_sections:
         error: There was a problem updating the help sections
@@ -431,7 +431,7 @@ en:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
+            xlsx: xlsx
           actions:
             back: Back
           file_legend: Add an import file that will be parsed.
