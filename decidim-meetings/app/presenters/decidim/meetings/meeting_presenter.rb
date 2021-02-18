@@ -65,6 +65,15 @@ module Decidim
         end
       end
 
+      def registration_email_custom_content(links: false, all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer.render(links: links).html_safe
+        end
+      end
+
       # Next methods are used for present a Meeting As Proposal Author
       def name
         title
