@@ -77,7 +77,19 @@ cs:
   decidim:
     admin:
       filters:
+        officers_assigned_eq:
+          label: Úředníci
+          values:
+            assigned: Přiřazeno
+            unassigned: Nepřiřazeno
+        role_eq:
+          label: Role
+          values:
+            manager: Manažer
+            president: Předseda
+            unassigned: Nepřiřazeno
         search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Vyhledejte %{collection} podle jména/e-mailu/přezdívky nebo volební místnosti.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Hledat %{collection} podle názvu, adresy nebo jména úředníka/e-mailu/přezdívky.
     components:
