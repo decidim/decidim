@@ -75,4 +75,9 @@ FactoryBot.define do
     user { create :user, organization: voting.organization }
     voting { create :voting }
   end
+
+  factory :monitoring_committee_member, class: "Decidim::Votings::MonitoringCommitteeMember" do
+    user
+    voting { create :voting, organization: user.organization }
+  end
 end
