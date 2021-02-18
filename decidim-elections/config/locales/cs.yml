@@ -684,6 +684,13 @@ cs:
           form:
             existing_user: Existující účastník
             non_user: Pozvat nového účastníka
+            select_user: Hledat podle jména, e-mailu nebo přezdívky
+            user_type: Typ účastníka
+          index:
+            title: Monitorovací výbor
+          new:
+            create: Vytvořit
+            title: Vytvořit člena monitorovacího výboru
         polling_officers:
           create:
             invalid: Při vytváření tohoto volebního komisaře došlo k chybě
