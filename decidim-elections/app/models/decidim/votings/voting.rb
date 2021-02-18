@@ -28,6 +28,11 @@ module Decidim
       has_many :components, as: :participatory_space, dependent: :destroy
       has_many :polling_stations, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::PollingStation", inverse_of: :voting, dependent: :destroy
       has_many :polling_officers, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::PollingOfficer", inverse_of: :voting, dependent: :destroy
+      has_many :monitoring_committee_members,
+               foreign_key: "decidim_votings_voting_id",
+               class_name: "Decidim::Votings::MonitoringCommitteeMember",
+               inverse_of: :voting,
+               dependent: :destroy
 
       validates :slug, uniqueness: { scope: :organization }
       validates :slug, presence: true, format: { with: Decidim::Votings::Voting.slug_format }

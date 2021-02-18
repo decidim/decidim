@@ -1,0 +1,41 @@
+<div class="card" id="monitoring_committee_members">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.votings.monitoring_committee_members", name: t("models.monitoring_committee_member.name", scope: "decidim.votings.admin")), new_voting_monitoring_committee_member_path(current_voting), class: "button tiny button--title" if allowed_to? :create, :monitoring_committee_member, voting: current_voting %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.monitoring_committee_member.fields.name", scope: "decidim.votings.admin") %></th>
+            <th><%= t("models.monitoring_committee_member.fields.email", scope: "decidim.votings.admin") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.votings.monitoring_committee_members") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% monitoring_committee_members.each do |monitoring_committee_member| %>
+            <tr data-id="<%= monitoring_committee_member.id %>">
+              <td>
+                <%= monitoring_committee_member.user.name %>
+              </td>
+              <td>
+                <%= monitoring_committee_member.user.email %>
+              </td>
+              <td class="table-list__actions">
+                <% if allowed_to? :delete, :monitoring_committee_member, voting: current_voting, monitoring_committee_member: monitoring_committee_member %>
+                  <%= icon_link_to "circle-x", voting_monitoring_committee_member_path(current_voting, monitoring_committee_member), t("actions.destroy", scope: "decidim.votings.monitoring_committee_members"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.monitoring_committee_members") } %>
+                <% else %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
