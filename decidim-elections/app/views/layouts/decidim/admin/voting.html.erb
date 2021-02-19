@@ -76,6 +76,8 @@
           </li>
         <% end %>
       <% end %>
+
+      <%= Decidim::Admin.view_hooks.render(:admin_secondary_nav, deep_dup) %>
     </ul>
   </div>
 <% end %>
