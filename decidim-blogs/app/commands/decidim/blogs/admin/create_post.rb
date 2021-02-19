@@ -32,7 +32,8 @@ module Decidim
             title: @form.title,
             body: @form.body,
             component: @form.current_component,
-            author: @current_user
+            author: @form.user_group
+            # author: @current_user
           }
 
           @post = Decidim.traceability.create!(

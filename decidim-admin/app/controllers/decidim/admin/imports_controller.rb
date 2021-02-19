@@ -5,6 +5,7 @@ module Decidim
     # This controller allows admins to import resources from a file.
     class ImportsController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
+      helper UserGroupHelper
 
       def new
         enforce_permission_to :import, :component_data, component: current_component
