@@ -797,6 +797,9 @@ en:
             active_votings: Active votings
             see_all_votings: See all votings
             votings_button_title: Link to the Votings page displaying all the votings
+      polling_officer_zone:
+        menu:
+          polling_officer_zone: Polling officer zone
       polling_officers:
         actions:
           confirm_destroy: Are you sure?

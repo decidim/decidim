@@ -74,3 +74,9 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
     end
   end
 end
+
+Decidim.register_global_engine(
+  :decidim_votings_polling_officer_zone,
+  Decidim::Votings::PollingOfficerZoneEngine,
+  at: "/polling_officer"
+)

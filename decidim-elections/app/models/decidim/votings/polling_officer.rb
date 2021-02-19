@@ -37,6 +37,14 @@ module Decidim
         end
       end
 
+      def self.polling_officer?(user)
+        exists?(user: user)
+      end
+
+      def self.for(user)
+        find_by(user: user)
+      end
+
       private
 
       # Private: check if the voting and the user have the same organization
