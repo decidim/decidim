@@ -6,6 +6,7 @@
     </h2>
   </div>
 
+  <%= admin_filter_selector %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
@@ -18,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <% polling_officers.each do |polling_officer| %>
+          <% filtered_polling_officers.each do |polling_officer| %>
             <tr data-id="<%= polling_officer.id %>">
               <td>
                 <%= polling_officer.name %>
