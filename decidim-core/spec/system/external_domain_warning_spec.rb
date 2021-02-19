@@ -31,4 +31,14 @@ describe "ExternalDomainWarning", type: :system do
       expect(page).to have_content("Invalid URL")
     end
   end
+
+  context "without param" do
+    let(:no_param) { "http://#{organization.host}/link" }
+
+    it "shows invalid url alert" do
+      visit no_param
+      expect(page).to have_content("Invalid URL")
+      expect(page).to have_current_path decidim.root_path
+    end
+  end
 end
