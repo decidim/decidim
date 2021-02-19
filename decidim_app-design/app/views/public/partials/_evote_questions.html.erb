@@ -45,5 +45,15 @@
             </div>
           </li>
       </ul>
+      <% if locals[:hasCta]%>
+        <div class="mt-m">
+          <a class="button button--sc" href="evote-1">
+            Start voting
+          </a>
+        </div>
+        <p class="text-sm">
+          Already voted? <a href="evote-public-verify">Check&nbsp;your vote&nbsp;here</a>.
+        </p>
+      <% end %>
   </div>
 </div>

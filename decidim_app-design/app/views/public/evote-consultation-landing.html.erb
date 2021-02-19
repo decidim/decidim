@@ -8,7 +8,7 @@
   <%= partial "evote_hero" %>
   <div class="wrapper">
     <%= partial "evote_intro_landing" %>
-    <%= partial "evote_questions_landing" %>
+    <%= partial "evote_questions", locals: { hasCta: true } %>
     <%= partial "evote_timeline" %>
     <%= partial "evote_map" %>
     <%= partial "evote_stats" %>

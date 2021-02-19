@@ -10,12 +10,12 @@
     <div class="row">
       <div class="columns">
         <a href="evote-poll-list">
-            <%= icon "caret-left", class: "icon--small" %>&nbsp;Available elections
+          <%= icon "caret-left", class: "icon--small" %>&nbsp;Available elections
         </a>
       </div>
     </div>
     <%= partial "evote_intro" %>
-    <%= partial "evote_questions" %>
+    <%= partial "evote_questions", locals: { hasCta: false } %>
   </div>
 </main>
 
