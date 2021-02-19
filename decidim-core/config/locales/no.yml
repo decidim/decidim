@@ -1029,6 +1029,7 @@
           error: Det oppstod et problem med å godta vilkårene.
           success: Flott! Du har godtatt vilkårene for bruk.
         form:
+          agreement: Jeg godtar vilkårene
           legend: Godta vilkårene for bruk
         refuse:
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
