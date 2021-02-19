@@ -42,7 +42,18 @@ module Decidim
       end
 
       def self.for(user)
-        find_by(user: user)
+        where(user: user)
+      end
+
+      def role
+        return :president if presided_polling_station.present?
+        return :manager if managed_polling_station.present?
+
+        :unassigned
+      end
+
+      def polling_station
+        presided_polling_station || managed_polling_station
       end
 
       private

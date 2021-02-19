@@ -78,5 +78,5 @@ end
 Decidim.register_global_engine(
   :decidim_votings_polling_officer_zone,
   Decidim::Votings::PollingOfficerZoneEngine,
-  at: "/polling_officer"
+  at: "/polling_officers"
 )

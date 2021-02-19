@@ -8,13 +8,13 @@ module Decidim
         helper_method :polling_station
 
         def show
-          enforce_permission_to :view, :polling_station, polling_officer: polling_officer
+          enforce_permission_to :view, :polling_station, polling_officers: polling_officers
         end
 
         private
 
         def polling_station
-          @polling_station ||= Decidim::Votings::PollingStation.find(params[:polling_station_id])
+          @polling_station ||= Decidim::Votings::PollingStation.find(params[:id])
         end
       end
     end

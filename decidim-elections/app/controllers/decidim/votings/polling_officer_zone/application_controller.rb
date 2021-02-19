@@ -9,12 +9,12 @@ module Decidim
       class ApplicationController < ::Decidim::ApplicationController
         include Decidim::UserProfile
 
-        helper_method :polling_officer
+        helper_method :polling_officers
 
         private
 
-        def polling_officer
-          @polling_officer ||= Decidim::Votings::PollingOfficer.for(current_user)
+        def polling_officers
+          @polling_officers ||= Decidim::Votings::PollingOfficer.for(current_user)
         end
 
         def permission_scope

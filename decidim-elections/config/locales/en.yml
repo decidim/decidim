@@ -491,6 +491,7 @@ en:
             not_supported_browser_description: It looks like you are using a web browser that can't be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
             trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
+            polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
           update:
             success: Your identification public key was successfully stored.
       votes:
@@ -799,13 +800,31 @@ en:
             votings_button_title: Link to the Votings page displaying all the votings
       polling_officer_zone:
         menu:
-          polling_officer_zone: Polling officer zone
+          polling_officer_zone: Polling Officer zone
+        polling_officers:
+          show:
+            actions:
+              manage: Manage
+            polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
+            polling_stations:
+              list:
+                actions: Actions
+                address: Address
+                name: Name
+                role: Your role
+                voting: Voting
+              no_polling_stations: You are not assigned to any Polling Station yet.
+              title: Polling Stations
       polling_officers:
         actions:
           confirm_destroy: Are you sure?
           destroy: Delete
           new: New
           title: Actions
+        roles:
+          manager: Manager
+          president: President
+          unassigned: Unassigned
       polling_stations:
         actions:
           confirm_destroy: Are you sure?
