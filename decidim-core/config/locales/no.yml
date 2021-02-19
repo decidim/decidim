@@ -409,7 +409,7 @@
           nickname_help: Aliaset ditt i %{organization}
           sign_up: Vennligs fullfør profilen din
           subtitle: Vennligst fyll ut det følgende skjemaet for å fullføre registreringen
-          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+          username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       registrations:
         new:
           already_have_an_account?: Har du allerede en bruker?
@@ -425,7 +425,7 @@
           terms: vilkårene for bruk
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
-          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+          username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       sessions:
         new:
           are_you_new?: Er du ny på plattformen?
@@ -1041,6 +1041,7 @@
           error: Det oppstod et problem med å godta vilkårene.
           success: Flott! Du har godtatt vilkårene for bruk.
         form:
+          agreement: Jeg godtar vilkårene
           legend: Godta vilkårene for bruk
         refuse:
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
