@@ -403,7 +403,7 @@
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
           sign_up: Vennligs fullfør profilen din
           subtitle: Vennligst fyll ut det følgende skjemaet for å fullføre registreringen
-          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+          username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       registrations:
         new:
           already_have_an_account?: Har du allerede en bruker?
@@ -419,7 +419,7 @@
           terms: vilkårene for bruk
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
-          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+          username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       sessions:
         new:
           are_you_new?: Er du ny på plattformen?
