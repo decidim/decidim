@@ -28,8 +28,10 @@
 }
 
 .external-link-page-content{
-  .external-link{
+  .external-link-url{
     background-color: $light-gray;
+    word-wrap: break-word;
+    word-break: break-word;
 
     .alert{
       color: $alert-color;
