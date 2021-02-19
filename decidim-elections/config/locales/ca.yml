@@ -41,6 +41,16 @@ ca:
         one: Pregunta
         other: Preguntes
   decidim:
+    admin:
+      filters:
+        role_eq:
+          label: Rol
+          values:
+            manager: Gestor
+            president: Presidenta
+            unassigned: Sense assignar
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o lloc de votació.
     components:
       elections:
         actions:
