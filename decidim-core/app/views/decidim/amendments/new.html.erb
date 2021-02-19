@@ -14,7 +14,7 @@
 
             <% if current_organization.user_groups_enabled? && current_user.user_groups.verified.any? %>
               <div class="field">
-                <%= user_group_select_field form, :user_group_id %>
+                <%= user_group_select_field form, :user_group_id, label: t("new.amendment_author", scope: "decidim.amendments") %>
               </div>
             <% end %>
 
