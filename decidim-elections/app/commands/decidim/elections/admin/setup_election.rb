@@ -73,7 +73,7 @@ module Decidim
             {
               name: trustee.name,
               slug: trustee.slug,
-              public_key: trustee.public_key
+              public_key: JSON.parse(trustee.public_key)
             }
           end
         end
