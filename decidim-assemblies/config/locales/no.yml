@@ -215,9 +215,9 @@
           name: Medlem
           positions:
             other: Annet
-            president: President
+            president: Leder
             secretary: Sekretær
-            vice_president: Visepresident
+            vice_president: Nestleder
         assembly_user_role:
           fields:
             email: Epost
