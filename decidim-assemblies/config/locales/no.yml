@@ -55,8 +55,8 @@
         birthday: Fødselsdag
         birthplace: Fødested
         ceased_date: Opphørt dato
-        designation_date: Oppnevnelsesdato
-        designation_mode: Benevnelsesmodus
+        designation_date: Valgdato
+        designation_mode: Valgform
         full_name: Fullt navn
         gender: Kjønn
         position: Stilling
@@ -209,7 +209,7 @@
         assembly_member:
           fields:
             ceased_date: Opphørt dato
-            designation_date: Oppnevnelsesdato
+            designation_date: Valgdato
             full_name: Navn
             position: Stilling
           name: Medlem
