@@ -65,7 +65,7 @@ module Decidim
       # GraphQ query. In that case, ordering by ID will be the secondary order
       # of the records.
       def add_default_order
-        @query.order(:id)
+        @query = @query.order(:id)
       end
 
       def filter_keys_by_settings(kwargs, component)
