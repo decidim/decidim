@@ -2,17 +2,12 @@
 
 module Decidim
   module ExternalDomainHelper
-    def highlight_domain(url)
-      parts = url.match %r{^(([a-z]+):)?//([^/]+)(/.*)?$}
-      raise InvalidUrlError unless parts
-
+    def highlight_domain
       tag.div do
-        content_tag(:span, "#{parts[1]}//") +
-          content_tag(:span, parts[3], class: "alert") +
-          content_tag(:span, parts[4])
+        content_tag(:span, "#{@url_parts[:protocol]}//") +
+          content_tag(:span, @url_parts[:domain], class: "alert") +
+          content_tag(:span, @url_parts[:path])
       end
     end
   end
-
-  class InvalidUrlError < StandardError; end
 end

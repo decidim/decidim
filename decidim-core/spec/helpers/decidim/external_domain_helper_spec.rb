@@ -5,14 +5,10 @@ require "spec_helper"
 module Decidim
   describe ExternalDomainHelper do
     context "when everything is OK" do
-      it { expect(helper.highlight_domain("http://decidim.barcelona")).to include('class="alert">decidim.barcelona') }
-    end
+      before { helper.instance_variable_set(:@url_parts, { protocol: "https:", domain: "decidim.barcelona", path: "/processes" }) }
 
-    context "when invalid URL" do
-      let(:invalid_url) { "foo" }
-
-      it "raises InvalidUrlError" do
-        expect { helper.highlight_domain(invalid_url) }.to raise_error(Decidim::InvalidUrlError)
+      it "highlights domain" do
+        expect(helper.highlight_domain).to include('class="alert">decidim.barcelona')
       end
     end
   end
