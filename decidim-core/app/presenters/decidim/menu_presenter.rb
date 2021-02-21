@@ -37,7 +37,7 @@ module Decidim
     protected
 
     def render_menu(&block)
-      content_tag :ul do
+      content_tag :ul, @options.fetch(:container_options, {}) do
         elements = block_given? ? [block.call(@view)] : []
         safe_join(elements + menu_items)
       end
