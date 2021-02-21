@@ -91,6 +91,8 @@ el:
         name: Όνομα
         organization: Οργανισμός
         plural: Πληθυντικός
+      settings:
+        scope_id: Πεδίο εφαρμογής
       static_page:
         changed_notably: Υπήρξαν σημαντικές αλλαγές.
         content: Περιεχόμενο
@@ -139,6 +141,7 @@ el:
         per_page: Ανά σελίδα
         permissions: Δικαιώματα
         reject: Απόρριψη
+        share: Κοινοποίηση
         verify: Επαλήθευση
       admin_terms_of_use:
         accept:
@@ -266,6 +269,7 @@ el:
           headers:
             actions: Ενέργειες
             name: Όνομα στοιχείου
+            scope: Πεδίο εφαρμογής στοιχείου
             type: Τύπος στοιχείου
         new:
           add: Προσθήκη στοιχείου
