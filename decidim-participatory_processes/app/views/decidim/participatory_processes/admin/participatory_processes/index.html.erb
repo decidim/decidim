@@ -1,6 +1,8 @@
 <% add_decidim_page_title(t("participatory_processes", scope: "decidim.admin.titles")) %>
 
-<%= render partial: "decidim/participatory_processes/admin/shared/secondary_nav" %>
+<% content_for :sidebar_menu_nav do %>
+  <%= participatory_processes_menu.render %>
+<% end %>
 
 <div class="card with-overflow" id="processes">
   <div class="card-divider">
