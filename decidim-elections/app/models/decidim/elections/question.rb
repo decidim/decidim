@@ -27,6 +27,10 @@ module Decidim
         answers.sum(:votes_count)
       end
 
+      def slug
+        "question-#{id}"
+      end
+
       def votes_percentage(answer_votes)
         return 0 unless answer_votes.positive?
 

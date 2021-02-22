@@ -81,7 +81,7 @@ module Decidim
         def questions_data
           questions.map do |question|
             {
-              slug: question.id.to_s,
+              slug: question.slug,
               weight: question.weight,
               max_selections: question.max_selections,
               title: question.title,
@@ -94,8 +94,8 @@ module Decidim
         def question_answers_data(question)
           question.answers.map do |answer|
             {
-              slug: answer.id.to_s,
-              weight: answer.weight,
+              slug: answer.slug,
+              weight: answer.weight
             }
           end
         end
@@ -103,7 +103,7 @@ module Decidim
         def answers_data
           answers.map do |answer|
             {
-              slug: answer.id.to_s,
+              slug: answer.slug,
               title: answer.title
             }
           end
