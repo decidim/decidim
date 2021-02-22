@@ -745,8 +745,7 @@ en:
           up: Up
         form:
           add: Add to whitelist
-          external_domains: External domains
-          homepage_external_domain_whitelist_title: External domain whitelist
+          title: External domain whitelist
       organization_homepage:
         edit:
           active_content_blocks: Active content blocks

@@ -1,12 +1,8 @@
 <div class="card">
   <div class="card-divider">
-    <h2 class="card-title"><%= t(".homepage_external_domain_whitelist_title") %></h2>
+    <h2 class="card-title"><%= t(".title") %></h2>
   </div>
   <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= t(".external_domains") %></h2>
-    </div>
-
     <div class="card-section">
       <% if form.send(:error?, :external_domains) %>
         <div class="input-field">

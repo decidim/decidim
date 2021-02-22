@@ -4,6 +4,8 @@ module Decidim
   class InvalidUrlError < StandardError; end
 
   class LinksController < Decidim::ApplicationController
+    skip_before_action :store_current_location
+
     helper Decidim::ExternalDomainHelper
 
     before_action :parse_url
