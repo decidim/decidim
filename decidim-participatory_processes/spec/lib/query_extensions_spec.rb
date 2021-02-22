@@ -16,6 +16,9 @@ module Decidim
         let(:query) { %({ participatoryProcesses { id }}) }
 
         it "returns all the processes" do
+          ids = response["participatoryProcesses"].map { |pr| pr["id"] }
+          # Result should be sorted by ID by default.
+          expect(ids).to eq([process1, process2].map(&:id).sort.map(&:to_s))
           expect(response["participatoryProcesses"]).to include("id" => process1.id.to_s)
           expect(response["participatoryProcesses"]).to include("id" => process2.id.to_s)
           expect(response["participatoryProcesses"]).not_to include("id" => process3.id.to_s)
