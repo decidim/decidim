@@ -804,7 +804,8 @@ en:
         polling_officers:
           show:
             actions:
-              manage: Manage
+              count_votes: Count the votes in the ballot box
+              identify_person: Identify and verify a person
             polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
             polling_stations:
               list:
