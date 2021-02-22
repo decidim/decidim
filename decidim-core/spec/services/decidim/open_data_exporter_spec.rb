@@ -52,6 +52,25 @@ describe Decidim::OpenDataExporter do
         end
       end
 
+      describe "votings" do
+        let(:csv_file_name) { "*open-data-votings.csv" }
+        let!(:voting) { create(:voting) }
+        let(:organization) { voting.organization }
+
+        before do
+          subject.export
+        end
+
+        it "includes a CSV with votings" do
+          expect(csv_file).not_to be_nil
+        end
+
+        it "includes votings data" do
+          # FIX
+          expect(csv_data).to include(translated(voting.title))
+        end
+      end
+
       describe "proposals" do
         let(:csv_file_name) { "*open-data-proposals.csv" }
         let(:component) do

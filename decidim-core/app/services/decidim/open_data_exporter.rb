@@ -47,11 +47,23 @@ module Decidim
     end
 
     def open_data_manifests
-      @open_data_manifests ||= Decidim.component_manifests.flat_map(&:export_manifests).select(&:include_in_open_data?)
+      @open_data_manifests ||= Decidim.component_manifests
+                                      .flat_map(&:export_manifests)
+                                      .select(&:include_in_open_data?)
+                                      .concat(Decidim.participatory_space_manifests
+          .flat_map(&:export_manifests)
+          .select(&:include_in_open_data?))
     end
 
     def components
       @components ||= organization.published_components
     end
+
+    # def participatory_spaces
+    #   # Decidim.participatory_space_manifests.flat_map do |manifest|
+    #   #   manifest.participatory_spaces.call(self).public_spaces
+    #   # end
+    #   @participatory_spaces ||= organization.public_participatory_spaces
+    # end
   end
 end
