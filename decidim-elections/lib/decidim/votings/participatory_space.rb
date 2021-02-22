@@ -28,6 +28,16 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
     context.layout = "layouts/decidim/admin/voting"
   end
 
+  participatory_space.exports :votings do |export|
+    export.collection do |voting|
+      Decidim::Votings::Voting.where(id: voting.id)
+    end
+
+    export.include_in_open_data = true
+
+    export.serializer Decidim::Votings::VotingSerializer
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")

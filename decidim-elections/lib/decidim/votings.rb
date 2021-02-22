@@ -9,5 +9,6 @@ require "decidim/votings/participatory_space"
 module Decidim
   # This namespace holds the logic of the `Votings` space.
   module Votings
+    autoload :VotingSerializer, "decidim/votings/voting_serializer"
   end
 end
