@@ -10,13 +10,16 @@ $(async () => {
 
   // UI Elements
   const $voteWrapper = $(".vote-wrapper");
+  const $ballotHash = $voteWrapper.find(".ballot-hash");
 
   // Data
   const bulletinBoardClientParams = {
     apiEndpointUrl: $voteWrapper.data("apiEndpointUrl")
   };
   const electionUniqueId = $voteWrapper.data("electionUniqueId");
-  const authorityPublicKeyJSON = JSON.stringify($voteWrapper.data("authorityPublicKey"))
+  const authorityPublicKeyJSON = JSON.stringify(
+    $voteWrapper.data("authorityPublicKey")
+  );
   const voterUniqueId = $voteWrapper.data("voterId");
   const schemeName = $voteWrapper.data("schemeName");
 
@@ -25,7 +28,7 @@ $(async () => {
   questionsComponent.init();
   $(document).on("on.zf.toggler", () => {
     // continue and back btn
-    questionsComponent.init()
+    questionsComponent.init();
   });
 
   // Use the correct voter wrapper adapter
@@ -56,49 +59,105 @@ $(async () => {
     onStart() {},
     onVoteEncryption(validVoteFn) {
       const getFormData = (formData) => {
-        return formData.serializeArray().reduce((acc, {name, value}) => {
-          if (!acc[name]) {
-            acc[name] = [];
-          }
-          acc[name] = [...acc[name], value];
-          return acc;
-        }, {"ballot_style": "unique"});
-      }
+        return formData.serializeArray().reduce(
+          (acc, { name, value }) => {
+            if (!acc[name]) {
+              acc[name] = [];
+            }
+            acc[name] = [...acc[name], value];
+            return acc;
+          },
+          { ballot_style: "unique" } // eslint-disable-line camelcase
+        );
+      };
 
       const formData = getFormData($voteWrapper.find(".answer_input"));
       validVoteFn(formData);
     },
-    castOrAuditBallot(encryptedBallot) {
-
+    castOrAuditBallot({encryptedDataHash}) {
+      $voteWrapper.find("#encrypting").addClass("hide");
+      $ballotHash.text(
+        `Your ballot identifier is: ${encryptedDataHash}`
+      );
+      $voteWrapper.find("#ballot_decision").removeClass("hide");
     },
     onBindAuditBallotButton(onEventTriggered) {
-
+      $(".audit_ballot").on("click", onEventTriggered);
     },
     onBindCastBallotButton(onEventTriggered) {
-
+      $(".cast_ballot").on("click", onEventTriggered);
     },
-    onAuditBallot(auditedVote, auditFileName) {
+    onAuditBallot(auditedData, auditedDataFileName) {
+      
 
+      const vote = JSON.stringify(auditedData);
+      const link = document.createElement("a");
+      $voteWrapper.find(".button.cast_ballot").addClass("hide");
+      $voteWrapper.find(".button.back").removeClass("hide");
+      questionsComponent.voteCasted = true;
+
+      link.setAttribute("href", `data:text/plain;charset=utf-8,${vote}`);
+      link.setAttribute("download", auditedDataFileName);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     },
     onAuditComplete() {
+      console.log("AUDIT COMPLETED");
+    },
+    // onCastBallot({ encryptedBallot }) {
 
-    },
-    onCastBallot({ encryptedBallot }) {
-    },
-    onCastComplete() {},
-    onInvalid() {},
-    // TODO: old event
-    async onVoteEncrypted({encryptedVote, encryptedVoteHash}) {
+    // },
+    // onCastComplete() {},
+    // onInvalid() {},
+    // // TODO: old event
+    // async onVoteEncrypted({encryptedVote, encryptedVoteHash}) {
+
+    // castOrAuditBallot() {
+    //   $voteWrapper.find("#encrypting").addClass("hide");
+    //   $voteWrapper.find("#ballot_decision").removeClass("hide");
+    // },
+    // onVoteValidation(onEventTriggered) {
+    //   $(".cast_ballot").on("click", onEventTriggered);
+    // },
+    // onAuditVote(onEventTriggered) {
+    //   $(".audit_ballot").on("click", onEventTriggered);
+    // },
+    // onVoteAudition(auditedBallot, auditedBallotFileName) {
+    //   const vote = JSON.stringify(auditedBallot);
+    //   const link = document.createElement("a");
+    //   $voteWrapper.find(".button.cast_ballot").addClass("hide");
+    //   $voteWrapper.find(".button.back").removeClass("hide");
+    //   questionsComponent.voteCasted = true;
+
+    //   link.setAttribute("href", `data:text/plain;charset=utf-8,${vote}`);
+    //   link.setAttribute("download", auditedBallotFileName);
+    //   document.body.appendChild(link);
+    //   link.click();
+    //   document.body.removeChild(link);
+    // },
+    // onAuditComplete() {
+    //   console.log("AUDIT COMPLETED");
+    // },
+    async onCastBallot(ballot) {
       const simulatePreviewDelay = () => {
         return new Promise((resolve) => setTimeout(resolve, 500));
       };
       const isPreview = $voteWrapper.data("booth-mode") === "preview";
 
+      // $voteWrapper.find("#encrypting").addClass("hide");
+      $voteWrapper.find("#ballot_decision").addClass("hide");
+      $voteWrapper.find("#confirmed_page").removeClass("hide");
+      $voteWrapper.find(".vote-confirmed-result").addClass("hide");
+
       await $.ajax({
         method: "POST",
         url: $voteWrapper.data("castVoteUrl"),
         contentType: "application/json",
-        data: JSON.stringify({ encrypted_vote: encryptedVote, encrypted_vote_hash: encryptedVoteHash }), // eslint-disable-line camelcase
+        data: JSON.stringify({
+          encrypted_vote: ballot.encryptedData, // eslint-disable-line camelcase
+          encrypted_vote_hash: ballot.encryptedDataHash // eslint-disable-line camelcase
+        }), 
         headers: {
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
@@ -107,16 +166,19 @@ $(async () => {
       if (isPreview) {
         await simulatePreviewDelay();
         $voteWrapper.find("#encrypting").addClass("hide");
+        $voteWrapper.find("#ballot_decision").addClass("hide");
         $voteWrapper.find("#confirmed_page").removeClass("hide");
-        $voteWrapper.find(".vote-confirmed-result").hide();
         questionsComponent.voteCasted = true;
-        await simulatePreviewDelay()
-        $voteWrapper.find(".vote-confirmed-processing").hide();
-        $voteWrapper.find(".vote-confirmed-result").show();
       } else {
-        const messageId = $voteWrapper.find(".vote-confirmed-result").data("messageId");
-        const voteId = $voteWrapper.find(".vote-confirmed-result").data("voteId");
-        const pendingMessage = await voteComponent.bulletinBoardClient.waitForPendingMessageToBeProcessed(messageId);
+        const messageId = $voteWrapper.
+          find(".vote-confirmed-result").
+          data("messageId");
+        const voteId = $voteWrapper.
+          find(".vote-confirmed-result").
+          data("voteId");
+        const pendingMessage = await voteComponent.bulletinBoardClient.waitForPendingMessageToBeProcessed(
+          messageId
+        );
 
         await $.ajax({
           method: "PATCH",
@@ -130,21 +192,27 @@ $(async () => {
 
         if (pendingMessage.status === "accepted") {
           $voteWrapper.find("#encrypting").addClass("hide");
+          $voteWrapper.find("#ballot_decision").addClass("hide");
           $voteWrapper.find("#confirmed_page").removeClass("hide");
-          $voteWrapper.find(".vote-confirmed-result").hide();
           questionsComponent.voteCasted = true;
 
-          const logEntry = await voteComponent.voter.verifyVote(encryptedVoteHash);
+          const logEntry = await voteComponent.voter.verifyVote(
+            ballot.encryptedDataHash
+          );
 
           if (logEntry) {
             $voteWrapper.find(".vote-confirmed-processing").hide();
-            $voteWrapper.find(".vote-confirmed-result").show();
+            $voteWrapper.find(".vote-confirmed-result").removeClass("hide");
           } else {
-            const $error = $voteWrapper.find(".vote-confirmed-result").data("error");
+            const $error = $voteWrapper.
+              find(".vote-confirmed-result").
+              data("error");
             alert($error); // eslint-disable-line no-alert
           }
         } else {
-          const $error = $voteWrapper.find(".vote-confirmed-result").data("error");
+          const $error = $voteWrapper.
+            find(".vote-confirmed-result").
+            data("error");
           alert($error); // eslint-disable-line no-alert
         }
       }
