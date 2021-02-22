@@ -37,7 +37,7 @@ module Decidim
 
         it "serializes the voting type" do
           I18n.available_locales.each do |locale|
-            expect(translated(serialized[:voting_type], locale: locale)).to eq(translated(voting.voting_type, locale: locale))
+            expect(translated(serialized[:voting_type], locale: locale)).to eq(I18n.t(voting.voting_type, scope: "decidim.votings.admin.votings.form.voting_type"))
           end
         end
 
