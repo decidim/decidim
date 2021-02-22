@@ -6,6 +6,7 @@
   data-voter-id="<%= @form.voter_id %>"
   data-cast-vote-url="<%= cast_election_vote_url(election) %>"
   data-update-vote-status-url="<%= election_vote_url(election) %>"
+  data-scheme-name="<%= scheme_name %>"
   data-booth-mode="<%= booth_mode %>">
 
   <% questions.each_with_index do |step_question, step_index| %>

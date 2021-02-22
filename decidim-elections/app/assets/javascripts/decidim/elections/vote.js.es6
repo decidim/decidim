@@ -1,9 +1,12 @@
 // = require decidim/bulletin_board/decidim-bulletin_board
+// = require decidim/bulletin_board/dummy-voting-scheme
+
 // = require ./vote_questions.component
 
 $(async () => {
   const { VoteQuestionsComponent } = window.Decidim;
   const { VoteComponent } = window.decidimBulletinBoard;
+  const { VoterWrapperAdapter: DummyVoterWrapperAdapter } = window.dummyVotingScheme;
 
   // UI Elements
   const $voteWrapper = $(".vote-wrapper");
@@ -15,6 +18,7 @@ $(async () => {
   const electionUniqueId = $voteWrapper.data("electionUniqueId");
   const authorityPublicKeyJSON = JSON.stringify($voteWrapper.data("authorityPublicKey"))
   const voterUniqueId = $voteWrapper.data("voterId");
+  const schemeName = $voteWrapper.data("schemeName");
 
   // Use the questions component
   const questionsComponent = new VoteQuestionsComponent($voteWrapper);
@@ -24,21 +28,33 @@ $(async () => {
     questionsComponent.init()
   });
 
+  // Use the correct voter wrapper adapter
+  let voterWrapperAdapter = null;
+
+  if (schemeName === "dummy") {
+    voterWrapperAdapter = new DummyVoterWrapperAdapter({
+      voterId: voterUniqueId
+    });
+  } else {
+    throw new Error(`Voting scheme ${schemeName} not supported.`);
+  }
+
   // Use the voter component and bind all UI events
   const voteComponent = new VoteComponent({
     bulletinBoardClientParams,
     authorityPublicKeyJSON,
     electionUniqueId,
-    voterUniqueId
+    voterUniqueId,
+    voterWrapperAdapter
   });
 
   await voteComponent.bindEvents({
     onSetup() {},
-    onBindStartButton(onEventTriggered) {
+    onBindEncryptButton(onEventTriggered) {
       $(".button.confirm").on("click", onEventTriggered);
     },
     onStart() {},
-    onVoteValidation(validVoteFn) {
+    onVoteEncryption(validVoteFn) {
       const getFormData = (formData) => {
         return formData.serializeArray().reduce((acc, {name, value}) => {
           if (!acc[name]) {
@@ -52,6 +68,26 @@ $(async () => {
       const formData = getFormData($voteWrapper.find(".answer_input"));
       validVoteFn(formData);
     },
+    castOrAuditBallot(encryptedBallot) {
+
+    },
+    onBindAuditBallotButton(onEventTriggered) {
+
+    },
+    onBindCastBallotButton(onEventTriggered) {
+
+    },
+    onAuditBallot(auditedVote, auditFileName) {
+
+    },
+    onAuditComplete() {
+
+    },
+    onCastBallot({ encryptedBallot }) {
+    },
+    onCastComplete() {},
+    onInvalid() {},
+    // TODO: old event
     async onVoteEncrypted({encryptedVote, encryptedVoteHash}) {
       const simulatePreviewDelay = () => {
         return new Promise((resolve) => setTimeout(resolve, 500));
@@ -112,8 +148,6 @@ $(async () => {
           alert($error); // eslint-disable-line no-alert
         }
       }
-    },
-    onComplete() {},
-    onInvalid() {}
+    }
   });
 });
