@@ -1,6 +1,6 @@
 <div class="vote-verify-wrapper"
   data-election-id="<%= election.id %>"
-  data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
+  data-api-endpoint-url="<%= Rails.application.secrets.elections[:bulletin_board_server] %>"
   data-election-unique-id="<%= @form.election_unique_id %>">
 
   <div class="focus__header">
