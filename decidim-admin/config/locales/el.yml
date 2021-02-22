@@ -55,6 +55,9 @@ el:
         highlighted_content_banner_title: Τίτλος
         instagram_handler: Πρόγραμμα χειρισμού Instagram
         logo: Λογότυπο
+        machine_translation_display_priority: Προτεραιότητα εμφάνισης μηχανικής μετάφρασης
+        machine_translation_display_priority_original: Αρχικό κείμενο πρώτα
+        machine_translation_display_priority_translation: Μεταφρασμένο κείμενο πρώτα
         name: Όνομα
         official_img_footer: Επίσημο υποσέλιδο λογότυπου
         official_img_header: Επίσημη κεφαλίδα λογότυπου
@@ -88,6 +91,8 @@ el:
         name: Όνομα
         organization: Οργανισμός
         plural: Πληθυντικός
+      settings:
+        scope_id: Πεδίο εφαρμογής
       static_page:
         changed_notably: Υπήρξαν σημαντικές αλλαγές.
         content: Περιεχόμενο
@@ -136,6 +141,7 @@ el:
         per_page: Ανά σελίδα
         permissions: Δικαιώματα
         reject: Απόρριψη
+        share: Κοινοποίηση
         verify: Επαλήθευση
       admin_terms_of_use:
         accept:
@@ -263,6 +269,7 @@ el:
           headers:
             actions: Ενέργειες
             name: Όνομα στοιχείου
+            scope: Πεδίο εφαρμογής στοιχείου
             type: Τύπος στοιχείου
         new:
           add: Προσθήκη στοιχείου
