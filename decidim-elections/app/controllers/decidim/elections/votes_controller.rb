@@ -8,7 +8,7 @@ module Decidim
       include FormFactory
 
       helper VotesHelper
-      helper_method :elections, :election, :questions, :questions_count, :booth_mode, :vote, :server, :authority_public_key
+      helper_method :elections, :election, :questions, :questions_count, :booth_mode, :vote, :bulletin_board_server, :authority_public_key
 
       delegate :count, to: :questions, prefix: true
 
@@ -50,7 +50,7 @@ module Decidim
 
       private
 
-      delegate :server, to: :bulletin_board_client
+      delegate :bulletin_board_server, to: :bulletin_board_client
 
       def vote
         @vote ||= Decidim::Elections::Vote.find_by(id: params[:vote_id])
@@ -89,7 +89,7 @@ module Decidim
       end
 
       def authority_public_key
-        @authority_public_key ||= bulletin_board_client.public_key.to_json
+        @authority_public_key ||= bulletin_board_client.authority_public_key.to_json
       end
 
       def elections
