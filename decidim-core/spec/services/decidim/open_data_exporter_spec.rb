@@ -66,7 +66,6 @@ describe Decidim::OpenDataExporter do
         end
 
         it "includes votings data" do
-          # FIX
           expect(csv_data).to include(translated(voting.title))
         end
       end
