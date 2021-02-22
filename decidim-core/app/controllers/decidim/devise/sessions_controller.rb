@@ -9,6 +9,12 @@ module Decidim
       # rubocop: disable Rails/LexicallyScopedActionFilter
       before_action :check_sign_in_enabled, only: :create
       # rubocop: enable Rails/LexicallyScopedActionFilter
+      prepend_before_action :skip_timeout, only: :seconds_until_timeout
+
+      def skip_timeout
+        request.env["devise.skip_trackable"] = true
+        request.env["devise.skip_timeoutable"] = true
+      end
 
       def destroy
         current_user.invalidate_all_sessions!
@@ -43,6 +49,13 @@ module Decidim
 
       def after_sign_out_path_for(user)
         request.referer || super
+      end
+
+      def seconds_until_timeout
+        seconds_remaining = current_user ? ::Devise.timeout_in - (Time.current - Time.zone.at(user_session["last_request_at"])) : 0
+        respond_to do |format|
+          format.json { render json: { seconds_remaining: seconds_remaining }, status: :ok }
+        end
       end
 
       def heartbeat

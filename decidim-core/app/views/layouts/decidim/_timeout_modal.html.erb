@@ -1,6 +1,8 @@
 <% if current_user %>
   <% timeout_time_seconds = Devise.timeout_in.to_i %>
-  <div class="reveal" id="timeoutModal" data-close-on-click="false" data-close-on-esc="false" data-session-timeout="<%= timeout_time_seconds %>" data-reveal>
+  <div class="reveal" id="timeoutModal" data-close-on-click="false" data-close-on-esc="false"
+    data-seconds-until-timeout-path="<%= decidim.session_seconds_until_timeout_path %>"
+    data-session-timeout="<%= timeout_time_seconds %>" data-reveal>
     <h2><%= t(".title") %></h2>
     <p><%= t(".body", minutes: (timeout_time_seconds / 60) - 2) %></p>
 
@@ -15,4 +17,5 @@
         method: :post %>
     </div>
   </div>
+  <div id="test_element"></div>
 <% end %>

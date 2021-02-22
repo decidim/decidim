@@ -28,6 +28,7 @@ Decidim::Core::Engine.routes.draw do
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
     post "session_heartbeat" => "devise/sessions#heartbeat"
+    get "session_seconds_until_timeout" => "devise/sessions#seconds_until_timeout"
   end
 
   resource :locale, only: [:create]
