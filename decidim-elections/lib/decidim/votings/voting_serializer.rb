@@ -23,7 +23,7 @@ module Decidim
           description: voting.description,
           start_time: voting.start_time.to_s(:db),
           end_time: voting.end_time.to_s(:db),
-          voting_type: voting.voting_type,
+          voting_type: translated_voting_type,
           scope: {
             id: voting.scope.try(:id),
             name: voting.scope.try(:name)
@@ -36,6 +36,15 @@ module Decidim
       private
 
       attr_reader :voting
+
+      def translated_voting_type
+        translation_hash = {}
+        voting.organization.available_locales.each do |locale|
+          translation_hash[locale] = I18n.t(voting.voting_type, scope: "decidim.votings.admin.votings.form.voting_type")
+        end
+
+        translation_hash
+      end
 
       def url
         Decidim::Votings::Engine.routes.url_helpers.voting_url(host: voting.organization.host, slug: voting.slug)
