@@ -110,7 +110,7 @@ PATH
       premailer-rails (~> 1.10)
       rack (~> 2.2, >= 2.2.3)
       rack-attack (~> 6.0)
-      rails (>= 5.2.4.5, < 6.0.x)
+      rails (~> 5.2.4.5)
       rails-i18n (~> 5.0)
       rectify (~> 0.13.0)
       redis (~> 4.1)
