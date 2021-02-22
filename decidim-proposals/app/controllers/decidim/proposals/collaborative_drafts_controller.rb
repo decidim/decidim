@@ -7,6 +7,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper TooltipHelper
+      helper UserGroupHelper
 
       include Decidim::ApplicationHelper
       include FormFactory
