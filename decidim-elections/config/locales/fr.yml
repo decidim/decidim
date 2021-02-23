@@ -588,6 +588,7 @@ fr:
             invalid: Une erreur s'est produite lors de la création de cette élection
             success: Élection créée avec succès
           edit:
+            assign_missing_officers: Il reste des bureaux de votes sans président et/ou accesseurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
