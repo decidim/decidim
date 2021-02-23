@@ -757,6 +757,7 @@ en:
             success: Voting successfully created
           edit:
             add_election_component: You don't have any election configured for this voting. Please add it in the Components section
+            assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
             select_a_voting_type: Please select a voting type
