@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // = require decidim/bulletin_board/decidim-bulletin_board
 // = require decidim/bulletin_board/dummy-voting-scheme
 
@@ -105,40 +106,6 @@ $(async () => {
     onAuditComplete() {
       console.log("AUDIT COMPLETED");
     },
-    // onCastBallot({ encryptedBallot }) {
-
-    // },
-    // onCastComplete() {},
-    // onInvalid() {},
-    // // TODO: old event
-    // async onVoteEncrypted({encryptedVote, encryptedVoteHash}) {
-
-    // castOrAuditBallot() {
-    //   $voteWrapper.find("#encrypting").addClass("hide");
-    //   $voteWrapper.find("#ballot_decision").removeClass("hide");
-    // },
-    // onVoteValidation(onEventTriggered) {
-    //   $(".cast_ballot").on("click", onEventTriggered);
-    // },
-    // onAuditVote(onEventTriggered) {
-    //   $(".audit_ballot").on("click", onEventTriggered);
-    // },
-    // onVoteAudition(auditedBallot, auditedBallotFileName) {
-    //   const vote = JSON.stringify(auditedBallot);
-    //   const link = document.createElement("a");
-    //   $voteWrapper.find(".button.cast_ballot").addClass("hide");
-    //   $voteWrapper.find(".button.back").removeClass("hide");
-    //   questionsComponent.voteCasted = true;
-
-    //   link.setAttribute("href", `data:text/plain;charset=utf-8,${vote}`);
-    //   link.setAttribute("download", auditedBallotFileName);
-    //   document.body.appendChild(link);
-    //   link.click();
-    //   document.body.removeChild(link);
-    // },
-    // onAuditComplete() {
-    //   console.log("AUDIT COMPLETED");
-    // },
     async onCastBallot(ballot) {
       const simulatePreviewDelay = () => {
         return new Promise((resolve) => setTimeout(resolve, 500));
@@ -216,6 +183,12 @@ $(async () => {
           alert($error); // eslint-disable-line no-alert
         }
       }
+    },
+    onCastComplete() {
+      console.log("Cast completed")
+    },
+    onInvalid() {
+      console.log("Something went wrong.")
     }
   });
 });
