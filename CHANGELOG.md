@@ -14,11 +14,15 @@
 
 **Added**
 
+- **decidim-initiatives**: Raise an alert when there's an error signing an initiative [\#7407](https://github.com/decidim/decidim/pull/7407)
+- **decidim-proposals**: Let admins delete proposal attachments [\#7435](https://github.com/decidim/decidim/pull/7435)
+
 **Changed**
 
 **Fixed**
 
 - **decidim-initiatives**: Fix initiatives type permissions page [\#7357](https://github.com/decidim/decidim/pull/7357)
+- **decidim-meetings**: Fix etherpad compatibility for old meetings [\#7387](https://github.com/decidim/decidim/pull/7387)
 - **decidim-core**: Fix subhero content block removing strip_tags from it [\#7414](https://github.com/decidim/decidim/pull/7414)
 
 **Removed**
