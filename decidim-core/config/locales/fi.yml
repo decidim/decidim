@@ -1519,7 +1519,7 @@ fi:
     messages:
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään
       confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
-      content_type_whitelist_error: tiedostotyyppi ei kelpaa
+      content_type_allowlist_error: tiedostotyyppi ei kelpaa
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
