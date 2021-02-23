@@ -1139,7 +1139,7 @@ eu:
     messages:
       already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
       confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
-      content_type_whitelist_error: fitxategiaren mota ez da baliozkoa
+      content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       expired: iraungi egin da, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
