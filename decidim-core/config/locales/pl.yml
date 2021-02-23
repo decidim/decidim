@@ -1455,7 +1455,7 @@ pl:
     messages:
       already_confirmed: zostało już potwierdzone, spróbuj się zalogować
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
-      content_type_whitelist_error: typ pliku jest nieprawidłowy
+      content_type_allowlist_error: typ pliku jest nieprawidłowy
       cycle_detected: zakres podrzędny nie może być jednocześnie zakresem nadrzędnym
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: rozmiar pliku musi być mniejszy lub równy %{count}
