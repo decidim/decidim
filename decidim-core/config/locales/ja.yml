@@ -1434,7 +1434,7 @@ ja:
     messages:
       already_confirmed: が確認されました。ログインしてみてください
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
-      content_type_whitelist_error: ファイルの種類が無効です
+      content_type_allowlist_error: ファイルの種類が無効です
       cycle_detected: スコープの親は子孫ではありえません
       expired: 有効期限が切れています。新しいものをリクエストしてください
       file_size_is_less_than_or_equal_to: ファイルサイズは %{count} 以下でなければなりません
