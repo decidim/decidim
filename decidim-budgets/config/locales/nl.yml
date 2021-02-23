@@ -13,6 +13,7 @@ nl:
         decidim_scope_id: Reikwijdte
         description: Beschrijving
         proposal_ids: Verwante voorstellen
+        selected: Geselecteerd voor implementatie
         title: Titel
   activerecord:
     models:
@@ -68,6 +69,7 @@ nl:
           index:
             finished_orders: Voltooide stemmen
             pending_orders: Afwachtende stemmen
+            selected: Geselecteerd
             title: Projecten
           new:
             create: Creëren
@@ -156,6 +158,11 @@ nl:
           category: Categorie
           scope: Reikwijdte
           search: Zoeken
+          status: Status
+          status_values:
+            all: Alles
+            not_selected: Niet geselecteerd
+            selected: Geselecteerd
         filters_small_view:
           close_modal: Dialoogvenster sluiten
           filter: Filter
@@ -175,9 +182,11 @@ nl:
           lowest_cost: Laagste kosten
           most_voted: Meeste stemmen
           random: Willekeurige volgorde
+          selected: Geselecteerd
         project:
           add: Voeg project %{resource_name} toe aan uw stem
           remove: Verwijder project %{resource_name} uit uw stem
+          selected: Geselecteerd
           view: Bekijk
           votes:
             one: stem
@@ -188,6 +197,7 @@ nl:
           add_descriptive: Voeg project %{resource_name} toe aan uw stem
           added: Toegevoegd aan je stem
           added_descriptive: Project %{resource_name} is aan uw stem toegevoegd
+        projects_for: Projecten voor %{name}
         show:
           budget: Begroting
           view_all_projects: Bekijk alle projecten
@@ -229,8 +239,12 @@ nl:
             list_heading: Lijst kop
             more_information_modal: Meer informatie
             show_votes: Toon stemmen
+            title: Titel
+            votes: Stemronde
             votes_choices:
+              disabled: Stemmen uitgeschakeld
               enabled: Stemmen ingeschakeld
+              finished: Stemmen beëindigd
     events:
       budgets:
         budget_published:
