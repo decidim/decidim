@@ -40,8 +40,14 @@ de:
       models:
         decidim/votings/polling_officer:
           attributes:
+            presided_polling_station:
+              president_and_manager: Wahllokal-Mitarbeitender ist bereits Präsident/Manager eines Wahllokals
             voting:
               different_organization: Die Abstimmung muss in der selben Organisation wie der Benutzer sein
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Der Wahllokal-Mitarbeiter und das Wahllokal müssen in der gleichen Abstimmung sein
     models:
       decidim/elections/answer:
         one: Antwort
@@ -52,6 +58,12 @@ de:
       decidim/elections/question:
         one: Frage
         other: Fragen
+      decidim/votings/polling_officer:
+        one: Wahllokal-Mitarbeiter
+        other: Wahllokal-Mitarbeitende
+      decidim/votings/polling_station:
+        one: Wahllokal
+        other: Wahllokale
       decidim/votings/voting:
         one: Abstimmung
         other: Abstimmungen
@@ -71,6 +83,8 @@ de:
             unassigned: Nicht zugewiesen
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Suche %{collection} nach Name/E-Mail/Nickname oder Wahllokal.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : In %{collection} suchen nach Titel, Adresse oder Wahllokal-Mitarbeiter.
     components:
       elections:
         actions:
@@ -596,6 +610,10 @@ de:
               name: Materialien und Verzeichnisse zur Abstimmung
             description:
               name: Beschreibung der Abstimmung
+            elections:
+              name: Wahlen
+            header:
+              name: Überschrift
             html_block_1:
               name: Abstimmung HTML Block 1
             html_block_2:
@@ -636,6 +654,7 @@ de:
             fields:
               email: E-Mail
               name: Name
+              polling_station: Wahllokal (Rolle)
             name: Wahllokal-Mitarbeitender
           polling_station:
             fields:
