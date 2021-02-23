@@ -41,6 +41,8 @@ nl:
           attributes:
             presided_polling_station:
               president_and_manager: Stembeambte is al stembureau voorzitter/manager
+            voting:
+              different_organization: De stemronde moet binnen dezelfde organisatie als de gebruiker zijn
     models:
       decidim/elections/answer:
         one: Beantwoorden
