@@ -1,7 +1,9 @@
 // = require decidim/bulletin_board/decidim-bulletin_board
+// = require decidim/bulletin_board/dummy-voting-scheme
 
 $(() => {
   const { TallyComponent, IdentificationKeys, MessageIdentifier, MESSAGE_RECEIVED } = window.decidimBulletinBoard;
+  const { TrusteeWrapperAdapter: DummyTrusteeWrapperAdapter } = window.dummyVotingScheme;
 
   // UI Elements
   const $tally = $(".trustee-step");
@@ -19,6 +21,7 @@ $(() => {
   };
   const electionUniqueId = `${$tally.data("authoritySlug")}.${$tally.data("electionId")}`
   const authorityPublicKeyJSON = JSON.stringify($tally.data("authorityPublicKey"))
+  const schemeName = $tally.data("schemeName");
 
   const trusteeContext = {
     uniqueId: $tally.data("trusteeSlug"),
@@ -30,13 +33,25 @@ $(() => {
   );
   let currentStep = null;
 
+  // Use the correct trustee wrapper adapter
+  let trusteeWrapperAdapter = null;
+
+  if (schemeName === "dummy") {
+    trusteeWrapperAdapter = new DummyTrusteeWrapperAdapter({
+      trusteeId: trusteeContext.uniqueId
+    });
+  } else {
+    throw new Error(`Voting scheme ${schemeName} not supported.`);
+  }
+
   // Use the tally component and bind all UI events
   const component = new TallyComponent({
     bulletinBoardClientParams,
     authorityPublicKeyJSON,
     electionUniqueId,
     trusteeUniqueId: trusteeContext.uniqueId,
-    trusteeIdentificationKeys
+    trusteeIdentificationKeys,
+    trusteeWrapperAdapter
   });
 
   const bindComponentEvents = async () => {

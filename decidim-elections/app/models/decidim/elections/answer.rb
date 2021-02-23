@@ -29,6 +29,10 @@ module Decidim
       def slug
         "answer-#{id}"
       end
+
+      def full_slug
+        "question-#{question.id}_answer-#{answer.id}"
+      end
     end
   end
 end

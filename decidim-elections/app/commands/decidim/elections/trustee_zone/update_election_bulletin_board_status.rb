@@ -31,32 +31,26 @@ module Decidim
 
         attr_reader :election, :required_status
 
-        def decoded_data
-          @decoded_data ||= begin
-            signed_data = Decidim::Elections.bulletin_board.get_election_log_entries_by_types(election.id, ["end_tally"])
-            public_key = Rails.application.secrets.bulletin_board[:server_public_key]
-            public_key_rsa = JWT::JWK::RSA.import(public_key).public_key
-            JWT.decode(signed_data.first.signed_data, public_key_rsa, true, algorithm: "RS256")
-          rescue JWT::VerificationError, JWT::DecodeError, JWT::InvalidIatError, JWT::InvalidPayload => e
-            { error: e.message }
-          end
-        end
-
         def results
-          @results ||= decoded_data.first["results"]
+          @results ||= Decidim::Elections.bulletin_board.get_election_results(election.id)
         end
 
         def fetch_election_results
           answers = []
           results.values.map do |values|
             values.each do |key, value|
-              answers = Decidim::Elections::Answer.where(id: key)
+              result_key = get_answer_id_from_result(key)
+              answers = Decidim::Elections::Answer.where(id: result_key)
               answers.each do |answer|
                 answer.votes_count = value
                 answer.save!
               end
             end
           end
+        end
+
+        def get_answer_id_from_result(result_key)
+          result_key.match(/question-\d+_answer-(\d+)/).captures
         end
 
         def update_election_status!
