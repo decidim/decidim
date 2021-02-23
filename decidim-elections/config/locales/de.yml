@@ -82,7 +82,7 @@ de:
             president: Präsident
             unassigned: Nicht zugewiesen
         search_placeholder:
-          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Suche %{collection} nach Name/E-Mail/Nickname oder Wahllokal.
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: In %{collection} nach Name/E-Mail/Nickname oder Wahllokal suchen.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : In %{collection} suchen nach Titel, Adresse oder Wahllokal-Mitarbeiter.
     components:
@@ -690,7 +690,8 @@ de:
           index:
             title: Überwachungskomitee
           new:
-            create: Erstellen
+            create: Hinzufügen
+            title: Überwachungskomitee-Mitglied erfassen
         polling_officers:
           create:
             invalid: Beim Erfassen dieses Wahllokal-Mitarbeiters ist ein Fehler aufgetreten
@@ -782,6 +783,12 @@ de:
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Sind Sie sicher?
+          destroy: Entfernen
+          new: Neues Mitglied
+          title: Aktionen
       pages:
         home:
           highlighted_votings:
