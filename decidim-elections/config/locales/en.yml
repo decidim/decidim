@@ -862,3 +862,5 @@ en:
         promoted_voting:
           more_info: More info
           vote: Vote
+      voting_navigation:
+        voting_menu_item: The voting

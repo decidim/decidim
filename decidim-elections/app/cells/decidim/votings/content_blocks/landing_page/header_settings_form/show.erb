@@ -1,0 +1,4 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :text_field, :button_text, label: t("decidim.content_blocks.cta_settings_form.button_text") %>
+  <%= settings_fields.translated :text_field, :button_url, label: t("decidim.content_blocks.cta_settings_form.button_url") %>
+<% end %>
