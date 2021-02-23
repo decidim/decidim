@@ -42,7 +42,11 @@ nl:
             presided_polling_station:
               president_and_manager: Stembeambte is al stembureau voorzitter/manager
             voting:
-              different_organization: De stemronde moet binnen dezelfde organisatie als de gebruiker zijn
+              different_organization: De stemronde moet in dezelfde organisatie als de gebruiker zitten
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: De stembeambte moet in dezelfde stemronde als het stembureau zitten
     models:
       decidim/elections/answer:
         one: Beantwoorden
@@ -53,6 +57,9 @@ nl:
       decidim/elections/question:
         one: Vraag
         other: vragen
+      decidim/votings/polling_officer:
+        one: Stembeambte
+        other: Stembeambtes
       decidim/votings/polling_station:
         one: Stembureau
         other: Stembureaus
@@ -66,6 +73,9 @@ nl:
           values:
             assigned: Toegewezen
             unassigned: Niet toegewezen
+        search_placeholder:
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Zoek %{collection} op titel, adres of beambte naam/e-mail/bijnaam.
     components:
       elections:
         actions:
