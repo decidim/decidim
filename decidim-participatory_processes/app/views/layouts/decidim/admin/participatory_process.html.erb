@@ -1,6 +1,10 @@
 <% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 
 <% content_for :secondary_nav do %>
+  <%#= participatory_process_menu.render do
+    public_page_link decidim_participatory_processes.participatory_process_path(current_participatory_space)
+  end %>
+
   <div class="secondary-nav secondary-nav--subnav">
     <ul>
       <%= public_page_link decidim_participatory_processes.participatory_process_path(current_participatory_space) %>

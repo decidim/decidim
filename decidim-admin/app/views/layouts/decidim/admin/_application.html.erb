@@ -19,6 +19,7 @@
     <div class="layout-nav">
       <%= main_menu.render %>
       <%= yield :secondary_nav if content_for? :secondary_nav %>
+      <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
     </div>
     <div class="layout-content">
       <div class="container">
