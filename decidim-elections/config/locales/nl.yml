@@ -49,6 +49,12 @@ nl:
         one: Stemronde
         other: Stemrondes
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          values:
+            assigned: Toegewezen
+            unassigned: Niet toegewezen
     components:
       elections:
         actions:
@@ -588,7 +594,10 @@ nl:
           name: Stemrondes in de kijker
       monitoring_committee_members:
         actions:
-          confirm_destroy: Ben je zeker?
+          confirm_destroy: Weet je het zeker?
+          destroy: Verwijderen
+          new: Nieuw lid
+          title: Acties
       pages:
         home:
           highlighted_votings:
