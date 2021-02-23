@@ -1286,7 +1286,7 @@ sk:
     messages:
       already_confirmed: bolo už potvrdené, skúste prosím prihlásiť
       confirmation_period_expired: musí byť potvrdené v rámci %{period}, požiadajte o nový
-      content_type_whitelist_error: typ súboru nie je platný
+      content_type_allowlist_error: typ súboru nie je platný
       cycle_detected: rodič odbore nemôže byť jedným z jeho potomkov
       expired: uplynula, požiadajte o novú
       file_size_is_less_than_or_equal_to: veľkosť súboru musí byť menšia alebo rovná%{count}
