@@ -1511,7 +1511,7 @@ tr:
     messages:
       already_confirmed: zaten onaylandı, lütfen giriş yapmayı deneyin
       confirmation_period_expired: '%{period}içinde onaylanması gerekiyor, lütfen yeni bir tane isteyin'
-      content_type_whitelist_error: dosya türü geçerli değil
+      content_type_allowlist_error: dosya türü geçerli değil
       cycle_detected: bir kapsamın ebeveyni torunlarından biri olamaz
       expired: süresi doldu, lütfen yeni bir tane isteyin
       file_size_is_less_than_or_equal_to: dosya boyutu %{count}eşit veya daha küçük olmalıdır
