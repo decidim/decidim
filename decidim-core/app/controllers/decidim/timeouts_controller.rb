@@ -8,7 +8,6 @@ module Decidim
     prepend_before_action :skip_timeout, only: :seconds_until_timeout
 
     def skip_timeout
-      request.env["devise.skip_trackable"] = true
       request.env["devise.skip_timeoutable"] = true
     end
 

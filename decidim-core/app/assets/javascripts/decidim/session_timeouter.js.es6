@@ -23,14 +23,8 @@
           contentType: "application/json",
           headers: {
             "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
-          },
-          complete: (_jqXHR, textStatus) => {
-            $("#test_element").append(`Request status: ${textStatus}`)
           }
         })
-        // $("#test_element").append("TIME LEFT ASKING DONE<br>");
-        // $("#test_element").append(`${JSON.stringify(result)}<br>`);
-        // return result.seconds_remaining
       }
 
       // Ajax request is made at timeout_modal.html.erb
@@ -45,10 +39,8 @@
       }
 
       const exitInterval = setInterval(() => {
-        console.log("START INTERVAL", exports.moment())
         const diff = endsAt - exports.moment();
         const diffInSeconds = Math.round(diff / 1000);
-        $("#test_element").append(`dfscnds: ${diffInSeconds}<br>`);
         if (diffInSeconds > 150) {
           return;
         }
@@ -57,9 +49,7 @@
           const secondsUntilSessionExpires = result.seconds_remaining;
           setTimer(secondsUntilSessionExpires)
 
-          $("#test_element").append(`secondsUntilSessionExpires: ${secondsUntilSessionExpires}<br>`);
           if (secondsUntilSessionExpires <= 90) {
-            // $("#test_element").append(`<p style={color: red}>SIGNED OUT You were inactive for too long: ${secondsUntilSessionExpires}</p>`);
             $timeoutModal.find("#reveal-hidden-sign-out")[0].click();
           } else if (secondsUntilSessionExpires <= 150) {
             popup.open();
