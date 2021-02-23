@@ -565,6 +565,7 @@ nl:
             success: Stemronde succesvol aangemaakt
           edit:
             add_election_component: Er zijn geen verkiezingen geconfigureerd voor deze stemming. Voeg deze toe in de Componenten sectie
+            assign_missing_officers: Er zijn stembureaus zonder voorzitter en/of manager. Duid deze aan in onderdeel Stembureau
             update: Bijwerken
           form:
             select_a_voting_type: Selecteer een type stemming
