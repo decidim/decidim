@@ -46,7 +46,7 @@ module Decidim
             budget: form.budget,
             title: original_proposal.title,
             description: original_proposal.body,
-            budget_amount: form.default_budget,
+            budget_amount: budget_for(original_proposal),
             category: original_proposal.category,
             scope: original_proposal.scope
           }
@@ -57,6 +57,12 @@ module Decidim
             params,
             visibility: "all"
           )
+        end
+
+        def budget_for(original_proposal)
+          return form.default_budget if original_proposal.cost.blank?
+
+          original_proposal.cost
         end
 
         def proposals
