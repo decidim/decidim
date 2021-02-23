@@ -682,13 +682,17 @@ de:
             select_user: Suchen nach Name, E-Mail oder Benutzername
             user_type: Benutzertyp
           index:
+            role_manager: Manager
             role_president: Präsident
             title: Wahllokal-Mitarbeitende
           new:
             create: Erfassen
             title: Wahllokal-Mitarbeiter erfassen
           polling_officers_picker:
+            choose_polling_officers: Wahllokal-Mitarbeitende auswählen
             close: Schließen
+            more_polling_officers: Es gibt %{number} weitere Wahllokal-Mitarbeitende. Verfeinern Sie Ihre Suche um sie zu finden.
+            no_polling_officers: Keine Wahllokal-Mitarbeitenden passen zu Ihren Suchkriterien, oder es gibt keine Wahllokal-Mitarbeitenden.
         polling_stations:
           create:
             invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
@@ -703,6 +707,9 @@ de:
             address_help: 'Adresse: Wird vom Geocoder zur Lokalisierung verwendet'
             location_help: 'Ort: Beschreibung des genauen Orts des Wahllokals für die Wähler'
             location_hints_help: 'Ortshinweise: Zusätzliche Informationen. Beispiel: Das Stockwerk des Gebäudes in dem sich das Wahllokal befindet.'
+            polling_station_managers_help: 'Wahllokal-Manager: Die Mitarbeitenden die als Verwalter des Wahllokals agieren werden. Stellen Sie sicher dass diese Personen bereits als Wahllokal-Mitarbeitende erfasst wurden, und dass sie nicht bereits zu einem anderen Wahllokal zugewiesen sind'
+            polling_station_president_help: 'Wahllokal-Mitarbeiter: Der Mitarbeiter der als Präsident des Wahllokals agiert. Stellen Sie sicher dass diese Person bereits als Wahllokal-Mitarbeitender erfasst wurde, und dass sie nicht bereits zu einem anderen Wahllokal zugewiesen ist'
+            select_president: Wählen Sie einen Wahllokal-Mitarbeiter als Präsident für das Wahllokal
           index:
             title: Wahllokale
           new:
