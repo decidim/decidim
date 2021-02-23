@@ -1414,7 +1414,7 @@ zh-CN:
     messages:
       already_confirmed: 已经确认，请尝试登录
       confirmation_period_expired: 需要在 %{period}内确认, 请申请一个新的
-      content_type_whitelist_error: 文件类型无效
+      content_type_allowlist_error: 文件类型无效
       cycle_detected: 一个 scope 的父目录不能是它的后代之一。
       expired: 已过期，请申请一个新的
       file_size_is_less_than_or_equal_to: 文件大小必须小于或等于 %{count}
