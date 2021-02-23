@@ -115,7 +115,7 @@ fr-CA:
         answer:
           body: Le corps ne peut pas être vide
       files:
-        extension_whitelist: 'Formats acceptés :'
+        extension_allowlist: 'Formats acceptés :'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Cette image sera :'
