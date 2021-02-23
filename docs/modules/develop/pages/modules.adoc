@@ -12,7 +12,7 @@ You can see some of our more popular modules at https://decidim.org/modules[Deci
 You can have multiple modules types:
 
 * For Spaces
-* For xref:develop:components.adoc[Components]
+* For xref:main:components.adoc[Components]
 * For Verifications
 
 == Example
