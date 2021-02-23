@@ -1520,7 +1520,7 @@ de:
     messages:
       already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
       confirmation_period_expired: muss innerhalb von %{period}bestätigt werden, bitte einen neuen anfordern
-      content_type_whitelist_error: Der Dateityp ist nicht gültig
+      content_type_allowlist_error: Der Dateityp ist nicht gültig
       cycle_detected: Der Elternteil eines Bereichs darf keiner seiner Nachkommen sein
       expired: ist abgelaufen, bitte fordern Sie einen neuen an
       file_size_is_less_than_or_equal_to: Die Dateigröße muss kleiner oder gleich %{count}
