@@ -273,9 +273,9 @@ cs:
         conference_registration:
           confirm: "%{user_name} potvrdil registraci konference na konferenci %{resource_name}"
         partner:
-          create: "%{user_name} vytvořil %{resource_name} na konferenci %{space_name}"
-          delete: "%{user_name} odstranil uživatele %{resource_name} z konference %{space_name}"
-          update: "%{user_name} aktualizoval %{resource_name} v konferenci %{space_name}"
+          create: "%{user_name} vytvořil partnera %{resource_name} na konferenci %{space_name}"
+          delete: "%{user_name} odstranil partnera %{resource_name} z konference %{space_name}"
+          update: "%{user_name} aktualizoval partnera %{resource_name} na konferenci %{space_name}"
         registration_type:
           create: "%{user_name} vytvořil typ registrace %{resource_name} na konferenci %{space_name}"
           publish: "%{user_name} publikoval %{resource_name} typ registrace na %{space_name} konferencích"
@@ -551,8 +551,8 @@ cs:
     help:
       participatory_spaces:
         conferences:
-          contextual: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd..</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
-          page: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd..</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
+          contextual: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd.).</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
+          page: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd.).</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
           title: Co jsou konference?
     log:
       value_types:

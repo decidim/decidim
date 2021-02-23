@@ -34,16 +34,8 @@ es-MX:
             confirm: La revocación de las autorizaciones anteriores a esta fecha no se puede deshacer. ¿Seguro que quieres continuar?
             confirm_all: La revocación de todas las autorizaciones no se puede deshacer. ¿Seguro que quieres continuar?
           destroy_nok: Ha habido un problema al revocar las autorizaciones.
-          destroy_ok: Todas las autorizaciones coincidentes se han revocado correctamente
           info: Hay un total de %{count} participantes verificadas.
           no_data: No hay participantes verificadas
-          title: Revocación de las autorizaciones
-        authorization_workflows: Verificaciones
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} ha actualizado la configuración de verificación mediante documentos de identidad"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} ha verificado %{resource_name} utilizando una verificación presencial mediante documentos de identidad"
     authorization_handlers:
       admin:
         csv_census:

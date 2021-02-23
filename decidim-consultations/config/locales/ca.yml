@@ -94,7 +94,6 @@ ca:
         create:
           error: S'ha produït un error en crear una nova consulta.
           success: S'ha creat la consulta correctament.
-        deprecation_warning: El mòdul de consultes serà discontinuat en un futur proper. Estem treballant en una nova versió segura anomenada Votacions.
         edit:
           update: Actualització
         form:

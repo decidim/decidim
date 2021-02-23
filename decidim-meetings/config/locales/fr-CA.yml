@@ -389,12 +389,15 @@ fr-CA:
           title: Modifier votre réunion
           update: Mise à jour
         filters:
+          activity: Mon activité
+          all: Tous
           category: Catégorie
           date: Date
           date_values:
             all: Toutes
             past: Passé
             upcoming: À venir
+          my_meetings: Mes rencontres
           origin: Origine
           origin_values:
             all: Toutes

@@ -151,10 +151,7 @@ pl:
             email_subject: Nowy kamień milowy osiągnięty!
             notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> zebrała %{percentage}% podpisów.
         support_threshold_reached:
-          email_intro: Inicjatywa %{resource_title} osiągnęła wymagany próg poparcia
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
-          email_subject: Osiągnięto wymagany próg poparcia
-          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła wymagany próg poparcia
     gamification:
       badges:
         initiatives:

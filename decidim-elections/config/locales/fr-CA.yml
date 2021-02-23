@@ -17,8 +17,8 @@ fr-CA:
         min_selections: Aucune des options ci-dessus
         title: Titre
       voting:
-        end_time: Fin
-        start_time: Heure de début
+        end_time: Le vote se termine
+        start_time: Le vote commence le
     errors:
       models:
         answer:
@@ -172,10 +172,10 @@ fr-CA:
               minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
               minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
               published: L'élection n'est <strong>pas publiée</strong>.
-              time_before: L'heure de début se situe<strong>moins 3 heures</strong> avant le commencement de l'élection.
-              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} mandataires avec la clé publique</strong>.
+              time_before: L'heure de début se situe<strong>moins de 3 heures</strong> avant le commencement de l'élection.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             invalid: Une erreur est survenue lors de la création de l'élection
-            no_trustees: Il n'y a pas de Mandataires configurés pour cet espace participatif
+            no_trustees: Il n'y a pas de garants configurés pour cet espace participatif
             not_used_trustee: "(non utilisé)"
             public_key:
               'false': n'a pas de <strong>clé publique</strong>
@@ -186,16 +186,51 @@ fr-CA:
               minimum_questions: L'élection a <strong>au moins 1 question</strong>.
               published: L'élection est <strong>publiée</strong>.
               time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
-              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} mandataires avec la clé publique</strong>.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
             submit: Configurer l'élection
             success: Élection envoyée avec succès au Tableau de Bord
             title: Configurer l'élection
-            trustees: Mandataire de l'élection
+            trustees: Garants de l'élection
+          created:
+            invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés
+            submit: Démarrer la cérémonie des clés
+            title: Élection créée
+            trustees: Garants
           key_ceremony:
             title: Cérémonie des clés
-            trustees: Mandataires
+            trustees: Garants
+          key_ceremony_ended:
+            errors:
+              time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour démarrer la période de vote.
+            invalid: Il y a eu un problème au démarrage de la période de vote
+            requirements:
+              time_before: L'élection va bientôt commencer. Vous pouvez démarrer la période de vote manuellement, ou elle sera démarrée automatiquement avant l'heure de départ, à %{start_time}.
+            submit: Commencer la période de vote
+            title: Prêt à commencer
+          processing: Traitement en cours...
           results_published:
             title: Résultats publiés
+          tally:
+            trustees: Garants
+          tally_ended:
+            submit: Publier les résultats
+            title: Résultats calculés
+          vote:
+            errors:
+              time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
+            invalid: Un problème est survenu lors de la clôture de la période de vote
+            requirements:
+              time_after: L'élection est terminée. Vous pouvez terminer la période de vote manuellement, ou elle se terminera automatiquement dans quelques minutes.
+            submit: Fin de la période de vote
+            success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
+            title: Période de vote
+          vote_ended:
+            title: Période de vote terminée
+          vote_stats:
+            no_vote_statistics_yet: Pas encore de statistiques sur le vote
+            title: Statistiques du vote
+            voters: Votants
+            votes: Votes
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
@@ -264,10 +299,22 @@ fr-CA:
             one: "%{count} vote"
             other: "%{count} votes"
         show:
+          action-button:
+            change-vote: Changer votre vote
+            vote: Commencer à voter
+            vote-again: Voter à nouveau
           back: Élections disponibles
+          callout:
+            already-voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
+            vote-rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           preview: Aperçu
+          verify:
+            already-voted: Déjà voté?
+            verify-here: Vérifiez votre vote ici.
+            will-verify: Vous pourrez vérifier votre vote une fois l'élection commencée.
           voting_period_status:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
+            ongoing: 'Vote actif jusqu''au : %{end_time}'
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
@@ -333,6 +380,19 @@ fr-CA:
             title: Restaurer les clés d'élection pour %{election}
             upload_election_keys: Télécharger les clés d'élection
             upload_icon: Icône indiquant une action de téléchargement
+          tally_steps:
+            back: Retour
+            description: Les résultats de cette élection sont calculés dans le Bulletin Board et pour compléter ce processus, votre participation en tant que garant est nécessaire.
+            list:
+              status: Statut
+              task: Tâche
+            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
+            start: Démarrer
+            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
+            status:
+              completed: Terminé
+              pending: En attente
+              processing: Traitement en cours
           update:
             error: Le statut de l'élection n'a pas été mis à jour.
             success: 'Le statut de l''élection est : %{status}'
@@ -395,6 +455,10 @@ fr-CA:
         encrypting:
           header: Encodage du vote...
           text: Votre vote est en cours de cryptage pour vous assurer que vous pouvez le diffuser de manière anonyme.
+        failed:
+          header: Le vote a échoué
+          lead: Votre vote n'a pas été exprimé!
+          text: Une erreur est survenue, veuillez réessayer.
         header:
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
@@ -411,6 +475,17 @@ fr-CA:
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
+        processing:
+          header: Traitement du vote...
+          text: Votre vote a été reçu et est en cours de traitement. Veuillez patienter.
+        update:
+          error: Un problème est survenu lors de la mise à jour du statut de vote
+          success: Statut du vote mis à jour avec succès
+        verify:
+          content:
+            heading: Vérifiez votre vote
+          error:
+            header: Vote introuvable !
         voting_step:
           back: Précédent
           continue: Suivant
@@ -438,9 +513,9 @@ fr-CA:
     help:
       participatory_spaces:
         votings:
-          contextual: "<p>Une <strong>votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à la votation, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque n'importe quel aspect qui affectent une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de faire d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
-          page: "<p>Une <strong>votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à la votation, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque n'importe quel aspect qui affectent une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de faire d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
-          title: Quelles sont les votations?
+          contextual: "<p>Une <strong>élection</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à l'élection, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de l'élection arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les élections peuvent porter sur presque n'importe quel aspect qui affecte une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
+          page: "<p>Une <strong>élection</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à l'élection, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de l'élection arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les élections peuvent porter sur presque n'importe quel aspect qui affecte une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
+          title: Que sont les élections ?
     menu:
       votings: Élections
     pages:
@@ -456,7 +531,7 @@ fr-CA:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
         index:
-          not_published: Non-publié
+          not_published: Non publié
           published: Publié
         menu:
           votings: Élections
@@ -475,7 +550,7 @@ fr-CA:
           voting:
             fields:
               created_at: Créée le
-              promoted: Mis en évidence
+              promoted: Mise en avant
               published: Publié
               title: Titre
         polling_stations:
@@ -487,11 +562,11 @@ fr-CA:
             success: Le bureau de vote a bien été supprimé
           edit:
             title: Modifier le bureau de vote
-            update: Modifier le bureau de vote
+            update: Mettre à jour le bureau de vote
           form:
             address_help: 'Adresse: utilisée par l''outil de géocadage pour trouver l''emplacement'
             location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
-            location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple: l''étage du bâtiment où se trouve le bureau de vote.'
+            location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple : l''étage du bâtiment où se trouve le bureau de vote.'
           index:
             title: Bureaux de vote
           new:
@@ -508,11 +583,12 @@ fr-CA:
             destroy: Supprimer
             new_voting: Nouvel espace de vote
             publish: Publier
-            unpublish: Annuler la publication
+            unpublish: Dépublier
           create:
             invalid: Une erreur s'est produite lors de la création de cette élection
             success: Élection créée avec succès
           edit:
+            assign_missing_officers: Il reste des bureaux de votes sans président et/ou accesseurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
@@ -566,6 +642,8 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Dérouler
         index:
+          no_votings: Aucun vote ne correspond à votre recherche.
+          only_finished: À l'heure actuelle, il n'y a pas de votes planifiés, mais vous trouverez ici une liste de tous les votes passées.
           title: Votations
         orders:
           label: 'Trier les votations par:'
@@ -579,8 +657,15 @@ fr-CA:
           ongoing: En cours
           upcoming: À venir
         footer_button_text:
+          participate: Participer
           view: Voir
+          vote: Voter
         unspecified: Non précisées
+        voting_type:
+          hybrid: Hybride
+          in_person: En présentiel
+          online: En ligne
+        voting_types_label: Type de vote
   layouts:
     decidim:
       election_votes_header:

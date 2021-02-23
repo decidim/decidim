@@ -272,10 +272,6 @@ pl:
       conferences:
         conference_registration:
           confirm: "%{user_name} potwierdził(a) rejestrację na konferencję %{resource_name}"
-        partner:
-          create: "%{user_name} utworzył(a) %{resource_name} w konferencji %{space_name}"
-          delete: "%{user_name} usunął/usunęła administratora %{resource_name} z konferencji %{space_name}"
-          update: "%{user_name} zaktualizował(a) %{resource_name} w konferencji %{space_name}"
         registration_type:
           create: "%{user_name} utworzył(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
           publish: "%{user_name} opublikował(a) typ rejestracji %{resource_name} w konferencji %{space_name}"

@@ -263,10 +263,6 @@ ja:
       conferences:
         conference_registration:
           confirm: "%{user_name} が %{resource_name} カンファレンスへの登録を確認しました"
-        partner:
-          create: "%{user_name} は %{resource_name} カンファレンスに %{space_name} を作成しました"
-          delete: "%{user_name} が %{resource_name} の管理者を %{space_name} カンファレンスから削除しました"
-          update: "%{user_name} は %{resource_name} カンファレンスで %{space_name} を更新しました"
         registration_type:
           create: "%{user_name} が %{resource_name} カンファレンスで %{space_name} の登録タイプを作成しました"
           publish: "%{user_name} が %{resource_name} カンファレンスで %{space_name} 登録タイプを公開しました"

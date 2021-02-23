@@ -131,10 +131,7 @@ el:
             email_subject: Επιτεύχθηκε νέο ορόσημο!
             notification_title: Η πρωτοβουλία <a href="%{resource_path}">%{resource_title}</a> έχει συμπληρώσει το %{percentage}% των υπογραφών.
         support_threshold_reached:
-          email_intro: Η πρωτοβουλία %{resource_title} έχει συμπληρώσει το όριο υποστήριξης
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής της πλατφόρμας.
-          email_subject: Το όριο υποστήριξης συμπληρώθηκε
-          notification_title: Η πρωτοβουλία <a href="%{resource_path}">%{resource_title}</a> έχει συμπληρώσει το όριο υποστήριξης
     gamification:
       badges:
         initiatives:

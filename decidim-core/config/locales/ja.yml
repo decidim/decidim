@@ -35,7 +35,6 @@ ja:
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
-      decidim/resource_endorsed_event: 承認された
   activerecord:
     attributes:
       decidim/user:
@@ -389,7 +388,6 @@ ja:
         ready: 準備完了
       show:
         download_data: データをダウンロード
-        download_data_description: アカウントに関連付けられているすべての情報を持つファイルが <strong>%{user_email}</strong>に送信されます
         request_data: データを要求する
     datepicker:
       help_text: '期待されるフォーマット: %{datepicker_format}'
@@ -607,7 +605,6 @@ ja:
           notification_title: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_path}">プロフィールページ</a> が更新されました。
     export_mailer:
       data_portability_export:
-        click_button: '次のボタンを押してあなたのデータをダウンロードしてください。 <br/> %{date} までにファイルが利用できるようになります。 <br/> ファイルを開くには<a href=''https://www.7-zip.org/''>7-Zip</a> が必要です。Password: %{password}'
         download: ダウンロード
       export:
         ready: エクスポートのzipバージョンを見つけてください。
@@ -639,7 +636,6 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
-        participatory_space: フォロー済:<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
@@ -897,7 +893,6 @@ ja:
         show:
           back: すべての会話に戻る
           chat_with: 会話
-          not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
           send: 送信
@@ -1439,7 +1434,7 @@ ja:
     messages:
       already_confirmed: が確認されました。ログインしてみてください
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
-      content_type_whitelist_error: ファイルの種類が無効です
+      content_type_allowlist_error: ファイルの種類が無効です
       cycle_detected: スコープの親は子孫ではありえません
       expired: 有効期限が切れています。新しいものをリクエストしてください
       file_size_is_less_than_or_equal_to: ファイルサイズは %{count} 以下でなければなりません

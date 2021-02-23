@@ -266,10 +266,6 @@ el:
       conferences:
         conference_registration:
           confirm: "Ο χρήστης %{user_name} επιβεβαίωση μια εγγραφή διάσκεψης στη διάσκεψη %{resource_name}"
-        partner:
-          create: "Ο χρήστης %{user_name} δημιούργησε %{resource_name} στη διάσκεψη %{space_name}"
-          delete: "Ο χρήστης %{user_name} κατάργησε τον διαχειριστή %{resource_name} από τη διάσκεψη %{space_name}"
-          update: "Ο χρήστης %{user_name} ενημέρωσε το στοιχείο %{resource_name} στη διάσκεψη %{space_name}"
         registration_type:
           create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
           publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"

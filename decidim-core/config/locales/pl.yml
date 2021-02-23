@@ -35,7 +35,6 @@ pl:
       decidim/profile_updated_event: Profil zaktualizowany
       decidim/promote_to_admin: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
-      decidim/resource_endorsed_event: Zasoby zatwierdzone
   activerecord:
     attributes:
       decidim/user:
@@ -410,7 +409,6 @@ pl:
         ready: Gotowy
       show:
         download_data: Pobierz dane
-        download_data_description: Plik zawierający wszystkie informacje powiązane z kontem zostanie wysłany na <strong>%{user_email}</strong>
         request_data: Poproś o dane
     datepicker:
       help_text: 'Oczekiwany format: %{datepicker_format}'
@@ -627,7 +625,6 @@ pl:
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       data_portability_export:
-        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''https://www.7-zip.org/''>7-Zip</a> do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
@@ -662,7 +659,6 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -915,7 +911,6 @@ pl:
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
-          not_allowed: Ten użytkownik nie przyjmuje więcej prywatnych wiadomości.
           title: Konwersacja z %{usernames}
         start:
           send: Wyślij
@@ -1460,7 +1455,7 @@ pl:
     messages:
       already_confirmed: zostało już potwierdzone, spróbuj się zalogować
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
-      content_type_whitelist_error: typ pliku jest nieprawidłowy
+      content_type_allowlist_error: typ pliku jest nieprawidłowy
       cycle_detected: zakres podrzędny nie może być jednocześnie zakresem nadrzędnym
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: rozmiar pliku musi być mniejszy lub równy %{count}

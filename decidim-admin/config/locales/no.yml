@@ -26,11 +26,14 @@
         published_at: Publisert den
         weight: Vekt
       id: ID
+      import:
+        user_group_id: Opprett importer som
       newsletter:
         body: Tekst
         subject: Emne
       organization:
         alert_color: Varsel
+        available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
         comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
         cta_button_path: Sti for handlingsknapp
@@ -41,6 +44,7 @@
         enable_omnipresent_banner: Vis overstyrende banner
         facebook_handler: Facebook brukernavn
         favicon: Ikon
+        force_authentication: Tving godkjenning
         from: Fra e-postadresse
         github_handler: GitHub brukernavn
         header_snippets: Utdrag topptekst
@@ -53,6 +57,7 @@
         highlighted_content_banner_image: Bilde
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
+        host: Vert
         instagram_handler: Instagram brukernavn
         logo: Logo
         machine_translation_display_priority: Maskinoversettelse viser prioritet
@@ -69,6 +74,7 @@
         reference_prefix: Referanse prefiks
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
         secondary_color: Sekundær
+        secondary_hosts: Sekundære verter
         send_welcome_notification: Send velkomst varsel
         success_color: Vellykket
         time_zone: Tidssone

@@ -390,7 +390,7 @@ cs:
               odt: ODT
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
             document_legend: 'Přidejte dokument o velikosti menší než 2 Mb, každá sekce do tří úrovní bude rozdělena do návrhů. Podporované formáty jsou: %{valid_mime_types}'
-            title: PŘIDAT DOKUMENT
+            title: Přidat dokument
             upload_document: Nahrát dokument
           publish:
             invalid: Nelze publikovat návrhy
@@ -430,6 +430,7 @@ cs:
           form:
             attachment_legend: "(Volitelné) Přidání přílohy"
             created_in_meeting: Tento návrh pochází z jednání
+            delete_attachment: Smazat přílohu
             select_a_category: Vyberte kategorii
             select_a_meeting: Vyberte schůzku
           index:

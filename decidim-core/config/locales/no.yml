@@ -35,7 +35,6 @@
       decidim/profile_updated_event: Profilen er oppdatert
       decidim/promote_to_admin: Forfremmet til gruppe-admin
       decidim/removed_from_group: Fjernet fra gruppen
-      decidim/resource_endorsed_event: Ressurs er tilsluttet
   activerecord:
     attributes:
       decidim/user:
@@ -392,7 +391,6 @@
         ready: Klar
       show:
         download_data: Last ned informasjonen
-        download_data_description: En fil med all informasjon tilknyttet kontoen vil bli sendt til <strong>%{user_email}</strong>
         request_data: Etterspør informasjonen
     datepicker:
       help_text: 'Forventet format: %{datepicker_format}'
@@ -405,7 +403,7 @@
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
           sign_up: Vennligs fullfør profilen din
           subtitle: Vennligst fyll ut det følgende skjemaet for å fullføre registreringen
-          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+          username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       registrations:
         new:
           already_have_an_account?: Har du allerede en bruker?
@@ -421,7 +419,7 @@
           terms: vilkårene for bruk
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
-          username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
+          username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       sessions:
         new:
           are_you_new?: Er du ny på plattformen?
@@ -433,6 +431,7 @@
           buttons:
             check: Sjekk og fortsett
             close_modal: Lukk modal
+            uncheck: Hold usjekket
           notice: |-
             <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
             Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
@@ -615,7 +614,6 @@
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       data_portability_export:
-        click_button: 'Trykk på den neste knappen for å laste ned dataene dine. <br/> Du vil ha filen tilgjengelig frem til %{date}. <br/> Du vil trenge <a href=''https://www.7-zip.org/''>7-Zip</a> for å åpne den. Passord: %{password}'
         download: Last ned
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
@@ -648,7 +646,6 @@
       create:
         button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
-        participatory_space: Følger allerede deltakerområdet
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
@@ -1033,6 +1030,7 @@
           error: Det oppstod et problem med å godta vilkårene.
           success: Flott! Du har godtatt vilkårene for bruk.
         form:
+          agreement: Jeg godtar vilkårene
           legend: Godta vilkårene for bruk
         refuse:
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.
@@ -1400,7 +1398,7 @@
     messages:
       already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
-      content_type_whitelist_error: filtypen er ikke gyldig
+      content_type_allowlist_error: filtypen er ikke gyldig
       cycle_detected: forelderen til et tema kan ikke være en av dens etterkommere
       expired: har utløpt, vennligst be om ny
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
@@ -1439,7 +1437,7 @@
         cc_by_license: Creative Commons lisens
         decidim_logo: Decidim logo
         download_open_data: Last ned Åpen Data filer
-        made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">gratis programvare</a>.
+        made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
       header:
         close_menu: Lukk meny
         navigation: Navigasjon

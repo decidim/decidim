@@ -246,7 +246,6 @@ el:
         update: "Ο χρήστης %{user_name} ενημέρωσε τις ρυθμίσεις των συνελεύσεων"
       assembly_type:
         create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο συνέλευσης %{resource_name}"
-        delete: "Ο χρήστης %{user_name} κατάργησε το μέλος %{resource_name} από τον τύπο συνέλευσης %{space_name}"
         publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο συνέλευσης %{resource_name}"
         unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση του τύπου συνέλευσης %{resource_name}"
         update: "Ο χρήστης %{user_name} ενημέρωσε τον τύπο συνέλευσης %{resource_name}"
@@ -436,8 +435,6 @@ el:
       home:
         hero:
           participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
-        sub_hero:
-          register_title: Εγγραφείτε για να δημιουργήσετε έναν λογαριασμό στην πλατφόρμα
     participatory_processes:
       pages:
         home:

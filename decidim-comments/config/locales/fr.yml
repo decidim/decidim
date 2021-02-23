@@ -104,14 +104,15 @@ fr:
           email_subject: Un nouveau commentaire vient d'être publié par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> vient d'être publié dans <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
-          email_intro: Votre commentaire sur "%{resource_title}" a été voté négativement. Il a maintenant un total de %{upvotes} votes positifs et %{downvotes} votes négatifs.
+          email_intro: Votre commentaire sur "%{resource_title}" a reçu un vote défavorable. Il a maintenant un total de %{upvotes} votes positifs et %{downvotes} votes négatifs.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de ce commentaire.
-          email_subject: Votre commentaire sur "%{resource_title}" a été voté négativement.
-          notification_title: Votre <a href="%{resource_path}">commentaire</a> sur "%{resource_title}" a été voté négativement. Il a maintenant un total de %{upvotes} votes positifs et de %{downvotes} votes négatifs.
+          email_subject: Votre commentaire sur "%{resource_title}" a reçu un vote défavorable.
+          notification_title: Votre <a href="%{resource_path}">commentaire</a> sur "%{resource_title}" a reçu un vote défavorable. Il a maintenant un total de %{upvotes} votes positifs et de %{downvotes} votes négatifs.
         comment_upvoted:
-          email_intro: Votre commentaire dans "%{resource_title}" a été voté positivement. Il a maintenant un total de %{upvotes} votes positifs et %{downvotes} votes négatifs.
+          email_intro: Votre commentaire dans "%{resource_title}" a reçu un vote favorable. Il a maintenant un total de %{upvotes} votes positifs et %{downvotes} votes négatifs.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de ce commentaire.
-          email_subject: Votre commentaire sur "%{resource_title}" a été voté positivement.
+          email_subject: Votre commentaire sur "%{resource_title}" a reçu un vote favorable.
+          notification_title: Votre <a href="%{resource_path}">commentaire</a> sur "%{resource_title}" a reçu un vote favorable. Il a maintenant un total de %{upvotes} votes positifs et de %{downvotes} votes négatifs.
         reply_created:
           email_intro: "%{author_name} a répondu à votre commentaire dans %{resource_title}. Vous pouvez le lire depuis la page suivante :"
           email_outro: Vous venez de recevoir une notification à votre commentaire.

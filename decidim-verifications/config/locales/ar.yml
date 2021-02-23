@@ -24,14 +24,6 @@ ar:
         full_address: العنوان الكامل
         verification_code: شيفرة التأكيد
   decidim:
-    admin:
-      menu:
-        authorization_workflows: التحقق
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} بتحديث تكوين التحقق من وثائق الهوية"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} التحقق من %{resource_name} باستخدام التحقق من مستندات الهوية دون اتصال"
     authorization_handlers:
       admin:
         csv_census:
