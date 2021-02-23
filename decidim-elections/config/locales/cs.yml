@@ -766,6 +766,7 @@ cs:
             success: Hlasování bylo úspěšně vytvořeno
           edit:
             add_election_component: Pro toto hlasování nemáte nakonfigurovány žádné volby. Přidejte jej prosím do sekce Komponenty
+            assign_missing_officers: Existují volební místnosti bez předsedy a/nebo manažerů. Prosím, přiřaďte je ze sekce volebních místností
             update: Aktualizovat
           form:
             select_a_voting_type: Vyberte prosím typ hlasování
