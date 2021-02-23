@@ -35,7 +35,7 @@ en:
         subtitle: Subtitle
         target: Who participates
         title: Title
-        weight: Weight
+        weight: Order position
       participatory_process_group:
         description: Description
         developer_group: Promoter group

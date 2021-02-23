@@ -53,7 +53,7 @@ en:
         target: Who participates
         title: Title
         twitter: Twitter
-        weight: Weight
+        weight: Order position
         youtube: YouTube
       assembly_member:
         birthday: Birthday

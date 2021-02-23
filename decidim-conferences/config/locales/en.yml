@@ -207,7 +207,7 @@ en:
             price: Price
             registrations_count: Registrations count
             title: Title
-            weight: Weight
+            weight: Order position
           name: Registration type
       partners:
         create:
