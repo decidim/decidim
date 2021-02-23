@@ -732,6 +732,7 @@ de:
             success: Abstimmung erfolgreich erstellt
           edit:
             add_election_component: Sie haben keine Wahl für diese Abstimmung konfiguriert. Bitte fügen Sie sie im Abschnitt Komponenten hinzu
+            assign_missing_officers: Es gibt noch Wahllokale ohne Präsident und/oder Manager. Bitte ordnen Sie diese im Wahllokal-Abschnitt zu
             update: Aktualisieren
           form:
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
