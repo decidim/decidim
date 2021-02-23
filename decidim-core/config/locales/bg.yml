@@ -1356,7 +1356,7 @@ bg:
     messages:
       already_confirmed: вече сте потвърдени, опитайте да влезете
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
-      content_type_whitelist_error: типа файл не е валиден
+      content_type_allowlist_error: типа файл не е валиден
       cycle_detected: родителската сфера не може да бъде свое дете
       expired: е изтекла, моля поискайте нова
       file_size_is_less_than_or_equal_to: размера на файла трябва да е по-малък или равен на %{count}
