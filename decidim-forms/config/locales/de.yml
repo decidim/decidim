@@ -115,7 +115,7 @@ de:
         answer:
           body: Körper kann nicht leer sein
       files:
-        extension_whitelist: 'Gültige Formate:'
+        extension_allowlist: 'Gültige Formate:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Das Bild wird:'
