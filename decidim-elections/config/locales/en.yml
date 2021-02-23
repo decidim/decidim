@@ -785,6 +785,10 @@ en:
       content_blocks:
         highlighted_votings:
           name: Highlighted votings
+        landing_page:
+          description:
+            show_less: Read less
+            show_more: Read more
       monitoring_committee_members:
         actions:
           confirm_destroy: Are you sure?

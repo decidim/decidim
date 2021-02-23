@@ -1,0 +1,23 @@
+<div class="row voting-description-cell">
+  <div class="columns mediumlarge-8">
+    <div class="section">
+      <div class="content">
+          <%= description_text %>
+      </div>
+
+      <div class="content-height-toggler show-more">
+        <button class="button button--muted tiny">
+          <span class="button-text show-more-content">
+            <%= button_show_more_text %>
+          </span>
+
+          <span class="button-text show-less-content hide">
+            <%= button_show_less_text %>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/votings/voting-description-cell" %>

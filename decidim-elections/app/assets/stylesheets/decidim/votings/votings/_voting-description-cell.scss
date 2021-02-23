@@ -1,0 +1,28 @@
+.voting-description-cell{
+  margin-bottom: 2rem;
+
+  .content{
+    height: auto;
+    max-height: 7.8em;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow-y: hidden;
+    transition: max-height .3s linear;
+
+    &.content__expanded{
+      max-height: 100%;
+      transition: max-height .3s linear;
+    }
+
+    &::before{
+      background: linear-gradient(transparent, $body-background);
+      bottom: 0;
+      content: " ";
+      display: block;
+      height: 2rem;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+}
