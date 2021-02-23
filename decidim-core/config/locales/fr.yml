@@ -1512,7 +1512,7 @@ fr:
     messages:
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
-      content_type_whitelist_error: le type de fichier n'est pas valide
+      content_type_allowlist_error: le type de fichier n'est pas valide
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
