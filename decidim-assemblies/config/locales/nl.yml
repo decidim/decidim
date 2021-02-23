@@ -1,6 +1,8 @@
 nl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Organigram tonen
       assembly:
         area_id: Onderwerp
         assembly_type: Groepstype
@@ -50,6 +52,7 @@ nl:
         target: Wie neemt deel
         title: Titel
         twitter: Twitter
+        weight: Gewicht
         youtube: YouTube
       assembly_member:
         birthday: Geboortedatum
@@ -60,6 +63,7 @@ nl:
         full_name: Volledige naam
         gender: Geslacht
         position: Positie
+        user_id: Gebruiker
       assembly_user_role:
         email: E-mail
         name: Naam
