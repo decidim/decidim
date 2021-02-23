@@ -1354,7 +1354,7 @@ lv:
     messages:
       already_confirmed: jau tika apstiprināts, lūdzu, mēģiniet pierakstīties
       confirmation_period_expired: jāapstiprina %{period} laikā, lūdzu, pieprasiet jaunu
-      content_type_whitelist_error: faila tips nav derīgs
+      content_type_allowlist_error: faila tips nav derīgs
       cycle_detected: tvēruma saistītais tvērums nevar būt viens no tā atvasinājumiem
       expired: ir beidzies derīguma termiņš, lūdzu, pieprasiet jaunu
       file_size_is_less_than_or_equal_to: Faila izmēram jābūt mazākam vai vienādam ar %{count}.
