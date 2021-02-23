@@ -7,7 +7,7 @@ module Decidim
     module NeedsVoting
       def self.enhance_controller(instance_or_module)
         instance_or_module.class_eval do
-          helper_method :current_voting
+          helper_method :current_participatory_space
         end
       end
 
@@ -22,16 +22,16 @@ module Decidim
         # context.
         #
         # Returns the current Voting.
-        def current_voting
-          @current_voting ||= detect_voting
+        def current_participatory_space
+          @current_participatory_space ||= detect_voting
         end
 
-        alias current_participatory_space current_voting
+        alias current_voting current_participatory_space
 
         private
 
         def detect_voting
-          request.env["current_voting"] ||
+          request.env["current_participatory_space"] ||
             organization_votings.find_by(slug: params[:voting_slug] || params[:slug])
         end
 

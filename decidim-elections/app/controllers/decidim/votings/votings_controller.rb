@@ -31,9 +31,9 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless current_voting
+        raise ActionController::RoutingError, "Not Found" unless current_participatory_space
 
-        enforce_permission_to :read, :voting, voting: current_voting
+        enforce_permission_to :read, :voting, voting: current_participatory_space
       end
 
       private

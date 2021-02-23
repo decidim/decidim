@@ -1,9 +1,9 @@
 <%
 edit_link(
-  resource_locator(current_voting).edit,
+  resource_locator(current_participatory_space).edit,
   :update,
   :voting,
-  voting: current_voting
+  voting: current_participatory_space
 )
 %>
 
@@ -12,5 +12,3 @@ edit_link(
 
   <%= cell content_block.manifest.cell, content_block %>
 <% end %>
-
-<%= render partial: "voting_details", locals: { voting: current_voting } %>
