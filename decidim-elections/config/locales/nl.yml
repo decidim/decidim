@@ -35,6 +35,12 @@ nl:
             public_key:
               cant_be_changed: kan niet worden gewijzigd
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Stembeambte is al stembureau voorzitter/manager
     models:
       decidim/elections/answer:
         one: Beantwoorden
@@ -45,6 +51,9 @@ nl:
       decidim/elections/question:
         one: Vraag
         other: vragen
+      decidim/votings/polling_station:
+        one: Stembureau
+        other: Stembureaus
       decidim/votings/voting:
         one: Stemronde
         other: Stemrondes
@@ -501,9 +510,14 @@ nl:
               email: E-mail
               name: Naam
             name: Lid van het controlecomité
+          polling_officer:
+            fields:
+              polling_station: Stembureau (rol)
           polling_station:
             fields:
               address: Adres
+              polling_station_managers: Managers
+              polling_station_president: Voorzitter
               title: Titel
             name: Stembureau
           voting:
@@ -529,6 +543,15 @@ nl:
           new:
             create: Creëren
             title: Maak lid van controlecomité aan
+        polling_officers:
+          index:
+            role_manager: manager
+            role_president: voorzitter
+          polling_officers_picker:
+            choose_polling_officers: Kies de stembeambtes
+            close: Sluit
+            more_polling_officers: Er zijn nog %{number} meer stembeambtes. Verfijn uw zoekopdracht om ze te vinden.
+            no_polling_officers: Geen stembeambtes komen overeen met uw zoekcriteria of er zijn geen stembeambtes.
         polling_stations:
           create:
             invalid: Er is een fout opgetreden bij het maken van dit stembureau
@@ -543,6 +566,9 @@ nl:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
             location_help: 'Locatie: boodschap aan de kiezers met de exacte plaats van het stembureau'
             location_hints_help: "Locatie hints: aanvullende informatie. Voorbeeld: de verdieping van het gebouw waar het stembureau \nzich bevindt."
+            polling_station_managers_help: 'Stembureau managers: de beambtes die als beheerder van stembureaus fungeren. Zorg ervoor dat de beambtes al zijn aangemaakt in Stembeambtes en dat ze nog niet zijn toegewezen aan een ander stembureau'
+            polling_station_president_help: 'Stembureau voorzitter: de beambte die zal fungeren als voorzitter van een stembureau. Zorg ervoor dat de beambte al is aangemaakt in de Stembeambtes en dat hij/zij niet al is toegewezen aan een ander stembureau'
+            select_president: Selecteer een stembeambte als voorzitter van het stembureau
           index:
             title: Stembureaus
           new:
