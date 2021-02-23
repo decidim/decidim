@@ -597,11 +597,11 @@ de:
             description:
               name: Beschreibung der Abstimmung
             html_block_1:
-              name: Abstimmung html Block 1
+              name: Abstimmung HTML Block 1
             html_block_2:
-              name: Abstimmung html Block 2
+              name: Abstimmung HTML Block 2
             html_block_3:
-              name: Abstimmung html Block 3
+              name: Abstimmung HTML Block 3
             metrics:
               name: Abstimmungsmetriken
             polling_stations:
@@ -609,7 +609,7 @@ de:
             stats:
               name: Abstimmungsstatistiken
             timeline:
-              name: Abstimmungs Timeline
+              name: Abstimmungs-Timeline
         index:
           not_published: Unveröffentlicht
           published: Veröffentlicht
