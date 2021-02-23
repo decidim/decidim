@@ -1,0 +1,18 @@
+<%= render "layouts/decidim/application" do %>
+  <%= cell("decidim/votings/content_blocks/landing_page/header", nil)%>
+
+  <div class="wrapper">
+    <%= cell "decidim/translation_bar", current_organization %>
+    <%= yield %>
+  </div>
+
+  <% if content_for? :expanded %>
+    <div class="expanded">
+      <div class="wrapper wrapper--inner">
+        <div class="row">
+          <%= yield :expanded %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -6,7 +6,7 @@ module Decidim
       module LandingPage
         class DescriptionCell < Decidim::ViewModel
           def show
-            content_tag(:div, "VotingDescriptionCell")
+            content_tag(:div, "VotingDescriptionCell", class:"row column")
           end
         end
       end

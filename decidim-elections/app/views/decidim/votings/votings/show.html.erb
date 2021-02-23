@@ -7,14 +7,10 @@ edit_link(
 )
 %>
 
-<div class="wrapper">
-  <div class="row column">
-    <% Decidim::ContentBlock.published.for_scope(:voting_landing_page, organization: current_organization).where(scoped_resource_id: current_voting.id).each do |content_block| %>
-      <% next unless content_block.manifest %>
+<% Decidim::ContentBlock.published.for_scope(:voting_landing_page, organization: current_organization).where(scoped_resource_id: current_participatory_space.id).each do |content_block| %>
+  <% next unless content_block.manifest %>
 
-      <%= cell content_block.manifest.cell, content_block %>
-    <% end %>
-  </div>
-</div>
+  <%= cell content_block.manifest.cell, content_block %>
+<% end %>
 
 <%= render partial: "voting_details", locals: { voting: current_voting } %>
