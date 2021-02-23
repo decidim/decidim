@@ -27,7 +27,7 @@ module Decidim
       end
 
       def slug
-        "question-#{question.id}-answer-#{id}"
+        "answer-#{id}"
       end
     end
   end

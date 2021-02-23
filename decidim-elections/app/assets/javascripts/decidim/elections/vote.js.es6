@@ -65,14 +65,14 @@ $(async () => {
             if (!acc[name]) {
               acc[name] = [];
             }
-            acc[name] = [...acc[name], value];
+            acc[name] = [...acc[name], `${name}_${value}`];
             return acc;
-          },
-          { ballot_style: "unique" } // eslint-disable-line camelcase
+          }, {}
+          // { ballot_style: "unique" } // eslint-disable-line camelcase
         );
       };
-
       const formData = getFormData($voteWrapper.find(".answer_input"));
+      console.log("FORM DATA", formData)
       validVoteFn(formData);
     },
     castOrAuditBallot({encryptedDataHash}) {
