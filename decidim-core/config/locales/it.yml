@@ -1511,7 +1511,7 @@ it:
     messages:
       already_confirmed: era già confermato, per favore prova ad accedere
       confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
-      content_type_whitelist_error: il tipo di file non è valido
+      content_type_allowlist_error: il tipo di file non è valido
       cycle_detected: Il genitore di un ambito non può essere uno dei suoi discendenti
       expired: è scaduto, si prega di richiederne uno nuovo
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
