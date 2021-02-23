@@ -14,7 +14,7 @@ module Decidim
         let(:polling_station) { create(:polling_station, voting: voting) }
         let(:resource) { voting }
         let(:polling_officer) { create(:polling_officer, user: user, managed_polling_station: polling_station, voting: voting) }
-        let(:extra) { { polling_officer_id: polling_officer.id, polling_station_id: polling_station.id } }
+        let(:extra) { { polling_officer_id: polling_officer.id } }
         let(:polling_station_name) { translated(polling_station.title) }
         let(:voting_title) { translated(voting.title) }
         let(:voting_path) { "/votings/#{voting.slug}?voting_slug=#{voting.slug}" }

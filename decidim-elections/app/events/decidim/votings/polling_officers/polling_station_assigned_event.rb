@@ -30,7 +30,13 @@ module Decidim
         end
 
         def polling_station
-          @polling_station ||= Decidim::Votings::PollingStation.find_by(id: extra[:polling_station_id])
+          @polling_station ||=
+            case polling_officer.role
+            when :president
+              polling_officer.presided_polling_station
+            when :manager
+              polling_officer.managed_polling_station
+            end
         end
       end
     end
