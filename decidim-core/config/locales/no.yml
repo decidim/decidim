@@ -1398,7 +1398,7 @@
     messages:
       already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
-      content_type_whitelist_error: filtypen er ikke gyldig
+      content_type_allowlist_error: filtypen er ikke gyldig
       cycle_detected: forelderen til et tema kan ikke være en av dens etterkommere
       expired: har utløpt, vennligst be om ny
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
