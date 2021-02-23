@@ -124,13 +124,13 @@ module Decidim
         def edit
           enforce_permission_to :edit, :proposal, proposal: proposal
           @form = form(Admin::ProposalForm).from_model(proposal)
-          @form.attachment = form(AttachmentForm).from_params({})
         end
 
         def update
           enforce_permission_to :edit, :proposal, proposal: proposal
 
           @form = form(Admin::ProposalForm).from_params(params)
+
           Admin::UpdateProposal.call(@form, @proposal) do
             on(:ok) do |_proposal|
               flash[:notice] = t("proposals.update.success", scope: "decidim")
