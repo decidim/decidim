@@ -1197,7 +1197,7 @@ ar:
     messages:
       already_confirmed: تم التأكيد بالفعل ، يرجى محاولة تسجيل الدخول
       confirmation_period_expired: يحتاج إلى تأكيد خلال %{period}، يرجى طلب واحدة جديدة
-      content_type_whitelist_error: نوع الملف غير صالح
+      content_type_allowlist_error: نوع الملف غير صالح
       cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
       file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
