@@ -1471,7 +1471,7 @@ es:
     messages:
       already_confirmed: ya fue confirmado, por favor intenta iniciar sesión
       confirmation_period_expired: se tiene que confirmar dentro de %{period}, por favor solicita uno nuevo
-      content_type_whitelist_error: el tipo de archivo no es válido
+      content_type_allowlist_error: el tipo de archivo no es válido
       cycle_detected: uno de los padres de un ámbito no puede ser uno de sus descendientes
       expired: ha expirado, por favor, solicita uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
