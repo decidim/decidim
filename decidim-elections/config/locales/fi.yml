@@ -647,6 +647,7 @@ fi:
             components: Komponentit
             info: Tiedot
             landing_page: Laskeutumissivu
+            monitoring_committee_members: Tarkkailukomitea
             polling_officers: Äänestysvirkailijat
             polling_stations: Äänestyspaikat
         models:
@@ -654,6 +655,7 @@ fi:
             fields:
               email: Sähköposti
               name: Nimi
+            name: Tarkkailukomitean jäsen
           polling_officer:
             fields:
               email: Sähköposti
@@ -674,13 +676,22 @@ fi:
               published: Julkaistu
               title: Otsikko
         monitoring_committee_members:
+          create:
+            invalid: Tarkkailukomitean jäsenen luonti epäonnistui
+            success: Tarkkailukomitean jäsenen luonti onnistui
+          destroy:
+            invalid: Tarkkailukomitean jäsenen poistaminen epäonnistui
+            success: Tarkkailukomitean jäsenen poistaminen onnistui
           form:
             existing_user: Olemassa oleva osallistuja
             non_user: Kutsu uusi osallistuja
             select_user: Etsi nimellä, sähköpostilla tai nimimerkillä
             user_type: Osallistujan tyyppi
+          index:
+            title: Tarkkailukomitea
           new:
             create: Luo
+            title: Luo tarkkailukomitean jäsen
         polling_officers:
           create:
             invalid: Äänestysvirkailijan luonti epäonnistui
