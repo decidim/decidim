@@ -1415,7 +1415,7 @@ el:
     messages:
       already_confirmed: έχει ήδη επιβεβαιωθεί, δοκιμάστε να συνδεθείτε
       confirmation_period_expired: πρέπει να επιβεβαιωθεί εντός %{period}, ζητήστε έναν νέο
-      content_type_whitelist_error: ο τύπος αρχείου δεν είναι έγκυρος
+      content_type_allowlist_error: ο τύπος αρχείου δεν είναι έγκυρος
       cycle_detected: το γονικό στοιχείο ενός πεδίου εφαρμογής δεν μπορεί να είναι ένα απογονικό στοιχείο του
       expired: έχει λήξει, ζητήστε έναν νέο
       file_size_is_less_than_or_equal_to: το μέγεθος του αρχείου πρέπει να είναι μικρότερο ή ίσο με %{count}
