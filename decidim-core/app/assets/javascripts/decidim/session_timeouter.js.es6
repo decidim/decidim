@@ -1,14 +1,25 @@
 ((exports) => {
   exports.$(() => {
-    const timeOuter = (interval) => {
-      const Foundation = exports.Foundation;
-      const $timeoutModal = $("#timeoutModal")
-      const sessionTimeOutInSeconds = $timeoutModal.attr("data-session-timeout")
-      const secondsUntilTimeoutPath = $timeoutModal.attr("data-seconds-until-timeout-path")
-      let endsAt = exports.moment().add(sessionTimeOutInSeconds, "seconds")
-      const popup = new Foundation.Reveal($timeoutModal);
-      const $continueSessionButton = $("#continueSession")
+    const Foundation = exports.Foundation;
+    const $timeoutModal = $("#timeoutModal")
+    const sessionTimeOutInSeconds = $timeoutModal.attr("data-session-timeout")
+    const secondsUntilTimeoutPath = $timeoutModal.attr("data-seconds-until-timeout-path")
+    let endsAt = exports.moment().add(sessionTimeOutInSeconds, "seconds")
+    const popup = new Foundation.Reveal($timeoutModal);
+    const $continueSessionButton = $("#continueSession")
 
+    // Ajax request is made at timeout_modal.html.erb
+    $continueSessionButton.on("click", () => {
+      $("#timeoutModal").foundation("close")
+      // In admin panel we have to hide all overlays
+      $(".reveal-overlay").css("display", "none");
+    })
+
+    if (!sessionTimeOutInSeconds) {
+      return;
+    }
+
+    const timeOuter = (interval = 10000) => {
       const setTimer = (secondsUntilExpiration) => {
         if (!secondsUntilExpiration) {
           return;
@@ -25,17 +36,6 @@
             "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
           }
         })
-      }
-
-      // Ajax request is made at timeout_modal.html.erb
-      $continueSessionButton.on("click", () => {
-        $("#timeoutModal").foundation("close")
-        // In admin panel we have to hide all overlays
-        $(".reveal-overlay").css("display", "none");
-      })
-
-      if (!sessionTimeOutInSeconds) {
-        return;
       }
 
       const exitInterval = setInterval(() => {
@@ -76,7 +76,7 @@
       });
     }
 
-    timeOuter(10000);
+    timeOuter();
 
     exports.Decidim.timeouter = timeOuter;
   })
