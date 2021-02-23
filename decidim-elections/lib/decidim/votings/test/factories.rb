@@ -47,6 +47,18 @@ FactoryBot.define do
     trait :promoted do
       promoted { true }
     end
+
+    trait :online do
+      voting_type { "online" }
+    end
+
+    trait :in_person do
+      voting_type { "in_person" }
+    end
+
+    trait :hybrid do
+      voting_type { "hybrid" }
+    end
   end
 
   factory :polling_station, class: "Decidim::Votings::PollingStation" do
@@ -60,6 +72,11 @@ FactoryBot.define do
   end
 
   factory :polling_officer, class: "Decidim::Votings::PollingOfficer" do
+    user { create :user, organization: voting.organization }
+    voting { create :voting }
+  end
+
+  factory :monitoring_committee_member, class: "Decidim::Votings::MonitoringCommitteeMember" do
     user
     voting { create :voting, organization: user.organization }
   end

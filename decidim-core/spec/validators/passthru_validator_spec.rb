@@ -9,7 +9,7 @@ describe PassthruValidator do
 
   let(:uploader) do
     Class.new(Decidim::ApplicationUploader) do
-      def content_type_whitelist
+      def content_type_allowlist
         %w(image/jpeg image/png)
       end
     end

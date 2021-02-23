@@ -35,6 +35,18 @@ module Decidim
         end
 
         describe "PATCH update" do
+          let(:participatory_process_params) do
+            {
+              title: participatory_process.title,
+              subtitle: participatory_process.subtitle,
+              weight: participatory_process.weight,
+              description: participatory_process.description,
+              short_description: participatory_process.short_description,
+              slug: participatory_process.slug,
+              scopes_enabled: participatory_process.scopes_enabled
+            }
+          end
+
           it "uses the slug param as participatory_process id" do
             expect(ParticipatoryProcessForm).to receive(:from_params).with(hash_including(id: participatory_process.id.to_s)).and_call_original
             patch :update, params: { slug: participatory_process.id, participatory_process: participatory_process_params }

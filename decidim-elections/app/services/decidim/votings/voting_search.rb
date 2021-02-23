@@ -26,16 +26,14 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        case state
-        when "active"
-          query.active
-        when "upcoming"
-          query.upcoming
-        when "finished"
-          query.finished
-        else # Assume all
-          query
-        end
+        active = state.member?("active") ? query.active : nil
+        upcoming = state.member?("upcoming") ? query.upcoming : nil
+        finished = state.member?("finished") ? query.finished : nil
+
+        query
+          .where(id: upcoming)
+          .or(query.where(id: active))
+          .or(query.where(id: finished))
       end
 
       private

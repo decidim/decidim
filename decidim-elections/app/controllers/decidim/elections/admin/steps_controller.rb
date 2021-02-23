@@ -6,7 +6,7 @@ module Decidim
       # This controller allows to manage the steps of an election.
       class StepsController < Admin::ApplicationController
         helper StepsHelper
-        helper_method :elections, :election, :current_step
+        helper_method :elections, :election, :current_step, :vote_stats
 
         def index
           enforce_permission_to :read, :steps, election: election
@@ -38,6 +38,10 @@ module Decidim
             end
           end
           render :index
+        end
+
+        def stats
+          render "decidim/elections/admin/steps/_vote_stats", layout: false
         end
 
         private
@@ -74,6 +78,17 @@ module Decidim
 
         def election
           @election ||= elections.find_by(id: params[:election_id])
+        end
+
+        def vote_stats
+          @vote_stats ||= {
+            votes: vote_counts.first,
+            voters: vote_counts.last
+          }
+        end
+
+        def vote_counts
+          @vote_counts ||= Decidim::Elections::Admin::VotesForStatistics.for(election)
         end
       end
     end

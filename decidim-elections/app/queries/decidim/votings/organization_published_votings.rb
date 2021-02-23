@@ -4,15 +4,13 @@ module Decidim
   module Votings
     # This query class filters published votings given an organization.
     class OrganizationPublishedVotings < Rectify::Query
-      def initialize(organization, user = nil)
+      def initialize(organization)
         @organization = organization
-        @user = user
       end
 
       def query
         Rectify::Query.merge(
           OrganizationVotings.new(@organization),
-          VisibleVotings.new(@user),
           PublishedVotings.new
         ).query
       end
