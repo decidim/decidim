@@ -1136,7 +1136,7 @@ gl:
     messages:
       already_confirmed: xa se confirmou, intente iniciar sesión
       confirmation_period_expired: Necesítase confirmar dentro de %{period}, solicita un novo
-      content_type_whitelist_error: o tipo de ficheiro non é válido
+      content_type_allowlist_error: o tipo de ficheiro non é válido
       cycle_detected: un pai do alcance non pode ser un dos seus descendentes
       expired: caducou, por favor solicita unha nova
       file_size_is_less_than_or_equal_to: O tamaño do ficheiro debe ser inferior ou igual a %{count}
