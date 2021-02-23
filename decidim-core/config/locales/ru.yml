@@ -809,7 +809,7 @@ ru:
   errors:
     messages:
       already_confirmed: уже был подтвержден, попробуйте войти
-      content_type_whitelist_error: этот тип файла недопустим
+      content_type_allowlist_error: этот тип файла недопустим
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
       nesting_too_deep: не может быть внутри подкатегории
