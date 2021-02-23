@@ -115,7 +115,7 @@ fi-pl:
         answer:
           body: Runkoteksti ei voi olla tyhjä
       files:
-        extension_whitelist: 'Sallitut tiedostopäätteet:'
+        extension_allowlist: 'Sallitut tiedostopäätteet:'
       images:
         dimensions: "%{width} x %{height} pikseliä"
         dimensions_info: 'Tämän kuvan koko tulee olemaan:'
