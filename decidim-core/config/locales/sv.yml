@@ -1432,7 +1432,7 @@ sv:
     messages:
       already_confirmed: var redan bekräftat, försök att logga in
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
-      content_type_whitelist_error: ogiltig filtyp
+      content_type_allowlist_error: ogiltig filtyp
       cycle_detected: en omfattnings förälder kan inte vara ett av dess barn
       expired: har förfallit, men du kan begära en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
