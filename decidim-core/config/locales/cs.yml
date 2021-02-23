@@ -1546,7 +1546,7 @@ cs:
     messages:
       already_confirmed: bylo již potvrzeno, zkuste prosím přihlásit
       confirmation_period_expired: musí být potvrzeno v rámci %{period}, požádejte o nový
-      content_type_whitelist_error: typ souboru není platný
+      content_type_allowlist_error: typ souboru není platný
       cycle_detected: rodič oboru nemůže být jedním z jeho potomků
       expired: uplynula, požádejte o novou
       file_size_is_less_than_or_equal_to: velikost souboru musí být menší nebo rovna %{count}
