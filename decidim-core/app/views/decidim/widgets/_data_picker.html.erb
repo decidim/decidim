@@ -1,6 +1,6 @@
 <div id="<%= picker_options[:id] %>" class="data-picker <%= picker_options[:class] %>" data-picker-name="<%= picker_options[:name] %>">
   <div class="picker-values"><% items.each do |item, params| %>
-    <div><a href="<%= params[:url] %>" data-picker-value="<%= item.id %>"><%= params[:text] %></a></div>
+    <div><a href="<%= params[:url] %>" class="label primary" data-picker-value="<%= item.id %>"><span aria-hidden="true">×</span> <%= params[:text] %></a></div>
   <% end %></div>
   <div class="picker-prompt"><a href="<%= prompt_params[:url] %>"><%= prompt_params[:text] %></a></div>
 </div>
