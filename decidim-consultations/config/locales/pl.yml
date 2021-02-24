@@ -366,12 +366,12 @@ pl:
         verification_required: Aby zagłosować, zweryfikuj swoje konto
         vote: Głosuj
       vote_modal:
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         contextual_help: Proszę wybrać opcję.
         title: 'Konsultacja: głos oddany na pytanie'
       vote_modal_confirm:
         change: Zmień
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         confirm: Potwierdź
         contextual_help: Potwierdź wybraną opcję.
         title: 'Konsultacja: potwierdź głos'
