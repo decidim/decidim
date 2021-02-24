@@ -221,7 +221,7 @@ pl:
         error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
         success: Poprawka została odrzucona
       review:
-        back: Powrót
+        back: Wróć
         heading: Przejrzyj poprawkę
         help_text: '%{model_name} - przeglądasz poprawkę'
         send: Akceptuj poprawkę
