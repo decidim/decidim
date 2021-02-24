@@ -258,6 +258,7 @@ pl:
       block_user:
         new:
           action: Zablokuj konto i wyślij uzasadnienie
+          description: Zablokowanie użytkownika spowoduje że jego konto nie będzie mogło być użytkowane, możesz podać w swoim uzasadnieniu i wytycznych opis działań, które pozwolą na odblokowanie użytkownika.
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
       categories:
@@ -318,6 +319,7 @@ pl:
       conflicts:
         attempts: Próby
         'false': 'Nie'
+        managed_user_name: Zarządzany użytkownik
         solved: Rozwiązane
         title: Konflikty weryfikacji
         transfer:
