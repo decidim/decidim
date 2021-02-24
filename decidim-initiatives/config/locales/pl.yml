@@ -343,6 +343,7 @@ pl:
           more_information: "(Więcej informacji)"
       edit:
         title: Edytuj inicjatywę
+        update: Aktualizuj
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
@@ -517,6 +518,9 @@ pl:
         accepted: Przyjęto
         expired: Przedawnione
       unavailable_scope: Niedostępny zakres
+      update:
+        error: Wystąpił błąd
+        success: Inicjatywa została zaktualizowana
       versions:
         shared:
           back_to_resource: Wróć do inicjatywy
