@@ -316,6 +316,9 @@ pl:
         content_blocks:
           highlighted_processes:
             max_results: Maksymalna ilość elementów do pokazania
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
