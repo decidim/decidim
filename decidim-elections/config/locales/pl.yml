@@ -317,6 +317,10 @@ pl:
         polling_stations:
           edit:
             title: Edytuj lokal wyborczy
+        votings:
+          form:
+            voting_type:
+              online: Online
       polling_stations:
         actions:
           edit: Edytuj
@@ -332,6 +336,8 @@ pl:
         badge_name:
           ongoing: Trwające
           upcoming: Nadchodzące
+        voting_type:
+          online: Online
   layouts:
     decidim:
       election_votes_header:
