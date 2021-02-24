@@ -382,7 +382,7 @@ pl:
           invalid: Wystąpił błąd podczas tworzenia tego spotkania.
           success: Spotkanie zostało utworzone.
         edit:
-          back: Powrót
+          back: Wróć
           title: Edytuj swoje spotkanie
           update: Aktualizuj
         filters:
@@ -419,7 +419,7 @@ pl:
           no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma żadnego zaplanowanego spotkania.
           upcoming_meetings_warning: Obecnie nie ma żadnych zaplanowanych spotkań, ale możesz zobaczyć wszystkie przeszłe.
         new:
-          back: Powrót
+          back: Wróć
           create: Utwórz
           title: Utwórz spotkanie
         registration_confirm:
