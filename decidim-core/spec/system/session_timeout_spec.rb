@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Timeout", type: :system do
+describe "Session timeout", type: :system do
   include ActiveSupport::Testing::TimeHelpers
 
   let(:organization) { create(:organization) }
@@ -10,13 +10,13 @@ describe "Timeout", type: :system do
 
   context "when session is about to timeout" do
     before do
-      switch_to_host(organization.host)
-      login_as current_user, scope: :user
       Devise.timeout_in = 2.minutes
       Rails.application.config.session_timeouter_interval = 1000
+      switch_to_host(organization.host)
+      login_as current_user, scope: :user
     end
 
-    it "timeout if the user idles for too long" do
+    it "timeouts if the user idles for too long" do
       visit decidim.root_path
       travel 1.minute
       expect(page).to have_content("You were inactive for too long", wait: 2)

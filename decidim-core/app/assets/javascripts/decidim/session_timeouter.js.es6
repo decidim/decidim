@@ -2,10 +2,10 @@
   exports.$(() => {
     const Foundation = exports.Foundation;
     const $timeoutModal = $("#timeoutModal");
-    const sessionTimeOutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);
+    const timeoutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);
     const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
     const interval = $timeoutModal.data("session-timeouter-interval");
-    let endsAt = exports.moment().add(sessionTimeOutInSeconds, "seconds");
+    let endsAt = exports.moment().add(timeoutInSeconds, "seconds");
     const popup = new Foundation.Reveal($timeoutModal);
     const $continueSessionButton = $("#continueSession");
 
@@ -16,7 +16,7 @@
       $(".reveal-overlay").css("display", "none");
     })
 
-    if (!sessionTimeOutInSeconds) {
+    if (!timeoutInSeconds) {
       return;
     }
 
@@ -39,7 +39,6 @@
     }
 
     const exitInterval = setInterval(() => {
-      console.log("Interval", exports.moment())
       const diff = endsAt - exports.moment();
       const diffInSeconds = Math.round(diff / 1000);
       if (diffInSeconds > 150) {
@@ -61,14 +60,14 @@
     // Devise restarts its own timer on ajax requests,
     // so here we restart our.
     $(document).on("ajax:complete", () => {
-      setTimer(sessionTimeOutInSeconds);
+      setTimer(timeoutInSeconds);
     });
 
     $(document).ajaxComplete((_event, _xhr, settings) => {
       if (settings && settings.url === secondsUntilTimeoutPath) {
         return;
       }
-      setTimer(sessionTimeOutInSeconds);
+      setTimer(timeoutInSeconds);
     });
 
     window.addEventListener("beforeunload", () => {
