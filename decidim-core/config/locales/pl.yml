@@ -1314,6 +1314,7 @@ pl:
         body_2: 'Powód: %{reason}'
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Witaj %{admin},
+        subject: Zgłoszono użytkownika w %{organization_name}
     version:
       show:
         back_to_resource: Wróć
@@ -1565,6 +1566,11 @@ pl:
         instagram: "%{organization} na Instagramie"
         twitter: "%{organization} na Twitterze"
         youtube: "%{organization} na YouTube"
+      timeout_modal:
+        body: Byłeś nieaktywny przez %{minutes} min. Jeśli pozostaniesz nieaktywny, zostaniesz automatycznie wylogowany ze względów bezpieczeństwa.
+        continue_session: Kontynuuj sesję
+        sign_out: Wyloguj się
+        title: Czy chcesz kontynuować sesję?
       user_menu:
         account: 'Konto użytkownika: %{name}'
         admin_dashboard: Panel administracyjny
