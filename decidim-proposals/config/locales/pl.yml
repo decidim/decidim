@@ -779,6 +779,7 @@ pl:
           view_index:
             see_index: Zobacz indeks
         preview:
+          announcement_title: Twoja propozycja nie została jeszcze opublikowana
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
             one: Będziesz mógł edytować tę propozycję w pierwszej minucie po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
