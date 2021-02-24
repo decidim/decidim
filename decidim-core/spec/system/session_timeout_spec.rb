@@ -13,12 +13,12 @@ describe "Timeout", type: :system do
       switch_to_host(organization.host)
       login_as current_user, scope: :user
       Devise.timeout_in = 2.minutes
+      Rails.application.config.session_timeouter_interval = 1000
     end
 
-    it "timeouts if user does nothing" do
+    it "timeout if the user idles for too long" do
       visit decidim.root_path
       travel 1.minute
-      execute_script("Decidim.timeouter(500)")
       expect(page).to have_content("You were inactive for too long", wait: 2)
     end
 
@@ -28,7 +28,6 @@ describe "Timeout", type: :system do
 
       switch_to_window(open_new_window)
       visit decidim.root_path
-      execute_script("Decidim.timeouter(1000)")
       2.times.each do
         expect(page).to have_content("If you continue being inactive", wait: 2)
         find("#continueSession").click
@@ -36,7 +35,6 @@ describe "Timeout", type: :system do
       end
 
       switch_to_window(win1)
-      execute_script("Decidim.timeouter(1000)")
       expect(page).to have_content("If you continue being inactive", wait: 2)
       find("#continueSession").click
       expect(page).not_to have_content("You were inactive for too long")

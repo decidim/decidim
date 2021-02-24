@@ -106,8 +106,8 @@ Decidim::Core::Engine.routes.draw do
   end
 
   scope :timeouts do
-    post "heartbeat" => "timeouts#heartbeat"
-    get "seconds_until_timeout" => "timeouts#seconds_until_timeout"
+    post "heartbeat", to: "timeouts#heartbeat"
+    get "seconds_until_timeout", to: "timeouts#seconds_until_timeout"
   end
 
   resources :pages, only: [:index, :show], format: false
