@@ -161,6 +161,16 @@ pl:
           create_election:
             errors:
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} powierników z kluczem publicznym</strong>.
+            no_trustees: Nie ma powierników dla tej przestrzeni partycypacyjnej
+            requirements:
+              trustees_number: Przestrzeń partycypacyjna musi mieć <strong>co najmniej %{number} powierników z kluczem publicznym</strong>.
+            trustees: Powiernicy wyborczy
+          created:
+            trustees: Powiernicy
+          key_ceremony:
+            trustees: Powiernicy
+          tally:
+            trustees: Powiernicy
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
@@ -170,6 +180,21 @@ pl:
           actions:
             disable: Wyłącz
             enable: Rozważ
+          create:
+            exists: Istnieją powiernicy dla tej przestrzeni partycypacyjnej
+            invalid: Podczas tworzenia powiernika wystąpił błąd
+            success: Powiernik został utworzony
+          delete:
+            invalid: Wystąpił błąd podczas usuwania powiernika
+            success: Powiernik został usunięty
+          index:
+            title: Powiernicy
+          new:
+            create: Utwórz powiernika
+            title: Nowy powiernik
+          update:
+            invalid: Podczas aktualizacji %{trustee} wystąpił błąd
+            success: Powiernik %{trustee} został zaktualizowany
       admin_log:
         election:
           publish: "%{user_name} opublikował(a) wybór %{resource_name}"
@@ -243,9 +268,15 @@ pl:
         recent: Najnowsze
       trustee_zone:
         elections:
+          backup_modal:
+            description: Te wybory są tworzone na tablicy ogłoszeń. Każdy przypisanych do nich powiernik powinien stworzyć kopię zapasową kluczy i przechowywał je w bezpiecznym miejscu. Po wykonaniu tego, proces będzie kontynuowany.
           key_ceremony_steps:
+            description: Te wybory są tworzone na tablicy ogłoszeń. Aby zakończyć ten proces wymaga się twojego uczestnictwa jako powiernika.
+            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu zakończenia procesu. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
             status:
               pending: Oczekujące
+          restore_modal:
+            description: Tablica ogłoszeń posiada informacje od Ciebie jako powiernika w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
           tally_steps:
             status:
               pending: Oczekujące
