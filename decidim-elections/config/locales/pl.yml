@@ -33,6 +33,16 @@ pl:
             public_key:
               cant_be_changed: nie może zostać zmieniony
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Oficer wyborczy już jest przewodniczącym lokalu wyborczego
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Oficer wyborczy musi być w tym samym głosowaniu co lokal wyborczy
     models:
       decidim/elections/answer:
         one: Odpowiedź
@@ -49,6 +59,11 @@ pl:
         few: Pytania
         many: Pytania
         other: Pytania
+      decidim/votings/polling_officer:
+        one: Oficer wyborczy
+        few: Oficerów wyborczych
+        many: Oficerów wyborczych
+        other: Oficerzy wyborczy
   decidim:
     components:
       elections:
@@ -65,6 +80,7 @@ pl:
         confirm_destroy: Na pewno?
         destroy: Usuń
         edit: Edytuj
+        feedback: Informacja zwrotna o głosowaniu
         import: Importuj propozycje do odpowiedzi
         new: Nowy %{name}
         preview: Podgląd
@@ -124,6 +140,7 @@ pl:
             success: Wybór zostały zaktualizowany
         exports:
           elections: Wybory
+          feedback_form_answers: Informacja zwrotna z odpowiedzi
         models:
           answer:
             name: Odpowiedź
@@ -141,6 +158,7 @@ pl:
             create: Importuj propozycje do odpowiedzi
             no_components: W tej przestrzeni partycypacyjnej nie ma żadnych innych komponentów propozycji żeby zaimportować propozycje do odpowiedzi.
             select_component: Wybierz komponent
+            title: Importuj propozycje
         questions:
           create:
             invalid: Wystąpił błąd podczas tworzenia pytania
@@ -246,6 +264,10 @@ pl:
             finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
             ongoing: 'Głosowanie aktywne do: %{end_time}'
             upcoming: Głosowanie rozpoczyna się %{start_time}
+      feedback:
+        answer:
+          invalid: Wystąpił błąd podczas wysyłania Twojej informacji zwrotnej.
+          success: Wiadomość zwrotna została wysłana.
       models:
         answer:
           fields:
@@ -284,6 +306,10 @@ pl:
           key_ceremony_steps:
             back: Wróć
             description: Te wybory są tworzone na tablicy ogłoszeń. Aby zakończyć ten proces wymaga się twojego uczestnictwa jako powiernika.
+            keys:
+              create_election: Generowanie kluczy
+              key_ceremony:
+                joint_election_key: Wspólna generacja kluczy
             process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
             status:
               pending: Oczekujące
@@ -342,7 +368,9 @@ pl:
           close: Zamknij
           proposal_header: 'Propozycje:'
         new:
+          answer_choices: Możesz wybrać do %{choices} odpowiedzi
           more_information: Więcej informacji
+          nota_option: Pusty/Żadne z powyższych
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
@@ -386,12 +414,15 @@ pl:
         menu:
           votings_submenu:
             monitoring_committee_members: Komisja monitorująca
+            polling_officers: Oficerzy wyborczy
         models:
           monitoring_committee_member:
             fields:
               email: Adres e-mail
               name: Imię
             name: Członek komisji monitorującej
+          polling_officer:
+            name: Oficer wyborczy
           voting:
             fields:
               promoted: Wyróżniony
@@ -413,15 +444,39 @@ pl:
             create: Utwórz
             title: Dodaj członka komisji monitorującej
         polling_officers:
+          create:
+            invalid: Przy tworzeniu oficera wyborczego pojawił się błąd
+            success: Dodano oficera wyborczego
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania oficera wyborczego
+            success: Oficer wyborczy został usunięty
+          form:
+            non_user: Zaproś użytkownika
+          index:
+            title: Oficerzy wyborczy
+          new:
+            create: Utwórz
+            title: Utwórz oficer wyborczy
           polling_officers_picker:
+            choose_polling_officers: Wybierz oficerów wyborczych
             close: Zamknij
+            more_polling_officers: Jest %{number} oficerów wyborczych. Doprecyzuj kryteria wyszukiwania, aby ich zlokalizować.
+            no_polling_officers: Brak oficerów wyborczych spełniających kryteria wyszukiwania lub nie ma żadnego oficera wyborczego.
         polling_stations:
           edit:
             title: Edytuj lokal wyborczy
+          new:
+            create: Utwórz
+            title: Utwórz lokal wyborczy
         votings:
+          actions:
+            new_voting: Nowa przestrzeń do głosowania
           form:
             voting_type:
               online: Online
+          new:
+            create: Utwórz
+            title: Nowe głosowanie
       monitoring_committee_members:
         actions:
           confirm_destroy: Jesteś pewny?
@@ -431,10 +486,12 @@ pl:
       polling_officers:
         actions:
           destroy: Usuń
+          new: Nowy
       polling_stations:
         actions:
           destroy: Usuń
           edit: Edytuj
+          new: Nowy
       votings:
         filters:
           upcoming: Nadchodzące
