@@ -48,9 +48,10 @@ pl:
             update: Aktualizuj budżet
           index:
             finished_orders: Zakończone głosowania
-            pending_orders: Oczekujące głosowania
+            pending_orders: Głosowania oczekujące
             title: Budżety
-            users_with_finished_orders: Użytkownicy z zakończonych głosowań
+            users_with_finished_orders: Użytkownicy z zakończonymi głosowaniami
+            users_with_pending_orders: Użytkownicy z oczekującymi głosowaniami
           new:
             create: Utwórz budżet
             title: Nowy budżet
