@@ -128,11 +128,13 @@ en:
           new:
             create: Create answer
             title: New answer
+          not_selected: Not selected
           select:
             disable: Unselect answer
             enable: Mark answer as selected
             invalid: There was a problem selecting this answer
             success: Answer successfully selected
+          selected: Selected
           unselect:
             invalid: There was a problem unselecting this answer
             success: Answer successfully unselected
@@ -253,8 +255,10 @@ en:
             trustees: Trustees
           tally_ended:
             answer: Answer
+            not_selected: Not selected
             question: Question
             result: Result
+            selected: Selected
             submit: Publish results
             title: Calculated results
           vote:
@@ -270,6 +274,7 @@ en:
             invalid: There was a problem starting the tally
             submit: Start tally
             success: Start tally request was successfully sent to the Bulletin Board
+            text: Vote has ended. You can start the tally now.
             title: Vote period ended
           vote_stats:
             no_vote_statistics_yet: No vote statistics yet
@@ -376,7 +381,9 @@ en:
         answer:
           fields:
             proposals: Proposals
+            selected: Selected
             title: Title
+            votes: Votes
         election:
           fields:
             bb_status: Bulletin Board status
