@@ -338,6 +338,8 @@ pl:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p><strong>Konsultacje</strong> to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, zaprosić do wzięcia udziału w konsultacjach, zapoczątkować i utworzyć debatę za lub przeciw uzyskanej odpowiedzi. Wraz z datą rozpoczęcia konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: przykładowo zmiana nazwę lub logo organizacji, która oferuje kilka alternatyw, decyzja Tak lub Nie, w sprawie stania się częścią większej organizacji, zatwierdzenie lub odrzucenie nowej strategii działania lub wyników grupy roboczej, lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
+          page: "<p><strong>Konsultacje</strong> to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, zaprosić do wzięcia udziału w konsultacjach, zapoczątkować i utworzyć debatę za lub przeciw uzyskanej odpowiedzi. Wraz z datą rozpoczęcia konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: przykładowo zmiana nazwę lub logo organizacji, która oferuje kilka alternatyw, decyzja Tak lub Nie, w sprawie stania się częścią większej organizacji, zatwierdzenie lub odrzucenie nowej strategii działania lub wyników grupy roboczej, lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów w organizacji.</p>\n"
           title: Czym są konsultacje?
     menu:
       consultations: Konsultacje
