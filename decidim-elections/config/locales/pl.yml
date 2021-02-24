@@ -274,7 +274,7 @@ pl:
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
         voting_step:
-          back: Powrót
+          back: Wróć
           continue: Następny
       warnings:
         no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
