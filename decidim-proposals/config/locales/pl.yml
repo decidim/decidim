@@ -427,6 +427,7 @@ pl:
           form:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             created_in_meeting: Ta propozycja pochodzi ze spotkania
+            delete_attachment: Usuń załącznik
             select_a_category: Wybierz kategorię
             select_a_meeting: Wybierz spotkanie
           index:
@@ -716,6 +717,8 @@ pl:
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          delete_document: Usuń dokument
+          delete_image: Usuń obraz
           select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
