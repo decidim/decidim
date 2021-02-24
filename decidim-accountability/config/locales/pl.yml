@@ -34,6 +34,8 @@ pl:
   decidim:
     accountability:
       actions:
+        attachment_collections: Foldery
+        attachments: Załączniki
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj
@@ -162,6 +164,7 @@ pl:
             entry_date: Data
       result_m:
         executed: Wykonane
+        view: Zobacz
       results:
         count:
           results_count:
