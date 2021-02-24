@@ -290,6 +290,10 @@ pl:
       statistics:
         elections_count: Wybory
     votings:
+      admin:
+        polling_officers:
+          polling_officers_picker:
+            close: Zamknij
       votings:
         filters_small_view:
           close_modal: Zamknij okno
