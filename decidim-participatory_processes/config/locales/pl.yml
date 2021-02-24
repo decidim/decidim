@@ -37,6 +37,7 @@ pl:
         weight: Kolejność na stronie
       participatory_process_group:
         description: Opis
+        developer_group: Grupa inicjatorów
         hero_image: Obraz
         participatory_process_ids: Powiązane procesy
       participatory_process_step:
@@ -305,6 +306,9 @@ pl:
       show:
         related_assemblies: Powiązane zespoły
     participatory_process_groups:
+      content_blocks:
+        metadata:
+          developer_group: Promowany przez
       show:
         title: Uczestniczące grupy procesów
     participatory_process_steps:
@@ -458,6 +462,8 @@ pl:
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
           take_part_in: Dołącz do procesu %{resource_name}
+        promoted_process_group:
+          more_info: Więcej informacji
       process_header_steps:
         step: Etap %{current} z %{total}
         view_steps: Pokaż etapy
