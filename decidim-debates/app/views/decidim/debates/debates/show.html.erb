@@ -45,14 +45,7 @@ edit_link(
     <% end %>
     <div class="card extra">
       <div class="card__content">
-        <% if debate.start_time.present? && debate.end_time.present? %>
-          <div class="extra__date">
-            <%= l debate.start_time, format: "%d" %> <span class="extra__month"><%= l debate.start_time, format: "%B" %></span>
-          </div>
-          <div class="extra__time">
-            <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
-          </div>
-        <% end %>
+        <%= cell("decidim/date", { start: debate.start_time, end: debate.end_time }) %>
 
         <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
           <div class="row collapse buttons__row">
