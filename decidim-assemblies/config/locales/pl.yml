@@ -1,6 +1,8 @@
 pl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Włącz wykres dla organizacji
       assembly:
         area_id: Kategoria
         assembly_type: Typ zespołu
@@ -50,6 +52,7 @@ pl:
         target: Do kogo kierowane
         title: Tytuł
         twitter: Twitter
+        weight: Waga
         youtube: YouTube
       assembly_member:
         birthday: Urodziny
@@ -60,6 +63,7 @@ pl:
         full_name: Pełne imię i nazwisko
         gender: Płeć
         position: Pozycja
+        user_id: Użytkownik
       assembly_user_role:
         email: E-mail
         name: Nazwa
