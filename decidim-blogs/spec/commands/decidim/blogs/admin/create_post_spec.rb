@@ -22,7 +22,7 @@ module Decidim
             title: { en: title },
             body: { en: body },
             current_component: current_component,
-            user_group: nil
+            author: current_user
           )
         end
 
