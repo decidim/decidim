@@ -325,7 +325,7 @@ pl:
           request_confirmation_instructions: Poproś o instrukcje uwierzytelniające
           title: Potwierdź swój adres e-mail
       show:
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
     collapsible_list:
       hidden_elements_count:
         one: i %{count} więcej
@@ -446,7 +446,7 @@ pl:
         newsletter_modal:
           buttons:
             check: Sprawdź i kontynuuj
-            close_modal: Zamknij modalne
+            close_modal: Zamknij okno
           notice: |-
             <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
             Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
@@ -666,6 +666,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
+        participatory_space: Obserwujesz <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -682,6 +683,7 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
+          message_2: Jako obrazów używaj najlepiej krajobrazów, serwis docina obraz. Dla plików CSV separatorem kolumn musi być przecinek (",")
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
@@ -901,9 +903,14 @@ pl:
           show: Pokaż rozmowę z %{sender}
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
+        error_modal:
+          close: Zamknij okno
+          correct_errors: Popraw daty i spróbuj ponownie.
+          intro: 'W wiadomości wystąpiły błędy:'
+          ok: ok
         index:
           ago: temu
-          close: Zamknij modalne
+          close: Zamknij okno
           from: Od
           groups: Moje grupy
           last_message: Ostatnia wiadomość
@@ -918,11 +925,16 @@ pl:
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
+          not_allowed: Ten użytkownik nie przyjmuje wiadomości prywatnych.
           title: Konwersacja z %{usernames}
         start:
           send: Wyślij
           title: Zacznij konwersację
+        update:
+          error: Wiadomość nie została wysłana z powodu błędu
     metrics:
+      download:
+        csv: Pobierz dane (CSV)
       followers:
         description: Liczba użytkowników obserwujących tę przestrzeń partycypacyjną
         object: obserwujący
@@ -984,8 +996,10 @@ pl:
       no_notifications: Brak powiadomień.
     notifications_settings:
       show:
+        administrators: Administratorzy
         allow_public_contact: Każdy może wysłać mi prywatną wiadomość, nawet jeśli go nie obserwuję.
         direct_messages: Przyjmuj prywatne wiadomości od każdego
+        email_on_moderations: Chcę otrzymywać e-mail za każdym razem, gdy coś jest zgłaszane do moderacji.
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem gdy otrzymuję powiadomienie.
         everything_followed: Dotyczące wszystkiego, co obserwuję
         newsletter_notifications: Chcę otrzymywać newslettery
@@ -1064,13 +1078,14 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
+          agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
           modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki
-          modal_close: Zamknij modalne
+          modal_close: Zamknij okno
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
@@ -1080,6 +1095,7 @@ pl:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
+      inaccessible_message: Ten profil jest niedostępny z powodu naruszenia Regulaminu!
       view: Zobacz
     profiles:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
@@ -1093,6 +1109,7 @@ pl:
         groups: Grupy
         members: Członkowie
         officialized: Oficjalny użytkownik
+        send_private_message: Wyślij wiadomość prywatną
         timeline: Oś czasu
         view_full_profile: Zobacz pełny profil
       sidebar:
@@ -1120,9 +1137,11 @@ pl:
       report:
         authors: Autorzy
         content: Zgłoszona zawartość
+        content_original_language: Oryginalny język treści
         date: Zgłoszone dnia
         details: Szczegóły
         hello: Witaj %{name},
+        id: ID
         participatory_space: Przestrzeń partycypacyjna
         reason: Powód
         report_html: <p>Poniższa <a href="%{url}">zawartość</a> została zgłoszona.</p>
@@ -1160,7 +1179,7 @@ pl:
           future: Przyszły
           past: Przeszły
       filters_small_view:
-        close_modal: Zamknij modalne
+        close_modal: Zamknij okno
         filter: Filtr
         filter_by: Filtruj według
         unfold: Rozwiń
@@ -1178,7 +1197,7 @@ pl:
     shared:
       confirm_modal:
         cancel: Anuluj
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         ok: OK
         title: Potwierdź
       embed_modal:
@@ -1206,7 +1225,7 @@ pl:
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         please_sign_in: Zaloguj się
         sign_up: Zarejestruj się
       participatory_space_filters:
