@@ -294,6 +294,12 @@ pl:
         polling_officers:
           polling_officers_picker:
             close: Zamknij
+        polling_stations:
+          edit:
+            title: Edytuj lokal wyborczy
+      polling_stations:
+        actions:
+          edit: Edytuj
       votings:
         filters_small_view:
           close_modal: Zamknij okno
