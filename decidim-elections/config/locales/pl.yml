@@ -296,6 +296,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}.
           notification_title: Wybór <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytani wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, załóż i poprowadź debatę za lub przeciw odpowiedziom. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
+          page: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytani wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, załóż i poprowadź debatę za lub przeciw odpowiedziom. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
     participatory_processes:
       statistics:
         elections_count: Wybory
