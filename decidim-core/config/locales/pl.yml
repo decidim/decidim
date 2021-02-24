@@ -73,6 +73,7 @@ pl:
     errors:
       general: Błąd podczas przetwarzania obrazu
       image_too_big: Obraz jest zbyt duży
+      not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -1211,8 +1212,8 @@ pl:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Zamknij
         description: Czy ta treść jest nieodpowiednia?
-        does_not_belong: Dotyczy nielegalnej działalności, gróźb samobójczych, zawiera informacje osobiste lub coś innego, co według Ciebie nie dotyczy do %{organization_name}.
-        offensive: Zawiera rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
+        does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
+        offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
         report: Raport
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
