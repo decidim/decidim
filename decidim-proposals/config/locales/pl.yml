@@ -386,7 +386,9 @@ pl:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
+            document_legend: 'Dodaj dokument mniejszy niż 2MB, każda sekcja, aż do 3 poziomu, zostanie przekowertowana w propozycję. Wspierane formaty to: %{valid_mime_types}'
             title: Dodaj dokument
             upload_document: Prześlij dokument
           publish:
@@ -504,6 +506,7 @@ pl:
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
             select_component: Wybierz komponent
             select_states: Sprawdź statusy propozycji do zaimportowania
+            title: Importuj propozycje
         proposals_merges:
           create:
             invalid: Podczas łączenia wybranych propozycji wystąpił błąd.
