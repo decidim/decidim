@@ -196,6 +196,8 @@ pl:
         content_blocks:
           highlighted_initiatives:
             max_results: Maksymalna ilość elementów do pokazania
+            order:
+              most_recent: Najnowsze
         exports:
           initiatives: Inicjatywy
         initiatives:
@@ -307,6 +309,7 @@ pl:
         fill_data:
           back: Wróć
           continue: Dalej
+          fill_data_help: "<ul> <li>Sprawdź treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Na piśmie, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy?</li> </ul>"
           initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
@@ -449,6 +452,7 @@ pl:
         result:
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
+          any_vote_method: Ta inicjatywa zbiera podpisy online i na piśmie.
           edit: Edytuj
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
         signatures_count:
