@@ -323,7 +323,7 @@ pl:
         solved: Rozwiązane
         title: Konflikty weryfikacji
         transfer:
-          email: E-mail
+          email: Adres e-mail
           error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
           name: Nazwa
           reason: Powód
