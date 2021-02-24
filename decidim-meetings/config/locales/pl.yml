@@ -21,6 +21,7 @@ pl:
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        online_meeting_url: Adres URL spotkania online
         organizer_gid: Utwórz jako
         organizer_id: Organizator
         private_meeting: Prywatne spotkanie
@@ -406,6 +407,8 @@ pl:
             user_groups: Grupy
           scope: Zakres
           search: Szukaj
+          type_values:
+            online: Online
         filters_small_view:
           close_modal: Zamknij okno
           filter: Filtruj
@@ -497,6 +500,8 @@ pl:
         destroy:
           invalid: Wystąpił problem podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
+      type_of_meeting:
+        online: Online
       types:
         private_meeting: Prywatne spotkanie
         transparent: Transparentne
