@@ -76,6 +76,8 @@ pl:
       filters:
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Przeszukaj %{collection} według nazwy/adresu e-mail/pseudonimu lub stacji wyborczej.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Szukaj %{collection} według tytułu, adresu lub imienia/adresu e-mail/pseudonimu oficera.
     components:
       elections:
         actions:
@@ -196,17 +198,31 @@ pl:
             not_used_trustee: "(nieużywane)"
             requirements:
               trustees_number: Przestrzeń partycypacyjna musi mieć <strong>co najmniej %{number} powierników z kluczem publicznym</strong>.
+            title: Ustawienia wyborów
             trustees: Powiernicy wyborczy
           created:
+            title: Utworzono wybory
             trustees: Powiernicy
           key_ceremony:
+            title: Główne wydarzenie
             trustees: Powiernicy
+          key_ceremony_ended:
+            title: Gotowy do startu
+          results_published:
+            title: Opublikowano wyniki
           tally:
+            title: Podsumowanie procesu
             trustees: Powiernicy
+          tally_ended:
+            title: Kalkulacja wyników
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
+            title: Czas głosowania
+          vote_ended:
+            title: Czas głosowania zakończony
           vote_stats:
+            title: Statystyki głosowania
             votes: Głosy
         trustees_participatory_spaces:
           actions:
@@ -266,6 +282,8 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
+        preview:
+          title: Pytania wyborcze
         results:
           title: Wyniki wyborów
         show:
@@ -324,16 +342,21 @@ pl:
             process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
             status:
               pending: Oczekujące
+            title: Wygeneruj klucze dla wyborów %{election}
           restore_modal:
             description: Tablica ogłoszeń posiada informacje od Ciebie jako powiernika w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
+            title: Odzyskaj klucze dla wyborów %{election}
           tally_steps:
             back: Wróć
             description: Wyniki tego głosowania są generowane na tablicy ogłoszeń. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako powiernika.
             process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
             status:
               pending: Oczekujące
+            title: Podsumowanie %{election}
         menu:
           trustee_zone: Strefa powierników
+        no_bulletin_board:
+          title: Przykro nam, tablica ogłoszeń nie została jeszcze skonfigurowana.
         trustees:
           show:
             elections:
@@ -347,6 +370,7 @@ pl:
               generate_legend: Musisz wygenerować parę kluczy identyfikacyjnych do udziału w głosowaniu jako powiernik.
               generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
               submit: Prześlij
+              submit_title: Prześlij publiczny klucz identyfikacyjny
               title: Klucze identyfikacyjne powiernika
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań Powiernika. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania Powiernicze.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako powiernik
@@ -389,6 +413,8 @@ pl:
         verify:
           form:
             back: Powrót do Decidim
+          header:
+            title: Zweryfikuj swój głos
         voting_step:
           back: Wróć
           continue: Następny
@@ -459,6 +485,7 @@ pl:
           voting:
             fields:
               promoted: Wyróżniony
+              title: Tytuł
         monitoring_committee_members:
           create:
             invalid: Wystąpił błąd podczas tworzenia członka komisji monitorującej
@@ -531,6 +558,7 @@ pl:
           edit:
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
           form:
+            title: Tytuł
             voting_type:
               online: Online
           new:
