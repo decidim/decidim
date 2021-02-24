@@ -344,6 +344,10 @@ pl:
       edit:
         title: Edytuj inicjatywę
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
+          email_subject: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "Użytkownik %{author_name} %{author_nickname}, którego obserwujesz, utworzył nową inicjatywę, sprawdź ją i przyłącz się:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
@@ -354,6 +358,9 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: Inicjatywa rekomendowana przez %{author_nickname}
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zarekomendowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
+          email_subject: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego"
       index:
         title: Inicjatywy
       initiative_signatures:
