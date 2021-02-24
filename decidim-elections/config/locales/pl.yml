@@ -72,6 +72,10 @@ pl:
         many: Lokali wyborczych
         other: Lokale wyborcze
   decidim:
+    admin:
+      filters:
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Przeszukaj %{collection} według nazwy/adresu e-mail/pseudonimu lub stacji wyborczej.
     components:
       elections:
         actions:
@@ -341,6 +345,7 @@ pl:
               cancel: Anuluj
               generate: Generuj klucze identyfikacyjne
               generate_legend: Musisz wygenerować parę kluczy identyfikacyjnych do udziału w głosowaniu jako powiernik.
+              generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
               submit: Prześlij
               title: Klucze identyfikacyjne powiernika
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań Powiernika. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania Powiernicze.
@@ -420,10 +425,15 @@ pl:
       admin:
         content_blocks:
           landing_page:
+            attachments_and_folders:
+              name: Załączniki i foldery do głosowania
             polling_stations:
               name: Lokal wyborczy głosowania
         menu:
           votings_submenu:
+            attachment_collections: Foldery
+            attachment_files: Pliki
+            attachments: Załączniki
             monitoring_committee_members: Komisja monitorująca
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
@@ -440,6 +450,11 @@ pl:
               polling_station: Lokal wyborczy (role)
             name: Oficer wyborczy
           polling_station:
+            fields:
+              address: Adres
+              polling_station_managers: Kierownicy
+              polling_station_president: Przewodniczący
+              title: Tytuł
             name: Lokal wyborczy
           voting:
             fields:
@@ -489,15 +504,27 @@ pl:
           create:
             invalid: Przy tworzeniu lokalu wyborczego wystąpił błąd
             success: Dodano lokal wyborczy
+          destroy:
+            invalid: Podczas usuwania lokalu wyborczego wystąpił błąd
+            success: Usunięto lokal wyborczy
           edit:
             title: Edytuj lokal wyborczy
+            update: Zaktualizowano lokal wyborczy
           form:
+            address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
+            location_help: 'Lokalizacja: wiadomość kierowana do wyborców wskazująca dokładne miejsce lokalu wyborczego'
+            location_hints_help: 'Wskazówki dotyczące lokalizacji. Przykład: piętro budynku, w którym znajduje się lokal wyborczy.'
             polling_station_managers_help: 'Kierownicy lokali wyborczych: oficerowie pełniący funkcję kierowników lokali wyborczej. Upewnij się, że oficerowie zostali już powołani na oficerów wyborczych i że nie zostali jeszcze przydzieleni do innego lokalu wyborczego'
             polling_station_president_help: 'Przewodniczący lokalu wyborczego: oficer pełniący funkcję przewodniczącego lokalu wyborczego. Upewnij się, że oficer zostali już powołany na oficera wyborczego i że nie został jeszcze przydzielony do innego lokalu wyborczego'
             select_president: Wybierz oficera wyborczego na przewodniczącego lokalu wyborczego
+          index:
+            title: Lokale wyborcze
           new:
             create: Utwórz
             title: Utwórz lokal wyborczy
+          update:
+            invalid: Podczas aktualizowania lokalu wyborczego wystąpił błąd
+            success: Zaktualizowano lokal wyborczy
         votings:
           actions:
             new_voting: Nowa przestrzeń do głosowania
@@ -523,9 +550,11 @@ pl:
           title: Działania
       polling_stations:
         actions:
+          confirm_destroy: Jesteś pewny?
           destroy: Usuń
           edit: Edytuj
           new: Nowy
+          title: Działania
       votings:
         filters:
           upcoming: Nadchodzące
