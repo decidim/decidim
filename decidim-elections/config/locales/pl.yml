@@ -39,6 +39,8 @@ pl:
           attributes:
             presided_polling_station:
               president_and_manager: Oficer wyborczy już jest przewodniczącym lokalu wyborczego
+            voting:
+              different_organization: Głosowanie musi odbywać się w tej samej organizacji do której należy użytkownik
         decidim/votings/polling_station:
           attributes:
             polling_station_president:
@@ -64,6 +66,11 @@ pl:
         few: Oficerów wyborczych
         many: Oficerów wyborczych
         other: Oficerzy wyborczy
+      decidim/votings/polling_station:
+        one: Lokal wyborczy
+        few: Lokale wyborcze
+        many: Lokali wyborczych
+        other: Lokale wyborcze
   decidim:
     components:
       elections:
@@ -411,10 +418,15 @@ pl:
         elections_count: Wybory
     votings:
       admin:
+        content_blocks:
+          landing_page:
+            polling_stations:
+              name: Lokal wyborczy głosowania
         menu:
           votings_submenu:
             monitoring_committee_members: Komisja monitorująca
             polling_officers: Oficerzy wyborczy
+            polling_stations: Lokale wyborcze
         models:
           monitoring_committee_member:
             fields:
@@ -422,7 +434,13 @@ pl:
               name: Imię
             name: Członek komisji monitorującej
           polling_officer:
+            fields:
+              email: Adres e-mail
+              name: Imię
+              polling_station: Lokal wyborczy (role)
             name: Oficer wyborczy
+          polling_station:
+            name: Lokal wyborczy
           voting:
             fields:
               promoted: Wyróżniony
@@ -445,14 +463,19 @@ pl:
             title: Dodaj członka komisji monitorującej
         polling_officers:
           create:
-            invalid: Przy tworzeniu oficera wyborczego pojawił się błąd
+            invalid: Przy tworzeniu oficera wyborczego wystąpił błąd
             success: Dodano oficera wyborczego
           destroy:
             invalid: Wystąpił błąd podczas usuwania oficera wyborczego
             success: Oficer wyborczy został usunięty
           form:
+            existing_user: Istniejący użytkownik
             non_user: Zaproś użytkownika
+            select_user: Przeszukaj według adresu e-mail, imienia lub nazwy użytkownika
+            user_type: Typ użytkownika
           index:
+            role_manager: kierownik
+            role_president: przewodniczący
             title: Oficerzy wyborczy
           new:
             create: Utwórz
@@ -463,14 +486,23 @@ pl:
             more_polling_officers: Jest %{number} oficerów wyborczych. Doprecyzuj kryteria wyszukiwania, aby ich zlokalizować.
             no_polling_officers: Brak oficerów wyborczych spełniających kryteria wyszukiwania lub nie ma żadnego oficera wyborczego.
         polling_stations:
+          create:
+            invalid: Przy tworzeniu lokalu wyborczego wystąpił błąd
+            success: Dodano lokal wyborczy
           edit:
             title: Edytuj lokal wyborczy
+          form:
+            polling_station_managers_help: 'Kierownicy lokali wyborczych: oficerowie pełniący funkcję kierowników lokali wyborczej. Upewnij się, że oficerowie zostali już powołani na oficerów wyborczych i że nie zostali jeszcze przydzieleni do innego lokalu wyborczego'
+            polling_station_president_help: 'Przewodniczący lokalu wyborczego: oficer pełniący funkcję przewodniczącego lokalu wyborczego. Upewnij się, że oficer zostali już powołany na oficera wyborczego i że nie został jeszcze przydzielony do innego lokalu wyborczego'
+            select_president: Wybierz oficera wyborczego na przewodniczącego lokalu wyborczego
           new:
             create: Utwórz
             title: Utwórz lokal wyborczy
         votings:
           actions:
             new_voting: Nowa przestrzeń do głosowania
+          edit:
+            assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
           form:
             voting_type:
               online: Online
@@ -485,8 +517,10 @@ pl:
           title: Działania
       polling_officers:
         actions:
+          confirm_destroy: Jesteś pewny?
           destroy: Usuń
           new: Nowy
+          title: Działania
       polling_stations:
         actions:
           destroy: Usuń
