@@ -17,7 +17,7 @@ module Decidim
       # Public: Exports a hash with the serialized data for this voting.
       def serialize
         {
-          id: voting.id,
+          participatory_space_id: voting.id,
           url: url,
           title: voting.title,
           description: voting.description,

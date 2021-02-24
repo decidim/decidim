@@ -16,7 +16,7 @@ module Decidim
         let(:serialized) { subject.serialize }
 
         it "serializes the id" do
-          expect(serialized).to include(id: voting.id)
+          expect(serialized).to include(participatory_space_id: voting.id)
         end
 
         it "serializes the url" do
