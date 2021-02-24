@@ -139,6 +139,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Data zakończenia zbiórki podpisów pod inicjatywą!
           notification_title: Data zakończenia zbiórki podpisów pod inicjatywą <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
+        initiative_sent_to_technical_validation:
+          email_intro: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej. Sprawdź ją w <a href="%{admin_initiative_url}">panelu administratora</a>
+          email_subject: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej.
+          notification_title: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej. Sprawdź ją w <a href="%{admin_initiative_path}">panelu administratora</a>
         milestone_completed:
           affected_user:
             email_intro: Twoja inicjatywa %{resource_title} zebrała %{percentage}% podpisów!
@@ -151,7 +155,9 @@ pl:
             email_subject: Nowy kamień milowy osiągnięty!
             notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> zebrała %{percentage}% podpisów.
         support_threshold_reached:
+          email_intro: Inicjatywa %{resource_title} zdobyła wymaganą liczbę podpisów
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> zdobyła wymaganą liczbę podpisów
     gamification:
       badges:
         initiatives:
@@ -349,6 +355,7 @@ pl:
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
+          email_outro: 'Otrzymałeś to powiadomienie, ponieważ zgłosiłeś się do inicjatywy %{resource_title}'
           email_subject: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
@@ -369,6 +376,8 @@ pl:
           email_intro: "%{applicant_nickname} złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy %{resource_title}. Aby zaakceptować lub odrzucić zgłoszenie przejdź do formularza edycji swojej inicjatywy."
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
       form:
+        add_attachments: Dokumenty
+        attachment_legend: "(Opcjonalnie) Dodaj załącznik"
         delete_attachment: Usuń
       index:
         title: Inicjatywy
@@ -465,6 +474,9 @@ pl:
           city: Miasto
           email: Adres e-mail
           full_name: Imię i nazwisko
+          initiative:
+            attachments: Załączone dokumenty (proszę wpisać nazwę każdego dokumentu poniżej)
+            title: 'Tytuł:'
         result:
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
