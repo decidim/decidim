@@ -686,7 +686,7 @@ pl:
           officialize: Oficjalizuj
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
-          close_modal: Zamknij modalny
+          close_modal: Zamknij okno
           description: Jeśli chcesz się bezpośrednio skontaktować z użytkownikiem, możesz kliknąć przycisk Pokaż, aby wyświetlić adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
