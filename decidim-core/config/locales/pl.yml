@@ -35,6 +35,7 @@ pl:
       decidim/profile_updated_event: Profil zaktualizowany
       decidim/promote_to_admin: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
+      decidim/resource_endorsed_event: Zasoby zatwierdzone
   activerecord:
     attributes:
       decidim/user:
@@ -72,6 +73,7 @@ pl:
     errors:
       general: Błąd podczas przetwarzania obrazu
       image_too_big: Obraz jest zbyt duży
+      not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -85,6 +87,7 @@ pl:
       logo: "Oficjalne logo %{organization}"
       skip_button: Przejdź do głównej zawartości
     account:
+      blocked: To konto zostało zablokowane z powodu naruszenia Regulaminu
       data_portability_export:
         file_no_exists: Plik nie istnieje
         notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
