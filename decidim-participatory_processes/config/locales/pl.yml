@@ -38,8 +38,10 @@ pl:
       participatory_process_group:
         description: Opis
         developer_group: Grupa inicjatorów
+        hashtag: Hashtag
         hero_image: Obraz
         participatory_process_ids: Powiązane procesy
+        title: Tytuł
       participatory_process_step:
         cta_path: Ścieżka przycisku CTA
         cta_text: Tekst przycisku CTA
@@ -123,6 +125,8 @@ pl:
             title: Tytuł
           name: Proces partycypacyjny
         participatory_process_group:
+          fields:
+            title: Tytuł
           name: Grupa procesu
         participatory_process_step:
           fields:
@@ -312,6 +316,14 @@ pl:
       content_blocks:
         metadata:
           developer_group: Promowany przez
+        title:
+          meta_scope: Zakres
+          name: Tytuł, opis i hashtag
+          participatory_processes:
+            one: 1 proces
+            few: "%{count} procesy"
+            many: "%{count} procesów"
+            other: "%{count} procesy"
       show:
         title: Uczestniczące grupy procesów
     participatory_process_steps:
@@ -329,6 +341,9 @@ pl:
         participatory_process_copies:
           form:
             slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+        participatory_process_groups:
+          form:
+            title: Informacje ogólne
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
