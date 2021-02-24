@@ -311,10 +311,35 @@ pl:
         elections_count: Wybory
     votings:
       admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: Komisja monitorująca
         models:
+          monitoring_committee_member:
+            fields:
+              email: Adres e-mail
+              name: Imię
+            name: Członek komisji monitorującej
           voting:
             fields:
               promoted: Wyróżniony
+        monitoring_committee_members:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia członka komisji monitorującej
+            success: Utworzono członka komisji monitorującej
+          destroy:
+            invalid: Podczas usuwania członka komisji monitorującej wystąpił błąd
+            success: Usunięto członka komisji monitorującej
+          form:
+            existing_user: Istniejący użytkownik
+            non_user: Zaproś użytkownika
+            select_user: Przeszukaj według adresu e-mail, imienia lub nazwy użytkownika
+            user_type: Typ użytkownika
+          index:
+            title: Komisja monitorująca
+          new:
+            create: Utwórz
+            title: Dodaj członka komisji monitorującej
         polling_officers:
           polling_officers_picker:
             close: Zamknij
@@ -325,8 +350,18 @@ pl:
           form:
             voting_type:
               online: Online
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Jesteś pewny?
+          destroy: Usuń
+          new: Nowy członek
+          title: Działania
+      polling_officers:
+        actions:
+          destroy: Usuń
       polling_stations:
         actions:
+          destroy: Usuń
           edit: Edytuj
       votings:
         filters:
