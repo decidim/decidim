@@ -311,6 +311,10 @@ pl:
         elections_count: Wybory
     votings:
       admin:
+        models:
+          voting:
+            fields:
+              promoted: Wyróżniony
         polling_officers:
           polling_officers_picker:
             close: Zamknij
@@ -342,3 +346,9 @@ pl:
     decidim:
       election_votes_header:
         exit: Wyjście
+      votings:
+        index:
+          promoted_votings: Wyróżnione głosowania
+        promoted_voting:
+          more_info: Więcej informacji
+          vote: Głosuj
