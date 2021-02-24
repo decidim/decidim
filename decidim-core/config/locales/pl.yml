@@ -326,6 +326,10 @@ pl:
           title: Potwierdź swój adres e-mail
       show:
         close_modal: Zamknij okno
+    block_user_mailer:
+      notify:
+        greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Witaj,
     collapsible_list:
       hidden_elements_count:
         one: i %{count} więcej
@@ -1145,6 +1149,7 @@ pl:
         participatory_space: Przestrzeń partycypacyjna
         reason: Powód
         report_html: <p>Poniższa <a href="%{url}">zawartość</a> została zgłoszona.</p>
+        see_report: Zobacz
         subject: Zasób został zgłoszony
     reports:
       create:
@@ -1214,11 +1219,20 @@ pl:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Zamknij
         description: Czy ta treść jest nieodpowiednia?
-        does_not_belong: Dotyczy nielegalnej działalności, gróźb samobójczych, zawiera informacje osobiste lub coś innego, co według Ciebie nie dotyczy do %{organization_name}.
-        offensive: Zawiera rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
+        does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
+        offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
         report: Raport
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
+      flag_user_modal:
+        already_reported: Ta treść została już zgłoszona i zostanie sprawdzona przez administratora.
+        close: Zamknij
+        description: Jaki jest powód zgłoszenia użytkownika?
+        does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
+        offensive: Promuje rasizm, seksizm, kłamstwa, ataki osobiste, groźby śmierci, prośby samobójcze lub jakąkolwiek formę mowy nienawiści.
+        report: Zgłoś
+        spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
+        title: Zgłoś użytkownika
       floating_help:
         close: Zamknij pomoc
         help: Pomoc
@@ -1294,6 +1308,12 @@ pl:
       update:
         error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
         success: Twoje zainteresowania zostały zaktualizowane.
+    user_report_mailer:
+      notify:
+        body_1: Użytkownik %{user} został zgłoszony przez %{token}
+        body_2: 'Powód: %{reason}'
+        greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Witaj %{admin},
     version:
       show:
         back_to_resource: Wróć
