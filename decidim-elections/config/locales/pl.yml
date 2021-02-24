@@ -192,7 +192,7 @@ pl:
           state: Status
           upcoming: Nadchodzące
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
@@ -289,6 +289,10 @@ pl:
     participatory_processes:
       statistics:
         elections_count: Wybory
+    votings:
+      votings:
+        filters_small_view:
+          close_modal: Zamknij okno
   layouts:
     decidim:
       election_votes_header:
