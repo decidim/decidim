@@ -129,6 +129,8 @@ pl:
             name: Wybór
           question:
             name: Pytanie
+          trustee:
+            name: Powiernik
         proposals_imports:
           create:
             invalid: Wystąpił problem podczas importowania propozycji do odpowiedzi
@@ -156,6 +158,9 @@ pl:
             invalid: Wystąpił błąd podczas aktualizowania tego pytania
             success: Pytanie zostało zaktualizowane
         steps:
+          create_election:
+            errors:
+              trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} powierników z kluczem publicznym</strong>.
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
@@ -377,6 +382,7 @@ pl:
           upcoming: Nadchodzące
         voting_type:
           online: Online
+        voting_types_label: Typ głosowania
   layouts:
     decidim:
       election_votes_header:
