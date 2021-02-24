@@ -431,6 +431,11 @@ pl:
             csv: csv
             json: json
             xls: xls
+          actions:
+            back: Wróć
+          file_legend: Zaimportuj plik, który zostanie przetworzony.
+          import: Importuj
+        notice: "Zaimportowano %{resource_name} %{number}"
       logs:
         logs_list:
           no_logs_yet: Nie ma jeszcze logów
@@ -548,16 +553,23 @@ pl:
       moderated_users:
         index:
           actions:
+            block: Zablokuj użytkownika
             title: Działania
+            unblock: Odblokuj użytkownika
+            unreport: Cofnij zgłoszenie
           name: Imię
           nickname: Pseudonim
           reason: Powód
+          reports: Liczba zgłoszeń
           title: Lista zgłoszonych użytkowników
         report:
           reasons:
             does_not_belong: Nie należy
             offensive: Ofensywny
             spam: Spam
+        tabs:
+          blocked: Zablokowany
+          unblocked: Niezablokowany
       moderations:
         index:
           title: Moderacje
@@ -571,6 +583,7 @@ pl:
             author: Autorzy
             callout_html: Zawartość pojawia się w panelu moderacji, gdy została zasygnalizowana przez użytkownika (może to być każdy, kto ma zarejestrowane konto) poprzez kliknięcie na flagę %{icon} obok elementu.
             content_original_language: Oryginalny język treści
+            participatory_space: Przestrzeń partycypacyjna
             reported_content: Zgłoszona zawartość
             see_current: Zobacz bieżący
             see_original: Zobacz oryginał
@@ -645,6 +658,9 @@ pl:
           error: Podczas aktualizowania tego newslettera wystąpił błąd.
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
+        block:
+          error: Wystąpił błąd blokowania użytkownika
+          success: Użytkownik został zablokowany
         create:
           success: Użytkownik oficjalnie z powodzeniem
         destroy:
@@ -736,6 +752,7 @@ pl:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
           success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
+          explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, w drugiej kolumnie imiona (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków. Unikaj używania niepoprawnych znaków takich jak `<>?%&^*#@()[]=+:;"{}\|` w imieniu użytkownika.'
           title: Prześlij swój plik CSV
           upload: Prześlij
       resource_permissions:
@@ -912,6 +929,16 @@ pl:
       errors:
         impersonate_user:
           reason: Musisz podać powód podszywania się pod niezarządzanego użytkownika
+    metrics:
+      blocked_users:
+        object: zablokowani użytkownicy
+        title: Zablokowani użytkownicy
+      reported_users:
+        object: zgłoszeni użytkownicy
+        title: Zgłoszeni użytkownicy
+      user_reports:
+        object: zgłoszenia użytkownika
+        title: Zgłoszenia użytkownika
     moderations:
       actions:
         expand: Rozwiń
@@ -937,6 +964,7 @@ pl:
           fields:
             created_at: Data utworzenia
             hidden_at: Ukryto
+            participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
             reportable_id: Id
             reportable_type: Typ
