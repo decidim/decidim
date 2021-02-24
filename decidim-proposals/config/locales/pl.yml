@@ -602,7 +602,7 @@ pl:
           state: Status
           withdrawn: Wycofane
         filters_small_view:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
@@ -738,7 +738,7 @@ pl:
           type: Typ
           voted: Wsparte
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
