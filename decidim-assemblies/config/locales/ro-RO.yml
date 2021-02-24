@@ -211,7 +211,6 @@ ro:
         update: "%{user_name} a actualizat setările de asamblare"
       assembly_type:
         create: "%{user_name} a creat %{resource_name} tip de asamblare"
-        delete: "%{user_name} a eliminat membrul %{resource_name} din tipul de adunare %{space_name}"
         publish: "%{user_name} a publicat %{resource_name} tip de asamblare"
         unpublish: "%{user_name} nu a publicat %{resource_name} tip de asamblare"
         update: "%{user_name} a actualizat tipul de asamblare %{resource_name}"
@@ -401,8 +400,6 @@ ro:
       home:
         hero:
           participate_title: Participă la procesele platformei
-        sub_hero:
-          register_title: Înregistrează-te pentru a crea un cont pe platformă
     participatory_processes:
       pages:
         home:

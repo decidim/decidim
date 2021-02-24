@@ -17,7 +17,7 @@ cs:
         state: Stav
         title: Titul
       initiatives_committee_member:
-        user: člen komise
+        user: Člen výboru
       initiatives_type:
         area_enabled: Povolit autorům vybrat oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
@@ -160,10 +160,10 @@ cs:
             email_subject: Nový milník dokončen!
             notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla %{percentage}% podpisů.
         support_threshold_reached:
-          email_intro: Iniciativa %{resource_title} dosáhla prahu podpory
+          email_intro: Iniciativa %{resource_title} dosáhla limitu pro podporu
           email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
-          email_subject: Dosažen práh podpory
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla prahu podpory
+          email_subject: Dosažen práh podpisů
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> dosáhla limitu popdisů pro podporu
     gamification:
       badges:
         initiatives:
@@ -202,9 +202,9 @@ cs:
             approve: Schvalovat
             confirm_revoke: Jste si jisti?
             invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
-            no_members_yet: V komisi promotérů nejsou žádní členové
+            no_members_yet: Ve výboru promotérů nejsou žádní členové
             revoke: Zrušit
-            title: členové komise
+            title: Členové výboru
         content_blocks:
           highlighted_initiatives:
             max_results: Maximální množství prvků, které chcete zobrazit
@@ -355,7 +355,7 @@ cs:
           more_information: "(Více informací)"
         promotal_committee:
           back: Zpět
-          individual_help_text: Tento druh iniciativy vyžaduje promoterskou komisi skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
+          individual_help_text: Tento druh iniciativy vyžaduje promotérský výbor skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
           more_information: "(Více informací)"
         select_initiative_type:
           back: Zpět
@@ -401,7 +401,7 @@ cs:
           email_intro: "%{author_nickname} odmítl vaši žádost o členství funkcionáře ve výboru pro tuto iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
           email_subject: "%{author_nickname} odmítl vaši žádost na funkcionáře výboru"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> vás odmítl přihlásit se k účasti ve výboru funkcionáře pro následující iniciativu <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> odmítl vaši žádost o členství v propagačním výboru pro následující iniciativu <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} požádal o funkci ve výboru vaší iniciativy %{resource_title}. Chcete-li přijmout nebo zamítnout žádost, přejděte na editační formulář vaší iniciativy."
           email_outro: 'Obdrželi jste toto oznámení, protože jste autorem této iniciativy: %{resource_title}'
@@ -599,7 +599,7 @@ cs:
       admin:
         initiative:
           attachments: Přílohy
-          committee_members: členové komise
+          committee_members: Členové výboru
           components: Komponenty
           information: Informace
       initiative_creation_header:

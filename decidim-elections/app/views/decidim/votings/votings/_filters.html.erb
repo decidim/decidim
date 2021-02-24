@@ -19,12 +19,7 @@
     </div>
   </div>
 
-  <%= form.collection_radio_buttons :state,
-                                    options_for_state_filter,
-                                    :first,
-                                    :last,
-                                    { legend_title: t("consultations.filters.state", scope: "decidim") },
-                                    "aria-controls": "consultations" %>
+  <%= form.check_boxes_tree :state, filter_states_values, legend_title: t(".state") %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

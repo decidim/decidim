@@ -80,6 +80,13 @@ module Decidim::Assemblies
         expect(action_log.version).to be_present
       end
 
+      it "doesn't invite the user again" do
+        subject.call
+        user.reload
+
+        expect(user.invited_to_sign_up?).not_to be true
+      end
+
       context "when there is no user with the given email" do
         let(:email) { "does_not_exist@example.com" }
 

@@ -266,10 +266,6 @@
       conferences:
         conference_registration:
           confirm: "%{user_name} bekreftet en konferanseregistrering i %{resource_name} konferanse"
-        partner:
-          create: "%{user_name} opprettet %{resource_name} til %{space_name} konferansen"
-          delete: "%{user_name} fjernet admin %{resource_name} fra %{space_name} konferansen"
-          update: "%{user_name} oppdaterte %{resource_name} i %{space_name} konferansen"
         registration_type:
           create: "%{user_name} opprettet redigeringstypen %{resource_name} i %{space_name} konferansen"
           publish: "%{user_name} publiserte %{resource_name} registreringstypen i %{space_name} konferansen"

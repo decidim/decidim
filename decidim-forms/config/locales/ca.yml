@@ -111,7 +111,7 @@ ca:
         answer:
           body: El camp no pot estar en blanc
       files:
-        extension_whitelist: 'Formats d''arxiu acceptats:'
+        extension_allowlist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Aquesta imatge medirà:'

@@ -34,16 +34,8 @@ ro:
             confirm: Anularea autorizărilor înainte de dată nu poate fi anulată. Sigur doriți să continuați?
             confirm_all: Revocați toate autorizațiile nu pot fi anulate. Sigur doriți să continuați?
           destroy_nok: A apărut o problemă în timpul revocării autorizațiilor.
-          destroy_ok: Toate autorizațiile potrivite au fost revocate cu succes!
           info: Există un total de %{count} participanți verificați.
           no_data: Niciun participant verificat
-          title: Anularea verificărilor
-        authorization_workflows: Verificări
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} a actualizat configurația de verificare a documentelor de identitate"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} a verificat %{resource_name} folosind verificarea documentelor de identitate offline"
     authorization_handlers:
       admin:
         csv_census:

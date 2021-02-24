@@ -184,12 +184,14 @@ module Decidim
         subject { form.authorized_scopes }
 
         context "when the authorization is not valid" do
+          subject { form }
+
           before do
             authorization.granted_at = nil
             authorization.save!
           end
 
-          it { is_expected.to be_empty }
+          it { is_expected.not_to be_valid }
         end
 
         context "when an authorization is not needed" do

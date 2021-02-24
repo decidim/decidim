@@ -106,7 +106,7 @@ pt:
         answer:
           body: O corpo não pode ficar em branco
       files:
-        extension_whitelist: 'Formatos aceites:'
+        extension_allowlist: 'Formatos aceites:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagem será:'

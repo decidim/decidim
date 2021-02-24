@@ -131,10 +131,7 @@ ro:
             email_subject: Piatră nouă finalizată!
             notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a obținut %{percentage}% de semnături.
         support_threshold_reached:
-          email_intro: Inițiativa %{resource_title} a atins pragul de sprijin
           email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
-          email_subject: Pragul de sprijin atins
-          notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a atins pragul de sprijin
     gamification:
       badges:
         initiatives:

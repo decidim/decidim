@@ -154,10 +154,7 @@ tr:
             email_subject: Yeni kilometre taşı tamamlandı!
             notification_title: <a href="<a href="%{resource_path}">">%{resource_title} </a> girişimi, imzaların %{percentage} kadarını elde etti.
         support_threshold_reached:
-          email_intro: '%{resource_title} girişimi imza eşiğine ulaştı'
           email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
-          email_subject: İmza eşiğine ulaşıldı
-          notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi imza eşiğine ulaştı
     gamification:
       badges:
         initiatives:

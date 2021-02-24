@@ -10,12 +10,15 @@ fr-CA:
         question_type: Type
       questionnaire_question:
         mandatory: Obligatoire
+        max_characters: Limite de caractères (laisser à 0 si aucune limite)
     errors:
       models:
         answer:
           attributes:
             add_documents:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+            body:
+              too_long: est trop long
             choices:
               missing: ne sont pas complets
               too_many: sont trop nombreux
@@ -112,7 +115,7 @@ fr-CA:
         answer:
           body: Le corps ne peut pas être vide
       files:
-        extension_whitelist: 'Formats acceptés :'
+        extension_allowlist: 'Formats acceptés :'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Cette image sera :'

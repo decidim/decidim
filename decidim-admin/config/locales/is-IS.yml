@@ -13,6 +13,7 @@ is-IS:
         attachment_collection_id: Mappa
         description: Lýsing
         file: Skrá
+        title: Nafn viðhengis eða myndar
       attachment_collection:
         description: Lýsing
         name: Nafn
@@ -30,6 +31,8 @@ is-IS:
         subject: Efni
       organization:
         alert_color: Viðvörun
+        available_authorizations: Möguleg auðkenni
+        badges_enabled: Virkja merki
         cta_button_path: Hringja til aðgerða hnappaslóð
         cta_button_text: Hringja í aðgerð hnappinn texta
         default_locale: Sjálfgefið tungumál
@@ -37,6 +40,8 @@ is-IS:
         enable_omnipresent_banner: Sýna algengasta borði
         facebook_handler: Facebook handler
         favicon: Táknmynd
+        force_authentication: Þvinga auðkenningu
+        force_users_to_authenticate_before_access_organization: Þvinga notendur í að auðkenna, áður en þeir komast í samtök
         from: Netfang sendanda
         github_handler: GitHub handler
         header_snippets: Header brot
@@ -47,6 +52,7 @@ is-IS:
         highlighted_content_banner_image: Mynd
         highlighted_content_banner_short_description: Stutt lýsing
         highlighted_content_banner_title: Titill
+        host: Gestgjafi
         instagram_handler: Instagram handler
         logo: Merki
         name: Nafn
@@ -59,7 +65,10 @@ is-IS:
         primary_color: Aðal
         reference_prefix: Tilvísunarnúmer
         secondary_color: Til vara
+        success_color: Tókst
+        time_zone: Tímabelti
         twitter_handler: Twitter handler
+        user_groups_enabled: Virkja hópa
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
       scope:
@@ -73,6 +82,8 @@ is-IS:
         name: Nafn
         organization: Skipulag
         plural: Fleirtala
+      settings:
+        scope_id: Svæði
       static_page:
         content: Innihald
         organization: Skipulag
@@ -87,6 +98,18 @@ is-IS:
         weight: Þyngd
       user_group_csv_verification:
         file: Skrá
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Vitlaus myndskrá
+            official_img_header:
+              allowed_file_content_types: Vitlaus myndskrá
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Vitlaus Mime týpa
   activerecord:
     attributes:
       decidim/static_page:
@@ -105,12 +128,25 @@ is-IS:
     admin:
       actions:
         add: Bæta við
+        attachment:
+          new: Nýtt viðhengi
+        attachment_collection:
+          new: Nýtt viðhengissafn
         browse: Skoða
+        category:
+          new: Nýr flokkur
         export: Útflutningur
+        import: Flytja inn
         manage: Stjórna
         new: Nýtt %{name}
+        newsletter:
+          new: Nýtt fréttabréf
+        per_page: Á hveri síðu
         permissions: Heimildir
         reject: Hafna
+        share: Deila
+        user:
+          new: Nýr notandi
         verify: Staðfestu
       area_types:
         create:

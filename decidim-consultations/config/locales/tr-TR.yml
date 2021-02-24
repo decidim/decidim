@@ -94,7 +94,6 @@ tr:
         create:
           error: Yeni bir danışma oluştururken bir hata oluştu.
           success: Danışmanlık başarıyla oluşturuldu.
-        deprecation_warning: Danışma modülü yakın gelecekte kullanımdan kaldırılacaktır. Oylamalar için bir sonraki şifreli güvenli sürümü üzerinde çalışıyoruz.
         edit:
           update: Güncelle
         form:

@@ -39,7 +39,7 @@
         private_space: Privat området
         promoted: Fremhevet
         published_at: Publisert på
-        purpose_of_action: Hensikt med handlingen
+        purpose_of_action: Formål
         scope_id: Tema
         scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
@@ -55,8 +55,8 @@
         birthday: Fødselsdag
         birthplace: Fødested
         ceased_date: Opphørt dato
-        designation_date: Benevnelsesdato
-        designation_mode: Benevnelsesmodus
+        designation_date: Valgdato
+        designation_mode: Valgform
         full_name: Fullt navn
         gender: Kjønn
         position: Stilling
@@ -209,15 +209,15 @@
         assembly_member:
           fields:
             ceased_date: Opphørt dato
-            designation_date: Benevnelsesdato
+            designation_date: Valgdato
             full_name: Navn
             position: Stilling
           name: Medlem
           positions:
             other: Annet
-            president: President
+            president: Leder
             secretary: Sekretær
-            vice_president: Visepresident
+            vice_president: Nestleder
         assembly_user_role:
           fields:
             email: Epost
@@ -246,7 +246,6 @@
         update: "%{user_name} oppdaterte forsamlingens innstillinger"
       assembly_type:
         create: "%{user_name} opprettet %{resource_name} forsamlingstypen"
-        delete: "%{user_name} fjernet %{resource_name} medlemmet fra %{space_name} forsamlingstypen"
         publish: "%{user_name} publiserte %{resource_name} forsamlingstypen"
         unpublish: "%{user_name} avpubliserte %{resource_name} forsamlingstypen"
         update: "%{user_name} oppdaterte %{resource_name} forsamlingstypen"
@@ -369,7 +368,7 @@
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat forsamling
-        purpose_of_action: Hensikt med handlingen
+        purpose_of_action: Formål
         read_less: Les mindre
         read_more: Les mer
         related_participatory_processes: Relaterte deltakerprosesser
@@ -439,8 +438,6 @@
       home:
         hero:
           participate_title: Delta i plattformens prosesser
-        sub_hero:
-          register_title: Registrer deg for å opprette en konto på plattformen
     participatory_processes:
       pages:
         home:

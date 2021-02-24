@@ -9,7 +9,9 @@ module Decidim::Assemblies
     let!(:organization) { create(:organization) }
 
     let!(:published_assemblies) do
-      create_list(:assembly, 3, :published, organization: organization)
+      create(:assembly, :published, organization: organization, weight: 2)
+      create(:assembly, :published, organization: organization, weight: 3)
+      create(:assembly, :published, organization: organization, weight: 1)
     end
 
     let!(:unpublished_assemblies) do
@@ -31,6 +33,10 @@ module Decidim::Assemblies
 
       it "excludes other organization's published assemblies" do
         expect(subject).not_to include(*foreign_assemblies)
+      end
+
+      it "order published assemblies by weight" do
+        expect(subject.to_a.first.weight).to eq 1
       end
     end
   end

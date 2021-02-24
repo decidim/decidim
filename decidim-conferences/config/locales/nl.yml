@@ -267,9 +267,9 @@ nl:
         conference_registration:
           confirm: "%{user_name} bevestigde een conferentie-registratie in %{resource_name} conferentie"
         partner:
-          create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie"
-          delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
-          update: "%{user_name} bijgewerkt %{resource_name} in de %{space_name} conferentie"
+          create: "%{user_name} heeft partner %{resource_name} voor de conferentie %{space_name} aangemaakt"
+          delete: "%{user_name} heeft partner %{resource_name} van de %{space_name} conferentie verwijderd"
+          update: "%{user_name} heeft partner %{resource_name} in de conferentie %{space_name} bijgewerkt"
         registration_type:
           create: "%{user_name} heeft het %{resource_name} registratietype gemaakt in de %{space_name} conferentie"
           publish: "%{user_name} heeft het %{resource_name} registratietype gepubliceerd in de %{space_name} conferentie"

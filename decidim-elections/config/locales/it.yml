@@ -16,9 +16,6 @@ it:
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
         title: Titolo
-      voting:
-        end_time: Ora fine
-        start_time: Ora di inizio
     errors:
       models:
         answer:
@@ -213,11 +210,8 @@ it:
         show:
           back: Elezioni disponibili
           preview: Anteprima
-          verify: Verifica
-          vote: Vota
           voting_period_status:
             finished: La votazione è iniziata il %{start_time} ed è terminata il %{end_time}
-            ongoing: La votazione termina il %{end_time}
             upcoming: La votazione inizia il %{start_time}
       feedback:
         answer:

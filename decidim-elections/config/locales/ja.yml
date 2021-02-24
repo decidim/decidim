@@ -171,10 +171,8 @@ ja:
           unfold: 展開
         show:
           preview: プレビュー
-          vote: 投票
           voting_period_status:
             finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
-            ongoing: '%{end_time} に投票が終了します'
             upcoming: '%{start_time} に投票が終了します'
       feedback:
         answer:

@@ -52,6 +52,7 @@ cs:
         target: Kdo se účastní
         title: Titul
         twitter: Twitter
+        weight: Váha
         youtube: Youtube
       assembly_member:
         birthday: Narozeniny
@@ -255,7 +256,7 @@ cs:
         update: "%{user_name} aktualizoval nastavení Shromáždění"
       assembly_type:
         create: "%{user_name} vytvořil typ shromáždění %{resource_name}"
-        delete: "%{user_name} odstranil člena %{resource_name} z typu shromáždění %{space_name}"
+        delete: "%{user_name} odstranil typ shromáždění %{resource_name}"
         publish: "%{user_name} publikoval typ shromáždění %{resource_name}"
         unpublish: "%{user_name} zneveřejnil typ shromáždění %{resource_name}"
         update: "%{user_name} aktualizoval typ shromáždění %{resource_name}"
@@ -455,7 +456,7 @@ cs:
         hero:
           participate_title: Účast na procesech platformy
         sub_hero:
-          register_title: Přihlaste se k vytvoření účtu na platformě
+          register_title: Zaregistrujte se pro vytvoření účtu
     participatory_processes:
       pages:
         home:

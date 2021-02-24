@@ -134,6 +134,11 @@ sv:
           update:
             invalid: Det gick inte att uppdatera denna fråga
             success: Frågan har uppdaterats
+        steps:
+          vote_stats:
+            no_vote_statistics_yet: Ingen röstningsstatistik ännu
+            title: Röstningsstatistik
+            votes: Röster
       admin_log:
         election:
           publish: "%{user_name} publicerade valet %{resource_name}"
@@ -171,10 +176,8 @@ sv:
           unfold: Veckla ut
         show:
           preview: Förhandsgranska
-          vote: Rösta
           voting_period_status:
             finished: Omröstningen började den %{start_time} och slutade den %{end_time}
-            ongoing: Omröstningen slutar den %{end_time}
             upcoming: Omröstningen börjar den %{start_time}
       models:
         answer:

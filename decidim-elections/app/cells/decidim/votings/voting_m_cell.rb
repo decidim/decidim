@@ -8,7 +8,17 @@ module Decidim
       private
 
       def has_state?
-        false
+        true
+      end
+
+      def state_classes
+        if model.upcoming?
+          ["warning"]
+        elsif model.active?
+          ["success"]
+        else
+          ["muted"]
+        end
       end
 
       # Even though we need to render the badge, we can't do it in the normal
@@ -55,8 +65,29 @@ module Decidim
         model.end_time
       end
 
+      def statuses
+        [:voting_type, :follow]
+      end
+
+      def voting_type_status
+        content = content_tag(:strong, t(:voting_types_label, scope: "decidim.votings.votings_m"))
+        content << if model.hybrid_voting?
+                     t(:hybrid, scope: "decidim.votings.votings_m.voting_type")
+                   elsif model.in_person_voting?
+                     t(:in_person, scope: "decidim.votings.votings_m.voting_type")
+                   else
+                     t(:online, scope: "decidim.votings.votings_m.voting_type")
+                   end
+      end
+
       def footer_button_text
-        "view"
+        if model.active?
+          t(:vote, scope: "decidim.votings.votings_m.footer_button_text")
+        elsif model.upcoming?
+          t(:participate, scope: "decidim.votings.votings_m.footer_button_text")
+        elsif model.finished?
+          t(:view, scope: "decidim.votings.votings_m.footer_button_text")
+        end
       end
     end
   end

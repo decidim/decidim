@@ -24,7 +24,7 @@ ja:
       component:
         name: 名前
         published_at: 公開日時
-        weight: 重量
+        weight: 重みづけ
       id: ID
       newsletter:
         body: 本文
@@ -115,6 +115,10 @@ ja:
               allowed_file_content_types: 無効な画像ファイル
             official_img_header:
               allowed_file_content_types: 無効な画像ファイル
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: MIMEタイプが無効です
   activerecord:
     attributes:
       decidim/static_page:
@@ -137,6 +141,7 @@ ja:
         category:
           new: 新しいカテゴリ
         export: エクスポート
+        import: インポート
         manage: 管理
         new: 新しい %{name}
         newsletter:
@@ -372,6 +377,16 @@ ja:
           impersonate_existing_managed_user: 参加者を管理 "%{name}"
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
+      imports:
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: 戻る
+          import: インポート
+        notice: "%{number} %{resource_name} を正常にインポートしました"
       logs:
         logs_list:
           no_logs_yet: ログはまだありません
@@ -395,8 +410,10 @@ ja:
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
+        moderation: グローバルモデレーション
         newsletters: ニュースレター
         participants: 参加者
+        reported_users: 報告済みユーザー
         scope_types: スコープの種類
         scopes: スコープ
         settings: 設定
@@ -484,6 +501,12 @@ ja:
             phone: 電話番号
             state: 都道府県：
             users_count: 参加者数
+      moderated_users:
+        index:
+          actions:
+            title: アクション
+            unreport: 報告解除
+          nickname: ニックネーム
       moderations:
         index:
           title: モデレーション
@@ -823,7 +846,7 @@ ja:
         not_hidden: 非表示にしない
         title: アクション
         unhide: Unhide
-        unreport: 未報告
+        unreport: 報告解除
       admin:
         reportable:
           hide:
@@ -833,7 +856,7 @@ ja:
             invalid: リソースの非表示解除中に問題が発生しました。
             success: リソースの非表示を解除しました。
           unreport:
-            invalid: リソースの未報告中に問題が発生しました。
+            invalid: リソースの報告解除中に問題が発生しました。
             success: リソースの報告を解除しました。
       models:
         moderation:

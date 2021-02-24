@@ -21,6 +21,19 @@
       <%= form.translated :text_area, :location_hints %>
       <p class="help-text"><%= t(".location_hints_help") %></p>
     </div>
+
+    <div class="row column user-fields--polling_station_president-picker">
+      <% prompt_options = { url: available_polling_officers_voting_url(current_voting), placeholder: t(".select_president") } %>
+      <%= form.autocomplete_select(:polling_station_president_id, form.object.polling_station_president.presence, { multiple: false }, prompt_options) do |polling_officer|
+        { value: polling_officer.id, label: "#{polling_officer.name} (@#{polling_officer.nickname})" }
+      end %>
+      <p class="help-text"><%= t(".polling_station_president_help") %></p>
+    </div>
+
+    <div class="row column user-fields--polling_station_manager-picker">
+      <%= polling_officers_picker(form, :polling_station_managers, polling_officers_picker_voting_path(current_voting)) %>
+      <p class="help-text"><%= t(".polling_station_managers_help") %></p>
+    </div>
   </div>
 </div>
 

@@ -39,7 +39,10 @@ describe "Space admin manages global moderations", type: :system do
         expect(page).to have_content("Dummy Title")
 
         tooltip_id = find_link("Visit URL")["data-toggle"]
-        result = page.find("##{tooltip_id}", visible: :all)
+        # Keep the selector as is. If you try to find it with "##{tooltip_id}",
+        # the spec will fail in case the ID happens to have a number as its
+        # first character. This is a problem with the selenimum selectors.
+        result = page.find("[id='#{tooltip_id}']", visible: :all)
         expect(result).to have_content("Dummy Title")
       end
     end

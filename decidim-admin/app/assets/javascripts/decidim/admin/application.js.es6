@@ -29,6 +29,7 @@
 // = require ./officializations
 // = require decidim/input_character_counter
 // = require decidim/geocoding/attach_input
+// = require decidim/session_timeouter
 // = require_self
 
 window.Decidim = window.Decidim || {};

@@ -357,7 +357,9 @@ nl:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
+            document_legend: 'Voeg een document toe van minder dan 2MB. Elk onderdeel tot op 3 niveaus diep wordt verwerkt tot voorstellen. Ondersteunde formaten zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
             upload_document: Document uploaden
           publish:
@@ -398,6 +400,7 @@ nl:
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
+            delete_attachment: Bijlage verwijderen
             select_a_category: Kies een categorie
             select_a_meeting: Selecteer een vergadering
           index:
@@ -624,6 +627,9 @@ nl:
           info: U maakt een <strong>gezamenlijk ontwerp</strong>.
         wizard_header:
           title: Maak uw gezamenlijk ontwerp
+      content_blocks:
+        highlighted_proposals:
+          proposals: Voorstellen
       create:
         error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.

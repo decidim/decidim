@@ -36,8 +36,17 @@ nl:
         title: Titel
       participatory_process_group:
         description: Beschrijving
+        developer_group: Promoter groep
+        group_url: Website
+        hashtag: Hashtag
         hero_image: Afbeelding
+        local_area: Organisatiegebied
+        meta_scope: Scope metadata
         participatory_process_ids: Verwante thema's
+        participatory_scope: Wat wordt beslist
+        participatory_structure: Hoe wordt er beslist
+        target: Wie neemt deel
+        title: Titel
       participatory_process_step:
         cta_path: Call to Action-pad
         cta_text: Call to Action-tekst
@@ -93,6 +102,9 @@ nl:
         unpublish: Publicatie ongedaan maken
       menu:
         participatory_process_groups: Inspraakproces groepen
+        participatory_process_groups_submenu:
+          info: Info
+          landing_page: Landingspagina
         participatory_processes: Inspraakprocessen
         participatory_processes_submenu:
           attachment_collections: Mappen
@@ -115,6 +127,8 @@ nl:
             title: Titel
           name: Inspraakproces
         participatory_process_group:
+          fields:
+            title: Titel
           name: Groep inspraakprocessen
         participatory_process_step:
           fields:
@@ -142,6 +156,13 @@ nl:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
           title: Inspraakproces dupliceren
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Actieve inhoudsblokken
+          inactive_content_blocks: Inactieve inhoudsblokken
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Bijwerken
       participatory_process_groups:
         destroy:
           error: Er is een fout opgetreden tijdens het vernietigen van de Participatory procesgroep.
@@ -298,6 +319,25 @@ nl:
       show:
         related_assemblies: Verwante assemblies
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Eerste HTML blok
+        html_2:
+          name: Tweede HTML-blok
+        html_3:
+          name: Derde HTML blok
+        metadata:
+          developer_group: Aanbevolen door
+          name: Metadata
+          participatory_scope: Wat wordt beslist
+          participatory_structure: Hoe wordt er beslist
+          target: Wie neemt deel
+        title:
+          meta_scope: Scope
+          name: Titel, beschrijving en hashtag
+          participatory_processes:
+            one: 1 proces
+            other: "%{count} processen"
       show:
         title: Groepen van participatieve processen
     participatory_process_steps:
@@ -309,9 +349,17 @@ nl:
         content_blocks:
           highlighted_processes:
             max_results: Maximaal aantal te tonen elementen
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadata
+            title: Algemene informatie
+            visibility: Zichtbaarheid
         participatory_process_imports:
           form:
             document_legend: Document toevoegen
@@ -383,6 +431,7 @@ nl:
           loading: Laden van resultaten...
       show:
         area: Onderwerp
+        belongs_to_group: Dit proces hoort bij
         dates: Datums
         developer_group: Organisator
         end_date: Einddatum
@@ -440,6 +489,8 @@ nl:
           more_info_about: Meer informatie over proces %{resource_name}
           take_part: Deelnemen
           take_part_in: Neem deel aan proces %{resource_name}
+        promoted_process_group:
+          more_info: Meer informatie
       process_header_steps:
         step: Stap %{current} van %{total}
         view_steps: Bekijk stappen

@@ -35,7 +35,7 @@ nl:
       decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
-      decidim/resource_endorsed_event: Resurce goedgekeurd
+      decidim/resource_endorsed_event: Bron gesteund
   activerecord:
     attributes:
       decidim/user:
@@ -83,6 +83,7 @@ nl:
         file_no_exists: Bestand bestaat niet
         notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
+        alert: Deze actie kan niet ongedaan worden gemaakt. Als je je account verwijdert, kan je niet meer inloggen met je inloggegevens. Het verwijderen van je account zal leiden tot het anonimiseren van je bijdragen. Je kunt nog steeds een nieuw account aanmaken, maar eerdere bijdragen worden daar niet aan gekoppeld.
         confirm:
           close: Sluit venster
           ok: Ja, ik wil mijn account verwijderen
@@ -128,6 +129,7 @@ nl:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
         create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd als privé deelnemer"
         delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
@@ -372,6 +374,13 @@ nl:
             dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
+      cta:
+        name: Afbeelding, tekst en knop “Call to action”
+      cta_settings_form:
+        background_image: Achtergrondafbeelding
+        button_text: Call To Action tekst
+        button_url: Call To Action URL
+        description: Beschrijving
       footer_sub_hero:
         name: Voettekst sub hero banner
       hero:
@@ -381,6 +390,11 @@ nl:
         welcome_text: Welkom tekst
       highlighted_content_banner:
         name: Gemarkeerde inhoudsbanner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sorteer elementen op:'
+          random: Willekeurig
+          recent: Meest recent
       how_to_participate:
         name: Hoe deel te nemen
       html:
@@ -405,7 +419,7 @@ nl:
         ready: Klaar
       show:
         download_data: Download de gegevens
-        download_data_description: Een bestand met alle informatie die aan het account is gekoppeld, wordt naar <strong>%{user_email}</strong>gestuurd
+        download_data_description: Een bestand met alle gegevens van uw account zal worden verzonden naar <strong>%{user_email}</strong>. Deze e-mail bevat een .zip-bestand en een wachtwoord om het te openen.<br/><br/>Om het bestand uit te pakken heeft u <a href="https://www.7-zip.org/">7-Zip</a> (voor Windows) of <a href="https://www.keka.io/">Keka</a> nodig (voor MacOS). Als u Linux gebruikt, zal deze meestal standaard geïnstalleerd worden. Als dit niet het geval is, kan je <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> of <a href="https://peazip.github.io">PeaZip</a> gebruiken).
         request_data: Gegevens aanvragen
     datepicker:
       help_text: 'Verwacht formaat: %{datepicker_format}'
@@ -415,6 +429,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
+          nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
@@ -423,6 +438,7 @@ nl:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
+          nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
@@ -623,7 +639,7 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: 'Klik op de volgende knop om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href=''https://www.7-zip.org/''>7-Zip</a> nodig om het te openen. Wachtwoord: %{password}'
+        click_button: 'Klik op de volgende link om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -656,7 +672,7 @@ nl:
       create:
         button: Volgen
         error: Er is een fout opgetreden na deze bron.
-        participatory_space: volgen
+        participatory_space: <span class="show-for-sr">%{resource_name}</span> aan het volgen
       destroy:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
@@ -671,7 +687,7 @@ nl:
         error: Er is een fout in dit veld.
       file_help:
         file:
-          explanation: 'Begeleiding voor bestand:'
+          explanation: 'Eigenschappen bestand:'
           message_1: Moet een afbeelding of een document zijn.
         image:
           explanation: 'Eigenschappen afbeelding:'
@@ -914,7 +930,7 @@ nl:
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
-          not_allowed: Deze gebruiker accepteert geen directe berichten meer.
+          not_allowed: Deze deelnemer aanvaardt geen rechtstreekse berichten.
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
@@ -922,6 +938,8 @@ nl:
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:
+      download:
+        csv: Gegevens downloaden (csv)
       followers:
         description: Aantal deelnemers dat deze participatieruimte volgt
         object: volgers
@@ -983,8 +1001,10 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
+        administrators: Beheerders
         allow_public_contact: Ledereen kan mij een persoonlijk bericht sturen, ook mensen die ik niet volg.
         direct_messages: Ontvang privéberichten van iedereen
+        email_on_moderations: Ik wil een e-mail ontvangen telkens wanneer iets wordt gerapporteerd voor moderatie.
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
@@ -1457,7 +1477,7 @@ nl:
     messages:
       already_confirmed: was al bevestigd, probeer u aan te melden
       confirmation_period_expired: moet worden bevestigd binnen %{period}, vraag een nieuwe aan
-      content_type_whitelist_error: het bestandstype is niet geldig
+      content_type_allowlist_error: het bestandstype is niet geldig
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       expired: is verlopen, vraag een nieuwe aan
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}

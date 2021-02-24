@@ -32,6 +32,7 @@ module Decidim
         attribute :scope_id, Integer
         attribute :related_process_ids, Array[Integer]
         attribute :scope_type_max_depth_id, Integer
+        attribute :weight, Integer
 
         attribute :private_space, Boolean
         attribute :promoted, Boolean

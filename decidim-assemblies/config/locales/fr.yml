@@ -249,7 +249,7 @@ fr:
         update: "%{user_name} a mis à jour les paramètres des assemblées"
       assembly_type:
         create: "%{user_name} a créé le type d'assemblée %{resource_name}"
-        delete: "%{user_name} a retiré le membre %{resource_name} du type d'assemblé %{space_name}"
+        delete: "%{user_name} a supprimé le type d'assemblée %{resource_name}"
         publish: "%{user_name} a publié le type d'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié le type d'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour le type d'assemblée %{resource_name}"
@@ -449,7 +449,7 @@ fr:
         hero:
           participate_title: Participer aux processus de la plateforme
         sub_hero:
-          register_title: Inscrivez-vous pour accéder à la plateforme
+          register_title: Inscrivez-vous pour créer un compte
     participatory_processes:
       pages:
         home:

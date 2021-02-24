@@ -343,7 +343,6 @@ ar:
         ready: جاهز
       show:
         download_data: قم بتنزيل البيانات
-        download_data_description: سيتم إرسال ملف به جميع المعلومات المرتبطة بالحساب إلى <strong>%{user_email}</strong>
         request_data: طلب البيانات
     datepicker:
       help_text: 'التنسيق المتوقع: %{datepicker_format}'
@@ -540,7 +539,6 @@ ar:
           notification_title: و <a href="%{resource_path}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
     export_mailer:
       data_portability_export:
-        click_button: 'انقر فوق الزر التالي لتنزيل بياناتك. <br/> سيكون لديك ملف متاح حتى %{date}.'
         download: تحميل
       export:
         ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
@@ -1199,7 +1197,7 @@ ar:
     messages:
       already_confirmed: تم التأكيد بالفعل ، يرجى محاولة تسجيل الدخول
       confirmation_period_expired: يحتاج إلى تأكيد خلال %{period}، يرجى طلب واحدة جديدة
-      content_type_whitelist_error: نوع الملف غير صالح
+      content_type_allowlist_error: نوع الملف غير صالح
       cycle_detected: لا يمكن أن يكون والد النطاق أحد أحفاده
       expired: انتهت صلاحيتها ، يرجى طلب واحدة جديدة
       file_size_is_less_than_or_equal_to: يجب أن يكون حجم الملف أقل من أو يساوي %{count}
