@@ -431,6 +431,7 @@ pl:
           form:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             created_in_meeting: Ta propozycja pochodzi ze spotkania
+            delete_attachment: Usuń załącznik
             select_a_category: Wybierz kategorię
             select_a_meeting: Wybierz spotkanie
           index:
@@ -613,7 +614,7 @@ pl:
           state: Status
           withdrawn: Wycofane
         filters_small_view:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
@@ -740,6 +741,8 @@ pl:
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          delete_document: Usuń dokument
+          delete_image: Usuń obraz
           select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
@@ -762,7 +765,7 @@ pl:
           type: Typ
           voted: Wsparte
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
