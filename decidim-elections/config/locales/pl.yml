@@ -230,6 +230,13 @@ pl:
         older: Najstarsze
         recent: Najnowsze
       trustee_zone:
+        elections:
+          key_ceremony_steps:
+            status:
+              pending: Oczekujące
+          tally_steps:
+            status:
+              pending: Oczekujące
         trustees:
           show:
             elections:
