@@ -371,6 +371,10 @@ pl:
             subject: Twoja rejestracja na spotkanie została potwierdzona
       meeting:
         not_allowed: Nie możesz zobaczyć tego spotkania
+      meeting_closes:
+        edit:
+          close: Zakończ spotkanie
+          title: Zakończ spotkanie
       meetings:
         count:
           meetings_count:
@@ -428,6 +432,7 @@ pl:
         show:
           attendees: Liczba osób biorących udział
           back: Powrót do listy
+          close_meeting: Zakończ spotkanie
           contributions: Liczba wsparć
           date: Data
           edit_meeting: Edytuj spotkanie
