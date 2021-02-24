@@ -391,6 +391,8 @@ pl:
             dummy_step_translatable_text: Przykładowy tekst etapu do tłumaczenia
     contact: Kontakt
     content_blocks:
+      cta_settings_form:
+        background_image: Obraz tła
       footer_sub_hero:
         name: Banner podrzędny stopki
       hero:
@@ -437,6 +439,7 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Uzupełnij profil
+          nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           sign_up: Proszę uzupełnij swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -445,6 +448,7 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
+          nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
@@ -466,6 +470,7 @@ pl:
           buttons:
             check: Sprawdź i kontynuuj
             close_modal: Zamknij okno
+            uncheck: Pozostaw niezaznaczone
           notice: |-
             <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
             Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
