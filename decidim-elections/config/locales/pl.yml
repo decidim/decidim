@@ -176,7 +176,7 @@ pl:
           state: Status
           upcoming: Nadchodzące
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
@@ -237,12 +237,14 @@ pl:
           close: Zamknij
           proposal_header: 'Propozycje:'
         new:
+          answer_choices: Możesz wybrać do %{choices} odpowiedzi
           more_information: Więcej informacji
+          nota_option: Pusty/Żadne z powyższych
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
         voting_step:
-          back: Powrót
+          back: Wróć
           continue: Następny
       warnings:
         no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
