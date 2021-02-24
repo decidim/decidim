@@ -27,7 +27,6 @@ Decidim::Core::Engine.routes.draw do
 
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
-
   end
 
   resource :locale, only: [:create]
