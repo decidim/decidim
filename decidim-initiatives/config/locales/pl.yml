@@ -343,6 +343,7 @@ pl:
           continue: Moja inicjatywa jest inna
           more_information: "(Więcej informacji)"
       edit:
+        back: Wróć
         title: Edytuj inicjatywę
         update: Aktualizuj
       events:
