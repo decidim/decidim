@@ -63,7 +63,7 @@ pl:
         one: Minuta
         few: Minuty
         many: Minuty
-        other: Minuty
+        other: Protokoły
       decidim/meetings/registration:
         one: Rejestracja
         few: Rejestracje
@@ -258,6 +258,7 @@ pl:
                 other: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
             success: Spotkanie zostało pomyślnie usunięte
           edit:
+            title: Edytuj spotkanie
             update: Aktualizuj
           form:
             address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
@@ -289,6 +290,7 @@ pl:
             invalid: Podczas tworzenia tego protokołu błąd
             success: Protokół został utworzony
           edit:
+            title: Edytuj protokół
             update: Aktualizuj
           new:
             create: Utwórz
