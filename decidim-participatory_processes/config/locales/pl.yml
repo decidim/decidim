@@ -34,6 +34,7 @@ pl:
         subtitle: Podtytuł
         target: Kto uczestniczy
         title: Tytuł
+        weight: Kolejność na stronie
       participatory_process_group:
         description: Opis
         hero_image: Obraz
