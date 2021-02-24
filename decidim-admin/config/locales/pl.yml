@@ -324,6 +324,7 @@ pl:
         title: Konflikty weryfikacji
         transfer:
           email: E-mail
+          error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
           name: Nazwa
           reason: Powód
           success: Bieżący transfer został pomyślnie zakończony.
@@ -373,6 +374,12 @@ pl:
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
+      forms:
+        file_help:
+          import:
+            explanation: 'Wytyczne dotyczące pliku:'
+            message_1: 'Wspierane formaty: CSV, JSON i Exel (.xls)'
+            message_2: Dla plików w formacie CSV separatorem kolumn musi być średnik (";")
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy
         form:
@@ -411,6 +418,19 @@ pl:
           impersonate_existing_managed_user: Zarządzaj użytkownikiem "%{name}"
           impersonate_existing_user: Zarządzaj użytkownikiem "%{name}"
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
+      imports:
+        creators:
+          proposalcreator: Twórca propozycji
+        error: Podczas importowania wystąpił błąd
+        help:
+          proposalcreator: Plik musi mieć nazwy kolumn title/pl i body/pl (lub inny język, który wybierzesz, np. title/ca i body/ca). Wspierane są również kolumny scope/id i category/id.
+        import_from_file: Importuj z pliku
+        invalid_lines: Znaleziono błąd w numerze zasobu %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
       logs:
         logs_list:
           no_logs_yet: Nie ma jeszcze logów
