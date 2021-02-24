@@ -106,7 +106,7 @@ pl:
         view: Zobacz wszystkie budżety
       budget_information_modal:
         back_to: Wróć do %{component_name}
-        close_modal: Zamknij modal
+        close_modal: Zamknij okno
         continue: Dalej
         more_information: Więcej informacji
       budgets_list:
@@ -193,7 +193,7 @@ pl:
             not_selected: Nie wybrano
             selected: Wybrano
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
