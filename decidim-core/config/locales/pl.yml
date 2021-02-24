@@ -456,6 +456,7 @@ pl:
           buttons:
             check: Sprawdź i kontynuuj
             close_modal: Zamknij okno
+            uncheck: Pozostaw niezaznaczone
           notice: |-
             <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
             Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
