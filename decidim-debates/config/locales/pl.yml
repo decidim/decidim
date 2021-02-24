@@ -143,6 +143,8 @@ pl:
           commented: Najczęściej komentowane
           label: Sortuj debaty według
           random: Kolejność losowa
+          recent: Najnowsze
+          updated: Ostatnio aktualizowane
         show:
           back: Powrót do listy
           close_debate: Zamknij debatę
