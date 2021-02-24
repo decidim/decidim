@@ -714,6 +714,8 @@ pl:
             few: "%{count} propozycji"
             many: "%{count} propozycji"
             other: "%{count} propozycji"
+        dynamic_map_instructions:
+          instructions: <h3>Możesz przesunąć punkt na mapie. </h3><p>Nie zapomnij kliknąć na przycisk "Aktualizuj pozycję" przed opublikowaniem propozycji.</p>
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
@@ -782,6 +784,7 @@ pl:
             other: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
           publish: Publikuj
           title: Opublikuj swoją propozycję
+          update_position: Aktualizuj pozycję
         proposal:
           creation_date: 'Utworzono: %{date}'
           view_proposal: Zobacz propozycję
