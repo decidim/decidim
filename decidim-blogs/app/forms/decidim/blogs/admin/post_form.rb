@@ -21,6 +21,10 @@ module Decidim
             id: user_group_id.to_i
           )
         end
+
+        def author
+          user_group || current_user
+        end
       end
     end
   end
