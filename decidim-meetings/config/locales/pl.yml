@@ -401,7 +401,7 @@ pl:
           scope: Zakres
           search: Szukaj
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
