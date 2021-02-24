@@ -224,7 +224,7 @@ pl:
         error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
         success: Poprawka została odrzucona
       review:
-        back: Powrót
+        back: Wróć
         heading: Przejrzyj poprawkę
         help_text: '%{model_name} - przeglądasz poprawkę'
         send: Akceptuj poprawkę
@@ -330,7 +330,7 @@ pl:
           request_confirmation_instructions: Poproś o instrukcje uwierzytelniające
           title: Potwierdź swój adres e-mail
       show:
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
     collapsible_list:
       hidden_elements_count:
         one: i %{count} więcej
@@ -454,7 +454,7 @@ pl:
         newsletter_modal:
           buttons:
             check: Sprawdź i kontynuuj
-            close_modal: Zamknij modalne
+            close_modal: Zamknij okno
           notice: |-
             <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
             Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
@@ -633,7 +633,7 @@ pl:
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       data_portability_export:
-        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''https://www.7-zip.org/''>7-Zip</a> do otwarcia pliku. Hasło: %{password}'
+        click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''https://www.7-zip.org/''>7-Zip</a> do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
@@ -905,9 +905,14 @@ pl:
           show: Pokaż rozmowę z %{sender}
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
+        error_modal:
+          close: Zamknij okno
+          correct_errors: Popraw daty i spróbuj ponownie.
+          intro: 'W wiadomości wystąpiły błędy:'
+          ok: ok
         index:
           ago: temu
-          close: Zamknij modalne
+          close: Zamknij okno
           from: Od
           groups: Moje grupy
           last_message: Ostatnia wiadomość
@@ -927,6 +932,8 @@ pl:
         start:
           send: Wyślij
           title: Zacznij konwersację
+        update:
+          error: Wiadomość nie została wysłana z powodu błędu
     metrics:
       download:
         csv: Pobierz dane (csv)
@@ -1071,13 +1078,14 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
+          agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
           modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki
-          modal_close: Zamknij modalne
+          modal_close: Zamknij okno
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
@@ -1168,7 +1176,7 @@ pl:
           future: Przyszły
           past: Przeszły
       filters_small_view:
-        close_modal: Zamknij modalne
+        close_modal: Zamknij okno
         filter: Filtr
         filter_by: Filtruj według
         unfold: Rozwiń
@@ -1186,7 +1194,7 @@ pl:
     shared:
       confirm_modal:
         cancel: Anuluj
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         ok: OK
         title: Potwierdź
       embed_modal:
@@ -1214,7 +1222,7 @@ pl:
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         please_sign_in: Zaloguj się
         sign_up: Zarejestruj się
       participatory_space_filters:
