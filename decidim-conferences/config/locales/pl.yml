@@ -551,6 +551,8 @@ pl:
     help:
       participatory_spaces:
         conferences:
+          contextual: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
+          page: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           title: Czym są konferencje?
     log:
       value_types:
