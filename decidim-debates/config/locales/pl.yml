@@ -67,6 +67,10 @@ pl:
           edit:
             title: Edytuj debatę
             update: Zaktualizuj debatę
+          form:
+            debate_type: Typ debaty
+            finite: Zakończ (z czasem rozpoczęcia i zakończenia)
+            open: Otwórz (bez czasu rozpoczęcia i zakończenia)
           index:
             title: Debaty
           new:
@@ -75,6 +79,8 @@ pl:
           update:
             invalid: Wystąpił błąd podczas aktualizowania tej debaty.
             success: Debata została zaktualizowana pomyślnie.
+        exports:
+          comments: Komentarze
         models:
           debate:
             name: Debata
@@ -156,6 +162,7 @@ pl:
           groups_count: Grupy
           last_comment_by: Ostatni komentarz autorstwa
           no_comments_yet: Brak komentarzy
+          open: Otwórz
           participants_count: Użytkownicy
         update:
           invalid: Podczas aktualizowania debaty wystąpił błąd.
