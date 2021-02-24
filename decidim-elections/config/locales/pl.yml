@@ -28,6 +28,8 @@ pl:
               needs_to_be_reattached: Musi zostać ponownie załączony
         trustee:
           attributes:
+            name:
+              cant_be_changed: nie można zmienić
             public_key:
               cant_be_changed: nie może zostać zmieniony
   activerecord:
@@ -162,6 +164,7 @@ pl:
             errors:
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} powierników z kluczem publicznym</strong>.
             no_trustees: Nie ma powierników dla tej przestrzeni partycypacyjnej
+            not_used_trustee: "(nieużywane)"
             requirements:
               trustees_number: Przestrzeń partycypacyjna musi mieć <strong>co najmniej %{number} powierników z kluczem publicznym</strong>.
             trustees: Powiernicy wyborczy
@@ -187,6 +190,8 @@ pl:
           delete:
             invalid: Wystąpił błąd podczas usuwania powiernika
             success: Powiernik został usunięty
+          form:
+            select_user: Wybierz użytkownika
           index:
             title: Powiernicy
           new:
@@ -258,8 +263,11 @@ pl:
             title: Tytuł
         trustees_participatory_space:
           fields:
+            considered: rozważane
             email: E-mail
             inactive: nieaktywne
+            name: Imię
+            notification: Wysłano powiadomienie
             public_key: Klucz publiczny
             status: Status
       orders:
@@ -270,27 +278,41 @@ pl:
         elections:
           backup_modal:
             description: Te wybory są tworzone na tablicy ogłoszeń. Każdy przypisanych do nich powiernik powinien stworzyć kopię zapasową kluczy i przechowywał je w bezpiecznym miejscu. Po wykonaniu tego, proces będzie kontynuowany.
+            download_election_keys: Pobierz klucze
+            download_icon: Ikona wskazująca akcję pobierania
+            title: Kopia zapasowa kluczy dla głosowania %{election}
           key_ceremony_steps:
+            back: Wróć
             description: Te wybory są tworzone na tablicy ogłoszeń. Aby zakończyć ten proces wymaga się twojego uczestnictwa jako powiernika.
-            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu zakończenia procesu. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
+            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
             status:
               pending: Oczekujące
           restore_modal:
             description: Tablica ogłoszeń posiada informacje od Ciebie jako powiernika w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
           tally_steps:
+            back: Wróć
+            description: Wyniki tego głosowania są generowane na tablicy ogłoszeń. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako powiernika.
+            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
             status:
               pending: Oczekujące
+        menu:
+          trustee_zone: Strefa powierników
         trustees:
           show:
             elections:
               list:
                 election: Wybór
+              no_elections: Nie ma głosowań, w których pełnisz rolę powiernika.
               title: Wybory
             identification_keys:
               cancel: Anuluj
               generate: Generuj klucze identyfikacyjne
+              generate_legend: Musisz wygenerować parę kluczy identyfikacyjnych do udziału w głosowaniu jako powiernik.
               submit: Prześlij
+              title: Klucze identyfikacyjne powiernika
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań Powiernika. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania Powiernicze.
+            not_supported_browser_title: Aktualizuj przeglądarkę by działać jako powiernik
+            trustee_role_description: Zostałeś wyznaczony na powiernika w niektórych głosowaniach na tej platformie.
       votes:
         confirm:
           answer: Odpowiedz
@@ -324,6 +346,9 @@ pl:
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
+        verify:
+          form:
+            back: Powrót do Decidim
         voting_step:
           back: Wróć
           continue: Następny
@@ -337,6 +362,17 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}.
           notification_title: Wybór <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Zostałeś dodany jako powiernik do głosowania %{resource_title}.
+            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany na powiernika w głosowaniu %{resource_title}”.
+            email_subject: Jesteś powiernikiem w głosowaniu %{resource_title}.
+            notification_title: Jesteś powiernikiem w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Administrator ustanowił Cię powiernikiem w %{resource_name}. Powinieneś utworzyć klucz publiczny <a href='%{trustee_zone_url}'>w strefie powiernika</a>
+            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany na powiernika w %{resource_name}”.
+            email_subject: Jesteś powiernikiem w %{resource_name}.
+            notification_title: Jesteś powiernikiem w <a href="%{participatory_space_url}">%{resource_name}</a>.
     help:
       participatory_spaces:
         votings:
