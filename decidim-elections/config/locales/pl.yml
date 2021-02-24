@@ -156,6 +156,9 @@ pl:
             invalid: Wystąpił błąd podczas aktualizowania tego pytania
             success: Pytanie zostało zaktualizowane
         steps:
+          vote:
+            errors:
+              time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
           vote_stats:
             votes: Głosy
         trustees_participatory_spaces:
@@ -206,6 +209,7 @@ pl:
           preview: Podgląd
           voting_period_status:
             finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
+            ongoing: 'Głosowanie aktywne do: %{end_time}'
             upcoming: Głosowanie rozpoczyna się %{start_time}
       models:
         answer:
@@ -250,6 +254,7 @@ pl:
               cancel: Anuluj
               generate: Generuj klucze identyfikacyjne
               submit: Prześlij
+            not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań Powiernika. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania Powiernicze.
       votes:
         confirm:
           answer: Odpowiedz
@@ -316,8 +321,17 @@ pl:
         actions:
           edit: Edytuj
       votings:
+        filters:
+          upcoming: Nadchodzące
         filters_small_view:
           close_modal: Zamknij okno
+        orders:
+          random: Losowo
+          recent: Najnowsze
+      votings_m:
+        badge_name:
+          ongoing: Trwające
+          upcoming: Nadchodzące
   layouts:
     decidim:
       election_votes_header:
