@@ -470,7 +470,7 @@ pl:
           attributes:
             alt: Obraz
         show:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           photo: Zdjęcie
       photos_list:
         show:
