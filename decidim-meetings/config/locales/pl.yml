@@ -378,6 +378,7 @@ pl:
         not_allowed: Nie możesz zobaczyć tego spotkania
       meeting_closes:
         edit:
+          back: Wróć
           close: Zakończ spotkanie
           title: Zakończ spotkanie
       meetings:
