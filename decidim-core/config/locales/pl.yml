@@ -389,6 +389,10 @@ pl:
         welcome_text: Tekst powitalny
       highlighted_content_banner:
         name: Wyróżniony baner tekstowy
+      highlighted_elements_settings_form:
+        orders:
+          random: Losowo
+          recent: Najnowsze
       how_to_participate:
         name: Jak uczestniczyć
       html:
