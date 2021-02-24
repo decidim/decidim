@@ -313,6 +313,7 @@ pl:
         finish:
           back: Wróć
           back_to_initiatives: Wróć do inicjatyw
+          edit_my_initiative: Edytuj moją inicjatywę
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
         previous_form:
@@ -336,6 +337,8 @@ pl:
           compare_help: Jeśli którakolwiek z poniższych inicjatyw jest podobna do Twojej, zachęcamy do jej wspierania. Twoja propozycja będzie miała więcej możliwości do bycia przyjęta i procedowaną.
           continue: Moja inicjatywa jest inna
           more_information: "(Więcej informacji)"
+      edit:
+        title: Edytuj inicjatywę
       events:
         create_initiative_event:
           email_intro: "Użytkownik %{author_name} %{author_nickname}, którego obserwujesz, utworzył nową inicjatywę, sprawdź ją i przyłącz się:"
@@ -385,6 +388,13 @@ pl:
             few: i jeszcze %{count} osób
             many: i jeszcze %{count} osób
             other: i jeszcze %{count} osób
+        committee_members:
+          approve: Zatwierdź
+          confirm_revoke: Jesteś pewny?
+          invite_to_committee_help: Udostępnij ten link, aby zaprosić innych użytkowników do komitetu organizacyjnego
+          no_members_yet: W komitecie organizacyjnym nie ma członków
+          revoke: Odwołaj
+          title: Członkowie komitetu
         count:
           title:
             one: "%{count} inicjatywa"
@@ -430,10 +440,15 @@ pl:
           recent: Najnowsze
           recently_published: Ostatnio opublikowane
         print:
+          address: Adres
+          author_title: Autor inicjatywy
           city: Miasto
+          email: Adres e-mail
+          full_name: Imię i nazwisko
         result:
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
+          edit: Edytuj
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
         signatures_count:
           one: " podpis"
