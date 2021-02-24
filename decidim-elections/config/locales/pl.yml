@@ -155,6 +155,9 @@ pl:
           update:
             invalid: Wystąpił błąd podczas aktualizowania tego pytania
             success: Pytanie zostało zaktualizowane
+        steps:
+          vote_stats:
+            votes: Głosy
         trustees_participatory_spaces:
           actions:
             disable: Wyłącz
