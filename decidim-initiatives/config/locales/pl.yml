@@ -361,6 +361,12 @@ pl:
         revoke_membership_request:
           email_intro: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
           email_subject: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy %{resource_title}. Aby zaakceptować lub odrzucić zgłoszenie przejdź do formularza edycji swojej inicjatywy."
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
+      form:
+        delete_attachment: Usuń
       index:
         title: Inicjatywy
       initiative_signatures:
