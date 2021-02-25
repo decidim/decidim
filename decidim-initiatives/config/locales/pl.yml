@@ -326,6 +326,7 @@ pl:
         finish:
           back: Wróć
           back_to_initiatives: Wróć do inicjatyw
+          callout_text: Gratulacje! Twoja inicjatywa została utworzona.
           confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit_my_initiative: Edytuj moją inicjatywę
           go_to_my_initiatives: Przejdź do moich inicjatyw
