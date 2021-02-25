@@ -270,14 +270,19 @@ module Decidim
     false
   end
 
-  # How long can a user remained logged in before the session expires. If set to false
-  # enables "remember me" option when signing in.
+  # How long can a user remained logged in before the session expires. Notice that
+  # this is also maximum time that user can idle before getting automatically signed out.
   config_accessor :expire_session_after do
     30.minutes
   end
 
+  # If set to true, users have option to "remember me".
+  config_accessor :enable_remember_me do
+    false
+  end
+
   # Defines (in milliseconds) how often session_timeouter.js checks time between current moment and last request
-  config_accessor :session_timeouter_interval do
+  config_accessor :session_timeout_interval do
     10_000
   end
 

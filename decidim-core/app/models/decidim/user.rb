@@ -25,7 +25,7 @@ module Decidim
            :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
-    devise :rememberable unless Decidim.expire_session_after.instance_of?(ActiveSupport::Duration)
+    devise :rememberable if Decidim.enable_remember_me
 
     has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id, dependent: :destroy

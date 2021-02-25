@@ -5,7 +5,7 @@ module Decidim
     # Admins are the users in charge of managing a Decidim installation.
     class Admin < ApplicationRecord
       devise :database_authenticatable, :validatable, :timeoutable
-      devise :rememberable unless Decidim.expire_session_after.instance_of?(ActiveSupport::Duration)
+      devise :rememberable if Decidim.enable_remember_me
 
       validates :email, uniqueness: true
 

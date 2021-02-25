@@ -4,7 +4,7 @@
     const $timeoutModal = $("#timeoutModal");
     const timeoutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);
     const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
-    const interval = parseInt($timeoutModal.data("session-timeouter-interval"), 10);
+    const interval = parseInt($timeoutModal.data("session-timeout-interval"), 10);
     let endsAt = exports.moment().add(timeoutInSeconds, "seconds");
     const popup = new Foundation.Reveal($timeoutModal);
     const $continueSessionButton = $("#continueSession");
