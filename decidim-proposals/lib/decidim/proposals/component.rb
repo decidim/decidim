@@ -144,9 +144,11 @@ Decidim.register_component(:proposals) do |component|
 
   component.exports :proposal_comments do |exports|
     exports.collection do |component_instance|
-      Decidim::Comments::Export.comments_for_resource(
-        Decidim::Proposals::Proposal, component_instance
-      )
+      if proposal_hidden?
+        Decidim::Comments::Export.comments_for_resource(
+          Decidim::Proposals::Proposal, component_instance
+        )
+      end
     end
 
     exports.include_in_open_data = true
