@@ -270,9 +270,15 @@ module Decidim
     false
   end
 
-  # How long can a user remained logged in before the session expires
+  # How long can a user remained logged in before the session expires. If set to false
+  # enables "remember me" option when signing in.
   config_accessor :expire_session_after do
-    1.day
+    30.minutes
+  end
+
+  # Defines (in milliseconds) how often session_timeouter.js checks time between current moment and last request
+  config_accessor :session_timeouter_interval do
+    10_000
   end
 
   # Exposes a configuration option: an object to configure Etherpad
@@ -358,11 +364,6 @@ module Decidim
   # set cookies.
   config_accessor :consent_cookie_name do
     "decidim-cc"
-  end
-
-  # Defines how often session_timeouter.js checks time between current moment and last request
-  config_accessor :session_timeouter_interval do
-    10_000
   end
 
   # Public: Registers a global engine. This method is intended to be used

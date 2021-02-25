@@ -4,14 +4,18 @@
     const $timeoutModal = $("#timeoutModal");
     const timeoutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);
     const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
-    const interval = $timeoutModal.data("session-timeouter-interval");
+    const interval = parseInt($timeoutModal.data("session-timeouter-interval"), 10);
     let endsAt = exports.moment().add(timeoutInSeconds, "seconds");
     const popup = new Foundation.Reveal($timeoutModal);
     const $continueSessionButton = $("#continueSession");
 
+    if (isNaN(interval)) {
+      return;
+    }
+
     // Ajax request is made at timeout_modal.html.erb
     $continueSessionButton.on("click", () => {
-      $("#timeoutModal").foundation("close")
+      $("#timeoutModal").foundation("close");
       // In admin panel we have to hide all overlays
       $(".reveal-overlay").css("display", "none");
     })
@@ -24,7 +28,7 @@
       if (!secondsUntilExpiration) {
         return;
       }
-      endsAt = exports.moment().add(secondsUntilExpiration, "seconds")
+      endsAt = exports.moment().add(secondsUntilExpiration, "seconds");
     }
 
     const sessionTimeLeft = () => {
@@ -35,7 +39,7 @@
         headers: {
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
-      })
+      });
     }
 
     const exitInterval = setInterval(() => {
@@ -47,7 +51,7 @@
 
       sessionTimeLeft().then((result) => {
         const secondsUntilSessionExpires = result.seconds_remaining;
-        setTimer(secondsUntilSessionExpires)
+        setTimer(secondsUntilSessionExpires);
 
         if (secondsUntilSessionExpires <= 90) {
           $timeoutModal.find("#reveal-hidden-sign-out")[0].click();
@@ -75,4 +79,4 @@
       return;
     });
   })
-})(window)
+})(window);
