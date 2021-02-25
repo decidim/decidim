@@ -2,7 +2,6 @@
 # frozen_string_literal: true
 
 require "json"
-require "byebug"
 # rubocop:disable Style/GlobalVars
 
 $github_token = ARGV[0]
@@ -14,7 +13,7 @@ if $github_token.nil? || $github_token == "--help"
 
     ## Example
 
-        ruby test.rb <GITHUB PERSONAL ACCESS TOKEN> <SHA>
+        bin/changelog_generator <GITHUB PERSONAL ACCESS TOKEN> <SHA>
 
     ## Params
 
@@ -73,11 +72,8 @@ end
 handled_ids = []
 
 prs = list_of_commits.inject({}) do |acc, commit|
-  if crowdin?(commit)
-    acc
-  else
-    acc.update(commit => get_pr_data(commit))
-  end
+  next acc if crowdin?(commit)
+  acc.update(commit => get_pr_data(commit))
 end
 
 types = {
