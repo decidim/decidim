@@ -25,8 +25,12 @@ pl:
           global:
             announcement: Ogłoszenie
             clean_after_publish: Usuń odpowiedzi podczas publikowania ankiety
+            ends_at: Odpowiedzi akceptowane do
+            ends_at_help: Pozostaw puste jeśli nie określono daty
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
+            starts_at: Odpowiedzi akceptowane od
+            starts_at_help: Pozostaw puste jeśli nie określono daty
           step:
             allow_answers: Pozwól na wypełnianie
             allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
