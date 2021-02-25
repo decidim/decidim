@@ -18,22 +18,26 @@ module Decidim
 
           def start_time
             content_tag :span, title: t("activemodel.attributes.voting.start_time") do
-              format_time(current_participatory_space.start_time)
+              format_date(current_participatory_space.start_time)
             end
           end
 
           def end_time
             content_tag :span, title: t("activemodel.attributes.voting.end_time") do
-              format_time(current_participatory_space.end_time)
+              format_date(current_participatory_space.end_time)
             end
           end
 
-          def format_time(time)
+          def format_date(time)
             if time
-              l(time, format: :decidim_short)
+              l(time.to_date, format: :decidim_short)
             else
               t("decidim.votings.votings_m.unspecified")
             end
+          end
+
+          def voting_dates
+            "#{start_time} — #{end_time}"
           end
 
           def translated_button_text
