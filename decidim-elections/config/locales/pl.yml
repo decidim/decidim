@@ -553,8 +553,18 @@ pl:
               name: Nagłówek głosowania
             html_block_1:
               name: 1 blok html głosowania
+            html_block_2:
+              name: 2 blok html głosowania
+            html_block_3:
+              name: 3 blok html głosowania
+            metrics:
+              name: Metryki głosowania
             polling_stations:
               name: Lokal wyborczy głosowania
+            stats:
+              name: Statystyki głosowania
+            timeline:
+              name: Oś czasu głosowania
         index:
           not_published: Nie opublikowano
           published: Opublikowano
@@ -562,12 +572,18 @@ pl:
           content_blocks:
             edit:
               update: Aktualizuj
+          edit:
+            active_content_blocks: Aktywne bloki treści
+            inactive_content_blocks: Nieaktywne bloki treści
         menu:
+          votings: Głosowania
           votings_submenu:
             attachment_collections: Foldery
             attachment_files: Pliki
             attachments: Załączniki
             components: Komponenty
+            info: Informacje
+            landing_page: Strona docelowa
             monitoring_committee_members: Komisja monitorująca
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
@@ -672,15 +688,19 @@ pl:
             publish: Publikuj
             unpublish: Cofnij publikowanie
           create:
+            invalid: Podczas tworzenia głosowania wystąpił błąd
             success: Utworzono głosowanie
           edit:
             add_election_component: Nie masz żadnych wyborów skonfigurowanych w tym głosowaniu. Dodaj je w sekcji Komponenty
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
+            select_a_voting_type: Wybierz typ głosowania
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
+              in_person: Osobiście
               online: Online
           new:
             create: Utwórz
