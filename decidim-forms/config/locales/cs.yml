@@ -10,10 +10,15 @@ cs:
         question_type: Typ
       questionnaire_question:
         mandatory: Povinné
+        max_characters: Limit znaků (ponechte na 0, pokud není limit)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Potřebuje být znovu připojen
+            body:
+              too_long: je příliš dlouhý
             choices:
               missing: nejsou úplné
               too_many: jsou příliš mnoho
@@ -74,8 +79,8 @@ cs:
           form:
             add_question: Přidat otázku
             add_separator: Přidat oddělovač
-            already_answered_warning: Dotazník již odpověděli někteří uživatelé, takže nemusíte upravovat své dotazy.
-            collapse: Sbalit všechny úlohy
+            already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
+            collapse: Sbalit všechny otázky
             expand: Rozbalit všechny otázky
             preview: Náhled
             title: Upravit formulář pro %{questionnaire_for}
@@ -110,7 +115,7 @@ cs:
         answer:
           body: Tělo nemůže být prázdné
       files:
-        extension_whitelist: 'Akceptované formáty:'
+        extension_allowlist: 'Akceptované formáty:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Tento obrázek bude:'
@@ -118,6 +123,7 @@ cs:
           resize_and_pad: Zmenšeno a odsazeno k
           resize_to_fit: Upravena velikost na vyplnění
       question_types:
+        files: Soubory
         long_answer: Dlouhá odpověď
         matrix_multiple: Matice (Více možností)
         matrix_single: Matice (Jedna možnost)

@@ -9,7 +9,7 @@ require "decidim/core/test/shared_examples/participatory_space_resourcable_inter
 module Decidim
   module Assemblies
     describe AssemblyType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:assembly) }
 

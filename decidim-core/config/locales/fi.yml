@@ -79,11 +79,12 @@ fi:
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
+      blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
       data_portability_export:
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       delete:
-        alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
+        alert: Tätä toimintoa ei voi peruuttaa. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
         confirm:
           close: Sulje ikkuna
           ok: Kyllä, haluan poistaa tilini
@@ -113,6 +114,8 @@ fi:
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
         unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisemisen osallistumistilassa %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
       moderation:
         hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin osallistumistilaan %{space_name}"
         unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen osallistumistilassa %{space_name}"
@@ -143,10 +146,14 @@ fi:
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
         update: "%{user_name} päivitti staattista sivua %{resource_name}"
       user:
+        block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
         officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
+        promote: "%{user_name} on korottanut käyttäjän %{resource_name} oikeudet"
         remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
         show_email: "%{user_name} tarkasteli osallistujan %{resource_name} sähköpostiosoitetta"
+        transfer: "%{user_name} siirsi osallistujan %{resource_name}"
+        unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
@@ -276,7 +283,7 @@ fi:
       dummy_authorization_workflow:
         name: Esimerkkivahvistuksen työnkulku
       errors:
-        duplicate_authorization: Toinen käyttäjätili on jo vahvistettu samoilla tiedoilla.
+        duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
       expired_at: Umpeutuu %{timestamp}
       expires_at: Umpeutuu %{timestamp}
       foo_authorization:
@@ -322,6 +329,13 @@ fi:
           title: Vahvista sähköpostiosoitteesi
       show:
         close_modal: Sulje ikkuna
+    block_user_mailer:
+      notify:
+        body_1: Tilisi on estettiin.
+        body_2: 'Syy: %{justification}'
+        greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei,
+        subject: Käyttäjätilisi on estetty palvelussa %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: ja %{count} lisää
@@ -415,7 +429,7 @@ fi:
         ready: Valmis
       show:
         download_data: Lataa tiedot
-        download_data_description: Kaikki tiliisi liittyvät tiedot sisältävä tiedosto lähetetään sähköpostiosoitteeseen <strong>%{user_email}</strong>
+        download_data_description: Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
         request_data: Pyydä tietoja
     datepicker:
       help_text: 'Odotettu muoto: %{datepicker_format}'
@@ -451,6 +465,8 @@ fi:
           register: Rekisteröidy
           sign_in_disabled: Voit kirjautua ulkoisella tilillä
           sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä
+        user:
+          timed_out: Palvelua ei ole käytetty hetkeen, minkä takia sinut on kirjattu palvelusta ulos automaattisesti. Jos haluat jatkaa palvelun käyttöä, kirjaudu uudestaan sisään.
       shared:
         newsletter_modal:
           buttons:
@@ -642,7 +658,7 @@ fi:
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
     export_mailer:
       data_portability_export:
-        click_button: 'Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.'
+        click_button: 'Napsauta Seuraava-linkkiä ladataksesi tietosi.<br/>Tiedosto on saatavilla %{date} saakka.<br/>Tarvitset paketin avaamiseen <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille), <a href="https://www.keka.io/en/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelmiston</a> (Linux-käyttöjärjestelmille). Salasana: %{password}'
         download: Lataa
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
@@ -675,7 +691,7 @@ fi:
       create:
         button: Seuraa
         error: Tämän kohteen seuraaminen epäonnistui.
-        participatory_space: Seuraat jo osallistumistilaa <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Seuraat kohdetta <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetus epäonnistui.
@@ -934,7 +950,7 @@ fi:
         show:
           back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
-          not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
+          not_allowed: Tämä osallistuja ei halua vastaanottaa yksityisviestejä.
           title: 'Keskustelu: %{usernames}'
         start:
           send: Lähetä
@@ -1005,8 +1021,10 @@ fi:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
       show:
+        administrators: Hallintakäyttäjät
         allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
         direct_messages: Vastaanota yksityisviestejä kaikilta
+        email_on_moderations: Haluan saada sähköpostia aina, kun jotain ilmoitetaan moderointiin.
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
@@ -1102,6 +1120,7 @@ fi:
       not_allowed: Et voi katsoa tätä sisältöä
     profile:
       deleted: Poistettu käyttäjä
+      inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
       view: Näytä
     profiles:
       default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu ja sen nimi vastaa oikeaa nimeä
@@ -1115,6 +1134,7 @@ fi:
         groups: Ryhmät
         members: Jäsenet
         officialized: Virallinen osallistuja
+        send_private_message: Lähetä yksityisviesti
         timeline: Aikajana
         view_full_profile: Näytä koko profiili
       sidebar:
@@ -1196,7 +1216,7 @@ fi:
         view_all: Näytä kaikki (%{count})
     security:
       selfxss_warning:
-        description: Tämä selainominaisuus on tarkoitettu kehittäjille ja sinun ei tule liittää tähän mitään tekstiä, jos sinulta on pyydetty sellaista. Tekstin liittäminen tähän ikkunaan voi vaarantaa yksityisyytesi ja antaa hakkereille pääsyn tilillesi.
+        description: Tämä selainominaisuus on tarkoitettu kehittäjille ja sinun ei tule liittää tähän mitään tekstiä, jos sinua on pyydetty sellaista tekemään. Tekstin liittäminen tähän ikkunaan voi vaarantaa yksityisyytesi ja antaa hakkereille pääsyn tilillesi.
         title: Seis!
     shared:
       confirm_modal:
@@ -1499,7 +1519,7 @@ fi:
     messages:
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään
       confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
-      content_type_whitelist_error: tiedostotyyppi ei kelpaa
+      content_type_allowlist_error: tiedostotyyppi ei kelpaa
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
@@ -1559,6 +1579,11 @@ fi:
         instagram: "%{organization} Instagramissa"
         twitter: "%{organization} Twitterissä"
         youtube: "%{organization} YouTubessa"
+      timeout_modal:
+        body: Et ole käyttänyt palvelua %{minutes} minuuttiin. Jos et jatka palvelun käyttöä, sinut kirjataan automaattisesti ulos oman turvallisuutesi takia.
+        continue_session: Jatka palvelun käyttöä
+        sign_out: Kirjaudu ulos
+        title: Haluatko jatkaa palvelun käyttöä?
       user_menu:
         account: 'Käyttäjätili: %{name}'
         admin_dashboard: Hallintapaneeli

@@ -31,6 +31,7 @@ pl:
             success: Wpis został usunięty
           edit:
             save: Aktualizuj
+            title: Edytuj wpis
           index:
             title: Wpisy
           new:

@@ -1,0 +1,21 @@
+<div id="vote-stats" data-refresh-url="<%= election_step_stats_path(election, current_step) %>">
+  <%= render(partial: "vote_stats") %>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".title") %></h2>
+  </div>
+
+  <div class="card-section">
+    <% form.messages.each do |key, value| %>
+      <% if form.errors.include?(key) %>
+        <p><%= form.errors.messages[key][0].html_safe %></p>
+      <% else %>
+        <p><%= value.html_safe %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag("decidim/elections/admin/vote_statistics") %>

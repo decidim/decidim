@@ -24,14 +24,6 @@ pt:
         full_address: Endereço completo
         verification_code: Código de verificação
   decidim:
-    admin:
-      menu:
-        authorization_workflows: Verificações
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} atualizou a configuração de verificação de documentos de identidade"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando uma verificação de documentos de identidade off-line"
     authorization_handlers:
       admin:
         csv_census:

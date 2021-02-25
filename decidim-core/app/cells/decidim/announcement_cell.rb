@@ -22,12 +22,32 @@ module Decidim
 
     private
 
+    def has_title?
+      announcement.is_a?(Hash) && announcement.has_key?(:title)
+    end
+
     def callout_class
-      model[:callout_class] ||= "secondary"
+      options[:callout_class] ||= "secondary"
     end
 
     def announcement
-      model[:announcement]
+      model
+    end
+
+    def clean_title
+      clean(announcement[:title])
+    end
+
+    def clean_body
+      Array(announcement[:body]).map { |paragraph| tag.p(clean(paragraph)) }.join("")
+    end
+
+    def clean_announcement
+      clean(announcement)
+    end
+
+    def clean(value)
+      decidim_sanitize(translated_attribute(value))
     end
   end
 end

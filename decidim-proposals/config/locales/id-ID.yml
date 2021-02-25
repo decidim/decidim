@@ -276,7 +276,6 @@ id:
         actions:
           preview: Preview
         exports:
-          comments: Komentar
           proposals: Proposal
         models:
           proposal:
@@ -441,13 +440,6 @@ id:
               ok: Tarik draf kolaboratif
               title: Tindakan berikut tidak dapat diubah
             success: Draf kolaboratif berhasil ditarik.
-        compare:
-          mine_is_different: Draf kolaboratif saya berbeda
-          no_similars_found: Sudah selesai dilakukan dengan baik! Tidak ditemukan draf kolaboratif yang serupa
-          title: Draf kolaboratif serupa
-        complete:
-          send: Kirim
-          title: Selesaikan draf kolaboratif Anda
         count:
           drafts_count:
             other: "%{count} draf kolaboratif"
@@ -478,7 +470,6 @@ id:
           unfold: Membuka
         new:
           send: Terus
-          title: Buat draf kolaboratif Anda
         new_collaborative_draft_button:
           new_collaborative_draft: Draf kolaboratif baru
         orders:
@@ -523,14 +514,9 @@ id:
           error: Sudah ada kesalahan saat menyimpan draf kolaboratif.
           success: Draf kolaboratif berhasil diperbarui.
         wizard_aside:
-          back: Kembali
           info: Anda membuat <strong>draf kolaboratif</strong>.
-        wizard_steps:
-          see_steps: lihat langkah-langkahnya
-          step_1: Buat draf kolaboratif Anda
-          step_2: Bandingkan dengan draf kolaboratif
-          step_3: Selesaikan draf kolaboratif Anda
-          step_of: Langkah %{current_step_num} dari %{total_steps}
+        wizard_header:
+          title: Buat draf kolaboratif Anda
       create:
         error: Sudah ada kesalahan saat menyimpan proposal.
         success: Proposal berhasil dibuat. Disimpan sebagai Draf.

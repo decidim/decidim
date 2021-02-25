@@ -26,11 +26,14 @@ fi-pl:
         published_at: Julkaistu osoitteessa
         weight: Painoarvo
       id: ID
+      import:
+        user_group_id: Tuo käyttäjänä
       newsletter:
         body: Runko
         subject: Otsikko
       organization:
         alert_color: Ilmoitus
+        available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
         comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
         cta_button_path: Call To Action -painikkeen polku
@@ -41,6 +44,8 @@ fi-pl:
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
+        force_authentication: Kirjautuminen vaaditaan
+        force_users_to_authenticate_before_access_organization: Pakota käyttäjät kirjautumaan ennen organisaatioon pääsyä
         from: Lähettäjän sähköpostiosoite
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
@@ -53,6 +58,7 @@ fi-pl:
         highlighted_content_banner_image: Kuva
         highlighted_content_banner_short_description: Lyhyt kuvaus
         highlighted_content_banner_title: Otsikko
+        host: Osoite
         instagram_handler: Instagram-käsittelijä
         logo: Logo
         machine_translation_display_priority: Koneellisen käännöksen prioriteetti
@@ -65,16 +71,21 @@ fi-pl:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
+        organization_admin_email: Organisaation hallintakäyttäjän sähköposti
+        organization_admin_name: Organisaation hallintakäyttäjän nimi
+        organization_locales: Organisaation kielet
         primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
         rich_text_editor_in_public_views: Ota käyttöön rikas tekstieditori osallistujille
         secondary_color: Toissijainen
+        secondary_hosts: Toissijaiset osoitteet
         send_welcome_notification: Lähetä tervetuloilmoitus
         success_color: Onnistuminen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
+        users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
@@ -90,7 +101,10 @@ fi-pl:
         name: Nimi
         organization: Organisaatio
         plural: Monikko
+      settings:
+        scope_id: Teema
       static_page:
+        allow_public_access: Salli pääsy ilman kirjautumista
         changed_notably: On tapahtunut huomattavia muutoksia.
         content: Sisältö
         organization: Organisaatio
@@ -113,6 +127,10 @@ fi-pl:
               allowed_file_content_types: Virheellinen kuvatiedosto
             official_img_header:
               allowed_file_content_types: Virheellinen kuvatiedosto
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Virheellinen mime-tyyppi
   activerecord:
     attributes:
       decidim/static_page:
@@ -131,14 +149,27 @@ fi-pl:
     admin:
       actions:
         add: Lisää
+        attachment:
+          new: Uusi liite
+        attachment_collection:
+          new: Uusi kansio
         browse: Selaa
+        category:
+          new: Uusi aihepiiri
         export: Vie
+        import: Tuo
         manage: Hallitse
         new: Uusi %{name}
+        newsletter:
+          new: Uusi uutiskirje
+        participatory_space_private_user:
+          new: Uusi osallistumistilan yksityinen käyttäjä
         per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
         share: Jaa
+        user:
+          new: Uusi käyttäjä
         verify: Vahvista
       admin_terms_of_use:
         accept:
@@ -224,6 +255,12 @@ fi-pl:
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
+      block_user:
+        new:
+          action: Estä tili ja lähetä perustelut
+          description: Estämällä käyttäjän estät kyseisen käyttäjän pääsyn hänen omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä kyseinen käyttäjä voi tehdä palauttaakseen pääsyn tililleen.
+          justification: Perustelut
+          title: Estä käyttäjä %{name}
       categories:
         create:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
@@ -279,6 +316,21 @@ fi-pl:
         update:
           error: Tämän komponentin päivittämisessä tapahtui virhe.
           success: Komponentti päivitetty onnistuneesti.
+      conflicts:
+        attempts: Yritykset
+        'false': 'Ei'
+        managed_user_name: Hallittu käyttäjä
+        solved: Ratkaistu
+        title: Tarkistusten ristiriidat
+        transfer:
+          email: Sähköposti
+          error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
+          name: Nimi
+          reason: Syy
+          success: Siirto onnistui.
+          title: Siirrä
+        'true': 'Kyllä'
+        user_name: Käyttäjä
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja
@@ -322,6 +374,12 @@ fi-pl:
           title_cont: '%{collection}: Hae otsikon perusteella'
         state_eq:
           label: Tila
+      forms:
+        file_help:
+          import:
+            explanation: 'Tiedoston ohjeistus:'
+            message_1: CSV-, JSON- ja Excel-tiedostoja (.xls) tuetaan
+            message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
       help_sections:
         error: Ohjeosioiden päivittämisessä tapahtui virhe
         form:
@@ -360,6 +418,24 @@ fi-pl:
           impersonate_existing_managed_user: Esiinny hallittuna käyttäjänä "%{name}"
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjää
+      imports:
+        creators:
+          proposalcreator: Ehdotuksen luoja
+        error: Tuonti epäonnistui
+        help:
+          proposalcreator: Tiedostossa on oltava sarakenimet title/fi otsikoille ja body/fi kuvausteksteille (tai toiseen kieleen viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
+        import_from_file: Tuo tiedostosta
+        invalid_lines: Tuontitiedostossa on virheitä riveillä %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Takaisin
+          file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
+          import: Tuo
+        notice: "%{number} kpl kohteita %{resource_name} tuotu onnistuneesti"
       logs:
         logs_list:
           no_logs_yet: Ei vielä lokitietoja
@@ -477,17 +553,23 @@ fi-pl:
       moderated_users:
         index:
           actions:
+            block: Estä käyttäjä
             title: Toiminnot
+            unblock: Poista käyttäjän esto
             unreport: Poista ilmoitus
           name: Nimi
           nickname: Nimimerkki
           reason: Syy
+          reports: Ilmoitusten määrä
           title: Ilmoitettujen käyttäjien lista
         report:
           reasons:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
+        tabs:
+          blocked: Estetty
+          unblocked: Ei estetty
       moderations:
         index:
           title: Moderoinnit
@@ -576,6 +658,9 @@ fi-pl:
           error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
       officializations:
+        block:
+          error: Käyttäjän estäminen epäonnistui
+          success: Käyttäjän estäminen onnistui
         create:
           success: Käyttäjä virallistettu onnistuneesti
         destroy:
@@ -583,6 +668,7 @@ fi-pl:
         index:
           actions: Toiminnot
           badge: Kunniamerkki
+          block: Estä käyttäjä
           created_at: Luontihetki
           name: Nimi
           nickname: Nimimerkki
@@ -593,6 +679,7 @@ fi-pl:
           reports: Ilmoitukset
           show_email: Näytä sähköpostiosoite
           status: Tila
+          unblock: Poista käyttäjän esto
           unofficialize: Poista virallistaminen
         new:
           badge: Virallistamismerkki
@@ -606,6 +693,9 @@ fi-pl:
           hidden: piilotettu
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
+        unblock:
+          error: Käyttäjän eston poistaminen epäonnistui
+          success: Käyttäjän eston poistaminen onnistui
       organization:
         edit:
           title: Muokkaa organisaatiota
@@ -839,6 +929,16 @@ fi-pl:
       errors:
         impersonate_user:
           reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
+    metrics:
+      blocked_users:
+        object: estetyt käyttäjät
+        title: Estetyt käyttäjät
+      reported_users:
+        object: ilmoitetut käyttäjät
+        title: Ilmoitetut käyttäjät
+      user_reports:
+        object: ilmoitukset käyttäjistä
+        title: Ilmoitukset käyttäjistä
     moderations:
       actions:
         expand: Avaa

@@ -29,6 +29,7 @@ nl:
             success: Post succesvol verwijderd
           edit:
             save: Bijwerken
+            title: Bericht bewerken
           index:
             title: berichten
           new:
@@ -49,7 +50,7 @@ nl:
       posts:
         show:
           back: Terug naar het overzicht
-          comments: Opmerkingen
+          comments: Reacties
           view: Bekijk
         sidebar_blog:
           comments: reacties

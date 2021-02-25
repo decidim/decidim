@@ -1,0 +1,71 @@
+name: "[CI] Proposals (system public 1)"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+
+env:
+  CI: "true"
+  SIMPLECOV: "true"
+  RUBY_VERSION: 2.7.1
+  DECIDIM_MODULE: decidim-proposals
+
+jobs:
+  main:
+    name: Tests
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        if: "github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - run: bundle exec rake test_app
+        name: Create test app
+      - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
+        name: Create the screenshots folder
+      - uses: nanasess/setup-chromedriver@v1.0.1
+      - run: |
+          count=$(ls spec/system/*_spec.rb | wc -l | tr -d ' ')
+          half=$(expr $count / 2)
+          list_of_files=$(ls spec/system/*_spec.rb | sed -n "1,$(echo $half)p" | xargs)
+          bundle exec rspec $list_of_files
+        name: RSpec
+        working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: ./.github/upload_coverage.sh decidim-proposals-system-public $GITHUB_EVENT_PATH
+        name: Upload coverage
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: screenshots
+          path: ./spec/decidim_dummy_app/tmp/screenshots
+          if-no-files-found: ignore

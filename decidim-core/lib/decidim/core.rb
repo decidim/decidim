@@ -93,6 +93,8 @@ module Decidim
   autoload :HasUploadValidations, "decidim/has_upload_validations"
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
   autoload :ShareableWithToken, "decidim/shareable_with_token"
+  autoload :RecordEncryptor, "decidim/record_encryptor"
+  autoload :AttachmentAttributes, "decidim/attachment_attributes"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -358,6 +360,11 @@ module Decidim
     "decidim-cc"
   end
 
+  # Defines how often session_timeouter.js checks time between current moment and last request
+  config_accessor :session_timeouter_interval do
+    10_000
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
@@ -557,7 +564,7 @@ module Decidim
     organization = begin
       if model.is_a?(Decidim::Organization)
         model
-      elsif model.respond_to?(:organization)
+      elsif model.respond_to?(:organization) && model.organization.present?
         model.organization
       end
     end

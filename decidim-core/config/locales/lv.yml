@@ -33,7 +33,6 @@ lv:
       decidim/profile_updated_event: Profils ir atjaunināts
       decidim/promote_to_admin: Paaugstināts par grupas administratoru
       decidim/removed_from_group: Noņemts no grupas
-      decidim/resource_endorsed_event: Vienums atbalstīts
   activerecord:
     attributes:
       decidim/user:
@@ -82,7 +81,6 @@ lv:
         file_no_exists: Fails neeksistē
         notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       delete:
-        alert: Šo darbību nevar atsaukt. Ja dzēsīsiet kontu, nevarēsiet ar to vairs pierakstīties.
         confirm:
           close: Aizvērt logu
           ok: Jā, es gribu dzēst savu kontu
@@ -266,8 +264,6 @@ lv:
         name: Autorizācijas paraugs
       dummy_authorization_workflow:
         name: Viettura autorizācijas darbplūsma
-      errors:
-        duplicate_authorization: Dalībnieks jau ir autorizēts ar tiem pašiem datiem.
       expired_at: Termiņš beidzās plkst. %{timestamp}
       expires_at: Termiņš beigsies plkst. %{timestamp}
       foo_authorization:
@@ -382,7 +378,6 @@ lv:
         ready: Gatavs
       show:
         download_data: Lejupielādēt datus
-        download_data_description: Fails ar visu ar kontu saistīto informāciju tiks nosūtīts uz vietni <strong>%{user_email}</strong>
         request_data: Pieprasīt datus
     datepicker:
       help_text: 'Paredzētais formāts: %{datepicker_format}'
@@ -598,7 +593,6 @@ lv:
           notification_title: '%{name} (%{nickname}) <a href="%{resource_path}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
     export_mailer:
       data_portability_export:
-        click_button: 'Noklikšķiniet uz nākamās pogas, lai lejupielādētu savus datus. <br/>. Fails jums būs pieejams līdz %{date}. <br/> Jums būs nepieciešams <a href=''https://www.7-zip.org/''>7-Zip</a>, lai to atvērtu. Parole: %{password}'
         download: Lejupielādēt
       export:
         ready: Lūdzu, jūsu eksportēto datu saspiestā versija.
@@ -858,7 +852,6 @@ lv:
           title: Atbildēt
         show:
           chat_with: Saruna ar
-          not_allowed: Šis lietotājs vairs nepieņem tiešās ziņas.
           title: Saruna ar %{usernames}
         start:
           send: Sūtīt
@@ -1361,7 +1354,7 @@ lv:
     messages:
       already_confirmed: jau tika apstiprināts, lūdzu, mēģiniet pierakstīties
       confirmation_period_expired: jāapstiprina %{period} laikā, lūdzu, pieprasiet jaunu
-      content_type_whitelist_error: faila tips nav derīgs
+      content_type_allowlist_error: faila tips nav derīgs
       cycle_detected: tvēruma saistītais tvērums nevar būt viens no tā atvasinājumiem
       expired: ir beidzies derīguma termiņš, lūdzu, pieprasiet jaunu
       file_size_is_less_than_or_equal_to: Faila izmēram jābūt mazākam vai vienādam ar %{count}.

@@ -142,7 +142,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze mediakoppeling.
           success: Media Link is succesvol bijgewerkt.
       menu:
-        conferences: conferenties
+        conferences: Conferenties
         conferences_submenu:
           attachment_collections: folders
           attachment_files: bestanden
@@ -183,7 +183,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
-            valuator: 'Waarde:'
+            valuator: Beoordelaar
         media_link:
           fields:
             date: Datum
@@ -246,7 +246,7 @@ nl:
           error: Er is een fout opgetreden bij het updaten van een registratietype voor deze conferentie.
           success: Registratietype is succesvol bijgewerkt voor deze conferentie.
       titles:
-        conferences: conferenties
+        conferences: Conferenties
     admin_log:
       conference:
         create: "%{user_name} heeft de %{resource_name} conferentie gemaakt"
@@ -267,9 +267,9 @@ nl:
         conference_registration:
           confirm: "%{user_name} bevestigde een conferentie-registratie in %{resource_name} conferentie"
         partner:
-          create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie"
-          delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
-          update: "%{user_name} bijgewerkt %{resource_name} in de %{space_name} conferentie"
+          create: "%{user_name} heeft partner %{resource_name} voor de conferentie %{space_name} aangemaakt"
+          delete: "%{user_name} heeft partner %{resource_name} van de %{space_name} conferentie verwijderd"
+          update: "%{user_name} heeft partner %{resource_name} in de conferentie %{space_name} bijgewerkt"
         registration_type:
           create: "%{user_name} heeft het %{resource_name} registratietype gemaakt in de %{space_name} conferentie"
           publish: "%{user_name} heeft het %{resource_name} registratietype gepubliceerd in de %{space_name} conferentie"
@@ -402,7 +402,7 @@ nl:
         personal_website: Persoonlijke website
         show:
           more_info: meer informatie
-          speaking_at: Spreekt bij
+          speaking_at: Spreker bij
       conference_speaker_cell:
         personal_url:
           personal_website: Persoonlijke website
@@ -423,7 +423,7 @@ nl:
         highlighted_conferences:
           name: Gemarkeerde conferenties
       index:
-        title: conferenties
+        title: Conferenties
       mailer:
         conference_registration_mailer:
           confirmation:
@@ -495,7 +495,7 @@ nl:
       statistics:
         answers_count: antwoorden
         comments_count: Comments
-        conference_count: conferenties
+        conference_count: Conferenties
         debates_count: debatten
         endorsements_count: Endorsements
         headline: Activiteit
@@ -549,7 +549,7 @@ nl:
         description: Links over deze conferentie
         title: Media en links
     menu:
-      conferences: conferenties
+      conferences: Conferenties
   devise:
     mailer:
       join_conference:

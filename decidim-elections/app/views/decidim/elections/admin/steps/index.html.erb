@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= translated_attribute(election.title) %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <% steps(current_step).each_with_index do |step, i| %>
+      <% if i > 0 %>&nbsp;&gt;&nbsp;<% end %>
+      <span class="<%= step.last %>"><%= t("steps.#{step.first}.title", scope: "decidim.elections.admin") %></span>
+    <% end %>
+  </div>
+</div>
+
+<% if @form %>
+  <%= decidim_form_for(@form, url: election_step_path(election, current_step), method: :patch, html: { class: "form step #{current_step}" }) do |f| %>
+    <%= render partial: current_step.to_s, locals: { form: @form, f: f } %>
+
+    <div class="button--double form-general-submit">
+      <%= f.hidden_field :current_step %>
+      <%= f.button type: :submit, class: "button", disabled: @form.invalid? do %>
+        <% if @form.pending_action %>
+          <span class='loading-spinner'></span> <%= t("steps.processing", scope: "decidim.elections.admin") %>
+        <% else %>
+          <%= t("steps.#{current_step}.submit", scope: "decidim.elections.admin") %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <% if @form.pending_action %>
+      <div id="pending_action"
+           data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
+           data-message-id="<%= @form.pending_action.message_id %>"></div>
+
+      <%= javascript_include_tag "decidim/elections/admin/pending_action" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <div class="content <%= current_step %>">
+    <%= render partial: current_step.to_s %>
+  </div>
+<% end %>

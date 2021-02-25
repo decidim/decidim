@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("title", scope: "decidim.admin.conflicts") %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("user_name", scope: "decidim.admin.conflicts") %></th>
+            <th><%= t("managed_user_name", scope: "decidim.admin.conflicts") %></th>
+            <th><%= t("attempts", scope: "decidim.admin.conflicts") %></th>
+            <th><%= t("solved", scope: "decidim.admin.conflicts") %></th>
+            <th class="table-list__actions"><%= t("title", scope: "decidim.admin.conflicts.transfer") %></h1>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% @conflicts.each do |conflict| %>
+            <tr>
+              <td><%= conflict.current_user.name %></td>
+              <td><%= conflict.managed_user.name %></td>
+              <td><%= conflict.times %></td>
+              <td><%= t(conflict.solved, scope: "decidim.admin.conflicts") %></td>
+              <td><%= icon_link_to "transfer", decidim_admin.edit_conflict_path(conflict), t("title", scope: "decidim.admin.conflicts.transfer") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

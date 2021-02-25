@@ -118,6 +118,10 @@ module Decidim
 
                 expect(Decidim::Proposals::Proposal.last.authors).to include(organization)
               end
+
+              it "create a searchable resource" do
+                expect { command.call }.to change(Decidim::SearchableResource, :count).by_at_least(1)
+              end
             end
 
             it "traces the action", versioning: true do
@@ -157,7 +161,7 @@ module Decidim
                 let(:has_address) { true }
 
                 context "when the address is present" do
-                  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+                  let(:address) { "Some address" }
 
                   before do
                     stub_geocoding(address, [latitude, longitude])

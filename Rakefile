@@ -84,6 +84,7 @@ desc "Bundle all Gemfiles"
 task :bundle do
   [".", "decidim-generators", "decidim_app-design"].each do |dir|
     Bundler.with_original_env do
+      puts "Updating #{dir}...\n"
       Dir.chdir(dir) { sh "bundle install" }
     end
   end

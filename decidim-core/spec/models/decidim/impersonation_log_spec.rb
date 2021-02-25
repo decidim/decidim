@@ -17,13 +17,5 @@ module Decidim
 
       it { is_expected.not_to be_valid }
     end
-
-    context "when the admin has already an active impersonation" do
-      before do
-        create(:impersonation_log, admin: subject.admin)
-      end
-
-      it { is_expected.not_to be_valid }
-    end
   end
 end

@@ -246,6 +246,7 @@ module Decidim
           :process,
           :process_step,
           :process_user_role,
+          :space_private_user,
           :export_space,
           :import
         ].include?(permission_action.subject)

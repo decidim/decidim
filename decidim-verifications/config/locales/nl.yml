@@ -34,16 +34,16 @@ nl:
             confirm: Intrekken voor de datum kan niet ongedaan worden gemaakt. Weet u zeker dat u wilt doorgaan?
             confirm_all: Het intrekken van alle autorisaties kan niet ongedaan worden gemaakt. Weet u zeker dat u wilt doorgaan?
           destroy_nok: Er is een probleem opgetreden tijdens het intrekken van autorisaties.
-          destroy_ok: Alle overeenkomende autorisaties zijn met succes herroepd!
+          destroy_ok: Alle overeenkomstige autorisaties zijn ingetrokken.
           info: Er zijn een totaal van %{count} geverifieerde deelnemers.
           no_data: Geen geverifieerde deelnemers
-          title: Herroepingsrecht van verificatie
-        authorization_workflows: Nazicht
+          title: Autorisaties intrekken
+        authorization_workflows: Authorisaties
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} heeft de verificatieconfiguratie Identity Documents bijgewerkt"
+        update_id_documents_config: "%{user_name} heeft de configuratie voor de authorisatie van identiteitsdocumenten bijgewerkt"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verifieerde %{resource_name} met behulp van een offline verificatie van identiteitsdocumenten"
+        grant_id_documents_offline_verification: "%{user_name} heeft %{resource_name} gecontroleerd aan de hand van offline verificatie van identiteitsdocumenten"
     authorization_handlers:
       admin:
         csv_census:
@@ -131,6 +131,7 @@ nl:
             title: Huidige censusgegevens
           instructions:
             body: Hiervoor moet u het systeembeheer invoeren en de csv_census-autorisaties toevoegen aan de organisatie
+            title: Je moet de CSV-census voor deze organisatie activeren
           new:
             file: ".csv-bestand met e-mailgegevens"
             info: 'Moet een bestand zijn in CSV formaat met slechts één kolom met het e-mailadres:'
@@ -146,6 +147,10 @@ nl:
             one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
             other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
           scope: Deelname is beperkt tot deelnemers met bereik %{scope_name}.
+          user_postal_codes:
+            one: Deelname is beperkt tot deelnemers met postcode %{postal_codes}, en jouw postcode is %{user_postal_code}.
+            other: 'Deelname is beperkt tot gebruikers met geen van volgende postcodes: %{postal_codes}. Jouw postcode is %{user_postal_code}.'
+          user_scope: Deelname is beperkt tot deelnemers met scope %{scope_name}, en jij hebt %{user_scope_name} als scope.
       id_documents:
         admin:
           config:

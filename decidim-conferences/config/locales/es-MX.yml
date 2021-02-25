@@ -266,10 +266,6 @@ es-MX:
       conferences:
         conference_registration:
           confirm: "%{user_name} ha confirmado su inscripción a la conferencia %{resource_name}"
-        partner:
-          create: "%{user_name} ha creado %{resource_name} en la conferencia %{space_name}"
-          delete: "%{user_name} ha eliminado al usuario %{resource_name} de la conferencia %{space_name}"
-          update: "%{user_name} ha actualizado %{resource_name} en la conferencia %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
@@ -402,6 +398,7 @@ es-MX:
         personal_website: Sitio web personal
         show:
           more_info: más información
+          speaking_at: Interviene en
       conference_speaker_cell:
         personal_url:
           personal_website: Sitio web personal
@@ -543,7 +540,7 @@ es-MX:
       participatory_spaces:
         conferences:
           contextual: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>\n"
-          page: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>\n"
+          page: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>"
           title: '¿Qué son las conferencias?'
     log:
       value_types:

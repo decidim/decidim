@@ -67,6 +67,20 @@ module TranslationHelpers
     end
   end
 
+  # Handles how to clear i18n form fields which uses a WYSIWYG editor.
+  #
+  # field - the name of the field that should be cleared, without the
+  #   locale-related part (e.g. `:participatory_process_title`)
+  # tab_selector - a String representing the ID of the HTML element that holds
+  #   the tabs for this input. It ususally is `"#<attribute_name>-tabs" (e.g.
+  #   "#title-tabs")
+  # locales - an Array with the locales IDs.
+  def clear_i18n_editor(field, tab_selector, locales)
+    clear_i18n_fields(field, tab_selector, locales) do |locator|
+      clear_editor locator
+    end
+  end
+
   # Handles how to fill a WYSIWYG editor.
   #
   # locator - The input field ID. The DOM element is selected using jQuery.
@@ -81,14 +95,39 @@ module TranslationHelpers
     SCRIPT
   end
 
+  # Handles how to clear a WYSIWYG editor.
+  #
+  # locator - The input field ID. The DOM element is selected using jQuery.
+  def clear_editor(locator)
+    page.execute_script <<-SCRIPT
+      $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "<p><br></p>";
+      $('##{locator}').val("")
+    SCRIPT
+  end
+
   private
 
   def fill_in_i18n_fields(field, tab_selector, localized_values)
+    # Ensure the field is visible in the view to avoid "element has zero size"
+    # errors
+    scroll_to(find(tab_selector))
     localized_values.each do |locale, value|
       within tab_selector do
         click_link I18n.with_locale(locale) { t("name", scope: "locale") }
       end
       yield "#{field}_#{locale}", value
+    end
+  end
+
+  def clear_i18n_fields(field, tab_selector, locales)
+    # Ensure the field is visible in the view to avoid "element has zero size"
+    # errors
+    scroll_to(find(tab_selector))
+    locales.each do |locale|
+      within tab_selector do
+        click_link I18n.with_locale(locale) { t("name", scope: "locale") }
+      end
+      yield "#{field}_#{locale}"
     end
   end
 

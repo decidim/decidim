@@ -46,13 +46,19 @@ en:
             title: Edit budget
             update: Update budget
           index:
+            finished_orders: Finished votes
+            pending_orders: Pending votes
             title: Budgets
+            users_with_finished_orders: Users with finished votes
+            users_with_pending_orders: Users with pending votes
           new:
             create: Create budget
             title: New budget
           update:
             invalid: There was a problem updating this budget
             success: Budget successfully updated
+        exports:
+          projects: Projects
         models:
           budget:
             name: Budget

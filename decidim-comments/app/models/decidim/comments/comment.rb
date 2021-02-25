@@ -55,11 +55,13 @@ module Decidim
       delegate :organization, to: :commentable
 
       translatable_fields :body
-      searchable_fields(
-        participatory_space: :itself,
-        A: :body,
-        datetime: :created_at
-      )
+      searchable_fields({
+                          participatory_space: :itself,
+                          A: :body,
+                          datetime: :created_at
+                        },
+                        index_on_create: true,
+                        index_on_update: ->(comment) { comment.visible? })
 
       def self.positive
         where(alignment: 1)
@@ -71,6 +73,10 @@ module Decidim
 
       def self.negative
         where(alignment: -1)
+      end
+
+      def visible?
+        participatory_space.try(:visible?) && component.try(:published?)
       end
 
       def participatory_space
@@ -144,11 +150,17 @@ module Decidim
         Decidim::Comments::CommentSerializer
       end
 
-      def self.newsletter_participant_ids(space)
-        authors_sql = Decidim::Comments::Comment.select("DISTINCT decidim_comments_comments.decidim_author_id").not_hidden
-                                                .where("decidim_comments_comments.decidim_author_type" => "Decidim::UserBaseEntity").to_sql
-
-        Decidim::User.where(organization: space.organization).where("id IN (#{authors_sql})").pluck(:id)
+      # Public: Returns the list of author IDs of type `UserBaseEntity` that commented in one of the +resources+.
+      # Expects all +resources+ to be of the same "commentable_type".
+      # If the result is not `Decidim::Comments::Commentable` returns `nil`.
+      def self.user_commentators_ids_in(resources)
+        if resources.first&.kind_of?(Decidim::Comments::Commentable)
+          commentable_type = resources.first.class.name
+          Decidim::Comments::Comment.select("DISTINCT decidim_author_id").not_hidden
+                                    .where(decidim_commentable_id: resources.pluck(:id))
+                                    .where(decidim_commentable_type: commentable_type)
+                                    .where("decidim_author_type" => "Decidim::UserBaseEntity").pluck(:decidim_author_id)
+        end
       end
 
       def can_participate?(user)

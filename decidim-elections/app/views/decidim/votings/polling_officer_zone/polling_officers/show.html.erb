@@ -1,0 +1,42 @@
+<div class="polling_officer_zone">
+  <div class="callout success">
+    <p><%= t(".polling_officer_role_description") %></p>
+  </div>
+
+  <h2><%= t(".polling_stations.title") %></h2>
+  <% if polling_officers.any? %>
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t(".polling_stations.list.voting") %></th>
+            <th><%= t(".polling_stations.list.name") %></th>
+            <th><%= t(".polling_stations.list.address") %></th>
+            <th><%= t(".polling_stations.list.role") %></th>
+            <th><%= t(".polling_stations.list.actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% polling_officers.each do |polling_officer| %>
+            <tr>
+              <td><%= present(polling_officer.voting).title %></td>
+              <td><%= present(polling_officer.polling_station).title %></td>
+              <td><%= present(polling_officer.polling_station).address %></td>
+              <td><%= t(polling_officer.role, scope: "decidim.votings.polling_officers.roles") %></td>
+              <td class="table-list__actions">
+                <% if polling_officer.polling_station.present? %>
+                  <%= icon_link_to "person", polling_officers_polling_station_path(polling_officer, polling_officer.polling_station), t(".actions.identify_person"), class: "action-icon--manage" %>
+                  <%= icon_link_to "envelope-open", polling_officers_polling_station_path(polling_officer, polling_officer.polling_station), t(".actions.count_votes"), class: "action-icon--manage" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="callout warning">
+      <%= t(".polling_stations.no_polling_stations") %>
+    </div>
+  <% end %>
+</div>

@@ -36,7 +36,7 @@ module Decidim
         )
       end
 
-      if (extensions = extension_whitelist)
+      if (extensions = extension_allowlist)
         messages << I18n.t(
           "allowed_file_extensions",
           extensions: extensions.join(" "),
@@ -73,12 +73,12 @@ module Decidim
     end
     # rubocop: enable Metrics/CyclomaticComplexity
 
-    def extension_whitelist
-      return unless uploader.respond_to?(:extension_whitelist, true)
+    def extension_allowlist
+      return unless uploader.respond_to?(:extension_allowlist, true)
 
       # It may be a private method in some uploaders which is why we need to use
       # `#send`.
-      uploader.send(:extension_whitelist)
+      uploader.send(:extension_allowlist)
     end
 
     private

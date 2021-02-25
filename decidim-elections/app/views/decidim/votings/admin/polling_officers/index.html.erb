@@ -1,0 +1,50 @@
+<div class="card" id="polling_officers">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.votings.polling_officers", name: t("models.polling_officer.name", scope: "decidim.votings.admin")), new_voting_polling_officer_path(current_voting), class: "button tiny button--title" if allowed_to? :create, :polling_officer, voting: current_voting %>
+    </h2>
+  </div>
+
+  <%= admin_filter_selector %>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.polling_officer.fields.name", scope: "decidim.votings.admin") %></th>
+            <th><%= t("models.polling_officer.fields.email", scope: "decidim.votings.admin") %></th>
+            <th><%= t("models.polling_officer.fields.polling_station", scope: "decidim.votings.admin") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.votings.polling_officers") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% filtered_polling_officers.each do |polling_officer| %>
+            <tr data-id="<%= polling_officer.id %>">
+              <td>
+                <%= polling_officer.name %>
+              </td>
+              <td>
+                <%= polling_officer.email %>
+              </td>
+              <td>
+                <% if polling_officer.presided_polling_station.present? %>
+                  <%= link_to "#{translated_attribute(polling_officer.presided_polling_station.title)} (#{t(".role_president") })", edit_voting_polling_station_path(current_voting, polling_officer.presided_polling_station) %>
+                <% elsif polling_officer.managed_polling_station.present? %>
+                  <%= link_to "#{translated_attribute(polling_officer.managed_polling_station.title)} (#{t(".role_manager") })", edit_voting_polling_station_path(current_voting, polling_officer.managed_polling_station) %>
+                <% end %>
+              </td>
+              <td class="table-list__actions">
+                <% if allowed_to? :delete, :polling_officer, voting: current_voting, polling_officer: polling_officer %>
+                  <%= icon_link_to "circle-x", voting_polling_officer_path(current_voting, polling_officer), t("actions.destroy", scope: "decidim.votings.polling_officers"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.polling_officers") } %>
+                <% else %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

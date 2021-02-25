@@ -32,8 +32,6 @@ module Decidim
           resources :versions, only: [:show, :index]
         end
         resources :collaborative_drafts, except: [:destroy] do
-          get :compare, on: :collection
-          get :complete, on: :collection
           member do
             post :request_access, controller: "collaborative_draft_collaborator_requests"
             post :request_accept, controller: "collaborative_draft_collaborator_requests"

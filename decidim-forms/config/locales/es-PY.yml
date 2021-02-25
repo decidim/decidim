@@ -110,7 +110,7 @@ es-PY:
         answer:
           body: El campo no puede estar en blanco
       files:
-        extension_whitelist: 'Formatos de archivo aceptados:'
+        extension_allowlist: 'Formatos de archivo aceptados:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagen medirá:'

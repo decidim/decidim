@@ -207,6 +207,7 @@ fr-CA:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
         invite_join_meeting_mailer:
@@ -262,9 +263,9 @@ fr-CA:
             disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
-            online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre réunion'
+            online_meeting_url_help: 'Lien : permet aux participants de se connecter directement à votre réunion'
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
-            select_a_meeting_type: Veuillez sélectionner un type de réunion
+            select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
           index:
             title: Rencontres
@@ -373,8 +374,8 @@ fr-CA:
       meeting_closes:
         edit:
           back: Retour
-          close: Clôturer la réunion
-          title: Clôturer la réunion
+          close: Clore la rencontre
+          title: Clore la rencontre
       meetings:
         count:
           meetings_count:
@@ -388,12 +389,15 @@ fr-CA:
           title: Modifier votre réunion
           update: Mise à jour
         filters:
+          activity: Mon activité
+          all: Tous
           category: Catégorie
           date: Date
           date_values:
             all: Toutes
             past: Passé
             upcoming: À venir
+          my_meetings: Mes rencontres
           origin: Origine
           origin_values:
             all: Toutes
@@ -405,6 +409,7 @@ fr-CA:
           type: Type
           type_values:
             all: Tous
+            hybrid: Hybride
             in_person: En présentiel
             online: En ligne
         filters_small_view:
@@ -419,10 +424,10 @@ fr-CA:
           disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre à'
           location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
-          online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre réunion'
+          online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre rencontre'
           registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
           select_a_category: Veuillez sélectionner une catégorie
-          select_a_meeting_type: Veuillez sélectionner un type de réunion
+          select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
         index:
           new_meeting: Nouvelle réunion
@@ -442,7 +447,7 @@ fr-CA:
         show:
           attendees: Nombre de participants
           back: Retour à la liste
-          close_meeting: Clôturer la réunion
+          close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
           edit_meeting: Modifier la réunion
@@ -504,6 +509,7 @@ fr-CA:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
       type_of_meeting:
+        hybrid: Hybride
         in_person: En présentiel
         online: En ligne
       types:

@@ -34,16 +34,16 @@ fi:
             confirm: Et voi peruuttaa ennen tiettyä päivämäärää luotujen vahvistusten kumoamista. Haluatko varmasti jatkaa?
             confirm_all: Et voi peruuttaa kaikkien vahvistusten kumoamista. Haluatko varmasti jatkaa?
           destroy_nok: Vahvistusten kumoaminen epäonnistui.
-          destroy_ok: Kaikkien pyyntöäsi vastaavien vahvistuksien kumoaminen onnistui!
+          destroy_ok: Kaikki hakua vastanneiden tunnistautumiset on peruutettu onnistuneesti.
           info: Yhteensä %{count} vahvistettua osallistujaa.
           no_data: Ei vahvistettuja osallistujia
-          title: Vahvistusten kumoaminen
-        authorization_workflows: Vahvistukset
+          title: Tunnistautumisten peruuttaminen
+        authorization_workflows: Tunnistautumistavat
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} päivitti henkilöllisyystodistusvahvistuksen asetuksia"
+        update_id_documents_config: "%{user_name} päivitti henkilöllisyystodistustunnistautumisen asetuksia"
       user:
-        grant_id_documents_offline_verification: "%{user_name} vahvisti käyttäjän %{resource_name} henkilöllisyystodistusten offline-varmennuksella"
+        grant_id_documents_offline_verification: "%{user_name} tunnisti käyttäjän %{resource_name} henkilöllisyystodistuksen tarkastuksella"
     authorization_handlers:
       admin:
         csv_census:
@@ -75,6 +75,10 @@ fi:
       postal_letter:
         explanation: Lähetämme sinulle postissa kirjeen, joka sisältää koodin, jotta voimme vahvistaa osoitteesi
         name: Koodi postissa lähetettävällä kirjeellä
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Osallistuja <a href="%{resource_path}">%{resource_title}</a> yritti tunnistautua hallitun käyttäjän <a href="%{managed_user_path}">%{managed_user_name}</a> tiedoilla
     verifications:
       authorizations:
         authorization_metadata:
@@ -147,6 +151,10 @@ fi:
             one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
             other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
           scope: Osallistuminen on rajoitettu niille käyttäjille, joilla on teema %{scope_name}.
+          user_postal_codes:
+            one: Osallistuminen on rajoitettu osallistujille, joilla on postinumero %{postal_codes}. Oma postinumerosi on %{user_postal_code}.
+            other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}. Oma postinumerosi on %{user_postal_code}.'
+          user_scope: Osallistuminen on rajoitettu osallistujille, joilla on teema %{scope_name}. Oma teemasi on %{user_scope_name}.
       id_documents:
         admin:
           config:

@@ -39,7 +39,7 @@ module Decidim
                        .results
                        .published
                        .not_hidden
-                       .includes(:amendable, :category, :component, :resource_permission, :scope)
+                       .includes(:component, :coauthorships)
 
           @voted_proposals = if current_user
                                ProposalVote.where(
@@ -56,8 +56,6 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
-
-        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
       def new

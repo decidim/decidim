@@ -14,6 +14,7 @@ FactoryBot.define do
     title { generate_localized_title }
     slug { generate(:participatory_process_slug) }
     subtitle { generate_localized_title }
+    weight { 1 }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization

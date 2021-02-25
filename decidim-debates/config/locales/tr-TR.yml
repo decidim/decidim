@@ -3,6 +3,8 @@ tr:
     attributes:
       debate:
         category_id: Kategori
+        closed_at: Kapandı
+        conclusions: Sonuçlar
         decidim_category_id: Kategori
         description: Açıklama
         end_time: Biter
@@ -12,6 +14,7 @@ tr:
         title: Başlık
         user_group_id: Olarak tartışma oluştur
     models:
+      decidim/debates/close_debate_event: Tartışma kapandı
       decidim/debates/create_debate_event: tartışma
       decidim/debates/creation_disabled_event: Tartışmalar devre dışı bırakıldı
       decidim/debates/creation_enabled_event: Tartışmalar etkin
@@ -25,23 +28,34 @@ tr:
       debates:
         actions:
           create: yaratmak
+          endorse: Onayla
         name: Tartışmalar
         settings:
           global:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
             creation_enabled: Katılımcılar tarafından tartışma yaratıldı etkin
+            endorsements_blocked: Onaylar engellendi
+            endorsements_enabled: Onaylar etkinleştirildi
     debates:
       actions:
+        close: Kapat
         confirm_destroy: Emin misiniz?
-        destroy: silmek
+        destroy: Sil
         edit: Düzenle
         new: Yeni %{name}
         title: Eylemler
       admin:
+        debate_closes:
+          edit:
+            close: Kapat
+            title: Tartışmayı kapat
         debates:
           create:
             invalid: Tartışmayı oluştururken bir sorun oluştu.
@@ -51,6 +65,10 @@ tr:
           edit:
             title: Tartışmayı düzenle
             update: Tartışmayı güncelle
+          form:
+            debate_type: Tartışma türü
+            finite: Sonlu (Başlangıç ​​ve bitiş saatleri ile)
+            open: Açık (Başlangıç ​​veya bitiş zamanı yok)
           index:
             title: Tartışmalar
           new:
@@ -59,46 +77,101 @@ tr:
           update:
             invalid: Bu tartışmayı güncellerken bir sorun oluştu.
             success: Tartışma başarıyla güncellendi.
+        exports:
+          comments: Yorumlar
         models:
           debate:
-            name: tartışma
+            name: Tartışma
       admin_log:
         debate:
-          create: "%{user_name} , %{space_name} alanda %{resource_name} tartışmasını yarattı"
-          update: "%{user_name} , %{space_name} uzayda %{resource_name} tartışmasını güncelledi"
+          close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"
+          create: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını yarattı"
+          update: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını güncelledi"
+      debate_m:
+        commented_time_ago: '%{time} önce yorumlandı'
       debates:
+        close:
+          invalid: Tartışmayı kapatırken bir sorun oluştu.
+          success: Tartışma başarıyla sonuçlandı.
+        close_debate_modal:
+          close: Kapat
+          description: Bu tartışmanın özeti veya sonucu nedir?
+          send: Tartışmayı kapat
+        closed: Kapat
         count:
           debates_count:
             one: "%{count} tartışma"
-            other: "%{count} tartışmalar"
+            other: "%{count} tartışma"
         create:
           invalid: Tartışmayı oluştururken bir sorun oluştu.
           success: Tartışma başarıyla oluşturuldu.
         debate:
           participate: Katıl
+        edit:
+          back: Geri
+          save: Değişiklikleri kaydet
+          title: Tartışmayı düzenleyin
         filters:
-          all: Herşey
+          activity: Aktivitelerim
+          all: Tümü
           category: Kategori
-          category_prompt: bir kategori seç
+          category_prompt: Bir kategori seç
           citizens: Vatandaşlar
+          commented: Yorum yaptı
+          my_debates: Tartışmalarım
           official: Resmi
-          origin: Menşei
+          origin: Orijin
+          scope: Kapsam
           search: Arama
+          state: Statü
+          state_values:
+            closed: Kapalı
+            open: Açık
+          user_groups: Gruplar
         filters_small_view:
-          close_modal: Kalıcı modal
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         form:
           select_a_category: Lütfen bir kategori seçin
         index:
           new_debate: Yeni tartışma
         new:
           back: Geri
-          create: yaratmak
+          create: Oluştur
           title: Yeni tartışma
+        orders:
+          commented: En çok yorum yapılan
+          label: Tartışmaların sıralama ölçütü
+          random: Rasgele sırala
+          recent: En yeni
+          updated: Yeni güncellenmiş
+        show:
+          back: Listeye geri dön
+          close_debate: Tartışmayı kapat
+          date: Tarih
+          debate_closed: Kapalı
+          debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
+          edit_conclusions: Sonuçları düzenleyin
+          edit_debate: Tartışmayı düzenle
+          groups_count: Gruplar
+          last_comment_by: Son yorum
+          no_comments_yet: Henüz yorum yok
+          open: Açık tartışma
+          participants_count: Katılımcılar
+        update:
+          invalid: Bu tartışmayı güncellerken bir sorun oluştu.
+          success: Tartışma başarıyla güncellendi.
+        versions:
+          debates:
+            back_to_resource: Tartışmaya geri dön
+          index:
+            title: Sürümler
+        versions_list:
+          back_to_resource: Tartışmaya geri dön
       last_activity:
-        new_debate_at_html: "<span> %{link}</span>yeni tartışma"
+        new_debate_at_html: "<span> %{link}</span> linkinde yeni tartışma"
       models:
         debate:
           fields:
@@ -114,33 +187,44 @@ tr:
               Merhaba,
               %{space_title} katılımcı alanda yeni bir "%{resource_title}" tartışması oluşturuldu, inceleyin ve katkıda bulunun:
             email_outro: '%{space_title} katılımcı alanı takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-            email_subject: '%{space_title}yeni tartışma "%{resource_title}"'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> tartışması <a href="%{space_path}">%{space_title}</a>oluşturuldu.
+            email_subject: '%{space_title} üzerinde yeni tartışma "%{resource_title}"'
+            notification_title: <a href="%{resource_path}">%{resource_title} </a> tartışması <a href="%{space_path}">%{space_title} </a> adresinde oluşturuldu.
           user_followers:
             email_intro: |-
               Merhaba,
-              %{author_name} %{author_nickname}, takip ettiğiniz, yeni bir "%{resource_title}" tartışması yarattı. Şuna bir bakın ve katkıda bulunun:
-            email_outro: '%{author_nickname}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-            email_subject: Yeni tartışma "%{resource_title}" ile %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> tartışmasını yarattı.
+              Takip ettiğiniz %{author_name} %{author_nickname}, "%{resource_title}" adlı yeni bir tartışma yarattı. Kontrol edin ve katkıda bulunun:
+            email_outro: Bu bildirimi %{author_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+            email_subject: '%{author_nickname} tarafından "%{resource_title}" adlı yeni tartışma'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} </a>, <a href="%{resource_path}">%{resource_title} </a> tartışmasını oluşturdu.
         creation_disabled:
-          email_intro: 'Tartışma oluşturma artık %{participatory_space_title}etkin değil. Bu sayfadaki açık tartışmalara hala katılabilirsiniz:'
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: Tartışma oluşturma %{participatory_space_title}devre dışı
-          notification_title: Tartışma oluşturma şimdi <a href="%{participatory_space_url}">%{participatory_space_title}</a>devre dışı bırakıldı
+          email_intro: 'Tartışma oluşturma artık %{participatory_space_title} içinde aktif değil. Bu sayfadan hala açık tartışmalara katılabilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} içinde tartışma oluşturma devre dışı bırakıldı'
+          notification_title: Tartışma oluşturma artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> içinde devre dışı bırakıldı
         creation_enabled:
-          email_intro: 'Artık %{participatory_space_title}yeni tartışmalara başlayabilirsiniz! Bu sayfaya katılmaya başlayın:'
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: Şimdi tartışmalar %{participatory_space_title}
-          notification_title: Şimdi <a href="%{resource_path}">yeni tartışmaya başlayabilirsiniz.</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Artık %{participatory_space_title} içinde yeni tartışmalar başlatabilirsiniz! Bu sayfaya katılmaya başlayın:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: Tartışmalar artık %{participatory_space_title} içinde mevcut
+          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> ’de <a href="%{resource_path}"> yeni tartışmalar </a> başlatabilirsiniz
+        debate_closed:
+          affected_user:
+            email_intro: '"%{resource_title}" tartışması kapatıldı. Sonuçları sayfasından okuyabilirsiniz:'
+            email_outro: Bu bildirimi, "%{resource_title}" tartışmasını takip ettiğiniz için aldınız. Önceki bağlantıdan takibini bırakabilirsiniz.
+            email_subject: '"%{resource_title}" tartışması kapatıldı'
+            notification_title: <a href="%{resource_path}">%{resource_title} </a> tartışması kapatıldı.
+          follower:
+            email_intro: '"%{resource_title}" tartışması kapatıldı. Sonuçları sayfasından okuyabilirsiniz:'
+            email_outro: Bu bildirimi, "%{resource_title}" tartışmasını takip ettiğiniz için aldınız. Önceki bağlantıdan takibini bırakabilirsiniz.
+            email_subject: '"%{resource_title}" tartışması kapatıldı'
+            notification_title: <a href="%{resource_path}">%{resource_title} </a> tartışması kapatıldı.
     gamification:
       badges:
         commented_debates:
           conditions:
             - Katılmak için açık bir tartışma seçin
           description: Bu rozet, yorumlarınızı bırakarak farklı tartışmalara aktif olarak katıldığınızda verilir.
-          description_another: Bu katılımcı %{score} tartışmada yer aldı.
-          description_own: '%{score} tartışmaya katıldınız.'
+          description_another: Bu katılımcı %{score} kez tartışmada yer aldı.
+          description_own: '%{score} kez tartışmaya katıldınız.'
           name: Tartışmalar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} tartışmaya katılın!
           unearned_another: Bu katılımcı henüz bir tartışmada yer almadı.

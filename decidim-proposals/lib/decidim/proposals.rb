@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/proposals/admin"
+require "decidim/proposals/api"
 require "decidim/proposals/engine"
 require "decidim/proposals/admin_engine"
 require "decidim/proposals/component"
@@ -11,6 +12,7 @@ module Decidim
   # allows users to create proposals in a participatory process.
   module Proposals
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
+    autoload :ProposalCreator, "decidim/proposals/proposal_creator"
     autoload :CommentableProposal, "decidim/proposals/commentable_proposal"
     autoload :CommentableCollaborativeDraft, "decidim/proposals/commentable_collaborative_draft"
     autoload :MarkdownToProposals, "decidim/proposals/markdown_to_proposals"

@@ -49,7 +49,7 @@ describe "Authorizations revocation flow", type: :system do
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Participants"
-    click_link "Verifications"
+    click_link "Authorizations"
   end
 
   context "when showing revocation cell" do

@@ -6,7 +6,7 @@ tr:
   activerecord:
     models:
       decidim/surveys/survey:
-        one: anket
+        one: Anket
         other: Anketler
       decidim/surveys/survey_answer:
         one: Cevap
@@ -16,25 +16,34 @@ tr:
       surveys:
         actions:
           answer: Cevap
-        name: anket
+        name: Anket
         settings:
           global:
-            announcement: duyuru
+            announcement: Duyuru
+            clean_after_publish: Anketi yayınlarken cevapları sil
+            ends_at: Şu tarihe kadar kabul edilen cevaplar
+            ends_at_help: Belirli bir tarih için boş bırakın
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
+            starts_at: Cevaplar kabul edildi
+            starts_at_help: Belirli bir tarih için boş bırakın
           step:
             allow_answers: Cevaplara izin ver
-            announcement: duyuru
+            allow_unregistered: Kayıtlı olmayan kullanıcıların anketi yanıtlamasına izin verin
+            allow_unregistered_help: Etkinse, anketi cevaplamak için oturum açmanız gerekmeyecektir. Bu, zayıf veya güvenilmez verilere yol açabilir ve otomatik saldırılara karşı daha savunmasız hale gelir. Dikkatle kullanın!
+            announcement: Duyuru
     events:
       surveys:
         survey_closed:
-          email_intro: Anket %{resource_title} %{participatory_space_title} kapatıldı.
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: Bir anket %{participatory_space_title}bitti
-          notification_title: Anket <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> bitti.
+          email_intro: '%{participatory_space_title} içindeki %{resource_title} anketi kapatıldı.'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} içinde bir anket bitti'
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title} </a> içindeki anket <a href="%{resource_path}">%{resource_title} </a> bitti.
         survey_opened:
-          email_intro: 'Anket %{resource_title} %{participatory_space_title} açık. Bu sayfadan katılabilirsiniz:'
-          email_outro: '%{participatory_space_title}takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: '%{participatory_space_title}yeni bir anket'
-          notification_title: Anket <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> açıktır.
+          email_intro: '%{participatory_space_title} içindeki %{resource_title} anketi şimdi açık. Bu sayfadan katılabilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title} içinde yeni bir anket'
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title} </a> içindeki anket <a href="%{resource_path}">%{resource_title} </a> şimdi açık.
     metrics:
       survey_answers:
         description: Katılımcılar tarafından cevaplanan anket sayısı
@@ -49,8 +58,9 @@ tr:
             invalid: Anketi kaydederken bir sorun oluştu.
             success: Anket başarıyla kaydedildi.
       last_activity:
-        new_survey_at_html: "<span> %{link}</span>yeni anket"
+        new_survey_at_html: "<span> %{link}</span> linkinde yeni anket"
       surveys:
         answer:
           invalid: Anketi cevaplarken bir sorun oluştu.
+          spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davrandın, tekrar deneyebilir misin?
           success: Anket başarıyla cevaplandı.

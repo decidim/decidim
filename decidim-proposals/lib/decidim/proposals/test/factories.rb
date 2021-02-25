@@ -275,6 +275,8 @@ FactoryBot.define do
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
 
     after(:build) do |proposal, evaluator|
       proposal.title = if evaluator.title.is_a?(String)
@@ -407,6 +409,18 @@ FactoryBot.define do
     trait :with_amendments do
       after :create do |proposal|
         create_list(:proposal_amendment, 5, amendable: proposal)
+      end
+    end
+
+    trait :with_photo do
+      after :create do |proposal|
+        proposal.attachments << create(:attachment, :with_image, attached_to: proposal)
+      end
+    end
+
+    trait :with_document do
+      after :create do |proposal|
+        proposal.attachments << create(:attachment, :with_pdf, attached_to: proposal)
       end
     end
   end

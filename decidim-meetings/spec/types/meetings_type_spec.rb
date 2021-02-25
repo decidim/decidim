@@ -7,7 +7,7 @@ require "decidim/core/test"
 module Decidim
   module Meetings
     describe MeetingsType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:meeting_component) }
 
       it_behaves_like "a component query type"

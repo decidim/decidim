@@ -263,10 +263,6 @@ zh-CN:
       conferences:
         conference_registration:
           confirm: "%{user_name} 在 %{resource_name} 次会议上确认了会议注册"
-        partner:
-          create: "%{user_name} 创建了 %{resource_name} 到 %{space_name} 会议"
-          delete: "%{user_name} 将 %{resource_name} 管理员从 %{space_name} 次会议中删除"
-          update: "%{user_name} 在 %{space_name} 次会议上更新 %{resource_name}"
         registration_type:
           create: "%{user_name} 在 %{space_name} 次会议上创建了 %{resource_name} 注册类型"
           publish: "%{user_name} 在 %{space_name} 次会议上发布了 %{resource_name} 注册类型"

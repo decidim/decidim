@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+  <div class="card-section">
+    <div class="row column hashtags__container">
+      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
+    </div>
+
+    <div class="field">
+      <%= form.geocoding_field :address %>
+      <p class="help-text"><%= t(".address_help") %></p>
+    </div>
+
+    <div class="field">
+      <%= form.translated :text_area, :location %>
+      <p class="help-text"><%= t(".location_help") %></p>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_area, :location_hints %>
+      <p class="help-text"><%= t(".location_hints_help") %></p>
+    </div>
+
+    <div class="row column user-fields--polling_station_president-picker">
+      <% prompt_options = { url: available_polling_officers_voting_url(current_voting), placeholder: t(".select_president") } %>
+      <%= form.autocomplete_select(:polling_station_president_id, form.object.polling_station_president.presence, { multiple: false }, prompt_options) do |polling_officer|
+        { value: polling_officer.id, label: "#{polling_officer.name} (@#{polling_officer.nickname})" }
+      end %>
+      <p class="help-text"><%= t(".polling_station_president_help") %></p>
+    </div>
+
+    <div class="row column user-fields--polling_station_manager-picker">
+      <%= polling_officers_picker(form, :polling_station_managers, polling_officers_picker_voting_path(current_voting)) %>
+      <p class="help-text"><%= t(".polling_station_managers_help") %></p>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/votings/admin/polling_stations_form" %>

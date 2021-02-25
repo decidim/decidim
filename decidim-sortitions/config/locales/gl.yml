@@ -23,6 +23,7 @@ gl:
         settings:
           global:
             comments_enabled: Comentarios habilitados
+            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
     events:
       sortitions:
         sortition_created:
@@ -124,6 +125,7 @@ gl:
         show:
           algorithm: Codigo de algoritmo de Sortition
           any_category: de todas as categorías
+          back: Volver á listaxe
           cancelled: Cancelada sortition
           candidate_proposal_ids: Orde de propostas de clasificación e ID
           candidate_proposals_info: 'O sortition levouse a cabo entre as seguintes propostas (%{category_label}), coas seguintes ID (en negra as propostas seleccionadas)  '

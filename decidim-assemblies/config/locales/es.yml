@@ -1,6 +1,8 @@
 es:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de asamblea
@@ -60,6 +62,7 @@ es:
         full_name: Nombre completo
         gender: Género
         position: Posición
+        user_id: Usuaria
       assembly_user_role:
         email: Correo electrónico
         name: Nombre
@@ -246,7 +249,6 @@ es:
         update: "%{user_name} ha actualizado la configuración de las asambleas"
       assembly_type:
         create: "%{user_name} creó el tipo de asamblea %{resource_name}"
-        delete: "%{user_name} eliminó al miembro %{resource_name} del tipo de asamblea %{space_name}"
         publish: "%{user_name} publicó el tipo de asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó el tipo de asamblea %{resource_name}"
         update: "%{user_name} actualizó el tipo de asamblea %{resource_name}"
@@ -305,6 +307,9 @@ es:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Miembros
@@ -380,7 +385,6 @@ es:
         comments_count: Comentarios
         debates_count: Debates
         endorsements_count: Adhesiones
-        headline: Actividad
         meetings_count: Encuentros
         orders_count: Apoyos
         pages_count: Páginas
@@ -437,8 +441,6 @@ es:
       home:
         hero:
           participate_title: Participar en los procesos de la plataforma
-        sub_hero:
-          register_title: Regístrate para crear una cuenta en la plataforma
     participatory_processes:
       pages:
         home:

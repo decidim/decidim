@@ -13,24 +13,41 @@ de:
         title: Titel
       question:
         description: Beschreibung
-        max_selections: Maximale Anzahl von Auswahlen
+        max_selections: Maximale Anzahl Antworten
         min_selections: Nichts davon
         title: Titel
+      voting:
+        end_time: Abstimmung endet
+        start_time: Abstimmung beginnt
     errors:
       models:
         answer:
           attributes:
             attachment:
-              needs_to_be_reattached: Muss erneut angehängt werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
         election:
           attributes:
             attachment:
-              needs_to_be_reattached: Muss erneut angehängt werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
         trustee:
           attributes:
+            name:
+              cant_be_changed: kann nicht geändert werden
             public_key:
               cant_be_changed: kann nicht geändert werden
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Wahllokal-Mitarbeitender ist bereits Präsident/Manager eines Wahllokals
+            voting:
+              different_organization: Die Abstimmung muss in der selben Organisation wie der Benutzer sein
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Der Wahllokal-Mitarbeiter und das Wahllokal müssen in der gleichen Abstimmung sein
     models:
       decidim/elections/answer:
         one: Antwort
@@ -41,7 +58,33 @@ de:
       decidim/elections/question:
         one: Frage
         other: Fragen
+      decidim/votings/polling_officer:
+        one: Wahllokal-Mitarbeiter
+        other: Wahllokal-Mitarbeitende
+      decidim/votings/polling_station:
+        one: Wahllokal
+        other: Wahllokale
+      decidim/votings/voting:
+        one: Abstimmung
+        other: Abstimmungen
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Wahlvorstand
+          values:
+            assigned: Zugewiesen
+            unassigned: Nicht zugewiesen
+        role_eq:
+          label: Rolle
+          values:
+            manager: Manager
+            president: Präsident
+            unassigned: Nicht zugewiesen
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: In %{collection} nach Name/E-Mail/Nickname oder Wahllokal suchen.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : In %{collection} suchen nach Titel, Adresse oder Wahllokal-Mitarbeiter.
     components:
       elections:
         actions:
@@ -61,10 +104,10 @@ de:
         import: Importieren Sie Vorschläge in Projekte
         manage_answers: Antworten verwalten
         manage_questions: Fragen verwalten
+        manage_steps: Schritte verwalten
         new: Neue(r/s) %{name}
         preview: Vorschau
         publish: Veröffentlichen
-        setup: Einstellungen
         title: Aktionen
         unpublish: Veröffentlichung rückgängig machen
       admin:
@@ -113,9 +156,6 @@ de:
             title: Neue Wahl
           publish:
             success: Die Wahl wurde erfolgreich veröffentlicht.
-          setup:
-            invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
-            success: Wahl erfolgreich an das Bulletin Board gesendet
           unpublish:
             success: Die Veröffentlichung der Wahl wurde erfolgreich zurückgezogen.
           update:
@@ -160,31 +200,82 @@ de:
           update:
             invalid: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten
             success: Frage wurde erfolgreich aktualisiert
-        setup:
-          errors:
-            max_selections: Die Fragen haben keinen <strong>korrekten Wert für die Anzahl der Antworten</strong>
-            minimum_answers: Fragen müssen <strong>mindestens eine Antwort</strong> haben.
-            minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
-            published: Die Wahl ist <strong>nicht veröffentlicht</strong>
-            time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl
-            trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
-            trustees_quorum: Die Anzahl der Vertrauensperson <strong>entspricht nicht der erforderlichen Vertrauenspersonquorum</strong>
-          requirements:
-            max_selections: Alle Fragen haben einen korrekten Wert für <strong>maximum of answers</strong>
-            minimum_answers: Jede Frage hat <strong>mindestens 2 Antworten</strong>
-            minimum_questions: Jede Frage hat <strong>mindestens eine Antwort</strong>
-            published: Die Wahl ist <strong>veröffentlicht</strong>
-            time_before: Die Einrichtung ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl fertig gestellt worden
-            trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
-          show:
-            setup: Wahl einrichten
-            title: Einrichtung der Wahl
-          update:
-            setup: Wahl einrichten
-            title: Einrichtung der Wahl
+        steps:
+          create_election:
+            errors:
+              max_selections: Die <strong>maximale Anzahl Antworten</strong> für die Fragen ist inkorrekt
+              minimum_answers: Fragen müssen <strong>mindestens zwei Antworten</strong> haben.
+              minimum_questions: Die Wahl <strong>muss mindestens eine Frage</strong> haben.
+              published: Die Wahl ist <strong>nicht veröffentlicht</strong>.
+              time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl.
+              trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> werden benötigt.
+            invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
+            no_trustees: Es sind keine Wahlhelfer eingetragen
+            not_used_trustee: "(nicht verwendet)"
+            public_key:
+              'false': hat keinen <strong>Public Key</strong>
+              'true': hat einen <strong>Public Key</strong>
+            requirements:
+              max_selections: Die <strong>maximale Anzahl Antworten</strong> aller Fragen sind korrekt.
+              minimum_answers: Jede Frage hat <strong>mindestens 2 Antworten</strong>.
+              minimum_questions: Die Wahl hat <strong>mindestens 1 Frage</strong>.
+              published: Die Wahl ist <strong>veröffentlicht</strong>.
+              time_before: Die Wahl wird <strong>mindestens %{hours} Stunden</strong> vor Beginn eingerichtet.
+              trustees_number: <strong>Mindestens %{number} Wahlhelfer mit Public Key</strong> sind vorhanden.
+            submit: Wahl einrichten
+            success: Wahl erfolgreich an das Bulletin Board gesendet
+            title: Wahl einrichten
+            trustees: Wahlhelfer
+          created:
+            invalid: Beim Starten der Schlüssel-Zeremonie ist ein Fehler aufgetreten
+            submit: Schlüssel-Zeremonie starten
+            success: Die Anfrage zum Starten der Schlüssel-Zeremonie wurde erfolgreich ans Bulletin Board gesendet
+            title: Wahl erstellt
+            trustees: Wahlhelfer
+          key_ceremony:
+            title: Schlüsselzeremonie
+            trustees: Wahlhelfer
+          key_ceremony_ended:
+            errors:
+              time_before: Die Wahl ist startbereit. Sie können die Abstimmungsperiode frühestens %{hours} Stunden vor der Startzeit (%{start_time}) eröffnen.
+            invalid: Beim Starten der Abstimmungsperiode ist ein Fehler aufgetreten
+            requirements:
+              time_before: Die Wahl wird bald beginnen. Sie können die Abstimmungsperiode manuell eröffnen, oder sie wird automatisch zur Startzeit um %{start_time} eröffnet.
+            submit: Abstimmungsperiode eröffnen
+            success: Die Anfrage zum Starten der Abstimmungsperiode wurde erfolgreich ans Bulletin Board gesendet
+            title: Startbereit
+          processing: In Verarbeitung...
+          results_published:
+            title: Ergebnisse veröffentlicht
+          tally:
+            title: Stimmenzähl-Prozess
+            trustees: Wahlhelfer
+          tally_ended:
+            submit: Resultate veröffentlichen
+            title: Resultate berechnet
+          vote:
+            errors:
+              time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
+            invalid: Beim Schließen der Abstimmungsperiode ist ein Fehler aufgetreten
+            requirements:
+              time_after: Die Wahl ist beendet. Sie können die Abstimmungsperiode manuell schließen, oder sie wird in wenigen Minuten automatisch geschlossen.
+            submit: Abstimmungsperiode schließen
+            success: Die Anfrage zum Schließen der Abstimmungsperiode wurde erfolgreich ans Bulletin Board gesendet
+            title: Abstimmungsperiode
+          vote_ended:
+            invalid: Beim Starten der Stimmenzählung ist ein Fehler aufgetreten
+            submit: Stimmenzählung starten
+            success: Die Anfrage zum Starten der Stimmenzählung wurde erfolgreich ans Bulletin Board gesendet
+            title: Abstimmungsperiode abgeschlossen
+          vote_stats:
+            no_vote_statistics_yet: Noch keine Statistiken zur Abstimmung
+            title: Statistiken zur Abstimmung
+            voters: Wähler
+            votes: Stimmen
         trustees_participatory_spaces:
           actions:
             disable: Deaktivieren
+            enable: Berücksichtigen
           create:
             exists: Ein Wahlhelfer existiert für diesen partizipativen Raum
             invalid: Es ist ein Problem beim erstellen des Wahlhelfers aufgetreten
@@ -199,23 +290,31 @@ de:
           new:
             create: Wahlhelfer erstellen
             title: Neuer Wahlhelfer
+          update:
+            invalid: Es ist ein Problem beim Aktualisieren des Wahlhelfers %{trustee} aufgetreten
+            success: Wahlhelfer %{trustee} erfolgreich aktualisiert
       admin_log:
         election:
+          end_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board beendet"
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
+          setup: "%{user_name} hat die Wahl %{resource_name} auf dem Bulletin Board erstellt"
+          start_key_ceremony: "%{user_name} hat die Schlüssel-Zeremonie für die Wahl %{resource_name} im Bulletin Board eröffnet"
+          start_tally: "%{user_name} hat die Stimmenzählung für die Wahl %{resource_name} im Bulletin Board eröffnet"
+          start_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board eröffnet"
           unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
       election_m:
         badge_name:
           finished: Abgeschlossen
           ongoing: Aktiv
           upcoming: Anstehend
-        end_date: Endet
+        end_date: Endet am
         footer:
           view: Ansicht
           vote: Abstimmung
         label:
           date: Daten
         questions: Fragen %{count}
-        start_date: Startet
+        start_date: Startet am
         unspecified: Nicht angegeben
       elections:
         count:
@@ -230,6 +329,7 @@ de:
           state: Status
           upcoming: Anstehend
         filters_small_view:
+          close_modal: Dialog schließen
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
@@ -245,12 +345,22 @@ de:
             one: "%{count} Stimme"
             other: "%{count} Stimmen"
         show:
+          action-button:
+            change-vote: Stimme ändern
+            vote: Jetzt abstimmen
+            vote-again: Erneut abstimmen
           back: Verfügbare Wahlen
+          callout:
+            already-voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
+            vote-rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
           preview: Vorschau
-          vote: Stimmen
+          verify:
+            already-voted: Bereits abgestimmt?
+            verify-here: Stimme hier verifizieren.
+            will-verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
-            ongoing: Die Abstimmung endet am %{end_time}
+            ongoing: 'Abstimmung aktiv bis: %{end_time}'
             upcoming: Die Abstimmung beginnt am %{start_time}
       feedback:
         answer:
@@ -264,16 +374,18 @@ de:
             title: Titel
         election:
           fields:
+            bb_status: Bulletin Board Status
             end_time: Endet um
             start_time: Beginnt um
             title: Titel
         question:
           fields:
             answers: Antworten
-            max_selections: Maximale Auswahl
+            max_selections: Max. Antworten
             title: Titel
         trustees_participatory_space:
           fields:
+            considered: berücksichtigt
             email: E-Mail
             inactive: inaktiv
             name: Name
@@ -282,23 +394,84 @@ de:
             status: Status
       orders:
         label: Wahlen ordnen nach
-        older: Älter
-        recent: Neueste
+        older: Chronologisch
+        recent: Kürzlich hinzugefügt
       trustee_zone:
+        elections:
+          backup_modal:
+            description: Diese Wahl wird im Bulletin Board erstellt. Es ist sehr wichtig dass alle Wahlhelfer, welche daran teilnehmen, eine Sicherungskopie dieser Schlüssel erstellen und sie an einem sicheren Ort speichern. Danach wird der Prozess fortgesetzt.
+            download_election_keys: Schlüssel herunterladen
+            download_icon: Symbol, das eine Download-Aktion anzeigt
+            title: Wahl-Schlüssel für %{election} sichern
+          key_ceremony_steps:
+            back: Zurück
+            description: Diese Wahl wird im Bulletin Board erstellt. Um diesen Prozess abzuschliessen, ist Ihre Teilnahme als Wahlhelfer nötig.
+            keys:
+              create_election: Schlüssel erstellen
+              key_ceremony:
+                joint_election_key: Gemeinsame Schlüssel erstellen
+                step_1: Schlüssel veröffentlichen
+            list:
+              status: Status
+              task: Aufgabe
+            process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
+            start: Start
+            start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
+            status:
+              completed: Abgeschlossen
+              pending: Ausstehend
+              processing: In Verarbeitung
+            title: Wahl-Schlüssel für %{election} erstellen
+          restore_modal:
+            description: Das Bulletin Board hat Informationen von Ihnen als Wahlhelfer zu dieser Wahl. Um den Vorgang fortzusetzen, laden Sie zuerst die Sicherungsdatei hoch, die während der vorherigen Sitzung erstellt wurde.
+            title: Wahl-Schlüssel für %{election} wiederherstellen
+            upload_election_keys: Wahl-Schlüssel hochladen
+            upload_icon: Symbol, das eine Download-Aktion anzeigt
+          tally_steps:
+            back: Zurück
+            description: Die Ergebnisse dieser Wahl werden im Bulletin Board berechnet. Um diesen Prozess abzuschließen ist Ihre Teilnahme als Wahlhelfer erforderlich.
+            keys:
+              end_tally: Stimmenzählung abgeschloßen
+              tally:
+                cast: Stimmzählung abgeben
+                share: Stimmzählung austauschen
+            list:
+              status: Status
+              task: Aufgabe
+            process_warning: Sobald der Prozess gestartet ist, sollten Sie diese Seite nicht verlassen, bis der Prozess endet. Dies kann einige Minuten dauern, da alle Wahlhelfer verbunden sein müssen um den Prozess abzuschliessen.
+            start: Beginnen
+            start_icon: Symbol, das einen Startknopf anzeigt, um die Erzeugung der Wahl-Schlüssel zu starten
+            status:
+              completed: Abgeschlossen
+              pending: Ausstehend
+              processing: In Verarbeitung
+            title: Stimmenzählung für %{election}
+          update:
+            error: Der Wahlstatus wurde nicht aktualisiert.
+            success: 'Der Wahlstatus ist: %{status}'
         menu:
           trustee_zone: Wahlhelfer Zone
+        no_bulletin_board:
+          body: Ein konfiguriertes Bulletin-Board ist für diesen Bereich erforderlich. Kontaktieren Sie den Administrator für weitere Informationen.
+          title: Leider ist das Bulletin Board noch nicht eingerichtet.
         trustees:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'Nein'
+                  name: Aktion erforderlich?
+                  'true': Aktion ausführen
+                bb_status: Status
                 election: Wahl
-                status: Status
                 voting_period: Abstimmungsperiode
+              no_elections: Es gibt keine Wahlen, bei denen Sie als Wahlhelfer agieren.
               title: Wahlen
             identification_keys:
               cancel: Abbrechen
               generate: Identifikationsschlüssel generieren
               generate_error: Beim Generieren der Identifikationsschlüssel ist ein Fehler aufgetreten.
+              generate_legend: Sie müssen ein Schlüsselpaar generieren, um an Wahlen als Wahlhelfer teilzunehmen.
               generate_legend_1: Nach Drücken des Buttons sollten Sie die Datei mit den generierten Identifikationsschlüssel herunterladen.
               generate_legend_2: Kopiere die heruntergeladene Datei auf ein sauberen USB-Stick
               generate_legend_3: Stellen Sie sicher, dass Ihr Computer keine Kopie der Datei hat (z.B. überprüfen Sie die Download- und Desktop-Ordner).
@@ -306,12 +479,16 @@ de:
               submit: Einreichen
               submit_legend: Nachdem Sie alle oben beschriebenen Schritte befolgt haben, führen Sie den Prozess durch, der den öffentlichen Identifikationsschlüssel an den Decidim-Server sendet.
               submit_title: Öffentlichen Identifikationsschlüssel einreichen
+              title: Wahlhelfer-Identifikationsschlüssel
               upload: Lade deine Identifikationsschlüssel hoch
               upload_error:
                 invalid_format: Die hochgeladene Datei enthält keinen Identifikationsschlüssel.
                 invalid_key: Die Identifikationsschlüssel in der hochgeladenen Datei können nicht geladen werden.
                 invalid_public_key: Die Identifikationsschlüssel in der hochgeladenen Datei stimmen nicht mit dem öffentlichen Identifikationsschlüssel überein, der von Decidim gespeichert wird.
               upload_legend: Decidim hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, das Sie nach der Generierung erstellt haben.
+            not_supported_browser_description: Es sieht so aus, als ob Sie einen Webbrowser verwenden, der als Wahlhelfer nicht verwendet werden kann. Stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden, oder versuchen Sie, einen der üblichen Browser zu verwenden, um Ihre Wahlhelfer-Aufgaben zu erfüllen.
+            not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
+            trustee_role_description: Sie wurden beauftragt, bei einigen der auf dieser Plattform gehaltenen Wahlen als Wahlhelfer zu agieren.
           update:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
@@ -326,15 +503,20 @@ de:
           question: Frage %{count}
         confirmed:
           back: Zurück zu den Wahlen
+          error: Leider ist ein Fehler bei der Bestätigung der Abstimmung aufgetreten. Bitte erneut abstimmen.
           experience: Wie war Ihre Erfahrung mit uns?
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
           lead: Deine Stimme wurde bereits abgegeben!
           text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="evote-verify">Bestätigungsseite</a> ein
+          verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
         encrypting:
           header: Abstimmung wird verschlüsselt...
           text: Deine Stimme wird verschlüsselt, um sicherzustellen, dass du sie anonym abgeben kannst.
+        failed:
+          header: Abstimmung fehlgeschlagen
+          lead: Ihre Stimme wurde nicht abgegeben!
+          text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
         header:
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
@@ -351,6 +533,28 @@ de:
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
+        processing:
+          header: Stimme wird verarbeitet...
+          text: Ihre Stimme wurde empfangen und wird verarbeitet. Bitte warten.
+        update:
+          error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
+          success: Abstimmung erfolgreich aktualisiert
+        verify:
+          content:
+            heading: Stimme verifizieren
+            info: Dieser Verifikator prüft, dass Ihre Stimme, welche durch eine verschlüsselte Kennung identifiziert wird, korrekt abgegeben wurde und sich in der Wahlurne befindet.
+          error:
+            header: Stimme nicht gefunden!
+            info: Diese Kennung wurde nicht in der Wahlurne %{link} gefunden. Versuchen Sie es erneut.
+          form:
+            back: Zurück zu Decidim
+            submit: Überprüfen
+            vote_identifier: 'Kennung:'
+          header:
+            title: Stimme verifizieren
+          success:
+            header: Stimme gefunden!
+            info: Ihre verschlüsselte Stimme ist in der Wahlurne %{link}
         voting_step:
           back: Zurück
           continue: Weiter
@@ -361,18 +565,34 @@ de:
       elections:
         election_published:
           email_intro: 'Die Wahl %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Über den vorherigen Link können Sie die Benachrichtigungen deaktivieren.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Wahl %{resource_title} ist jetzt aktiv für %{participatory_space_title}.
           notification_title: Die Wahl <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
         trustees:
           new_election:
             email_intro: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer bei der Wahl %{resource_title} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
-            notification_title: Sie sind Wahlhelfer für die <a href="%{resource_path}">%{resource_title}</a> Wahl.
+            notification_title: Sie sind Wahlhelfer für die Wahl <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Ein Administrator hat Sie als Wahlhelfer für %{resource_name} hinzugefügt. Sie sollten Ihren öffentlichen Schlüssel <a href='%{trustee_zone_url}'> in Ihrer Wahlhelfer Zone anlegen</a>
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer für %{resource_name} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für %{resource_name}.
             notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Deine Stimme wurde angenommen! Benutze deinen Stimm-Token: %{encrypted_vote_hash}, du kannst deine Stimme <a href="%{verify_url}">hier verifizieren</a>.'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie für die %{resource_name} -Wahl gestimmt haben.
+            email_subject: Deine Stimme für %{resource_name} wurde angenommen.
+            notification_title: 'Deine Stimme wurde akzeptiert. Verifiziere deine Stimme <a href="%{verify_url}">hier</a> mit deinem Voting-Token: %{encrypted_vote_hash}'
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Eine <strong>Abstimmung</strong> erlaubt es Ihnen, eine klare Frage an alle Personen einer Organisation zu stellen, zur Teilnahme an der Abstimmung aufzurufen und die Debatte für oder gegen eine Antwort zu eröffnen. Am Abstimmungsdatum können Sie abstimmen und die Resultate der Abstimmung veröffentlichen.</p> <p>Beispiele: Die Abstimmungen können fast beliebige Aspekte einer Organisation betreffen. Zum Beispiel kann über verschiedene Varianten des Namens oder des Logos der Organisation abgestimmt werden, Sie können sich dafür oder dagegen entscheiden, Teil einer grösseren Organisation zu werden, eine neue Strategie oder das Resultat einer Arbeitsgruppe bestätigen oder ablehnen oder die Anzahl Mandate in der Organisation definieren.</p>\n"
+          page: "<p>Eine <strong>Abstimmung</strong> erlaubt es Ihnen, eine klare Frage an alle Personen einer Organisation zu stellen, zur Teilnahme an der Abstimmung aufzurufen und die Debatte für oder gegen eine Antwort zu eröffnen. Am Abstimmungsdatum können Sie abstimmen und die Resultate der Abstimmung veröffentlichen.</p> <p>Beispiele: Die Abstimmungen können fast beliebige Aspekte einer Organisation betreffen. Zum Beispiel kann über verschiedene Varianten des Namens oder des Logos der Organisation abgestimmt werden, Sie können sich dafür oder dagegen entscheiden, Teil einer grösseren Organisation zu werden, eine neue Strategie oder das Resultat einer Arbeitsgruppe bestätigen oder ablehnen oder die Anzahl Mandate in der Organisation definieren.</p>\n"
+          title: Was sind Abstimmungen?
+    menu:
+      votings: Abstimmungen
     pages:
       home:
         statistics:
@@ -380,7 +600,263 @@ de:
     participatory_processes:
       statistics:
         elections_count: Wahlen
+    votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Maximale Anzahl angezeigte Elemente
+          landing_page:
+            attachments_and_folders:
+              name: Materialien und Verzeichnisse zur Abstimmung
+            description:
+              name: Beschreibung der Abstimmung
+            elections:
+              name: Wahlen
+            header:
+              name: Überschrift
+            html_block_1:
+              name: Abstimmung HTML Block 1
+            html_block_2:
+              name: Abstimmung HTML Block 2
+            html_block_3:
+              name: Abstimmung HTML Block 3
+            metrics:
+              name: Abstimmungsmetriken
+            polling_stations:
+              name: Wahllokale
+            stats:
+              name: Abstimmungsstatistiken
+            timeline:
+              name: Abstimmungs-Timeline
+        index:
+          not_published: Unveröffentlicht
+          published: Veröffentlicht
+        landing_page:
+          content_blocks:
+            edit:
+              update: Aktualisieren
+          edit:
+            active_content_blocks: Aktive Inhaltsblöcke
+            inactive_content_blocks: Inaktive Inhaltsblöcke
+        menu:
+          votings: Abstimmungen
+          votings_submenu:
+            attachment_collections: Ordner
+            attachment_files: Dateien
+            attachments: Dateianhänge
+            components: Komponenten
+            info: Information
+            landing_page: Landing-Page
+            monitoring_committee_members: Überwachungskomitee
+            polling_officers: Wahllokal-Mitarbeitende
+            polling_stations: Wahllokale
+        models:
+          monitoring_committee_member:
+            fields:
+              email: E-Mail
+              name: Name
+            name: Mitglied des Überwachungskomitees
+          polling_officer:
+            fields:
+              email: E-Mail
+              name: Name
+              polling_station: Wahllokal (Rolle)
+            name: Wahllokal-Mitarbeitender
+          polling_station:
+            fields:
+              address: Adresse
+              polling_station_managers: Manager
+              polling_station_president: Präsident
+              title: Titel
+            name: Wahllokal
+          voting:
+            fields:
+              created_at: Erstellt am
+              promoted: Hervorgehoben
+              published: Veröffentlicht
+              title: Titel
+        monitoring_committee_members:
+          create:
+            invalid: Beim Erfassen dieses Überwachungskomitee-Mitglieds ist ein Fehler aufgetreten
+            success: Überwachungskomitee-Mitglied erfolgreich erfasst
+          destroy:
+            invalid: Beim Löschen dieses Überwachungskomitee-Mitglieds ist ein Fehler aufgetreten
+            success: Überwachungskomitee-Mitglied erfolgreich entfernt
+          form:
+            existing_user: Existierender Benutzer
+            non_user: Neuen Benutzer einladen
+            select_user: Suchen nach Name, E-Mail oder Benutzername
+            user_type: Benutzertyp
+          index:
+            title: Überwachungskomitee
+          new:
+            create: Hinzufügen
+            title: Überwachungskomitee-Mitglied erfassen
+        polling_officers:
+          create:
+            invalid: Beim Erfassen dieses Wahllokal-Mitarbeiters ist ein Fehler aufgetreten
+            success: Wahllokal-Mitarbeitender wurde erfolgreich erfasst
+          destroy:
+            invalid: Beim Entfernen dieses Wahllokal-Mitarbeitenden ist ein Fehler aufgetreten
+            success: Wahllokal-Mitarbeitender wurde erfolgreich entfernt
+          form:
+            existing_user: Existierender Benutzer
+            non_user: Neuen Benutzer einladen
+            select_user: Suchen nach Name, E-Mail oder Benutzername
+            user_type: Benutzertyp
+          index:
+            role_manager: Manager
+            role_president: Präsident
+            title: Wahllokal-Mitarbeitende
+          new:
+            create: Erfassen
+            title: Wahllokal-Mitarbeiter erfassen
+          polling_officers_picker:
+            choose_polling_officers: Wahllokal-Mitarbeitende auswählen
+            close: Schließen
+            more_polling_officers: Es gibt %{number} weitere Wahllokal-Mitarbeitende. Verfeinern Sie Ihre Suche um sie zu finden.
+            no_polling_officers: Keine Wahllokal-Mitarbeitenden passen zu Ihren Suchkriterien, oder es gibt keine Wahllokal-Mitarbeitenden.
+        polling_stations:
+          create:
+            invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich erfasst
+          destroy:
+            invalid: Beim Löschen dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich gelöscht
+          edit:
+            title: Wahllokal bearbeiten
+            update: Wahllokal aktualisieren
+          form:
+            address_help: 'Adresse: Wird vom Geocoder zur Lokalisierung verwendet'
+            location_help: 'Ort: Beschreibung des genauen Orts des Wahllokals für die Wähler'
+            location_hints_help: 'Ortshinweise: Zusätzliche Informationen. Beispiel: Das Stockwerk des Gebäudes in dem sich das Wahllokal befindet.'
+            polling_station_managers_help: 'Wahllokal-Manager: Die Mitarbeitenden die als Verwalter des Wahllokals agieren werden. Stellen Sie sicher dass diese Personen bereits als Wahllokal-Mitarbeitende erfasst wurden, und dass sie nicht bereits zu einem anderen Wahllokal zugewiesen sind'
+            polling_station_president_help: 'Wahllokal-Mitarbeiter: Der Mitarbeiter der als Präsident des Wahllokals agiert. Stellen Sie sicher dass diese Person bereits als Wahllokal-Mitarbeitender erfasst wurde, und dass sie nicht bereits zu einem anderen Wahllokal zugewiesen ist'
+            select_president: Wählen Sie einen Wahllokal-Mitarbeiter als Präsident für das Wahllokal
+          index:
+            title: Wahllokale
+          new:
+            create: Erstellen
+            title: Wahllokal erstellen
+          update:
+            invalid: Beim Aktualisieren dieses Wahllokals ist ein Fehler aufgetreten
+            success: Wahllokal erfolgreich aktualisiert
+        titles:
+          votings: Abstimmungen
+        votings:
+          actions:
+            confirm_destroy: Sind Sie sicher?
+            destroy: Löschen
+            new_voting: Neue Abstimmung
+            publish: Veröffentlichen
+            unpublish: Veröffentlichung rückgängig machen
+          create:
+            invalid: Beim Erstellen dieser Abstimmung ist ein Problem aufgetreten
+            success: Abstimmung erfolgreich erstellt
+          edit:
+            add_election_component: Sie haben keine Wahl für diese Abstimmung konfiguriert. Bitte fügen Sie sie im Abschnitt Komponenten hinzu
+            assign_missing_officers: Es gibt noch Wahllokale ohne Präsident und/oder Wahlleiter. Bitte ordnen Sie diese im Wahllokal-Abschnitt zu
+            update: Aktualisieren
+          form:
+            select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            title: Titel
+            voting_type:
+              hybrid: Hybrid
+              in_person: Persönlich
+              online: Online
+          new:
+            create: Erstellen
+            title: Neue Abstimmung
+          publish:
+            success: Abstimmung erfolgreich veröffentlicht
+          unpublish:
+            success: Veröffentlichung der Abstimmung erfolgreich rückgängig gemacht
+          update:
+            invalid: Beim Aktualisieren dieser Abstimmung ist ein Problem aufgetreten
+            success: Abstimmung erfolgreich aktualisiert
+      admin_log:
+        voting:
+          create: "%{user_name} hat die Abstimmung %{resource_name} erstellt"
+          publish: "%{user_name} hat die Abstimmung %{resource_name} veröffentlicht"
+          unpublish: "%{user_name} hat die Abstimmung %{resource_name} auf \"unveröffentlicht\" gesetzt"
+      content_blocks:
+        highlighted_votings:
+          name: Hervorgehobene Abstimmungen
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Sind Sie sicher?
+          destroy: Entfernen
+          new: Neues Mitglied
+          title: Aktionen
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Aktive Abstimmungen
+            see_all_votings: Alle Abstimmungen ansehen
+            votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
+      polling_officers:
+        actions:
+          confirm_destroy: Sind Sie sicher?
+          destroy: Entfernen
+          new: Neu
+          title: Aktionen
+      polling_stations:
+        actions:
+          confirm_destroy: Sind Sie sicher?
+          destroy: Löschen
+          edit: Bearbeiten
+          new: Neu
+          title: Aktionen
+      votings:
+        count:
+          title:
+            one: "%{count} Abstimmung"
+            other: "%{count} Abstimmungen"
+        filters:
+          active: Aktiv
+          all: Alle
+          finished: Abgeschlossen
+          search: Suchen
+          state: Status
+          upcoming: Zukünftig
+        filters_small_view:
+          close_modal: Dialog schließen
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Aufklappen
+        index:
+          no_votings: Keine Abstimmung gefunden, die Ihren Suchkriterien entspricht.
+          only_finished: Momentan gibt es keine geplanten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
+          title: Abstimmungen
+        orders:
+          label: 'Abstimmungen sortieren nach:'
+          random: Zufällig
+          recent: Neueste zuerst
+        show:
+          dates: Daten
+      votings_m:
+        badge_name:
+          finished: Abgeschlossen
+          ongoing: Aktuell
+          upcoming: Zukünftig
+        footer_button_text:
+          participate: Mitmachen
+          view: Anzeigen
+          vote: Abstimmen
+        unspecified: Keine Angabe
+        voting_type:
+          hybrid: Hybrid
+          in_person: Persönlich
+          online: Online
+        voting_types_label: Abstimmungsart
   layouts:
     decidim:
       election_votes_header:
         exit: Beenden
+      votings:
+        index:
+          promoted_votings: Hervorgehobene Abstimmungen
+        promoted_voting:
+          more_info: Mehr Informationen
+          vote: Abstimmen

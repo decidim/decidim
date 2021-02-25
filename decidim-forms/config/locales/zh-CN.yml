@@ -109,7 +109,7 @@ zh-CN:
         answer:
           body: 主体不能为空
       files:
-        extension_whitelist: '接受的格式：'
+        extension_allowlist: '接受的格式：'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: '这张图片将是：'

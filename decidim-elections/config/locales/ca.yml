@@ -16,6 +16,9 @@ ca:
         max_selections: Número màxim d'opcions
         min_selections: Cap de les anteriors
         title: Títol
+      voting:
+        end_time: La votació finalitza
+        start_time: Comença la votació
     errors:
       models:
         answer:
@@ -38,6 +41,16 @@ ca:
         one: Pregunta
         other: Preguntes
   decidim:
+    admin:
+      filters:
+        role_eq:
+          label: Rol
+          values:
+            manager: Gestor
+            president: Presidenta
+            unassigned: Sense assignar
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o lloc de votació.
     components:
       elections:
         actions:
@@ -135,6 +148,12 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquesta pregunta
             success: La pregunta s'ha actualitzat correctament
+        steps:
+          vote_stats:
+            no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
+            title: Estadístiques de les votacions
+            voters: Votants
+            votes: Vots
       admin_log:
         election:
           publish: "%{user_name} ha publicat la votació %{resource_name}"
@@ -172,10 +191,8 @@ ca:
           unfold: Desplegar
         show:
           preview: Previsualitzar
-          vote: Votar
           voting_period_status:
             finished: La votació va començar el %{start_time} i va acabar el %{end_time}
-            ongoing: La votació finalitza el %{end_time}
             upcoming: La votació comença el %{start_time}
       models:
         answer:
@@ -213,7 +230,6 @@ ca:
           header: Vot confirmat
           lead: El teu vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="evote-verify">pàgina de verificació de vot</a>
         encrypting:
           header: Codificant el vot...
           text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
@@ -246,6 +262,12 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: La votació %{resource_title} ja està activa a %{participatory_space_title}.
           notification_title: La votació <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està activa.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara al conjunt de membres d'una organització, fer una crida a participar en la votació, generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar-ne el resultat.</p> <p>Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització. Alguns exemples serien: canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir una durada màxima d'un, dos o tres mandats.</p>"
+          page: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara al conjunt de membres d'una organització, fer una crida a participar en la votació, generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar-ne el resultat.</p> <p>Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització. Alguns exemples serien: canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir una durada màxima d'un, dos o tres mandats.</p>"
+          title: Què són les votacions?
     pages:
       home:
         statistics:
@@ -253,6 +275,20 @@ ca:
     participatory_processes:
       statistics:
         elections_count: Votacions
+    votings:
+      votings:
+        index:
+          no_votings: Cap votació s'ajusta als vostres criteris de cerca.
+          only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
+      votings_m:
+        footer_button_text:
+          participate: Participeu
+          vote: Voteu
+        voting_type:
+          hybrid: Híbrid
+          in_person: Presencial
+          online: En línia
+        voting_types_label: Tipus de votació
   layouts:
     decidim:
       election_votes_header:

@@ -1,0 +1,101 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <%= public_page_link decidim_votings.voting_path(current_participatory_space) %>
+      <% if allowed_to? :update, :voting, voting: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_votings.edit_voting_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
+                                    decidim_admin_votings.edit_voting_path(current_participatory_space) %>
+        </li>
+
+        <li <% if is_active_link?(decidim_admin_votings.voting_landing_page_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("landing_page", scope: "decidim.votings.admin.menu.votings_submenu"), decidim_admin_votings.edit_voting_landing_page_path(current_participatory_space) %>
+        </li>
+      <% end %>
+
+      <% if allowed_to? :read, :component, voting: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_votings.components_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("components", scope: "decidim.votings.admin.menu.votings_submenu"), decidim_admin_votings.components_path(current_participatory_space) %>
+          <ul>
+            <% current_participatory_space.components.each do |component| %>
+              <% if component.manifest.admin_engine %>
+                <li <% if is_active_link?(manage_component_path(component)) %> class="is-active" <% end %>>
+                  <%= link_to manage_component_path(component) do %>
+                    <%= translated_attribute component.name %>
+                    <% if component.primary_stat.present? %>
+                      <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>">
+                        <%= component.primary_stat %>
+                      </span>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+
+      <% if allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment) %>
+        <li>
+          <span class="secondary-nav__subtitle"><%= t("attachments", scope: "decidim.votings.admin.menu.votings_submenu") %></span>
+          <ul>
+            <% if allowed_to? :read, :attachment_collection %>
+              <li <% if is_active_link?(decidim_admin_votings.voting_attachment_collections_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("attachment_collections", scope: "decidim.votings.admin.menu.votings_submenu"), decidim_admin_votings.voting_attachment_collections_path(current_participatory_space) %>
+              </li>
+            <% end %>
+            <% if allowed_to? :read, :attachment %>
+              <li <% if is_active_link?(decidim_admin_votings.voting_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("attachment_files", scope: "decidim.votings.admin.menu.votings_submenu"), decidim_admin_votings.voting_attachments_path(current_participatory_space) %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+
+      <% if allowed_to?(:read, :polling_stations) %>
+        <% if !current_participatory_space.online_voting? %>
+          <li <% if is_active_link?(decidim_admin_votings.voting_polling_stations_path(current_participatory_space)) %> class="is-active" <% end %>>
+            <%= aria_selected_link_to t("polling_stations", scope: "decidim.votings.admin.menu.votings_submenu"), decidim_admin_votings.voting_polling_stations_path(current_participatory_space) %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <% if allowed_to?(:read, :polling_officers) %>
+        <% if !current_participatory_space.online_voting? %>
+          <li <% if is_active_link?(decidim_admin_votings.voting_polling_officers_path(current_participatory_space)) %> class="is-active" <% end %>>
+            <%= aria_selected_link_to t("polling_officers", scope: "decidim.votings.admin.menu.votings_submenu"), decidim_admin_votings.voting_polling_officers_path(current_participatory_space) %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <% if allowed_to?(:read, :monitoring_committee_members) %>
+        <% if !current_participatory_space.online_voting? %>
+          <li <% if is_active_link?(decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space)) %> class="is-active" <% end %>>
+            <%= aria_selected_link_to t("monitoring_committee_members", scope: "decidim.votings.admin.menu.votings_submenu"), decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space) %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <%= Decidim::Admin.view_hooks.render(:admin_secondary_nav, deep_dup) %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="voting-title">
+    <div class="voting-title-content">
+      <%= link_to translated_attribute(current_participatory_space.title), decidim_votings.voting_path(current_participatory_space), target: "_blank" %>
+    </div>
+  </div>
+
+  <div class="voting-content">
+    <% if current_participatory_space.needs_elections? %>
+      <%= cell("decidim/announcement", t("votings.edit.add_election_component", scope: "decidim.votings.admin"), callout_class: "alert") %>
+    <% end %>
+    <% if current_participatory_space.polling_stations_with_missing_officers? %>
+      <%= cell("decidim/announcement", t("votings.edit.assign_missing_officers", scope: "decidim.votings.admin"), callout_class: "alert") %>
+    <% end %>
+    <%= yield %>
+  </div>
+<% end %>

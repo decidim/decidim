@@ -266,10 +266,6 @@ ca:
       conferences:
         conference_registration:
           confirm: "%{user_name} ha confirmat la seva inscripció a la jornada %{resource_name}"
-        partner:
-          create: "%{user_name} ha creat %{resource_name} a la jornada %{space_name}"
-          delete: "%{user_name} ha eliminat l'administradora %{resource_name} de la jornada %{space_name}"
-          update: "%{user_name} ha actualitzat %{resource_name} a la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
           publish: "%{user_name} ha publicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
@@ -402,6 +398,7 @@ ca:
         personal_website: Lloc web personal
         show:
           more_info: més informació
+          speaking_at: Intervé a
       conference_speaker_cell:
         personal_url:
           personal_website: Lloc web personal
@@ -542,8 +539,8 @@ ca:
     help:
       participatory_spaces:
         conferences:
-          contextual: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Un congrés pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>\n"
-          page: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Un congrés pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>\n"
+          contextual: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Una conferència pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>"
+          page: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Una conferència pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>"
           title: Què són les conferències?
     log:
       value_types:

@@ -134,6 +134,11 @@ sv:
           update:
             invalid: Det gick inte att uppdatera denna fråga
             success: Frågan har uppdaterats
+        steps:
+          vote_stats:
+            no_vote_statistics_yet: Ingen röstningsstatistik ännu
+            title: Röstningsstatistik
+            votes: Röster
       admin_log:
         election:
           publish: "%{user_name} publicerade valet %{resource_name}"
@@ -171,10 +176,8 @@ sv:
           unfold: Veckla ut
         show:
           preview: Förhandsgranska
-          vote: Rösta
           voting_period_status:
             finished: Omröstningen började den %{start_time} och slutade den %{end_time}
-            ongoing: Omröstningen slutar den %{end_time}
             upcoming: Omröstningen börjar den %{start_time}
       models:
         answer:
@@ -211,7 +214,6 @@ sv:
           header: Rösta bekräftad
           lead: Din röst har redan skickats!
           text: 'Du kan kontrollera att din röst har lagts till i röstsedeln med följande identifierare: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: För att kontrollera det, kopiera identifieraren och klistra in den på <a href="evote-verify">röstverifieringssidan</a>
         encrypting:
           header: Kodar omröstning...
           text: Din röst krypteras så att du kan skicka den anonymt.
@@ -244,7 +246,7 @@ sv:
           notification_title: Valet <a href="%{resource_path}">%{resource_title}</a> är nu aktivt för %{participatory_space_title}.
     participatory_processes:
       statistics:
-        elections_count: Val
+        elections_count: Omröstningar
   layouts:
     decidim:
       election_votes_header:

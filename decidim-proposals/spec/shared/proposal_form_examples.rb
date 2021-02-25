@@ -95,6 +95,18 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_invalid }
   end
 
+  context "when the title is the minimum length" do
+    let(:title) do
+      if options[:i18n] == false
+        "Length is right"
+      else
+        { en: "Length is right" }
+      end
+    end
+
+    it { is_expected.to be_valid }
+  end
+
   unless options[:skip_etiquette_validation]
     context "when the body is not etiquette-compliant" do
       let(:body) do
@@ -149,7 +161,7 @@ shared_examples "a proposal form" do |options|
       end
 
       context "when the address is present" do
-        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:address) { "Some address" }
 
         before do
           stub_geocoding(address, [latitude, longitude])

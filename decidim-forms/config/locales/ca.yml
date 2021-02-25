@@ -14,6 +14,8 @@ ca:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Ha de ser adjuntat de nou
             choices:
               missing: no estan complets
               too_many: en són masses
@@ -109,7 +111,7 @@ ca:
         answer:
           body: El camp no pot estar en blanc
       files:
-        extension_whitelist: 'Formats d''arxiu acceptats:'
+        extension_allowlist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Aquesta imatge medirà:'
@@ -117,6 +119,7 @@ ca:
           resize_and_pad: Redimensionat i ajustat a
           resize_to_fit: Redimensionada per ajustar-la
       question_types:
+        files: Fitxers
         long_answer: Resposta llarga
         matrix_multiple: Matriu (opció multiple)
         matrix_single: Matriu (opció única)

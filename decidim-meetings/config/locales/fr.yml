@@ -207,6 +207,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
         invite_join_meeting_mailer:
@@ -388,12 +389,15 @@ fr:
           title: Modifier votre rencontre
           update: Mettre à jour
         filters:
+          activity: Mon activité
+          all: Tous
           category: Catégorie
           date: Date
           date_values:
             all: Toutes
             past: Passées
             upcoming: À venir
+          my_meetings: Mes rencontres
           origin: Origine
           origin_values:
             all: Toutes
@@ -405,6 +409,7 @@ fr:
           type: Type
           type_values:
             all: Tous
+            hybrid: Hybride
             in_person: En présentiel
             online: En ligne
         filters_small_view:
@@ -504,6 +509,7 @@ fr:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
       type_of_meeting:
+        hybrid: Hybride
         in_person: En présentiel
         online: En ligne
       types:

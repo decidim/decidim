@@ -4,3 +4,10 @@ ignore:
   - "decidim-*/lib/decidim/**/admin-engine.rb"
   - "decidim-*/lib/decidim/**/component.rb"
   - "decidim-*/lib/decidim/**/participatory_space.rb"
+coverage:
+  status:
+    project:
+      default:
+        threshold: 0.1%
+github_checks:
+  annotations: false

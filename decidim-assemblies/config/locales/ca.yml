@@ -1,6 +1,8 @@
 ca:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Àrea
         assembly_type: Tipus d'assemblea
@@ -34,7 +36,7 @@ ca:
         meta_scope: Metadades d'àmbit
         parent_id: Assemblea principal
         participatory_processes_ids: Processos participatius relacionats
-        participatory_scope: Què es decideix
+        participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
         private_space: Espai privat
         promoted: Destacat
@@ -50,6 +52,7 @@ ca:
         target: Qui participa
         title: Títol
         twitter: Twitter
+        weight: Pes
         youtube: YouTube
       assembly_member:
         birthday: Aniversari
@@ -60,6 +63,7 @@ ca:
         full_name: Nom complet
         gender: Gènere
         position: Posició
+        user_id: Usuària
       assembly_user_role:
         email: Correu electrònic
         name: Nom
@@ -246,7 +250,6 @@ ca:
         update: "%{user_name} ha actualitzat la configuració de les assemblees"
       assembly_type:
         create: "%{user_name} ha creat l'assemblea %{resource_name}"
-        delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         publish: "%{user_name} ha publicat el tipus d'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat el tipus d'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat el tipus d'assemblea %{resource_name}"
@@ -305,6 +308,9 @@ ca:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membres
@@ -380,7 +386,6 @@ ca:
         comments_count: Comentaris
         debates_count: Debats
         endorsements_count: Adhesions
-        headline: Activitat
         meetings_count: Trobades
         orders_count: Suports
         pages_count: Pàgines
@@ -437,8 +442,6 @@ ca:
       home:
         hero:
           participate_title: Participa als processos de la plataforma
-        sub_hero:
-          register_title: Registra't per crear un compte a la plataforma
     participatory_processes:
       pages:
         home:
