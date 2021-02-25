@@ -600,6 +600,7 @@ cs:
         polling_officers:
           polling_station_assigned:
             email_intro: Byli jste přiřazeni jako %{role} volební místnosti %{polling_station_name} v <a href="%{resource_url}">%{resource_title}</a>. Můžete spravovat volební místnost z vyhrazené <a href="%{polling_officer_zone_url}">zóny volebního komisaře</a>.
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přiřazeni jako %{role} v %{polling_station_name}.
     help:
       participatory_spaces:
         votings:
