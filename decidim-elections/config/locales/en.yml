@@ -249,6 +249,12 @@ en:
             title: Ready to start
           processing: Processing...
           results_published:
+            answer: Answer
+            not_selected: Not selected
+            question: Question
+            result: Result
+            selected: Selected
+            submit: Submit
             title: Results published
           tally:
             title: Tally process
@@ -260,6 +266,7 @@ en:
             result: Result
             selected: Selected
             submit: Publish results
+            success: Tally successfully ended
             title: Calculated results
           vote:
             errors:

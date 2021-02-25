@@ -19,11 +19,13 @@
 
     <div class="button--double form-general-submit">
       <%= f.hidden_field :current_step %>
-      <%= f.button type: :submit, class: "button", disabled: @form.invalid? do %>
-        <% if @form.pending_action %>
-          <span class='loading-spinner'></span> <%= t("steps.processing", scope: "decidim.elections.admin") %>
-        <% else %>
-          <%= t("steps.#{current_step}.submit", scope: "decidim.elections.admin") %>
+      <% if current_step.to_s != "results_published" %>
+        <%= f.button type: :submit, class: "button", disabled: @form.invalid? do %>
+          <% if @form.pending_action %>
+            <span class='loading-spinner'></span> <%= t("steps.processing", scope: "decidim.elections.admin") %>
+          <% else %>
+            <%= t("steps.#{current_step}.submit", scope: "decidim.elections.admin") %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
