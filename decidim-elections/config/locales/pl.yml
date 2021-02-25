@@ -74,6 +74,17 @@ pl:
   decidim:
     admin:
       filters:
+        officers_assigned_eq:
+          label: Oficerowie
+          values:
+            assigned: Przypisano
+            unassigned: Nie przypisano
+        role_eq:
+          label: Rola
+          values:
+            manager: Kierownik
+            president: Przewodniczący
+            unassigned: Nie przypisano
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Przeszukaj %{collection} według nazwy/adresu e-mail/pseudonimu lub stacji wyborczej.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
@@ -297,6 +308,8 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         preview:
+          available_answers: Dostępne odpowiedzi
+          description: To są pytania, które znajdziesz w procesie głosowania
           title: Pytania wyborcze
         results:
           title: Wyniki wyborów
@@ -537,6 +550,7 @@ pl:
             attachment_collections: Foldery
             attachment_files: Pliki
             attachments: Załączniki
+            components: Komponenty
             monitoring_committee_members: Komisja monitorująca
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
@@ -633,13 +647,17 @@ pl:
           votings: Głosowania
         votings:
           actions:
+            confirm_destroy: Jesteś pewny?
+            destroy: Usuń
             new_voting: Nowa przestrzeń do głosowania
           edit:
+            add_election_component: Nie masz żadnych wyborów skonfigurowanych w tym głosowaniu. Dodaj je w sekcji Komponenty
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
             title: Tytuł
             voting_type:
+              hybrid: Hybrydowe
               online: Online
           new:
             create: Utwórz
@@ -678,21 +696,33 @@ pl:
             many: "%{count} głosowań"
             other: "%{count} głosowania"
         filters:
+          active: Aktywne
+          all: Wszystko
+          finished: Zakończone
+          search: Szukaj
+          state: Status
           upcoming: Nadchodzące
         filters_small_view:
           close_modal: Zamknij okno
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwiń
         index:
           title: Głosowania
         orders:
           random: Losowo
           recent: Najnowsze
+        show:
+          dates: Daty
       votings_m:
         badge_name:
           ongoing: Trwające
           upcoming: Nadchodzące
         footer_button_text:
+          view: Zobacz
           vote: Głosuj
         voting_type:
+          hybrid: Hybrydowe
           online: Online
         voting_types_label: Typ głosowania
   layouts:
