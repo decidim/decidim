@@ -95,6 +95,21 @@ module Decidim
             expect(president.reload.presided_polling_station).to eq polling_station
             expect(polling_station.reload.polling_station_president).to eq president
           end
+
+          it "notifies the president" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.votings.polling_officers.polling_station_assigned",
+                event_class: PollingOfficers::PollingStationAssignedEvent,
+                resource: voting,
+                affected_users: [president.user],
+                followers: [],
+                extra: { polling_officer_id: president.id }
+              )
+
+            subject.call
+          end
         end
 
         context "when selecting managers" do
@@ -107,6 +122,23 @@ module Decidim
               expect(manager.reload.managed_polling_station).to eq polling_station
               expect(polling_station.reload.polling_station_managers).to include(manager)
             end
+          end
+
+          it "notifies the manmagers" do
+            managers.each do |manager|
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.votings.polling_officers.polling_station_assigned",
+                  event_class: PollingOfficers::PollingStationAssignedEvent,
+                  resource: voting,
+                  affected_users: [manager.user],
+                  followers: [],
+                  extra: { polling_officer_id: manager.id }
+                )
+            end
+
+            subject.call
           end
         end
       end
