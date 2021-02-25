@@ -106,7 +106,7 @@ pl:
         debate:
           participate: Dołącz
         edit:
-          back: Powrót
+          back: Wróć
           save: Zapisz zmiany
           title: Edytuj debatę
         filters:
@@ -127,7 +127,7 @@ pl:
             open: Otwarte
           user_groups: Grupy użytkowników
         filters_small_view:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
