@@ -326,9 +326,13 @@ pl:
         finish:
           back: Wróć
           back_to_initiatives: Wróć do inicjatyw
+          confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit_my_initiative: Edytuj moją inicjatywę
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
+        finish_help:
+          access_reminder: Możesz uzyskać dostęp do swoich inicjatyw poprzez filtr %{link} na stronie inicjatyw.
+          publish_helper_text: Pamiętaj, że aby Twoja inicjatywa została opublikowana, musisz uzupełnić wymagane informacje i <strong>przesłać ją do weryfikacji technicznej</strong>, aby administrator mógł ją przejrzeć.
         previous_form:
           back: Wróć
           continue: Dalej
@@ -488,6 +492,7 @@ pl:
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
           any_vote_method: Ta inicjatywa zbiera podpisy online i na piśmie.
+          confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit: Edytuj
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
         signatures_count:
