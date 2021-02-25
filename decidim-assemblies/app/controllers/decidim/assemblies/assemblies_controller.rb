@@ -77,7 +77,7 @@ module Decidim
       end
 
       def parent_assemblies
-        search.results.parent_assemblies.order(promoted: :desc)
+        search.results.parent_assemblies.order(weight: :asc, promoted: :desc)
       end
 
       def stats
