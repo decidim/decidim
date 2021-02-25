@@ -73,6 +73,7 @@ handled_ids = []
 
 prs = list_of_commits.inject({}) do |acc, commit|
   next acc if crowdin?(commit)
+
   acc.update(commit => get_pr_data(commit))
 end
 
