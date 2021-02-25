@@ -5,6 +5,7 @@ pl:
         decidim_user_group_id: Autor
         description: Opis
         offline_votes: Podpisy na piśmie
+        offline_votes_for_scope: Podpisy dla %{scope_name}
         scope_id: Zakres
         signature_end_date: Koniec okresu zbiórki podpisów
         signature_start_date: Początek okresu zbiórki podpisów
@@ -121,6 +122,7 @@ pl:
             initiative_title: Tytuł inicjatywy
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
+            scope: Zakres
             time_and_date: Czas i data
             timestamp: Znacznik czasu
       titles:
@@ -350,6 +352,7 @@ pl:
           more_information: "(Więcej informacji)"
       edit:
         back: Wróć
+        export_votes: Eksportuj podpisy
         title: Edytuj inicjatywę
         update: Aktualizuj
       events:
