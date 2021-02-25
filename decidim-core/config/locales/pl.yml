@@ -339,6 +339,7 @@ pl:
         close_modal: Zamknij okno
     block_user_mailer:
       notify:
+        body_2: 'Powód: %{justification}'
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Witaj,
     collapsible_list:
@@ -393,6 +394,7 @@ pl:
     content_blocks:
       cta_settings_form:
         background_image: Obraz tła
+        description: Opis
       footer_sub_hero:
         name: Banner podrzędny stopki
       hero:
