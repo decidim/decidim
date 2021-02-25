@@ -6,7 +6,7 @@ module Decidim
       module LandingPage
         class DescriptionCell < Decidim::ViewModel
           include Decidim::SanitizeHelper
-          
+
           delegate :current_participatory_space, to: :controller
 
           private
