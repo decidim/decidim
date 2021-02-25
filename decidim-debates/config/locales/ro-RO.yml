@@ -3,6 +3,8 @@ ro:
     attributes:
       debate:
         category_id: Categorie
+        closed_at: Închisă la
+        conclusions: Concluzii
         decidim_category_id: Categorie
         description: Descriere
         end_time: Se termină la
@@ -12,6 +14,7 @@ ro:
         title: Titlu
         user_group_id: Creează o dezbatere ca
     models:
+      decidim/debates/close_debate_event: Dezbatere închisă
       decidim/debates/create_debate_event: Dezbatere
       decidim/debates/creation_disabled_event: Dezbateri dezactivate
       decidim/debates/creation_enabled_event: Dezbateri activate
@@ -38,6 +41,7 @@ ro:
             creation_enabled: Crearea de dezbateri de către participanți este activată
     debates:
       actions:
+        close: Închide
         confirm_destroy: Ești sigur?
         destroy: Ștergere
         edit: Editare
@@ -154,6 +158,10 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Dezbaterile sunt acum disponibile în %{participatory_space_title}
           notification_title: Acum poți începe <a href="%{resource_path}">noi dezbateri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Puteți citi concluziile pe pagina sa:'
+          email_subject: Dezbaterea pentru "%{resource_title}” a fost închisă
+          notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
     gamification:
       badges:
         commented_debates:
