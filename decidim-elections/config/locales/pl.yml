@@ -98,7 +98,7 @@ pl:
             title: Edytuj wybór
             update: Aktualizuj wybór
           index:
-            no_bulletin_board: Nie ma skonfigurowanego serwera <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
+            no_bulletin_board: Brak skonfigurowanego <a href="https://github.com/decidim/decidim-bulletin-board">serwera tablicy ogłoszeń</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
             title: Wybory
           new:
             create: Utwórz wybór
@@ -257,6 +257,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}.
           notification_title: Wybór <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Wybory
     participatory_processes:
       statistics:
         elections_count: Wybory
