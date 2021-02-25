@@ -485,9 +485,20 @@ pl:
           email: Adres e-mail
           full_name: Imię i nazwisko
           general_title: Wniosek o dołączenie do inicjatywy
+          id_number: Numer dokumentu tożsamości
           initiative:
             attachments: Załączone dokumenty (proszę wpisać nazwę każdego dokumentu poniżej)
+            description: 'Opis:'
             title: 'Tytuł:'
+            type: Typ inicjatywy
+          legal_text: Zgromadzone dane osobowe zostaną dołączone do zasobów i traktowane w sposób poufny przez organizację zgodnie z obowiązującymi przepisami.
+          phone_number: Numer telefonu
+          place_date: Miejsce, data
+          postal_code: Kod pocztowy
+          print: Drukuj
+          province: Województwo
+          section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
+          signature: Podpis
         result:
           answer_title: Odpowiedziano na tę inicjatywę
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
@@ -496,6 +507,7 @@ pl:
           confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit: Edytuj
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
+          print: Drukuj inicjatywę
         signatures_count:
           one: " podpis"
           few: " podpisy"
