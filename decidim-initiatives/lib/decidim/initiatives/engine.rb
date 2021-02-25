@@ -94,7 +94,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.initiatives", scope: "decidim"),
                     decidim_initiatives.initiatives_path,
-                    position: 2.6,
+                    position: 2.4,
                     active: :inclusive
         end
       end

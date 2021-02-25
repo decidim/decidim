@@ -98,7 +98,7 @@ module Decidim
           menu.item I18n.t("menu.assemblies", scope: "decidim.admin"),
                     decidim_admin_assemblies.assemblies_path,
                     icon_name: "dial",
-                    position: 3.5,
+                    position: 2.2,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :assemblies)
         end

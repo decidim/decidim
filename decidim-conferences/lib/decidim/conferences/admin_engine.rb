@@ -94,7 +94,7 @@ module Decidim
           menu.item I18n.t("menu.conferences", scope: "decidim.admin"),
                     decidim_admin_conferences.conferences_path,
                     icon_name: "microphone",
-                    position: 3.5,
+                    position: 2.8,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :conferences)
         end

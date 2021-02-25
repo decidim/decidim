@@ -77,7 +77,7 @@ module Decidim
           menu.item I18n.t("menu.consultations", scope: "decidim.admin"),
                     decidim_admin_consultations.consultations_path,
                     icon_name: "comment-square",
-                    position: 3.8,
+                    position: 2.65,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :consultations)
         end

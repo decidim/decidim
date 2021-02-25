@@ -74,7 +74,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.consultations", scope: "decidim"),
                     decidim_consultations.consultations_path,
-                    position: 2.8,
+                    position: 2.65,
                     if: Decidim::Consultation.where(organization: current_organization).published.any?,
                     active: :inclusive
         end
