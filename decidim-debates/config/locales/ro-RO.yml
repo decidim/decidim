@@ -158,6 +158,15 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Dezbaterile sunt acum disponibile în %{participatory_space_title}
           notification_title: Acum poți începe <a href="%{resource_path}">noi dezbateri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          affected_user:
+            email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Puteți citi concluziile pe pagina sa:'
+            email_subject: Dezbaterea pentru "%{resource_title}” a fost închisă
+            notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
+          follower:
+            email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Puteți citi concluziile pe pagina sa:'
+            email_subject: Dezbaterea pentru "%{resource_title}” a fost închisă
+            notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
     gamification:
       badges:
         commented_debates:
