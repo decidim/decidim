@@ -80,13 +80,6 @@ module Decidim
         model.end_time.to_date
       end
 
-      def questions_count_status
-        content_tag(
-          :strong,
-          t("decidim.elections.election_m.questions", count: model.questions.count)
-        )
-      end
-
       def footer_button_text
         if model.ongoing?
           t("decidim.elections.election_m.footer.vote")
@@ -96,7 +89,7 @@ module Decidim
       end
 
       def statuses
-        [:questions_count]
+        []
       end
     end
   end
