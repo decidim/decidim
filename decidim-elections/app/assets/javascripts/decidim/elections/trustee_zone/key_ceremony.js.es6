@@ -91,9 +91,6 @@ $(() => {
           $backupButton.attr("download", backupFilename);
           $backupButton.on("click", onEventTriggered);
         },
-        onSetup() {
-          $startButton.prop("disabled", false);
-        },
         onEvent(event) {
           let messageIdentifier = MessageIdentifier.parse(
             event.message.messageId
@@ -147,6 +144,8 @@ $(() => {
           $backupModal.foundation("close");
         }
       });
+
+      $startButton.prop("disabled", false);
     }
   });
 });

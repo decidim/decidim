@@ -60,7 +60,6 @@ $(async () => {
   });
 
   await voteComponent.bindEvents({
-    onSetup() {},
     onBindEncryptButton(onEventTriggered) {
       $(".button.confirm").on("click", onEventTriggered);
     },

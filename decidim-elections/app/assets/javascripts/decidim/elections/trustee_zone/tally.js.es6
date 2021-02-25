@@ -81,9 +81,6 @@ $(() => {
           }
         }
       },
-      onSetup() {
-        $startButton.prop("disabled", false);
-      },
       onBindStartButton(onEventTriggered) {
         $startButton.on("click", onEventTriggered);
       },
@@ -119,6 +116,7 @@ $(() => {
         $restoreModal.foundation("close");
       }
     });
+    $startButton.prop("disabled", false);
   };
 
   trusteeIdentificationKeys.present(async (exists) => {
