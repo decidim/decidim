@@ -339,7 +339,7 @@ pl:
           name: Nazwa
           needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
           not_managed: Niezamknięte
-          promote: Promuj
+          promote: Awansuj
           search: Szukaj
           status: Status
           view_logs: Wyświetl logi
@@ -370,7 +370,7 @@ pl:
           new:
             explanation: Zarządzani użytkownicy mogą być promowani do standardowych użytkowników. Oznacza to, że zostaną zaproszeni do udziału w aplikacji i nie będą mogli podszywać się pod inne osoby. Zaproszony użytkownik otrzyma wiadomość e-mail, aby zaakceptować zaproszenie.
             new_managed_user_promotion: Nowa zarządzana promocja użytkowników
-            promote: Promować
+            promote: Awansuj
       menu:
         admin_log: Logi aktywności administratora
         admins: Administratorzy
