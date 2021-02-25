@@ -24,4 +24,7 @@ schema.json
 .tags
 # Vim swap files
 *.swp
-
+# NVM RC (node version manager)
+.nvmrc
+# Decidim webpack packs
+public/decidim-packs
