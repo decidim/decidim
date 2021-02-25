@@ -1,11 +1,10 @@
 {
   "presets": [
-    "env",
+    "@babel/env",
     "airbnb",
-    "react",
-    "stage-2"
+    "@babel/react"
   ],
-  "plugins": ["transform-decorators-legacy"],
+  "plugins": [],
   "env": {
     "test": {
       "plugins": [
