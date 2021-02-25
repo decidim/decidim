@@ -335,11 +335,11 @@ en:
           filter_by: Filter by
           unfold: Unfold
         preview:
-          available_answers: Available answers
-          description: These are the questions you will find in the voting process
+          available_answers: 'Available answers:'
+          description: 'These are the questions you will find in the voting process:'
           title: Election questions
         results:
-          description: These are the results of the voting, for each question
+          description: 'These are the results of the voting, for each question:'
           selected: Selected
           title: Election results
           votes:
@@ -347,19 +347,19 @@ en:
             other: "%{count} votes"
             zero: "%{count} votes"
         show:
-          action-button:
-            change-vote: Change your vote
+          action_button:
+            change_vote: Change your vote
             vote: Start voting
-            vote-again: Vote again
+            vote_again: Vote again
           back: Available elections
           callout:
-            already-voted: You have already voted in this election. You can change your vote or verify it.
-            vote-rejected: It was not possible to verify your vote. Please cast it again.
+            already_voted: You have already voted in this election. You can change your vote or verify it.
+            vote_rejected: It was not possible to verify your vote. Please cast it again.
           preview: Preview
           verify:
-            already-voted: Already voted?
-            verify-here: Check your vote here.
-            will-verify: You will be able to verify your vote once the election is started.
+            already_voted: Already voted?
+            verify_here: Check your vote here.
+            will_verify: You will be able to verify your vote once the election is started.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
             ongoing: 'Active voting until: %{end_time}'

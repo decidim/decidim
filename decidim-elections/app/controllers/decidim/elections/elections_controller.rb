@@ -8,7 +8,7 @@ module Decidim
       include Paginable
       include Decidim::Elections::Orderable
 
-      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?, :last_vote
+      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?
 
       def index
         redirect_to election_path(single, single: true) if single?
@@ -37,10 +37,6 @@ module Decidim
 
       def single
         elections.first if single?
-      end
-
-      def last_vote
-        @last_vote ||= Decidim::Elections::Votes::UserElectionLastVote.new(current_user, election).query
       end
 
       def paginated_elections

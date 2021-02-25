@@ -94,7 +94,7 @@ module Decidim
                         else
                           {}
                         end
-      decidim.authorization_modal_path(authorization_action: action, component_id: current_component.id, **resource_params)
+      decidim.authorization_modal_path(authorization_action: action, component_id: resource.component.id, **resource_params)
     end
 
     def clean_authorized_to_data_open(html_options)

@@ -29,7 +29,7 @@ module Decidim
       elsif permissions_holder
         "#{action}-#{permissions_holder.class.name}-#{permissions_holder.id}"
       else
-        "#{action}-#{current_component.id}"
+        "#{action}-#{resource.component.id}"
       end
     end
   end

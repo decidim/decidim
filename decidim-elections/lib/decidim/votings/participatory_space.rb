@@ -83,8 +83,6 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
       end
 
       Decidim.component_manifests.each do |manifest|
-        # next unless [:elections].member? manifest.name
-
         manifest.seed!(voting.reload)
       end
     end

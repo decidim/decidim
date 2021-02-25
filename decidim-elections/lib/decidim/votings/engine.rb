@@ -138,10 +138,6 @@ module Decidim
       initializer "decidim_votings.query_extensions" do
         Decidim::Api::QueryType.include Decidim::Votings::QueryExtensions
       end
-
-      def load_seed
-        nil
-      end
     end
   end
 end
