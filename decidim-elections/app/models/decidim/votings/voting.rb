@@ -26,6 +26,11 @@ module Decidim
                  class_name: "Decidim::Organization"
 
       has_many :components, as: :participatory_space, dependent: :destroy
+      has_many :categories,
+               foreign_key: "decidim_participatory_space_id",
+               foreign_type: "decidim_participatory_space_type",
+               dependent: :destroy,
+               as: :participatory_space
       has_many :polling_stations, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::PollingStation", inverse_of: :voting, dependent: :destroy
       has_many :polling_officers, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::PollingOfficer", inverse_of: :voting, dependent: :destroy
       has_many :monitoring_committee_members,
