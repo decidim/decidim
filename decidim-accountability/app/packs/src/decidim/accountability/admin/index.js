@@ -1,5 +1,3 @@
-// = require_self
-
 $(function() {
   $("#result_decidim_accountability_status_id").change(function () {
     /* eslint-disable no-invalid-this */
