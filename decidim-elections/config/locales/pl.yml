@@ -224,7 +224,9 @@ pl:
             trustees: Powiernicy
           key_ceremony_ended:
             submit: Rozpocznij głosowanie
+            success: Prośba o rozpoczęcie głosowania została pomyślnie umieszczona na tablicy ogłoszeń
             title: Gotowy do startu
+          processing: Przetwarzanie...
           results_published:
             title: Opublikowano wyniki
           tally:
@@ -320,7 +322,13 @@ pl:
           description: To są pytania, które znajdziesz w procesie głosowania
           title: Pytania wyborcze
         results:
+          selected: Wybrane
           title: Wyniki wyborów
+          votes:
+            one: "%{count} głos"
+            few: "%{count} głosy"
+            many: "%{count} głosów"
+            other: "%{count} głosy"
         show:
           action-button:
             change-vote: Zmień swój głos
@@ -400,6 +408,7 @@ pl:
           restore_modal:
             description: Tablica ogłoszeń posiada informacje od Ciebie jako powiernika w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
             title: Odzyskaj klucze dla wyborów %{election}
+            upload_election_keys: Prześlij klucze wyborcze
           tally_steps:
             back: Wróć
             description: Wyniki tego głosowania są generowane na tablicy ogłoszeń. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako powiernika.
@@ -430,7 +439,13 @@ pl:
           show:
             elections:
               list:
+                action_required:
+                  'false': 'Nie'
+                  name: Wymaga działania?
+                  'true': Wykonaj działanie
+                bb_status: Status
                 election: Wybór
+                voting_period: Czas głosowania
               no_elections: Nie ma głosowań, w których pełnisz rolę powiernika.
               title: Wybory
             identification_keys:
@@ -547,6 +562,12 @@ pl:
           contextual: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytani wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, załóż i poprowadź debatę za lub przeciw odpowiedziom. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
           page: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytani wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, załóż i poprowadź debatę za lub przeciw odpowiedziom. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
           title: Czym są głosowania?
+    menu:
+      votings: Głosowania
+    pages:
+      home:
+        statistics:
+          elections_count: Wybory
     participatory_processes:
       statistics:
         elections_count: Wybory
@@ -556,6 +577,8 @@ pl:
           landing_page:
             attachments_and_folders:
               name: Załączniki i foldery do głosowania
+            description:
+              name: Opis głosowania
             elections:
               name: Wybory do głosowania
             header:
