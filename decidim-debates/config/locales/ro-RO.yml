@@ -3,6 +3,8 @@ ro:
     attributes:
       debate:
         category_id: Categorie
+        closed_at: Închisă la
+        conclusions: Concluzii
         decidim_category_id: Categorie
         description: Descriere
         end_time: Se termină la
@@ -12,6 +14,7 @@ ro:
         title: Titlu
         user_group_id: Creează o dezbatere ca
     models:
+      decidim/debates/close_debate_event: Dezbatere închisă
       decidim/debates/create_debate_event: Dezbatere
       decidim/debates/creation_disabled_event: Dezbateri dezactivate
       decidim/debates/creation_enabled_event: Dezbateri activate
@@ -38,6 +41,7 @@ ro:
             creation_enabled: Crearea de dezbateri de către participanți este activată
     debates:
       actions:
+        close: Închide
         confirm_destroy: Ești sigur?
         destroy: Ștergere
         edit: Editare
