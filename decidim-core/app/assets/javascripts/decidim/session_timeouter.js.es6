@@ -9,10 +9,6 @@
     const popup = new Foundation.Reveal($timeoutModal);
     const $continueSessionButton = $("#continueSession");
 
-    if (isNaN(interval)) {
-      return;
-    }
-
     // Ajax request is made at timeout_modal.html.erb
     $continueSessionButton.on("click", () => {
       $("#timeoutModal").foundation("close");
@@ -20,6 +16,9 @@
       $(".reveal-overlay").css("display", "none");
     })
 
+    if (isNaN(interval)) {
+      return;
+    }
     if (!timeoutInSeconds) {
       return;
     }
@@ -78,5 +77,5 @@
       clearInterval(exitInterval);
       return;
     });
-  })
+  });
 })(window);
