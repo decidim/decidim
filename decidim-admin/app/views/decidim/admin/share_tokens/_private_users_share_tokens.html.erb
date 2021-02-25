@@ -29,7 +29,7 @@
               <tr>
                 <td>
                   <div class="clipboard-copy"
-                       aria-label="Copy"
+                       aria-label="<%= t(".share_token_help") %>"
                        data-url="<%= decidim.new_user_registration_url(share_token: share_token.token, host: current_organization.host) %>">
                        <%= truncate(decidim.new_user_registration_url(share_token: share_token.token, host: current_organization.host), length: 70) %>
                        <%= icon_link_to "clipboard", "#", t(".share_token_help"), class: "card--list__data__icon sign-up-share-token-url" %>
