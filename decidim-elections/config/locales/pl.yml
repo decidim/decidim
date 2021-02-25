@@ -222,7 +222,9 @@ pl:
           vote_ended:
             title: Czas głosowania zakończony
           vote_stats:
+            no_vote_statistics_yet: Brak statystyk głosowania
             title: Statystyki głosowania
+            voters: Głosujący
             votes: Głosy
         trustees_participatory_spaces:
           actions:
@@ -287,8 +289,17 @@ pl:
         results:
           title: Wyniki wyborów
         show:
+          action-button:
+            change-vote: Zmień swój głos
+            vote-again: Zagłosuj ponownie
           back: Dostępne wybory
+          callout:
+            already-voted: Już głosowałeś w tych wyborach. Możesz zmienić swój głos lub zweryfikować go.
+            vote-rejected: Nie udało się zweryfikować Twojego głosu. Proszę przesłać go ponownie.
           preview: Podgląd
+          verify:
+            already-voted: Już głosowałem?
+            verify-here: Sprawdź swój głos tutaj.
           voting_period_status:
             finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
             ongoing: 'Głosowanie aktywne do: %{end_time}'
@@ -386,14 +397,19 @@ pl:
           question: Pytanie %{count}
         confirmed:
           back: Powrót do wyborów
+          error: Przepraszamy, wystąpił błąd podczas potwierdza głosu. Proszę zagłosować ponownie.
           experience: Jak oceniasz to przeprowadzony proces?
           feedback: Podziel się z nami swoją opinią
           header: Oddanie głosu potwierdzone
           lead: Twój głos został już wysłany!
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
         encrypting:
           header: Kodowanie głosu...
           text: Twój głos jest szyfrowany, aby mieć pewność, że przekazałeś go anonimowo.
+        failed:
+          header: Oddanie głosu nie powiodło się
+          lead: Twój głos nie został oddany!
         header:
           confirm: Potwierdź swój głos
           confirmed: Głosowanie potwierdzone
@@ -410,11 +426,26 @@ pl:
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
+        processing:
+          header: Przetwarzanie głosu...
+          text: Twój głos został odebrany i jest przetwarzany. Proszę czekać.
+        update:
+          error: Podczas aktualizowania głosu wystąpił błąd
+          success: Status głosu został zaktualizowany
         verify:
+          content:
+            heading: Zweryfikuj swój głos
+            info: Ten weryfikator sprawdza, czy Twój głos, zidentyfikowany za pomocą zaszyfrowanego ciągu znaków, został poprawnie oddany i znajduje się w urnie wyborczej.
+          error:
+            header: Nie znaleziono głosu!
+            info: Kod głosu nie został znaleziony na urnie wyborczej %{link}, spróbuj ponownie.
           form:
             back: Powrót do Decidim
           header:
             title: Zweryfikuj swój głos
+          success:
+            header: Odnaleziono głos!
+            info: Twój zaszyfrowany głos jest w urnie wyborczej %{link}
         voting_step:
           back: Wróć
           continue: Następny
@@ -439,11 +470,18 @@ pl:
             email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany na powiernika w %{resource_name}”.
             email_subject: Jesteś powiernikiem w %{resource_name}.
             notification_title: Jesteś powiernikiem w <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Twój głos został zaakceptowany! Używając tokenu głosowania: %{encrypted_vote_hash}, możesz zweryfikować swój głos <a href="%{verify_url}">tutaj</a>.'
+            email_outro: Otrzymujesz to powiadomienie ponieważ głosowałeś w wyborach %{resource_name}”.
+            email_subject: Twój głos na %{resource_name} został zaakceptowany.
+            notification_title: 'Twój głos został zaakceptowany. Zweryfikuj swój głos <a href="%{verify_url}">tutaj</a> używając swojego tokenu głosu: %{encrypted_vote_hash}'
     help:
       participatory_spaces:
         votings:
           contextual: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytani wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, załóż i poprowadź debatę za lub przeciw odpowiedziom. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
           page: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytani wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, załóż i poprowadź debatę za lub przeciw odpowiedziom. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
+          title: Czym są głosowania?
     participatory_processes:
       statistics:
         elections_count: Wybory
@@ -552,6 +590,8 @@ pl:
           update:
             invalid: Podczas aktualizowania lokalu wyborczego wystąpił błąd
             success: Zaktualizowano lokal wyborczy
+        titles:
+          votings: Głosowania
         votings:
           actions:
             new_voting: Nowa przestrzeń do głosowania
@@ -570,6 +610,10 @@ pl:
           destroy: Usuń
           new: Nowy członek
           title: Działania
+      pages:
+        home:
+          highlighted_votings:
+            votings_button_title: Link do strony Głosowań wyświetla wszystkie głosy
       polling_officers:
         actions:
           confirm_destroy: Jesteś pewny?
@@ -584,10 +628,18 @@ pl:
           new: Nowy
           title: Działania
       votings:
+        count:
+          title:
+            one: "%{count} głosowanie"
+            few: "%{count} głosowania"
+            many: "%{count} głosowań"
+            other: "%{count} głosowania"
         filters:
           upcoming: Nadchodzące
         filters_small_view:
           close_modal: Zamknij okno
+        index:
+          title: Głosowania
         orders:
           random: Losowo
           recent: Najnowsze
@@ -595,6 +647,8 @@ pl:
         badge_name:
           ongoing: Trwające
           upcoming: Nadchodzące
+        footer_button_text:
+          vote: Głosuj
         voting_type:
           online: Online
         voting_types_label: Typ głosowania
