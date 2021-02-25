@@ -215,6 +215,7 @@ pl:
           edit: edytuj
           header: Potwierdź swój głos
           intro: Oto podsumowanie głosu, który zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytuj swoje odpowiedzi.
+          nota_option: Puste
           question: Pytanie %{count}
         confirmed:
           back: Powrót do wyborów
