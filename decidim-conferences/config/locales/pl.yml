@@ -212,7 +212,7 @@ pl:
             price: Cena
             registrations_count: Liczba rejestracji
             title: Tytuł
-            weight: Waga
+            weight: Kolejność na stronie
           name: Typ rejestracji
       partners:
         create:
@@ -474,7 +474,7 @@ pl:
           attributes:
             alt: Obraz
         show:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           photo: Zdjęcie
       photos_list:
         show:
