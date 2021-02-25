@@ -7,8 +7,14 @@ edit_link(
 )
 %>
 
-<% Decidim::ContentBlock.published.for_scope(:voting_landing_page, organization: current_organization).where(scoped_resource_id: current_participatory_space.id).each do |content_block| %>
+<% landing_content_blocks.each do |content_block| %>
   <% next unless content_block.manifest %>
 
   <%= cell content_block.manifest.cell, content_block %>
+<% end %>
+
+<% if landing_content_blocks.empty? %>
+  <%= cell("decidim/votings/content_blocks/landing_page/header", nil) %>
+
+  <%= cell("decidim/votings/content_blocks/landing_page/description", nil) %>
 <% end %>

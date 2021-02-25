@@ -13,7 +13,7 @@ module Decidim
       include Paginable
       include Decidim::Votings::Orderable
 
-      helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?
+      helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks
 
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
@@ -92,6 +92,12 @@ module Decidim
 
       def single
         published_votings.first if single?
+      end
+
+      def landing_content_blocks
+        @landing_content_blocks ||= Decidim::ContentBlock.published
+                                                         .for_scope(:voting_landing_page, organization: current_organization)
+                                                         .where(scoped_resource_id: current_participatory_space.id)
       end
     end
   end
