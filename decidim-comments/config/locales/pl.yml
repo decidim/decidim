@@ -83,6 +83,11 @@ pl:
         loading: Ładowanie komentarzy ...
         single_comment_warning: Resztę komentarzy możesz sprawdzić <a href="%{url}">tutaj</a>.
         single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
+        title:
+          one: "%{count} komentarz"
+          few: "%{count} komentarze"
+          many: "%{count} komentarzy"
+          other: "%{count} komentarze"
       down_vote_button:
         text: Nie zgadzam się z tym komentarzem
       up_vote_button:
