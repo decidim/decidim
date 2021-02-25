@@ -34,6 +34,15 @@ ro:
         meta_scope: Sferă metadate
         parent_id: Asociere părinte
         participatory_processes_ids: Procese participative conexe
+        title: Titlu
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Data nașterii
+        ceased_date: Data încetării
+        gender: Sexul
+      assembly_user_role:
+        email: E-mail
     errors:
       models:
         assembly:
@@ -270,6 +279,9 @@ ro:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantitatea maximă de elemente de afișat
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membri
