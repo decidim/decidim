@@ -779,6 +779,7 @@ pl:
           view_index:
             see_index: Zobacz indeks
         preview:
+          announcement_body: Twoja propozycja została zapisana jako wersja robocza. Musi zostać opublikowana, aby pojawiła się na stronie.
           announcement_title: Twoja propozycja nie została jeszcze opublikowana
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
