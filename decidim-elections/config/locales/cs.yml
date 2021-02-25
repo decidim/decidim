@@ -596,6 +596,10 @@ cs:
             email_outro: Obdrželi jste toto oznámení, protože jste hlasovali pro hlasování %{resource_name}.
             email_subject: Váš hlas pro %{resource_name} byl přijat.
             notification_title: 'Váš hlas byl přijat. Ověřte svůj hlas <a href="%{verify_url}">zde</a> pomocí hlasovacího tokenu: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Byli jste přiřazeni jako %{role} volební místnosti %{polling_station_name} v <a href="%{resource_url}">%{resource_title}</a>. Můžete spravovat volební místnost z vyhrazené <a href="%{polling_officer_zone_url}">zóny volebního komisaře</a>.
     help:
       participatory_spaces:
         votings:
