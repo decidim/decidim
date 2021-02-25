@@ -214,12 +214,21 @@ pl:
             title: Podsumowanie procesu
             trustees: Powiernicy
           tally_ended:
+            submit: Publikuj wyniki
             title: Kalkulacja wyników
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
+            invalid: Wystąpił błąd podczas zamykania głosowania
+            requirements:
+              time_after: Wybory zakończyły się. Możesz manualnie zakończyć głosowanie lub zostanie ono automatycznie zakończone za kilka minut.
+            submit: Zakończ głosowanie
+            success: Prośba o zakończenie głosowania została pomyślnie umieszczona na tablicy ogłoszeń
             title: Czas głosowania
           vote_ended:
+            invalid: Wystąpił błąd podczas próby rozpoczęcia podsumowania
+            submit: Rozpocznij podsumowanie
+            success: Prośba o rozpoczęcie podsumowywania została pomyślnie umieszczona na tablicy ogłoszeń
             title: Czas głosowania zakończony
           vote_stats:
             no_vote_statistics_yet: Brak statystyk głosowania
@@ -249,7 +258,10 @@ pl:
             success: Powiernik %{trustee} został zaktualizowany
       admin_log:
         election:
+          end_vote: "%{user_name} zakończył(a) głosowanie w wyborach %{resource_name} na tablicy ogłoszeń"
           publish: "%{user_name} opublikował(a) wybór %{resource_name}"
+          start_tally: "%{user_name} rozpoczął podsumowywanie wyborów %{resource_name} na tablicy ogłoszeń"
+          start_vote: "%{user_name} rozpoczął/rozpoczęła głosowanie w wyborach %{resource_name} na tablicy ogłoszeń"
           unpublish: "%{user_name} cofnął/cofnęła publikację wyboru %{resource_name}"
       election_m:
         badge_name:
@@ -291,6 +303,7 @@ pl:
         show:
           action-button:
             change-vote: Zmień swój głos
+            vote: Rozpocznij głosowanie
             vote-again: Zagłosuj ponownie
           back: Dostępne wybory
           callout:
@@ -300,6 +313,7 @@ pl:
           verify:
             already-voted: Już głosowałem?
             verify-here: Sprawdź swój głos tutaj.
+            will-verify: Po rozpoczęciu wyborów będziesz mógł zweryfikować swój głos.
           voting_period_status:
             finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
             ongoing: 'Głosowanie aktywne do: %{end_time}'
@@ -360,10 +374,25 @@ pl:
           tally_steps:
             back: Wróć
             description: Wyniki tego głosowania są generowane na tablicy ogłoszeń. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako powiernika.
+            keys:
+              end_tally: Zakończono podsumowywanie
+              tally:
+                cast: Zliczanie danych
+                share: Udostępnij podsumowanie
+            list:
+              status: Status
+              task: Zadanie
             process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
+            start: Rozpocznij
+            start_icon: Ikona wskazująca przycisk startu dla generowania kluczy wyborczych
             status:
+              completed: Zakończono
               pending: Oczekujące
+              processing: Przetwarzanie
             title: Podsumowanie %{election}
+          update:
+            error: Status wyborów nie został zaktualizowany.
+            success: 'Status wyborów to: %{status}'
         menu:
           trustee_zone: Strefa powierników
         no_bulletin_board:
@@ -386,6 +415,8 @@ pl:
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań Powiernika. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania Powiernicze.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako powiernik
             trustee_role_description: Zostałeś wyznaczony na powiernika w niektórych głosowaniach na tej platformie.
+          update:
+            success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
         confirm:
           answer: Odpowiedz
@@ -394,6 +425,7 @@ pl:
           edit: edytuj
           header: Potwierdź swój głos
           intro: Oto podsumowanie głosu, który zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytuj swoje odpowiedzi.
+          nota_option: Puste
           question: Pytanie %{count}
         confirmed:
           back: Powrót do wyborów
@@ -410,6 +442,7 @@ pl:
         failed:
           header: Oddanie głosu nie powiodło się
           lead: Twój głos nie został oddany!
+          text: Coś poszło nie tak. Spróbuj ponownie.
         header:
           confirm: Potwierdź swój głos
           confirmed: Głosowanie potwierdzone
@@ -441,6 +474,8 @@ pl:
             info: Kod głosu nie został znaleziony na urnie wyborczej %{link}, spróbuj ponownie.
           form:
             back: Powrót do Decidim
+            submit: Sprawdź
+            vote_identifier: 'Kod identyfikacyjny:'
           header:
             title: Zweryfikuj swój głos
           success:
@@ -493,6 +528,10 @@ pl:
               name: Załączniki i foldery do głosowania
             polling_stations:
               name: Lokal wyborczy głosowania
+        landing_page:
+          content_blocks:
+            edit:
+              update: Aktualizuj
         menu:
           votings_submenu:
             attachment_collections: Foldery
@@ -597,6 +636,7 @@ pl:
             new_voting: Nowa przestrzeń do głosowania
           edit:
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
+            update: Aktualizuj
           form:
             title: Tytuł
             voting_type:
@@ -604,6 +644,9 @@ pl:
           new:
             create: Utwórz
             title: Nowe głosowanie
+          update:
+            invalid: Podczas aktualizowania głosowania wystąpił błąd
+            success: Głosowanie zostało zaktualizowane
       monitoring_committee_members:
         actions:
           confirm_destroy: Jesteś pewny?
