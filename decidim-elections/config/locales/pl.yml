@@ -150,7 +150,7 @@ pl:
             title: Edytuj wybór
             update: Aktualizuj wybór
           index:
-            no_bulletin_board: Nie ma skonfigurowanego serwera <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
+            no_bulletin_board: Brak skonfigurowanego <a href="https://github.com/decidim/decidim-bulletin-board">serwera tablicy ogłoszeń</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
             title: Wybory
           new:
             create: Utwórz wybór
@@ -223,6 +223,7 @@ pl:
             title: Główne wydarzenie
             trustees: Powiernicy
           key_ceremony_ended:
+            submit: Rozpocznij głosowanie
             title: Gotowy do startu
           results_published:
             title: Opublikowano wyniki
@@ -277,6 +278,7 @@ pl:
           end_vote: "%{user_name} zakończył(a) głosowanie w wyborach %{resource_name} na tablicy ogłoszeń"
           publish: "%{user_name} opublikował(a) wybór %{resource_name}"
           setup: "%{user_name} dodał wybory %{resource_name} na tablicy ogłoszeń"
+          start_key_ceremony: "%{user_name} rozpoczął/rozpoczęła główne wydarzenie w wyborach %{resource_name} na tablicy ogłoszeń"
           start_tally: "%{user_name} rozpoczął podsumowywanie wyborów %{resource_name} na tablicy ogłoszeń"
           start_vote: "%{user_name} rozpoczął/rozpoczęła głosowanie w wyborach %{resource_name} na tablicy ogłoszeń"
           unpublish: "%{user_name} cofnął/cofnęła publikację wyboru %{resource_name}"
@@ -384,9 +386,16 @@ pl:
               key_ceremony:
                 joint_election_key: Wspólna generacja kluczy
                 step_1: Publikowanie kluczy
+            list:
+              status: Status
+              task: Zadanie
             process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
+            start: Rozpocznij
+            start_icon: Ikona wskazująca przycisk startu dla generowania kluczy wyborczych
             status:
+              completed: Zakończono
               pending: Oczekujące
+              processing: Przetwarzanie
             title: Wygeneruj klucze dla wyborów %{election}
           restore_modal:
             description: Tablica ogłoszeń posiada informacje od Ciebie jako powiernika w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
