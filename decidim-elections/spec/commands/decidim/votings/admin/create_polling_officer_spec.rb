@@ -81,7 +81,7 @@ module Decidim
             it "resends the invitation if the user hasn't accepted it yet" do
               existing_user.invite!
 
-              expect { subject.call }.to have_enqueued_job(ActionMailer::DeliveryJob)
+              expect { subject.call }.to have_enqueued_job(ActionMailer::MailDeliveryJob)
             end
           end
         end
