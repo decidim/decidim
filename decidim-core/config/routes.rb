@@ -27,7 +27,6 @@ Decidim::Core::Engine.routes.draw do
 
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
-    post "session_heartbeat" => "devise/sessions#heartbeat"
   end
 
   resource :locale, only: [:create]
@@ -103,6 +102,11 @@ Decidim::Core::Engine.routes.draw do
     get "activity", to: "user_activities#index", as: "profile_activity"
     get "timeline", to: "user_timeline#index", as: "profile_timeline"
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
+  end
+
+  scope :timeouts do
+    post "heartbeat", to: "timeouts#heartbeat"
+    get "seconds_until_timeout", to: "timeouts#seconds_until_timeout"
   end
 
   resources :pages, only: [:index, :show], format: false

@@ -45,12 +45,6 @@ module Decidim
         request.referer || super
       end
 
-      def heartbeat
-        respond_to do |format|
-          format.js
-        end
-      end
-
       private
 
       def check_sign_in_enabled
