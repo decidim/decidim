@@ -55,6 +55,8 @@ ro:
         highlighted_content_banner_title: Titlu
         instagram_handler: Gestionar instagram
         logo: Logo
+        machine_translation_display_priority_original: Mai întâi textul original
+        machine_translation_display_priority_translation: Mai întâi textul tradus
         name: Nume
         official_img_footer: Subsol cu logo oficial
         official_img_header: Antet logo oficial
