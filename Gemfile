@@ -18,6 +18,8 @@ gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
 
+gem "webpacker", "~> 6.0.0.pre.2"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
