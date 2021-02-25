@@ -135,7 +135,7 @@ end
 
 unsorted_prs = prs.select do |pr, data|
   pr_data = data || {}
-  !handled_ids.include?(data[:id])
+  !handled_ids.include?(pr_data[:id])
 end
 
 if unsorted_prs.any?
