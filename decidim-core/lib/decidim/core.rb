@@ -278,7 +278,7 @@ module Decidim
 
   # If set to true, users have option to "remember me".
   config_accessor :enable_remember_me do
-    false
+    true
   end
 
   # Defines (in milliseconds) how often session_timeouter.js checks time between current moment and last request
