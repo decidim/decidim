@@ -204,14 +204,19 @@ pl:
         steps:
           create_election:
             errors:
+              published: Wybory <strong>nie zostały opublikowane</strong>.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} powierników z kluczem publicznym</strong>.
             no_trustees: Nie ma powierników dla tej przestrzeni partycypacyjnej
             not_used_trustee: "(nieużywane)"
             requirements:
+              published: Wybory <strong>zostały opublikowane</strong>.
               trustees_number: Przestrzeń partycypacyjna musi mieć <strong>co najmniej %{number} powierników z kluczem publicznym</strong>.
             title: Ustawienia wyborów
             trustees: Powiernicy wyborczy
           created:
+            invalid: Wystąpił błąd podczas próby rozpoczęcia głównego wydarzenia
+            submit: Rozpocznij główne wydarzenie
+            success: Prośba o rozpoczęcie wydarzenia głównego została umieszczona na tablicy ogłoszeń
             title: Utworzono wybory
             trustees: Powiernicy
           key_ceremony:
@@ -271,6 +276,7 @@ pl:
         election:
           end_vote: "%{user_name} zakończył(a) głosowanie w wyborach %{resource_name} na tablicy ogłoszeń"
           publish: "%{user_name} opublikował(a) wybór %{resource_name}"
+          setup: "%{user_name} dodał wybory %{resource_name} na tablicy ogłoszeń"
           start_tally: "%{user_name} rozpoczął podsumowywanie wyborów %{resource_name} na tablicy ogłoszeń"
           start_vote: "%{user_name} rozpoczął/rozpoczęła głosowanie w wyborach %{resource_name} na tablicy ogłoszeń"
           unpublish: "%{user_name} cofnął/cofnęła publikację wyboru %{resource_name}"
@@ -377,6 +383,7 @@ pl:
               create_election: Generowanie kluczy
               key_ceremony:
                 joint_election_key: Wspólna generacja kluczy
+                step_1: Publikowanie kluczy
             process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
             status:
               pending: Oczekujące
@@ -425,6 +432,7 @@ pl:
               submit: Prześlij
               submit_title: Prześlij publiczny klucz identyfikacyjny
               title: Klucze identyfikacyjne powiernika
+              upload_legend: Decidim posiada twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma tych kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich wygenerowaniu.
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań Powiernika. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania Powiernicze.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako powiernik
             trustee_role_description: Zostałeś wyznaczony na powiernika w niektórych głosowaniach na tej platformie.
@@ -539,8 +547,17 @@ pl:
           landing_page:
             attachments_and_folders:
               name: Załączniki i foldery do głosowania
+            elections:
+              name: Wybory do głosowania
+            header:
+              name: Nagłówek głosowania
+            html_block_1:
+              name: 1 blok html głosowania
             polling_stations:
               name: Lokal wyborczy głosowania
+        index:
+          not_published: Nie opublikowano
+          published: Opublikowano
         landing_page:
           content_blocks:
             edit:
@@ -575,7 +592,9 @@ pl:
             name: Lokal wyborczy
           voting:
             fields:
+              created_at: Utworzono
               promoted: Wyróżniony
+              published: Opublikowano
               title: Tytuł
         monitoring_committee_members:
           create:
@@ -650,6 +669,10 @@ pl:
             confirm_destroy: Jesteś pewny?
             destroy: Usuń
             new_voting: Nowa przestrzeń do głosowania
+            publish: Publikuj
+            unpublish: Cofnij publikowanie
+          create:
+            success: Utworzono głosowanie
           edit:
             add_election_component: Nie masz żadnych wyborów skonfigurowanych w tym głosowaniu. Dodaj je w sekcji Komponenty
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
@@ -662,9 +685,21 @@ pl:
           new:
             create: Utwórz
             title: Nowe głosowanie
+          publish:
+            success: Głosowanie zostało opublikowane
+          unpublish:
+            success: Cofnięto publikację głosowania
           update:
             invalid: Podczas aktualizowania głosowania wystąpił błąd
             success: Głosowanie zostało zaktualizowane
+      admin_log:
+        voting:
+          create: "%{user_name} utworzył(a) głosowanie %{resource_name}"
+          publish: "%{user_name} opublikował(a) głosowanie %{resource_name}"
+          unpublish: "%{user_name} cofnął/cofnęła publikację głosowania %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Wyróżnione głosowania
       monitoring_committee_members:
         actions:
           confirm_destroy: Jesteś pewny?
@@ -674,6 +709,8 @@ pl:
       pages:
         home:
           highlighted_votings:
+            active_votings: Aktywne głosowania
+            see_all_votings: Zobacz wszystkie głosowania
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosy
       polling_officers:
         actions:
@@ -708,21 +745,28 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         index:
+          no_votings: Brak głosowań spełniających kryteria wyszukiwania.
+          only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie przeszłe.
           title: Głosowania
         orders:
+          label: 'Sortuj głosowania według:'
           random: Losowo
           recent: Najnowsze
         show:
           dates: Daty
       votings_m:
         badge_name:
+          finished: Zakończone
           ongoing: Trwające
           upcoming: Nadchodzące
         footer_button_text:
+          participate: Dołącz
           view: Zobacz
           vote: Głosuj
+        unspecified: Nie określono
         voting_type:
           hybrid: Hybrydowe
+          in_person: Osobiście
           online: Online
         voting_types_label: Typ głosowania
   layouts:
