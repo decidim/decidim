@@ -585,6 +585,13 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska äänestit vaaleissa %{resource_name}.
             email_subject: Äänesi vaaleihin %{resource_name} hyväksyttiin.
             notification_title: 'Äänesi hyväksyttiin. Voit <a href="%{verify_url}">tarkastaa äänesi täältä</a> käyttäen äänestystunnustasi: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Sinulle on määritetty rooli %{role} äänestyspaikalla %{polling_station_name} osiossa <a href="%{resource_url}">%{resource_title}</a>. Voit hallinnoida äänestyspaikkaa <a href="%{polling_officer_zone_url}">äänestysvirkailijoille määritetyssä osiossa</a>.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu rooli %{role} äänestyspaikalle %{polling_station_name}.
+            email_subject: Roolisi äänestyspaikalla %{polling_station_name} on %{role}.
+            notification_title: Roolisi äänestyspaikan %{polling_station_name} äänestyksessä <a href="%{resource_path}">%{resource_title}</a> on %{role}.
     help:
       participatory_spaces:
         votings:
