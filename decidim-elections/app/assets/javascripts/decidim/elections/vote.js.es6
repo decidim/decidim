@@ -68,11 +68,9 @@ $(async () => {
             acc[name] = [...acc[name], `${name}_${value}`];
             return acc;
           }, {}
-          // { ballot_style: "unique" } // eslint-disable-line camelcase
         );
       };
       const formData = getFormData($voteWrapper.find(".answer_input"));
-      console.log("FORM DATA", formData)
       validVoteFn(formData);
     },
     castOrAuditBallot({encryptedDataHash}) {
@@ -89,8 +87,6 @@ $(async () => {
       $(".cast_ballot").on("click", onEventTriggered);
     },
     onAuditBallot(auditedData, auditedDataFileName) {
-      
-
       const vote = JSON.stringify(auditedData);
       const link = document.createElement("a");
       $voteWrapper.find(".button.cast_ballot").addClass("hide");
@@ -112,7 +108,6 @@ $(async () => {
       };
       const isPreview = $voteWrapper.data("booth-mode") === "preview";
 
-      // $voteWrapper.find("#encrypting").addClass("hide");
       $voteWrapper.find("#ballot_decision").addClass("hide");
       $voteWrapper.find("#confirmed_page").removeClass("hide");
       $voteWrapper.find(".vote-confirmed-result").addClass("hide");
