@@ -93,9 +93,11 @@ pl:
             creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie klocków
+            registration_code_enabled: Włączono formularz rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
+            terms_and_conditions_url_for_meeting_creators: Adres URL Regulaminu dla twórców spotkania
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -396,12 +398,15 @@ pl:
           title: Edytuj swoje spotkanie
           update: Aktualizuj
         filters:
+          activity: Moja aktywność
+          all: Wszystko
           category: Kategoria
           date: Data
           date_values:
             all: Wszystkie
             past: Przeszłe
             upcoming: Nadchodzące
+          my_meetings: Moje spotkania
           origin: Źródło
           origin_values:
             all: Wszystkie
@@ -410,7 +415,11 @@ pl:
             user_groups: Grupy
           scope: Zakres
           search: Szukaj
+          type: Typ
           type_values:
+            all: Wszystko
+            hybrid: Oba
+            in_person: Osobiście
             online: Online
         filters_small_view:
           close_modal: Zamknij okno
@@ -506,6 +515,7 @@ pl:
           invalid: Wystąpił problem podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
       type_of_meeting:
+        hybrid: Oba
         online: Online
       types:
         private_meeting: Prywatne spotkanie
