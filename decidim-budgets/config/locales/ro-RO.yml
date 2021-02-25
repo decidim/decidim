@@ -122,6 +122,7 @@ ro:
           add: Adaugă proiectul %{resource_name} la votul tău
           remove: Elimină proiectul %{resource_name} din votul tău
           view: Vizualizare
+          you_voted: Ați votat
         project_budget_button:
           add: Adaugă la votul tău
           add_descriptive: Adaugă proiectul %{resource_name} la votul tău
