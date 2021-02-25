@@ -16,7 +16,7 @@ module Decidim
 
         # Finds the votes for an election which get count for the statistics
         def query
-          @election.votes.accepted.pluck(Arel.sql("COUNT(id)"), Arel.sql("COUNT(distinct voter_id)")).first
+          @election.votes.accepted.pick(Arel.sql("COUNT(id)"), Arel.sql("COUNT(distinct voter_id)"))
         end
       end
     end
