@@ -12,36 +12,22 @@ module Decidim
         highlighted_stats = component_stats(priority: StatsRegistry::HIGH_PRIORITY)
         highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
         highlighted_stats = highlighted_stats.reject(&:empty?)
-        highlighted_stats = highlighted_stats.reject { |_manifest, _name, data| data.zero? }
-        grouped_highlighted_stats = highlighted_stats.group_by { |stats| stats.first.name }
+        highlighted_stats = highlighted_stats.reject { |_name, data| data.zero? }
 
-        safe_join(
-          grouped_highlighted_stats.map do |_manifest_name, stats|
-            content_tag :div, class: "process_stats-item" do
-              safe_join(
-                stats.each_with_index.map do |stat, index|
-                  render_stats_data(stat[0], stat[1], stat[2], index)
-                end
-              )
-            end
-          end
-        )
+        highlighted_stats.map do |name, data|
+          { stat_title: name, stat_number: data }
+        end
       end
 
       private
 
       def component_stats(conditions)
         Decidim.component_manifests.map do |component_manifest|
-          component_manifest.stats.filter(conditions).with_context(published_components).map { |name, data| [component_manifest, name, data] }.flatten
+          component_manifest.stats
+                            .filter(conditions)
+                            .with_context(published_components)
+                            .map { |name, data| [name, data] }.flatten
         end
-      end
-
-      def render_stats_data(component_manifest, name, data, index)
-        safe_join([
-                    index.zero? ? manifest_icon(component_manifest, role: "img", "aria-hidden": true) : " /&nbsp".html_safe,
-                    content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t(name, scope: "decidim.conferences.statistics"),
-                                class: "#{name} process_stats-text")
-                  ])
       end
 
       def published_components

@@ -450,25 +450,6 @@ en:
         start_date: Start date
         target: Who participates
         unspecified: Not specified
-      statistics:
-        answers_count: Answers
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        followers_count: Followers
-        headline: Statistics
-        meetings_count: Meetings
-        no_stats: There are no statistics yet.
-        orders_count: Supports
-        pages_count: Pages
-        participants_count: Participants
-        processes_count: Processes
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        supports_count: Supports
-        surveys_count: Surveys
-        users_count: Participants
   layouts:
     decidim:
       participatory_process_groups:

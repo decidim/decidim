@@ -78,7 +78,7 @@ edit_link(
     <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
 
     <% if current_participatory_space.show_statistics? %>
-      <%= render partial: "statistics" %>
+      <%= cell("decidim/statistics", stats.highlighted) %>
     <% end %>
   </div>
 </div>

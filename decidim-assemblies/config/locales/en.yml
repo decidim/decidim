@@ -382,28 +382,6 @@ en:
         social_networks: Social Networks
         social_networks_title: Share this assembly on
         target: Who participates
-      statistics:
-        answers_count: Answers
-        assemblies_count: Assemblies
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        followers_count: Followers
-        headline: Statistics
-        meetings_count: Meetings
-        no_stats: There are no statistics yet.
-        orders_count: Supports
-        pages_count: Pages
-        participants_count: Participants
-        posts_count: Posts
-        processes_count: Processes
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        supports_count: Supports
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Supports
     assembly_members:
       assembly_member:
         designated_on: Designated on

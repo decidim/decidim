@@ -32,13 +32,6 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New sortition added to %{participatory_space_title}
           notification_title: The sortition <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortitions
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortitions
     sortitions:
       admin:
         actions:

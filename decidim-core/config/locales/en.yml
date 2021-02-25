@@ -1074,24 +1074,7 @@ en:
         metrics:
           headline: Metrics
         statistics:
-          answers_count: Completed Surveys
-          assemblies_count: Assemblies
-          comments_count: Comments
-          conferences_count: Conferences
-          debates_count: Debates
-          endorsements_count: Endorsements
           headline: Current state of %{organization}
-          meetings_count: Meetings
-          orders_count: Votes
-          pages_count: Pages
-          processes_count: Processes
-          projects_count: Projects
-          proposals_accepted: Accepted Proposals
-          proposals_count: Proposals
-          results_count: Results
-          surveys_count: Surveys
-          users_count: Participants
-          votes_count: Votes
         sub_hero:
           register: Register
       index:
@@ -1283,6 +1266,34 @@ en:
         close_window: Close window
         share: Share
         share_link: Share link
+    statistics:
+      answers_count: Answerss
+      assemblies_count: Assemblies
+      comments_count: Comments
+      conferences_count: Conferences
+      consultations_count: Consultations
+      debates_count: Debates
+      elections_count: Elections
+      endorsements_count: Endorsements
+      followers_count: Followers
+      headline: Statistics
+      meetings_count: Meetings
+      no_stats: There are no statistics yet.
+      orders_count: Supports
+      pages_count: Pages
+      participants_count: Participants
+      posts_count: Posts
+      processes_count: Processes
+      projects_count: Projects
+      proposals_accepted: Accepted Proposals
+      proposals_count: Proposals
+      results_count: Results
+      sortitions_count: Sortitions
+      supports_count: Supports
+      surveys_count: Surveys
+      users_count: Participants
+      votes_count: Votes
+      votings_count: Votings
     tags:
       filter_results_for_category: 'Filter results for category: %{resource}'
       filter_results_for_scope: 'Filter results for scope: %{resource}'
