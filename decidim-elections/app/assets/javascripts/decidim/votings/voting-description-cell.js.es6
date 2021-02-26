@@ -15,21 +15,16 @@
 
     if ($content.height() < $contentContentMaxHeight) {
       $button.hide();
+      $content.addClass("unexpandable")
     }
 
     $button.on("click", function() {
       let $buttonTextMore = $button.find(".button-text.show-more-content");
       let $buttonTextLess = $button.find(".button-text.show-less-content");
 
-      $buttonTextLess.removeClass("hide").hide();
       $content.toggleClass("content__expanded");
-      if ($content.hasClass("content__expanded")) {
-        $buttonTextMore.hide();
-        $buttonTextLess.show();
-      } else {
-        $buttonTextLess.hide();
-        $buttonTextMore.show();
-      }
+      $buttonTextLess.toggleClass("hide");
+      $buttonTextMore.toggleClass("hide");
     });
   })
 }(window));
