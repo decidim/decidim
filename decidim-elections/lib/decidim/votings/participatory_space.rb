@@ -71,6 +71,22 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
           published_at: Time.current
         )
       end
+
+      2.times do
+        Decidim::Category.create!(
+          name: Decidim::Faker::Localized.sentence(word_count: 5),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          participatory_space: voting
+        )
+      end
+
+      Decidim.component_manifests.each do |manifest|
+        # next unless [:elections].member? manifest.name
+
+        manifest.seed!(voting.reload)
+      end
     end
   end
 end
