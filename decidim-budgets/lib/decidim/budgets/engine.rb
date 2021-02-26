@@ -43,6 +43,20 @@ module Decidim
           metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
         end
       end
+
+      initializer "decidim_budgets.serializer_listener" do
+        Rails.logger.info "\n\n\n\n\n\n\ninitializer serializer_listener\n\n\n\n\n\n\n"
+        Decidim::Budgets::SerializerManager.subscribe do |data|
+          Rails.logger.info "\n\n\n\n\n\n\nSUBSCRIBE\n\n\n\n\n\n\n"
+          data[:klass].serializeable[:pending_votes] = data[:project].orders.pending.count
+          # data[:klass].serializeable[:pending_votes] = 1337
+        end
+      end
+
+      # Decidim::Comments::CommentCreation.subscribe do |data|
+      #   proposals = data.dig(:metadatas, :proposal).try(:linked_proposals)
+      #   Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], proposals) if proposals
+      # end
     end
   end
 end

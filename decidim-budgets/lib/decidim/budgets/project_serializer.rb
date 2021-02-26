@@ -6,6 +6,7 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
       include Decidim::TranslationsHelper
+      EVENT_NAME = "decidim.budgets.project_serialized"
 
       # Public: Initializes the serializer with a project.
       def initialize(project)
@@ -14,7 +15,7 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this project.
       def serialize
-        {
+        serializeable = {
           id: project.id,
           category: {
             id: project.category.try(:id),
@@ -41,6 +42,18 @@ module Decidim
           related_proposal_titles: related_proposal_titles,
           related_proposal_urls: related_proposal_urls
         }
+        Rails.logger.info "\n\n\n\n\n\n\n BEFORE SERIALIZERMANAGER \n\n\n\n\n\n\n"
+        manager = SerializerManager.new(serializeable, project)
+        item = manager.manage
+        Rails.logger.info "\n\n\n\n\n\n\n\n\nITEMPENDINGVOTES: #{item[:pending_votes]}\n\n\n\n\n\n\n\n"
+        item
+      end
+
+      def self.publish(serialized)
+        ActiveSupport::Notifications.publish(
+          EVENT_NAME,
+          serialized: serialized
+        )
       end
 
       private
