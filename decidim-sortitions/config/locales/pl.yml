@@ -114,7 +114,7 @@ pl:
           search: Szukaj
           state: Status
         filters_small_view:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń

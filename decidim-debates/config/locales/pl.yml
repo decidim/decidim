@@ -83,6 +83,8 @@ pl:
           close: "%{user_name} zamknął/zamknęła debatę %{resource_name} w przestrzeni %{space_name}"
           create: "%{user_name} utworzył(a) debatę %{resource_name} w przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował(a) debatę %{resource_name} w przestrzeni %{space_name}"
+      debate_m:
+        commented_time_ago: Skomentowano %{time} temu
       debates:
         close:
           invalid: Podczas zamykania debaty wystąpił błąd.
@@ -104,19 +106,28 @@ pl:
         debate:
           participate: Dołącz
         edit:
-          back: Powrót
+          back: Wróć
           save: Zapisz zmiany
           title: Edytuj debatę
         filters:
+          activity: Moja aktywność
           all: Wszystkie
           category: Kategoria
           category_prompt: Wybierz kategorię
           citizens: Obywatele
+          commented: Skomentowano
+          my_debates: Moje debaty
           official: Urzędnik
           origin: Źródło
+          scope: Zakres
           search: Szukaj
+          state: Status
+          state_values:
+            closed: Zakończone
+            open: Otwarte
+          user_groups: Grupy użytkowników
         filters_small_view:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
@@ -128,6 +139,12 @@ pl:
           back: Wróć
           create: Utwórz
           title: Nowa debata
+        orders:
+          commented: Najczęściej komentowane
+          label: Sortuj debaty według
+          random: Kolejność losowa
+          recent: Najnowsze
+          updated: Ostatnio aktualizowane
         show:
           back: Powrót do listy
           close_debate: Zamknij debatę

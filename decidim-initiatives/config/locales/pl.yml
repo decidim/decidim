@@ -5,6 +5,7 @@ pl:
         decidim_user_group_id: Autor
         description: Opis
         offline_votes: Podpisy na piśmie
+        offline_votes_for_scope: Podpisy dla %{scope_name}
         scope_id: Zakres
         signature_end_date: Koniec okresu zbiórki podpisów
         signature_start_date: Początek okresu zbiórki podpisów
@@ -129,6 +130,7 @@ pl:
             initiative_title: Tytuł inicjatywy
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
+            scope: Zakres
             time_and_date: Czas i data
             timestamp: Znacznik czasu
       titles:
@@ -268,6 +270,8 @@ pl:
             destroy: Usuń
             update: Aktualizuj
           form:
+            authorizations: Ustawienia autoryzacji
+            child_scope_threshold_enabled_help: 'Ta konfiguracja nie pozwala na głosowania offline, zezwala na pod-zakresy i działa z procedura autoryzacji, która łączy zakres z użytkownikiem, upewnij się, że wybrałeś taką autoryzację, poniżej w sekcji autoryzacji. Żeby działały zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tym <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">linkiem</a>.'
             title: Informacje ogólne
           initiative_type_scopes:
             title: Zakresy dla rodzaju inicjatywy

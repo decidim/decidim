@@ -24,7 +24,7 @@ pl:
       component:
         name: Nazwa
         published_at: Opublikowano
-        weight: Waga
+        weight: Kolejność na stronie
       id: ID
       newsletter:
         body: Treść
@@ -100,12 +100,12 @@ pl:
         show_in_footer: Pokaż w stopce
         slug: URL slug
         title: Tytuł
-        weight: Waga
+        weight: Kolejność na stronie
       static_page_topic:
         description: Opis
         show_in_footer: Pokaż w stopce
         title: Tytuł
-        weight: Waga
+        weight: Kolejność na stronie
       user_group_csv_verification:
         file: Plik
     errors:
@@ -339,7 +339,7 @@ pl:
           name: Nazwa
           needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
           not_managed: Niezamknięte
-          promote: Promuj
+          promote: Awansuj
           search: Szukaj
           status: Status
           view_logs: Wyświetl logi
@@ -370,7 +370,7 @@ pl:
           new:
             explanation: Zarządzani użytkownicy mogą być promowani do standardowych użytkowników. Oznacza to, że zostaną zaproszeni do udziału w aplikacji i nie będą mogli podszywać się pod inne osoby. Zaproszony użytkownik otrzyma wiadomość e-mail, aby zaakceptować zaproszenie.
             new_managed_user_promotion: Nowa zarządzana promocja użytkowników
-            promote: Promować
+            promote: Awansuj
       menu:
         admin_log: Logi aktywności administratora
         admins: Administratorzy
@@ -566,7 +566,7 @@ pl:
           officialize: Oficjalizuj
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
-          close_modal: Zamknij modalny
+          close_modal: Zamknij okno
           description: Jeśli chcesz się bezpośrednio skontaktować z użytkownikiem, możesz kliknąć przycisk Pokaż, aby wyświetlić adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
@@ -629,6 +629,7 @@ pl:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
           success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
+          explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, w drugiej kolumnie imiona (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków. Unikaj używania niepoprawnych znaków takich jak `<>?%&^*#@()[]=+:;"{}\|` w imieniu użytkownika.'
           title: Prześlij swój plik CSV
           upload: Prześlij
       resource_permissions:

@@ -84,6 +84,9 @@ ro:
     admin:
       filters:
         proposals:
+          is_emendation_true:
+            values:
+              'true': Modificări
           valuator_role_ids_has:
             label: Atribuit evaluatorului
         search_placeholder:
@@ -575,6 +578,8 @@ ro:
           amendment: Amendamente
           category: Categorie
           open: Deschideți
+        new:
+          title: Creare proiect colaborativ
         show:
           info-message: Acesta este un <strong>proiect de colaborare</strong> pentru o propunere. Aceasta înseamnă că îi poți ajuta pe autorii lor să modeleze propunerea folosind secțiunea de mai jos sau să o îmbunătățească direct prin solicitarea accesului la editare. Odată ce autorii vă acordă accesul, veți putea face modificări la acest proiect.
           publish: Publică

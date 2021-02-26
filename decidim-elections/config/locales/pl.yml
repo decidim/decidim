@@ -98,7 +98,7 @@ pl:
             title: Edytuj wybór
             update: Aktualizuj wybór
           index:
-            no_bulletin_board: Nie ma skonfigurowanego serwera <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
+            no_bulletin_board: Brak skonfigurowanego <a href="https://github.com/decidim/decidim-bulletin-board">serwera tablicy ogłoszeń</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
             title: Wybory
           new:
             create: Utwórz wybór
@@ -176,7 +176,7 @@ pl:
           state: Status
           upcoming: Nadchodzące
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
@@ -215,6 +215,7 @@ pl:
           edit: edytuj
           header: Potwierdź swój głos
           intro: Oto podsumowanie głosu, który zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytuj swoje odpowiedzi.
+          nota_option: Puste
           question: Pytanie %{count}
         confirmed:
           back: Powrót do wyborów
@@ -237,12 +238,14 @@ pl:
           close: Zamknij
           proposal_header: 'Propozycje:'
         new:
+          answer_choices: Możesz wybrać do %{choices} odpowiedzi
           more_information: Więcej informacji
+          nota_option: Pusty/Żadne z powyższych
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
         voting_step:
-          back: Powrót
+          back: Wróć
           continue: Następny
       warnings:
         no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
@@ -254,6 +257,10 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}.
           notification_title: Wybór <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Wybory
     participatory_processes:
       statistics:
         elections_count: Wybory
