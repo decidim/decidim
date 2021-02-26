@@ -10,8 +10,6 @@ edit_link(
 %>
 
 <% landing_content_blocks.each do |content_block| %>
-  <% next unless content_block.manifest %>
-
   <%= cell content_block.manifest.cell, content_block %>
 <% end %>
 

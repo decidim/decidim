@@ -98,6 +98,7 @@ module Decidim
         @landing_content_blocks ||= Decidim::ContentBlock.published
                                                          .for_scope(:voting_landing_page, organization: current_organization)
                                                          .where(scoped_resource_id: current_participatory_space.id)
+                                                         .reject { |content_block| content_block.manifest.nil? }
       end
     end
   end
