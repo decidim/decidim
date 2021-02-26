@@ -148,6 +148,10 @@ cs:
             participatory_texts_enabled_readonly: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             proposal_edit_before_minutes: Návrhy mohou být editovány autory před tím, než projde hodně minut
+            proposal_edit_time: Úprava návrhů
+            proposal_edit_time_choices:
+              infinite: Povolit úpravy návrhů na nekonečnou dobu
+              limited: Povolit úpravy návrhů v konkrétním časovém rámci
             proposal_length: Maximální délka návrhu
             proposal_limit: Limit návrhu na uživatele
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
