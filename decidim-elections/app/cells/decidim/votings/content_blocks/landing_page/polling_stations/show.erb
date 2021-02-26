@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section polling-stations-cell">
   <div class="row column">
     <h3 class="section-heading">
       <%= t("heading", scope: "decidim.votings.content_blocks.landing_page.polling_stations") %>
@@ -6,7 +6,7 @@
 
     <% if polling_stations.any? %>
       <div class="row">
-        <div class="column medium-4">
+        <div class="column medium-4 polling-stations-list">
           <% polling_stations.each do |polling_station| %>
             <%= render view: :address, locals: { polling_station: polling_station } %>
           <% end %>
