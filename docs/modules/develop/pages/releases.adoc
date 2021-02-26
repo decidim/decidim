@@ -149,4 +149,4 @@ After that, the header with the current version and link like `+## [0.20.0](http
 
 == Docker images for each release
 
-Each release triggers a https://github.com/decidim/decidim/blob/develop/.github/workflows/on_release.yml[GitHub workflow] that re-builds and publishes the https://github.com/decidim/docker[decidim/docker images] to https://github.com/orgs/decidim/packages[GitHub Container Registry] and https://hub.docker.com/repository/docker/decidim/decidim[Docker Hub].
+Each release triggers a https://github.com/decidim/decidim/blob/develop/.github/workflows/on_release.yml[GitHub workflow] that rebuilds and publishes the https://github.com/decidim/docker[decidim/docker images] to https://github.com/orgs/decidim/packages[GitHub Container Registry] and https://hub.docker.com/repository/docker/decidim/decidim[Docker Hub].
