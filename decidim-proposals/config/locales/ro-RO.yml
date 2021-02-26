@@ -84,6 +84,9 @@ ro:
     admin:
       filters:
         proposals:
+          is_emendation_true:
+            values:
+              'true': Modificări
           valuator_role_ids_has:
             label: Atribuit evaluatorului
         search_placeholder:

@@ -30,6 +30,7 @@ ro:
             success: Postare stearsa cu succes
           edit:
             save: Actualizare
+            title: Editează postarea
           index:
             title: Mesaje
           new:

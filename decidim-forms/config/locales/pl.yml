@@ -3,15 +3,22 @@ pl:
     attributes:
       answer:
         body: Odpowiedź
+        choices: Opcje
+        selected_choices: Wybrane opcje
       question:
         max_choices: Maksymalna liczba opcji do wyboru
         question_type: Typ
       questionnaire_question:
         mandatory: Obowiązkowy
+        max_characters: Limit znaków (zostaw 0 jeśli nie chcesz ustawiać limitu)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Załącz ponownie
+            body:
+              too_long: jest zbyt długie
             choices:
               missing: nie są kompletne
               too_many: jest zbyt wiele
@@ -76,6 +83,7 @@ pl:
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
             preview: Podgląd
+            title: Edytuj formularz dla %{questionnaire_for}
             unpublished_warning: Formularz nie został jeszcze opublikowany. Możesz zmienić jego pytania, ale to spowoduje usunięcie bieżących odpowiedzi.
           matrix_row:
             matrix_row: Wiersz
@@ -102,6 +110,7 @@ pl:
             up: W górę
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
+            success: Formularz został zapisany.
       errors:
         answer:
           body: Treść nie może być pusta
@@ -114,6 +123,7 @@ pl:
           resize_and_pad: Zmieniony i dopełniony do
           resize_to_fit: Dopasowany
       question_types:
+        files: Pliki
         long_answer: Długa odpowiedź
         matrix_multiple: Macierz (wiele opcji)
         matrix_single: Macierz (jedna opcja)

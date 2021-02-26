@@ -34,10 +34,14 @@ pl:
         subtitle: Podtytuł
         target: Kto uczestniczy
         title: Tytuł
+        weight: Kolejność na stronie
       participatory_process_group:
         description: Opis
+        developer_group: Grupa inicjatorów
+        hashtag: Hashtag
         hero_image: Obraz
         participatory_process_ids: Powiązane procesy
+        title: Tytuł
       participatory_process_step:
         cta_path: Ścieżka przycisku CTA
         cta_text: Tekst przycisku CTA
@@ -121,6 +125,8 @@ pl:
             title: Tytuł
           name: Proces partycypacyjny
         participatory_process_group:
+          fields:
+            title: Tytuł
           name: Grupa procesu
         participatory_process_step:
           fields:
@@ -148,6 +154,9 @@ pl:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikuj proces partycypacyjny
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Aktualizuj
       participatory_process_groups:
         destroy:
           error: Wystąpił błąd podczas usuwania grupy procesu partycypacyjnego.
@@ -304,6 +313,17 @@ pl:
       show:
         related_assemblies: Powiązane zespoły
     participatory_process_groups:
+      content_blocks:
+        metadata:
+          developer_group: Promowany przez
+        title:
+          meta_scope: Zakres
+          name: Tytuł, opis i hashtag
+          participatory_processes:
+            one: 1 proces
+            few: "%{count} procesy"
+            many: "%{count} procesów"
+            other: "%{count} procesy"
       show:
         title: Uczestniczące grupy procesów
     participatory_process_steps:
@@ -315,9 +335,15 @@ pl:
         content_blocks:
           highlighted_processes:
             max_results: Maksymalna ilość elementów do pokazania
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+        participatory_process_groups:
+          form:
+            title: Informacje ogólne
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
@@ -454,6 +480,8 @@ pl:
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
           take_part_in: Dołącz do procesu %{resource_name}
+        promoted_process_group:
+          more_info: Więcej informacji
       process_header_steps:
         step: Etap %{current} z %{total}
         view_steps: Pokaż etapy
