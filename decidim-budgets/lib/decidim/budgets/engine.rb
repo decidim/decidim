@@ -45,18 +45,14 @@ module Decidim
       end
 
       initializer "decidim_budgets.serializer_listener" do
-        Rails.logger.info "\n\n\n\n\n\n\ninitializer serializer_listener\n\n\n\n\n\n\n"
-        Decidim::Budgets::SerializerManager.subscribe do |data|
-          Rails.logger.info "\n\n\n\n\n\n\nSUBSCRIBE\n\n\n\n\n\n\n"
-          data[:klass].serializeable[:pending_votes] = data[:project].orders.pending.count
-          # data[:klass].serializeable[:pending_votes] = 1337
+        Decidim::Budgets::ProjectSerializer.subscribe "decidim.budgets.projectserializer" do |data|
+          array = data[:serializeable].to_a
+          Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\nARRAYIS: #{array}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+          array.insert(9, [:pending_votes, data[:resource].orders.pending.count])
+          Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\nARRAYIS2: #{array}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+          data[:klass].serializeable = array.compact.to_h
         end
       end
-
-      # Decidim::Comments::CommentCreation.subscribe do |data|
-      #   proposals = data.dig(:metadatas, :proposal).try(:linked_proposals)
-      #   Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], proposals) if proposals
-      # end
     end
   end
 end

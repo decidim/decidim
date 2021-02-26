@@ -6,7 +6,6 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
       include Decidim::TranslationsHelper
-      EVENT_NAME = "decidim.budgets.project_serialized"
 
       # Public: Initializes the serializer with a project.
       def initialize(project)
@@ -42,16 +41,13 @@ module Decidim
           related_proposal_titles: related_proposal_titles,
           related_proposal_urls: related_proposal_urls
         }
-        Rails.logger.info "\n\n\n\n\n\n\n BEFORE SERIALIZERMANAGER \n\n\n\n\n\n\n"
-        manager = SerializerManager.new(serializeable, project)
-        item = manager.manage
-        Rails.logger.info "\n\n\n\n\n\n\n\n\nITEMPENDINGVOTES: #{item[:pending_votes]}\n\n\n\n\n\n\n\n"
-        item
+        Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\n\n\n\nEventname: #{event_name}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        Decidim::SerializerManager.new(serializeable, project).publish(event_name)
       end
 
-      def self.publish(serialized)
+      def publish(serialized)
         ActiveSupport::Notifications.publish(
-          EVENT_NAME,
+          event_name,
           serialized: serialized
         )
       end
@@ -59,6 +55,10 @@ module Decidim
       private
 
       attr_reader :project
+
+      def event_name
+        self.class.to_s.downcase.gsub("::", ".")
+      end
 
       def component
         project.component

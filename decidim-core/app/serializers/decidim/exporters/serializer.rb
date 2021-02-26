@@ -25,6 +25,12 @@ module Decidim
       def serialize
         @resource.to_h
       end
+
+      def self.subscribe(event_name, &block)
+        ActiveSupport::Notifications.subscribe(event_name) do |_event_name, data|
+          block.call(data)
+        end
+      end
     end
   end
 end
