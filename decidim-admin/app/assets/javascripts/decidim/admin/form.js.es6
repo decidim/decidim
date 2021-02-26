@@ -1,5 +1,6 @@
 // = require ./budget_rule_toggler.component
 // = require ./scope_picker_enabler.component
+// = require ./proposal_infinite_edit
 
 ((exports) => {
   const { BudgetRuleTogglerComponent } = exports.DecidimAdmin;
