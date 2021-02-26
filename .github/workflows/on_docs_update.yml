@@ -1,0 +1,22 @@
+name: "On docs update"
+on:
+  push:
+    paths:
+    - 'docs/**'
+
+jobs:
+  trigger_docker_build:
+    name: Trigger decidim/documentation build
+    runs-on: ubuntu-latest
+    if: "github.ref == 'refs/heads/develop'"
+    timeout-minutes: 60
+    steps:
+    - name: Send dispatch for trigger_build workflow
+      run: |
+        curl --request POST \
+        --user "decidim-bot:${{ secrets.DOCS_WORKFLOW_PAT }}" \
+        --header "Accept: application/vnd.github.everest-preview+json" \
+        --header "Content-Type: application/json" \
+        https://api.github.com/repos/decidim/documentation/actions/workflows/trigger_build.yml/dispatches \
+        --data '{"ref": "master"}'
+
