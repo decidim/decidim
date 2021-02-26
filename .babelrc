@@ -1,15 +1,16 @@
 {
   "presets": [
-    "@babel/env",
+    "@babel/preset-env",
     "airbnb",
     "@babel/react"
   ],
-  "plugins": [],
+  "plugins": [
+    "@babel/plugin-transform-classes"
+  ],
   "env": {
     "test": {
       "plugins": [
-        ["__coverage__", {"ignore": "*.+(test|stub).*"}],
-        "transform-es2015-modules-commonjs"
+        ["__coverage__", {"ignore": "*.+(test|stub).*"}]
       ]
     }
   }
