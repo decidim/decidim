@@ -818,12 +818,18 @@ de:
                 name: Name
                 role: Ihre Rolle
                 voting: Abstimmung
+              no_polling_stations: Sie sind noch zu keinem Wahllokal zugewiesen.
+              title: Wahllokale
       polling_officers:
         actions:
           confirm_destroy: Sind Sie sicher?
           destroy: Entfernen
           new: Neu
           title: Aktionen
+        roles:
+          manager: Manager
+          president: Präsident
+          unassigned: Nicht zugewiesen
       polling_stations:
         actions:
           confirm_destroy: Sind Sie sicher?
