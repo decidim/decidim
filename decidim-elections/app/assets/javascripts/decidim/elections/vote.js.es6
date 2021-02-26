@@ -119,7 +119,7 @@ $(async () => {
         data: JSON.stringify({
           encrypted_vote: ballot.encryptedData, // eslint-disable-line camelcase
           encrypted_vote_hash: ballot.encryptedDataHash // eslint-disable-line camelcase
-        }), 
+        }),
         headers: {
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
