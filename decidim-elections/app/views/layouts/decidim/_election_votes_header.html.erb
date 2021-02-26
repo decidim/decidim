@@ -4,7 +4,7 @@
 <div class="focus__top">
   <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
   <nav class="focus__user topbar__user__logged">
-    <%= current_user.name %>
+    <%= current_user.name if current_user %>
   </nav>
   <%= link_to election_path(election), class: "focus__exit" do %>
     <span class="focus__x-icon" aria-hidden="true">×</span>

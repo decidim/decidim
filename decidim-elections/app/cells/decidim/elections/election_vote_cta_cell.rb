@@ -5,8 +5,6 @@ module Decidim
     # This cell renders the results
     # for a given instance of an Election
     class ElectionVoteCtaCell < Decidim::ViewModel
-      include Decidim::Elections::Engine.routes.url_helpers
-
       delegate :current_user,
                :allowed_to?,
                :current_participatory_space,
@@ -18,7 +16,15 @@ module Decidim
         @last_vote ||= Decidim::Elections::Votes::UserElectionLastVote.new(current_user, model).query
       end
 
-      def vote_action_button
+      def new_election_vote_path
+        decidim_elections.new_election_vote_path(
+          voting_slug: current_participatory_space.slug,
+          component_id: current_component.id,
+          election_id: model.id
+        )
+      end
+
+      def vote_action_button_text
         if !already_voted?
           t("action_button.vote", scope: i18n_scope)
         elsif last_vote_accepted?
@@ -26,6 +32,14 @@ module Decidim
         else
           t("action_button.vote_again", scope: i18n_scope)
         end
+      end
+
+      def verify_election_vote_path
+        decidim_elections.verify_election_vote_path(
+          voting_slug: current_participatory_space.slug,
+          component_id: current_component.id,
+          election_id: model.id
+        )
       end
 
       def callout_text
@@ -48,9 +62,13 @@ module Decidim
         "decidim.elections.elections.show"
       end
 
-      # def component_for(election)
-      #   election.component
-      # end
+      def current_component
+        model.component
+      end
+
+      def decidim_elections
+        Decidim::Elections::Engine.routes.url_helpers
+      end
     end
   end
 end
