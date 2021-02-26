@@ -15,6 +15,10 @@ module Decidim
       number_with_delimiter(model[:stat_number])
     end
 
+    def stat_dom_class
+      model[:stat_title]
+    end
+
     def stat_title
       t(model[:stat_title], scope: "decidim.statistics")
     end
