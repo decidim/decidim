@@ -11,7 +11,7 @@ describe "Session timeout", type: :system do
   context "when session is about to timeout" do
     before do
       Decidim.expire_session_after = 2.minutes
-      Decidim.session_timeout_interval = 1000
+      Decidim.session_timeout_interval = 1.second
       switch_to_host(organization.host)
       login_as current_user, scope: :user
     end

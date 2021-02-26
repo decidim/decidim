@@ -276,14 +276,15 @@ module Decidim
     30.minutes
   end
 
-  # If set to true, users have option to "remember me".
+  # If set to true, users have option to "remember me". Notice that expire_session_after won't take
+  # effect when the user wants to be remembered.
   config_accessor :enable_remember_me do
     true
   end
 
   # Defines (in milliseconds) how often session_timeouter.js checks time between current moment and last request
   config_accessor :session_timeout_interval do
-    10_000
+    10.seconds
   end
 
   # Exposes a configuration option: an object to configure Etherpad
