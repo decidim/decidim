@@ -47,7 +47,10 @@ def crowdin?(commit)
 end
 
 def get_pr_id(commit)
-  commit.scan(/\d+/).last
+  id = commit.scan(/#\d+/).last
+  return unless id
+
+  id.delete_prefix("#")
 end
 
 def get_pr_data(commit)
@@ -134,7 +137,7 @@ types.each do |type_title, type_data|
 
       handled_ids << id
 
-      if type_data[:skip_modules]
+      if type_data[:skip_modules] || modules_list.empty?
         output "- #{title} #{pr_link(id)}"
       else
         output "- #{modules_list.join(", ")}: #{title} #{pr_link(id)}"
