@@ -119,9 +119,14 @@ pl:
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
         file_upload_settings:
           content_types:
+            admin_hint: Te typy plików są dozwolone dla przesyłania w sekcji administracyjnej. Administratorzy powinni być świadomi zagrożeń związanych z przesyłaniem niektórych formatów dokumentów, więc możesz oczekiwać, że będą ostrożni przy przesyłaniu plików.
             default_hint: Te typy MIME są domyślnie dozwolone dla wszystkich użytkowników.
+            intro_html: Dodajesz wildcard ze znakiem gwiazdki dla typów plików, np. <code>image/*</code>.
             title: Dozwolone typy MIME
           file_extensions:
+            admin_hint: Te typy plików są dozwolone dla przesyłania w sekcji administracyjnej. Administratorzy powinni być świadomi zagrożeń związanych z przesyłaniem niektórych formatów dokumentów, więc możesz oczekiwać, że będą ostrożni przy przesyłaniu plików.
+            default_hint: Te typy plików są domyślnie dozwolone dla wszystkich użytkowników.
+            image_hint: Te typy plików są dozwolone dla wszelkich rodzajów importu.
             title: Dozwolone rozszerzenia plików
           file_sizes:
             avatar_hint: Megabajty (MB). Ten limit rozmiaru pliku jest używany do przesyłania obrazu awatara.
