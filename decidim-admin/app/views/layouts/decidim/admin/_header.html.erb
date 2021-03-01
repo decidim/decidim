@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%= csrf_meta_tags %>
 <%= stylesheet_link_tag    "decidim/admin/application", media: "all" %>
-<%= javascript_include_tag "decidim/confirm" %>
-<%= javascript_include_tag "decidim/admin/application" %>
+<%= javascript_pack_tag "decidim/confirm" %>
+<%= javascript_pack_tag "decidim/admin/application" %>
 <%= organization_colors %>
 <%= snippets.display(:head) %>

@@ -5108,6 +5108,11 @@ html-tags@^3.1.0:
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.1.0.tgz#7b5e6f7e665e9fb41f30007ed9e0d41e97fb2140"
   integrity sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==
 
+html5sortable@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/html5sortable/-/html5sortable-0.10.0.tgz#b206b6ce435ebabba7095996943c2071d1b79338"
+  integrity sha512-/F2sUHnSlqXY8Pg1AxLjR5i/ijngpkl2u1x6a6JfwSsoVRZ5b/ZO9MDZopSSzjo7bTZinQbXACTrZI6mpGugMw==
+
 htmlparser2@^3.10.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
@@ -6169,6 +6174,16 @@ jest@^22.4.4:
   dependencies:
     import-local "^1.0.0"
     jest-cli "^22.4.4"
+
+jquery-serializejson@2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/jquery-serializejson/-/jquery-serializejson-2.9.0.tgz#03e3764e3a4b42c1c5aae9f93d7f19320c5f35a6"
+  integrity sha512-xR7rjl0tRKIVioV5lOkOSv7K8BHMvGzYzC7Ech1iAYuZiYf0ksEpLC8OqjA5VApXf/qn/49O9hTmW70+/EA0vA==
+
+jquery.autocomplete@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/jquery.autocomplete/-/jquery.autocomplete-1.2.0.tgz#c6476e85035cd7cedefeab04d8774477324d6e33"
+  integrity sha512-aoJC3KVrPpRGaZBUo9UxhwznYmQ0UuYd+FfjP9RAKmyB+1T3OLIjuQImT8pKX6eKpBt1z9JmD48GiD2Dx303bA==
 
 jquery@^3.2.1:
   version "3.5.1"

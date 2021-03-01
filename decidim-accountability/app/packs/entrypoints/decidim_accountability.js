@@ -1,1 +1,1 @@
-import 'src/decidim/accountability'
+import '../src/decidim/accountability'

@@ -1,8 +1,8 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  # source_path: 'decidim-*/app/packs'
-  source_path: 'decidim-core/app/packs'
+  source_path: 'decidim-*/app/packs'
+  #source_path: 'decidim-core/app/packs'
   source_entry_path: entrypoints
   public_root_path: public
   public_output_path: decidim-packs
