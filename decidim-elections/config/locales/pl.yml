@@ -16,6 +16,9 @@ pl:
         max_selections: Maksymalna liczba wyborów
         min_selections: Żaden z powyższych wariantów
         title: Tytuł
+      voting:
+        end_time: Głosowanie kończy się
+        start_time: Głosowanie rozpoczyna się
     errors:
       models:
         answer:
@@ -71,6 +74,11 @@ pl:
         few: Lokale wyborcze
         many: Lokali wyborczych
         other: Lokale wyborcze
+      decidim/votings/voting:
+        one: Głosowanie
+        few: Głosowania
+        many: Głosowań
+        other: Głosowania
   decidim:
     admin:
       filters:
@@ -106,6 +114,9 @@ pl:
         edit: Edytuj
         feedback: Informacja zwrotna o głosowaniu
         import: Importuj propozycje do odpowiedzi
+        manage_answers: Zarządzaj odpowiedziami
+        manage_questions: Zarządzaj pytaniami
+        manage_steps: Zarządzaj krokami
         new: Nowy %{name}
         preview: Podgląd
         publish: Opublikuj
@@ -204,8 +215,13 @@ pl:
         steps:
           create_election:
             errors:
+              max_selections: Pytania nie mają <strong>poprawnej wartości dla ilości odpowiedzi</strong>
+              minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
+              minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>nie zostały opublikowane</strong>.
+              time_before: Godzina rozpoczęcia jest <strong>mniej niż 3 godziny</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} powierników z kluczem publicznym</strong>.
+            invalid: Wystąpił problem z konfiguracją tych wyborów
             no_trustees: Nie ma powierników dla tej przestrzeni partycypacyjnej
             not_used_trustee: "(nieużywane)"
             requirements:
