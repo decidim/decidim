@@ -26,11 +26,14 @@ ca:
         published_at: Publicat el
         weight: Pes
       id: ID
+      import:
+        user_group_id: Importar com
       newsletter:
         body: Cos
         subject: Assumpte
       organization:
         alert_color: Alerta
+        available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
         comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
         cta_button_path: URL del botó d'acció
@@ -41,6 +44,8 @@ ca:
         enable_omnipresent_banner: Mostrar el banner omnipresent
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
+        force_authentication: Forçar autenticació
+        force_users_to_authenticate_before_access_organization: Forçar les usuàries a autenticar-se abans d'accedir a l'organització
         from: Adreça des d'on s'enviaran els correus electrònics
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
@@ -53,6 +58,7 @@ ca:
         highlighted_content_banner_image: Imatge
         highlighted_content_banner_short_description: Breu descripció
         highlighted_content_banner_title: Títol
+        host: Host
         instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
         machine_translation_display_priority: Prioritat al mostrar les traduccions automàtiques
