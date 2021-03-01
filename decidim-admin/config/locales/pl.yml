@@ -694,8 +694,8 @@ pl:
           show: Pokaż
           title: Pokaż adres e-mail użytkownika
         unblock:
-          error: Wystąpił błąd podczas odblokowania użytkownika
-          success: Użytkownik odblokowany pomyślnie
+          error: Wystąpił błąd podczas odblokowywania użytkownika
+          success: Użytkownik został odblokowany
       organization:
         edit:
           title: Edytuj organizację
@@ -983,7 +983,7 @@ pl:
     decidim:
       admin:
         global_moderations:
-          title: Globalna moderacja
+          title: Globalne moderacje
         newsletters:
           title: Newslettery
         settings:
