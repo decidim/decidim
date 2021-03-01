@@ -443,7 +443,7 @@ pl:
         ready: Gotowy
       show:
         download_data: Pobierz dane
-        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>).
+        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Poproś o dane
     datepicker:
       help_text: 'Oczekiwany format: %{datepicker_format}'
