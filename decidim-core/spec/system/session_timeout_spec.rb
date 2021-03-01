@@ -42,6 +42,7 @@ describe "Session timeout", type: :system do
 
     it "doesnt timeout user who wants to be remembered" do
       current_user.remember_created_at = Time.current
+      current_user.save!
       visit decidim.root_path
       travel 1.minute
       sleep 1

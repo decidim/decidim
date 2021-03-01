@@ -282,7 +282,7 @@ module Decidim
     true
   end
 
-  # Defines (in milliseconds) how often session_timeouter.js checks time between current moment and last request
+  # Defines how often session_timeouter.js checks time between current moment and last request
   config_accessor :session_timeout_interval do
     10.seconds
   end
