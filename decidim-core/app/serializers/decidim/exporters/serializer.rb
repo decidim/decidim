@@ -26,6 +26,12 @@ module Decidim
         @resource.to_h
       end
 
+      # Public: Publishes notification (event) so that subscribers can modify serialized data.
+      #
+      # resource - The Object to serialize.
+      # serialized_data - Hash with the serialized data for this resource.
+      #
+      # Returns a nested Hash with the fields by default.
       def finalize(resource, serialized_data)
         event_data = {
           serialized_data: serialized_data,
@@ -36,8 +42,13 @@ module Decidim
         event_data[:serialized_data]
       end
 
+      # Public: Converts serializers class name to event name.
+      #
+      # For example: Decidim::Budgets::ProjectSerializer -> "decidim.serialize.budgets.project_serializer"
+      #
+      # Returns String
       def event_name
-        self.class.to_s.downcase.gsub("::", ".")
+        ActiveSupport::Inflector.underscore(self.class.to_s).sub("/", ".serialize.").gsub("/", ".")
       end
     end
   end

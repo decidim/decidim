@@ -89,36 +89,13 @@ module Decidim::Budgets
       end
     end
 
-    context "when subscribed to serialize event" do
-      let(:organization) { project.organization }
-      let!(:user) { create :user, :confirmed, organization: organization }
-      let!(:pending_order) do
-        order = create(:order, user: user, budget: project.budget)
-        order.projects << project
-        order.save!
-        order
-      end
-
-      # Decidim::Budgets::ProjectSerializer.subscribe "decidim.budgets.projectserializer" do |data|
-      # end
-      ActiveSupport::Notifications.subscribe("decidim.budgets.projectserializer") do |_event_name, data|
-      # ActiveSupport::Notifications.subscribe("decidim.budgets.projectserializer") do |_event_name, _start, _finish, _id, data|
-        # raise args.inspect
-        array = data[:serialized_data].to_a
-        # Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\nARRAYIS: #{array}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-        array.insert(9, [:pending_votes, data[:resource].orders.pending.count])
-        # Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\nARRAYIS2: #{array}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-        # data[:klass].serializeable = array.compact.to_h
-
-        data[:serialized_data] = array.compact.to_h
-
-        # array = data[:serialized_data].to_a
-        # array.insert(9, [:pending_votes, data[:resource].orders.pending.count])
-        # data[:klass].serializeable = array.compact.to_h
+    context "when subscribed to the serialize event" do
+      ActiveSupport::Notifications.subscribe("decidim.serialize.budgets.project_serializer") do |_event_name, data|
+        data[:serialized_data][:test_field] = "Resource class: #{data[:resource].class}"
       end
 
       it "includes new field" do
-        expect(serialized[:pending_votes]).to eq(1)
+        expect(serialized[:test_field]).to eq("Resource class: Decidim::Budgets::Project")
       end
     end
   end

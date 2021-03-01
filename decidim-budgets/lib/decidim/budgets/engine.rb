@@ -43,16 +43,6 @@ module Decidim
           metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
         end
       end
-
-      # initializer "decidim_budgets.serializer_listener" do
-      #   ActiveSupport::Notifications.subscribe("decidim.budgets.projectserializer") do |_event_name, data|
-      #     array = data[:serializeable].to_a
-      #     # Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\nARRAYIS: #{array}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-      #     array.insert(9, [:pending_votes, data[:resource].orders.pending.count])
-      #     # Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\nARRAYIS2: #{array}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-      #     # data[:klass].serializeable = array.compact.to_h
-      #   end
-      # end
     end
   end
 end
