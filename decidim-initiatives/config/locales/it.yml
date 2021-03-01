@@ -133,10 +133,7 @@ it:
             email_subject: Nuova pietra miliare completata!
             notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
         support_threshold_reached:
-          email_intro: L'iniziativa %{resource_title} ha raggiunto la soglia di supporto
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
-          email_subject: Soglia di supporto raggiunta
-          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto la soglia di supporto
     gamification:
       badges:
         initiatives:

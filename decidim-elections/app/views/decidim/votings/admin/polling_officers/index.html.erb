@@ -6,6 +6,7 @@
     </h2>
   </div>
 
+  <%= admin_filter_selector %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
@@ -13,17 +14,25 @@
           <tr>
             <th><%= t("models.polling_officer.fields.name", scope: "decidim.votings.admin") %></th>
             <th><%= t("models.polling_officer.fields.email", scope: "decidim.votings.admin") %></th>
+            <th><%= t("models.polling_officer.fields.polling_station", scope: "decidim.votings.admin") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.votings.polling_officers") %></th>
           </tr>
         </thead>
         <tbody>
-          <% polling_officers.each do |polling_officer| %>
+          <% filtered_polling_officers.each do |polling_officer| %>
             <tr data-id="<%= polling_officer.id %>">
               <td>
-                <%= polling_officer.user.name %>
+                <%= polling_officer.name %>
               </td>
               <td>
-                <%= polling_officer.user.email %>
+                <%= polling_officer.email %>
+              </td>
+              <td>
+                <% if polling_officer.presided_polling_station.present? %>
+                  <%= link_to "#{translated_attribute(polling_officer.presided_polling_station.title)} (#{t(".role_president") })", edit_voting_polling_station_path(current_voting, polling_officer.presided_polling_station) %>
+                <% elsif polling_officer.managed_polling_station.present? %>
+                  <%= link_to "#{translated_attribute(polling_officer.managed_polling_station.title)} (#{t(".role_manager") })", edit_voting_polling_station_path(current_voting, polling_officer.managed_polling_station) %>
+                <% end %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :delete, :polling_officer, voting: current_voting, polling_officer: polling_officer %>

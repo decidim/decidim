@@ -16,6 +16,7 @@ module Decidim
     # use ComponentListBase instead
     class ComponentList
       include NeedsApiFilterAndOrder
+      include NeedsApiDefaultOrder
       attr_reader :model_class
 
       def initialize
@@ -29,6 +30,7 @@ module Decidim
         @query = @query.where(participatory_space: participatory_space).published
         add_filter_keys(args[:filter])
         add_order_keys(args[:order].to_h)
+        add_default_order
         @query
       end
     end

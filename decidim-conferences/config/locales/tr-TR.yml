@@ -266,10 +266,6 @@ tr:
       conferences:
         conference_registration:
           confirm: "%{user_name} , %{resource_name} konferansta bir konferans kaydını onayladı"
-        partner:
-          create: "%{user_name} %{space_name} konferansa %{resource_name} oluşturuldu"
-          delete: "%{user_name} kullanıcı uzaklaştırıldı %{resource_name} den %{space_name} konferans"
-          update: "%{user_name} %{space_name} konferansta %{resource_name} güncellendi"
         registration_type:
           create: "%{user_name} , %{space_name} konferansta %{resource_name} kayıt tipini oluşturdu"
           publish: "%{user_name} , %{space_name} konferansta %{resource_name} kayıt tipini yayınladı"

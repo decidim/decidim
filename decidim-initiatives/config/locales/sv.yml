@@ -145,10 +145,7 @@ sv:
             email_subject: Uppnådde ny milstolpe!
             notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
         support_threshold_reached:
-          email_intro: Initiativet %{resource_title} har nått stödtröskeln
           email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
-          email_subject: Stöd tröskel har uppnåtts
-          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har nått tröskeln för stöd
     gamification:
       badges:
         initiatives:

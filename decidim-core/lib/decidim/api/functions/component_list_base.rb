@@ -27,6 +27,7 @@ module Decidim
     #
     class ComponentListBase
       include NeedsApiFilterAndOrder
+      include NeedsApiDefaultOrder
       attr_reader :model_class
 
       def initialize(model_class:)
@@ -40,6 +41,7 @@ module Decidim
         add_filter_keys(args[:filter])
         order = filter_keys_by_settings(args[:order].to_h, component)
         add_order_keys(order)
+        add_default_order
         @query
       end
 

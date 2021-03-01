@@ -35,7 +35,6 @@ el:
       decidim/profile_updated_event: Το προφίλ ενημερώθηκε
       decidim/promote_to_admin: Αναβάθμιση σε διαχειριστής ομάδας
       decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
-      decidim/resource_endorsed_event: Το στοιχείο επιδοκιμάστηκε
   activerecord:
     attributes:
       decidim/user:
@@ -387,7 +386,6 @@ el:
         ready: Έτοιμο
       show:
         download_data: Πραγματοποιήστε λήψη των δεδομένων
-        download_data_description: Ένα αρχείο με όλες τις πληροφορίες που σχετίζονται με τον λογαριασμό θα σταλεί στη διεύθυνση <strong>%{user_email}</strong>
         request_data: Αίτηση για δεδομένα
     datepicker:
       help_text: 'Αναμενόμενη μορφή: %{datepicker_format}'
@@ -608,7 +606,6 @@ el:
           notification_title: Η <a href="%{resource_path}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
     export_mailer:
       data_portability_export:
-        click_button: 'Κάντε κλικ στο επόμενο κουμπί για να πραγματοποιήσετε λήψη των δεδομένων σας. <br/> Θα έχετε το αρχείο διαθέσιμο έως τις %{date}. <br/> Θα χρειαστείτε το <a href=''https://www.7-zip.org/''>7-Zip</a> για να το ανοίξετε. Κωδικός πρόσβασης: %{password}'
         download: Λήψη
       export:
         ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
@@ -641,7 +638,6 @@ el:
       create:
         button: Παρακολούθηση
         error: Υπήρξε ένα πρόβλημα κατά την παρακολούθηση αυτού του πόρου.
-        participatory_space: Ακολουθείτε ήδη το <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Διακοπή παρακολούθησης
         error: Υπήρξε ένα πρόβλημα κατά τη διακοπή παρακολούθησης αυτού του πόρου.
@@ -894,7 +890,6 @@ el:
         show:
           back: Πίσω σε όλες τις συνομιλίες
           chat_with: Συνομιλία με
-          not_allowed: Αυτός ο χρήστης δεν δέχεται πλέον άμεσα μηνύματα.
           title: Συνομιλία με τους χρήστες %{usernames}
         start:
           send: Αποστολή
@@ -1420,7 +1415,7 @@ el:
     messages:
       already_confirmed: έχει ήδη επιβεβαιωθεί, δοκιμάστε να συνδεθείτε
       confirmation_period_expired: πρέπει να επιβεβαιωθεί εντός %{period}, ζητήστε έναν νέο
-      content_type_whitelist_error: ο τύπος αρχείου δεν είναι έγκυρος
+      content_type_allowlist_error: ο τύπος αρχείου δεν είναι έγκυρος
       cycle_detected: το γονικό στοιχείο ενός πεδίου εφαρμογής δεν μπορεί να είναι ένα απογονικό στοιχείο του
       expired: έχει λήξει, ζητήστε έναν νέο
       file_size_is_less_than_or_equal_to: το μέγεθος του αρχείου πρέπει να είναι μικρότερο ή ίσο με %{count}

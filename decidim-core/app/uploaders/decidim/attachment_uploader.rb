@@ -15,7 +15,7 @@ module Decidim
       process resize_to_limit: [nil, 1000]
     end
 
-    def extension_whitelist
+    def extension_allowlist
       case upload_context
       when :admin
         Decidim.organization_settings(model).upload_allowed_file_extensions_admin
@@ -26,7 +26,7 @@ module Decidim
 
     # CarrierWave automatically calls this method and validates the content
     # type fo the temp file to match against any of these options.
-    def content_type_whitelist
+    def content_type_allowlist
       case upload_context
       when :admin
         Decidim.organization_settings(model).upload_allowed_content_types_admin

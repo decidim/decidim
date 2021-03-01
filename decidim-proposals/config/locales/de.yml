@@ -140,6 +140,10 @@ de:
             participatory_texts_enabled_readonly: Die Interaktion mit dieser Einstellung ist nicht möglich, wenn Vorschläge bestehen. Bitte erstellen Sie eine neue „Vorschlagskomponente“, wenn Sie diese Funktion aktivieren möchten, oder verwerfen Sie alle importierten Vorschläge im Menü „Beteiligungstexte“, wenn Sie diese Funktion deaktivieren möchten.
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren innerhalb dieser Zeit bearbeitet werden
+            proposal_edit_time: Vorschläge bearbeiten
+            proposal_edit_time_choices:
+              infinite: Vorschläge können beliebig lang bearbeitet werden
+              limited: Vorschläge können nach einem spezifischen Zeitfenster nicht mehr bearbeitet werden
             proposal_length: Maximale Länge des Haupttextes
             proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
@@ -422,6 +426,7 @@ de:
           form:
             attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
+            delete_attachment: Anhang löschen
             select_a_category: Kategorie auswählen
             select_a_meeting: Besprechung auswählen
           index:

@@ -146,10 +146,7 @@
             email_subject: Ny milepæl fullført!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har oppnådd de %{percentage}% av signaturer.
         support_threshold_reached:
-          email_intro: Initiativet %{resource_title} har nådd grensen for støtte
           email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
-          email_subject: Støtteterskelen er nådd
-          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har nådd terskelen for støtte
     gamification:
       badges:
         initiatives:

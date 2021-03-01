@@ -10,6 +10,9 @@ module Decidim
 
         return Decidim::Votings::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
 
+        # Delegate the polling_officer_zone permission checks to the polling officer zone permissions class
+        return Decidim::Votings::PollingOfficerZone::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :polling_officer_zone
+
         permission_action
       end
 

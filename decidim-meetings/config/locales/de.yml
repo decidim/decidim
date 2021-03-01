@@ -389,12 +389,15 @@ de:
           title: Ihre Besprechung bearbeiten
           update: Aktualisieren
         filters:
+          activity: Meine Aktivität
+          all: Alles
           category: Kategorie
           date: Datum
           date_values:
             all: Alle
             past: Vergangene
             upcoming: Bevorstehende
+          my_meetings: Meine Sitzungen
           origin: Ursprung
           origin_values:
             all: Alle

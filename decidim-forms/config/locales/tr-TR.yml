@@ -110,7 +110,7 @@ tr:
         answer:
           body: Vücut boş olamaz
       files:
-        extension_whitelist: 'Kabul edilen biçimler:'
+        extension_allowlist: 'Kabul edilen biçimler:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Bu resim:'

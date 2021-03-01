@@ -26,6 +26,7 @@ module Decidim::Assemblies
         invalid?: invalid,
         title: { en: "title" },
         subtitle: { en: "subtitle" },
+        weight: 1,
         slug: "slug",
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },

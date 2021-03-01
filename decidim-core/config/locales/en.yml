@@ -1534,7 +1534,7 @@ en:
     messages:
       already_confirmed: was already confirmed, please try signing in
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
-      content_type_whitelist_error: the file type is not valid
+      content_type_allowlist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}

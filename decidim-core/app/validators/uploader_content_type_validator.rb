@@ -20,8 +20,8 @@ class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeVa
     return unless uploader.is_a?(Decidim::ApplicationUploader)
 
     mode = option_value(record, :mode)
-    allowed_types = uploader.content_type_whitelist || []
-    forbidden_types = uploader.content_type_blacklist || []
+    allowed_types = uploader.content_type_allowlist || []
+    forbidden_types = uploader.content_type_denylist || []
 
     values.each do |val|
       val_mode = mode

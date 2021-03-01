@@ -262,10 +262,6 @@ id:
       conferences:
         conference_registration:
           confirm: "%{user_name} mengkonfirmasi pendaftaran konferensi dalam %{resource_name} konferensi"
-        partner:
-          create: "%{user_name} dibuat %{resource_name} ke %{space_name} konferensi"
-          delete: "%{user_name} menghapus pengguna %{resource_name} dari %{space_name} konferensi"
-          update: "%{user_name} diperbarui %{resource_name} di %{space_name} konferensi"
         registration_type:
           create: "%{user_name} menciptakan tipe %{resource_name} pendaftaran dalam %{space_name} konferensi"
           publish: "%{user_name} menerbitkan %{resource_name} tipe pendaftaran dalam %{space_name} konferensi"

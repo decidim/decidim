@@ -11,8 +11,9 @@ describe "Admin manages votings", type: :system do
     visit decidim_admin_votings.votings_path
   end
 
-  describe "listing votings" do
+  describe "when listing votings" do
     let(:model_name) { voting.class.model_name }
+    let(:resource_controller) { Decidim::Votings::Admin::VotingsController }
 
     it_behaves_like "filtering collection by published/unpublished"
   end
@@ -290,6 +291,8 @@ describe "Admin manages votings", type: :system do
       expect(page).to have_content("Landing Page")
       expect(page).to have_content("Components")
       expect(page).to have_content("Attachments")
+      expect(page).to have_content("Polling Stations")
+      expect(page).to have_content("Polling Officers")
       expect(page).to have_css(".is-active", text: "Information")
     end
   end

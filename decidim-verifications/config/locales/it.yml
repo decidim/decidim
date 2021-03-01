@@ -34,16 +34,8 @@ it:
             confirm: Le autorizzazioni di revoca prima della data non possono essere annullate. Sei sicuro di voler continuare?
             confirm_all: Revocare tutte le autorizzazioni non può essere annullato. Sei sicuro di voler continuare?
           destroy_nok: C'è stato un problema durante la revoca delle autorizzazioni.
-          destroy_ok: Tutte le autorizzazioni abbinate sono state revocate con successo!
           info: Ci sono un totale di %{count} partecipanti verificati.
           no_data: Nessun partecipante verificato
-          title: Revoca delle verifiche
-        authorization_workflows: Verifiche
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} aggiornato la configurazione di verifica dei documenti di identità"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} verificato %{resource_name} utilizzando una verifica dei documenti di identità offline"
     authorization_handlers:
       admin:
         csv_census:

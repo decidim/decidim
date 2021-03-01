@@ -94,7 +94,7 @@ fi-pl:
         create:
           error: Virhe uuden kuulemisen luonnissa.
           success: Kuuleminen luotu onnistuneesti.
-        deprecation_warning: Kuulemiset-moduuli poistuu käytössä lähitulevaisuudessa. Kryptografisesti turvallisempi Äänestykset-moduuli korvaa kyseisen moduulin jatkossa.
+        deprecation_warning: Kuulemiset-moduuli poistuu käytöstä lähitulevaisuudessa. Kryptografisesti turvallisempi Äänestykset-moduuli korvaa kyseisen moduulin jatkossa.
         edit:
           update: Päivitä
         form:

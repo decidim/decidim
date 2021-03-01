@@ -142,8 +142,11 @@
         result:
           fields:
             category: Kategori
+            created_at: Opprettet
             end_date: Sluttdato
+            id: ID
             progress: Framgang
+            scope: Tema
             start_date: Startdato
             status: Status
             title: Tittel
@@ -157,6 +160,8 @@
           fields:
             description: Beskrivelse
             entry_date: Dato
+      result_m:
+        executed: Utført
       results:
         count:
           results_count:
@@ -187,6 +192,13 @@
             votes: Støtter
         timeline:
           title: Prosjektutvikling
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Ansvarlighet

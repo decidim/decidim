@@ -80,6 +80,30 @@ module Decidim
           end
         end
 
+        def available_polling_officers
+          respond_to do |format|
+            format.json do
+              if (term = params[:term].to_s).present?
+                query = current_voting.available_polling_officers.joins(:user)
+                query = if term.start_with?("@")
+                          query.where("nickname ILIKE ?", "#{term.delete("@")}%")
+                        else
+                          query.where("name ILIKE ?", "%#{term}%").or(
+                            query.where("email ILIKE ?", "%#{term}%")
+                          )
+                        end
+                render json: query.all.collect { |u| { value: u.id, label: "#{u.name} (@#{u.nickname}) #{u.email}" } }
+              else
+                render json: []
+              end
+            end
+          end
+        end
+
+        def polling_officers_picker
+          render :polling_officers_picker, layout: false
+        end
+
         private
 
         def votings

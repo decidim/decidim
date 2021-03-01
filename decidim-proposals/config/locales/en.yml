@@ -141,6 +141,10 @@ en:
             participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
+            proposal_edit_time: Proposal editing
+            proposal_edit_time_choices:
+              infinite: Allow editing proposals for an infinite amount of time
+              limited: Allow editing of proposals within a specific timeframe
             proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per participant
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
@@ -423,6 +427,7 @@ en:
           form:
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
+            delete_attachment: Delete attachment
             select_a_category: Select a category
             select_a_meeting: Select a meeting
           index:

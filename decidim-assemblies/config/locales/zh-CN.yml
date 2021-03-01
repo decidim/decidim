@@ -243,7 +243,6 @@ zh-CN:
         update: "%{user_name} 更新了程序集设置"
       assembly_type:
         create: "%{user_name} 创建了 %{resource_name} 组装类型"
-        delete: "%{user_name} 将 %{resource_name} 成员从 %{space_name} 组装类型中移除"
         publish: "%{user_name} 发布了 %{resource_name} 组装类型"
         unpublish: "%{user_name} 未发布的 %{resource_name} 组装类型"
         update: "%{user_name} 更新了 %{resource_name} 装配体类型"
@@ -433,8 +432,6 @@ zh-CN:
       home:
         hero:
           participate_title: 参与平台进程
-        sub_hero:
-          register_title: 注册在平台上创建帐户
     participatory_processes:
       pages:
         home:

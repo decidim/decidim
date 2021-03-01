@@ -1,40 +1,6 @@
-<% content_for :secondary_nav do %>
-  <div class="secondary-nav">
-    <div class="secondary-nav__title">
-      <%= t ".title" %>
-    </div>
-    <ul>
-      <li <% if is_active_link?(decidim_admin.edit_organization_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.configuration", scope: "decidim.admin"), decidim_admin.edit_organization_path %>
-      </li>
-      <li <% if is_active_link?(decidim_admin.edit_organization_appearance_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.appearance", scope: "decidim.admin"), decidim_admin.edit_organization_appearance_path %>
-      </li>
-      <li <% if is_active_link?(decidim_admin.edit_organization_homepage_path, /^\/admin\/organization\/homepage/) %> class="is-active" <% end %>>
-        <%= link_to t("menu.homepage", scope: "decidim.admin"), decidim_admin.edit_organization_homepage_path %>
-      </li>
-      <li <% if is_active_link?(decidim_admin.scopes_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.scopes", scope: "decidim.admin"), decidim_admin.scopes_path %>
-      </li>
-      <li <% if is_active_link?(decidim_admin.scope_types_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.scope_types", scope: "decidim.admin"), decidim_admin.scope_types_path %>
-      </li>
-      <li <% if is_active_link?(decidim_admin.areas_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.areas", scope: "decidim.admin"), decidim_admin.areas_path %>
-      </li>
-      <li <% if is_active_link?(decidim_admin.area_types_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.area_types", scope: "decidim.admin"), decidim_admin.area_types_path %>
-      </li>
-      <li <% if allowed_to?(:update, :help_sections) && is_active_link?(decidim_admin.help_sections_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.help_sections", scope: "decidim.admin"), decidim_admin.help_sections_path %>
-      </li>
-      <li <% if is_active_link?(decidim_admin.edit_organization_external_domain_whitelist_path) %> class="is-active" <% end %>>
-        <%= link_to t("menu.external_domain_whitelist", scope: "decidim.admin"), decidim_admin.edit_organization_external_domain_whitelist_path %>
-      </li>
-    </ul>
-  </div>
+<% content_for :sidebar_menu_nav do %>
+  <%= organization_settings_menu.render(title: t(".title") ) %>
 <% end %>
-
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield %>
 <% end %>

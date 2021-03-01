@@ -31,6 +31,7 @@ module Decidim::Assemblies
             subtitle_en: my_assembly.subtitle,
             subtitle_ca: my_assembly.subtitle,
             subtitle_es: my_assembly.subtitle,
+            weight: my_assembly.weight,
             slug: my_assembly.slug,
             hashtag: my_assembly.hashtag,
             meta_scope: my_assembly.meta_scope,

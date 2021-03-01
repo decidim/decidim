@@ -229,7 +229,6 @@ lv:
         update: "%{user_name} atjaunināja asamblejas iestatījumus"
       assembly_type:
         create: "%{user_name} izveidoja %{resource_name} asamblejas veidu"
-        delete: "%{user_name} noņēma dalībnieku %{resource_name} no %{space_name} asamblejas veida"
         publish: "%{user_name} publicēja %{resource_name} asamblejas veidu"
         unpublish: "%{user_name} atcēla %{resource_name} asamblejas veida publicēšanu"
         update: "%{user_name} atjaunināja %{resource_name} asamblejas veidu"
@@ -414,8 +413,6 @@ lv:
       home:
         hero:
           participate_title: Piedalieties platformā notiekošajos procesos
-        sub_hero:
-          register_title: Reģistrējieties, lai izveidotu kontu platformā
     participatory_processes:
       pages:
         home:

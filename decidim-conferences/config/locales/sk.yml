@@ -272,10 +272,6 @@ sk:
       conferences:
         conference_registration:
           confirm: "%{user_name} potvrdil registráciu na konferencii %{resource_name}"
-        partner:
-          create: "%{user_name} pridal %{resource_name} do konferencie %{space_name}"
-          delete: "%{user_name} odstránil administrátora %{resource_name} z konferencie %{space_name}"
-          update: "%{user_name} zmenil %{resource_name} v konferencii %{space_name}"
         registration_type:
           create: "%{user_name} vytvoril typ registrácie %{resource_name} na konferencii %{space_name}"
           publish: "%{user_name} publikoval typ registrácie %{resource_name} na konferencii %{space_name}"

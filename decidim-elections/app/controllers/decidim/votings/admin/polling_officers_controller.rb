@@ -5,9 +5,10 @@ module Decidim
     module Admin
       # This controller allows to create or update a polling officer.
       class PollingOfficersController < Admin::ApplicationController
+        include Decidim::PollingOfficers::Admin::Filterable
         include VotingAdmin
 
-        helper_method :current_voting, :polling_officers, :polling_officer
+        helper_method :current_voting, :polling_officers, :polling_officer, :filtered_polling_officers
 
         def new
           enforce_permission_to :create, :polling_officer, voting: current_voting
@@ -56,6 +57,9 @@ module Decidim
         def polling_officer
           @polling_officer ||= polling_officers.find(params[:id])
         end
+
+        alias collection polling_officers
+        alias filtered_polling_officers filtered_collection
       end
     end
   end

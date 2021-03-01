@@ -389,12 +389,15 @@ fi-pl:
           title: Muokkaa tapahtumaa
           update: Päivitä
         filters:
+          activity: Oma toiminta
+          all: Kaikki
           category: Aihepiiri
           date: Päivämäärä
           date_values:
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
+          my_meetings: Omat tapaamiseni
           origin: Alkuperä
           origin_values:
             all: Kaikki

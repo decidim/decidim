@@ -32,6 +32,76 @@ module Decidim
         app.config.assets.precompile += %w(decidim_admin_manifest.js)
       end
 
+      initializer "decidim_admin.global_moderation_menu" do
+        Decidim.menu :admin_global_moderation_menu do |menu|
+          menu.item I18n.t("actions.not_hidden", scope: "decidim.moderations"),
+                    decidim_admin.moderations_path,
+                    position: 1,
+                    active: params[:hidden].blank?
+
+          menu.item I18n.t("actions.hidden", scope: "decidim.moderations"),
+                    decidim_admin.moderations_path(hidden: true),
+                    position: 2,
+                    active: params[:hidden].present?
+        end
+      end
+
+      initializer "decidim_admin.admin_settings_menu" do
+        Decidim.menu :admin_settings_menu do |menu|
+          menu.item I18n.t("menu.configuration", scope: "decidim.admin"),
+                    decidim_admin.edit_organization_path,
+                    position: 1.0,
+                    if: allowed_to?(:update, :organization, organization: current_organization),
+                    active: is_active_link?(decidim_admin.edit_organization_path)
+
+          menu.item I18n.t("menu.appearance", scope: "decidim.admin"),
+                    decidim_admin.edit_organization_appearance_path,
+                    position: 1.1,
+                    if: allowed_to?(:update, :organization, organization: current_organization),
+                    active: is_active_link?(decidim_admin.edit_organization_appearance_path)
+
+          menu.item I18n.t("menu.homepage", scope: "decidim.admin"),
+                    decidim_admin.edit_organization_homepage_path,
+                    position: 1.2,
+                    if: allowed_to?(:update, :organization, organization: current_organization),
+                    active: is_active_link?(decidim_admin.edit_organization_homepage_path, %r{^/admin/organization/homepage})
+
+          menu.item I18n.t("menu.scopes", scope: "decidim.admin"),
+                    decidim_admin.scopes_path,
+                    position: 1.3,
+                    if: allowed_to?(:read, :scope),
+                    active: is_active_link?(decidim_admin.scopes_path)
+          menu.item I18n.t("menu.scope_types", scope: "decidim.admin"),
+                    decidim_admin.scope_types_path,
+                    position: 1.4,
+                    if: allowed_to?(:read, :scope_type),
+                    active: is_active_link?(decidim_admin.scope_types_path)
+          menu.item I18n.t("menu.areas", scope: "decidim.admin"),
+                    decidim_admin.areas_path,
+                    position: 1.5,
+                    if: allowed_to?(:read, :area),
+                    active: is_active_link?(decidim_admin.areas_path)
+
+          menu.item I18n.t("menu.area_types", scope: "decidim.admin"),
+                    decidim_admin.area_types_path,
+                    position: 1.6,
+                    if: allowed_to?(:read, :area_type),
+                    active: is_active_link?(decidim_admin.area_types_path)
+
+          menu.item I18n.t("menu.help_sections", scope: "decidim.admin"),
+                    decidim_admin.help_sections_path,
+                    position: 1.6,
+                    if: allowed_to?(:update, :help_sections),
+                    active: is_active_link?(decidim_admin.help_sections_path)
+
+          menu.item I18n.t("menu.external_domain_whitelist", scope: "decidim.admin"),
+                    decidim_admin.edit_organization_external_domain_whitelist_path,
+                    position: 1.7,
+                    if: allowed_to?(:update, :organization, organization: current_organization),
+                    active: is_active_link?(decidim_admin.edit_organization_external_domain_whitelist_path)
+        end
+      end
+
       initializer "decidim_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.dashboard", scope: "decidim.admin"),

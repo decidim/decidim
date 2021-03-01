@@ -15,9 +15,66 @@ describe "Admin manages polling officers", type: :system do
     click_link "Polling Officers"
   end
 
-  it "shows polling officer list" do
-    within "#polling_officers table" do
-      expect(page).to have_content(polling_officer.user.email)
+  context "when linsting the polling officers" do
+    let(:model_name) { polling_officer.class.model_name }
+    let(:resource_controller) { Decidim::Votings::Admin::PollingOfficersController }
+
+    include_context "with filterable context"
+
+    it "shows polling officer list" do
+      within "#polling_officers table" do
+        expect(page).to have_content(polling_officer.user.email)
+      end
+    end
+
+    context "when searching by name" do
+      let(:searched_officer) { create(:polling_officer, voting: voting) }
+
+      it "filters the results as expected" do
+        search_by_text(searched_officer.name)
+        expect(page).to have_content(searched_officer.name)
+        expect(page).not_to have_content(polling_officer.name)
+      end
+    end
+
+    context "when searching by polling station" do
+      let(:polling_station) { create(:polling_station, voting: voting) }
+      let!(:searched_officer) { create(:polling_officer, voting: voting, presided_polling_station: polling_station) }
+
+      it "filters the results as expected" do
+        search_by_text(translated(polling_station.title))
+        expect(page).to have_content(searched_officer.name)
+        expect(page).not_to have_content(translated(polling_officer.name))
+      end
+    end
+
+    context "when filtering by polling officer role" do
+      let!(:president) do
+        create(:polling_officer, voting: voting, presided_polling_station: create(:polling_station, voting: voting))
+      end
+
+      let!(:manager) do
+        create(:polling_officer, voting: voting, managed_polling_station: create(:polling_station, voting: voting))
+      end
+
+      let!(:unassigned) do
+        create(:polling_officer, voting: voting)
+      end
+
+      it_behaves_like "a filtered collection", options: "Role", filter: "President" do
+        let(:in_filter) { president.name }
+        let(:not_in_filter) { manager.name }
+      end
+
+      it_behaves_like "a filtered collection", options: "Role", filter: "Manager" do
+        let(:in_filter) { manager.name }
+        let(:not_in_filter) { president.name }
+      end
+
+      it_behaves_like "a filtered collection", options: "Role", filter: "Unassigned" do
+        let(:in_filter) { unassigned.name }
+        let(:not_in_filter) { president.name }
+      end
     end
   end
 

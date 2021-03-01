@@ -154,10 +154,10 @@ de:
             email_subject: Neuer Meilenstein abgeschlossen!
             notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat %{percentage}% der Unterschriften erreicht.
         support_threshold_reached:
-          email_intro: Die Initiative %{resource_title} hat die Grenze der Anzahl Unterstützer erreicht
+          email_intro: Die Initiative %{resource_title} hat die Mindestanzahl an Unterschriften erreicht
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
-          email_subject: Grenze der Anzahl Unterstützer erreicht
-          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat die Grenze der Anzahl Unterstützer erreicht
+          email_subject: Mindestanzahl an Unterschriften erreicht
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat die Mindestanzahl an Unterschriften erreicht
     gamification:
       badges:
         initiatives:
@@ -393,7 +393,7 @@ de:
           email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} abgelehnt."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}.'
           email_subject: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee abgelehnt"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hat Ihre Anfrage fürs Promoter-Komittee der Initiative <a href="%{resource_url}">%{resource_title}</a> abgelehnt.
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hat Ihre Anfrage für das Promoter-Komittee der Initiative <a href="%{resource_url}">%{resource_title}</a> abgelehnt.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} hat sich fürs Promoter-Komittee Ihrer Initiative %{resource_title} beworben. Um die Anfrage zu akzeptieren oder abzulehnen, besuchen Sie das Bearbeitungsformular Ihrer Initiative."
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
