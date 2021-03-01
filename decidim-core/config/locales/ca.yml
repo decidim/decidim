@@ -606,10 +606,10 @@ ca:
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''adherir-se a una proposta que et pot resultar interessant, revisa-la i contribueix:'
+        email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''adherir-se a "%{resource_title}" que et pot resultar interessant, revisa-la i contribueix:'
         email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
         email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a la proposta <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
       users:
         profile_updated:
           email_intro: La pàgina <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
@@ -1013,7 +1013,7 @@ ca:
           how_to_participate: Com participo en un procés?
           meetings: Trobades
           meetings_explanation: Esbrina on i quan pots participar en trobades públiques.
-          more_info: Més informació
+          more_info: Més informació sobre %{resource_name}
           proposals: Propostes
           proposals_explanation: Realitza propostes, dóna suport a les ja existents i promociona els canvis que vols veure.
         footer_sub_hero:

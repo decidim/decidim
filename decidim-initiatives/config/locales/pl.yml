@@ -30,6 +30,7 @@ pl:
         area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
         banner_image: Baner
+        child_scope_threshold_enabled: Włącz podpisy dla elementów podrzędnych
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
         custom_signature_end_date_enabled: Pozwól autorom na wybór końca okresu zbierania podpisów
         description: Opis
@@ -37,6 +38,7 @@ pl:
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Pozwól na podpisy online
+        only_global_scope_enabled: Pozwól tylko na tworzenie inicjatyw o zasięgu globalnym
         promoting_committee_enabled: Włącz komitet organizacyjny
         title: Tytuł
         undo_online_signatures_enabled: Pozwól użytkownikom na wycofanie ich podpisów online
@@ -272,6 +274,8 @@ pl:
           form:
             authorizations: Ustawienia autoryzacji
             child_scope_threshold_enabled_help: 'Ta konfiguracja nie pozwala na głosowania offline, zezwala na pod-zakresy i działa z procedura autoryzacji, która łączy zakres z użytkownikiem, upewnij się, że wybrałeś taką autoryzację, poniżej w sekcji autoryzacji. Żeby działały zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tym <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">linkiem</a>.'
+            only_global_scope_enabled_help: Zaznacz tę flagę, jeśli włączyłeś opcję "Podpisy zakresu podrzędnego" i skonfigurowałeś globalny zakres jako zakres nadrzędny. Umożliwiając to działanie, wybór typu inicjatywy zostanie pominięty w kreatorze tworzenia inicjatyw. Aby uzyskać więcej informacji na temat funkcjonowania tej konfiguracji, zobacz ten <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
+            options: Ustawienia
             title: Informacje ogólne
           initiative_type_scopes:
             title: Zakresy dla rodzaju inicjatywy
