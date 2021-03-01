@@ -951,13 +951,13 @@ pl:
       admin:
         reportable:
           hide:
-            invalid: Wystąpił problem z ukryciem zasobu.
+            invalid: W trakcie ukrywania zasobu wystąpił błąd.
             success: Zasób został ukryty.
           unhide:
-            invalid: Podczas pokazywania zasobu wystąpił problem.
+            invalid: W trakcie publikowania zasobu wystąpił błąd.
             success: Zasoby zostały pomyślnie pokazane.
           unreport:
-            invalid: Wystąpił problem z niewykorzystaniem zasobów.
+            invalid: W trakcie usuwania zgłoszenia zasobu wystąpił błąd.
             success: Zasób został pomyślnie nieudokumentowany.
       models:
         moderation:
