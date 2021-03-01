@@ -44,8 +44,8 @@ pl:
         from: Z adresu e-mail
         github_handler: Handler GitHuba
         header_snippets: Fragmenty nagłówków
-        highlight_alternative_color: Zaznacz, alternatywa
-        highlight_color: Podświetl
+        highlight_alternative_color: Wyróżnij (alternatywny kolor)
+        highlight_color: Wyróżniony kolor
         highlighted_content_banner_action_subtitle: Podtytuł przycisku akcji
         highlighted_content_banner_action_title: Tytuł przycisku akcji
         highlighted_content_banner_action_url: URL przycisku akcji
@@ -485,7 +485,7 @@ pl:
           title: Szablony newslettera
           use_template: Użyj tego szablonu
         show:
-          preview: 'Podgląd szablonu:%{template_name}'
+          preview: 'Podgląd szablonu: %{template_name}'
           use_template: Użyj tego szablonu
       newsletters:
         create:
@@ -741,7 +741,7 @@ pl:
         dashboard: Panel
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
-        metrics: Wskaźniki
+        metrics: Partycypacja w liczbach
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
