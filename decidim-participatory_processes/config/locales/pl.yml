@@ -38,6 +38,7 @@ pl:
       participatory_process_group:
         description: Opis
         developer_group: Grupa inicjatorów
+        group_url: Strona internetowa
         hashtag: Hashtag
         hero_image: Obraz
         participatory_process_ids: Powiązane procesy
