@@ -312,7 +312,7 @@ pl:
           one: 1 proces dla %{group}
           few: "%{count} procesy dla %{group}"
           many: "%{count} procesów dla %{group}"
-          other: "%{count} procesów dla %{group}"
+          other: "%{count} procesy dla %{group}"
         title: Uczestniczące grupy procesów
     participatory_process_steps:
       index:
