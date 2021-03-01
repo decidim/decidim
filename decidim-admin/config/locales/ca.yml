@@ -26,11 +26,14 @@ ca:
         published_at: Publicat el
         weight: Pes
       id: ID
+      import:
+        user_group_id: Importar com
       newsletter:
         body: Cos
         subject: Assumpte
       organization:
         alert_color: Alerta
+        available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
         comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
         cta_button_path: URL del botó d'acció
@@ -41,6 +44,7 @@ ca:
         enable_omnipresent_banner: Mostrar el banner omnipresent
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
+        force_authentication: Forçar autenticació
         from: Adreça des d'on s'enviaran els correus electrònics
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
