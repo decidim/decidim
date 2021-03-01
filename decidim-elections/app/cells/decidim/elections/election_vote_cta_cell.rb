@@ -17,8 +17,8 @@ module Decidim
       end
 
       def new_election_vote_path
-        decidim_elections.new_election_vote_path(
-          voting_slug: current_participatory_space.slug,
+        engine_router.new_election_vote_path(
+          "#{key_participatory_space_slug}": current_participatory_space.slug,
           component_id: current_component.id,
           election_id: model.id
         )
@@ -26,17 +26,17 @@ module Decidim
 
       def vote_action_button_text
         if !already_voted?
-          t("action_button.vote", scope: i18n_scope)
+          t("action_button.vote", scope: "decidim.elections.elections.show")
         elsif last_vote_accepted?
-          t("action_button.change_vote", scope: i18n_scope)
+          t("action_button.change_vote", scope: "decidim.elections.elections.show")
         else
-          t("action_button.vote_again", scope: i18n_scope)
+          t("action_button.vote_again", scope: "decidim.elections.elections.show")
         end
       end
 
       def verify_election_vote_path
-        decidim_elections.verify_election_vote_path(
-          voting_slug: current_participatory_space.slug,
+        engine_router.verify_election_vote_path(
+          "#{key_participatory_space_slug}": current_participatory_space.slug,
           component_id: current_component.id,
           election_id: model.id
         )
@@ -44,9 +44,9 @@ module Decidim
 
       def callout_text
         if last_vote_accepted?
-          t("callout.already-voted", scope: i18n_scope)
+          t("callout.already_voted", scope: "decidim.elections.elections.show")
         else
-          t("callout.vote-rejected", scope: i18n_scope)
+          t("callout.vote_rejected", scope: "decidim.elections.elections.show")
         end
       end
 
@@ -58,16 +58,16 @@ module Decidim
         !!last_vote&.accepted?
       end
 
-      def i18n_scope
-        "decidim.elections.elections.show"
-      end
-
       def current_component
         model.component
       end
 
-      def decidim_elections
-        Decidim::Elections::Engine.routes.url_helpers
+      def key_participatory_space_slug
+        "#{current_participatory_space.underscored_name}_slug".to_sym
+      end
+
+      def engine_router
+        @engine_router ||= EngineRouter.main_proxy(current_component || model)
       end
     end
   end

@@ -4,26 +4,26 @@
 
 <div>
   <% if model.ongoing? %>
-    <%= action_authorized_link_to :vote, new_election_vote_path, resource: model, class: "button" do %>
+    <%= action_authorized_link_to :vote, new_election_vote_path, resource: model, class: "button button--sc" do %>
       <%= vote_action_button_text %>
     <% end %>
   <% elsif !model.finished? %>
-    <span class="button disabled"><%= t("action_button.vote", scope: i18n_scope) %></span>
+    <span class="button button--sc disabled"><%= t("action_button.vote", scope: "decidim.elections.elections.show") %></span>
   <% end %>
 
   <% if allowed_to? :preview, :election, election: model %>
     <%= link_to new_election_vote_path, class: "button" do %>
-      <%= t("preview", scope: i18n_scope) %>
+      <%= t("preview", scope: "decidim.elections.elections.show") %>
     <% end %>
   <% end %>
 </div>
 
 <div class="text-sm">
 <% if model.started? %>
-  <%= t("verify.already_voted", scope: i18n_scope) %>
+  <%= t("verify.already_voted", scope: "decidim.elections.elections.show") %>
 
-  <%= link_to t("verify.verify_here", scope: i18n_scope), verify_election_vote_path %>
+  <%= link_to t("verify.verify_here", scope: "decidim.elections.elections.show"), verify_election_vote_path %>
 <% else %>
-  <span class="disabled"><%= t("verify.will_verify", scope: i18n_scope) %></span>
+  <span class="disabled"><%= t("verify.will_verify", scope: "decidim.elections.elections.show") %></span>
 <% end %>
 </div>
