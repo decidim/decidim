@@ -176,7 +176,7 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Zgadzam się z następującymi warunkami
+          accept: Zgadzam się z warunkami użytkowania
           are_you_sure: Czy na pewno chcesz odrzucić warunki dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
@@ -565,7 +565,7 @@ pl:
         report:
           reasons:
             does_not_belong: Nie należy
-            offensive: Ofensywny
+            offensive: Obraźliwy
             spam: Spam
         tabs:
           blocked: Zablokowany
