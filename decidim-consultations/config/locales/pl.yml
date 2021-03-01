@@ -248,7 +248,7 @@ pl:
         view_results: Zobacz wyniki
       consultations:
         orders:
-          label: 'Porządkuj konsultacje według:'
+          label: 'Sortuj konsultacje według:'
           random: Losowo
           recent: Najnowsze
         show:
