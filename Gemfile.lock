@@ -761,6 +761,8 @@ GEM
       ffi (~> 1.9)
     ruby2_keywords (0.0.4)
     rubyXL (3.4.17)
+      nokogiri (>= 1.10.8)
+      rubyzip (>= 1.3.0)
     rubyzip (2.3.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
