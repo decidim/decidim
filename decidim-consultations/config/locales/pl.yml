@@ -200,7 +200,7 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowej grupy odpowiedzi.
           success: Grupa odpowiedzi została pomyślnie utworzona.
         destroy:
-          error: Wystąpił problem podczas usuwania grupy odpowiedzi. Sprawdź, czy żadne odpowiedzi nie są od niej zależne.
+          error: Wystąpił błąd podczas usuwania grupy odpowiedzi. Sprawdź, czy żadne odpowiedzi nie są od niej zależne.
           success: Grupa odpowiedzi została pomyślnie usunięta.
         edit:
           update: Aktualizuj
