@@ -162,22 +162,22 @@ pl:
             description: Już głosowałeś na budżet. Jeśli zmieniłeś zdanie, możesz %{cancel_link}.
             title: Ukończono głosowanie dot. budżetu
           minimum_projects_rule:
-            description: Na jakie projekty Państwa zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} projektów i głosuj zgodnie ze swoimi preferencjami aby zdefiniować budżet.
+            description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} projektów i głosuj zgodnie ze swoimi preferencjami aby zdefiniować budżet.
             instruction: "<li>Wybierz co najmniej %{minimum_number} projektów i zagłosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
           projects_rule:
-            description: Na jakie projekty Państwa zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} i do %{maximum_number} projektów, które chcesz i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
-            instruction: "<li>Wybierz co najmniej %{minimum_number} i maksymalnie %{maximum_number} projektów, które chcesz i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
+            description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} i maksymalnie %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
+            instruction: "<li>Wybierz co najmniej %{minimum_number} i maksymalnie %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
           projects_rule_maximum_only:
-            description: Na jakie projekty Państwa zdaniem powinniśmy przeznaczyć budżet? Wybierz do %{maximum_number} projektów, które chcesz i głosuj zgodnie ze swoimi preferencjami aby zdefiniować budżet.
-            instruction: "<li>Wybierz do %{maximum_number} projektów, które chcesz i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
+            description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz do %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami aby zdefiniować budżet.
+            instruction: "<li>Wybierz do %{maximum_number} projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
           rules:
-            title: Przepisy budżetowe
+            title: Zasady budżetu
           title: Ty decydujesz o budżecie
-          total_budget: Cały budżet
-          total_projects: Suma głosów
+          total_budget: Całkowity budżet
+          total_projects: Liczba głosów
           vote_threshold_percent_rule:
             description: Na jakie projekty Państwa zdaniem powinniśmy przeznaczyć budżet? Przypisz co najmniej %{minimum_budget} do projektów, które chcesz i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.
-            instruction: "<li>Przypisz co najmniej %{minimum_budget} do projektów, które chcesz i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
+            instruction: "<li>Przypisz co najmniej %{minimum_budget} do projektów i głosuj zgodnie ze swoimi preferencjami w celu zdefiniowania budżetu.</li>"
         count:
           projects_count:
             one: 1 projekt
@@ -225,7 +225,7 @@ pl:
             few: głosów
             many: głosów
             other: głosów
-          you_voted: Zagłosowałeś na to
+          you_voted: Zagłosowałeś na
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu
@@ -259,7 +259,7 @@ pl:
             total_budget: Cały budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
             vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'
-            vote_rule_selected_projects_enabled: 'Włącz regułę: Wybrane projekty z minimalną i maksymalną liczbą projektów do głosowania'
+            vote_rule_selected_projects_enabled: 'Włącz regułę: Minimalna i maksymalna liczba projektów do głosowania'
             vote_rule_threshold_percent_enabled: 'Włącz regułę: minimalny procent budżetu'
             vote_selected_projects_maximum: Maksymalna kwota wybranych projektów
             vote_selected_projects_minimum: Minimalna liczba wybranych projektów
