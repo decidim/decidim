@@ -212,7 +212,7 @@ pl:
             create: Utwórz
             title: Nowy program
           update:
-            invalid: Wystąpił problem podczas aktualizowania tego programu
+            invalid: Wystąpił błąd podczas aktualizowania tego programu
             success: Program został zaktualizowany
         exports:
           meeting_comments: Komentarze
@@ -225,7 +225,7 @@ pl:
             join: Dołącz do spotkania "%{meeting_title}"
         invites:
           create:
-            error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
+            error: Wystąpił błąd przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
             success: Zaproszono użytkownika do udziału w spotkaniu.
           form:
             attendee_type: Typ uczestnika
@@ -522,7 +522,7 @@ pl:
           invalid: Wystąpił błąd podczas próby odrzucenia zaproszenia.
           success: Zaproszenie zostało odrzucone.
         destroy:
-          invalid: Wystąpił problem podczas próby opuszczenia tego spotkania.
+          invalid: Wystąpił błąd podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
       type_of_meeting:
         hybrid: Oba
