@@ -32,8 +32,11 @@ pl:
         start_time: Czas rozpoczęcia
         title: Tytuł
         transparent: Transparentny
+        type_of_meeting: Typ
       minutes:
+        audio_url: Adres URL audio
         description: Opis
+        video_url: Adres URL wideo
         visible: Jest widoczne
     errors:
       models:
@@ -212,6 +215,7 @@ pl:
             invalid: Wystąpił problem podczas aktualizowania tego programu
             success: Program został zaktualizowany
         exports:
+          meeting_comments: Komentarze
           meetings: Spotkania
           registrations: Rejestracje
         invite_join_meeting_mailer:
@@ -271,6 +275,7 @@ pl:
             location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostępem.'
             online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
             registration_url_help: 'Link: zezwól uczestnikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
+            select_a_meeting_type: Wybierz typ spotkania
             select_a_registration_type: Wybierz typ rejestracji
           index:
             title: Spotkania
@@ -428,11 +433,16 @@ pl:
           unfold: Rozwiń
         form:
           address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
+          available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych miejsc
           create_as: Utwórz spotkanie jako
+          disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
           location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostępem.'
           online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
+          registration_url_help: 'Link: zezwól uczestnikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
           select_a_category: Wybierz kategorię
+          select_a_meeting_type: Wybierz typ spotkania
+          select_a_registration_type: Wybierz typ rejestracji
         index:
           new_meeting: Nowe spotkanie
         meeting_minutes:
@@ -516,6 +526,7 @@ pl:
           success: Opuściłeś spotkanie.
       type_of_meeting:
         hybrid: Oba
+        in_person: Osobiście
         online: Online
       types:
         private_meeting: Prywatne spotkanie
