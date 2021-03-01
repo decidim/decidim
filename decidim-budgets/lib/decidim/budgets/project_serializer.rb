@@ -14,8 +14,6 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this project.
       def serialize
-        # muokattu_serializble = Jokuluokka.new(serializeable)
-        # Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\n\n\n\nEventname: #{event_name}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
         finalize(
           project,
           id: project.id,
