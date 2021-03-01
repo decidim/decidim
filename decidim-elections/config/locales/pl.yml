@@ -560,6 +560,9 @@ pl:
         polling_officers:
           polling_station_assigned:
             email_intro: Zostałeś wyznaczony na %{role} w lokalu wyborczym %{polling_station_name} w <a href="%{resource_url}">%{resource_title}</a>. Możesz zarządzać lokalami wyborczymi z dedykowanej <a href="%{polling_officer_zone_url}">Strefy Wyborczej</a>.
+            email_outro: Otrzymałeś to powiadomienie ponieważ zostałeś wyznaczony na %{role} w %{polling_station_name}.
+            email_subject: Posiadasz rolę %{role} w lokalu wyborczym %{polling_station_name}.
+            notification_title: Posiadasz rolę %{role} stacji ankietowej %{polling_station_name} w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
@@ -769,20 +772,33 @@ pl:
             see_all_votings: Zobacz wszystkie głosowania
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosy
       polling_officer_zone:
+        menu:
+          polling_officer_zone: Strefa oficera wyborczego
         polling_officers:
           show:
+            actions:
+              count_votes: Policz głosy w urnie wyborczej
+              identify_person: Identyfikacja i weryfikacja osoby
+            polling_officer_role_description: Zostałeś powołany do pełnienia funkcji oficera lokalu wyborczego (przewodniczącego lub kierownika) w niektórych wyborach prowadzonych na tej platformie.
             polling_stations:
               list:
                 actions: Działania
                 address: Adres
                 name: Nazwa
                 role: Twoja rola
+                voting: Głosowanie
+              no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
+              title: Lokale wyborcze
       polling_officers:
         actions:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
           new: Nowy
           title: Działania
+        roles:
+          manager: Kierownik
+          president: Przewodniczący
+          unassigned: Nie przypisano
       polling_stations:
         actions:
           confirm_destroy: Jesteś pewny?
