@@ -252,7 +252,7 @@ pl:
             landing_page_content: Strona główna budżetów
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie
-            resources_permissions_enabled: Zezwolenia na działania można ustawić dla każdego projektu
+            resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego projektu
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
             title: Tytuł
