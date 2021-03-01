@@ -370,7 +370,9 @@ pl:
             slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
+            metadata: Metadane
             title: Informacje ogólne
+            visibility: Widoczność
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
@@ -450,6 +452,7 @@ pl:
           loading: Ładowanie wyników...
       show:
         area: Obszar
+        belongs_to_group: Ten proces należy do
         dates: Daty
         developer_group: Grupa inicjatorów
         end_date: Data zakończenia
