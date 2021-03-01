@@ -343,9 +343,11 @@ pl:
         close_modal: Zamknij okno
     block_user_mailer:
       notify:
+        body_1: Twoje konto zostało zablokowane.
         body_2: 'Powód: %{justification}'
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Witaj,
+        subject: Twoje konto zostało zablokowane przez %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: i %{count} więcej
@@ -396,8 +398,12 @@ pl:
             dummy_step_translatable_text: Przykładowy tekst etapu do tłumaczenia
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Obraz, tekst i przycisk CTA
       cta_settings_form:
         background_image: Obraz tła
+        button_text: Tekst przycisku CTA
+        button_url: Adres url przycisku CTA
         description: Opis
       footer_sub_hero:
         name: Banner podrzędny stopki
@@ -410,6 +416,7 @@ pl:
         name: Wyróżniony baner tekstowy
       highlighted_elements_settings_form:
         orders:
+          label: 'Sortuj elementy według:'
           random: Losowo
           recent: Najnowsze
       how_to_participate:
@@ -436,6 +443,7 @@ pl:
         ready: Gotowy
       show:
         download_data: Pobierz dane
+        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Poproś o dane
     datepicker:
       help_text: 'Oczekiwany format: %{datepicker_format}'
@@ -471,6 +479,8 @@ pl:
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego
           sign_up_disabled: Rejestracja jest wyłączona, możesz użyć istniejącego konta, aby uzyskać dostęp
+        user:
+          timed_out: Byłeś długo nieaktywny i zostałeś automatycznie wylogowany z serwisu. Jeśli chcesz kontynuować korzystanie z serwisu zaloguj się ponownie.
       shared:
         newsletter_modal:
           buttons:
@@ -644,6 +654,8 @@ pl:
         notification_title: Zdarzenie miało miejsce w <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
+          email_intro: Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem usuniętego zasobu.
           email_subject: '%{resource_type} został usunięty'
           notification_title: |-
             Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.</br>
