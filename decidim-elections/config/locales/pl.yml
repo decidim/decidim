@@ -141,12 +141,12 @@ pl:
             title: Nowa odpowiedź
           select:
             disable: Odznacz odpowiedź
-            enable: Oznacz odpowiedź jako zaznaczoną
-            invalid: Wystąpił problem z wybraniem tej odpowiedzi
-            success: Odpowiedź wybrana pomyślnie
+            enable: Zaznacz odpowiedź
+            invalid: Wystąpił błąd z przy wybieraniu tej odpowiedzi
+            success: Zaznaczono odpowiedź
           unselect:
             invalid: Wystąpił problem z odznaczaniem tej odpowiedzi
-            success: Odpowiedź odznaczona pomyślnie
+            success: Odznaczono odpowiedź
           update:
             invalid: Wystąpił błąd podczas aktualizowania odpowiedzi
             success: Odpowiedź została zaktualizowana
