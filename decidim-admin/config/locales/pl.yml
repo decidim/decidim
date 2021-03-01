@@ -581,7 +581,7 @@ pl:
         reports:
           index:
             author: Autorzy
-            callout_html: Zawartość pojawia się w panelu moderacji, gdy została zasygnalizowana przez użytkownika (może to być każdy, kto ma zarejestrowane konto) poprzez kliknięcie na flagę %{icon} obok elementu.
+            callout_html: Zawartość pojawia się w panelu moderacji, gdy została zasygnalizowana przez użytkownika (może to być każdy, kto zarejestrował konto) poprzez kliknięcie na flagę %{icon} obok elementu.
             content_original_language: Oryginalny język treści
             participatory_space: Przestrzeń partycypacyjna
             reported_content: Zgłoszona zawartość
