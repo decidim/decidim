@@ -19,7 +19,7 @@ pl:
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
         participatory_scope: Zaproponowano
-        participatory_structure: Jak się decyduje
+        participatory_structure: Jak decydowano
         promoted: Promowany
         published_at: Opublikowano
         related_process_ids: Powiązane procesy
@@ -38,9 +38,15 @@ pl:
       participatory_process_group:
         description: Opis
         developer_group: Grupa inicjatorów
+        group_url: Strona internetowa
         hashtag: Hashtag
         hero_image: Obraz
+        local_area: Obszar organizacji
+        meta_scope: Zakres metadanych
         participatory_process_ids: Powiązane procesy
+        participatory_scope: Zaproponowano
+        participatory_structure: Jak decydowano
+        target: Kto uczestniczy
         title: Tytuł
       participatory_process_step:
         cta_path: Ścieżka przycisku CTA
@@ -103,6 +109,9 @@ pl:
         unpublish: Cofnij publikowanie
       menu:
         participatory_process_groups: Grupy procesu
+        participatory_process_groups_submenu:
+          info: Informacje
+          landing_page: Strona startowa
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Foldery
@@ -154,6 +163,10 @@ pl:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikuj proces partycypacyjny
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Aktywne bloki treści
+          inactive_content_blocks: Nieaktywne bloki treści
       participatory_process_group_landing_page_content_blocks:
         edit:
           update: Aktualizuj
@@ -314,8 +327,22 @@ pl:
         related_assemblies: Powiązane zespoły
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Pierwszy blok HTML
+        html_2:
+          name: Drugi blok HTML
+        html_3:
+          name: Trzeci blok HTML
         metadata:
           developer_group: Promowany przez
+          name: Metadane
+          participatory_scope: Zaproponowano
+          participatory_structure: Jak decydowano
+          target: Kto uczestniczy
+        participatory_processes:
+          name: Procesy partycypacyjne
+        stats:
+          name: Statystyki
         title:
           meta_scope: Zakres
           name: Tytuł, opis i hashtag
@@ -343,7 +370,9 @@ pl:
             slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
+            metadata: Metadane
             title: Informacje ogólne
+            visibility: Widoczność
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
@@ -423,12 +452,13 @@ pl:
           loading: Ładowanie wyników...
       show:
         area: Obszar
+        belongs_to_group: Ten proces należy do
         dates: Daty
         developer_group: Grupa inicjatorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
         participatory_scope: Co zostało postanowione
-        participatory_structure: Jak się decyduje
+        participatory_structure: Jak decydowano
         private_space: To jest prywatny proces
         related_processes: Powiązane procesy
         scope: Zakres

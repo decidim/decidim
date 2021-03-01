@@ -315,9 +315,13 @@ pl:
         filter_type_values:
           all: Wszystkie
       committee_requests:
+        approve:
+          success: Żądanie zostało zaakceptowane.
         new:
           continue: Dalej
           help_text: Zamierzasz poprosić o członkostwo w komitecie organizacyjnym tej inicjatywy
+        revoke:
+          success: Żądanie zostało cofniete.
         spawn:
           success: Twoja prośba została wysłana do autora inicjatywy.
       content_blocks:
@@ -340,6 +344,7 @@ pl:
           edit_my_initiative: Edytuj moją inicjatywę
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
+          send_my_initiative: Wyślij moją inicjatywę do weryfikacji technicznej
         finish_help:
           access_reminder: Możesz uzyskać dostęp do swoich inicjatyw poprzez filtr %{link} na stronie inicjatyw.
           publish_helper_text: Pamiętaj, że aby Twoja inicjatywa została opublikowana, musisz uzupełnić wymagane informacje i <strong>przesłać ją do weryfikacji technicznej</strong>, aby administrator mógł ją przejrzeć.
@@ -350,12 +355,14 @@ pl:
           more_information: "(Więcej informacji)"
         promotal_committee:
           back: Wróć
+          individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Organizacyjnej, która składa się z co najmniej %{committee_size} osób. Udostępnij poniższy link innym osobom, które są częścią tej inicjatywy. Gdy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
           more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: "(Więcej informacji)"
           select: Chcę utworzyć inicjatywę tego typu
+          select_initiative_type_help: Inicjatywy są środkiem, za pomocą którego uczestnicy mogą interweniować tak, aby organizacja mogła podejmować działania w obronie interesu ogólnego. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: Dalej
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
@@ -365,8 +372,13 @@ pl:
           continue: Moja inicjatywa jest inna
           more_information: "(Więcej informacji)"
       edit:
+        accept: Akceptuj inicjatywę
         back: Wróć
+        confirm: Jesteś pewny?
+        discard: Porzuć inicjatywę
+        export_pdf_signatures: Eksportuj PDF z podpisami
         export_votes: Eksportuj podpisy
+        reject: Odrzuć inicjatywę
         title: Edytuj inicjatywę
         update: Aktualizuj
       events:
@@ -393,6 +405,7 @@ pl:
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy %{resource_title}. Aby zaakceptować lub odrzucić zgłoszenie przejdź do formularza edycji swojej inicjatywy."
           email_outro: 'Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}'
+          email_subject: "%{applicant_nickname} chce dołączyć do Twojej inicjatywy"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
       form:
         add_attachments: Dokumenty
@@ -516,7 +529,9 @@ pl:
           confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit: Edytuj
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
+          offline_method: Ta inicjatywa zbiera jedynie podpisy na piśmie.
           print: Drukuj inicjatywę
+          send_to_technical_validation: Wyślij do weryfikacji technicznej
         signatures_count:
           one: " podpis"
           few: " podpisy"

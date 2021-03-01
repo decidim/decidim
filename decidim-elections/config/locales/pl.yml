@@ -16,6 +16,9 @@ pl:
         max_selections: Maksymalna liczba wyborów
         min_selections: Żaden z powyższych wariantów
         title: Tytuł
+      voting:
+        end_time: Głosowanie kończy się
+        start_time: Głosowanie rozpoczyna się
     errors:
       models:
         answer:
@@ -71,6 +74,11 @@ pl:
         few: Lokale wyborcze
         many: Lokali wyborczych
         other: Lokale wyborcze
+      decidim/votings/voting:
+        one: Głosowanie
+        few: Głosowania
+        many: Głosowań
+        other: Głosowania
   decidim:
     admin:
       filters:
@@ -106,6 +114,9 @@ pl:
         edit: Edytuj
         feedback: Informacja zwrotna o głosowaniu
         import: Importuj propozycje do odpowiedzi
+        manage_answers: Zarządzaj odpowiedziami
+        manage_questions: Zarządzaj pytaniami
+        manage_steps: Zarządzaj krokami
         new: Nowy %{name}
         preview: Podgląd
         publish: Opublikuj
@@ -204,13 +215,27 @@ pl:
         steps:
           create_election:
             errors:
+              max_selections: Pytania nie mają <strong>poprawnej wartości dla ilości odpowiedzi</strong>
+              minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
+              minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>nie zostały opublikowane</strong>.
+              time_before: Godzina rozpoczęcia jest <strong>mniej niż 3 godziny</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} powierników z kluczem publicznym</strong>.
+            invalid: Wystąpił problem z konfiguracją tych wyborów
             no_trustees: Nie ma powierników dla tej przestrzeni partycypacyjnej
             not_used_trustee: "(nieużywane)"
+            public_key:
+              'false': nie posiada <strong>klucza publicznego</strong>
+              'true': posiada <strong>klucz publiczny</strong>
             requirements:
+              max_selections: Wszystkie pytania mają poprawną wartość dla <strong>maksymalnej liczby odpowiedzi</strong>.
+              minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
+              minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>zostały opublikowane</strong>.
+              time_before: Konfiguracja odbywa się <strong>co najmniej %{hours} godzin(y)</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna musi mieć <strong>co najmniej %{number} powierników z kluczem publicznym</strong>.
+            submit: Ustawienia wyborów
+            success: Wybory wysłano do tablicy ogłoszeń
             title: Ustawienia wyborów
             trustees: Powiernicy wyborczy
           created:
@@ -223,6 +248,11 @@ pl:
             title: Główne wydarzenie
             trustees: Powiernicy
           key_ceremony_ended:
+            errors:
+              time_before: Wybory są przygotowane. Musisz poczekać do %{hours} godzin(y) przed czasem rozpoczęcia (%{start_time}), aby rozpocząć głosowanie.
+            invalid: Wystąpił błąd podczas otwierania głosowania
+            requirements:
+              time_before: Wybory rozpoczną się wkrótce. Możesz otworzyć głosowanie ręcznie lub rozpocznie się ono automatycznie przed godziną rozpoczęcia o %{start_time}.
             submit: Rozpocznij głosowanie
             success: Prośba o rozpoczęcie głosowania została pomyślnie umieszczona na tablicy ogłoszeń
             title: Gotowy do startu
@@ -322,6 +352,7 @@ pl:
           description: To są pytania, które znajdziesz w procesie głosowania
           title: Pytania wyborcze
         results:
+          description: Wyniki głosowania w odniesieniu do każdego pytania
           selected: Wybrane
           title: Wyniki wyborów
           votes:
@@ -350,6 +381,7 @@ pl:
       feedback:
         answer:
           invalid: Wystąpił błąd podczas wysyłania Twojej informacji zwrotnej.
+          spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Wiadomość zwrotna została wysłana.
       models:
         answer:
@@ -358,6 +390,7 @@ pl:
             title: Tytuł
         election:
           fields:
+            bb_status: Status tablicy ogłoszeń
             end_time: Kończy się
             start_time: Zaczyna się
             title: Tytuł
@@ -409,6 +442,7 @@ pl:
             description: Tablica ogłoszeń posiada informacje od Ciebie jako powiernika w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
             title: Odzyskaj klucze dla wyborów %{election}
             upload_election_keys: Prześlij klucze wyborcze
+            upload_icon: Ikona wskazująca akcję pobierania
           tally_steps:
             back: Wróć
             description: Wyniki tego głosowania są generowane na tablicy ogłoszeń. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako powiernika.
@@ -556,6 +590,13 @@ pl:
             email_outro: Otrzymujesz to powiadomienie ponieważ głosowałeś w wyborach %{resource_name}”.
             email_subject: Twój głos na %{resource_name} został zaakceptowany.
             notification_title: 'Twój głos został zaakceptowany. Zweryfikuj swój głos <a href="%{verify_url}">tutaj</a> używając swojego tokenu głosu: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Zostałeś wyznaczony na %{role} w lokalu wyborczym %{polling_station_name} w <a href="%{resource_url}">%{resource_title}</a>. Możesz zarządzać lokalami wyborczymi z dedykowanej <a href="%{polling_officer_zone_url}">Strefy Wyborczej</a>.
+            email_outro: Otrzymałeś to powiadomienie ponieważ zostałeś wyznaczony na %{role} w %{polling_station_name}.
+            email_subject: Posiadasz rolę %{role} w lokalu wyborczym %{polling_station_name}.
+            notification_title: Posiadasz rolę %{role} stacji ankietowej %{polling_station_name} w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
@@ -764,12 +805,34 @@ pl:
             active_votings: Aktywne głosowania
             see_all_votings: Zobacz wszystkie głosowania
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosy
+      polling_officer_zone:
+        menu:
+          polling_officer_zone: Strefa oficera wyborczego
+        polling_officers:
+          show:
+            actions:
+              count_votes: Policz głosy w urnie wyborczej
+              identify_person: Identyfikacja i weryfikacja osoby
+            polling_officer_role_description: Zostałeś powołany do pełnienia funkcji oficera lokalu wyborczego (przewodniczącego lub kierownika) w niektórych wyborach prowadzonych na tej platformie.
+            polling_stations:
+              list:
+                actions: Działania
+                address: Adres
+                name: Nazwa
+                role: Twoja rola
+                voting: Głosowanie
+              no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
+              title: Lokale wyborcze
       polling_officers:
         actions:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
           new: Nowy
           title: Działania
+        roles:
+          manager: Kierownik
+          president: Przewodniczący
+          unassigned: Nie przypisano
       polling_stations:
         actions:
           confirm_destroy: Jesteś pewny?
