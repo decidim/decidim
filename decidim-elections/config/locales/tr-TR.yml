@@ -220,9 +220,6 @@ tr:
           description: Bunlar, her soru için oylamanın sonuçlarıdır
           selected: Seçili
           title: Seçim sonuçları
-          votes:
-            one: "%{count} oy"
-            other: "%{count} oy"
         show:
           back: Mevcut seçimler
           preview: Önizleme

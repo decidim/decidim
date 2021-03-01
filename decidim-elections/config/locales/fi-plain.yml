@@ -342,8 +342,8 @@ fi-pl:
           selected: Valittu
           title: Vaalin tulokset
           votes:
-            one: "%{count} ääni"
-            other: "%{count} ääntä"
+            one: ""
+            other: ""
         show:
           action-button:
             change-vote: Muuta ääntäsi

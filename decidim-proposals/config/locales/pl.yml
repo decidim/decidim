@@ -148,6 +148,10 @@ pl:
             participatory_texts_enabled_readonly: Nie można korzystać z tego ustawienia, jeśli są już propozycje. Utwórz nowy komponent propozycji, jeśli chcesz włączyć tę funkcję, lub odrzuć wszystkie zaimportowane propozycje w menu „Kolektywna Legislacja”, jeśli chcesz ją wyłączyć.
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tylu minut
+            proposal_edit_time: Edycja propozycji
+            proposal_edit_time_choices:
+              infinite: Zezwalaj na edycję propozycji przez nieograniczony czas
+              limited: Zezwalaj na edycję propozycji przez określony czas
             proposal_length: Maksymalna długość treści propozycji
             proposal_limit: Limit propozycji na użytkownika
             proposal_wizard_step_1_help_text: 'Tekst pomocy Kreatora - krok: "Utwórz"'
@@ -363,6 +367,7 @@ pl:
         actions:
           preview: Podgląd
         exports:
+          proposal_comments: Komentarze
           proposals: Propozycje
         models:
           proposal:
@@ -663,6 +668,9 @@ pl:
           info: Tworzysz <strong>wspólny szkic</strong>.
         wizard_header:
           title: Utwórz swój wspólny szkic
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propozycje
       create:
         error: Podczas zapisywania propozycji wystąpił błąd.
         success: Propozycja została utworzona. Zapisano jako szkic.
@@ -720,10 +728,13 @@ pl:
         dynamic_map_instructions:
           instructions: <h3>Możesz przesunąć punkt na mapie. </h3><p>Nie zapomnij kliknąć na przycisk "Aktualizuj pozycję" przed opublikowaniem propozycji.</p>
         edit:
+          add_documents: Dokumenty
+          add_images: Plik
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
           delete_document: Usuń dokument
           delete_image: Usuń obraz
+          gallery_legend: "(Opcjonalnie) Dodaj obraz do karty propozycji"
           select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
@@ -778,6 +789,8 @@ pl:
             document_index: Indeks dokumentu
           view_index:
             see_index: Zobacz indeks
+        placeholder:
+          address: ul. Żeromskiego 31, 81-346 Gdynia
         preview:
           announcement_body: Twoja propozycja została zapisana jako wersja robocza. Musi zostać opublikowana, aby pojawiła się na stronie.
           announcement_title: Twoja propozycja nie została jeszcze opublikowana
