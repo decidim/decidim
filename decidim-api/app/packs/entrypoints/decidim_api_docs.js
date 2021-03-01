@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-no-undef */
 
-// = require jquery3
-// = require decidim/api/react
-// = require decidim/api/react-dom
-// = require decidim/api/graphql-docs
+import jQuery from 'jquery'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import GraphQLDocs from 'graphql-docs'
 
 const fetcherFactory = (path) => {
   return (query) => {
