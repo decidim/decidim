@@ -71,16 +71,21 @@ ca:
         omnipresent_banner_short_description: Breu descripció
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
+        organization_admin_email: Correu electrònic de l'administradora de l'organització
+        organization_admin_name: Nom de l'administradora de l'organització
+        organization_locales: Idiomes de l'organització
         primary_color: Primària
         reference_prefix: prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
+        secondary_hosts: Hosts secundaris
         send_welcome_notification: Envia la notificació de benvinguda
         success_color: Èxit
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
         twitter_handler: Nom d'usuària de Twitter
         user_groups_enabled: Habilitar grups
+        users_registration_mode: Mode registre d'usuàries
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
@@ -96,6 +101,8 @@ ca:
         name: Nom
         organization: Organització
         plural: Plural
+      settings:
+        scope_id: Àmbit
       static_page:
         allow_public_access: Permet l'accés sense autenticació
         changed_notably: S'han produït canvis notables.
@@ -120,6 +127,10 @@ ca:
               allowed_file_content_types: Fitxer d'imatge no vàlid
             official_img_header:
               allowed_file_content_types: Fitxer d'imatge no vàlid
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tipus Mime invàlid
   activerecord:
     attributes:
       decidim/static_page:
@@ -146,6 +157,7 @@ ca:
         category:
           new: Nova categoria
         export: Exporta
+        import: Importar
         manage: Gestionar
         new: Nou %{name}
         newsletter:
@@ -164,6 +176,7 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
+          accept: Estic d'acord amb els termes següents
           are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
@@ -303,6 +316,21 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
+      conflicts:
+        attempts: Intents
+        'false': 'No'
+        managed_user_name: Usuari gestionat
+        solved: Resolt
+        title: Conflictes de verificacions
+        transfer:
+          email: Correu electrònic
+          error: S¡ha produït un error en transferir la participant actual a la participant gestionada.
+          name: Nom
+          reason: Raó
+          success: La transferència s'ha completat correctament.
+          title: Transferir
+        'true': 'Sí'
+        user_name: Usuària
       dashboard:
         show:
           view_more_logs: Veure més registres
