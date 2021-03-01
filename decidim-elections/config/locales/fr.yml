@@ -295,9 +295,6 @@ fr:
           description: Ce sont les résultats du vote, pour chaque question
           selected: Sélectionné
           title: Résultats de l'élection
-          votes:
-            one: "%{count} vote"
-            other: "%{count} votes"
         show:
           action-button:
             change-vote: Changer votre vote
