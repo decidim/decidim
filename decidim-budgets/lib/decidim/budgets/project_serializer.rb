@@ -14,7 +14,10 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this project.
       def serialize
-        serializeable = {
+        # muokattu_serializble = Jokuluokka.new(serializeable)
+        # Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\n\n\n\nEventname: #{event_name}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        finalize(
+          project,
           id: project.id,
           category: {
             id: project.category.try(:id),
@@ -40,25 +43,12 @@ module Decidim
           related_proposals: related_proposals,
           related_proposal_titles: related_proposal_titles,
           related_proposal_urls: related_proposal_urls
-        }
-        Rails.logger.info "\n\n\n\n\n\n\n\n\n\n\n\n\n\nEventname: #{event_name}\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-        Decidim::SerializerManager.new(serializeable, project).publish(event_name)
-      end
-
-      def publish(serialized)
-        ActiveSupport::Notifications.publish(
-          event_name,
-          serialized: serialized
         )
       end
 
       private
 
       attr_reader :project
-
-      def event_name
-        self.class.to_s.downcase.gsub("::", ".")
-      end
 
       def component
         project.component

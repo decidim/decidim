@@ -26,10 +26,18 @@ module Decidim
         @resource.to_h
       end
 
-      def self.subscribe(event_name, &block)
-        ActiveSupport::Notifications.subscribe(event_name) do |_event_name, data|
-          block.call(data)
-        end
+      def finalize(resource, serialized_data)
+        event_data = {
+          serialized_data: serialized_data,
+          resource: resource
+        }
+        ActiveSupport::Notifications.publish(event_name, event_data)
+
+        event_data[:serialized_data]
+      end
+
+      def event_name
+        self.class.to_s.downcase.gsub("::", ".")
       end
     end
   end
