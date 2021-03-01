@@ -30,7 +30,16 @@ module Decidim
             get :index
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:index)
-            expect(assigns(:proposals).order_values).to eq(["RANDOM()"])
+            expect(assigns(:proposals).order_values).to eq(
+              [
+                Decidim::Proposals::Proposal.arel_table[
+                  Decidim::Proposals::Proposal.primary_key
+                ] * Arel.sql("RANDOM()")
+              ]
+            )
+            expect(assigns(:proposals).order_values.map(&:to_sql)).to eq(
+              ["\"decidim_proposals_proposals\".\"id\" * RANDOM()"]
+            )
           end
         end
 

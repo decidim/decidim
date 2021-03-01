@@ -24,14 +24,6 @@ id:
         full_address: Alamat lengkap
         verification_code: Kode verifikasi
   decidim:
-    admin:
-      menu:
-        authorization_workflows: Verifikasi
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} memperbarui konfigurasi verifikasi Dokumen Identitas"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} diverifikasi %{resource_name} menggunakan verifikasi Dokumen Identitas offline"
     authorization_handlers:
       admin:
         csv_census:

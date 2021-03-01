@@ -37,6 +37,25 @@ module Decidim
         end
       end
 
+      def self.polling_officer?(user)
+        exists?(user: user)
+      end
+
+      def self.for(user)
+        where(user: user)
+      end
+
+      def role
+        return :president if presided_polling_station.present?
+        return :manager if managed_polling_station.present?
+
+        :unassigned
+      end
+
+      def polling_station
+        presided_polling_station || managed_polling_station
+      end
+
       private
 
       # Private: check if the voting and the user have the same organization

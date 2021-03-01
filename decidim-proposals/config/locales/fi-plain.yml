@@ -422,6 +422,7 @@ fi-pl:
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
+            delete_attachment: Poista liite
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
@@ -769,6 +770,8 @@ fi-pl:
         placeholder:
           address: Mannerheimintie 1 A, 00100 Helsinki
         preview:
+          announcement_body: Ehdotuksesi on tallennettu luonnoksena. Se täytyy julkaista, jotta se tulee näkyviin sivustolle.
+          announcement_title: Ehdotustasi ei ole vielä julkaistu
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.

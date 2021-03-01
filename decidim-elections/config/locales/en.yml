@@ -587,6 +587,13 @@ en:
             email_outro: You have received this notification because you've voted for the %{resource_name} election.
             email_subject: Your vote for %{resource_name} was accepted.
             notification_title: 'Your vote was accepted. Verify your vote <a href="%{verify_url}">here</a> using your vote token: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: You have been assigned as %{role} of the Polling Station %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a>. You can manage the Polling Station from the dedicated <a href="%{polling_officer_zone_url}">Polling Officer Zone</a>.
+            email_outro: You have received this notification because you have been assigned as %{role} of %{polling_station_name}.
+            email_subject: You are %{role} of the Polling Station %{polling_station_name}.
+            notification_title: You are %{role} of the Polling Station %{polling_station_name} in the voting <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
@@ -757,6 +764,7 @@ en:
             success: Voting successfully created
           edit:
             add_election_component: You don't have any election configured for this voting. Please add it in the Components section
+            assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
             select_a_voting_type: Please select a voting type
@@ -796,12 +804,34 @@ en:
             active_votings: Active votings
             see_all_votings: See all votings
             votings_button_title: Link to the Votings page displaying all the votings
+      polling_officer_zone:
+        menu:
+          polling_officer_zone: Polling Officer zone
+        polling_officers:
+          show:
+            actions:
+              count_votes: Count the votes in the ballot box
+              identify_person: Identify and verify a person
+            polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
+            polling_stations:
+              list:
+                actions: Actions
+                address: Address
+                name: Name
+                role: Your role
+                voting: Voting
+              no_polling_stations: You are not assigned to any Polling Station yet.
+              title: Polling Stations
       polling_officers:
         actions:
           confirm_destroy: Are you sure?
           destroy: Delete
           new: New
           title: Actions
+        roles:
+          manager: Manager
+          president: President
+          unassigned: Unassigned
       polling_stations:
         actions:
           confirm_destroy: Are you sure?

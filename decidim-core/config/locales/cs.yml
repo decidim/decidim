@@ -32,10 +32,10 @@ cs:
       decidim/gamification/level_up_event: Vy jste vyrovnali
       decidim/join_request_accepted_event: Připojit žádost přijatou
       decidim/join_request_rejected_event: Připojit žádost zamítnuta
-      decidim/profile_updated_event: profil aktualizován
+      decidim/profile_updated_event: Profil aktualizován
       decidim/promote_to_admin: Propagováno na správu skupiny
       decidim/removed_from_group: Odstraněna ze skupiny
-      decidim/resource_endorsed_event: Prostředky scháleny
+      decidim/resource_endorsed_event: Zdroj byl schválen
   activerecord:
     attributes:
       decidim/user:
@@ -445,7 +445,7 @@ cs:
         ready: Připraven
       show:
         download_data: Stáhnout data
-        download_data_description: Soubor se všemi informacemi přidruženými k účtu bude odeslán na <strong>%{user_email}</strong>
+        download_data_description: Soubor obsahující všechny informace spojené s vaším účtem bude odeslán na adresu <strong>%{user_email}</strong>. Tento e-mail bude obsahovat .zip soubor a heslo pro jeho otevření.<br/><br/>Pro rozbalení souboru budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows) nebo <a href="https://www.keka.io/">Keku</a> (pro MacOS). Pokud používáte Linux, většinou jej budete mít nainstalovaný ve výchozím nastavení. Pokud ne, můžete použít <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> nebo <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Vyžádat data
     datepicker:
       help_text: 'Očekávaný formát: %{datepicker_format}'
@@ -481,6 +481,8 @@ cs:
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu
           sign_up_disabled: Registrace je zakázána, k přístupu můžete použít existující účet
+        user:
+          timed_out: Byli jste příliš dlouho neaktivní a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se znovu.
       shared:
         newsletter_modal:
           buttons:
@@ -549,7 +551,7 @@ cs:
             notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Nová změna byla vytvořena pro hodnotu %{amendable_title}. Můžete ji vidět z této stránky:'
+            email_intro: 'Nová změna byla vytvořena pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
             email_subject: Nový pozměňovací návrh pro. \ %{amendable_title}
             notification_title: Byl vytvořen nový pozměňovací návrh pro <a href="%{amendable_path}">%{amendable_title}</a>.
@@ -677,7 +679,7 @@ cs:
           notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
-        click_button: 'Klikněte na další tlačítko pro stažení vašich dat. <br/> Soubor bude k dispozici do %{date}. <br/> Pro otevření budete potřebovat <a href=''https://www.7-zip.org/''>7-Zip</a>. Heslo: %{password}'
+        click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
         download: Stažení
       export:
         ready: V příloze naleznete exportovanou exportovanou verzi.
@@ -712,7 +714,7 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
-        participatory_space: Již sledujete <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Sleduje <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
@@ -871,8 +873,8 @@ cs:
         resource_type: Typ
     log:
       base_presenter:
-        create: "%{user_name} vytvořil(a) %{resource_name}"
-        create_with_space: "%{user_name} vytvořil(a) %{resource_name} v %{space_name}"
+        create: "%{user_name} vytvořil %{resource_name}"
+        create_with_space: "%{user_name} vytvořil %{resource_name} v %{space_name}"
         delete: "%{user_name} odstraněno %{resource_name}"
         delete_with_space: "%{user_name} smazán %{resource_name} v %{space_name}"
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
@@ -971,7 +973,7 @@ cs:
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
-          not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
+          not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
@@ -1042,8 +1044,10 @@ cs:
       no_notifications: Zatím žádné oznámení.
     notifications_settings:
       show:
+        administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
         direct_messages: Přijímat přímé zprávy od kohokoli
+        email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno pro moderování.
         email_on_notification: Chci dostávat e-mail pokaždé, když obdržím oznámení.
         everything_followed: Všechno, co sleduji
         newsletter_notifications: Chci dostávat zpravodaje
@@ -1059,7 +1063,7 @@ cs:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     own_user_groups:
       index:
-        pending: čekající
+        pending: Čekající
         rejected: Odmítnuto
         verified: Ověřeno
     pad_iframe:
@@ -1280,7 +1284,7 @@ cs:
         sign_in_before_follow: Před provedením této akce se prosím přihlaste
       login_modal:
         close_modal: Zavřít okno
-        please_sign_in: prosím přihlašte se
+        please_sign_in: Přihlaste se, prosím
         sign_up: Přihlásit se
       participatory_space_filters:
         filters:
@@ -1458,7 +1462,7 @@ cs:
       password_change:
         greeting: Dobrý den %{recipient}!
         message: Kontaktujeme vás, abyste vás upozornili, že vaše heslo bylo změněno.
-        subject: heslo změněno
+        subject: Heslo změněno
       reset_password_instructions:
         action: Změňte heslo
         greeting: Dobrý den %{recipient}!
@@ -1542,7 +1546,7 @@ cs:
     messages:
       already_confirmed: bylo již potvrzeno, zkuste prosím přihlásit
       confirmation_period_expired: musí být potvrzeno v rámci %{period}, požádejte o nový
-      content_type_whitelist_error: typ souboru není platný
+      content_type_allowlist_error: typ souboru není platný
       cycle_detected: rodič oboru nemůže být jedním z jeho potomků
       expired: uplynula, požádejte o novou
       file_size_is_less_than_or_equal_to: velikost souboru musí být menší nebo rovna %{count}
@@ -1577,8 +1581,8 @@ cs:
     decidim:
       cookie_warning:
         description_html: Tento web používá cookies. Pokračováním v procházení webu souhlasíte s používáním souborů cookie. Zjistěte více o tom %{link}.
-        link_label: zde
-        ok: souhlasím
+        link_label: Zjistěte více o cookies
+        ok: Souhlasím
       edit_link:
         edit: Upravit
       footer:
@@ -1606,6 +1610,11 @@ cs:
         instagram: "%{organization} na Instagramu"
         twitter: "%{organization} na Twitteru"
         youtube: "%{organization} na YouTube"
+      timeout_modal:
+        body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
+        continue_session: Pokračovat v relaci
+        sign_out: Odhlásit se
+        title: Chcete pokračovat v relaci?
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
@@ -1686,7 +1695,7 @@ cs:
       choose_diff_view_html: 'Režim HTML zobrazení:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
       option_escaped: Escapované
-      option_split: Vedle sebe (Sbs)
+      option_split: Vedle sebe
       option_unescaped: Neošetřené Esc
       option_unified: Sjednocené
   views:

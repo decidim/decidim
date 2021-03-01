@@ -106,7 +106,7 @@ ro:
         answer:
           body: Corpul nu poate fi gol
       files:
-        extension_whitelist: 'Formate acceptate:'
+        extension_allowlist: 'Formate acceptate:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Această imagine va fi:'

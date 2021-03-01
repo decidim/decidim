@@ -34,16 +34,8 @@ ca:
             confirm: La revocació d'autoritzacions anteriors a aquesta data no es pot desfer. Segur que vols continuar?
             confirm_all: La revocació de totes les autoritzacions no es pot desfer. Segur que vols continuar?
           destroy_nok: S'ha produït un error al revocar les autoritzacions.
-          destroy_ok: Totes les autoritzacions coincidents s'han revocat correctament!
           info: Hi ha un total de %{count} participants verificades.
           no_data: No hi ha participants verificades
-          title: Revocació de les autoritzacions
-        authorization_workflows: Verificacions
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} ha actualitzat la configuració de verificació mitjançant documents d'identitat"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant la verificació presencial mitjançant documents d'identitat"
     authorization_handlers:
       admin:
         csv_census:

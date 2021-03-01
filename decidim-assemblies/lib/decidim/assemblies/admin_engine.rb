@@ -83,6 +83,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_assemblies.action_controller" do |_app|
+        ActiveSupport.on_load :action_controller do
+          helper Decidim::Assemblies::Admin::AssembliesAdminMenuHelper if respond_to?(:helper)
+        end
+      end
+
       initializer "decidim_assemblies.admin_assets" do |app|
         app.config.assets.precompile += %w(admin/decidim_assemblies_manifest.js)
       end
@@ -92,9 +98,31 @@ module Decidim
           menu.item I18n.t("menu.assemblies", scope: "decidim.admin"),
                     decidim_admin_assemblies.assemblies_path,
                     icon_name: "dial",
-                    position: 3.5,
+                    position: 2.2,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :assemblies)
+        end
+      end
+
+      initializer "decidim_assemblies.admin_assemblies_menu" do
+        Decidim.menu :admin_assemblies_menu do |menu|
+          menu.item I18n.t("menu.assemblies", scope: "decidim.admin"),
+                    decidim_admin_assemblies.assemblies_path,
+                    position: 1.0,
+                    active: is_active_link?(decidim_admin_assemblies.assemblies_path),
+                    if: allowed_to?(:read, :assembly_list)
+
+          menu.item I18n.t("menu.assemblies_types", scope: "decidim.admin"),
+                    decidim_admin_assemblies.assemblies_types_path,
+                    active: is_active_link?(decidim_admin_assemblies.assemblies_types_path),
+                    position: 1.1,
+                    if: allowed_to?(:manage, :assemblies_type)
+
+          menu.item I18n.t("menu.assemblies_settings", scope: "decidim.admin"),
+                    decidim_admin_assemblies.edit_assemblies_settings_path,
+                    active: is_active_link?(decidim_admin_assemblies.edit_assemblies_settings_path),
+                    position: 1.3,
+                    if: allowed_to?(:read, :assemblies_setting)
         end
       end
     end

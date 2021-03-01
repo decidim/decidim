@@ -35,7 +35,6 @@ tr:
       decidim/profile_updated_event: Profil güncellendi
       decidim/promote_to_admin: Grup yöneticisine yükseltildi
       decidim/removed_from_group: Gruptan kaldırıldı
-      decidim/resource_endorsed_event: Kaynak onaylandı
   activerecord:
     attributes:
       decidim/user:
@@ -426,7 +425,6 @@ tr:
         ready: Hazır
       show:
         download_data: Verileri indir
-        download_data_description: Hesapla ilişkili tüm bilgilerin bulunduğu bir dosya <strong>%{user_email}</strong>gönderilecektir.
         request_data: Veri talep et
     datepicker:
       help_text: 'Beklenen format: %{datepicker_format}'
@@ -658,7 +656,6 @@ tr:
           notification_title: <a href="%{resource_path}">profil sayfası</a> arasında %{name} (%{nickname} izlediğiniz), güncellendi.
     export_mailer:
       data_portability_export:
-        click_button: 'Verilerinizi indirmek için sonraki düğmeye tıklayın. <br/> Dosyaya %{date}kadar sahip olacaksınız.'
         download: İndir
       export:
         ready: Lütfen dışa aktarımınızın sıkıştırılmış bir sürümünü ekte bulun.
@@ -691,7 +688,6 @@ tr:
       create:
         button: Takip et
         error: Bu kaynağı takip eden bir hata oluştu.
-        participatory_space: <span class = "show-for-sr">%{resource_name} </span> hali hazırda takip ediliyor
       destroy:
         button: Takibi bırak
         error: Bu kaynağı takip etmekten bir hata oluştu.
@@ -950,7 +946,6 @@ tr:
         show:
           back: Tüm görüşmelere dön
           chat_with: ile görüşme
-          not_allowed: Bu katılımcı artık doğrudan mesaj kabul etmiyor.
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
@@ -1516,7 +1511,7 @@ tr:
     messages:
       already_confirmed: zaten onaylandı, lütfen giriş yapmayı deneyin
       confirmation_period_expired: '%{period}içinde onaylanması gerekiyor, lütfen yeni bir tane isteyin'
-      content_type_whitelist_error: dosya türü geçerli değil
+      content_type_allowlist_error: dosya türü geçerli değil
       cycle_detected: bir kapsamın ebeveyni torunlarından biri olamaz
       expired: süresi doldu, lütfen yeni bir tane isteyin
       file_size_is_less_than_or_equal_to: dosya boyutu %{count}eşit veya daha küçük olmalıdır

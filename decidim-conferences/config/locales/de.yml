@@ -267,9 +267,9 @@ de:
         conference_registration:
           confirm: "%{user_name} hat eine Anmeldung zur Konferenz %{resource_name} bestätigt"
         partner:
-          create: "%{user_name} hat %{resource_name} zur Konferenz %{space_name} hinzugefügt"
-          delete: "%{user_name} hat den Benutzer %{resource_name} aus der Konferenz %{space_name} entfernt"
-          update: "%{user_name} hat %{resource_name} in der Konferenz %{space_name} aktualisiert"
+          create: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} erstellt"
+          delete: "%{user_name} hat den Partner %{resource_name} aus der Konferenz %{space_name} entfernt"
+          update: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} aktualisiert"
         registration_type:
           create: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} erstellt"
           publish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} veröffentlicht"

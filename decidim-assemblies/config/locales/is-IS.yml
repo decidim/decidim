@@ -30,6 +30,9 @@ is-IS:
         internal_organisation: Innri skipulagning
         is_transparent: Er gagnsæ
         meta_scope: Gildissvið lýsigagna
+        participatory_scope: Hvað er ákveðið
+        participatory_structure: Hvernig það er ákveðið
+        private_space: Einkasvæði
         published_at: Birt á
         purpose_of_action: Tilgangur aðgerða
         scope_id: Umfang
@@ -37,7 +40,9 @@ is-IS:
         short_description: Stutt lýsing
         show_statistics: Sýna tölfræði
         slug: URL slug
+        special_features: Sérstakir eiginleikar
         subtitle: Texti
+        target: Hver tekur þátt
         title: Titill
         twitter: Twitter
         youtube: Youtube
@@ -50,12 +55,25 @@ is-IS:
         full_name: Fullt nafn
         gender: Kyn
         position: Staða
+        user_id: Notandi
       assembly_user_role:
         email: Email
         name: Nafn
         role: Hlutverk
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Þing
+        other: Þing
+      decidim/assembly_member:
+        one: Meðlimur þings
+        other: Meðlimir þings
   decidim:
     admin:
+      actions:
+        import_assembly: Flytja inn
+        new_assembly: Nýtt þing
+        new_assembly_type: Ný þing tegund
       assemblies:
         create:
           success: Samkoma búin til með góðum árangri.
@@ -77,6 +95,10 @@ is-IS:
           copy: Afrita
           select: Veldu hvaða gögn þú vilt afrita
           title: Afrit samkoma
+      assembly_imports:
+        new:
+          import: Flytja inn
+          title: Flytja inn þing
       assembly_members:
         edit:
           title: Uppfæra samningsaðila.

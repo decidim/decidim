@@ -39,6 +39,10 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
         end
       end
 
+      it "has the callout warning of missing officers" do
+        expect(page).to have_text("There are Polling Stations without President and/or Managers")
+      end
+
       context "when searching by title" do
         let(:searched_station) { create(:polling_station, voting: voting) }
 
@@ -175,6 +179,7 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
       end
 
       expect(page).to have_admin_callout("successfully")
+      expect(page).not_to have_text("There are Polling Stations without President and/or Managers")
 
       within "#polling_stations table" do
         expect(page).to have_text("Another polling station")

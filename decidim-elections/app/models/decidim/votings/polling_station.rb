@@ -40,6 +40,10 @@ module Decidim
 
       geocoded_by :address
 
+      def missing_officers?
+        polling_station_president.nil? || polling_station_managers.empty?
+      end
+
       private
 
       # Private: check if the president is in the same voting

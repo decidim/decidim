@@ -269,10 +269,6 @@ lv:
       conferences:
         conference_registration:
           confirm: "%{user_name} apstiprināja konferences reģistrāciju konferencē %{resource_name}"
-        partner:
-          create: "%{user_name} izveidoja %{resource_name} konferencei %{space_name}"
-          delete: "%{user_name} noņēma administratoru %{resource_name} no konferences %{space_name}"
-          update: "%{user_name} atjaunināja %{resource_name} konferencē %{space_name}"
         registration_type:
           create: "%{user_name} izveidoja %{resource_name} reģistrācijas veidu konferencē %{space_name}"
           publish: "%{user_name} publicēja %{resource_name} reģistrācijas veidu konferencē %{space_name}"

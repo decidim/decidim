@@ -429,7 +429,7 @@ de:
         ready: Bereit
       show:
         download_data: Daten herunterladen
-        download_data_description: Eine Datei mit allen Informationen, die mit diesem Konto verbunden sind, wird an <strong>%{user_email}</strong> gesendet
+        download_data_description: Eine Datei, die alle mit Ihrem Konto verknüpften Informationen enthält, wird an <strong>%{user_email}</strong> gesendet. Diese E-Mail enthält eine .zip-Datei und ein Passwort, um sie zu öffnen.<br/><br/>Um die Datei zu entpacken, benötigen Sie <a href="https://www.7-zip.org/">7-Zip</a> (für Windows) oder <a href="https://www.keka.io/">Keka</a> (für MacOS). Wenn Sie Linux verwenden, wird es meistens standardmäßig installiert. Wenn nicht, können Sie <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> verwenden.
         request_data: Daten anfordern
     datepicker:
       help_text: 'Erwartetes Format: %{datepicker_format}'
@@ -465,6 +465,8 @@ de:
           register: Konto erstellen
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen
           sign_up_disabled: Die Anmeldung ist deaktiviert. Sie können einen vorhandenen Benutzer für den Zugriff verwenden
+        user:
+          timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
         newsletter_modal:
           buttons:
@@ -657,7 +659,7 @@ de:
           notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
     export_mailer:
       data_portability_export:
-        click_button: 'Klicken Sie auf die Schaltfläche "Weiter", um Ihre Daten herunterzuladen. <br/> Sie haben die Datei bis %{date}verfügbar.'
+        click_button: 'Klicken Sie auf den Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
         download: Herunterladen
       export:
         ready: Anbei finden Sie eine gezippte Version Ihres Exports.
@@ -690,7 +692,7 @@ de:
       create:
         button: Folgen
         error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
-        participatory_space: Sie folgen <span class="show-for-sr">%{resource_name}</span> bereits
+        participatory_space: Sie folgen <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
@@ -949,7 +951,7 @@ de:
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
-          not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
+          not_allowed: Dieser Teilnehmer akzeptiert keine direkten Nachrichten.
           title: Gespräch mit %{usernames}
         start:
           send: Senden
@@ -1020,8 +1022,10 @@ de:
       no_notifications: Noch keine Benachrichtigungen
     notifications_settings:
       show:
+        administrators: Administratoren
         allow_public_contact: Allen erlauben, mir Direktnachrichten zu senden, selbst wenn ich ihnen nicht folge.
         direct_messages: Direktnachrichten von allen erhalten
+        email_on_moderations: Ich möchte eine E-Mail erhalten, wenn etwas zur Moderation gemeldet wird.
         email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
@@ -1516,7 +1520,7 @@ de:
     messages:
       already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
       confirmation_period_expired: muss innerhalb von %{period}bestätigt werden, bitte einen neuen anfordern
-      content_type_whitelist_error: Der Dateityp ist nicht gültig
+      content_type_allowlist_error: Der Dateityp ist nicht gültig
       cycle_detected: Der Elternteil eines Bereichs darf keiner seiner Nachkommen sein
       expired: ist abgelaufen, bitte fordern Sie einen neuen an
       file_size_is_less_than_or_equal_to: Die Dateigröße muss kleiner oder gleich %{count}
@@ -1576,6 +1580,11 @@ de:
         instagram: "%{organization} auf Instagram"
         twitter: "%{organization} bei Twitter"
         youtube: "%{organization} auf YouTube"
+      timeout_modal:
+        body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
+        continue_session: Sitzung fortsetzen
+        sign_out: Ausloggen
+        title: Möchten Sie ihre Sitzung fortsetzen?
       user_menu:
         account: 'Benutzerkonto: %{name}'
         admin_dashboard: Admin-Dashboard

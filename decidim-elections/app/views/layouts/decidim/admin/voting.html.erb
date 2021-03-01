@@ -76,6 +76,8 @@
           </li>
         <% end %>
       <% end %>
+
+      <%= Decidim::Admin.view_hooks.render(:admin_secondary_nav, deep_dup) %>
     </ul>
   </div>
 <% end %>
@@ -89,9 +91,10 @@
 
   <div class="voting-content">
     <% if current_participatory_space.needs_elections? %>
-      <div class="callout alert callout--full">
-        <span class="callout-text"><%= t("votings.edit.add_election_component", scope: "decidim.votings.admin") %></span>
-      </div>
+      <%= cell("decidim/announcement", t("votings.edit.add_election_component", scope: "decidim.votings.admin"), callout_class: "alert") %>
+    <% end %>
+    <% if current_participatory_space.polling_stations_with_missing_officers? %>
+      <%= cell("decidim/announcement", t("votings.edit.assign_missing_officers", scope: "decidim.votings.admin"), callout_class: "alert") %>
     <% end %>
     <%= yield %>
   </div>

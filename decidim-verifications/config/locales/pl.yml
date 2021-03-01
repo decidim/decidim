@@ -34,16 +34,16 @@ pl:
             confirm: Wycofanie uprawnień nadanych przed datą jest akcją, której nie można cofnąć. Na pewno chcesz kontynuować?
             confirm_all: Wycofanie wszystkich uprawnień nie jest akcją, którą można cofnąć. Na pewno chcesz kontynuować?
           destroy_nok: Wystąpił błąd podczas cofania uprawnień.
-          destroy_ok: Pomyślnie cofnięto wszystkie uprawnienia spełniające kryteria.
+          destroy_ok: Pomyślnie wycofano wszystkie autoryzacje spełniające kryteria.
           info: 'Całkowita liczba zweryfikowanych użytkowników: %{count}.'
           no_data: Brak zweryfikowanych użytkowników
-          title: Cofnięcie autoryzacji
-        authorization_workflows: Weryfikacje
+          title: Wycofanie autoryzacji
+        authorization_workflows: Autoryzacje
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} zaktualizował(a) konfigurację weryfikacji dokumentów tożsamości"
+        update_id_documents_config: "%{user_name} zaktualizował(a) konfigurację autoryzacji dokumentów tożsamości"
       user:
-        grant_id_documents_offline_verification: "%{user_name} zweryfikował(a) %{resource_name} przy użyciu weryfikacji dokumentów tożsamości offline"
+        grant_id_documents_offline_verification: "%{user_name} zweryfikował(a) %{resource_name} przy użyciu autoryzacji dokumentów tożsamości offline"
     authorization_handlers:
       admin:
         csv_census:
@@ -153,6 +153,12 @@ pl:
             many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
             other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
           scope: Uczestnictwo jest ograniczone do uczestników z zakresu %{scope_name}.
+          user_postal_codes:
+            one: Uczestnictwo jest ograniczone do użytkowników z kodem pocztowym %{postal_codes} a twój kod to %{user_postal_code}.
+            few: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
+            many: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
+            other: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
+          user_scope: Uczestnictwo jest ograniczone do użytkowników z zakresu %{scope_name} a twój zakres to %{user_scope_name}.
       id_documents:
         admin:
           config:

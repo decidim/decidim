@@ -57,7 +57,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.votings", scope: "decidim"),
                     decidim_votings.votings_path,
-                    position: 2.7,
+                    position: 2.6,
                     if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
                     active: :inclusive
         end

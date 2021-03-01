@@ -29,14 +29,7 @@ hu:
         authorization_revocation:
           button: Összes visszavonása
           destroy_nok: Probléma merült fel az engedélyek visszavonásakor.
-          destroy_ok: Az összes egyező engedélyt sikeresen visszavonták.
           no_data: Nincsenek ellenőrzött résztvevők
-        authorization_workflows: Ellenőrzések
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} frissítette az azonosító dokumentumok ellenőrzési konfigurációját"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} hitelesítve %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
     authorization_handlers:
       admin:
         csv_census:

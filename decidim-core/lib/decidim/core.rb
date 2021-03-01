@@ -360,6 +360,11 @@ module Decidim
     "decidim-cc"
   end
 
+  # Defines how often session_timeouter.js checks time between current moment and last request
+  config_accessor :session_timeouter_interval do
+    10_000
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

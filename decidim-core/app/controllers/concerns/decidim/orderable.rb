@@ -29,7 +29,9 @@ module Decidim
       # Returns: A random float number between -1 and 1 to be used as a
       # random seed at the database.
       def random_seed
-        @random_seed ||= session.fetch(:random_seed, (rand * 2 - 1)).to_f
+        @random_seed ||= begin
+          session[:random_seed] ||= rand * 2 - 1
+        end.to_f
       end
     end
   end

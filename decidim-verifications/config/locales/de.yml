@@ -34,16 +34,16 @@ de:
             confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
           destroy_nok: Beim Entziehen von Berechtigungen ist ein Fehler aufgetreten.
-          destroy_ok: Alle passenden Berechtigungen wurden erfolgreich entzogen!
+          destroy_ok: Alle übereinstimmenden Berechtigungen wurden erfolgreich entzogen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
           no_data: Keine verifizierten Teilnehmer
-          title: Entziehen von Verifizierungen
-        authorization_workflows: Überprüfungen
+          title: Berechtigungen widerrufen
+        authorization_workflows: Berechtigungen
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} hat die Überprüfungskonfiguration für Identitätsdokumente aktualisiert"
+        update_id_documents_config: "%{user_name} hat die Konfiguration für die Überprüfung von Identitätsdokumenten aktualisiert"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verifiziert %{resource_name} über eine Offline-Verifizierung von Identitätsdokumenten"
+        grant_id_documents_offline_verification: "%{user_name} hat die Identitätsdokumente von %{resource_name} offline überprüft"
     authorization_handlers:
       admin:
         csv_census:
