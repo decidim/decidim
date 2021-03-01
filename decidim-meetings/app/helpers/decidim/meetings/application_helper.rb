@@ -17,8 +17,10 @@ module Decidim
         origin_values = []
         origin_values << TreePoint.new("official", t("decidim.meetings.meetings.filters.origin_values.official"))
         origin_values << TreePoint.new("citizens", t("decidim.meetings.meetings.filters.origin_values.citizens")) # todo
-        # if component_settings enabled enabled
-        origin_values << TreePoint.new("user_group", t("decidim.meetings.meetings.filters.origin_values.user_groups")) # todo
+        
+        if current_organization.user_groups_enabled?
+          origin_values << TreePoint.new("user_group", t("decidim.meetings.meetings.filters.origin_values.user_groups")) # todo
+        end
         # if current_organization.user_groups_enabled? and component_settings enabled enabled
 
         TreeNode.new(
