@@ -19,7 +19,7 @@ pl:
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
         participatory_scope: Zaproponowano
-        participatory_structure: Jak się decyduje
+        participatory_structure: Jak decydowano
         promoted: Promowany
         published_at: Opublikowano
         related_process_ids: Powiązane procesy
@@ -413,7 +413,7 @@ pl:
         end_date: Data zakończenia
         local_area: Obszar Organizacji
         participatory_scope: Co zostało postanowione
-        participatory_structure: Jak się decyduje
+        participatory_structure: Jak decydowano
         private_space: To jest prywatny proces
         related_processes: Powiązane procesy
         scope: Zakres
