@@ -742,7 +742,7 @@ pl:
           error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
           success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
         index:
-          import_via_csv: Importuj przez CSV
+          import_via_csv: Importuj z CSV
           title: Prywatny użytkownik przestrzeni partycypacyjnej
         new:
           create: Utwórz
