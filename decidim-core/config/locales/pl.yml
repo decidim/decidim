@@ -849,7 +849,7 @@ pl:
         creator: Twórca
         member: Członek
       update:
-        error: Wystąpił problem podczas aktualizacji grupy
+        error: Wystąpił błąd podczas aktualizacji grupy
         success: Grupa została zaktualizowana
     help:
       main_topic:
