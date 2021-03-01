@@ -1,6 +1,6 @@
 /* eslint-disable no-invalid-this */
 // TODO-blat this should import FormFilterComponent
-import 'form_filter'
+import './form_filter'
 
 // Initializes the form filter.
 ((exports) => {

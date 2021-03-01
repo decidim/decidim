@@ -4,8 +4,8 @@
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 /* global d3 */
 
-// = require_self
-// = require d3
+import * as d3 from "d3"
+
 ((exports) => {
   const { Decidim: { Visualizations: render } } = exports;
 
@@ -81,7 +81,7 @@
           let layouts = {}
 
           // custom radial layout
-          layouts.radial = d3.radial()
+          layouts.radial = radial()
 
           // ###########################   FORCE STUFF #########################
           let force = {}
@@ -523,8 +523,9 @@
         return selection
       }
 
+      // TODO-blat: review this is working
       // custom radial layout
-      d3.radial = function () {
+      function radial() {
         return function (root) {
 
           recurse(root, 0, 1)
