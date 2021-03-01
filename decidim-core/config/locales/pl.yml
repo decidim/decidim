@@ -160,11 +160,15 @@ pl:
         promote: "%{user_name} awansował(a) %{resource_name}"
         remove_from_admin: "%{user_name} usunął/usunęła użytkownika %{resource_name} z rolą: %{role}"
         show_email: "%{user_name} pobrał(a) e-mail uczestnika %{resource_name}"
+        transfer: "%{user_name} przeniósł/przeniosła użytkownika %{resource_name}"
+        unblock: "%{user_name} odblokował(a) użytkownika %{resource_name}"
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
         verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
         verify_via_csv: "%{user_name} zweryfikował(a) grupę %{resource_name} za pomocą pliku CSV"
+      user_moderation:
+        unreport: "%{user_name} cofnął/cofnęła zgłoszenie %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>WARUNKI UŻYTKOWANIA DLA ADMINISTRATORÓW</h2><p>Mamy nadzieję, że lokalny Administrator systemu poinformował Cię o podstawowych zasadach korzystania z platformy. Zwykle sprowadza się to do trzech rzeczy: </p><ol><li>Szanuj prywatność innych.</li><li>Pomyśl, zanim klikniesz.</li><li>Z wielką mocą wiąże się wielka odpowiedzialność.</li></ol>"
     alert:
