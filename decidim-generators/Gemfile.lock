@@ -161,7 +161,7 @@ PATH
       webmock (~> 3.6)
       wisper-rspec (~> 1.0)
     decidim-elections (0.25.0.dev)
-      decidim-bulletin_board (= 0.9.2)
+      decidim-bulletin_board (= 0.12.1)
       decidim-core (= 0.25.0.dev)
       decidim-forms (= 0.25.0.dev)
       decidim-proposals (= 0.25.0.dev)
