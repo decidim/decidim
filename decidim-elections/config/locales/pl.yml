@@ -730,7 +730,7 @@ pl:
           index:
             role_manager: kierownik
             role_president: przewodniczący
-            title: Oficerzy wyborczy
+            title: Oficerowie wyborczy
           new:
             create: Utwórz
             title: Utwórz oficer wyborczy
