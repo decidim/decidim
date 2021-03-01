@@ -479,7 +479,7 @@ pl:
                   name: Wymaga działania?
                   'true': Wykonaj działanie
                 bb_status: Status
-                election: Wybór
+                election: Wybory
                 voting_period: Czas głosowania
               no_elections: Nie ma głosowań, w których pełnisz rolę powiernika.
               title: Wybory
