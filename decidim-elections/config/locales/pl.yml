@@ -468,6 +468,7 @@ pl:
         menu:
           trustee_zone: Strefa powierników
         no_bulletin_board:
+          body: Ta sekcja wymaga skonfigurowania tablicy ogłoszeń. Aby uzyskać więcej informacji, skontaktuj się z administratorem.
           title: Przykro nam, tablica ogłoszeń nie została jeszcze skonfigurowana.
         trustees:
           show:
@@ -485,11 +486,21 @@ pl:
             identification_keys:
               cancel: Anuluj
               generate: Generuj klucze identyfikacyjne
+              generate_error: Wystąpił błąd podczas generowania kluczy identyfikacyjnych.
               generate_legend: Musisz wygenerować parę kluczy identyfikacyjnych do udziału w głosowaniu jako powiernik.
+              generate_legend_1: Po kliknięciu przycisku powinieneś pobrać plik z wygenerowanymi kluczami identyfikacyjnymi.
+              generate_legend_2: Skopiuj pobrany plik na czyste urządzenia USB
               generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
+              generate_legend_4: Utwórz kolejną kopię pliku na innym urządzeniu zewnętrznym i przechowuj go w bezpiecznym miejscu.
               submit: Prześlij
+              submit_legend: Po wykonaniu wszystkich opisanych wyżej kroków, zakończ proces wysyłania publicznego klucza identyfikacyjnego na serwer Decidim.
               submit_title: Prześlij publiczny klucz identyfikacyjny
               title: Klucze identyfikacyjne powiernika
+              upload: Prześlij swoje klucze identyfikacyjne
+              upload_error:
+                invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
+                invalid_key: Nie można załadować kluczy identyfikacyjnych z przesłanego pliku.
+                invalid_public_key: Klucze identyfikacyjne z przesłanego pliku nie pasują do publicznego klucza identyfikacyjnego przechowywanego przez Decidim.
               upload_legend: Decidim posiada twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma tych kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich wygenerowaniu.
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań Powiernika. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania Powiernicze.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako powiernik
@@ -615,6 +626,8 @@ pl:
     votings:
       admin:
         content_blocks:
+          highlighted_votings:
+            max_results: Maksymalna ilość elementów do wyświetlenia
           landing_page:
             attachments_and_folders:
               name: Załączniki i foldery do głosowania
