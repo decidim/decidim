@@ -187,7 +187,7 @@ pl:
             name: Powiernik
         proposals_imports:
           create:
-            invalid: Wystąpił problem podczas importowania propozycji do odpowiedzi
+            invalid: Wystąpił błąd podczas importowania propozycji do odpowiedzi
             success: "Liczba propozycji pomyślnie zaimportowanych do odpowiedzi: %{number}"
           new:
             create: Importuj propozycje do odpowiedzi
