@@ -370,9 +370,16 @@ ca:
         search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
+          reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
           title_cont: Buscar %{collection} per títol.
         state_eq:
           label: Estat
+      forms:
+        file_help:
+          import:
+            explanation: 'Instruccions per a l''arxiu:'
+            message_1: Estan suportats els arxius CSV, JSON i Excel (.xls)
+            message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
@@ -411,6 +418,24 @@ ca:
           impersonate_existing_managed_user: Gestionar la participant "%{name}"
           impersonate_existing_user: Gestionar la participant "%{name}"
           impersonate_new_managed_user: Gestionar una nova participant
+      imports:
+        creators:
+          proposalcreator: Creador de la proposta
+        error: S'ha produït un error durant la importació
+        help:
+          proposalcreator: L'arxiu ha d'incloure els noms de columna title/en i body/en (o un altre idioma de preferència per exemple, title/ca i body/ca). També s'admeten les columnes scope/id i category/id.
+        import_from_file: Importar d'un arxiu
+        invalid_lines: S'ha trobat un error al recurs número %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Tornar
+          file_legend: Afegir un arxiu d'importació que serà processat.
+          import: Importar
+        notice: "%{number} %{resource_name} importat correctament"
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
@@ -434,8 +459,10 @@ ca:
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
+        moderation: Moderacions globals
         newsletters: Butlletins
         participants: Participants
+        reported_users: Usuàries reportades
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         settings: Configuració
@@ -523,6 +550,17 @@ ca:
             phone: Telèfon
             state: Estat
             users_count: Nombre de participants
+      moderated_users:
+        index:
+          actions:
+            block: Bloquejar usuària
+            title: Accions
+            unblock: Desbloquejar usuària
+            unreport: Desfer denúncia
+          name: Nom
+          nickname: Àlies
+          reason: Raó
+          reports: Número de denúncies
       moderations:
         index:
           title: Moderacions
