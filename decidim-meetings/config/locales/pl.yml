@@ -32,8 +32,11 @@ pl:
         start_time: Czas rozpoczęcia
         title: Tytuł
         transparent: Transparentny
+        type_of_meeting: Typ
       minutes:
+        audio_url: Adres URL audio
         description: Opis
+        video_url: Adres URL wideo
         visible: Jest widoczne
     errors:
       models:
@@ -432,6 +435,7 @@ pl:
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
           location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostępem.'
           online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
+          registration_url_help: 'Link: zezwól uczestnikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
           select_a_category: Wybierz kategorię
         index:
           new_meeting: Nowe spotkanie
