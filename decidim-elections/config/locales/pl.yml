@@ -556,6 +556,10 @@ pl:
             email_outro: Otrzymujesz to powiadomienie ponieważ głosowałeś w wyborach %{resource_name}”.
             email_subject: Twój głos na %{resource_name} został zaakceptowany.
             notification_title: 'Twój głos został zaakceptowany. Zweryfikuj swój głos <a href="%{verify_url}">tutaj</a> używając swojego tokenu głosu: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Zostałeś wyznaczony na %{role} w lokalu wyborczym %{polling_station_name} w <a href="%{resource_url}">%{resource_title}</a>. Możesz zarządzać lokalami wyborczymi z dedykowanej <a href="%{polling_officer_zone_url}">Strefy Wyborczej</a>.
     help:
       participatory_spaces:
         votings:
@@ -764,6 +768,15 @@ pl:
             active_votings: Aktywne głosowania
             see_all_votings: Zobacz wszystkie głosowania
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosy
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Działania
+                address: Adres
+                name: Nazwa
+                role: Twoja rola
       polling_officers:
         actions:
           confirm_destroy: Jesteś pewny?
