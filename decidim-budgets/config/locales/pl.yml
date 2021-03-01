@@ -5,7 +5,7 @@ pl:
         decidim_scope_id: Zakres
         description: Opis
         title: Tytuł
-        total_budget: Cały budżet
+        total_budget: Całkowity budżet
         weight: Kolejność na stronie
       project:
         budget_amount: Kwota budżetu
@@ -127,7 +127,7 @@ pl:
           fields:
             name: Nazwa
             projects_count: Liczba projektów
-            total_budget: Budżet ogółem
+            total_budget: Całkowity budżet
         project:
           fields:
             title: Tytuł
@@ -256,7 +256,7 @@ pl:
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
             title: Tytuł
-            total_budget: Cały budżet
+            total_budget: Całkowity budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
             vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'
             vote_rule_selected_projects_enabled: 'Włącz regułę: Minimalna i maksymalna liczba projektów do głosowania'
