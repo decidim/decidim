@@ -523,7 +523,7 @@ ca:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
         valuation_assignment:
           create: "%{user_name} ha assignat la proposta %{resource_name} a una avaluadora"
-          delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{resource_name}"
+          delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{proposal_title}"
       answers:
         accepted: Acceptades
         evaluating: En avaluació
