@@ -1,6 +1,3 @@
-// = require ./progressFixed
-// = require_self
-
 $(() => {
   const $projects = $("#projects, #project");
   const $budgetSummaryTotal = $(".budget-summary__total");
