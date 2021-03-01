@@ -113,8 +113,8 @@ module Decidim
         exported = StringIO.new(subject.export.read)
         workbook = RubyXL::Parser.parse_buffer(exported)
         worksheet = workbook[0]
-
         headers = worksheet[0].cells.map(&:value)
+
         expect(headers).to eq(%w(id title/ca title/es start_date))
 
         expect(worksheet[1][0..2].map(&:value)).to eq([1, "such", "wow"])
