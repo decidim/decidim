@@ -22,6 +22,7 @@ pl:
         area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
         banner_image: Baner
+        child_scope_threshold_enabled: Włącz podpisy dla elementów podrzędnych
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
         custom_signature_end_date_enabled: Pozwól autorom na wybór końca okresu zbierania podpisów
         description: Opis
@@ -29,6 +30,7 @@ pl:
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Pozwól na podpisy online
+        only_global_scope_enabled: Pozwól tylko na tworzenie inicjatyw o zasięgu globalnym
         promoting_committee_enabled: Włącz komitet organizacyjny
         title: Tytuł
         undo_online_signatures_enabled: Pozwól użytkownikom na wycofanie ich podpisów online
@@ -143,6 +145,7 @@ pl:
           notification_title: Data zakończenia zbiórki podpisów pod inicjatywą <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
         initiative_sent_to_technical_validation:
           email_intro: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej. Sprawdź ją w <a href="%{admin_initiative_url}">panelu administratora</a>
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej.
           notification_title: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej. Sprawdź ją w <a href="%{admin_initiative_path}">panelu administratora</a>
         milestone_completed:
@@ -159,6 +162,7 @@ pl:
         support_threshold_reached:
           email_intro: Inicjatywa %{resource_title} zdobyła wymaganą liczbę podpisów
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: Osiągnięto wymaganą liczbę podpisów
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> zdobyła wymaganą liczbę podpisów
     gamification:
       badges:
@@ -205,6 +209,8 @@ pl:
           highlighted_initiatives:
             max_results: Maksymalna ilość elementów do pokazania
             order:
+              default: Domyślne (najpierw najnowsze)
+              label: 'Sortuj elementy według:'
               most_recent: Najnowsze
         exports:
           initiatives: Inicjatywy
@@ -212,6 +218,7 @@ pl:
           edit:
             accept: Akceptuj inicjatywę
             confirm: Jesteś pewny?
+            confirm_send_to_technical_validation: Jesteś pewny?
             discard: Porzuć inicjatywę
             export_pdf_signatures: Eksportuj PDF podpisów
             export_votes: Eksport podpisów
@@ -269,6 +276,8 @@ pl:
           form:
             authorizations: Ustawienia autoryzacji
             child_scope_threshold_enabled_help: 'Ta konfiguracja nie pozwala na głosowania offline, zezwala na pod-zakresy i działa z procedura autoryzacji, która łączy zakres z użytkownikiem, upewnij się, że wybrałeś taką autoryzację, poniżej w sekcji autoryzacji. Żeby działały zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tym <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">linkiem</a>.'
+            only_global_scope_enabled_help: Zaznacz tę flagę, jeśli włączyłeś opcję "Podpisy zakresu podrzędnego" i skonfigurowałeś globalny zakres jako zakres nadrzędny. Umożliwiając to działanie, wybór typu inicjatywy zostanie pominięty w kreatorze tworzenia inicjatyw. Aby uzyskać więcej informacji na temat funkcjonowania tej konfiguracji, zobacz ten <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
+            options: Ustawienia
             title: Informacje ogólne
           initiative_type_scopes:
             title: Zakresy dla rodzaju inicjatywy
