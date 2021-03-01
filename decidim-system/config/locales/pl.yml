@@ -16,11 +16,11 @@ pl:
         user_name: Nazwa użytkownika
       organization_file_uploads:
         allowed_content_types:
-          admin: Typy MIME administratora
-          default: Domyślne typy MIME
+          admin: Typy plików dostępne dla administratora
+          default: Domyślne typy plików
         allowed_file_extensions:
-          admin: Rozszerzenia plików administratora
-          default: Domyślne rozszerzenia plików
+          admin: Rozszerzenia plików dostępne dla administratora
+          default: Domyślne dostępne rozszerzenia plików
           image: Rozszerzenia pliku obrazu
         maximum_file_size:
           avatar: Rozmiar pliku awatara
@@ -120,9 +120,9 @@ pl:
         file_upload_settings:
           content_types:
             admin_hint: Te typy plików są dozwolone dla przesyłania w sekcji administracyjnej. Administratorzy powinni być świadomi zagrożeń związanych z przesyłaniem niektórych formatów dokumentów, więc możesz oczekiwać, że będą ostrożni przy przesyłaniu plików.
-            default_hint: Te typy MIME są domyślnie dozwolone dla wszystkich użytkowników.
+            default_hint: Te typy plików są domyślnie dozwolone dla wszystkich użytkowników.
             intro_html: Dodajesz wildcard ze znakiem gwiazdki dla typów plików, np. <code>image/*</code>.
-            title: Dozwolone typy MIME
+            title: Dozwolone typy plików
           file_extensions:
             admin_hint: Te typy plików są dozwolone dla przesyłania w sekcji administracyjnej. Administratorzy powinni być świadomi zagrożeń związanych z przesyłaniem niektórych formatów dokumentów, więc możesz oczekiwać, że będą ostrożni przy przesyłaniu plików.
             default_hint: Te typy plików są domyślnie dozwolone dla wszystkich użytkowników.
@@ -133,8 +133,8 @@ pl:
             default_hint: Megabajty (MB). Ten limit rozmiaru pliku jest domyślny, jest używany dla wszystkich przesyłanych plików, chyba że określono inaczej.
             title: Maksymalne rozmiary plików
           intro: |
-            Proszę zachować szczególną ostrożność podczas rozważania zmiany tych ustawień. Im mniej na to pozwalasz, tym lepiej.
-            Zezwalanie na określone rozszerzenia plików lub typów MIME może narazić użytkowników systemu na zagrożenia bezpieczeństwa i może mieć również wpływ na dostępność witryny.
+            Proszę zachować szczególną ostrożność podczas rozważania zmiany tych ustawień. Im mniej zezwoleń, tym lepiej.
+            Zezwalanie na określone rozszerzenia lub typów plików może narazić użytkowników systemu na zagrożenie bezpieczeństwa, może mieć również wpływ na dostępność witryny.
         index:
           title: Organizacje
         new:
