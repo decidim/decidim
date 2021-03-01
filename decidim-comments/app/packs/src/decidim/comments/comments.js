@@ -1,5 +1,5 @@
-// = require_self
-// = require decidim/comments/comments.component
+// FIXME-blat: import SVG
+import './comments.component'
 
 window.DecidimComments = window.DecidimComments || {};
 

@@ -1,3 +1,4 @@
+//TODO-blat: add this tests to a runner
 /* eslint-disable id-length, max-lines */
 /* global spyOn, jest */
 const $ = require("jquery");
