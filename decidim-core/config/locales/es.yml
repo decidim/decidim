@@ -35,6 +35,7 @@ es:
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminada del grupo
+      decidim/resource_endorsed_event: Adhesión a recurso realizada
   activerecord:
     attributes:
       decidim/user:
@@ -83,6 +84,7 @@ es:
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       delete:
+        alert: Esta acción no se puede deshacer. Si eliminas tu cuenta no podrás iniciar sesión con tus credenciales. La eliminación de tu cuenta resultará en la anonimización de tus contribuciones. Aún podrás crear una nueva cuenta, pero estas contribuciones no se asociarán a ella.
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
@@ -157,6 +159,8 @@ es:
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
         verify: "%{user_name} verificó el grupo %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
+      user_moderation:
+        unreport: "%{user_name} ha deshecho el reporte %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
     alert:
@@ -432,6 +436,7 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completa el perfil
+          nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -440,6 +445,7 @@ es:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
+          nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
@@ -629,6 +635,14 @@ es:
           notification_title: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       notification_event:
         notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
+          email_outro: Has recibido esta notificación porque eres un autora del contenido eliminado.
+          email_subject: Tu %{resource_type} ha sido eliminado
+          notification_title: |-
+            Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a "%{resource_title}" que puede ser interesante para ti, compruébalo y contribuye:'
         email_outro: Has recibido esta notificación porque estás siguiendo a %{endorser_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -675,6 +689,7 @@ es:
       create:
         button: Seguir
         error: Se ha producido un error al seguir este recurso.
+        participatory_space: Siguiendo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
@@ -691,6 +706,7 @@ es:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
+          message_2: Para las imágenes, utilizar imágenes preferiblemente apaisadas, el servicio recorta la imagen. Para los archivos CSV, el separador entre columnas debe ser una coma (",")
         image:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
@@ -932,6 +948,7 @@ es:
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
+          not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
         start:
           send: Enviar
@@ -939,6 +956,8 @@ es:
         update:
           error: El mensaje no fue enviado debido a un error
     metrics:
+      download:
+        csv: Descargar datos (CSV)
       followers:
         description: Número de participantes que siguen este espacio de participación
         object: seguidoras
@@ -1000,8 +1019,10 @@ es:
       no_notifications: Aún no hay notificaciones.
     notifications_settings:
       show:
+        administrators: Administradoras
         allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
         direct_messages: Recibir mensajes directos de cualquiera
+        email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo por moderación.
         email_on_notification: Quiero recibir un correo electrónico cada vez que reciba una notificación.
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
@@ -1111,6 +1132,7 @@ es:
         groups: Grupos
         members: Miembros
         officialized: Participante oficial
+        send_private_message: Envia mensaje privado
         timeline: Línea de tiempo
         view_full_profile: Ver el perfil completo
       sidebar:
@@ -1138,12 +1160,15 @@ es:
       report:
         authors: Autoras
         content: Contenido reportado
+        content_original_language: Idioma del contenido original
         date: Reportado el
         details: Detalles
         hello: Hola %{name},
+        id: ID
         participatory_space: Espacio de participación
         reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> ha sido reportado.</p>
+        see_report: Ver Reporte
         subject: Un contenido ha sido denunciado
     reports:
       create:
@@ -1216,6 +1241,15 @@ es:
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Reportar contenido inapropiado
+      flag_user_modal:
+        already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
+        close: Cerrar
+        description: '¿Qué es inapropiado de la usuaria?'
+        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
+        offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
+        report: Reporte
+        spam: Contiene clickbait, publicidad, estafas o robots de guión.
+        title: Reportar usuaria inapropiada
       floating_help:
         close: Cerrar la ayuda
         help: Ayuda
@@ -1291,6 +1325,13 @@ es:
       update:
         error: Se ha producido un error al actualizar tus intereses.
         success: Tus intereses se han actualizado correctamente.
+    user_report_mailer:
+      notify:
+        body_1: La usuaria %{user} ha sido reportada por %{token}
+        body_2: 'Motivo: %{reason}'
+        greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola %{admin},
+        subject: Una nueva usuaria ha sido reportada en %{organization_name}
     version:
       show:
         back_to_resource: Volver atrás
@@ -1535,6 +1576,11 @@ es:
         instagram: "%{organization} en Instagram"
         twitter: "%{organization} en Twitter"
         youtube: "%{organization} en YouTube"
+      timeout_modal:
+        body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
+        continue_session: Continuar sesión
+        sign_out: Cerrar sesión
+        title: '¿Quieres continuar con la sesión?'
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
