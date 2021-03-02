@@ -90,6 +90,7 @@ ca:
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            terms_and_conditions_url_for_meeting_creators: URL de termes i condicions per creadores de trobades
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
@@ -250,6 +251,7 @@ ca:
                 other: No es pot destruir la trobada perquè té %{count} propostes associades
             success: La trobada s'ha eliminat correctament
           edit:
+            title: Editar la trobada
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
