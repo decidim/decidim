@@ -1,8 +1,8 @@
-<p><%= t ".hello" %></p>
+<p class="email-greeting"><%= t ".hello" %></p>
 
-<p><%= t ".body_1", organization_name: h(@organization.name) %></p>
+<p class="email-instructions"><%= t ".body_1", organization_name: h(@organization.name) %></p>
 
-<p><%= t ".body_2" %></p>
+<p class="email-instructions"><%= t ".body_2" %></p>
 
 <table class="button radius" style="margin: 16px auto;">
   <tr>
@@ -10,7 +10,7 @@
       <table>
         <tr>
           <td>
-            <%= link_to t(".button"), decidim.newsletters_opt_in_url(token: @token, host: @organization.host), method: "PUT", class: "button",  target: "_blank" %>
+            <%= link_to t(".button"), decidim.newsletters_opt_in_url(token: @token, host: @organization.host), method: "PUT", class: "button email-button email-button__cta",  target: "_blank" %>
           </td>
         </tr>
       </table>
@@ -18,6 +18,6 @@
   </tr>
 </table>
 
-<p><%= t ".body_3" %></p>
+<p class="email-instructions"><%= t ".body_3" %></p>
 
-<p><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>
+<p class="email-closing"><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>
