@@ -61,7 +61,30 @@ es:
       decidim/votings/polling_officer:
         one: Gestor de mesa
         other: Gestores de mesa
+      decidim/votings/polling_station:
+        one: Punto de votación
+        other: Puntos de votación
+      decidim/votings/voting:
+        one: Votación
+        other: Votaciones
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Gestores
+          values:
+            assigned: Asignado
+            unassigned: No asignado
+        role_eq:
+          label: Rol
+          values:
+            manager: Gestor
+            president: Presidente
+            unassigned: Sin asignar
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Buscar %{collection} por nombre/email/alias o punto de votación.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Buscar %{collection} por título, dirección o nombre del gestor/email/alias.
     components:
       elections:
         actions:
@@ -77,7 +100,11 @@ es:
         confirm_destroy: '¿Estás segura?'
         destroy: Destruir
         edit: Editar
+        feedback: Feedback del votante
         import: Importar propuestas como respuestas
+        manage_answers: Gestionar respuestas
+        manage_questions: Gestionar preguntas
+        manage_steps: Gestionar pasos
         new: Nueva %{name}
         preview: Previsualizar
         publish: Publicar
@@ -100,6 +127,16 @@ es:
           new:
             create: Crear respuesta
             title: Nueva respuesta
+          not_selected: No seleccionada
+          select:
+            disable: Deseleccionar respuesta
+            enable: Marcar respuesta como seleccionada
+            invalid: Hubo un problema al seleccionar esta respuesta
+            success: Respuesta seleccionada con éxito
+          selected: Seleccionada
+          unselect:
+            invalid: Hubo un problema al deseleccionar esta respuesta
+            success: Respuesta seleccionada con éxito
           update:
             invalid: Se ha producido un error al crear esta respuesta
             success: Respuesta actualizada con éxito
@@ -126,6 +163,9 @@ es:
           update:
             invalid: Se ha producido un error al actualizar esta votación
             success: Se ha actualizado la votación correctamente
+        exports:
+          elections: Elecciones
+          feedback_form_answers: Feedback de respuestas
         models:
           answer:
             name: Respuesta
@@ -133,6 +173,8 @@ es:
             name: Votación
           question:
             name: Pregunta
+          trustee:
+            name: Garante
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas como respuestas
@@ -141,6 +183,7 @@ es:
             create: Importar propuestas como respuestas
             no_components: No hay otros componentes de propuestas en este espacio participativo desde los que importar propuestas como respuestas.
             select_component: Por favor selecciona un componente
+            title: Importar propuestas
         questions:
           create:
             invalid: Se ha producido un error al crear esta pregunta
@@ -159,8 +202,53 @@ es:
           update:
             invalid: Se ha producido un error al actualizar esta pregunta
             success: La pregunta se ha actualizado correctamente
+        steps:
+          create_election:
+            errors:
+              max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
+              minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
+              minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
+              published: La elección <strong>no está publicada</strong>.
+              time_before: La hora de inicio está en <strong>menos de 3 horas</strong> antes de que comience la elección.
+              trustees_number: El espacio participativo <strong>debe tener al menos %{number} garantes con clave pública</strong>.
+            invalid: Hubo un problema al configurar esta elección
+            no_trustees: No hay garantes configurados para este espacio participativo
+            not_used_trustee: "(no se usa)"
+            public_key:
+              'false': no tiene una <strong>clave pública</strong>
+              'true': tiene una <strong> clave pública</strong>
+            requirements:
+              max_selections: Todas las preguntas tienen un valor correcto para <strong>máximo de respuestas</strong>.
+              minimum_answers: Cada pregunta tiene <strong>al menos 2 respuestas</strong>.
+              minimum_questions: La elección tiene <strong>al menos 1 pregunta</strong>.
+              published: La elección está <strong>publicada</strong>.
+          vote_stats:
+            voters: Votantes
+            votes: Votos
+        trustees_participatory_spaces:
+          actions:
+            disable: Deshabilitar
+            enable: Considerar
+          create:
+            exists: El garante existe para este espacio participativo
+            invalid: Se ha producido un error al crear un garante
+            success: Garante creado correctamente
+          delete:
+            invalid: Se ha producido un error al eliminar este garante
+            success: Garante eliminado correctamente
+          form:
+            select_user: Seleccionar usuario
+          index:
+            title: Garantes
+          new:
+            create: Crear garante
+            title: Nuevo garante
+          update:
+            invalid: Se ha producido un error al actualizar el garante %{trustee}
+            success: El garante %{trustee} se ha actualizado correctamente
       admin_log:
         election:
+          end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} en el Bulletin Board"
           publish: "%{user_name} ha publicado la votación %{resource_name}"
           unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
       election_m:
