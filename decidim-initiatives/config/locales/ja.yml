@@ -146,10 +146,7 @@ ja:
             email_subject: 新しいマイルストーンが完了しました！
             notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは署名の %{percentage}%を達成している。
         support_threshold_reached:
-          email_intro: イニシアチブ %{resource_title} がサポートのしきい値に達しました
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-          email_subject: サポートのしきい値に達しました
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブはサポートのしきい値に達しました
     gamification:
       badges:
         initiatives:

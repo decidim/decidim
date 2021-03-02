@@ -34,16 +34,16 @@ fr:
             confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
             confirm_all: Révoquer toutes les autorisations ne peut pas être annulés. Êtes-vous sûr de vouloir continuer ?
           destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
-          destroy_ok: Toutes les autorisations correspondantes ont été annulées avec succès !
+          destroy_ok: Toutes les autorisations correspondantes ont été annulées avec succès.
           info: Il y a un total de %{count} participants vérifiés.
           no_data: Aucun participant vérifié
-          title: Révocation des vérifications
-        authorization_workflows: Vérifications
+          title: Révocation des autorisations
+        authorization_workflows: Autorisations
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} mis à jour la configuration de la vérification des documents d'identité"
+        update_id_documents_config: "%{user_name} a mis à jour la configuration de vérification des documents d’identité"
       user:
-        grant_id_documents_offline_verification: "%{user_name} vérifié %{resource_name} aide d'une vérification hors ligne des documents d'identité"
+        grant_id_documents_offline_verification: "%{user_name} a vérifié %{resource_name} au moyen d’une vérification de documents d’identité hors ligne"
     authorization_handlers:
       admin:
         csv_census:

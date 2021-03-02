@@ -106,7 +106,7 @@ sv:
         answer:
           body: Kroppen kan inte vara to
       files:
-        extension_whitelist: 'Godkända format:'
+        extension_allowlist: 'Godkända format:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Denna bild kommer att vara:'

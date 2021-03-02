@@ -277,10 +277,6 @@ ar:
       conferences:
         conference_registration:
           confirm: "%{user_name} أكد تسجيل مؤتمر في مؤتمر %{resource_name}"
-        partner:
-          create: "%{user_name} أنشأ %{resource_name} إلى %{space_name} المؤتمر"
-          delete: "%{user_name} أزال المشرف %{resource_name} من المؤتمر %{space_name}"
-          update: "%{user_name} محدث %{resource_name} في المؤتمر %{space_name}"
         registration_type:
           create: "%{user_name} أنشأ نوع التسجيل %{resource_name} في المؤتمر %{space_name}"
           publish: "%{user_name} نشر نوع التسجيل %{resource_name} في المؤتمر %{space_name}"

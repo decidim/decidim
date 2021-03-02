@@ -53,6 +53,25 @@ module Decidim
         end
       end
 
+      initializer "decidim_consultations.admin_consultation_menu" do
+        Decidim.menu :admin_consultation_menu do |menu|
+          menu.item I18n.t("info", scope: "decidim.admin.menu.consultations_submenu"),
+                    decidim_admin_consultations.edit_consultation_path(current_consultation),
+                    position: 1.0,
+                    active: is_active_link?(decidim_admin_consultations.edit_consultation_path(current_consultation)),
+                    if: allowed_to?(:update, :consultation, consultation: current_consultation)
+          menu.item I18n.t("questions", scope: "decidim.admin.menu.consultations_submenu"),
+                    decidim_admin_consultations.consultation_questions_path(current_consultation),
+                    position: 1.1,
+                    active: is_active_link?(decidim_admin_consultations.consultation_questions_path(current_consultation)),
+                    if: allowed_to?(:read, :question)
+          menu.item I18n.t("results", scope: "decidim.admin.menu.consultations_submenu"),
+                    decidim_admin_consultations.results_consultation_path(current_consultation),
+                    position: 1.0,
+                    active: is_active_link?(decidim_admin_consultations.results_consultation_path(current_consultation)),
+                    if: allowed_to?(:read, :question)
+        end
+      end
       initializer "decidim_consultations.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.consultations", scope: "decidim.admin"),
@@ -61,6 +80,11 @@ module Decidim
                     position: 3.8,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :consultations)
+        end
+      end
+      initializer "decidim_consultations.action_controller" do |_app|
+        ActiveSupport.on_load :action_controller do
+          helper Decidim::Consultations::Admin::ConsultationMenuHelper if respond_to?(:helper)
         end
       end
     end

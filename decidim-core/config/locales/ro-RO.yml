@@ -35,7 +35,6 @@ ro:
       decidim/profile_updated_event: Profil actualizat
       decidim/promote_to_admin: Promovat la grupul de administratori
       decidim/removed_from_group: Eliminat din grup
-      decidim/resource_endorsed_event: Resursă aprobată
   activerecord:
     attributes:
       decidim/user:
@@ -402,7 +401,6 @@ ro:
         ready: Gata
       show:
         download_data: Descarcă datele
-        download_data_description: Un fișier cu toate informațiile asociate contului va fi trimis la <strong>%{user_email}</strong>
         request_data: Solicită date
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
@@ -623,7 +621,6 @@ ro:
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
       data_portability_export:
-        click_button: 'Faceți clic pe butonul următor pentru a descărca datele. <br/> Veți avea fișierul disponibil până la %{date}. <br/> Veți avea nevoie de <a href=''https://www.7-zip.org/''>7-Zip</a> pentru a-l deschide. Parola: %{password}'
         download: Descărcare
       export:
         ready: Găsiți atașat o versiune zip a exportului dvs.
@@ -657,7 +654,6 @@ ro:
       create:
         button: Urmărește
         error: A apărut o problemă la urmărirea acestei resurse.
-        participatory_space: Deja în urma spațiului participativ
       destroy:
         button: Oprește urmărirea
         error: A apărut o problemă la neurmărirea acestei resurse.
@@ -910,7 +906,6 @@ ro:
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
-          not_allowed: Acest utilizator nu mai acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
           send: Trimite
@@ -1440,7 +1435,7 @@ ro:
     messages:
       already_confirmed: a fost deja confirmat, încercați să vă conectați
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
-      content_type_whitelist_error: tipul de fișier nu este valid
+      content_type_allowlist_error: tipul de fișier nu este valid
       cycle_detected: un părinte al unui domeniu nu poate fi unul dintre descendenții săi
       expired: a expirat, vă rugăm să solicitaţi unul nou
       file_size_is_less_than_or_equal_to: dimensiunea fişierului trebuie să fie mai mică sau egală cu %{count}

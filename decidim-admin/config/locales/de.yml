@@ -26,11 +26,14 @@ de:
         published_at: Veröffentlicht unter
         weight: Reihenfolge
       id: ID
+      import:
+        user_group_id: Importierte Inhalte erstellen als
       newsletter:
         body: Haupttext
         subject: Betreff
       organization:
         alert_color: Benachrichtigung
+        available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
         cta_button_path: Call To Action Schaltfläche Pfad
@@ -41,6 +44,8 @@ de:
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
         facebook_handler: Facebook-Handler
         favicon: Icon
+        force_authentication: Authentifizierung erzwingen
+        force_users_to_authenticate_before_access_organization: Benutzer müssen sich authentifizieren bevor sie auf die Organisation zugreifen können
         from: Absender E-Mail
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
@@ -53,6 +58,7 @@ de:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kurze Beschreibung
         highlighted_content_banner_title: Titel
+        host: Host
         instagram_handler: Instagram-Handler
         logo: Logo
         machine_translation_display_priority: Priorität der maschinellen Übersetzung
@@ -65,16 +71,21 @@ de:
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        organization_admin_email: E-Mail des Organisations-Admins
+        organization_admin_name: Name des Organisations-Admins
+        organization_locales: Verfügbare Sprachen
         primary_color: Primär
         reference_prefix: Referenzpräfix
         rich_text_editor_in_public_views: Rich-Text-Editor für Teilnehmer aktivieren
         secondary_color: Sekundär
+        secondary_hosts: Weitere Hosts
         send_welcome_notification: Willkommens-Benachrichtigung senden
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
+        users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
@@ -116,6 +127,10 @@ de:
               allowed_file_content_types: Ungültige Bilddatei
             official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Ungültiger MIME-Typ
   activerecord:
     attributes:
       decidim/static_page:
@@ -142,6 +157,7 @@ de:
         category:
           new: Neue Kategorie
         export: Export
+        import: Importieren
         manage: Verwalten
         new: Neu %{name}
         newsletter:
@@ -358,6 +374,12 @@ de:
           title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
+      forms:
+        file_help:
+          import:
+            explanation: 'Hinweise für die Datei:'
+            message_1: CSV, JSON und Excel (.xls) Dateien werden unterstützt
+            message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
@@ -396,6 +418,24 @@ de:
           impersonate_existing_managed_user: Angenommen, dass der Benutzer "%{name}" verwaltet wird
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
+      imports:
+        creators:
+          proposalcreator: Vorschlagsersteller
+        error: Beim Importieren ist ein Fehler aufgetreten
+        help:
+          proposalcreator: Die Datei muss die Spaltennamen title/de und body/de (oder andere Sprachen wie zum Beispiel title/en und body/en) enthalten. Zudem sind scope/id und category/id unterstützt.
+        import_from_file: Aus einer Datei importieren
+        invalid_lines: Fehler in der Ressource Nummer %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xls: XLS
+          actions:
+            back: Zurück
+          file_legend: Datei zum Importieren hinzufügen.
+          import: Importieren
+        notice: "%{number}%{resource_name} erfolgreich importiert"
       logs:
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle
@@ -513,14 +553,14 @@ de:
       moderated_users:
         index:
           actions:
-            block: Blockieren
+            block: Benutzer blockieren
             title: Aktionen
-            unblock: Blockierung aufheben
+            unblock: Blockierung des Benutzers aufheben
             unreport: Meldung Rückgängig machen
           name: Name
           nickname: Spitzname
           reason: Grund
-          reports: Berichte
+          reports: Anzahl Meldungen
           title: Liste der gemeldeten Benutzer
         report:
           reasons:
@@ -889,6 +929,16 @@ de:
       errors:
         impersonate_user:
           reason: Sie müssen einen Grund angeben, wenn Sie sich als nicht verwalteter Benutzer ausgeben
+    metrics:
+      blocked_users:
+        object: blockierte Benutzer
+        title: Blockierte Benutzer
+      reported_users:
+        object: gemeldete Benutzer
+        title: Gemeldete Benutzer
+      user_reports:
+        object: Benutzer-Meldungen
+        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen

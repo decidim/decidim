@@ -34,6 +34,7 @@ ca:
         subtitle: Subtítol
         target: Qui hi participa
         title: Títol
+        weight: Pes
       participatory_process_group:
         description: Descripció
         hero_image: Imatge

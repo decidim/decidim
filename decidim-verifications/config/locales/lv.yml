@@ -34,16 +34,8 @@ lv:
             confirm: Atļauju atsaukšana, sākot ar datumu, nevar tikt atsaukta. Vai tiešām vēlaties turpināt?
             confirm_all: Visu atļauju atsaukšana nevar tikt atsaukta. Vai tiešām vēlaties turpināt?
           destroy_nok: Atļauju atsaukšanas laikā radās problēma.
-          destroy_ok: Visas atbilstīgās atļaujas tika veiksmīgi atsauktas!
           info: Kopā ir %{count} verificētu dalībnieku.
           no_data: Nav verificētu dalībnieku
-          title: Verifikācijas atsaukšana
-        authorization_workflows: Verifikācijas
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} atjaunināja personu apliecinošu dokumentu verifikācijas konfigurāciju"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} verificēja %{resource_name}, izmantojot bezsaistes personu apliecinošu dokumentu verifikāciju"
     authorization_handlers:
       admin:
         csv_census:

@@ -303,7 +303,6 @@ gl:
         ready: Listo
       show:
         download_data: Descarga os datos
-        download_data_description: Un ficheiro con toda a información asociada á conta enviarase a <strong>%{user_email}</strong>
         request_data: Solicitar datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
@@ -496,7 +495,6 @@ gl:
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
       data_portability_export:
-        click_button: 'Fai clic no seguinte botón para descargar os teus datos. <br/> Terá o ficheiro dispoñible ata o %{date}.'
         download: Descarga
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -1138,7 +1136,7 @@ gl:
     messages:
       already_confirmed: xa se confirmou, intente iniciar sesión
       confirmation_period_expired: Necesítase confirmar dentro de %{period}, solicita un novo
-      content_type_whitelist_error: o tipo de ficheiro non é válido
+      content_type_allowlist_error: o tipo de ficheiro non é válido
       cycle_detected: un pai do alcance non pode ser un dos seus descendentes
       expired: caducou, por favor solicita unha nova
       file_size_is_less_than_or_equal_to: O tamaño do ficheiro debe ser inferior ou igual a %{count}

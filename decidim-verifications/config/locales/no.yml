@@ -24,14 +24,6 @@
         full_address: Full adresse
         verification_code: Verifiseringskode
   decidim:
-    admin:
-      menu:
-        authorization_workflows: Verifikasjoner
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} oppdaterte identitets dokumentasjonens verifikasjons konfigurasjon"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} verifiserte %{resource_name} bruker en offline Identitets Dokument verifikasjon"
     authorization_handlers:
       admin:
         csv_census:

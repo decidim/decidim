@@ -13,6 +13,7 @@ nl:
         decidim_scope_id: Reikwijdte
         description: Beschrijving
         proposal_ids: Verwante voorstellen
+        selected: Geselecteerd voor implementatie
         title: Titel
   activerecord:
     models:
@@ -55,6 +56,8 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van dit budget
             success: Budget succesvol bijgewerkt
+        exports:
+          projects: Projecten
         models:
           budget:
             name: Budget
@@ -72,6 +75,7 @@ nl:
           index:
             finished_orders: Voltooide stemmen
             pending_orders: Afwachtende stemmen
+            selected: Geselecteerd
             title: Projecten
           new:
             create: Creëren
@@ -87,6 +91,7 @@ nl:
             create: Voorstellen importeren in projecten
             no_components: Er zijn geen andere voorstelcomponenten in deze participatieruimte om de voorstellen in projecten te importeren.
             select_component: Selecteer een component
+            title: Voorstellen importeren
       admin_log:
         budget:
           create: "%{user_name} heeft het %{resource_name} budget aangemaakt in de %{space_name} ruimte"
@@ -179,6 +184,11 @@ nl:
           category: Categorie
           scope: Reikwijdte
           search: Zoeken
+          status: Status
+          status_values:
+            all: Alles
+            not_selected: Niet geselecteerd
+            selected: Geselecteerd
         filters_small_view:
           close_modal: Dialoogvenster sluiten
           filter: Filter
@@ -198,9 +208,11 @@ nl:
           lowest_cost: Laagste kosten
           most_voted: Meeste stemmen
           random: Willekeurige volgorde
+          selected: Geselecteerd
         project:
           add: Voeg project %{resource_name} toe aan uw stem
           remove: Verwijder project %{resource_name} uit uw stem
+          selected: Geselecteerd
           view: Bekijk
           votes:
             one: stem
@@ -211,6 +223,7 @@ nl:
           add_descriptive: Voeg project %{resource_name} toe aan uw stem
           added: Toegevoegd aan je stem
           added_descriptive: Project %{resource_name} is aan uw stem toegevoegd
+        projects_for: Projecten voor %{name}
         show:
           budget: Begroting
           view_all_projects: Bekijk alle projecten
@@ -231,6 +244,7 @@ nl:
             landing_page_content: Budgetten landingspagina
             more_information_modal: Meer informatie
             projects_per_page: Projecten per pagina
+            resources_permissions_enabled: Actiemachtigingen kunnen voor elk project worden ingesteld
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
             title: Titel
@@ -239,6 +253,8 @@ nl:
             vote_rule_minimum_budget_projects_enabled: 'Inschakelen van regel: minimum aantal projecten waarover gestemd moet worden'
             vote_rule_selected_projects_enabled: 'Activeer regel: er moet over een minimum en een maximum aantal projecten gestemd worden'
             vote_rule_threshold_percent_enabled: 'Regel inschakelen: Minimaal budget percentage'
+            vote_selected_projects_maximum: Maximum aantal te selecteren projecten
+            vote_selected_projects_minimum: Minimaal aantal te selecteren projecten
             vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
             workflow: Workflow
             workflow_choices:
@@ -252,8 +268,12 @@ nl:
             list_heading: Lijst kop
             more_information_modal: Meer informatie
             show_votes: Toon stemmen
+            title: Titel
+            votes: Stemronde
             votes_choices:
+              disabled: Stemmen uitgeschakeld
               enabled: Stemmen ingeschakeld
+              finished: Stemmen beëindigd
     events:
       budgets:
         budget_published:

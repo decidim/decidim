@@ -149,10 +149,7 @@ es:
             email_subject: '¡Nuevo hito completado!'
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
         support_threshold_reached:
-          email_intro: La iniciativa %{resource_title} ha alcanzado el umbral de firmas
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Umbral de firmas alcanzado
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha llegado al umbral de firmas
     gamification:
       badges:
         initiatives:

@@ -16,9 +16,6 @@ it:
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
         title: Titolo
-      voting:
-        end_time: Ora fine
-        start_time: Ora di inizio
     errors:
       models:
         answer:

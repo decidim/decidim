@@ -103,6 +103,16 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohtaan %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>on jättänyt uuden kommentin kohtaan <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Kommenttisi kohteessa "%{resource_title}" sai miinusäänen. Sillä on yhteensä %{upvotes} ääntä ja %{downvotes} miinusääntä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet jättänyt tämän kommentin.
+          email_subject: Kommenttisi kohteessa "%{resource_title}" sai miinusäänen.
+          notification_title: <a href="%{resource_path}">Kommenttisi</a> kohteessa "%{resource_title}" sai miinusäänen. Sillä on yhteensä %{upvotes} ääntä ja %{downvotes} miinusääntä.
+        comment_upvoted:
+          email_intro: Kommenttisi kohteessa "%{resource_title}" sai äänen. Sillä on yhteensä %{upvotes} ääntä ja %{downvotes} miinusääntä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet jättänyt tämän kommentin.
+          email_subject: Kommenttisi kohteessa "%{resource_title}" sai äänen.
+          notification_title: <a href="%{resource_path}">Kommenttisi</a> kohteessa "%{resource_title}" sai äänen. Sillä on yhteensä %{upvotes} ääntä ja %{downvotes} miinusääntä.
         reply_created:
           email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen tällä sivulla:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska kommenttiisi vastattiin.

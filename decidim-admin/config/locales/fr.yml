@@ -26,6 +26,8 @@ fr:
         published_at: Publiée à
         weight: Rang d'affichage
       id: ID
+      import:
+        user_group_id: Créer des imports en tant que
       newsletter:
         body: Corps de texte
         subject: Objet
@@ -116,6 +118,10 @@ fr:
               allowed_file_content_types: Fichier image invalide
             official_img_header:
               allowed_file_content_types: Fichier image invalide
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Type MIME invalide
   activerecord:
     attributes:
       decidim/static_page:
@@ -142,6 +148,7 @@ fr:
         category:
           new: Nouvelle catégorie
         export: Exporter
+        import: Importer
         manage: Gérer
         new: + %{name}
         newsletter:
@@ -358,6 +365,12 @@ fr:
           title_cont: Rechercher %{collection} par titre.
         state_eq:
           label: État
+      forms:
+        file_help:
+          import:
+            explanation: 'Instructions concernant le fichier:'
+            message_1: Les fichiers CSV, JSON et Excel (.xls) sont supportés
+            message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
@@ -396,6 +409,24 @@ fr:
           impersonate_existing_managed_user: Représenter l'utilisateur "%{name}"
           impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
           impersonate_new_managed_user: Représenter un nouvel utilisateur
+      imports:
+        creators:
+          proposalcreator: Créateur de proposition
+        error: Un problème est survenu lors de l'import
+        help:
+          proposalcreator: Le fichier doit comprendre les colonnes title/fr et body/fr (ou une autre locale de votre choix). Les colonnes scope/id et category/id sont également prises en charge.
+        import_from_file: Importer à partir d'un fichier
+        invalid_lines: Erreur trouvée dans la ressource aux lignes %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Retour
+          file_legend: Ajouter un fichier d'import qui sera analysé.
+          import: Importer
+        notice: "%{number} %{resource_name} importées avec succès"
       logs:
         logs_list:
           no_logs_yet: Il n'y a pas encore de journal d'activité
@@ -513,14 +544,11 @@ fr:
       moderated_users:
         index:
           actions:
-            block: Bloquer
             title: Actions
-            unblock: Débloquer
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
           reason: Raison du signalement
-          reports: Signalements
           title: Liste des utilisateurs signalés
         report:
           reasons:
@@ -529,7 +557,6 @@ fr:
             spam: Spam
         tabs:
           blocked: Bloqué
-          unblocked: Débloqué
       moderations:
         index:
           title: Modérations

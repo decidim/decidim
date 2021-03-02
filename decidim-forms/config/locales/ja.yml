@@ -108,7 +108,7 @@ ja:
         answer:
           body: 本文は空白にできません
       files:
-        extension_whitelist: '承認されたフォーマット:'
+        extension_allowlist: '承認されたフォーマット:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'この画像は次のようになります:'

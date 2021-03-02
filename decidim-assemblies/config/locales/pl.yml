@@ -252,7 +252,6 @@ pl:
         update: "%{user_name} zaktualizował(a) ustawienia zespołów"
       assembly_type:
         create: "%{user_name} utworzył(a) typ zespołu %{resource_name}"
-        delete: "%{user_name} usunął/usunęła typ zespołu %{resource_name} z przestrzeni %{space_name}"
         publish: "%{user_name} opublikował(a) typ zespołu %{resource_name}"
         unpublish: "%{user_name} anulował(a) publikację typu zespołu %{resource_name}"
         update: "%{user_name} zaktualizował(a) typ zespołu %{resource_name}"
@@ -442,8 +441,6 @@ pl:
       home:
         hero:
           participate_title: Weź udział w procesach udostępnionych na platformie
-        sub_hero:
-          register_title: Zarejestruj się, aby utworzyć konto na platformie
     participatory_processes:
       pages:
         home:

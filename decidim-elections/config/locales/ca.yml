@@ -16,6 +16,9 @@ ca:
         max_selections: Número màxim d'opcions
         min_selections: Cap de les anteriors
         title: Títol
+      voting:
+        end_time: La votació finalitza
+        start_time: Comença la votació
     errors:
       models:
         answer:
@@ -38,6 +41,16 @@ ca:
         one: Pregunta
         other: Preguntes
   decidim:
+    admin:
+      filters:
+        role_eq:
+          label: Rol
+          values:
+            manager: Gestor
+            president: Presidenta
+            unassigned: Sense assignar
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o lloc de votació.
     components:
       elections:
         actions:
@@ -135,6 +148,12 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquesta pregunta
             success: La pregunta s'ha actualitzat correctament
+        steps:
+          vote_stats:
+            no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
+            title: Estadístiques de les votacions
+            voters: Votants
+            votes: Vots
       admin_log:
         election:
           publish: "%{user_name} ha publicat la votació %{resource_name}"
@@ -256,6 +275,20 @@ ca:
     participatory_processes:
       statistics:
         elections_count: Votacions
+    votings:
+      votings:
+        index:
+          no_votings: Cap votació s'ajusta als vostres criteris de cerca.
+          only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
+      votings_m:
+        footer_button_text:
+          participate: Participeu
+          vote: Voteu
+        voting_type:
+          hybrid: Híbrid
+          in_person: Presencial
+          online: En línia
+        voting_types_label: Tipus de votació
   layouts:
     decidim:
       election_votes_header:

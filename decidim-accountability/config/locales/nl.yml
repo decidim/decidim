@@ -32,6 +32,8 @@ nl:
   decidim:
     accountability:
       actions:
+        attachment_collections: Mappen
+        attachments: Bijlagen
         confirm_destroy: Weet u zeker dat u deze %{name} wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
@@ -47,11 +49,11 @@ nl:
         import_results:
           new:
             import: Importeren
-            link: koppeling
+            link: link
             title: Importeer resultaten van CSV
         imports:
           create:
-            success: Het bestand is begonnen met importeren. U ontvangt binnen enkele minuten een e-mail met het resultaat van de import
+            success: Het importeren van het bestand is gestart. Je ontvangt binnen enkele minuten een e-mail met het resultaat van het importeren
         models:
           result:
             name: Resultaat
@@ -121,20 +123,29 @@ nl:
         value_types:
           parent_presenter:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datums
+          results: Resultaten
+          unspecified: Niet gespecificeerd
       import_mailer:
         import:
           errors: Foutmeldingen
           errors_present: Er is een probleem opgetreden bij het importeren van de resultaten
           row_number: Rij
           subject: Resultaten importeren geslaagd
-          success: Resultaten importeren geslaagd. U kunt de resultaten bekijken via de administratie interface.
+          success: Resultaten importeren geslaagd. Je kunt de resultaten bekijken via de administratie interface.
       last_activity:
         new_result_at_html: "<span>Nieuw resultaat op %{link}</span>"
       models:
         result:
           fields:
+            category: Categorie
+            created_at: Aangemaakt
             end_date: Einddatum
+            id: ID
             progress: Vooruitgang
+            scope: Scope
             start_date: Startdatum
             status: Status
             title: Titel
@@ -148,6 +159,9 @@ nl:
           fields:
             description: Beschrijving
             entry_date: Datum
+      result_m:
+        executed: Uitgevoerd
+        view: Bekijk
       results:
         count:
           results_count:
@@ -178,6 +192,15 @@ nl:
             votes: Ondersteunt
         timeline:
           title: Project evolutie
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Scope
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Opvolging
@@ -204,17 +227,17 @@ nl:
           notification_title: Het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen in het <a href="%{resource_path}">%{resource_title}</a> resultaat.
         result_progress_updated:
           email_intro: 'Het resultaat "%{resource_title}", dat het voorstel "%{proposal_title}" bevat, is nu voor %{progress}% gereed. Je kunt het vanaf deze pagina bekijken:'
-          email_outro: U hebt deze melding ontvangen omdat u "%{proposal_title}" volgt en dit voorstel is opgenomen in resultaat "%{resource_title}". Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Een update naar %{resource_title} voortgang
-          notification_title: Het resultaat <a href="%{resource_path}">%{resource_title}</a>, inclusief het voorstel <a href="%{proposal_path}">%{proposal_title}</a>, is nu %{progress}% voltooid.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt en dit voorstel is opgenomen in resultaat "%{resource_title}". Je kunt stoppen met het ontvangen van meldingen via bovenstaande link.
+          email_subject: Voortgang van %{resource_title} bijgewerkt
+          notification_title: Het resultaat <a href="%{resource_path}">%{resource_title}</a>, waarin het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen, is nu %{progress}% voltooid.
     metrics:
       results:
         description: Aantal gegenereerde resultaten
-        object: uitslagen
-        title: resultaten
+        object: resultaten
+        title: Resultaten
     participatory_spaces:
       highlighted_results:
-        see_all: Alle resultaten bekijken (%{count})
+        see_all: Bekijk alle resultaten (%{count})
     resource_links:
       included_projects:
         result_project: Projecten opgenomen in dit resultaat

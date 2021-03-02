@@ -27,7 +27,7 @@ ja:
           error: コメントに投票中に問題がありました。
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">あなたのアカウントでログインする</a> か、 <a href="%{sign_up_url}">ユーザー登録</a> してコメントを追加します。
+        account_message: <a href="%{sign_in_url}">ログイン</a> または <a href="%{sign_up_url}">新規登録</a> することでコメントできます。
         form:
           body:
             label: コメント

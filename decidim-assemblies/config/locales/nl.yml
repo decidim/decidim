@@ -1,6 +1,8 @@
 nl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Organigram tonen
       assembly:
         area_id: Onderwerp
         assembly_type: Groepstype
@@ -50,6 +52,7 @@ nl:
         target: Wie neemt deel
         title: Titel
         twitter: Twitter
+        weight: Gewicht
         youtube: YouTube
       assembly_member:
         birthday: Geboortedatum
@@ -60,6 +63,7 @@ nl:
         full_name: Volledige naam
         gender: Geslacht
         position: Positie
+        user_id: Gebruiker
       assembly_user_role:
         email: E-mail
         name: Naam
@@ -246,7 +250,7 @@ nl:
         update: "%{user_name} heeft de instellingen van de Buurderijen bijgewerkt"
       assembly_type:
         create: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
-        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
+        delete: "%{user_name} heeft het groepstype %{resource_name} bijgewerkt"
         publish: "%{user_name} heeft de %{resource_name} groep gepubliceerd"
         unpublish: "%{user_name} heeft de publicatie van de groep %{resource_name} ongedaan gemaakt"
         update: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
@@ -305,6 +309,9 @@ nl:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum aantal elementen dat kan worden weergegeven
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Leden
@@ -380,13 +387,19 @@ nl:
         comments_count: Reacties
         debates_count: Debatten
         endorsements_count: Aanbevelingen
+        followers_count: Volgers
+        headline: Statistieken
         meetings_count: Events
+        no_stats: Er zijn nog geen statistieken.
         orders_count: Ondersteunt
         pages_count: Pagina's
+        participants_count: Deelnemers
         posts_count: Berichten
+        processes_count: Processen
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
+        supports_count: Aantal keer gesteund
         surveys_count: Enquêtes
         users_count: Deelnemers
         votes_count: Ondersteunt
@@ -437,7 +450,7 @@ nl:
         hero:
           participate_title: Neem deel aan de processen van het platform
         sub_hero:
-          register_title: Registreer om een account op het platform aan te maken
+          register_title: Meld je aan voor een account
     participatory_processes:
       pages:
         home:

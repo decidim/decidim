@@ -265,10 +265,6 @@ eu:
       conferences:
         conference_registration:
           confirm: "%{user_name} Kongresuko matrikula bat baieztatu da %{resource_name} Kongresuan"
-        partner:
-          create: "%{user_name} sortu %{resource_name} %{space_name} konferentzia"
-          delete: "%{user_name} kendu erabiltzaileak %{resource_name} tik %{space_name} konferentzia"
-          update: "%{user_name} eguneratzen %{resource_name} parte %{space_name} konferentzia"
         registration_type:
           create: "%{user_name} sortutako %{resource_name} matrikula mota %{space_name} konferentzia"
           publish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} biltzarrean"

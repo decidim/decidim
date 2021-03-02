@@ -35,7 +35,6 @@ es:
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promocionada a administradora del grupo
       decidim/removed_from_group: Eliminada del grupo
-      decidim/resource_endorsed_event: Adhesión a recurso realizada
   activerecord:
     attributes:
       decidim/user:
@@ -423,7 +422,6 @@ es:
         ready: Listo
       show:
         download_data: Descárgate los datos
-        download_data_description: Un archivo con toda la información asociada con la cuenta se enviará a <strong>%{user_email}</strong>
         request_data: Solicita datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
@@ -641,7 +639,6 @@ es:
           notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       data_portability_export:
-        click_button: 'Haz clic en el siguiente botón para descargar tus datos. <br/> Tendrás el archivo disponible hasta %{date}. <br/> Necesitarás <a href=''https://www.7-zip.org/''>7-Zip</a> para abrirlo. Contraseña: %{password}'
         download: Descargar
       export:
         ready: Se adjunta una versión comprimida de su exportación.
@@ -674,7 +671,6 @@ es:
       create:
         button: Seguir
         error: Se ha producido un error al seguir este recurso.
-        participatory_space: Siguiendo
       destroy:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
@@ -932,7 +928,6 @@ es:
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
-          not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
         start:
           send: Enviar
@@ -1476,7 +1471,7 @@ es:
     messages:
       already_confirmed: ya fue confirmado, por favor intenta iniciar sesión
       confirmation_period_expired: se tiene que confirmar dentro de %{period}, por favor solicita uno nuevo
-      content_type_whitelist_error: el tipo de archivo no es válido
+      content_type_allowlist_error: el tipo de archivo no es válido
       cycle_detected: uno de los padres de un ámbito no puede ser uno de sus descendientes
       expired: ha expirado, por favor, solicita uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}

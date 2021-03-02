@@ -25,7 +25,6 @@ sr:
     admin_log:
       assembly_type:
         create: "%{user_name} je stvorio tip veća %{resource_name}"
-        delete: "%{user_name} je uklonio člana %{resource_name} iz tipa veća %{space_name}"
         publish: "%{user_name} je objavio tip veća %{resource_name}"
         unpublish: "%{user_name} je odustao od objavljivanja tipa veća %{resource_name}"
         update: "%{user_name} je ažurirao tip veća %{resource_name}"
@@ -64,8 +63,6 @@ sr:
       home:
         hero:
           participate_title: Učestvujte u procesima platforme
-        sub_hero:
-          register_title: Registrujte se na platformu
     participatory_processes:
       pages:
         home:

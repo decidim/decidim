@@ -17,9 +17,6 @@ uk:
         full_address: Повна адреса
         verification_code: Перевірочний код
   decidim:
-    admin:
-      menu:
-        authorization_workflows: Шляхи підтвердження особи
     authorization_handlers:
       admin:
         id_documents:

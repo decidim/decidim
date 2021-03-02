@@ -284,7 +284,6 @@ ru:
         ready: Готово
       show:
         download_data: Загрузить данные
-        download_data_description: Файл со всеми сведениями, связанными с учетной записью, будет отправлен на <strong>%{user_email}</strong>
         request_data: Запросить данные
     datepicker:
       help_text: 'Ожидаемый формат: %{datepicker_format}'
@@ -391,7 +390,6 @@ ru:
           notification_title: Страница <a href="%{resource_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
     export_mailer:
       data_portability_export:
-        click_button: 'Нажмите следующую кнопку, чтобы загрузить данные. <br/> Файл будет доступен до %{date}.'
         download: Скачать
       export:
         ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
@@ -811,7 +809,7 @@ ru:
   errors:
     messages:
       already_confirmed: уже был подтвержден, попробуйте войти
-      content_type_whitelist_error: этот тип файла недопустим
+      content_type_allowlist_error: этот тип файла недопустим
       cycle_detected: родитель охвата не может быть одним из его потомков
       file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
       nesting_too_deep: не может быть внутри подкатегории
