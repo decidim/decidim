@@ -98,6 +98,9 @@ ca:
             enable: Marcar resposta com seleccionada
             invalid: S'ha produït un error en seleccionar aquesta resposta
             success: Resposta seleccionada correctament
+          unselect:
+            invalid: Hi ha hagut un problema en deseleccionar aquesta resposta
+            success: Resposta deseleccionada correctament
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta resposta
             success: Resposta actualitzada amb èxit
@@ -124,6 +127,9 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquesta votació
             success: S'ha actualitzat la votació correctament
+        exports:
+          elections: Eleccions
+          feedback_form_answers: Feedback de les respostes
         models:
           answer:
             name: Resposta
@@ -131,6 +137,8 @@ ca:
             name: Votació
           question:
             name: Pregunta
+          trustee:
+            name: Garant
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a respostes
@@ -139,6 +147,7 @@ ca:
             create: Importa propostes a respostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu per importar les propostes a respostes.
             select_component: Selecciona un component
+            title: Importar propostes
         questions:
           create:
             invalid: S'ha produït un error en crear aquesta pregunta
