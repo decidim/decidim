@@ -134,11 +134,13 @@ cs:
           new:
             create: Vytvořit odpověď
             title: Nová odpověď
+          not_selected: Nevybráno
           select:
             disable: Zrušit výběr odpovědi
             enable: Označit odpověď jako vybranou
             invalid: Při výběru této odpovědi došlo k potížím
             success: Odpověď byla úspěšně vybrána
+          selected: Vybráno
           unselect:
             invalid: Při zrušení výběru této odpovědi došlo k chybě
             success: Odpovědi byl úspěšně zrušen výběr
@@ -253,12 +255,24 @@ cs:
             title: Připraveno k zahájení
           processing: Zpracovávání...
           results_published:
+            answer: Odpověď
+            not_selected: Nevybráno
+            question: Otázka
+            result: Výsledek
+            selected: Vybráno
+            submit: Odeslat
             title: Výsledky publikovány
           tally:
             title: Proces spojení
             trustees: Volební důvěrníci
           tally_ended:
+            answer: Odpověď
+            not_selected: Nevybráno
+            question: Otázka
+            result: Výsledek
+            selected: Vybráno
             submit: Publikovat výsledky
+            title: Vypočítané výsledky
           vote:
             errors:
               time_after: Volby stále probíhají. Musíte počkat na ukončení hlasovacího období (%{end_time}).
@@ -381,7 +395,9 @@ cs:
         answer:
           fields:
             proposals: Návrhy
+            selected: Vybráno
             title: Název
+            votes: Hlasy
         election:
           fields:
             bb_status: Stav Bulletin Boardu
@@ -502,6 +518,8 @@ cs:
           update:
             success: Váš identifikační veřejný klíč byl úspěšně uložen.
       votes:
+        ballot_decision:
+          back: Zahájit proces hlasování znovu
         confirm:
           answer: Odpověď
           answer_number: odpověď %{number}
