@@ -521,7 +521,9 @@ cs:
             success: Váš identifikační veřejný klíč byl úspěšně uložen.
       votes:
         ballot_decision:
+          audit: "(Audit volebního lístku)"
           back: Zahájit proces hlasování znovu
+          cast: Obsazení volebního lístku
         confirm:
           answer: Odpověď
           answer_number: odpověď %{number}
