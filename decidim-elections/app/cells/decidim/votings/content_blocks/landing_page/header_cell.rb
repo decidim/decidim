@@ -67,21 +67,20 @@ module Decidim
           end
 
           def navigation_items
-            ([
-
-              {
-                name: t("layouts.decidim.voting_navigation.voting_menu_item"),
-                url: decidim_votings.voting_path(current_participatory_space),
-                active: is_active_link?(decidim_votings.voting_path(current_participatory_space), :exclusive)
-
-              }
-            ] + components.map do |component|
-                  {
-                    name: translated_attribute(component.name),
-                    url: main_component_path(component),
-                    active: is_active_link?(main_component_path(component), :inclusive)
-                  }
-                end
+            (
+              [
+                {
+                  name: t("layouts.decidim.voting_navigation.voting_menu_item"),
+                  url: decidim_votings.voting_path(current_participatory_space),
+                  active: is_active_link?(decidim_votings.voting_path(current_participatory_space), :exclusive)
+                }
+              ] + components.map do |component|
+                {
+                  name: translated_attribute(component.name),
+                  url: main_component_path(component),
+                  active: is_active_link?(main_component_path(component), :inclusive)
+                }
+              end
             ).compact
           end
 
