@@ -561,6 +561,15 @@ ca:
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
+          title: Llistant usuàries reportades
+        report:
+          reasons:
+            does_not_belong: No pertany
+            offensive: Ofensiu
+            spam: Spam
+        tabs:
+          blocked: Bloquejat
+          unblocked: No bloquejat
       moderations:
         index:
           title: Moderacions
@@ -572,6 +581,18 @@ ca:
         reports:
           index:
             author: Autor(s)
+            callout_html: Un contingut apareix al panell de moderació quan ha estat reportat per una usuària (pot ser qualsevol amb un compte registrat) fent clic en la icona %{icon} al costat de l'element.
+            content_original_language: Idioma original del contingut
+            participatory_space: Espai de participació
+            reported_content: Contingut reportat
+            see_current: Veure actual
+            see_original: Veure original
+            title: Informes de moderació
+          show:
+            report_details: Detalls del motiu
+            report_language: Idioma de l'informe
+            report_reason: Motiu
+            title: Detalls de l'informe
       newsletter_templates:
         index:
           preview_template: Previsualitzar
@@ -655,6 +676,7 @@ ca:
           officialize: Oficialitza
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
+          reports: Informes
           show_email: Mostra l'adreça de correu
           status: Estat
           unblock: Desbloquejar usuària
@@ -685,6 +707,7 @@ ca:
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
@@ -719,6 +742,7 @@ ca:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         index:
+          import_via_csv: Importar des de CSV
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
@@ -841,6 +865,7 @@ ca:
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         metrics: Mètriques
+        panel: Administradora
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
@@ -904,8 +929,19 @@ ca:
       errors:
         impersonate_user:
           reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada
+    metrics:
+      blocked_users:
+        object: usuàries bloquejades
+        title: Usuàries bloquejades
+      reported_users:
+        object: usuàries reportades
+        title: Usuàries reportades
+      user_reports:
+        object: informes d'usuari
+        title: Informes d'usuari
     moderations:
       actions:
+        expand: Expandir
         hidden: Ocults
         hide: Amagar
         not_hidden: No ocult
@@ -926,17 +962,28 @@ ca:
       models:
         moderation:
           fields:
+            created_at: Data de creació
             hidden_at: Data d'ocultació
+            participatory_space: Espai de participació
             report_count: Recompte
+            reportable_id: Id
+            reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
             visit_url: Visiteu l'URL
+        report:
+          fields:
+            details: Detalls del motiu
+            locale: Idioma
+            reason: Motiu
   errors:
     messages:
       invalid_json: JSON no vàlid
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderacions globals
         newsletters:
           title: Butlletins
         settings:
