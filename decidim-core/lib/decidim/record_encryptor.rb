@@ -116,7 +116,18 @@ module Decidim
     def decrypt_hash_values(hash)
       return hash unless hash.is_a?(Hash)
 
-      hash.transform_values { |value| ActiveSupport::JSON.decode(decrypt_value(value)) }
+      hash.transform_values do |value|
+        decrypted_value = decrypt_value(value)
+
+        # When handling legacy non-encrypted hash values, the decrypted values
+        # could not be valid JSON strings. They could be normal strings that
+        # cannot be JSON decoded.
+        begin
+          ActiveSupport::JSON.decode(decrypted_value)
+        rescue JSON::ParserError
+          decrypted_value
+        end
+      end
     end
 
     def encrypt_hash_values(hash)
