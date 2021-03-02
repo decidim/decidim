@@ -217,7 +217,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
     subject do
       component
         .manifest
-        .not_hidden
         .export_manifests
         .find { |manifest| manifest.name == :proposals }
         .collection
