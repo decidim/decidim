@@ -111,6 +111,8 @@ es:
         comment_upvoted:
           email_intro: Tu comentario en "%{resource_title}" ha sido votado. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
           email_outro: Has recibido esta notificación porque eres la autora de este comentario.
+          email_subject: Tu comentario en "%{resource_title}" ha sido votado positivamente.
+          notification_title: Tu <a href="%{resource_path}">comentario</a> en "%{resource_title}" ha sido votado positivamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
         reply_created:
           email_intro: "%{author_name} ha respondido a tu comentario en %{resource_title}. Puedes leerlo en esta página:"
           email_outro: Has recibido esta notificación porque tu comentario fue respondido.
