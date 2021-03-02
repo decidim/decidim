@@ -259,7 +259,6 @@ cs:
             trustees: Volební důvěrníci
           tally_ended:
             submit: Publikovat výsledky
-            title: Výsledky spočítány
           vote:
             errors:
               time_after: Volby stále probíhají. Musíte počkat na ukončení hlasovacího období (%{end_time}).
@@ -544,9 +543,6 @@ cs:
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
-        processing:
-          header: Zpracovávám hlasování...
-          text: Váš hlas byl přijat a právě se zpracovává. Počkejte prosím.
         update:
           error: Při aktualizaci stavu hlasování došlo k chybě
           success: Stav hlasování byl úspěšně aktualizován
