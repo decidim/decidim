@@ -295,7 +295,7 @@ pl:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugi służą do generowania adresów URL, które przekierują do tej konferencji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konferencji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         conference_invites:
           create:
             error: Podczas zapraszania użytkownika do udziału w konferencji wystąpił błąd.
@@ -339,7 +339,7 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
-            slug_help: 'URL slugi służą do generowania adresów URL, które przekierują do tej konferencji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konferencji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         diplomas:
           edit:
             save: Zapisz
