@@ -16,10 +16,10 @@ pl:
         hashtag: Hashtag
         hero_image: Obraz główny
         local_area: Obszar organizacji
-        meta_scope: Zakres metadanych
+        meta_scope: Zakres
         participatory_process_group_id: Grupa procesów
         participatory_scope: Zaproponowano
-        participatory_structure: Jak decydowano
+        participatory_structure: Jak wziąć udział
         promoted: Promowany
         published_at: Opublikowano
         related_process_ids: Powiązane procesy
@@ -32,7 +32,7 @@ pl:
         slug: URL slug
         start_date: Data rozpoczęcia
         subtitle: Podtytuł
-        target: Kto uczestniczy
+        target: Kto może wziąć udział
         title: Tytuł
       participatory_process_group:
         description: Opis
@@ -110,7 +110,7 @@ pl:
           info: Informacje
           moderations: Moderacje
           private_users: Użytkownicy prywatni
-          process_admins: Użytkownicy procesu
+          process_admins: Administratorzy procesu
           steps: Etapy
       models:
         participatory_process:
@@ -216,7 +216,7 @@ pl:
           title: Aktualizuj administratora procesu partycypacyjnego
           update: Aktualizuj
         index:
-          process_admins_title: Administratorzy procesu partycypacyjnego
+          process_admins_title: Administratorzy procesu
         new:
           create: Utwórz
           title: Nowy administrator procesu partycypacyjnego
@@ -407,18 +407,18 @@ pl:
         index:
           loading: Ładowanie wyników...
       show:
-        area: Obszar
+        area: Kategoria
         dates: Daty
         developer_group: Grupa inicjatorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
         participatory_scope: Co zostało postanowione
-        participatory_structure: Jak decydowano
+        participatory_structure: Jak wziąć udział
         private_space: To jest prywatny proces
         related_processes: Powiązane procesy
         scope: Zakres
         start_date: Data rozpoczęcia
-        target: Kto uczestniczy
+        target: Kto może wziąć udział
         unspecified: Nieokreślony
       statistics:
         answers_count: Odpowiedzi
