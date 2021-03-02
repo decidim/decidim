@@ -523,7 +523,9 @@ cs:
         ballot_decision:
           audit: "(Audit volebního lístku)"
           back: Zahájit proces hlasování znovu
-          cast: Obsazení volebního lístku
+          cast: Zahlasování hlasovacího lístku
+          description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
+          header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
         confirm:
           answer: Odpověď
           answer_number: odpověď %{number}
