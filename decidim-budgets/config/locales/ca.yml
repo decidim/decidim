@@ -253,8 +253,8 @@ ca:
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
             vote_rule_selected_projects_enabled: 'Activar regla: projectes seleccionats amb un número mínim i màxim de projectes a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
-            vote_selected_projects_maximum: Màxim nombre de projectes a seleccionar
-            vote_selected_projects_minimum: Mínim nombre de projectes a seleccionar
+            vote_selected_projects_maximum: Número màxim de projectes a seleccionar
+            vote_selected_projects_minimum: Número màxim de projectes a seleccionar
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
             workflow: Workflow
             workflow_choices:
