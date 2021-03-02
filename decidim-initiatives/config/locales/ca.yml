@@ -394,6 +394,13 @@ ca:
         revoke_membership_request:
           email_intro: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la iniciativa %{resource_title}."
           email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa %{resource_title}.'
+          email_subject: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la següent iniciativa <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} ha sol·licitat formar part de la comissió promotora de la teva iniciativa %{resource_title}. Per a acceptar o rebutjar la sol·licitud, vés al formulari d'edició de la teva iniciativa."
+          email_outro: 'Has rebut aquesta notificació perquè ets l''autora de la iniciativa %{resource_title}'
+          email_subject: "%{applicant_nickname} vol unir-se a la teva iniciativa"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha sol·licitat formar part de la comissió promotora de la teva iniciativa <a href="%{resource_url}">%{resource_title}</a>. Per acceptar-ho o rebutjar-ho fes clic <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Documents
         attachment_legend: "(Opcional) Afegiu adjunts"
@@ -503,6 +510,7 @@ ca:
           section: 'Si l''organització ho demana, imprimeix i omple aquest formulari per presentar-lo quan s''indiqui:'
           signature: Signatura
         result:
+          answer_title: S'ha respost aquesta iniciativa
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           any_vote_method: Aquesta iniciativa ciutadana recull signatures digitals i presencials.
