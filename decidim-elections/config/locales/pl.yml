@@ -778,7 +778,7 @@ pl:
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
