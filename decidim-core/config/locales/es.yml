@@ -1325,6 +1325,13 @@ es:
       update:
         error: Se ha producido un error al actualizar tus intereses.
         success: Tus intereses se han actualizado correctamente.
+    user_report_mailer:
+      notify:
+        body_1: La usuaria %{user} ha sido reportada por %{token}
+        body_2: 'Motivo: %{reason}'
+        greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola %{admin},
+        subject: Una nueva usuaria ha sido reportada en %{organization_name}
     version:
       show:
         back_to_resource: Volver atrás
@@ -1569,6 +1576,11 @@ es:
         instagram: "%{organization} en Instagram"
         twitter: "%{organization} en Twitter"
         youtube: "%{organization} en YouTube"
+      timeout_modal:
+        body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
+        continue_session: Continuar sesión
+        sign_out: Cerrar sesión
+        title: '¿Quieres continuar con la sesión?'
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
