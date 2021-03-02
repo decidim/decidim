@@ -103,6 +103,9 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}" o la seva autora. Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
           notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: El teu comentari a "%{resource_title}" ha rebut un vot negatiu. Ara tens un total de %{upvotes} vots positius i %{downvotes} vots negatius.
+          email_outro: Has rebut aquesta notificació perquè ets autora d'aquest comentari.
         reply_created:
           email_intro: "%{author_name} ha respost el teu comentari a %{resource_title}. Pots llegir-lo en aquesta pàgina:"
           email_outro: Has rebut aquesta notificació perquè s'ha respost el teu comentari.
