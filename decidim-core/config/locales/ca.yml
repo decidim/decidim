@@ -159,6 +159,8 @@ ca:
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
+      user_moderation:
+        unreport: "%{user_name} ha desfet el report %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>TERMES D'ÚS PER ADMINS</h2><p>Donem per fet que has rebut l'habitual explicació de l'administrador del sistema local. En general es redueix a aquestes tres coses:</p><ol><li>Respectar la privadesa dels altres.</li><li>Penseu abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
     alert:
@@ -424,6 +426,7 @@ ca:
         ready: Llest
       show:
         download_data: Descarrega't les dades
+        download_data_description: S'enviarà un arxiu amb tota la informació associada al teu compte a <strong>%{user_email}</strong>. Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS). Si uses Linux, la majoria de les vegades ho tindràs instal·lat per defecte. Si no, pots utilitzar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Sol·licita dades
     datepicker:
       help_text: 'Format esperat: %{datepicker_format}'
@@ -433,6 +436,7 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
+          nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
           sign_up: Si us plau, completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
@@ -441,6 +445,7 @@ ca:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
+          nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
           password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
           sign_in: Entra
           sign_up: Registra't
