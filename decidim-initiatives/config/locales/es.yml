@@ -137,6 +137,11 @@ es:
           email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
           notification_title: El plazo de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
+        initiative_sent_to_technical_validation:
+          email_intro: La iniciativa "%{resource_title}" ha sido enviada a la validación técnica. Compruébala en <a href="%{admin_initiative_url}">el panel de administración</a>
+          email_outro: Has recibido esta notificación porque eres una administradora de la plataforma.
+          email_subject: La iniciativa "%{resource_title}" fue enviada a validación técnica.
+          notification_title: La iniciativa "%{resource_title}" ha sido enviada a validación técnica. Compruébalo en <a href="%{admin_initiative_path}">el panel de administración</a>
         milestone_completed:
           affected_user:
             email_intro: '¡Tu iniciativa %{resource_title} ha conseguido el %{percentage}% de las firmas necesarias!'
@@ -149,7 +154,10 @@ es:
             email_subject: '¡Nuevo hito completado!'
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
         support_threshold_reached:
+          email_intro: La iniciativa %{resource_title} ha alcanzado el umbral de firmas
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_subject: Umbral de firmas alcanzado
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha alcanzado el umbral de firmas
     gamification:
       badges:
         initiatives:
@@ -194,12 +202,17 @@ es:
         content_blocks:
           highlighted_initiatives:
             max_results: Cantidad máxima de elementos para mostrar
+            order:
+              default: Por defecto (menos recientes)
+              label: 'Ordenar elemento por:'
+              most_recent: Más recientes
         exports:
           initiatives: Iniciativas
         initiatives:
           edit:
             accept: Aceptar iniciativa
             confirm: '¿Estás seguro?'
+            confirm_send_to_technical_validation: '¿Estás seguro/a?'
             discard: Descartar la iniciativa
             export_pdf_signatures: Exportar PDF de Firmas
             export_votes: Exportar firmas
@@ -256,6 +269,7 @@ es:
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
+            child_scope_threshold_enabled_help: 'Este ajuste de configuración no soporta recogida de firmas en persona, habilita indicadores de firmas por subámbitos y funciona con un controlador de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización más abajo, en la configuración de autorización. Para que funcione debe configurarse de manera jerárquica : 1 ámbito - N subámbitos. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.'
             only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.
             options: Opciones
             title: Información general
@@ -295,9 +309,13 @@ es:
         filter_type_values:
           all: Todos
       committee_requests:
+        approve:
+          success: La solicitud ha sido aprobada.
         new:
           continue: Continuar
           help_text: Estás a punto de solicitar convertirte en miembro del comité promotor de esta iniciativa
+        revoke:
+          success: La solicitud ha sido revocada.
         spawn:
           success: Tu solicitud ha sido enviada a la autora de la iniciativa.
       content_blocks:
@@ -316,8 +334,14 @@ es:
           back: Volver
           back_to_initiatives: Volver a iniciativas
           callout_text: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
+          confirm: Vas a enviar la iniciativa para que una administradora la revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
+          edit_my_initiative: Editar mi iniciativa
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
+          send_my_initiative: Enviar mi iniciativa a validación técnica
+        finish_help:
+          access_reminder: Puede acceder a tus iniciativas a través del filtro %{link} en la página de Iniciativas.
+          publish_helper_text: Recuerda que para que tu iniciativa sea publicada debes completar la información requerida y <strong>enviarla a validación técnica</strong> para que una administradora la revise.
         previous_form:
           back: Volver
           continue: Continuar
@@ -341,6 +365,9 @@ es:
           compare_help: Si alguna de las siguientes iniciativas es similar a la tuya, te animamos a que la firmes. Tu propuesta tendrá más posibilidades de llevarse a cabo.
           continue: Mi iniciativa es diferente
           more_information: "(Más información)"
+      edit:
+        accept: Aceptar la iniciativa
+        back: Volver
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha creado una nueva iniciativa, compruébalo y contribuye:"
