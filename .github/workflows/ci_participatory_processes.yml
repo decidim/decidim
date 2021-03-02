@@ -20,7 +20,7 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
-    timeout-minutes: 60
+    timeout-minutes: 120
     services:
       postgres:
         image: postgres:11
