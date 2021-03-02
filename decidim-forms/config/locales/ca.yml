@@ -10,12 +10,15 @@ ca:
         question_type: Tipus
       questionnaire_question:
         mandatory: Obligatori
+        max_characters: Límit de caràcters (deixa-ho a 0 si no hi ha límit)
     errors:
       models:
         answer:
           attributes:
             add_documents:
               needs_to_be_reattached: Ha de ser adjuntat de nou
+            body:
+              too_long: és massa llarg
             choices:
               missing: no estan complets
               too_many: en són masses
@@ -80,6 +83,7 @@ ca:
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
             preview: Previsualitzar
+            title: Editar formulari per %{questionnaire_for}
             unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però al fer-ho s'esborraran les respostes actuals.
           matrix_row:
             matrix_row: Fila
