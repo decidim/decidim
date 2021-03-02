@@ -47,6 +47,7 @@ ca:
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
         target: Qui participa
+        title: Títol
       participatory_process_step:
         cta_path: Ruta del botó d'acció
         cta_text: Text del botó d'acció
@@ -102,6 +103,9 @@ ca:
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grups de processos
+        participatory_process_groups_submenu:
+          info: Informació
+          landing_page: Pàgina d'inici
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
@@ -124,6 +128,8 @@ ca:
             title: Títol
           name: Procés participatiu
         participatory_process_group:
+          fields:
+            title: Títol
           name: Grup de processos
         participatory_process_step:
           fields:
@@ -151,6 +157,13 @@ ca:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Duplica procés participatiu
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocs de contingut actius
+          inactive_content_blocks: Blocs de contingut inactius
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Actualitzar
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error eliminant aquest grup de processos participatius.
@@ -307,6 +320,15 @@ ca:
       show:
         related_assemblies: Assemblees relacionades
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Primer bloc HTML
+        html_2:
+          name: Segon bloc HTML
+        html_3:
+          name: Tercer bloc HTML
+        metadata:
+          developer_group: Promogut per
       show:
         title: Grups de processos participatius
     participatory_process_steps:
