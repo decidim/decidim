@@ -140,6 +140,10 @@ es:
             participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             proposal_answering_enabled: Respuesta a propuestas habilitada
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por las autoras antes de que pasen estos minutos
+            proposal_edit_time: Edición de propuestas
+            proposal_edit_time_choices:
+              infinite: Permitir editar propuestas por una cantidad infinita de tiempo
+              limited: Permitir la edición de propuestas dentro de un plazo específico
             proposal_length: Longitud máxima del cuerpo de la propuesta
             proposal_limit: Límite de propuestas por participante
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuestas
@@ -379,7 +383,9 @@ es:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
+            document_legend: 'Añade un documento menor de 2MB, cada sección hasta 3 niveles de profundidad serán analizados en propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: Añadir documento
             upload_document: Subir documento
           publish:
@@ -420,6 +426,7 @@ es:
           form:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta procede de un encuentro
+            delete_attachment: Eliminar archivo adjunto
             select_a_category: Selecciona una categoría
             select_a_meeting: Selecciona un encuentro
           index:
@@ -494,6 +501,7 @@ es:
             no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
             select_component: Selecciona un componente
             select_states: Comprueba los estados de las propuestas a importar
+            title: Importar propuestas
         proposals_merges:
           create:
             invalid: Se ha producido un error al fusionar las propuestas seleccionadas.
@@ -646,6 +654,9 @@ es:
           info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_header:
           title: Crea tu borrador colaborativo
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propuestas
       create:
         error: Se ha producido un error al guardar la propuesta.
         success: Propuesta creada correctamente. Guardada como borrador.
@@ -698,6 +709,8 @@ es:
           proposals_count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
+        dynamic_map_instructions:
+          instructions: <h3>Puedes mover el punto en el mapa. </h3><p>No olvides hacer clic en el botón "Actualizar posición" antes de publicar tu propuesta.</p>
         edit:
           add_documents: Documentos
           add_images: Archivo
@@ -758,13 +771,18 @@ es:
             document_index: Índice del documento
           view_index:
             see_index: Ver índice
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, EN 46112
         preview:
+          announcement_body: Tu propuesta ha sido guardada como borrador. Debe ser publicada para que aparezca en el sitio.
+          announcement_title: Tu propuesta aún no ha sido publicada
           modify: Modificar la propuesta
           proposal_edit_before_minutes:
             one: Podrás editar esta propuesta durante el primer minuto posterior a su publicación. Una vez que pase este tiempo, ya no podrás editarla.
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publicar tu propuesta
+          update_position: Actualizar posición
         proposal:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
