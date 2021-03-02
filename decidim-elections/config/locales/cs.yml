@@ -263,7 +263,7 @@ cs:
             submit: Odeslat
             title: Výsledky publikovány
           tally:
-            title: Proces spojení
+            title: Proces volebního přepočítání
             trustees: Volební důvěrníci
           tally_ended:
             answer: Odpověď
@@ -272,6 +272,7 @@ cs:
             result: Výsledek
             selected: Vybráno
             submit: Publikovat výsledky
+            success: Volební přepočítání úspěšně zakončeno
             title: Vypočítané výsledky
           vote:
             errors:
@@ -284,8 +285,9 @@ cs:
             title: Období hlasování
           vote_ended:
             invalid: Vyskytl se problém při startu Volební listiny
-            submit: Začít Volební listinu
-            success: Požadavek zahájení Volební listiny byl úspěšně odeslán na Bulletin Board
+            submit: Začít Volební přepočítání
+            success: Požadavek zahájení Volebního přepočítání byl úspěšně odeslán na Bulletin Board
+            text: Hlasování bylo ukončeno. Nyní můžete začít volební přepočítání.
             title: Období hlasování skončilo
           vote_stats:
             no_vote_statistics_yet: Zatím žádné statistiky hlasování
@@ -319,7 +321,7 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           setup: "%{user_name} vytvořil %{resource_name} volby na Bulletin Boardu"
           start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby ve Bulletin Board %{resource_name}"
-          start_tally: "%{user_name} zahájil Volební listinu pro volby v %{resource_name} na Bulletin Board"
+          start_tally: "%{user_name} zahájil Volební přepočítání pro volby v %{resource_name} na Bulletin Board"
           start_vote: "%{user_name} zahájil hlasovací období pro volby v %{resource_name} na Bulletin Boardu"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
@@ -457,10 +459,10 @@ cs:
             back: Zpět
             description: Výsledky těchto voleb jsou vypočítány v Bulletin Board. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
             keys:
-              end_tally: Volební listina uzavřena
+              end_tally: Volební přepočítání uzavřeno
               tally:
-                cast: Obsazení volební listiny
-                share: Podíly Volební listiny
+                cast: Obsazení volebního přepočítávání
+                share: Poměry volebního přepočítávání
             list:
               status: Stav
               task: Úloha
@@ -471,7 +473,7 @@ cs:
               completed: Dokončeno
               pending: Čekající
               processing: Zpracovávání
-            title: Volební listina pro %{election}
+            title: Volební přepočítání pro %{election}
           update:
             error: Stav voleb nebyl aktualizován.
             success: 'Stav voleb je: %{status}'
