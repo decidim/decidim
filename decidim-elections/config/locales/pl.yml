@@ -264,7 +264,6 @@ pl:
             trustees: Powiernicy
           tally_ended:
             submit: Publikuj wyniki
-            title: Kalkulacja wyników
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
@@ -549,9 +548,6 @@ pl:
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
-        processing:
-          header: Przetwarzanie głosu...
-          text: Twój głos został odebrany i jest przetwarzany. Proszę czekać.
         update:
           error: Podczas aktualizowania głosu wystąpił błąd
           success: Status głosu został zaktualizowany
