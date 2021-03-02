@@ -1022,6 +1022,7 @@ ca:
         administrators: Administradores
         allow_public_contact: Permetre que qualsevol participant m'envïi missatges directes, encara que no la segueixi.
         direct_messages: Rebre missatges directes de qualsevol
+        email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti quelcom per moderació.
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         everything_followed: Tot el que segueixo
         newsletter_notifications: Vull rebre butlletins informatius
@@ -1240,6 +1241,15 @@ ca:
         report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
         title: Reportar contingut inapropiat
+      flag_user_modal:
+        already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
+        close: Tancar
+        description: Què és inapropiat d'aquesta usuària?
+        does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
+        offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
+        report: Reportar
+        spam: Conté "clickbait", publicitat o estafes.
+        title: Reportar contingut inapropiat
       floating_help:
         close: Tanca l'ajuda
         help: Ajuda
@@ -1315,6 +1325,13 @@ ca:
       update:
         error: S'ha produït un error en actualitzar els teus interessos.
         success: Els teus interessos s'han actualitzat correctament.
+    user_report_mailer:
+      notify:
+        body_1: La usuària %{user} ha estat reportada per %{token}
+        body_2: 'Motiu: %{reason}'
+        greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola %{admin},
+        subject: Una nova usuària ha estat reportada a %{organization_name}
     version:
       show:
         back_to_resource: Torna enrere
