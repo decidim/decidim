@@ -266,6 +266,7 @@ fi:
             selected: Valittu
             submit: Julkaise tulokset
             success: Ääntenlasku on suoritettu onnistuneesti
+            title: Ääntenlaskun tulokset
           vote:
             errors:
               time_after: Vaali on edelleen käynnissä. Sinun on odotettava päättymisaikaan saakka (%{end_time}) päättääksesi äänestyksen.
@@ -279,6 +280,7 @@ fi:
             invalid: Ääntenlaskennan käynnistäminen epäonnistui
             submit: Aloita ääntenlaskenta
             success: Pyyntösi aloittaa ääntenlaskenta on onnistuneesti lähetetty äänestystaululle
+            text: Äänestys on päättynyt. Voit nyt aloittaa ääntenlaskun.
             title: Äänestysaika on päättynyt
           vote_stats:
             no_vote_statistics_yet: Ei vielä äänitilastoja
@@ -384,7 +386,9 @@ fi:
         answer:
           fields:
             proposals: Ehdotukset
+            selected: Valittu
             title: Otsikko
+            votes: Äänet
         election:
           fields:
             bb_status: Äänestystaulun tila
@@ -505,6 +509,12 @@ fi:
           update:
             success: Julkisen tunnistusavaimesi tallentaminen onnistui.
       votes:
+        ballot_decision:
+          audit: "( Tarkasta äänesi )"
+          back: Aloita äänestysprosessi uudestaan
+          cast: Lähetä äänesi
+          description: Tässä näkymässä voit tarkastaa, että äänesi on laskettu oikein tai että äänesi salaaminen onnistui. Turvallisuussyistä äänesi tarkastaminen kumoaa aikaisemman äänesi. Tämä tarkoittaa, että jättääksesi äänesi, sinun tulee käynnistää äänestysprosessi uudestaan.
+          header: 'Äänesi on salattu: lähetä tai tarkasta se'
         confirm:
           answer: Vastaa
           answer_number: 'vastaus #%{number}'
@@ -531,6 +541,7 @@ fi:
           lead: Ääntäsi ei ole annettu!
           text: Jokin meni pieleen, yritä uudelleen.
         header:
+          ballot_decision: Lähetä tai tarkasta äänesi
           confirm: Vahvista äänesi
           confirmed: Ääni vahvistettu
           encrypting: Ääntäsi vahvistetaan
