@@ -162,7 +162,20 @@ ca:
           minimum_projects_rule:
             description: A quins projectes creus que hem de destinar el pressupost? Selecciona com a mínim %{minimum_number} projectes i vota segons les teves preferències per a definir el pressupost.
             instruction: "<li>Selecciona com a mínim %{minimum_number} projectes i vota segons les teves preferències per a definir el pressupost.</li>"
+          projects_rule:
+            description: A quins projectes creus que hem de destinar el pressupost? Selecciona entre %{minimum_number} i %{maximum_number} projectes i vota segons les teves preferències per a definir el pressupost.
+            instruction: "<li>Selecciona entre %{minimum_number} i %{maximum_number} projectes i vota segons les teves preferències per a definir el pressupost.</li>"
+          projects_rule_maximum_only:
+            description: A quins projectes creus que hem de destinar el pressupost? Selecciona fins a %{maximum_number} projectes i vota segons les teves preferències per a definir el pressupost.
+            instruction: "<li>Selecciona fins a %{maximum_number} projectes i vota segons les teves preferències per a definir el pressupost.</li>"
+          rules:
+            title: Regles de votació
           title: Tu decideixes el pressupost
+          total_budget: Pressupost total
+          total_projects: Vots totals
+          vote_threshold_percent_rule:
+            description: A quins projectes creus que hem de destinar el pressupost? Assigna com a mínim %{minimum_budget} als projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
+            instruction: "<li>Assigna com a mínim %{minimum_budget} als projectes que vulguis i vota segons les teves preferències per a definir el pressupost.</li>"
         count:
           projects_count:
             one: 1 projecte
@@ -204,6 +217,7 @@ ca:
           votes:
             one: vot
             other: vots
+          you_voted: Has votat això
         project_budget_button:
           add: Afegir al teu vot
           add_descriptive: Afegir el projecte %{resource_name} al teu vot
@@ -230,12 +244,14 @@ ca:
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
             projects_per_page: Projectes per pàgina
+            resources_permissions_enabled: Es poden establir permisos d'accions per a cada projecte
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
             title: Títol
             total_budget: Pressupost total
             vote_minimum_budget_projects_number: Número mínim de projectes a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
+            vote_rule_selected_projects_enabled: 'Activar regla: projectes seleccionats amb un número mínim i màxim de projectes a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
             vote_selected_projects_maximum: Màxim nombre de projectes a seleccionar
             vote_selected_projects_minimum: Mínim nombre de projectes a seleccionar
