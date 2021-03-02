@@ -225,6 +225,7 @@ es:
               time_before: La configuración se está realizando <strong>al menos %{hours} horas</strong> antes de que comience la elección.
               trustees_number: El espacio participativo tiene <strong>al menos %{number} garantes con clave pública</strong>.
             submit: Configurar elección
+            success: Elección enviada con éxito al Bulletin Board
             title: Configurar elección
             trustees: Garantes de la elección
           created:
@@ -448,6 +449,51 @@ es:
             description: Los resultados de esta elección están siendo calculados en el Bulletin Board. Para completar este proceso, se necesita tu participación como garante.
             keys:
               end_tally: Recuento finalizado
+              tally:
+                cast: Envío del recuento
+                share: Compartición del recuento
+            list:
+              status: Estado
+              task: Tarea
+            process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará varios minutos, ya que todos los garantes deben estar conectados para completarlo.
+            start: Iniciar
+            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de elección
+            status:
+              completed: Completado
+              pending: Pendiente
+              processing: Procesando
+            title: Recuento para %{election}
+          update:
+            error: El estado de la elección no fue actualizado.
+            success: 'El estado de la elección es: %{status}'
+        menu:
+          trustee_zone: Zona del garante
+        no_bulletin_board:
+          body: Se requiere un Bulletin Board configurado para esta sección. Contacta con el Administrador para más detalles.
+          title: Lo sentimos, el Bulletin Board aún no está configurado.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'No'
+                  name: '¿Acción requerida?'
+                  'true': Realizar acción
+                bb_status: Estado
+                election: Elección
+                voting_period: Período de votación
+              no_elections: No hay elecciones en las que actúes como garante.
+              title: Elecciones
+            identification_keys:
+              cancel: Cancelar
+              generate: Generar claves de identificación
+              generate_error: Hubo un error al generar las claves de identificación.
+              generate_legend: Necesitas generar un par de claves de identificación para participar en las elecciones como garante.
+              generate_legend_1: Después de pulsar el botón debes descargar el archivo con las claves de identificación generadas.
+              generate_legend_2: Copia el archivo descargado a un dispositivo USB limpio
+              generate_legend_3: Asegúrate de que tu equipo no tenga una copia del archivo (por ejemplo, comprueba las carpetas de Descargas y Escritorio).
+              generate_legend_4: Haz otra copia del archivo en un dispositivo externo diferente y guárdalo en un lugar muy seguro.
+              submit: Enviar
       votes:
         ballot_decision:
           header: 'La papeleta está cifrada: envíala o audítala'
@@ -599,8 +645,77 @@ es:
           content_blocks:
             edit:
               update: Actualizar
-        polling_officers:
+          edit:
+            active_content_blocks: Bloques de contenido activos
+            inactive_content_blocks: Bloques de contenido inactivos
+        menu:
+          votings: Votaciones
+          votings_submenu:
+            attachment_collections: Carpetas
+            attachment_files: Archivos
+            attachments: Archivos adjuntos
+            components: Componentes
+            info: Información
+            landing_page: Página de inicio
+            monitoring_committee_members: Comité de seguimiento
+            polling_officers: Gestores de mesa
+            polling_stations: Puntos de votación
+        models:
+          monitoring_committee_member:
+            fields:
+              email: Correo electrónico
+              name: Nombre
+            name: Miembro del comité de seguimiento
+          polling_officer:
+            fields:
+              email: Correo electrónico
+              name: Nombre
+              polling_station: Punto de votación (rol)
+            name: Gestor de mesa
+          polling_station:
+            fields:
+              address: Dirección
+              polling_station_managers: Administradores
+              polling_station_president: Presidente
+              title: Título
+            name: Punto de votación
+          voting:
+            fields:
+              created_at: Creado el
+              promoted: Destacada
+              published: Publicada
+              title: Título
+        monitoring_committee_members:
+          create:
+            invalid: Hubo un problema al crear este miembro del comité de seguimiento
+            success: Miembro del comité de seguimiento creado con éxito
+          destroy:
+            invalid: Hubo un problema al eliminar este miembro del comité de seguimiento
+            success: El miembro del comité de seguimiento ha sido eliminado correctamente
+          form:
+            existing_user: Participante existente
+            non_user: Invitar nueva participante
+            select_user: Buscar por correo electrónico, nombre o alias
+            user_type: Tipo de participante
           index:
+            title: Comité de seguimiento
+          new:
+            create: Crear
+            title: Crear miembro del comité de seguimiento
+        polling_officers:
+          create:
+            invalid: Hubo un problema al crear este gestor de mesa
+            success: Gestor de mesa creado con éxito
+          destroy:
+            invalid: Hubo un problema al eliminar este gestor de mesa
+            success: Gestor de mesa eliminado correctamente
+          form:
+            existing_user: Participante existente
+            non_user: Invitar nueva participante
+            select_user: Buscar por correo electrónico, nombre o alias
+            user_type: Tipo de participante
+          index:
+            role_manager: administrador
             title: Gestores de mesa
           new:
             create: Crear
@@ -676,6 +791,7 @@ es:
           unpublish: "%{user_name} despublicó la votación %{resource_name}"
       votings_m:
         badge_name:
+          finished: Finalizada
           ongoing: En curso
           upcoming: Próximamente
         footer_button_text:
