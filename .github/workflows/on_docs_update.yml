@@ -1,6 +1,8 @@
 name: "On docs update"
 on:
   push:
+    branches:
+    - develop
     paths:
     - 'docs/**'
 
@@ -8,7 +10,6 @@ jobs:
   trigger_documentation_build:
     name: Trigger decidim/documentation build
     runs-on: ubuntu-latest
-    if: "github.ref == 'refs/heads/develop'"
     timeout-minutes: 60
     steps:
     - name: Send dispatch for trigger_build workflow
