@@ -72,8 +72,8 @@ ja:
         blocked_comments_warning: コメントは現時点で無効になっていますが、以前のコメントを読むことができます。
         comment_details_title: コメントの詳細
         loading: コメントを読み込んでいます...
-        single_comment_warning: コメントの残りはこちら <a href="%{url}"></a>で確認できます。
-        single_comment_warning_title: 単一のコメントが表示されています
+        single_comment_warning: コメントの残りは <a href="%{url}">こちら</a>で確認できます。
+        single_comment_warning_title: コメントを1件のみ表示しています
         title: "%{count} 件のコメント"
       down_vote_button:
         text: このコメントに同意しません
