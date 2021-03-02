@@ -11,9 +11,9 @@
 
     let $button = $(".voting-description-cell .content-height-toggler .button");
     let $content = $button.closest(".voting-description-cell").find(".content");
-    let $contentContentMaxHeight = remToPx(7.8);
+    let $contentMaxHeight = remToPx(7.8);
 
-    if ($content.height() < $contentContentMaxHeight) {
+    if ($content.height() < $contentMaxHeight) {
       $button.hide();
       $content.addClass("unexpandable")
     }
