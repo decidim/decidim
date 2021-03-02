@@ -497,7 +497,7 @@ ca:
           general_title: Sol·licitud d'admissió d'una iniciativa
           id_number: Número d'identificació
           initiative:
-            attachments: Documentació adjunta (escriviu el nom de cada document a continuació)
+            attachments: Documentació adjunta (escriu el nom de cada document a continuació)
             description: 'Descripció:'
             title: 'Títol:'
             type: Tipus d'iniciativa
@@ -513,11 +513,11 @@ ca:
           answer_title: S'ha respost aquesta iniciativa
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
-          any_vote_method: Aquesta iniciativa ciutadana recull signatures digitals i presencials.
-          confirm: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
+          any_vote_method: Aquesta iniciativa recull signatures digitals i presencials.
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
           edit: Editar
           follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
-          offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
+          offline_method: Aquesta iniciativa només recull signatures presencials.
           print: Imprimir iniciativa
           send_to_technical_validation: Enviar a validació tècnica
         signatures_count:
@@ -567,7 +567,7 @@ ca:
       unavailable_scope: Àmbit no disponible
       update:
         error: S'ha produït un error
-        success: La iniciativa ciutadana s'ha actualitzat correctament
+        success: La iniciativa s'ha actualitzat correctament
       versions:
         shared:
           back_to_resource: Torna a la iniciativa
