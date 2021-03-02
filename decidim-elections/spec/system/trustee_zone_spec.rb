@@ -103,7 +103,7 @@ describe "Trustee zone", type: :system do
 
   context "when the bulletin_board is not configured" do
     before do
-      allow(Decidim::Elections.bulletin_board).to receive(:api_key).and_return(nil)
+      allow(Decidim::Elections.bulletin_board).to receive(:configured?).and_return(false)
       trustee
       login_as user, scope: :user
     end

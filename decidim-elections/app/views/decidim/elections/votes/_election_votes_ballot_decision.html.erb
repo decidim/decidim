@@ -1,0 +1,32 @@
+<%= render("election_votes_header", header_title: t("decidim.elections.votes.header.ballot_decision")) %>
+
+<div class="focus__content evote">
+  <div class="row">
+    <div>
+      <h1 class="heading2">
+        <%= t("decidim.elections.votes.ballot_decision.header") %>
+      </h1>
+
+      <div class="row">
+        <div class="columns">
+          <p><%= t("decidim.elections.votes.ballot_decision.description") %></p>
+          <span class="ballot-hash">
+          </span>
+          <span>
+            <a class="audit_ballot">
+              <%= t("decidim.elections.votes.ballot_decision.audit") %>
+            </a>
+          </span>
+          <div>
+            <a class="button cast_ballot">
+              <%= t("decidim.elections.votes.ballot_decision.cast") %>
+            </a>
+          </div>
+          <%= link_to election_path(election), class: "button back hide" do %>
+            <%= t("decidim.elections.votes.ballot_decision.back") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

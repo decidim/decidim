@@ -17,6 +17,10 @@
           <tr>
             <th><%= t("models.answer.fields.title", scope: "decidim.elections") %></th>
             <th><%= t("models.answer.fields.proposals", scope: "decidim.elections") %></th>
+            <% if election.results? %>
+              <th><%= t("models.answer.fields.votes", scope: "decidim.elections") %></th>
+              <th><%= t("models.answer.fields.selected", scope: "decidim.elections") %></th>
+            <% end %>
             <th class="actions"><%= t("actions.title", scope: "decidim.elections") %></th>
           </tr>
         </thead>
@@ -29,12 +33,27 @@
               <td>
                 <%= answer.linked_resources(:proposals, "related_proposals").count %>
               </td>
+              <% if election.results? %>
+                <td>
+                  <%= answer.votes_count %>
+                </td>
+                <% if answer.selected %>
+                  <td class="success">
+                    <%= t("answers.selected", scope: "decidim.elections.admin") %>
+                  </td>
+                <% else %>
+                  <td>
+                    <%= t("answers.not_selected", scope: "decidim.elections.admin") %>
+                  </td>
+                 <% end %>
+                </td>
+              <% end %>
               <td class="table-list__actions">
                 <% if election.results? %>
                   <% if answer.selected %>
-                    <%= icon_link_to "circle-check", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon--success", method: :put %>
+                    <%= icon_link_to "x", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% else %>
-                    <%= icon_link_to "circle-x", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
+                    <%= icon_link_to "check", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% end %>
                 <% end %>
 

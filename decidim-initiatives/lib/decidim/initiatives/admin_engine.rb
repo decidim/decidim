@@ -96,7 +96,7 @@ module Decidim
           menu.item I18n.t("menu.initiatives", scope: "decidim.admin"),
                     decidim_admin_initiatives.initiatives_path,
                     icon_name: "chat",
-                    position: 3.7,
+                    position: 2.4,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :initiatives)
         end

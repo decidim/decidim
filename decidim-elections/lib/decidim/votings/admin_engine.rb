@@ -57,7 +57,7 @@ module Decidim
           menu.item I18n.t("menu.votings", scope: "decidim.votings.admin"),
                     decidim_admin_votings.votings_path,
                     icon_name: "comment-square",
-                    position: 3.7,
+                    position: 2.6,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :votings)
         end

@@ -26,6 +26,8 @@ ro:
         published_at: Publicat la
         weight: Greutate
       id: ID
+      import:
+        user_group_id: Creează importuri ca
       newsletter:
         body: Corp
         subject: Subiect
@@ -55,6 +57,8 @@ ro:
         highlighted_content_banner_title: Titlu
         instagram_handler: Gestionar instagram
         logo: Logo
+        machine_translation_display_priority_original: Mai întâi textul original
+        machine_translation_display_priority_translation: Mai întâi textul tradus
         name: Nume
         official_img_footer: Subsol cu logo oficial
         official_img_header: Antet logo oficial
@@ -129,12 +133,16 @@ ro:
       actions:
         add: Adăugare
         browse: Răsfoiţi
+        category:
+          new: Adaugă Categorie
         export: Exportă
         manage: Gestionează
         new: '%{name} nou'
         per_page: Pe pagină
         permissions: Permisiuni
         reject: Respingere
+        user:
+          new: Creează utilizator
         verify: Verifică
       admin_terms_of_use:
         accept:

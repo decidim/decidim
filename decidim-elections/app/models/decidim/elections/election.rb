@@ -94,11 +94,11 @@ module Decidim
         bb_results_published?
       end
 
-      # Public: Checks if the election results present
+      # Public: Checks if the election results are present
       #
       # Returns a boolean.
       def results?
-        bb_tally_ended?
+        bb_tally_ended? || results_published?
       end
 
       # Public: Checks if the election questions are valid

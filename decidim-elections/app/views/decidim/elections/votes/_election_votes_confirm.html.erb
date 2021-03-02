@@ -33,7 +33,7 @@
             </strong>
             <ul>
               <% question.answers.each do |answer| %>
-                <li class="confirmed_answer hide" id="<%= answer.id %>">
+                <li class="confirmed_answer hide" id="<%= answer.slug %>">
                   <%= translated_attribute(answer.title) %>
                 </li>
               <% end %>

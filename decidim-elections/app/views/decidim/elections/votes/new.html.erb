@@ -1,10 +1,12 @@
 <div class="vote-wrapper"
   data-election-id="<%= election.id %>"
-  data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
+  data-api-endpoint-url="<%= bulletin_board_server %>"
+  data-authority-public-key="<%= authority_public_key %>"
   data-election-unique-id="<%= @form.election_unique_id %>"
   data-voter-id="<%= @form.voter_id %>"
   data-cast-vote-url="<%= cast_election_vote_url(election) %>"
   data-update-vote-status-url="<%= election_vote_url(election) %>"
+  data-scheme-name="<%= scheme_name %>"
   data-booth-mode="<%= booth_mode %>">
 
   <% questions.each_with_index do |step_question, step_index| %>
@@ -43,6 +45,10 @@
 
   <div id="encrypting" class="hide focus__step" data-toggler=".hide">
     <%= render("election_votes_encrypting") %>
+  </div>
+
+  <div id="ballot_decision" class="hide focus__step" data-redirect_url=".hide">
+    <%= render("election_votes_ballot_decision") %>
   </div>
 
   <div id="confirmed_page" class="hide focus__step" data-redirect_url=".hide">

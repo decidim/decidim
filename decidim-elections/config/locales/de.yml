@@ -585,6 +585,13 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie für die %{resource_name} -Wahl gestimmt haben.
             email_subject: Deine Stimme für %{resource_name} wurde angenommen.
             notification_title: 'Deine Stimme wurde akzeptiert. Verifiziere deine Stimme <a href="%{verify_url}">hier</a> mit deinem Voting-Token: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Ihnen wurde die Rolle %{role} im Wahllokal %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a> zugewiesen. Sie können das Wahllokal im dazu vorgesehenen <a href="%{polling_officer_zone_url}">Bereich</a> verwalten.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihnen die Rolle %{role} in %{polling_station_name} zugewiesen wurde.
+            email_subject: Sie haben die Rolle %{role} im Wahllokal %{polling_station_name}.
+            notification_title: Sie haben die Rolle %{role} im Wahllokal %{polling_station_name} der Abstimmung <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
@@ -795,12 +802,34 @@ de:
             active_votings: Aktive Abstimmungen
             see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
+      polling_officer_zone:
+        menu:
+          polling_officer_zone: Wahllokal-Mitarbeiter-Bereich
+        polling_officers:
+          show:
+            actions:
+              count_votes: Stimmen in der Wahlurne zählen
+              identify_person: Eine Person identifizieren und verifizieren
+            polling_officer_role_description: Ihnen wurde eine Rolle als Wahlhelfer (Präsident oder Manager) in Wahlen dieser Plattform zugewiesen.
+            polling_stations:
+              list:
+                actions: Aktionen
+                address: Adresse
+                name: Name
+                role: Ihre Rolle
+                voting: Abstimmung
+              no_polling_stations: Sie sind noch zu keinem Wahllokal zugewiesen.
+              title: Wahllokale
       polling_officers:
         actions:
           confirm_destroy: Sind Sie sicher?
           destroy: Entfernen
           new: Neu
           title: Aktionen
+        roles:
+          manager: Manager
+          president: Präsident
+          unassigned: Nicht zugewiesen
       polling_stations:
         actions:
           confirm_destroy: Sind Sie sicher?
