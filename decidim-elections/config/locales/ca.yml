@@ -186,6 +186,38 @@ ca:
               minimum_answers: Cada pregunta té <strong>almenys 2 respostes</strong>.
               minimum_questions: L'elecció té <strong>almenys 1 pregunta</strong>.
               published: L'elecció està <strong>publicada</strong>.
+              trustees_number: L'espai de participació té <strong>almenys %{number} garants amb clau pública</strong>.
+            submit: Configurar elecció
+            success: L'elecció s'ha enviat correctament al Bulletin Board
+            title: Configurar elecció
+            trustees: Garants de l'elecció
+          created:
+            invalid: S'ha produït un error en començar la cerimònia de claus
+            submit: Començar la cerimònia de claus
+            success: La sol·licitud per iniciar la cerimònia de claus s'ha enviat correctament al Bulletin Board
+            title: Elecció creada
+            trustees: Garants
+          key_ceremony:
+            title: Cerimònia de claus
+            trustees: Garants
+          key_ceremony_ended:
+            errors:
+              time_before: L'elecció està llesta per començar. Has d'esperar fins a %{hours} hores abans de l'hora d'inici (%{start_time}) per iniciar el període de votació.
+            invalid: S'ha produït un error en iniciar el període de votació
+            requirements:
+              time_before: L'elecció començarà aviat. Pots iniciar el període de votació manualment, o començarà automàticament abans de l'hora d'inici, a les %{start_time}.
+            submit: Iniciar període de votació
+            success: La sol·licitud per iniciar el període de votació s'ha enviat correctament al Bulletin Board
+            title: A punt per començar
+          processing: Processant...
+          results_published:
+            title: Resultats publicats
+          tally:
+            title: Procés de recompte
+            trustees: Garants
+          tally_ended:
+            submit: Publicar resultats
+            title: Resultats calculats
           vote_stats:
             no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
             title: Estadístiques de les votacions
