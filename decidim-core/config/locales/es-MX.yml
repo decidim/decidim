@@ -425,6 +425,7 @@ es-MX:
         ready: Listo
       show:
         download_data: Descargar los datos
+        download_data_description: Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>. Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicitar datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
@@ -458,6 +459,8 @@ es-MX:
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa
           sign_up_disabled: El registro está deshabilitado, puedes usar un usuario existente para acceder
+        user:
+          timed_out: Has estado sin actividad durante demasiado tiempo y se te ha cerrado automáticamente la sesión del servicio. Si quieres seguir utilizando el servicio, vuelve a iniciar sesión.
       shared:
         newsletter_modal:
           buttons:
@@ -642,6 +645,7 @@ es-MX:
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       data_portability_export:
+        click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
         download: Descargar
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
