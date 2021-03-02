@@ -7,16 +7,16 @@
   <% ordered_answers(question).each do |answer| %>
     <%= label_tag nil, data: { "disabled-by": "#check-nota" }, class: "evote__check evote__card" do %>
       <% if question.max_selections == 1 %>
-        <%= radio_button_tag "#{question.id}", answer.id, false, class: "answer_input" %>
+        <%= radio_button_tag question.slug, answer.slug, false, class: "answer_input" %>
       <% else %>
-        <%= check_box_tag "#{question.id}", answer.id, false, class: "answer_input" %>
+        <%= check_box_tag question.slug, answer.slug, false, class: "answer_input" %>
       <% end %>
 
       <span class="evote__check-label">
         <%= translated_attribute(answer.title) %>
         <% if more_information?(answer) %>
           <span class="evote__check-extra">
-            <button type="button" class="link" data-toggle="show-focus-modal-<%= answer.id %>">
+            <button type="button" class="link" data-toggle="show-focus-modal-<%= answer.slug %>">
               <%= t("decidim.elections.votes.new.more_information") %>
             </button>
           </span>
@@ -30,9 +30,9 @@
   <% if question.min_selections == 0 %>
     <%= label_tag nil, nil, class: "evote__check evote__card" do %>
       <% if question.max_selections == 1 %>
-        <%= radio_button_tag "#{question.id}", "nota_input_#{question.id}", false, class: "nota_input" %>
+        <%= radio_button_tag question.slug, "nota_input_#{question.slug}", false, class: "nota_input" %>
       <% else %>
-        <%= check_box_tag "#{question.id}", "nota_input_#{question.id}", false, { class: "nota_input", id: "check-nota", data: { "disable-check": "" } } %>
+        <%= check_box_tag question.slug, "nota_input_#{question.slug}", false, { class: "nota_input", id: "check-nota", data: { "disable-check": "" } } %>
       <% end %>
 
       <span class="evote__check-label" id="nota_input">

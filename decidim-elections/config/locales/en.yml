@@ -128,11 +128,13 @@ en:
           new:
             create: Create answer
             title: New answer
+          not_selected: Not selected
           select:
             disable: Unselect answer
             enable: Mark answer as selected
             invalid: There was a problem selecting this answer
             success: Answer successfully selected
+          selected: Selected
           unselect:
             invalid: There was a problem unselecting this answer
             success: Answer successfully unselected
@@ -247,13 +249,25 @@ en:
             title: Ready to start
           processing: Processing...
           results_published:
+            answer: Answer
+            not_selected: Not selected
+            question: Question
+            result: Result
+            selected: Selected
+            submit: Submit
             title: Results published
           tally:
             title: Tally process
             trustees: Trustees
           tally_ended:
+            answer: Answer
+            not_selected: Not selected
+            question: Question
+            result: Result
+            selected: Selected
             submit: Publish results
-            title: Results calculated
+            success: Tally successfully ended
+            title: Calculated results
           vote:
             errors:
               time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
@@ -267,6 +281,7 @@ en:
             invalid: There was a problem starting the tally
             submit: Start tally
             success: Start tally request was successfully sent to the Bulletin Board
+            text: Vote has ended. You can start the tally now.
             title: Vote period ended
           vote_stats:
             no_vote_statistics_yet: No vote statistics yet
@@ -373,7 +388,9 @@ en:
         answer:
           fields:
             proposals: Proposals
+            selected: Selected
             title: Title
+            votes: Votes
         election:
           fields:
             bb_status: Bulletin Board status
@@ -494,6 +511,12 @@ en:
           update:
             success: Your identification public key was successfully stored.
       votes:
+        ballot_decision:
+          audit: "( Audit ballot )"
+          back: Start voting process again
+          cast: Cast ballot
+          description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
+          header: 'Ballot is encrypted: cast or audit it'
         confirm:
           answer: Answer
           answer_number: answer %{number}
@@ -520,6 +543,7 @@ en:
           lead: Your vote has not been casted!
           text: Something went wrong, please try it again.
         header:
+          ballot_decision: Cast or audit your vote
           confirm: Confirm your vote
           confirmed: Vote confirmed
           encrypting: Confirming vote
@@ -535,9 +559,6 @@ en:
           preview_alert: This is a preview of the voting booth.
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
-        processing:
-          header: Processing vote...
-          text: Your vote has been received and it is being processing. Please wait.
         update:
           error: There was a problem updating the vote status
           success: Vote status successfully updated
