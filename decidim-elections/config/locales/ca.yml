@@ -311,7 +311,7 @@ ca:
             list:
               status: Estat
               task: Tasca
-            process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Això pot comportar varis minuts, ja que tots els garants han de connectar-se al mateix temps per completar-lo.
+            process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Trigarà varis minuts, ja que tots els garants han de connectar-se al mateix temps per completar-lo.
             start: Començar
             start_icon: Icona que indica un botó d'inici per a la generació de claus d'una elecció
             status:
@@ -319,6 +319,49 @@ ca:
               pending: Pendent
               processing: Processant
             title: Crear claus per l'elecció %{election}
+          restore_modal:
+            description: El Bulletin Board té informació teva com a garant d'aquesta elecció. Per continuar amb el procés, primer puja l'arxiu generat com a còpia de seguretat durant la sessió anterior.
+            title: Restaurar claus per l'elecció %{election}
+            upload_election_keys: Pujar claus de l'elecció
+            upload_icon: Icona que indica una acció de descàrrega
+          tally_steps:
+            back: Tornar
+            description: Els resultats d'aquesta elecció s'estan computant al Bulletin Board. Per completar aquest procés, és necessària la teva participació com a garant.
+            keys:
+              end_tally: Recompte finalitzat
+              tally:
+                cast: Enviament del recompte
+                share: Compartició del recompte
+            list:
+              status: Estat
+              task: Tasca
+            process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Trigarà varis minuts, ja que tots els garants han de connectar-se al mateix temps per completar-lo.
+            start: Començar
+            start_icon: Icona que indica un botó d'inici per començar la generació de claus d'una elecció
+            status:
+              completed: Completada
+              pending: Pendent
+              processing: Processant
+            title: Recompte per %{election}
+          update:
+            error: L'estat de l'elecció no s'havia actualitzat.
+            success: 'L''estat de l''elecció és: %{status}'
+        menu:
+          trustee_zone: Zona de garants
+        no_bulletin_board:
+          body: Es requereix disposar d'un Bulletin Board configurat per a aquesta secció. Contacta amb l'administradora per més detalls.
+          title: Ho sentim, el Bulletin Board no s'ha configurat encara.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'No'
+                  name: Acció requerida?
+                  'true': Realitzar acció
+                bb_status: Estat
+                election: Elecció
+                voting_period: Període de votació
       votes:
         confirm:
           answer: Resposta
@@ -339,7 +382,10 @@ ca:
         encrypting:
           header: Codificant el vot...
           text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
+        failed:
+          text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
         header:
+          ballot_decision: Envia o audita el teu vot
           confirm: Confirma el teu vot
           confirmed: Vot confirmat
           encrypting: Confirmant vot
@@ -355,6 +401,25 @@ ca:
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        update:
+          error: S'ha produït un error en actualitzar l'estat del vot
+          success: L'estat del vot s'ha actualitzat correctament
+        verify:
+          content:
+            heading: Verifica el teu vot
+            info: Aquest verificador comprova que el teu vot, identificat amb una cadena de text encriptada, s'ha emès correctament i està dins de l'urna.
+          error:
+            header: Vot no localitzat!
+            info: El codi del vot no s'ha trobat a l'urna %{link}, intenta-ho de nou.
+          form:
+            back: Tornar a Decidim
+            submit: Comprovar
+            vote_identifier: 'Codi identificador:'
+          header:
+            title: Verifica el teu vot
+          success:
+            header: Vot localitzat!
+            info: El teu vot encriptat es troba a l'urna %{link}
         voting_step:
           back: Enrere
           continue: Següent
@@ -368,12 +433,38 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: La votació %{resource_title} ja està activa a %{participatory_space_title}.
           notification_title: La votació <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està activa.
+        trustees:
+          new_election:
+            email_intro: Has estat afegit com a garant de l'elecció %{resource_title}.
+            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció %{resource_title}.
+            email_subject: Ets un garant de l'elecció %{resource_title}..
+            notification_title: Ets un garant de l'elecció <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Una administradora t'ha afegit com a garant de %{resource_name}. Hauries de crear la teva clau pública a la teva <a href='%{trustee_zone_url}'>zona de garants</a>
+            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de %{resource_name}.
+            email_subject: Ets garant de %{resource_name}.
+            notification_title: Ets garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'El teu vot s''ha acceptat! Utilitzant el comprovant de vot: %{encrypted_vote_hash}, pots verificar-lo <a href="%{verify_url}">aquí</a>.'
+            email_outro: Has rebut aquesta notificació perquè has votat a l'elecció %{resource_name}.
+            email_subject: El teu vot a %{resource_name} s'ha acceptat.
+            notification_title: 'El teu vot s''ha acceptat. Verifica''l <a href="%{verify_url}">aquí</a> utilitzant el comprovant de vot: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: T'han assignat com %{role} del punt de votació %{polling_station_name} a <a href="%{resource_url}">%{resource_title}</a>. Pots gestionar el punt de votació accedint a la <a href="%{polling_officer_zone_url}">Zona de gestors de mesa</a>.
+            email_outro: Has rebut aquesta notificació perquè t'han assignat com %{role} de %{polling_station_name}.
+            email_subject: Ets %{role} del punt de votació %{polling_station_name}.
+            notification_title: Ets %{role} del punt de votació %{polling_station_name} a la votació <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
           contextual: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara al conjunt de membres d'una organització, fer una crida a participar en la votació, generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar-ne el resultat.</p> <p>Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització. Alguns exemples serien: canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir una durada màxima d'un, dos o tres mandats.</p>"
           page: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara al conjunt de membres d'una organització, fer una crida a participar en la votació, generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar-ne el resultat.</p> <p>Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització. Alguns exemples serien: canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir una durada màxima d'un, dos o tres mandats.</p>"
           title: Què són les votacions?
+    menu:
+      votings: Votacions
     pages:
       home:
         statistics:
@@ -382,6 +473,123 @@ ca:
       statistics:
         elections_count: Votacions
     votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Quantitat màxima d'elements per mostrar
+          landing_page:
+            attachments_and_folders:
+              name: Arxius i carpetes de la votació
+            description:
+              name: Descripció de la votació
+            elections:
+              name: Eleccions de la votació
+            header:
+              name: Capçalera de la votació
+            html_block_1:
+              name: Bloc html 1 de votació
+            html_block_2:
+              name: Bloc html 2 de votació
+            html_block_3:
+              name: Bloc html 3 de votació
+            metrics:
+              name: Mètriques de la votació
+            polling_stations:
+              name: Punts de votació
+            stats:
+              name: Estadístiques de la votació
+            timeline:
+              name: Calendari de la votació
+        index:
+          not_published: Despublicada
+          published: Publicada
+        landing_page:
+          content_blocks:
+            edit:
+              update: Actualitzar
+          edit:
+            active_content_blocks: Blocs de contingut actius
+            inactive_content_blocks: Blocs de contingut inactius
+        menu:
+          votings: Votacions
+          votings_submenu:
+            attachment_collections: Carpetes
+        polling_officers:
+          polling_officers_picker:
+            more_polling_officers: Hi ha %{number} gestors de mesa més. Refina la teva cerca per localitzar-los.
+        polling_stations:
+          create:
+            invalid: S'ha produït un error en crear aquest punt de votació
+            success: Punt de votació creat correctament
+          destroy:
+            invalid: S'ha produït un error en eliminar aquest punt de votació
+            success: Punt de votació eliminat correctament
+          edit:
+            title: Editar punt de votació
+            update: Actualitzar punt de votació
+          form:
+            address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
+            location_help: 'Ubicació: missatge dirigit als votants amb el lloc exacte del punt de votació'
+            location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici on està situat el punt de votació.'
+            polling_station_managers_help: 'Gestors de mesa: els tècnics que actuaran com a responsables del punt de votació. Assegura''t que han estat creats en Gestors de mesa i que no estan ja assignats a un altre punt de votació'
+            polling_station_president_help: 'Presidents de mesa: els tècnics que actuaran com a presidents del punt de votació. Assegura''t que han estat creats en Gestors de mesa i que no estan ja assignats a un altre punt de votació'
+            select_president: Selecciona un gestor com a president del punt de votació
+          index:
+            title: Punts de votació
+          new:
+            create: Crear
+            title: Crear punt de votació
+          update:
+            invalid: S'ha produït un error en actualitzar aquest punt de votació
+            success: Punt de votació actualitzat correctament
+        titles:
+          votings: Votacions
+        votings:
+          actions:
+            confirm_destroy: N'estàs segura?
+            destroy: Eliminar
+            new_voting: Nou espai de votació
+            publish: Publicar
+            unpublish: Despublicar
+          create:
+            invalid: S'ha produït un error en crear aquesta votació
+            success: Votació creada correctament
+          edit:
+            add_election_component: No tens cap elecció configurada per a aquesta votació. Si us plau, afegeix-la a la secció de components
+            assign_missing_officers: Hi ha punts de votació sense president i/o gestors. Si us plau, assigna'ls des de la secció de punts de votació
+            update: Actualitzar
+          form:
+            select_a_voting_type: Si us plau selecciona un tipus de votació
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            title: Títol
+            voting_type:
+              hybrid: Híbrida
+              in_person: Presencial
+              online: En línia
+          new:
+            create: Crear
+            title: Nova votació
+          publish:
+            success: La votació s'ha publicat correctament
+          unpublish:
+            success: La votació s'ha despublicat correctament
+          update:
+            invalid: S'ha produït un error en actualitzar aquesta votació
+            success: La votació s'ha actualitzat correctament
+      admin_log:
+        voting:
+          create: "%{user_name} ha creat la votació %{resource_name}"
+          publish: "%{user_name} ha publicat la votació %{resource_name}"
+          unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Votacions destacades
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: N'estàs segura?
+          destroy: Esborrar
+          new: Nou membre
+          title: Accions
       votings:
         index:
           no_votings: Cap votació s'ajusta als vostres criteris de cerca.
@@ -399,3 +607,6 @@ ca:
     decidim:
       election_votes_header:
         exit: Sortir
+      votings:
+        promoted_voting:
+          vote: Votar
