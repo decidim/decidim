@@ -341,6 +341,7 @@ es:
           send_my_initiative: Enviar mi iniciativa a validación técnica
         finish_help:
           access_reminder: Puede acceder a tus iniciativas a través del filtro %{link} en la página de Iniciativas.
+          publish_helper_text: Recuerda que para que tu iniciativa sea publicada debes completar la información requerida y <strong>enviarla a validación técnica</strong> para que una administradora la revise.
         previous_form:
           back: Volver
           continue: Continuar
@@ -364,7 +365,22 @@ es:
           compare_help: Si alguna de las siguientes iniciativas es similar a la tuya, te animamos a que la firmes. Tu propuesta tendrá más posibilidades de llevarse a cabo.
           continue: Mi iniciativa es diferente
           more_information: "(Más información)"
+      edit:
+        accept: Aceptar la iniciativa
+        back: Volver
+        confirm: '¿Estás seguro/a?'
+        discard: Descartar la iniciativa
+        export_pdf_signatures: Exportar PDF de firmas
+        export_votes: Exportar firmas
+        reject: Rechazar la iniciativa
+        title: Editar Iniciativa
+        update: Actualizar
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} ha aceptado tu solicitud para formar parte del comité promotor de la iniciativa %{resource_title}."
+          email_outro: 'Has recibido esta notificación porque has solicitado unirte a esta iniciativa: %{resource_title}'
+          email_subject: "%{author_nickname} aceptó tu solicitud para unirte al comité promotor"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> aceptó tu solicitud para formar parte del comité promotor de la siguiente iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha creado una nueva iniciativa, compruébalo y contribuye:"
           email_outro: Has recibido esta notificación porque estás siguiendo %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -375,6 +391,20 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Iniciativa adherida por %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue adherida por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} rechazó tu solicitud para formar parte del comité promotor de la siguiente iniciativa %{resource_title}."
+          email_outro: 'Has recibido esta notificación porque has solicitado unirte a esta iniciativa: %{resource_title}.'
+          email_subject: "%{author_nickname} rechazó tu solicitud para unirte al comité promotor"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> rechazó tu solicitud para formar parte del comité promotor de la siguiente iniciativa <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} ha solicitado unirse al comité promotor de tu iniciativa %{resource_title}. Para aceptar o rechazar la solicitud, ve al formulario de edición de tu iniciativa."
+          email_outro: 'Has recibido esta notificación porque eres la autora de la iniciativa %{resource_title}'
+          email_subject: "%{applicant_nickname} quiere unirse a tu iniciativa"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
+      form:
+        add_attachments: Documentos
+        attachment_legend: "(Opcional) Añadir adjuntos"
+        delete_attachment: Borrar
       index:
         title: Iniciativas
       initiative_signatures:
@@ -411,6 +441,13 @@ es:
           hidden_authors_count:
             one: y 1 persona más
             other: y %{count} personas más
+        committee_members:
+          approve: Aprobar
+          confirm_revoke: '¿Estás seguro/a?'
+          invite_to_committee_help: Comparte este enlace para invitar a otras participantes al comité promotor
+          no_members_yet: No hay miembros en el comité promotor
+          revoke: Revocar
+          title: Miembros del comité
         count:
           title:
             one: "%{count} iniciativa"
@@ -452,13 +489,37 @@ es:
           recent: Más recientes
           recently_published: Publicada más recientemente
         print:
+          address: Dirección
+          author_title: Autora de la iniciativa
           city: Ciudad
+          email: Correo electrónico
+          full_name: Nombre completo
+          general_title: Solicitud de admisión de una iniciativa
+          id_number: Número de ID
+          initiative:
+            attachments: Documentación adjunta (por favor escribe el nombre de cada documento abajo)
+            description: 'Descripción:'
+            title: 'Título:'
+            type: Tipo de iniciativa
+          legal_text: Los datos personales recogidos serán incorporados y tratados confidencialmente por la organización, de acuerdo con la legislación vigente.
+          phone_number: Número de teléfono
+          place_date: Lugar, fecha
+          postal_code: Código postal
+          print: Imprimir
+          province: Provincia
+          section: 'Si lo solicita la organización, por favor imprime y rellena este formulario para enviar donde se indique:'
+          signature: Firma
         result:
+          answer_title: Esta iniciativa ha sido respondida
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de firmas.
         show:
           any_vote_method: Esta iniciativa recoge firmas digitales y presenciales.
+          confirm: Vas a enviar la iniciativa para que una administrador ala revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
+          edit: Editar
           follow_description: Recibir una notificación cuando haya novedades sobre esta iniciativa
           offline_method: Esta iniciativa solo recoge firmas presenciales.
+          print: Imprimir Iniciativa
+          send_to_technical_validation: Enviar a validación técnica
         signatures_count:
           one: " firma"
           other: " firmas"
@@ -504,6 +565,9 @@ es:
         accepted: Aceptado
         expired: Caducado
       unavailable_scope: Ámbito no disponible
+      update:
+        error: Se ha producido un error
+        success: La iniciativa se ha actualizado correctamente
       versions:
         shared:
           back_to_resource: Volver a la iniciativa
