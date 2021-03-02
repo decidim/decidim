@@ -223,7 +223,7 @@ ca:
             scopes_enabled: Àmbits habilitats
             title: Títol
             total_budget: Pressupost total
-            vote_minimum_budget_projects_number: Número màxim de projectes a votar
+            vote_minimum_budget_projects_number: Número mínim de projectes a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
