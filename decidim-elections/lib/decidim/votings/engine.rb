@@ -38,7 +38,6 @@ module Decidim
       initializer "decidim_votings.assets" do |app|
         app.config.assets.precompile += %w(
           decidim_votings_manifest.js
-          decidim_votings_manifest.css
         )
       end
 
