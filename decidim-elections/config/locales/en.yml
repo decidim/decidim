@@ -856,6 +856,8 @@ en:
     decidim:
       election_votes_header:
         exit: Exit
+      voting_navigation:
+        voting_menu_item: The voting
       votings:
         index:
           promoted_votings: Highlighted votings

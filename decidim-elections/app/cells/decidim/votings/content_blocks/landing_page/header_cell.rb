@@ -5,14 +5,87 @@ module Decidim
     module ContentBlocks
       module LandingPage
         class HeaderCell < Decidim::ViewModel
-          delegate :current_participatory_space, to: :controller
+          include Cell::ViewModel::Partial
+          include Decidim::LayoutHelper
+          include Browser::ActionController
+          include Decidim::ComponentPathHelper
+          include ActiveLinkTo
 
-          def show
-            content_tag(:div, cell_content)
+          delegate :current_participatory_space,
+                   to: :controller
+
+          private
+
+          def start_time
+            content_tag :span, title: t("activemodel.attributes.voting.start_time") do
+              format_date(current_participatory_space.start_time)
+            end
           end
 
-          def cell_content
-            translated_attribute(current_participatory_space.title)
+          def end_time
+            content_tag :span, title: t("activemodel.attributes.voting.end_time") do
+              format_date(current_participatory_space.end_time)
+            end
+          end
+
+          def format_date(time)
+            if time
+              l(time.to_date, format: :decidim_short)
+            else
+              t("decidim.votings.votings_m.unspecified")
+            end
+          end
+
+          def voting_dates
+            "#{start_time} — #{end_time}"
+          end
+
+          def translated_button_text
+            return unless model
+
+            @translated_button_text ||= translated_attribute(model.settings.button_text)
+          end
+
+          def translated_button_url
+            return unless model
+
+            @translated_button_url ||= translated_attribute(model.settings.button_url)
+          end
+
+          def cta_button
+            return unless model
+
+            link_to translated_button_text, translated_button_url, class: "button button--sc expanded", title: translated_button_text
+          end
+
+          # component navigation
+
+          def components
+            @components ||= current_participatory_space.components
+                                                       .published
+                                                       .or(Decidim::Component.where(id: try(:current_component)))
+          end
+
+          def navigation_items
+            (
+              [
+                {
+                  name: t("layouts.decidim.voting_navigation.voting_menu_item"),
+                  url: decidim_votings.voting_path(current_participatory_space),
+                  active: is_active_link?(decidim_votings.voting_path(current_participatory_space), :exclusive)
+                }
+              ] + components.map do |component|
+                {
+                  name: translated_attribute(component.name),
+                  url: main_component_path(component),
+                  active: is_active_link?(main_component_path(component), :inclusive)
+                }
+              end
+            ).compact
+          end
+
+          def decidim_votings
+            Decidim::Votings::Engine.routes.url_helpers
           end
         end
       end
