@@ -81,6 +81,19 @@ module Decidim
         # original value is returned instead.
         expect(subject.name).to eq("Unencrypted")
       end
+
+      it "returns the original hash values when the JSON parsing fails for the hash values" do
+        subject.instance_variable_set(
+          :@metadata,
+          "email" => "example001@example.org",
+          "verification_code" => "123456789"
+        )
+
+        expect(subject.metadata).to eq(
+          "email" => "example001@example.org",
+          "verification_code" => 123_456_789
+        )
+      end
     end
 
     it_behaves_like "encrypted record"
