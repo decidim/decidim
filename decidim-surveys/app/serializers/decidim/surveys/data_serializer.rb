@@ -11,12 +11,15 @@ module Decidim
       def serialize
         component = resource
         surveys = Decidim::Surveys::Survey.where(component: component)
-        surveys.collect do |survey|
-          next if survey.questionnaire.nil?
+        finalize(
+          surveys,
+          surveys.collect do |survey|
+            next if survey.questionnaire.nil?
 
-          json = serialize_survey(survey)
-          json.with_indifferent_access.merge(survey_id: survey.id)
-        end
+            json = serialize_survey(survey)
+            json.with_indifferent_access.merge(survey_id: survey.id)
+          end
+        )
       end
 
       def serialize_survey(survey)

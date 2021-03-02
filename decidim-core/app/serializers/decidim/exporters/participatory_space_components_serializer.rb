@@ -16,21 +16,24 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this participatory_space.
       def serialize
-        participatory_space.components.collect do |component|
-          serialized = {
-            manifest_name: component.manifest_name,
-            id: component.id,
-            name: component.name,
-            participatory_space_id: component.participatory_space_id,
-            participatory_space_type: component.participatory_space_type,
-            settings: component[:settings].as_json,
-            weight: component.weight,
-            permissions: component.permissions,
-            published_at: component.published_at
-          }
-          serialized[:specific_data] = serialize_component_specific_data(component) if component.serializes_specific_data?
-          serialized
-        end
+        finalize(
+          participatory_space,
+          participatory_space.components.collect do |component|
+            serialized = {
+              manifest_name: component.manifest_name,
+              id: component.id,
+              name: component.name,
+              participatory_space_id: component.participatory_space_id,
+              participatory_space_type: component.participatory_space_type,
+              settings: component[:settings].as_json,
+              weight: component.weight,
+              permissions: component.permissions,
+              published_at: component.published_at
+            }
+            serialized[:specific_data] = serialize_component_specific_data(component) if component.serializes_specific_data?
+            serialized
+          end
+        )
       end
 
       private

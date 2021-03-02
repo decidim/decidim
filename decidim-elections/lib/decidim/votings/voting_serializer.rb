@@ -16,21 +16,24 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this voting.
       def serialize
-        {
-          participatory_space_id: voting.id,
-          url: url,
-          title: voting.title,
-          description: voting.description,
-          start_time: voting.start_time.to_s(:db),
-          end_time: voting.end_time.to_s(:db),
-          voting_type: translated_voting_type,
-          scope: {
-            id: voting.scope.try(:id),
-            name: voting.scope.try(:name)
-          },
-          banner_image_url: Decidim::Votings::VotingPresenter.new(voting).banner_image_url,
-          introductory_image_url: Decidim::Votings::VotingPresenter.new(voting).introductory_image_url
-        }
+        finalize(
+          voting,
+          {
+            participatory_space_id: voting.id,
+            url: url,
+            title: voting.title,
+            description: voting.description,
+            start_time: voting.start_time.to_s(:db),
+            end_time: voting.end_time.to_s(:db),
+            voting_type: translated_voting_type,
+            scope: {
+              id: voting.scope.try(:id),
+              name: voting.scope.try(:name)
+            },
+            banner_image_url: Decidim::Votings::VotingPresenter.new(voting).banner_image_url,
+            introductory_image_url: Decidim::Votings::VotingPresenter.new(voting).introductory_image_url
+          }
+        )
       end
 
       private
