@@ -222,7 +222,68 @@ es:
               minimum_answers: Cada pregunta tiene <strong>al menos 2 respuestas</strong>.
               minimum_questions: La elección tiene <strong>al menos 1 pregunta</strong>.
               published: La elección está <strong>publicada</strong>.
+              time_before: La configuración se está realizando <strong>al menos %{hours} horas</strong> antes de que comience la elección.
+              trustees_number: El espacio participativo tiene <strong>al menos %{number} garantes con clave pública</strong>.
+            submit: Configurar elección
+            title: Configurar elección
+            trustees: Garantes de la elección
+          created:
+            invalid: Hubo un problema al iniciar la ceremonia de claves
+            submit: Iniciar la ceremonia de claves
+            success: La solicitud para iniciar la ceremonia de claves fue enviada con éxito al Bulletin Board
+            title: Elección creada
+            trustees: Garantes
+          key_ceremony:
+            title: Ceremonia de claves
+            trustees: Garantes
+          key_ceremony_ended:
+            errors:
+              time_before: La elección está lista para comenzar. Tienes que esperar hasta %{hours} horas antes de la hora de inicio (%{start_time}) para comenzar el periodo de votación.
+            invalid: Hubo un problema al iniciar el período de votación
+            requirements:
+              time_before: La elección comenzará pronto. Puede iniciar el periodo de votación manualmente, o se iniciará automáticamente antes de la hora de inicio, a las %{start_time}.
+            submit: Empezar período de votación
+            success: La solicitud de período de votación se ha enviado correctamente al Bulletin Board
+            title: Listo para empezar
+          processing: Procesando...
+          results_published:
+            answer: Respuesta
+            not_selected: No seleccionada
+            question: Pregunta
+            result: Resultado
+            selected: Seleccionado
+            submit: Enviar
+            title: Resultados publicados
+          tally:
+            title: Proceso de recuento
+            trustees: Garantes
+          tally_ended:
+            answer: Respuesta
+            not_selected: No seleccionado
+            question: Pregunta
+            result: Resultado
+            selected: Seleccionado
+            submit: Publicar resultados
+            success: Recuento finalizado con éxito
+            title: Resultados calculados
+          vote:
+            errors:
+              time_after: La elección aún está en curso. Tienes que esperar hasta la hora de finalización (%{end_time}) para terminar el periodo de votación.
+            invalid: Hubo un problema al terminar el período de votación
+            requirements:
+              time_after: La elección ha terminado. Puedes terminar el período de votación manualmente, o terminará automáticamente en unos minutos.
+            submit: Finalizar período de votación
+            success: La solicitud para finalizar el período de votación se ha enviado correctamente al Bulletin Board
+            title: Periodo de votación
+          vote_ended:
+            invalid: Hubo un problema al iniciar el recuento
+            submit: Comenzar recuento
+            success: La solicitud de inicio del recuento se envió correctamente al Bulletin Board
+            text: La votación ha terminado. Puedes iniciar el recuento ahora.
+            title: Periodo de votación finalizado
           vote_stats:
+            no_vote_statistics_yet: Aún no hay estadísticas de voto
+            title: Estadísticas de voto
             voters: Votantes
             votes: Votos
         trustees_participatory_spaces:
@@ -388,6 +449,8 @@ es:
             keys:
               end_tally: Recuento finalizado
       votes:
+        ballot_decision:
+          header: 'La papeleta está cifrada: envíala o audítala'
         confirm:
           answer: Respuesta
           answer_number: respuesta %{number}
@@ -532,6 +595,10 @@ es:
         index:
           not_published: Despublicada
           published: Publicada
+        landing_page:
+          content_blocks:
+            edit:
+              update: Actualizar
         polling_officers:
           index:
             title: Gestores de mesa
@@ -612,8 +679,22 @@ es:
           ongoing: En curso
           upcoming: Próximamente
         footer_button_text:
-          participate: Participa
+          participate: Participar
+          view: Ver
+          vote: Votar
+        unspecified: No especificado
+        voting_type:
+          hybrid: Hibrida
+          in_person: Presencial
+          online: En línea
+        voting_types_label: Tipo de votación
   layouts:
     decidim:
       election_votes_header:
         exit: Salir
+      votings:
+        index:
+          promoted_votings: Votaciones destacadas
+        promoted_voting:
+          more_info: Más información
+          vote: Votar
