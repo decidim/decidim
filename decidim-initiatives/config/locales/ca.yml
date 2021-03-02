@@ -154,7 +154,10 @@ ca:
             email_subject: S'ha completat una nova fita!
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
         support_threshold_reached:
+          email_intro: La iniciativa %{resource_title} ha arribat al llindar de signatures
           email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_subject: Llindar de signatures aconseguit
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha arribat al llindar de signatures
     gamification:
       badges:
         initiatives:
@@ -199,6 +202,10 @@ ca:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantitat màxima d'elements per mostrar
+            order:
+              default: Per defecte (menys recents)
+              label: 'Ordenar elements per:'
+              most_recent: Més recents
         exports:
           initiatives: Iniciatives
         initiatives:
@@ -262,6 +269,7 @@ ca:
             update: Actualitza
           form:
             authorizations: Configuració de l'autorització
+            child_scope_threshold_enabled_help: 'Aquest ajust de configuració no suporta recollida de signatures presencials. Habilita indicadors de signatures per subàmbits i funciona amb un controlador d''autoritzacions que associa un àmbit a l''usuari. Assegura''t de seleccionar aquesta autorització més a baix, en la configuració d''autorització. Perquè funcioni ha de configurar-se de manera jeràrquica : 1 àmbit - N subàmbits. Per a més informació sobre com funciona aquesta configuració, consulta aquest <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enllaç</a>.'
             only_global_scope_enabled_help: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta aquest <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enllaç</a>.
             options: Opcions
             title: Informació general
@@ -301,9 +309,13 @@ ca:
         filter_type_values:
           all: Tots
       committee_requests:
+        approve:
+          success: S'ha aprovat la sol·licitud.
         new:
           continue: Continua
           help_text: Estàs a punt de sol·licitar formar part del comitè promotor d'aquesta iniciativa
+        revoke:
+          success: S'ha revocat la sol·licitud.
         spawn:
           success: La teva sol·licitud s'ha enviat a l'autor de la iniciativa.
       content_blocks:
@@ -323,8 +335,10 @@ ca:
           back_to_initiatives: Torna a iniciatives
           callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
           confirm: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
+          edit_my_initiative: Editar la meva iniciativa
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
+          send_my_initiative: Enviar la meva iniciativa a validació tècnica
         finish_help:
           access_reminder: Podeu accedir a les vostres iniciatives a través del filtre %{link} a la pàgina d'iniciatives.
           publish_helper_text: Recordeu que per publicar la vostra iniciativa heu de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
@@ -362,6 +376,11 @@ ca:
         title: Editar iniciativa
         update: Actualitzar
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} ha acceptat la teva sol·licitud per formar part de la comissió promotora de la iniciativa %{resource_title}."
+          email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa %{resource_title}'
+          email_subject: "%{author_nickname} ha acceptat la teva sol·licitud per formar part de la comissió promotora"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha acceptat la teva sol·licitud per formar part de la comissió promotora per la següent iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova iniciativa. Comprova-la i contribueix:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -372,6 +391,9 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Iniciativa adherida per %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser adherida per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la iniciativa %{resource_title}."
+          email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa %{resource_title}.'
       form:
         add_attachments: Documents
         attachment_legend: "(Opcional) Afegiu adjunts"
