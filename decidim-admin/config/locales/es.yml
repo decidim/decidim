@@ -26,11 +26,14 @@ es:
         published_at: Publicado en
         weight: Peso
       id: ID
+      import:
+        user_group_id: Importar como
       newsletter:
         body: Cuerpo
         subject: Asunto
       organization:
         alert_color: Alerta
+        available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
         comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
         cta_button_path: Ruta del botón de acción principal
@@ -41,6 +44,8 @@ es:
         enable_omnipresent_banner: Mostrar banner omnipresente
         facebook_handler: Nombre en Facebook
         favicon: Icono
+        force_authentication: Forzar autenticación
+        force_users_to_authenticate_before_access_organization: Forzar a las usuarias a autenticarse antes de acceder a la organización
         from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
@@ -53,6 +58,7 @@ es:
         highlighted_content_banner_image: Imagen
         highlighted_content_banner_short_description: Descripción breve
         highlighted_content_banner_title: Título
+        host: Host
         instagram_handler: Nombre de Instagram
         logo: Logo
         machine_translation_display_priority: Prioridad de la traducción automática
