@@ -25,7 +25,7 @@ module Decidim
       end
 
       it "includes new field" do
-        expect(subject.finalize(resource, subject.serialize)[:johnny_boy]).to eq("Get up Johnny boy because we all need you now")
+        expect(subject.finalize(resource, { id: 1, name: "John" })[:johnny_boy]).to eq("Get up Johnny boy because we all need you now")
       end
     end
   end
