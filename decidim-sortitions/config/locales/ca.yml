@@ -140,8 +140,8 @@ ca:
         sortition:
           random_seed: Llavor aleatòria
           selected_proposals:
-            one: 1 proposta seleccionada
-            other: '%{count} propostes seleccionades'
+            one: proposta seleccionada
+            other: propostes seleccionades
           view: Veure
         sortition_author:
           deleted: Participant eliminada

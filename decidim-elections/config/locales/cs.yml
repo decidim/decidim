@@ -596,6 +596,13 @@ cs:
             email_outro: Obdrželi jste toto oznámení, protože jste hlasovali pro hlasování %{resource_name}.
             email_subject: Váš hlas pro %{resource_name} byl přijat.
             notification_title: 'Váš hlas byl přijat. Ověřte svůj hlas <a href="%{verify_url}">zde</a> pomocí hlasovacího tokenu: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Byli jste přiřazeni jako %{role} volební místnosti %{polling_station_name} v <a href="%{resource_url}">%{resource_title}</a>. Můžete spravovat volební místnost z vyhrazené <a href="%{polling_officer_zone_url}">zóny volebního komisaře</a>.
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přiřazeni jako %{role} v %{polling_station_name}.
+            email_subject: Jste %{role} z volební místnosti %{polling_station_name}.
+            notification_title: Jste %{role} z volební místnosti %{polling_station_name} při hlasování <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
@@ -806,12 +813,34 @@ cs:
             active_votings: Aktivní hlasování
             see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
+      polling_officer_zone:
+        menu:
+          polling_officer_zone: Zóna volebního komisaře
+        polling_officers:
+          show:
+            actions:
+              count_votes: Spočítat hlasy ve volební urně
+              identify_person: Identifikovat a ověřit osobu
+            polling_officer_role_description: V některých volbách, které se na této platformě provádí, vám byly přiděleny funkce úředníka volební místnosti (předsedy nebo ředitele).
+            polling_stations:
+              list:
+                actions: Akce
+                address: Adresa
+                name: Název
+                role: Vaše role
+                voting: Hlasování
+              no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
+              title: Volební místnosti
       polling_officers:
         actions:
           confirm_destroy: Jste si jisti?
           destroy: Smazat
           new: Nový
           title: Akce
+        roles:
+          manager: Manažer
+          president: Předseda
+          unassigned: Nepřiřazen
       polling_stations:
         actions:
           confirm_destroy: Jste si jist?

@@ -277,6 +277,9 @@ FactoryBot.define do
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
+    cost { 20_000 }
+    cost_report { { en: "My cost report" } }
+    execution_period { { en: "My execution period" } }
 
     after(:build) do |proposal, evaluator|
       proposal.title = if evaluator.title.is_a?(String)

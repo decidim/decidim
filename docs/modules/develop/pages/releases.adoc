@@ -57,30 +57,26 @@ Here you have different options to see what happened from one revision to anothe
 [source,bash]
 ----
 git log v0.20.0..v0.20.1 --grep " (#[0-9]\+)" --oneline
-git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --grep " (#[0-9]\+)" --oneline
-git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --grep " (#[0-9]\+)"
-git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --pretty=format:"commit %h%n%n%s%n%nNotes:%n%n%N"  > full_log
+git log <SHA>..HEAD --grep " (#[0-9]\+)" --oneline
 ----
 
-That last command is the one used to generate log content for the GitLogParser.
-The `GitLogParser` translates git-log entries into our `CHANGELOG.mv` entries.
-It also groups the commits if they have a git note with the format: `+{groupname}: {affected_modules}+`, for example `+Fixed: **decidim-core**, **decidim-proposals**+`.
-This last example will add the commit to the "Fixed" group and prefix the commit message with "- *decidim-core*, *decidim-proposals*".
-The number at the end of each commit message is also replaced for a markdown link to the commit.
-
-There's how to run the parser rake task:
+Once you've checked the list of changes, it's time to actually generating the changelog.
 
 [source,bash]
 ----
-# remember to have the latest commits and notes locally
-git pull && git fetch origin refs/notes/*:refs/notes/*
-# generate the git log in the expected format
-git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --pretty=format:"commit %h%n%n%s%n%nNotes:%n%n%N"  > full_log
-# parse the git log in the expected format and produce grouped changelog entries
-bin/rake parse_git_log[full_log]
+bin/changelog_generator
 ----
 
-You can now copy+paste the output of this task to each of groups in the `CHANGELOG.md`.
+Running it as is, or passing it the `--help` flag, will render the help section for the script. In order to actually run the script, follow the instructions:
+
+[source,bash]
+----
+bin/changelog_generator <GITHUB_TOKEN> <SHA>
+----
+
+If you have some elements in the `Unsorted` section of the output, you can review the PRs individually, fix the title and the tags and rerun the script. Those PRs with the tags fixed will be automatically sorted. Labelling the PRs as they're opened or merged is encouraged to save some time when producing the changelog.
+
+You can copy-paste the output of the command to the relevant sections of the changelog file.
 
 == Release Candidates
 
@@ -149,4 +145,4 @@ After that, the header with the current version and link like `+## [0.20.0](http
 
 == Docker images for each release
 
-Each release triggers a [Github workflow](https://github.com/decidim/decidim/blob/develop/.github/workflows/on_release.yml) that re-builds and publishes the [decidim/docker images](https://github.com/decidim/docker) to [Github Container Registry](https://github.com/orgs/decidim/packages) and [Docker Hub](https://hub.docker.com/repository/docker/decidim/decidim).
+Each release triggers a https://github.com/decidim/decidim/blob/develop/.github/workflows/on_release.yml[GitHub workflow] that rebuilds and publishes the https://github.com/decidim/docker[decidim/docker images] to https://github.com/orgs/decidim/packages[GitHub Container Registry] and https://hub.docker.com/repository/docker/decidim/decidim[Docker Hub].

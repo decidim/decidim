@@ -212,7 +212,7 @@ pl:
             price: Cena
             registrations_count: Liczba rejestracji
             title: Tytuł
-            weight: Waga
+            weight: Kolejność na stronie
           name: Typ rejestracji
       partners:
         create:
@@ -272,6 +272,10 @@ pl:
       conferences:
         conference_registration:
           confirm: "%{user_name} potwierdził(a) rejestrację na konferencję %{resource_name}"
+        partner:
+          create: "%{user_name} dodał(a) partnera %{resource_name} do konferencji %{space_name}"
+          delete: "%{user_name} usunął/usunęła partnera %{resource_name} z konferencji %{space_name}"
+          update: "%{user_name} zaktualizował(a) partnera %{resource_name} w konferencji %{space_name}"
         registration_type:
           create: "%{user_name} utworzył(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
           publish: "%{user_name} opublikował(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
@@ -406,6 +410,7 @@ pl:
         personal_website: Osobista strona internetowa
         show:
           more_info: więcej informacji
+          speaking_at: Mówcy
       conference_speaker_cell:
         personal_url:
           personal_website: Osobista strona internetowa
@@ -470,7 +475,7 @@ pl:
           attributes:
             alt: Obraz
         show:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           photo: Zdjęcie
       photos_list:
         show:
@@ -546,6 +551,8 @@ pl:
     help:
       participatory_spaces:
         conferences:
+          contextual: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
+          page: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           title: Czym są konferencje?
     log:
       value_types:

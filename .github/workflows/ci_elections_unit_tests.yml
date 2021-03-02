@@ -1,4 +1,4 @@
-name: "[CI] Elections"
+name: "[CI] Elections (unit tests)"
 on:
   push:
     branches:
@@ -54,7 +54,7 @@ jobs:
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
-      - run: bundle exec rspec
+      - run: bundle exec rspec --exclude-pattern 'spec/system/**/*_spec.rb'
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH

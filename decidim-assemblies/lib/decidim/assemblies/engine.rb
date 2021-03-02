@@ -58,7 +58,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.assemblies", scope: "decidim"),
                     decidim_assemblies.assemblies_path,
-                    position: 2.5,
+                    position: 2.2,
                     if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
                     active: :inclusive
         end

@@ -141,7 +141,7 @@ es:
           random_seed: Semilla aleatoria
           selected_proposals:
             one: 1 propuesta seleccionada
-            other: '%{count} propuestas seleccionadas'
+            other: propuestas seleccionadas
           view: Ver
         sortition_author:
           deleted: Participante eliminada
