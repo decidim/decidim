@@ -21,6 +21,7 @@ ca:
         end_time: Hora de finalització
         location: Ubicació
         location_hints: Detalls d'ubicació
+        online_meeting_url: URL de trobada en línia
         organizer_gid: Crear com a
         organizer_id: Organitzador
         private_meeting: Trobada privada
@@ -31,8 +32,11 @@ ca:
         start_time: Hora d'inici
         title: Títol
         transparent: Transparent
+        type_of_meeting: Tipus
       minutes:
+        audio_url: URL d'àudio
         description: Descripció
+        video_url: URL de vídeo
         visible: És visible
     errors:
       models:
