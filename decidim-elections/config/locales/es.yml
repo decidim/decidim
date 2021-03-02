@@ -252,6 +252,7 @@ es:
             trustees: Garantes
           tally_ended:
             submit: Publicar resultados
+            title: Resultados calculados
           vote:
             errors:
               time_after: La elección aún está en curso. Tienes que esperar hasta la hora de finalización (%{end_time}) para terminar el periodo de votación.
@@ -340,6 +341,9 @@ es:
           description: Estos son los resultados de la votación, para cada pregunta
           selected: Seleccionado
           title: Resultados de la elección
+          votes:
+            one: ""
+            other: ""
         show:
           action-button:
             change-vote: Cambia tu voto
@@ -529,6 +533,9 @@ es:
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        processing:
+          header: Procesando voto...
+          text: Tu voto ha sido recibido y está siendo procesado. Por favor, espera.
         update:
           error: Hubo un problema al actualizar el estado del voto
           success: Estado de voto actualizado correctamente
