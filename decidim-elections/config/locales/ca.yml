@@ -98,6 +98,9 @@ ca:
             enable: Marcar resposta com seleccionada
             invalid: S'ha produït un error en seleccionar aquesta resposta
             success: Resposta seleccionada correctament
+          unselect:
+            invalid: Hi ha hagut un problema en deseleccionar aquesta resposta
+            success: Resposta deseleccionada correctament
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta resposta
             success: Resposta actualitzada amb èxit
@@ -124,6 +127,9 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquesta votació
             success: S'ha actualitzat la votació correctament
+        exports:
+          elections: Eleccions
+          feedback_form_answers: Feedback de les respostes
         models:
           answer:
             name: Resposta
@@ -131,6 +137,8 @@ ca:
             name: Votació
           question:
             name: Pregunta
+          trustee:
+            name: Garant
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a respostes
@@ -139,6 +147,7 @@ ca:
             create: Importa propostes a respostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu per importar les propostes a respostes.
             select_component: Selecciona un component
+            title: Importar propostes
         questions:
           create:
             invalid: S'ha produït un error en crear aquesta pregunta
@@ -158,6 +167,64 @@ ca:
             invalid: S'ha produït un error en actualitzar aquesta pregunta
             success: La pregunta s'ha actualitzat correctament
         steps:
+          create_election:
+            errors:
+              max_selections: Les preguntes no tenen un <strong>valor correcte per quantitat de respostes</strong>
+              minimum_answers: Les preguntes han de tenir <strong>almenys dues respostes</strong>.
+              minimum_questions: L'elecció <strong>ha de tenir almenys una pregunta</strong>.
+              published: L'elecció <strong>no està publicada</strong>.
+              time_before: L'hora d'inici és en <strong>menys de 3 hores</strong> abans de que comenci l'elecció.
+              trustees_number: L'espai de participació <strong>ha de tenir almenys %{number} garants amb clau pública</strong>.
+            invalid: S'ha produït un error en configurar aquesta elecció
+            no_trustees: No hi ha garants configurats per aquest espai de participació
+            not_used_trustee: "(no utilitzat)"
+            public_key:
+              'false': no té una <strong>clau pública</strong>
+              'true': té una <strong>clau pública</strong>
+            requirements:
+              max_selections: Totes les preguntes tenen un valor correcte per <strong>màxim de respostes</strong>.
+              minimum_answers: Cada pregunta té <strong>almenys 2 respostes</strong>.
+              minimum_questions: L'elecció té <strong>almenys 1 pregunta</strong>.
+              published: L'elecció està <strong>publicada</strong>.
+              trustees_number: L'espai de participació té <strong>almenys %{number} garants amb clau pública</strong>.
+            submit: Configurar elecció
+            success: L'elecció s'ha enviat correctament al Bulletin Board
+            title: Configurar elecció
+            trustees: Garants de l'elecció
+          created:
+            invalid: S'ha produït un error en començar la cerimònia de claus
+            submit: Començar la cerimònia de claus
+            success: La sol·licitud per iniciar la cerimònia de claus s'ha enviat correctament al Bulletin Board
+            title: Elecció creada
+            trustees: Garants
+          key_ceremony:
+            title: Cerimònia de claus
+            trustees: Garants
+          key_ceremony_ended:
+            errors:
+              time_before: L'elecció està llesta per començar. Has d'esperar fins a %{hours} hores abans de l'hora d'inici (%{start_time}) per iniciar el període de votació.
+            invalid: S'ha produït un error en iniciar el període de votació
+            requirements:
+              time_before: L'elecció començarà aviat. Pots iniciar el període de votació manualment, o començarà automàticament abans de l'hora d'inici, a les %{start_time}.
+            submit: Iniciar període de votació
+            success: La sol·licitud per iniciar el període de votació s'ha enviat correctament al Bulletin Board
+            title: A punt per començar
+          processing: Processant...
+          results_published:
+            title: Resultats publicats
+          tally:
+            title: Procés de recompte
+            trustees: Garants
+          tally_ended:
+            submit: Publicar resultats
+            title: Resultats calculats
+          vote:
+            errors:
+              time_after: L'elecció està en curs encara. Has d'esperar fins l'hora de fi (%{end_time}) per finalitzar el període de votació.
+            invalid: S'ha produït un error en finalitzar el període de votació
+            requirements:
+              time_after: L'elecció s'ha acabat. Pots finalitzar el període de votació manualment, o finalitzarà automàticament en breus instants.
+            submit: Finalitzar període de votació
           vote_stats:
             no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
             title: Estadístiques de les votacions
@@ -218,10 +285,84 @@ ca:
             answers: Respostes
             max_selections: Número màxim d'elements a seleccionar
             title: Títol
+        trustees_participatory_space:
+          fields:
+            notification: Notificació enviada a les
+            public_key: Clau pública
+            status: Estat
       orders:
         label: Ordena votacions per
         older: Més antiga
         recent: Recent
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Aquesta elecció s'està creant al Bulletin Board. És molt important que cada garant que hi participa creï una còpia de seguretat d'aquestes claus i les guardi en un lloc segur. Després d'això, el procés continuarà.
+            download_election_keys: Descarregar claus
+            download_icon: Icona que indica una acció de descàrrega
+            title: Còpia de seguretat de les claus per l'elecció %{election}
+          key_ceremony_steps:
+            back: Tornar
+            description: Aquesta elecció s'està creant al Bulletin Board. Per completar aquest procés, es necessita la teva participació com a garant.
+            keys:
+              create_election: Generació de claus
+              key_ceremony:
+                joint_election_key: Generació conjunta de claus
+                step_1: Publicant claus
+            list:
+              status: Estat
+              task: Tasca
+            process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Trigarà varis minuts, ja que tots els garants han de connectar-se al mateix temps per completar-lo.
+            start: Començar
+            start_icon: Icona que indica un botó d'inici per a la generació de claus d'una elecció
+            status:
+              completed: Completada
+              pending: Pendent
+              processing: Processant
+            title: Crear claus per l'elecció %{election}
+          restore_modal:
+            description: El Bulletin Board té informació teva com a garant d'aquesta elecció. Per continuar amb el procés, primer puja l'arxiu generat com a còpia de seguretat durant la sessió anterior.
+            title: Restaurar claus per l'elecció %{election}
+            upload_election_keys: Pujar claus de l'elecció
+            upload_icon: Icona que indica una acció de descàrrega
+          tally_steps:
+            back: Tornar
+            description: Els resultats d'aquesta elecció s'estan computant al Bulletin Board. Per completar aquest procés, és necessària la teva participació com a garant.
+            keys:
+              end_tally: Recompte finalitzat
+              tally:
+                cast: Enviament del recompte
+                share: Compartició del recompte
+            list:
+              status: Estat
+              task: Tasca
+            process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Trigarà varis minuts, ja que tots els garants han de connectar-se al mateix temps per completar-lo.
+            start: Començar
+            start_icon: Icona que indica un botó d'inici per començar la generació de claus d'una elecció
+            status:
+              completed: Completada
+              pending: Pendent
+              processing: Processant
+            title: Recompte per %{election}
+          update:
+            error: L'estat de l'elecció no s'havia actualitzat.
+            success: 'L''estat de l''elecció és: %{status}'
+        menu:
+          trustee_zone: Zona de garants
+        no_bulletin_board:
+          body: Es requereix disposar d'un Bulletin Board configurat per a aquesta secció. Contacta amb l'administradora per més detalls.
+          title: Ho sentim, el Bulletin Board no s'ha configurat encara.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'No'
+                  name: Acció requerida?
+                  'true': Realitzar acció
+                bb_status: Estat
+                election: Elecció
+                voting_period: Període de votació
       votes:
         confirm:
           answer: Resposta
@@ -242,6 +383,8 @@ ca:
         encrypting:
           header: Codificant el vot...
           text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
+        failed:
+          text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
         header:
           confirm: Confirma el teu vot
           confirmed: Vot confirmat
@@ -258,6 +401,25 @@ ca:
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        update:
+          error: S'ha produït un error en actualitzar l'estat del vot
+          success: L'estat del vot s'ha actualitzat correctament
+        verify:
+          content:
+            heading: Verifica el teu vot
+            info: Aquest verificador comprova que el teu vot, identificat amb una cadena de text encriptada, s'ha emès correctament i està dins de l'urna.
+          error:
+            header: Vot no localitzat!
+            info: El codi del vot no s'ha trobat a l'urna %{link}, intenta-ho de nou.
+          form:
+            back: Tornar a Decidim
+            submit: Comprovar
+            vote_identifier: 'Codi identificador:'
+          header:
+            title: Verifica el teu vot
+          success:
+            header: Vot localitzat!
+            info: El teu vot encriptat es troba a l'urna %{link}
         voting_step:
           back: Enrere
           continue: Següent
@@ -271,6 +433,23 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: La votació %{resource_title} ja està activa a %{participatory_space_title}.
           notification_title: La votació <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està activa.
+        trustees:
+          new_election:
+            email_intro: Has estat afegit com a garant de l'elecció %{resource_title}.
+            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció %{resource_title}.
+            email_subject: Ets un garant de l'elecció %{resource_title}..
+            notification_title: Ets un garant de l'elecció <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Una administradora t'ha afegit com a garant de %{resource_name}. Hauries de crear la teva clau pública a la teva <a href='%{trustee_zone_url}'>zona de garants</a>
+            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de %{resource_name}.
+            email_subject: Ets garant de %{resource_name}.
+            notification_title: Ets garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'El teu vot s''ha acceptat! Utilitzant el comprovant de vot: %{encrypted_vote_hash}, pots verificar-lo <a href="%{verify_url}">aquí</a>.'
+            email_outro: Has rebut aquesta notificació perquè has votat a l'elecció %{resource_name}.
+            email_subject: El teu vot a %{resource_name} s'ha acceptat.
+            notification_title: 'El teu vot s''ha acceptat. Verifica''l <a href="%{verify_url}">aquí</a> utilitzant el comprovant de vot: %{encrypted_vote_hash}'
     help:
       participatory_spaces:
         votings:
