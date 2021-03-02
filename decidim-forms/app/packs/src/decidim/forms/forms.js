@@ -1,7 +1,7 @@
-// = require ./option_attached_inputs.component
-// = require ./autosortable_checkboxes.component
-// = require ./display_conditions.component
-// = require ./max_choices_alert.component
+import './option_attached_inputs.component'
+import './autosortable_checkboxes.component'
+import './display_conditions.component'
+import './max_choices_alert.component'
 
 ((exports) => {
   const { createOptionAttachedInputs, createAutosortableCheckboxes, createMaxChoicesAlertComponent, createDisplayConditions } = exports.Decidim;

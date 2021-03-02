@@ -1,9 +1,9 @@
 /* eslint-disable max-lines */
 
-// = require ./auto_buttons_by_min_items.component
-// = require ./auto_select_options_by_total_items.component
-// = require ./auto_select_options_from_url.component
-// = require ./live_text_update.component
+import './auto_buttons_by_min_items.component'
+import './auto_select_options_by_total_items.component'
+import './auto_select_options_from_url.component'
+import './live_text_update.component'
 
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, AutoSelectOptionsFromUrl, createLiveTextUpdateComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
