@@ -27,6 +27,9 @@ es:
         user_group_id: Crear propuesta como
       proposal_answer:
         answer: Responder
+        cost: Coste
+        cost_report: Informe de coste
+        execution_period: Período de ejecución
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
         origin_component_id: Componente desde dónde importar las propuestas
