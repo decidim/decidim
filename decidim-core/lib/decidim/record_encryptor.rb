@@ -103,7 +103,7 @@ module Decidim
 
     def decrypt_value(value)
       Decidim::AttributeEncryptor.decrypt(value)
-    rescue ActiveSupport::MessageEncryptor::InvalidMessage
+    rescue ActiveSupport::MessageEncryptor::InvalidMessage, ActiveSupport::MessageVerifier::InvalidSignature
       # Support for legacy unencrypted values. This is necessary e.g. when
       # migrating the original unencrypted values to encrypted values.
       value

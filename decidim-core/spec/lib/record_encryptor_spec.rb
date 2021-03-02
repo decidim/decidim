@@ -62,6 +62,25 @@ module Decidim
         # original value is returned instead.
         expect(subject.name).to eq("Unencrypted")
       end
+
+      it "returns the original value when the decryption fails due to invalid signature" do
+        # Test the decryption process in case the following is configured for
+        # the application (could be the case for installations dating the
+        # pre-Rails 5.2 era):
+        # Rails.application.config.active_support.use_authenticated_message_encryption = false
+        #
+        # This is also true for all instances that have the following in their
+        # `config/application.rb` (Defaults from pre-Rails 5.2):
+        #   config.load_defaults 5.1
+        allow(ActiveSupport::MessageEncryptor).to receive(:use_authenticated_message_encryption).and_return(false)
+
+        subject.instance_variable_set(:@name, "Unencrypted")
+
+        # This would throw an ActiveSupport::MessageVerifier::InvalidSignature
+        # which happens if the decryption fails. This is catched and the
+        # original value is returned instead.
+        expect(subject.name).to eq("Unencrypted")
+      end
     end
 
     it_behaves_like "encrypted record"
