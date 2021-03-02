@@ -252,7 +252,6 @@ de:
             trustees: Wahlhelfer
           tally_ended:
             submit: Resultate veröffentlichen
-            title: Resultate berechnet
           vote:
             errors:
               time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
@@ -533,9 +532,6 @@ de:
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
-        processing:
-          header: Stimme wird verarbeitet...
-          text: Ihre Stimme wurde empfangen und wird verarbeitet. Bitte warten.
         update:
           error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
           success: Abstimmung erfolgreich aktualisiert
