@@ -128,11 +128,13 @@ en:
           new:
             create: Create answer
             title: New answer
+          not_selected: Not selected
           select:
             disable: Unselect answer
             enable: Mark answer as selected
             invalid: There was a problem selecting this answer
             success: Answer successfully selected
+          selected: Selected
           unselect:
             invalid: There was a problem unselecting this answer
             success: Answer successfully unselected
@@ -247,13 +249,25 @@ en:
             title: Ready to start
           processing: Processing...
           results_published:
+            answer: Answer
+            not_selected: Not selected
+            question: Question
+            result: Result
+            selected: Selected
+            submit: Submit
             title: Results published
           tally:
             title: Tally process
             trustees: Trustees
           tally_ended:
+            answer: Answer
+            not_selected: Not selected
+            question: Question
+            result: Result
+            selected: Selected
             submit: Publish results
-            title: Results calculated
+            success: Tally successfully ended
+            title: Calculated results
           vote:
             errors:
               time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
@@ -267,6 +281,7 @@ en:
             invalid: There was a problem starting the tally
             submit: Start tally
             success: Start tally request was successfully sent to the Bulletin Board
+            text: Vote has ended. You can start the tally now.
             title: Vote period ended
           vote_stats:
             no_vote_statistics_yet: No vote statistics yet
@@ -373,7 +388,9 @@ en:
         answer:
           fields:
             proposals: Proposals
+            selected: Selected
             title: Title
+            votes: Votes
         election:
           fields:
             bb_status: Bulletin Board status
