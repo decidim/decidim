@@ -214,7 +214,6 @@ fr-CA:
             trustees: Garants
           tally_ended:
             submit: Publier les résultats
-            title: Résultats calculés
           vote:
             errors:
               time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
@@ -475,9 +474,6 @@ fr-CA:
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
-        processing:
-          header: Traitement du vote...
-          text: Votre vote a été reçu et est en cours de traitement. Veuillez patienter.
         update:
           error: Un problème est survenu lors de la mise à jour du statut de vote
           success: Statut du vote mis à jour avec succès
