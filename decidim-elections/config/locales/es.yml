@@ -16,6 +16,9 @@ es:
         max_selections: Número máximo de opciones
         min_selections: Ninguna de las anteriores
         title: Título
+      voting:
+        end_time: La votación finaliza
+        start_time: La votación empieza
     errors:
       models:
         answer:
@@ -26,7 +29,25 @@ es:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: no se puede cambiar
+            public_key:
+              cant_be_changed: no se puede cambiar
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: El gestor de mesa ya es presidente/gestor del punto de votación
+            voting:
+              different_organization: La votación debe estar en la misma organización que el usuario
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: El gestor de mesa debe estar en la misma votación que el punto de votación
     models:
       decidim/elections/answer:
         one: Respuesta
@@ -37,7 +58,33 @@ es:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/votings/polling_officer:
+        one: Gestor de mesa
+        other: Gestores de mesa
+      decidim/votings/polling_station:
+        one: Punto de votación
+        other: Puntos de votación
+      decidim/votings/voting:
+        one: Votación
+        other: Votaciones
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Gestores
+          values:
+            assigned: Asignado
+            unassigned: No asignado
+        role_eq:
+          label: Rol
+          values:
+            manager: Gestor
+            president: Presidente
+            unassigned: Sin asignar
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Buscar %{collection} por nombre/email/alias o punto de votación.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Buscar %{collection} por título, dirección o nombre del gestor/email/alias.
     components:
       elections:
         actions:
@@ -53,7 +100,11 @@ es:
         confirm_destroy: '¿Estás segura?'
         destroy: Destruir
         edit: Editar
+        feedback: Feedback del votante
         import: Importar propuestas como respuestas
+        manage_answers: Gestionar respuestas
+        manage_questions: Gestionar preguntas
+        manage_steps: Gestionar pasos
         new: Nueva %{name}
         preview: Previsualizar
         publish: Publicar
@@ -76,6 +127,14 @@ es:
           new:
             create: Crear respuesta
             title: Nueva respuesta
+          select:
+            disable: Deseleccionar respuesta
+            enable: Marcar respuesta como seleccionada
+            invalid: Hubo un problema al seleccionar esta respuesta
+            success: Respuesta seleccionada con éxito
+          unselect:
+            invalid: Hubo un problema al deseleccionar esta respuesta
+            success: Respuesta seleccionada con éxito
           update:
             invalid: Se ha producido un error al crear esta respuesta
             success: Respuesta actualizada con éxito
@@ -102,6 +161,9 @@ es:
           update:
             invalid: Se ha producido un error al actualizar esta votación
             success: Se ha actualizado la votación correctamente
+        exports:
+          elections: Elecciones
+          feedback_form_answers: Feedback de respuestas
         models:
           answer:
             name: Respuesta
@@ -109,6 +171,8 @@ es:
             name: Votación
           question:
             name: Pregunta
+          trustee:
+            name: Garante
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas como respuestas
@@ -117,6 +181,7 @@ es:
             create: Importar propuestas como respuestas
             no_components: No hay otros componentes de propuestas en este espacio participativo desde los que importar propuestas como respuestas.
             select_component: Por favor selecciona un componente
+            title: Importar propuestas
         questions:
           create:
             invalid: Se ha producido un error al crear esta pregunta
@@ -135,9 +200,58 @@ es:
           update:
             invalid: Se ha producido un error al actualizar esta pregunta
             success: La pregunta se ha actualizado correctamente
+        steps:
+          create_election:
+            errors:
+              max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
+              minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
+              minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
+              published: La elección <strong>no está publicada</strong>.
+              time_before: La hora de inicio está en <strong>menos de 3 horas</strong> antes de que comience la elección.
+              trustees_number: El espacio participativo <strong>debe tener al menos %{number} garantes con clave pública</strong>.
+            invalid: Hubo un problema al configurar esta elección
+            no_trustees: No hay garantes configurados para este espacio participativo
+            not_used_trustee: "(no se usa)"
+            public_key:
+              'false': no tiene una <strong>clave pública</strong>
+              'true': tiene una <strong> clave pública</strong>
+            requirements:
+              max_selections: Todas las preguntas tienen un valor correcto para <strong>máximo de respuestas</strong>.
+              minimum_answers: Cada pregunta tiene <strong>al menos 2 respuestas</strong>.
+              minimum_questions: La elección tiene <strong>al menos 1 pregunta</strong>.
+              published: La elección está <strong>publicada</strong>.
+          vote_stats:
+            voters: Votantes
+            votes: Votos
+        trustees_participatory_spaces:
+          actions:
+            disable: Deshabilitar
+            enable: Considerar
+          create:
+            exists: El garante existe para este espacio participativo
+            invalid: Se ha producido un error al crear un garante
+            success: Garante creado correctamente
+          delete:
+            invalid: Se ha producido un error al eliminar este garante
+            success: Garante eliminado correctamente
+          form:
+            select_user: Seleccionar usuario
+          index:
+            title: Garantes
+          new:
+            create: Crear garante
+            title: Nuevo garante
+          update:
+            invalid: Se ha producido un error al actualizar el garante %{trustee}
+            success: El garante %{trustee} se ha actualizado correctamente
       admin_log:
         election:
+          end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} en el Bulletin Board"
           publish: "%{user_name} ha publicado la votación %{resource_name}"
+          setup: "%{user_name} creó la elección %{resource_name} en el Bulletin Board"
+          start_key_ceremony: "%{user_name} comenzó la ceremonia de claves para las elecciones %{resource_name} en el Bulletin Board"
+          start_tally: "%{user_name} comenzó el recuento para la elección %{resource_name} en el Bulletin Board"
+          start_vote: "%{user_name} comenzó el período de votación para la elección %{resource_name} en el Bulletin Board"
           unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
       election_m:
         badge_name:
@@ -170,11 +284,37 @@ es:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        preview:
+          available_answers: Respuestas disponibles
+          description: Estas son las preguntas que encontrarás en el proceso de votación
+          title: Preguntas de la elección
+        results:
+          description: Estos son los resultados de la votación, para cada pregunta
+          selected: Seleccionado
+          title: Resultados de la elección
         show:
+          action-button:
+            change-vote: Cambia tu voto
+            vote: Empezar a votar
+            vote-again: Votar de nuevo
+          back: Elecciones disponibles
+          callout:
+            already-voted: Ya has votado en esta elección. Puedes cambiar tu voto o verificarlo.
+            vote-rejected: No ha sido posible verificar tu voto. Por favor, hazlo de nuevo.
           preview: Previsualizar
+          verify:
+            already-voted: '¿Ya has votado?'
+            verify-here: Compruebe su voto aquí.
+            will-verify: Podrás verificar tu voto una vez que comience la elección.
           voting_period_status:
             finished: La votación empezó el %{start_time} y terminó el %{end_time}
+            ongoing: 'Votación activa hasta: %{end_time}'
             upcoming: La votación empieza el %{start_time}
+      feedback:
+        answer:
+          invalid: Hubo un problema al enviar tu feedback.
+          spam_detected: Hubo un problema al responder al formulario. Tal vez hayas sido demasiado rápido, ¿puedes intentarlo de nuevo?
+          success: Feedback enviado con éxito.
       models:
         answer:
           fields:
@@ -182,6 +322,7 @@ es:
             title: Título
         election:
           fields:
+            bb_status: Estado del tBulletin Board
             end_time: Termina el
             start_time: Empieza el
             title: Título
@@ -190,10 +331,55 @@ es:
             answers: Respuestas
             max_selections: Número máximo de elementos a seleccionar
             title: Título
+        trustees_participatory_space:
+          fields:
+            considered: considerado
+            email: Correo electrónico
+            inactive: inactivo
+            name: Nombre
+            notification: Notificación enviada el
+            public_key: Clave publica
+            status: Estado
       orders:
         label: Ordenar votaciones por
         older: Más antigua
         recent: Reciente
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Esta elección se está creando en el Bulletin Board. Es muy importante que cada garante que participe en ella cree una copia de seguridad de estas claves y las almacene en un lugar seguro. Después, el proceso continuará.
+            download_election_keys: Descargar claves
+            download_icon: Icono que indica una acción de descarga
+            title: Copia de seguridad de claves para la elección %{election}
+          key_ceremony_steps:
+            back: Volver
+            description: Esta elección está siendo creada en el Bulletin Board. Para completar este proceso, se necesita tu participación como garante.
+            keys:
+              create_election: Generación de claves
+              key_ceremony:
+                joint_election_key: Generación de claves conjuntas
+                step_1: Publicación de claves
+            list:
+              status: Estado
+              task: Tarea
+            process_warning: Una vez iniciado el proceso, no debes salir de esta página hasta que el proceso termine. Tardará varios minutos, ya que todos los garantes deben estar conectados para completarlo.
+            start: Empezar
+            start_icon: Icono que indica un botón de inicio para iniciar la generación de claves de una elección
+            status:
+              completed: Completada
+              pending: Pendiente
+              processing: Procesando
+            title: Crear claves para la elección %{election}
+          restore_modal:
+            description: El Bulletin Board tiene tu información como garante de esta elección. Para continuar el proceso, primero sube el archivo de copia de seguridad generado durante la sesión anterior.
+            title: Restaurar claves para la elección %{election}
+            upload_election_keys: Subir claves de elección
+            upload_icon: Icono que indica una acción de descarga
+          tally_steps:
+            back: Volver
+            description: Los resultados de esta elección están siendo calculados en el Bulletin Board. Para completar este proceso, se necesita tu participación como garante.
+            keys:
+              end_tally: Recuento finalizado
       votes:
         confirm:
           answer: Respuesta
@@ -206,14 +392,20 @@ es:
           question: Preguntas %{count}
         confirmed:
           back: Volver a las votaciones
+          error: Lo sentimos, hubo un error al confirmar el voto. Por favor, vota de nuevo.
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
           lead: '¡Tu voto ha sido emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         encrypting:
           header: Codificando voto...
           text: Tu voto está siendo cifrado para asegurar que se emite de forma anónima.
+        failed:
+          header: Voto fallido
+          lead: '¡Tu voto no ha sido emitido!'
+          text: Algo salió mal, por favor inténtalo de nuevo.
         header:
           confirm: Confirma tu voto
           confirmed: Voto confirmado
@@ -230,6 +422,25 @@ es:
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        update:
+          error: Hubo un problema al actualizar el estado del voto
+          success: Estado de voto actualizado correctamente
+        verify:
+          content:
+            heading: Verifica tu voto
+            info: Este verificador comprueba que tu voto, identificado con una cadena de texto cifrada, ha sido emitido correctamente y está dentro de la urna.
+          error:
+            header: Voto no encontrado!
+            info: El código de voto no se ha encontrado en la urna de %{link}, inténtelo de nuevo.
+          form:
+            back: Volver a Decidim
+            submit: Comprobar
+            vote_identifier: 'Código identificador:'
+          header:
+            title: Verifica tu voto
+          success:
+            header: '¡Voto localizado!'
+            info: Tu voto cifrado está en la urna de %{link}
         voting_step:
           back: Atrás
           continue: Siguiente
@@ -243,15 +454,86 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La votación %{resource_title} en %{participatory_space_title} ya está activa.
           notification_title: La votación <a href="%{resource_path}">%{resource_title}</a> ya está activa en %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Has sido añadido como garante para la elección de %{resource_title}.
+            email_outro: Has recibido esta notificación porque has sido añadido como garante para la elección %{resource_title}.
+            email_subject: Eres garante para la elección de %{resource_title}..
+            notification_title: Eres garante para la elección de <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Un administrador te ha añadido como garante para %{resource_name}. Debes crear tu clave pública <a href='%{trustee_zone_url}'>en tu zona de garantes</a>
+            email_outro: Has recibido esta notificación porque has sido añadido como garante para %{resource_name}.
+            email_subject: Eres garante de %{resource_name}.
+            notification_title: Eres garante de <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: '¡Tu voto ha sido aceptado! Utilizando tu token de voto: %{encrypted_vote_hash}, puedes verificar tu voto <a href="%{verify_url}">aquí</a>.'
+            email_outro: Has recibido esta notificación porque has votado en la elección %{resource_name}.
+            email_subject: Tu voto para %{resource_name} ha sido aceptado.
+            notification_title: 'Tu voto ha sido aceptado. Verifica tu voto <a href="%{verify_url}">aquí</a> usando tu token de voto: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Se te ha asignado como %{role} del punto de votación %{polling_station_name} en <a href="%{resource_url}">%{resource_title}</a>. Puedes administrar el punto de votación desde el espacio <a href="%{polling_officer_zone_url}">Zona de gestores de mesa</a>.
+            email_outro: Has recibido esta notificación porque has sido asignado como %{role} de %{polling_station_name}.
+            email_subject: Eres %{role} del punto de votación %{polling_station_name}.
+            notification_title: Eres %{role} del punto de votación %{polling_station_name} en la votación <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
           contextual: "<p>Una <strong>votación</strong> es un espacio que os permite hacer una pregunta clara al conjunto de miembros de una organización, hacer un llamamiento a participar en una votación, generar y ordenar el debate a favor o en contra de una respuesta. cunado llega la fecha de la votación, podéis votar y publicar el resultado.</p> <p> Las votaciones pueden ser prácticamente de cualquier aspecto que afecte a la organización. Algunos ejemplos serían: cambiar el nombre o el logotipo de la organización ofreciendo diversas alternativas, decidir si pasar a formar parte de una organización más grande o no, validar o desestimar un nuevo plan estratégico o el resultado de un gruipo de trabajo, o definir si los cargos deberían tener una duración máxima de uno, dos o tres mandatos.</p>"
           page: "<p>Una <strong>votación</strong> es un espacio que os permite hacer una pregunta clara al conjunto de miembros de una organización, hacer un llamamiento a participar en una votación, generar y ordenar el debate a favor o en contra de una respuesta. cunado llega la fecha de la votación, podéis votar y publicar el resultado.</p> <p> Las votaciones pueden ser prácticamente de cualquier aspecto que afecte a la organización. Algunos ejemplos serían: cambiar el nombre o el logotipo de la organización ofreciendo diversas alternativas, decidir si pasar a formar parte de una organización más grande o no, validar o desestimar un nuevo plan estratégico o el resultado de un gruipo de trabajo, o definir si los cargos deberían tener una duración máxima de uno, dos o tres mandatos.</p>"
           title: '¿Qué son las votaciones?'
+    menu:
+      votings: Votaciones
+    pages:
+      home:
+        statistics:
+          elections_count: Elecciones
     participatory_processes:
       statistics:
         elections_count: Votaciones
+    votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Cantidad máxima de elementos a mostrar
+          landing_page:
+            attachments_and_folders:
+              name: Archivos adjuntos y carpetas de la votación
+            description:
+              name: Descripción de la votación
+            elections:
+              name: Elecciones de la votación
+            header:
+              name: Cabecera de la votación
+            html_block_1:
+              name: Bloque html 1 de la votación
+            html_block_2:
+              name: Bloque html 2 de la votación
+            html_block_3:
+              name: Bloque html 3 de la votación
+            metrics:
+              name: Métricas de votación
+            polling_stations:
+              name: Puntos de votación
+            stats:
+              name: Estadísticas de votación
+            timeline:
+              name: Calendario de votación
+        index:
+          not_published: Despublicada
+          published: Publicada
+        polling_officers:
+          index:
+            title: Gestores de mesa
+          new:
+            create: Crear
+            title: Crear gestor de mesa
+          polling_officers_picker:
+            choose_polling_officers: Elegir gestores de mesa
+            close: Cerrar
+            more_polling_officers: Hay %{number} gestores de mesa más. Refina tu búsqueda para localizarlos.
   layouts:
     decidim:
       election_votes_header:
