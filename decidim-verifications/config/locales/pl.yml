@@ -198,7 +198,7 @@ pl:
             online: Użyj weryfikacji online
             rejection_clarity: Upewnij się, że informacje są wyraźnie widoczne na przesłanym obrazie
             rejection_correctness: Upewnij się, że wprowadzone informacje są poprawne
-            rejection_notice: Wystąpił problem z Twoją weryfikacją. Proszę spróbuj ponownie
+            rejection_notice: Wystąpił błąd podczas Twojej weryfikacji. Spróbuj ponownie
             send: Poproś o ponowną weryfikację
           new:
             send: Poproś o weryfikację
