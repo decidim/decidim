@@ -982,6 +982,8 @@ ca:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderacions globals
         newsletters:
           title: Butlletins
         settings:
