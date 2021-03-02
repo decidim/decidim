@@ -217,7 +217,13 @@ ca:
             trustees: Garants
           tally_ended:
             submit: Publicar resultats
-            title: Resultats calculats
+          vote:
+            errors:
+              time_after: L'elecció està en curs encara. Has d'esperar fins l'hora de fi (%{end_time}) per finalitzar el període de votació.
+            invalid: S'ha produït un error en finalitzar el període de votació
+            requirements:
+              time_after: L'elecció s'ha acabat. Pots finalitzar el període de votació manualment, o finalitzarà automàticament en breus instants.
+            submit: Finalitzar període de votació
           vote_stats:
             no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
             title: Estadístiques de les votacions
@@ -278,10 +284,41 @@ ca:
             answers: Respostes
             max_selections: Número màxim d'elements a seleccionar
             title: Títol
+        trustees_participatory_space:
+          fields:
+            notification: Notificació enviada a les
+            public_key: Clau pública
+            status: Estat
       orders:
         label: Ordena votacions per
         older: Més antiga
         recent: Recent
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Aquesta elecció s'està creant al Bulletin Board. És molt important que cada garant que hi participa creï una còpia de seguretat d'aquestes claus i les guardi en un lloc segur. Després d'això, el procés continuarà.
+            download_election_keys: Descarregar claus
+            download_icon: Icona que indica una acció de descàrrega
+            title: Còpia de seguretat de les claus per l'elecció %{election}
+          key_ceremony_steps:
+            back: Tornar
+            description: Aquesta elecció s'està creant al Bulletin Board. Per completar aquest procés, es necessita la teva participació com a garant.
+            keys:
+              create_election: Generació de claus
+              key_ceremony:
+                joint_election_key: Generació conjunta de claus
+                step_1: Publicant claus
+            list:
+              status: Estat
+              task: Tasca
+            process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Això pot comportar varis minuts, ja que tots els garants han de connectar-se al mateix temps per completar-lo.
+            start: Començar
+            start_icon: Icona que indica un botó d'inici per a la generació de claus d'una elecció
+            status:
+              completed: Completada
+              pending: Pendent
+              processing: Processant
+            title: Crear claus per l'elecció %{election}
       votes:
         confirm:
           answer: Resposta
