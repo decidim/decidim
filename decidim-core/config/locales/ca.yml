@@ -637,11 +637,11 @@ ca:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
-          email_intro: Un administrador ha eliminat el teu %{resource_type} degut a que ha estat denunciat com a %{report_reasons}.
-          email_outro: Heu rebut aquesta notificació degut a que sou un autor del contingut eliminat.
-          email_subject: S'ha eliminat el vostre %{resource_type}
+          email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
+          email_outro: Has rebut aquesta notificació perquè ets autora d'un contingut eliminat.
+          email_subject: S'ha eliminat el teu %{resource_type}
           notification_title: |-
-            Un administrador ha eliminat el vostre %{resource_type} degut a que ha estat denunciat com a %{report_reasons}.</br>
+            Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}..</br>
             <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''adherir-se a "%{resource_title}" que et pot resultar interessant, revisa-la i contribueix:'
@@ -1132,7 +1132,7 @@ ca:
         groups: Grups
         members: Membres
         officialized: Participant oficial
-        send_private_message: Envieu un missatge privat
+        send_private_message: Enviar missatge privat
         timeline: Línia de temps
         view_full_profile: Mostra el perfil complet
       sidebar:
@@ -1164,11 +1164,11 @@ ca:
         date: Reportat el
         details: Detalls
         hello: Hola %{name},
-        id: Identificador
+        id: ID
         participatory_space: Espai de participació
         reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> ha estat reportat.</p>
-        see_report: Mostra informe
+        see_report: Mostrar informe
         subject: Un contingut ha estat denunciat
     reports:
       create:
