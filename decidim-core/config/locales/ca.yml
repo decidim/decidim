@@ -35,6 +35,7 @@ ca:
       decidim/profile_updated_event: Perfil actualitzat
       decidim/promote_to_admin: Promocionada a administradora del grup
       decidim/removed_from_group: Eliminada del grup
+      decidim/resource_endorsed_event: Adhesió a recurs feta
   activerecord:
     attributes:
       decidim/user:
@@ -83,6 +84,7 @@ ca:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       delete:
+        alert: Aquesta acció no es pot desfer. Si esborres el teu compte no podràs entrar amb les teves credencials. L'eliminació del teu compte tindrà com a resultat l'anonimització de les teves contribucions. Continuaràs podent crear un nou compte, però aquestes contribucions no estaran associades a ell.
         confirm:
           close: Tancar finestra
           ok: Sí, vull eliminar el meu compte
