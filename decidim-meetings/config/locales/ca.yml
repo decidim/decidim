@@ -27,7 +27,7 @@ ca:
         private_meeting: Trobada privada
         registration_form_enabled: Formulari d'inscripcions habilitat
         registration_terms: Termes i condicions d'inscripció
-        registration_url: URL de registre
+        registration_url: URL d'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
         title: Títol
