@@ -1576,6 +1576,11 @@ ca:
         instagram: "%{organization} a Instagram"
         twitter: "%{organization} a Twitter"
         youtube: "%{organization} a YouTube"
+      timeout_modal:
+        body: Has estat sense activitat durant %{minutes} minuts. Si continues inactiva, es tancarà la teva sessió automàticament per la teva pròpia seguretat.
+        continue_session: Continuar la sessió
+        sign_out: Tancar sessió
+        title: Vols continuar amb la sessió?
       user_menu:
         account: 'Compte d''usuària: %{name}'
         admin_dashboard: Tauler d'administració
