@@ -266,6 +266,10 @@ ca:
       conferences:
         conference_registration:
           confirm: "%{user_name} ha confirmat la seva inscripció a la jornada %{resource_name}"
+        partner:
+          create: "%{user_name} ha creat la col·laboradora %{resource_name} a la jornada %{space_name}"
+          delete: "%{user_name} ha eliminat la col·laboradora %{resource_name} a la jornada %{space_name}"
+          update: "%{user_name} ha actualitzat la col·laboradora %{resource_name} a la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
           publish: "%{user_name} ha publicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
