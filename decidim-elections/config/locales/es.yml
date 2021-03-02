@@ -16,6 +16,9 @@ es:
         max_selections: Número máximo de opciones
         min_selections: Ninguna de las anteriores
         title: Título
+      voting:
+        end_time: La votación finaliza
+        start_time: La votación empieza
     errors:
       models:
         answer:
@@ -26,7 +29,25 @@ es:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: no se puede cambiar
+            public_key:
+              cant_be_changed: no se puede cambiar
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: El gestor de mesa ya es presidente/gestor del punto de votación
+            voting:
+              different_organization: La votación debe estar en la misma organización que el usuario
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: El gestor de mesa debe estar en la misma votación que el punto de votación
     models:
       decidim/elections/answer:
         one: Respuesta
@@ -37,6 +58,9 @@ es:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/votings/polling_officer:
+        one: Gestor de mesa
+        other: Gestores de mesa
   decidim:
     components:
       elections:
