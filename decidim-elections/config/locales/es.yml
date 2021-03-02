@@ -538,6 +538,81 @@ es:
           new:
             create: Crear
             title: Crear gestor de mesa
+          polling_officers_picker:
+            choose_polling_officers: Elegir gestores de mesa
+            close: Cerrar
+            more_polling_officers: Hay %{number} gestores de mesa más. Refina tu búsqueda para localizarlos.
+            no_polling_officers: Ningún gestor de mesa coincide con tus criterios de búsqueda o no hay ninguno.
+        polling_stations:
+          create:
+            invalid: Hubo un problema al crear este punto de votación
+            success: El punto de votación se ha creado correctamente
+          destroy:
+            invalid: Hubo un problema al eliminar este punto de votación
+            success: El punto de votación se ha eliminado correctamente
+          edit:
+            title: Editar punto de votación
+            update: Actualizar punto de votación
+          form:
+            address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
+            location_help: 'Ubicación: mensaje dirigido a los votantes con el lugar exacto del punto de votación'
+            location_hints_help: 'Sugerencias de ubicación: información adicional. Ejemplo: el piso del edificio donde se encuentra el punto de votación.'
+            polling_station_managers_help: 'Administradores de mesa: los oficiales que actuarán como administradores de los puntos de votación. Asegúrate de que los oficiales ya han sido creados en Gestores de mesa y que no están ya asignados a otro punto de votación'
+            polling_station_president_help: 'Presidentes de mesa: los oficiales que actuarán como presidentes de los puntos de votación. Asegúrate de que los oficiales ya han sido creados en Gestores de mesa y que no están ya asignados a otro punto de votación'
+            select_president: Selecciona un gestor de mesa como presidente del punto de votación
+          index:
+            title: Puntos de votación
+          new:
+            create: Crear
+            title: Crear punto de votación
+          update:
+            invalid: Hubo un problema al actualizar este punto de votación
+            success: Punto de votación actualizado correctamente
+        titles:
+          votings: Votaciones
+        votings:
+          actions:
+            confirm_destroy: '¿Estás segura?'
+            destroy: Eliminar
+            new_voting: Nuevo espacio de votación
+            publish: Publicar
+            unpublish: Despublicar
+          create:
+            invalid: Hubo un problema al crear esta votación
+            success: Votación creada con éxito
+          edit:
+            add_election_component: No tienes ninguna elección configurada para esta votación. Por favor añádela en la sección de componentes
+            assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
+            update: Actualizar
+          form:
+            select_a_voting_type: Por favor, selecciona un tipo de votación
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            title: Título
+            voting_type:
+              hybrid: Hibrida
+              in_person: Presencial
+              online: En línea
+          new:
+            create: Crear
+            title: Nueva votación
+          publish:
+            success: Votación publicada con éxito
+          unpublish:
+            success: Votación despublicada correctamente
+          update:
+            invalid: Hubo un problema al actualizar esta votación
+            success: Votación actualizada correctamente
+      admin_log:
+        voting:
+          create: "%{user_name} creó la votación %{resource_name}"
+          publish: "%{user_name} publicó la votación %{resource_name}"
+          unpublish: "%{user_name} despublicó la votación %{resource_name}"
+      votings_m:
+        badge_name:
+          ongoing: En curso
+          upcoming: Próximamente
+        footer_button_text:
+          participate: Participa
   layouts:
     decidim:
       election_votes_header:
