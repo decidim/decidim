@@ -252,7 +252,6 @@ fi:
             trustees: Luottamushenkilöt
           tally_ended:
             submit: Julkaise tulokset
-            title: Tulokset laskettu
           vote:
             errors:
               time_after: Vaali on edelleen käynnissä. Sinun on odotettava päättymisaikaan saakka (%{end_time}) päättääksesi äänestyksen.
@@ -533,9 +532,6 @@ fi:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
-        processing:
-          header: Käsitellään ääntä...
-          text: Äänesi on vastaanotettu ja sitä käsitellään. Odota hetki.
         update:
           error: Äänen tilan päivitys epäonnistui
           success: Äänen tilan päivitys onnistui
