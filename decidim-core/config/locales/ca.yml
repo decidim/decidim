@@ -462,6 +462,8 @@ ca:
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern
           sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi
+        user:
+          timed_out: Has estat sense activitat durant massa temps i se t'ha tancat automàticament la sessió del servei. Si vols continuar utilitzant el servei, torna a iniciar sessió.
       shared:
         newsletter_modal:
           buttons:
@@ -654,6 +656,7 @@ ca:
           notification_title: El <a href="%{resource_path}"> perfi l</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       data_portability_export:
+        click_button: 'Fes clic en el següent enllaç per descarregar les teves dades.<br/>L''arxiu estarà disponible fins %{date}.<br/>Necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per a Linux) per obrir-lo. Contrasenya: %{password}'
         download: Descarregar
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -686,6 +689,7 @@ ca:
       create:
         button: Seguir
         error: S'ha produït un error en seguir aquest recurs.
+        participatory_space: Seguint <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
@@ -702,6 +706,7 @@ ca:
         file:
           explanation: 'Instruccions per a l''arxiu:'
           message_1: Ha de ser una imatge o un document.
+          message_2: Per a les imatges, utilitza preferentment imatges apaïsades, el servei retalla la imatge. Per als arxius CSV, el separador entre columnes ha de ser una coma (",")
         image:
           explanation: 'Instruccions per a la imatge:'
           message_1: Preferiblement una imatge apaïsada que no tingui cap text.
@@ -943,6 +948,7 @@ ca:
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
+          not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
           send: Enviar
@@ -950,6 +956,8 @@ ca:
         update:
           error: El missatge no ha estat enviat degut a un error
     metrics:
+      download:
+        csv: Descarregar les dades (csv)
       followers:
         description: Nombre de participants que segueixen aquest espai de participació
         object: seguidores
