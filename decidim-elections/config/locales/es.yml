@@ -494,8 +494,26 @@ es:
               generate_legend_3: Asegúrate de que tu equipo no tenga una copia del archivo (por ejemplo, comprueba las carpetas de Descargas y Escritorio).
               generate_legend_4: Haz otra copia del archivo en un dispositivo externo diferente y guárdalo en un lugar muy seguro.
               submit: Enviar
+              submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor de Decidim.
+              submit_title: Enviar la clave pública de identificación
+              title: Claves de identificación del garante
+              upload: Sube tus claves de identificación
+              upload_error:
+                invalid_format: El archivo subido no contiene ninguna clave de identificación.
+                invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
+                invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave de identificación pública almacenada por Decidim.
+              upload_legend: Decidim tiene tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
+            not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta usar cualquiera de los navegadores más populares para poder completar tus tareas como garante.
+            not_supported_browser_title: Actualiza el navegador para actuar como garante
+            trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
+          update:
+            success: Tu clave pública de identificación fue guardada con éxito.
       votes:
         ballot_decision:
+          audit: "( Auditar papeleta )"
+          back: Comenzar de nuevo el proceso de votación
+          cast: Emitir papeleta
+          description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de su papeleta la estropeará, lo que significa, que para emitir tu voto tendrás que reiniciar el proceso de votación.
           header: 'La papeleta está cifrada: envíala o audítala'
         confirm:
           answer: Respuesta
@@ -716,6 +734,7 @@ es:
             user_type: Tipo de participante
           index:
             role_manager: administrador
+            role_president: presidente
             title: Gestores de mesa
           new:
             create: Crear
@@ -789,6 +808,83 @@ es:
           create: "%{user_name} creó la votación %{resource_name}"
           publish: "%{user_name} publicó la votación %{resource_name}"
           unpublish: "%{user_name} despublicó la votación %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Votaciones destacadas
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: '¿Estás segura?'
+          destroy: Borrar
+          new: Nuevo miembro
+          title: Acciones
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Votaciones activas
+            see_all_votings: Ver todas las votaciones
+            votings_button_title: Enlace a la página de Votaciones que las muestra todas
+      polling_officer_zone:
+        menu:
+          polling_officer_zone: Zona del gestor de mesa
+        polling_officers:
+          show:
+            actions:
+              count_votes: Contar los votos en las urnas
+              identify_person: Identificar y verificar a una persona
+            polling_officer_role_description: Has sido asignado para actuar como gestor de mesa (Presidente o Administrador) en algunas de las elecciones celebradas en esta plataforma.
+            polling_stations:
+              list:
+                actions: Acciones
+                address: Dirección
+                name: Nombre
+                role: Tu rol
+                voting: Votación
+              no_polling_stations: Todavía no estás asignado a ningún punto de votación.
+              title: Puntos de votación
+      polling_officers:
+        actions:
+          confirm_destroy: '¿Estás segura?'
+          destroy: Borrar
+          new: Nuevo
+          title: Acciones
+        roles:
+          manager: Administrador
+          president: Presidente
+          unassigned: No Asignado
+      polling_stations:
+        actions:
+          confirm_destroy: '¿Estás segura?'
+          destroy: Borrar
+          edit: Editar
+          new: Nuevo
+          title: Acciones
+      votings:
+        count:
+          title:
+            one: "%{count} votación"
+            other: "%{count} votaciones"
+        filters:
+          active: Activas
+          all: Todas
+          finished: Finalizadas
+          search: Buscar
+          state: Estado
+          upcoming: Próximas
+        filters_small_view:
+          close_modal: Cerrar ventana
+          filter: Filtrar
+          filter_by: Filtrar por
+          unfold: Desplegar
+        index:
+          no_votings: Ninguna votación coincide con tus criterios de búsqueda.
+          only_finished: Actualmente no hay votaciones programadas, pero aquí puedes encontrar las votaciones terminadas en la lista.
+          title: Votaciones
+        orders:
+          label: 'Ordenar votaciones por:'
+          random: Aleatorio
+          recent: Más recientes
+        show:
+          dates: Fechas
       votings_m:
         badge_name:
           finished: Finalizada
