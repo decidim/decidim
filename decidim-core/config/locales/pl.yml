@@ -811,7 +811,7 @@ pl:
         creator: Twórca
         member: Członek
       update:
-        error: Wystąpił problem podczas aktualizacji grupy
+        error: Wystąpił błąd podczas aktualizacji grupy
         success: Grupa została zaktualizowana
     help:
       main_topic:
@@ -1021,7 +1021,7 @@ pl:
         rejected: Odrzucone
         verified: Zweryfikowano
     pad_iframe:
-      disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyrażana jest ich opinia. %{organization} nie może być pociągnięty do odpowiedzialności za jego zawartość.
+      disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyraża ich opinie. %{organization} nie może być pociągnięta do odpowiedzialności za jego zawartość.
       explanation: Używaj tej podkładki do wspólnego robienia notatek podczas spotkania, więc łatwiej jest zapisać minutę później.
       pad: Podkładka
     pages:
