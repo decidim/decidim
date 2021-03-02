@@ -37,6 +37,8 @@ ca:
         weight: Pes
       participatory_process_group:
         description: Descripció
+        developer_group: Grup promotor
+        group_url: Lloc web
         hero_image: Imatge
         participatory_process_ids: Processos relacionats
       participatory_process_step:
