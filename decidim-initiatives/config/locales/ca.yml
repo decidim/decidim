@@ -154,7 +154,10 @@ ca:
             email_subject: S'ha completat una nova fita!
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
         support_threshold_reached:
+          email_intro: La iniciativa %{resource_title} ha arribat al llindar de signatures
           email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_subject: Llindar de signatures aconseguit
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha arribat al llindar de signatures
     gamification:
       badges:
         initiatives:
