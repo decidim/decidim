@@ -552,6 +552,7 @@ cs:
           lead: Váš hlas nebyl odeslán!
           text: Něco se pokazilo, zkuste to prosím znovu.
         header:
+          ballot_decision: Zahlasování nebo audit vašeho hlasování
           confirm: Potvrďte svůj hlas
           confirmed: Hlasování potvrzeno
           encrypting: Potvrzení hlasování
