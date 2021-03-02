@@ -676,6 +676,7 @@ es:
           officialize: Oficializa
           officialized: Oficializada
           reofficialize: Vuelve a oficializar
+          reports: Informes
           show_email: Mostrar la dirección de correo electrónico
           status: Estado
           unblock: Desbloquear usuaria
@@ -706,6 +707,7 @@ es:
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: Se ha producido un error al actualizar esta organización.
@@ -740,6 +742,7 @@ es:
           error: Se ha producido un error al eliminar a una participante privada para este espacio participativo.
           success: El acceso de la participante al espacio de participación privado se ha eliminado correctamente.
         index:
+          import_via_csv: Importar vía csv
           title: Participante de espacio de participación privado
         new:
           create: Crear
@@ -862,6 +865,7 @@ es:
         impersonatable_users: Participantes que se pueden gestionar
         impersonations: Gestión de participantes
         metrics: Métricas
+        panel: Administradora
         participants: Participantes
         scope_types: Tipos de ámbito
         scopes: Ámbitos
@@ -925,6 +929,16 @@ es:
       errors:
         impersonate_user:
           reason: Debes indicar un motivo para la gestión de una participante no gestionada
+    metrics:
+      blocked_users:
+        object: usuarias bloqueadas
+        title: Usuarias bloqueadas
+      reported_users:
+        object: usuarias reportadas
+        title: Usuarias reportadas
+      user_reports:
+        object: reportes de usuaria
+        title: Reportes de usuaria
     moderations:
       actions:
         expand: Expandir
@@ -950,6 +964,7 @@ es:
           fields:
             created_at: Fecha de creación
             hidden_at: Fecha de ocultación
+            participatory_space: Espacio participativo
             report_count: Recuento
             reportable_id: Id
             reportable_type: Tipo
@@ -967,6 +982,8 @@ es:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderaciones globales
         newsletters:
           title: Boletines
         settings:
