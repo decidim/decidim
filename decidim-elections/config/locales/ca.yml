@@ -167,6 +167,25 @@ ca:
             invalid: S'ha produït un error en actualitzar aquesta pregunta
             success: La pregunta s'ha actualitzat correctament
         steps:
+          create_election:
+            errors:
+              max_selections: Les preguntes no tenen un <strong>valor correcte per quantitat de respostes</strong>
+              minimum_answers: Les preguntes han de tenir <strong>almenys dues respostes</strong>.
+              minimum_questions: L'elecció <strong>ha de tenir almenys una pregunta</strong>.
+              published: L'elecció <strong>no està publicada</strong>.
+              time_before: L'hora d'inici és en <strong>menys de 3 hores</strong> abans de que comenci l'elecció.
+              trustees_number: L'espai de participació <strong>ha de tenir almenys %{number} garants amb clau pública</strong>.
+            invalid: S'ha produït un error en configurar aquesta elecció
+            no_trustees: No hi ha garants configurats per aquest espai de participació
+            not_used_trustee: "(no utilitzat)"
+            public_key:
+              'false': no té una <strong>clau pública</strong>
+              'true': té una <strong>clau pública</strong>
+            requirements:
+              max_selections: Totes les preguntes tenen un valor correcte per <strong>màxim de respostes</strong>.
+              minimum_answers: Cada pregunta té <strong>almenys 2 respostes</strong>.
+              minimum_questions: L'elecció té <strong>almenys 1 pregunta</strong>.
+              published: L'elecció està <strong>publicada</strong>.
           vote_stats:
             no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
             title: Estadístiques de les votacions
