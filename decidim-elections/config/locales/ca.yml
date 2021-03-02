@@ -17,8 +17,8 @@ ca:
         min_selections: Cap de les anteriors
         title: Títol
       voting:
-        end_time: La votació finalitza
-        start_time: Comença la votació
+        end_time: Finalitza
+        start_time: Comença
     errors:
       models:
         answer:
@@ -50,7 +50,7 @@ ca:
             president: Presidenta
             unassigned: Sense assignar
         search_placeholder:
-          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o lloc de votació.
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o punt de votació.
     components:
       elections:
         actions:
@@ -450,12 +450,21 @@ ca:
             email_outro: Has rebut aquesta notificació perquè has votat a l'elecció %{resource_name}.
             email_subject: El teu vot a %{resource_name} s'ha acceptat.
             notification_title: 'El teu vot s''ha acceptat. Verifica''l <a href="%{verify_url}">aquí</a> utilitzant el comprovant de vot: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: T'han assignat com %{role} del punt de votació %{polling_station_name} a <a href="%{resource_url}">%{resource_title}</a>. Pots gestionar el punt de votació accedint a la <a href="%{polling_officer_zone_url}">Zona de gestors de mesa</a>.
+            email_outro: Has rebut aquesta notificació perquè t'han assignat com %{role} de %{polling_station_name}.
+            email_subject: Ets %{role} del punt de votació %{polling_station_name}.
+            notification_title: Ets %{role} del punt de votació %{polling_station_name} a la votació <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
           contextual: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara al conjunt de membres d'una organització, fer una crida a participar en la votació, generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar-ne el resultat.</p> <p>Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització. Alguns exemples serien: canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir una durada màxima d'un, dos o tres mandats.</p>"
           page: "<p>Una <strong>votació</strong> és un espai que us permet fer una pregunta clara al conjunt de membres d'una organització, fer una crida a participar en la votació, generar i ordenar el debat a favor o en contra d'una resposta. Quan arriba la data de la votació, podeu votar i publicar-ne el resultat.</p> <p>Les votacions poden ser de pràcticament qualsevol aspecte que afecti una organització. Alguns exemples serien: canviar el nom o el logotip de l'organització oferint diverses alternatives, decidir si passar a formar part d'una organització més gran o no, validar o refusar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs haurien de tenir una durada màxima d'un, dos o tres mandats.</p>"
           title: Què són les votacions?
+    menu:
+      votings: Votacions
     pages:
       home:
         statistics:
@@ -464,16 +473,133 @@ ca:
       statistics:
         elections_count: Votacions
     votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Quantitat màxima d'elements per mostrar
+          landing_page:
+            attachments_and_folders:
+              name: Arxius i carpetes de la votació
+            description:
+              name: Descripció de la votació
+            elections:
+              name: Eleccions de la votació
+            header:
+              name: Capçalera de la votació
+            html_block_1:
+              name: Bloc html 1 de votació
+            html_block_2:
+              name: Bloc html 2 de votació
+            html_block_3:
+              name: Bloc html 3 de votació
+            metrics:
+              name: Mètriques de la votació
+            polling_stations:
+              name: Punts de votació
+            stats:
+              name: Estadístiques de la votació
+            timeline:
+              name: Calendari de la votació
+        index:
+          not_published: Despublicada
+          published: Publicada
+        landing_page:
+          content_blocks:
+            edit:
+              update: Actualitzar
+          edit:
+            active_content_blocks: Blocs de contingut actius
+            inactive_content_blocks: Blocs de contingut inactius
+        menu:
+          votings: Votacions
+          votings_submenu:
+            attachment_collections: Carpetes
+        polling_officers:
+          polling_officers_picker:
+            more_polling_officers: Hi ha %{number} gestors de mesa més. Refina la teva cerca per localitzar-los.
+        polling_stations:
+          create:
+            invalid: S'ha produït un error en crear aquest punt de votació
+            success: Punt de votació creat correctament
+          destroy:
+            invalid: S'ha produït un error en eliminar aquest punt de votació
+            success: Punt de votació eliminat correctament
+          edit:
+            title: Editar punt de votació
+            update: Actualitzar punt de votació
+          form:
+            address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
+            location_help: 'Ubicació: missatge dirigit als votants amb el lloc exacte del punt de votació'
+            location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici on està situat el punt de votació.'
+            polling_station_managers_help: 'Gestors de mesa: els tècnics que actuaran com a responsables del punt de votació. Assegura''t que han estat creats en Gestors de mesa i que no estan ja assignats a un altre punt de votació'
+            polling_station_president_help: 'Presidents de mesa: els tècnics que actuaran com a presidents del punt de votació. Assegura''t que han estat creats en Gestors de mesa i que no estan ja assignats a un altre punt de votació'
+            select_president: Selecciona un gestor com a president del punt de votació
+          index:
+            title: Punts de votació
+          new:
+            create: Crear
+            title: Crear punt de votació
+          update:
+            invalid: S'ha produït un error en actualitzar aquest punt de votació
+            success: Punt de votació actualitzat correctament
+        titles:
+          votings: Votacions
+        votings:
+          actions:
+            confirm_destroy: N'estàs segura?
+            destroy: Eliminar
+            new_voting: Nou espai de votació
+            publish: Publicar
+            unpublish: Despublicar
+          create:
+            invalid: S'ha produït un error en crear aquesta votació
+            success: Votació creada correctament
+          edit:
+            add_election_component: No tens cap elecció configurada per a aquesta votació. Si us plau, afegeix-la a la secció de components
+            assign_missing_officers: Hi ha punts de votació sense president i/o gestors. Si us plau, assigna'ls des de la secció de punts de votació
+            update: Actualitzar
+          form:
+            select_a_voting_type: Si us plau selecciona un tipus de votació
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            title: Títol
+            voting_type:
+              hybrid: Híbrida
+              in_person: Presencial
+              online: En línia
+          new:
+            create: Crear
+            title: Nova votació
+          publish:
+            success: La votació s'ha publicat correctament
+          unpublish:
+            success: La votació s'ha despublicat correctament
+          update:
+            invalid: S'ha produït un error en actualitzar aquesta votació
+            success: La votació s'ha actualitzat correctament
+      admin_log:
+        voting:
+          create: "%{user_name} ha creat la votació %{resource_name}"
+          publish: "%{user_name} ha publicat la votació %{resource_name}"
+          unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Votacions destacades
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: N'estàs segura?
+          destroy: Esborrar
+          new: Nou membre
+          title: Accions
       votings:
         index:
           no_votings: Cap votació s'ajusta als vostres criteris de cerca.
           only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
       votings_m:
         footer_button_text:
-          participate: Participeu
-          vote: Voteu
+          participate: Participa
+          vote: Vota
         voting_type:
-          hybrid: Híbrid
+          hybrid: Híbrida
           in_person: Presencial
           online: En línia
         voting_types_label: Tipus de votació
@@ -481,3 +607,6 @@ ca:
     decidim:
       election_votes_header:
         exit: Sortir
+      votings:
+        promoted_voting:
+          vote: Votar
