@@ -106,7 +106,7 @@ pl:
         edit:
           update: Aktualizuj
         form:
-          slug_help: 'URL slugi służą do generowania adresów URL kierujących do tej konsultacji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+          slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konsultacji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
           title: Informacje ogólne
         index:
           not_published: Nie opublikowano
