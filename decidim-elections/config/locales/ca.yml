@@ -29,7 +29,25 @@ ca:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: no es pot canviar
+            public_key:
+              cant_be_changed: no es pot canviar
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: El gestor de mesa ja es president/gestor del punt de votació
+            voting:
+              different_organization: La votació ha d'estar a la mateixa organització que l'usuària
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: El gestor de mesa ha d'estar a la mateixa votació que el punt de votació
     models:
       decidim/elections/answer:
         one: Resposta
@@ -40,9 +58,23 @@ ca:
       decidim/elections/question:
         one: Pregunta
         other: Preguntes
+      decidim/votings/polling_officer:
+        one: Gestor de mesa
+        other: Gestors de mesa
+      decidim/votings/polling_station:
+        one: Punt de votació
+        other: Punts de votació
+      decidim/votings/voting:
+        one: Votació
+        other: Votacions
   decidim:
     admin:
       filters:
+        officers_assigned_eq:
+          label: Gestors
+          values:
+            assigned: Assignat
+            unassigned: No assignat
         role_eq:
           label: Rol
           values:
@@ -51,6 +83,8 @@ ca:
             unassigned: Sense assignar
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o punt de votació.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Cercar %{collection} per títol, adreça o nom del gestor/email/àlies.
     components:
       elections:
         actions:
@@ -186,6 +220,7 @@ ca:
               minimum_answers: Cada pregunta té <strong>almenys 2 respostes</strong>.
               minimum_questions: L'elecció té <strong>almenys 1 pregunta</strong>.
               published: L'elecció està <strong>publicada</strong>.
+              time_before: La configuració s'està fent <strong>almenys %{hours} hores</strong> abans de que comenci l'elecció.
               trustees_number: L'espai de participació té <strong>almenys %{number} garants amb clau pública</strong>.
             submit: Configurar elecció
             success: L'elecció s'ha enviat correctament al Bulletin Board
@@ -225,14 +260,44 @@ ca:
             requirements:
               time_after: L'elecció s'ha acabat. Pots finalitzar el període de votació manualment, o finalitzarà automàticament en breus instants.
             submit: Finalitzar període de votació
+            success: La sol·licitud per finalitzar el període de votació s'ha enviat correctament al Bulletin Board
+            title: Període de votació
+          vote_ended:
+            submit: Començar recompte
+            success: La sol·licitud per iniciar el recompte s'ha enviat correctament al Bulletin Board
+            title: Període de votació finalitzat
           vote_stats:
             no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
             title: Estadístiques de les votacions
             voters: Votants
             votes: Vots
+        trustees_participatory_spaces:
+          actions:
+            disable: Desactivar
+            enable: Considerar
+          create:
+            exists: El garant existeix per aquest espai participatiu
+            invalid: S'ha produït un error en crear un nou garant
+            success: Garant creat correctament
+          delete:
+            invalid: S'ha produït un error en creant aquest garant
+            success: Garant eliminat correctament
+          form:
+            select_user: Selecciona l'usuari
+          index:
+            title: Garants
+          new:
+            create: Crear garant
+            title: Nou garant
+          update:
+            invalid: S'ha produït un error en actualitzar el garant %{trustee}
+            success: El garant %{trustee} s'ha actualitzat correctament
       admin_log:
         election:
+          end_vote: "%{user_name} ha finalittzat el període de votació per l'elecció %{resource_name} al Bulletin Board"
           publish: "%{user_name} ha publicat la votació %{resource_name}"
+          setup: "%{user_name} ha creat l'elecció %{resource_name} al Bulletin Board"
+          start_key_ceremony: "%{user_name} va començar la cerimònia de claus per l'elecció %{resource_name} al Bulletin Board"
           unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
       election_m:
         badge_name:
@@ -401,6 +466,9 @@ ca:
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        processing:
+          header: Processant...
+          text: El teu vot s'ha rebut i s'està processant. Si us plau espera.
         update:
           error: S'ha produït un error en actualitzar l'estat del vot
           success: L'estat del vot s'ha actualitzat correctament
