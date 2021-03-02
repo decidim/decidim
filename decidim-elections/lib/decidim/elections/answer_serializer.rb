@@ -17,7 +17,7 @@ module Decidim
       # Public: Exports a hash with the serialized data for this answer.
       def serialize
         finalize(
-          election,
+          answer,
           {
             participatory_space: {
               id: election.participatory_space.id,

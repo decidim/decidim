@@ -15,7 +15,7 @@ module Decidim
       # Public: Exports a hash with the serialized data for the user answers.
       def serialize
         finalize(
-          answers,
+          @answers,
           @answers.each_with_index.inject({}) do |serialized, (answer, idx)|
             serialized.update(
               answer_translated_attribute_name(:id) => answer.session_token,
