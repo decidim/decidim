@@ -17,8 +17,8 @@ ca:
         min_selections: Cap de les anteriors
         title: Títol
       voting:
-        end_time: La votació finalitza
-        start_time: Comença la votació
+        end_time: Finalitza
+        start_time: Comença
     errors:
       models:
         answer:
@@ -50,7 +50,7 @@ ca:
             president: Presidenta
             unassigned: Sense assignar
         search_placeholder:
-          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o lloc de votació.
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o punt de votació.
     components:
       elections:
         actions:
@@ -596,10 +596,10 @@ ca:
           only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
       votings_m:
         footer_button_text:
-          participate: Participeu
-          vote: Voteu
+          participate: Participa
+          vote: Vota
         voting_type:
-          hybrid: Híbrid
+          hybrid: Híbrida
           in_person: Presencial
           online: En línia
         voting_types_label: Tipus de votació
