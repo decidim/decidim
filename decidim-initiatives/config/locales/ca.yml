@@ -212,7 +212,7 @@ ca:
           edit:
             accept: Accepta la iniciativa
             confirm: Estàs segur?
-            confirm_send_to_technical_validation: N'esteu segur?
+            confirm_send_to_technical_validation: N'estàs segura?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
             export_votes: Exportar signatures
@@ -334,14 +334,14 @@ ca:
           back: Torna
           back_to_initiatives: Torna a iniciatives
           callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
-          confirm: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
           edit_my_initiative: Editar la meva iniciativa
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
           send_my_initiative: Enviar la meva iniciativa a validació tècnica
         finish_help:
-          access_reminder: Podeu accedir a les vostres iniciatives a través del filtre %{link} a la pàgina d'iniciatives.
-          publish_helper_text: Recordeu que per publicar la vostra iniciativa heu de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
+          access_reminder: Pots accedir a les teves iniciatives a través del filtre %{link} a la pàgina d'iniciatives.
+          publish_helper_text: Recorda que per publicar la teva iniciativa has de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
         previous_form:
           back: Torna
           continue: Continua
@@ -403,7 +403,7 @@ ca:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha sol·licitat formar part de la comissió promotora de la teva iniciativa <a href="%{resource_url}">%{resource_title}</a>. Per acceptar-ho o rebutjar-ho fes clic <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Documents
-        attachment_legend: "(Opcional) Afegiu adjunts"
+        attachment_legend: "(Opcional) Afegir adjunts"
         delete_attachment: Esborrar
       index:
         title: Iniciatives
@@ -444,10 +444,10 @@ ca:
         committee_members:
           approve: Aprova
           confirm_revoke: N'estàs segura?
-          invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones al comitè promotor
-          no_members_yet: No hi ha membres al comitè promotor
+          invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones a la comissió promotora
+          no_members_yet: No hi ha membres a la comissió promotora
           revoke: Revocar
-          title: Membres del comitè
+          title: Membres de la comissió
         count:
           title:
             one: "%{count} iniciativa"
@@ -497,7 +497,7 @@ ca:
           general_title: Sol·licitud d'admissió d'una iniciativa
           id_number: Número d'identificació
           initiative:
-            attachments: Documentació adjunta (escriviu el nom de cada document a continuació)
+            attachments: Documentació adjunta (escriu el nom de cada document a continuació)
             description: 'Descripció:'
             title: 'Títol:'
             type: Tipus d'iniciativa
