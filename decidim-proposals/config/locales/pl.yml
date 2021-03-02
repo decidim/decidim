@@ -411,7 +411,7 @@ pl:
             title: Odpowiedź na propozycję %{title}
         proposal_notes:
           create:
-            error: Wystąpił problem podczas tworzenia tej notatki dotyczącej propozycji
+            error: Wystąpił błąd podczas tworzenia tej notatki dotyczącej propozycji
             success: Notatka dotycząca propozycji została utworzona
           form:
             note: Notatka
