@@ -13,6 +13,7 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         proposal_ids: Propostes relacionades
+        selected: Seleccionat per implementar
         title: Títol
   activerecord:
     models:
@@ -44,7 +45,11 @@ ca:
             title: Edita el pressupost
             update: Actualitza el pressupost
           index:
+            finished_orders: Vots finalitzats
+            pending_orders: Vots en procés
             title: Pressupostos
+            users_with_finished_orders: Usuàries amb vots finalitzats
+            users_with_pending_orders: Usuàries amb vots pendents
           new:
             create: Crea pressupost
             title: Nou pressupost
@@ -86,6 +91,7 @@ ca:
             create: Importa propostes a projectes
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
             select_component: Selecciona un component
+            title: Importar propostes
       admin_log:
         budget:
           create: "%{user_name} ha creat el pressupost %{resource_name} a l'espai %{space_name}"
@@ -138,9 +144,14 @@ ca:
           title: Confirmar vot
         budget_excess:
           budget_excess:
+            description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
             title: Pressupost excedit
           close: Tancar
+          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
           ok: D'acord
+          projects_excess:
+            description: Aquest projecte sobrepassa el número màxim de projectes i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport d'acord amb les teves preferències.
+            title: Màxim de projectes excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
           assigned: 'Assignat:'
@@ -148,6 +159,9 @@ ca:
           checked_out:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
+          minimum_projects_rule:
+            description: A quins projectes creus que hem de destinar el pressupost? Selecciona com a mínim %{minimum_number} projectes i vota segons les teves preferències per a definir el pressupost.
+            instruction: "<li>Selecciona com a mínim %{minimum_number} projectes i vota segons les teves preferències per a definir el pressupost.</li>"
           title: Tu decideixes el pressupost
         count:
           projects_count:
