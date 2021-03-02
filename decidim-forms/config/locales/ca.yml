@@ -123,7 +123,7 @@ ca:
           resize_and_pad: Redimensionat i ajustat a
           resize_to_fit: Redimensionada per ajustar-la
       question_types:
-        files: Fitxers
+        files: Arxius
         long_answer: Resposta llarga
         matrix_multiple: Matriu (opció multiple)
         matrix_single: Matriu (opció única)
