@@ -358,8 +358,11 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozbalit
         preview:
+          available_answers: 'Dostupné odpovědi:'
+          description: 'Toto jsou otázky, které najdete v procesu hlasování:'
           title: Volební otázky
         results:
+          description: 'To jsou výsledky hlasování pro každou otázku:'
           selected: Vybrané
           title: Výsledky voleb
           votes:
@@ -819,6 +822,17 @@ cs:
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
+        landing_page:
+          description:
+            show_less: Číst méně
+            show_more: Přečtěte si více
+          metrics:
+            heading: Metriky
+          polling_stations:
+            heading: Volební místnosti
+            no_polling_stations: Zatím nejsou žádné volební místnosti.
+          timeline:
+            heading: Časová osa
       monitoring_committee_members:
         actions:
           confirm_destroy: Jste si jisti?
@@ -914,6 +928,8 @@ cs:
     decidim:
       election_votes_header:
         exit: Ukončit
+      voting_navigation:
+        voting_menu_item: Hlasování
       votings:
         index:
           promoted_votings: Zvýrazněné hlasování
