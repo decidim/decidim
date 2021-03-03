@@ -487,23 +487,6 @@ sv:
         related_assemblies: Relaterade grupper
         related_consultations: Relaterade samråd
         related_participatory_processes: Relaterade dialoger
-      statistics:
-        answers_count: Svar
-        comments_count: Kommentarer
-        conference_count: Konferenser
-        debates_count: Debatter
-        endorsements_count: Instämmanden
-        headline: Aktivitet
-        meetings_count: Möten
-        orders_count: Stöd
-        pages_count: Sidor
-        posts_count: Inlägg
-        projects_count: Projekt
-        proposals_count: Förslag
-        results_count: Resultat
-        surveys_count: Undersökningar
-        users_count: Deltagare
-        votes_count: Stöd
     events:
       conferences:
         conference_registration_confirmed:
