@@ -1036,7 +1036,7 @@ tr:
           comments_count: Yorumlar
           conferences_count: Konferanslar
           debates_count: Tartışmalar
-          endorsements_count: Onaylar
+          endorsements_count: Cirolar
           headline: Mevcut durum %{organization}
           meetings_count: Toplantılar
           orders_count: Oylar
@@ -1044,7 +1044,7 @@ tr:
           processes_count: Süreçler
           projects_count: Projeler
           proposals_accepted: Kabul Edilen Teklifler
-          proposals_count: Teklifler
+          proposals_count: Teklif
           results_count: Sonuçlar
           surveys_count: Anketler
           users_count: Katılımcılar
