@@ -246,7 +246,7 @@ ru:
     pages:
       home:
         statistics:
-          consultations_count: Консультаций
+          consultations_count: Консультации
     questions:
       results:
         title: Итоги
