@@ -632,13 +632,6 @@ cs:
           title: Co jsou hlasování?
     menu:
       votings: Hlasování
-    pages:
-      home:
-        statistics:
-          elections_count: Volby
-    participatory_processes:
-      statistics:
-        elections_count: Volby
     votings:
       admin:
         content_blocks:
