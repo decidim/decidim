@@ -387,28 +387,6 @@ pl:
         social_networks: Portale społecznościowe
         social_networks_title: Udostępnij zespół na
         target: Do kogo kierowane
-      statistics:
-        answers_count: Odpowiedzi
-        assemblies_count: Zespoły
-        comments_count: Komentarze
-        debates_count: Debaty
-        endorsements_count: Rekomendacje
-        followers_count: Obserwujący
-        headline: Statystyki
-        meetings_count: Spotkania
-        no_stats: Nie ma jeszcze żadnych statystyk.
-        orders_count: Wsparcia
-        pages_count: Strony
-        participants_count: Użytkownicy
-        posts_count: Posty
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Propozycje
-        results_count: Wyniki
-        supports_count: Podpisy
-        surveys_count: Ankiety
-        users_count: Użytkownicy
-        votes_count: Głosy
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na
