@@ -292,7 +292,7 @@ de:
       included_proposals:
         project_proposal: Vorschläge in diesem Projekt
     statistics:
-      orders_count: Unterstützungen
+      orders_count: Projektauswahlen
       projects_count: Projekte
   index:
     confirmed_orders_count: Stimmen zählen
