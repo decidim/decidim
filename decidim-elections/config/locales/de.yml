@@ -596,13 +596,6 @@ de:
           title: Was sind Abstimmungen?
     menu:
       votings: Abstimmungen
-    pages:
-      home:
-        statistics:
-          elections_count: Wahlen
-    participatory_processes:
-      statistics:
-        elections_count: Wahlen
     votings:
       admin:
         content_blocks:
@@ -789,14 +782,14 @@ de:
         landing_page:
           description:
             show_less: Weniger anzeigen
-            show_more: Mehr erfahren
+            show_more: Mehr anzeigen
           metrics:
-            heading: Kriterien
+            heading: Metriken
           polling_stations:
             heading: Wahllokale
             no_polling_stations: Es gibt noch keine Wahllokale.
           timeline:
-            heading: Die Zeitachse
+            heading: Zeitachse
       monitoring_committee_members:
         actions:
           confirm_destroy: Sind Sie sicher?
