@@ -260,7 +260,13 @@ ca:
             trustees: Garants
           tally_ended:
             answer: Resposta
+            not_selected: No seleccionat
+            question: Pregunta
+            result: Resultat
+            selected: Seleccionat
             submit: Publicar resultats
+            success: Recompte finalitzat amb èxit
+            title: Resultats calculats
           vote:
             errors:
               time_after: L'elecció està en curs encara. Has d'esperar fins l'hora de fi (%{end_time}) per finalitzar el període de votació.
@@ -268,14 +274,45 @@ ca:
             requirements:
               time_after: L'elecció s'ha acabat. Pots finalitzar el període de votació manualment, o finalitzarà automàticament en breus instants.
             submit: Finalitzar període de votació
+            success: La sol·licitud per finalitzar el període de votació s'ha enviat correctament al Bulletin Board
+            title: Període de votació
+          vote_ended:
+            invalid: S'ha produït un error en començar el recompte
+            submit: Començar recompte
+            success: La sol·licitud per iniciar el recompte s'ha enviat correctament al Bulletin Board
+            text: La votació ha finalitzat. Pots iniciar el recompte ara.
+            title: Període de votació finalitzat
           vote_stats:
             no_vote_statistics_yet: Les estadístiques de votacions encara no estan disponibles
             title: Estadístiques de les votacions
             voters: Votants
             votes: Vots
+        trustees_participatory_spaces:
+          actions:
+            disable: Desactivar
+            enable: Considerar
+          create:
+            exists: El garant existeix per aquest espai participatiu
+            invalid: S'ha produït un error en crear un nou garant
+            success: Garant creat correctament
+          delete:
+            invalid: S'ha produït un error en eliminar aquest garant
+            success: Garant eliminat correctament
+          form:
+            select_user: Seleccionar usuari
+          index:
+            title: Garants
+          new:
+            create: Crear garant
+            title: Nou garant
+          update:
+            invalid: S'ha produït un error en actualitzar el garant %{trustee}
+            success: El garant %{trustee} s'ha actualitzat correctament
       admin_log:
         election:
+          end_vote: "%{user_name} ha finalittzat el període de votació per l'elecció %{resource_name} al Bulletin Board"
           publish: "%{user_name} ha publicat la votació %{resource_name}"
+          setup: "%{user_name} ha creat l'elecció %{resource_name} al Bulletin Board"
           unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
       election_m:
         badge_name:
@@ -406,7 +443,17 @@ ca:
                 bb_status: Estat
                 election: Elecció
                 voting_period: Període de votació
+            not_supported_browser_title: Actualitza el navegador per a actuar com a garant
+            trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
+          update:
+            success: La teva clau pública d'identificació va ser guardada amb èxit.
       votes:
+        ballot_decision:
+          audit: "( Auditar papereta )"
+          back: Començar de nou el procés de votació
+          cast: Enviar papereta
+          description: Aquí tens les opcions per emetre la teva papereta perquè sigui degudament comptada o, alternativament, pots auditar que la teva papereta hagi estat xifrada correctament. Per raons de seguretat, l'auditoria de la teva papereta l'espatllarà, cosa que significa, que per a emetre el teu vot hauràs de reiniciar el procés de votació.
+          header: 'La papereta està encriptada: envia-la o audita-la'
         confirm:
           answer: Resposta
           answer_number: resposta %{number}
@@ -418,15 +465,19 @@ ca:
           question: Preguntes %{count}
         confirmed:
           back: Tornar a les votacions
+          error: Ho sentim, hi ha hagut un error al guardar el teu vot. Si us plau, vota de nou.
           experience: Com valores l'experiència?
           feedback: Dona'ns la teva opinió
           header: Vot confirmat
           lead: El teu vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
         encrypting:
           header: Codificant el vot...
           text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
         failed:
+          header: Vot fallit
+          lead: El teu vot no s'ha enviat!
           text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
         header:
           ballot_decision: Envia o audita el teu vot
@@ -558,6 +609,42 @@ ca:
           votings: Votacions
           votings_submenu:
             attachment_collections: Carpetes
+            attachment_files: Arxius
+            attachments: Adjunts
+            components: Components
+            info: Informació
+            landing_page: Pàgina d'inici
+            monitoring_committee_members: Comitè de seguiment
+            polling_officers: Gestors de mesa
+            polling_stations: Punts de votació
+        models:
+          monitoring_committee_member:
+            fields:
+              email: Correu electrònic
+              name: Nom
+            name: Membre del comitè de seguiment
+          polling_officer:
+            fields:
+              email: Correu electrònic
+              name: Nom
+              polling_station: Punt de votació (rol)
+            name: Gestor de mesa
+          polling_station:
+            fields:
+              address: Adreça
+              polling_station_managers: Administradors
+              polling_station_president: President
+              title: Títol
+            name: Punt de votació
+          voting:
+            fields:
+              created_at: Creada el
+              promoted: Destacada
+              published: Publicada
+              title: Títol
+        monitoring_committee_members:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest membre del comitè de seguiment
         polling_officers:
           polling_officers_picker:
             more_polling_officers: Hi ha %{number} gestors de mesa més. Refina la teva cerca per localitzar-los.
