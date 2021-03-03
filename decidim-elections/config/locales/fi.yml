@@ -349,8 +349,11 @@ fi:
           filter_by: Rajaa hakua
           unfold: Avaa
         preview:
+          available_answers: 'Vastausvaihtoehdot:'
+          description: 'Nämä kysymykset esitetään äänestyksen yhteydessä:'
           title: Vaaliin liittyvät kysymykset
         results:
+          description: 'Tässä on äänestyksen tulokset kaikille kysymyksille:'
           selected: Valittu
           title: Vaalin tulokset
           votes:
@@ -808,6 +811,17 @@ fi:
       content_blocks:
         highlighted_votings:
           name: Korostetut äänestykset
+        landing_page:
+          description:
+            show_less: Näytä vähemmän
+            show_more: Lue lisää
+          metrics:
+            heading: Tilastomittarit
+          polling_stations:
+            heading: Äänestyspaikat
+            no_polling_stations: Äänestyspaikkoja ei vielä ole.
+          timeline:
+            heading: Aikajana
       monitoring_committee_members:
         actions:
           confirm_destroy: Oletko varma?
@@ -901,6 +915,8 @@ fi:
     decidim:
       election_votes_header:
         exit: Poistu
+      voting_navigation:
+        voting_menu_item: Äänestys
       votings:
         index:
           promoted_votings: Korostetut äänestykset
