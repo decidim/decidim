@@ -1,8 +1,8 @@
-.evote-timeline {
+.evote-timeline{
   display: flex;
   overflow: auto;
 
-  &__card {
+  &__card{
     background-color: $white;
     border: 1px solid $medium-gray;
     padding: 1rem;
@@ -13,53 +13,52 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-    &:first-child {
+
+    &:first-child{
       margin-left: 0;
     }
 
-    &.is-past {
+    &.is-past{
       opacity: .75;
       background-color: $light-gray-dark;
     }
 
-    &.is-current {
+    &.is-current{
       background-color: $secondary;
       color: $white;
     }
   }
 
-  &__dates {
+  &__dates{
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
     font-weight: bold;
-
   }
 
-  &__dates-item {
+  &__dates-item{
     display: flex;
     flex-direction: column;
   }
 
-  &__dates-separator {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+  &__dates-separator{
+    padding-left: .5rem;
+    padding-right: .5rem;
   }
 
-  &__day {
+  &__day{
     font-size: 1.75em;
     line-height: 1;
   }
 
-  &__month {
+  &__month{
     text-transform: uppercase;
-    font-size: 0.8em;
+    font-size: .8em;
     line-height: 1;
     opacity: .4;
   }
 
-  &__title {
-   font-weight: 600;
+  &__title{
+    font-weight: 600;
   }
 }
