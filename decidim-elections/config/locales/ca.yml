@@ -349,30 +349,27 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         preview:
-          available_answers: Respostes disponibles
-          description: Aquestes són les preguntes que trobaràs al procés de votació
           title: Preguntes de l'elecció
         results:
-          description: Aquests són els resultats de la votació, per a cada pregunta
           selected: Seleccionat
           title: Resultats de l'elecció
           votes:
             one: "%{count} vot"
             other: "%{count} vots"
         show:
-          action-button:
-            change-vote: Canvia el teu vot
+          action_button:
+            change_vote: Canvia el teu vot
             vote: Començar a votar
-            vote-again: Votar de nou
+            vote_again: Votar de nou
           back: Eleccions disponibles
           callout:
-            already-voted: Ja has votat en aquesta elecció. Pots canviar el teu vot o verificar-lo.
-            vote-rejected: No ha estat possible verificar el teu vot. Si us plau, fes-ho de nou.
+            already_voted: Ja has votat en aquesta elecció. Pots canviar el teu vot o verificar-lo.
+            vote_rejected: No ha estat possible verificar el teu vot. Si us plau, fes-ho de nou.
           preview: Previsualitzar
           verify:
-            already-voted: Ja has votat?
-            verify-here: Comprova el teu vot aquí.
-            will-verify: Podràs verificar el teu vot una vegada comenci l'elecció.
+            already_voted: Ja has votat?
+            verify_here: Comprova el teu vot aquí.
+            will_verify: Podràs verificar el teu vot una vegada comenci l'elecció.
           voting_period_status:
             finished: La votació va començar el %{start_time} i va acabar el %{end_time}
             ongoing: 'Votació activa fins: %{end_time}'
