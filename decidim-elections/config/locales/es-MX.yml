@@ -606,7 +606,7 @@ es-MX:
           elections_count: Elecciones
     participatory_processes:
       statistics:
-        elections_count: Votaciones
+        elections_count: Elecciones
     votings:
       admin:
         content_blocks:
