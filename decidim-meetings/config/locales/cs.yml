@@ -552,6 +552,8 @@ cs:
       proposals_from_meeting:
         meeting_proposal: 'Související návrhy:'
         proposal_meeting: 'Související setkání:'
+    statistics:
+      meetings_count: Setkání
   devise:
     mailer:
       join_meeting:
