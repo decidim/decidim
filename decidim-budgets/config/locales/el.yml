@@ -158,8 +158,5 @@ el:
       destroy:
         error: Υπήρξε ένα πρόβλημα κατά την ακύρωση της ψήφου σας
         success: Η ψήφος σας ακυρώθηκε με επιτυχία
-    resource_links:
-      included_proposals:
-        project_proposal: 'Προτάσεις που περιλαμβάνονται σε αυτό το έργο:'
   index:
     confirmed_orders_count: Πλήθος ψήφων
