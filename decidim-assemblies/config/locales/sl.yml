@@ -241,10 +241,12 @@ sl:
         meetings_count: Sestanki
         orders_count: Podpora
         pages_count: Strani
+        participants_count: Udeleženci
         posts_count: Objave
         projects_count: Projekti
         proposals_count: Predlogi
         results_count: Rezultati
+        supports_count: Podpora
         surveys_count: Ankete
         users_count: Udeleženci
         votes_count: Podpora
