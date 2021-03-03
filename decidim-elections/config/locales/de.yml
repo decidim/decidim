@@ -596,6 +596,9 @@ de:
           title: Was sind Abstimmungen?
     menu:
       votings: Abstimmungen
+    statistics:
+      elections_count: Wahlen
+      votings_count: Abstimmungen
     votings:
       admin:
         content_blocks:
