@@ -201,7 +201,6 @@ it:
             one: "%{count} elezione"
             other: "%{count} elezioni"
         results:
-          description: Questi sono i risultati della votazione, per ogni quesito
           selected: Selezionato
           title: Risultati delle elezioni
           votes:
