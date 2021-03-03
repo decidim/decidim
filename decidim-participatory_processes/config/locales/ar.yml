@@ -284,6 +284,9 @@ ar:
         object: العمليات التشاركية
         title: العمليات التشاركية
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: نشاط
       show:
         title: مجموعات العملية التشاركية
     participatory_process_steps:

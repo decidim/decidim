@@ -307,16 +307,18 @@ uk:
         target: Хто бере участь
       statistics:
         answers_count: Відповідей
-        assemblies_count: Зборів
+        assemblies_count: Збори
         comments_count: Коментарів
         debates_count: Обговорень
         endorsements_count: Проявів підтримки
         meetings_count: Зустрічей
         orders_count: Голосів
         pages_count: Сторінок
+        participants_count: Учасників
         projects_count: Проектів
         proposals_count: Пропозицій
         results_count: Підсумків
+        supports_count: Голосів
         surveys_count: Опитувань
         users_count: Учасників
         votes_count: Голосів

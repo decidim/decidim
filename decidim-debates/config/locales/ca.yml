@@ -158,7 +158,7 @@ ca:
           groups_count: Grups
           last_comment_by: Darrer comentari de
           no_comments_yet: Encara no hi ha comentaris
-          open: Debat obert
+          open: Obrir debat
           participants_count: Participants
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.

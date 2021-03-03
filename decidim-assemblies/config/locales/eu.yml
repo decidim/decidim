@@ -330,9 +330,11 @@ eu:
         meetings_count: Topaketak
         orders_count: Euskarriak
         pages_count: Orriak
+        participants_count: Parte-hartzaileak
         projects_count: Proiektuak
         proposals_count: Proposamenak
         results_count: Emaitzak
+        supports_count: Euskarriak
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
         votes_count: Euskarriak

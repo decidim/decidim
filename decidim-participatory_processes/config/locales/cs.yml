@@ -342,7 +342,7 @@ cs:
         participatory_processes:
           name: Participativní procesy
         stats:
-          name: Statistiky
+          name: Aktivita
         title:
           meta_scope: Oblast působnosti
           name: Název, popis a hashtag

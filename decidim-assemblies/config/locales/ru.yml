@@ -307,16 +307,18 @@ ru:
         target: Кто участвует
       statistics:
         answers_count: Ответов
-        assemblies_count: Собраний
+        assemblies_count: Собрания
         comments_count: Комментариев
         debates_count: Обсуждений
         endorsements_count: Выражений поддержки
         meetings_count: Встреч
         orders_count: Голосов
         pages_count: Страниц
+        participants_count: Участников
         projects_count: Проектов
         proposals_count: Предложений
         results_count: Итогов
+        supports_count: Голосов
         surveys_count: Опросов
         users_count: Участников
         votes_count: Голосов

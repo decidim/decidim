@@ -385,10 +385,12 @@
         meetings_count: Møter
         orders_count: Støtter
         pages_count: Sider
+        participants_count: Deltakere
         posts_count: Innlegg
         projects_count: Prosjekter
         proposals_count: Forslag
         results_count: Resultater
+        supports_count: Støtter
         surveys_count: Undersøkelse
         users_count: Deltakere
         votes_count: Støtter

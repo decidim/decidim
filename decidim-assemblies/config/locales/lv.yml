@@ -360,10 +360,12 @@ lv:
         meetings_count: Sanāksmes
         orders_count: Atbalsta
         pages_count: Lapas
+        participants_count: Dalībnieki
         posts_count: Ziņas
         projects_count: Projekti
         proposals_count: Priekšlikumi
         results_count: Rezultāti
+        supports_count: Atbalsta
         surveys_count: Aptaujas
         users_count: Dalībnieki
         votes_count: Atbalsta

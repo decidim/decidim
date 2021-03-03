@@ -606,7 +606,7 @@ fi-pl:
           elections_count: Vaalit
     participatory_processes:
       statistics:
-        elections_count: Vaalia
+        elections_count: Vaalit
     votings:
       admin:
         content_blocks:

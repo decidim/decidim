@@ -388,10 +388,12 @@ tr:
         meetings_count: Toplantılar
         orders_count: Destekler
         pages_count: Sayfalar
+        participants_count: Katılımcılar
         posts_count: Yayınlar
         projects_count: Projeler
         proposals_count: Teklifler
         results_count: Sonuçlar
+        supports_count: Destekler
         surveys_count: Anketler
         users_count: Katılımcılar
         votes_count: Destekler

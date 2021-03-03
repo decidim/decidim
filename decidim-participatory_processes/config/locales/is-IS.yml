@@ -143,6 +143,9 @@ is-IS:
     menu:
       processes: Ferli
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Virkni
       show:
         title: Þátttaka ferli hópa
     participatory_processes:

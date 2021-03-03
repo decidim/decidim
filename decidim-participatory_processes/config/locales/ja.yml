@@ -295,6 +295,9 @@ ja:
       show:
         related_assemblies: 関連する参加スペース
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: 統計情報
       show:
         title: 参加型プロセスグループ
     participatory_process_steps:

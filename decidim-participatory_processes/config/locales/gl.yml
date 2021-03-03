@@ -266,6 +266,9 @@ gl:
         object: procesos participativos
         title: Procesos participativos
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Actividade
       show:
         title: Grupos de procesos participativos
     participatory_process_steps:

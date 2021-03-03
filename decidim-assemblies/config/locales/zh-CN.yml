@@ -379,10 +379,12 @@ zh-CN:
         meetings_count: 会议
         orders_count: 支持
         pages_count: 页 次
+        participants_count: 参加者
         posts_count: 员额
         projects_count: 项目
         proposals_count: 建议
         results_count: 成果
+        supports_count: 支持
         surveys_count: 调查
         users_count: 参加者
         votes_count: 支持

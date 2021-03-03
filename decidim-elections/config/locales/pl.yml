@@ -141,12 +141,12 @@ pl:
             title: Nowa odpowiedź
           select:
             disable: Odznacz odpowiedź
-            enable: Oznacz odpowiedź jako zaznaczoną
-            invalid: Wystąpił problem z wybraniem tej odpowiedzi
-            success: Odpowiedź wybrana pomyślnie
+            enable: Zaznacz odpowiedź
+            invalid: Wystąpił błąd z przy wybieraniu tej odpowiedzi
+            success: Zaznaczono odpowiedź
           unselect:
             invalid: Wystąpił problem z odznaczaniem tej odpowiedzi
-            success: Odpowiedź odznaczona pomyślnie
+            success: Odznaczono odpowiedź
           update:
             invalid: Wystąpił błąd podczas aktualizowania odpowiedzi
             success: Odpowiedź została zaktualizowana
@@ -187,7 +187,7 @@ pl:
             name: Powiernik
         proposals_imports:
           create:
-            invalid: Wystąpił problem podczas importowania propozycji do odpowiedzi
+            invalid: Wystąpił błąd podczas importowania propozycji do odpowiedzi
             success: "Liczba propozycji pomyślnie zaimportowanych do odpowiedzi: %{number}"
           new:
             create: Importuj propozycje do odpowiedzi
@@ -479,7 +479,7 @@ pl:
                   name: Wymaga działania?
                   'true': Wykonaj działanie
                 bb_status: Status
-                election: Wybór
+                election: Wybory
                 voting_period: Czas głosowania
               no_elections: Nie ma głosowań, w których pełnisz rolę powiernika.
               title: Wybory
@@ -730,7 +730,7 @@ pl:
           index:
             role_manager: kierownik
             role_president: przewodniczący
-            title: Oficerzy wyborczy
+            title: Oficerowie wyborczy
           new:
             create: Utwórz
             title: Utwórz oficer wyborczy
@@ -782,7 +782,7 @@ pl:
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe

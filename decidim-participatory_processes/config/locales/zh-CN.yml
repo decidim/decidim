@@ -295,6 +295,9 @@ zh-CN:
       show:
         related_assemblies: 相关的会议
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: 统计
       show:
         title: 参与性进程组
     participatory_process_steps:

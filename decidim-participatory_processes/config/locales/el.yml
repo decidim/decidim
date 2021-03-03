@@ -298,6 +298,9 @@ el:
       show:
         related_assemblies: Σχετικές συνελεύσεις
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Στατιστικά στοιχεία
       show:
         title: Ομάδες διαδικασιών συμμετοχής
     participatory_process_steps:

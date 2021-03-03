@@ -382,10 +382,12 @@ el:
         meetings_count: Συσκέψεις
         orders_count: Υποστηρίξεις
         pages_count: Σελίδες
+        participants_count: Συμμετέχοντες
         posts_count: Δημοσιεύσεις
         projects_count: Έργα
         proposals_count: Προτάσεις
         results_count: Αποτελέσματα
+        supports_count: Υποστηρίξεις
         surveys_count: Έρευνες
         users_count: Συμμετέχοντες
         votes_count: Υποστηρίξεις

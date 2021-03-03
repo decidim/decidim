@@ -356,9 +356,11 @@ ar:
         meetings_count: اجتماعات
         orders_count: تأييدات
         pages_count: صفحات
+        participants_count: مشارك
         projects_count: مشاريع
         proposals_count: اقتراحات
         results_count: نتائج
+        supports_count: تأييدات
         surveys_count: دراسات استقصائية
         users_count: مشارك
         votes_count: الدعم

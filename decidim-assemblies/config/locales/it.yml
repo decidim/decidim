@@ -388,10 +388,12 @@ it:
         meetings_count: Riunioni
         orders_count: Supporti
         pages_count: Pagine
+        participants_count: Partecipanti
         posts_count: Messaggi
         projects_count: Progetti
         proposals_count: Proposte
         results_count: Risultati
+        supports_count: Supporti
         surveys_count: Sondaggi
         users_count: Partecipanti
         votes_count: Voti

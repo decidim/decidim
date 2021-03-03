@@ -27,13 +27,16 @@ es:
         private_meeting: Encuentro privado
         registration_form_enabled: Formulario de inscripción habilitado
         registration_terms: Términos y condiciones de inscripción
+        registration_url: URL de inscripción
         registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
       minutes:
+        audio_url: URL de audio
         description: Descripción
+        video_url: URL de video
         visible: Es visible
     errors:
       models:
@@ -87,6 +90,7 @@ es:
             creation_enabled_for_participants: Las participantes pueden crear encuentros
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
+            registration_code_enabled: Código de inscripción activado
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -251,13 +255,18 @@ es:
                 other: El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas
             success: El encuentro se ha eliminado correctamente
           edit:
+            title: Editar encuentro
             update: Actualizar
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
+            available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
+            disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que los organizadores de %{organization} no son responsables de los datos proporcionados por los usuarios al servicio externo.'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
+            registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
+            select_a_registration_type: Por favor, seleccione un tipo de inscripción
           index:
             title: Encuentros
           new:
@@ -281,6 +290,7 @@ es:
             invalid: Se ha producido un error al crear este acta
             success: Acta creada con éxito
           edit:
+            title: Editar actas
             update: Actualizar
           new:
             create: Crear
@@ -363,7 +373,7 @@ es:
         not_allowed: No tienes permiso para ver este encuentro
       meeting_closes:
         edit:
-          back: Atrás
+          back: Volver
           close: Crear encuentro
           title: Cerrar el encuentro
       meetings:
@@ -379,12 +389,15 @@ es:
           title: Editar el encuentro
           update: Actualizar
         filters:
+          activity: Mi actividad
+          all: Todos
           category: Categoría
           date: Fecha
           date_values:
             all: Todos
             past: Pasados
             upcoming: Próximos
+          my_meetings: Mis encuentros
           origin: Origen
           origin_values:
             all: Todos
@@ -396,6 +409,7 @@ es:
           type: Tipo
           type_values:
             all: Todos
+            hybrid: Ambos
             in_person: Presencial
             online: Online
         filters_small_view:
@@ -405,10 +419,16 @@ es:
           unfold: Desplegar
         form:
           address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
+          available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
           create_as: Crear encuentro como
+          disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que los organizadores de %{organization} no son responsables de los datos proporcionados por los usuarios al servicio externo.'
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
           location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
+          online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
+          registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
           select_a_category: Por favor, selecciona una categoría
+          select_a_meeting_type: Por favor, selecciona un tipo de encuentro
+          select_a_registration_type: Por favor, selecciona un tipo de inscripción
         index:
           new_meeting: Nuevo encuentro
         meeting_minutes:
@@ -427,6 +447,7 @@ es:
         show:
           attendees: Número de asistentes
           back: Volver al listado
+          close_meeting: Cerrar encuentro
           contributions: Número de aportaciones
           date: Fecha
           edit_meeting: Editar el encuentro
@@ -473,6 +494,10 @@ es:
           confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
           details: Encontrarás detalles del encuentro en el archivo adjunto.
           registration_code: Tu código de registro es %{code}.
+      registration_type:
+        on_different_platform: En una plataforma diferente
+        on_this_platform: En esta plataforma
+        registration_disabled: Inscripciones deshabilitadas
       registrations:
         create:
           invalid: Se ha producido un error al inscribirte a este encuentro.
@@ -483,6 +508,10 @@ es:
         destroy:
           invalid: Se ha producido un error al salir de este encuentro.
           success: Has salido del encuentro con éxito.
+      type_of_meeting:
+        hybrid: Ambos
+        in_person: Presencial
+        online: En línea
       types:
         private_meeting: Encuentro privado
         transparent: Transparente

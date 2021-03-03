@@ -254,6 +254,9 @@ uk:
     menu:
       processes: Рухи
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Діяльність
       show:
         title: Сукупності рухів співучасті
     participatory_process_steps:
@@ -341,7 +344,7 @@ uk:
         orders_count: Голосів
         pages_count: Сторінок
         participants_count: Учасників
-        processes_count: Рухів
+        processes_count: Рухи
         projects_count: Проектів
         proposals_count: Пропозицій
         results_count: Підсумків

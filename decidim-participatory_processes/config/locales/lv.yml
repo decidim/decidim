@@ -301,6 +301,9 @@ lv:
       show:
         related_assemblies: Saistītās asamblejas
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Statistika
       show:
         title: Līdzdalības procesa grupas
     participatory_process_steps:

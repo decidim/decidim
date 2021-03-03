@@ -22,6 +22,10 @@ sr:
           email_outro: Dobili ste ovo obaveštenje zbog toga što ste %{role} participatornog procesa "%{resource_title}".
           email_subject: Imenovani ste na funkciju %{role} %{resource_title}.
           notification_title: Imenovani ste na funkciju %{role} participatornog procesa <a href="%{resource_url}">%{resource_title}</a>.
+    participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Statistika
     participatory_processes:
       admin:
         participatory_processes:
