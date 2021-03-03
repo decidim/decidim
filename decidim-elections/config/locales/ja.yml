@@ -245,6 +245,10 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{resource_title} の選挙は %{participatory_space_title} のために有効になりました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の選挙が %{participatory_space_title} に有効になりました。
+    pages:
+      home:
+        statistics:
+          elections_count: 選挙
     participatory_processes:
       statistics:
         elections_count: 選挙
