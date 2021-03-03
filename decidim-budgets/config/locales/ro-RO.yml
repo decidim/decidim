@@ -161,8 +161,5 @@ ro:
       destroy:
         error: A apărut o problemă la anularea votului tău
         success: Votul tău a fost anulat cu succes
-    resource_links:
-      included_proposals:
-        project_proposal: 'Propuneri incluse în acest proiect:'
   index:
     confirmed_orders_count: Numărul de voturi
