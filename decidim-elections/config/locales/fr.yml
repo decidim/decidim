@@ -539,13 +539,6 @@ fr:
           title: Que sont les élections ?
     menu:
       votings: Élections
-    pages:
-      home:
-        statistics:
-          elections_count: Élections
-    participatory_processes:
-      statistics:
-        elections_count: Élections
     votings:
       admin:
         content_blocks:
