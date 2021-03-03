@@ -1091,24 +1091,7 @@ cs:
         metrics:
           headline: Metriky
         statistics:
-          answers_count: Dokončené průzkumy
-          assemblies_count: Shromáždění
-          comments_count: Komentáře
-          conferences_count: Konference
-          debates_count: Debaty
-          endorsements_count: Schválení
           headline: Aktuální stav %{organization}
-          meetings_count: Setkání
-          orders_count: Hlasy
-          pages_count: Stránky
-          processes_count: Procesy
-          projects_count: Projekty
-          proposals_accepted: Přijaté návrhy
-          proposals_count: Návrhy
-          results_count: Výsledek
-          surveys_count: Průzkumy
-          users_count: Účastníci
-          votes_count: Hlasy
         sub_hero:
           register: Registrovat
       index:
@@ -1302,6 +1285,8 @@ cs:
         close_window: Zavřete okno
         share: Sdílet
         share_link: Sdílet odkaz
+    statistics:
+      comments_count: Komentáře
     tags:
       filter_results_for_category: 'Filtrovat výsledky pro kategorii: %{resource}'
       filter_results_for_scope: 'Výsledky filtru pro rozsah: %{resource}'
