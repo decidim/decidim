@@ -791,6 +791,11 @@ en:
             show_more: Read more
           metrics:
             heading: Metrics
+          polling_stations:
+            heading: Polling stations
+            no_polling_stations: There are no polling stations yet.
+          timeline:
+            heading: Timeline
       monitoring_committee_members:
         actions:
           confirm_destroy: Are you sure?
