@@ -298,6 +298,9 @@ it:
       show:
         related_assemblies: Assemblee collegate
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Attività
       show:
         title: Gruppi di processi partecipativi
     participatory_process_steps:
