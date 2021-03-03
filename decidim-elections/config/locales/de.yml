@@ -333,8 +333,11 @@ de:
           filter_by: Filtern nach
           unfold: Aufklappen
         preview:
+          available_answers: 'Verfügbare Antworten:'
+          description: 'Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden:'
           title: Wahlfragen
         results:
+          description: 'Dies sind die Abstimmungsergebnisse für jede Frage:'
           selected: Ausgewählt
           title: Wahlergebnisse
           votes:
@@ -783,6 +786,17 @@ de:
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
+        landing_page:
+          description:
+            show_less: Weniger anzeigen
+            show_more: Mehr erfahren
+          metrics:
+            heading: Kriterien
+          polling_stations:
+            heading: Wahllokale
+            no_polling_stations: Es gibt noch keine Wahllokale.
+          timeline:
+            heading: Die Zeitachse
       monitoring_committee_members:
         actions:
           confirm_destroy: Sind Sie sicher?
@@ -876,6 +890,8 @@ de:
     decidim:
       election_votes_header:
         exit: Beenden
+      voting_navigation:
+        voting_menu_item: Die Abstimmung
       votings:
         index:
           promoted_votings: Hervorgehobene Abstimmungen
