@@ -1066,24 +1066,7 @@ ca:
         metrics:
           headline: Mètriques
         statistics:
-          answers_count: Enquestes realitzades
-          assemblies_count: Assemblees
-          comments_count: Comentaris
-          conferences_count: Jornades
-          debates_count: Debats
-          endorsements_count: Adhesions
           headline: Estat actual de %{organization}
-          meetings_count: Trobades
-          orders_count: Suports
-          pages_count: Pàgines
-          processes_count: Processos
-          projects_count: Projectes
-          proposals_accepted: Propostes acceptades
-          proposals_count: Propostes
-          results_count: Resultats
-          surveys_count: Enquestes
-          users_count: Participants
-          votes_count: Suports
         sub_hero:
           register: Registra't
       index:
@@ -1275,6 +1258,8 @@ ca:
         close_window: Tanca la finestra
         share: Compartir
         share_link: Compartir l'enllaç
+    statistics:
+      comments_count: Comentaris
     tags:
       filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
       filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
