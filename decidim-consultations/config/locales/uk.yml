@@ -243,10 +243,6 @@ uk:
         unspecified: Не вказано
     menu:
       consultations: Консультації
-    pages:
-      home:
-        statistics:
-          consultations_count: Консультацій
     questions:
       results:
         title: Підсумки
