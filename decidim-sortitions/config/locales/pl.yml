@@ -36,10 +36,10 @@ pl:
     pages:
       home:
         statistics:
-          sortitions_count: Wybór losowy
+          sortitions_count: Wybory losowe
     participatory_processes:
       statistics:
-        sortitions_count: Wybór losowy
+        sortitions_count: Wybory losowe
     sortitions:
       admin:
         actions:
