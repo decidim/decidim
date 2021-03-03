@@ -78,7 +78,7 @@ fi-pl:
     pages:
       home:
         statistics:
-          posts_count: Artikkeleja
+          posts_count: Artikkelit
     participatory_processes:
       statistics:
-        posts_count: Artikkeleja
+        posts_count: Artikkelit
