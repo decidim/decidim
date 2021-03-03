@@ -1069,24 +1069,7 @@ es-PY:
         metrics:
           headline: Participación en cifras
         statistics:
-          answers_count: Encuestas completadas
-          assemblies_count: Asambleas
-          comments_count: Comentarios
-          conferences_count: Conferencias
-          debates_count: Debates
-          endorsements_count: Adhesiones
           headline: Estado actual de %{organization}
-          meetings_count: Encuentros
-          orders_count: Votos
-          pages_count: Páginas
-          processes_count: Procesos
-          projects_count: Proyectos
-          proposals_accepted: Propuestas aceptadas
-          proposals_count: Propuestas
-          results_count: Resultados
-          surveys_count: Encuestas
-          users_count: Participantes
-          votes_count: Votos
         sub_hero:
           register: Regístrate
       index:
@@ -1278,6 +1261,8 @@ es-PY:
         close_window: Cerrar ventana
         share: Compartir
         share_link: Compartir enlace
+    statistics:
+      comments_count: Comentarios
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
