@@ -31,13 +31,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Nieuwe loting toegevoegd aan %{participatory_space_title}
           notification_title: De loting <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortitions
-    participatory_processes:
-      statistics:
-        sortitions_count: Lotingen
     sortitions:
       admin:
         actions:
