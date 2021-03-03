@@ -291,6 +291,6 @@ en:
         success: Your vote has been successfully canceled
     resource_links:
       included_proposals:
-        project_proposal: 'Proposals included in this project:'
+        project_proposal: Proposals included in this project
   index:
     confirmed_orders_count: Votes count
