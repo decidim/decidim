@@ -127,11 +127,13 @@ fi-pl:
           new:
             create: Luo vastaus
             title: Uusi vastaus
+          not_selected: Ei valittu
           select:
             disable: Poista vastausvalinta
             enable: Merkitse vastaus valituksi
             invalid: Vastauksen valinta epäonnistui
             success: Vastauksen valinta onnistui
+          selected: Valittu
           unselect:
             invalid: Vastauksen valinnan poisto epäonnistui
             success: Vastauksen valinnan poisto onnistui
@@ -246,12 +248,25 @@ fi-pl:
             title: Valmis alkamaan
           processing: Käsitellään...
           results_published:
+            answer: Vastaus
+            not_selected: Ei valittu
+            question: Kysymys
+            result: Tulos
+            selected: Valittu
+            submit: Lähetä
             title: Tulokset julkaistu
           tally:
             title: Ääntenlaskun prosessi
             trustees: Luottamushenkilöt
           tally_ended:
+            answer: Vastaus
+            not_selected: Ei valittu
+            question: Kysymys
+            result: Tulos
+            selected: Valittu
             submit: Julkaise tulokset
+            success: Ääntenlasku on suoritettu onnistuneesti
+            title: Ääntenlaskun tulokset
           vote:
             errors:
               time_after: Vaali on edelleen käynnissä. Sinun on odotettava päättymisaikaan saakka (%{end_time}) päättääksesi äänestyksen.
@@ -265,6 +280,7 @@ fi-pl:
             invalid: Ääntenlaskennan käynnistäminen epäonnistui
             submit: Aloita ääntenlaskenta
             success: Pyyntösi aloittaa ääntenlaskenta on onnistuneesti lähetetty äänestystaululle
+            text: Äänestys on päättynyt. Voit nyt aloittaa ääntenlaskun.
             title: Äänestysaika on päättynyt
           vote_stats:
             no_vote_statistics_yet: Ei vielä äänitilastoja
@@ -370,7 +386,9 @@ fi-pl:
         answer:
           fields:
             proposals: Ehdotukset
+            selected: Valittu
             title: Otsikko
+            votes: Äänet
         election:
           fields:
             bb_status: Äänestystaulun tila
@@ -491,6 +509,12 @@ fi-pl:
           update:
             success: Julkisen tunnistusavaimesi tallentaminen onnistui.
       votes:
+        ballot_decision:
+          audit: "( Tarkasta äänesi )"
+          back: Aloita äänestysprosessi uudestaan
+          cast: Lähetä äänesi
+          description: Tässä näkymässä voit tarkastaa, että äänesi on laskettu oikein tai että äänesi salaaminen onnistui. Turvallisuussyistä äänesi tarkastaminen kumoaa aikaisemman äänesi. Tämä tarkoittaa, että jättääksesi äänesi, sinun tulee käynnistää äänestysprosessi uudestaan.
+          header: 'Äänesi on salattu: lähetä tai tarkasta se'
         confirm:
           answer: Vastaa
           answer_number: 'vastaus #%{number}'
@@ -517,6 +541,7 @@ fi-pl:
           lead: Ääntäsi ei ole annettu!
           text: Jokin meni pieleen, yritä uudelleen.
         header:
+          ballot_decision: Lähetä tai tarkasta äänesi
           confirm: Vahvista äänesi
           confirmed: Ääni vahvistettu
           encrypting: Ääntäsi vahvistetaan
