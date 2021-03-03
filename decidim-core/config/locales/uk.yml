@@ -460,16 +460,14 @@ uk:
           debates_count: Обговорення
           endorsements_count: Проявів підтримки
           headline: Поточний стан %{organization}
-          meetings_count: Зустрічей
+          meetings_count: Зустрічі
           orders_count: Голосів
-          pages_count: Сторінок
           processes_count: Рухів
-          projects_count: Проектів
+          projects_count: Проекти
           proposals_accepted: Прийняті пропозиції
-          proposals_count: Пропозицій
-          results_count: Підсумків
+          proposals_count: Пропозиції
+          results_count: Підсумки
           surveys_count: Опитувань
-          users_count: Учасників
           votes_count: Голосів
         sub_hero:
           register: Зареєструватися
