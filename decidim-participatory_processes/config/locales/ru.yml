@@ -254,6 +254,9 @@ ru:
     menu:
       processes: Движения
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Деятельность
       show:
         title: Группы движений соучастия
     participatory_process_steps:
@@ -341,7 +344,7 @@ ru:
         orders_count: Голосов
         pages_count: Страниц
         participants_count: Участников
-        processes_count: Движений
+        processes_count: Движения
         projects_count: Проектов
         proposals_count: Предложений
         results_count: Итогов
