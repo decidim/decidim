@@ -350,10 +350,12 @@ gl:
         meetings_count: Reunións
         orders_count: Votos
         pages_count: Páxinas
+        participants_count: Participantes
         posts_count: Publicacións
         projects_count: Proxectos
         proposals_count: Propostas
         results_count: Resultados
+        supports_count: Votos
         surveys_count: Enquisas
         users_count: Participantes
         votes_count: Votos
