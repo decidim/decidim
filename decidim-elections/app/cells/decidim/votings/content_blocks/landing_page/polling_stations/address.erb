@@ -1,13 +1,14 @@
-<div class="mb-s">
-  <% if polling_station.respond_to? :location %>
-    <div>
-      <strong><%= translated_attribute polling_station.location %></strong><br>
-    </div>
-  <% end %>
+<div class="polling_station-addres">
+  <h5 class="mb-none"><%= translated_attribute polling_station.title %></h5>
+
+  <div>
+    <strong><%= translated_attribute polling_station.location %></strong>
+  </div>
 
   <div class="text-medium"><%= polling_station.address %></div>
 
-  <% if polling_station.respond_to? :location_hints %>
-    <div class="text-medium"><%= translated_attribute polling_station.location_hints %></div>
-  <% end %>
+  <div class="text-medium"><%= translated_attribute polling_station.location_hints %></div>
+
 </div>
+
+<hr class="reset mt-s mb-s">

@@ -5,16 +5,15 @@ module Decidim
     module ContentBlocks
       module LandingPage
         class PollingStationsCell < Decidim::ViewModel
-
           include Decidim::MapHelper
           include Decidim::SanitizeHelper
           include Decidim::LayoutHelper
           include Decidim::IconHelper
           include Decidim::NeedsSnippets
 
-          delegate  :current_participatory_space,
-                    to: :controller
-
+          delegate :current_participatory_space,
+                   :snippets,
+                   to: :controller
 
           def show
             return if current_participatory_space.online_voting?
@@ -44,13 +43,12 @@ module Decidim
 
           def polling_station_data_for_map(polling_station)
             polling_station.slice(:latitude, :longitude, :address)
-                      .merge(title: translated_attribute(polling_station.title),
-                      icon: icon("meetings", width: 40, height: 70, remove_icon_class: true)
-                    )
-
+                           .merge(
+                             title: translated_attribute(polling_station.title),
+                             location: translated_attribute(polling_station.location),
+                             locationHints: translated_attribute(polling_station.location_hints)
+                           )
           end
-
-
         end
       end
     end

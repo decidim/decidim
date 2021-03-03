@@ -59,8 +59,8 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
       end
       voting.add_to_index_as_search_resource
 
-      if !voting.online_voting?
-        3.times do |p|
+      unless voting.online_voting?
+        3.times do
           params = {
             voting: voting,
             title: Decidim::Faker::Localized.sentence(word_count: 5),
@@ -68,7 +68,7 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
             latitude: Faker::Address.latitude,
             longitude: Faker::Address.longitude,
             location: Decidim::Faker::Localized.sentence,
-            location_hints: Decidim::Faker::Localized.sentence,
+            location_hints: Decidim::Faker::Localized.sentence
           }
 
           Decidim.traceability.create!(
