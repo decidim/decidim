@@ -335,7 +335,7 @@ tr:
         participatory_processes:
           name: Katılımcı süreçleri
         stats:
-          name: İstatistikler
+          name: Aktivite
         title:
           meta_scope: Kapsam
           name: Başlık, açıklama ve etiket
