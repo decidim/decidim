@@ -326,7 +326,7 @@ nl:
     pages:
       home:
         statistics:
-          consultations_count: Raadplegingen
+          consultations_count: Burgerinspraaken
     questions:
       next_button: Volgende vraag
       previous_button: Vorige vraag
