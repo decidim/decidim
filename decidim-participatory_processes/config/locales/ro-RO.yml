@@ -301,6 +301,9 @@ ro:
       show:
         related_assemblies: Asambluri asemănătoare
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Statistici
       show:
         title: Grupuri participante
     participatory_process_steps:
