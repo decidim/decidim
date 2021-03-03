@@ -609,13 +609,6 @@ pl:
           title: Czym są głosowania?
     menu:
       votings: Głosowania
-    pages:
-      home:
-        statistics:
-          elections_count: Wybory
-    participatory_processes:
-      statistics:
-        elections_count: Wybory
     votings:
       admin:
         content_blocks:
