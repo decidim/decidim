@@ -789,6 +789,8 @@ en:
           description:
             show_less: Read less
             show_more: Read more
+          timeline:
+            heading: Timeline
       monitoring_committee_members:
         actions:
           confirm_destroy: Are you sure?
