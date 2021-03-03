@@ -464,13 +464,6 @@ nl:
             notification_title: Je bent %{role} van het stembureau %{polling_station_name} in de stemronde <a href="%{resource_path}">%{resource_title}</a>.
     menu:
       votings: Stemronde
-    pages:
-      home:
-        statistics:
-          elections_count: Verkiezingen
-    participatory_processes:
-      statistics:
-        elections_count: Verkiezingen
     votings:
       admin:
         content_blocks:
