@@ -111,7 +111,7 @@ module Decidim
         gem_modifier = if options[:path]
                          "path: \"#{options[:path]}\""
                        elsif options[:edge]
-                         "git: \"https://github.com/decidim/decidim.git\", branch: \"develop\""
+                         "git: \"https://github.com/decidim/decidim.git\", branch: \"chore/rails-6-upgrade\""
                        elsif options[:branch]
                          "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
                        else
