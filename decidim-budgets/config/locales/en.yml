@@ -292,5 +292,8 @@ en:
     resource_links:
       included_proposals:
         project_proposal: Proposals included in this project
+    statistics:
+      orders_count: Supports
+      projects_count: Projects
   index:
     confirmed_orders_count: Votes count

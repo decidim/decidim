@@ -623,13 +623,9 @@ en:
           title: What are votings?
     menu:
       votings: Votings
-    pages:
-      home:
-        statistics:
-          elections_count: Elections
-    participatory_processes:
-      statistics:
-        elections_count: Elections
+    statistics:
+      elections_count: Elections
+      votings_count: Votings
     votings:
       admin:
         content_blocks:

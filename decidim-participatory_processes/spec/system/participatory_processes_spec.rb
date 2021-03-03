@@ -396,12 +396,12 @@ describe "Participatory Processes", type: :system do
             let(:show_statistics) { true }
 
             it "the stats for those components are visible" do
-              within "#participatory_process-statistics" do
+              within ".section-statistics" do
                 expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-                expect(page).to have_css(".space-stats__title", text: "PROPOSALS")
-                expect(page).to have_css(".space-stats__number", text: "3")
-                expect(page).to have_no_css(".space-stats__title", text: "MEETINGS")
-                expect(page).to have_no_css(".space-stats__number", text: "0")
+                expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+                expect(page).to have_css(".statistic__number", text: "3")
+                expect(page).to have_no_css(".statistic__title", text: "MEETINGS")
+                expect(page).to have_no_css(".statistic__number", text: "0")
               end
             end
           end
@@ -410,9 +410,9 @@ describe "Participatory Processes", type: :system do
             let(:show_statistics) { false }
 
             it "the stats for those components are not visible" do
-              expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
-              expect(page).to have_no_css(".space-stats__title", text: "PROPOSALS")
-              expect(page).to have_no_css(".space-stats__number", text: "3")
+              expect(page).to have_no_css("h3.section-heading", text: "STATISTICS")
+              expect(page).to have_no_css(".statistic__title", text: "PROPOSALS")
+              expect(page).to have_no_css(".statistic__number", text: "3")
             end
           end
 
