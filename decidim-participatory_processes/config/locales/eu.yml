@@ -266,6 +266,9 @@ eu:
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Jarduera
       show:
         title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
