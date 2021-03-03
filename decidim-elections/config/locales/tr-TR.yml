@@ -354,13 +354,6 @@ tr:
             email_outro: Bu bildirimi, %{resource_name} için vekil kişi olarak eklendiğiniz için aldınız.
             email_subject: '%{resource_name} için vekil birisiniz.'
             notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
-    pages:
-      home:
-        statistics:
-          elections_count: Seçimler
-    participatory_processes:
-      statistics:
-        elections_count: Seçimler
   layouts:
     decidim:
       election_votes_header:
