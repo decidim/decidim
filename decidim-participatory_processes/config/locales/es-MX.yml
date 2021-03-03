@@ -336,7 +336,7 @@ es-MX:
         participatory_processes:
           name: Procesos participativos
         stats:
-          name: Estatísticas
+          name: Actividad
         title:
           meta_scope: Ámbito
           name: Título, descripción y hashtag
@@ -449,25 +449,6 @@ es-MX:
         start_date: Fecha de inicio
         target: Quién participa
         unspecified: No especificado
-      statistics:
-        answers_count: Respuestas
-        comments_count: Comentarios
-        debates_count: Debates
-        endorsements_count: Adhesiones
-        followers_count: Seguidoras
-        headline: Actividad
-        meetings_count: Encuentros
-        no_stats: No hay estadísticas aún.
-        orders_count: Votos
-        pages_count: Páginas
-        participants_count: Participantes
-        processes_count: Procesos
-        projects_count: Proyectos
-        proposals_count: Propuestas
-        results_count: Resultados
-        supports_count: Votos
-        surveys_count: Encuestas
-        users_count: Participantes
   layouts:
     decidim:
       participatory_process_groups:
