@@ -129,17 +129,17 @@ module Decidim
         hash = []
         hash << "decidim/proposals/proposal_m"
         hash << I18n.locale.to_s
-        hash << model.cache_version
+        hash << model.cache_key_with_version
         hash << model.proposal_votes_count
         hash << model.endorsements_count
         hash << Digest::MD5.hexdigest(model.component.settings.to_json)
         hash << Digest::MD5.hexdigest(resource_image_path) if resource_image_path
         if current_user
-          hash << current_user.cache_version
+          hash << current_user.cache_key_with_version
           hash << current_user.follows?(model) ? 1 : 0
         end
         hash << Digest::MD5.hexdigest(model.followers.to_json)
-        hash << Digest::MD5.hexdigest(model.coauthorships.map(&:cache_version).to_s)
+        hash << Digest::MD5.hexdigest(model.coauthorships.map(&:cache_key_with_version).to_s)
 
         hash.join("/")
       end
