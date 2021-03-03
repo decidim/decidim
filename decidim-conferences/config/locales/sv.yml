@@ -266,10 +266,6 @@ sv:
       conferences:
         conference_registration:
           confirm: "%{user_name} bekräftade en konferensregistrering till konferensen %{resource_name}"
-        partner:
-          create: "%{user_name} skapade %{resource_name} på konferensen %{space_name}"
-          delete: "%{user_name} tog bort administratören %{resource_name} från konferensen %{space_name}"
-          update: "%{user_name} uppdaterade %{resource_name} på konferensen %{space_name}"
         registration_type:
           create: "%{user_name} skapade registreringstypen %{resource_name} på konferensen %{space_name}"
           publish: "%{user_name} publicerade registreringstypen %{resource_name} till konferensen %{space_name}"

@@ -84,7 +84,7 @@ fr:
         file_no_exists: Le fichier n'existe pas
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
       delete:
-        alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez pas vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais ces contributions ne seront pas associées.
+        alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez pas vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais vos anciennes contributions n'y seront plus associées.
         confirm:
           close: Fermer la fenêtre
           ok: Oui, je souhaite supprimer mon compte
@@ -429,7 +429,7 @@ fr:
         ready: Prêt
       show:
         download_data: Télécharger les données
-        download_data_description: Un fichier avec toutes les informations associées au compte sera envoyé à <strong>%{user_email}</strong>
+        download_data_description: Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Demander les données
     datepicker:
       help_text: 'Format attendu : %{datepicker_format}'
@@ -439,7 +439,7 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre alias dans %{organization}. Ne peut contenir que des lettres, chiffres, '-' et '_'.
+          nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -448,7 +448,7 @@ fr:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
-          nickname_help: Votre alias dans %{organization}. Ne peut contenir que des lettres, chiffres, '-' et '_'.
+          nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
           sign_in: Se connecter
           sign_up: S'inscrire
@@ -465,6 +465,8 @@ fr:
           register: Créer un compte
           sign_in_disabled: Vous pouvez accéder avec un compte externe
           sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
+        user:
+          timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
       shared:
         newsletter_modal:
           buttons:
@@ -652,7 +654,7 @@ fr:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
-        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu''au %{date}. <br/> Vous aurez besoin de <a href=''''https://www.7-zip.org/''''>7-Zip</a> pour l''ouvrir. Mot de passe : %{password}'
+        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -685,7 +687,7 @@ fr:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
-        participatory_space: Déjà abonné <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Suivre <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -944,7 +946,7 @@ fr:
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
-          not_allowed: Cet utilisateur n'accepte plus de messages directs.
+          not_allowed: Cet utilisateur ne souhaite pas recevoir de messages directs.
           title: Conversation avec %{usernames}
         start:
           send: Envoyer
@@ -1015,8 +1017,10 @@ fr:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
+        administrators: Administrateurs
         allow_public_contact: Permettre à n'importe quoi de m'envoyer un message direct, même si je ne les suis pas.
         direct_messages: Recevoir des messages directs de n'importe qui
+        email_on_moderations: Je veux recevoir un email chaque fois que quelque chose est signalé pour modération.
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
         newsletter_notifications: Je souhaite recevoir une newsletter sur l'actualité de la plateforme
@@ -1511,7 +1515,7 @@ fr:
     messages:
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
-      content_type_whitelist_error: le type de fichier n'est pas valide
+      content_type_allowlist_error: le type de fichier n'est pas valide
       cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
@@ -1571,6 +1575,11 @@ fr:
         instagram: "%{organization} sur Instagram"
         twitter: "%{organization} sur Twitter"
         youtube: "%{organization} sur YouTube"
+      timeout_modal:
+        body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté pour votre propre sécurité.
+        continue_session: Continuer la session
+        sign_out: Se déconnecter
+        title: Voulez-vous poursuivre votre session ?
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs

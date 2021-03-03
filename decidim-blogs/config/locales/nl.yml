@@ -29,6 +29,7 @@ nl:
             success: Post succesvol verwijderd
           edit:
             save: Bijwerken
+            title: Bericht bewerken
           index:
             title: berichten
           new:

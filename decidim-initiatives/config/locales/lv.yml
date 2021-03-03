@@ -132,10 +132,7 @@ lv:
             email_subject: Jauns sasniegums!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> iniciatīva ir sasniegusi %{percentage}% parakstu.
         support_threshold_reached:
-          email_intro: Iniciatīva %{resource_title} ir sasniegusi atbalsta slieksni
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat šīs platformas administrators.
-          email_subject: Sasniegts atbalsta slieksnis
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> iniciatīva ir sasniegusi atbalsta slieksni
     gamification:
       badges:
         initiatives:

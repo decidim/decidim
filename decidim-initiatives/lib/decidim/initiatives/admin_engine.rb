@@ -85,14 +85,35 @@ module Decidim
         )
       end
 
+      initializer "admin_decidim_initiatives.action_controller" do |_app|
+        ActiveSupport.on_load :action_controller do
+          helper Decidim::Initiatives::Admin::InitiativeAdminMenuHelper if respond_to?(:helper)
+        end
+      end
+
       initializer "decidim_initiaves.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.initiatives", scope: "decidim.admin"),
                     decidim_admin_initiatives.initiatives_path,
                     icon_name: "chat",
-                    position: 3.7,
+                    position: 2.4,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :initiatives)
+        end
+      end
+
+      initializer "admin_decidim_initiatives.admin_menu" do
+        Decidim.menu :admin_initiatives_menu do |menu|
+          menu.item I18n.t("menu.initiatives", scope: "decidim.admin"),
+                    decidim_admin_initiatives.initiatives_path,
+                    position: 1.0,
+                    active: is_active_link?(decidim_admin_initiatives.initiatives_path),
+                    if: allowed_to?(:index, :initiative)
+
+          menu.item I18n.t("menu.initiatives_types", scope: "decidim.admin"),
+                    decidim_admin_initiatives.initiatives_types_path,
+                    active: is_active_link?(decidim_admin_initiatives.initiatives_types_path),
+                    if: allowed_to?(:manage, :initiative_type)
         end
       end
     end

@@ -34,16 +34,8 @@ zh-CN:
             confirm: 在日期前撤销授权无法撤销。您确定要继续吗？
             confirm_all: 撤销所有授权无法撤销。您确定要继续吗？
           destroy_nok: 撤销授权时出现问题。
-          destroy_ok: 所有匹配的授权已成功取消！
           info: 共有 %{count} 个已验证的参与者。
           no_data: 没有经过验证的参与者
-          title: 验证已取消
-        authorization_workflows: 验证
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} 更新了身份文档验证配置"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} 使用离线身份证件验证了 %{resource_name}"
     authorization_handlers:
       admin:
         csv_census:

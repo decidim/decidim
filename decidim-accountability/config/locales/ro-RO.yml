@@ -33,6 +33,7 @@ ro:
   decidim:
     accountability:
       actions:
+        attachment_collections: Dosare
         confirm_destroy: Ești sigur că vrei să ștergi acest %{name}?
         destroy: Ștergere
         edit: Editare
@@ -121,6 +122,9 @@ ro:
         value_types:
           parent_presenter:
             not_found: 'Părintele nu a fost găsit în baza de date (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          unspecified: Nespecificat
       import_mailer:
         import:
           errors: Erori

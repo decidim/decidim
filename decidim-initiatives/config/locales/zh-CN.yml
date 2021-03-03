@@ -146,10 +146,7 @@ zh-CN:
             email_subject: 新里程碑已完成！
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已经实现了 %{percentage}%的签名。
         support_threshold_reached:
-          email_intro: '%{resource_title} 倡议已达到支持阈值'
           email_outro: 您收到此通知是因为您是平台的管理员。
-          email_subject: 已达到支持阈值
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已达到支持阈值
     gamification:
       badges:
         initiatives:

@@ -102,7 +102,7 @@ cs:
         create:
           error: Při vytváření nové konzultace došlo k chybě.
           success: Konzultace byla úspěšně vytvořena.
-        deprecation_warning: Modul konzultace bude v blízké budoucnosti zastaralý. Pracujeme na další zabezpečené verzi, nazvané Hlasování.
+        deprecation_warning: Modul konzultace bude v blízké budoucnosti zastaralý. Pracujeme na další kryptograficky zabezpečené verzi nazvané Hlasování.
         edit:
           update: Aktualizace
         form:

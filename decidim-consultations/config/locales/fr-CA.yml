@@ -94,7 +94,7 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle votation.
           success: La votation a été créée avec succès.
-        deprecation_warning: L'espace de consultation sera obsolète dans un avenir proche. Nous travaillons sur la prochaine version sécurisée et cryptographique appelée Votes.
+        deprecation_warning: Le module de consultation sera obsolète dans un avenir proche. Nous travaillons sur la prochaine version cryptographique sécurisée appelée Votes.
         edit:
           update: Mettre à jour
         form:

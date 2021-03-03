@@ -56,7 +56,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.votings", scope: "decidim"),
                     decidim_votings.votings_path,
-                    position: 2.7,
+                    position: 2.6,
                     if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
                     active: :inclusive
         end
@@ -123,7 +123,11 @@ module Decidim
         Decidim.content_blocks.register(:voting_landing_page, :timeline) do |content_block|
           content_block.cell = "decidim/votings/content_blocks/landing_page/timeline"
           content_block.public_name_key = "decidim.votings.admin.content_blocks.landing_page.timeline.name"
-          content_block.default!
+          content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :html_content, type: :text, translated: true
+          end
         end
 
         1.upto(3) do |i|

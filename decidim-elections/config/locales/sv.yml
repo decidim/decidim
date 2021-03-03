@@ -134,6 +134,11 @@ sv:
           update:
             invalid: Det gick inte att uppdatera denna fråga
             success: Frågan har uppdaterats
+        steps:
+          vote_stats:
+            no_vote_statistics_yet: Ingen röstningsstatistik ännu
+            title: Röstningsstatistik
+            votes: Röster
       admin_log:
         election:
           publish: "%{user_name} publicerade valet %{resource_name}"

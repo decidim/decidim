@@ -10,12 +10,15 @@ fr:
         question_type: Type
       questionnaire_question:
         mandatory: Obligatoire
+        max_characters: Limite de caractères (laisser à 0 si aucune limite)
     errors:
       models:
         answer:
           attributes:
             add_documents:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+            body:
+              too_long: est trop long
             choices:
               missing: ne sont pas complets
               too_many: sont trop nombreux
@@ -112,7 +115,7 @@ fr:
         answer:
           body: Le corps ne peut pas être vide
       files:
-        extension_whitelist: 'Formats acceptés :'
+        extension_allowlist: 'Formats acceptés :'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Cette image sera :'
@@ -155,7 +158,7 @@ fr:
             title: JavaScript est désactivé
           questionnaire_not_published:
             body: Ce formulaire n'est pas encore publié.
-          tos_agreement: En participant, vous acceptez ses conditions d'utilisation
+          tos_agreement: En participant, vous acceptez ces conditions d'utilisation
       step_navigation:
         show:
           are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?

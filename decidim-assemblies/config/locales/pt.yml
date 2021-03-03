@@ -246,7 +246,6 @@ pt:
         update: "%{user_name} atualizou as definições de reuniões"
       assembly_type:
         create: "%{user_name} criou o tipo de reunião %{resource_name}"
-        delete: "%{user_name} removeu o membro %{resource_name} do tipo de reunião %{space_name}"
         publish: "%{user_name} publicou o tipo de reunião %{resource_name}"
         unpublish: "%{user_name} removeu a publicação do tipo de reunião %{resource_name}"
         update: "%{user_name} atualizou o tipo de reunião %{resource_name}"
@@ -436,8 +435,6 @@ pt:
       home:
         hero:
           participate_title: Participar nos processos da plataforma
-        sub_hero:
-          register_title: Inscreva-se para criar uma conta na plataforma
     participatory_processes:
       pages:
         home:

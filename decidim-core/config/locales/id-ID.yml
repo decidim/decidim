@@ -297,7 +297,6 @@ id:
         ready: Siap
       show:
         download_data: Unduh datanya
-        download_data_description: File dengan semua informasi yang terkait dengan akun akan dikirim ke <strong>%{user_email}</strong>
         request_data: Meminta data
     datepicker:
       help_text: 'Format yang diharapkan: %{datepicker_format}'
@@ -494,7 +493,6 @@ id:
           notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
     export_mailer:
       data_portability_export:
-        click_button: 'Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.'
         download: Unduh
       export:
         ready: Silakan temukan terlampir versi zip dari ekspor Anda.
@@ -1134,7 +1132,7 @@ id:
     messages:
       already_confirmed: sudah dikonfirmasi, silakan coba masuk
       confirmation_period_expired: perlu dikonfirmasi dalam %{period}, silakan minta yang baru
-      content_type_whitelist_error: jenis file tidak valid
+      content_type_allowlist_error: jenis file tidak valid
       cycle_detected: orang tua ruang lingkup tidak bisa menjadi salah satu keturunannya
       expired: telah kedaluwarsa, silakan minta yang baru
       file_size_is_less_than_or_equal_to: ukuran file harus kurang dari atau sama dengan %{count}

@@ -17,9 +17,6 @@ ru:
         full_address: Полный адрес
         verification_code: Проверочный код
   decidim:
-    admin:
-      menu:
-        authorization_workflows: Пути подтверждения личности
     authorization_handlers:
       admin:
         id_documents:

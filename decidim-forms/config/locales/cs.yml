@@ -115,7 +115,7 @@ cs:
         answer:
           body: Tělo nemůže být prázdné
       files:
-        extension_whitelist: 'Akceptované formáty:'
+        extension_allowlist: 'Akceptované formáty:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Tento obrázek bude:'

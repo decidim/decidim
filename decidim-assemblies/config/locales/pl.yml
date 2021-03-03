@@ -1,6 +1,8 @@
 pl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Włącz wykres dla organizacji
       assembly:
         area_id: Kategoria
         assembly_type: Typ zespołu
@@ -50,6 +52,7 @@ pl:
         target: Do kogo kierowane
         title: Tytuł
         twitter: Twitter
+        weight: Kolejność na stronie
         youtube: YouTube
       assembly_member:
         birthday: Urodziny
@@ -60,6 +63,7 @@ pl:
         full_name: Pełne imię i nazwisko
         gender: Płeć
         position: Pozycja
+        user_id: Użytkownik
       assembly_user_role:
         email: E-mail
         name: Nazwa
@@ -252,7 +256,7 @@ pl:
         update: "%{user_name} zaktualizował(a) ustawienia zespołów"
       assembly_type:
         create: "%{user_name} utworzył(a) typ zespołu %{resource_name}"
-        delete: "%{user_name} usunął/usunęła typ zespołu %{resource_name} z przestrzeni %{space_name}"
+        delete: "%{user_name} usunął/usunęła typ zespołu %{resource_name}"
         publish: "%{user_name} opublikował(a) typ zespołu %{resource_name}"
         unpublish: "%{user_name} anulował(a) publikację typu zespołu %{resource_name}"
         update: "%{user_name} zaktualizował(a) typ zespołu %{resource_name}"
@@ -311,6 +315,9 @@ pl:
         content_blocks:
           highlighted_assemblies:
             max_results: Maksymalna ilość elementów do pokazania
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Członkowie
@@ -386,13 +393,19 @@ pl:
         comments_count: Komentarze
         debates_count: Debaty
         endorsements_count: Rekomendacje
+        followers_count: Obserwujący
+        headline: Statystyki
         meetings_count: Spotkania
+        no_stats: Nie ma jeszcze żadnych statystyk.
         orders_count: Wsparcia
         pages_count: Strony
+        participants_count: Użytkownicy
         posts_count: Posty
+        processes_count: Procesy
         projects_count: Projekty
         proposals_count: Propozycje
         results_count: Wyniki
+        supports_count: Podpisy
         surveys_count: Ankiety
         users_count: Użytkownicy
         votes_count: Głosy
@@ -443,7 +456,7 @@ pl:
         hero:
           participate_title: Weź udział w procesach udostępnionych na platformie
         sub_hero:
-          register_title: Zarejestruj się, aby utworzyć konto na platformie
+          register_title: Zapisz się by utworzyć konto
     participatory_processes:
       pages:
         home:

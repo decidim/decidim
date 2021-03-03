@@ -61,8 +61,8 @@ pl:
           description: Czy ta treść jest nieodpowiednia?
           details: Dodatkowe komentarze
           reasons:
-            does_not_belong: Zawiera nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
-            offensive: Zawiera rasizm, seksizm, kłamstwa, ataki osobiste, groźby śmierci, prośby samobójcze lub jakąkolwiek formę mowy o nienawiści.
+            does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
+            offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść
         show_replies: Pokaż %{replies_count} odpowiedzi
@@ -83,6 +83,11 @@ pl:
         loading: Ładowanie komentarzy ...
         single_comment_warning: Resztę komentarzy możesz sprawdzić <a href="%{url}">tutaj</a>.
         single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
+        title:
+          one: "%{count} komentarz"
+          few: "%{count} komentarze"
+          many: "%{count} komentarzy"
+          other: "%{count} komentarze"
       down_vote_button:
         text: Nie zgadzam się z tym komentarzem
       up_vote_button:
@@ -104,6 +109,16 @@ pl:
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować po kliknięciu w poprzedni link.
           email_subject: Jest nowy komentarz od %{author_name} do %{resource_title}
           notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Twój komentarz do "%{resource_title}" dostał głos przeciw. Teraz ma %{upvotes} głosów za i %{downvotes} głosów przeciw.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem komentarza.
+          email_subject: Twój komentarz w "%{resource_title}" dostał głos przeciw.
+          notification_title: Twój <a href="%{resource_path}">comment</a> do "%{resource_title}" dostał głos przeciw. Teraz ma %{upvotes} głosów za i %{downvotes} głosów przeciw.
+        comment_upvoted:
+          email_intro: Twój komentarz do "%{resource_title}" dostał głos za. Teraz ma %{upvotes} głosów za i %{downvotes} głosów przeciw.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem komentarza.
+          email_subject: Twój komentarz w "%{resource_title}" dostał głos za.
+          notification_title: Twój <a href="%{resource_path}">comment</a> do "%{resource_title}" dostał głos za. Teraz ma %{upvotes} głosów za i %{downvotes} głosów przeciw.
         reply_created:
           email_intro: "%{author_name} odpowiedział na Twój komentarz do %{resource_title}. Możesz przeczytać go na tej stronie:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ odpowiedziano na Twój komentarz.

@@ -30,13 +30,18 @@ module Decidim
 
     def render
       content_tag :nav, class: "main-nav" do
-        content_tag :ul do
-          safe_join(menu_items)
-        end
+        render_menu
       end
     end
 
     protected
+
+    def render_menu(&block)
+      content_tag :ul do
+        elements = block_given? ? [block.call(@view)] : []
+        safe_join(elements + menu_items)
+      end
+    end
 
     def menu_items
       items.map do |menu_item|

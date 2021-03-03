@@ -643,7 +643,7 @@
           filter_by: Filtrer etter
           unfold: Åpne
         index:
-          collaborative_drafts_list: Tilgang til samarbeids utkaster
+          collaborative_drafts_list: Lag utkast sammen med andre
           new_proposal: Nytt forslag
           see_all_withdrawn: Se alle tilbaketrukne forslag
           view_proposal: Se forslag
@@ -655,7 +655,7 @@
           send: Fortsett
           title: Opprett Ditt forslag
         orders:
-          label: 'Bestill forslag av:'
+          label: 'Sorter forslag:'
           most_commented: Flest kommentarer
           most_endorsed: Mest påtegnet
           most_followed: Mest fulgte

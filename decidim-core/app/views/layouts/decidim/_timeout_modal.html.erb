@@ -1,6 +1,9 @@
 <% if current_user %>
   <% timeout_time_seconds = Devise.timeout_in.to_i %>
-  <div class="reveal" id="timeoutModal" data-close-on-click="false" data-close-on-esc="false" data-session-timeout="<%= timeout_time_seconds %>" data-reveal>
+  <div class="reveal" id="timeoutModal" data-close-on-click="false" data-close-on-esc="false"
+    data-seconds-until-timeout-path="<%= decidim.seconds_until_timeout_path %>"
+    data-session-timeout="<%= timeout_time_seconds %>"
+    data-session-timeouter-interval="<%= Decidim.config.session_timeouter_interval %>" data-reveal>
     <h2><%= t(".title") %></h2>
     <p><%= t(".body", minutes: (timeout_time_seconds / 60) - 2) %></p>
 
@@ -8,7 +11,7 @@
       <%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, class: "button warning" %>
       <%= link_to "", decidim.destroy_user_session_path(translation_suffix: :timed_out), method: :delete, id: "reveal-hidden-sign-out", class: "hide" %>
       <%= button_to t(".continue_session"),
-        decidim.session_heartbeat_path,
+        decidim.heartbeat_path,
         id: "continueSession",
         class: "button primary",
         remote: true,

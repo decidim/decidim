@@ -5,8 +5,12 @@ module Decidim
     module ContentBlocks
       module LandingPage
         class MetricsCell < Decidim::ViewModel
-          def show
-            content_tag(:div, "VotingMetricsCell")
+          delegate :current_participatory_space, to: :controller
+
+          def metrics
+            nil
+
+            # @metrics ||= VotingsMetricChartsPresenter.new(participatory_process: current_participatory_space)
           end
         end
       end

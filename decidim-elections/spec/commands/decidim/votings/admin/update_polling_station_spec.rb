@@ -91,14 +91,13 @@ module Decidim
           end
 
           context "when updating the polling station president" do
-            before do
-              expect { subject.call }.to broadcast(:ok)
-            end
+            let(:updated_managers) { [] }
 
             context "when the president is nil" do
               let(:updated_president) { nil }
 
               it "unussigns the president" do
+                expect { subject.call }.to broadcast(:ok)
                 expect(president.reload.presided_polling_station).to be_nil
                 expect(polling_station.reload.polling_station_president).to be_nil
               end
@@ -106,23 +105,38 @@ module Decidim
 
             context "when there's a new president" do
               it "assigns the new president" do
+                expect { subject.call }.to broadcast(:ok)
                 expect(updated_president.reload.presided_polling_station).to eq polling_station
                 expect(president.reload.presided_polling_station).to be_nil
                 expect(polling_station.reload.polling_station_president).to eq updated_president
+              end
+
+              it "notifies the new president" do
+                expect(Decidim::EventsManager)
+                  .to receive(:publish)
+                  .with(
+                    event: "decidim.events.votings.polling_officers.polling_station_assigned",
+                    event_class: PollingOfficers::PollingStationAssignedEvent,
+                    resource: polling_station.voting,
+                    affected_users: [updated_president.user],
+                    followers: [],
+                    extra: { polling_officer_id: updated_president.id }
+                  )
+
+                expect { subject.call }.to broadcast(:ok)
               end
             end
           end
 
           context "when updating the polling station managers" do
-            before do
-              expect { subject.call }.to broadcast(:ok)
-              polling_station.reload
-            end
+            let(:updated_president) { nil }
 
             context "when the are no managers" do
               let(:updated_managers) { [] }
 
               it "unussigns all the managers" do
+                expect { subject.call }.to broadcast(:ok)
+                polling_station.reload
                 expect(polling_station.polling_station_managers.count).to eq updated_managers.count
                 managers.each do |manager|
                   expect(manager.reload.managed_polling_station).to be_nil
@@ -133,6 +147,8 @@ module Decidim
 
             context "when the managers are all new" do
               it "assigns the new managers" do
+                expect { subject.call }.to broadcast(:ok)
+                polling_station.reload
                 expect(polling_station.polling_station_managers.count).to eq updated_managers.count
                 updated_managers.each do |updated_manager|
                   expect(updated_manager.reload.managed_polling_station).to eq polling_station
@@ -143,6 +159,23 @@ module Decidim
                   expect(polling_station.polling_station_managers).not_to include(manager)
                 end
               end
+
+              it "notifies the new managers" do
+                updated_managers.each do |updated_manager|
+                  expect(Decidim::EventsManager)
+                    .to receive(:publish)
+                    .with(
+                      event: "decidim.events.votings.polling_officers.polling_station_assigned",
+                      event_class: PollingOfficers::PollingStationAssignedEvent,
+                      resource: polling_station.voting,
+                      affected_users: [updated_manager.user],
+                      followers: [],
+                      extra: { polling_officer_id: updated_manager.id }
+                    )
+                end
+
+                expect { subject.call }.to broadcast(:ok)
+              end
             end
 
             context "when there managers are added and removed" do
@@ -151,11 +184,28 @@ module Decidim
               let(:updated_managers) { [old_manager, new_manager] }
 
               it "assigns the added managers and unussigns the removed ones" do
+                expect { subject.call }.to broadcast(:ok)
+                polling_station.reload
                 expect(polling_station.polling_station_managers.count).to eq updated_managers.count
                 updated_managers.each do |updated_manager|
                   expect(updated_manager.reload.managed_polling_station).to eq polling_station
                   expect(polling_station.polling_station_managers).to include(updated_manager)
                 end
+              end
+
+              it "notifies the new managers" do
+                expect(Decidim::EventsManager)
+                  .to receive(:publish)
+                  .with(
+                    event: "decidim.events.votings.polling_officers.polling_station_assigned",
+                    event_class: PollingOfficers::PollingStationAssignedEvent,
+                    resource: polling_station.voting,
+                    affected_users: [new_manager.user],
+                    followers: [],
+                    extra: { polling_officer_id: new_manager.id }
+                  )
+
+                expect { subject.call }.to broadcast(:ok)
               end
             end
           end
