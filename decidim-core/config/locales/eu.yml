@@ -819,13 +819,13 @@ eu:
           debates_count: Eztabaidak
           endorsements_count: Oniritziak
           headline: '%{organization} erakundearen egungo egoera'
-          meetings_count: Bilerak
+          meetings_count: Topaketa-zerrenda
           orders_count: Euskarriak
-          pages_count: Orriak
+          pages_count: orrialdeak
           processes_count: Prozesuak
           projects_count: Proiektuak
           proposals_accepted: Onartutako proposamenak
-          proposals_count: proposamenak
+          proposals_count: Proposamenak
           results_count: Emaitzak
           surveys_count: Inkestak
           users_count: Parte-hartzaileak
