@@ -618,13 +618,6 @@ ca:
           title: Què són les votacions?
     menu:
       votings: Votacions
-    pages:
-      home:
-        statistics:
-          elections_count: Votacions
-    participatory_processes:
-      statistics:
-        elections_count: Votacions
     votings:
       admin:
         content_blocks:
