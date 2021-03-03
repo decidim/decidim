@@ -377,22 +377,6 @@ sv:
         social_networks: Sociala nätverk
         social_networks_title: Dela denna grupp på
         target: Vilka deltar
-      statistics:
-        answers_count: Svar
-        assemblies_count: Grupper
-        comments_count: Kommentarer
-        debates_count: Debatter
-        endorsements_count: Instämmanden
-        meetings_count: Möten
-        orders_count: Stöd
-        pages_count: Sidor
-        posts_count: Inlägg
-        projects_count: Projekt
-        proposals_count: Förslag
-        results_count: Resultat
-        surveys_count: Undersökningar
-        users_count: Deltagare
-        votes_count: Stöd
     assembly_members:
       assembly_member:
         designated_on: Utsedd den

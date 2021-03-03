@@ -31,13 +31,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neue Sortierung wurde zu %{participatory_space_title}hinzugefügt
           notification_title: Die Auslosung <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortierungen
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortierungen
     sortitions:
       admin:
         actions:
@@ -151,3 +144,5 @@ de:
           count:
             one: 1 Sortierung
             other: "%{count} Sortierungen"
+    statistics:
+      sortitions_count: Sortierungen

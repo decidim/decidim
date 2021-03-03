@@ -381,28 +381,6 @@ nl:
         social_networks: Sociale netwerken
         social_networks_title: Deze groep delen op
         target: Wie doet mee
-      statistics:
-        answers_count: Antwoorden
-        assemblies_count: Groepen
-        comments_count: Reacties
-        debates_count: Debatten
-        endorsements_count: Aanbevelingen
-        followers_count: Volgers
-        headline: Statistieken
-        meetings_count: Events
-        no_stats: Er zijn nog geen statistieken.
-        orders_count: Ondersteunt
-        pages_count: Pagina's
-        participants_count: Deelnemers
-        posts_count: Berichten
-        processes_count: Processen
-        projects_count: Projecten
-        proposals_count: Voorstellen
-        results_count: Resultaten
-        supports_count: Aantal keer gesteund
-        surveys_count: Enquêtes
-        users_count: Deelnemers
-        votes_count: Ondersteunt
     assembly_members:
       assembly_member:
         designated_on: Aangewezen op

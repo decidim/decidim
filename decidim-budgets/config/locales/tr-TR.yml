@@ -284,8 +284,5 @@ tr:
       destroy:
         error: Oyunuzu iptal ederken bir sorun oluştu
         success: Oyunuz başarıyla iptal edildi
-    resource_links:
-      included_proposals:
-        project_proposal: 'Bu projede yer alan teklifler:'
   index:
     confirmed_orders_count: Oy sayısı

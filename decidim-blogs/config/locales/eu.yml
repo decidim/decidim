@@ -70,10 +70,3 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '%{participatory_space_title} urtean argitaratutako mezu berria'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> post %{participatory_space_title} argitaratu da
-    pages:
-      home:
-        statistics:
-          posts_count: Mezuak
-    participatory_processes:
-      statistics:
-        posts_count: Mezuak

@@ -288,8 +288,5 @@ nl:
       destroy:
         error: Er is een fout opgetreden tijdens het annuleren van uw stem
         success: Uw stem is geannuleerd
-    resource_links:
-      included_proposals:
-        project_proposal: 'Voorstellen opgenomen in dit project:'
   index:
     confirmed_orders_count: Aantal stemmen

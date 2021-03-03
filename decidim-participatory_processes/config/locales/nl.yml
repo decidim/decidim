@@ -332,6 +332,8 @@ nl:
           participatory_scope: Wat wordt beslist
           participatory_structure: Hoe wordt er beslist
           target: Wie neemt deel
+        stats:
+          name: Activiteit
         title:
           meta_scope: Scope
           name: Titel, beschrijving en hashtag
@@ -444,25 +446,6 @@ nl:
         start_date: Startdatum
         target: Wie neemt deel
         unspecified: Niet gespecificeerd
-      statistics:
-        answers_count: Antwoorden
-        comments_count: Reacties
-        debates_count: Debatten
-        endorsements_count: Ondersteuningen
-        followers_count: Volgers
-        headline: Activiteit
-        meetings_count: Vergaderingen
-        no_stats: Er zijn nog geen statistieken.
-        orders_count: Stemmen
-        pages_count: Pagina's
-        participants_count: Deelnemers
-        processes_count: Thema's
-        projects_count: Projecten
-        proposals_count: Voorstellen
-        results_count: Resultaten
-        supports_count: Stemmen
-        surveys_count: Enquêtes
-        users_count: Deelnemers
   layouts:
     decidim:
       participatory_process_groups:

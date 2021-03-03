@@ -336,10 +336,6 @@ ar:
           title: ما هي المشاورات؟
     menu:
       consultations: المشاورات
-    pages:
-      home:
-        statistics:
-          consultations_count: المشاورات
     questions:
       next_button: السؤال التالي
       previous_button: السؤال السابق

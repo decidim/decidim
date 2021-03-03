@@ -94,6 +94,7 @@ es:
         create:
           error: Se ha producido un error al crear una nueva consulta.
           success: Consulta creada correctamente.
+        deprecation_warning: El módulo de consultas estará obsoleto en un futuro cercano. Estamos trabajando en la próxima versión criptográficamente segura llamada Votaciones.
         edit:
           update: Actualizar
         form:
@@ -318,15 +319,11 @@ es:
     help:
       participatory_spaces:
         consultations:
-          contextual: "Las <p><strong>consultas</strong> son un espacio en el que puedes plantear una pregunta clara a todos los miembros de una organización, hacer un llamamiento a la participación en la consulta y suscitar y solicitar el debate a favor o en contra de una respuesta. Cuando llega la fecha de la consulta, puedes votar y publicar los resultados de las votaciones.</p> <p>Ejemplos: Las consultas pueden referirse a casi cualquier aspecto que afecte a una organización: algunos ejemplos son cambiar el nombre o el logotipo de la organización ofreciendo varias alternativas, decidir «Sí» o «No» a formar parte de una organización más grande, aprobar o rechazar un nuevo plan estratégico o el resultado de un grupo de trabajo o decidir si los cargos deben mantenerse durante un máximo de uno, dos o tres mandatos.</p>\n"
-          page: "Las <p><strong>consultas</strong> son un espacio en el que puedes plantear una pregunta clara a todos los miembros de una organización, hacer un llamamiento a la participación en la consulta y suscitar y solicitar el debate a favor o en contra de una respuesta. Cuando llega la fecha de la consulta, puedes votar y publicar los resultados de las votaciones.</p> <p>Ejemplos: Las consultas pueden referirse a casi cualquier aspecto que afecte a una organización: algunos ejemplos son cambiar el nombre o el logotipo de la organización ofreciendo varias alternativas, decidir «Sí» o «No» a formar parte de una organización más grande, aprobar o rechazar un nuevo plan estratégico o el resultado de un grupo de trabajo o decidir si en la organización los cargos deben mantenerse durante un máximo de uno, dos o tres mandatos.</p>\n"
+          contextual: "Una <p><strong>consulta</strong> es un espacio en el que puedes plantear una pregunta clara a todos los miembros de una organización, hacer un llamamiento a la participación en la consulta y suscitar y solicitar el debate a favor o en contra de una respuesta. Cuando llega la fecha de la consulta, puedes votar y publicar los resultados de las votaciones.</p> <p>Ejemplos: Las consultas pueden referirse a casi cualquier aspecto que afecte a una organización: algunos ejemplos son cambiar el nombre o el logotipo de la organización ofreciendo varias alternativas, decidir «Sí» o «No» a formar parte de una organización más grande, aprobar o rechazar un nuevo plan estratégico o el resultado de un grupo de trabajo o decidir si los cargos deben mantenerse durante un máximo de uno, dos o tres mandatos.</p>\n"
+          page: "Una <p><strong>consulta</strong> es un espacio en el que puedes plantear una pregunta clara a todos los miembros de una organización, hacer un llamamiento a la participación en la consulta y suscitar y solicitar el debate a favor o en contra de una respuesta. Cuando llega la fecha de la consulta, puedes votar y publicar los resultados de las votaciones.</p> <p>Ejemplos: Las consultas pueden referirse a casi cualquier aspecto que afecte a una organización: algunos ejemplos son cambiar el nombre o el logotipo de la organización ofreciendo varias alternativas, decidir «Sí» o «No» a formar parte de una organización más grande, aprobar o rechazar un nuevo plan estratégico o el resultado de un grupo de trabajo o decidir si en la organización los cargos deben mantenerse durante un máximo de uno, dos o tres mandatos.</p>\n"
           title: '¿Qué son las consultas?'
     menu:
       consultations: Consultas
-    pages:
-      home:
-        statistics:
-          consultations_count: Consultas
     questions:
       next_button: Siguiente pregunta
       previous_button: Pregunta anterior

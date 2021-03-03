@@ -370,22 +370,6 @@ zh-CN:
         social_networks: 社交网络
         social_networks_title: 分享此程序集
         target: 谁参与
-      statistics:
-        answers_count: 答案
-        assemblies_count: 程序集
-        comments_count: 评论
-        debates_count: 辩论
-        endorsements_count: 授权
-        meetings_count: 会议
-        orders_count: 支持
-        pages_count: 页 次
-        posts_count: 员额
-        projects_count: 项目
-        proposals_count: 建议
-        results_count: 成果
-        surveys_count: 调查
-        users_count: 参加者
-        votes_count: 支持
     assembly_members:
       assembly_member:
         designated_on: 指定于

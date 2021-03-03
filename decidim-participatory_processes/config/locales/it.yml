@@ -298,6 +298,9 @@ it:
       show:
         related_assemblies: Assemblee collegate
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Attività
       show:
         title: Gruppi di processi partecipativi
     participatory_process_steps:
@@ -398,25 +401,6 @@ it:
         start_date: Data di inizio
         target: Chi partecipa
         unspecified: Non specificato
-      statistics:
-        answers_count: risposte
-        comments_count: Commenti
-        debates_count: Dibattiti
-        endorsements_count: Mi piace
-        followers_count: Followers
-        headline: Attività
-        meetings_count: Eventi
-        no_stats: Non ci sono ancora statistiche.
-        orders_count: Voti
-        pages_count: Pagine
-        participants_count: Partecipanti
-        processes_count: Processi
-        projects_count: Progetti
-        proposals_count: Proposte
-        results_count: Risultati
-        supports_count: Voti
-        surveys_count: indagini
-        users_count: Partecipanti
   layouts:
     decidim:
       participatory_process_groups:

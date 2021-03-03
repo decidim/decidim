@@ -301,6 +301,9 @@ ro:
       show:
         related_assemblies: Asambluri asemănătoare
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Statistici
       show:
         title: Grupuri participante
     participatory_process_steps:
@@ -402,25 +405,6 @@ ro:
         start_date: Data de început
         target: Cine participă
         unspecified: Nu este specificat
-      statistics:
-        answers_count: Răspunsuri
-        comments_count: Comentarii
-        debates_count: Dezbateri
-        endorsements_count: Susținători
-        followers_count: Urmăritori
-        headline: Statistici
-        meetings_count: Întâlniri
-        no_stats: Încă nu există statistici.
-        orders_count: Suportă
-        pages_count: Pagini
-        participants_count: Participanți
-        processes_count: Procese
-        projects_count: Proiecte
-        proposals_count: Propuneri
-        results_count: Rezultate
-        supports_count: Suportă
-        surveys_count: Chestionare
-        users_count: Participanți
   layouts:
     decidim:
       participatory_process_groups:

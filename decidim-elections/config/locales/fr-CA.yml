@@ -92,11 +92,13 @@ fr-CA:
           new:
             create: Créer une réponse
             title: Nouvelle réponse
+          not_selected: Non sélectionnée
           select:
             disable: Désélectionner la réponse
             enable: Marquer la réponse comme sélectionnée
             invalid: Un problème est survenu lors de la sélection de cette réponse
             success: Réponse sélectionnée avec succès
+          selected: Sélectionnée
           unselect:
             invalid: Une erreur est survenue lors de la désélection de cette réponse
             success: Réponse désélectionnée avec succès
@@ -209,12 +211,24 @@ fr-CA:
             title: Prêt à commencer
           processing: Traitement en cours...
           results_published:
+            answer: Répondre
+            not_selected: Non sélectionné
+            question: Question
+            result: Résultat
+            selected: Sélectionné
+            submit: Envoyer
             title: Résultats publiés
           tally:
             trustees: Garants
           tally_ended:
+            answer: Répondre
+            not_selected: Non sélectionné
+            question: Question
+            result: Réalisation
+            selected: Sélectionné
             submit: Publier les résultats
-            title: Résultats calculés
+            success: Dépouillement correctement terminé
+            title: Résultat du calcul
           vote:
             errors:
               time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
@@ -225,6 +239,7 @@ fr-CA:
             success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
             title: Période de vote
           vote_ended:
+            text: Le vote est terminé. Vous pouvez commencer le comptage.
             title: Période de vote terminée
           vote_stats:
             no_vote_statistics_yet: Pas encore de statistiques sur le vote
@@ -288,30 +303,30 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Voir plus
         preview:
-          available_answers: Réponses disponibles
-          description: Voici les questions que vous trouverez dans le processus de vote
+          available_answers: 'Réponses disponibles:'
+          description: 'Voici les questions que vous trouverez dans le processus de vote:'
           title: Questions de l'élection
         results:
-          description: Ce sont les résultats du vote, pour chaque question
+          description: 'Ce sont les résultats du vote, pour chaque question:'
           selected: Sélectionné
           title: Résultats de l'élection
           votes:
             one: "%{count} vote"
             other: "%{count} votes"
         show:
-          action-button:
-            change-vote: Changer votre vote
+          action_button:
+            change_vote: Changer votre vote
             vote: Commencer à voter
-            vote-again: Voter à nouveau
+            vote_again: Voter à nouveau
           back: Élections disponibles
           callout:
-            already-voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
-            vote-rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
+            already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
+            vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           preview: Aperçu
           verify:
-            already-voted: Déjà voté?
-            verify-here: Vérifiez votre vote ici.
-            will-verify: Vous pourrez vérifier votre vote une fois l'élection commencée.
+            already_voted: Déjà voté?
+            verify_here: Vérifiez votre vote ici.
+            will_verify: Vous pourrez vérifier votre vote une fois l'élection commencée.
           voting_period_status:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
             ongoing: 'Vote actif jusqu''au : %{end_time}'
@@ -325,7 +340,9 @@ fr-CA:
         answer:
           fields:
             proposals: Propositions
+            selected: Sélectionné
             title: Titre
+            votes: Votes
         election:
           fields:
             end_time: Prend fin à
@@ -436,6 +453,12 @@ fr-CA:
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
+        ballot_decision:
+          audit: "(Auditer le bulletin de vote)"
+          back: Recommencer le processus de vote
+          cast: Valider votre vote
+          description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
+          header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         confirm:
           answer: Répondre
           answer_number: répondre à %{number}
@@ -460,6 +483,7 @@ fr-CA:
           lead: Votre vote n'a pas été exprimé!
           text: Une erreur est survenue, veuillez réessayer.
         header:
+          ballot_decision: Validez ou auditez votre vote
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
           encrypting: Confirmation du vote
@@ -475,9 +499,6 @@ fr-CA:
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
-        processing:
-          header: Traitement du vote...
-          text: Votre vote a été reçu et est en cours de traitement. Veuillez patienter.
         update:
           error: Un problème est survenu lors de la mise à jour du statut de vote
           success: Statut du vote mis à jour avec succès
@@ -518,13 +539,6 @@ fr-CA:
           title: Que sont les élections ?
     menu:
       votings: Élections
-    pages:
-      home:
-        statistics:
-          elections_count: Élections
-    participatory_processes:
-      statistics:
-        elections_count: Élections
     votings:
       admin:
         content_blocks:
@@ -611,6 +625,17 @@ fr-CA:
       content_blocks:
         highlighted_votings:
           name: Élections remarquables
+        landing_page:
+          description:
+            show_less: Voir moins
+            show_more: Lire la suite
+          metrics:
+            heading: Statistiques
+          polling_stations:
+            heading: Bureaux de vote
+            no_polling_stations: Il n'y a pas encore de bureau de vote.
+          timeline:
+            heading: Chronologie
       pages:
         home:
           highlighted_votings:
@@ -670,6 +695,8 @@ fr-CA:
     decidim:
       election_votes_header:
         exit: Quitter
+      voting_navigation:
+        voting_menu_item: Le vote
       votings:
         index:
           promoted_votings: Votations remarquables

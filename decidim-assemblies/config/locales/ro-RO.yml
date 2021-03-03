@@ -350,24 +350,6 @@ ro:
         social_networks: Rețele sociale
         social_networks_title: Împărtășește această adunare pe
         target: Cine participă
-      statistics:
-        answers_count: Răspunsuri
-        assemblies_count: Adunări
-        comments_count: Comentarii
-        debates_count: Dezbateri
-        endorsements_count: Susținători
-        meetings_count: Întâlniri
-        orders_count: Suportă
-        pages_count: Pagini
-        participants_count: Participanţi
-        posts_count: Mesaje
-        processes_count: Procese
-        projects_count: Proiecte
-        proposals_count: Propuneri
-        results_count: Rezultate
-        surveys_count: Chestionare
-        users_count: Participanți
-        votes_count: Suportă
     assembly_members:
       assembly_member:
         designated_on: Designat pe

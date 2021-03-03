@@ -381,28 +381,6 @@ fi:
         social_networks: Sosiaalinen media
         social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
-      statistics:
-        answers_count: Vastausta
-        assemblies_count: Ryhmää
-        comments_count: Kommenttia
-        debates_count: Keskustelua
-        endorsements_count: Suositusta
-        followers_count: Seuraajat
-        headline: Tilastot
-        meetings_count: Tapaamista
-        no_stats: Tilastoja ei vielä ole.
-        orders_count: Kannatusta
-        pages_count: Sivua
-        participants_count: Osallistujaa
-        posts_count: Artikkeleja
-        processes_count: Prosessia
-        projects_count: Suunnitelmaa
-        proposals_count: Ehdotusta
-        results_count: Tulosta
-        supports_count: Kannatusta
-        surveys_count: Kyselyä
-        users_count: Osallistujaa
-        votes_count: Kannatusta
     assembly_members:
       assembly_member:
         designated_on: Nimetty

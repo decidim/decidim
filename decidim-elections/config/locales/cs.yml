@@ -134,11 +134,13 @@ cs:
           new:
             create: Vytvořit odpověď
             title: Nová odpověď
+          not_selected: Nevybráno
           select:
             disable: Zrušit výběr odpovědi
             enable: Označit odpověď jako vybranou
             invalid: Při výběru této odpovědi došlo k potížím
             success: Odpověď byla úspěšně vybrána
+          selected: Vybráno
           unselect:
             invalid: Při zrušení výběru této odpovědi došlo k chybě
             success: Odpovědi byl úspěšně zrušen výběr
@@ -253,13 +255,25 @@ cs:
             title: Připraveno k zahájení
           processing: Zpracovávání...
           results_published:
+            answer: Odpověď
+            not_selected: Nevybráno
+            question: Otázka
+            result: Výsledek
+            selected: Vybráno
+            submit: Odeslat
             title: Výsledky publikovány
           tally:
-            title: Proces spojení
+            title: Proces volebního přepočítání
             trustees: Volební důvěrníci
           tally_ended:
+            answer: Odpověď
+            not_selected: Nevybráno
+            question: Otázka
+            result: Výsledek
+            selected: Vybráno
             submit: Publikovat výsledky
-            title: Výsledky spočítány
+            success: Volební přepočítání úspěšně zakončeno
+            title: Vypočítané výsledky
           vote:
             errors:
               time_after: Volby stále probíhají. Musíte počkat na ukončení hlasovacího období (%{end_time}).
@@ -271,8 +285,9 @@ cs:
             title: Období hlasování
           vote_ended:
             invalid: Vyskytl se problém při startu Volební listiny
-            submit: Začít Volební listinu
-            success: Požadavek zahájení Volební listiny byl úspěšně odeslán na Bulletin Board
+            submit: Začít Volební přepočítání
+            success: Požadavek zahájení Volebního přepočítání byl úspěšně odeslán na Bulletin Board
+            text: Hlasování bylo ukončeno. Nyní můžete začít volební přepočítání.
             title: Období hlasování skončilo
           vote_stats:
             no_vote_statistics_yet: Zatím žádné statistiky hlasování
@@ -306,7 +321,7 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           setup: "%{user_name} vytvořil %{resource_name} volby na Bulletin Boardu"
           start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby ve Bulletin Board %{resource_name}"
-          start_tally: "%{user_name} zahájil Volební listinu pro volby v %{resource_name} na Bulletin Board"
+          start_tally: "%{user_name} zahájil Volební přepočítání pro volby v %{resource_name} na Bulletin Board"
           start_vote: "%{user_name} zahájil hlasovací období pro volby v %{resource_name} na Bulletin Boardu"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
@@ -343,11 +358,11 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozbalit
         preview:
-          available_answers: Dostupné odpovědi
-          description: Toto jsou otázky, které najdete v procesu hlasování
+          available_answers: 'Dostupné odpovědi:'
+          description: 'Toto jsou otázky, které najdete v procesu hlasování:'
           title: Volební otázky
         results:
-          description: To jsou výsledky hlasování, pro každou otázku
+          description: 'To jsou výsledky hlasování pro každou otázku:'
           selected: Vybrané
           title: Výsledky voleb
           votes:
@@ -356,19 +371,19 @@ cs:
             many: "%{count} hlasů"
             other: "%{count} hlasů"
         show:
-          action-button:
-            change-vote: Změňte svůj hlas
+          action_button:
+            change_vote: Změňte svůj hlas
             vote: Zahájit hlasování
-            vote-again: Znovu hlasovat
+            vote_again: Znovu hlasovat
           back: Dostupné volby
           callout:
-            already-voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
-            vote-rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
+            already_voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
+            vote_rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
           preview: Náhled
           verify:
-            already-voted: Již jste hlasovali?
-            verify-here: Zkontrolujte svůj hlas zde.
-            will-verify: Své hlasování budete moci ověřit hned po zahájení voleb.
+            already_voted: Již jste hlasovali?
+            verify_here: Zkontrolujte svůj hlas zde.
+            will_verify: Své hlasování budete moci ověřit hned po zahájení voleb.
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
             ongoing: 'Aktivní hlasování do: %{end_time}'
@@ -382,7 +397,9 @@ cs:
         answer:
           fields:
             proposals: Návrhy
+            selected: Vybráno
             title: Název
+            votes: Hlasy
         election:
           fields:
             bb_status: Stav Bulletin Boardu
@@ -442,10 +459,10 @@ cs:
             back: Zpět
             description: Výsledky těchto voleb jsou vypočítány v Bulletin Board. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
             keys:
-              end_tally: Volební listina uzavřena
+              end_tally: Volební přepočítání uzavřeno
               tally:
-                cast: Obsazení volební listiny
-                share: Podíly Volební listiny
+                cast: Obsazení volebního přepočítávání
+                share: Poměry volebního přepočítávání
             list:
               status: Stav
               task: Úloha
@@ -456,7 +473,7 @@ cs:
               completed: Dokončeno
               pending: Čekající
               processing: Zpracovávání
-            title: Volební listina pro %{election}
+            title: Volební přepočítání pro %{election}
           update:
             error: Stav voleb nebyl aktualizován.
             success: 'Stav voleb je: %{status}'
@@ -503,6 +520,12 @@ cs:
           update:
             success: Váš identifikační veřejný klíč byl úspěšně uložen.
       votes:
+        ballot_decision:
+          audit: "(Audit volebního lístku)"
+          back: Zahájit proces hlasování znovu
+          cast: Zahlasování hlasovacího lístku
+          description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
+          header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
         confirm:
           answer: Odpověď
           answer_number: odpověď %{number}
@@ -529,6 +552,7 @@ cs:
           lead: Váš hlas nebyl odeslán!
           text: Něco se pokazilo, zkuste to prosím znovu.
         header:
+          ballot_decision: Zahlasování nebo audit vašeho hlasování
           confirm: Potvrďte svůj hlas
           confirmed: Hlasování potvrzeno
           encrypting: Potvrzení hlasování
@@ -544,9 +568,6 @@ cs:
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
-        processing:
-          header: Zpracovávám hlasování...
-          text: Váš hlas byl přijat a právě se zpracovává. Počkejte prosím.
         update:
           error: Při aktualizaci stavu hlasování došlo k chybě
           success: Stav hlasování byl úspěšně aktualizován
@@ -611,13 +632,6 @@ cs:
           title: Co jsou hlasování?
     menu:
       votings: Hlasování
-    pages:
-      home:
-        statistics:
-          elections_count: Volby
-    participatory_processes:
-      statistics:
-        elections_count: Volby
     votings:
       admin:
         content_blocks:
@@ -801,6 +815,17 @@ cs:
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
+        landing_page:
+          description:
+            show_less: Číst méně
+            show_more: Přečtěte si více
+          metrics:
+            heading: Metriky
+          polling_stations:
+            heading: Volební místnosti
+            no_polling_stations: Zatím nejsou žádné volební místnosti.
+          timeline:
+            heading: Časová osa
       monitoring_committee_members:
         actions:
           confirm_destroy: Jste si jisti?
@@ -896,6 +921,8 @@ cs:
     decidim:
       election_votes_header:
         exit: Ukončit
+      voting_navigation:
+        voting_menu_item: Hlasování
       votings:
         index:
           promoted_votings: Zvýrazněné hlasování
