@@ -153,6 +153,10 @@ is-IS:
           other: atkvæði úr
     menu:
       consultations: Samráð
+    pages:
+      home:
+        statistics:
+          consultations_count: Samráð
     questions:
       results:
         title: Niðurstöður
