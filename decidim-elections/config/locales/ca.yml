@@ -29,7 +29,25 @@ ca:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: no es pot canviar
+            public_key:
+              cant_be_changed: no es pot canviar
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: El gestor de mesa ja es president/gestor del punt de votació
+            voting:
+              different_organization: La votació ha d'estar a la mateixa organització que l'usuària
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: El gestor de mesa ha d'estar a la mateixa votació que el punt de votació
     models:
       decidim/elections/answer:
         one: Resposta
@@ -40,9 +58,23 @@ ca:
       decidim/elections/question:
         one: Pregunta
         other: Preguntes
+      decidim/votings/polling_officer:
+        one: Gestor de mesa
+        other: Gestors de mesa
+      decidim/votings/polling_station:
+        one: Punt de votació
+        other: Punts de votació
+      decidim/votings/voting:
+        one: Votació
+        other: Votacions
   decidim:
     admin:
       filters:
+        officers_assigned_eq:
+          label: Gestors
+          values:
+            assigned: Assignat
+            unassigned: No assignat
         role_eq:
           label: Rol
           values:
@@ -51,6 +83,8 @@ ca:
             unassigned: Sense assignar
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o punt de votació.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Cercar %{collection} per títol, adreça o nom del gestor/email/àlies.
     components:
       elections:
         actions:
@@ -93,11 +127,13 @@ ca:
           new:
             create: Crear resposta
             title: Nova resposta
+          not_selected: No seleccionat
           select:
             disable: Deseleccionar resposta
             enable: Marcar resposta com seleccionada
             invalid: S'ha produït un error en seleccionar aquesta resposta
             success: Resposta seleccionada correctament
+          selected: Seleccionat
           unselect:
             invalid: Hi ha hagut un problema en deseleccionar aquesta resposta
             success: Resposta deseleccionada correctament
@@ -186,6 +222,7 @@ ca:
               minimum_answers: Cada pregunta té <strong>almenys 2 respostes</strong>.
               minimum_questions: L'elecció té <strong>almenys 1 pregunta</strong>.
               published: L'elecció està <strong>publicada</strong>.
+              time_before: La configuració s'està fent <strong>almenys %{hours} hores</strong> abans de que comenci l'elecció.
               trustees_number: L'espai de participació té <strong>almenys %{number} garants amb clau pública</strong>.
             submit: Configurar elecció
             success: L'elecció s'ha enviat correctament al Bulletin Board
@@ -211,11 +248,18 @@ ca:
             title: A punt per començar
           processing: Processant...
           results_published:
+            answer: Resposta
+            not_selected: No seleccionat
+            question: Pregunta
+            result: Resultat
+            selected: Seleccionat
+            submit: Enviar
             title: Resultats publicats
           tally:
             title: Procés de recompte
             trustees: Garants
           tally_ended:
+            answer: Resposta
             submit: Publicar resultats
           vote:
             errors:
