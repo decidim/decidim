@@ -347,11 +347,8 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         preview:
-          available_answers: Dostępne odpowiedzi
-          description: To są pytania, które znajdziesz w procesie głosowania
           title: Pytania wyborcze
         results:
-          description: Wyniki głosowania w odniesieniu do każdego pytania
           selected: Wybrane
           title: Wyniki wyborów
           votes:
@@ -360,19 +357,19 @@ pl:
             many: "%{count} głosów"
             other: "%{count} głosy"
         show:
-          action-button:
-            change-vote: Zmień swój głos
+          action_button:
+            change_vote: Zmień swój głos
             vote: Rozpocznij głosowanie
-            vote-again: Zagłosuj ponownie
+            vote_again: Zagłosuj ponownie
           back: Dostępne wybory
           callout:
-            already-voted: Już głosowałeś w tych wyborach. Możesz zmienić swój głos lub zweryfikować go.
-            vote-rejected: Nie udało się zweryfikować Twojego głosu. Proszę przesłać go ponownie.
+            already_voted: Już głosowałeś w tych wyborach. Możesz zmienić swój głos lub zweryfikować go.
+            vote_rejected: Nie udało się zweryfikować Twojego głosu. Proszę przesłać go ponownie.
           preview: Podgląd
           verify:
-            already-voted: Już głosowałem?
-            verify-here: Sprawdź swój głos tutaj.
-            will-verify: Po rozpoczęciu wyborów będziesz mógł zweryfikować swój głos.
+            already_voted: Już głosowałem?
+            verify_here: Sprawdź swój głos tutaj.
+            will_verify: Po rozpoczęciu wyborów będziesz mógł zweryfikować swój głos.
           voting_period_status:
             finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
             ongoing: 'Głosowanie aktywne do: %{end_time}'
