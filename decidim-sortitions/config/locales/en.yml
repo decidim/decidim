@@ -145,3 +145,5 @@ en:
           count:
             one: 1 sortition
             other: "%{count} sortitions"
+    statistics:
+      sortitions_count: Sortitions

@@ -540,6 +540,8 @@ en:
         title: Media and Links
     menu:
       conferences: Conferences
+    statistics:
+      conferences_count: Conferences
   devise:
     mailer:
       join_conference:

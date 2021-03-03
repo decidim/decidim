@@ -595,6 +595,9 @@ en:
           title: What are votings?
     menu:
       votings: Votings
+    statistics:
+      elections_count: Elections
+      votings_count: Votings
     votings:
       admin:
         content_blocks:

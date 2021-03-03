@@ -359,6 +359,9 @@ en:
       consultations:
         actions:
           vote: Vote
+    statistics:
+      consultations_count: Consultations
+      votes_count: Votes
   layouts:
     decidim:
       admin:
