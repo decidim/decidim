@@ -72,10 +72,3 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} обнародован новый пост
           notification_title: В %{participatory_space_title} был обнародован пост <a href="%{resource_path}">%{resource_title}</a>
-    pages:
-      home:
-        statistics:
-          posts_count: Постов
-    participatory_processes:
-      statistics:
-        posts_count: Постов
