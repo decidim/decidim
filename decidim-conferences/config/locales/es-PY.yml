@@ -266,6 +266,10 @@ es-PY:
       conferences:
         conference_registration:
           confirm: "%{user_name} ha confirmado su inscripción a la conferencia %{resource_name}"
+        partner:
+          create: "%{user_name} creó la colaboradora %{resource_name} en la jornada %{space_name}"
+          delete: "%{user_name} eliminó la colaboradora %{resource_name} de la jornada %{space_name}"
+          update: "%{user_name} actualizó la colaboradora %{resource_name} de la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
