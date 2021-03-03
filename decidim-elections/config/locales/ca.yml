@@ -850,7 +850,31 @@ ca:
         roles:
           manager: Administrador
           president: President
+          unassigned: Sense assignar
+      polling_stations:
+        actions:
+          confirm_destroy: N'estàs segura?
+          destroy: Esborrar
+          edit: Editar
+          new: Nou
+          title: Accions
       votings:
+        count:
+          title:
+            one: "%{count} votació"
+            other: "%{count} votacions"
+        filters:
+          active: Actives
+          all: Totes
+          finished: Finalitzades
+          search: Cercar
+          state: Estat
+          upcoming: Properes
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtrar
+          filter_by: Filtrar per
+          unfold: Desplegar
         index:
           no_votings: Cap votació s'ajusta als vostres criteris de cerca.
           only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
