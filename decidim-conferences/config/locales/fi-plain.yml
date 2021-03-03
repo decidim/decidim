@@ -494,7 +494,7 @@ fi-pl:
       statistics:
         answers_count: Vastauksia
         comments_count: Kommentteja
-        conference_count: Konferensseja
+        conference_count: Konferenssit
         debates_count: Keskusteluita
         endorsements_count: Suosituksia
         headline: Toiminta
