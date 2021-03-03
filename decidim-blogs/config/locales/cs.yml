@@ -78,10 +78,3 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože sledujete "%{participatory_space_title}". Můžete ho zrušit z předchozího odkazu.
           email_subject: Nový příspěvek publikován v %{participatory_space_title}
           notification_title: Příspěvek <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn ve %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Příspěvky
-    participatory_processes:
-      statistics:
-        posts_count: Příspěvky
