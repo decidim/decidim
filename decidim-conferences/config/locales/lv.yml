@@ -490,22 +490,6 @@ lv:
         related_assemblies: Saistītās asamblejas
         related_consultations: Saistītās konsultācijas
         related_participatory_processes: Saistītie līdzdalības procesi
-      statistics:
-        answers_count: Atbildes
-        comments_count: Komentāri
-        conference_count: Konferences
-        endorsements_count: Atbalsts
-        headline: Aktivitāte
-        meetings_count: Sanāksmes
-        orders_count: Atbalsta
-        pages_count: Lapas
-        posts_count: Ziņas
-        projects_count: Projekti
-        proposals_count: Priekšlikumi
-        results_count: Rezultāti
-        surveys_count: Aptaujas
-        users_count: Dalībnieki
-        votes_count: Atbalsta
     events:
       conferences:
         conference_registration_confirmed:
