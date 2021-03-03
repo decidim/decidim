@@ -288,8 +288,5 @@ ca:
       destroy:
         error: S'ha produït un error en cancel·lar el teu vot
         success: El teu vot ha estat cancel·lat correctament
-    resource_links:
-      included_proposals:
-        project_proposal: 'Propostes incloses en aquest projecte:'
   index:
     confirmed_orders_count: Recompte de vots
