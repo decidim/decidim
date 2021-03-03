@@ -500,23 +500,6 @@ pl:
         related_assemblies: Powiązane zespoły
         related_consultations: Powiązane konsultacje
         related_participatory_processes: Powiązane procesy partycypacyjne
-      statistics:
-        answers_count: Odpowiedzi
-        comments_count: Komentarze
-        conference_count: Konferencje
-        debates_count: Debaty
-        endorsements_count: Rekomendacje
-        headline: Działanie
-        meetings_count: Spotkania
-        orders_count: Wsparcia
-        pages_count: Strony
-        posts_count: Wpisy
-        projects_count: Projekty
-        proposals_count: Propozycje
-        results_count: Wyniki
-        surveys_count: Ankiety
-        users_count: Uczestnicy
-        votes_count: Głosy
     events:
       conferences:
         conference_registration_confirmed:
