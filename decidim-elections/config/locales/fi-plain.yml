@@ -349,30 +349,27 @@ fi-pl:
           filter_by: Rajaa hakua
           unfold: Avaa
         preview:
-          available_answers: Vastausvaihtoehdot
-          description: Nämä kysymykset esitetään äänestyksen yhteydessä
           title: Vaaliin liittyvät kysymykset
         results:
-          description: Tässä on äänestyksen tulokset kaikille kysymyksille
           selected: Valittu
           title: Vaalin tulokset
           votes:
             one: "%{count} ääni"
             other: "%{count} ääntä"
         show:
-          action-button:
-            change-vote: Muuta ääntäsi
+          action_button:
+            change_vote: Muuta ääntäsi
             vote: Aloita äänestys
-            vote-again: Äänestä uudelleen
+            vote_again: Äänestä uudelleen
           back: Käynnissä olevat vaalit
           callout:
-            already-voted: Olet jo äänestänyt näissä vaaleissa. Voit muuttaa ääntäsi tai tarkastaa sen.
-            vote-rejected: Ääntäsi ei voida tarkastaa. Ole hyvä ja lähetä äänesi uudestaan.
+            already_voted: Olet jo äänestänyt näissä vaaleissa. Voit muuttaa ääntäsi tai tarkastaa sen.
+            vote_rejected: Ääntäsi ei voida tarkastaa. Ole hyvä ja lähetä äänesi uudestaan.
           preview: Esikatsele
           verify:
-            already-voted: Oletko jo äänestänyt?
-            verify-here: Tarkista äänesi täältä.
-            will-verify: Voit tarkistaa äänesi, kun vaalit ovat alkaneet.
+            already_voted: Oletko jo äänestänyt?
+            verify_here: Tarkista äänesi täältä.
+            will_verify: Voit tarkistaa äänesi, kun vaalit ovat alkaneet.
           voting_period_status:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
             ongoing: 'Äänestysaika päättyy: %{end_time}'
