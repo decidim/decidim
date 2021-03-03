@@ -329,10 +329,6 @@ lv:
           title: Kas ir konsultācijas?
     menu:
       consultations: Konsultācijas
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultācijas
     questions:
       next_button: Nākamais jautājums
       previous_button: Iepriekšējais jautājums
