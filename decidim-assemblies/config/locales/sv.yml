@@ -386,10 +386,12 @@ sv:
         meetings_count: Möten
         orders_count: Stöd
         pages_count: Sidor
+        participants_count: Deltagare
         posts_count: Inlägg
         projects_count: Projekt
         proposals_count: Förslag
         results_count: Resultat
+        supports_count: Stöd
         surveys_count: Undersökningar
         users_count: Deltagare
         votes_count: Stöd
