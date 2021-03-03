@@ -349,30 +349,27 @@ es-PY:
           filter_by: Filtrar por
           unfold: Desplegar
         preview:
-          available_answers: Respuestas disponibles
-          description: Estas son las preguntas que encontrarás en el proceso de votación
           title: Preguntas de la elección
         results:
-          description: Estos son los resultados de la votación, para cada pregunta
           selected: Seleccionado
           title: Resultados de la elección
           votes:
             one: "%{count} voto"
             other: "%{count} votos"
         show:
-          action-button:
-            change-vote: Cambia tu voto
+          action_button:
+            change_vote: Cambia tu voto
             vote: Empezar a votar
-            vote-again: Votar de nuevo
+            vote_again: Votar de nuevo
           back: Elecciones disponibles
           callout:
-            already-voted: Ya has votado en esta elección. Puedes cambiar tu voto o verificarlo.
-            vote-rejected: No ha sido posible verificar tu voto. Por favor, hazlo de nuevo.
+            already_voted: Ya has votado en esta elección. Puedes cambiar tu voto o verificarlo.
+            vote_rejected: No ha sido posible verificar tu voto. Por favor, hazlo de nuevo.
           preview: Previsualizar
           verify:
-            already-voted: '¿Ya has votado?'
-            verify-here: Compruebe su voto aquí.
-            will-verify: Podrás verificar tu voto una vez que comience la elección.
+            already_voted: '¿Ya has votado?'
+            verify_here: Comprueba tu voto aquí.
+            will_verify: Podrás verificar tu voto una vez que comience la elección.
           voting_period_status:
             finished: La votación empezó el %{start_time} y terminó el %{end_time}
             ongoing: 'Votación activa hasta: %{end_time}'
