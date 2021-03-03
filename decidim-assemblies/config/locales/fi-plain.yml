@@ -383,7 +383,7 @@ fi-pl:
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
-        assemblies_count: Ryhmiä
+        assemblies_count: Ryhmät
         comments_count: Kommentteja
         debates_count: Keskusteluja
         endorsements_count: Suosituksia
@@ -393,13 +393,13 @@ fi-pl:
         no_stats: Tilastoja ei vielä ole.
         orders_count: Ääniä
         pages_count: Sivuja
-        participants_count: Osallistujaa
+        participants_count: Osallistujia
         posts_count: Artikkeleja
         processes_count: Prosessia
         projects_count: Suunnitelmia
         proposals_count: Ehdotuksia
         results_count: Tuloksia
-        supports_count: Kannatusta
+        supports_count: Ääniä
         surveys_count: Kyselyitä
         users_count: Osallistujia
         votes_count: Ääniä
