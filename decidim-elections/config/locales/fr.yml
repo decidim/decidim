@@ -92,11 +92,13 @@ fr:
           new:
             create: Créer une réponse
             title: Nouvelle réponse
+          not_selected: Non sélectionnée
           select:
             disable: Désélectionner la réponse
             enable: Marquer la réponse comme sélectionnée
             invalid: Un problème est survenu lors de la sélection de cette réponse
             success: Réponse sélectionnée avec succès
+          selected: Sélectionnée
           unselect:
             invalid: Une erreur est survenue lors de la désélection de cette réponse
             success: Réponse désélectionnée avec succès
@@ -209,11 +211,24 @@ fr:
             title: Prêt à commencer
           processing: Traitement en cours...
           results_published:
+            answer: Répondre
+            not_selected: Non sélectionné
+            question: Question
+            result: Résultat
+            selected: Sélectionné
+            submit: Envoyer
             title: Résultats publiés
           tally:
             trustees: Garants
           tally_ended:
+            answer: Répondre
+            not_selected: Non sélectionné
+            question: Question
+            result: Réalisation
+            selected: Sélectionné
             submit: Publier les résultats
+            success: Dépouillement correctement terminé
+            title: Résultat du calcul
           vote:
             errors:
               time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
@@ -224,6 +239,7 @@ fr:
             success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
             title: Période de vote
           vote_ended:
+            text: Le vote est terminé. Vous pouvez commencer le comptage.
             title: Période de vote terminée
           vote_stats:
             no_vote_statistics_yet: Pas encore de statistiques sur le vote
@@ -324,7 +340,9 @@ fr:
         answer:
           fields:
             proposals: Propositions
+            selected: Sélectionné
             title: Titre
+            votes: Votes
         election:
           fields:
             end_time: Prend fin à
@@ -435,6 +453,8 @@ fr:
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
+        ballot_decision:
+          back: Recommencer le processus de vote
         confirm:
           answer: Répondre
           answer_number: répondre à %{number}
