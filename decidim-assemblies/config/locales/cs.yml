@@ -387,28 +387,6 @@ cs:
         social_networks: Sociální sítě
         social_networks_title: Sdílet toto shromáždění na
         target: Kdo se účastní
-      statistics:
-        answers_count: Odpovědi
-        assemblies_count: Shromáždění
-        comments_count: Komentáře
-        debates_count: Debaty
-        endorsements_count: Schválení
-        followers_count: Sledující
-        headline: Statistiky
-        meetings_count: Setkání
-        no_stats: Zatím nejsou žádné statistiky.
-        orders_count: Hlasy
-        pages_count: Stránky
-        participants_count: Účastníci
-        posts_count: Příspěvky
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledky
-        supports_count: Podpory
-        surveys_count: Průzkumy
-        users_count: Účastníci
-        votes_count: Hlasy
     assembly_members:
       assembly_member:
         designated_on: Určen pro
