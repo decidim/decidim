@@ -251,8 +251,5 @@ ja:
       destroy:
         error: 投票のキャンセル中に問題が発生しました
         success: 投票は正常にキャンセルされました
-    resource_links:
-      included_proposals:
-        project_proposal: 'このプロジェクトに含まれる提案'
   index:
     confirmed_orders_count: 投票数
