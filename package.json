@@ -193,7 +193,7 @@
     "@babel/core": "^7.3.4",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.13.5",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "^7.12.13",
     "@rails/webpacker": "^6.0.0-beta.5",
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^3.1.0",
