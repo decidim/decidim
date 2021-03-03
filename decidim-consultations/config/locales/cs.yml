@@ -344,10 +344,6 @@ cs:
           title: Co jsou konzultace?
     menu:
       consultations: Konzultace
-    pages:
-      home:
-        statistics:
-          consultations_count: Konzultace
     questions:
       next_button: Další otázka
       previous_button: Předchozí otázka
