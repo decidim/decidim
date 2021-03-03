@@ -52,6 +52,7 @@ es-PY:
         target: Quién participa
         title: Título
         twitter: Twitter
+        weight: Peso
         youtube: Youtube
       assembly_member:
         birthday: Cumpleaños
@@ -249,6 +250,7 @@ es-PY:
         update: "%{user_name} ha actualizado la configuración de las asambleas"
       assembly_type:
         create: "%{user_name} creó el tipo de asamblea %{resource_name}"
+        delete: "%{user_name} eliminó el tipo de asamblea %{resource_name}"
         publish: "%{user_name} publicó el tipo de asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó el tipo de asamblea %{resource_name}"
         update: "%{user_name} actualizó el tipo de asamblea %{resource_name}"
@@ -385,13 +387,19 @@ es-PY:
         comments_count: Comentarios
         debates_count: Debates
         endorsements_count: Adhesiones
+        followers_count: Seguidoras
+        headline: Estatísticas
         meetings_count: Encuentros
+        no_stats: No hay estadísticas aún.
         orders_count: Votos
         pages_count: Páginas
+        participants_count: Participantes
         posts_count: Publicaciones
+        processes_count: Procesos
         projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
+        supports_count: Apoyos
         surveys_count: Encuestas
         users_count: Participantes
         votes_count: Soportes
@@ -441,6 +449,8 @@ es-PY:
       home:
         hero:
           participate_title: Participar en los procesos de la plataforma
+        sub_hero:
+          register_title: Inicia sesión o crea una cuenta
     participatory_processes:
       pages:
         home:
