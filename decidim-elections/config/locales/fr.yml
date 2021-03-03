@@ -454,7 +454,11 @@ fr:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
         ballot_decision:
+          audit: "(Auditer le bulletin de vote)"
           back: Recommencer le processus de vote
+          cast: Valider votre vote
+          description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
+          header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         confirm:
           answer: Répondre
           answer_number: répondre à %{number}
@@ -479,6 +483,7 @@ fr:
           lead: Votre vote n'a pas été exprimé!
           text: Une erreur est survenue, veuillez réessayer.
         header:
+          ballot_decision: Validez ou auditez votre vote
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
           encrypting: Confirmation du vote
