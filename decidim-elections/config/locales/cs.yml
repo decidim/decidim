@@ -358,11 +358,8 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozbalit
         preview:
-          available_answers: Dostupné odpovědi
-          description: Toto jsou otázky, které najdete v procesu hlasování
           title: Volební otázky
         results:
-          description: To jsou výsledky hlasování, pro každou otázku
           selected: Vybrané
           title: Výsledky voleb
           votes:
@@ -371,19 +368,19 @@ cs:
             many: "%{count} hlasů"
             other: "%{count} hlasů"
         show:
-          action-button:
-            change-vote: Změňte svůj hlas
+          action_button:
+            change_vote: Změňte svůj hlas
             vote: Zahájit hlasování
-            vote-again: Znovu hlasovat
+            vote_again: Znovu hlasovat
           back: Dostupné volby
           callout:
-            already-voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
-            vote-rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
+            already_voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
+            vote_rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
           preview: Náhled
           verify:
-            already-voted: Již jste hlasovali?
-            verify-here: Zkontrolujte svůj hlas zde.
-            will-verify: Své hlasování budete moci ověřit hned po zahájení voleb.
+            already_voted: Již jste hlasovali?
+            verify_here: Zkontrolujte svůj hlas zde.
+            will_verify: Své hlasování budete moci ověřit hned po zahájení voleb.
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
             ongoing: 'Aktivní hlasování do: %{end_time}'
