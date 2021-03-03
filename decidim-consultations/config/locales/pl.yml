@@ -344,10 +344,6 @@ pl:
           title: Czym są konsultacje?
     menu:
       consultations: Konsultacje
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultacje
     questions:
       next_button: Następne pytanie
       previous_button: Poprzednie pytanie
