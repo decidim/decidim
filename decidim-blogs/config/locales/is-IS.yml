@@ -51,6 +51,10 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{participatory_space_title}". Þú getur sleppt því frá fyrri tengilinn.
           email_subject: Ný staða birt í %{participatory_space_title}
           notification_title: Staða <a href="%{resource_path}">%{resource_title}</a> hefur verið birt í %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Innlegg
     participatory_processes:
       statistics:
         posts_count: Innlegg
