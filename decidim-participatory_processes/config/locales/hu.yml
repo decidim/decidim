@@ -290,6 +290,9 @@ hu:
         object: részvételi folyamatok
         title: Részvételi folyamatok
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Tevékenység
       show:
         title: Részvételi folyamat csoportok
     participatory_process_steps:
