@@ -22,6 +22,10 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{participatory_space_title}". Þú getur sleppt því frá fyrri tengilinn.
           email_subject: Ný flokkun bætt við %{participatory_space_title}
           notification_title: Flokkunin <a href="%{resource_path}">%{resource_title}</a> hefur verið bætt við %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Flokkanir
     participatory_processes:
       statistics:
         sortitions_count: Flokkanir
