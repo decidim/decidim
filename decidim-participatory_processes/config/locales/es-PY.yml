@@ -34,10 +34,20 @@ es-PY:
         subtitle: Subtítulo
         target: Quién participa
         title: Título
+        weight: Peso
       participatory_process_group:
         description: Descripción
+        developer_group: Grupo promotor
+        group_url: Sitio web
+        hashtag: Hashtag
         hero_image: Imagen
+        local_area: Área de la organización
+        meta_scope: Metadatos de ámbito
         participatory_process_ids: Procesos relacionados
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
+        target: Quién participa
+        title: Título
       participatory_process_step:
         cta_path: Ruta de llamada a la acción
         cta_text: Texto de llamada a la acción
@@ -93,6 +103,9 @@ es-PY:
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grupos de procesos
+        participatory_process_groups_submenu:
+          info: Información
+          landing_page: Página de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -115,6 +128,8 @@ es-PY:
             title: Título
           name: Proceso participativo
         participatory_process_group:
+          fields:
+            title: Título
           name: Grupo de procesos
         participatory_process_step:
           fields:
@@ -142,6 +157,13 @@ es-PY:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
           title: Duplicar proceso participativo
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Bloques de contenido activos
+          inactive_content_blocks: Bloques de contenido inactivos
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Actualizar
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
@@ -298,6 +320,29 @@ es-PY:
       show:
         related_assemblies: Asambleas relacionadas
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Primer bloque HTML
+        html_2:
+          name: Segundo bloque HTML
+        html_3:
+          name: Tercer bloque HTML
+        metadata:
+          developer_group: Promovido por
+          name: Metadatos
+          participatory_scope: Qué se decide
+          participatory_structure: Cómo se decide
+          target: Quién participa
+        participatory_processes:
+          name: Procesos participativos
+        stats:
+          name: Estatísticas
+        title:
+          meta_scope: Ámbito
+          name: Título, descripción y hashtag
+          participatory_processes:
+            one: 1 proceso
+            other: "%{count} procesos"
       show:
         title: Grupos de procesos participativos
     participatory_process_steps:
@@ -309,9 +354,17 @@ es-PY:
         content_blocks:
           highlighted_processes:
             max_results: Cantidad máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadatos
+            title: Información general
+            visibility: Visibilidad
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
@@ -383,6 +436,7 @@ es-PY:
           loading: Cargando resultados...
       show:
         area: Área
+        belongs_to_group: Este proceso pertenece a
         dates: Fechas
         developer_group: Grupo promotor
         end_date: Fecha de finalización
@@ -440,6 +494,8 @@ es-PY:
           more_info_about: Más información sobre el proceso %{resource_name}
           take_part: Participa
           take_part_in: Participa en el proceso %{resource_name}
+        promoted_process_group:
+          more_info: Más información
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Ver las fases
