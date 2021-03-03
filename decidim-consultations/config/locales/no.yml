@@ -321,10 +321,6 @@
           title: Hva er konsultasjoner?
     menu:
       consultations: Konsultasjoner
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultasjoner
     questions:
       next_button: Neste spørsmål
       previous_button: Forrige spørsmål
