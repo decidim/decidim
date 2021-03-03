@@ -34,10 +34,10 @@ nl:
     pages:
       home:
         statistics:
-          sortitions_count: Sortitions
+          sortitions_count: Loting
     participatory_processes:
       statistics:
-        sortitions_count: Lotingen
+        sortitions_count: Loting
     sortitions:
       admin:
         actions:

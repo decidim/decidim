@@ -657,7 +657,7 @@ cs:
         result: Výsledky
     fingerprint:
       check: Kontrola otisků prstů
-      explanation: Níže uvedený text je zkráceným, rušivým znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl narušován, protože jediná změna by vedla k úplně jiné hodnotě.
+      explanation: Níže uvedený text je zkráceným, zakódovaným znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl pozměněn, protože jediná změna by vedla k úplně jiné hodnotě.
       online_calculator_name: MD5 kalkulačka online
       replicate_help: Tento otisk prstu se vypočítá algoritmem SHA256. Abyste je mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
       source: Zdroj
@@ -1065,7 +1065,7 @@ cs:
           projects_count: Projekty
           proposals_accepted: Přijaté návrhy
           proposals_count: Návrhy
-          results_count: Výsledek
+          results_count: Výsledky
           surveys_count: Průzkumy
           users_count: Účastníci
           votes_count: Hlasy

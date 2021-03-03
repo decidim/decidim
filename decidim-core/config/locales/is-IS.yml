@@ -292,6 +292,13 @@ is-IS:
         pending: Í bið
         rejected: Hafnað
         verified: Staðfest
+    pages:
+      home:
+        statistics:
+          meetings_count: Fundir
+          projects_count: Verkefni
+          proposals_count: Tillögur
+          results_count: Niðurstöður
     participatory_space_private_users:
       not_allowed: Þú hefur ekki leyfi til að skoða þetta efni
     profiles:

@@ -210,6 +210,10 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Alegerea %{resource_title} este acum activă pentru %{participatory_space_title}.
           notification_title: Alegerile <a href="%{resource_path}">%{resource_title}</a> sunt acum active pentru %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Alegeri
     participatory_processes:
       statistics:
         elections_count: Alegeri

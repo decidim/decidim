@@ -35,10 +35,10 @@ ru:
     pages:
       home:
         statistics:
-          sortitions_count: Жеребьевок
+          sortitions_count: Жеребьевки
     participatory_processes:
       statistics:
-        sortitions_count: Жеребьевок
+        sortitions_count: Жеребьевки
     sortitions:
       admin:
         actions:

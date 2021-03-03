@@ -592,16 +592,14 @@ ru:
           debates_count: Обсуждения
           endorsements_count: Выражений поддержки
           headline: Текущее состояние %{organization}
-          meetings_count: Встреч
+          meetings_count: Встречи
           orders_count: Голосов
-          pages_count: Страниц
           processes_count: Движений
-          projects_count: Проектов
+          projects_count: Проекты
           proposals_accepted: Принятые предложения
-          proposals_count: Предложений
-          results_count: Итогов
+          proposals_count: Предложения
+          results_count: Итоги
           surveys_count: Опросов
-          users_count: Участников
           votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться

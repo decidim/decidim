@@ -35,10 +35,10 @@ uk:
     pages:
       home:
         statistics:
-          sortitions_count: Жеребкувань
+          sortitions_count: Жеребкування
     participatory_processes:
       statistics:
-        sortitions_count: Жеребкувань
+        sortitions_count: Жеребкування
     sortitions:
       admin:
         actions:

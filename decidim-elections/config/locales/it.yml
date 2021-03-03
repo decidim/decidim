@@ -220,6 +220,10 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: L'elezione di %{resource_title} è ora attiva per %{participatory_space_title}.
           notification_title: L'elezione <a href="%{resource_path}">%{resource_title}</a> è ora attiva per %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Elezioni
     participatory_processes:
       statistics:
         elections_count: Elezioni

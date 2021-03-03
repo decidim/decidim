@@ -255,7 +255,7 @@ es-MX:
           elections_count: Elecciones
     participatory_processes:
       statistics:
-        elections_count: Votaciones
+        elections_count: Elecciones
   layouts:
     decidim:
       election_votes_header:

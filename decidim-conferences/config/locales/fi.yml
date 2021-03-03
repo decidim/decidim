@@ -494,7 +494,7 @@ fi:
       statistics:
         answers_count: Vastausta
         comments_count: Kommenttia
-        conference_count: Konferenssia
+        conference_count: Konferenssit
         debates_count: Keskustelua
         endorsements_count: Suositusta
         headline: Toiminta

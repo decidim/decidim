@@ -137,6 +137,10 @@ el:
             answers: Απαντήσεις
             max_selections: Μέγιστες επιλογές
             title: Τίτλος
+    pages:
+      home:
+        statistics:
+          elections_count: Εκλογές
     participatory_processes:
       statistics:
         elections_count: Εκλογές

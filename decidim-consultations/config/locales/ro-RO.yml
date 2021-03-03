@@ -284,10 +284,6 @@ ro:
           title: Ce sunt consultările?
     menu:
       consultations: Consultări
-    pages:
-      home:
-        statistics:
-          consultations_count: Consultări
     questions:
       next_button: Următoarea întrebare
       previous_button: Întrebarea precedentă

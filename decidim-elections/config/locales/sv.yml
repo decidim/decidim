@@ -243,9 +243,13 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden via föregående länk.
           email_subject: Valet %{resource_title} är nu aktivt för %{participatory_space_title}.
           notification_title: Valet <a href="%{resource_path}">%{resource_title}</a> är nu aktivt för %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Val
     participatory_processes:
       statistics:
-        elections_count: Omröstningar
+        elections_count: Val
   layouts:
     decidim:
       election_votes_header:

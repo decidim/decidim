@@ -1038,14 +1038,14 @@ it:
           headline: Statistiche su %{organization}
           meetings_count: Incontri
           orders_count: Voti
-          pages_count: Pagine
+          pages_count: pagine
           processes_count: Processi
-          projects_count: progetti
+          projects_count: Progetti
           proposals_accepted: Proposte accettate
-          proposals_count: proposte
-          results_count: risultati
+          proposals_count: Proposte
+          results_count: Votazioni
           surveys_count: Questionari
-          users_count: Partecipanti
+          users_count: I partecipanti
           votes_count: Voti
         sub_hero:
           register: Registrati

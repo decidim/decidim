@@ -37,7 +37,7 @@ fi-pl:
           sortitions_count: Satunnaistamiset
     participatory_processes:
       statistics:
-        sortitions_count: Satunnaistamisia
+        sortitions_count: Satunnaistamiset
     sortitions:
       admin:
         actions:

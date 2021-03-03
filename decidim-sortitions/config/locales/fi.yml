@@ -34,10 +34,10 @@ fi:
     pages:
       home:
         statistics:
-          sortitions_count: Satunnaistamisia
+          sortitions_count: Satunnaistamiset
     participatory_processes:
       statistics:
-        sortitions_count: Satunnaistamista
+        sortitions_count: Satunnaistamiset
     sortitions:
       admin:
         actions:

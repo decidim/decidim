@@ -382,7 +382,7 @@ fi-pl:
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
-        assemblies_count: Ryhmiä
+        assemblies_count: Ryhmät
         comments_count: Kommentteja
         debates_count: Keskusteluja
         endorsements_count: Suosituksia

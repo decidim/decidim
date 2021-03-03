@@ -326,7 +326,7 @@ fi:
     pages:
       home:
         statistics:
-          consultations_count: Kuulemisia
+          consultations_count: Kuulemiset
     questions:
       next_button: Seuraava kysymys
       previous_button: Edellinen kysymys

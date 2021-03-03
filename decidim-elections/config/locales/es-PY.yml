@@ -252,7 +252,7 @@ es-PY:
     pages:
       home:
         statistics:
-          elections_count: Elecciones
+          elections_count: Votaciones
     participatory_processes:
       statistics:
         elections_count: Votaciones
