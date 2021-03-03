@@ -328,14 +328,14 @@ pl:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptowane są: litery, cyfry, myślniki i ukośniki. Ścieżka musi zaczynać się od litery. Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany. Przykład: %{url}'
+            cta_path_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany. Przykład: %{url}'
             cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
@@ -349,7 +349,7 @@ pl:
             scope_type_max_depth_help: Ogranicz głębokość filtra zakresu; Filtr pokaże typy zakresu od ogólnego do wybranego.
             select_an_area: Wybierz kategorię
             select_process_group: Wybierz grupę procesów
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Informacje ogólne
             visbility: Widoczność
       content_blocks:
