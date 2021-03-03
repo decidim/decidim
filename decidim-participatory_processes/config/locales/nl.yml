@@ -332,6 +332,8 @@ nl:
           participatory_scope: Wat wordt beslist
           participatory_structure: Hoe wordt er beslist
           target: Wie neemt deel
+        stats:
+          name: Activiteit
         title:
           meta_scope: Scope
           name: Titel, beschrijving en hashtag
@@ -456,7 +458,7 @@ nl:
         orders_count: Stemmen
         pages_count: Pagina's
         participants_count: Deelnemers
-        processes_count: Thema's
+        processes_count: Inspraakprocessen
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
