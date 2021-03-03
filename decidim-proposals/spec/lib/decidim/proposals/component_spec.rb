@@ -249,5 +249,11 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         expect(subject).to match_array([unassigned_proposal, assigned_proposal])
       end
     end
+
+    describe "export proposal"
+      it "don't export hidden proposals" do
+        expect(Decidim::Proposals::Proposal).to :not_hidden
+      end
+    end
   end
 end

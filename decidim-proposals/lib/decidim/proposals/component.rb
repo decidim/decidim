@@ -126,6 +126,7 @@ Decidim.register_component(:proposals) do |component|
 
       collection = Decidim::Proposals::Proposal
                    .published
+                   .not_hidden
                    .where(component: component_instance)
                    .includes(:category, :component)
 
