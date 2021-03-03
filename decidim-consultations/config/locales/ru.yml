@@ -243,10 +243,6 @@ ru:
         unspecified: Не указано
     menu:
       consultations: Консультации
-    pages:
-      home:
-        statistics:
-          consultations_count: Консультаций
     questions:
       results:
         title: Итоги
