@@ -54,9 +54,11 @@
     border-radius: .5rem;
     background-color: $white;
     margin-bottom: 1rem;
-    &.is-disabled {
+
+    &.is-disabled{
       background-color: $medium-gray;
       cursor: not-allowed;
+
       > * {
         opacity: 0.5;
       }
@@ -274,7 +276,7 @@
   }
 
   &__preview {
-    
+
     .accordion-title::before {
       font-size: 1.5rem;
       margin-top: -.75rem;
