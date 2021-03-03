@@ -288,8 +288,5 @@ fi-pl:
       destroy:
         error: Äänesi peruutuksen yhteydessä tapahtui virhe
         success: Äänesi on peruttu onnistuneesti
-    resource_links:
-      included_proposals:
-        project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
   index:
     confirmed_orders_count: Äänten määrä
