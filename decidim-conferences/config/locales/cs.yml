@@ -500,23 +500,6 @@ cs:
         related_assemblies: Související sestavy
         related_consultations: Související konzultace
         related_participatory_processes: Související procesy účasti
-      statistics:
-        answers_count: Odpovědi
-        comments_count: Komentáře
-        conference_count: Konference
-        debates_count: Debaty
-        endorsements_count: Schválení
-        headline: Aktivita
-        meetings_count: Setkání
-        orders_count: Hlasy
-        pages_count: Stránky
-        posts_count: Příspěvky
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledek
-        surveys_count: Průzkumy
-        users_count: Účastníci
-        votes_count: Hlasy
     events:
       conferences:
         conference_registration_confirmed:
