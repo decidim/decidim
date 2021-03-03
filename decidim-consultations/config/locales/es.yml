@@ -324,10 +324,6 @@ es:
           title: '¿Qué son las consultas?'
     menu:
       consultations: Consultas
-    pages:
-      home:
-        statistics:
-          consultations_count: Consultas
     questions:
       next_button: Siguiente pregunta
       previous_button: Pregunta anterior
