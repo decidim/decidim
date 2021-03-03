@@ -465,25 +465,6 @@ pl:
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
         unspecified: Nieokreślony
-      statistics:
-        answers_count: Odpowiedzi
-        comments_count: Komentarze
-        debates_count: Debaty
-        endorsements_count: Rekomendacje
-        followers_count: Obserwujący
-        headline: Statystyki
-        meetings_count: Spotkania
-        no_stats: Nie ma jeszcze żadnych statystyk.
-        orders_count: Liczba głosów
-        pages_count: Strony
-        participants_count: Uczestnicy
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Propozycje
-        results_count: Wyniki
-        supports_count: Liczba podpisów
-        surveys_count: Ankiety
-        users_count: Uczestnicy
   layouts:
     decidim:
       participatory_process_groups:
