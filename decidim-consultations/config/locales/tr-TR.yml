@@ -326,7 +326,7 @@ tr:
     pages:
       home:
         statistics:
-          consultations_count: İstişareler
+          consultations_count: Danışmalar
     questions:
       next_button: Sonraki soru
       previous_button: Önceki soru
