@@ -132,7 +132,8 @@ Decidim.register_component(:meetings) do |component|
         author: participatory_space.organization,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end
+        end,
+        main_image: File.new(File.join(__dir__, "seeds", "city.jpeg"))
       }
 
       _hybrid_meeting = Decidim.traceability.create!(

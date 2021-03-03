@@ -25,6 +25,9 @@ module Decidim
       attribute :available_slots, Integer, default: 0
       attribute :registration_terms, String
 
+      attribute :main_image
+      attribute :remove_main_image
+
       validates :title, presence: true
       validates :description, presence: true
       validates :type_of_meeting, presence: true
@@ -45,6 +48,8 @@ module Decidim
       validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :clean_type_of_meeting, presence: true
 
+      validates :main_image, passthru: { to: Decidim::Meetings::Meeting }
+      
       delegate :categories, to: :current_component
 
       def map_model(model)

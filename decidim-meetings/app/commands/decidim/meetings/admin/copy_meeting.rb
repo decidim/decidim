@@ -63,7 +63,8 @@ module Decidim
             questionnaire: form.questionnaire,
             registrations_enabled: meeting.registrations_enabled,
             available_slots: meeting.available_slots,
-            registration_terms: meeting.registration_terms
+            registration_terms: meeting.registration_terms,
+            main_image: meeting.main_image
           )
         end
 

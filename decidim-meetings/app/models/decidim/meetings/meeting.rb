@@ -23,6 +23,7 @@ module Decidim
       include Decidim::Reportable
       include Decidim::Authorable
       include Decidim::TranslatableResource
+      include Decidim::HasUploadValidations
 
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
@@ -39,6 +40,9 @@ module Decidim
 
       validates :title, presence: true
 
+      validates_upload :main_image
+      mount_uploader :main_image, Decidim::Meetings::MeetingImageUploader
+  
       geocoded_by :address
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }

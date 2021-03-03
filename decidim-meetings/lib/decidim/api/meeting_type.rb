@@ -22,6 +22,7 @@ module Decidim
       field :end_time, Decidim::Core::DateTimeType, "The time this meeting ends", null: false
       field :author, Decidim::Core::AuthorInterface, "If specified, the author of this meeting", null: true
       field :agenda, Decidim::Meetings::AgendaType, "Agenda for this meeting, if available", null: true
+      field :main_image, String, "The main image for this meeting", null: true
 
       def agenda
         object.agenda if object.agenda&.visible?

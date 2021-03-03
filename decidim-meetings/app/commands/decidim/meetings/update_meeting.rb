@@ -28,7 +28,12 @@ module Decidim
           schedule_upcoming_meeting_notification if start_time_changed?
         end
 
-        broadcast(:ok, meeting)
+        if meeting.persisted?
+          broadcast(:ok, meeting)
+        else
+          form.errors.add(:main_image, meeting.errors[:main_image]) if meeting.errors.include? :main_image
+          broadcast(:invalid)
+        end
       end
 
       private
@@ -62,7 +67,8 @@ module Decidim
             registration_terms: { I18n.locale => form.registration_terms },
             registrations_enabled: form.registrations_enabled,
             type_of_meeting: form.clean_type_of_meeting,
-            online_meeting_url: form.online_meeting_url
+            online_meeting_url: form.online_meeting_url,
+            main_image: form.main_image
           },
           visibility: "public-only"
         )
