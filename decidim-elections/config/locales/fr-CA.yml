@@ -303,30 +303,27 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Voir plus
         preview:
-          available_answers: Réponses disponibles
-          description: Voici les questions que vous trouverez dans le processus de vote
           title: Questions de l'élection
         results:
-          description: Ce sont les résultats du vote, pour chaque question
           selected: Sélectionné
           title: Résultats de l'élection
           votes:
             one: "%{count} vote"
             other: "%{count} votes"
         show:
-          action-button:
-            change-vote: Changer votre vote
+          action_button:
+            change_vote: Changer votre vote
             vote: Commencer à voter
-            vote-again: Voter à nouveau
+            vote_again: Voter à nouveau
           back: Élections disponibles
           callout:
-            already-voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
-            vote-rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
+            already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
+            vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           preview: Aperçu
           verify:
-            already-voted: Déjà voté?
-            verify-here: Vérifiez votre vote ici.
-            will-verify: Vous pourrez vérifier votre vote une fois l'élection commencée.
+            already_voted: Déjà voté?
+            verify_here: Vérifiez votre vote ici.
+            will_verify: Vous pourrez vérifier votre vote une fois l'élection commencée.
           voting_period_status:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
             ongoing: 'Vote actif jusqu''au : %{end_time}'
