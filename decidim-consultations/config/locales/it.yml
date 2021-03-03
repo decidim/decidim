@@ -323,10 +323,6 @@ it:
           title: Quali sono le consultazioni?
     menu:
       consultations: consultazioni
-    pages:
-      home:
-        statistics:
-          consultations_count: consultazioni
     questions:
       next_button: Quesito successivo
       previous_button: Quesito precedente
