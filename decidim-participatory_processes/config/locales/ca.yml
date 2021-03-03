@@ -449,25 +449,6 @@ ca:
         start_date: Data d'inici
         target: Qui participa
         unspecified: Sense especificar
-      statistics:
-        answers_count: Respostes
-        comments_count: Comentaris
-        debates_count: Debats
-        endorsements_count: Adhesions
-        followers_count: Seguidores
-        headline: Estadístiques
-        meetings_count: Trobades presencials
-        no_stats: Encara no hi ha estadístiques.
-        orders_count: Suports
-        pages_count: Pàgines
-        participants_count: Participants
-        processes_count: Processos
-        projects_count: Projectes
-        proposals_count: Propostes
-        results_count: Resultats
-        supports_count: Suports
-        surveys_count: Enquestes
-        users_count: Participants
   layouts:
     decidim:
       participatory_process_groups:
