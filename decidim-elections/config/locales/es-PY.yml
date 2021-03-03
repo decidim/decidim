@@ -618,13 +618,6 @@ es-PY:
           title: '¿Qué son las votaciones?'
     menu:
       votings: Votaciones
-    pages:
-      home:
-        statistics:
-          elections_count: Elecciones
-    participatory_processes:
-      statistics:
-        elections_count: Votaciones
     votings:
       admin:
         content_blocks:
