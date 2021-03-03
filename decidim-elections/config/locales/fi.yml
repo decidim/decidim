@@ -621,13 +621,6 @@ fi:
           title: Mitä ovat äänestykset?
     menu:
       votings: Äänestykset
-    pages:
-      home:
-        statistics:
-          elections_count: Vaalit
-    participatory_processes:
-      statistics:
-        elections_count: Vaalia
     votings:
       admin:
         content_blocks:
