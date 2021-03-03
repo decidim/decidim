@@ -802,24 +802,7 @@ id:
         metrics:
           headline: Partisipasi dalam angka
         statistics:
-          answers_count: Survei yang Selesai
-          assemblies_count: Assemblies
-          comments_count: Komentar
-          conferences_count: Konferensi
-          debates_count: Perdebatan
-          endorsements_count: Endorsemen
           headline: Keadaan saat ini %{organization}
-          meetings_count: Rapat
-          orders_count: Suara
-          pages_count: Halaman
-          processes_count: Proses
-          projects_count: Proyek
-          proposals_accepted: Proposal yang Diterima
-          proposals_count: Proposal
-          results_count: Hasil
-          surveys_count: Survei
-          users_count: Peserta
-          votes_count: Suara
         sub_hero:
           register: Daftar
       index:
@@ -964,6 +947,8 @@ id:
         close_window: Tutup jendela
         share: Bagikan
         share_link: Membagikan tautan
+    statistics:
+      comments_count: Komentar
     user_activity:
       index:
         no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
