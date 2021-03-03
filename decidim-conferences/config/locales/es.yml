@@ -492,23 +492,6 @@ es:
         related_assemblies: Asambleas relacionadas
         related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
-      statistics:
-        answers_count: Respuestas
-        comments_count: Comentarios
-        conference_count: Jornades
-        debates_count: Debates
-        endorsements_count: Adhesiones
-        headline: Actividad
-        meetings_count: Encuentros
-        orders_count: Apoyos
-        pages_count: Páginas
-        posts_count: Publicaciones
-        projects_count: Proyectos
-        proposals_count: Propuestas
-        results_count: Resultados
-        surveys_count: Encuestas
-        users_count: Participantes
-        votes_count: Apoyos
     events:
       conferences:
         conference_registration_confirmed:
