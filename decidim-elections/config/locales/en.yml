@@ -789,6 +789,8 @@ en:
           description:
             show_less: Read less
             show_more: Read more
+          metrics:
+            heading: Metrics
           polling_stations:
             heading: Polling stations
             no_polling_stations: There are no polling stations yet.
