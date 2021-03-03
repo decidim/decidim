@@ -296,5 +296,8 @@ cs:
       destroy:
         error: Při rušení vašeho hlasování došlo k chybě
         success: Váš hlas byl úspěšně zrušen
+    resource_links:
+      included_proposals:
+        project_proposal: Návrhy zahrnuté do tohoto projektu
   index:
     confirmed_orders_count: Počet hlasů
