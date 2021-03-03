@@ -49,6 +49,7 @@ import '../src/decidim/configuration'
 // TODO-blat: this file is a .js.erb
 // import 'src/decidim/assets'
 import '../src/decidim/floating_help'
+import '../src/decidim/confirm'
 
 
 // NOTE: jQuery exposed to global (window for node environment) due to script directly in the view

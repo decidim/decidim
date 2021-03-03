@@ -21,8 +21,7 @@
 <%= stylesheet_link_tag    "application", media: "all" %>
 <%= invisible_captcha_styles %>
 <%= organization_colors %>
-<%= javascript_include_tag "decidim/confirm" %>
-<%= javascript_include_tag "application" %>
+<%= javascript_pack_tag "application" %>
 <%= foundation_datepicker_locale_tag %>
 
 <%= render partial: "layouts/decidim/head_extra" %>
