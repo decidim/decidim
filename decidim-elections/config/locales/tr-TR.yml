@@ -213,11 +213,8 @@ tr:
           filter_by: Şuna göre filtrele
           unfold: Aç
         preview:
-          available_answers: Mevcut cevaplar
-          description: Oylama sürecinde bulacağınız sorular bunlar
           title: Seçim soruları
         results:
-          description: Bunlar, her soru için oylamanın sonuçlarıdır
           selected: Seçili
           title: Seçim sonuçları
           votes:
