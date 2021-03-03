@@ -356,7 +356,7 @@ es:
           preview: Previsualizar
           verify:
             already-voted: '¿Ya has votado?'
-            verify-here: Compruebe su voto aquí.
+            verify-here: Comprueba tu voto aquí.
             will-verify: Podrás verificar tu voto una vez que comience la elección.
           voting_period_status:
             finished: La votación empezó el %{start_time} y terminó el %{end_time}
@@ -478,7 +478,7 @@ es:
               generate_legend_4: Haz otra copia del archivo en un dispositivo externo diferente y guárdalo en un lugar muy seguro.
               submit: Enviar
               submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor de Decidim.
-              submit_title: Enviar la clave pública de identificación
+              submit_title: Enviar la clave de identificación pública
               title: Claves de identificación del garante
               upload: Sube tus claves de identificación
               upload_error:
