@@ -324,10 +324,6 @@ ca:
           title: Què són les consultes?
     menu:
       consultations: Consultes
-    pages:
-      home:
-        statistics:
-          consultations_count: Consultes
     questions:
       next_button: Següent qüestió
       previous_button: Qüestió anterior
