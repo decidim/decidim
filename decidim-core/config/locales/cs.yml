@@ -1287,6 +1287,13 @@ cs:
         share_link: Sdílet odkaz
     statistics:
       comments_count: Komentáře
+      endorsements_count: Schválení
+      followers_count: Sledující
+      headline: Statistiky
+      no_stats: Zatím nejsou žádné statistiky.
+      pages_count: Stránky
+      participants_count: Účastníci
+      users_count: Účastníci
     tags:
       filter_results_for_category: 'Filtrovat výsledky pro kategorii: %{resource}'
       filter_results_for_scope: 'Výsledky filtru pro rozsah: %{resource}'
