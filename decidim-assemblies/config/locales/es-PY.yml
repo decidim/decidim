@@ -381,28 +381,6 @@ es-PY:
         social_networks: Redes sociales
         social_networks_title: Compartir esta asamblea en
         target: Quién participa
-      statistics:
-        answers_count: Respuestas
-        assemblies_count: Asambleas
-        comments_count: Comentarios
-        debates_count: Debates
-        endorsements_count: Adhesiones
-        followers_count: Seguidoras
-        headline: Estatísticas
-        meetings_count: Encuentros
-        no_stats: No hay estadísticas aún.
-        orders_count: Votos
-        pages_count: Páginas
-        participants_count: Participantes
-        posts_count: Publicaciones
-        processes_count: Procesos
-        projects_count: Proyectos
-        proposals_count: Propuestas
-        results_count: Resultados
-        supports_count: Apoyos
-        surveys_count: Encuestas
-        users_count: Participantes
-        votes_count: Soportes
     assembly_members:
       assembly_member:
         designated_on: Designado en
