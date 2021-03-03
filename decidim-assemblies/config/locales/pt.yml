@@ -382,10 +382,12 @@ pt:
         meetings_count: Reuniões
         orders_count: Votos
         pages_count: Páginas
+        participants_count: Participantes
         posts_count: Publicações
         projects_count: Projetos
         proposals_count: Propostas
         results_count: Resultados
+        supports_count: Votos
         surveys_count: Inquéritos
         users_count: Participantes
         votes_count: Votos
