@@ -24,17 +24,11 @@ id:
           next_level_in: Buat %{score} tes lagi untuk mencapai level selanjutnya!
           unearned_another: Peserta ini belum membuat tes apa pun.
           unearned_own: Anda belum membuat tes.
-    pages:
-      home:
-        statistics:
-          bar: Bar
-          dummies_count_high: Dummies tinggi
-          dummies_count_medium: Media Dummies
-          foo: Foo
-    participatory_processes:
-      statistics:
-        dummies_count_high: Dummies tinggi
-        dummies_count_medium: Media Dummies
     resource_links:
       test_link:
         dummy_resource_dummy: Boneka terkait
+    statistics:
+      bar: Bar
+      dummies_count_high: Dummies tinggi
+      dummies_count_medium: Media Dummies
+      foo: Foo
