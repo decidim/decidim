@@ -138,6 +138,10 @@ lv:
             answers: Atbildes
             max_selections: Maks. izvēles
             title: Nosaukums
+    pages:
+      home:
+        statistics:
+          elections_count: Vēlēšanas
     participatory_processes:
       statistics:
         elections_count: Vēlēšanas
