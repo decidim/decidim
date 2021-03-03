@@ -1033,19 +1033,19 @@ fi:
           assemblies_count: Kehitysryhmiä
           comments_count: Kommentteja
           conferences_count: Konferensseja
-          debates_count: Keskusteluja
-          endorsements_count: Suosituksia
+          debates_count: Keskustelut
+          endorsements_count: Suositukset
           headline: '%{organization} numeroina'
-          meetings_count: Tapaamista
+          meetings_count: Tapaamiset
           orders_count: Ääniä
-          pages_count: Sivuja
+          pages_count: Sivut
           processes_count: Prosesseja
-          projects_count: Projekteja
+          projects_count: Projektit
           proposals_accepted: Hyväksyttyjä ehdotuksia
-          proposals_count: Ehdotuksia
-          results_count: Tuloksia
+          proposals_count: Ehdotukset
+          results_count: Tulokset
           surveys_count: Kyselyjä
-          users_count: Osallistujia
+          users_count: Osallistujat
           votes_count: Kannatuksia
         sub_hero:
           register: Rekisteröidy
