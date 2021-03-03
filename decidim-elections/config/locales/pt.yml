@@ -206,6 +206,10 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: A eleição %{resource_title} está agora ativa em %{participatory_space_title}.
           notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> está agora ativa em %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Eleições
     participatory_processes:
       statistics:
         elections_count: Eleições
