@@ -385,10 +385,12 @@ ja:
         meetings_count: ミーティング
         orders_count: サポート
         pages_count: ページ
+        participants_count: 参加者
         posts_count: 投稿
         projects_count: プロジェクト
         proposals_count: 提案
         results_count: 結果
+        supports_count: サポート
         surveys_count: 調査
         users_count: 参加者
         votes_count: サポート
