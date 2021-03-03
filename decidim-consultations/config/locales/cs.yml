@@ -378,6 +378,9 @@ cs:
       consultations:
         actions:
           vote: Hlasovat
+    statistics:
+      consultations_count: Konzultace
+      votes_count: Hlasy
   layouts:
     decidim:
       admin:
