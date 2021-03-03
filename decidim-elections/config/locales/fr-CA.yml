@@ -303,8 +303,11 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Voir plus
         preview:
+          available_answers: 'Réponses disponibles:'
+          description: 'Voici les questions que vous trouverez dans le processus de vote:'
           title: Questions de l'élection
         results:
+          description: 'Ce sont les résultats du vote, pour chaque question:'
           selected: Sélectionné
           title: Résultats de l'élection
           votes:
@@ -629,6 +632,17 @@ fr-CA:
       content_blocks:
         highlighted_votings:
           name: Élections remarquables
+        landing_page:
+          description:
+            show_less: Voir moins
+            show_more: Lire la suite
+          metrics:
+            heading: Statistiques
+          polling_stations:
+            heading: Bureaux de vote
+            no_polling_stations: Il n'y a pas encore de bureau de vote.
+          timeline:
+            heading: Chronologie
       pages:
         home:
           highlighted_votings:
@@ -688,6 +702,8 @@ fr-CA:
     decidim:
       election_votes_header:
         exit: Quitter
+      voting_navigation:
+        voting_menu_item: Le vote
       votings:
         index:
           promoted_votings: Votations remarquables
