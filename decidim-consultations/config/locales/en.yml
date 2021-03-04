@@ -42,7 +42,8 @@ en:
         question:
           attributes:
             max_votes:
-              lower_than_min: Maximum number of votes should be higher or equal than the minimum.
+              lower_than_min: Maximum number of votes should be higher or equal than
+                the minimum.
       vote:
         decidim_consultations_response_id:
           not_found: Response not found.
@@ -95,11 +96,14 @@ en:
         create:
           error: There was a problem creating a new consultation.
           success: Consultation successfully created.
-        deprecation_warning: Consultations module will be deprecated in the near future. We’re working on the next cryptographically secure version called Votings.
+        deprecation_warning: Consultations module will be deprecated in the near future.
+          We’re working on the next cryptographically secure version called Votings.
         edit:
           update: Update
         form:
-          slug_help: 'URL slugs are used to generate the URLs that point to this consultation. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+          slug_help: 'URL slugs are used to generate the URLs that point to this consultation.
+            Only accepts letters, numbers and dashes, and must start with a letter.
+            Example: %{url}'
           title: General information
         index:
           not_published: Not published
@@ -156,7 +160,9 @@ en:
       question_configuration:
         disable_external_voting: Please disable external voting for advanced configurations
         form:
-          help: Set up multiple choices questions by increasing the maximum number of responses a participant can choose. Default maximum value is 1, meaning that only one response can be voted.
+          help: Set up multiple choices questions by increasing the maximum number
+            of responses a participant can choose. Default maximum value is 1, meaning
+            that only one response can be voted.
           title: Advanced configuration
       question_publications:
         create:
@@ -189,7 +195,8 @@ en:
           error: There was a problem creating a new response group.
           success: Response group successfully created.
         destroy:
-          error: There was a problem removing the response group. Check that no responses depend on it.
+          error: There was a problem removing the response group. Check that no responses
+            depend on it.
           success: Response group successfully deleted.
         edit:
           update: Update
@@ -286,14 +293,16 @@ en:
       question_multiple_votes:
         results_rules:
           minimum_votes_per_user:
-            description: Participants could distribute a minimum of %{votes} votes among different options.
+            description: Participants could distribute a minimum of %{votes} votes
+              among different options.
           title: In this question multiple choices where allowed
           total_participants: A total of %{count} people participated in the vote.
           vote_limit:
             description: Participants could vote up to %{limit} options.
         voting_rules:
           minimum_votes_per_user:
-            description: You must distribute a minimum of %{votes} votes among different options.
+            description: You must distribute a minimum of %{votes} votes among different
+              options.
           title: 'Votes are subject to the following rules:'
           vote_limit:
             description: You can vote up to %{limit} options.
@@ -302,7 +311,8 @@ en:
       question_votes:
         create:
           error: There was a problem voting the question
-          success: You can change it until the end of the consultation. Only the last vote will be accepted.
+          success: You can change it until the end of the consultation. Only the last
+            vote will be accepted.
           title_error: Vote error!
           title_success: Vote successfully registered
       regular_questions:
@@ -322,8 +332,27 @@ en:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>A <strong>consultation</strong> is a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
-          page: "<p>A <strong>consultation</strong> is a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the consultation, spark and order the debate for or against a response. When the consultation date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The consultations can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates in the organization.</p>\n"
+          contextual: "<p>A <strong>consultation</strong> is a space that allows you
+            to ask a clear question to all the people who form an organization, make
+            a call to participate in the consultation, spark and order the debate
+            for or against a response. When the consultation date arrives, you can
+            vote and publish the results of the votes.</p> <p>Examples: The consultations
+            can be about almost any aspect that affects an organization: some examples
+            are changing the name or logo of the organization offering several alternatives,
+            deciding Yes or No to become part of a larger organization, validating
+            or rejecting a new strategic plan or the result of a working group, or
+            defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>A <strong>consultation</strong> is a space that allows you to
+            ask a clear question to all the people who form an organization, make
+            a call to participate in the consultation, spark and order the debate
+            for or against a response. When the consultation date arrives, you can
+            vote and publish the results of the votes.</p> <p>Examples: The consultations
+            can be about almost any aspect that affects an organization: some examples
+            are changing the name or logo of the organization offering several alternatives,
+            deciding Yes or No to become part of a larger organization, validating
+            or rejecting a new strategic plan or the result of a working group, or
+            defining whether the positions should remain a maximum of 1, 2 or 3 mandates
+            in the organization.</p>\n"
           title: What are consultations?
     menu:
       consultations: Consultations
