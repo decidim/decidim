@@ -1,6 +1,6 @@
 <%= render partial: "decidim/shared/filter_form_help", locals: { skip_to_id: "proposals" } %>
 
-<% cache filter_cache_hash(filter) do %>
+<% cache filter_cache_hash(filter, defined?(type) ? type : nil) do %>
   <%= filter_form_for filter do |form| %>
     <div class="filters__section">
       <div class="filters__search">
