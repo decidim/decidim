@@ -116,6 +116,8 @@ nl:
           new:
             create: Antwoord maken
             title: Nieuw antwoord
+          not_selected: Niet geselecteerd
+          selected: Geselecteerd
           update:
             invalid: Er was een probleem bij het bijwerken van dit antwoord
             success: Antwoord succesvol bijgewerkt
@@ -208,6 +210,11 @@ nl:
             title: Sleutelceremonie
             trustees: Trustees
           results_published:
+            answer: Antwoord
+            not_selected: Niet geselecteerd
+            question: Vraag
+            result: Resultaat
+            selected: Geselecteerd
             title: Resultaten gepubliceerd
           tally:
             title: Turfproces
@@ -249,6 +256,11 @@ nl:
           elections_count:
             one: "%{count} verkiezing"
             other: "%{count} verkiezingen"
+        preview:
+          available_answers: 'Beschikbare antwoorden:'
+          description: 'Dit zijn de vragen die je tijdens het stemproces tegenkomt:'
+        results:
+          description: 'Dit zijn de resultaten van de stemronde, voor elke vraag:'
         show:
           action_button:
             change_vote: Wijzig je stem
@@ -464,6 +476,9 @@ nl:
             notification_title: Je bent %{role} van het stembureau %{polling_station_name} in de stemronde <a href="%{resource_path}">%{resource_title}</a>.
     menu:
       votings: Stemronde
+    statistics:
+      elections_count: Verkiezingen
+      votings_count: Stemrondes
     votings:
       admin:
         content_blocks:
@@ -628,6 +643,17 @@ nl:
       content_blocks:
         highlighted_votings:
           name: Stemrondes in de kijker
+        landing_page:
+          description:
+            show_less: Minder lezen
+            show_more: Lees verder
+          metrics:
+            heading: Cijfers
+          polling_stations:
+            heading: Stembureaus
+            no_polling_stations: Er zijn nog geen stembureaus.
+          timeline:
+            heading: Tijdslijn
       monitoring_committee_members:
         actions:
           confirm_destroy: Weet je het zeker?
@@ -697,6 +723,8 @@ nl:
     decidim:
       election_votes_header:
         exit: Afsluiten
+      voting_navigation:
+        voting_menu_item: De stemronde
       votings:
         index:
           promoted_votings: Stemrondes in de kijker
