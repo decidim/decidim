@@ -442,6 +442,8 @@ cs:
             processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
       show:
         related_assemblies: Související shromáždění
+    statistics:
+      assemblies_count: Shromáždění
   errors:
     messages:
       cannot_be_blank: nemůže být prázdný
