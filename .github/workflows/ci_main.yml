@@ -5,9 +5,10 @@ on:
       - develop
       - release/*
       - "*-stable"
+      - "!chore/l10n**"
   pull_request:
     branches-ignore:
-      - "chore/l10n**"
+      - "chore/l10n*"
 
 env:
   CI: "true"
