@@ -127,11 +127,13 @@ de:
           new:
             create: Antwort erstellen
             title: Neue Antwort
+          not_selected: Nicht ausgewählt
           select:
             disable: Antwort abwählen
             enable: Antwort als ausgewählt markieren
             invalid: Beim Auswählen dieser Antwort ist ein Fehler aufgetreten
             success: Antwort erfolgreich ausgewählt
+          selected: Ausgewählt
           unselect:
             invalid: Beim Abwählen dieser Antwort ist ein Fehler aufgetreten
             success: Antwort erfolgreich abgwählt
