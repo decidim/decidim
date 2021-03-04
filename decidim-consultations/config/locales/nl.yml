@@ -356,6 +356,9 @@ nl:
       consultations:
         actions:
           vote: Stem
+    statistics:
+      consultations_count: Raadplegingen
+      votes_count: Stemmen
   layouts:
     decidim:
       admin:
