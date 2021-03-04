@@ -43,7 +43,7 @@ module Decidim
     def presenters_for_identities(coauthorable)
       coauthorable.identities.map do |identity|
         if identity.is_a?(Decidim::Organization)
-          "#{model.class.parent}::OfficialAuthorPresenter".constantize.new
+          "#{model.class.module_parent}::OfficialAuthorPresenter".constantize.new
         else
           present(identity)
         end
