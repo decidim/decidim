@@ -25,6 +25,7 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
+    let(:main_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     let(:form) do
       double(
         invalid?: invalid,
@@ -49,7 +50,8 @@ module Decidim::Meetings
         registration_terms: registration_terms,
         registrations_enabled: registrations_enabled,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        main_image: main_image
       )
     end
 
@@ -100,6 +102,11 @@ module Decidim::Meetings
         expect(last_meeting.longitude).to eq(longitude)
       end
 
+      it "sets the main_image" do
+        subject.call
+        expect(meeting.main_image.url).to be_present
+      end
+
       context "when the author is a user_group" do
         let(:user_group) { create :user_group, :verified, users: [current_user], organization: organization }
         let(:user_group_id) { user_group.id }
@@ -133,7 +140,7 @@ module Decidim::Meetings
       it "schedules a upcoming meeting notification job 48h before start time" do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process))
+          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process, persisted?: true))
 
         expect(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
