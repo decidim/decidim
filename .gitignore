@@ -28,3 +28,5 @@ schema.json
 .nvmrc
 # Decidim webpack packs
 public/decidim-packs
+# tmp folder (used by webpack to deal with cache)
+tmp
