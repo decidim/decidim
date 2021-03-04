@@ -513,6 +513,8 @@ de:
           audit: "(Stimmzettel überprüfen)"
           back: Abstimmungsvorgang erneut starten
           cast: Stimme abgeben
+          description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
+          header: 'Stimmzettel ist verschlüsselt: Senden sie Ihre Stimme ab oder überprüfen Sie die Verschlüsselung'
         confirm:
           answer: Antwort
           answer_number: Antwort %{number}
@@ -539,6 +541,7 @@ de:
           lead: Ihre Stimme wurde nicht abgegeben!
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
         header:
+          ballot_decision: Stimme abgeben oder überprüfen
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
           encrypting: Wahl bestätigen
