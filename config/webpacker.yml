@@ -1,6 +1,8 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
+  # source_path only supports a single location, thus all the entrypoints will be
+  # defined in decidim-core, whil the sources are distributed accross all the modules
   source_path: 'decidim-core/app/packs'
   source_entry_path: entrypoints
   public_root_path: development_app/public
