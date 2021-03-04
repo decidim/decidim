@@ -5,9 +5,7 @@ on:
       - develop
       - release/*
       - "*-stable"
-  pull_request:
-    branches-ignore:
-      - "chore/l10n*"
+      - "!chore/l10n**"
 
 env:
   CI: "true"
@@ -19,7 +17,6 @@ jobs:
   lint:
     name: Lint code
     runs-on: ubuntu-latest
-    if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
