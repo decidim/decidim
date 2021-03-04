@@ -34,6 +34,7 @@ en:
           attributes:
             name:
               cant_be_changed: can't be changed
+              is_taken: is taken
             public_key:
               cant_be_changed: can't be changed
   activerecord:

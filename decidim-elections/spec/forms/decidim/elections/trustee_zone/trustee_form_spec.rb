@@ -40,4 +40,14 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
 
     it { is_expected.not_to be_valid }
   end
+
+  context "when a trustee with the same name exists" do
+    let(:other_trustee) { create(:trustee, :with_public_key, name: "Shelton Runolfsson Sr.") }
+
+    before do
+      other_trustee
+    end
+
+    it { is_expected.not_to be_valid }
+  end
 end
