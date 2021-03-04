@@ -871,3 +871,7 @@ nl:
       included_proposals:
         proposal_project: 'Voorstel in deze projecten:'
         proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
+    statistics:
+      proposals_accepted: Aanvaarde voorstellen
+      proposals_count: Voorstellen
+      supports_count: Aantal keer gesteund
