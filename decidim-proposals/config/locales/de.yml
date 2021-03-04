@@ -899,3 +899,7 @@ de:
       included_proposals:
         proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
         proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
+    statistics:
+      proposals_accepted: Akzeptierte Vorschläge
+      proposals_count: Vorschläge
+      supports_count: Unterstützungen

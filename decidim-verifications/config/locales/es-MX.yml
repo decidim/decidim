@@ -34,8 +34,16 @@ es-MX:
             confirm: La revocación de las autorizaciones anteriores a esta fecha no se puede deshacer. ¿Seguro que quieres continuar?
             confirm_all: La revocación de todas las autorizaciones no se puede deshacer. ¿Seguro que quieres continuar?
           destroy_nok: Ha habido un problema al revocar las autorizaciones.
+          destroy_ok: Todas las autorizaciones coincidentes han sido revocadas con éxito.
           info: Hay un total de %{count} participantes verificadas.
           no_data: No hay participantes verificadas
+          title: Revocación de autorizaciones
+        authorization_workflows: Autorizaciones
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} actualizó la configuración de autorización de documentos de identidad"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verificó %{resource_name} usando una autorización offline de documentos de identidad"
     authorization_handlers:
       admin:
         csv_census:
@@ -67,6 +75,10 @@ es-MX:
       postal_letter:
         explanation: Te enviaremos una carta postal con un código que deberás ingresar para que podamos verificar tu dirección
         name: Código por carta postal
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse a si misma con los datos de la participante gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -123,6 +135,7 @@ es-MX:
             title: Datos actuales del censo
           instructions:
             body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
+            title: Necesitas activar el CSV para esta organización
           new:
             file: "archivo .csv con datos de correos electrónicos"
             info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'
@@ -138,6 +151,10 @@ es-MX:
             one: La participación está restringida a usuarios con el código postal %{postal_codes}.
             other: 'La participación está restringida a usuarios con cualquiera de los siguientes códigos postales: %{postal_codes}.'
           scope: La participación está restringida a las personas verificadas en el ámbito de %{scope_name}.
+          user_postal_codes:
+            one: La participación está restringida a las participantes con el código postal %{postal_codes} y tu código postal es %{user_postal_code}.
+            other: 'La participación está restringida a las participantes con cualquiera de los siguientes códigos postales: %{postal_codes}. Tu código postal es %{user_postal_code}.'
+          user_scope: La participación está restringida a las participantes con el ámbito %{scope_name} y tu ámbito es %{user_scope_name}.
       id_documents:
         admin:
           config:

@@ -252,7 +252,6 @@ de:
             trustees: Wahlhelfer
           tally_ended:
             submit: Resultate veröffentlichen
-            title: Resultate berechnet
           vote:
             errors:
               time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
@@ -334,30 +333,30 @@ de:
           filter_by: Filtern nach
           unfold: Aufklappen
         preview:
-          available_answers: Verfügbare Antworten
-          description: Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden
+          available_answers: 'Verfügbare Antworten:'
+          description: 'Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden:'
           title: Wahlfragen
         results:
-          description: Dies sind die Abstimmungsergebnisse für jede Frage
+          description: 'Dies sind die Abstimmungsergebnisse für jede Frage:'
           selected: Ausgewählt
           title: Wahlergebnisse
           votes:
             one: "%{count} Stimme"
             other: "%{count} Stimmen"
         show:
-          action-button:
-            change-vote: Stimme ändern
+          action_button:
+            change_vote: Stimme ändern
             vote: Jetzt abstimmen
-            vote-again: Erneut abstimmen
+            vote_again: Erneut abstimmen
           back: Verfügbare Wahlen
           callout:
-            already-voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
-            vote-rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
+            already_voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
+            vote_rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
           preview: Vorschau
           verify:
-            already-voted: Bereits abgestimmt?
-            verify-here: Stimme hier verifizieren.
-            will-verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
+            already_voted: Bereits abgestimmt?
+            verify_here: Stimme hier verifizieren.
+            will_verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
             ongoing: 'Abstimmung aktiv bis: %{end_time}'
@@ -533,9 +532,6 @@ de:
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
-        processing:
-          header: Stimme wird verarbeitet...
-          text: Ihre Stimme wurde empfangen und wird verarbeitet. Bitte warten.
         update:
           error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
           success: Abstimmung erfolgreich aktualisiert
@@ -600,13 +596,9 @@ de:
           title: Was sind Abstimmungen?
     menu:
       votings: Abstimmungen
-    pages:
-      home:
-        statistics:
-          elections_count: Wahlen
-    participatory_processes:
-      statistics:
-        elections_count: Wahlen
+    statistics:
+      elections_count: Wahlen
+      votings_count: Abstimmungen
     votings:
       admin:
         content_blocks:
@@ -790,6 +782,17 @@ de:
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
+        landing_page:
+          description:
+            show_less: Weniger anzeigen
+            show_more: Mehr anzeigen
+          metrics:
+            heading: Metriken
+          polling_stations:
+            heading: Wahllokale
+            no_polling_stations: Es gibt noch keine Wahllokale.
+          timeline:
+            heading: Zeitachse
       monitoring_committee_members:
         actions:
           confirm_destroy: Sind Sie sicher?
@@ -883,6 +886,8 @@ de:
     decidim:
       election_votes_header:
         exit: Beenden
+      voting_navigation:
+        voting_menu_item: Die Abstimmung
       votings:
         index:
           promoted_votings: Hervorgehobene Abstimmungen

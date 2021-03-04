@@ -926,24 +926,7 @@ hu:
         metrics:
           headline: Részvétel számokban
         statistics:
-          answers_count: Befejezett felmérések
-          assemblies_count: Gyűlések
-          comments_count: Hozzászólások
-          conferences_count: Konferenciák
-          debates_count: Viták
-          endorsements_count: Jóváhagyások
           headline: A %{organization} jelenlegi állapota
-          meetings_count: Találkozók
-          orders_count: Szavazatok
-          pages_count: Oldalak
-          processes_count: Folyamatok
-          projects_count: Projektek
-          proposals_accepted: Elfogadott javaslatok
-          proposals_count: Javaslatok
-          results_count: Eredmények
-          surveys_count: Felmérések
-          users_count: Résztvevők
-          votes_count: Szavazatok
         sub_hero:
           register: Regisztráció
       index:
@@ -1092,6 +1075,8 @@ hu:
         close_window: Ablak bezárása
         share: Megosztás
         share_link: Hivatkozás megosztása
+    statistics:
+      comments_count: Hozzászólások
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása

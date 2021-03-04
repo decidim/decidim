@@ -176,7 +176,7 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Zgadzam się z następującymi warunkami
+          accept: Zgadzam się z warunkami użytkowania
           are_you_sure: Czy na pewno chcesz odrzucić warunki dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
@@ -565,7 +565,7 @@ pl:
         report:
           reasons:
             does_not_belong: Nie należy
-            offensive: Ofensywny
+            offensive: Obraźliwy
             spam: Spam
         tabs:
           blocked: Zablokowany
@@ -581,7 +581,7 @@ pl:
         reports:
           index:
             author: Autorzy
-            callout_html: Zawartość pojawia się w panelu moderacji, gdy została zasygnalizowana przez użytkownika (może to być każdy, kto ma zarejestrowane konto) poprzez kliknięcie na flagę %{icon} obok elementu.
+            callout_html: Zawartość pojawia się w panelu moderacji, gdy została zasygnalizowana przez użytkownika (może to być każdy, kto zarejestrował konto) poprzez kliknięcie na flagę %{icon} obok elementu.
             content_original_language: Oryginalny język treści
             participatory_space: Przestrzeń partycypacyjna
             reported_content: Zgłoszona zawartość
@@ -694,8 +694,8 @@ pl:
           show: Pokaż
           title: Pokaż adres e-mail użytkownika
         unblock:
-          error: Wystąpił błąd podczas odblokowania użytkownika
-          success: Użytkownik odblokowany pomyślnie
+          error: Wystąpił błąd podczas odblokowywania użytkownika
+          success: Użytkownik został odblokowany
       organization:
         edit:
           title: Edytuj organizację
@@ -719,7 +719,7 @@ pl:
           colors:
             colors_title: Kolory organizacji
             header_snippets_help: Użyj tego pola, aby dodać elementy do nagłówka kodu HTML. Najczęstszym zastosowaniem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych meta tagów do HTML. Zauważ, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
-          cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Użyj częściowych ścieżek, a nie pełnych adresów URL. Akceptowane są: litery, liczby, myślniki i ukośniki. Ścieżka musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
+          cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
@@ -742,7 +742,7 @@ pl:
           error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
           success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
         index:
-          import_via_csv: Importuj przez CSV
+          import_via_csv: Importuj z CSV
           title: Prywatny użytkownik przestrzeni partycypacyjnej
         new:
           create: Utwórz
@@ -842,7 +842,7 @@ pl:
           update: Aktualizuj
         form:
           none: Żadna
-          slug_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptowane są: litery, cyfry, myślniki i ukośniki. Ścieżka musi zaczynać się od litery. Przykład: %{url}'
+          slug_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia istotna zmiana
         new:
@@ -951,13 +951,13 @@ pl:
       admin:
         reportable:
           hide:
-            invalid: Wystąpił problem z ukryciem zasobu.
+            invalid: W trakcie ukrywania zasobu wystąpił błąd.
             success: Zasób został ukryty.
           unhide:
-            invalid: Podczas pokazywania zasobu wystąpił problem.
+            invalid: W trakcie publikowania zasobu wystąpił błąd.
             success: Zasoby zostały pomyślnie pokazane.
           unreport:
-            invalid: Wystąpił problem z niewykorzystaniem zasobów.
+            invalid: W trakcie usuwania zgłoszenia zasobu wystąpił błąd.
             success: Zasób został pomyślnie nieudokumentowany.
       models:
         moderation:
@@ -983,7 +983,7 @@ pl:
     decidim:
       admin:
         global_moderations:
-          title: Globalna moderacja
+          title: Globalne moderacje
         newsletters:
           title: Newslettery
         settings:

@@ -319,10 +319,6 @@ hu:
           title: Mi a konzultáció?
     menu:
       consultations: Konzultációk
-    pages:
-      home:
-        statistics:
-          consultations_count: Konzultációk
     questions:
       next_button: Következő kérdés
       previous_button: Előző kérdés

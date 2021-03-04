@@ -804,24 +804,7 @@ gl:
         metrics:
           headline: Participación en números
         statistics:
-          answers_count: Enquisas concluídas
-          assemblies_count: Asembleas
-          comments_count: Comentarios
-          conferences_count: Conferencias
-          debates_count: Debates
-          endorsements_count: Aprobacións
           headline: Estado actual de %{organization}
-          meetings_count: Reunións
-          orders_count: Votos
-          pages_count: Páxinas
-          processes_count: Procesos
-          projects_count: Proxectos
-          proposals_accepted: Propostas aceptadas
-          proposals_count: Propostas
-          results_count: Resultados
-          surveys_count: Enquisas
-          users_count: Participantes
-          votes_count: Votos
         sub_hero:
           register: Rexistrarse
       index:
@@ -967,6 +950,8 @@ gl:
         close_window: Pechar ventá
         share: Comparte
         share_link: Compartir a ligazón
+    statistics:
+      comments_count: Comentarios
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.

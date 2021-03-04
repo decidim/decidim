@@ -235,3 +235,5 @@ en:
         description: Number of debates created
         object: debates
         title: Debates
+    statistics:
+      debates_count: Debates

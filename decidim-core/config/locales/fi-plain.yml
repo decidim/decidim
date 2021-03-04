@@ -1068,24 +1068,7 @@ fi-pl:
         metrics:
           headline: Osallistuminen lukuina
         statistics:
-          answers_count: Kyselyiden vastauksia
-          assemblies_count: Kehitysryhmää
-          comments_count: Kommenttia
-          conferences_count: Konferenssit
-          debates_count: Keskustelua
-          endorsements_count: Suosituksia
           headline: '%{organization} numeroina'
-          meetings_count: Tapahtumat
-          orders_count: Ääntä
-          pages_count: Sivua
-          processes_count: Prosesseja
-          projects_count: Projektit
-          proposals_accepted: Hyväksyttyä ehdotusta
-          proposals_count: Ehdotukset
-          results_count: Tulokset
-          surveys_count: Kyselyä
-          users_count: Osallistujia
-          votes_count: Ääntä
         sub_hero:
           register: Rekisteröidy
       index:
@@ -1277,6 +1260,8 @@ fi-pl:
         close_window: Sulje ikkuna
         share: Jaa
         share_link: Jaa linkki
+    statistics:
+      comments_count: Kommenttia
     tags:
       filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
       filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'

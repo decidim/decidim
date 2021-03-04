@@ -130,8 +130,5 @@ id:
       destroy:
         error: Terjadi masalah saat membatalkan pilihan Anda
         success: Pilihan Anda telah berhasil dibatalkan
-    resource_links:
-      included_proposals:
-        project_proposal: 'Proposal yang termasuk dalam proyek ini:'
   index:
     confirmed_orders_count: Votes dihitung

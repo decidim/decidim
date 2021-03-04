@@ -1048,24 +1048,7 @@ nl:
         metrics:
           headline: Deelname in cijfers
         statistics:
-          answers_count: Voltooide enquêtes
-          assemblies_count: Groepen
-          comments_count: Reacties
-          conferences_count: Conferenties
-          debates_count: Debatten
-          endorsements_count: Aanbevelingen
           headline: Huidige stand van %{organization}
-          meetings_count: Vergaderingen
-          orders_count: stemmen
-          pages_count: Pages
-          processes_count: Inspraakprocessen
-          projects_count: Projecten
-          proposals_accepted: Aanvaarde voorstellen
-          proposals_count: Voorstellen
-          results_count: Resultaten
-          surveys_count: Enquête
-          users_count: Deelnemers
-          votes_count: Stemmen
         sub_hero:
           register: Registreren
       index:
@@ -1247,6 +1230,8 @@ nl:
         close_window: Sluit venster
         share: Deel
         share_link: Link delen
+    statistics:
+      comments_count: Reacties
     tags:
       filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
       filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'

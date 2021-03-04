@@ -321,10 +321,6 @@ el:
           title: Τι είναι οι διαβουλεύσεις;
     menu:
       consultations: Διαβουλεύσεις
-    pages:
-      home:
-        statistics:
-          consultations_count: Διαβουλεύσεις
     questions:
       next_button: Επόμενη ερώτηση
       previous_button: Προηγούμενη ερώτηση

@@ -94,6 +94,38 @@ module Decidim
           "verification_code" => 123_456_789
         )
       end
+
+      it "returns the original hash values for deep hashes that cannot be passed to decryption" do
+        deep_metadata = {
+          "location" => {
+            "Country" => {
+              "Province" => {
+                "Region" => {
+                  "Sub-region" => {
+                    "Municipality" => {
+                      "Quarter" => {
+                        "Block" => "Street"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "extras" => {
+            "foo" => {
+              "bar" => "baz"
+            }
+          }
+        }
+
+        subject.instance_variable_set(
+          :@metadata,
+          deep_metadata
+        )
+
+        expect(subject.metadata).to eq(deep_metadata)
+      end
     end
 
     it_behaves_like "encrypted record"

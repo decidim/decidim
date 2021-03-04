@@ -238,3 +238,5 @@ cs:
         description: Počet vytvořených debat
         object: debaty
         title: Debaty
+    statistics:
+      debates_count: Debaty

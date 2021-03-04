@@ -145,8 +145,5 @@ ar:
       destroy:
         error: حدثت مشكلة في إلغاء تصويتك
         success: تم إلغاء تصويتك بنجاح
-    resource_links:
-      included_proposals:
-        project_proposal: 'المقترحات المدرجة في هذا المشروع:'
   index:
     confirmed_orders_count: عدد الأصوات

@@ -34,8 +34,16 @@ ca:
             confirm: La revocació d'autoritzacions anteriors a aquesta data no es pot desfer. Segur que vols continuar?
             confirm_all: La revocació de totes les autoritzacions no es pot desfer. Segur que vols continuar?
           destroy_nok: S'ha produït un error al revocar les autoritzacions.
+          destroy_ok: Totes les autoritzacions coincidents s'han revocat correctament.
           info: Hi ha un total de %{count} participants verificades.
           no_data: No hi ha participants verificades
+          title: Revocació d'autoritzacions
+        authorization_workflows: Autoritzacions
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} ha actualitzat la configuració de Documents d'Identitat"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant una autorització offline de Documents d'identitat"
     authorization_handlers:
       admin:
         csv_census:
@@ -67,6 +75,10 @@ ca:
       postal_letter:
         explanation: T'enviarem una carta postal amb un codi que hauràs d'introduir perquè puguem verificar la teva adreça
         name: Codi per carta postal
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: La participant <a href="%{resource_path}">%{resource_title}</a> ha intentat verificar-se amb les dades de la participant gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -123,6 +135,7 @@ ca:
             title: Dades censals actuals
           instructions:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
+            title: Necessites activar el cens csv d'aquesta organització
           new:
             file: "fitxer .csv amb dades de correus electrònics"
             info: 'Ha de ser un document en format CSV amb una única columna indicant les adreces electròniques:'
@@ -138,6 +151,10 @@ ca:
             one: La participació està restringida a les persones adscrites al codi postal %{postal_codes}.
             other: 'La participació està restringida a les persones adscrites a algun dels següents codis postals: %{postal_codes}.'
           scope: La participació està restringida a les persones verificades en l'àmbit de %{scope_name}.
+          user_postal_codes:
+            one: La participació està restringida a participants amb el codi postal %{postal_codes}, i el teu codi postal és %{user_postal_code}.
+            other: 'La participació està restringida a participants amb qualsevol dels codis postals següents: %{postal_codes}. El teu codi postal és %{user_postal_code}.'
+          user_scope: La participació està restringida a participants de l'àmbit %{scope_name}, i el teu àmbit és %{user_scope_name}.
       id_documents:
         admin:
           config:

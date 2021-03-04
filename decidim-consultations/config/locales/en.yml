@@ -325,10 +325,6 @@ en:
           title: What are consultations?
     menu:
       consultations: Consultations
-    pages:
-      home:
-        statistics:
-          consultations_count: Consultations
     questions:
       next_button: Next question
       previous_button: Previous question
@@ -363,6 +359,9 @@ en:
       consultations:
         actions:
           vote: Vote
+    statistics:
+      consultations_count: Consultations
+      votes_count: Votes
   layouts:
     decidim:
       admin:

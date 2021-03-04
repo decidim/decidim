@@ -30,13 +30,6 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å følge den fra den forrige lenken.
           email_subject: Ny sortering lagt til %{participatory_space_title}
           notification_title: Sorteringen <a href="%{resource_path}">%{resource_title}</a> har blitt lagt til %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sorteringer
-    participatory_processes:
-      statistics:
-        sortitions_count: Sorteringer
     sortitions:
       admin:
         actions:

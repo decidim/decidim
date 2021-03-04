@@ -373,22 +373,6 @@ pt:
         social_networks: Redes sociais
         social_networks_title: Partilhar esta reunião em
         target: Quem participa
-      statistics:
-        answers_count: Respostas
-        assemblies_count: Reuniões
-        comments_count: Comentários
-        debates_count: Debates
-        endorsements_count: Endossos
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        posts_count: Publicações
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Inquéritos
-        users_count: Participantes
-        votes_count: Votos
     assembly_members:
       assembly_member:
         designated_on: Designado em

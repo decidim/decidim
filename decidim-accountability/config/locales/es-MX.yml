@@ -124,6 +124,11 @@ es-MX:
         value_types:
           parent_presenter:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Fechas
+          results: Resultados
+          unspecified: No especificado
       import_mailer:
         import:
           errors: Errores
@@ -136,8 +141,12 @@ es-MX:
       models:
         result:
           fields:
+            category: Categoría
+            created_at: Creado
             end_date: Fin
+            id: ID
             progress: Progreso
+            scope: Ámbito
             start_date: Inicio
             status: Estado
             title: Título
@@ -151,6 +160,9 @@ es-MX:
           fields:
             description: Descripción
             entry_date: Fecha
+      result_m:
+        executed: Ejecutado
+        view: Ver
       results:
         count:
           results_count:

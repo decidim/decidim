@@ -443,7 +443,7 @@ pl:
         ready: Gotowy
       show:
         download_data: Pobierz dane
-        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>).
+        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Poproś o dane
     datepicker:
       help_text: 'Oczekiwany format: %{datepicker_format}'
@@ -849,7 +849,7 @@ pl:
         creator: Twórca
         member: Członek
       update:
-        error: Wystąpił problem podczas aktualizacji grupy
+        error: Wystąpił błąd podczas aktualizacji grupy
         success: Grupa została zaktualizowana
     help:
       main_topic:
@@ -1061,7 +1061,7 @@ pl:
         rejected: Odrzucone
         verified: Zweryfikowano
     pad_iframe:
-      disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyrażana jest ich opinia. %{organization} nie może być pociągnięty do odpowiedzialności za jego zawartość.
+      disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyraża ich opinie. %{organization} nie może być pociągnięta do odpowiedzialności za jego zawartość.
       explanation: Używaj tej podkładki do wspólnego robienia notatek podczas spotkania, więc łatwiej jest zapisać minutę później.
       pad: Podkładka
     pages:
@@ -1085,24 +1085,7 @@ pl:
         metrics:
           headline: Partycypacja w liczbach
         statistics:
-          answers_count: Ankiety zakończone
-          assemblies_count: Zespoły
-          comments_count: Komentarze
-          conferences_count: Konferencje
-          debates_count: Debaty
-          endorsements_count: Rekomendacje
           headline: Aktualny stan %{organization}
-          meetings_count: Spotkania
-          orders_count: Głosowania
-          pages_count: Strony
-          processes_count: Procesy
-          projects_count: Projekty
-          proposals_accepted: Przyjęte propozycje
-          proposals_count: Propozycje
-          results_count: Wyniki
-          surveys_count: Ankiety
-          users_count: Użytkownicy
-          votes_count: Głosowania
         sub_hero:
           register: Zarejestruj się
       index:
@@ -1296,6 +1279,8 @@ pl:
         close_window: Zamknij okno
         share: Udostępnij
         share_link: Udostępnij link
+    statistics:
+      comments_count: Komentarze
     tags:
       filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
       filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'

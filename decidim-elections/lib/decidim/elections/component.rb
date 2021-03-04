@@ -27,7 +27,7 @@ Decidim.register_component(:elections) do |component|
 
   component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     elections = Decidim::Elections::FilteredElections.for(components, start_at, end_at)
-    elections.count
+    elections.published.count
   end
 
   component.register_resource(:election) do |resource|

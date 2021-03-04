@@ -1001,24 +1001,7 @@ el:
         metrics:
           headline: Μετρικά
         statistics:
-          answers_count: Ολοκληρωμένες έρευνες
-          assemblies_count: Συνελεύσεις
-          comments_count: Σχόλια
-          conferences_count: Διασκέψεις
-          debates_count: Συζητήσεις
-          endorsements_count: Επιδοκιμασίες
           headline: Τρέχουσα κατάσταση του οργανισμού %{organization}
-          meetings_count: Συσκέψεις
-          orders_count: Ψήφοι
-          pages_count: Σελίδες
-          processes_count: Διαδικασίες
-          projects_count: Έργα
-          proposals_accepted: Αποδεκτές προτάσεις
-          proposals_count: Προτάσεις
-          results_count: Αποτελέσματα
-          surveys_count: Έρευνες
-          users_count: Συμμετέχοντες
-          votes_count: Ψήφοι
         sub_hero:
           register: Εγγραφή
       index:
@@ -1185,6 +1168,8 @@ el:
         close_window: Κλείσιμο παραθύρου
         share: Κοινοποίηση
         share_link: Κοινοποίηση συνδέσμου
+    statistics:
+      comments_count: Σχόλια
     tags:
       filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
       filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'

@@ -10,8 +10,8 @@ describe "Session timeout", type: :system do
 
   context "when session is about to timeout" do
     before do
-      Devise.timeout_in = 2.minutes
-      Decidim.config.session_timeouter_interval = 1000
+      allow(Devise).to receive(:timeout_in).and_return(2.minutes)
+      allow(Decidim.config).to receive(:session_timeouter_interval).and_return(1000)
       switch_to_host(organization.host)
       login_as current_user, scope: :user
     end

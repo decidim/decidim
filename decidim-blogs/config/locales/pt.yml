@@ -75,10 +75,3 @@ pt:
           email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de segui-lo através da hiperligação anterior.
           email_subject: Nova publicação publicada em %{participatory_space_title}
           notification_title: A publicação <a href="%{resource_path}">%{resource_title}</a> foi publicada em %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Publicações
-    participatory_processes:
-      statistics:
-        posts_count: Publicações

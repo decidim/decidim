@@ -483,23 +483,6 @@ ja:
         related_assemblies: 関連する参加スペース
         related_consultations: 関連する議案
         related_participatory_processes: 関連する参加型プロセス
-      statistics:
-        answers_count: 回答
-        comments_count: コメント
-        conference_count: カンファレンス
-        debates_count: ディベート
-        endorsements_count: 支持
-        headline: アクティビティ
-        meetings_count: ミーティング
-        orders_count: サポート
-        pages_count: ページ
-        posts_count: 投稿
-        projects_count: プロジェクト
-        proposals_count: 提案
-        results_count: 結果
-        surveys_count: 調査
-        users_count: 参加者
-        votes_count: サポート
     events:
       conferences:
         conference_registration_confirmed:

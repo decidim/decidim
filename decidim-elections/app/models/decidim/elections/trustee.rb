@@ -18,7 +18,7 @@ module Decidim
         find_by(user: user)
       end
 
-      def unique_id
+      def slug
         name.parameterize
       end
     end

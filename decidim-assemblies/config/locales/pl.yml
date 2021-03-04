@@ -278,8 +278,8 @@ pl:
             select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz kategorię
             select_an_assembly_type: Wybierz typ zespołu
-            select_parent_assembly: Wybierz zespół macierzysty
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            select_parent_assembly: Wybierz zespół nadrzędny
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visbility: Widoczność
@@ -293,11 +293,11 @@ pl:
             title: Tytuł
         assembly_copies:
           form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można używać: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_imports:
           form:
             document_legend: Dodaj dokument
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
@@ -387,28 +387,6 @@ pl:
         social_networks: Portale społecznościowe
         social_networks_title: Udostępnij zespół na
         target: Do kogo kierowane
-      statistics:
-        answers_count: Odpowiedzi
-        assemblies_count: Zespoły
-        comments_count: Komentarze
-        debates_count: Debaty
-        endorsements_count: Rekomendacje
-        followers_count: Obserwujący
-        headline: Statystyki
-        meetings_count: Spotkania
-        no_stats: Nie ma jeszcze żadnych statystyk.
-        orders_count: Wsparcia
-        pages_count: Strony
-        participants_count: Użytkownicy
-        posts_count: Posty
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Propozycje
-        results_count: Wyniki
-        supports_count: Podpisy
-        surveys_count: Ankiety
-        users_count: Użytkownicy
-        votes_count: Głosy
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na

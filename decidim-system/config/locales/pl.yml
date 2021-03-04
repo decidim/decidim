@@ -163,7 +163,7 @@ pl:
           fieldsets:
             sender: Nadawca
           instructions:
-            from_label: 'Nadawcą wiadomości e-mail będzie: "Twoja organizacja <your-organization@example.org>". Pozostaw puste, aby użyć "Adres e-mail" jako etykiety'
+            from_label: 'Nadawcą wiadomości e-mail będzie: "twoja-nazwa-organizacji <twoja-organizacja@przyklad.org>". Pozostaw puste, aby użyć "Adres e-mail" jako etykiety'
           placeholder:
             from_email: twoja-organizacja@przyklad.org
             from_label: twoja-nazwa-organizacji

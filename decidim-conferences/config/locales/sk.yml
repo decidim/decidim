@@ -494,23 +494,6 @@ sk:
         related_assemblies: Súvisiace zhromaždenia
         related_consultations: Súvisiace Konzultácie
         related_participatory_processes: Súvisiace participatívne procesy
-      statistics:
-        answers_count: Odpovede
-        comments_count: Komentáre
-        conference_count: Konferencie
-        debates_count: Debaty
-        endorsements_count: Schválenia
-        headline: Aktivita
-        meetings_count: Stretnutia
-        orders_count: Podporenia
-        pages_count: Stránky
-        posts_count: Príspevky
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledky
-        surveys_count: Prieskumy
-        users_count: Účastníci
-        votes_count: Podporenia
     events:
       conferences:
         conference_registration_confirmed:

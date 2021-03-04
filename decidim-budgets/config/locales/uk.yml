@@ -139,8 +139,5 @@ uk:
       destroy:
         error: При скасуванні вашого голосу сталася помилка
         success: Ваш голос було успішно скасовано
-    resource_links:
-      included_proposals:
-        project_proposal: 'Пропозиції, включені до цього проекту:'
   index:
     confirmed_orders_count: Кількість голосів

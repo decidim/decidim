@@ -578,23 +578,7 @@ ru:
           participate: Принять участие
           welcome: Добро пожаловать в %{organization}!
         statistics:
-          answers_count: Пройденных опросов
-          assemblies_count: Собраний
-          comments_count: Комментариев
-          debates_count: Обсуждения
-          endorsements_count: Выражений поддержки
           headline: Текущее состояние %{organization}
-          meetings_count: Встреч
-          orders_count: Голосов
-          pages_count: Страниц
-          processes_count: Движений
-          projects_count: Проектов
-          proposals_accepted: Принятые предложения
-          proposals_count: Предложений
-          results_count: Итогов
-          surveys_count: Опросов
-          users_count: Участников
-          votes_count: Голосов
         sub_hero:
           register: Зарегистрироваться
       terms_and_conditions:
@@ -695,6 +679,8 @@ ru:
         close_window: Закрыть окно
         share: Поделиться
         share_link: Поделиться ссылкой
+    statistics:
+      comments_count: Комментариев
     user_conversations:
       update:
         error: Сообщение не отправлено. Попробуйте позже
