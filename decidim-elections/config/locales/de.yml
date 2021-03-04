@@ -127,11 +127,13 @@ de:
           new:
             create: Antwort erstellen
             title: Neue Antwort
+          not_selected: Nicht ausgewählt
           select:
             disable: Antwort abwählen
             enable: Antwort als ausgewählt markieren
             invalid: Beim Auswählen dieser Antwort ist ein Fehler aufgetreten
             success: Antwort erfolgreich ausgewählt
+          selected: Ausgewählt
           unselect:
             invalid: Beim Abwählen dieser Antwort ist ein Fehler aufgetreten
             success: Antwort erfolgreich abgwählt
@@ -246,12 +248,25 @@ de:
             title: Startbereit
           processing: In Verarbeitung...
           results_published:
+            answer: Antwort
+            not_selected: Nicht ausgewählt
+            question: Frage
+            result: Ergebnis
+            selected: Ausgewählt
+            submit: Absenden
             title: Ergebnisse veröffentlicht
           tally:
             title: Stimmenzähl-Prozess
             trustees: Wahlhelfer
           tally_ended:
+            answer: Antwort
+            not_selected: Nicht ausgewählt
+            question: Frage
+            result: Ergebnis
+            selected: Ausgewählt
             submit: Resultate veröffentlichen
+            success: Stimmenzählung erfolgreich beendet
+            title: Berechnete Ergebnisse
           vote:
             errors:
               time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
@@ -265,6 +280,7 @@ de:
             invalid: Beim Starten der Stimmenzählung ist ein Fehler aufgetreten
             submit: Stimmenzählung starten
             success: Die Anfrage zum Starten der Stimmenzählung wurde erfolgreich ans Bulletin Board gesendet
+            text: Die Abstimmung ist beendet. Sie können jetzt die Stimmenzählung starten.
             title: Abstimmungsperiode abgeschlossen
           vote_stats:
             no_vote_statistics_yet: Noch keine Statistiken zur Abstimmung
@@ -370,7 +386,9 @@ de:
         answer:
           fields:
             proposals: Vorschläge
+            selected: Ausgewählt
             title: Titel
+            votes: Stimmen
         election:
           fields:
             bb_status: Bulletin Board Status
@@ -491,6 +509,12 @@ de:
           update:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
+        ballot_decision:
+          audit: "(Stimmzettel überprüfen)"
+          back: Abstimmungsvorgang erneut starten
+          cast: Stimme abgeben
+          description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
+          header: 'Stimmzettel ist verschlüsselt: Senden sie Ihre Stimme ab oder überprüfen Sie die Verschlüsselung'
         confirm:
           answer: Antwort
           answer_number: Antwort %{number}
@@ -517,6 +541,7 @@ de:
           lead: Ihre Stimme wurde nicht abgegeben!
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
         header:
+          ballot_decision: Stimme abgeben oder überprüfen
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
           encrypting: Wahl bestätigen
