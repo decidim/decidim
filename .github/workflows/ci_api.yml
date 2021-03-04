@@ -2,12 +2,9 @@ name: "[CI] Api"
 on:
   push:
     branches:
-      - develop
-      - release/*
-      - "*-stable"
-  pull_request:
-    branches-ignore:
-      - "chore/l10n*"
+      - "**"
+      - "!chore/l10n**"
+      - "!l10n/**"
 
 env:
   CI: "true"
@@ -19,7 +16,6 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
-    if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
       postgres:
