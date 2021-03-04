@@ -4,6 +4,7 @@ on:
     branches:
       - "**"
       - "!chore/l10n**"
+      - "!l10n/**"
 
 env:
   CI: "true"
