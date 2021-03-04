@@ -272,7 +272,7 @@ FactoryBot.define do
 
     trait :with_public_key do
       considered
-      name { Faker::Name.name }
+      name { Faker::Name.unique.name }
       public_key { generate(:private_key).export.to_json }
     end
   end

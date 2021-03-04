@@ -10,6 +10,8 @@ module Decidim
       has_many :elections, through: :elections_trustees
       has_many :trustees_participatory_spaces, inverse_of: :trustee, foreign_key: "decidim_elections_trustee_id", dependent: :destroy
 
+      validates :name, uniqueness: true
+
       def self.trustee?(user)
         exists?(user: user)
       end

@@ -7,6 +7,18 @@ describe Decidim::Elections::Trustee do
 
   it { is_expected.to be_valid }
 
+  context "when the name is taken" do
+    subject(:trustee) { build(:trustee, name: "Trustee 1") }
+
+    let(:other_trustee) { create(:trustee, name: "Trustee 1") }
+
+    before do
+      other_trustee
+    end
+
+    it { is_expected.not_to be_valid }
+  end
+
   context "when it is considered" do
     subject(:trustee) { build :trustee, :considered }
 
