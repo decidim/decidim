@@ -215,11 +215,22 @@ nl:
             question: Vraag
             result: Resultaat
             selected: Geselecteerd
+            submit: Indienen
             title: Resultaten gepubliceerd
           tally:
             title: Turfproces
+          tally_ended:
+            answer: Antwoord
+            not_selected: Niet geselecteerd
+            question: Vraag
+            result: Resultaat
+            selected: Geselecteerd
+            success: Turven succesvol beëindigd
+            title: Berekende resultaten
           vote:
             title: Stemperiode
+          vote_ended:
+            text: Stem is beëindigd. Je kunt nu beginnen turven.
           vote_stats:
             no_vote_statistics_yet: Nog geen stemstatistieken
             title: Stemstatistieken
@@ -283,7 +294,9 @@ nl:
         answer:
           fields:
             proposals: Voorstellen
+            selected: Geselecteerd
             title: Aanspreektitel
+            votes: Stemmen
         election:
           fields:
             bb_status: Bulletin Bord status
@@ -383,6 +396,9 @@ nl:
           update:
             success: Jouw publieke identificatiesleutel werd succesvol opgeslagen.
       votes:
+        ballot_decision:
+          back: Start het stemproces opnieuw
+          cast: Stem uitbrengen
         confirm:
           answer: Beantwoorden
           answer_number: antwoord %{number}
