@@ -54,6 +54,7 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
+    let(:main_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -73,7 +74,8 @@ module Decidim::Meetings
         available_slots: available_slots,
         registration_url: registration_url,
         type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        main_image: main_image
       }
     end
 

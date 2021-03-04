@@ -39,6 +39,7 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
+    let(:main_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -59,7 +60,8 @@ module Decidim::Meetings
         available_slots: available_slots,
         registration_terms: registration_terms,
         registrations_enabled: true,
-        registration_url: registration_url
+        registration_url: registration_url,
+        main_image: main_image
       }
     end
 
