@@ -232,6 +232,14 @@ module Decidim
         end
       end
 
+      describe "mainImage" do
+        let(:query) { "{ mainImage }" }
+
+        it "returns the meeting's main image url" do
+          expect(response["mainImage"]).to eq model.main_image.url
+        end
+      end
+
       context "when meeting is private" do
         let(:query) { "{ privateMeeting }" }
 
