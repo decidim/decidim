@@ -102,13 +102,6 @@ module Decidim
     end
 
     def decrypt_value(value)
-      # The legacy metadata values can be something else than Strings which
-      # cannot be decrypted. `ActiveSupport::MessageEncryptor` expects all
-      # values passed to the `#decrypt_and_verify` method to be instances of
-      # String as the message verifier calls `#split` on the value objects:
-      # https://git.io/JqfOO.
-      return value unless value.is_a?(String)
-
       Decidim::AttributeEncryptor.decrypt(value)
     rescue ActiveSupport::MessageEncryptor::InvalidMessage, ActiveSupport::MessageVerifier::InvalidSignature
       # Support for legacy unencrypted values. This is necessary e.g. when
