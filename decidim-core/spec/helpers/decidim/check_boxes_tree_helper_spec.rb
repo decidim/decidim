@@ -8,7 +8,7 @@ module Decidim
       Class.new(ActionView::Base) do
         include CheckBoxesTreeHelper
         include TranslatableAttributes
-      end.new
+      end.new(ActionView::LookupContext.new(nil))
     end
 
     let!(:organization) { create(:organization) }
