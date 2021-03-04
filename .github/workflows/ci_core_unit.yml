@@ -2,9 +2,7 @@ name: "[CI] Core (unit tests)"
 on:
   push:
     branches:
-      - develop
-      - release/*
-      - "*-stable"
+      - "**"
       - "!chore/l10n**"
 
 env:

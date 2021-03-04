@@ -2,10 +2,7 @@ name: "[CI] Main folder"
 on:
   push:
     branches:
-      - develop
-      - release/*
-      - "*-stable"
-  pull-request:
+      - "**"
 
 env:
   CI: "true"

@@ -2,9 +2,7 @@ name: "[CI] Elections (system public)"
 on:
   push:
     branches:
-      - develop
-      - release/*
-      - "*-stable"
+      - "**"
       - "!chore/l10n**"
 
 env:
