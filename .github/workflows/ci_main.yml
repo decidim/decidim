@@ -5,6 +5,7 @@ on:
       - develop
       - release/*
       - "*-stable"
+  pull-request:
 
 env:
   CI: "true"
