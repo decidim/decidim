@@ -1,7 +1,0 @@
-import '../src/decidim/admin/application'
-import '../src/decidim/admin/managed_users'
-import '../src/decidim/admin/resources_permissions'
-import '../src/decidim/admin/welcome_notification'
-import '../src/decidim/admin/newsletters'
-import '../src/decidim/admin/form'
-import '../src/decidim/admin/import_guidance'

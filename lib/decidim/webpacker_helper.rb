@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "webpacker"
 require "webpacker/helper"
 
@@ -11,6 +13,7 @@ module Decidim
 
     private
 
+    # Harcode the current webpacker to Decidim's
     def sources_from_manifest_entries(names, type:)
       names.map { |name| Decidim.webpacker.manifest.lookup!(name, type: type) }.flatten
     end

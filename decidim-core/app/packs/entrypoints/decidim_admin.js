@@ -1,0 +1,8 @@
+import '../../../../decidim-admin/app/packs/src/decidim/admin/application'
+import '../../../../decidim-admin/app/packs/src/decidim/admin/managed_users'
+import '../../../../decidim-admin/app/packs/src/decidim/admin/resources_permissions'
+import '../../../../decidim-admin/app/packs/src/decidim/admin/welcome_notification'
+import '../../../../decidim-admin/app/packs/src/decidim/admin/newsletters'
+import '../../../../decidim-admin/app/packs/src/decidim/admin/form'
+import '../../../../decidim-admin/app/packs/src/decidim/admin/import_guidance'
+import '../../../../decidim-core/app/packs/src/decidim/confirm'
