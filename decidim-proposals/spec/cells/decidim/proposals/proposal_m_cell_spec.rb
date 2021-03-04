@@ -210,7 +210,7 @@ module Decidim::Proposals
           proposals.map { |proposal| cell("decidim/proposals/proposal_m", proposal).send(:cache_hash) }
         end
 
-        it "returns differents hashes" do
+        it "returns different hashes" do
           expect(cached_proposals.uniq.length).to eq(5)
         end
       end
