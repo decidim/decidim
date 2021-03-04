@@ -1232,6 +1232,13 @@ nl:
         share_link: Link delen
     statistics:
       comments_count: Reacties
+      endorsements_count: Aanbevelingen
+      followers_count: Volgers
+      headline: Statistieken
+      no_stats: Er zijn nog geen statistieken.
+      pages_count: Pagina's
+      participants_count: Deelnemers
+      users_count: Deelnemers
     tags:
       filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
       filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'

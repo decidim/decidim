@@ -632,6 +632,9 @@ cs:
           title: Co jsou hlasování?
     menu:
       votings: Hlasování
+    statistics:
+      elections_count: Volby
+      votings_count: Hlasování
     votings:
       admin:
         content_blocks:

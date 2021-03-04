@@ -436,6 +436,8 @@ nl:
             processes_button_title: Link naar de pagina Processen die alle processen weergeeft
       show:
         related_assemblies: Verwante assemblies
+    statistics:
+      assemblies_count: Groepen
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn

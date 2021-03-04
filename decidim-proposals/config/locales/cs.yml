@@ -923,3 +923,7 @@ cs:
       included_proposals:
         proposal_project: 'Návrh se objevuje v těchto projektech:'
         proposal_result: 'Návrh se objeví v těchto výsledcích:'
+    statistics:
+      proposals_accepted: Přijaté návrhy
+      proposals_count: Návrhy
+      supports_count: Podpory

@@ -465,6 +465,8 @@ cs:
         start_date: Počáteční datum
         target: Kdo se účastní
         unspecified: Nespecifikováno
+    statistics:
+      processes_count: Procesy
   layouts:
     decidim:
       participatory_process_groups:

@@ -210,3 +210,5 @@ nl:
         description: Aantal debatten gemaakt
         object: debatten
         title: debatten
+    statistics:
+      debates_count: Debatten

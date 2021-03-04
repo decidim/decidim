@@ -156,3 +156,5 @@ cs:
             few: "%{count} sortitions"
             many: "%{count} sortitions"
             other: "%{count} losování"
+    statistics:
+      sortitions_count: Losování
