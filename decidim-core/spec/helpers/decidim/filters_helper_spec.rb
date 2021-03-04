@@ -78,29 +78,43 @@ module Decidim
     end
 
     describe "#filter_cache_hash" do
-      it "generate a unique hash" do
-        old_hash = helper.filter_cache_hash(filter)
+      let(:type) { :test }
 
-        expect(helper.filter_cache_hash(filter)).to eq(old_hash)
+      it "generate a unique hash" do
+        old_hash = helper.filter_cache_hash(filter, type)
+
+        expect(helper.filter_cache_hash(filter, type)).to eq(old_hash)
+      end
+
+      it "stores filter type" do
+        expect(helper.filter_cache_hash(filter, type)).to start_with("decidim/proposals/filters/test/en")
+      end
+
+      context "when no type is provided" do
+        let(:type) { nil }
+
+        it "doesn't stores filter type" do
+          expect(helper.filter_cache_hash(filter)).to start_with("decidim/proposals/filters/en")
+        end
       end
 
       context "when current locale changes" do
         let(:alt_locale) { :ca }
 
         it "generate a different hash" do
-          old_hash = helper.filter_cache_hash(filter)
+          old_hash = helper.filter_cache_hash(filter, type)
           allow(I18n).to receive(:locale).and_return(alt_locale)
 
-          expect(helper.filter_cache_hash(filter)).not_to eq(old_hash)
+          expect(helper.filter_cache_hash(filter, type)).not_to eq(old_hash)
         end
       end
 
       context "when filter is different" do
         it "generate a different hash" do
-          old_hash = helper.filter_cache_hash(filter)
+          old_hash = helper.filter_cache_hash(filter, type)
           filter.test_attribute = "dummy-filter"
 
-          expect(helper.filter_cache_hash(filter)).not_to eq(old_hash)
+          expect(helper.filter_cache_hash(filter, type)).not_to eq(old_hash)
         end
       end
     end
