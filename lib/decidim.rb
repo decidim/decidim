@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/engine"
+require "decidim/webpacker_helper"
 require "decidim/core"
 require "decidim/system"
 require "decidim/admin"
@@ -26,7 +28,7 @@ require "decidim/blogs"
 
 # Module declaration.
 module Decidim
-  # TODO-blat: move to lib/decidim/webpacker.rb ??
+  # Declare a Webpacker instance for Decidim
   ROOT_PATH = Pathname.new(File.join(__dir__, ".."))
 
   class << self
