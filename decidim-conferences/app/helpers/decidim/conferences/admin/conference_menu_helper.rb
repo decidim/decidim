@@ -4,22 +4,16 @@ module Decidim
   module Conferences
     module Admin
       module ConferenceMenuHelper
-        include Decidim::Admin::SidebarMenuHelper
-
         def admin_conferences_components_menu
-          @admin_conferences_components_menu ||= simple_menu(:admin_conferences_components_menu)
+          @admin_conferences_components_menu ||= simple_menu(target_menu: :admin_conferences_components_menu, options: { container_options: { id: "components-list" } })
         end
 
         def conferences_admin_registrations_menu
-          @conferences_admin_registrations_menu ||= simple_menu(:conferences_admin_registrations_menu)
+          @conferences_admin_registrations_menu ||= simple_menu(target_menu: :conferences_admin_registrations_menu)
         end
 
         def conferences_admin_attachments_menu
-          @conferences_admin_attachments_menu ||= simple_menu(:conferences_admin_attachments_menu)
-        end
-
-        def conferences_admin_menu
-          @conferences_admin_menu ||= sidebar_menu(:conferences_admin_menu)
+          @conferences_admin_attachments_menu ||= simple_menu(target_menu: :conferences_admin_attachments_menu)
         end
       end
     end

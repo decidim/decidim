@@ -15,24 +15,12 @@ module Decidim
         )
       end
 
-      def global_moderation_menu
-        @global_moderation_menu ||= sidebar_menu(:admin_global_moderation_menu)
-      end
-
-      def organization_settings_menu
-        @organization_settings_menu ||= sidebar_menu(:admin_settings_menu)
-      end
-
       def workflows_menu
-        @workflows_menu ||= ::Decidim::Admin::SimpleMenuPresenter.new(:workflows_menu, self, active_class: "is-active")
+        @workflows_menu ||= simple_menu(target_menu: :workflows_menu)
       end
 
       def impersonate_menu
-        @impersonate_menu ||= ::Decidim::Admin::SimpleMenuPresenter.new(:impersonate_menu, self, active_class: "is-active")
-      end
-
-      def admin_user_menu
-        @admin_user_menu ||= sidebar_menu(:admin_user_menu)
+        @impersonate_menu ||= simple_menu(target_menu: :impersonate_menu)
       end
     end
   end

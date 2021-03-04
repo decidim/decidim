@@ -1,5 +1,5 @@
 <% content_for :sidebar_menu_nav do %>
-  <%= decidim_initiative_menu.render do
+  <%= sidebar_menu(:decidim_initiative_menu).render do
     public_page_link decidim_initiatives.initiative_path(current_participatory_space)
   end %>
 <% end %>

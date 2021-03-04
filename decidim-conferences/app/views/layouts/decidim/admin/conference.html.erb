@@ -1,5 +1,5 @@
 <% content_for :sidebar_menu_nav do %>
-  <%= conferences_admin_menu.render do
+  <%= sidebar_menu(:conferences_admin_menu).render do
     public_page_link decidim_conferences.conference_path(current_participatory_space)
   end %>
 <% end %>

@@ -1,6 +1,6 @@
 <% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 <% content_for :sidebar_menu_nav do %>
-  <%= participatory_process_menu.render do
+  <%= sidebar_menu(:admin_participatory_process_menu).render do
     public_page_link decidim_participatory_processes.participatory_process_path(current_participatory_space)
   end %>
 <% end %>
