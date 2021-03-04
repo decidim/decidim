@@ -7,7 +7,7 @@ on:
       - "*-stable"
   pull_request:
     branches-ignore:
-      - "chore/l10n*"
+      - "chore/l10n**"
 
 env:
   CI: "true"
