@@ -202,6 +202,18 @@ module Decidim::Proposals
           end
         end
       end
+
+      context "when caching multiple proposals" do
+        let!(:proposals) { create_list(:proposal, 5, component: component, created_at: created_at, published_at: published_at) }
+
+        let(:cached_proposals) do
+          proposals.map { |proposal| cell("decidim/proposals/proposal_m", proposal).send(:cache_hash) }
+        end
+
+        it "returns differents hashes" do
+          expect(cached_proposals.uniq.length).to eq(5)
+        end
+      end
     end
   end
 end
