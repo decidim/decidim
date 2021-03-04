@@ -539,6 +539,8 @@ fi:
         title: Media ja linkit
     menu:
       conferences: Konferenssit
+    statistics:
+      conferences_count: Konferenssia
   devise:
     mailer:
       join_conference:
