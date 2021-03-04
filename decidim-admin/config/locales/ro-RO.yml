@@ -82,6 +82,7 @@ ro:
         tos_version: Termenii versiunii serviciului
         twitter_handler: Twitter handler
         user_groups_enabled: Activare grupuri
+        users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
         welcome_notification_body: Organismul de notificare de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
@@ -98,6 +99,7 @@ ro:
         organization: Organizație
         plural: Plural
       static_page:
+        allow_public_access: Permiteți accesul fără autentificare
         changed_notably: Au existat schimbări vizibile.
         content: Conținut
         organization: Organizație
@@ -138,10 +140,15 @@ ro:
     admin:
       actions:
         add: Adăugare
+        attachment:
+          new: Atașament nou
+        attachment_collection:
+          new: Colecție nouă de atașamente
         browse: Răsfoiţi
         category:
           new: Adaugă Categorie
         export: Exportă
+        import: Importă
         manage: Gestionează
         new: '%{name} nou'
         per_page: Pe pagină
