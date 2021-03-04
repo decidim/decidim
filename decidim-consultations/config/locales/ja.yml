@@ -311,10 +311,6 @@ ja:
           title: 議案とは何ですか?
     menu:
       consultations: 議案
-    pages:
-      home:
-        statistics:
-          consultations_count: 議案
     questions:
       next_button: 次の質問
       previous_button: 前の質問

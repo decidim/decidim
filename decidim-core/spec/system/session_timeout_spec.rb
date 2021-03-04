@@ -10,8 +10,8 @@ describe "Session timeout", type: :system do
 
   context "when session is about to timeout" do
     before do
-      Decidim.expire_session_after = 2.minutes
-      Decidim.session_timeout_interval = 1.second
+      allow(Decidim.config).to receive(:expire_session_after).and_return(2.minutes)
+      allow(Decidim.config).to receive(:session_timeout_interval).and_return(1.second)
       switch_to_host(organization.host)
       login_as current_user, scope: :user
     end

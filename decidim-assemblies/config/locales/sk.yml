@@ -143,8 +143,6 @@ sk:
             assemblies_button_title: Odkaz na stránku Zhromaždenia, zobrazujúcu všetky zhromaždenia
       show:
         social_networks_title: Zdieľať toto zhromaždenie na
-      statistics:
-        posts_count: Príspevky
     conferences:
       pages:
         home:

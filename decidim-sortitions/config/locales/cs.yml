@@ -33,13 +33,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože sledujete "%{participatory_space_title}". Můžete sledování odhlásit na předchozím odkazu.
           email_subject: Nové losování bylo přidáno k %{participatory_space_title}
           notification_title: Losování <a href="%{resource_path}">%{resource_title}</a> bylo přidáno k %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Losování
-    participatory_processes:
-      statistics:
-        sortitions_count: Losování
     sortitions:
       admin:
         actions:
@@ -163,3 +156,5 @@ cs:
             few: "%{count} sortitions"
             many: "%{count} sortitions"
             other: "%{count} losování"
+    statistics:
+      sortitions_count: Losování

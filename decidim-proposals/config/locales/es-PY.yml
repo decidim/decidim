@@ -27,6 +27,9 @@ es-PY:
         user_group_id: Crear propuesta como
       proposal_answer:
         answer: Respuesta
+        cost: Coste
+        cost_report: Informe de coste
+        execution_period: Período de ejecución
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
         origin_component_id: Componente para copiar las propuestas de
@@ -137,6 +140,10 @@ es-PY:
             participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             proposal_answering_enabled: Respuesta a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
+            proposal_edit_time: Edición de propuestas
+            proposal_edit_time_choices:
+              infinite: Permitir editar propuestas por una cantidad infinita de tiempo
+              limited: Permitir la edición de propuestas dentro de un plazo específico
             proposal_length: Longitud máxima del cuerpo de la propuesta
             proposal_limit: Límite de propuestas por usuario
             proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
@@ -376,7 +383,9 @@ es-PY:
           new_import:
             accepted_mime_types:
               md: Reducción
+              odt: ODT
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
+            document_legend: 'Añade un documento menor de 2MB, cada sección hasta 3 niveles de profundidad serán analizados en propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: AÑADIR DOCUMENTO
             upload_document: Subir documento
           publish:
@@ -417,6 +426,7 @@ es-PY:
           form:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta viene de una reunión.
+            delete_attachment: Eliminar archivo adjunto
             select_a_category: Seleccione una categoría
             select_a_meeting: Seleccione una reunion
           index:
@@ -491,6 +501,7 @@ es-PY:
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
             select_states: Verifique los estados de las propuestas para importar
+            title: Importar propuestas
         proposals_merges:
           create:
             invalid: Se produjo un error al fusionar las propuestas seleccionadas.
@@ -643,6 +654,9 @@ es-PY:
           info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_header:
           title: Crea tu borrador colaborativo
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propuestas
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
@@ -695,6 +709,8 @@ es-PY:
           proposals_count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
+        dynamic_map_instructions:
+          instructions: <h3>Puedes mover el punto en el mapa. </h3><p>No olvides hacer clic en el botón "Actualizar posición" antes de publicar tu propuesta.</p>
         edit:
           add_documents: Documentos
           add_images: Archivo
@@ -755,13 +771,18 @@ es-PY:
             document_index: Índice de documentos
           view_index:
             see_index: Ver índice
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, EN 46112
         preview:
+          announcement_body: Tu propuesta ha sido guardada como borrador. Debe ser publicada para que aparezca en el sitio.
+          announcement_title: Tu propuesta aún no ha sido publicada
           modify: Modificar la propuesta
           proposal_edit_before_minutes:
             one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la misma. Una vez que pase este tiempo, ya no podrás editarla.
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
+          update_position: Actualizar posición
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver propuesta

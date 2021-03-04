@@ -155,8 +155,5 @@ sk:
       destroy:
         error: Vyskytol sa problém pri zrušení Vášho hlasu
         success: Váš hlas bol úspešne zrušený
-    resource_links:
-      included_proposals:
-        project_proposal: 'Návrhy, zahrnuté v rámci tohto projektu:'
   index:
     confirmed_orders_count: Počet hlasov

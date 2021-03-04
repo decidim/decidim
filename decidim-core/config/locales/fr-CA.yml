@@ -465,6 +465,8 @@ fr-CA:
           register: Créer un compte
           sign_in_disabled: Vous pouvez accéder avec un compte externe
           sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
+        user:
+          timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
       shared:
         newsletter_modal:
           buttons:
@@ -652,6 +654,7 @@ fr-CA:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
+        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -1061,24 +1064,7 @@ fr-CA:
         metrics:
           headline: Participation en chiffres
         statistics:
-          answers_count: Enquêtes terminées
-          assemblies_count: Assemblées
-          comments_count: Commentaires
-          conferences_count: Conférences
-          debates_count: Débats
-          endorsements_count: Soutiens
           headline: État actuel de %{organization}
-          meetings_count: Rencontres
-          orders_count: Votes
-          pages_count: Pages
-          processes_count: Processus participatifs
-          projects_count: Projets
-          proposals_accepted: Propositions acceptées
-          proposals_count: Propositions
-          results_count: Réalisations
-          surveys_count: Enquêtes
-          users_count: Participants
-          votes_count: Votes
         sub_hero:
           register: S'inscrire
       index:
@@ -1270,6 +1256,8 @@ fr-CA:
         close_window: Fermer la fenêtre
         share: Partager
         share_link: Lien de partage
+    statistics:
+      comments_count: Commentaires
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour la portée : %{resource}'
@@ -1572,6 +1560,11 @@ fr-CA:
         instagram: "%{organization} sur Instagram"
         twitter: "%{organization} sur Twitter"
         youtube: "%{organization} sur YouTube"
+      timeout_modal:
+        body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté pour votre propre sécurité.
+        continue_session: Continuer la session
+        sign_out: Se déconnecter
+        title: Voulez-vous poursuivre votre session ?
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs

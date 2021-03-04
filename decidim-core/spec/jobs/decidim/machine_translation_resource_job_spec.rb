@@ -41,7 +41,36 @@ module Decidim
       end
     end
 
-    describe "when default loacle of translatable field isn't changed" do
+    describe "when the content is submitted in other language than default" do
+      let(:current_locale) { "es" }
+
+      before do
+        updated_title = { es: "título actualizado" }
+        process.update(title: updated_title)
+        clear_enqueued_jobs
+      end
+
+      it "doesn't enqueue the machine translation fields job" do
+        Decidim::MachineTranslationResourceJob.perform_now(
+          process,
+          process.translatable_previous_changes,
+          current_locale
+        )
+        expect(Decidim::MachineTranslationFieldsJob)
+          .to have_been_enqueued
+          .on_queue("default")
+          .exactly(2).times
+          .with(
+            process,
+            "title",
+            "título actualizado",
+            kind_of(String),
+            current_locale
+          )
+      end
+    end
+
+    describe "when default locale of translatable field isn't changed" do
       before do
         updated_title = { en: "New Title", es: "título actualizado" }
         process.update(title: updated_title)

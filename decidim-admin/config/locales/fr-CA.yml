@@ -33,6 +33,7 @@ fr-CA:
         subject: Objet
       organization:
         alert_color: Alerte
+        available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
         comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
         cta_button_path: Chemin du bouton d'action
@@ -43,6 +44,8 @@ fr-CA:
         enable_omnipresent_banner: Montrer une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
+        force_authentication: Forcer l'authentification
+        force_users_to_authenticate_before_access_organization: Forcer les utilisateurs à s'authentifier avant d'accéder à l'organisation
         from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
@@ -55,6 +58,7 @@ fr-CA:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
+        host: Host
         instagram_handler: Gestionnaire Instagram
         logo: Logo
         machine_translation_display_priority: Priorité de l'affichage de la traduction automatique
@@ -67,16 +71,21 @@ fr-CA:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
+        organization_admin_email: E-mail de l'administrateur de l'organisation
+        organization_admin_name: Nom de l'administrateur de l'organisation
+        organization_locales: Langues de l'organisation
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
         secondary_color: Secondaire
+        secondary_hosts: Secondary hosts
         send_welcome_notification: Envoyer un mail de bienvenue
         success_color: Succès
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
+        users_registration_mode: Mode d'inscription des utilisateurs
         warning_color: Attention
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
@@ -544,11 +553,14 @@ fr-CA:
       moderated_users:
         index:
           actions:
+            block: Bloquer l'utilisateur
             title: Actions
+            unblock: Débloquer l'utilisateur
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
           reason: Raison du signalement
+          reports: Nombre de signalements
           title: Liste des utilisateurs signalés
         report:
           reasons:
@@ -557,6 +569,7 @@ fr-CA:
             spam: Spam
         tabs:
           blocked: Bloqué
+          unblocked: Non bloqué
       moderations:
         index:
           title: Modérations

@@ -379,22 +379,6 @@ it:
         social_networks: Social Networks
         social_networks_title: Condividi questa assemblea su
         target: Chi partecipa
-      statistics:
-        answers_count: risposte
-        assemblies_count: Assemblee
-        comments_count: Commenti
-        debates_count: Discussioni
-        endorsements_count: Mi piace
-        meetings_count: Riunioni
-        orders_count: Supporti
-        pages_count: Pagine
-        posts_count: Messaggi
-        projects_count: Progetti
-        proposals_count: Proposte
-        results_count: Risultati
-        surveys_count: Sondaggi
-        users_count: Partecipanti
-        votes_count: Voti
     assembly_members:
       assembly_member:
         designated_on: Designato su

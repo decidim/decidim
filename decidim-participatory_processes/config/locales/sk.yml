@@ -296,6 +296,9 @@ sk:
         object: participatívne procesy
         title: Participatívne procesy
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Štatistiky
       show:
         title: Skupiny participatívnych procesov
     participatory_process_steps:
@@ -396,25 +399,6 @@ sk:
         start_date: Dátum začatia
         target: Kto sa zúčastňuje
         unspecified: Nešpecifikované
-      statistics:
-        answers_count: Odpovede
-        comments_count: Komentáre
-        debates_count: Debaty
-        endorsements_count: Schválenie
-        followers_count: Sledujúci
-        headline: Štatistiky
-        meetings_count: Stretnutie
-        no_stats: Zatiaľ nie sú žiadne štatistiky.
-        orders_count: Hlasy
-        pages_count: Stránky
-        participants_count: Účastníci
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledok
-        supports_count: Hlasy
-        surveys_count: Prieskumy
-        users_count: Účastníci
   layouts:
     decidim:
       participatory_process_groups:

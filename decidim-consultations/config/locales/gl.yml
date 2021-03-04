@@ -249,10 +249,6 @@ gl:
           title: Que son as consultas?
     menu:
       consultations: Consultas
-    pages:
-      home:
-        statistics:
-          consultations_count: Consultas
     questions:
       results:
         title: Resultados

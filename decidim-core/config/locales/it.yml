@@ -1060,24 +1060,7 @@ it:
         metrics:
           headline: Partecipazione in cifre
         statistics:
-          answers_count: Questionari completati
-          assemblies_count: Assemblee
-          comments_count: Commenti
-          conferences_count: conferenze
-          debates_count: Dibattiti
-          endorsements_count: Mi piace
           headline: Statistiche su %{organization}
-          meetings_count: Incontri
-          orders_count: Voti
-          pages_count: Pagine
-          processes_count: Processi
-          projects_count: progetti
-          proposals_accepted: Proposte accettate
-          proposals_count: proposte
-          results_count: risultati
-          surveys_count: Questionari
-          users_count: Partecipanti
-          votes_count: Voti
         sub_hero:
           register: Registrati
       index:
@@ -1269,6 +1252,8 @@ it:
         close_window: Chiudi questa finestra
         share: Condividi
         share_link: Condividi link
+    statistics:
+      comments_count: Commenti
     tags:
       filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
       filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'

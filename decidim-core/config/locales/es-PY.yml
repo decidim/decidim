@@ -35,6 +35,7 @@ es-PY:
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Promovido a administrador de grupo
       decidim/removed_from_group: Eliminado del grupo
+      decidim/resource_endorsed_event: Adhesión a recurso realizada
   activerecord:
     attributes:
       decidim/user:
@@ -83,6 +84,7 @@ es-PY:
         file_no_exists: El archivo no existe
         notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
       delete:
+        alert: Esta acción no se puede deshacer. Si eliminas tu cuenta no podrás iniciar sesión con tus credenciales. La eliminación de tu cuenta resultará en la anonimización de tus contribuciones. Aún podrás crear una nueva cuenta, pero estas contribuciones no se asociarán a ella.
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
@@ -157,6 +159,8 @@ es-PY:
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
         verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
+      user_moderation:
+        unreport: "%{user_name} ha deshecho el reporte %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
     alert:
@@ -425,6 +429,7 @@ es-PY:
         ready: Listo
       show:
         download_data: Descargar los datos
+        download_data_description: Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>. Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicitar datos
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
@@ -434,6 +439,7 @@ es-PY:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
+          nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -442,6 +448,7 @@ es-PY:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
+          nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
@@ -458,6 +465,8 @@ es-PY:
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: El registro está deshabilitado, puede usar un usuario existente para acceder
+        user:
+          timed_out: Has estado sin actividad durante demasiado tiempo y se te ha cerrado automáticamente la sesión del servicio. Si quieres seguir utilizando el servicio, vuelve a iniciar sesión.
       shared:
         newsletter_modal:
           buttons:
@@ -629,6 +638,14 @@ es-PY:
           notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
+          email_outro: Has recibido esta notificación porque eres un autora del contenido eliminado.
+          email_subject: Tu %{resource_type} ha sido eliminado
+          notification_title: |-
+            Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a una propuesta que puede ser interesante para ti, compruébalo y contribuye:'
         email_outro: Has recibido esta notificación porque estás siguiendo a %{endorser_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -642,6 +659,7 @@ es-PY:
           notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       data_portability_export:
+        click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
         download: Descargar
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
@@ -674,6 +692,7 @@ es-PY:
       create:
         button: Seguir
         error: Ha habido un error siguiendo este recurso.
+        participatory_space: Siguiendo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Dejar de seguir
         error: Ha habido un error dejando de seguir este recurso.
@@ -690,6 +709,7 @@ es-PY:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
+          message_2: Para las imágenes, utilizar imágenes preferiblemente apaisadas, el servicio recorta la imagen. Para los archivos CSV, el separador entre columnas debe ser una coma (",")
         image:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen de paisaje que no tenga ningún texto.
@@ -931,6 +951,7 @@ es-PY:
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
+          not_allowed: Esta participante no acepta mensajes directos.
           title: Conversacion con %{usernames}
         start:
           send: Enviar
@@ -938,6 +959,8 @@ es-PY:
         update:
           error: El mensaje no fue enviado debido a un error
     metrics:
+      download:
+        csv: Descargar datos (CSV)
       followers:
         description: Número de usuarios que siguen este espacio de participación.
         object: seguidores
@@ -999,8 +1022,10 @@ es-PY:
       no_notifications: No hay notificaciones aún.
     notifications_settings:
       show:
+        administrators: Administradoras
         allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
         direct_messages: Recibir mensajes directos de cualquiera
+        email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo por moderación.
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
         everything_followed: Todo lo que sigo
         newsletter_notifications: Quiero recibir boletines informativos
@@ -1044,24 +1069,7 @@ es-PY:
         metrics:
           headline: Participación en cifras
         statistics:
-          answers_count: Encuestas completadas
-          assemblies_count: Asambleas
-          comments_count: Comentarios
-          conferences_count: Conferencias
-          debates_count: Debates
-          endorsements_count: Adhesiones
           headline: Estado actual de %{organization}
-          meetings_count: Encuentros
-          orders_count: Votos
-          pages_count: Páginas
-          processes_count: Procesos
-          projects_count: Proyectos
-          proposals_accepted: Propuestas aceptadas
-          proposals_count: Propuestas
-          results_count: Resultados
-          surveys_count: Encuestas
-          users_count: Participantes
-          votes_count: Votos
         sub_hero:
           register: Regístrate
       index:
@@ -1110,6 +1118,7 @@ es-PY:
         groups: Los grupos
         members: Miembros
         officialized: Participante oficial
+        send_private_message: Envia mensaje privado
         timeline: Línea de tiempo
         view_full_profile: Ver todo el perfil
       sidebar:
@@ -1137,12 +1146,15 @@ es-PY:
       report:
         authors: Autoras
         content: Contenido reportado
+        content_original_language: Idioma del contenido original
         date: Reportado el
         details: Detalles
         hello: Hola %{name},
+        id: ID
         participatory_space: Espacio de participación
         reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> ha sido reportado.</p>
+        see_report: Ver Reporte
         subject: Un contenido ha sido denunciado
     reports:
       create:
@@ -1215,6 +1227,15 @@ es-PY:
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
+      flag_user_modal:
+        already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
+        close: Cerrar
+        description: '¿Qué es inapropiado de la usuaria?'
+        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
+        offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
+        report: Reporte
+        spam: Contiene clickbait, publicidad, estafas o robots de guión.
+        title: Reportar usuaria inapropiada
       floating_help:
         close: Cerrar la ayuda
         help: Ayuda
@@ -1240,6 +1261,8 @@ es-PY:
         close_window: Cerrar ventana
         share: Compartir
         share_link: Compartir enlace
+    statistics:
+      comments_count: Comentarios
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
@@ -1290,6 +1313,13 @@ es-PY:
       update:
         error: Hubo un error al actualizar tus intereses.
         success: Sus intereses se han actualizado con éxito.
+    user_report_mailer:
+      notify:
+        body_1: La usuaria %{user} ha sido reportada por %{token}
+        body_2: 'Motivo: %{reason}'
+        greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola %{admin},
+        subject: Una nueva usuaria ha sido reportada en %{organization_name}
     version:
       show:
         back_to_resource: Volver atrás
@@ -1535,6 +1565,11 @@ es-PY:
         instagram: "%{organization} en Instagram"
         twitter: "%{organization} en Twitter"
         youtube: "%{organization} en YouTube"
+      timeout_modal:
+        body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
+        continue_session: Continuar sesión
+        sign_out: Cerrar sesión
+        title: '¿Quieres continuar con la sesión?'
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración

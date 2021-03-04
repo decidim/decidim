@@ -347,21 +347,6 @@ ar:
         scope: نطاق
         social_networks: شبكات التواصل الاجتماعي
         target: من يشارك
-      statistics:
-        answers_count: أجوبة
-        assemblies_count: الجمعيات
-        comments_count: تعليقات
-        debates_count: مناقشات
-        endorsements_count: موافقات
-        meetings_count: اجتماعات
-        orders_count: تأييدات
-        pages_count: صفحات
-        projects_count: مشاريع
-        proposals_count: اقتراحات
-        results_count: نتائج
-        surveys_count: دراسات استقصائية
-        users_count: مشارك
-        votes_count: الدعم
     assembly_members:
       assembly_member:
         designated_on: المعينة على

@@ -254,6 +254,9 @@ uk:
     menu:
       processes: Рухи
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Діяльність
       show:
         title: Сукупності рухів співучасті
     participatory_process_steps:
@@ -331,23 +334,6 @@ uk:
         start_date: Дата початку
         target: Хто бере участь
         unspecified: Не вказано
-      statistics:
-        answers_count: Відповідей
-        comments_count: Коментарів
-        debates_count: Обговорень
-        endorsements_count: Проявів підтримки
-        headline: Діяльність
-        meetings_count: Зустрічей
-        orders_count: Голосів
-        pages_count: Сторінок
-        participants_count: Учасників
-        processes_count: Рухів
-        projects_count: Проектів
-        proposals_count: Пропозицій
-        results_count: Підсумків
-        supports_count: Голосів
-        surveys_count: Опитувань
-        users_count: Учасників
   layouts:
     decidim:
       participatory_process_groups:

@@ -35,12 +35,13 @@ module Decidim
         @locales_to_be_translated += pending_locales(translated_locales) if @locales_to_be_translated.blank?
 
         @locales_to_be_translated.each do |target_locale|
-          MachineTranslationFieldsJob.perform_later(
-            resource,
+          Decidim::MachineTranslationFieldsJob.perform_later(
+            @resource,
             field,
             resource_field_value(
               previous_changes,
-              field
+              field,
+              source_locale
             ),
             target_locale,
             source_locale
@@ -72,10 +73,13 @@ module Decidim
       @locales_to_be_translated.present?
     end
 
-    def resource_field_value(previous_changes, field)
+    def resource_field_value(previous_changes, field, source_locale)
       values = previous_changes[field]
       new_value = values.last
-      return new_value[default_locale(@resource)] if new_value.is_a?(Hash)
+      if new_value.is_a?(Hash)
+        locale = source_locale || default_locale(@resource)
+        return new_value[locale]
+      end
 
       new_value
     end

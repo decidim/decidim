@@ -266,6 +266,10 @@ es:
       conferences:
         conference_registration:
           confirm: "%{user_name} ha confirmado su inscripción a la jornada %{resource_name}"
+        partner:
+          create: "%{user_name} creó la colaboradora %{resource_name} en la jornada %{space_name}"
+          delete: "%{user_name} eliminó la colaboradora %{resource_name} de la jornada %{space_name}"
+          update: "%{user_name} actualizó la colaboradora %{resource_name} de la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
@@ -488,23 +492,6 @@ es:
         related_assemblies: Asambleas relacionadas
         related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
-      statistics:
-        answers_count: Respuestas
-        comments_count: Comentarios
-        conference_count: Jornades
-        debates_count: Debates
-        endorsements_count: Adhesiones
-        headline: Actividad
-        meetings_count: Encuentros
-        orders_count: Apoyos
-        pages_count: Páginas
-        posts_count: Publicaciones
-        projects_count: Proyectos
-        proposals_count: Propuestas
-        results_count: Resultados
-        surveys_count: Encuestas
-        users_count: Participantes
-        votes_count: Apoyos
     events:
       conferences:
         conference_registration_confirmed:

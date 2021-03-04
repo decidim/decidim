@@ -26,11 +26,14 @@ es-MX:
         published_at: Publicado en
         weight: Peso
       id: ID
+      import:
+        user_group_id: Importar como
       newsletter:
         body: Cuerpo
         subject: Asunto
       organization:
         alert_color: Alerta
+        available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
         comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
         cta_button_path: Ruta del botón de acción principal
@@ -41,6 +44,8 @@ es-MX:
         enable_omnipresent_banner: Mostrar banner omnipresente
         facebook_handler: Nombre en Facebook
         favicon: Icono
+        force_authentication: Forzar autenticación
+        force_users_to_authenticate_before_access_organization: Forzar a las usuarias a autenticarse antes de acceder a la organización
         from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
@@ -53,6 +58,7 @@ es-MX:
         highlighted_content_banner_image: Imagen
         highlighted_content_banner_short_description: Descripción breve
         highlighted_content_banner_title: Título
+        host: Host
         instagram_handler: Nombre de Instagram
         logo: Logo
         machine_translation_display_priority: Prioridad de la traducción automática
@@ -65,16 +71,21 @@ es-MX:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        organization_admin_email: Email del administrador de la organización
+        organization_admin_name: Nombre de administrador de la organización
+        organization_locales: Idiomas de la organización
         primary_color: Primario
         reference_prefix: Prefijo de la referencia
         rich_text_editor_in_public_views: Habilitar editor de texto enriquecido para las participantes
         secondary_color: Secundario
+        secondary_hosts: Hosts secundarios
         send_welcome_notification: Enviar notificación de bienvenida
         success_color: Éxito
         time_zone: Zona Horaria
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
+        users_registration_mode: Modo de registro de usuarios
         warning_color: Advertencia
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
@@ -90,7 +101,10 @@ es-MX:
         name: Nombre
         organization: Organización
         plural: Plural
+      settings:
+        scope_id: Ámbito
       static_page:
+        allow_public_access: Permitir el acceso sin autenticación
         changed_notably: Ha habido cambios notables.
         content: Contenido
         organization: Organización
@@ -113,6 +127,10 @@ es-MX:
               allowed_file_content_types: Archivo de imagen no válido
             official_img_header:
               allowed_file_content_types: Archivo de imagen no válido
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tipo de mime inválido
   activerecord:
     attributes:
       decidim/static_page:
@@ -131,20 +149,34 @@ es-MX:
     admin:
       actions:
         add: Añadir
+        attachment:
+          new: Nuevo archivo adjunto
+        attachment_collection:
+          new: Nueva colección de archivos adjuntos
         browse: Explorar
+        category:
+          new: Nueva categoría
         export: Exportar
+        import: Importar
         manage: Gestionar
         new: Nuevo %{name}
+        newsletter:
+          new: Nuevo boletín
+        participatory_space_private_user:
+          new: Nuevo usuario privado del espacio participativo
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
         share: Compartir
+        user:
+          new: Nuevo ususario
         verify: Verificar
       admin_terms_of_use:
         accept:
           error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
+          accept: Estoy de acuerdo con los siguientes términos
           are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
@@ -284,6 +316,21 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar este componente.
           success: El componente se actualizó con éxito.
+      conflicts:
+        attempts: Intentos
+        'false': 'No'
+        managed_user_name: Usuario gestionado
+        solved: Resuelto
+        title: Conflictos de verificaciones
+        transfer:
+          email: Correo electrónico
+          error: Hubo un problema al transferir el participante actual a un participante gestionado.
+          name: Nombre
+          reason: Motivo
+          success: La transferencia actual se ha completado correctamente.
+          title: Transferir
+        'true': 'Sí'
+        user_name: Usuaria
       dashboard:
         show:
           view_more_logs: Ver más registros
@@ -327,6 +374,12 @@ es-MX:
           title_cont: Buscar %{collection} por título.
         state_eq:
           label: Estado
+      forms:
+        file_help:
+          import:
+            explanation: 'Instrucciones para el archivo:'
+            message_1: Los archivos CSV, JSON y Excel (.xls) están soportados
+            message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
         form:
@@ -365,6 +418,24 @@ es-MX:
           impersonate_existing_managed_user: Impersonar al usuario administrado "%{name}"
           impersonate_existing_user: Impersonar usuario "%{name}"
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
+      imports:
+        creators:
+          proposalcreator: Creador de propuesta
+        error: Se ha producido un error durante la importación
+        help:
+          proposalcreator: El archivo debe incluir los nombres de columna title/en y body/en (u otro idioma de tu preferencia, por ejemplo title/es y body/es). También se admiten las columnas scope/id y category/id.
+        import_from_file: Importar desde un archivo
+        invalid_lines: Se ha encontrado un error en el número de recurso %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Volver
+          file_legend: Añadir un archivo de importación que será procesado.
+          import: Importar
+        notice: "%{number} %{resource_name} importado correctamente"
       logs:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
@@ -388,8 +459,10 @@ es-MX:
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
+        moderation: Moderaciones globales
         newsletters: Boletines
         participants: Participantes
+        reported_users: Usuarias reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         settings: Configuración
@@ -477,6 +550,26 @@ es-MX:
             phone: Teléfono
             state: Estado
             users_count: Número de usuarios
+      moderated_users:
+        index:
+          actions:
+            block: Bloquear usuaria
+            title: Acciones
+            unblock: Desbloquear usuaria
+            unreport: Deshacer denuncia
+          name: Nombre
+          nickname: Alias
+          reason: Motivo
+          reports: Cantidad de veces reportado
+          title: Listando usuarios reportados
+        report:
+          reasons:
+            does_not_belong: No pertenece
+            offensive: Ofensivo
+            spam: Contenido no deseado
+        tabs:
+          blocked: Bloqueado
+          unblocked: No bloqueado
       moderations:
         index:
           title: Moderaciones
@@ -583,6 +676,7 @@ es-MX:
           officialize: Oficializar
           officialized: Oficializado
           reofficialize: Re-oficializar
+          reports: Informes
           show_email: Mostrar la dirección de correo electrónico
           status: Estado
           unblock: Desbloquear usuaria
@@ -613,6 +707,7 @@ es-MX:
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: Se produjo un error al actualizar esta organización.
@@ -647,6 +742,7 @@ es-MX:
           error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
+          import_via_csv: Importar vía csv
           title: Usuario privado de espacio participativo.
         new:
           create: Crear
@@ -769,6 +865,7 @@ es-MX:
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
         metrics: Métricas
+        panel: Administradora
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
@@ -832,6 +929,16 @@ es-MX:
       errors:
         impersonate_user:
           reason: Debe proporcionar una razón para impersonar a un usuario no administrado
+    metrics:
+      blocked_users:
+        object: usuarias bloqueadas
+        title: Usuarias bloqueadas
+      reported_users:
+        object: usuarias reportadas
+        title: Usuarias reportadas
+      user_reports:
+        object: reportes de usuaria
+        title: Reportes de usuaria
     moderations:
       actions:
         expand: Expandir
@@ -857,6 +964,7 @@ es-MX:
           fields:
             created_at: Fecha de creación
             hidden_at: Fecha de ocultación
+            participatory_space: Espacio participativo
             report_count: Recuento
             reportable_id: Id
             reportable_type: Tipo
@@ -874,6 +982,8 @@ es-MX:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderaciones globales
         newsletters:
           title: Boletines
         settings:

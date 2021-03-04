@@ -441,23 +441,6 @@ ro:
         related_assemblies: Asambluri asemănătoare
         related_consultations: Consultări conexe
         related_participatory_processes: Procese participative conexe
-      statistics:
-        answers_count: Răspunsuri
-        comments_count: Comentarii
-        conference_count: Conferințe
-        debates_count: Dezbateri
-        endorsements_count: Susținători
-        headline: Activitate
-        meetings_count: Întâlniri
-        orders_count: Suportă
-        pages_count: Pagini
-        posts_count: Mesaje
-        projects_count: Proiecte
-        proposals_count: Propuneri
-        results_count: Rezultate
-        surveys_count: Chestionare
-        users_count: Participanți
-        votes_count: Suportă
     events:
       conferences:
         conference_registration_confirmed:

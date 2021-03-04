@@ -301,6 +301,9 @@ lv:
       show:
         related_assemblies: Saistītās asamblejas
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Statistika
       show:
         title: Līdzdalības procesa grupas
     participatory_process_steps:
@@ -393,24 +396,6 @@ lv:
         start_date: Sākuma datums
         target: Kas piedalās
         unspecified: Nav norādīts
-      statistics:
-        answers_count: Atbildes
-        comments_count: Komentāri
-        endorsements_count: Atbalsts
-        followers_count: Sekotāji
-        headline: Statistika
-        meetings_count: Sanāksmes
-        no_stats: Pagaidām nav statistikas.
-        orders_count: Atbalsta
-        pages_count: Lapas
-        participants_count: Dalībnieki
-        processes_count: Procesi
-        projects_count: Projekti
-        proposals_count: Priekšlikumi
-        results_count: Rezultāti
-        supports_count: Atbalsta
-        surveys_count: Aptaujas
-        users_count: Dalībnieki
   layouts:
     decidim:
       participatory_process_groups:

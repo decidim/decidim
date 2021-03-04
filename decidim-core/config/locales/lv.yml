@@ -961,23 +961,7 @@ lv:
         metrics:
           headline: Rādītāji
         statistics:
-          answers_count: Pabeigtās aptaujas
-          assemblies_count: Asambleja
-          comments_count: Komentāri
-          conferences_count: Konferences
-          endorsements_count: Atbalsts
           headline: '%{organization} pašreizējais stāvoklis'
-          meetings_count: Sanāksmes
-          orders_count: Balsis
-          pages_count: Lapas
-          processes_count: Procesi
-          projects_count: Projekti
-          proposals_accepted: Pieņemtie priekšlikumi
-          proposals_count: Priekšlikumi
-          results_count: Rezultāti
-          surveys_count: Aptaujas
-          users_count: Dalībnieki
-          votes_count: Balsis
         sub_hero:
           register: Reģistrēties
       index:
@@ -1128,6 +1112,8 @@ lv:
         close_window: Aizvērt logu
         share: Kopīgot
         share_link: Kopīgot saiti
+    statistics:
+      comments_count: Komentāri
     user_activity:
       index:
         no_activities_warning: Šis dalībnieks vēl nav veicis nekādas aktivitātes

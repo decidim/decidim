@@ -43,47 +43,12 @@ edit_link(
   <div class="columns medium-8 mediumlarge-7">
     <div class="section">
       <p><%= decidim_sanitize(simple_format(translated_attribute(election.description)), strip_tags: true) %></p>
-      <% if election.ongoing? && already_voted? %>
-        <div class="callout warning">
-          <span class="callout-text"><%= callout_text %></span>
-        </div>
-      <% end %>
 
-      <div>
-        <% if election.ongoing? %>
-          <%= action_authorized_link_to :vote, new_election_vote_path(election), resource: election, class: "button" do %>
-            <%= vote_action_button %>
-          <% end %>
-        <% else %>
-          <span class="button disabled"><%= t(".action-button.vote") %></span>
-        <% end %>
-        <% if allowed_to? :preview, :election, election: election %>
-          <%= link_to new_election_vote_path(election), class: "button" do %>
-            <%= t(".preview") %>
-          <% end %>
-        <% end %>
-      </div>
-
-      <% if election.started? %>
-        <p class="text-sm">
-          <%= t(".verify.already-voted") %>
-          <%= link_to verify_election_vote_path(election) do %>
-            <%= t(".verify.verify-here") %>
-          <% end %>
-        </p>
-      <% else %>
-        <span class="disabled text-sm"><%= t(".verify.will-verify") %></span>
-      <% end %>
+      <%= cell("decidim/elections/election_vote_cta", election) %>
     </div>
   </div>
 </div>
 
-<!-- Election questions preview -->
-<% unless election.finished? %>
-  <%= render partial: "preview", election: election %>
-<% end %>
+<%= cell("decidim/elections/election_preview", election) %>
 
-<!-- Election results -->
-<% if election.results_published? %>
-  <%= render partial: "results", election: election %>
-<% end %>
+<%= cell("decidim/elections/election_results", election) %>

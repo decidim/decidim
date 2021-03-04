@@ -52,6 +52,7 @@ fr-CA:
         target: Participants
         title: Titre
         twitter: Twitter
+        weight: Rang d'affichage
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
@@ -380,28 +381,6 @@ fr-CA:
         social_networks: Réseaux sociaux
         social_networks_title: Partager cette assemblée sur
         target: Participants
-      statistics:
-        answers_count: Réponses
-        assemblies_count: Assemblées
-        comments_count: Commentaires
-        debates_count: Débats
-        endorsements_count: Soutiens
-        followers_count: Abonnés
-        headline: Statistiques
-        meetings_count: Rencontres
-        no_stats: Il n'y a pas encore de statistiques.
-        orders_count: Votes
-        pages_count: Pages
-        participants_count: Participants
-        posts_count: Publications
-        processes_count: Concertations
-        projects_count: Projets
-        proposals_count: Propositions
-        results_count: Réalisations
-        supports_count: Votes
-        surveys_count: Enquêtes
-        users_count: Participants
-        votes_count: Votes
     assembly_members:
       assembly_member:
         designated_on: Désigné le

@@ -168,6 +168,11 @@ describe "Admin manages answers", type: :system do
     let!(:question) { election.questions.first }
     let!(:answer) { question.answers.first }
 
+    it "shows the votes and selected columns" do
+      expect(page).to have_content("Votes")
+      expect(page).to have_content("Selected")
+    end
+
     it "can change selected status" do
       within find("tr", text: translated(answer.title)) do
         expect(page).to have_selector(".action-icon")
@@ -176,11 +181,15 @@ describe "Admin manages answers", type: :system do
 
     it "toggles selected status" do
       within find("tr", text: translated(answer.title)) do
+        expect(page).to have_content("Not selected")
+      end
+
+      within find("tr", text: translated(answer.title)) do
         first(".action-icon").click
       end
 
       within find("tr", text: translated(answer.title)) do
-        expect(page).to have_selector(".action-icon--success")
+        expect(page).to have_content("Selected")
       end
 
       within ".callout-wrapper" do

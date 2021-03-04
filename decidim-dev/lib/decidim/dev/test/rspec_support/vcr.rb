@@ -14,7 +14,7 @@ module BulletinBoardVcr
   def self.bulletin_board_server
     return "" unless defined?(Decidim::Elections)
 
-    Decidim::Elections.bulletin_board.server
+    Decidim::Elections.bulletin_board.bulletin_board_server
   end
 end
 

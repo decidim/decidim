@@ -492,23 +492,6 @@ fi-pl:
         related_assemblies: Liittyvät ryhmät
         related_consultations: Liittyvät kuulemiset
         related_participatory_processes: Liittyvät osallisuusprosessit
-      statistics:
-        answers_count: Vastauksia
-        comments_count: Kommentteja
-        conference_count: Konferensseja
-        debates_count: Keskusteluita
-        endorsements_count: Suosituksia
-        headline: Toiminta
-        meetings_count: Tapaamisia
-        orders_count: Ääniä
-        pages_count: Sivuja
-        posts_count: Viestejä
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
-        votes_count: Ääniä
     events:
       conferences:
         conference_registration_confirmed:
