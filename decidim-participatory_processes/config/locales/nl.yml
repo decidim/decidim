@@ -446,6 +446,8 @@ nl:
         start_date: Startdatum
         target: Wie neemt deel
         unspecified: Niet gespecificeerd
+    statistics:
+      processes_count: Inspraakprocessen
   layouts:
     decidim:
       participatory_process_groups:
