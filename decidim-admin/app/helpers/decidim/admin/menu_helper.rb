@@ -4,8 +4,6 @@ module Decidim
   module Admin
     # This module includes helpers to manage menus in admin layout
     module MenuHelper
-      include Decidim::Admin::SidebarMenuHelper
-
       # Public: Returns the main menu presenter object
       def main_menu
         @main_menu ||= ::Decidim::MenuPresenter.new(
@@ -15,12 +13,13 @@ module Decidim
         )
       end
 
-      def workflows_menu
-        @workflows_menu ||= simple_menu(target_menu: :workflows_menu)
+      def sidebar_menu(target_menu)
+        ::Decidim::Admin::SecondaryMenuPresenter.new(target_menu, self, active_class: "is-active")
       end
 
-      def impersonate_menu
-        @impersonate_menu ||= simple_menu(target_menu: :impersonate_menu)
+      def simple_menu(target_menu:, options: {})
+        options = { active_class: "is-active" }.merge(options)
+        ::Decidim::Admin::SimpleMenuPresenter.new(target_menu, self, options)
       end
     end
   end

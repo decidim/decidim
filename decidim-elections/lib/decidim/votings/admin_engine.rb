@@ -52,12 +52,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::Votings::Admin::VotingsAdminMenuHelper if respond_to?(:helper)
-        end
-      end
-
       initializer "decidim_votings.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.votings", scope: "decidim.votings.admin"),
@@ -114,12 +108,12 @@ module Decidim
                     decidim_admin_votings.components_path(current_participatory_space),
                     active: is_active_link?(decidim_admin_votings.components_path(current_participatory_space)),
                     if: allowed_to?(:read, :component, voting: current_participatory_space),
-                    submenu: :admin_votings_components_menu
+                    submenu: { target_menu: :admin_votings_components_menu, options: { container_options: { id: "components-list" } } }
 
           menu.item I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
                     "#",
                     if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
-                    submenu: :decidim_votings_attachments_menu
+                    submenu: { target_menu: :decidim_votings_attachments_menu }
 
           menu.item I18n.t("polling_stations", scope: "decidim.votings.admin.menu.votings_submenu"),
                     decidim_admin_votings.voting_polling_stations_path(current_participatory_space),

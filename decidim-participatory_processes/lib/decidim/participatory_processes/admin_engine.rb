@@ -93,12 +93,6 @@ module Decidim
         app.config.assets.precompile += %w(admin/decidim_participatory_processes_manifest.js)
       end
 
-      initializer "decidim_participatory_processes.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesMenuHelper if respond_to?(:helper)
-        end
-      end
-
       initializer "decidim_participatory_processes.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
@@ -176,7 +170,7 @@ module Decidim
                     decidim_admin_participatory_processes.components_path(current_participatory_space),
                     active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space)),
                     if: allowed_to?(:read, :component),
-                    submenu: :admin_participatory_process_components_menu
+                    submenu: { target_menu: :admin_participatory_process_components_menu, options: { container_options: { id: "components-list" } } }
 
           menu.item I18n.t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"),
                     decidim_admin_participatory_processes.categories_path(current_participatory_space),
@@ -186,7 +180,7 @@ module Decidim
           menu.item I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
                     "#",
                     if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
-                    submenu: :admin_participatory_process_attachments_menu
+                    submenu: { target_menu: :admin_participatory_process_attachments_menu }
 
           menu.item I18n.t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"),
                     decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space),

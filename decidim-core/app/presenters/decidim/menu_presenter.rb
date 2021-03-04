@@ -13,7 +13,6 @@ module Decidim
     def initialize(name, view, options = {})
       @name = name
       @view = view
-
       @options = options
     end
 

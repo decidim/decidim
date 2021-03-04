@@ -89,13 +89,6 @@ module Decidim
         app.config.assets.precompile += %w(admin/decidim_conferences_manifest.js)
       end
 
-      initializer "decidim_conferences.action_controller" do |app|
-        app.config.to_prepare do
-          ActiveSupport.on_load :action_controller do
-            helper Decidim::Conferences::Admin::ConferenceMenuHelper if respond_to?(:helper)
-          end
-        end
-      end
       initializer "decidim_conferences.admin_conferences_components_menu" do
         Decidim.menu :admin_conferences_components_menu do |menu|
           current_participatory_space.components.each do |component|
@@ -158,7 +151,7 @@ module Decidim
                     decidim_admin_conferences.components_path(current_participatory_space),
                     active: is_active_link?(decidim_admin_conferences.components_path(current_participatory_space)),
                     if: allowed_to?(:read, :component, conference: current_participatory_space),
-                    submenu: :admin_conferences_components_menu
+                    submenu: { target_menu: :admin_conferences_components_menu, options: { container_options: { id: "components-list" } } }
 
           menu.item I18n.t("categories", scope: "decidim.admin.menu.conferences_submenu"),
                     decidim_admin_conferences.categories_path(current_participatory_space),
@@ -171,7 +164,7 @@ module Decidim
                             is_active_link?(decidim_admin_conferences.conference_attachments_path(current_participatory_space)),
                     if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space) ||
                         allowed_to?(:read, :attachment, conference: current_participatory_space),
-                    submenu: :conferences_admin_attachments_menu
+                    submenu: { target_menu: :conferences_admin_attachments_menu }
           menu.item I18n.t("media_links", scope: "decidim.admin.menu.conferences_submenu"),
                     decidim_admin_conferences.conference_media_links_path(current_participatory_space),
                     if: allowed_to?(:read, :media_link, conference: current_participatory_space),
@@ -191,7 +184,7 @@ module Decidim
                     if: allowed_to?(:read, :conference_invite, conference: current_participatory_space) ||
                         allowed_to?(:read, :registration_type, conference: current_participatory_space) ||
                         allowed_to?(:read, :conference_registration, conference: current_participatory_space),
-                    submenu: :conferences_admin_registrations_menu
+                    submenu: { target_menu: :conferences_admin_registrations_menu }
           menu.item I18n.t("conference_admins", scope: "decidim.admin.menu.conferences_submenu"),
                     decidim_admin_conferences.conference_user_roles_path(current_participatory_space),
                     if: allowed_to?(:read, :conference_user_role, conference: current_participatory_space),

@@ -94,7 +94,7 @@ module Decidim
                     decidim_admin_consultations.consultation_questions_path(current_participatory_space.consultation),
                     position: 1.0,
                     active: is_active_link?(decidim_admin_consultations.consultation_questions_path(current_participatory_space.consultation)),
-                    submenu: :admin_questions_menu
+                    submenu: { target_menu: :admin_questions_menu }
 
           menu.item I18n.t("results", scope: "decidim.admin.menu.consultations_submenu"),
                     decidim_admin_consultations.results_consultation_path(current_participatory_space.consultation),
@@ -127,7 +127,7 @@ module Decidim
                     position: 1.0,
                     active: is_active_link?(decidim_admin_consultations.components_path(current_participatory_space)),
                     if: allowed_to?(:read, :component),
-                    submenu: :admin_consultation_components_menu
+                    submenu: { target_menu: :admin_consultation_components_menu, options: { container_options: { id: "components-list" } } }
 
           menu.item I18n.t(".categories", scope: "decidim.admin.menu.questions_submenu"),
                     decidim_admin_consultations.categories_path(current_participatory_space),
@@ -155,14 +155,6 @@ module Decidim
                               is_active_link?(decidim_admin_consultations.edit_component_path(current_participatory_space, component)) ||
                               is_active_link?(decidim_admin_consultations.edit_component_permissions_path(current_participatory_space, component)),
                       if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
-          end
-        end
-      end
-
-      initializer "decidim_consultations.action_controller" do |app|
-        app.config.to_prepare do
-          ActiveSupport.on_load :action_controller do
-            helper Decidim::Consultations::Admin::ConsultationMenuHelper if respond_to?(:helper)
           end
         end
       end

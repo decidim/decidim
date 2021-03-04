@@ -148,7 +148,7 @@ module Decidim
                     decidim_admin_assemblies.components_path(current_participatory_space),
                     active: is_active_link?(decidim_admin_assemblies.components_path(current_participatory_space)),
                     if: allowed_to?(:read, :component, assembly: current_participatory_space),
-                    submenu: :admin_assemblies_components_menu
+                    submenu: { target_menu: :admin_assemblies_components_menu, options: { container_options: { id: "components-list" } } }
 
           menu.item I18n.t("categories", scope: "decidim.admin.menu.assemblies_submenu"),
                     decidim_admin_assemblies.categories_path(current_participatory_space),
@@ -162,7 +162,7 @@ module Decidim
                             is_active_link?(decidim_admin_assemblies.assembly_attachments_path(current_participatory_space)),
                     if: allowed_to?(:read, :attachment_collection, assembly: current_participatory_space) ||
                         allowed_to?(:read, :attachment, assembly: current_participatory_space),
-                    submenu: :assemblies_admin_attachments_menu
+                    submenu: { target_menu: :assemblies_admin_attachments_menu }
 
           menu.item I18n.t("assembly_members", scope: "decidim.admin.menu.assemblies_submenu"),
                     decidim_admin_assemblies.assembly_members_path(current_participatory_space),

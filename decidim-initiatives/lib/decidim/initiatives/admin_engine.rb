@@ -85,12 +85,6 @@ module Decidim
         )
       end
 
-      initializer "admin_decidim_initiatives.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::Initiatives::Admin::InitiativeAdminMenuHelper if respond_to?(:helper)
-        end
-      end
-
       initializer "decidim_initiaves.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.initiatives", scope: "decidim.admin"),
@@ -135,7 +129,7 @@ module Decidim
                     decidim_admin_initiatives.components_path(current_participatory_space),
                     active: is_active_link?(decidim_admin_initiatives.components_path(current_participatory_space)),
                     if: allowed_to?(:read, :component, initiative: current_participatory_space),
-                    submenu: :admin_initiatives_components_menu
+                    submenu: { target_menu: :admin_initiatives_components_menu, options: { container_options: { id: "components-list" } } }
 
           menu.item I18n.t("menu.attachments", scope: "decidim.admin"),
                     decidim_admin_initiatives.initiative_attachments_path(current_participatory_space),
