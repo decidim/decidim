@@ -42,7 +42,7 @@ module Decidim
 
       validates_upload :main_image
       mount_uploader :main_image, Decidim::Meetings::MeetingImageUploader
-  
+
       geocoded_by :address
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }

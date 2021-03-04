@@ -49,7 +49,7 @@ module Decidim
       validates :clean_type_of_meeting, presence: true
 
       validates :main_image, passthru: { to: Decidim::Meetings::Meeting }
-      
+
       delegate :categories, to: :current_component
 
       def map_model(model)

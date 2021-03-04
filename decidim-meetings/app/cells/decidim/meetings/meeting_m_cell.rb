@@ -28,12 +28,13 @@ module Decidim
       end
 
       delegate :online_meeting?, to: :model
+
       private
 
       def resource_image_path
         model.main_image.url
       end
-      
+
       def has_image?
         true
       end
