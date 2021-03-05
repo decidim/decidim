@@ -120,6 +120,8 @@ es-PY:
           questions: Preguntas
           results: Resultados
         questions_submenu:
+          attachments: Archivos adjuntos
+          categories: Categorías
           components: Componentes
           configuration: Configuración
           consultation: Consulta
@@ -360,10 +362,6 @@ es-PY:
           vote: Votar
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Archivos adjuntos
-          categories: Categorías
       consultation_voting_data:
         start_voting_date: Empieza la votación
       question_components:
