@@ -900,3 +900,7 @@ en:
       included_proposals:
         proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Proposal appearing in these results:'
+    statistics:
+      proposals_accepted: Accepted Proposals
+      proposals_count: Proposals
+      supports_count: Supports

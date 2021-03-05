@@ -376,22 +376,6 @@
         social_networks: Sosiale nettverk
         social_networks_title: Del denne forsamlingen på
         target: Hvem deltar
-      statistics:
-        answers_count: Svar
-        assemblies_count: Forsamlinger
-        comments_count: Kommentarer
-        debates_count: Debatter
-        endorsements_count: Påtegnelser
-        meetings_count: Møter
-        orders_count: Støtter
-        pages_count: Sider
-        posts_count: Innlegg
-        projects_count: Prosjekter
-        proposals_count: Forslag
-        results_count: Resultater
-        surveys_count: Undersøkelse
-        users_count: Deltakere
-        votes_count: Støtter
     assembly_members:
       assembly_member:
         designated_on: Utpekt på

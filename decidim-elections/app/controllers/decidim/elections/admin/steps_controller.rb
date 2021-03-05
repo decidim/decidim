@@ -53,7 +53,8 @@ module Decidim
             "key_ceremony_ended" => VotePeriodForm,
             "vote" => VotePeriodForm,
             "vote_ended" => ActionForm,
-            "tally_ended" => ActionForm
+            "tally_ended" => ActionForm,
+            "results_published" => ActionForm
           }[current_step]
         end
 

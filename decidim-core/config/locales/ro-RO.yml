@@ -1035,24 +1035,7 @@ ro:
         metrics:
           headline: Valori
         statistics:
-          answers_count: Chestionare finalizate
-          assemblies_count: Adunări
-          comments_count: Comentarii
-          conferences_count: Conferințe
-          debates_count: Dezbateri
-          endorsements_count: Susținători
           headline: Starea curentă a %{organization}
-          meetings_count: Întâlniri
-          orders_count: Voturi
-          pages_count: Pagini
-          processes_count: Procese
-          projects_count: Proiecte
-          proposals_accepted: Propuneri acceptate
-          proposals_count: Propuneri
-          results_count: Rezultate
-          surveys_count: Chestionare
-          users_count: Participanți
-          votes_count: Voturi
         sub_hero:
           register: Inregistrare
       index:
@@ -1227,6 +1210,8 @@ ro:
         close_window: Închide fereastra
         share: Distribuie
         share_link: Distribuie link-ul
+    statistics:
+      comments_count: Comentarii
     tags:
       filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
       filter_results_for_scope: 'Filtrează rezultatele pentru scope: %{resource}'

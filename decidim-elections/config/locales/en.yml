@@ -128,11 +128,13 @@ en:
           new:
             create: Create answer
             title: New answer
+          not_selected: Not selected
           select:
             disable: Unselect answer
             enable: Mark answer as selected
             invalid: There was a problem selecting this answer
             success: Answer successfully selected
+          selected: Selected
           unselect:
             invalid: There was a problem unselecting this answer
             success: Answer successfully unselected
@@ -247,13 +249,25 @@ en:
             title: Ready to start
           processing: Processing...
           results_published:
+            answer: Answer
+            not_selected: Not selected
+            question: Question
+            result: Result
+            selected: Selected
+            submit: Submit
             title: Results published
           tally:
             title: Tally process
             trustees: Trustees
           tally_ended:
+            answer: Answer
+            not_selected: Not selected
+            question: Question
+            result: Result
+            selected: Selected
             submit: Publish results
-            title: Results calculated
+            success: Tally successfully ended
+            title: Calculated results
           vote:
             errors:
               time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
@@ -267,6 +281,7 @@ en:
             invalid: There was a problem starting the tally
             submit: Start tally
             success: Start tally request was successfully sent to the Bulletin Board
+            text: Vote has ended. You can start the tally now.
             title: Vote period ended
           vote_stats:
             no_vote_statistics_yet: No vote statistics yet
@@ -335,11 +350,11 @@ en:
           filter_by: Filter by
           unfold: Unfold
         preview:
-          available_answers: Available answers
-          description: These are the questions you will find in the voting process
+          available_answers: 'Available answers:'
+          description: 'These are the questions you will find in the voting process:'
           title: Election questions
         results:
-          description: These are the results of the voting, for each question
+          description: 'These are the results of the voting, for each question:'
           selected: Selected
           title: Election results
           votes:
@@ -347,19 +362,19 @@ en:
             other: "%{count} votes"
             zero: "%{count} votes"
         show:
-          action-button:
-            change-vote: Change your vote
+          action_button:
+            change_vote: Change your vote
             vote: Start voting
-            vote-again: Vote again
+            vote_again: Vote again
           back: Available elections
           callout:
-            already-voted: You have already voted in this election. You can change your vote or verify it.
-            vote-rejected: It was not possible to verify your vote. Please cast it again.
+            already_voted: You have already voted in this election. You can change your vote or verify it.
+            vote_rejected: It was not possible to verify your vote. Please cast it again.
           preview: Preview
           verify:
-            already-voted: Already voted?
-            verify-here: Check your vote here.
-            will-verify: You will be able to verify your vote once the election is started.
+            already_voted: Already voted?
+            verify_here: Check your vote here.
+            will_verify: You will be able to verify your vote once the election is started.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
             ongoing: 'Active voting until: %{end_time}'
@@ -373,7 +388,9 @@ en:
         answer:
           fields:
             proposals: Proposals
+            selected: Selected
             title: Title
+            votes: Votes
         election:
           fields:
             bb_status: Bulletin Board status
@@ -494,6 +511,12 @@ en:
           update:
             success: Your identification public key was successfully stored.
       votes:
+        ballot_decision:
+          audit: "( Audit ballot )"
+          back: Start voting process again
+          cast: Cast ballot
+          description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
+          header: 'Ballot is encrypted: cast or audit it'
         confirm:
           answer: Answer
           answer_number: answer %{number}
@@ -520,6 +543,7 @@ en:
           lead: Your vote has not been casted!
           text: Something went wrong, please try it again.
         header:
+          ballot_decision: Cast or audit your vote
           confirm: Confirm your vote
           confirmed: Vote confirmed
           encrypting: Confirming vote
@@ -535,9 +559,6 @@ en:
           preview_alert: This is a preview of the voting booth.
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
-        processing:
-          header: Processing vote...
-          text: Your vote has been received and it is being processing. Please wait.
         update:
           error: There was a problem updating the vote status
           success: Vote status successfully updated
@@ -602,13 +623,9 @@ en:
           title: What are votings?
     menu:
       votings: Votings
-    pages:
-      home:
-        statistics:
-          elections_count: Elections
-    participatory_processes:
-      statistics:
-        elections_count: Elections
+    statistics:
+      elections_count: Elections
+      votings_count: Votings
     votings:
       admin:
         content_blocks:
@@ -792,6 +809,17 @@ en:
       content_blocks:
         highlighted_votings:
           name: Highlighted votings
+        landing_page:
+          description:
+            show_less: Read less
+            show_more: Read more
+          metrics:
+            heading: Metrics
+          polling_stations:
+            heading: Polling stations
+            no_polling_stations: There are no polling stations yet.
+          timeline:
+            heading: Timeline
       monitoring_committee_members:
         actions:
           confirm_destroy: Are you sure?
@@ -885,6 +913,8 @@ en:
     decidim:
       election_votes_header:
         exit: Exit
+      voting_navigation:
+        voting_menu_item: The voting
       votings:
         index:
           promoted_votings: Highlighted votings

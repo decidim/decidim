@@ -324,10 +324,6 @@ de:
           title: Was sind Konsultationen?
     menu:
       consultations: Konsultationen
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultationen
     questions:
       next_button: Nächste Frage
       previous_button: Vorherige Frage
@@ -362,6 +358,9 @@ de:
       consultations:
         actions:
           vote: Abstimmung
+    statistics:
+      consultations_count: Beratungen
+      votes_count: Stimmen
   layouts:
     decidim:
       admin:

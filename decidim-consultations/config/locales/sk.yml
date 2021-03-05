@@ -339,10 +339,6 @@ sk:
           title: Čo sú konzultácie?
     menu:
       consultations: Konzultácie
-    pages:
-      home:
-        statistics:
-          consultations_count: Konzultácie
     questions:
       next_button: Ďalšia otázka
       previous_button: Predchádzajúca otázka

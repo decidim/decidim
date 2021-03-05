@@ -25,6 +25,10 @@ module Decidim
       def proposals
         linked_resources(:proposals, "related_proposals")
       end
+
+      def slug
+        "answer-#{id}"
+      end
     end
   end
 end

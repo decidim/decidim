@@ -324,10 +324,6 @@ fr:
           title: Que sont les consultations?
     menu:
       consultations: Votations
-    pages:
-      home:
-        statistics:
-          consultations_count: Votations
     questions:
       next_button: Question suivante
       previous_button: Question précédente

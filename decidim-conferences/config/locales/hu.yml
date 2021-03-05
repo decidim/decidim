@@ -486,23 +486,6 @@ hu:
         related_assemblies: Kapcsolódó gyűlések
         related_consultations: Kapcsolódó konzultációk
         related_participatory_processes: Kapcsolódó részvételi folyamatok
-      statistics:
-        answers_count: válaszok
-        comments_count: Hozzászólások
-        conference_count: Konferenciák
-        debates_count: viták
-        endorsements_count: Elismerések
-        headline: Tevékenység
-        meetings_count: találkozók
-        orders_count: szavazatok
-        pages_count: Oldalak
-        posts_count: Hozzászólások
-        projects_count: projektek
-        proposals_count: javaslatok
-        results_count: Eredmények
-        surveys_count: Felmérések
-        users_count: résztvevők
-        votes_count: szavazatok
     events:
       conferences:
         conference_registration_confirmed:

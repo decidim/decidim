@@ -486,23 +486,6 @@ pt:
         related_assemblies: Reuniões relacionadas
         related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
-      statistics:
-        answers_count: Respostas
-        comments_count: Comentários
-        conference_count: Conferências
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Atividade
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        posts_count: Publicações
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Inquéritos
-        users_count: Participantes
-        votes_count: Votos
     events:
       conferences:
         conference_registration_confirmed:

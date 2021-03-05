@@ -961,24 +961,7 @@ bg:
         metrics:
           headline: Индикатори
         statistics:
-          answers_count: Завършени проучвания
-          assemblies_count: Събрания
-          comments_count: Коментари
-          conferences_count: Конференции
-          debates_count: Дискусии
-          endorsements_count: Одобрявания
           headline: Текущо състояние на %{organization}
-          meetings_count: Срещи
-          orders_count: Гласове
-          pages_count: Страници
-          processes_count: Процеси
-          projects_count: Проекти
-          proposals_accepted: Приети предложения
-          proposals_count: Предложения
-          results_count: Резултати
-          surveys_count: Анкети
-          users_count: Участници
-          votes_count: Гласове
         sub_hero:
           register: Регистрация
       index:
@@ -1129,6 +1112,8 @@ bg:
         close_window: Затвори прозореца
         share: Сподели
         share_link: Сподели връзка
+    statistics:
+      comments_count: Коментари
     user_activity:
       index:
         no_activities_warning: Този участник все още не е имал активност.

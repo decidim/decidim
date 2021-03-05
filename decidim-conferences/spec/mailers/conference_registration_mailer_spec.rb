@@ -29,7 +29,7 @@ module Decidim::Conferences
     describe "confirmation" do
       let(:default_subject) { "Your conference's registration has been confirmed" }
 
-      let(:default_body) { "details in the attachment" }
+      let(:default_body) { "You will find the conference" }
 
       it "expect subject and body" do
         expect(mail.subject).to eq(default_subject)

@@ -50,6 +50,8 @@ en:
         description: Number of surveys answered by participants
         object: answers to surveys
         title: Answers to surveys
+    statistics:
+      answers_count: Answers
     surveys:
       admin:
         exports:

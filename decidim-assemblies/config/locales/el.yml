@@ -373,22 +373,6 @@ el:
         social_networks: Κοινωνικά δίκτυα
         social_networks_title: Κοινοποίηση αυτής της συνέλευσης σε
         target: Ποιος συμμετέχει
-      statistics:
-        answers_count: Απαντήσεις
-        assemblies_count: Συνελεύσεις
-        comments_count: Σχόλια
-        debates_count: Συζητήσεις
-        endorsements_count: Επιδοκιμασίες
-        meetings_count: Συσκέψεις
-        orders_count: Υποστηρίξεις
-        pages_count: Σελίδες
-        posts_count: Δημοσιεύσεις
-        projects_count: Έργα
-        proposals_count: Προτάσεις
-        results_count: Αποτελέσματα
-        surveys_count: Έρευνες
-        users_count: Συμμετέχοντες
-        votes_count: Υποστηρίξεις
     assembly_members:
       assembly_member:
         designated_on: Διορίστηκε στις

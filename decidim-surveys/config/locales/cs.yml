@@ -53,6 +53,8 @@ cs:
         description: Počet průzkumů, které uživatelé zodpověděli
         object: odpovědi na průzkumy
         title: Odpovědi na průzkumy
+    statistics:
+      answers_count: Odpovědi
     surveys:
       admin:
         exports:

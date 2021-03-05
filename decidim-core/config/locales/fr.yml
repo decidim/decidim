@@ -1064,24 +1064,7 @@ fr:
         metrics:
           headline: Participation en chiffres
         statistics:
-          answers_count: Enquêtes terminées
-          assemblies_count: Assemblées
-          comments_count: Commentaires
-          conferences_count: Conférences
-          debates_count: Débats
-          endorsements_count: Soutiens
           headline: État actuel de %{organization}
-          meetings_count: Rencontres
-          orders_count: Votes
-          pages_count: Pages
-          processes_count: Processus participatifs
-          projects_count: Projets
-          proposals_accepted: Propositions acceptées
-          proposals_count: Propositions
-          results_count: Réalisations
-          surveys_count: Enquêtes
-          users_count: Participants
-          votes_count: Votes
         sub_hero:
           register: S'inscrire
       index:
@@ -1273,6 +1256,8 @@ fr:
         close_window: Fermer la fenêtre
         share: Partager
         share_link: Lien de partage
+    statistics:
+      comments_count: Commentaires
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'

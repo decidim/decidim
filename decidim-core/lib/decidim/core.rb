@@ -573,6 +573,13 @@ module Decidim
     Decidim::OrganizationSettings.for(organization)
   end
 
+  # Defines the time after which the machine translation job should be enabled.
+  # In some cases, it is required to have a delay, otherwise the ttanslation job will be discarded:
+  #  Discarded Decidim::MachineTranslationResourceJob due to a ActiveJob::DeserializationError.
+  config_accessor :machine_translation_delay do
+    0.seconds
+  end
+
   def self.machine_translation_service_klass
     return unless Decidim.enable_machine_translations
 
