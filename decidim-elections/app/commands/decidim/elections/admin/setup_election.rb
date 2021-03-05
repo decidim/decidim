@@ -136,6 +136,15 @@ module Decidim
           Decidim::EventsManager.publish(data)
         end
 
+        # Since machine_translations return a nested hash but Electionguard and other
+        # schemes expect the translations to be returned in a "simple" hash, we need to
+        # flatten the translations.
+        #   {
+        #     "language": "en",
+        #      "value": "Jubilee Alliance"
+        #   }
+        # You can read more about the Civics Common Standard Data Specification here:
+        # https://developers.google.com/civics-data/reference/internationalized-text
         def flatten_translations(translated_attribute)
           translated_attribute.deep_symbolize_keys!
           machine_translations = translated_attribute.delete(:machine_translations) || {}
