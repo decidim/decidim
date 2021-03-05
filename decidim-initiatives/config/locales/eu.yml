@@ -426,7 +426,6 @@ eu:
     decidim:
       admin:
         initiative:
-          attachments: eranskinak
           committee_members: Batzorde kideak
           components: Osagaiak
           information: informazioa
