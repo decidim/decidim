@@ -123,6 +123,8 @@ lv:
           questions: Jautājumi
           results: Rezultāti
         questions_submenu:
+          attachments: Pielikumi
+          categories: Kategorijas
           components: Komponenti
           configuration: Konfigurācija
           consultation: Konsultācija
@@ -363,10 +365,6 @@ lv:
           vote: Balsot
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Pielikumi
-          categories: Kategorijas
       consultation_voting_data:
         start_voting_date: Balsojums sākas
       question_components:
