@@ -19,6 +19,11 @@ module Decidim
         @resource = resource
       end
 
+      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
+      def run
+        finalize(resource, serialize)
+      end
+
       # Public: Returns a serialized view of the provided resource.
       #
       # Returns a nested Hash with the fields.
@@ -34,8 +39,8 @@ module Decidim
       # Returns a nested Hash with the fields by default.
       def finalize(resource, serialized_data)
         event_data = {
-          serialized_data: serialized_data,
-          resource: resource
+          resource: resource,
+          serialized_data: serialized_data
         }
         ActiveSupport::Notifications.publish(event_name, event_data)
 

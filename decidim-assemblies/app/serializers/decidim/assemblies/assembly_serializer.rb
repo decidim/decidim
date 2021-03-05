@@ -13,6 +13,11 @@ module Decidim
         @assembly = assembly
       end
 
+      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
+      def run
+        finalize(assembly, serialize)
+      end
+
       # Public: Exports a hash with the serialized data for this assembly.
       def serialize
         {
@@ -141,7 +146,7 @@ module Decidim
 
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@assembly)
-        serializer.serialize
+        serializer.run
       end
     end
   end

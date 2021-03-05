@@ -14,6 +14,11 @@ module Decidim
         @answer = answer
       end
 
+      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
+      def run
+        finalize(answer, serialize)
+      end
+
       # Public: Exports a hash with the serialized data for this answer.
       def serialize
         {

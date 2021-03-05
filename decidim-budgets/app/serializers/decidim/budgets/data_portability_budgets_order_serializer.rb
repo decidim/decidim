@@ -8,6 +8,11 @@ module Decidim
         @order = order
       end
 
+      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
+      def run
+        finalize(order, serialize)
+      end
+
       # Serializes a Debate for data portability
       def serialize
         {

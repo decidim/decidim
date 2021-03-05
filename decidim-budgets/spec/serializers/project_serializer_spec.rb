@@ -9,7 +9,7 @@ module Decidim::Budgets
     let(:scope) { create(:scope, organization: category.participatory_space.organization) }
     let(:project) { create(:project, budget: budget, category: category, scope: scope) }
     let(:subject) { described_class.new(project) }
-    let(:serialized) { subject.serialize }
+    let(:serialized) { subject.run }
     let(:attachment) { create :attachment, attached_to: project }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }

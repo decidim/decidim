@@ -14,6 +14,11 @@ module Decidim
         @participatory_space = participatory_space
       end
 
+      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
+      def run
+        finalize(participatory_space, serialize)
+      end
+
       # Public: Exports a hash with the serialized data for this participatory_space.
       def serialize
         participatory_space.components.collect do |component|
@@ -39,7 +44,7 @@ module Decidim
 
       def serialize_component_specific_data(component)
         specific_serializer = component.manifest.specific_data_serializer_class.new(component)
-        specific_serializer.serialize
+        specific_serializer.run
       end
     end
   end

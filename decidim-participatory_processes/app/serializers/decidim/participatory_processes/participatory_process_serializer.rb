@@ -14,6 +14,11 @@ module Decidim
         @participatory_process = participatory_process
       end
 
+      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
+      def run
+        finalize(participatory_process, serialize)
+      end
+
       # Public: Exports a hash with the serialized data for this participatory_process.
       def serialize
         {
@@ -147,7 +152,7 @@ module Decidim
 
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@participatory_process)
-        serializer.serialize
+        serializer.run
       end
     end
   end

@@ -12,10 +12,14 @@ module Decidim
         @project = project
       end
 
+      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
+      def run
+        finalize(project, serialize)
+      end
+
       # Public: Exports a hash with the serialized data for this project.
       def serialize
-        finalize(
-          project,
+        {
           id: project.id,
           category: {
             id: project.category.try(:id),
@@ -41,7 +45,7 @@ module Decidim
           related_proposals: related_proposals,
           related_proposal_titles: related_proposal_titles,
           related_proposal_urls: related_proposal_urls
-        )
+        }
       end
 
       private
