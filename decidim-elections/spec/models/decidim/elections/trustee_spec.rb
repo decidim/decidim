@@ -10,11 +10,7 @@ describe Decidim::Elections::Trustee do
   context "when the name is taken" do
     subject(:trustee) { build(:trustee, name: "Trustee 1") }
 
-    let(:other_trustee) { create(:trustee, name: "Trustee 1") }
-
-    before do
-      other_trustee
-    end
+    let!(:other_trustee) { create(:trustee, name: "Trustee 1") }
 
     it { is_expected.not_to be_valid }
   end
