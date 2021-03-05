@@ -378,7 +378,7 @@ de:
         file_help:
           import:
             explanation: 'Hinweise für die Datei:'
-            message_1: CSV, JSON und Excel (.xls) Dateien werden unterstützt
+            message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
@@ -430,7 +430,7 @@ de:
           accepted_mime_types:
             csv: CSV
             json: JSON
-            xls: XLS
+            xlsx: xlsx
           actions:
             back: Zurück
           file_legend: Datei zum Importieren hinzufügen.
