@@ -91,6 +91,8 @@ pl:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Wyszukaj %{collection} według tytułu, opisu, ID lub nazwy autora.
       menu:
+        components: Komponenty
+        information: Informacja
         initiatives: Inicjatywy
         initiatives_types: Typy inicjatyw
       models:
@@ -596,12 +598,6 @@ pl:
           vote: Podpisz
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Załączniki
-          committee_members: Członkowie komitetu
-          components: Komponenty
-          information: Informacja
       initiative_creation_header:
         back: Wróć
         fill_data: Utwórz
