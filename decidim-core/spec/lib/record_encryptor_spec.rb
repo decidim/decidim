@@ -112,6 +112,7 @@ module Decidim
               }
             }
           },
+          "foobar" => "",
           "extras" => {
             "foo" => {
               "bar" => "baz"

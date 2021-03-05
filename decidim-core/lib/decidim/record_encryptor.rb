@@ -129,6 +129,8 @@ module Decidim
         # cannot be JSON decoded.
         begin
           ActiveSupport::JSON.decode(decrypted_value)
+        rescue TypeError
+          ""
         rescue JSON::ParserError
           decrypted_value
         end
