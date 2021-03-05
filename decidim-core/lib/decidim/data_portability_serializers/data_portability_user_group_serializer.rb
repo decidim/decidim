@@ -8,16 +8,13 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this user.
       def serialize
-        finalize(
-          resource,
-          {
-            id: resource.id,
-            name: resource.name,
-            document_number: resource.document_number,
-            phone: resource.phone,
-            verified_at: resource.verified_at
-          }
-        )
+        {
+          id: resource.id,
+          name: resource.name,
+          document_number: resource.document_number,
+          phone: resource.phone,
+          verified_at: resource.verified_at
+        }
       end
     end
   end

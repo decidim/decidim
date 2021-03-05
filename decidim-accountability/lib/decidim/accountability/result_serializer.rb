@@ -15,37 +15,34 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this result.
       def serialize
-        finalize(
-          result,
-          {
-            id: result.id,
-            category: {
-              id: result.category.try(:id),
-              name: result.category.try(:name) || empty_translatable
-            },
-            scope: {
-              id: result.scope.try(:id),
-              name: result.scope.try(:name) || empty_translatable
-            },
-            parent: {
-              id: result.parent.try(:id)
-            },
-            title: result.title,
-            description: result.description,
-            start_date: result.start_date,
-            end_date: result.end_date,
-            status: {
-              id: result.status.try(:id),
-              key: result.status.try(:key),
-              name: result.status.try(:name) || empty_translatable
-            },
-            progress: result.progress,
-            created_at: result.created_at,
-            url: url,
-            component: { id: component.id },
-            proposal_urls: proposals
-          }
-        )
+        {
+          id: result.id,
+          category: {
+            id: result.category.try(:id),
+            name: result.category.try(:name) || empty_translatable
+          },
+          scope: {
+            id: result.scope.try(:id),
+            name: result.scope.try(:name) || empty_translatable
+          },
+          parent: {
+            id: result.parent.try(:id)
+          },
+          title: result.title,
+          description: result.description,
+          start_date: result.start_date,
+          end_date: result.end_date,
+          status: {
+            id: result.status.try(:id),
+            key: result.status.try(:key),
+            name: result.status.try(:name) || empty_translatable
+          },
+          progress: result.progress,
+          created_at: result.created_at,
+          url: url,
+          component: { id: component.id },
+          proposal_urls: proposals
+        }
       end
 
       private

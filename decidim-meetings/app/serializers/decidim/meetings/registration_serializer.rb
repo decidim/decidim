@@ -6,19 +6,16 @@ module Decidim
       include Decidim::TranslationsHelper
       # Serializes a registration
       def serialize
-        finalize(
-          resource,
-          {
-            id: resource.id,
-            code: resource.code,
-            user: {
-              name: resource.user.name,
-              email: resource.user.email,
-              user_group: resource.user_group&.name || ""
-            },
-            registration_form_answers: serialize_answers
-          }
-        )
+        {
+          id: resource.id,
+          code: resource.code,
+          user: {
+            name: resource.user.name,
+            email: resource.user.email,
+            user_group: resource.user_group&.name || ""
+          },
+          registration_form_answers: serialize_answers
+        }
       end
 
       private

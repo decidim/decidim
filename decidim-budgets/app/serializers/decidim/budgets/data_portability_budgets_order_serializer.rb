@@ -10,18 +10,15 @@ module Decidim
 
       # Serializes a Debate for data portability
       def serialize
-        finalize(
-          order,
-          {
-            id: order.id,
-            budget: order.budget.title,
-            component: order.budget.component.name,
-            checked_out_at: order.checked_out_at,
-            projects: all_projects,
-            created_at: order.created_at,
-            updated_at: order.updated_at
-          }
-        )
+        {
+          id: order.id,
+          budget: order.budget.title,
+          component: order.budget.component.name,
+          checked_out_at: order.checked_out_at,
+          projects: all_projects,
+          created_at: order.created_at,
+          updated_at: order.updated_at
+        }
       end
 
       private

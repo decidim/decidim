@@ -13,15 +13,12 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this conversation.
       def serialize
-        finalize(
-          conversation,
-          {
-            id: conversation.id,
-            messages: messages,
-            created_at: conversation.created_at,
-            updated_at: conversation.updated_at
-          }
-        )
+        {
+          id: conversation.id,
+          messages: messages,
+          created_at: conversation.created_at,
+          updated_at: conversation.updated_at
+        }
       end
 
       private
