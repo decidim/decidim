@@ -495,8 +495,7 @@ pt:
     decidim:
       admin:
         initiative:
-          attachments: Anexos
-          committee_members: Membros do comité
+          committee_members: Membros do Comité
           components: Componentes
           information: Informação
       initiative_creation_header:
