@@ -91,10 +91,13 @@ cs:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
       menu:
+        attachments: Přílohy
+        committee_members: Členové výboru
         components: Komponenty
         information: Informace
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
+        moderations: Moderování
       models:
         initiatives:
           fields:
