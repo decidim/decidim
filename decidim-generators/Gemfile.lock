@@ -766,7 +766,6 @@ GEM
     rubocop-rspec (1.43.2)
       rubocop (~> 0.87)
       rubocop-ast (>= 0.7.1)
-    ruby-ole (1.2.12.2)
     ruby-progressbar (1.11.0)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
@@ -802,8 +801,6 @@ GEM
     smart_properties (1.15.0)
     social-share-button (1.2.3)
       coffee-rails
-    spreadsheet (1.2.7)
-      ruby-ole
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
