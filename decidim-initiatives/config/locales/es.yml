@@ -522,8 +522,8 @@ es:
     decidim:
       admin:
         initiative:
-          attachments: Adjuntos
-          committee_members: Miembros de la comisión
+          attachments: Archivos adjuntos
+          committee_members: Miembros del comité
           components: Componentes
           information: Información
       initiative_creation_header:
