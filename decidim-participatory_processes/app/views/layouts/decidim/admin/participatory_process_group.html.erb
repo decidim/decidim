@@ -1,5 +1,5 @@
 <% content_for :sidebar_menu_nav do %>
-  <%= participatory_process_group_menu.render do
+  <%= sidebar_menu(:admin_participatory_process_group_menu).render do
     public_page_link decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
   end %>
 <% end %>

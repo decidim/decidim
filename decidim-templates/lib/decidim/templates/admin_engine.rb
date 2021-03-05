@@ -30,12 +30,6 @@ module Decidim
         root to: "questionnaire_templates#index"
       end
 
-      initializer "decidim_templates.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::Templates::Admin::TemplatesMenuHelper if respond_to?(:helper)
-        end
-      end
-
       initializer "decidim_participatory_processes.admin_participatory_processes_menu" do
         Decidim.menu :admin_template_types_menu do |menu|
           template_types.each_pair do |name, url|
