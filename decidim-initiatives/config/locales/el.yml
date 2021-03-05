@@ -490,7 +490,6 @@ el:
     decidim:
       admin:
         initiative:
-          attachments: Συνημμένα
           committee_members: Μέλη επιτροπής
           components: Στοιχεία
           information: Πληροφορίες
