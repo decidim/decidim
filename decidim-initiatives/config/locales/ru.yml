@@ -325,7 +325,6 @@ ru:
     decidim:
       admin:
         initiative:
-          attachments: Прикрепленные файлы
           committee_members: Члены рабочей группы
           components: Составляющие
           information: Сведения
