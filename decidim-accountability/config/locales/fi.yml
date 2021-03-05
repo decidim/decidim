@@ -244,3 +244,5 @@ fi:
         result_project: Tähän tulokseen liittyvät suunnitelmat
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
+    statistics:
+      results_count: Tulosta

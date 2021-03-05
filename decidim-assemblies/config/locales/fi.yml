@@ -436,6 +436,8 @@ fi:
             processes_button_title: Linkki kaikkien prosessien sivulle
       show:
         related_assemblies: Liittyvät ryhmät
+    statistics:
+      assemblies_count: Ryhmää
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

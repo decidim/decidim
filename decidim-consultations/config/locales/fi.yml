@@ -358,6 +358,9 @@ fi:
       consultations:
         actions:
           vote: Äänestä
+    statistics:
+      consultations_count: Kuulemista
+      votes_count: Ääntä
   layouts:
     decidim:
       admin:
