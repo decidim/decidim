@@ -13,11 +13,6 @@ module Decidim
         @meeting = meeting
       end
 
-      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
-      def run
-        finalize(meeting, serialize)
-      end
-
       # Public: Exports a hash with the serialized data for this meeting.
       def serialize
         {
@@ -57,6 +52,7 @@ module Decidim
       private
 
       attr_reader :meeting
+      alias resource meeting
 
       def component
         meeting.component

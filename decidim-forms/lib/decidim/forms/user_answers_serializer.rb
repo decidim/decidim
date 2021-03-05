@@ -12,11 +12,6 @@ module Decidim
         @answers = answers
       end
 
-      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
-      def run
-        finalize(answers, serialize)
-      end
-
       # Public: Exports a hash with the serialized data for the user answers.
       def serialize
         @answers.each_with_index.inject({}) do |serialized, (answer, idx)|
@@ -31,6 +26,9 @@ module Decidim
       end
 
       private
+
+      attr_reader :answers
+      alias resource answers
 
       def normalize_body(answer)
         answer.body ||

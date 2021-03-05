@@ -14,11 +14,6 @@ module Decidim
         @proposal = proposal
       end
 
-      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
-      def run
-        finalize(proposal, serialize)
-      end
-
       # Public: Exports a hash with the serialized data for this proposal.
       def serialize
         {
@@ -64,6 +59,7 @@ module Decidim
       private
 
       attr_reader :proposal
+      alias resource proposal
 
       def component
         proposal.component

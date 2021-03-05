@@ -13,11 +13,6 @@ module Decidim
         @result = result
       end
 
-      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
-      def run
-        finalize(result, serialize)
-      end
-
       # Public: Exports a hash with the serialized data for this result.
       def serialize
         {
@@ -53,6 +48,7 @@ module Decidim
       private
 
       attr_reader :result
+      alias resource result
 
       def component
         result.component

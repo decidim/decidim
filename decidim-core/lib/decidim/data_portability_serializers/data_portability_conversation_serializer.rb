@@ -11,11 +11,6 @@ module Decidim
         @conversation = conversation
       end
 
-      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
-      def run
-        finalize(conversation, serialize)
-      end
-
       # Public: Exports a hash with the serialized data for this conversation.
       def serialize
         {
@@ -29,6 +24,7 @@ module Decidim
       private
 
       attr_reader :conversation
+      alias resource conversation
 
       def messages
         conversation.messages.map do |message|

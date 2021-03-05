@@ -14,11 +14,6 @@ module Decidim
         @participatory_process = participatory_process
       end
 
-      # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
-      def run
-        finalize(participatory_process, serialize)
-      end
-
       # Public: Exports a hash with the serialized data for this participatory_process.
       def serialize
         {
@@ -72,6 +67,7 @@ module Decidim
       private
 
       attr_reader :participatory_process
+      alias resource participatory_process
 
       def serialize_participatory_process_steps
         return unless participatory_process.steps.any?
