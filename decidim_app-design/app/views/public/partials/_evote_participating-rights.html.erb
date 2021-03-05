@@ -8,6 +8,11 @@
           <h5>Your census data is correct!</h5>
           <p>If you don't have one, you can <a href="#">ask for an Access Code</a>.</p>
         </div>
+      <% elsif locals[:blocked] %>
+        <div class="callout alert mt-s">
+          <h5>Too many attempts.</h5>
+          <p>There has been too many incorrect attempts. You can try again in 24 hours.</p>
+        </div>
       <% elsif locals[:error] %>
         <div class="callout alert mt-s">
           <h5>Your census data is incorrect!</h5>
