@@ -1,0 +1,44 @@
+<div class="row section">
+  <div class="columns large-8">
+    <h1 class="heading3">Check your census data</h1>
+    <p><%= Faker::Hipster.paragraph(sentence_count: 3) %></p>
+    <div class="row mt-sm">
+      <div class="columns medium-7">
+        <p><strong>Fill the following form to check your census data:</strong></p>
+        <div class="card">
+          <div class="card__content">
+            <form>
+              <div>
+                <div>
+                  <label>ID or Passport
+                    <input type="text" placeholder="ID number">
+                  </label>
+                </div>
+                <div>
+                  <label>Postal code
+                    <input type="text" placeholder="Postal code number">
+                  </label>
+                </div>
+                <fieldset>
+                  <legend>Date of birth</legend>
+                  <div class="row">
+                    <label class="columns small-4">Day
+                      <input type="text" placeholder="DD">
+                    </label>
+                    <label class="columns small-4">Month
+                      <input type="text" placeholder="MM">
+                    </label>
+                    <label class="columns small-4">Year
+                      <input type="text" placeholder="YY">
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+              <button type="button" class="button expanded mt-s mb-none">Check status</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
