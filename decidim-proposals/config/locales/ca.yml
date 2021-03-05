@@ -136,7 +136,7 @@ ca:
             participatory_texts_enabled: Texts participatius habilitats
             participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             proposal_answering_enabled: Resposta a propostes habilitada
-            proposal_edit_before_minutes: Les propostes poden ser editades per les autorrs abans que passin aquests minuts
+            proposal_edit_before_minutes: Les propostes poden ser editades per les autores abans que passin aquests minuts
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
