@@ -499,7 +499,6 @@ it:
     decidim:
       admin:
         initiative:
-          attachments: allegati
           committee_members: membri del Comitato
           components: componenti
           information: Informazione
