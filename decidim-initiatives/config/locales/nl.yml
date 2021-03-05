@@ -68,6 +68,8 @@ nl:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Zoek %{collection} op titel, beschrijving, ID of auteur naam.
       menu:
+        components: Onderdelen
+        information: Informatie
         initiatives: Initiatieven
         initiatives_types: Initiatieftypes
       models:
@@ -494,12 +496,6 @@ nl:
           vote: Onderteken
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Bijlagen
-          committee_members: Commissieleden
-          components: Onderdelen
-          information: Informatie
       initiative_creation_header:
         back: Terug
         fill_data: creëren
