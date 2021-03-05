@@ -378,7 +378,6 @@ es:
         file_help:
           import:
             explanation: 'Instrucciones para el archivo:'
-            message_1: Los archivos CSV, JSON y Excel (.xls) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
@@ -430,7 +429,6 @@ es:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
           actions:
             back: Volver
           file_legend: Añadir un archivo de importación que será procesado.
