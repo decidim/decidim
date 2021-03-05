@@ -46,6 +46,8 @@ ru:
       actions:
         new_initiative_type: Добавить вид почина
       menu:
+        components: Составляющие
+        information: Сведения
         initiatives: Почины
         initiatives_types: Виды починов
       models:
@@ -304,12 +306,6 @@ ru:
       initiatives: Почины
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Прикрепленные файлы
-          committee_members: Члены рабочей группы
-          components: Составляющие
-          information: Сведения
       initiative_creation_header:
         fill_data: Создать
         finish: Закончить
