@@ -129,12 +129,12 @@ module Decidim
                     if: allowed_to?(:read, :component),
                     submenu: { target_menu: :admin_consultation_components_menu, options: { container_options: { id: "components-list" } } }
 
-          menu.item I18n.t(".categories", scope: "decidim.admin.menu.questions_submenu"),
+          menu.item I18n.t("categories", scope: "decidim.admin.menu.questions_submenu"),
                     decidim_admin_consultations.categories_path(current_participatory_space),
                     position: 1.0,
                     active: is_active_link?(decidim_admin_consultations.categories_path(current_participatory_space)),
                     if: allowed_to?(:read, :category)
-          menu.item I18n.t(".attachments", scope: "decidim.admin.menu.questions_submenu"),
+          menu.item I18n.t("attachments", scope: "decidim.admin.menu.questions_submenu"),
                     decidim_admin_consultations.question_attachments_path(current_participatory_space),
                     position: 1.0,
                     active: is_active_link?(decidim_admin_consultations.question_attachments_path(current_participatory_space)),
