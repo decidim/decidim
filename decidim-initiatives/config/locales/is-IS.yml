@@ -231,7 +231,6 @@ is-IS:
     decidim:
       admin:
         initiative:
-          attachments: Viðhengi
           committee_members: Nefndarmenn
           components: Hluti
           information: Upplýsingar
