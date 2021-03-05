@@ -378,7 +378,6 @@ ca:
         file_help:
           import:
             explanation: 'Instruccions per a l''arxiu:'
-            message_1: Estan suportats els arxius CSV, JSON i Excel (.xls)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
@@ -430,7 +429,6 @@ ca:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
           actions:
             back: Tornar
           file_legend: Afegir un arxiu d'importació que serà processat.
