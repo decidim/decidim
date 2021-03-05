@@ -450,7 +450,7 @@ hu:
     decidim:
       admin:
         initiative:
-          attachments: Mellékletek
+          attachments: Csatolmányok
           committee_members: Bizottsági tagok
           components: Elemek
           information: Információ
