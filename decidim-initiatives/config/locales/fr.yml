@@ -522,8 +522,8 @@ fr:
     decidim:
       admin:
         initiative:
-          attachments: Documents liés
-          committee_members: Membres du Comité de promotion
+          attachments: Pièces jointes
+          committee_members: Membres du comité de promotion
           components: Fonctionnalités
           information: Informations
       initiative_creation_header:
