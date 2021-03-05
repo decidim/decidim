@@ -1262,6 +1262,13 @@ fi:
         share_link: Jaa linkki
     statistics:
       comments_count: Kommentteja
+      endorsements_count: Suositusta
+      followers_count: Seuraajaa
+      headline: Tilastot
+      no_stats: Tilastoja ei vielä ole.
+      pages_count: Sivua
+      participants_count: Osallistujaa
+      users_count: Osallistujaa
     tags:
       filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
       filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'

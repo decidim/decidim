@@ -299,6 +299,8 @@ ignore_unused:
   - decidim.votings.admin.content_blocks.landing_page.*
   - decidim.devise.sessions.user.timed_out
   - decidim.admin.forms.file_help.import.*
+  - decidim.admin.menu.questions_submenu.attachments
+  - decidim.admin.menu.questions_submenu.categories
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

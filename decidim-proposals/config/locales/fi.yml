@@ -899,3 +899,7 @@ fi:
       included_proposals:
         proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
         proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
+    statistics:
+      proposals_accepted: Hyväksyttyä ehdotusta
+      proposals_count: Ehdotusta
+      supports_count: Kannatusta

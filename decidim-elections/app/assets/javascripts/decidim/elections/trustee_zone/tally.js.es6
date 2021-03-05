@@ -1,9 +1,11 @@
 // = require decidim/bulletin_board/decidim-bulletin_board
 // = require decidim/bulletin_board/dummy-voting-scheme
+// = require decidim/bulletin_board/election_guard-voting-scheme
 
 $(() => {
   const { TallyComponent, IdentificationKeys, MessageIdentifier, MESSAGE_RECEIVED } = window.decidimBulletinBoard;
   const { TrusteeWrapperAdapter: DummyTrusteeWrapperAdapter } = window.dummyVotingScheme;
+  const { TrusteeWrapperAdapter: ElectionGuardTrusteeWrapperAdapter } = window.electionGuardVotingScheme;
 
   // UI Elements
   const $tally = $(".trustee-step");
@@ -40,6 +42,11 @@ $(() => {
     trusteeWrapperAdapter = new DummyTrusteeWrapperAdapter({
       trusteeId: trusteeContext.uniqueId
     });
+  } else if (schemeName === "election_guard") {
+    trusteeWrapperAdapter = new ElectionGuardTrusteeWrapperAdapter({
+      trusteeId: trusteeContext.uniqueId,
+      workerUrl: "/assets/election_guard/webworker.js"
+    });
   } else {
     throw new Error(`Voting scheme ${schemeName} not supported.`);
   }
@@ -73,9 +80,6 @@ $(() => {
             $currentStep.attr("data-step-status", "processing");
           }
         }
-      },
-      onSetup() {
-        $startButton.prop("disabled", false);
       },
       onBindStartButton(onEventTriggered) {
         $startButton.on("click", onEventTriggered);
@@ -112,6 +116,7 @@ $(() => {
         $restoreModal.foundation("close");
       }
     });
+    $startButton.prop("disabled", false);
   };
 
   trusteeIdentificationKeys.present(async (exists) => {

@@ -2,9 +2,12 @@ name: "[CI] Core (system specs)"
 on:
   push:
     branches:
-      - "**"
-      - "!chore/l10n**"
-      - "!l10n/**"
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
 
 env:
   CI: "true"
@@ -16,6 +19,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 120
     services:
       postgres:
