@@ -91,6 +91,8 @@ cs:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
       menu:
+        components: Komponenty
+        information: Informace
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
       models:
@@ -596,12 +598,6 @@ cs:
           vote: Podepsat
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Přílohy
-          committee_members: Členové výboru
-          components: Komponenty
-          information: Informace
       initiative_creation_header:
         back: Zpět
         fill_data: Vytvořit
