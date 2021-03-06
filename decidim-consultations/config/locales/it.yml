@@ -119,6 +119,8 @@ it:
           questions: Quesiti
           results: Risultati
         questions_submenu:
+          attachments: allegati
+          categories: Categorie
           components: Elementi
           configuration: Configurazione
           consultation: Consultazione
@@ -359,10 +361,6 @@ it:
           vote: Vota
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: allegati
-          categories: Categorie
       consultation_voting_data:
         start_voting_date: Inizia la votazione
       question_components:

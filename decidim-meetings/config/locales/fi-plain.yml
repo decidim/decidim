@@ -536,6 +536,8 @@ fi-pl:
       proposals_from_meeting:
         meeting_proposal: 'Liittyvät ehdotukset:'
         proposal_meeting: 'Liittyvät tapahtumat:'
+    statistics:
+      meetings_count: Tapaamista
   devise:
     mailer:
       join_meeting:

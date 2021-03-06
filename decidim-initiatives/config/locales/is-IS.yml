@@ -20,6 +20,8 @@ is-IS:
   decidim:
     admin:
       menu:
+        components: Hluti
+        information: Upplýsingar
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir
       models:
@@ -218,12 +220,6 @@ is-IS:
       initiatives: Frumkvæði
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Viðhengi
-          committee_members: Nefndarmenn
-          components: Hluti
-          information: Upplýsingar
       initiative_creation_header:
         fill_data: Búa til
         finish: Klára

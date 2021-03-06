@@ -120,6 +120,8 @@ nl:
           questions: vragen
           results: Resultaten
         questions_submenu:
+          attachments: Bijlagen
+          categories: Categorieën
           components: Onderdelen
           configuration: Configuratie
           consultation: Raadpleging
@@ -361,10 +363,6 @@ nl:
       votes_count: Stemmen
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Bijlagen
-          categories: Categorieën
       consultation_voting_data:
         start_voting_date: Stemmen begint
       question_components:
