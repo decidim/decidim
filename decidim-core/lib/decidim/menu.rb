@@ -47,10 +47,40 @@ module Decidim
       @items << MenuItem.new(label, url, options)
     end
 
+    # Public: Registers a new item for the menu
+    #
+    # @param identifier [String, Symbol] A compulsory identifier for the menu item
+    # @param label [String, Symbol] A compulsory label for the menu item
+    # @param url [String, Symbol] The URL this item will link to
+    # @param options [Hash] The options for the menu item
+    #
+    # @option options [Float] :position
+    #         The lower the position, the earlier in the menu the item will
+    #         be displayed.  Default: Float::INFINITY
+    #
+    # @option options [Symbol, Proc] :if
+    #         Decides whether the menu item will be displayed. Evaluated on
+    #         each request.
+    #
+    # @example
+    #
+    #   menu.add_item :resources, "My Resource", "/resources"
+    #   menu.add_item :meetings, I18n.t("menu.meetings"), decidim_meetings.root_path
+    #   menu.add_item :profile, current_user.username, decidim.profile_path(current_user.nickname)
+    #   menu.add_item :processes,"Gestor de Procesos", "/processes", active: :exact
+    #   menu.add_item :processes,"Gestor de Procesos", "/processes", if: admin?
+    #
     def add_item(identifier, label, url, options = {})
       @items << MenuItem.new(label, url, identifier, options)
     end
 
+    # Public: Registers a new item for the menu
+    #
+    # @param identifier [String, Symbol] A compulsory label for the menu item
+    #
+    # @example
+    #
+    #   menu.remove_item :root
     def remove_item(url)
       @removed_items << url
     end
@@ -59,7 +89,7 @@ module Decidim
     # The weighted list of items in the menu
     #
     def items
-      @items.reject!{ |item| @removed_items.include?(item.url) }
+      @items.reject! { |item| @removed_items.include?(item.identifier) }
       @items.select(&:visible?).sort_by(&:position)
     end
 
