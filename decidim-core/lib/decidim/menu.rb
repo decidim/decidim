@@ -8,6 +8,7 @@ module Decidim
     def initialize(name)
       @name = name
       @items = []
+      @removed_items = []
     end
 
     #
@@ -45,10 +46,15 @@ module Decidim
       @items << MenuItem.new(label, url, options)
     end
 
+    def remove_item(url)
+      @removed_items << url
+    end
+
     #
     # The weighted list of items in the menu
     #
     def items
+      @items.reject!{ |item| @removed_items.include?(item.url) }
       @items.select(&:visible?).sort_by(&:position)
     end
 
