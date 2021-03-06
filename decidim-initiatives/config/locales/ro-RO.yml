@@ -466,7 +466,6 @@ ro:
     decidim:
       admin:
         initiative:
-          attachments: Atașamente
           committee_members: Membrii Comitetului
           components: Componente
           information: Informare

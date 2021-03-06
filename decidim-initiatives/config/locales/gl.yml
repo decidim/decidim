@@ -400,7 +400,6 @@ gl:
     decidim:
       admin:
         initiative:
-          attachments: Anexos
           committee_members: Membros do comité
           components: Compoñentes
           information: Información

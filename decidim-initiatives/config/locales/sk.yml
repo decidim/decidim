@@ -395,7 +395,6 @@ sk:
     decidim:
       admin:
         initiative:
-          attachments: Prílohy
           committee_members: členovia komisie
           components: Komponenty
           information: Informácie
