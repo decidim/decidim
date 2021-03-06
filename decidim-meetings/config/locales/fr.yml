@@ -251,7 +251,7 @@ fr:
           edit:
             update: Mettre à jour
           form:
-            address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [n°] [rue] [code postal] [ville]'
+            address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Données de localisation : infos additionnelles (ex : 2ème étage, ...)'
           index:
@@ -390,7 +390,7 @@ fr:
           filter_by: Filtrer par
           unfold: Voir la suite
         form:
-          address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
+          address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
           create_as: Créer une rencontre en tant que
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre'
           location_hints_help: 'Données de localisation : infos additionnelles (ex : 2ème étage, ...)'

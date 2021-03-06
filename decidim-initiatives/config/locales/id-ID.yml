@@ -418,7 +418,6 @@ id:
     decidim:
       admin:
         initiative:
-          attachments: Lampiran
           committee_members: anggota Komite
           components: Komponen
           information: Informasi

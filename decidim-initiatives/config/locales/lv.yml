@@ -490,7 +490,6 @@ lv:
     decidim:
       admin:
         initiative:
-          attachments: Pielikumi
           committee_members: Komitejas locekļi
           components: Komponenti
           information: Informācija

@@ -523,7 +523,7 @@ es-PY:
       admin:
         initiative:
           attachments: Archivos adjuntos
-          committee_members: Miembros del comisión
+          committee_members: Miembros del comité
           components: Componentes
           information: Información
       initiative_creation_header:

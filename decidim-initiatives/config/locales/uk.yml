@@ -325,7 +325,6 @@ uk:
     decidim:
       admin:
         initiative:
-          attachments: Вкладені файли
           committee_members: Члени робочого гурту
           components: Складові
           information: Відомості

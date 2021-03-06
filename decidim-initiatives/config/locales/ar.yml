@@ -467,7 +467,6 @@ ar:
     decidim:
       admin:
         initiative:
-          attachments: مرفقات
           committee_members: أعضاء اللجنة
           components: المكونات
           information: معلومات

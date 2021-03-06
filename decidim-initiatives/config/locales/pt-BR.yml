@@ -426,7 +426,6 @@ pt:
     decidim:
       admin:
         initiative:
-          attachments: Anexos
           committee_members: membros do Comitê
           components: Componentes
           information: Em formação
