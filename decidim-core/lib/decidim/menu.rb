@@ -9,6 +9,7 @@ module Decidim
       @name = name
       @items = []
       @removed_items = []
+      @ordered_elements = []
     end
 
     #
@@ -71,7 +72,16 @@ module Decidim
     #   menu.add_item :processes,"Gestor de Procesos", "/processes", if: admin?
     #
     def add_item(identifier, label, url, options = {})
+      options = { position: (1 + @items.length) }.merge(options)
       @items << MenuItem.new(label, url, identifier, options)
+    end
+
+    def move_after(element:, after:)
+      @ordered_elements << { movable: element, anchor: after, operation: :+ }
+    end
+
+    def move_before(element:, before:)
+      @ordered_elements << { movable: element, anchor: before, operation: :- }
     end
 
     # Public: Registers a new item for the menu
@@ -81,8 +91,8 @@ module Decidim
     # @example
     #
     #   menu.remove_item :root
-    def remove_item(url)
-      @removed_items << url
+    def remove_item(item)
+      @removed_items << item
     end
 
     #
@@ -90,10 +100,17 @@ module Decidim
     #
     def items
       @items.reject! { |item| @removed_items.include?(item.identifier) }
+      @ordered_elements.each { |item| move_element(item) }
       @items.select(&:visible?).sort_by(&:position)
     end
 
     private
+
+    def move_element(movable:, anchor:, operation:)
+      anchor = @items.select { |x| x.identifier == anchor }.first
+      movable = @items.select { |x| x.identifier == movable }.first
+      movable.position = anchor.position.send(operation, 0.0001) if movable.present? && anchor.present?
+    end
 
     def registry
       @registry ||= MenuRegistry.find(@name)

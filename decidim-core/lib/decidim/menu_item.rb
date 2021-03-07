@@ -22,7 +22,8 @@ module Decidim
       @submenu = options[:submenu]
     end
 
-    attr_reader :label, :url, :position, :active, :icon_name, :submenu, :identifier
+    attr_accessor :position
+    attr_reader :label, :url, :active, :icon_name, :submenu, :identifier
 
     def visible?
       return true if @if.nil? || @if
