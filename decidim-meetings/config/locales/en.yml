@@ -348,6 +348,7 @@ en:
             space_type: Participatory space
             upcoming: Upcoming
       last_activity:
+        meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
         new_meeting_at_html: "<span>New meeting at %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
