@@ -14,7 +14,7 @@ module Decidim
     end
 
     describe "#event_name" do
-      it "turns class to an event name" do
+      it "turns class name into an event name" do
         expect(subject.event_name).to eq("decidim.serialize.exporters.serializer")
       end
     end
