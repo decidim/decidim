@@ -679,6 +679,7 @@ en:
         success: Proposal draft was successfully deleted.
       last_activity:
         new_proposal_at_html: "<span>New proposal at %{link}</span>"
+        proposal_updated_at_html: "<span>Proposal updated at %{link}</span>"
       models:
         collaborative_draft:
           fields:
