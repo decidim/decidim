@@ -84,6 +84,8 @@ module Decidim
       model.user_lazy if resource.respond_to?(:user)
     end
 
+    delegate :action, to: :model
+
     def element_id
       "action-#{model.id}"
     end
