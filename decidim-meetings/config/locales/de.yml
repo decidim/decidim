@@ -347,6 +347,7 @@ de:
             space_type: Partizipativer Raum
             upcoming: Bevorstehende
       last_activity:
+        meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
         new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
