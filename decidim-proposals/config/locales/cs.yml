@@ -692,6 +692,7 @@ cs:
         success: Koncept návrhu byl úspěšně smazán.
       last_activity:
         new_proposal_at_html: "<span>Nový návrh na %{link}</span>"
+        proposal_updated_at_html: "<span>Návrh byl aktualizován na %{link}</span>"
       models:
         collaborative_draft:
           fields:
