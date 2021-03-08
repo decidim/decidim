@@ -6,7 +6,7 @@ default: &default
   source_path: 'decidim-core/app/packs'
   source_entry_path: entrypoints
   public_root_path: development_app/public
-  public_output_path: decidim-packs
+  public_output_path: packs
   cache_path: tmp/cache/webpacker
   webpack_compile_output: true
 
@@ -25,8 +25,8 @@ development:
     host: localhost
     # Notice that we use a different port (to prevent blocking the default one) as
     # there will be at least two webpack servers running
-    port: 3036
-    public: localhost:3036
+    port: 3035
+    public: localhost:3035
     # Inject browserside javascript that required by both HMR and Live(full) reload
     inject_client: true
     # Hot Module Replacement updates modules while the application is running without a full reload

@@ -1,3 +1,5 @@
+import 'moment'
+
 ((exports) => {
   exports.$(() => {
     const Foundation = exports.Foundation;

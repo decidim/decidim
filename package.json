@@ -226,7 +226,7 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-standard": "^3.1.0",
-    "expose-loader": "^0.7.5",
+    "expose-loader": "^2.0.0",
     "faker": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",

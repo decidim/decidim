@@ -1,5 +1,7 @@
 /* globals svg4everybody */
 
+import svg4everybody from 'svg4everybody'
+
 window.Decidim = window.Decidim || {};
 
 $(() => {

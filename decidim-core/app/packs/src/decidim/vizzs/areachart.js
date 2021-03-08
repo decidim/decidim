@@ -6,7 +6,7 @@
 import * as d3 from "d3";
 
 // lib
-export default areachart = (opts = {}) => {
+export default function areachart(opts = {}) {
 
   const parseData = (data) => {
     // format the data

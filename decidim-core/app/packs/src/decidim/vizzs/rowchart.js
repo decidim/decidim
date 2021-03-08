@@ -5,7 +5,7 @@
 
 import * as d3 from "d3"
 
-export default renderRowCharts = () => {
+export default function renderRowCharts() {
   // lib
   const rowchart = (opts = {}) => {
     // remove any previous chart

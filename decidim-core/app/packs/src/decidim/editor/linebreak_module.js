@@ -1,3 +1,4 @@
+import Quill from 'quill'
 import './modified_enter'
 import './modified_backspace_utils'
 import './modified_backspace_offset_any'
