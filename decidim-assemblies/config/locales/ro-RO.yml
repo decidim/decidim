@@ -379,13 +379,13 @@ ro:
         read_less: Citește mai puțin
         read_more: Citește mai mult
         related_participatory_processes: Procese participative conexe
-        scope: Domeniu
+        scope: Domeniu de aplicare
         social_networks: Rețele sociale
-        social_networks_title: Împărtășește această adunare pe
+        social_networks_title: Distribuie această organizație pe
         target: Cine participă
     assembly_members:
       assembly_member:
-        designated_on: Designat pe
+        designated_on: Desemnat la
       index:
         title: Membri
     conferences:
@@ -396,35 +396,35 @@ ro:
     events:
       assemblies:
         create_assembly_member:
-          email_intro: Un administrator al adunării <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
-          email_outro: Ați primit această notificare deoarece ați fost invitat la o adunare. Verificați <a href="%{resource_path}">pagina de asamblare</a> pentru a colabora!
-          email_subject: Ai fost invitat să fii membru al adunării %{resource_name}!
-          notification_title: Ați fost înregistrat ca membru al Adunării <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">de asamblare</a> pentru a adăuga!
+          email_intro: Un administrator al organizației <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
+          email_outro: Ați primit această notificare deoarece ați fost invitat la o organizație. Verificați <a href="%{resource_path}">pagina organizației</a> pentru a colabora!
+          email_subject: Ai fost invitat să fii membru al organizației %{resource_name}!
+          notification_title: Ați fost înregistrat ca membru al Organizației <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">organizației</a> pentru a accepta!
       assembly:
         role_assigned:
-          email_intro: Ai fost atribuit ca %{role} pentru asamblare "%{resource_title}".
-          email_outro: Ați primit această notificare deoarece sunteți %{role} din "" asamblare%{resource_title}".
-          email_subject: Ai fost atribuit ca %{role} pentru "%{resource_title}".
-          notification_title: Ai fost atribuit ca %{role} pentru asamblare <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Ai fost numit %{role} pentru organizația "%{resource_title}".
+          email_outro: Ați primit această notificare deoarece sunteți %{role} al organizației "%{resource_title}".
+          email_subject: Ai fost numit ca %{role} pentru "%{resource_title}".
+          notification_title: Ați fost numit %{role} pentru organizația <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>O <strong>adunare</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Adunările țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
-          page: "<p>O <strong>adunare</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Adunările țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
-          title: Ce sunt ansamblurile?
+          contextual: "<p>O <strong>organizație</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Organizațiile țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
+          page: "<p>O <strong>organizație</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Organizațiile țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
+          title: Ce sunt organizațiile?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Adunarea nu a fost găsită în baza de date (ID: %{id})'
+          not_found: 'Organizația nu a fost găsită în baza de date (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'Tipul de asamblare nu a fost găsit în baza de date (ID: %{id})'
+          not_found: 'Tipul de organizație nu a fost găsit în baza de date (ID: %{id})'
     menu:
-      assemblies: Adunări
+      assemblies: Organizații
     metrics:
       assemblies:
-        description: Numărul de ansambluri create
-        object: ansambluri
-        title: Adunări
+        description: Numărul de organizații create
+        object: organizații
+        title: Organizații
     pages:
       home:
         hero:
@@ -437,7 +437,7 @@ ro:
           highlighted_processes:
             processes_button_title: Link către pagina Proceselor care afișează toate procesele
       show:
-        related_assemblies: Asambluri asemănătoare
+        related_assemblies: Organizații asemănătoare
     statistics:
       assemblies_count: Organizații
   errors:
@@ -450,21 +450,21 @@ ro:
           more_info: Mai multe informații
           take_part: Participă
         index:
-          children: 'Adunări: '
+          children: 'Organizații: '
           organizational_chart: Grafic organizațional
-          promoted_assemblies: ansambluri evidențiate
-          reset_chart: Reset
+          promoted_assemblies: Organizații evidențiate
+          reset_chart: Resetare
         order_by_assemblies:
           assemblies:
             one: "%{count} ansambluri"
             few: "%{count} ansambluri"
-            other: "%{count} ansambluri"
+            other: "%{count} organizații"
         promoted_assembly:
           more_info: Mai multe informații
           take_part: Participă
       assembly_navigation:
         assembly_member_menu_item: Membri
-        assembly_menu_item: Adunarea
+        assembly_menu_item: Organizația
       assembly_widgets:
         show:
           take_part: Participă
