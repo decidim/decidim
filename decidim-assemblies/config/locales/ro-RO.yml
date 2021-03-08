@@ -1,11 +1,13 @@
 ro:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Activeaza graficul organizatiei
       assembly:
-        area_id: Suprafață
-        assembly_type: Tip adunare
-        assembly_type_other: Tip de adunare
-        banner_image: Imagine banner
+        area_id: Zonă
+        assembly_type: Tip organizație
+        assembly_type_other: Alt tip de organizație
+        banner_image: Imagine pentru banner
         closing_date: Data închiderii
         closing_date_reason: Motivul datei de închidere
         composition: Componență
@@ -16,8 +18,8 @@ ro:
         created_by_other: Creat de alte
         creation_date: Data creării
         decidim_area_id: Suprafață
-        decidim_assemblies_type_id: Tip adunare
-        decidim_scope_id: Domeniu
+        decidim_assemblies_type_id: Tip organizație
+        decidim_scope_id: Domeniu de aplicare
         description: Descriere
         developer_group: Grup promotor
         domain: Domeniu
@@ -34,15 +36,38 @@ ro:
         meta_scope: Sferă metadate
         parent_id: Asociere părinte
         participatory_processes_ids: Procese participative conexe
+        participatory_scope: Ce se decide
+        participatory_structure: Cum se decide
+        private_space: Spațiu privat
+        promoted: Evidenţiat
+        published_at: Publicat la
+        purpose_of_action: Scopul acțiunii
+        scope_id: Domeniu de aplicare
+        scopes_enabled: Domenii activate
+        short_description: Descriere scurtă
+        show_statistics: Arată statistici
+        slug: Adresă URL
+        special_features: Caracteristici speciale
+        subtitle: Subtitlu
+        target: Cine participă
         title: Titlu
         twitter: Twitter
+        weight: Pondere
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
+        birthplace: Locul nașterii
         ceased_date: Data încetării
+        designation_date: Data desemnării
+        designation_mode: Modul de desemnare
+        full_name: Numele complet
         gender: Sexul
+        position: Poziție
+        user_id: Utilizator
       assembly_user_role:
         email: E-mail
+        name: Nume
+        role: Rol
     errors:
       models:
         assembly:
@@ -51,6 +76,14 @@ ro:
               invalid_document_type: 'Tip de document invalid. Formatele acceptate sunt: %{valid_mime_types}'
   activerecord:
     models:
+      decidim/assembly:
+        one: Organizație
+        few: Organizații
+        other: Organizații
+      decidim/assembly_member:
+        one: Membru al organizației
+        few: Membru al organizației
+        other: Membrii organizație
       decidim/assembly_user_role:
         one: Asamblare rol utilizator
         few: Adunați rolurile utilizatorilor
@@ -219,6 +252,7 @@ ro:
         update: "%{user_name} a actualizat setările de asamblare"
       assembly_type:
         create: "%{user_name} a creat %{resource_name} tip de asamblare"
+        delete: "%{user_name} a creat tipul de organizație %{resource_name}"
         publish: "%{user_name} a publicat %{resource_name} tip de asamblare"
         unpublish: "%{user_name} nu a publicat %{resource_name} tip de asamblare"
         update: "%{user_name} a actualizat tipul de asamblare %{resource_name}"
@@ -395,6 +429,8 @@ ro:
       home:
         hero:
           participate_title: Participă la procesele platformei
+        sub_hero:
+          register_title: Înregistrează-te pentru a crea un cont
     participatory_processes:
       pages:
         home:
@@ -402,6 +438,8 @@ ro:
             processes_button_title: Link către pagina Proceselor care afișează toate procesele
       show:
         related_assemblies: Asambluri asemănătoare
+    statistics:
+      assemblies_count: Organizații
   errors:
     messages:
       cannot_be_blank: nu poate fi necompletat
