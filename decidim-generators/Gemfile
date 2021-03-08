@@ -18,7 +18,7 @@ gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
 
-gem "wicked_pdf", "~> 1.4"
+gem "wicked_pdf", "~> 2.1"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
