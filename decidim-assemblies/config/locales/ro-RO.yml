@@ -1,8 +1,10 @@
 ro:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Activeaza graficul organizatiei
       assembly:
-        area_id: Suprafață
+        area_id: Zonă
         assembly_type: Tip adunare
         assembly_type_other: Tip de adunare
         banner_image: Imagine banner
@@ -34,15 +36,38 @@ ro:
         meta_scope: Sferă metadate
         parent_id: Asociere părinte
         participatory_processes_ids: Procese participative conexe
+        participatory_scope: Ce se decide
+        participatory_structure: Cum se decide
+        private_space: Spațiu privat
+        promoted: Evidenţiat
+        published_at: Publicat la
+        purpose_of_action: Scopul acțiunii
+        scope_id: Domeniu de aplicare
+        scopes_enabled: Domenii activate
+        short_description: Descriere scurtă
+        show_statistics: Arată statistici
+        slug: Adresă URL
+        special_features: Caracteristici speciale
+        subtitle: Subtitlu
+        target: Cine participă
         title: Titlu
         twitter: Twitter
+        weight: Pondere
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
+        birthplace: Locul nașterii
         ceased_date: Data încetării
+        designation_date: Data desemnării
+        designation_mode: Modul de desemnare
+        full_name: Numele complet
         gender: Sexul
+        position: Poziție
+        user_id: Utilizator
       assembly_user_role:
         email: E-mail
+        name: Nume
+        role: Rol
     errors:
       models:
         assembly:
@@ -220,6 +245,7 @@ ro:
         update: "%{user_name} a actualizat setările de asamblare"
       assembly_type:
         create: "%{user_name} a creat %{resource_name} tip de asamblare"
+        delete: "%{user_name} a creat tipul de organizație %{resource_name}"
         publish: "%{user_name} a publicat %{resource_name} tip de asamblare"
         unpublish: "%{user_name} nu a publicat %{resource_name} tip de asamblare"
         update: "%{user_name} a actualizat tipul de asamblare %{resource_name}"
@@ -415,6 +441,8 @@ ro:
       home:
         hero:
           participate_title: Participă la procesele platformei
+        sub_hero:
+          register_title: Înregistrează-te pentru a crea un cont
     participatory_processes:
       pages:
         home:
