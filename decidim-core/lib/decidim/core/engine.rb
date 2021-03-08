@@ -55,8 +55,10 @@ module Decidim
       engine_name "decidim"
 
       initializer "decidim.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::LayoutHelper if respond_to?(:helper)
+        config.to_prepare do
+          ActiveSupport.on_load :action_controller do
+            helper Decidim::LayoutHelper if respond_to?(:helper)
+          end
         end
       end
 
@@ -233,8 +235,10 @@ module Decidim
       end
 
       initializer "decidim.notifications" do
-        Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
-          EventPublisherJob.perform_later(event_name, data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
+            EventPublisherJob.perform_later(event_name, data)
+          end
         end
       end
 

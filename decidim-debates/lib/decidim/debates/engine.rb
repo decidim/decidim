@@ -23,12 +23,14 @@ module Decidim
       end
 
       initializer "decidim_changes" do
-        Decidim::SettingsChange.subscribe "debates" do |changes|
-          Decidim::Debates::SettingsChangeJob.perform_later(
-            changes[:component_id],
-            changes[:previous_settings],
-            changes[:current_settings]
-          )
+        config.to_prepare do
+          Decidim::SettingsChange.subscribe "debates" do |changes|
+            Decidim::Debates::SettingsChangeJob.perform_later(
+              changes[:component_id],
+              changes[:previous_settings],
+              changes[:current_settings]
+            )
+          end
         end
       end
 
@@ -56,26 +58,28 @@ module Decidim
           end
         end
 
-        Decidim::Comments::CommentCreation.subscribe do |data|
-          comment = Decidim::Comments::Comment.find(data[:comment_id])
-          next unless comment.decidim_root_commentable_type == "Decidim::Debates::Debate"
+        config.to_prepare do
+          Decidim::Comments::CommentCreation.subscribe do |data|
+            comment = Decidim::Comments::Comment.find(data[:comment_id])
+            next unless comment.decidim_root_commentable_type == "Decidim::Debates::Debate"
 
-          if comment.user_group.present?
-            comments = Decidim::Comments::Comment.where(
-              decidim_root_commentable_id: comment.decidim_root_commentable_id,
-              decidim_root_commentable_type: comment.decidim_root_commentable_type,
-              user_group: comment.user_group
-            )
+            if comment.user_group.present?
+              comments = Decidim::Comments::Comment.where(
+                decidim_root_commentable_id: comment.decidim_root_commentable_id,
+                decidim_root_commentable_type: comment.decidim_root_commentable_type,
+                user_group: comment.user_group
+              )
 
-            Decidim::Gamification.increment_score(comment.user_group, :commented_debates) if comments.count == 1
-          elsif comment.author.present?
-            comments = Decidim::Comments::Comment.where(
-              decidim_root_commentable_id: comment.decidim_root_commentable_id,
-              decidim_root_commentable_type: comment.decidim_root_commentable_type,
-              author: comment.author
-            )
+              Decidim::Gamification.increment_score(comment.user_group, :commented_debates) if comments.count == 1
+            elsif comment.author.present?
+              comments = Decidim::Comments::Comment.where(
+                decidim_root_commentable_id: comment.decidim_root_commentable_id,
+                decidim_root_commentable_type: comment.decidim_root_commentable_type,
+                author: comment.author
+              )
 
-            Decidim::Gamification.increment_score(comment.author, :commented_debates) if comments.count == 1
+              Decidim::Gamification.increment_score(comment.author, :commented_debates) if comments.count == 1
+            end
           end
         end
       end
