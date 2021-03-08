@@ -678,6 +678,7 @@ de:
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
       last_activity:
         new_proposal_at_html: "<span>Neuer Vorschlag bei %{link}</span>"
+        proposal_updated_at_html: "<span>Vorschlag aktualisiert unter %{link}</span>"
       models:
         collaborative_draft:
           fields:
