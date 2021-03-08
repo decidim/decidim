@@ -298,6 +298,9 @@
       show:
         related_assemblies: Relaterte forsamlinger
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Aktivitet
       show:
         title: Prosessgrupper
     participatory_process_steps:
@@ -390,25 +393,6 @@
         start_date: Startdato
         target: Hvem kan delta
         unspecified: Ikke spesifisert
-      statistics:
-        answers_count: Svar
-        comments_count: Kommentarer
-        debates_count: Diskusjoner
-        endorsements_count: Tilslutninger
-        followers_count: Følgere
-        headline: Aktivitet
-        meetings_count: Arrangementer
-        no_stats: Det finnes ingen statistikk enda.
-        orders_count: Støtte
-        pages_count: Sider
-        participants_count: Deltakere
-        processes_count: Prosesser
-        projects_count: Prosjekter
-        proposals_count: Forslag
-        results_count: Resultater
-        supports_count: Støtte
-        surveys_count: Undersøkelser
-        users_count: Deltakere
   layouts:
     decidim:
       participatory_process_groups:

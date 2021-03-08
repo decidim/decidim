@@ -69,6 +69,39 @@ describe "Edit proposals", type: :system do
         click_button "Send"
         expect(page).to have_content(new_address)
       end
+
+      context "when the address is removed from the form" do
+        before do
+          proposal.update!(
+            address: new_address,
+            latitude: latitude,
+            longitude: longitude
+          )
+        end
+
+        it "allows filling an empty address and unchecking the has address checkbox" do
+          visit_component
+
+          click_link translated(proposal.title)
+          click_link "Edit proposal"
+
+          expect(page).to have_field("Title", with: translated(proposal.title))
+          expect(page).to have_field("Body", with: translated(proposal.body))
+          expect(page).to have_field("Address", with: proposal.address)
+
+          within "form.edit_proposal" do
+            fill_in :proposal_title, with: new_title
+            fill_in :proposal_body, with: new_body
+            fill_in :proposal_address, with: ""
+          end
+          uncheck "proposal_has_address"
+          click_button "Send"
+
+          expect(page).to have_content(new_title)
+          expect(page).to have_content(new_body)
+          expect(page).not_to have_content(proposal.address)
+        end
+      end
     end
 
     context "when updating with wrong data" do

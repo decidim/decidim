@@ -246,7 +246,6 @@ hu:
         update: "%{user_name} frissítette a gyűlések beállításait"
       assembly_type:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlés típust"
-        delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlés típusból"
         publish: "%{user_name} közzétette a(z) %{resource_name} gyűlés típust"
         unpublish: "%{user_name} visszavonta a(z) %{resource_name} gyűlés típus közzétételét"
         update: "%{user_name} frissítette a(z) %{resource_name} gyűlés típust"
@@ -373,22 +372,6 @@ hu:
         social_networks: Közösségi háló
         social_networks_title: Ennek a gyűlésnek a megosztása
         target: Ki vesz részt benne
-      statistics:
-        answers_count: Válaszok
-        assemblies_count: Gyűlések
-        comments_count: Hozzászólások
-        debates_count: Viták
-        endorsements_count: Jóváhagyások
-        meetings_count: Találkozók
-        orders_count: Támogatja
-        pages_count: Oldalak
-        posts_count: Bejegyzések
-        projects_count: Projektek
-        proposals_count: Javaslatok
-        results_count: Eredmények
-        surveys_count: Felmérések
-        users_count: Résztvevők
-        votes_count: Támogatók
     assembly_members:
       assembly_member:
         designated_on: Kijelölt
@@ -422,8 +405,6 @@ hu:
       home:
         hero:
           participate_title: Részvétel a platform folyamataiban
-        sub_hero:
-          register_title: Feliratkozás a platformon a fiók létesítéséhez
     participatory_processes:
       pages:
         home:

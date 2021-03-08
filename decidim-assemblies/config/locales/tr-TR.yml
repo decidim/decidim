@@ -249,7 +249,6 @@ tr:
         update: "%{user_name}, kurul ayarlarını güncelledi"
       assembly_type:
         create: "%{user_name},%{resource_name} kurul türünü oluşturdu"
-        delete: "%{user_name},%{resource_name} üyesini %{space_name} kurul türünden kaldırdı"
         publish: "%{user_name}, %{resource_name} kurul türünü yayınladı"
         unpublish: "%{user_name}, %{resource_name} kurul türünü yayından kaldırdı"
         update: "%{user_name}, %{resource_name} kurul türünü güncelledi"
@@ -380,22 +379,6 @@ tr:
         social_networks: Sosyal ağlar
         social_networks_title: Bu kurulu paylaş
         target: Katılanlar
-      statistics:
-        answers_count: Cevaplar
-        assemblies_count: Kurullar
-        comments_count: Yorumlar
-        debates_count: Tartışmalar
-        endorsements_count: Onaylar
-        meetings_count: Toplantılar
-        orders_count: Destekler
-        pages_count: Sayfalar
-        posts_count: Yayınlar
-        projects_count: Projeler
-        proposals_count: Teklifler
-        results_count: Sonuçlar
-        surveys_count: Anketler
-        users_count: Katılımcılar
-        votes_count: Destekler
     assembly_members:
       assembly_member:
         designated_on: Üzerinde belirlenen
@@ -442,8 +425,6 @@ tr:
       home:
         hero:
           participate_title: Platformun süreçlerine katılın
-        sub_hero:
-          register_title: Platformda bir hesap oluşturmak için kaydolun
     participatory_processes:
       pages:
         home:

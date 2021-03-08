@@ -35,7 +35,6 @@ ro:
       decidim/profile_updated_event: Profil actualizat
       decidim/promote_to_admin: Promovat la grupul de administratori
       decidim/removed_from_group: Eliminat din grup
-      decidim/resource_endorsed_event: Resursă aprobată
   activerecord:
     attributes:
       decidim/user:
@@ -82,6 +81,7 @@ ro:
       logo: "Sigla oficială a %{organization}"
       skip_button: Salt la conținutul principal
     account:
+      blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
       data_portability_export:
         file_no_exists: Fișierul nu există
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
@@ -322,6 +322,9 @@ ro:
           title: Confirmați e-mailul dvs.
       show:
         close_modal: Închide fereastra
+    block_user_mailer:
+      notify:
+        hello: Salut,
     collapsible_list:
       hidden_elements_count:
         one: și încă %{count}
@@ -369,6 +372,9 @@ ro:
             dummy_step_translatable_text: Text traductibil paşi fichar@@0ier
     contact: Contact
     content_blocks:
+      cta_settings_form:
+        background_image: Imagine de fundal
+        description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
       hero:
@@ -378,6 +384,11 @@ ro:
         welcome_text: Text de întâmpinare
       highlighted_content_banner:
         name: Banner conținut evidențiat
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sortează elementele după:'
+          random: Aleatoriu
+          recent: Cele mai recente
       how_to_participate:
         name: Cum să participați
       html:
@@ -402,7 +413,6 @@ ro:
         ready: Gata
       show:
         download_data: Descarcă datele
-        download_data_description: Un fișier cu toate informațiile asociate contului va fi trimis la <strong>%{user_email}</strong>
         request_data: Solicită date
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
@@ -441,6 +451,7 @@ ro:
           buttons:
             check: Verificați și continuați
             close_modal: Închide fereastra
+            uncheck: Mențineți nebifat
           notice: |-
             <p>Hei, ești sigur că nu vrei să primești un buletin informativ?<br>
             Te rugăm să bifezi din nou căsuța de selectare a buletinului informativ de mai jos.<br>
@@ -623,7 +634,6 @@ ro:
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
       data_portability_export:
-        click_button: 'Faceți clic pe butonul următor pentru a descărca datele. <br/> Veți avea fișierul disponibil până la %{date}. <br/> Veți avea nevoie de <a href=''https://www.7-zip.org/''>7-Zip</a> pentru a-l deschide. Parola: %{password}'
         download: Descărcare
       export:
         ready: Găsiți atașat o versiune zip a exportului dvs.
@@ -657,7 +667,6 @@ ro:
       create:
         button: Urmărește
         error: A apărut o problemă la urmărirea acestei resurse.
-        participatory_space: Deja în urma spațiului participativ
       destroy:
         button: Oprește urmărirea
         error: A apărut o problemă la neurmărirea acestei resurse.
@@ -893,6 +902,8 @@ ro:
           show: Arată conversația cu %{sender}
         create:
           error: Conversația nu a început. Încercați din nou mai târziu
+        error_modal:
+          correct_errors: Te rugăm să remediezi erorile și să încerci din nou.
         index:
           ago: acum
           close: Închide fereastra
@@ -910,11 +921,12 @@ ro:
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
-          not_allowed: Acest utilizator nu mai acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
           send: Trimite
           title: Începe o conversație
+        update:
+          error: Mesajul nu a fost trimis din cauza unei erori
     metrics:
       followers:
         description: Numărul de participanți care urmăresc acest spațiu de participare
@@ -977,6 +989,7 @@ ro:
       no_notifications: Nici o notificare încă.
     notifications_settings:
       show:
+        administrators: Administratori
         allow_public_contact: Permiteți oricui să îmi trimită un mesaj direct, chiar dacă nu-l urmăresc.
         direct_messages: Primește mesaje directe de la oricine
         email_on_notification: Vreau să primesc un e-mail de fiecare dată când primesc o notificare.
@@ -1022,24 +1035,7 @@ ro:
         metrics:
           headline: Valori
         statistics:
-          answers_count: Chestionare finalizate
-          assemblies_count: Adunări
-          comments_count: Comentarii
-          conferences_count: Conferințe
-          debates_count: Dezbateri
-          endorsements_count: Susținători
           headline: Starea curentă a %{organization}
-          meetings_count: Întâlniri
-          orders_count: Voturi
-          pages_count: Pagini
-          processes_count: Procese
-          projects_count: Proiecte
-          proposals_accepted: Propuneri acceptate
-          proposals_count: Propuneri
-          results_count: Rezultate
-          surveys_count: Chestionare
-          users_count: Participanți
-          votes_count: Voturi
         sub_hero:
           register: Inregistrare
       index:
@@ -1057,6 +1053,7 @@ ro:
           error: A apărut o problemă la acceptarea termenilor şi a condiţiilor.
           success: Minunat! Ați acceptat termenii și condițiile.
         form:
+          agreement: Sunt de acord cu acești termeni și condiţii
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
           modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
@@ -1213,6 +1210,8 @@ ro:
         close_window: Închide fereastra
         share: Distribuie
         share_link: Distribuie link-ul
+    statistics:
+      comments_count: Comentarii
     tags:
       filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
       filter_results_for_scope: 'Filtrează rezultatele pentru scope: %{resource}'
@@ -1440,7 +1439,7 @@ ro:
     messages:
       already_confirmed: a fost deja confirmat, încercați să vă conectați
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
-      content_type_whitelist_error: tipul de fișier nu este valid
+      content_type_allowlist_error: tipul de fișier nu este valid
       cycle_detected: un părinte al unui domeniu nu poate fi unul dintre descendenții săi
       expired: a expirat, vă rugăm să solicitaţi unul nou
       file_size_is_less_than_or_equal_to: dimensiunea fişierului trebuie să fie mai mică sau egală cu %{count}

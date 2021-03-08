@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mdl", "~> 0.5"
   s.add_dependency "nokogiri", "~> 1.11", ">= 1.11.1"
   s.add_dependency "puffing-billy", "~> 2.4.0"
-  s.add_dependency "puma", ">= 4.3"
+  s.add_dependency "puma", "~> 5.0"
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec-cells", "~> 0.3.4"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"

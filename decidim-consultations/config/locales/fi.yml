@@ -94,7 +94,7 @@ fi:
         create:
           error: Kuulemisen luonti epäonnistui.
           success: Kuulemisen luonti onnistui.
-        deprecation_warning: Kuulemiset-moduuli poistuu käytössä lähitulevaisuudessa. Kryptografisesti turvallisempi Äänestykset-moduuli korvaa kyseisen moduulin jatkossa.
+        deprecation_warning: Kuulemiset-moduuli poistuu käytöstä lähitulevaisuudessa. Kryptografisesti turvallisempi Äänestykset-moduuli korvaa kyseisen moduulin jatkossa.
         edit:
           update: Päivitä
         form:
@@ -324,10 +324,6 @@ fi:
           title: Mitä ovat kuulemiset?
     menu:
       consultations: Kuulemiset
-    pages:
-      home:
-        statistics:
-          consultations_count: Kuulemisia
     questions:
       next_button: Seuraava kysymys
       previous_button: Edellinen kysymys
@@ -362,6 +358,9 @@ fi:
       consultations:
         actions:
           vote: Äänestä
+    statistics:
+      consultations_count: Kuulemista
+      votes_count: Ääntä
   layouts:
     decidim:
       admin:

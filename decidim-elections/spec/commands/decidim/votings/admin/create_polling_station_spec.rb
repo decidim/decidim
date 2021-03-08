@@ -11,6 +11,8 @@ module Decidim
         let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
         let(:user) { create :user, :admin, :confirmed, organization: organization }
         let(:voting) { create :voting, voting_type: "hybrid", organization: organization }
+        let(:president) { nil }
+        let(:managers) { [] }
 
         let(:form) do
           double(
@@ -21,6 +23,10 @@ module Decidim
             address: address,
             latitude: latitude,
             longitude: longitude,
+            polling_station_president: president,
+            polling_station_president_id: president&.id,
+            polling_station_managers: managers,
+            polling_station_manager_ids: managers.pluck(:id),
             current_user: user,
             current_organization: organization,
             voting: voting
@@ -77,6 +83,62 @@ module Decidim
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)
+          end
+        end
+
+        context "when selecting a president" do
+          let(:president) { create(:polling_officer, voting: voting) }
+
+          it "stores the reference correctly" do
+            subject.call
+
+            expect(president.reload.presided_polling_station).to eq polling_station
+            expect(polling_station.reload.polling_station_president).to eq president
+          end
+
+          it "notifies the president" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.votings.polling_officers.polling_station_assigned",
+                event_class: PollingOfficers::PollingStationAssignedEvent,
+                resource: voting,
+                affected_users: [president.user],
+                followers: [],
+                extra: { polling_officer_id: president.id }
+              )
+
+            subject.call
+          end
+        end
+
+        context "when selecting managers" do
+          let(:managers) { create_list(:polling_officer, 3, voting: voting) }
+
+          it "stores the reference correctly" do
+            subject.call
+
+            managers.each do |manager|
+              expect(manager.reload.managed_polling_station).to eq polling_station
+              expect(polling_station.reload.polling_station_managers).to include(manager)
+            end
+          end
+
+          it "notifies the manmagers" do
+            managers.each do |manager|
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.votings.polling_officers.polling_station_assigned",
+                  event_class: PollingOfficers::PollingStationAssignedEvent,
+                  resource: voting,
+                  affected_users: [manager.user],
+                  followers: [],
+                  extra: { polling_officer_id: manager.id }
+                )
+            end
+
+            subject.call
           end
         end
       end

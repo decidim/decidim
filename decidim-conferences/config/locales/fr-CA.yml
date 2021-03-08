@@ -267,9 +267,9 @@ fr-CA:
         conference_registration:
           confirm: "%{user_name} confirmé une inscription à %{resource_name} conférence"
         partner:
-          create: "%{user_name} créé %{resource_name} à la %{space_name} conférence"
-          delete: "%{user_name} retiré l'utilisateur %{resource_name} de la conférence %{space_name}"
-          update: "%{user_name} mis à jour %{resource_name} dans la %{space_name} conférence"
+          create: "%{user_name} a créé le partenaire %{resource_name} dans la conférence %{space_name}"
+          delete: "%{user_name} a retiré le partenaire %{resource_name} de la conférence %{space_name}"
+          update: "%{user_name} a mis à jour le partenaire %{resource_name} dans la conférence %{space_name}"
         registration_type:
           create: "%{user_name} créé le type d'inscription %{resource_name} dans la conférence %{space_name}"
           publish: "%{user_name} publié le %{resource_name} type d'inscription dans la %{space_name} conférence"
@@ -492,23 +492,6 @@ fr-CA:
         related_assemblies: Assemblées connexes
         related_consultations: Votations connexes
         related_participatory_processes: Concertations associées
-      statistics:
-        answers_count: Réponses
-        comments_count: Commentaires
-        conference_count: Conférences
-        debates_count: Débats
-        endorsements_count: Soutiens
-        headline: Activité
-        meetings_count: Rencontres
-        orders_count: Votes
-        pages_count: Pages
-        posts_count: Articles
-        projects_count: Projets
-        proposals_count: Propositions
-        results_count: Réalisations
-        surveys_count: Enquêtes
-        users_count: Participants
-        votes_count: Votes
     events:
       conferences:
         conference_registration_confirmed:

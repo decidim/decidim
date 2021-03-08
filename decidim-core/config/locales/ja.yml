@@ -35,7 +35,6 @@ ja:
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
-      decidim/resource_endorsed_event: 承認された
   activerecord:
     attributes:
       decidim/user:
@@ -389,7 +388,6 @@ ja:
         ready: 準備完了
       show:
         download_data: データをダウンロード
-        download_data_description: アカウントに関連付けられているすべての情報を持つファイルが <strong>%{user_email}</strong>に送信されます
         request_data: データを要求する
     datepicker:
       help_text: '期待されるフォーマット: %{datepicker_format}'
@@ -607,7 +605,6 @@ ja:
           notification_title: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_path}">プロフィールページ</a> が更新されました。
     export_mailer:
       data_portability_export:
-        click_button: '次のボタンを押してあなたのデータをダウンロードしてください。 <br/> %{date} までにファイルが利用できるようになります。 <br/> ファイルを開くには<a href=''https://www.7-zip.org/''>7-Zip</a> が必要です。Password: %{password}'
         download: ダウンロード
       export:
         ready: エクスポートのzipバージョンを見つけてください。
@@ -639,7 +636,6 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
-        participatory_space: フォロー済:<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
@@ -897,7 +893,6 @@ ja:
         show:
           back: すべての会話に戻る
           chat_with: 会話
-          not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
           send: 送信
@@ -1011,24 +1006,7 @@ ja:
         metrics:
           headline: 指標
         statistics:
-          answers_count: 完了した調査
-          assemblies_count: 参加スペース
-          comments_count: コメント
-          conferences_count: カンファレンス
-          debates_count: ディベート
-          endorsements_count: 支持
           headline: '%{organization} の現在の状態'
-          meetings_count: ミーティング
-          orders_count: 投票
-          pages_count: ページ
-          processes_count: 参加型プロセス
-          projects_count: プロジェクト
-          proposals_accepted: 承認された提案
-          proposals_count: 提案
-          results_count: 結果
-          surveys_count: 調査
-          users_count: 参加者
-          votes_count: 投票
         sub_hero:
           register: 登録
       index:
@@ -1205,6 +1183,8 @@ ja:
         close_window: ウィンドウを閉じる
         share: 共有
         share_link: リンクを共有
+    statistics:
+      comments_count: コメント
     tags:
       filter_results_for_category: 'カテゴリの検索結果: %{resource}'
       filter_results_for_scope: 'スコープの検索結果: %{resource}'
@@ -1439,7 +1419,7 @@ ja:
     messages:
       already_confirmed: が確認されました。ログインしてみてください
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
-      content_type_whitelist_error: ファイルの種類が無効です
+      content_type_allowlist_error: ファイルの種類が無効です
       cycle_detected: スコープの親は子孫ではありえません
       expired: 有効期限が切れています。新しいものをリクエストしてください
       file_size_is_less_than_or_equal_to: ファイルサイズは %{count} 以下でなければなりません

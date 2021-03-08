@@ -10,12 +10,15 @@ de:
         question_type: Art
       questionnaire_question:
         mandatory: Verpflichtend
+        max_characters: Maximale Anzahl Zeichen (0 bedeutet kein Limit)
     errors:
       models:
         answer:
           attributes:
             add_documents:
               needs_to_be_reattached: Muss erneut angehängt werden
+            body:
+              too_long: ist zu lang
             choices:
               missing: sind nicht vollständig
               too_many: sind zu viele
@@ -112,7 +115,7 @@ de:
         answer:
           body: Körper kann nicht leer sein
       files:
-        extension_whitelist: 'Gültige Formate:'
+        extension_allowlist: 'Gültige Formate:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Das Bild wird:'

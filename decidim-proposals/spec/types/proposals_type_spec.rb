@@ -21,7 +21,9 @@ module Decidim
 
         it "returns the published proposals" do
           ids = response["proposals"]["edges"].map { |edge| edge["node"]["id"] }
-          expect(ids).to include(*published_proposals.map(&:id).map(&:to_s))
+          # We expect the default order to be ascending by ID, so the array
+          # needs to match exactly the ordered IDs array.
+          expect(ids).to eq(published_proposals.map(&:id).sort.map(&:to_s))
           expect(ids).not_to include(*draft_proposals.map(&:id).map(&:to_s))
           expect(ids).not_to include(*other_proposals.map(&:id).map(&:to_s))
         end

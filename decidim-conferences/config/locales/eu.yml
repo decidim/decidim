@@ -265,10 +265,6 @@ eu:
       conferences:
         conference_registration:
           confirm: "%{user_name} Kongresuko matrikula bat baieztatu da %{resource_name} Kongresuan"
-        partner:
-          create: "%{user_name} sortu %{resource_name} %{space_name} konferentzia"
-          delete: "%{user_name} kendu erabiltzaileak %{resource_name} tik %{space_name} konferentzia"
-          update: "%{user_name} eguneratzen %{resource_name} parte %{space_name} konferentzia"
         registration_type:
           create: "%{user_name} sortutako %{resource_name} matrikula mota %{space_name} konferentzia"
           publish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} biltzarrean"
@@ -486,23 +482,6 @@ eu:
         related_assemblies: Lotutako Batzarrak
         related_consultations: Lotutako kontsultak
         related_participatory_processes: Parte hartze prozesu erlazionatuak
-      statistics:
-        answers_count: Erantzunak
-        comments_count: Oharrak
-        conference_count: Jardunaldiak
-        debates_count: eztabaidak
-        endorsements_count: Oniritziak
-        headline: Jarduera
-        meetings_count: Bilerak
-        orders_count: Botoak
-        pages_count: orrialdeak
-        posts_count: Mezuak
-        projects_count: Proiektuak
-        proposals_count: proposamenak
-        results_count: Emaitzak
-        surveys_count: Inkestak
-        users_count: Parte-hartzaileak
-        votes_count: Botoak
     events:
       conferences:
         conference_registration_confirmed:

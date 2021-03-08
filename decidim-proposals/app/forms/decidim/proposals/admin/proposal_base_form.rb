@@ -6,6 +6,7 @@ module Decidim
       # A form object to be used when admin users want to create a proposal.
       class ProposalBaseForm < Decidim::Form
         include Decidim::TranslatableAttributes
+        include Decidim::AttachmentAttributes
         include Decidim::ApplicationHelper
 
         mimic :proposal
@@ -20,8 +21,8 @@ module Decidim
         attribute :created_in_meeting, Boolean
         attribute :meeting_id, Integer
         attribute :suggested_hashtags, Array[String]
-        attribute :photos, Array[String]
-        attribute :add_photos, Array
+
+        attachments_attribute :photos
 
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }

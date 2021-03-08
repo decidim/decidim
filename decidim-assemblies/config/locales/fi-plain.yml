@@ -52,6 +52,7 @@ fi-pl:
         target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
+        weight: Painoarvo
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
@@ -249,7 +250,7 @@ fi-pl:
         update: "%{user_name} päivitti ryhmän asetuksia"
       assembly_type:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
+        delete: "%{user_name} poisti ryhmätyypin %{resource_name}"
         publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
         unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
         update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
@@ -380,22 +381,6 @@ fi-pl:
         social_networks: Sosiaalinen media
         social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
-      statistics:
-        answers_count: Vastaukset
-        assemblies_count: Ryhmiä
-        comments_count: Kommentteja
-        debates_count: Keskusteluja
-        endorsements_count: Suosituksia
-        meetings_count: Tapaamisia
-        orders_count: Ääniä
-        pages_count: Sivuja
-        posts_count: Artikkeleja
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
-        votes_count: Ääniä
     assembly_members:
       assembly_member:
         designated_on: Nimetty
@@ -443,7 +428,7 @@ fi-pl:
         hero:
           participate_title: Osallistu palvelun prosesseihin
         sub_hero:
-          register_title: Kirjaudu sisään tai luo tili alustalle
+          register_title: Rekisteröidy luodaksesi itsellesi oman tilin
     participatory_processes:
       pages:
         home:

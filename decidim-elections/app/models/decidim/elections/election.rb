@@ -24,6 +24,7 @@ module Decidim
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
       has_many :elections_trustees, foreign_key: "decidim_elections_election_id", dependent: :destroy
       has_many :trustees, through: :elections_trustees
+      has_many :votes, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Vote", dependent: :restrict_with_exception
       has_many :actions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Action", dependent: :restrict_with_exception
 
       scope :active, lambda {
@@ -94,11 +95,11 @@ module Decidim
         bb_results_published?
       end
 
-      # Public: Checks if the election results present
+      # Public: Checks if the election results are present
       #
       # Returns a boolean.
       def results?
-        bb_tally_ended?
+        bb_tally_ended? || results_published?
       end
 
       # Public: Checks if the election questions are valid

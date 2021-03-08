@@ -32,6 +32,119 @@ module Decidim
         app.config.assets.precompile += %w(decidim_admin_manifest.js)
       end
 
+      initializer "decidim_admin.global_moderation_menu" do
+        Decidim.menu :admin_global_moderation_menu do |menu|
+          menu.item I18n.t("actions.not_hidden", scope: "decidim.moderations"),
+                    decidim_admin.moderations_path,
+                    position: 1,
+                    active: params[:hidden].blank?
+
+          menu.item I18n.t("actions.hidden", scope: "decidim.moderations"),
+                    decidim_admin.moderations_path(hidden: true),
+                    position: 2,
+                    active: params[:hidden].present?
+        end
+      end
+
+      initializer "decidim_admin.workflows_menu" do
+        Decidim.menu :workflows_menu do |menu|
+          Decidim::Verifications.admin_workflows.each do |manifest|
+            next unless current_organization.available_authorizations.include?(manifest.name.to_s)
+
+            workflow = Decidim::Verifications::Adapter.new(manifest)
+
+            menu.item workflow.fullname,
+                      workflow.admin_root_path,
+                      active: is_active_link?(workflow.admin_root_path)
+          end
+        end
+      end
+
+      initializer "decidim_admin.impersonate_menu" do
+        Decidim.menu :impersonate_menu do |menu|
+          menu.item I18n.t("title", scope: "decidim.admin.conflicts"),
+                    decidim_admin.conflicts_path,
+                    active: is_active_link?(decidim_admin.conflicts_path),
+                    if: allowed_to?(:index, :impersonatable_user)
+        end
+      end
+
+      initializer "decidim_admin.admin_user_menu" do
+        Decidim.menu :admin_user_menu do |menu|
+          menu.item I18n.t("menu.admins", scope: "decidim.admin"), decidim_admin.users_path,
+                    active: is_active_link?(decidim_admin.users_path),
+                    if: allowed_to?(:read, :admin_user)
+          menu.item I18n.t("menu.user_groups", scope: "decidim.admin"), decidim_admin.user_groups_path,
+                    active: is_active_link?(decidim_admin.user_groups_path),
+                    if: current_organization.user_groups_enabled? && allowed_to?(:index, :user_group)
+          menu.item I18n.t("menu.participants", scope: "decidim.admin"), decidim_admin.officializations_path,
+                    active: is_active_link?(decidim_admin.officializations_path),
+                    if: allowed_to?(:index, :officialization)
+          menu.item I18n.t("menu.impersonations", scope: "decidim.admin"), decidim_admin.impersonatable_users_path,
+                    active: is_active_link?(decidim_admin.impersonatable_users_path),
+                    if: allowed_to?(:index, :impersonatable_user),
+                    submenu: { target_menu: :impersonate_menu }
+
+          menu.item I18n.t("menu.reported_users", scope: "decidim.admin"), decidim_admin.moderated_users_path,
+                    active: is_active_link?(decidim_admin.moderated_users_path),
+                    if: allowed_to?(:index, :moderate_users)
+          menu.item I18n.t("menu.authorization_workflows", scope: "decidim.admin"), decidim_admin.authorization_workflows_path,
+                    active: is_active_link?(decidim_admin.authorization_workflows_path),
+                    if: allowed_to?(:index, :authorization),
+                    submenu: { target_menu: :workflows_menu }
+        end
+      end
+
+      initializer "decidim_admin.admin_settings_menu" do
+        Decidim.menu :admin_settings_menu do |menu|
+          menu.item I18n.t("menu.configuration", scope: "decidim.admin"),
+                    decidim_admin.edit_organization_path,
+                    position: 1.0,
+                    if: allowed_to?(:update, :organization, organization: current_organization),
+                    active: is_active_link?(decidim_admin.edit_organization_path)
+
+          menu.item I18n.t("menu.appearance", scope: "decidim.admin"),
+                    decidim_admin.edit_organization_appearance_path,
+                    position: 1.1,
+                    if: allowed_to?(:update, :organization, organization: current_organization),
+                    active: is_active_link?(decidim_admin.edit_organization_appearance_path)
+
+          menu.item I18n.t("menu.homepage", scope: "decidim.admin"),
+                    decidim_admin.edit_organization_homepage_path,
+                    position: 1.2,
+                    if: allowed_to?(:update, :organization, organization: current_organization),
+                    active: is_active_link?(decidim_admin.edit_organization_homepage_path, %r{^/admin/organization/homepage})
+
+          menu.item I18n.t("menu.scopes", scope: "decidim.admin"),
+                    decidim_admin.scopes_path,
+                    position: 1.3,
+                    if: allowed_to?(:read, :scope),
+                    active: is_active_link?(decidim_admin.scopes_path)
+          menu.item I18n.t("menu.scope_types", scope: "decidim.admin"),
+                    decidim_admin.scope_types_path,
+                    position: 1.4,
+                    if: allowed_to?(:read, :scope_type),
+                    active: is_active_link?(decidim_admin.scope_types_path)
+          menu.item I18n.t("menu.areas", scope: "decidim.admin"),
+                    decidim_admin.areas_path,
+                    position: 1.5,
+                    if: allowed_to?(:read, :area),
+                    active: is_active_link?(decidim_admin.areas_path)
+
+          menu.item I18n.t("menu.area_types", scope: "decidim.admin"),
+                    decidim_admin.area_types_path,
+                    position: 1.6,
+                    if: allowed_to?(:read, :area_type),
+                    active: is_active_link?(decidim_admin.area_types_path)
+
+          menu.item I18n.t("menu.help_sections", scope: "decidim.admin"),
+                    decidim_admin.help_sections_path,
+                    position: 1.6,
+                    if: allowed_to?(:update, :help_sections),
+                    active: is_active_link?(decidim_admin.help_sections_path)
+        end
+      end
+
       initializer "decidim_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.dashboard", scope: "decidim.admin"),

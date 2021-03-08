@@ -267,9 +267,9 @@ nl:
         conference_registration:
           confirm: "%{user_name} bevestigde een conferentie-registratie in %{resource_name} conferentie"
         partner:
-          create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie"
-          delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
-          update: "%{user_name} bijgewerkt %{resource_name} in de %{space_name} conferentie"
+          create: "%{user_name} heeft partner %{resource_name} voor de conferentie %{space_name} aangemaakt"
+          delete: "%{user_name} heeft partner %{resource_name} van de %{space_name} conferentie verwijderd"
+          update: "%{user_name} heeft partner %{resource_name} in de conferentie %{space_name} bijgewerkt"
         registration_type:
           create: "%{user_name} heeft het %{resource_name} registratietype gemaakt in de %{space_name} conferentie"
           publish: "%{user_name} heeft het %{resource_name} registratietype gepubliceerd in de %{space_name} conferentie"
@@ -492,23 +492,6 @@ nl:
         related_assemblies: Gerelateerde assemblies
         related_consultations: Gerelateerde consultaties
         related_participatory_processes: Verwante participatieprocessen
-      statistics:
-        answers_count: antwoorden
-        comments_count: Comments
-        conference_count: Conferenties
-        debates_count: debatten
-        endorsements_count: Endorsements
-        headline: Activiteit
-        meetings_count: vergaderingen
-        orders_count: stemmen
-        pages_count: Pages
-        posts_count: berichten
-        projects_count: projecten
-        proposals_count: voorstellen
-        results_count: resultaten
-        surveys_count: onderzoeken
-        users_count: Deelnemers
-        votes_count: stemmen
     events:
       conferences:
         conference_registration_confirmed:
@@ -550,6 +533,8 @@ nl:
         title: Media en links
     menu:
       conferences: Conferenties
+    statistics:
+      conferences_count: Conferenties
   devise:
     mailer:
       join_conference:

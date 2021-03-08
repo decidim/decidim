@@ -246,7 +246,6 @@ el:
         update: "Ο χρήστης %{user_name} ενημέρωσε τις ρυθμίσεις των συνελεύσεων"
       assembly_type:
         create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο συνέλευσης %{resource_name}"
-        delete: "Ο χρήστης %{user_name} κατάργησε το μέλος %{resource_name} από τον τύπο συνέλευσης %{space_name}"
         publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο συνέλευσης %{resource_name}"
         unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση του τύπου συνέλευσης %{resource_name}"
         update: "Ο χρήστης %{user_name} ενημέρωσε τον τύπο συνέλευσης %{resource_name}"
@@ -374,22 +373,6 @@ el:
         social_networks: Κοινωνικά δίκτυα
         social_networks_title: Κοινοποίηση αυτής της συνέλευσης σε
         target: Ποιος συμμετέχει
-      statistics:
-        answers_count: Απαντήσεις
-        assemblies_count: Συνελεύσεις
-        comments_count: Σχόλια
-        debates_count: Συζητήσεις
-        endorsements_count: Επιδοκιμασίες
-        meetings_count: Συσκέψεις
-        orders_count: Υποστηρίξεις
-        pages_count: Σελίδες
-        posts_count: Δημοσιεύσεις
-        projects_count: Έργα
-        proposals_count: Προτάσεις
-        results_count: Αποτελέσματα
-        surveys_count: Έρευνες
-        users_count: Συμμετέχοντες
-        votes_count: Υποστηρίξεις
     assembly_members:
       assembly_member:
         designated_on: Διορίστηκε στις
@@ -436,8 +419,6 @@ el:
       home:
         hero:
           participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
-        sub_hero:
-          register_title: Εγγραφείτε για να δημιουργήσετε έναν λογαριασμό στην πλατφόρμα
     participatory_processes:
       pages:
         home:

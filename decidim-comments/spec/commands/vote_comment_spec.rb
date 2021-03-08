@@ -12,7 +12,9 @@ module Decidim
         let(:commentable) { create(:dummy_resource, component: component) }
         let(:author) { create(:user, organization: organization) }
         let(:comment) { create(:comment, commentable: commentable) }
-        let(:command) { described_class.new(comment, author) }
+        let(:options) { { weight: weight } }
+        let(:weight) { 1 }
+        let(:command) { described_class.new(comment, author, options) }
 
         describe "when the author is not in the same org as the comment" do
           let(:author) { build(:user, organization: create(:organization)) }
@@ -53,6 +55,52 @@ module Decidim
             expect do
               command.call
             end.to change(CommentVote, :count).by(1)
+          end
+        end
+
+        describe "sending notification" do
+          context "when weight is positive" do
+            let(:weight) { 1 }
+
+            it "notifies the comment author of upvote event" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.comments.comment_upvoted",
+                  event_class: Decidim::Comments::CommentUpvotedEvent,
+                  resource: commentable,
+                  affected_users: [comment.author],
+                  extra: {
+                    comment_id: comment.id,
+                    weight: weight,
+                    upvotes: comment.up_votes.count + 1,
+                    downvotes: comment.down_votes.count
+                  }
+                )
+              command.call
+            end
+          end
+
+          context "when weight is negative" do
+            let(:weight) { -1 }
+
+            it "notifies the comment author of downvote event" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.comments.comment_downvoted",
+                  event_class: Decidim::Comments::CommentDownvotedEvent,
+                  resource: commentable,
+                  affected_users: [comment.author],
+                  extra: {
+                    comment_id: comment.id,
+                    weight: weight,
+                    upvotes: comment.up_votes.count,
+                    downvotes: comment.down_votes.count + 1
+                  }
+                )
+              command.call
+            end
           end
         end
 

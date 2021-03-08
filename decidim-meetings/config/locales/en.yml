@@ -390,12 +390,15 @@ en:
           title: Edit Your Meeting
           update: Update
         filters:
+          activity: My activity
+          all: All
           category: Category
           date: Date
           date_values:
             all: All
             past: Past
             upcoming: Upcoming
+          my_meetings: My meetings
           origin: Origin
           origin_values:
             all: All
@@ -534,6 +537,8 @@ en:
       proposals_from_meeting:
         meeting_proposal: 'Related proposals:'
         proposal_meeting: 'Related meetings:'
+    statistics:
+      meetings_count: Meetings
   devise:
     mailer:
       join_meeting:

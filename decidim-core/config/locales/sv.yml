@@ -35,7 +35,6 @@ sv:
       decidim/profile_updated_event: Profilen har uppdaterats
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
-      decidim/resource_endorsed_event: Instäm med resurs
   activerecord:
     attributes:
       decidim/user:
@@ -393,7 +392,6 @@ sv:
         ready: Klar
       show:
         download_data: Hämta data
-        download_data_description: En fil med all information som är kopplad till kontot kommer att skickas till <strong>%{user_email}</strong>
         request_data: Begär data
     datepicker:
       help_text: 'Förväntat format: %{datepicker_format}'
@@ -610,7 +608,6 @@ sv:
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       data_portability_export:
-        click_button: 'Hämta dina data genom att klicka på Nästa. <br/> Filen kommer att vara tillgänglig till och med %{date}. <br/> Du behöver <a href=''https://www.7-zip.org/''>7-Zip</a> för att öppna den. Lösenord: %{password}'
         download: Hämta
       export:
         ready: En komprimerad version av exporten är bifogad.
@@ -643,7 +640,6 @@ sv:
       create:
         button: Följ
         error: Det gick inte att följa resursen.
-        participatory_space: Du följer redan deltagarutrymmet
       destroy:
         button: Sluta följa
         error: Det gick inte att sluta följa den här resursen.
@@ -896,7 +892,6 @@ sv:
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
-          not_allowed: Användaren tar inte emot fler direktmeddelanden.
           title: Samtal med %{usernames}
         start:
           send: Skicka
@@ -1008,24 +1003,7 @@ sv:
         metrics:
           headline: Deltagande i siffror
         statistics:
-          answers_count: Genomförda undersökningar
-          assemblies_count: Grupper
-          comments_count: Kommentarer
-          conferences_count: Konferenser
-          debates_count: Debatter
-          endorsements_count: Instämmanden
           headline: Aktuellt läge för %{organization}
-          meetings_count: Möten
-          orders_count: Omröstningar
-          pages_count: Sidor
-          processes_count: Dialoger
-          projects_count: Projekt
-          proposals_accepted: Accepterade förslag
-          proposals_count: Förslag
-          results_count: Resultat
-          surveys_count: Undersökningar
-          users_count: Deltagare
-          votes_count: Omröstningar
         sub_hero:
           register: Registrera
       index:
@@ -1202,6 +1180,8 @@ sv:
         close_window: Stäng fönster
         share: Dela
         share_link: Dela länk
+    statistics:
+      comments_count: Kommentarer
     tags:
       filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
       filter_results_for_scope: 'Filtrera resultat för omfattning: %{resource}'
@@ -1437,7 +1417,7 @@ sv:
     messages:
       already_confirmed: var redan bekräftat, försök att logga in
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
-      content_type_whitelist_error: ogiltig filtyp
+      content_type_allowlist_error: ogiltig filtyp
       cycle_detected: en omfattnings förälder kan inte vara ett av dess barn
       expired: har förfallit, men du kan begära en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}

@@ -389,12 +389,15 @@ fi:
           title: Muokkaa tapaamista
           update: Päivitä
         filters:
+          activity: Oma toiminta
+          all: Kaikki
           category: Aihepiiri
           date: Päivämäärä
           date_values:
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
+          my_meetings: Omat tapaamiseni
           origin: Alkuperä
           origin_values:
             all: Kaikki
@@ -533,6 +536,8 @@ fi:
       proposals_from_meeting:
         meeting_proposal: 'Liittyvät ehdotukset:'
         proposal_meeting: 'Liittyvät tapaamiset:'
+    statistics:
+      meetings_count: Tapaamista
   devise:
     mailer:
       join_meeting:

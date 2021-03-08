@@ -24,17 +24,11 @@ eu:
           next_level_in: Sortu %{score} proba gehiago hurrengo mailara iristeko!
           unearned_another: Erabiltzaile honek ez du proba oraindik sortu.
           unearned_own: Oraindik ez duzu probak sortu.
-    pages:
-      home:
-        statistics:
-          bar: Bar
-          dummies_count_high: Dummies altua
-          dummies_count_medium: Dummies ertainak
-          foo: foo
-    participatory_processes:
-      statistics:
-        dummies_count_high: Dummies altua
-        dummies_count_medium: Dummies ertainak
     resource_links:
       test_link:
         dummy_resource_dummy: ' Honi buruzko adibidea '
+    statistics:
+      bar: Bar
+      dummies_count_high: Dummies altua
+      dummies_count_medium: Dummies ertainak
+      foo: foo

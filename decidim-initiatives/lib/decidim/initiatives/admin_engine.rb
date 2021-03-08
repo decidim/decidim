@@ -90,9 +90,71 @@ module Decidim
           menu.item I18n.t("menu.initiatives", scope: "decidim.admin"),
                     decidim_admin_initiatives.initiatives_path,
                     icon_name: "chat",
-                    position: 3.7,
+                    position: 2.4,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :initiatives)
+        end
+      end
+
+      initializer "admin_decidim_initiatives.admin_components_menu" do
+        Decidim.menu :admin_initiatives_components_menu do |menu|
+          current_participatory_space.components.each do |component|
+            caption = translated_attribute(component.name)
+            if component.primary_stat.present?
+              caption += content_tag(:span, component.primary_stat, class: component.primary_stat.zero? ? "component-counter component-counter--off" : "component-counter")
+            end
+
+            menu.item caption.html_safe,
+                      manage_component_path(component),
+                      active: is_active_link?(manage_component_path(component)),
+                      if: component.manifest.admin_engine # && user_role_config.component_is_accessible?(component.manifest_name)
+          end
+        end
+      end
+
+      initializer "admin_decidim_initiative.admin_menu" do
+        Decidim.menu :decidim_initiative_menu do |menu|
+          menu.item I18n.t("menu.information", scope: "decidim.admin"),
+                    decidim_admin_initiatives.edit_initiative_path(current_participatory_space),
+                    active: is_active_link?(decidim_admin_initiatives.edit_initiative_path(current_participatory_space)),
+                    if: allowed_to?(:edit, :initiative, initiative: current_participatory_space)
+
+          menu.item I18n.t("menu.committee_members", scope: "decidim.admin"),
+                    decidim_admin_initiatives.initiative_committee_requests_path(current_participatory_space),
+                    active: is_active_link?(decidim_admin_initiatives.initiative_committee_requests_path(current_participatory_space)),
+                    if: current_participatory_space.promoting_committee_enabled? && allowed_to?(:manage_membership, :initiative, initiative: current_participatory_space)
+
+          # Maybe we need to add the attachment menu like Participatory process
+          menu.item I18n.t("menu.components", scope: "decidim.admin"),
+                    decidim_admin_initiatives.components_path(current_participatory_space),
+                    active: is_active_link?(decidim_admin_initiatives.components_path(current_participatory_space)),
+                    if: allowed_to?(:read, :component, initiative: current_participatory_space),
+                    submenu: { target_menu: :admin_initiatives_components_menu, options: { container_options: { id: "components-list" } } }
+
+          menu.item I18n.t("menu.attachments", scope: "decidim.admin"),
+                    decidim_admin_initiatives.initiative_attachments_path(current_participatory_space),
+                    active: is_active_link?(decidim_admin_initiatives.initiative_attachments_path(current_participatory_space)),
+                    if: allowed_to?(:read, :attachment, initiative: current_participatory_space)
+
+          menu.item I18n.t("menu.moderations", scope: "decidim.admin"),
+                    decidim_admin_initiatives.moderations_path(current_participatory_space),
+                    active: is_active_link?(decidim_admin_initiatives.moderations_path(current_participatory_space)),
+                    if: allowed_to?(:read, :moderation)
+        end
+      end
+
+      initializer "admin_decidim_initiatives.admin_menu" do
+        Decidim.menu :admin_initiatives_menu do |menu|
+          menu.item I18n.t("menu.initiatives", scope: "decidim.admin"),
+                    decidim_admin_initiatives.initiatives_path,
+                    position: 1.0,
+                    active: is_active_link?(decidim_admin_initiatives.initiatives_path),
+                    if: allowed_to?(:index, :initiative)
+
+          menu.item I18n.t("menu.initiatives_types", scope: "decidim.admin"),
+                    decidim_admin_initiatives.initiatives_types_path,
+                    active: is_active_link?(decidim_admin_initiatives.initiatives_types_path),
+                    if: allowed_to?(:manage, :initiative_type)
         end
       end
     end

@@ -53,6 +53,7 @@ en:
         target: Who participates
         title: Title
         twitter: Twitter
+        weight: Weight
         youtube: YouTube
       assembly_member:
         birthday: Birthday
@@ -190,7 +191,6 @@ en:
           assembly_members: Members
           attachment_collections: Folders
           attachment_files: Files
-          attachments: Attachments
           categories: Categories
           components: Components
           info: Info
@@ -250,7 +250,7 @@ en:
         update: "%{user_name} updated the assemblies settings"
       assembly_type:
         create: "%{user_name} created the %{resource_name} assembly type"
-        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly type"
+        delete: "%{user_name} removed the %{resource_name} assembly type"
         publish: "%{user_name} published the %{resource_name} assembly type"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
         update: "%{user_name} updated the %{resource_name} assembly type"
@@ -381,28 +381,6 @@ en:
         social_networks: Social Networks
         social_networks_title: Share this assembly on
         target: Who participates
-      statistics:
-        answers_count: Answers
-        assemblies_count: Assemblies
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        followers_count: Followers
-        headline: Statistics
-        meetings_count: Meetings
-        no_stats: There are no statistics yet.
-        orders_count: Supports
-        pages_count: Pages
-        participants_count: Participants
-        posts_count: Posts
-        processes_count: Processes
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        supports_count: Supports
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Supports
     assembly_members:
       assembly_member:
         designated_on: Designated on
@@ -450,7 +428,7 @@ en:
         hero:
           participate_title: Participate to the platform's processes
         sub_hero:
-          register_title: Sign up to create an account on the platform
+          register_title: Sign up to create an account
     participatory_processes:
       pages:
         home:
@@ -458,6 +436,8 @@ en:
             processes_button_title: Link to the Processes page displaying all the processes
       show:
         related_assemblies: Related assemblies
+    statistics:
+      assemblies_count: Assemblies
   errors:
     messages:
       cannot_be_blank: can not be blank

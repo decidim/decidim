@@ -52,6 +52,7 @@ fi:
         target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
+        weight: Painoarvo
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
@@ -249,7 +250,7 @@ fi:
         update: "%{user_name} päivitti ryhmän asetuksia"
       assembly_type:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
+        delete: "%{user_name} poisti ryhmätyypin %{resource_name}"
         publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
         unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
         update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
@@ -380,22 +381,6 @@ fi:
         social_networks: Sosiaalinen media
         social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
-      statistics:
-        answers_count: Vastausta
-        assemblies_count: Ryhmää
-        comments_count: Kommenttia
-        debates_count: Keskustelua
-        endorsements_count: Suositusta
-        meetings_count: Tapaamista
-        orders_count: Kannatusta
-        pages_count: Sivua
-        posts_count: Artikkeleja
-        projects_count: Suunnitelmaa
-        proposals_count: Ehdotusta
-        results_count: Tulosta
-        surveys_count: Kyselyä
-        users_count: Osallistujaa
-        votes_count: Kannatusta
     assembly_members:
       assembly_member:
         designated_on: Nimetty
@@ -443,7 +428,7 @@ fi:
         hero:
           participate_title: Osallistu palvelun prosesseihin
         sub_hero:
-          register_title: Kirjaudu sisään tai luo tili alustalle
+          register_title: Rekisteröidy luodaksesi itsellesi oman tilin
     participatory_processes:
       pages:
         home:
@@ -451,6 +436,8 @@ fi:
             processes_button_title: Linkki kaikkien prosessien sivulle
       show:
         related_assemblies: Liittyvät ryhmät
+    statistics:
+      assemblies_count: Ryhmää
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

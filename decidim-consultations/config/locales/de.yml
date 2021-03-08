@@ -94,7 +94,7 @@ de:
         create:
           error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
           success: Beratung erfolgreich erstellt.
-        deprecation_warning: Das Beratungsmodul wird in naher Zukunft überholt. Wir arbeiten bereits an der nächsten kryptographisch sicheren Version namens Votings.
+        deprecation_warning: Das Beratungsmodul wird in naher Zukunft veraltet sein. Wir arbeiten an der nächsten, kryptographisch sicheren Version namens Votings.
         edit:
           update: Aktualisieren
         form:
@@ -324,10 +324,6 @@ de:
           title: Was sind Konsultationen?
     menu:
       consultations: Konsultationen
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultationen
     questions:
       next_button: Nächste Frage
       previous_button: Vorherige Frage
@@ -362,6 +358,9 @@ de:
       consultations:
         actions:
           vote: Abstimmung
+    statistics:
+      consultations_count: Beratungen
+      votes_count: Stimmen
   layouts:
     decidim:
       admin:

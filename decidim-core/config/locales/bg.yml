@@ -33,7 +33,6 @@ bg:
       decidim/profile_updated_event: Профилът е обновен
       decidim/promote_to_admin: Назначен за администратор на групата
       decidim/removed_from_group: Премахнат от групата
-      decidim/resource_endorsed_event: Ресурсът е одобрен
   activerecord:
     attributes:
       decidim/user:
@@ -381,7 +380,6 @@ bg:
         ready: Готов
       show:
         download_data: Изтегляне на данни
-        download_data_description: Файл с цялата информация, свързана с профила Ви ще бъде изпратена на <strong>%{user_email}</strong>
         request_data: Заяви данни
     datepicker:
       help_text: 'Очакван формат: %{datepicker_format}'
@@ -592,7 +590,6 @@ bg:
           notification_title: Профилната <a href="%{resource_path}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
     export_mailer:
       data_portability_export:
-        click_button: 'Натиснете бутона за да свалите данните си. <br/> Ще разполагате с файл до %{date}. <br/> Нужен ви е <a href=''https://www.7-zip.org/''>7-Zip</a> за да го отворите. Парола: %{password}'
         download: Сваляне
       export:
         ready: Ще намерите като прикачен файл, компресирана версия на Вашия експорт.
@@ -622,7 +619,6 @@ bg:
       create:
         button: Следвай
         error: Възникна проблем със следването на този ресурс.
-        participatory_space: Вече следвате това пространство
       destroy:
         button: Спри следването
         error: Възникна проблем с отказа от следване на този ресурс.
@@ -854,7 +850,6 @@ bg:
           title: Отговори
         show:
           chat_with: Разговор с
-          not_allowed: Този участник не приема вече директни съобщения.
           title: Разговор с %{usernames}
         start:
           send: Изпрати
@@ -966,24 +961,7 @@ bg:
         metrics:
           headline: Индикатори
         statistics:
-          answers_count: Завършени проучвания
-          assemblies_count: Събрания
-          comments_count: Коментари
-          conferences_count: Конференции
-          debates_count: Дискусии
-          endorsements_count: Одобрявания
           headline: Текущо състояние на %{organization}
-          meetings_count: Срещи
-          orders_count: Гласове
-          pages_count: Страници
-          processes_count: Процеси
-          projects_count: Проекти
-          proposals_accepted: Приети предложения
-          proposals_count: Предложения
-          results_count: Резултати
-          surveys_count: Анкети
-          users_count: Участници
-          votes_count: Гласове
         sub_hero:
           register: Регистрация
       index:
@@ -1134,6 +1112,8 @@ bg:
         close_window: Затвори прозореца
         share: Сподели
         share_link: Сподели връзка
+    statistics:
+      comments_count: Коментари
     user_activity:
       index:
         no_activities_warning: Този участник все още не е имал активност.
@@ -1361,7 +1341,7 @@ bg:
     messages:
       already_confirmed: вече сте потвърдени, опитайте да влезете
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
-      content_type_whitelist_error: типа файл не е валиден
+      content_type_allowlist_error: типа файл не е валиден
       cycle_detected: родителската сфера не може да бъде свое дете
       expired: е изтекла, моля поискайте нова
       file_size_is_less_than_or_equal_to: размера на файла трябва да е по-малък или равен на %{count}

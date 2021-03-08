@@ -1,3 +1,5 @@
+<% add_decidim_meta_tags(title: t("votings.index.title", scope: "decidim.votings")) %>
+
 <%
 edit_link(
   decidim_admin_votings.votings_path,
@@ -5,7 +7,6 @@ edit_link(
   :voting
 )
 %>
-<% provide :meta_title, t("votings.index.title", scope: "decidim.votings") %>
 
 <%= participatory_space_wrapper do %>
   <% if promoted_votings.any? %>
@@ -19,7 +20,7 @@ edit_link(
     <div class="title-action">
       <div class="row collapse">
         <h1 id="votings-count" class="title-action__title section-heading">
-          <%= render partial: "count", locals: { count: votings.count } %>
+          <%= render partial: "count", locals: { count: published_votings.count } %>
         </h1>
       </div>
     </div>
@@ -39,4 +40,3 @@ edit_link(
 <% end %>
 
 <%= javascript_include_tag "decidim/filters" %>
-<%= javascript_include_tag "decidim/results_listing" %>

@@ -1,10 +1,10 @@
 [plantuml]
 ....
 @startuml
-!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/v2.0.1/C4_Component.puml
 
 ' uncomment the following line to make proposals
-'LAYOUT_AS_SKETCH
+'LAYOUT_AS_SKETCH()
 
 title System Component diagram for Decidim Applications (https://decidim.org)
 
@@ -32,18 +32,19 @@ Container_Boundary(web_app, "Web Application") {
     Component(participatory_processes, "Participatory Processes module (Space)", "Ruby On Rails Engine", "A temporal Space, mounted in /processes.")
 
     Component(accountability, "Accountability module", "Ruby On Rails Engine", "Component. Adds an accountability section to any participatory space so users can follow along the state of the accepted proposals.")
-    Component(proposals, "Proposals module", "Ruby On Rails Engine", "Component. Adds one of the main components of Decidim: allows users to contribute to a participatory space by creating proposals.")
+    Component(budgets, "Budgets module", "Ruby On Rails Engine", "Component. Adds a participatory budgets system to any participatory space.")
     Component(blogs, "Blogs module", "Ruby On Rails Engine", "Component. Makes possible to add posts ordered by publication time to spaces.")
     Component(debates, "Debates module", "Ruby On Rails Engine", "Component. Adds a CRUD engine to the admin and public view scoped inside the participatory process.")
+    Component(elections, "Elections module", "Ruby On Rails Engine", "Components. Adds voting with cryptographic capabilities.")
     Component(meetings, "Meetings module", "Ruby On Rails Engine", "Component. Adds a CRUD engine to the admin and public view scoped inside the participatory process.")
+    Component(pages, "Pages module", "Ruby On Rails Engine", "Component. adds static page capabilities to any participatory space. It basically provides an interface to include arbitrary HTML content to any step.")
+    Component(proposals, "Proposals module", "Ruby On Rails Engine", "Component. Adds one of the main components of Decidim: allows users to contribute to a participatory space by creating proposals.")
     Component(surveys, "Surveys module", "Ruby On Rails Engine", "Component. Makes possible to publish surveys (for registered participants or visitors users).")
     Component(sortitions, "Sortitions module", "Ruby On Rails Engine", "Component. makes possible to select randomly a number of proposals among a set of proposals (or a category of proposals within a set) maximizing guarantees of randomness and avoiding manipulation of results by the administrator.")
-    Component(pages, "Pages module", "Ruby On Rails Engine", "Component. adds static page capabilities to any participatory space. It basically provides an interface to include arbitrary HTML content to any step.")
-    Component(budgets, "Budgets module", "Ruby On Rails Engine", "Component. Adds a participatory budgets system to any participatory space.")
-    Component(elections, "Elections module", "Ruby On Rails Engine", "Components. Adds voting with cryptographic capabilities.")
 
-    Rel(meetings, forms, "Consumes")
     Rel(surveys, forms, "Consumes")
+    Rel(meetings, forms, "Consumes")
+    Rel_Back(forms, elections, "Consumes")
 
     ' Rel(proposals, assemblies, "Mounts in")
     ' Rel(proposals, participatory_processes, "Mounts in")
@@ -69,14 +70,17 @@ Container_Boundary(web_app, "Web Application") {
     ' Rel(debates, admin, "Managed in")
     ' Rel(proposals, admin, "Managed in")
     ' Rel(blogs, admin, "Managed in")
+    ' Rel(elections, admin, "Managed in")
 
 }
 
+System_Ext(decidim_bulletin_board_system, "Decidim Bulletin Board", "Allows participants to cast end-to-end verifiable secret votes.")
 System_Ext(mail_system, "SMTP system (e-mail)", "Sends mails to users, like confirmations, reminders, notifications, etc.")
 System_Ext(etherpad_system, "Etherpad-Lite system", "Optional. Allows real-time text edition in Meetings.")
 System_Ext(geocoding_system, "Geocoding system", "Optional. An Open Street Maps provider, allows geographical localization of Proposals and Meetings..")
 System_Ext(oauth_system, "OAUTH2 System", "Optional. Third party sign on systems. Could be Twitter, Facebook, Google or any other OAUTH2 providers.")
 
+Rel_Back_Neighbor(decidim_bulletin_board_system, elections, "Uses")
 Rel_Neighbor(worker, mail_system, "Sends e-mails", "SMTP")
 Rel(web_app, rel_db, "Uses")
 Rel(web_app, filesystem, "Uses")

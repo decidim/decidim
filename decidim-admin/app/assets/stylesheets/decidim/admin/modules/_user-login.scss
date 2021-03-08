@@ -17,10 +17,9 @@
   }
 
   .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
-    border-color: var(--secondary);
     border-top-color: $white;
-    border-width: 4px;
+    border-width: 6px;
     right: 0;
-    margin-top: -1px;
+    margin-top: -3px;
   }
 }

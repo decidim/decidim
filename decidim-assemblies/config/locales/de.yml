@@ -52,6 +52,7 @@ de:
         target: Wer nimmt teil?
         title: Titel
         twitter: Twitter
+        weight: Gewicht
         youtube: Youtube
       assembly_member:
         birthday: Geburtstag
@@ -249,7 +250,7 @@ de:
         update: "%{user_name} hat die Gremieneinstellungen aktualisiert"
       assembly_type:
         create: "%{user_name} hat den Gremientyp %{resource_name} erstellt"
-        delete: "%{user_name} hat das Mitglied %{resource_name} aus dem Gremientyp %{space_name} entfernt"
+        delete: "%{user_name} hat den Gremientyp %{resource_name} entfernt"
         publish: "%{user_name} hat den Gremientyp %{resource_name} veröffentlicht"
         unpublish: "%{user_name} hat den Gremientyp %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat den Gremientyp %{resource_name} aktualisiert"
@@ -380,28 +381,6 @@ de:
         social_networks: Soziale Netzwerke
         social_networks_title: Diese Versammlung auf teilen
         target: Wer nimmt teil?
-      statistics:
-        answers_count: Antworten
-        assemblies_count: Gremien
-        comments_count: Bemerkungen
-        debates_count: Debatten
-        endorsements_count: Empfehlungen
-        followers_count: Beobachter
-        headline: Statistiken
-        meetings_count: Meetings
-        no_stats: Noch keine Statistik vorhanden.
-        orders_count: Stimmen
-        pages_count: Seiten
-        participants_count: Teilnehmer
-        posts_count: Beiträge
-        processes_count: Prozesse
-        projects_count: Projekte
-        proposals_count: Vorschläge
-        results_count: Ergebnisse
-        supports_count: Unterstützungen
-        surveys_count: Umfragen
-        users_count: Teilnehmer
-        votes_count: Stimmen
     assembly_members:
       assembly_member:
         designated_on: Bezeichnet am
@@ -449,7 +428,7 @@ de:
         hero:
           participate_title: Nehmen Sie an den Prozessen der Plattform teil
         sub_hero:
-          register_title: Registrieren Sie sich, um ein Konto auf der Plattform zu erstellen
+          register_title: Benutzerkonto registrieren
     participatory_processes:
       pages:
         home:
@@ -457,6 +436,8 @@ de:
             processes_button_title: Verknüpfung zu der Prozessseite mit einem Überblick aller Prozesse
       show:
         related_assemblies: Ähnliche Versammlungen
+    statistics:
+      assemblies_count: Gremien
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein

@@ -26,11 +26,14 @@ cs:
         published_at: Publikováno v
         weight: Váha
       id: ID
+      import:
+        user_group_id: Vytvořit importy jako
       newsletter:
         body: Tělo
         subject: Předmět
       organization:
         alert_color: Upozornění
+        available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
         comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
         cta_button_path: Cesta tlačítka Výzvy k akci
@@ -41,6 +44,8 @@ cs:
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
         facebook_handler: Facebook handler
         favicon: Ikona
+        force_authentication: Vynutit ověření
+        force_users_to_authenticate_before_access_organization: Vynutit uživateli autentizaci před přístupem do organizace
         from: Z e-mailové adresy
         github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
@@ -53,6 +58,7 @@ cs:
         highlighted_content_banner_image: Obrázek
         highlighted_content_banner_short_description: Stručný popis
         highlighted_content_banner_title: Titul
+        host: Hostitel
         instagram_handler: Instagram handler
         logo: Logo
         machine_translation_display_priority: Priorita zobrazení strojového překladu
@@ -65,16 +71,21 @@ cs:
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Název
         omnipresent_banner_url: URL
+        organization_admin_email: E-mail správce organizace
+        organization_admin_name: Název správce organizace
+        organization_locales: Místa organizace
         primary_color: Hlavní
         reference_prefix: Referenční předpona
         rich_text_editor_in_public_views: Povolit plnohodnotný textový editor pro účastníky
         secondary_color: Sekundární
+        secondary_hosts: Sekundární hostitelé
         send_welcome_notification: Odeslat uvítací oznámení
         success_color: Úspěch
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
         user_groups_enabled: Povolit skupiny
+        users_registration_mode: Režim registrace uživatelů
         warning_color: Varování
         welcome_notification_body: Tělo uvítacího oznámení
         welcome_notification_subject: Předmět uvítacího oznámení
@@ -116,6 +127,10 @@ cs:
               allowed_file_content_types: Neplatný soubor s obrázkem
             official_img_header:
               allowed_file_content_types: Neplatný soubor s obrázkem
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Neplatný typ mime
   activerecord:
     attributes:
       decidim/static_page:
@@ -142,6 +157,7 @@ cs:
         category:
           new: Nová kategorie
         export: Exportovat
+        import: Importovat
         manage: Spravovat
         new: Nová %{name}
         newsletter:
@@ -358,6 +374,12 @@ cs:
           title_cont: Hledat %{collection} podle názvu.
         state_eq:
           label: Stav
+      forms:
+        file_help:
+          import:
+            explanation: 'Pokyny pro soubor:'
+            message_1: CSV, JSON a Excel (.xls) jsou podporovány
+            message_2: Pro CSV soubory musí být oddělovač mezi sloupci středníkem (";")
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě
         form:
@@ -396,6 +418,24 @@ cs:
           impersonate_existing_managed_user: Spravovat účastníka "%{name}"
           impersonate_existing_user: Spravovat účastníka "%{name}"
           impersonate_new_managed_user: Spravovat nového účastníka
+      imports:
+        creators:
+          proposalcreator: Tvůrce návrhu
+        error: Při importu došlo k chybě
+        help:
+          proposalcreator: Soubor musí mít názvy sloupců title/en a body/en (nebo jiné lokalizace, které dáváte. title/cs a body/cs). Podporovány jsou také sloupce pro scope/id a category/id.
+        import_from_file: Importovat ze souboru
+        invalid_lines: Nalezena chyba ve zdroji číslo %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Zpět
+          file_legend: Přidat importovaný soubor, který bude analyzován.
+          import: Importovat
+        notice: "%{number} %{resource_name} úspěšně importováno"
       logs:
         logs_list:
           no_logs_yet: Dosud nejsou žádné protokoly
@@ -513,14 +553,14 @@ cs:
       moderated_users:
         index:
           actions:
-            block: Blokovat
+            block: Blokovat uživatele
             title: Akce
-            unblock: Odemknout
+            unblock: Odblokovat uživatele
             unreport: Zrušit nahlášení
           name: Jméno
           nickname: Přezdívka
           reason: Důvod
-          reports: Zprávy
+          reports: Počet zpráv
           title: Seznam nahlášených uživatelů
         report:
           reasons:
@@ -529,7 +569,7 @@ cs:
             spam: Nevyžádané
         tabs:
           blocked: Blokováno
-          unblocked: Odblokováno
+          unblocked: Neblokováno
       moderations:
         index:
           title: Moderování
@@ -540,7 +580,7 @@ cs:
             spam: Spam
         reports:
           index:
-            author: Autor(ři)
+            author: Autor (autoři)
             callout_html: Obsah se zobrazí v panelu moderátora, když byl signalizován uživatelem (může to být někdo s registrovaným účtem) kliknutím na vlaječku %{icon} vedle položky.
             content_original_language: Původní jazyk obsahu
             participatory_space: Participační prostor
@@ -889,6 +929,16 @@ cs:
       errors:
         impersonate_user:
           reason: Při správě nespravovaného účastníka musíte uvést důvod
+    metrics:
+      blocked_users:
+        object: blokovaní uživatelé
+        title: Blokovaní uživatelé
+      reported_users:
+        object: nahlášení uživatelé
+        title: Nahlášení uživatelé
+      user_reports:
+        object: uživatelská hlášení
+        title: Uživatelská hlášení
     moderations:
       actions:
         expand: Rozbalit

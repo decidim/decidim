@@ -1,4 +1,4 @@
-= Achitecture
+= Architecture
 
 For better understanding Decidim, here you have some diagrams based in the https://c4model.com[C4 model].
 

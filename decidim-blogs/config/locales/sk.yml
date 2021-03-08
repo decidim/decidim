@@ -76,10 +76,3 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete priestor "%{participatory_space_title}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Nový príspevok publikovaný v %{participatory_space_title}
           notification_title: Príspevok <a href="%{resource_path}">%{resource_title}</a> bol publikovaný v %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Príspevky
-    participatory_processes:
-      statistics:
-        posts_count: Príspevky

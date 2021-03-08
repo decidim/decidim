@@ -1,9 +1,14 @@
 <% if @step == :step_4 %>
+    <% body_messages = [t("decidim.proposals.proposals.preview.announcement_body")]
+    if component_settings.proposal_edit_time == "limited"
+      body_messages << t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
+    end %>
+
   <%= cell(
     "decidim/announcement",
     {
       title: t("decidim.proposals.proposals.preview.announcement_title"),
-      body: "#{t("decidim.proposals.proposals.preview.announcement_body")}<br><br>#{t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)}"
+      body: body_messages
     },
     callout_class: "warning"
   ) %>

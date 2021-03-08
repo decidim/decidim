@@ -36,7 +36,7 @@ en:
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
       decidim/removed_from_group: Removed from group
-      decidim/resource_endorsed_event: Resurce endorsed
+      decidim/resource_endorsed_event: Resource endorsed
   activerecord:
     attributes:
       decidim/user:
@@ -430,7 +430,7 @@ en:
         ready: Ready
       show:
         download_data: Download the data
-        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Request data
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
@@ -466,6 +466,8 @@ en:
           register: Create an account
           sign_in_disabled: You can access with an external account
           sign_up_disabled: Sign up is disabled, you can use an existing account to access
+        user:
+          timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
       shared:
         newsletter_modal:
           buttons:
@@ -662,7 +664,7 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: 'Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href=''https://www.7-zip.org/''>7-Zip</a> to open it. Password: %{password}'
+        click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
@@ -695,7 +697,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
-        participatory_space: Already following <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Following <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.
@@ -954,7 +956,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
-          not_allowed: This user does not accept any more direct messages.
+          not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
           send: Send
@@ -1025,8 +1027,10 @@ en:
       no_notifications: No notifications yet.
     notifications_settings:
       show:
+        administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
         direct_messages: Receive direct messages from anyone
+        email_on_moderations: I want to receive an email every time something is reported for moderation.
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
@@ -1070,24 +1074,7 @@ en:
         metrics:
           headline: Metrics
         statistics:
-          answers_count: Completed Surveys
-          assemblies_count: Assemblies
-          comments_count: Comments
-          conferences_count: Conferences
-          debates_count: Debates
-          endorsements_count: Endorsements
           headline: Current state of %{organization}
-          meetings_count: Meetings
-          orders_count: Votes
-          pages_count: Pages
-          processes_count: Processes
-          projects_count: Projects
-          proposals_accepted: Accepted Proposals
-          proposals_count: Proposals
-          results_count: Results
-          surveys_count: Surveys
-          users_count: Participants
-          votes_count: Votes
         sub_hero:
           register: Register
       index:
@@ -1279,6 +1266,15 @@ en:
         close_window: Close window
         share: Share
         share_link: Share link
+    statistics:
+      comments_count: Comments
+      endorsements_count: Endorsements
+      followers_count: Followers
+      headline: Statistics
+      no_stats: There are no statistics yet.
+      pages_count: Pages
+      participants_count: Participants
+      users_count: Participants
     tags:
       filter_results_for_category: 'Filter results for category: %{resource}'
       filter_results_for_scope: 'Filter results for scope: %{resource}'
@@ -1521,7 +1517,7 @@ en:
     messages:
       already_confirmed: was already confirmed, please try signing in
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
-      content_type_whitelist_error: the file type is not valid
+      content_type_allowlist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
@@ -1581,6 +1577,11 @@ en:
         instagram: "%{organization} at Instagram"
         twitter: "%{organization} at Twitter"
         youtube: "%{organization} at YouTube"
+      timeout_modal:
+        body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
+        continue_session: Continue session
+        sign_out: Sign out
+        title: Would you like to continue your session?
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard

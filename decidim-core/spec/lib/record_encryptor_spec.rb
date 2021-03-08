@@ -62,6 +62,71 @@ module Decidim
         # original value is returned instead.
         expect(subject.name).to eq("Unencrypted")
       end
+
+      it "returns the original value when the decryption fails due to invalid signature" do
+        # Test the decryption process in case the following is configured for
+        # the application (could be the case for installations dating the
+        # pre-Rails 5.2 era):
+        # Rails.application.config.active_support.use_authenticated_message_encryption = false
+        #
+        # This is also true for all instances that have the following in their
+        # `config/application.rb` (Defaults from pre-Rails 5.2):
+        #   config.load_defaults 5.1
+        allow(ActiveSupport::MessageEncryptor).to receive(:use_authenticated_message_encryption).and_return(false)
+
+        subject.instance_variable_set(:@name, "Unencrypted")
+
+        # This would throw an ActiveSupport::MessageVerifier::InvalidSignature
+        # which happens if the decryption fails. This is catched and the
+        # original value is returned instead.
+        expect(subject.name).to eq("Unencrypted")
+      end
+
+      it "returns the original hash values when the JSON parsing fails for the hash values" do
+        subject.instance_variable_set(
+          :@metadata,
+          "email" => "example001@example.org",
+          "verification_code" => "123456789"
+        )
+
+        expect(subject.metadata).to eq(
+          "email" => "example001@example.org",
+          "verification_code" => 123_456_789
+        )
+      end
+
+      it "returns the original hash values for deep hashes that cannot be passed to decryption" do
+        deep_metadata = {
+          "location" => {
+            "Country" => {
+              "Province" => {
+                "Region" => {
+                  "Sub-region" => {
+                    "Municipality" => {
+                      "Quarter" => {
+                        "Block" => "Street"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "foobar" => "",
+          "extras" => {
+            "foo" => {
+              "bar" => "baz"
+            }
+          }
+        }
+
+        subject.instance_variable_set(
+          :@metadata,
+          deep_metadata
+        )
+
+        expect(subject.metadata).to eq(deep_metadata)
+      end
     end
 
     it_behaves_like "encrypted record"

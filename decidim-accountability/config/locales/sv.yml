@@ -32,6 +32,8 @@ sv:
   decidim:
     accountability:
       actions:
+        attachment_collections: Mappar
+        attachments: Bifogade filer
         confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera

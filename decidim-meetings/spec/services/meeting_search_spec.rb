@@ -7,7 +7,8 @@ module Decidim::Meetings
     subject { described_class.new(params).results }
 
     let(:component) { create :component, manifest_name: "meetings" }
-    let(:default_params) { { component: component, organization: component.organization } }
+    let(:user) { create :user, organization: component.organization }
+    let(:default_params) { { component: component, organization: component.organization, user: user } }
     let(:params) { default_params }
 
     it_behaves_like "a resource search", :meeting
@@ -18,6 +19,7 @@ module Decidim::Meetings
       let!(:meeting1) do
         create(
           :meeting,
+          author: user,
           component: component,
           start_time: 1.day.from_now,
           description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
@@ -88,6 +90,27 @@ module Decidim::Meetings
           it "only lists online meetings" do
             expect(subject).to include(in_person_meeting)
             expect(subject).not_to include(online_meeting)
+          end
+        end
+      end
+
+      describe "activity filter" do
+        let(:params) { default_params.merge(activity: activity) }
+
+        context "when filtering by 'all'" do
+          let(:activity) { "all" }
+
+          it "returns all the meetings" do
+            expect(subject.length).to eq(2)
+          end
+        end
+
+        context "when filtering by 'my meetings'" do
+          let(:activity) { "my_meetings" }
+
+          it "returns only the meeting created by the current user" do
+            expect(subject).to include(meeting1)
+            expect(subject.length).to eq(1)
           end
         end
       end

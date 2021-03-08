@@ -1,0 +1,57 @@
+<%= decidim_form_for(@form, url: component_imports_path, class: "form grid-container") do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title flex--sbc">
+        <div class="flex--cc flex-gap--1">
+          <div id="js-other-actions-wrapper">
+            <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button hollow tiny button--simple" %>
+          </div>
+        </div>
+      </h2>
+    </div>
+    <div class="card-section">
+      <div class="row column">
+        <%=
+          form.select :creator,
+          @form.creators.map { |m| [t("decidim.admin.imports.creators.#{m[:name]}"), m[:creator]] },
+          { prompt: true }
+        %>
+      </div>
+      <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+        <div class="field">
+          <%=
+            form.select(
+              :user_group_id,
+              user_groups.map { |g| [g.name, g.id] },
+              include_blank: current_user.name
+            )
+          %>
+        </div>
+      <% end %>
+      <div class="grid-x">
+        <div class="cell">
+          <fieldset>
+            <legend>
+              <%= t(".file_legend", valid_mime_types: mime_types).html_safe %>
+              <div class="creator-guidances">
+                <% @form.creators.each do |creator| %>
+                  <%= content_tag :div, class: "guidance creator-#{creator[:name]}" do %>
+                    <% t("decidim.admin.imports.help.#{creator[:name]}") %>
+                  <% end %>
+                <% end %>
+              </div>
+            </legend>
+            <div class="row column">
+              <%= form.upload :file, optional: false, help_i18n_scope: "decidim.admin.forms.file_help.import" %>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-x align-center mt-sm">
+    <%= form.submit t(".import") %>
+  </div>
+<% end -%>
+
+<%= javascript_include_tag "decidim/admin/import_guidance" %>

@@ -265,10 +265,6 @@ pt:
       conferences:
         conference_registration:
           confirm: "%{user_name} confirmou o registro da conferência em %{resource_name} conferência"
-        partner:
-          create: "%{user_name} criado %{resource_name} para a conferência %{space_name}"
-          delete: "%{user_name} removeu o usuário %{resource_name} da conferência de %{space_name}"
-          update: "%{user_name} atualizado %{resource_name} na conferência de %{space_name}"
         registration_type:
           create: "%{user_name} criou o tipo de registro %{resource_name} na conferência de %{space_name}"
           publish: "%{user_name} publicou o tipo de registro %{resource_name} na conferência %{space_name}"
@@ -486,23 +482,6 @@ pt:
         related_assemblies: Assembleias Relacionadas
         related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
-      statistics:
-        answers_count: Respostas
-        comments_count: Comentários
-        conference_count: Conferências
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Atividade
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        posts_count: Postagens
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: pesquisas
-        users_count: Participantes
-        votes_count: Votos
     events:
       conferences:
         conference_registration_confirmed:

@@ -5,6 +5,7 @@ module Decidim
     # A form object to be used when public users want to create a proposal.
     class ProposalForm < Decidim::Proposals::ProposalWizardCreateStepForm
       include Decidim::TranslatableAttributes
+      include Decidim::AttachmentAttributes
 
       mimic :proposal
 
@@ -16,10 +17,9 @@ module Decidim
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
-      attribute :photos, Array[String]
-      attribute :add_photos, Array
-      attribute :documents, Array[String]
-      attribute :add_documents, Array
+
+      attachments_attribute :photos
+      attachments_attribute :documents
 
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
       validates :address, presence: true, if: ->(form) { form.has_address? }
@@ -39,6 +39,8 @@ module Decidim
         # The scope attribute is with different key (decidim_scope_id), so it
         # has to be manually mapped.
         self.scope_id = model.scope.id if model.scope
+
+        self.has_address = true if model.address.present?
       end
 
       # Finds the Category from the category_id.
@@ -66,7 +68,15 @@ module Decidim
         Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
       end
 
+      def address
+        return unless has_address
+
+        super
+      end
+
       def has_address?
+        return unless has_address
+
         geocoding_enabled? && address.present?
       end
 

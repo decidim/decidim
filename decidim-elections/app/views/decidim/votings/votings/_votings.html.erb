@@ -8,9 +8,18 @@
   </div>
 </div>
 
-<div class="row small-up-1 medium-up-2 card-grid">
-  <% votings.each do |voting| %>
-    <%= card_for voting %>
+<% if paginated_votings.empty? %>
+  <%= cell("decidim/announcement", t(:no_votings, scope: "decidim.votings.votings.index")) %>
+<% else %>
+  <% if only_finished_votings? %>
+    <%= cell("decidim/announcement", t(:only_finished, scope: "decidim.votings.votings.index"), callout_class: "warning") %>
   <% end %>
-</div>
-<%= decidim_paginate votings %>
+
+  <div class="row small-up-1 medium-up-2 card-grid">
+    <% paginated_votings.each do |voting| %>
+      <%= card_for voting %>
+    <% end %>
+  </div>
+
+  <%= decidim_paginate paginated_votings %>
+<% end %>

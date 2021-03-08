@@ -30,6 +30,7 @@ ro:
             success: Postare stearsa cu succes
           edit:
             save: Actualizare
+            title: Editează postarea
           index:
             title: Mesaje
           new:
@@ -76,10 +77,3 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți „%{participatory_space_title}”. O puteți anula de la link-ul anterior.
           email_subject: Postare nouă publicată în %{participatory_space_title}
           notification_title: Postarea <a href="%{resource_path}">%{resource_title}</a> a fost publicată în %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Mesaje
-    participatory_processes:
-      statistics:
-        posts_count: Mesaje

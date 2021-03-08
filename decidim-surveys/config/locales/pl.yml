@@ -25,8 +25,12 @@ pl:
           global:
             announcement: Ogłoszenie
             clean_after_publish: Usuń odpowiedzi podczas publikowania ankiety
+            ends_at: Odpowiedzi akceptowane do
+            ends_at_help: Pozostaw puste jeśli nie określono daty
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
+            starts_at: Odpowiedzi akceptowane od
+            starts_at_help: Pozostaw puste jeśli nie określono daty
           step:
             allow_answers: Pozwól na wypełnianie
             allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
@@ -61,6 +65,6 @@ pl:
         new_survey_at_html: "<span>Nowa ankieta %{link}</span>"
       surveys:
         answer:
-          invalid: Podczas wypełniania ankiety pojawił się błąd.
+          invalid: Podczas wypełniania ankiety wystąpił błąd.
           spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Twoja ankieta została wypełniona.

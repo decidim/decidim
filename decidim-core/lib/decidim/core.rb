@@ -94,6 +94,7 @@ module Decidim
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
+  autoload :AttachmentAttributes, "decidim/attachment_attributes"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -359,6 +360,11 @@ module Decidim
     "decidim-cc"
   end
 
+  # Defines how often session_timeouter.js checks time between current moment and last request
+  config_accessor :session_timeouter_interval do
+    10_000
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
@@ -565,6 +571,13 @@ module Decidim
     return Decidim::OrganizationSettings.defaults unless organization
 
     Decidim::OrganizationSettings.for(organization)
+  end
+
+  # Defines the time after which the machine translation job should be enabled.
+  # In some cases, it is required to have a delay, otherwise the ttanslation job will be discarded:
+  #  Discarded Decidim::MachineTranslationResourceJob due to a ActiveJob::DeserializationError.
+  config_accessor :machine_translation_delay do
+    0.seconds
   end
 
   def self.machine_translation_service_klass

@@ -2,17 +2,11 @@
 
 module Decidim
   module ParticipatoryProcessGroups
-    class ContentBlockCell < Decidim::ViewModel
-      include Decidim::IconHelper
+    class ContentBlockCell < Decidim::Admin::ContentBlockCell
+      delegate :scoped_resource, to: :controller
 
-      delegate :public_name_key, :has_settings?, to: :model
-
-      def manifest_name
-        model.try(:manifest_name) || model.name
-      end
-
-      def participatory_process_group
-        controller.send(:participatory_process_group)
+      def edit_content_block_path
+        decidim_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(scoped_resource, manifest_name)
       end
 
       def decidim_participatory_processes

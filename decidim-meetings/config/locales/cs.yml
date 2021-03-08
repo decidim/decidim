@@ -80,7 +80,7 @@ cs:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
           success: Duplicitní schůzka úspěšně.
         new:
-          copy: kopírovat
+          copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Duplicitní schůzka
     components:
@@ -366,7 +366,7 @@ cs:
         meetings:
           index:
             all: Všechno
-            date: datum
+            date: Datum
             meetings: Setkání
             past: Minulost
             search: Vyhledávání
@@ -403,12 +403,15 @@ cs:
           title: Upravit schůzku
           update: Aktualizovat
         filters:
+          activity: Moje aktivita
+          all: Vše
           category: Kategorie
-          date: datum
+          date: Datum
           date_values:
             all: Vše
             past: Minulé
             upcoming: Nadcházející
+          my_meetings: Moje schůzky
           origin: Původ
           origin_values:
             all: Vše
@@ -486,7 +489,7 @@ cs:
         invite:
           fields:
             email: E-mailem
-            name: název
+            name: Název
             sent_at: Odesláno v
             status: Stav
           status:
@@ -549,6 +552,8 @@ cs:
       proposals_from_meeting:
         meeting_proposal: 'Související návrhy:'
         proposal_meeting: 'Související setkání:'
+    statistics:
+      meetings_count: Setkání
   devise:
     mailer:
       join_meeting:

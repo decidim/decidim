@@ -322,10 +322,6 @@ nl:
           title: Wat zijn raadplegingen?
     menu:
       consultations: Burgerinspraaken
-    pages:
-      home:
-        statistics:
-          consultations_count: Raadplegingen
     questions:
       next_button: Volgende vraag
       previous_button: Vorige vraag
@@ -360,6 +356,9 @@ nl:
       consultations:
         actions:
           vote: Stem
+    statistics:
+      consultations_count: Raadplegingen
+      votes_count: Stemmen
   layouts:
     decidim:
       admin:

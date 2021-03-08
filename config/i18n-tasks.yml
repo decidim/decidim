@@ -70,6 +70,8 @@ search:
     - "*.jpeg"
     - "*.odt"
     - "*.docx"
+    - "*.xls"
+    - "*.xlsx"
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
@@ -98,6 +100,7 @@ ignore_missing:
   - notification_title
   - decidim.wizard_step_form_cell.*
   - decidim.proposals.application_helper.activity_filter_values.*
+  - decidim.meetings.application_helper.activity_filter_values.*
   - decidim.content_blocks.*_settings_form.show.*
   - decidim.newsletter_templates.*_settings_form.show.*
   - participate_in
@@ -114,20 +117,20 @@ ignore_unused:
   - activemodel.errors.*
   - activemodel.models.*
   - activerecord.attributes.*
+  - activerecord.errors.*
   - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
-  - decidim.assemblies.statistics.*
+  - decidim.statistics.*
   - decidim.components.*
   - decidim.filters.linked_classes.*
   - decidim.follows.create.participatory_space
   - decidim.forms.errors.*
   - decidim.forms.file_help.*
   - decidim.forms.user_answers_serializer.*
-  - decidim.participatory_processes.statistics.*
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
@@ -155,7 +158,6 @@ ignore_unused:
   - decidim.verifications.dummy_authorization.extra_explanation.user_scope
   - errors.messages.*
   - invisible_captcha.*
-  - decidim.pages.home.statistics.*
   - social_share_button.*
   - decidim.features.accountability.name
   - decidim.features.accountability.settings.*
@@ -194,7 +196,6 @@ ignore_unused:
   - decidim.votings.votings.filters.*
   - decidim.votings.votings.orders.*
   - decidim.votings.votings_m.badge_name.*
-  - decidim.votings.votings_m.footer_button_text.*
   - decidim.initiatives.admin_log.*
   - decidim.initiatives.initiatives.orders.*
   - decidim.initiatives.states.*
@@ -229,7 +230,6 @@ ignore_unused:
   - decidim.conferences.content_blocks.*.name
   - decidim.conferences.pages.home.highlighted_conferences.*
   - decidim.conferences.conference_speaker.*
-  - decidim.conferences.statistics.*
   - decidim.conferences.show.*
   - decidim.conferences.models.conference_registration.fields.states.*
   - decidim.proposals.admin.participatory_texts.sections.*
@@ -296,6 +296,11 @@ ignore_unused:
   - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
   - decidim.elections.trustee_zone.elections.tally_steps.keys.*
   - decidim.votings.admin_log.*
+  - decidim.votings.admin.content_blocks.landing_page.*
+  - decidim.devise.sessions.user.timed_out
+  - decidim.admin.forms.file_help.import.*
+  - decidim.admin.menu.questions_submenu.attachments
+  - decidim.admin.menu.questions_submenu.categories
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

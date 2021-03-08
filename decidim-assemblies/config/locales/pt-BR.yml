@@ -321,21 +321,6 @@ pt:
         scope: Âmbito
         social_networks: Redes sociais
         target: Quem pode participar
-      statistics:
-        answers_count: Respostas
-        assemblies_count: Assembleias
-        comments_count: Comentários
-        debates_count: Debates
-        endorsements_count: Endossos
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: pesquisas
-        users_count: Participantes
-        votes_count: Votos
     assembly_members:
       assembly_member:
         designated_on: Designado em

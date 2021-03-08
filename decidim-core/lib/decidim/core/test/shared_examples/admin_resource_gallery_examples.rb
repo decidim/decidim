@@ -59,7 +59,7 @@ shared_examples "admin manages resource gallery" do
       let!(:image1) { create(:attachment, :with_image, attached_to: resource) }
       let!(:image2) { create(:attachment, :with_image, attached_to: resource) }
       let(:uploaded_photos) { [] }
-      let(:current_photos) { [image1.id.to_s] }
+      let(:current_photos) { [image1] }
 
       it "to decrease the number of photos in the gallery" do
         expect(resource.attachments.count).to eq(2)

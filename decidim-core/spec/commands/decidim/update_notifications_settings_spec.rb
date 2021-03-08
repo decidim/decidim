@@ -10,6 +10,7 @@ module Decidim
     let(:data) do
       {
         email_on_notification: true,
+        email_on_moderations: true,
         newsletter_notifications_at: Time.current,
         direct_message_types: "followed-only"
       }
@@ -19,6 +20,7 @@ module Decidim
       double(
         notification_types: "none",
         email_on_notification: data[:email_on_notification],
+        email_on_moderations: data[:email_on_moderations],
         newsletter_notifications_at: data[:newsletter_notifications_at],
         direct_message_types: data[:direct_message_types],
         valid?: valid

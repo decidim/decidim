@@ -35,7 +35,6 @@ it:
       decidim/profile_updated_event: profilo aggiornato
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
       decidim/removed_from_group: Rimosso dal gruppo
-      decidim/resource_endorsed_event: Risorsa approvata
   activerecord:
     attributes:
       decidim/user:
@@ -429,7 +428,6 @@ it:
         ready: Pronto
       show:
         download_data: Scarica i dati
-        download_data_description: Un file con tutte le informazioni associate all'account verrà inviato a <strong>%{user_email}</strong>
         request_data: Richiedi dati
     datepicker:
       help_text: 'Formato previsto: %{datepicker_format}'
@@ -657,7 +655,6 @@ it:
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
       data_portability_export:
-        click_button: 'Fare clic sul pulsante successivo per scaricare i dati. <br/> Avrai il file disponibile fino al %{date}.'
         download: Scaricare
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
@@ -690,7 +687,6 @@ it:
       create:
         button: Segui
         error: C'è stato un errore seguendo questa risorsa.
-        participatory_space: Stai già seguendo lo spazio partecipativo
       destroy:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
@@ -949,7 +945,6 @@ it:
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
-          not_allowed: Questo utente non accetta più messaggi diretti.
           title: Conversazione con %{usernames}
         start:
           send: Invia
@@ -1065,24 +1060,7 @@ it:
         metrics:
           headline: Partecipazione in cifre
         statistics:
-          answers_count: Questionari completati
-          assemblies_count: Assemblee
-          comments_count: Commenti
-          conferences_count: conferenze
-          debates_count: Dibattiti
-          endorsements_count: Mi piace
           headline: Statistiche su %{organization}
-          meetings_count: Incontri
-          orders_count: Voti
-          pages_count: Pagine
-          processes_count: Processi
-          projects_count: progetti
-          proposals_accepted: Proposte accettate
-          proposals_count: proposte
-          results_count: risultati
-          surveys_count: Questionari
-          users_count: Partecipanti
-          votes_count: Voti
         sub_hero:
           register: Registrati
       index:
@@ -1274,6 +1252,8 @@ it:
         close_window: Chiudi questa finestra
         share: Condividi
         share_link: Condividi link
+    statistics:
+      comments_count: Commenti
     tags:
       filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
       filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
@@ -1516,7 +1496,7 @@ it:
     messages:
       already_confirmed: era già confermato, per favore prova ad accedere
       confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
-      content_type_whitelist_error: il tipo di file non è valido
+      content_type_allowlist_error: il tipo di file non è valido
       cycle_detected: Il genitore di un ambito non può essere uno dei suoi discendenti
       expired: è scaduto, si prega di richiederne uno nuovo
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}

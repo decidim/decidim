@@ -96,7 +96,8 @@ module Decidim
                         index_on_create: ->(meeting) { meeting.visible? },
                         index_on_update: ->(meeting) { meeting.visible? })
 
-      after_initialize :set_default_salt
+      # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
+      before_create :set_default_salt
 
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations

@@ -1,0 +1,14 @@
+<div class="picker-header">
+  <h1><%= t("polling_officers_picker.choose_polling_officers", scope: "decidim.votings.admin.polling_officers") %></h1>
+  <input type="text" name="polling_officers-filter" id="polling_officers_filter" placeholder="<%= t("decidim.admin.filters.search_placeholder.id_string_or_title_cont", collection: polling_officers_collection_name) %>">
+</div>
+<div class="picker-content picker-list" data-picker-path="<%= picker_path %>" data-picker-more="<%= more_polling_officers? %>">
+  <%= render :polling_officers %>
+</div>
+<div class="picker-footer">
+  <div class="buttons button--double">
+    <a class="button" data-close=""><%= t("polling_officers_picker.close", scope: "decidim.votings.admin.polling_officers") %></a>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/votings/admin/polling_officers_picker" %>

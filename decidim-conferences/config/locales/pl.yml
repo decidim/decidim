@@ -212,7 +212,7 @@ pl:
             price: Cena
             registrations_count: Liczba rejestracji
             title: Tytuł
-            weight: Waga
+            weight: Kolejność na stronie
           name: Typ rejestracji
       partners:
         create:
@@ -273,9 +273,9 @@ pl:
         conference_registration:
           confirm: "%{user_name} potwierdził(a) rejestrację na konferencję %{resource_name}"
         partner:
-          create: "%{user_name} utworzył(a) %{resource_name} w konferencji %{space_name}"
-          delete: "%{user_name} usunął/usunęła administratora %{resource_name} z konferencji %{space_name}"
-          update: "%{user_name} zaktualizował(a) %{resource_name} w konferencji %{space_name}"
+          create: "%{user_name} dodał(a) partnera %{resource_name} do konferencji %{space_name}"
+          delete: "%{user_name} usunął/usunęła partnera %{resource_name} z konferencji %{space_name}"
+          update: "%{user_name} zaktualizował(a) partnera %{resource_name} w konferencji %{space_name}"
         registration_type:
           create: "%{user_name} utworzył(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
           publish: "%{user_name} opublikował(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
@@ -295,7 +295,7 @@ pl:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugi służą do generowania adresów URL, które przekierują do tej konferencji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konferencji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         conference_invites:
           create:
             error: Podczas zapraszania użytkownika do udziału w konferencji wystąpił błąd.
@@ -339,7 +339,7 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
-            slug_help: 'URL slugi służą do generowania adresów URL, które przekierują do tej konferencji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konferencji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         diplomas:
           edit:
             save: Zapisz
@@ -410,6 +410,7 @@ pl:
         personal_website: Osobista strona internetowa
         show:
           more_info: więcej informacji
+          speaking_at: Mówcy
       conference_speaker_cell:
         personal_url:
           personal_website: Osobista strona internetowa
@@ -474,7 +475,7 @@ pl:
           attributes:
             alt: Obraz
         show:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           photo: Zdjęcie
       photos_list:
         show:
@@ -499,23 +500,6 @@ pl:
         related_assemblies: Powiązane zespoły
         related_consultations: Powiązane konsultacje
         related_participatory_processes: Powiązane procesy partycypacyjne
-      statistics:
-        answers_count: Odpowiedzi
-        comments_count: Komentarze
-        conference_count: Konferencje
-        debates_count: Debaty
-        endorsements_count: Rekomendacje
-        headline: Działanie
-        meetings_count: Spotkania
-        orders_count: Wsparcia
-        pages_count: Strony
-        posts_count: Wpisy
-        projects_count: Projekty
-        proposals_count: Propozycje
-        results_count: Wyniki
-        surveys_count: Ankiety
-        users_count: Uczestnicy
-        votes_count: Głosy
     events:
       conferences:
         conference_registration_confirmed:
@@ -550,6 +534,8 @@ pl:
     help:
       participatory_spaces:
         conferences:
+          contextual: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
+          page: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           title: Czym są konferencje?
     log:
       value_types:

@@ -52,6 +52,7 @@ es-MX:
         target: Quién participa
         title: Título
         twitter: Twitter
+        weight: Peso
         youtube: Youtube
       assembly_member:
         birthday: Cumpleaños
@@ -249,7 +250,7 @@ es-MX:
         update: "%{user_name} ha actualizado la configuración de las asambleas"
       assembly_type:
         create: "%{user_name} creó el tipo de asamblea %{resource_name}"
-        delete: "%{user_name} eliminó al miembro %{resource_name} del tipo de asamblea %{space_name}"
+        delete: "%{user_name} eliminó el tipo de asamblea %{resource_name}"
         publish: "%{user_name} publicó el tipo de asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó el tipo de asamblea %{resource_name}"
         update: "%{user_name} actualizó el tipo de asamblea %{resource_name}"
@@ -380,22 +381,6 @@ es-MX:
         social_networks: Redes sociales
         social_networks_title: Compartir esta asamblea en
         target: Quién participa
-      statistics:
-        answers_count: Respuestas
-        assemblies_count: Asambleas
-        comments_count: Comentarios
-        debates_count: Debates
-        endorsements_count: Adhesiones
-        meetings_count: Encuentros
-        orders_count: Votos
-        pages_count: Páginas
-        posts_count: Publicaciones
-        projects_count: Proyectos
-        proposals_count: Propuestas
-        results_count: Resultados
-        surveys_count: Encuestas
-        users_count: Participantes
-        votes_count: Soportes
     assembly_members:
       assembly_member:
         designated_on: Designado en
@@ -443,7 +428,7 @@ es-MX:
         hero:
           participate_title: Participar en los procesos de la plataforma
         sub_hero:
-          register_title: Regístrate para crear una cuenta en la plataforma
+          register_title: Inicia sesión o crea una cuenta
     participatory_processes:
       pages:
         home:

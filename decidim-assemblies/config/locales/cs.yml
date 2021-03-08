@@ -52,6 +52,7 @@ cs:
         target: Kdo se účastní
         title: Titul
         twitter: Twitter
+        weight: Váha
         youtube: Youtube
       assembly_member:
         birthday: Narozeniny
@@ -255,7 +256,7 @@ cs:
         update: "%{user_name} aktualizoval nastavení Shromáždění"
       assembly_type:
         create: "%{user_name} vytvořil typ shromáždění %{resource_name}"
-        delete: "%{user_name} odstranil člena %{resource_name} z typu shromáždění %{space_name}"
+        delete: "%{user_name} odstranil typ shromáždění %{resource_name}"
         publish: "%{user_name} publikoval typ shromáždění %{resource_name}"
         unpublish: "%{user_name} zneveřejnil typ shromáždění %{resource_name}"
         update: "%{user_name} aktualizoval typ shromáždění %{resource_name}"
@@ -386,28 +387,6 @@ cs:
         social_networks: Sociální sítě
         social_networks_title: Sdílet toto shromáždění na
         target: Kdo se účastní
-      statistics:
-        answers_count: Odpovědi
-        assemblies_count: Shromáždění
-        comments_count: Komentáře
-        debates_count: Debaty
-        endorsements_count: Schválení
-        followers_count: Sledující
-        headline: Statistiky
-        meetings_count: Setkání
-        no_stats: Zatím nejsou žádné statistiky.
-        orders_count: Hlasy
-        pages_count: Stránky
-        participants_count: Účastníci
-        posts_count: Příspěvky
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledky
-        supports_count: Podpory
-        surveys_count: Průzkumy
-        users_count: Účastníci
-        votes_count: Hlasy
     assembly_members:
       assembly_member:
         designated_on: Určen pro
@@ -455,7 +434,7 @@ cs:
         hero:
           participate_title: Účast na procesech platformy
         sub_hero:
-          register_title: Přihlaste se k vytvoření účtu na platformě
+          register_title: Zaregistrujte se pro vytvoření účtu
     participatory_processes:
       pages:
         home:
@@ -463,6 +442,8 @@ cs:
             processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
       show:
         related_assemblies: Související shromáždění
+    statistics:
+      assemblies_count: Shromáždění
   errors:
     messages:
       cannot_be_blank: nemůže být prázdný

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages votings", type: :system do
-  include_context "when administrating a voting"
+  include_context "when admin managing a voting"
 
   before do
     switch_to_host(organization.host)
@@ -11,8 +11,9 @@ describe "Admin manages votings", type: :system do
     visit decidim_admin_votings.votings_path
   end
 
-  describe "listing votings" do
+  describe "when listing votings" do
     let(:model_name) { voting.class.model_name }
+    let(:resource_controller) { Decidim::Votings::Admin::VotingsController }
 
     it_behaves_like "filtering collection by published/unpublished"
   end
@@ -273,10 +274,26 @@ describe "Admin manages votings", type: :system do
       visit decidim_admin_votings.votings_path
     end
 
-    it "doesn't let the admin manage assemblies form other organizations" do
+    it "doesn't let the admin manage votings from other organizations" do
       within "table" do
         expect(page).not_to have_content(external_voting.title["en"])
       end
+    end
+  end
+
+  it "renders the sub nav to manage voting's settings" do
+    within ".table-list" do
+      click_link translated(voting.title)
+    end
+
+    within ".secondary-nav--subnav" do
+      expect(page).to have_content("Information")
+      expect(page).to have_content("Landing Page")
+      expect(page).to have_content("Components")
+      expect(page).to have_content("Attachments")
+      expect(page).to have_content("Polling Stations")
+      expect(page).to have_content("Polling Officers")
+      expect(page).to have_css(".is-active", text: "Information")
     end
   end
 end

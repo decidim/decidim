@@ -246,7 +246,6 @@ ja:
         update: "%{user_name} が参加スペース設定を更新しました"
       assembly_type:
         create: "%{user_name} が %{resource_name} 参加スペース種別を作成しました"
-        delete: "%{user_name} が %{resource_name} 参加スペース種別から %{space_name} メンバーを削除しました"
         publish: "%{user_name} が %{resource_name} 参加スペース種別を公開しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペース種別を非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペース種別を更新しました"
@@ -377,22 +376,6 @@ ja:
         social_networks: ソーシャル ネットワーク
         social_networks_title: この参加スペースを共有
         target: 参加者
-      statistics:
-        answers_count: 回答
-        assemblies_count: 参加スペース
-        comments_count: コメント
-        debates_count: ディベート
-        endorsements_count: 支持
-        meetings_count: ミーティング
-        orders_count: サポート
-        pages_count: ページ
-        posts_count: 投稿
-        projects_count: プロジェクト
-        proposals_count: 提案
-        results_count: 結果
-        surveys_count: 調査
-        users_count: 参加者
-        votes_count: サポート
     assembly_members:
       assembly_member:
         designated_on: 指定日時：
@@ -439,8 +422,6 @@ ja:
       home:
         hero:
           participate_title: プラットフォームの参加型プロセスに参加する
-        sub_hero:
-          register_title: アカウントを作成するにはユーザ登録してください
     participatory_processes:
       pages:
         home:

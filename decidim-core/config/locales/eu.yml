@@ -303,7 +303,6 @@ eu:
         ready: prest
       show:
         download_data: Deskargatu datuak
-        download_data_description: Kontuarekin lotutako informazio guztia duen fitxategia <strong>%{user_email}</strong>bidaliko da
         request_data: Eskaera datuak
     datepicker:
       help_text: 'Espero den formatua: %{datepicker_format}'
@@ -496,7 +495,6 @@ eu:
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
       data_portability_export:
-        click_button: 'Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.'
         download: Deskarga
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -807,24 +805,7 @@ eu:
         metrics:
           headline: Zifretan parte hartzea
         statistics:
-          answers_count: Amaitutako inkestak
-          assemblies_count: Batzar
-          comments_count: Iruzkinak
-          conferences_count: Jardunaldiak
-          debates_count: Eztabaidak
-          endorsements_count: Oniritziak
           headline: '%{organization} erakundearen egungo egoera'
-          meetings_count: Bilerak
-          orders_count: Euskarriak
-          pages_count: Orriak
-          processes_count: Prozesuak
-          projects_count: Proiektuak
-          proposals_accepted: Onartutako proposamenak
-          proposals_count: proposamenak
-          results_count: Emaitzak
-          surveys_count: Inkestak
-          users_count: Parte-hartzaileak
-          votes_count: Euskarriak
         sub_hero:
           register: Erregistroa
       index:
@@ -970,6 +951,8 @@ eu:
         close_window: Itxi leihoa
         share: Partekatu
         share_link: Partekatu esteka
+    statistics:
+      comments_count: Iruzkinak
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
@@ -1141,7 +1124,7 @@ eu:
     messages:
       already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
       confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
-      content_type_whitelist_error: fitxategiaren mota ez da baliozkoa
+      content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       expired: iraungi egin da, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago

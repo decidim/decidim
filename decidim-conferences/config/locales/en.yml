@@ -268,9 +268,9 @@ en:
         conference_registration:
           confirm: "%{user_name} confirmed a conference registration in %{resource_name} conference"
         partner:
-          create: "%{user_name} created %{resource_name} to the %{space_name} conference"
-          delete: "%{user_name} removed the admin %{resource_name} from the %{space_name} conference"
-          update: "%{user_name} updated %{resource_name} in the %{space_name} conference"
+          create: "%{user_name} created the partner %{resource_name} in the %{space_name} conference"
+          delete: "%{user_name} removed the partner %{resource_name} from the %{space_name} conference"
+          update: "%{user_name} updated the partner %{resource_name} in the %{space_name} conference"
         registration_type:
           create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
           publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
@@ -493,23 +493,6 @@ en:
         related_assemblies: Related assemblies
         related_consultations: Related Consultations
         related_participatory_processes: Related participatory processes
-      statistics:
-        answers_count: Answers
-        comments_count: Comments
-        conference_count: Conferences
-        debates_count: Debates
-        endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Supports
-        pages_count: Pages
-        posts_count: Posts
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Supports
     events:
       conferences:
         conference_registration_confirmed:
@@ -557,6 +540,8 @@ en:
         title: Media and Links
     menu:
       conferences: Conferences
+    statistics:
+      conferences_count: Conferences
   devise:
     mailer:
       join_conference:

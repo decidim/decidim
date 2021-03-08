@@ -74,10 +74,3 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以从上一个链接取消关注它。
           email_subject: 新帖子发布于 %{participatory_space_title}
           notification_title: 帖子 <a href="%{resource_path}">%{resource_title}</a> 已经在 %{participatory_space_title} 中发布
-    pages:
-      home:
-        statistics:
-          posts_count: 员额
-    participatory_processes:
-      statistics:
-        posts_count: 员额

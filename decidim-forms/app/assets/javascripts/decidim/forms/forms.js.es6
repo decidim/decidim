@@ -53,16 +53,16 @@
       window.exitUrl = event.currentTarget.action;
     });
 
-    window.onbeforeunload = () => {
+    window.addEventListener("beforeunload", (event) => {
       const exitUrl = window.exitUrl;
       const hasChanged = $form.data("changed");
       window.exitUrl = null;
 
       if (!hasChanged || (exitUrl && exitUrl.includes(safePath))) {
-        return null;
+        return;
       }
 
-      return "";
-    }
+      event.returnValue = true;
+    });
   }
 })(window);

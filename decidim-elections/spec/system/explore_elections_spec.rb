@@ -22,7 +22,7 @@ describe "Explore elections", :slow, type: :system do
       it "redirects to the only election" do
         visit_component
 
-        expect(page).to have_content("Voting ends on")
+        expect(page).to have_content("Active voting until")
         expect(page).not_to have_content("All elections")
         expect(page).to have_content("These are the questions you will find in the voting process")
       end

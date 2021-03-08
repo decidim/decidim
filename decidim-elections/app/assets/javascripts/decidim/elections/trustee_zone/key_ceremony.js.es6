@@ -1,4 +1,6 @@
 // = require decidim/bulletin_board/decidim-bulletin_board
+// = require decidim/bulletin_board/dummy-voting-scheme
+// = require decidim/bulletin_board/election_guard-voting-scheme
 
 /**
  * This file is responsible to generate election keys,
@@ -12,9 +14,11 @@ $(() => {
     IdentificationKeys,
     MESSAGE_RECEIVED
   } = window.decidimBulletinBoard;
+  const { TrusteeWrapperAdapter: DummyTrusteeWrapperAdapter } = window.dummyVotingScheme;
+  const { TrusteeWrapperAdapter: ElectionGuardTrusteeWrapperAdapter } = window.electionGuardVotingScheme;
 
   // UI Elements
-  const $keyCeremony = $(".key-ceremony");
+  const $keyCeremony = $(".trustee-step");
   const $startButton = $keyCeremony.find(".start");
   const $backupModal = $("#show-backup-modal");
   const $backupButton = $backupModal.find(".download-election-keys");
@@ -29,28 +33,50 @@ $(() => {
   const bulletinBoardClientParams = {
     apiEndpointUrl: $keyCeremony.data("apiEndpointUrl")
   }
-  const electionUniqueId = `${$keyCeremony.data("authorityUniqueId")}.${$keyCeremony.data("electionId")}`
+  const electionUniqueId = `${$keyCeremony.data("authoritySlug")}.${$keyCeremony.data("electionId")}`
+  const authorityPublicKeyJSON = JSON.stringify($keyCeremony.data("authorityPublicKey"))
+  const schemeName = $keyCeremony.data("schemeName");
+
   const trusteeContext = {
-    uniqueId: $keyCeremony.data("trusteeUniqueId"),
+    uniqueId: $keyCeremony.data("trusteeSlug"),
     publicKeyJSON: JSON.stringify($keyCeremony.data("trusteePublicKey"))
   };
+
   let currentStep = null;
   const trusteeIdentificationKeys = new IdentificationKeys(
     trusteeContext.uniqueId,
     trusteeContext.publicKeyJSON
   );
 
-  // Use the key ceremony controller and bind all UI events
-  const controller = new KeyCeremonyComponent({
+  // Use the correct trustee wrapper adapter
+  let trusteeWrapperAdapter = null;
+
+  if (schemeName === "dummy") {
+    trusteeWrapperAdapter = new DummyTrusteeWrapperAdapter({
+      trusteeId: trusteeContext.uniqueId
+    });
+  } else if (schemeName === "election_guard") {
+    trusteeWrapperAdapter = new ElectionGuardTrusteeWrapperAdapter({
+      trusteeId: trusteeContext.uniqueId,
+      workerUrl: "/assets/election_guard/webworker.js"
+    });
+  } else {
+    throw new Error(`Voting scheme ${schemeName} not supported.`);
+  }
+
+  // Use the key ceremony component and bind all UI events
+  const component = new KeyCeremonyComponent({
     bulletinBoardClientParams,
+    authorityPublicKeyJSON,
     electionUniqueId,
     trusteeUniqueId: trusteeContext.uniqueId,
-    trusteeIdentificationKeys
+    trusteeIdentificationKeys,
+    trusteeWrapperAdapter
   });
 
   trusteeIdentificationKeys.present(async (exists) => {
     if (exists) {
-      await controller.bindEvents({
+      await component.bindEvents({
         onBindRestoreButton(onEventTriggered) {
           $restoreButton.on("change", ".restore-button-input", onEventTriggered);
         },
@@ -64,9 +90,6 @@ $(() => {
           );
           $backupButton.attr("download", backupFilename);
           $backupButton.on("click", onEventTriggered);
-        },
-        onSetup() {
-          $startButton.prop("disabled", false);
         },
         onEvent(event) {
           let messageIdentifier = MessageIdentifier.parse(
@@ -121,6 +144,8 @@ $(() => {
           $backupModal.foundation("close");
         }
       });
+
+      $startButton.prop("disabled", false);
     }
   });
 });

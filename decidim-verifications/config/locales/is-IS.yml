@@ -16,9 +16,6 @@ is-IS:
         full_address: Fullt heimilisfang
         verification_code: Staðfestingarkóði
   decidim:
-    admin:
-      menu:
-        authorization_workflows: Staðfestingar
     authorization_handlers:
       admin:
         id_documents:

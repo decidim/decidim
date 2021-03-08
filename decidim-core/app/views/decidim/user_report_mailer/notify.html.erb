@@ -1,7 +1,7 @@
-<p><%= t ".hello", admin: h(@admin.name) %></p>
+<p class="email-greeting"><%= t ".hello", admin: h(@admin.name) %></p>
 
-<p><%= t ".body_1", user: h(@user.name), token: h(@token.name) %></p>
+<p class="email-instructions"><%= t ".body_1", user: h(@user.name), token: h(@token.name) %></p>
 
-<p><%= t ".body_2", reason: h(@reason) %></p>
+<p class="email-instructions"><%= t ".body_2", reason: h(@reason) %></p>
 
-<p><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>
+<p class="email-closing"><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>

@@ -187,6 +187,49 @@ module Decidim::Meetings
       end
     end
 
+    describe "#salt" do
+      it "salt is empty before saving" do
+        expect(subject.salt).not_to be_present
+      end
+
+      context "when is created" do
+        before do
+          meeting.save!
+        end
+
+        it "has a salt defined" do
+          expect(subject.salt).to be_present
+        end
+      end
+
+      context "when is updated" do
+        let!(:meeting) { create :meeting }
+
+        context "and salt is empty" do
+          before do
+            meeting.start_time = 1.day.from_now
+            meeting.salt = ""
+            meeting.save!
+          end
+
+          it "salt remains empty" do
+            expect(subject.salt).not_to be_present
+          end
+        end
+
+        context "and salt is present" do
+          before do
+            meeting.start_time = 1.day.from_now
+            meeting.save!
+          end
+
+          it "salt remains the same" do
+            expect(subject.salt).to be_present
+          end
+        end
+      end
+    end
+
     describe "pad_is_visible?" do
       let(:pad) { instance_double(EtherpadLite::Pad, id: "pad-id", read_only_id: "read-only-id") }
 

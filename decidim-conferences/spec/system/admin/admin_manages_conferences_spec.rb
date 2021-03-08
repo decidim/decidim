@@ -16,6 +16,7 @@ describe "Admin manages conferences", type: :system do
 
   describe "listing conferences" do
     let(:model_name) { conference.class.model_name }
+    let(:resource_controller) { Decidim::Conferences::Admin::ConferencesController }
 
     it_behaves_like "filtering collection by published/unpublished"
   end

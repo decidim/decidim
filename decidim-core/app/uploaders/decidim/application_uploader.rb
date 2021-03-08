@@ -36,6 +36,11 @@ module Decidim
       fog_credentials.fetch(:provider, "file").downcase
     end
 
+    # We overwrite the downloader to be able to fetch some elements from URL.
+    def downloader
+      Decidim::Downloader
+    end
+
     protected
 
     # Validates that the associated model is always within an organization in

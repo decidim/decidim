@@ -165,7 +165,7 @@ module Decidim
               perform_enqueued_jobs { command.call }
             end.to change(emails, :count).by(3)
 
-            expect(last_email_body).to include("has reached the support threshold")
+            expect(last_email_body).to include("has reached the signatures threshold")
           end
 
           context "when more votes are added" do

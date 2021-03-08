@@ -36,6 +36,17 @@ module Decidim
         end
         filtered.size.positive? ? query.where(decidim_meetings_meetings: { type_of_meeting: filtered }) : query
       end
+
+      # Handle the activity filter
+      def search_activity
+        case activity
+        when "my_meetings"
+          query
+            .where(decidim_author_id: user.id)
+        else
+          query
+        end
+      end
     end
   end
 end

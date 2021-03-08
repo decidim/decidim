@@ -34,16 +34,16 @@ cs:
             confirm: Zrušení před datem autorizace nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
             confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
           destroy_nok: Při rušení autorizace došlo k chybě.
-          destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny!
+          destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
           no_data: Žádní ověření účastníci
-          title: Zrušení ověření
-        authorization_workflows: Ověření
+          title: Zrušení autorizace
+        authorization_workflows: Autorizace
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} aktualizovala konfiguraci ověření dokumentů identit"
+        update_id_documents_config: "%{user_name} aktualizoval konfiguraci autorizace dokladů totožnosti"
       user:
-        grant_id_documents_offline_verification: "%{user_name} ověřeno %{resource_name} pomocí ověření dokumentů offline"
+        grant_id_documents_offline_verification: "%{user_name} ověřil %{resource_name} pomocí offline autorizace dokladů totožnosti"
     authorization_handlers:
       admin:
         csv_census:

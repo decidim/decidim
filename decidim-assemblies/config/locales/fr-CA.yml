@@ -52,6 +52,7 @@ fr-CA:
         target: Participants
         title: Titre
         twitter: Twitter
+        weight: Rang d'affichage
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
@@ -249,7 +250,7 @@ fr-CA:
         update: "%{user_name} a mis à jour les paramètres des assemblées"
       assembly_type:
         create: "%{user_name} a créé le type d'assemblée %{resource_name}"
-        delete: "%{user_name} a retiré le membre %{resource_name} du type d'assemblé %{space_name}"
+        delete: "%{user_name} a supprimé le type d'assemblée %{resource_name}"
         publish: "%{user_name} a publié le type d'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié le type d'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour le type d'assemblée %{resource_name}"
@@ -380,28 +381,6 @@ fr-CA:
         social_networks: Réseaux sociaux
         social_networks_title: Partager cette assemblée sur
         target: Participants
-      statistics:
-        answers_count: Réponses
-        assemblies_count: Assemblées
-        comments_count: Commentaires
-        debates_count: Débats
-        endorsements_count: Soutiens
-        followers_count: Abonnés
-        headline: Statistiques
-        meetings_count: Rencontres
-        no_stats: Il n'y a pas encore de statistiques.
-        orders_count: Votes
-        pages_count: Pages
-        participants_count: Participants
-        posts_count: Publications
-        processes_count: Concertations
-        projects_count: Projets
-        proposals_count: Propositions
-        results_count: Réalisations
-        supports_count: Votes
-        surveys_count: Enquêtes
-        users_count: Participants
-        votes_count: Votes
     assembly_members:
       assembly_member:
         designated_on: Désigné le
@@ -449,7 +428,7 @@ fr-CA:
         hero:
           participate_title: Participer aux processus de la plateforme
         sub_hero:
-          register_title: Inscrivez-vous pour accéder à la plateforme
+          register_title: Inscrivez-vous pour créer un compte
     participatory_processes:
       pages:
         home:

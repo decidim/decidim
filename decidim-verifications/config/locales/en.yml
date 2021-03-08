@@ -35,16 +35,16 @@ en:
             confirm: Revoke before date authorizations can not be undone. Are you sure you want to continue?
             confirm_all: Revoke all the authorizations can not be undone. Are you sure you want to continue?
           destroy_nok: There's been a problem while revoking authorizations.
-          destroy_ok: All matched authorizations had been revocated successfully!
+          destroy_ok: All matched authorizations have been revocated successfully.
           info: There are a total of %{count} verified participants.
           no_data: No verified participants
-          title: Verifications's revocation
-        authorization_workflows: Verifications
+          title: Authorizations revocation
+        authorization_workflows: Authorizations
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} updated the Identity Documents verification configuration"
+        update_id_documents_config: "%{user_name} updated the Identity Documents authorization configuration"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents verification"
+        grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents authorization"
     authorization_handlers:
       admin:
         csv_census:

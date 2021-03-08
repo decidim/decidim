@@ -24,7 +24,7 @@ describe Decidim::Votings::Voting do
     end
   end
 
-  context "when there's a process with the same slug in another organization" do
+  context "when there's a voting with the same slug in another organization" do
     let!(:another_voting) { create :voting, slug: "my-slug" }
 
     it { is_expected.to be_valid }

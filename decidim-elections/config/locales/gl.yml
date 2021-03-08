@@ -93,12 +93,8 @@ gl:
           close_modal: Pechar modal
           filter: Filtrar
           filter_by: Filtrar por
-        preview:
-          available_answers: Respostas dispoñibles
         results:
           selected: Seleccionado
-        show:
-          verify: Verificar
       models:
         answer:
           fields:

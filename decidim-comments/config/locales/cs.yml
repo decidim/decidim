@@ -109,6 +109,16 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}" nebo jeho autora. Můžete jej odhlásit od předchozího odkazu.
           email_subject: K dispozici je nový komentář od %{author_name} do %{resource_title}
           notification_title: Je zde nový komentář od <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Váš komentář v "%{resource_title}" byl nepodpořen. Nyní má celkem %{upvotes} hlasů podpory a %{downvotes} hlasuje proti.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem tohoto komentáře.
+          email_subject: Váš komentář v "%{resource_title}" byl hlasováním nepodpořen.
+          notification_title: Váš <a href="%{resource_path}">komentář</a> v "%{resource_title}" byl nepodpořen. Nyní má celkem %{upvotes} hlasů pro podporu a %{downvotes} hlasuje proti.
+        comment_upvoted:
+          email_intro: Váš komentář v "%{resource_title}" byl hlasováním podpořen. Nyní má celkem %{upvotes} kladných hlasů a %{downvotes} hlasuje proti.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem tohoto komentáře.
+          email_subject: Váš komentář v "%{resource_title}" byl podpořen hlasem.
+          notification_title: Váš <a href="%{resource_path}">komentář</a> v "%{resource_title}" byl podpořen. Nyní má celkem %{upvotes} hlasů pro a %{downvotes} hlasuje proti.
         reply_created:
           email_intro: "%{author_name} odpověděl váš komentář v %{resource_title}. Můžete si je přečíst na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože váš komentář byl zodpovězen.

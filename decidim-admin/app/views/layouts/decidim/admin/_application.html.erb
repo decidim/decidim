@@ -14,10 +14,12 @@
     <%= foundation_datepicker_locale_tag %>
   </head>
   <body>
+    <%= render partial: "layouts/decidim/timeout_modal" %>
     <%= render partial: "layouts/decidim/admin/template_top" %>
     <div class="layout-nav">
       <%= main_menu.render %>
       <%= yield :secondary_nav if content_for? :secondary_nav %>
+      <%= yield :sidebar_menu_nav if content_for? :sidebar_menu_nav %>
     </div>
     <div class="layout-content">
       <div class="container">

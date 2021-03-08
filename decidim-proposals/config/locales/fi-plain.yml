@@ -140,6 +140,10 @@ fi-pl:
             participatory_texts_enabled_readonly: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
+            proposal_edit_time: Ehdotusten muokkaus
+            proposal_edit_time_choices:
+              infinite: Ehdotusten muokkaus on sallittu ilman aikarajaa
+              limited: Ehdotusten muokkaus on sallittu määritetyn aikarajan sisällä niiden julkaisusta
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
@@ -422,6 +426,7 @@ fi-pl:
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
+            delete_attachment: Poista liite
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
@@ -769,6 +774,8 @@ fi-pl:
         placeholder:
           address: Mannerheimintie 1 A, 00100 Helsinki
         preview:
+          announcement_body: Ehdotuksesi on tallennettu luonnoksena. Se täytyy julkaista, jotta se tulee näkyviin sivustolle.
+          announcement_title: Ehdotustasi ei ole vielä julkaistu
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.

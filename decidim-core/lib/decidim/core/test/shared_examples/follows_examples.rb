@@ -44,7 +44,7 @@ shared_examples "follows" do
       it "makes the user follow the followable" do
         visit followable_path
         expect do
-          click_button "Already following #{translated(followable.participatory_space.title)}"
+          click_button "Following #{translated(followable.participatory_space.title)}"
           expect(page).to have_content "Stop following"
         end.to change(Decidim::Follow, :count).by(1)
       end

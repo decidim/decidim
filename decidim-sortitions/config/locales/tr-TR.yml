@@ -31,13 +31,6 @@ tr:
           email_outro: Bu bildirimi, "%{participatory_space_title}" adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıdan takibini bırakabilirsiniz.
           email_subject: '%{participatory_space_title} alanına yeni sıralama eklendi'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> sıralaması %{participatory_space_title} alanına eklendi
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sıralama
-    participatory_processes:
-      statistics:
-        sortitions_count: Sıralama
     sortitions:
       admin:
         actions:

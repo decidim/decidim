@@ -267,9 +267,9 @@ de:
         conference_registration:
           confirm: "%{user_name} hat eine Anmeldung zur Konferenz %{resource_name} bestätigt"
         partner:
-          create: "%{user_name} hat %{resource_name} zur Konferenz %{space_name} hinzugefügt"
-          delete: "%{user_name} hat den Benutzer %{resource_name} aus der Konferenz %{space_name} entfernt"
-          update: "%{user_name} hat %{resource_name} in der Konferenz %{space_name} aktualisiert"
+          create: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} erstellt"
+          delete: "%{user_name} hat den Partner %{resource_name} aus der Konferenz %{space_name} entfernt"
+          update: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} aktualisiert"
         registration_type:
           create: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} erstellt"
           publish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} veröffentlicht"
@@ -492,23 +492,6 @@ de:
         related_assemblies: Ähnliche Gremien
         related_consultations: Verwandte Konsultationen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
-      statistics:
-        answers_count: Antworten
-        comments_count: Bemerkungen
-        conference_count: Konferenzen
-        debates_count: Debatten
-        endorsements_count: Empfehlungen
-        headline: Aktivität
-        meetings_count: Meetings
-        orders_count: Stimmen
-        pages_count: Seiten
-        posts_count: Beiträge
-        projects_count: Projekte
-        proposals_count: Vorschläge
-        results_count: Ergebnisse
-        surveys_count: Umfragen
-        users_count: Teilnehmer
-        votes_count: Stimmen
     events:
       conferences:
         conference_registration_confirmed:
@@ -556,6 +539,8 @@ de:
         title: Medien und Links
     menu:
       conferences: Konferenzen
+    statistics:
+      conferences_count: Konferenzen
   devise:
     mailer:
       join_conference:

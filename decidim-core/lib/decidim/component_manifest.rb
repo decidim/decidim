@@ -2,6 +2,7 @@
 
 require "decidim/settings_manifest"
 require "decidim/exporters/export_manifest"
+require "decidim/importers/import_manifest"
 
 module Decidim
   # This class handles all the logic associated to configuring a component
@@ -184,6 +185,22 @@ module Decidim
     def export_manifests
       @export_manifests ||= Array(@exports).map do |(name, block)|
         Decidim::Exporters::ExportManifest.new(name, self).tap do |manifest|
+          block.call(manifest)
+        end
+      end
+    end
+
+    def imports(name, &block)
+      return unless name
+
+      @imports ||= []
+      @imports << [name, block]
+      @import_manifests = nil
+    end
+
+    def import_manifests
+      @import_manifests ||= Array(@imports).map do |(name, block)|
+        Decidim::Importers::ImportManifest.new(name, self).tap do |manifest|
           block.call(manifest)
         end
       end

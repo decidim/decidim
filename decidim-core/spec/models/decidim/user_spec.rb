@@ -13,6 +13,10 @@ module Decidim
 
     it { is_expected.to be_valid }
 
+    it "has traceability" do
+      expect(subject).to be_a(Decidim::Traceable)
+    end
+
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))
         .to eq Decidim::AdminLog::UserPresenter

@@ -31,13 +31,6 @@ es:
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nuevo sorteo añadida a %{participatory_space_title}
           notification_title: El sorteo <a href="%{resource_path}">%{resource_title}</a> se ha agregado a %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sorteos
-    participatory_processes:
-      statistics:
-        sortitions_count: Sorteos
     sortitions:
       admin:
         actions:
@@ -141,7 +134,7 @@ es:
           random_seed: Semilla aleatoria
           selected_proposals:
             one: 1 propuesta seleccionada
-            other: '%{count} propuestas seleccionadas'
+            other: propuestas seleccionadas
           view: Ver
         sortition_author:
           deleted: Participante eliminada

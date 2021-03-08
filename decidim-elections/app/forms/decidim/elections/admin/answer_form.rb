@@ -6,14 +6,15 @@ module Decidim
       # This class holds a Form to create/update answers from Decidim's admin panel.
       class AnswerForm < Decidim::Form
         include TranslatableAttributes
+        include AttachmentAttributes
 
         translatable_attribute :title, String
         translatable_attribute :description, String
         attribute :proposal_ids, Array[Integer]
         attribute :attachment, AttachmentForm
-        attribute :photos, Array[String]
-        attribute :add_photos, Array
         attribute :weight, Integer, default: 0
+
+        attachments_attribute :photos
 
         validates :title, translatable_presence: true
         validate :notify_missing_attachment_if_errored

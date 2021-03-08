@@ -6,6 +6,7 @@ module Decidim
     autoload :ComponentList, "decidim/api/functions/component_list"
     autoload :ComponentListBase, "decidim/api/functions/component_list_base"
     autoload :NeedsApiFilterAndOrder, "decidim/api/functions/needs_api_filter_and_order"
+    autoload :NeedsApiDefaultOrder, "decidim/api/functions/needs_api_default_order"
     autoload :ParticipatorySpaceFinderBase, "decidim/api/functions/participatory_space_finder_base"
     autoload :ParticipatorySpaceListBase, "decidim/api/functions/participatory_space_list_base"
     autoload :UserEntityFinder, "decidim/api/functions/user_entity_finder"

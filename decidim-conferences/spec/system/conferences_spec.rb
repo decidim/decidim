@@ -153,18 +153,21 @@ describe "Conferences", type: :system do
         end
       end
 
-      it "shows the stats for those components" do
-        within ".process_stats" do
-          expect(page).to have_content("3 PROPOSALS")
-          expect(page).not_to have_content("0 MEETINGS")
+      it "renders the stats for those components that are visible" do
+        within ".section-statistics" do
+          expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+          expect(page).to have_css(".statistic__number", text: "3")
+          expect(page).to have_no_css(".statistic__title", text: "MEETINGS")
+          expect(page).to have_no_css(".statistic__number", text: "0")
         end
       end
 
       context "when the conference stats are not enabled" do
         let(:show_statistics) { false }
 
-        it "the stats for those components are not visible" do
-          expect(page).not_to have_content("3 PROPOSALS")
+        it "doesn't render the stats for those components that are not visible" do
+          expect(page).to have_no_css(".statistic__title", text: "PROPOSALS")
+          expect(page).to have_no_css(".statistic__number", text: "3")
         end
       end
     end

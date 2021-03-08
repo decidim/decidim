@@ -13,6 +13,7 @@ describe "Admin manages consultations", type: :system do
 
   describe "listing consultations" do
     let(:model_name) { consultation.class.model_name }
+    let(:resource_controller) { Decidim::Consultations::Admin::ConsultationsController }
 
     it_behaves_like "filtering collection by published/unpublished"
   end

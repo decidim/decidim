@@ -117,7 +117,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
 
     it { expect(response["participatoryProcess"]["components"].first).to eq(survey_data) }
@@ -172,7 +172,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
 
     it { expect(response["participatoryProcess"]["components"].first["survey"]).to eq(survey_single_result) }

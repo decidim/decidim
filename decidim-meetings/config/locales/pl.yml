@@ -21,6 +21,7 @@ pl:
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        online_meeting_url: Adres URL spotkania online
         organizer_gid: Utwórz jako
         organizer_id: Organizator
         private_meeting: Prywatne spotkanie
@@ -31,8 +32,11 @@ pl:
         start_time: Czas rozpoczęcia
         title: Tytuł
         transparent: Transparentny
+        type_of_meeting: Typ
       minutes:
+        audio_url: Adres URL audio
         description: Opis
+        video_url: Adres URL wideo
         visible: Jest widoczne
     errors:
       models:
@@ -63,7 +67,7 @@ pl:
         one: Minuta
         few: Minuty
         many: Minuty
-        other: Minuty
+        other: Protokoły
       decidim/meetings/registration:
         one: Rejestracja
         few: Rejestracje
@@ -92,9 +96,11 @@ pl:
             creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie klocków
+            registration_code_enabled: Włączono formularz rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
+            terms_and_conditions_url_for_meeting_creators: Adres URL Regulaminu dla twórców spotkania
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -206,9 +212,10 @@ pl:
             create: Utwórz
             title: Nowy program
           update:
-            invalid: Wystąpił problem podczas aktualizowania tego programu
+            invalid: Wystąpił błąd podczas aktualizowania tego programu
             success: Program został zaktualizowany
         exports:
+          meeting_comments: Komentarze
           meetings: Spotkania
           registrations: Rejestracje
         invite_join_meeting_mailer:
@@ -218,7 +225,7 @@ pl:
             join: Dołącz do spotkania "%{meeting_title}"
         invites:
           create:
-            error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
+            error: Wystąpił błąd przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
             success: Zaproszono użytkownika do udziału w spotkaniu.
           form:
             attendee_type: Typ uczestnika
@@ -258,13 +265,17 @@ pl:
                 other: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
             success: Spotkanie zostało pomyślnie usunięte
           edit:
+            title: Edytuj spotkanie
             update: Aktualizuj
           form:
             address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
-            available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych okienek czasowych
-            disclaimer: 'Wyłączenie odpowiedzialności: Korzystając z zewnętrznego systemu rejestracji, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników do usługi zewnętrznej.'
+            available_slots_help: Pozostaw 0, jeśli masz dostęp do nieograniczonej liczby miejsc
+            disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
             location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
-            registration_url_help: 'Link: zezwól uczestnikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
+            location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostępem.'
+            online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
+            registration_url_help: 'Link: zezwól użytkownikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
+            select_a_meeting_type: Wybierz typ spotkania
             select_a_registration_type: Wybierz typ rejestracji
           index:
             title: Spotkania
@@ -289,6 +300,7 @@ pl:
             invalid: Podczas tworzenia tego protokołu błąd
             success: Protokół został utworzony
           edit:
+            title: Edytuj protokół
             update: Aktualizuj
           new:
             create: Utwórz
@@ -371,6 +383,11 @@ pl:
             subject: Twoja rejestracja na spotkanie została potwierdzona
       meeting:
         not_allowed: Nie możesz zobaczyć tego spotkania
+      meeting_closes:
+        edit:
+          back: Wróć
+          close: Zakończ spotkanie
+          title: Zakończ spotkanie
       meetings:
         count:
           meetings_count:
@@ -382,16 +399,19 @@ pl:
           invalid: Wystąpił błąd podczas tworzenia tego spotkania.
           success: Spotkanie zostało utworzone.
         edit:
-          back: Powrót
+          back: Wróć
           title: Edytuj swoje spotkanie
           update: Aktualizuj
         filters:
+          activity: Moja aktywność
+          all: Wszystko
           category: Kategoria
           date: Data
           date_values:
             all: Wszystkie
             past: Przeszłe
             upcoming: Nadchodzące
+          my_meetings: Moje spotkania
           origin: Źródło
           origin_values:
             all: Wszystkie
@@ -400,16 +420,29 @@ pl:
             user_groups: Grupy
           scope: Zakres
           search: Szukaj
+          type: Typ
+          type_values:
+            all: Wszystko
+            hybrid: Oba
+            in_person: Osobiście
+            online: Online
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
         form:
           address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
+          available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych miejsc
           create_as: Utwórz spotkanie jako
+          disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
+          location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostępem.'
+          online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
+          registration_url_help: 'Link: zezwól uczestnikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
           select_a_category: Wybierz kategorię
+          select_a_meeting_type: Wybierz typ spotkania
+          select_a_registration_type: Wybierz typ rejestracji
         index:
           new_meeting: Nowe spotkanie
         meeting_minutes:
@@ -419,7 +452,7 @@ pl:
           no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma żadnego zaplanowanego spotkania.
           upcoming_meetings_warning: Obecnie nie ma żadnych zaplanowanych spotkań, ale możesz zobaczyć wszystkie przeszłe.
         new:
-          back: Powrót
+          back: Wróć
           create: Utwórz
           title: Utwórz spotkanie
         registration_confirm:
@@ -428,6 +461,7 @@ pl:
         show:
           attendees: Liczba osób biorących udział
           back: Powrót do listy
+          close_meeting: Zakończ spotkanie
           contributions: Liczba wsparć
           date: Data
           edit_meeting: Edytuj spotkanie
@@ -488,8 +522,12 @@ pl:
           invalid: Wystąpił błąd podczas próby odrzucenia zaproszenia.
           success: Zaproszenie zostało odrzucone.
         destroy:
-          invalid: Wystąpił problem podczas próby opuszczenia tego spotkania.
+          invalid: Wystąpił błąd podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
+      type_of_meeting:
+        hybrid: Oba
+        in_person: Osobiście
+        online: Online
       types:
         private_meeting: Prywatne spotkanie
         transparent: Transparentne

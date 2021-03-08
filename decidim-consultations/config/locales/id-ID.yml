@@ -239,10 +239,6 @@ id:
           title: Apa itu konsultasi?
     menu:
       consultations: Konsultasi
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultasi
     questions:
       results:
         title: Hasil

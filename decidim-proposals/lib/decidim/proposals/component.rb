@@ -29,6 +29,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0
     settings.attribute :proposal_limit, type: :integer, default: 0
     settings.attribute :proposal_length, type: :integer, default: 500
+    settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: -> { %w(limited infinite) }
     settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5
     settings.attribute :threshold_per_proposal, type: :integer, default: 0
     settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
@@ -151,6 +152,10 @@ Decidim.register_component(:proposals) do |component|
     exports.include_in_open_data = true
 
     exports.serializer Decidim::Comments::CommentSerializer
+  end
+
+  component.imports :proposals do |imports|
+    imports.creator Decidim::Proposals::ProposalCreator
   end
 
   component.seeds do |participatory_space|

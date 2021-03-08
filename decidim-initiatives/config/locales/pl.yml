@@ -5,6 +5,7 @@ pl:
         decidim_user_group_id: Autor
         description: Opis
         offline_votes: Podpisy na piśmie
+        offline_votes_for_scope: Podpisy dla %{scope_name}
         scope_id: Zakres
         signature_end_date: Koniec okresu zbiórki podpisów
         signature_start_date: Początek okresu zbiórki podpisów
@@ -21,6 +22,7 @@ pl:
         area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
         banner_image: Baner
+        child_scope_threshold_enabled: Włącz podpisy dla elementów podrzędnych
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
         custom_signature_end_date_enabled: Pozwól autorom na wybór końca okresu zbierania podpisów
         description: Opis
@@ -28,6 +30,7 @@ pl:
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Pozwól na podpisy online
+        only_global_scope_enabled: Pozwól tylko na tworzenie inicjatyw o zasięgu globalnym
         promoting_committee_enabled: Włącz komitet organizacyjny
         title: Tytuł
         undo_online_signatures_enabled: Pozwól użytkownikom na wycofanie ich podpisów online
@@ -121,6 +124,7 @@ pl:
             initiative_title: Tytuł inicjatywy
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
+            scope: Zakres
             time_and_date: Czas i data
             timestamp: Znacznik czasu
       titles:
@@ -139,6 +143,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Data zakończenia zbiórki podpisów pod inicjatywą!
           notification_title: Data zakończenia zbiórki podpisów pod inicjatywą <a href="%{resource_path}">%{resource_title}</a> została przedłużona.
+        initiative_sent_to_technical_validation:
+          email_intro: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej. Sprawdź ją w <a href="%{admin_initiative_url}">panelu administratora</a>
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej.
+          notification_title: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej. Sprawdź ją w <a href="%{admin_initiative_path}">panelu administratora</a>
         milestone_completed:
           affected_user:
             email_intro: Twoja inicjatywa %{resource_title} zebrała %{percentage}% podpisów!
@@ -151,10 +160,10 @@ pl:
             email_subject: Nowy kamień milowy osiągnięty!
             notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> zebrała %{percentage}% podpisów.
         support_threshold_reached:
-          email_intro: Inicjatywa %{resource_title} osiągnęła wymagany próg poparcia
+          email_intro: Inicjatywa %{resource_title} zdobyła wymaganą liczbę podpisów
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
-          email_subject: Osiągnięto wymagany próg poparcia
-          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła wymagany próg poparcia
+          email_subject: Osiągnięto wymaganą liczbę podpisów
+          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> zdobyła wymaganą liczbę podpisów
     gamification:
       badges:
         initiatives:
@@ -199,12 +208,17 @@ pl:
         content_blocks:
           highlighted_initiatives:
             max_results: Maksymalna ilość elementów do pokazania
+            order:
+              default: Domyślne (najpierw najnowsze)
+              label: 'Sortuj elementy według:'
+              most_recent: Najnowsze
         exports:
           initiatives: Inicjatywy
         initiatives:
           edit:
             accept: Akceptuj inicjatywę
             confirm: Jesteś pewny?
+            confirm_send_to_technical_validation: Jesteś pewny?
             discard: Porzuć inicjatywę
             export_pdf_signatures: Eksportuj PDF podpisów
             export_votes: Eksport podpisów
@@ -260,6 +274,10 @@ pl:
             destroy: Usuń
             update: Aktualizuj
           form:
+            authorizations: Ustawienia autoryzacji
+            child_scope_threshold_enabled_help: 'Ta konfiguracja nie pozwala na głosowania offline, zezwala na pod-zakresy i działa z procedura autoryzacji, która łączy zakres z użytkownikiem, upewnij się, że wybrałeś taką autoryzację, poniżej w sekcji autoryzacji. Żeby działały zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tym <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">linkiem</a>.'
+            only_global_scope_enabled_help: Zaznacz tę flagę, jeśli włączyłeś opcję "Podpisy zakresu podrzędnego" i skonfigurowałeś globalny zakres jako zakres nadrzędny. Umożliwiając to działanie, wybór typu inicjatywy zostanie pominięty w kreatorze tworzenia inicjatyw. Aby uzyskać więcej informacji na temat funkcjonowania tej konfiguracji, zobacz ten <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
+            options: Ustawienia
             title: Informacje ogólne
           initiative_type_scopes:
             title: Zakresy dla rodzaju inicjatywy
@@ -297,9 +315,13 @@ pl:
         filter_type_values:
           all: Wszystkie
       committee_requests:
+        approve:
+          success: Żądanie zostało zaakceptowane.
         new:
           continue: Dalej
           help_text: Zamierzasz poprosić o członkostwo w komitecie organizacyjnym tej inicjatywy
+        revoke:
+          success: Żądanie zostało cofniete.
         spawn:
           success: Twoja prośba została wysłana do autora inicjatywy.
       content_blocks:
@@ -309,6 +331,7 @@ pl:
         fill_data:
           back: Wróć
           continue: Dalej
+          fill_data_help: "<ul> <li>Sprawdź treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Na piśmie, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy?</li> </ul>"
           initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
@@ -316,8 +339,15 @@ pl:
         finish:
           back: Wróć
           back_to_initiatives: Wróć do inicjatyw
+          callout_text: Gratulacje! Twoja inicjatywa została utworzona.
+          confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
+          edit_my_initiative: Edytuj moją inicjatywę
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
+          send_my_initiative: Wyślij moją inicjatywę do weryfikacji technicznej
+        finish_help:
+          access_reminder: Możesz uzyskać dostęp do swoich inicjatyw poprzez filtr %{link} na stronie inicjatyw.
+          publish_helper_text: Pamiętaj, że aby Twoja inicjatywa została opublikowana, musisz uzupełnić wymagane informacje i <strong>przesłać ją do weryfikacji technicznej</strong>, aby administrator mógł ją przejrzeć.
         previous_form:
           back: Wróć
           continue: Dalej
@@ -325,12 +355,14 @@ pl:
           more_information: "(Więcej informacji)"
         promotal_committee:
           back: Wróć
+          individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Organizacyjnej, która składa się z co najmniej %{committee_size} osób. Udostępnij poniższy link innym osobom, które są częścią tej inicjatywy. Gdy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
           more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: "(Więcej informacji)"
           select: Chcę utworzyć inicjatywę tego typu
+          select_initiative_type_help: Inicjatywy są środkiem, za pomocą którego uczestnicy mogą interweniować tak, aby organizacja mogła podejmować działania w obronie interesu ogólnego. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: Dalej
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
@@ -339,7 +371,22 @@ pl:
           compare_help: Jeśli którakolwiek z poniższych inicjatyw jest podobna do Twojej, zachęcamy do jej wspierania. Twoja propozycja będzie miała więcej możliwości do bycia przyjęta i procedowaną.
           continue: Moja inicjatywa jest inna
           more_information: "(Więcej informacji)"
+      edit:
+        accept: Akceptuj inicjatywę
+        back: Wróć
+        confirm: Jesteś pewny?
+        discard: Porzuć inicjatywę
+        export_pdf_signatures: Eksportuj PDF z podpisami
+        export_votes: Eksportuj podpisy
+        reject: Odrzuć inicjatywę
+        title: Edytuj inicjatywę
+        update: Aktualizuj
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
+          email_outro: 'Otrzymałeś to powiadomienie, ponieważ zgłosiłeś się do inicjatywy %{resource_title}'
+          email_subject: "%{author_nickname} zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> zaakceptował Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "Użytkownik %{author_name} %{author_nickname}, którego obserwujesz, utworzył nową inicjatywę, sprawdź ją i przyłącz się:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
@@ -350,6 +397,20 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: Inicjatywa rekomendowana przez %{author_nickname}
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zarekomendowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy %{resource_title}."
+          email_outro: 'Otrzymałeś to powiadomienie, ponieważ zgłosiłeś się do inicjatywy %{resource_title}.'
+          email_subject: "%{author_nickname} odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> odrzucił Twoje zgłoszenie na członka komitetu organizacyjnego inicjatywy <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy %{resource_title}. Aby zaakceptować lub odrzucić zgłoszenie przejdź do formularza edycji swojej inicjatywy."
+          email_outro: 'Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}'
+          email_subject: "%{applicant_nickname} chce dołączyć do Twojej inicjatywy"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
+      form:
+        add_attachments: Dokumenty
+        attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+        delete_attachment: Usuń
       index:
         title: Inicjatywy
       initiative_signatures:
@@ -388,6 +449,13 @@ pl:
             few: i jeszcze %{count} osób
             many: i jeszcze %{count} osób
             other: i jeszcze %{count} osób
+        committee_members:
+          approve: Zatwierdź
+          confirm_revoke: Jesteś pewny?
+          invite_to_committee_help: Udostępnij ten link, aby zaprosić innych użytkowników do komitetu organizacyjnego
+          no_members_yet: W komitecie organizacyjnym nie ma członków
+          revoke: Odwołaj
+          title: Członkowie komitetu
         count:
           title:
             one: "%{count} inicjatywa"
@@ -433,11 +501,37 @@ pl:
           recent: Najnowsze
           recently_published: Ostatnio opublikowane
         print:
+          address: Adres
+          author_title: Autor inicjatywy
           city: Miasto
+          email: Adres e-mail
+          full_name: Imię i nazwisko
+          general_title: Wniosek o dołączenie do inicjatywy
+          id_number: Numer dokumentu tożsamości
+          initiative:
+            attachments: Załączone dokumenty (proszę wpisać nazwę każdego dokumentu poniżej)
+            description: 'Opis:'
+            title: 'Tytuł:'
+            type: Typ inicjatywy
+          legal_text: Zgromadzone dane osobowe zostaną dołączone do zasobów i traktowane w sposób poufny przez organizację zgodnie z obowiązującymi przepisami.
+          phone_number: Numer telefonu
+          place_date: Miejsce, data
+          postal_code: Kod pocztowy
+          print: Drukuj
+          province: Województwo
+          section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
+          signature: Podpis
         result:
+          answer_title: Odpowiedziano na tę inicjatywę
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
+          any_vote_method: Ta inicjatywa zbiera podpisy online i na piśmie.
+          confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
+          edit: Edytuj
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
+          offline_method: Ta inicjatywa zbiera jedynie podpisy na piśmie.
+          print: Drukuj inicjatywę
+          send_to_technical_validation: Wyślij do weryfikacji technicznej
         signatures_count:
           one: " podpis"
           few: " podpisy"
@@ -487,6 +581,9 @@ pl:
         accepted: Przyjęto
         expired: Przedawnione
       unavailable_scope: Niedostępny zakres
+      update:
+        error: Wystąpił błąd
+        success: Inicjatywa została zaktualizowana
       versions:
         shared:
           back_to_resource: Wróć do inicjatywy

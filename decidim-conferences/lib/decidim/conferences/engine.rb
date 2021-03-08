@@ -69,7 +69,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.conferences", scope: "decidim"),
                     decidim_conferences.conferences_path,
-                    position: 6,
+                    position: 2.8,
                     if: Decidim::Conference.where(organization: current_organization).published.any?,
                     active: :inclusive
         end

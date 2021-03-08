@@ -41,18 +41,27 @@ module Decidim
         action_log.extra.dig("extra", "officialized_user_badge_previous") || Hash.new("")
       end
 
-      # We fake the changeset for officialization actions.
-      def changeset
-        Decidim::Log::DiffChangesetCalculator.new(
-          { badge: [previous_user_badge, user_badge] },
-          { badge: :i18n },
-          i18n_labels_scope
-        ).changeset
+      def previous_justification
+        action_log.extra.dig("extra", "previous_justification") || ""
       end
 
-      # If the action is officialization, then we want to show the diff
+      def current_justification
+        action_log.extra.dig("extra", "current_justification") || Hash.new("")
+      end
+
+      # Overwrite the changeset for officialization and block actions.
+      def changeset
+        original = { badge: [previous_user_badge, user_badge] }
+        fields = { badge: :i18n }
+        if action.to_s == "block"
+          original = { justification: [previous_justification, current_justification] }
+          fields = { justification: :string }
+        end
+        Decidim::Log::DiffChangesetCalculator.new(original, fields, i18n_labels_scope).changeset
+      end
+
       def diff_actions
-        %w(officialize unofficialize)
+        %w(officialize unofficialize block)
       end
     end
   end

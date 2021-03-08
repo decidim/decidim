@@ -118,6 +118,10 @@ nl:
             participatory_texts_enabled_readonly: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
+            proposal_edit_time: Voorstel bewerken
+            proposal_edit_time_choices:
+              infinite: Voorstellen onbeperkt in tijd laten bewerken
+              limited: Voorstellen laten bewerken binnen een bepaalde termijn
             proposal_length: Maximum aantal tekens voor een voorstel
             proposal_limit: Beperking van het aantal voorstellen per gebruiker
             proposal_wizard_step_1_help_text: Helptekst "Maak" bij het maken van een nieuw voorstel
@@ -357,7 +361,9 @@ nl:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
+            document_legend: 'Voeg een document toe van minder dan 2MB. Elk onderdeel tot op 3 niveaus diep wordt verwerkt tot voorstellen. Ondersteunde formaten zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
             upload_document: Document uploaden
           publish:
@@ -398,6 +404,7 @@ nl:
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
+            delete_attachment: Bijlage verwijderen
             select_a_category: Kies een categorie
             select_a_meeting: Selecteer een vergadering
           index:
@@ -624,6 +631,9 @@ nl:
           info: U maakt een <strong>gezamenlijk ontwerp</strong>.
         wizard_header:
           title: Maak uw gezamenlijk ontwerp
+      content_blocks:
+        highlighted_proposals:
+          proposals: Voorstellen
       create:
         error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.
@@ -861,3 +871,7 @@ nl:
       included_proposals:
         proposal_project: 'Voorstel in deze projecten:'
         proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
+    statistics:
+      proposals_accepted: Aanvaarde voorstellen
+      proposals_count: Voorstellen
+      supports_count: Aantal keer gesteund

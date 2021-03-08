@@ -139,6 +139,22 @@ FactoryBot.define do
       tally_ended
       bb_status { "results_published" }
     end
+
+    trait :with_photos do
+      transient do
+        photos_number { 2 }
+      end
+
+      after :create do |election, evaluator|
+        evaluator.photos_number.times do
+          election.attachments << create(
+            :attachment,
+            :with_image,
+            attached_to: election
+          )
+        end
+      end
+    end
   end
 
   factory :question, class: "Decidim::Elections::Question" do
@@ -207,6 +223,22 @@ FactoryBot.define do
 
     trait :with_votes do
       votes_count { Faker::Number.number(digits: 1) }
+    end
+
+    trait :with_photos do
+      transient do
+        photos_number { 2 }
+      end
+
+      after :create do |election, evaluator|
+        evaluator.photos_number.times do
+          election.attachments << create(
+            :attachment,
+            :with_image,
+            attached_to: election
+          )
+        end
+      end
     end
   end
 

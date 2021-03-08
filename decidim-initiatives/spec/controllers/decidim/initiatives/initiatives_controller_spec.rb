@@ -132,6 +132,40 @@ module Decidim
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(:ok)
           end
+
+          context "when the existing initiative has attachments and there are other errors on the form" do
+            let!(:created_initiative) do
+              create(
+                :initiative,
+                :created,
+                :with_photos,
+                :with_documents,
+                organization: organization
+              )
+            end
+
+            include_context "with controller rendering the view" do
+              let(:invalid_attributes) do
+                valid_attributes.merge(
+                  title: nil,
+                  photos: created_initiative.photos.map { |a| a.id.to_s },
+                  documents: created_initiative.documents.map { |a| a.id.to_s }
+                )
+              end
+
+              it "displays the editing form with errors" do
+                put :update, params: {
+                  slug: created_initiative.to_param,
+                  initiative: invalid_attributes
+                }
+
+                expect(flash[:alert]).not_to be_empty
+                expect(response).to have_http_status(:ok)
+                expect(subject).to render_template(:edit)
+                expect(response.body).to include("An error has occurred")
+              end
+            end
+          end
         end
       end
     end

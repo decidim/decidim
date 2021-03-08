@@ -50,14 +50,14 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You received this notification because you applied to this initiative : #{resource_title}.")
+        .to eq("You received this notification because you applied to this initiative: #{resource_title}.")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to eq("<a href=\"#{author_profile_url}\">#{author_nickname}</a> rejected you application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>.")
+        .to eq("<a href=\"#{author_profile_url}\">#{author_nickname}</a> rejected your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>.")
     end
   end
 end

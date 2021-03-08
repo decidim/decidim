@@ -19,6 +19,7 @@ module Decidim::Assemblies
         expect(serialized).to include(decidim_organization_id: resource.decidim_organization_id)
         expect(serialized).to include(title: resource.title)
         expect(serialized).to include(subtitle: resource.subtitle)
+        expect(serialized).to include(weight: resource.weight)
         expect(serialized).to include(short_description: resource.short_description)
         expect(serialized).to include(description: resource.description)
         expect(serialized).to include(remote_hero_image_url: Decidim::Assemblies::AssemblyPresenter.new(resource).hero_image_url)

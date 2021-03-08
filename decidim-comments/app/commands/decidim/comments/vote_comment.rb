@@ -25,25 +25,48 @@ module Decidim
       def call
         case @weight
         when 1
-          vote = @comment.up_votes.find_by(author: @author)
-          if vote
-            vote.destroy!
+          previous_vote = @comment.up_votes.find_by(author: @author)
+          if previous_vote
+            previous_vote.destroy!
           else
-            @comment.up_votes.create!(author: @author)
+            @vote = @comment.up_votes.create!(author: @author)
           end
         when -1
-          vote = @comment.down_votes.find_by(author: @author)
-          if vote
-            vote.destroy!
+          previous_vote = @comment.down_votes.find_by(author: @author)
+          if previous_vote
+            previous_vote.destroy!
           else
-            @comment.down_votes.create!(author: @author)
+            @vote = @comment.down_votes.create!(author: @author)
           end
         else
           return broadcast(:invalid)
         end
+
+        notify_comment_author if @vote
         broadcast(:ok, @comment)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)
+      end
+
+      def notify_comment_author
+        Decidim::EventsManager.publish(
+          event: "decidim.events.comments.comment_#{upvote? ? "upvoted" : "downvoted"}",
+          event_class: upvote? ? Decidim::Comments::CommentUpvotedEvent : Decidim::Comments::CommentDownvotedEvent,
+          resource: @comment.commentable,
+          affected_users: [@comment.author],
+          extra: {
+            comment_id: @comment.id,
+            weight: @weight,
+            downvotes: @comment.down_votes.count,
+            upvotes: @comment.up_votes.count
+          }
+        )
+      end
+
+      private
+
+      def upvote?
+        @weight.positive?
       end
     end
   end

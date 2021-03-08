@@ -21,6 +21,7 @@ nl:
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
+        online_meeting_url: De URL van de online vergadering
         organizer_gid: Aanmaken als
         organizer_id: Organisator
         private_meeting: Privé vergadering
@@ -31,8 +32,11 @@ nl:
         start_time: Starttijd
         title: Titel
         transparent: Transparant
+        type_of_meeting: Type
       minutes:
+        audio_url: Audio URL
         description: Beschrijving
+        video_url: Video URL
         visible: Is zichtbaar
     errors:
       models:
@@ -89,6 +93,7 @@ nl:
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
+            terms_and_conditions_url_for_meeting_creators: Algemene voorwaarden URL voor de makers van de vergadering
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -247,7 +252,10 @@ nl:
             available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
             disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
+            location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
+            online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
             registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
+            select_a_meeting_type: Selecteer een vergaderingstype
             select_a_registration_type: Selecteer een registratietype
           index:
             title: Events
@@ -370,12 +378,15 @@ nl:
           title: Bewerk je vergadering
           update: Vernieuwen
         filters:
+          activity: Mijn activiteit
+          all: Alle
           category: Categorie
           date: Datum
           date_values:
             all: Allemaal
             past: Verleden
             upcoming: Aankomende
+          my_meetings: Mijn vergaderingen
           origin: Oorsprong
           origin_values:
             all: Allemaal
@@ -384,6 +395,12 @@ nl:
             user_groups: Groepen
           scope: Bereik
           search: Zoeken
+          type: Type
+          type_values:
+            all: Alle
+            hybrid: Beide
+            in_person: Fysiek
+            online: Online
         filters_small_view:
           close_modal: Sluit modaal
           filter: Filter
@@ -395,8 +412,11 @@ nl:
           create_as: Maak vergadering als
           disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
           location_help: 'Locatie: bericht gericht naar de gebruikers die de plek om elkaar te ontmoeten impliceren'
+          location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
+          online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
           registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
           select_a_category: Selecteer een categorie
+          select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
         index:
           new_meeting: Nieuwe vergadering
@@ -477,6 +497,10 @@ nl:
         destroy:
           invalid: Er is een probleem opgetreden bij het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
+      type_of_meeting:
+        hybrid: Beide
+        in_person: Fysiek
+        online: Online
       types:
         private_meeting: Privé vergadering
         transparent: Transparant
@@ -501,6 +525,8 @@ nl:
       proposals_from_meeting:
         meeting_proposal: 'Gerelateerde voorstellen:'
         proposal_meeting: 'Gerelateerde vergaderingen:'
+    statistics:
+      meetings_count: Vergaderingen
   devise:
     mailer:
       join_meeting:

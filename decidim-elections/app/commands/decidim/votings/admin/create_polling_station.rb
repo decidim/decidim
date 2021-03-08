@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with all the business logic when creating a new polling station
-      class CreatePollingStation < Rectify::Command
+      class CreatePollingStation < ManagePollingStation
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -22,6 +22,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           polling_station = create_polling_station!
+          manage_polling_officers(polling_station, form.polling_station_president_id, form.polling_station_manager_ids)
 
           if polling_station.persisted?
             broadcast(:ok, polling_station)

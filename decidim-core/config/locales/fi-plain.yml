@@ -84,6 +84,7 @@ fi-pl:
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       delete:
+        alert: Tätä toimintoa ei voi peruuttaa. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
         confirm:
           close: Sulje ikkuna
           ok: Kyllä, haluan poistaa tilini
@@ -428,7 +429,7 @@ fi-pl:
         ready: Valmis
       show:
         download_data: Lataa tiedot
-        download_data_description: Kaikki tiliisi liittyvät tiedot sisältävä tiedosto lähetetään sähköpostiosoitteeseen <strong>%{user_email}</strong>
+        download_data_description: Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
         request_data: Pyydä tietoja
     datepicker:
       help_text: 'Odotettu muoto: %{datepicker_format}'
@@ -464,6 +465,8 @@ fi-pl:
           register: Rekisteröidy
           sign_in_disabled: Voit kirjautua ulkoisella tilillä
           sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä
+        user:
+          timed_out: Palvelua ei ole käytetty hetkeen, minkä takia sinut on kirjattu palvelusta ulos automaattisesti. Jos haluat jatkaa palvelun käyttöä, kirjaudu uudestaan sisään.
       shared:
         newsletter_modal:
           buttons:
@@ -655,7 +658,7 @@ fi-pl:
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
     export_mailer:
       data_portability_export:
-        click_button: 'Klikkaa seuraavaa painiketta ladataksesi tietosi. <br/> Tiedosto on käytettävissäsi %{date} saakka.'
+        click_button: 'Napsauta Seuraava-linkkiä ladataksesi tietosi.<br/>Tiedosto on saatavilla %{date} saakka.<br/>Tarvitset paketin avaamiseen <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille), <a href="https://www.keka.io/en/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelmiston</a> (Linux-käyttöjärjestelmille). Salasana: %{password}'
         download: Lataa
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
@@ -688,7 +691,7 @@ fi-pl:
       create:
         button: Seuraa
         error: Tämän kohteen seuraamisessa tapahtui virhe.
-        participatory_space: Seuraat jo osallisuustilaa
+        participatory_space: Seuraat kohdetta <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
@@ -947,7 +950,7 @@ fi-pl:
         show:
           back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
-          not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
+          not_allowed: Tämä osallistuja ei halua vastaanottaa yksityisviestejä.
           title: 'Keskustelu: %{usernames}'
         start:
           send: Lähetä
@@ -1018,8 +1021,10 @@ fi-pl:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
       show:
+        administrators: Hallintakäyttäjät
         allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
         direct_messages: Vastaanota yksityisviestejä kaikilta
+        email_on_moderations: Haluan saada sähköpostia aina, kun jotain ilmoitetaan moderointiin.
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
@@ -1063,24 +1068,7 @@ fi-pl:
         metrics:
           headline: Osallistuminen lukuina
         statistics:
-          answers_count: Kyselyiden vastauksia
-          assemblies_count: Kehitysryhmää
-          comments_count: Kommenttia
-          conferences_count: Konferenssit
-          debates_count: Keskustelua
-          endorsements_count: Suosituksia
           headline: '%{organization} numeroina'
-          meetings_count: Tapahtumat
-          orders_count: Ääntä
-          pages_count: Sivua
-          processes_count: Prosesseja
-          projects_count: Projektit
-          proposals_accepted: Hyväksyttyä ehdotusta
-          proposals_count: Ehdotukset
-          results_count: Tulokset
-          surveys_count: Kyselyä
-          users_count: Osallistujia
-          votes_count: Ääntä
         sub_hero:
           register: Rekisteröidy
       index:
@@ -1129,6 +1117,7 @@ fi-pl:
         groups: Ryhmät
         members: Jäsenet
         officialized: Virallinen osallistuja
+        send_private_message: Lähetä yksityisviesti
         timeline: Aikajana
         view_full_profile: Näytä koko profiili
       sidebar:
@@ -1271,6 +1260,8 @@ fi-pl:
         close_window: Sulje ikkuna
         share: Jaa
         share_link: Jaa linkki
+    statistics:
+      comments_count: Kommenttia
     tags:
       filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
       filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'
@@ -1513,7 +1504,7 @@ fi-pl:
     messages:
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään
       confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
-      content_type_whitelist_error: tiedostotyyppi ei kelpaa
+      content_type_allowlist_error: tiedostotyyppi ei kelpaa
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
@@ -1573,6 +1564,11 @@ fi-pl:
         instagram: "%{organization} Instagramissa"
         twitter: "%{organization} Twitterissä"
         youtube: "%{organization} YouTubessa"
+      timeout_modal:
+        body: Et ole käyttänyt palvelua %{minutes} minuuttiin. Jos et jatka palvelun käyttöä, sinut kirjataan automaattisesti ulos oman turvallisuutesi takia.
+        continue_session: Jatka palvelun käyttöä
+        sign_out: Kirjaudu ulos
+        title: Haluatko jatkaa palvelun käyttöä?
       user_menu:
         account: 'Käyttäjätili: %{name}'
         admin_dashboard: Hallintapaneeli

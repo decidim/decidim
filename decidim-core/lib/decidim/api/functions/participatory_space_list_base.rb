@@ -9,6 +9,7 @@ module Decidim
     # https://github.com/rmosolgo/graphql-ruby/blob/v1.6.8/guides/fields/function.md
     class ParticipatorySpaceListBase
       include NeedsApiFilterAndOrder
+      include NeedsApiDefaultOrder
       attr_reader :manifest
 
       def initialize(manifest:)
@@ -27,6 +28,7 @@ module Decidim
 
         add_filter_keys(args[:filter])
         add_order_keys(args[:order].to_h)
+        add_default_order
         @query
       end
     end

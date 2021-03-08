@@ -17,8 +17,8 @@ fi:
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
       voting:
-        end_time: Päättymisaika
-        start_time: Alkamisaika
+        end_time: Äänestyksen päättymisaika
+        start_time: Äänestyksen alkamisaika
     errors:
       models:
         answer:
@@ -36,6 +36,18 @@ fi:
             public_key:
               cant_be_changed: tietoa ei voi muuttaa
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Äänestysvirkailija on jo äänestyspaikan esimies tai hoitaja
+            voting:
+              different_organization: Äänestyksen tulee tapahtua sen organisaation alla, johon käyttäjä on rekisteröitynyt
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Äänestysvirkailijan on oltava samassa äänestyksessä kuin äänestyspaikka
     models:
       decidim/elections/answer:
         one: Vastaus
@@ -46,10 +58,33 @@ fi:
       decidim/elections/question:
         one: Kysymys
         other: Kysymykset
+      decidim/votings/polling_officer:
+        one: Äänestysvirkailija
+        other: Äänestysvirkailijat
+      decidim/votings/polling_station:
+        one: Äänestyspaikka
+        other: Äänestyspaikat
       decidim/votings/voting:
         one: Äänestys
         other: Äänestykset
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Virkailijat
+          values:
+            assigned: Määritetty
+            unassigned: Ei määritetty
+        role_eq:
+          label: Rooli
+          values:
+            manager: Virkailija
+            president: Esimies
+            unassigned: Ei määritetty
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Hae %{collection} nimellä, sähköpostilla, nimimerkillä tai äänestyspaikan perusteella.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Hae %{collection} otsikolla, osoitteella tai virkailijan nimellä, sähköpostilla tai nimimerkillä.
     components:
       elections:
         actions:
@@ -92,11 +127,13 @@ fi:
           new:
             create: Luo vastaus
             title: Uusi vastaus
+          not_selected: Ei valittu
           select:
             disable: Poista vastausvalinta
             enable: Merkitse vastaus valituksi
             invalid: Vastauksen valinta epäonnistui
             success: Vastauksen valinta onnistui
+          selected: Valittu
           unselect:
             invalid: Vastauksen valinnan poisto epäonnistui
             success: Vastauksen valinnan poisto onnistui
@@ -169,6 +206,7 @@ fi:
           create_election:
             errors:
               max_selections: Kysymyksillä ei ole <strong>oikeaa arvoa vastausten määrälle</strong>
+              minimum_answers: Kysymyksillä on oltava <strong>vähintään kaksi vastausta</strong>.
               minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
               published: Vaalia <strong>ei ole julkaistu</strong>.
               time_before: Alkamisaika on <strong>alle 3 tuntia</strong> ennen vaalin alkua.
@@ -187,14 +225,68 @@ fi:
               time_before: Vaalin määritys tulee tapahtua <strong>vähintään %{hours} tuntia</strong> ennen sen alkamista.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             submit: Määritä vaali
+            success: Vaalin lähetys äänestystaululle onnistui
             title: Määritä vaali
             trustees: Vaalin luottamushenkilöt
-          key_ceremony:
+          created:
+            invalid: Avainseremonian käynnistäminen epäonnistui
+            submit: Aloita avainseremonia
+            success: Avainseremonian aloituspyyntö on onnistuneesti lähetetty äänestystaululle
+            title: Vaali luotu
             trustees: Luottamushenkilöt
+          key_ceremony:
+            title: Avainseremonia
+            trustees: Luottamushenkilöt
+          key_ceremony_ended:
+            errors:
+              time_before: Vaali on valmis alkamaan. Vaalin äänestysaika voidaan käynnistää aikaisintaan %{hours} tuntia ennen alkamisaikaa (%{start_time}).
+            invalid: Äänestysajan käynnistäminen epäonnistui
+            requirements:
+              time_before: 'Äänestys alkaa pian. Voit käynnistää äänestysajan manuaalisesti tai se käynnistetään automaattisesti ennen alkamisaikaa: %{start_time}.'
+            submit: Käynnistä äänestys
+            success: Pyyntösi aloittaa äänestysaika on onnistuneesti lähetetty äänestystaululle
+            title: Valmis alkamaan
+          processing: Käsitellään...
           results_published:
+            answer: Vastaus
+            not_selected: Ei valittu
+            question: Kysymys
+            result: Tulos
+            selected: Valittu
+            submit: Lähetä
             title: Tulokset julkaistu
+          tally:
+            title: Ääntenlaskun prosessi
+            trustees: Luottamushenkilöt
+          tally_ended:
+            answer: Vastaus
+            not_selected: Ei valittu
+            question: Kysymys
+            result: Tulos
+            selected: Valittu
+            submit: Julkaise tulokset
+            success: Ääntenlasku on suoritettu onnistuneesti
+            title: Ääntenlaskun tulokset
           vote:
+            errors:
+              time_after: Vaali on edelleen käynnissä. Sinun on odotettava päättymisaikaan saakka (%{end_time}) päättääksesi äänestyksen.
+            invalid: Äänestysajan päättäminen epäonnistui
+            requirements:
+              time_after: Äänestys on päättynyt. Voit sulkea äänestysajan manuaalisesti tai se suljetaan automaattisesti muutaman minuutin päästä.
+            submit: Päätä äänestysaika
+            success: Pyyntösi päättää äänestysaika on onnistuneesti lähetetty äänestystaululle
             title: Äänestysaika
+          vote_ended:
+            invalid: Ääntenlaskennan käynnistäminen epäonnistui
+            submit: Aloita ääntenlaskenta
+            success: Pyyntösi aloittaa ääntenlaskenta on onnistuneesti lähetetty äänestystaululle
+            text: Äänestys on päättynyt. Voit nyt aloittaa ääntenlaskun.
+            title: Äänestysaika on päättynyt
+          vote_stats:
+            no_vote_statistics_yet: Ei vielä äänitilastoja
+            title: Äänten tilastot
+            voters: Äänestäjät
+            votes: Äänet
         trustees_participatory_spaces:
           actions:
             disable: Poista käytöstä
@@ -218,7 +310,12 @@ fi:
             success: Luottamushenkilön %{trustee} päivittäminen onnistui
       admin_log:
         election:
+          end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} äänestystaululla"
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
+          setup: "%{user_name} loi vaalin %{resource_name} äänestystaululle"
+          start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} äänestystaululla"
+          start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} äänestystaululla"
+          start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} äänestystalululla"
           unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun"
       election_m:
         badge_name:
@@ -252,24 +349,33 @@ fi:
           filter_by: Rajaa hakua
           unfold: Avaa
         preview:
-          available_answers: Vastausvaihtoehdot
-          description: Nämä kysymykset esitetään äänestyksen yhteydessä
+          available_answers: 'Vastausvaihtoehdot:'
+          description: 'Nämä kysymykset esitetään äänestyksen yhteydessä:'
           title: Vaaliin liittyvät kysymykset
         results:
-          description: Tässä on äänestyksen tulokset kaikille kysymyksille
+          description: 'Tässä on äänestyksen tulokset kaikille kysymyksille:'
           selected: Valittu
           title: Vaalin tulokset
           votes:
             one: "%{count} ääni"
             other: "%{count} ääntä"
         show:
+          action_button:
+            change_vote: Muuta ääntäsi
+            vote: Aloita äänestys
+            vote_again: Äänestä uudelleen
           back: Käynnissä olevat vaalit
+          callout:
+            already_voted: Olet jo äänestänyt näissä vaaleissa. Voit muuttaa ääntäsi tai tarkastaa sen.
+            vote_rejected: Ääntäsi ei voida tarkastaa. Ole hyvä ja lähetä äänesi uudestaan.
           preview: Esikatsele
-          verify: Vahvista
-          vote: Äänestä
+          verify:
+            already_voted: Oletko jo äänestänyt?
+            verify_here: Tarkista äänesi täältä.
+            will_verify: Voit tarkistaa äänesi, kun vaalit ovat alkaneet.
           voting_period_status:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
-            ongoing: Äänestys päättyy %{end_time}
+            ongoing: 'Äänestysaika päättyy: %{end_time}'
             upcoming: Äänestys alkaa %{start_time}
       feedback:
         answer:
@@ -280,9 +386,12 @@ fi:
         answer:
           fields:
             proposals: Ehdotukset
+            selected: Valittu
             title: Otsikko
+            votes: Äänet
         election:
           fields:
+            bb_status: Äänestystaulun tila
             end_time: Päättymisaika
             start_time: Alkamisaika
             title: Otsikko
@@ -307,14 +416,17 @@ fi:
       trustee_zone:
         elections:
           backup_modal:
+            description: Näitä vaaleja luodaan äänestystaululle. On erityisen tärkeää, että jokainen luottamushenkilö luo varmuuskopion näistä avaimista ja tallentaa sen turvalliseen paikkaan. Tämän jälkeen, prosessi jatkuu.
             download_election_keys: Lataa avaimet
             download_icon: Kuvake, joka ilmaisee lataustoiminnon
             title: Varmuuskopioi vaaliavaimet kohteelle %{election}
           key_ceremony_steps:
             back: Takaisin
+            description: Näitä vaaleja luodaan parhaillaan äänestystaululle. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
             keys:
               create_election: Avainten luonti
               key_ceremony:
+                joint_election_key: Yhteisen avaimen luonti
                 step_1: Avainten julkaisu
             list:
               status: Tila
@@ -328,14 +440,37 @@ fi:
               processing: Käsitellään
             title: Luo vaaliavaimet kohteelle %{election}
           restore_modal:
+            description: Äänestystaululle on liitetty tieto sinusta näiden vaalien luottamushenkilönä. Jatkaaksesi tätä prosessia, lataa oma varmuuskopiotiedostosi, joka luotiin edellisen istuntosi yhteydessä.
             title: Palauta vaaliavaimet kohteelle %{election}
             upload_election_keys: Lataa vaaliavaimet
             upload_icon: Kuvake, joka ilmaisee lataustoiminnon
+          tally_steps:
+            back: Takaisin
+            description: Näiden vaalien tuloksia lasketaan parhaillaan äänestystaululla. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
+            keys:
+              end_tally: Ääntenlaskennan päättyminen
+              tally:
+                cast: Ääntenlaskennan tuloksen valmistuminen
+                share: Ääntenlaskennan tulosten jakaminen
+            list:
+              status: Tila
+              task: Tehtävä
+            process_warning: Kun prosessi on aloitettu, sinun ei tule poistua tältä sivulta ennen kuin prosessi saatetaan päätökseen. Tämä kestää useita minuutteja, koska kaikkien luottamushenkilöiden tulee olla yhteydessä samanaikaisesti, jotta prosessi voidaan päättää.
+            start: Aloita
+            start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnille
+            status:
+              completed: Suoritettu
+              pending: Odottaa
+              processing: Käsitellään
+            title: Ääntenlaskenta vaaleille %{election}
           update:
             error: Vaalin tilaa ei päivitetty.
             success: 'Vaalin tila on: %{status}'
         menu:
           trustee_zone: Luottamushenkilön alue
+        no_bulletin_board:
+          body: Tätä osiota varten vaaditaan äänestystaulupalvelin. Ota yhteyttä järjestelmänvalvojaan saadaksesi lisätietoja tästä.
+          title: Pahoittelut, äänestystalulua ei ole vielä määritetty.
         trustees:
           show:
             elections:
@@ -374,6 +509,12 @@ fi:
           update:
             success: Julkisen tunnistusavaimesi tallentaminen onnistui.
       votes:
+        ballot_decision:
+          audit: "( Tarkasta äänesi )"
+          back: Aloita äänestysprosessi uudestaan
+          cast: Lähetä äänesi
+          description: Tässä näkymässä voit tarkastaa, että äänesi on laskettu oikein tai että äänesi salaaminen onnistui. Turvallisuussyistä äänesi tarkastaminen kumoaa aikaisemman äänesi. Tämä tarkoittaa, että jättääksesi äänesi, sinun tulee käynnistää äänestysprosessi uudestaan.
+          header: 'Äänesi on salattu: lähetä tai tarkasta se'
         confirm:
           answer: Vastaa
           answer_number: 'vastaus #%{number}'
@@ -385,6 +526,7 @@ fi:
           question: Kysymys %{count}
         confirmed:
           back: Takaisin vaaleihin
+          error: Pahoittelut, äänen vahvistaminen epäonnistui. Ole hyvä ja äänestä uudestaan.
           experience: Minkälainen käyttökokemuksesi oli?
           feedback: Jätä meille palautetta
           header: Ääni vahvistettu
@@ -399,6 +541,7 @@ fi:
           lead: Ääntäsi ei ole annettu!
           text: Jokin meni pieleen, yritä uudelleen.
         header:
+          ballot_decision: Lähetä tai tarkasta äänesi
           confirm: Vahvista äänesi
           confirmed: Ääni vahvistettu
           encrypting: Ääntäsi vahvistetaan
@@ -414,16 +557,16 @@ fi:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
-        processing:
-          header: Käsitellään ääntä...
-          text: Äänesi on vastaanotettu ja sitä käsitellään. Odota hetki.
+        update:
+          error: Äänen tilan päivitys epäonnistui
+          success: Äänen tilan päivitys onnistui
         verify:
           content:
             heading: Vahvista äänesi
             info: Tämä tarkastustyökalu varmentaa, että salatulla merkkijonolla löytyvä äänesi on annettu oikein ja se on vaaliuurnassa.
           error:
             header: Ääntä ei löytynyt!
-            info: Äänestyskoodia ei löytynyt vaaliuurnasta %{link}, yritä uudelleen.
+            info: Äänestystunnusta ei löytynyt vaaliuurnasta %{link}, yritä uudelleen.
           form:
             back: Takaisin Decidimiin
             submit: Tarkista
@@ -457,41 +600,171 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_name}.
             email_subject: Olet luottamushenkilö kohteessa %{resource_name}.
             notification_title: Olet luottamushenkilö kohteessa <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Äänesi hyväksyttiin! Voit <a href="%{verify_url}">tarkastaa äänesi täältä</a> käyttäen äänestystunnustasi: %{encrypted_vote_hash}.'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska äänestit vaaleissa %{resource_name}.
+            email_subject: Äänesi vaaleihin %{resource_name} hyväksyttiin.
+            notification_title: 'Äänesi hyväksyttiin. Voit <a href="%{verify_url}">tarkastaa äänesi täältä</a> käyttäen äänestystunnustasi: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Sinulle on määritetty rooli %{role} äänestyspaikalla %{polling_station_name} osiossa <a href="%{resource_url}">%{resource_title}</a>. Voit hallinnoida äänestyspaikkaa <a href="%{polling_officer_zone_url}">äänestysvirkailijoille määritetyssä osiossa</a>.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu rooli %{role} äänestyspaikalle %{polling_station_name}.
+            email_subject: Roolisi äänestyspaikalla %{polling_station_name} on %{role}.
+            notification_title: Roolisi äänestyspaikan %{polling_station_name} äänestyksessä <a href="%{resource_path}">%{resource_title}</a> on %{role}.
     help:
       participatory_spaces:
         votings:
+          contextual: "<p><strong>Äänestys</strong> on osallistumistila, jossa voit kysyä selkeitä kysymyksiä kaikilta organisaation ihmisiltä, päättää äänestykseen osallistumisesta sekä kannustaa ja järjestää keskusteluita tietyn lopputuloksen puolesta tai sitä vastaan. Kun äänestysaika alkaa, voit äänestää ja julkaista äänestystuloksen.</p> <p>Esimerkkejä: äänestyksiä voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
+          page: "<p><strong>Äänestys</strong> on osallistumistila, jossa voit kysyä selkeitä kysymyksiä kaikilta organisaation ihmisiltä, päättää äänestykseen osallistumisesta sekä kannustaa ja järjestää keskusteluita tietyn lopputuloksen puolesta tai sitä vastaan. Kun äänestysaika alkaa, voit äänestää ja julkaista äänestystuloksen.</p> <p>Esimerkkejä: äänestyksiä voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
           title: Mitä ovat äänestykset?
     menu:
       votings: Äänestykset
-    pages:
-      home:
-        statistics:
-          elections_count: Vaalit
-    participatory_processes:
-      statistics:
-        elections_count: Vaalia
+    statistics:
+      elections_count: Vaalia
+      votings_count: Äänestystä
     votings:
       admin:
         content_blocks:
           highlighted_votings:
             max_results: Näytettävien elementtien enimmäismäärä
+          landing_page:
+            attachments_and_folders:
+              name: Äänestyksen liitteet ja kansiot
+            description:
+              name: Äänestyksen kuvaus
+            elections:
+              name: Äänestyksen vaalit
+            header:
+              name: Äänestyksen otsikko
+            html_block_1:
+              name: Äänestyksen HTML-lohko 1
+            html_block_2:
+              name: Äänestyksen HTML-lohko 2
+            html_block_3:
+              name: Äänestyksen HTML-lohko 3
+            metrics:
+              name: Äänestyksen tilastomittarit
+            polling_stations:
+              name: Äänestyspaikat
+            stats:
+              name: Äänestyksen tilastot
+            timeline:
+              name: Äänestyksen aikajana
         index:
           not_published: Julkaisematon
           published: Julkaistu
+        landing_page:
+          content_blocks:
+            edit:
+              update: Päivitä
+          edit:
+            active_content_blocks: Aktiiviset sisältölohkot
+            inactive_content_blocks: Käytöstä poistetut sisältölohkot
         menu:
           votings: Äänestykset
           votings_submenu:
             attachment_collections: Kansiot
             attachment_files: Tiedostot
             attachments: Liitteet
+            components: Komponentit
             info: Tiedot
+            landing_page: Laskeutumissivu
+            monitoring_committee_members: Tarkkailukomitea
+            polling_officers: Äänestysvirkailijat
+            polling_stations: Äänestyspaikat
         models:
+          monitoring_committee_member:
+            fields:
+              email: Sähköposti
+              name: Nimi
+            name: Tarkkailukomitean jäsen
+          polling_officer:
+            fields:
+              email: Sähköposti
+              name: Nimi
+              polling_station: Äänestyspaikka (rooli)
+            name: Äänestysvirkailija
+          polling_station:
+            fields:
+              address: Osoite
+              polling_station_managers: Virkailijat
+              polling_station_president: Esimies
+              title: Otsikko
+            name: Äänestyspaikka
           voting:
             fields:
               created_at: Luonnin ajankohta
               promoted: Korostettu
               published: Julkaistu
               title: Otsikko
+        monitoring_committee_members:
+          create:
+            invalid: Tarkkailukomitean jäsenen luonti epäonnistui
+            success: Tarkkailukomitean jäsenen luonti onnistui
+          destroy:
+            invalid: Tarkkailukomitean jäsenen poistaminen epäonnistui
+            success: Tarkkailukomitean jäsenen poistaminen onnistui
+          form:
+            existing_user: Olemassa oleva osallistuja
+            non_user: Kutsu uusi osallistuja
+            select_user: Etsi nimellä, sähköpostilla tai nimimerkillä
+            user_type: Osallistujan tyyppi
+          index:
+            title: Tarkkailukomitea
+          new:
+            create: Luo
+            title: Luo tarkkailukomitean jäsen
+        polling_officers:
+          create:
+            invalid: Äänestysvirkailijan luonti epäonnistui
+            success: Äänestysvirkailijan luonti onnistui
+          destroy:
+            invalid: Äänestysvirkailijan poistaminen epäonnistui
+            success: Äänestysvirkailijan poistaminen onnistui
+          form:
+            existing_user: Olemassa oleva osallistuja
+            non_user: Kutsu uusi osallistuja
+            select_user: Etsi nimellä, sähköpostilla tai nimimerkillä
+            user_type: Osallistujan tyyppi
+          index:
+            role_manager: virkailija
+            role_president: esimies
+            title: Äänestysvirkailijat
+          new:
+            create: Luo
+            title: Luo äänestysvirkailija
+          polling_officers_picker:
+            choose_polling_officers: Valitse äänestysvirkailijat
+            close: Sulje
+            more_polling_officers: Virkailijoita on vielä %{number} kpl lisää. Muuta hakuehtoja löytääksesi ne.
+            no_polling_officers: Yksikään äänestysvirkailija ei vastaa hakuehtojasi tai yhtään äänestysvirkailijaa ei vielä ole määritetty.
+        polling_stations:
+          create:
+            invalid: Äänestyspaikan luonti epäonnistui
+            success: Äänestyspaikan luonti onnistui
+          destroy:
+            invalid: Äänestyspaikan poistaminen epäonnistui
+            success: Äänestyspaikan poistaminen onnistui
+          edit:
+            title: Muokkaa äänestyspaikkaa
+            update: Päivitä äänestyspaikkaa
+          form:
+            address_help: 'Osoite: käytetään geokoodauksessa sijainnin löytämiseen'
+            location_help: 'Sijaintitieto: äänestäjille näytettävä viesti, jolla selvennetään äänestyspaikan tarkkaa sijaintia'
+            location_hints_help: 'Sijainnin lisätiedot: sijaintia tarkentava lisätieto. Esimerkiksi: äänestyspaikan kerros rakennuksessa.'
+            polling_station_managers_help: 'Äänestyspaikan virkailijat: ne virkailijat, jotka hallinnoivat äänestyspaikkaa. Tarkasta, että virkailijat on jo luotu Äänestysvirkailijat-osiossa ja heitä ei ole määrätty mihinkään muuhun äänestyspaikkaan'
+            polling_station_president_help: 'Äänestyspaikan esimies: se virkailija, joka toimii äänestyspaikan esimiehenä. Tarkasta, että virkailija on jo luotu Äänestysvirkailijat-osiossa ja häntä ei ole määrätty mihinkään muuhun äänestyspaikkaan'
+            select_president: Valitse äänestysvirkailija äänestyspaikan esimieheksi
+          index:
+            title: Äänestyspaikat
+          new:
+            create: Luo
+            title: Luo äänestyspaikka
+          update:
+            invalid: Äänestyspaikan luonti epäonnistui
+            success: Äänestyspaikan päivitys onnistui
         titles:
           votings: Äänestykset
         votings:
@@ -505,9 +778,17 @@ fi:
             invalid: Äänestyksen luonti epäonnistui
             success: Äänestyksen luonti onnistui
           edit:
+            add_election_component: Tälle äänestykselle ei ole määritetty vaalia. Lisää vaali Komponentit-osiosta
+            assign_missing_officers: Joillekin äänestyspaikoille ei ole määrätty esimiehiä ja/tai virkailijoita. Määritä virkailijat Äänestyspaikat-osiosta
             update: Päivitä
           form:
+            select_a_voting_type: Valitse äänestystapa
+            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
+            voting_type:
+              hybrid: Yhdistetty äänestystapa
+              in_person: Fyysinen äänestys
+              online: Verkkoäänestys
           new:
             create: Luo
             title: Uusi äänestys
@@ -526,12 +807,64 @@ fi:
       content_blocks:
         highlighted_votings:
           name: Korostetut äänestykset
+        landing_page:
+          description:
+            show_less: Näytä vähemmän
+            show_more: Lue lisää
+          metrics:
+            heading: Tilastomittarit
+          polling_stations:
+            heading: Äänestyspaikat
+            no_polling_stations: Äänestyspaikkoja ei vielä ole.
+          timeline:
+            heading: Aikajana
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Oletko varma?
+          destroy: Poista
+          new: Uusi jäsen
+          title: Toiminnot
       pages:
         home:
           highlighted_votings:
             active_votings: Aktiiviset äänestykset
             see_all_votings: Näytä kaikki äänestykset
             votings_button_title: Linkki kaikkien äänestysten sivulle
+      polling_officer_zone:
+        menu:
+          polling_officer_zone: Äänestysvirkailijoiden alue
+        polling_officers:
+          show:
+            actions:
+              count_votes: Laske vaaliuurnan äänet
+              identify_person: Tunnista ja varmenna henkilö
+            polling_officer_role_description: Sinulle on annettu tehtäväksi toimia äänestyspaikan virkailijana (esimiehenä tai muuna virkailijana) tällä alustalla järjestettävissä vaaleissa.
+            polling_stations:
+              list:
+                actions: Toiminnot
+                address: Osoite
+                name: Nimi
+                role: Roolisi
+                voting: Äänestys
+              no_polling_stations: Sinua ei ole vielä liitetty millekään äänestyspaikalle.
+              title: Äänestyspaikat
+      polling_officers:
+        actions:
+          confirm_destroy: Oletko varma?
+          destroy: Poista
+          new: Uusi
+          title: Toiminnot
+        roles:
+          manager: Virkailija
+          president: Esimies
+          unassigned: Ei määritetty
+      polling_stations:
+        actions:
+          confirm_destroy: Oletko varma?
+          destroy: Poista
+          edit: Muokkaa
+          new: Uusi
+          title: Toiminnot
       votings:
         count:
           title:
@@ -550,6 +883,8 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         index:
+          no_votings: Hakuehdoillasi ei löytynyt yhtään äänestystä.
+          only_finished: Tällä hetkellä ei ole yhtään ajastettua äänestystä, mutta täältä näet kaikki päättyneet äänestykset.
           title: Äänestykset
         orders:
           label: 'Järjestä äänestykset:'
@@ -563,12 +898,21 @@ fi:
           ongoing: Käynnissä
           upcoming: Tulossa
         footer_button_text:
+          participate: Osallistu
           view: Näytä
+          vote: Äänestä
         unspecified: Ei määritetty
+        voting_type:
+          hybrid: Yhdistetty äänestystapa
+          in_person: Fyysinen äänestys
+          online: Verkkoäänestys
+        voting_types_label: Äänestystapa
   layouts:
     decidim:
       election_votes_header:
         exit: Poistu
+      voting_navigation:
+        voting_menu_item: Äänestys
       votings:
         index:
           promoted_votings: Korostetut äänestykset

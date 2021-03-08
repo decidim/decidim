@@ -84,6 +84,21 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       )
     end
 
+    landing_page_content_blocks = [:title, :metadata, :cta, :highlighted_proposals, :highlighted_results, :highlighted_meetings, :stats, :participatory_processes]
+
+    process_groups.each do |process_group|
+      landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
+        Decidim::ContentBlock.create(
+          organization: organization,
+          scope_name: :participatory_process_group_homepage,
+          manifest_name: manifest_name,
+          weight: index,
+          scoped_resource_id: process_group.id,
+          published_at: Time.current
+        )
+      end
+    end
+
     2.times do |n|
       params = {
         title: Decidim::Faker::Localized.sentence(word_count: 5),

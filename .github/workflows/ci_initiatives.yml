@@ -36,8 +36,9 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
         if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -58,8 +59,9 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
         name: Upload coverage
-      - uses: actions/upload-artifact@v2-preview
+      - uses: actions/upload-artifact@v2
         if: always()
         with:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
+          if-no-files-found: ignore

@@ -66,6 +66,15 @@ Decidim.register_component(:my_component) do |component|
 
     exports.serializer MyComponent::ResourceSerializer
   end
+
+  # Import definitions allow data to be imported into a component.
+  #
+  # For now supported formats for imports are CSV, JSON and Excel (.xls).
+  # Every resource type needs it's own creator, which creates resource
+  # from parsed data.
+  component.imports :component_resources do |imports|
+    imports.creator MyComponent::ResourceCreator
+  end
 end
 ----
 

@@ -30,6 +30,16 @@ module Decidim
         root to: "questionnaire_templates#index"
       end
 
+      initializer "decidim_participatory_processes.admin_participatory_processes_menu" do
+        Decidim.menu :admin_template_types_menu do |menu|
+          template_types.each_pair do |name, url|
+            menu.item name, url,
+                      if: allowed_to?(:index, :templates),
+                      active: is_active_link?(url)
+          end
+        end
+      end
+
       initializer "decidim_templates.admin_mount_routes" do
         Decidim::Core::Engine.routes do
           mount Decidim::Templates::AdminEngine, at: "/admin/templates", as: "decidim_admin_templates"

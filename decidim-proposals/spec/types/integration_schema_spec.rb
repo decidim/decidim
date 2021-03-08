@@ -57,7 +57,7 @@ describe "Decidim::Api::QueryType" do
       "official" => proposal.official?,
       "participatoryTextLevel" => proposal.participatory_text_level,
       "position" => proposal.position,
-      "publishedAt" => proposal.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "publishedAt" => proposal.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "reference" => proposal.reference,
       "scope" => proposal.scope,
       "state" => proposal.state,
@@ -189,7 +189,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
   end
 
@@ -290,7 +290,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "executes sucessfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
 
     it do
