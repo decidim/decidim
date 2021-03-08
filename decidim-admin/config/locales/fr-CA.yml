@@ -378,6 +378,7 @@ fr-CA:
         file_help:
           import:
             explanation: 'Instructions concernant le fichier:'
+            message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
@@ -429,6 +430,7 @@ fr-CA:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Retour
           file_legend: Ajouter un fichier d'import qui sera analysé.
