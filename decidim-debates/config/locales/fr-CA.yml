@@ -164,6 +164,7 @@ fr-CA:
         versions_list:
           back_to_resource: Revenir au débat
       last_activity:
+        debate_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
         new_debate_at_html: "<span>Nouveau débat à %{link}</span>"
       models:
         debate:
