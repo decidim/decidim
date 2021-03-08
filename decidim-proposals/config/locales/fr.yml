@@ -678,6 +678,7 @@ fr:
         success: Le brouillon de la proposition a bien été supprimé.
       last_activity:
         new_proposal_at_html: "<span>Nouvelle proposition à %{link}</span>"
+        proposal_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
       models:
         collaborative_draft:
           fields:
