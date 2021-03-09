@@ -6,7 +6,6 @@
         description: Beskrivelse
         title: Tittel
         total_budget: Totalt budsjett
-        weight: Vekt
       project:
         budget_amount: Budsjettbeløp
         decidim_category_id: Kategori
