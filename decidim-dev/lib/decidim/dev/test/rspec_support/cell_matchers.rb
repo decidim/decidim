@@ -2,7 +2,7 @@
 
 module Decidim
   module CellMatchers
-    RSpec::Matchers.define :render_nothing do |expected_value|
+    RSpec::Matchers.define :render_nothing do |_expected_value|
       match do |actual_value|
         expect(actual_value).to have_no_selector("html")
       end
