@@ -24,6 +24,7 @@ nl:
       component:
         name: Naam
         published_at: Gepubliceerd op
+        weight: Bestelpositie
       id: ID
       import:
         user_group_id: Import maken als
@@ -105,10 +106,12 @@ nl:
         show_in_footer: Laat het in het voettekst zien
         slug: URL pad
         title: Titel
+        weight: Bestelpositie
       static_page_topic:
         description: Beschrijving
         show_in_footer: Laat het in het voettekst zien
         title: Titel
+        weight: Bestelpositie
       user_group_csv_verification:
         file: Bestand
     errors:
