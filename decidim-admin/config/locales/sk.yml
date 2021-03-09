@@ -23,7 +23,6 @@ sk:
       component:
         name: Meno
         published_at: Publikované na
-        weight: Váha
       id: ID
       newsletter:
         body: Telo textu
@@ -90,12 +89,10 @@ sk:
         show_in_footer: Zobraziť v päte
         slug: URL krátky odkaz
         title: Názov
-        weight: Váha
       static_page_topic:
         description: Popis
         show_in_footer: Zobraziť v päte
         title: Názov
-        weight: Váha
       user_group_csv_verification:
         file: Súbor
     errors:
