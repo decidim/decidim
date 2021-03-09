@@ -206,7 +206,6 @@ hu:
             price: Ár
             registrations_count: A regisztrációk száma
             title: Cím
-            weight: Súly
           name: Regisztrációs típus
       partners:
         create:
