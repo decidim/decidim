@@ -31,7 +31,7 @@ module Decidim
     end
 
     def announcement
-      model
+      translated_attribute(model)
     end
 
     def clean_title
