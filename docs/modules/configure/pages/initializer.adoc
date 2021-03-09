@@ -377,7 +377,7 @@ step setting :amendments_visibility.
 
 == Export fields
 
-To customize export fields, you can subscribe to any serialize event. Every serializer event has unique event name in format: decidim.serialize.component_here.class_here
+To customize export fields, you can subscribe to any serialize event. Every serializer event has unique event name in format: decidim.serialize.module_here.class_here
 
 [source,ruby]
 ....
