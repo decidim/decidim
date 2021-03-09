@@ -52,7 +52,6 @@ nl:
         target: Wie neemt deel
         title: Titel
         twitter: Twitter
-        weight: Gewicht
         youtube: YouTube
       assembly_member:
         birthday: Geboortedatum
