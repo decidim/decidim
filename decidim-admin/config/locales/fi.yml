@@ -24,6 +24,7 @@ fi:
       component:
         name: Nimi
         published_at: Julkaistu osoitteessa
+        weight: Järjestysnumero
       id: ID
       import:
         user_group_id: Tuo käyttäjänä
@@ -110,10 +111,12 @@ fi:
         show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
+        weight: Järjestysnumero
       static_page_topic:
         description: Kuvaus
         show_in_footer: Näytä alatunnisteessa
         title: Otsikko
+        weight: Järjestysnumero
       user_group_csv_verification:
         file: Tiedosto
     errors:
