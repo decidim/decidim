@@ -7,7 +7,7 @@ module Decidim
 
     layout "decidim/newsletter_base"
 
-    add_template_helper Decidim::TranslationsHelper
+    helper Decidim::TranslationsHelper
 
     helper_method :cell
 

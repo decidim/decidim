@@ -7,8 +7,8 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::SanitizeHelper
 
-      add_template_helper Decidim::TranslatableAttributes
-      add_template_helper Decidim::SanitizeHelper
+      helper Decidim::TranslatableAttributes
+      helper Decidim::SanitizeHelper
 
       # Notifies initiative creation
       def notify_creation(initiative)
