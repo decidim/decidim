@@ -160,7 +160,6 @@ ro:
             price: Preț
             registrations_count: Numărul de înregistrări
             title: Titlu
-            weight: Greutate
           name: Tip de înregistrare
       partners:
         create:
