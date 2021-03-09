@@ -24,6 +24,7 @@ de:
       component:
         name: Name
         published_at: Veröffentlicht unter
+        weight: Bestellposition
       id: ID
       import:
         user_group_id: Importierte Inhalte erstellen als
@@ -110,10 +111,12 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         slug: URL-Block
         title: Titel
+        weight: Bestellposition
       static_page_topic:
         description: Beschreibung
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
+        weight: Bestellposition
       user_group_csv_verification:
         file: Datei
     errors:
