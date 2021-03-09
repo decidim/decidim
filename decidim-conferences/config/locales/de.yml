@@ -206,6 +206,7 @@ de:
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
+            weight: Bestellposition
           name: Registrierungstyp
       partners:
         create:
