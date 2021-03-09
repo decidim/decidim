@@ -52,7 +52,6 @@ fi:
         target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
-        weight: Painoarvo
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
