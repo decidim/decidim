@@ -206,7 +206,6 @@ es-MX:
             price: Precio
             registrations_count: Número de inscripciones
             title: Título
-            weight: Peso
           name: Tipo de inscripción
       partners:
         create:
