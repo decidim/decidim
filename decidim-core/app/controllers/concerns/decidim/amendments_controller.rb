@@ -5,6 +5,7 @@ module Decidim
     include Decidim::ApplicationHelper
     include FormFactory
     helper Decidim::ResourceReferenceHelper
+    helper UserGroupHelper
 
     before_action :authenticate_user!
     helper_method :amendment, :amendable, :emendation, :similar_emendations

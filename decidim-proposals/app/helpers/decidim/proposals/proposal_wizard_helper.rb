@@ -107,22 +107,6 @@ module Decidim
         translated_attribute(component_settings.try("proposal_wizard_#{step}_help_text")).present?
       end
 
-      # Renders a user_group select field in a form.
-      # form - FormBuilder object
-      # name - attribute user_group_id
-      #
-      # Returns nothing.
-      def user_group_select_field(form, name)
-        selected = @form.user_group_id.presence
-        user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
-        form.select(
-          name,
-          user_groups.map { |g| [g.name, g.id] },
-          selected: selected,
-          include_blank: current_user.name
-        )
-      end
-
       private
 
       def total_steps

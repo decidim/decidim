@@ -107,16 +107,6 @@ module Decidim
       current_component.current_settings.amendment_promotion_enabled
     end
 
-    # Renders a UserGroup select field in a form.
-    def user_group_select_field(form, name)
-      user_groups = UserGroups::ManageableUserGroups.for(current_user).verified
-      form.select(name,
-                  user_groups.map { |g| [g.name, g.id] },
-                  selected: form.object.user_group_id.presence,
-                  include_blank: current_user.name,
-                  label: t("new.amendment_author", scope: "decidim.amendments"))
-    end
-
     # Return the translated attribute name to use as label in a form.
     # Returns a String.
     def amendments_form_fields_label(attribute)

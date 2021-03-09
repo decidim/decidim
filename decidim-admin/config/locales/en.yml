@@ -25,7 +25,7 @@ en:
       component:
         name: Name
         published_at: Published at
-        weight: Weight
+        weight: Order position
       id: ID
       import:
         user_group_id: Create imports as
@@ -112,12 +112,12 @@ en:
         show_in_footer: Show in the footer
         slug: URL slug
         title: Title
-        weight: Weight
+        weight: Order position
       static_page_topic:
         description: Description
         show_in_footer: Show in the footer
         title: Title
-        weight: Weight
+        weight: Order position
       user_group_csv_verification:
         file: File
     errors:
