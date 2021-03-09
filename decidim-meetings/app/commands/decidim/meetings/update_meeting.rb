@@ -28,7 +28,12 @@ module Decidim
           schedule_upcoming_meeting_notification if start_time_changed?
         end
 
-        broadcast(:ok, meeting)
+        if meeting.persisted?
+          broadcast(:ok, meeting)
+        else
+          form.errors.add(:main_image, meeting.errors[:main_image]) if meeting.errors.include? :main_image
+          broadcast(:invalid)
+        end
       end
 
       private
@@ -55,7 +60,8 @@ module Decidim
             location: { I18n.locale => form.location },
             location_hints: { I18n.locale => form.location_hints },
             author: form.current_user,
-            decidim_user_group_id: form.user_group_id
+            decidim_user_group_id: form.user_group_id,
+            main_image: form.main_image
           },
           visibility: "public-only"
         )

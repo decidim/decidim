@@ -35,6 +35,7 @@ FactoryBot.define do
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
     component { build(:component, manifest_name: "meetings") }
+    main_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
 
     author do
       component.try(:organization)

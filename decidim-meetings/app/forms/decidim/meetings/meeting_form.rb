@@ -18,6 +18,9 @@ module Decidim
       attribute :decidim_category_id, Integer
       attribute :user_group_id, Integer
 
+      attribute :main_image
+      attribute :remove_main_image
+
       validates :title, presence: true
       validates :description, presence: true
       validates :location, presence: true
@@ -30,6 +33,8 @@ module Decidim
       validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
+
+      validates :main_image, passthru: { to: Decidim::Meetings::Meeting }
 
       delegate :categories, to: :current_component
 

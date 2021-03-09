@@ -19,6 +19,7 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
     let(:user_group_id) { nil }
+    let(:main_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     let(:form) do
       double(
         invalid?: invalid,
@@ -35,7 +36,8 @@ module Decidim::Meetings
         longitude: longitude,
         user_group_id: user_group_id,
         current_user: current_user,
-        current_organization: organization
+        current_organization: organization,
+        main_image: main_image
       )
     end
 
@@ -69,6 +71,12 @@ module Decidim::Meetings
         subject.call
         expect(meeting.latitude).to eq(latitude)
         expect(meeting.longitude).to eq(longitude)
+      end
+
+      it "sets the main_image" do
+        previous_image = meeting.main_image
+        subject.call
+        expect(meeting.main_image).not_to eq previous_image
       end
 
       context "when the author is a user_group" do
@@ -125,7 +133,8 @@ module Decidim::Meetings
             user_group_id: user_group_id,
             services_to_persist: [],
             current_user: current_user,
-            current_organization: organization
+            current_organization: organization,
+            main_image: main_image
           )
         end
 

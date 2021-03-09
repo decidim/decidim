@@ -29,6 +29,14 @@ module Decidim
 
       private
 
+      def resource_image_path
+        model.main_image.url
+      end
+
+      def has_image?
+        true
+      end
+
       def spans_multiple_dates?
         start_date != end_date
       end

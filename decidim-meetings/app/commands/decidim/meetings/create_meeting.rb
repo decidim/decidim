@@ -21,7 +21,12 @@ module Decidim
           send_notification
         end
 
-        broadcast(:ok, meeting)
+        if meeting.persisted?
+          broadcast(:ok, meeting)
+        else
+          form.errors.add(:main_image, meeting.errors[:main_image]) if meeting.errors.include? :main_image
+          broadcast(:invalid)
+        end
       end
 
       private
@@ -46,7 +51,8 @@ module Decidim
           author: form.current_user,
           decidim_user_group_id: form.user_group_id,
           registration_terms: form.current_component.settings.default_registration_terms,
-          component: form.current_component
+          component: form.current_component,
+          main_image: form.main_image
         }
 
         @meeting = Decidim.traceability.create!(

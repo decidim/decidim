@@ -37,5 +37,23 @@ module Decidim::Meetings
         expect(cell_html).to have_content("#{@original_title} &'<")
       end
     end
+
+    describe "image" do
+      let(:show_space) { false }
+
+      context "when model has an image" do
+        it "renders the image" do
+          expect(cell_html).to have_css("img.card__image")
+        end
+      end
+
+      context "when model has no image" do
+        let!(:meeting) { create(:meeting, main_image: nil) }
+
+        it "does not render the image" do
+          expect(cell_html).not_to have_css("img.card__image")
+        end
+      end
+    end
   end
 end

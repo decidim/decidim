@@ -23,6 +23,7 @@ module Decidim
       include Decidim::Reportable
       include Decidim::Authorable
       include Decidim::TranslatableResource
+      include Decidim::HasUploadValidations
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
@@ -35,6 +36,9 @@ module Decidim
       component_manifest_name "meetings"
 
       validates :title, presence: true
+
+      validates_upload :main_image
+      mount_uploader :main_image, Decidim::Meetings::MeetingImageUploader
 
       geocoded_by :address
 

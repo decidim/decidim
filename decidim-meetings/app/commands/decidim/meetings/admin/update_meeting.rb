@@ -28,7 +28,12 @@ module Decidim
             update_services!
           end
 
-          broadcast(:ok, meeting)
+          if meeting.persisted?
+            broadcast(:ok, meeting)
+          else
+            form.errors.add(:main_image, meeting.errors[:main_image]) if meeting.errors.include? :main_image
+            broadcast(:invalid)
+          end
         end
 
         private
@@ -54,7 +59,8 @@ module Decidim
             location: form.location,
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
-            transparent: form.transparent
+            transparent: form.transparent,
+            main_image: form.main_image
           )
         end
 

@@ -18,6 +18,7 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
     let(:user_group_id) { nil }
+    let(:main_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     let(:form) do
       double(
         invalid?: invalid,
@@ -35,7 +36,8 @@ module Decidim::Meetings
         user_group_id: user_group_id,
         current_user: current_user,
         current_component: current_component,
-        current_organization: organization
+        current_organization: organization,
+        main_image: main_image
       )
     end
 
@@ -81,6 +83,11 @@ module Decidim::Meetings
         expect(last_meeting.longitude).to eq(longitude)
       end
 
+      it "sets the main_image" do
+        subject.call
+        expect(meeting.main_image.url).to be_present
+      end
+
       context "when the author is a user_group" do
         let(:user_group) { create :user_group, :verified, users: [current_user], organization: organization }
         let(:user_group_id) { user_group.id }
@@ -114,7 +121,7 @@ module Decidim::Meetings
       it "schedules a upcoming meeting notification job 48h before start time" do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process))
+          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process, persisted?: true))
 
         expect(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
