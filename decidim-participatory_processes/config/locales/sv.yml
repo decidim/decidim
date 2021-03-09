@@ -34,7 +34,6 @@ sv:
         subtitle: Underrubrik
         target: Vilka deltar
         title: Titel
-        weight: Vikt
       participatory_process_group:
         description: Beskrivning
         hero_image: Bild
