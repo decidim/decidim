@@ -24,7 +24,6 @@ es-PY:
       component:
         name: Nombre
         published_at: Publicado en
-        weight: Peso
       id: ID
       import:
         user_group_id: Importar como
@@ -111,12 +110,10 @@ es-PY:
         show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
-        weight: Peso
       static_page_topic:
         description: Descripción
         show_in_footer: Mostrar en el pie de página
         title: Título
-        weight: Peso
       user_group_csv_verification:
         file: Expediente
     errors:
