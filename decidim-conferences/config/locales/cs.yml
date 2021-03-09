@@ -212,7 +212,6 @@ cs:
             price: Cena
             registrations_count: Registrace se počítají
             title: Název
-            weight: Váha
           name: Typ registrace
       partners:
         create:
