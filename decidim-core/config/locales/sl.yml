@@ -29,9 +29,6 @@ sl:
         hero:
           participate: Sodeluj
           welcome: Dobrošli v organizaciji %{organization}!
-        statistics:
-          assemblies_count: Združbe
-          meetings_count: Sestanki
     search:
       term_input_placeholder: Išči
     searches:

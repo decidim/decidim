@@ -249,10 +249,6 @@ eu:
           title: Zer dira kontsultak?
     menu:
       consultations: kontsultak
-    pages:
-      home:
-        statistics:
-          consultations_count: kontsultak
     questions:
       results:
         title: Emaitzak

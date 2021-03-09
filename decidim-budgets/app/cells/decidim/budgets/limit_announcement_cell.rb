@@ -9,7 +9,7 @@ module Decidim
       delegate :voting_open?, to: :controller
 
       def show
-        cell("decidim/announcement", announcement_args) if announce?
+        cell("decidim/announcement", announcement_message, callout_class: "warning") if announce?
       end
 
       private
@@ -21,13 +21,6 @@ module Decidim
         return if voted?(budget)
 
         discardable.any? || !vote_allowed?(budget, consider_progress: false)
-      end
-
-      def announcement_args
-        {
-          callout_class: "warning",
-          announcement: announcement_message
-        }
       end
 
       def announcement_message

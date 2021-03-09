@@ -25,17 +25,11 @@
           next_level_in: Opprett %{score} flere tester for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke opprettet en test ennå.
           unearned_own: Du har ikke laget noen tester ennå.
-    pages:
-      home:
-        statistics:
-          bar: Felt
-          dummies_count_high: Dukker høy
-          dummies_count_medium: Dukker medium
-          foo: Foo
-    participatory_processes:
-      statistics:
-        dummies_count_high: Dukker høy
-        dummies_count_medium: Dukker medium
     resource_links:
       test_link:
         dummy_resource_dummy: Relaterte dukke
+    statistics:
+      bar: Felt
+      dummies_count_high: Dukker høy
+      dummies_count_medium: Dukker medium
+      foo: Foo

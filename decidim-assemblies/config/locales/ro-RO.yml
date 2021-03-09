@@ -34,6 +34,15 @@ ro:
         meta_scope: Sferă metadate
         parent_id: Asociere părinte
         participatory_processes_ids: Procese participative conexe
+        title: Titlu
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Data nașterii
+        ceased_date: Data încetării
+        gender: Sexul
+      assembly_user_role:
+        email: E-mail
     errors:
       models:
         assembly:
@@ -269,6 +278,9 @@ ro:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantitatea maximă de elemente de afișat
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membri
@@ -338,22 +350,6 @@ ro:
         social_networks: Rețele sociale
         social_networks_title: Împărtășește această adunare pe
         target: Cine participă
-      statistics:
-        answers_count: Răspunsuri
-        assemblies_count: Adunări
-        comments_count: Comentarii
-        debates_count: Dezbateri
-        endorsements_count: Susținători
-        meetings_count: Întâlniri
-        orders_count: Suportă
-        pages_count: Pagini
-        posts_count: Mesaje
-        projects_count: Proiecte
-        proposals_count: Propuneri
-        results_count: Rezultate
-        surveys_count: Chestionare
-        users_count: Participanți
-        votes_count: Suportă
     assembly_members:
       assembly_member:
         designated_on: Designat pe

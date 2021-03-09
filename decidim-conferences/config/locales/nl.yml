@@ -492,23 +492,6 @@ nl:
         related_assemblies: Gerelateerde assemblies
         related_consultations: Gerelateerde consultaties
         related_participatory_processes: Verwante participatieprocessen
-      statistics:
-        answers_count: antwoorden
-        comments_count: Comments
-        conference_count: Conferenties
-        debates_count: debatten
-        endorsements_count: Endorsements
-        headline: Activiteit
-        meetings_count: vergaderingen
-        orders_count: stemmen
-        pages_count: Pages
-        posts_count: berichten
-        projects_count: projecten
-        proposals_count: voorstellen
-        results_count: resultaten
-        surveys_count: onderzoeken
-        users_count: Deelnemers
-        votes_count: stemmen
     events:
       conferences:
         conference_registration_confirmed:

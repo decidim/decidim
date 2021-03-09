@@ -1003,24 +1003,7 @@ sv:
         metrics:
           headline: Deltagande i siffror
         statistics:
-          answers_count: Genomförda undersökningar
-          assemblies_count: Grupper
-          comments_count: Kommentarer
-          conferences_count: Konferenser
-          debates_count: Debatter
-          endorsements_count: Instämmanden
           headline: Aktuellt läge för %{organization}
-          meetings_count: Möten
-          orders_count: Omröstningar
-          pages_count: Sidor
-          processes_count: Dialoger
-          projects_count: Projekt
-          proposals_accepted: Accepterade förslag
-          proposals_count: Förslag
-          results_count: Resultat
-          surveys_count: Undersökningar
-          users_count: Deltagare
-          votes_count: Omröstningar
         sub_hero:
           register: Registrera
       index:
@@ -1197,6 +1180,8 @@ sv:
         close_window: Stäng fönster
         share: Dela
         share_link: Dela länk
+    statistics:
+      comments_count: Kommentarer
     tags:
       filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
       filter_results_for_scope: 'Filtrera resultat för omfattning: %{resource}'

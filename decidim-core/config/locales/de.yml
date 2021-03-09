@@ -1069,24 +1069,7 @@ de:
         metrics:
           headline: Teilnahme an Zahlen
         statistics:
-          answers_count: Abgeschlossene Umfragen
-          assemblies_count: Versammlungen
-          comments_count: Kommentare
-          conferences_count: Konferenzen
-          debates_count: Diskussionen
-          endorsements_count: Empfehlungen
           headline: Aktueller Zustand von %{organization}
-          meetings_count: Meetings
-          orders_count: Stimmen
-          pages_count: Seiten
-          processes_count: Beteiligungsprozesse
-          projects_count: Projekte
-          proposals_accepted: Akzeptierte Vorschläge
-          proposals_count: Vorschläge
-          results_count: Ergebnisse
-          surveys_count: Umfragen
-          users_count: Teilnehmer
-          votes_count: Stimmen
         sub_hero:
           register: Registrieren
       index:
@@ -1278,6 +1261,15 @@ de:
         close_window: Fenster schließen
         share: Teilen
         share_link: Link teilen
+    statistics:
+      comments_count: Kommentare
+      endorsements_count: Befürworungen
+      followers_count: Follower
+      headline: Statistik
+      no_stats: Es gibt noch keine Statistiken.
+      pages_count: Seiten
+      participants_count: Teilnehmer
+      users_count: Benutzer
     tags:
       filter_results_for_category: 'Ergebnisse nach Kategorie filtern: %{resource}'
       filter_results_for_scope: 'Ergebnisse nach Anwendungsbereich filtern: %{resource}'

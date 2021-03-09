@@ -488,23 +488,6 @@ tr:
         related_assemblies: İlgili montajlar
         related_consultations: İlgili istişareler
         related_participatory_processes: İlgili Katılımcı Süreçler
-      statistics:
-        answers_count: Cevaplar
-        comments_count: Yorumlar
-        conference_count: Konferanslar
-        debates_count: Tartışmalar
-        endorsements_count: Cirolar
-        headline: Aktivite
-        meetings_count: Toplantılar
-        orders_count: oy
-        pages_count: Sayfalar
-        posts_count: Mesajlar
-        projects_count: Projeler
-        proposals_count: Teklif
-        results_count: Sonuçlar
-        surveys_count: Anketler
-        users_count: Katılımcılar
-        votes_count: oy
     events:
       conferences:
         conference_registration_confirmed:

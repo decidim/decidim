@@ -31,13 +31,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nou sorteig afegit a %{participatory_space_title}
           notification_title: El sorteig <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortejos
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortejos
     sortitions:
       admin:
         actions:
@@ -140,8 +133,8 @@ ca:
         sortition:
           random_seed: Llavor aleatòria
           selected_proposals:
-            one: 1 proposta seleccionada
-            other: '%{count} propostes seleccionades'
+            one: proposta seleccionada
+            other: propostes seleccionades
           view: Veure
         sortition_author:
           deleted: Participant eliminada

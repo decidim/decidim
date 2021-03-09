@@ -2,7 +2,7 @@
   <div class="process-nav">
     <div class="row">
       <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
-        <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t(".unfold"), role: "img" %>
+        <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t("decidim.shared.extended_navigation_bar.unfold"), role: "img" %>
         <% default_item = active_item || items.first %>
         <span class="process-nav__link">
           <%= default_item[:name] %>
@@ -21,7 +21,7 @@
 
         <% if extra_items.any? %>
           <button class="button tiny process-nav__more show-for-medium" data-toggle="process-nav__hide-content">
-            <%= t ".more" %> <i></i><i></i><i></i>
+            <%= t("decidim.shared.extended_navigation_bar.more") %> <i></i><i></i><i></i>
           </button>
           <div class="dropdown-pane process-nav__hidden-content" id="process-nav__hide-content"
               data-dropdown
@@ -31,7 +31,7 @@
               data-position="bottom"
               data-alignment="right">
             <div class="process-nav__hidden-content__more">
-              <%= t ".more" %> <i></i><i></i><i></i>
+              <%= t("decidim.shared.extended_navigation_bar.more") %> <i></i><i></i><i></i>
             </div>
             <ul>
               <% extra_items.each do |item| %>

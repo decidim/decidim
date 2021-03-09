@@ -536,6 +536,8 @@ de:
       proposals_from_meeting:
         meeting_proposal: 'Ähnliche Vorschläge:'
         proposal_meeting: 'Ähnliche Treffen:'
+    statistics:
+      meetings_count: Sitzungen
   devise:
     mailer:
       join_meeting:

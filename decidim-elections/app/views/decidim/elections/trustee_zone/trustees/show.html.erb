@@ -7,7 +7,7 @@
 
 <div class="trustee_zone">
   <%= decidim_form_for(trustee, html: { class: "form edit_trustee" }) do |f| %>
-    <%= f.hidden_field :unique_id %>
+    <%= f.hidden_field :slug %>
     <%= f.hidden_field :name %>
     <%= f.hidden_field :public_key %>
     <%= f.submit "", id: "submit_identification_public_key", class: "hide" %>

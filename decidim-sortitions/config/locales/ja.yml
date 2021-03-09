@@ -30,13 +30,6 @@ ja:
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '%{participatory_space_title} に新しいソートが追加されました'
           notification_title: ソート <a href="%{resource_path}">%{resource_title}</a> が %{participatory_space_title} に追加されました
-    pages:
-      home:
-        statistics:
-          sortitions_count: 並べ替え
-    participatory_processes:
-      statistics:
-        sortitions_count: 並べ替え
     sortitions:
       admin:
         actions:

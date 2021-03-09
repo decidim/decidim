@@ -27,6 +27,9 @@ ca:
         user_group_id: Crea una proposta com a
       proposal_answer:
         answer: Respondre
+        cost: Cost
+        cost_report: Informe de cost
+        execution_period: Període d'execució
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot desfer.
         origin_component_id: Component des d'on importar les propostes
@@ -137,6 +140,10 @@ ca:
             participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             proposal_answering_enabled: Resposta a propostes habilitada
             proposal_edit_before_minutes: Les propostes poden ser editades per les autorrs abans que passin aquests minuts
+            proposal_edit_time: Edició de propostes
+            proposal_edit_time_choices:
+              infinite: Permet l'edició de propostes durant un període infinit
+              limited: Permet l'edició de propostes durant una finestra temporal específica
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
@@ -376,7 +383,9 @@ ca:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
+            document_legend: 'Afegeix un document de menys de 2 Mb, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
             title: AFEGIR DOCUMENT
             upload_document: Puja el document
           publish:
@@ -492,6 +501,7 @@ ca:
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un component
             select_states: Consulta els estats de les propostes a importar
+            title: Importar propostes
         proposals_merges:
           create:
             invalid: S'ha produït un error en fusionar les propostes seleccionades.
@@ -517,7 +527,7 @@ ca:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
         valuation_assignment:
           create: "%{user_name} ha assignat la proposta %{resource_name} a una avaluadora"
-          delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{resource_name}"
+          delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{proposal_title}"
       answers:
         accepted: Acceptades
         evaluating: En avaluació
@@ -644,6 +654,9 @@ ca:
           info: Estàs creant un <strong>esborrany col·laboratiu</strong>.
         wizard_header:
           title: Crea el teu esborrany col·laboratiu
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propostes
       create:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
@@ -696,6 +709,8 @@ ca:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostes"
+        dynamic_map_instructions:
+          instructions: <h3>Pots moure el punt al mapa. </h3><p>No oblidis fer clic al botó "Actualitzar posició" abans de publicar la teva proposta.</p>
         edit:
           add_documents: Documents
           add_images: Arxiu
@@ -756,13 +771,18 @@ ca:
             document_index: Índex del document
           view_index:
             see_index: Veure índex
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: La teva proposta s'ha guardat com un esborrany. Necessita ser publicada perquè aparegui al lloc.
+          announcement_title: La teva proposta encara no s'ha publicat
           modify: Modifica la proposta
           proposal_edit_before_minutes:
             one: Podràs editar aquesta proposta durant el primer minut després de publicar-la. Un cop passat aquest temps, no podràs editar la proposta.
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
+          update_position: Actualitzar posició
         proposal:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta

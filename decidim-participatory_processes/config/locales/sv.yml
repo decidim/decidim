@@ -405,25 +405,6 @@ sv:
         start_date: Startdatum
         target: Vilka deltar
         unspecified: Ej angivet
-      statistics:
-        answers_count: Svar
-        comments_count: Kommentarer
-        debates_count: Debatter
-        endorsements_count: Underskrifter
-        followers_count: Följare
-        headline: Statistik
-        meetings_count: Möten
-        no_stats: Det finns ingen statistik ännu.
-        orders_count: Stöd
-        pages_count: Sidor
-        participants_count: Deltagare
-        processes_count: Dialoger
-        projects_count: Projekt
-        proposals_count: Förslag
-        results_count: Resultat
-        supports_count: Stöd
-        surveys_count: Undersökningar
-        users_count: Deltagare
   layouts:
     decidim:
       participatory_process_groups:

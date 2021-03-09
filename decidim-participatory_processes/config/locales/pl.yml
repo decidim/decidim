@@ -19,7 +19,7 @@ pl:
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
         participatory_scope: Zaproponowano
-        participatory_structure: Jak się decyduje
+        participatory_structure: Jak decydowano
         promoted: Promowany
         published_at: Opublikowano
         related_process_ids: Powiązane procesy
@@ -34,10 +34,20 @@ pl:
         subtitle: Podtytuł
         target: Kto uczestniczy
         title: Tytuł
+        weight: Kolejność na stronie
       participatory_process_group:
         description: Opis
+        developer_group: Grupa inicjatorów
+        group_url: Strona internetowa
+        hashtag: Hashtag
         hero_image: Obraz
+        local_area: Obszar organizacji
+        meta_scope: Zakres metadanych
         participatory_process_ids: Powiązane procesy
+        participatory_scope: Zaproponowano
+        participatory_structure: Jak decydowano
+        target: Kto uczestniczy
+        title: Tytuł
       participatory_process_step:
         cta_path: Ścieżka przycisku CTA
         cta_text: Tekst przycisku CTA
@@ -99,6 +109,9 @@ pl:
         unpublish: Cofnij publikowanie
       menu:
         participatory_process_groups: Grupy procesu
+        participatory_process_groups_submenu:
+          info: Informacje
+          landing_page: Strona startowa
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Foldery
@@ -121,6 +134,8 @@ pl:
             title: Tytuł
           name: Proces partycypacyjny
         participatory_process_group:
+          fields:
+            title: Tytuł
           name: Grupa procesu
         participatory_process_step:
           fields:
@@ -148,6 +163,13 @@ pl:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikuj proces partycypacyjny
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Aktywne bloki treści
+          inactive_content_blocks: Nieaktywne bloki treści
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Aktualizuj
       participatory_process_groups:
         destroy:
           error: Wystąpił błąd podczas usuwania grupy procesu partycypacyjnego.
@@ -304,6 +326,31 @@ pl:
       show:
         related_assemblies: Powiązane zespoły
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Pierwszy blok HTML
+        html_2:
+          name: Drugi blok HTML
+        html_3:
+          name: Trzeci blok HTML
+        metadata:
+          developer_group: Promowany przez
+          name: Metadane
+          participatory_scope: Zaproponowano
+          participatory_structure: Jak decydowano
+          target: Kto uczestniczy
+        participatory_processes:
+          name: Procesy partycypacyjne
+        stats:
+          name: Statystyki
+        title:
+          meta_scope: Zakres
+          name: Tytuł, opis i hashtag
+          participatory_processes:
+            one: 1 proces
+            few: "%{count} procesy"
+            many: "%{count} procesów"
+            other: "%{count} procesy"
       show:
         title: Uczestniczące grupy procesów
     participatory_process_steps:
@@ -315,16 +362,24 @@ pl:
         content_blocks:
           highlighted_processes:
             max_results: Maksymalna ilość elementów do pokazania
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadane
+            title: Informacje ogólne
+            visibility: Widoczność
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptowane są: litery, cyfry, myślniki i ukośniki. Ścieżka musi zaczynać się od litery. Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany. Przykład: %{url}'
+            cta_path_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany. Przykład: %{url}'
             cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
@@ -338,7 +393,7 @@ pl:
             scope_type_max_depth_help: Ogranicz głębokość filtra zakresu; Filtr pokaże typy zakresu od ogólnego do wybranego.
             select_an_area: Wybierz kategorię
             select_process_group: Wybierz grupę procesów
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Informacje ogólne
             visbility: Widoczność
       content_blocks:
@@ -397,37 +452,19 @@ pl:
           loading: Ładowanie wyników...
       show:
         area: Obszar
+        belongs_to_group: Ten proces należy do
         dates: Daty
         developer_group: Grupa inicjatorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
         participatory_scope: Co zostało postanowione
-        participatory_structure: Jak się decyduje
+        participatory_structure: Jak decydowano
         private_space: To jest prywatny proces
         related_processes: Powiązane procesy
         scope: Zakres
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
         unspecified: Nieokreślony
-      statistics:
-        answers_count: Odpowiedzi
-        comments_count: Komentarze
-        debates_count: Debaty
-        endorsements_count: Rekomendacje
-        followers_count: Obserwujący
-        headline: Statystyki
-        meetings_count: Spotkania
-        no_stats: Nie ma jeszcze żadnych statystyk.
-        orders_count: Liczba głosów
-        pages_count: Strony
-        participants_count: Uczestnicy
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Propozycje
-        results_count: Wyniki
-        supports_count: Liczba podpisów
-        surveys_count: Ankiety
-        users_count: Uczestnicy
   layouts:
     decidim:
       participatory_process_groups:
@@ -454,6 +491,8 @@ pl:
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
           take_part_in: Dołącz do procesu %{resource_name}
+        promoted_process_group:
+          more_info: Więcej informacji
       process_header_steps:
         step: Etap %{current} z %{total}
         view_steps: Pokaż etapy

@@ -305,21 +305,6 @@ ru:
         scope: Охват
         social_networks: Социальные сети
         target: Кто участвует
-      statistics:
-        answers_count: Ответов
-        assemblies_count: Собраний
-        comments_count: Комментариев
-        debates_count: Обсуждений
-        endorsements_count: Выражений поддержки
-        meetings_count: Встреч
-        orders_count: Голосов
-        pages_count: Страниц
-        projects_count: Проектов
-        proposals_count: Предложений
-        results_count: Итогов
-        surveys_count: Опросов
-        users_count: Участников
-        votes_count: Голосов
     assembly_members:
       assembly_member:
         designated_on: 'Полномочия предоставлены:'

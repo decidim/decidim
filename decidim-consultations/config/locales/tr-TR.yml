@@ -323,10 +323,6 @@ tr:
           title: Danışma nedir?
     menu:
       consultations: İstişareler
-    pages:
-      home:
-        statistics:
-          consultations_count: İstişareler
     questions:
       next_button: Sonraki soru
       previous_button: Önceki soru

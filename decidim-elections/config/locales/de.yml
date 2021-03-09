@@ -252,7 +252,6 @@ de:
             trustees: Wahlhelfer
           tally_ended:
             submit: Resultate veröffentlichen
-            title: Resultate berechnet
           vote:
             errors:
               time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
@@ -334,30 +333,30 @@ de:
           filter_by: Filtern nach
           unfold: Aufklappen
         preview:
-          available_answers: Verfügbare Antworten
-          description: Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden
+          available_answers: 'Verfügbare Antworten:'
+          description: 'Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden:'
           title: Wahlfragen
         results:
-          description: Dies sind die Abstimmungsergebnisse für jede Frage
+          description: 'Dies sind die Abstimmungsergebnisse für jede Frage:'
           selected: Ausgewählt
           title: Wahlergebnisse
           votes:
             one: "%{count} Stimme"
             other: "%{count} Stimmen"
         show:
-          action-button:
-            change-vote: Stimme ändern
+          action_button:
+            change_vote: Stimme ändern
             vote: Jetzt abstimmen
-            vote-again: Erneut abstimmen
+            vote_again: Erneut abstimmen
           back: Verfügbare Wahlen
           callout:
-            already-voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
-            vote-rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
+            already_voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
+            vote_rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
           preview: Vorschau
           verify:
-            already-voted: Bereits abgestimmt?
-            verify-here: Stimme hier verifizieren.
-            will-verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
+            already_voted: Bereits abgestimmt?
+            verify_here: Stimme hier verifizieren.
+            will_verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
             ongoing: 'Abstimmung aktiv bis: %{end_time}'
@@ -533,9 +532,6 @@ de:
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
-        processing:
-          header: Stimme wird verarbeitet...
-          text: Ihre Stimme wurde empfangen und wird verarbeitet. Bitte warten.
         update:
           error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
           success: Abstimmung erfolgreich aktualisiert
@@ -585,6 +581,13 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie für die %{resource_name} -Wahl gestimmt haben.
             email_subject: Deine Stimme für %{resource_name} wurde angenommen.
             notification_title: 'Deine Stimme wurde akzeptiert. Verifiziere deine Stimme <a href="%{verify_url}">hier</a> mit deinem Voting-Token: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Ihnen wurde die Rolle %{role} im Wahllokal %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a> zugewiesen. Sie können das Wahllokal im dazu vorgesehenen <a href="%{polling_officer_zone_url}">Bereich</a> verwalten.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihnen die Rolle %{role} in %{polling_station_name} zugewiesen wurde.
+            email_subject: Sie haben die Rolle %{role} im Wahllokal %{polling_station_name}.
+            notification_title: Sie haben die Rolle %{role} im Wahllokal %{polling_station_name} der Abstimmung <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
@@ -593,13 +596,9 @@ de:
           title: Was sind Abstimmungen?
     menu:
       votings: Abstimmungen
-    pages:
-      home:
-        statistics:
-          elections_count: Wahlen
-    participatory_processes:
-      statistics:
-        elections_count: Wahlen
+    statistics:
+      elections_count: Wahlen
+      votings_count: Abstimmungen
     votings:
       admin:
         content_blocks:
@@ -783,6 +782,17 @@ de:
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
+        landing_page:
+          description:
+            show_less: Weniger anzeigen
+            show_more: Mehr anzeigen
+          metrics:
+            heading: Metriken
+          polling_stations:
+            heading: Wahllokale
+            no_polling_stations: Es gibt noch keine Wahllokale.
+          timeline:
+            heading: Zeitachse
       monitoring_committee_members:
         actions:
           confirm_destroy: Sind Sie sicher?
@@ -795,12 +805,34 @@ de:
             active_votings: Aktive Abstimmungen
             see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
+      polling_officer_zone:
+        menu:
+          polling_officer_zone: Wahllokal-Mitarbeiter-Bereich
+        polling_officers:
+          show:
+            actions:
+              count_votes: Stimmen in der Wahlurne zählen
+              identify_person: Eine Person identifizieren und verifizieren
+            polling_officer_role_description: Ihnen wurde eine Rolle als Wahlhelfer (Präsident oder Manager) in Wahlen dieser Plattform zugewiesen.
+            polling_stations:
+              list:
+                actions: Aktionen
+                address: Adresse
+                name: Name
+                role: Ihre Rolle
+                voting: Abstimmung
+              no_polling_stations: Sie sind noch zu keinem Wahllokal zugewiesen.
+              title: Wahllokale
       polling_officers:
         actions:
           confirm_destroy: Sind Sie sicher?
           destroy: Entfernen
           new: Neu
           title: Aktionen
+        roles:
+          manager: Manager
+          president: Präsident
+          unassigned: Nicht zugewiesen
       polling_stations:
         actions:
           confirm_destroy: Sind Sie sicher?
@@ -854,6 +886,8 @@ de:
     decidim:
       election_votes_header:
         exit: Beenden
+      voting_navigation:
+        voting_menu_item: Die Abstimmung
       votings:
         index:
           promoted_votings: Hervorgehobene Abstimmungen

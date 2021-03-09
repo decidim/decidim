@@ -324,10 +324,6 @@ fi-pl:
           title: Mitä ovat kuulemiset?
     menu:
       consultations: Kuulemiset
-    pages:
-      home:
-        statistics:
-          consultations_count: Kuulemiset
     questions:
       next_button: Seuraava kysymys
       previous_button: Edellinen kysymys

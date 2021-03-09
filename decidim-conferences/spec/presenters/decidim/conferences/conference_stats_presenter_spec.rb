@@ -36,7 +36,7 @@ module Decidim
 
     describe "#highlighted" do
       it "renders a collection of stats including users and proceses" do
-        expect(subject.highlighted).to include("10 Foo")
+        expect(subject.highlighted).to include({ stat_number: 10, stat_title: :foo })
       end
     end
   end

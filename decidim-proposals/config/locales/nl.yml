@@ -118,6 +118,10 @@ nl:
             participatory_texts_enabled_readonly: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
+            proposal_edit_time: Voorstel bewerken
+            proposal_edit_time_choices:
+              infinite: Voorstellen onbeperkt in tijd laten bewerken
+              limited: Voorstellen laten bewerken binnen een bepaalde termijn
             proposal_length: Maximum aantal tekens voor een voorstel
             proposal_limit: Beperking van het aantal voorstellen per gebruiker
             proposal_wizard_step_1_help_text: Helptekst "Maak" bij het maken van een nieuw voorstel
