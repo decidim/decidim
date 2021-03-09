@@ -99,7 +99,7 @@ module Decidim
       extra_items = items.slice((max_items + 1)..-1) || []
       active_item = items.find { |item| item[:active] }
 
-      render partial: "decidim/shared/extended_navigation_bar.html", locals: {
+      render partial: "decidim/shared/extended_navigation_bar", locals: {
         items: items,
         extra_items: extra_items,
         active_item: active_item,
