@@ -19,7 +19,7 @@ module Decidim
     context "when passing an empty string" do
       let(:announcement) { "" }
 
-      it "renders the card" do
+      it "does not render the card" do
         html = cell("decidim/announcement", announcement).call
         expect(html).to render_nothing
       end
@@ -28,7 +28,7 @@ module Decidim
     context "when passing an empty translations hash" do
       let(:announcement) { { en: "" } }
 
-      it "renders the card" do
+      it "does not render the card" do
         html = cell("decidim/announcement", announcement).call
         expect(html).to render_nothing
       end
