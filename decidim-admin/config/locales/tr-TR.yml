@@ -24,7 +24,6 @@ tr:
       component:
         name: isim
         published_at: Yayınlandı
-        weight: Ağırlık
       id: İD
       newsletter:
         body: Vücut
@@ -100,12 +99,10 @@ tr:
         show_in_footer: Altbilgiyi göster
         slug: URL sümüklü böcek
         title: Başlık
-        weight: Ağırlık
       static_page_topic:
         description: Açıklama
         show_in_footer: Altbilgiyi göster
         title: Başlık
-        weight: Ağırlık
       user_group_csv_verification:
         file: Dosya
     errors:
