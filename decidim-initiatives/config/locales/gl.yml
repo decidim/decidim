@@ -53,6 +53,8 @@ gl:
       actions:
         new_initiative_type: Novo tipo de iniciativa
       menu:
+        components: Compoñentes
+        information: Información
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
       models:
@@ -398,12 +400,6 @@ gl:
           vote: Vota
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Anexos
-          committee_members: Membros do comité
-          components: Compoñentes
-          information: Información
       initiative_creation_header:
         back: De volta
         fill_data: Crear

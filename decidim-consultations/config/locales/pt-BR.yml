@@ -95,6 +95,8 @@ pt:
           info: Em formação
           questions: Questões
         questions_submenu:
+          attachments: Anexos
+          categories: Categorias
           components: Componentes
           consultation: Consulta
           info: Em formação
@@ -276,10 +278,6 @@ pt:
         title: 'Consulta: confirme o suporte'
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Anexos
-          categories: Categorias
       consultation_voting_data:
         start_voting_date: A votação começa
       question_components:

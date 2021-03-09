@@ -621,6 +621,9 @@ fi-pl:
           title: Mitä ovat äänestykset?
     menu:
       votings: Äänestykset
+    statistics:
+      elections_count: Vaalia
+      votings_count: Äänestystä
     votings:
       admin:
         content_blocks:

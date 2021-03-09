@@ -289,7 +289,7 @@ cs:
           error: Při vytváření této komponenty došlo k chybě.
           success: Komponenta byla úspěšně vytvořena.
         destroy:
-          error: Došlo k chybě při poškození této komponenty.
+          error: Došlo k chybě při mazání této komponenty.
           success: Komponenta byla úspěšně smazána.
         edit:
           title: Upravit komponentu
@@ -378,7 +378,7 @@ cs:
         file_help:
           import:
             explanation: 'Pokyny pro soubor:'
-            message_1: CSV, JSON a Excel (.xls) jsou podporovány
+            message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
             message_2: Pro CSV soubory musí být oddělovač mezi sloupci středníkem (";")
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě
@@ -430,7 +430,7 @@ cs:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
+            xlsx: xlsx
           actions:
             back: Zpět
           file_legend: Přidat importovaný soubor, který bude analyzován.

@@ -378,7 +378,7 @@ fi-pl:
         file_help:
           import:
             explanation: 'Tiedoston ohjeistus:'
-            message_1: CSV-, JSON- ja Excel-tiedostoja (.xls) tuetaan
+            message_1: CSV-, JSON- ja Excel-tiedostoja (.xlsx) tuetaan
             message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
       help_sections:
         error: Ohjeosioiden päivittämisessä tapahtui virhe
@@ -430,7 +430,7 @@ fi-pl:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
+            xlsx: xlsx
           actions:
             back: Takaisin
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.

@@ -1,11 +1,13 @@
 ro:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Activeaza graficul organizatiei
       assembly:
-        area_id: Suprafață
-        assembly_type: Tip adunare
-        assembly_type_other: Tip de adunare
-        banner_image: Imagine banner
+        area_id: Zonă
+        assembly_type: Tip organizație
+        assembly_type_other: Alt tip de organizație
+        banner_image: Imagine pentru banner
         closing_date: Data închiderii
         closing_date_reason: Motivul datei de închidere
         composition: Componență
@@ -16,8 +18,8 @@ ro:
         created_by_other: Creat de alte
         creation_date: Data creării
         decidim_area_id: Suprafață
-        decidim_assemblies_type_id: Tip adunare
-        decidim_scope_id: Domeniu
+        decidim_assemblies_type_id: Tip organizație
+        decidim_scope_id: Domeniu de aplicare
         description: Descriere
         developer_group: Grup promotor
         domain: Domeniu
@@ -25,24 +27,47 @@ ro:
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Imagine acasă
+        hero_image: Imagine pagina principala
         included_at: Inclus la
         instagram: Instagram
         internal_organisation: Organizare internă
         is_transparent: Este transparent
         local_area: Zonă organizație
         meta_scope: Sferă metadate
-        parent_id: Asociere părinte
+        parent_id: Organizație părinte
         participatory_processes_ids: Procese participative conexe
+        participatory_scope: Ce se decide
+        participatory_structure: Cum se decide
+        private_space: Spațiu privat
+        promoted: Evidenţiat
+        published_at: Publicat la
+        purpose_of_action: Scopul acțiunii
+        scope_id: Domeniu de aplicare
+        scopes_enabled: Domenii activate
+        short_description: Descriere scurtă
+        show_statistics: Arată statistici
+        slug: Adresă URL
+        special_features: Caracteristici speciale
+        subtitle: Subtitlu
+        target: Cine participă
         title: Titlu
         twitter: Twitter
+        weight: Pondere
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
+        birthplace: Locul nașterii
         ceased_date: Data încetării
+        designation_date: Data desemnării
+        designation_mode: Modul de desemnare
+        full_name: Numele complet
         gender: Sexul
+        position: Poziție
+        user_id: Utilizator
       assembly_user_role:
         email: E-mail
+        name: Nume
+        role: Rol
     errors:
       models:
         assembly:
@@ -51,20 +76,28 @@ ro:
               invalid_document_type: 'Tip de document invalid. Formatele acceptate sunt: %{valid_mime_types}'
   activerecord:
     models:
+      decidim/assembly:
+        one: Organizație
+        few: Organizații
+        other: Organizații
+      decidim/assembly_member:
+        one: Membru al organizației
+        few: Membru al organizației
+        other: Membrii organizație
       decidim/assembly_user_role:
-        one: Asamblare rol utilizator
+        one: Rolul utilizatorului în cadrul organizației
         few: Adunați rolurile utilizatorilor
-        other: Adunați rolurile utilizatorilor
+        other: Rolurile utilizatorului în cadrul organizației
   decidim:
     admin:
       actions:
         import_assembly: Importă
-        new_assembly: Adunare nouă
-        new_assembly_type: Tip nou de asamblare
+        new_assembly: Organizație nouă
+        new_assembly_type: Tip nou de organizație
       assemblies:
         create:
-          error: A apărut o problemă la crearea unei noi adunări.
-          success: Adunarea a fost creata.
+          error: A apărut o problemă la crearea unei noi organizații.
+          success: Organizația a fost creata.
         edit:
           update: Actualizare
         index:
@@ -74,99 +107,98 @@ ro:
           published: Publicat
         new:
           create: Crează
-          title: Adunare nouă
+          title: Organizație nouă
         update:
-          error: A apărut o eroare la actualizarea acestei adunări.
-          success: Adunarea a fost actualizată.
+          error: A apărut o eroare la actualizarea acestei organizații.
+          success: Organizația a fost actualizată.
       assemblies_copies:
         create:
-          error: A apărut o problemă la duplicarea acestei adunări.
-          success: Adunarea a fost duplicată.
+          error: A apărut o problemă la duplicarea acestei organizații.
+          success: Organizația a fost duplicată.
       assemblies_settings:
         update:
           error: A apărut o eroare la actualizarea setărilor.
           success: Setări actualizate cu succes.
       assemblies_types:
         create:
-          error: A apărut o problemă la crearea unui nou tip de asamblare.
-          success: Tipul de adunare a fost creat.
+          error: A apărut o problemă la crearea unui nou tip de organizație.
+          success: Tipul de organizație a fost creat.
         destroy:
-          success: Tipul de adunare a fost șters.
+          success: Tipul de organizație a fost șters.
         new:
           create: Crează
-          title: Tip nou de asamblare
+          title: Tip nou de organizație
         update:
-          error: A apărut o eroare la actualizarea acestui tip de asamblare.
-          success: Tip de adunare actualizat cu succes.
+          error: A apărut o eroare la actualizarea acestui tip de organizație.
+          success: Tip de organizație actualizat cu succes.
       assembly_copies:
         new:
           copy: Copiază
           select: Selectați datele pe care doriți să le duplicați
-          title: Duplică asamblarea
+          title: Duplică organizația
       assembly_imports:
         create:
-          error: A apărut o problemă la importul acestui asamblare.
-          success: Adunarea a fost importată.
+          error: A apărut o problemă la importul acestui organizații.
+          success: Organizația a fost importată.
         new:
           import: Importă
           select: Selectați ce date doriți să importați
-          title: Importă asamblare
+          title: Importă organizație
       assembly_members:
         create:
-          error: A apărut o problemă la adăugarea unui membru pentru această adunare.
-          success: Membru creat cu succes pentru această adunare.
+          error: A apărut o problemă la adăugarea unui membru pentru această organizație.
+          success: Membru creat cu succes pentru această organizație.
         destroy:
-          success: Membru şters cu succes pentru această adunare.
+          success: Membru şters cu succes pentru această organizație.
         edit:
-          title: Actualizează membrul adunării.
+          title: Actualizează membrul organizației.
           update: Actualizare
         index:
-          assembly_members_title: Membrii Adunării
+          assembly_members_title: Membrii organizației
         new:
           create: Crează
-          title: Membru nou al adunării.
+          title: Membru nou al organizației.
         update:
-          error: A apărut o eroare la actualizarea membrului pentru această adunare.
-          success: Membrul a fost actualizat pentru această adunare.
+          error: A apărut o eroare la actualizarea membrului pentru această organizație.
+          success: Membrul a fost actualizat pentru această organizație.
       assembly_publications:
         create:
-          error: A apărut o problemă la publicarea acestei adunări.
-          success: Adunarea a fost publicată.
+          error: A apărut o problemă la publicarea acestei organizații.
+          success: Organizația a fost publicată.
         destroy:
-          error: A apărut o problemă la publicarea acestei adunări.
-          success: Adunarea a fost de-publicată.
+          error: A apărut o problemă la publicarea acestei organizații.
+          success: Organizația a fost de-publicată.
       assembly_user_roles:
         create:
-          error: A apărut o eroare la adăugarea unui administrator pentru această adunare.
-          success: Administratorul a fost adăugat la această asamblare.
+          error: A apărut o eroare la adăugarea unui administrator pentru această organizație.
+          success: Administratorul a fost adăugat la această organizație.
         destroy:
-          success: Administratorul a fost șters de la această asamblare.
+          success: Administratorul a fost șters de la această organizație.
         edit:
-          title: Actualizare administrator asamblare
+          title: Actualizare administrator organizație.
           update: Actualizare
         index:
-          assembly_admins_title: Administratori de adunare
+          assembly_admins_title: Administratori de organizație
         new:
           create: Crează
-          title: Noul administrator al adunării
+          title: Noul administrator al organizației.
         update:
-          error: A apărut o eroare la actualizarea unui administrator pentru această adunare.
-          success: Admin actualizat cu succes pentru această asamblare.
+          error: A apărut o eroare la actualizarea unui administrator pentru această organizație.
+          success: Administratorul a fost actualizat pentru această organizație.
       menu:
-        assemblies: Adunări
+        assemblies: Organizații
         assemblies_settings: Setări
         assemblies_submenu:
-          assembly_admins: Administratori de adunare
+          assembly_admins: Administratori de organizație
           assembly_members: Membri
           attachment_collections: Dosare
           attachment_files: Fișiere
-          attachments: Atașamente
           categories: Categorii
           components: Componente
-          info: Info
+          info: Informații
           moderations: Moderatii
           private_users: Utilizatori privați
-        assemblies_types: Tipuri de adunări
+        assemblies_types: Tipuri de organizații
       models:
         assemblies_types:
           fields:
@@ -176,13 +208,13 @@ ro:
           fields:
             created_at: Creat la
             private: Privat
-            promoted: Evident
+            promoted: Evidenţiat
             published: Publicat
             title: Titlu
-          name: Adunare
+          name: Organizație
         assembly_member:
           fields:
-            ceased_date: Data opririi
+            ceased_date: Data încetării
             designation_date: Data desemnării
             full_name: Nume
             position: Poziție
@@ -220,6 +252,7 @@ ro:
         update: "%{user_name} a actualizat setările de asamblare"
       assembly_type:
         create: "%{user_name} a creat %{resource_name} tip de asamblare"
+        delete: "%{user_name} a creat tipul de organizație %{resource_name}"
         publish: "%{user_name} a publicat %{resource_name} tip de asamblare"
         unpublish: "%{user_name} nu a publicat %{resource_name} tip de asamblare"
         update: "%{user_name} a actualizat tipul de asamblare %{resource_name}"
@@ -271,8 +304,8 @@ ro:
           index:
             filter:
               all: Toate
-              ceased: Destinat
-              not_ceased: Nu a încetat
+              ceased: Sistat
+              not_ceased: Nesistat
             filter_by: Filtrare după
             search: Caută
         content_blocks:
@@ -286,7 +319,7 @@ ro:
           members: Membri
       assembly_types:
         commission: Comision
-        consultative_advisory: Consultativă/Consultativă
+        consultative_advisory: Consultativă
         executive: Executiv
         government: Guvernul
         others: Altele
@@ -294,15 +327,15 @@ ro:
         working_group: Grupul de lucru
       content_blocks:
         highlighted_assemblies:
-          name: ansambluri evidențiate
+          name: Organizații evidențiate
       created_by:
-        city_council: Consiliul municipal
+        city_council: Consiliul Local
         others: Altele
-        public: Publice
+        public: Public
       filter:
         all: Toate tipurile
         commission: Comision
-        consultative_advisory: Consultativă/Consultativă
+        consultative_advisory: Consultativă
         executive: Executiv
         government: Guvernul
         help: 'Arată:'
@@ -310,22 +343,22 @@ ro:
         participatory: Participant
         working_group: Grupul de lucru
       index:
-        title: Adunări
+        title: Organizații
       last_activity:
-        new_assembly: Adunare nouă
+        new_assembly: Organizație nouă
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Asamblări active
-            assemblies_button_title: Link către pagina de Assemblies care afișează toate ansamblurile
-            see_all_assemblies: Vezi toate ansamblurile
+            active_assemblies: Organizații active
+            assemblies_button_title: Link către pagina de Organizații care afișează toate organizațiile
+            see_all_assemblies: Vezi toate organizațiile
         user_profile:
           member_of:
             member_of: Membru al
       show:
-        area: Suprafață
-        assembly_type: Tip adunare
-        children: Adunări
+        area: Zonă
+        assembly_type: Tip organizație
+        children: Organizații
         closing_date: Data închiderii
         composition: Componență
         created_by: Creat de
@@ -341,18 +374,18 @@ ro:
         local_area: Zonă organizație
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
-        private_space: Aceasta este o adunare privată
+        private_space: Aceasta este o organizație privată
         purpose_of_action: Scopul acțiunii
         read_less: Citește mai puțin
         read_more: Citește mai mult
         related_participatory_processes: Procese participative conexe
-        scope: Domeniu
+        scope: Domeniu de aplicare
         social_networks: Rețele sociale
-        social_networks_title: Împărtășește această adunare pe
+        social_networks_title: Distribuie această organizație pe
         target: Cine participă
     assembly_members:
       assembly_member:
-        designated_on: Designat pe
+        designated_on: Desemnat la
       index:
         title: Membri
     conferences:
@@ -363,46 +396,50 @@ ro:
     events:
       assemblies:
         create_assembly_member:
-          email_intro: Un administrator al adunării <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
-          email_outro: Ați primit această notificare deoarece ați fost invitat la o adunare. Verificați <a href="%{resource_path}">pagina de asamblare</a> pentru a colabora!
-          email_subject: Ai fost invitat să fii membru al adunării %{resource_name}!
-          notification_title: Ați fost înregistrat ca membru al Adunării <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">de asamblare</a> pentru a adăuga!
+          email_intro: Un administrator al organizației <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
+          email_outro: Ați primit această notificare deoarece ați fost invitat la o organizație. Verificați <a href="%{resource_path}">pagina organizației</a> pentru a colabora!
+          email_subject: Ai fost invitat să fii membru al organizației %{resource_name}!
+          notification_title: Ați fost înregistrat ca membru al Organizației <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">organizației</a> pentru a accepta!
       assembly:
         role_assigned:
-          email_intro: Ai fost atribuit ca %{role} pentru asamblare "%{resource_title}".
-          email_outro: Ați primit această notificare deoarece sunteți %{role} din "" asamblare%{resource_title}".
-          email_subject: Ai fost atribuit ca %{role} pentru "%{resource_title}".
-          notification_title: Ai fost atribuit ca %{role} pentru asamblare <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Ai fost numit %{role} pentru organizația "%{resource_title}".
+          email_outro: Ați primit această notificare deoarece sunteți %{role} al organizației "%{resource_title}".
+          email_subject: Ai fost numit ca %{role} pentru "%{resource_title}".
+          notification_title: Ați fost numit %{role} pentru organizația <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>O <strong>adunare</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Adunările țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
-          page: "<p>O <strong>adunare</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Adunările țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
-          title: Ce sunt ansamblurile?
+          contextual: "<p>O <strong>organizație</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Organizațiile țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
+          page: "<p>O <strong>organizație</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Organizațiile țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
+          title: Ce sunt organizațiile?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Adunarea nu a fost găsită în baza de date (ID: %{id})'
+          not_found: 'Organizația nu a fost găsită în baza de date (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'Tipul de asamblare nu a fost găsit în baza de date (ID: %{id})'
+          not_found: 'Tipul de organizație nu a fost găsit în baza de date (ID: %{id})'
     menu:
-      assemblies: Adunări
+      assemblies: Organizații
     metrics:
       assemblies:
-        description: Numărul de ansambluri create
-        object: ansambluri
-        title: Adunări
+        description: Numărul de organizații create
+        object: organizații
+        title: Organizații
     pages:
       home:
         hero:
           participate_title: Participă la procesele platformei
+        sub_hero:
+          register_title: Înregistrează-te pentru a crea un cont
     participatory_processes:
       pages:
         home:
           highlighted_processes:
             processes_button_title: Link către pagina Proceselor care afișează toate procesele
       show:
-        related_assemblies: Asambluri asemănătoare
+        related_assemblies: Organizații asemănătoare
+    statistics:
+      assemblies_count: Organizații
   errors:
     messages:
       cannot_be_blank: nu poate fi necompletat
@@ -413,21 +450,21 @@ ro:
           more_info: Mai multe informații
           take_part: Participă
         index:
-          children: 'Adunări: '
+          children: 'Organizații: '
           organizational_chart: Grafic organizațional
-          promoted_assemblies: ansambluri evidențiate
-          reset_chart: Reset
+          promoted_assemblies: Organizații evidențiate
+          reset_chart: Resetare
         order_by_assemblies:
           assemblies:
             one: "%{count} ansambluri"
             few: "%{count} ansambluri"
-            other: "%{count} ansambluri"
+            other: "%{count} organizații"
         promoted_assembly:
           more_info: Mai multe informații
           take_part: Participă
       assembly_navigation:
         assembly_member_menu_item: Membri
-        assembly_menu_item: Adunarea
+        assembly_menu_item: Organizația
       assembly_widgets:
         show:
           take_part: Participă

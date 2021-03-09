@@ -128,6 +128,8 @@ pl:
           questions: Pytania
           results: Wyniki
         questions_submenu:
+          attachments: Załączniki
+          categories: Kategorie
           components: Komponenty
           configuration: Konfiguracja
           consultation: Konsultacja
@@ -380,10 +382,6 @@ pl:
           vote: Głosuj
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Załączniki
-          categories: Kategorie
       consultation_voting_data:
         start_voting_date: Głosowanie rozpoczyna się
       question_components:

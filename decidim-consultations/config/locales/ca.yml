@@ -120,6 +120,8 @@ ca:
           questions: Preguntes
           results: Resultats
         questions_submenu:
+          attachments: Adjunts
+          categories: Categories
           components: Components
           configuration: Configuració
           consultation: Consulta
@@ -360,10 +362,6 @@ ca:
           vote: Vota
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Adjunts
-          categories: Categories
       consultation_voting_data:
         start_voting_date: Comença la votació
       question_components:

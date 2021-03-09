@@ -82,6 +82,8 @@ sv:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
       menu:
+        components: Komponenter
+        information: Information
         initiatives: Initiativ
         initiatives_types: Initiativtyper
       models:
@@ -480,12 +482,6 @@ sv:
           vote: Underteckna
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Bilagor
-          committee_members: Kommittémedlemmar
-          components: Komponenter
-          information: Information
       initiative_creation_header:
         back: Tillbaka
         fill_data: Skapa

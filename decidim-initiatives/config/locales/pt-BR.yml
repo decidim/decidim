@@ -53,6 +53,8 @@ pt:
       actions:
         new_initiative_type: Novo tipo de iniciativa
       menu:
+        components: Componentes
+        information: Em formação
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
       models:
@@ -398,12 +400,6 @@ pt:
           vote: Voto
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Anexos
-          committee_members: membros do Comitê
-          components: Componentes
-          information: Em formação
       initiative_creation_header:
         back: De volta
         fill_data: Criar

@@ -82,6 +82,8 @@ ja:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       menu:
+        components: コンポーネント
+        information: 情報
         initiatives: イニシアチブ
         initiatives_types: 取り組み種別
       models:
@@ -479,12 +481,6 @@ ja:
           vote: サイン
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: 添付ファイル
-          committee_members: 委員会メンバー
-          components: コンポーネント
-          information: 情報
       initiative_creation_header:
         back: 戻る
         fill_data: 作成
