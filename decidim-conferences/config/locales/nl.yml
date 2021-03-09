@@ -533,6 +533,8 @@ nl:
         title: Media en links
     menu:
       conferences: Conferenties
+    statistics:
+      conferences_count: Conferenties
   devise:
     mailer:
       join_conference:

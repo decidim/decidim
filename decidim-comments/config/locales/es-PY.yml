@@ -109,7 +109,7 @@ es-PY:
           email_subject: Su comentario en "%{resource_title}" ha sido votado negativamente.
           notification_title: Tu <a href="%{resource_path}">comentario</a> en "%{resource_title}" ha sido votado negativamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
         comment_upvoted:
-          email_intro: Tu comentario en "%{resource_title}" ha sido votado. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
+          email_intro: Tu comentario en "%{resource_title}" ha sido votado postivamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
           email_outro: Has recibido esta notificación porque eres la autora de este comentario.
           email_subject: Tu comentario en "%{resource_title}" ha sido votado positivamente.
           notification_title: Tu <a href="%{resource_path}">comentario</a> en "%{resource_title}" ha sido votado positivamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.

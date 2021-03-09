@@ -1263,6 +1263,7 @@ es-MX:
         share_link: Compartir enlace
     statistics:
       comments_count: Comentarios
+      headline: Estadísticas
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'

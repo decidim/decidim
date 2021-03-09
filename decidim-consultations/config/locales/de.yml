@@ -120,6 +120,8 @@ de:
           questions: Fragen
           results: Ergebnisse
         questions_submenu:
+          attachments: Anhänge
+          categories: Kategorien
           components: Komponenten
           configuration: Konfiguration
           consultation: Beratung
@@ -363,10 +365,6 @@ de:
       votes_count: Stimmen
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Anhänge
-          categories: Kategorien
       consultation_voting_data:
         start_voting_date: Die Abstimmung beginnt
       question_components:

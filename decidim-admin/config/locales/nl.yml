@@ -357,7 +357,6 @@ nl:
         file_help:
           import:
             explanation: 'Eigenschappen bestand:'
-            message_1: CSV, JSON en Excel (.xls) bestanden worden ondersteund
             message_2: Voor CSV-bestanden moet het scheidingsteken tussen kolommen een puntkomma (";") zijn
       help_sections:
         error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
@@ -409,7 +408,6 @@ nl:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
           actions:
             back: Terug
           file_legend: Een importbestand toevoegen dat zal worden verwerkt.

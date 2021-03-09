@@ -190,7 +190,6 @@ nl:
           assembly_members: Leden
           attachment_collections: Mappen
           attachment_files: Bestanden
-          attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
           info: Info
@@ -436,6 +435,8 @@ nl:
             processes_button_title: Link naar de pagina Processen die alle processen weergeeft
       show:
         related_assemblies: Verwante assemblies
+    statistics:
+      assemblies_count: Groepen
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn

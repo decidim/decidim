@@ -1,5 +1,5 @@
 <% content_for :sidebar_menu_nav do %>
-  <%= organization_settings_menu.render(title: t(".title") ) %>
+  <%= sidebar_menu(:admin_settings_menu).render(title: t(".title") ) %>
 <% end %>
 <%= render "layouts/decidim/admin/application" do %>
   <%= yield %>

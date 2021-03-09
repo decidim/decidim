@@ -234,3 +234,5 @@ fi:
         description: Keskustelujen määrä
         object: keskustelut
         title: Keskustelut
+    statistics:
+      debates_count: Keskustelua

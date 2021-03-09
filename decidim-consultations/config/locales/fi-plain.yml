@@ -120,6 +120,8 @@ fi-pl:
           questions: Kysymykset
           results: Tulokset
         questions_submenu:
+          attachments: Liitteet
+          categories: Ryhmät
           components: Komponentit
           configuration: Asetukset
           consultation: Kuuleminen
@@ -358,12 +360,11 @@ fi-pl:
       consultations:
         actions:
           vote: Äänestä
+    statistics:
+      consultations_count: Kuulemista
+      votes_count: Ääntä
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Liitteet
-          categories: Ryhmät
       consultation_voting_data:
         start_voting_date: Äänestys alkaa
       question_components:

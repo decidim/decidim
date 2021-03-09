@@ -525,6 +525,8 @@ nl:
       proposals_from_meeting:
         meeting_proposal: 'Gerelateerde voorstellen:'
         proposal_meeting: 'Gerelateerde vergaderingen:'
+    statistics:
+      meetings_count: Vergaderingen
   devise:
     mailer:
       join_meeting:

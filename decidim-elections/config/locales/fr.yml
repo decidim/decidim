@@ -578,7 +578,7 @@ fr:
             title: Modifier le bureau de vote
             update: Mettre à jour le bureau de vote
           form:
-            address_help: 'Adresse: utilisée par l''outil de géocadage pour trouver l''emplacement'
+            address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
             location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
             location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple : l''étage du bâtiment où se trouve le bureau de vote.'
           index:

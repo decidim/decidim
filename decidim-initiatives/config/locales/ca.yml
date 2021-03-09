@@ -85,6 +85,8 @@ ca:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
       menu:
+        components: Components
+        information: Informació
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
       models:
@@ -580,12 +582,6 @@ ca:
           vote: Signar
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Adjunts
-          committee_members: Membres del comitè
-          components: Components
-          information: Informació
       initiative_creation_header:
         back: Tornar
         fill_data: Crear

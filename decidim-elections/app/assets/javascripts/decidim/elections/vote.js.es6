@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 // = require decidim/bulletin_board/decidim-bulletin_board
 // = require decidim/bulletin_board/dummy-voting-scheme
+// = require decidim/bulletin_board/election_guard-voting-scheme
 
 // = require ./vote_questions.component
 
@@ -8,6 +9,7 @@ $(async () => {
   const { VoteQuestionsComponent } = window.Decidim;
   const { VoteComponent } = window.decidimBulletinBoard;
   const { VoterWrapperAdapter: DummyVoterWrapperAdapter } = window.dummyVotingScheme;
+  const { VoterWrapperAdapter: ElectionGuardVoterWrapperAdapter } = window.electionGuardVotingScheme;
 
   // UI Elements
   const $voteWrapper = $(".vote-wrapper");
@@ -39,6 +41,11 @@ $(async () => {
     voterWrapperAdapter = new DummyVoterWrapperAdapter({
       voterId: voterUniqueId
     });
+  } else if (schemeName === "election_guard") {
+    voterWrapperAdapter = new ElectionGuardVoterWrapperAdapter({
+      voterId: voterUniqueId,
+      workerUrl: "/assets/election_guard/webworker.js"
+    });
   } else {
     throw new Error(`Voting scheme ${schemeName} not supported.`);
   }
@@ -53,7 +60,6 @@ $(async () => {
   });
 
   await voteComponent.bindEvents({
-    onSetup() {},
     onBindEncryptButton(onEventTriggered) {
       $(".button.confirm").on("click", onEventTriggered);
     },

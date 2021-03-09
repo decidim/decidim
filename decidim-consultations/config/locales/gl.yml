@@ -95,6 +95,8 @@ gl:
           info: Información
           questions: Preguntas
         questions_submenu:
+          attachments: Anexos
+          categories: Categorías
           components: Compoñentes
           consultation: Consulta
           info: Información
@@ -276,10 +278,6 @@ gl:
         title: 'Consulta: confirma o soporte'
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Anexos
-          categories: Categorías
       consultation_voting_data:
         start_voting_date: Comeza a votación
       question_components:
