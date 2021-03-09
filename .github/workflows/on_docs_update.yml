@@ -10,7 +10,7 @@ jobs:
   trigger_documentation_build:
     name: Trigger decidim/documentation build
     runs-on: ubuntu-latest
-     timeout-minutes: 60
+    timeout-minutes: 60
     steps:
     - name: Send dispatch for trigger_build workflow
       run: |
