@@ -205,7 +205,6 @@ pt:
             price: Preço
             registrations_count: Contagem de registros
             title: Título
-            weight: Peso
           name: Tipo de Registro
       partners:
         create:
