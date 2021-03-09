@@ -23,7 +23,6 @@ lv:
       component:
         name: Nosaukums
         published_at: Publicēts plkst.
-        weight: Svarīgums
       newsletter:
         body: Pamatteksts
         subject: Temats
@@ -88,12 +87,10 @@ lv:
         show_in_footer: Rādīt kājenē
         slug: URL sadaļas adrese (slug)
         title: Nosaukums
-        weight: Svarīgums
       static_page_topic:
         description: Apraksts
         show_in_footer: Rādīt kājenē
         title: Nosaukums
-        weight: Svarīgums
       user_group_csv_verification:
         file: Fails
     errors:
