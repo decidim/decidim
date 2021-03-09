@@ -217,7 +217,6 @@ ar:
             price: السعر
             registrations_count: عدد التسجيلات
             title: عنوان
-            weight: وزن
           name: نوع التسجيل
       partners:
         create:
