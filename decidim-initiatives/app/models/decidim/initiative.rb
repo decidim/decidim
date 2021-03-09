@@ -64,9 +64,8 @@ module Decidim
     validates :title, :description, :state, presence: true
     validates :signature_type, presence: true
     validates :hashtag,
-              uniqueness: true,
-              allow_blank: true,
-              case_sensitive: false
+              uniqueness: { allow_blank: true, case_sensitive: false }
+
     validate :signature_type_allowed
 
     scope :open, lambda {

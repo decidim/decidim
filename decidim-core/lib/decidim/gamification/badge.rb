@@ -27,7 +27,7 @@ module Decidim
       attribute :reset, Proc
 
       validates :name, :levels, presence: true
-      validates :levels, empty: false
+      # validates :levels, empty: false
 
       validate do
         errors.add(:levels, "level thresholds should be ordered") if levels.sort != levels
