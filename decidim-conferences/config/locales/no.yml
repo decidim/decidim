@@ -206,7 +206,6 @@
             price: Pris
             registrations_count: Registrerings teller
             title: Tittel
-            weight: Vekt
           name: Registreringstype
       partners:
         create:
