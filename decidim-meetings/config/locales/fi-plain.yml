@@ -347,6 +347,7 @@ fi-pl:
             space_type: Osallisuustila
             upcoming: Tulevat
       last_activity:
+        meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapahtuma osoitteessa %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
