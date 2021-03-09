@@ -40,14 +40,6 @@ edit_link(
       <%= link_to t(".close_meeting"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
 
-    <% if meeting.main_image.present? %>
-      <div class="card extra">
-        <div class="card__content">
-          <%= image_tag meeting.main_image.url if meeting.main_image.present? %>
-        </div>
-      </div>
-    <% end %>
-
     <div class="card extra">
       <div class="card__content">
         <div class="extra__date">
