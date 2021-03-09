@@ -6,6 +6,7 @@ nl:
         description: Omschrijving
         title: Titel
         total_budget: Totale budget
+        weight: Bestelpositie
       project:
         budget_amount: Budget bedrag
         decidim_category_id: Categorie
