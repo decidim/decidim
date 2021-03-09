@@ -1,8 +1,8 @@
-<p><%= t("devise.mailer.invitation_instructions.hello", email: @user.name) %></p>
+<p class="email-greeting"><%= t("devise.mailer.invitation_instructions.hello", email: @user.name) %></p>
 
-<p>
+<p class="email-instructions">
   <%= t ".invited_you_to_join_a_meeting", invited_by: @invited_by.name, application: @user.organization.name %>
 </p>
 
-<p><%= link_to t(".decline", meeting_title: present(@meeting).title),routes.decline_invitation_meeting_registration_path(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>
-<p><%= link_to t(".join", meeting_title: present(@meeting).title),routes.meeting_registration_url(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>
+<p class="email-button email-button_cta cta-decline"><%= link_to t(".decline", meeting_title: present(@meeting).title),routes.decline_invitation_meeting_registration_path(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>
+<p class="email-button email-button_cta cta-accept"><%= link_to t(".join", meeting_title: present(@meeting).title),routes.meeting_registration_url(meeting_id: @meeting, participatory_space_id: @meeting.component.participatory_space) %>

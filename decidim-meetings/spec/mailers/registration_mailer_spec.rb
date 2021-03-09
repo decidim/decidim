@@ -18,8 +18,8 @@ module Decidim::Meetings
       let(:subject) { "La teva inscripció a la trobada ha estat confirmada" }
       let(:default_subject) { "Your meeting's registration has been confirmed" }
 
-      let(:body) { "detalls de la" }
-      let(:default_body) { "details in the attachment" }
+      let(:body) { "arxiu adjunt" }
+      let(:default_body) { "You will find the meeting" }
 
       include_examples "user localised email"
     end
