@@ -6,8 +6,8 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches-ignore:
-      - "chore/l10n**"
+    branches:
+      - "**"
 
 env:
   CI: "true"
@@ -19,7 +19,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+     timeout-minutes: 60
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
         if: "github.ref != 'refs/heads/develop'"
