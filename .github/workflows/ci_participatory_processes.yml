@@ -1,12 +1,12 @@
 name: "[CI] Participatory processes"
 on:
+  pull_request:
   push:
     branches:
       - develop
       - release/*
       - "*-stable"
       - "!chore/l10n**"
-  pull_request:
 
 env:
   CI: "true"

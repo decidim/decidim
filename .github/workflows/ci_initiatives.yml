@@ -1,12 +1,12 @@
 name: "[CI] Initiatives"
 on:
+  pull_request:
   push:
     branches:
       - develop
       - release/*
       - "*-stable"
       - "!chore/l10n**"
-  pull_request:
 
 env:
   CI: "true"

@@ -1,11 +1,11 @@
 name: "[CI] Main folder"
 on:
+  pull_request:
   push:
     branches:
       - develop
       - release/*
       - "*-stable"
-  pull_request:
 
 env:
   CI: "true"
