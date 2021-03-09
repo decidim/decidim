@@ -23,7 +23,6 @@ eu:
       component:
         name: Izena
         published_at: Argitaratu at
-        weight: Pisu
       id: NAN
       newsletter:
         body: Testua
@@ -83,12 +82,10 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
-        weight: Pisu
       static_page_topic:
         description: Deskribapena
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
-        weight: Pisu
       user_group_csv_verification:
         file: file
     errors:
