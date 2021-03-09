@@ -205,7 +205,6 @@ eu:
             price: Prezioa
             registrations_count: Erregistroak zenbatzea
             title: Izenburua
-            weight: pisu
           name: Izen-emate mota
       partners:
         create:
