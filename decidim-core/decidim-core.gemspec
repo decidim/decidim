@@ -60,7 +60,7 @@ Gem::Specification.new do |s|
   s.add_dependency "premailer-rails", "~> 1.10"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
   s.add_dependency "rack-attack", "~> 6.0"
-  s.add_dependency "rails", "~> 6.0"
+  s.add_dependency "rails", "~> 6.1"
   s.add_dependency "rails-i18n", "~> 6.0"
   s.add_dependency "ransack", "~> 2.4.1"
   s.add_dependency "rectify", "~> 0.13.0"
