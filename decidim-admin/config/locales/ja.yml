@@ -382,6 +382,7 @@ ja:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: 戻る
           import: インポート
