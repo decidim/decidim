@@ -1,5 +1,4 @@
 import 'diff'
-// TODO-blat: does this import work? The intention here was more similar to a require than to an import
 import './version_diff'
 
 $(() => {

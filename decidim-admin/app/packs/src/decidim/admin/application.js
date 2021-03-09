@@ -1,6 +1,5 @@
-import $ from 'jquery'
-// TODO-blat: import 'jquery3'
 require("@rails/ujs").start()
+import $ from 'jquery'
 import 'foundation-sites'
 import 'foundation-datepicker'
 import 'moment'
@@ -19,8 +18,6 @@ import './auto_label_by_position.component'
 import './auto_buttons_by_position.component'
 import './dynamic_fields.component'
 import './field_dependent_inputs.component'
-// TODO-blat include the autocomplete component
-// import './bundle'
 import './draggable-list'
 import './sortable'
 import './gallery'

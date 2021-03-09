@@ -46,10 +46,7 @@ import '../src/decidim/geocoding/attach_input'
 import '../src/decidim/security/selfxss_warning'
 import '../src/decidim/session_timeouter'
 import '../src/decidim/configuration'
-// TODO-blat: this file is a .js.erb
+// TODO-blat: this file is a .js.erb, move it to _js_configuration?
 // import 'src/decidim/assets'
 import '../src/decidim/floating_help'
 import '../src/decidim/confirm'
-
-
-

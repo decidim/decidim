@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
 /* global areachart */
 
-const metricsData = {};
-
 $(() => {
 
+const metricsData = {};
   const metricsContainer = {};
   const metricsParams = {};
 

@@ -1,5 +1,4 @@
 import './vizzs/areachart'
 import './vizzs/linechart'
 import './vizzs/metrics'
-import './vizzs/renders'
 import './vizzs/rowchart'
