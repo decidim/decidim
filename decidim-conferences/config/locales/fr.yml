@@ -206,7 +206,6 @@ fr:
             price: Prix
             registrations_count: Nombre d'inscriptions
             title: Titre
-            weight: Rang d'affichage
           name: Type d'inscription
       partners:
         create:
