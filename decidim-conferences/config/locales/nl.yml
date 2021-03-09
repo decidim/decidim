@@ -206,6 +206,7 @@ nl:
             price: Prijs
             registrations_count: Registraties tellen mee
             title: Titel
+            weight: Bestelpositie
           name: Registratie type
       partners:
         create:
