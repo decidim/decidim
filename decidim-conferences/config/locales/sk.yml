@@ -212,7 +212,6 @@ sk:
             price: Cena
             registrations_count: Počet registrácií
             title: Názov
-            weight: Váha
           name: Typ registrácie
       partners:
         create:
