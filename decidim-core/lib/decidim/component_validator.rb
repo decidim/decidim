@@ -13,10 +13,10 @@ class ComponentValidator < ActiveModel::EachValidator
   # over all the validators.
   def validate_each(record, attribute, component)
     unless component
-      record.errors[attribute] << :blank
+      record.errors.add(attribute, :blank)
       return
     end
 
-    record.errors[attribute] << :invalid if component.manifest_name.to_s != options[:manifest].to_s
+    record.errors.add(attribute, :invalid) if component.manifest_name.to_s != options[:manifest].to_s
   end
 end
