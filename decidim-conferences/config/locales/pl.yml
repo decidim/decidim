@@ -212,7 +212,6 @@ pl:
             price: Cena
             registrations_count: Liczba rejestracji
             title: Tytuł
-            weight: Kolejność na stronie
           name: Typ rejestracji
       partners:
         create:
