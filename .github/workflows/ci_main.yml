@@ -6,8 +6,6 @@ on:
       - release/*
       - "*-stable"
   pull_request:
-    branches:
-      - "**"
 
 env:
   CI: "true"

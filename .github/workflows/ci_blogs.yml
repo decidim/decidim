@@ -5,11 +5,8 @@ on:
       - develop
       - release/*
       - "*-stable"
-  pull_request:
-    branches:
-      - "**"
-      - "!chore/fix-ci-ignores-for-crowdin"
       - "!chore/l10n**"
+  pull_request:
 
 env:
   CI: "true"
