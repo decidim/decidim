@@ -128,7 +128,6 @@ module Decidim
                         active: is_active_link?(decidim_admin_initiatives.initiative_committee_requests_path(current_participatory_space)),
                         if: current_participatory_space.promoting_committee_enabled? && allowed_to?(:manage_membership, :initiative, initiative: current_participatory_space)
 
-          # Maybe we need to add the attachment menu like Participatory process
           menu.add_item :components,
                         I18n.t("menu.components", scope: "decidim.admin"),
                         decidim_admin_initiatives.components_path(current_participatory_space),

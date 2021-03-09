@@ -44,8 +44,8 @@ module Decidim
     #   menu.item "Gestor de Procesos", "/processes", if: admin?
     #
     def item(label, url, options = {})
-      ActiveSupport::Deprecation.warn("Using menu.item in #{@name} context is deprecated. User menu.add_item")
-      @items << MenuItem.new(label, url, options)
+      ActiveSupport::Deprecation.warn("Using menu.item in #{@name} context is deprecated. Use menu.add_item")
+      add_item(nil, label, url, options)
     end
 
     # Public: Registers a new item for the menu
@@ -76,12 +76,14 @@ module Decidim
       @items << MenuItem.new(label, url, identifier, options)
     end
 
-    def move_after(element:, after:)
-      @ordered_elements << { movable: element, anchor: after, operation: :+ }
-    end
-
-    def move_before(element:, before:)
-      @ordered_elements << { movable: element, anchor: before, operation: :- }
+    def move(element, after: nil, before: nil)
+      if after.present?
+        @ordered_elements << { movable: element, anchor: after, operation: :+ }
+      elsif before.present?
+        @ordered_elements << { movable: element, anchor: before, operation: :- }
+      else
+        raise ArgumentError, "The Decidim::Menu.move method has been called with invalid parameters"
+      end
     end
 
     # Public: Registers a new item for the menu
@@ -109,6 +111,9 @@ module Decidim
     def move_element(movable:, anchor:, operation:)
       anchor = @items.select { |x| x.identifier == anchor }.first
       movable = @items.select { |x| x.identifier == movable }.first
+      raise ArgumentError, "The Decidim::Menu.move has been requested to move an element that does not exist" if movable.blank?
+      raise ArgumentError, "The Decidim::Menu.move has been requested to move before / after an element that does not exist" if anchor.blank?
+
       movable.position = anchor.position.send(operation, 0.0001) if movable.present? && anchor.present?
     end
 

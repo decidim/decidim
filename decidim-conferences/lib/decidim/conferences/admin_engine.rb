@@ -115,16 +115,19 @@ module Decidim
                         decidim_admin_conferences.conference_registration_types_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_registration_types_path(current_participatory_space)),
                         if: allowed_to?(:read, :registration_type, conference: current_participatory_space)
+
           menu.add_item :conference_conference_registrations,
                         I18n.t("user_registrations", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_conference_registrations_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_conference_registrations_path(current_participatory_space)),
                         if: allowed_to?(:read, :conference_registration, conference: current_participatory_space)
+
           menu.add_item :conference_conference_invites,
                         I18n.t("conference_invites", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_conference_invites_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_conference_invites_path(current_participatory_space)),
                         if: allowed_to?(:read, :conference_invite, conference: current_participatory_space)
+
           menu.add_item :edit_conference_diploma,
                         I18n.t("diploma", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.edit_conference_diploma_path(current_participatory_space),
@@ -155,6 +158,7 @@ module Decidim
                         position: 1,
                         if: allowed_to?(:update, :conference, conference: current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.edit_conference_path(current_participatory_space))
+
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.components_path(current_participatory_space),
@@ -176,16 +180,19 @@ module Decidim
                         if: allowed_to?(:read, :attachment_collection, conference: current_participatory_space) ||
                             allowed_to?(:read, :attachment, conference: current_participatory_space),
                         submenu: { target_menu: :conferences_admin_attachments_menu }
+
           menu.add_item :conference_media_links,
                         I18n.t("media_links", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_media_links_path(current_participatory_space),
                         if: allowed_to?(:read, :media_link, conference: current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_media_links_path(current_participatory_space))
+
           menu.add_item :conference_partners,
                         I18n.t("partners", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_partners_path(current_participatory_space),
                         if: allowed_to?(:read, :partner, conference: current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_partners_path(current_participatory_space))
+
           menu.add_item :conference_speakers,
                         I18n.t("conference_speakers", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_speakers_path(current_participatory_space),
@@ -195,16 +202,18 @@ module Decidim
           menu.add_item :registrations,
                         I18n.t("registrations", scope: "decidim.admin.menu.conferences_submenu"),
                         "#",
-                        active: false, # is_active_link?(decidim_admin_conferences.conference_attachment_collections_path(current_participatory_space)),
+                        active: false,
                         if: allowed_to?(:read, :conference_invite, conference: current_participatory_space) ||
                             allowed_to?(:read, :registration_type, conference: current_participatory_space) ||
                             allowed_to?(:read, :conference_registration, conference: current_participatory_space),
                         submenu: { target_menu: :conferences_admin_registrations_menu }
+
           menu.add_item :conference_user_roles,
                         I18n.t("conference_admins", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_user_roles_path(current_participatory_space),
                         if: allowed_to?(:read, :conference_user_role, conference: current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_user_roles_path(current_participatory_space))
+
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.moderations_path(current_participatory_space),

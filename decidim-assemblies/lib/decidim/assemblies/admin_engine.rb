@@ -149,6 +149,7 @@ module Decidim
                         position: 1,
                         if: allowed_to?(:update, :assembly, assembly: current_participatory_space),
                         active: is_active_link?(decidim_admin_assemblies.edit_assembly_path(current_participatory_space))
+
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.components_path(current_participatory_space),
@@ -159,7 +160,6 @@ module Decidim
           menu.add_item :categories,
                         I18n.t("categories", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.categories_path(current_participatory_space),
-                        # position: 1,
                         if: allowed_to?(:read, :category, assembly: current_participatory_space),
                         active: is_active_link?(decidim_admin_assemblies.categories_path(current_participatory_space))
 
@@ -181,20 +181,18 @@ module Decidim
           menu.add_item :assembly_user_roles,
                         I18n.t("assembly_admins", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space),
-                        # position: 1,
                         if: allowed_to?(:read, :assembly_user_role, assembly: current_participatory_space),
                         active: is_active_link?(decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space))
 
           menu.add_item :participatory_space_private_users,
                         I18n.t("private_users", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space),
-                        # position: 1,
                         if: allowed_to?(:read, :space_private_user, assembly: current_participatory_space),
                         active: is_active_link?(decidim_admin_assemblies.participatory_space_private_users_path(current_participatory_space))
+
           menu.add_item :moderations,
                         I18n.t("moderations", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.moderations_path(current_participatory_space),
-                        # position: 1,
                         if: allowed_to?(:read, :moderation, assembly: current_participatory_space),
                         active: is_active_link?(decidim_admin_assemblies.moderations_path(current_participatory_space))
         end

@@ -104,6 +104,7 @@ module Decidim
                         decidim_admin_votings.edit_voting_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.edit_voting_path(current_participatory_space)),
                         if: allowed_to?(:update, :voting, voting: current_participatory_space)
+
           menu.add_item :edit_voting_landing_page,
                         I18n.t("landing_page", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_landing_page_path(current_participatory_space),
@@ -134,6 +135,7 @@ module Decidim
                         decidim_admin_votings.voting_polling_officers_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.voting_polling_officers_path(current_participatory_space)),
                         if: !current_participatory_space.online_voting? && allowed_to?(:read, :polling_officers)
+
           menu.add_item :voting_monitoring_committee_members,
                         I18n.t("monitoring_committee_members", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space),
