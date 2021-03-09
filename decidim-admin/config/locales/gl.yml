@@ -24,7 +24,6 @@ gl:
       component:
         name: Nome
         published_at: Publicado en
-        weight: Peso
       id: ID
       newsletter:
         body: Corpo
@@ -100,12 +99,10 @@ gl:
         show_in_footer: Amosar no pé de páxina
         slug: URL slug
         title: Título
-        weight: Peso
       static_page_topic:
         description: Descrición
         show_in_footer: Amosar no pé de páxina
         title: Título
-        weight: Peso
       user_group_csv_verification:
         file: Arquivo
     errors:
