@@ -206,6 +206,7 @@ fi:
             price: Hinta
             registrations_count: Ilmoittautuneiden määrä
             title: Otsikko
+            weight: Järjestysnumero
           name: Ilmoittautumistyypit
       partners:
         create:
