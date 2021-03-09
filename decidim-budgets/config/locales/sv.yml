@@ -6,7 +6,6 @@ sv:
         description: Beskrivning
         title: Titel
         total_budget: Total budget
-        weight: Vikt
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
