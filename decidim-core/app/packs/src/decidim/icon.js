@@ -12,7 +12,7 @@
    * @returns {Void} - Returns nothing.
    */
   exports.Decidim.icon = (iconKey, attributes = {}) => {
-    const iconAttributes = exports.$.extend(DEFAULT_ATTRIBUTES, attributes);
+    const iconAttributes = $.extend(DEFAULT_ATTRIBUTES, attributes);
     const title = iconAttributes.title || iconAttributes.ariaLabel;
     Reflect.deleteProperty(iconAttributes, "title");
 

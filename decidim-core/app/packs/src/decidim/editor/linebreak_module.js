@@ -1,4 +1,3 @@
-import Quill from 'quill'
 import './modified_enter'
 import './modified_backspace_utils'
 import './modified_backspace_offset_any'
@@ -7,7 +6,6 @@ import './history_override'
 
 // It all started with these snippets of code: https://github.com/quilljs/quill/issues/252
 ((exports) => {
-  const Quill = exports.Quill;
   const Delta = Quill.import("delta");
   const Break = Quill.import("blots/break");
   const Embed = Quill.import("blots/embed");

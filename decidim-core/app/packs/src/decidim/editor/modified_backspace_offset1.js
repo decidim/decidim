@@ -1,5 +1,4 @@
 ((exports) => {
-  const Quill = exports.Quill;
   const Delta = Quill.import("delta");
   const { attributeDiff } = exports.Decidim.Editor;
 

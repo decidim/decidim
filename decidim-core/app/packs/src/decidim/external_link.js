@@ -15,7 +15,7 @@
 
   class ExternalLink {
     static configureMessages(messages) {
-      MESSAGES = exports.$.extend(DEFAULT_MESSAGES, messages);
+      MESSAGES = $.extend(DEFAULT_MESSAGES, messages);
     }
 
     constructor(link) {

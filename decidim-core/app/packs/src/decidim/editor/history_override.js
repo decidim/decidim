@@ -1,9 +1,4 @@
-// import Parchment from 'parchment';
-// import Quill from '../core/quill';
-// import Module from '../core/module';
-
 ((exports) => {
-  const Quill = exports.Quill;
   const History = Quill.import("modules/history");
 
   /**

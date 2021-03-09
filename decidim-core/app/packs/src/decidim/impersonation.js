@@ -1,3 +1,5 @@
+import 'moment'
+
 ((exports) => {
   exports.$(() => {
     const $impersonationWarning = $(".impersonation-warning");

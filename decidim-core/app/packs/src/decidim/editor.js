@@ -1,4 +1,3 @@
-import Quill from 'quill'
 import './editor/linebreak_module'
 
 ((exports) => {

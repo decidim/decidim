@@ -6,7 +6,7 @@
 
   class FormValidator {
     static configureMessages(messages) {
-      MESSAGES = exports.$.extend(DEFAULT_MESSAGES, messages);
+      MESSAGES = $.extend(DEFAULT_MESSAGES, messages);
     }
 
     constructor(form) {
@@ -41,7 +41,7 @@
       $announce.attr("aria-live", "assertive");
       this.$form.prepend($announce);
 
-      exports.setTimeout(() => {
+      setTimeout(() => {
         $announce.text(MESSAGES.correctErrors);
       }, 100);
     }
@@ -50,11 +50,11 @@
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.FormValidator = FormValidator;
 
-  exports.$(() => {
-    exports.$("form").each((_i, el) => {
-      exports.$(el).data("form-validator", new FormValidator(exports.$(el)));
+  $(() => {
+    $("form").each((_i, el) => {
+      $(el).data("form-validator", new FormValidator($(el)));
     });
-    exports.$(document).on("forminvalid.zf.abide", function(_ev, form) {
+    $(document).on("forminvalid.zf.abide", function(_ev, form) {
       form.trigger("form-error.decidim");
     })
   });

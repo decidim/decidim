@@ -1,6 +1,6 @@
+import Quill from "quill"
 
 ((exports) => {
-  const Quill = exports.Quill;
   const Parchment = Quill.import("parchment")
   const Delta = Quill.import("delta");
 

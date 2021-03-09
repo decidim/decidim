@@ -2,19 +2,19 @@
 // import 'src/decidim/core/bundle.js'
 // import 'src/decidim/core/extrapoly.js'
 
-import $ from 'jquery'
-// TODO-blat: import 'jquery3'
 require("@rails/ujs").start()
-import '../src/decidim/foundation'
+import $ from "jquery"
 
 // External dependencies
 // TODO-blat: is necessary?
 // import Modernizr from 'modernizr'
-import 'svg4everybody'
+
+import "core-js/stable";
+
 import 'morphdom'
-import 'moment'
 import 'foundation-datepicker'
 
+import '../src/decidim/index'
 import '../src/decidim/form_datepicker'
 import '../src/decidim/history'
 import '../src/decidim/callout'
@@ -52,6 +52,4 @@ import '../src/decidim/floating_help'
 import '../src/decidim/confirm'
 
 
-// NOTE: jQuery exposed to global (window for node environment) due to script directly in the view
-global.$ = global.jQuery = $
 

@@ -1,5 +1,4 @@
 ((exports) => {
-  const Quill = exports.Quill;
   const { attributeDiff } = exports.Decidim.Editor
 
   const backspaceBindingsRangeAny = (quill) => {

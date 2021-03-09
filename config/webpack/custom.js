@@ -4,10 +4,17 @@ module.exports = {
   module: {
     rules: [
       {
+        test: require.resolve("quill"),
+        loader: "expose-loader",
+        options: {
+          exposes: ["Quill"],
+        },
+      },
+      {
         test: require.resolve("jquery"),
         loader: "expose-loader",
         options: {
-          exposes: ["$", "jQuery"],
+          exposes: ["$", "jQuery"]
         },
       },
       {
@@ -24,11 +31,7 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     alias: {
-      $: 'jquery/src/jquery',
-      // TODO-blat: maybe these aliases are not necessary and can be removed
-      // 'window.$': 'jquery',
-      // jQuery: 'jquery',
-      // 'window.jQuery': 'jquery',
+      // TODO-blat: modernizr?
       //modernizr$: path.resolve(__dirname, './.modernizrrc')
     }
   }
