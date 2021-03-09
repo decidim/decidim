@@ -6,7 +6,6 @@ de:
         description: Beschreibung
         title: Titel
         total_budget: Gesamtbudget
-        weight: Gewichtung
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
