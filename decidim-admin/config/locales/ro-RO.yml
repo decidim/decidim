@@ -24,7 +24,6 @@ ro:
       component:
         name: Nume
         published_at: Publicat la
-        weight: Greutate
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -106,12 +105,10 @@ ro:
         show_in_footer: Arată în subsol
         slug: URL slug
         title: Titlu
-        weight: Greutate
       static_page_topic:
         description: Descriere
         show_in_footer: Arată în subsol
         title: Titlu
-        weight: Greutate
       user_group_csv_verification:
         file: Fişier
     errors:
