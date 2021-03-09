@@ -34,7 +34,6 @@ cs:
         subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
-        weight: Váha
       participatory_process_group:
         description: Popis
         developer_group: Skupina propagátorů
