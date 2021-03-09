@@ -6,6 +6,7 @@ fi:
         description: Kuvaus
         title: Otsikko
         total_budget: Kokonaisbudjetti
+        weight: Järjestysnumero
       project:
         budget_amount: Budjetti
         decidim_category_id: Aihepiiri
