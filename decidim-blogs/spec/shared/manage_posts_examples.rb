@@ -83,4 +83,44 @@ shared_examples "manage posts" do
       end
     end
   end
+
+  context "when user is in user group" do
+    let(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
+    let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+
+    it "can set user group as posts author", :slow do
+      find(".card-title a.button").click
+
+      select user_group.name, from: "post_user_group_id"
+
+      fill_in_i18n(
+        :post_title,
+        "#post-title-tabs",
+        en: "My post",
+        es: "Mi post",
+        ca: "El meu post"
+      )
+
+      fill_in_i18n_editor(
+        :post_body,
+        "#post-body-tabs",
+        en: "A description",
+        es: "Descripción",
+        ca: "Descripció"
+      )
+
+      within ".new_post" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "table" do
+        expect(page).to have_content(user_group.name)
+        expect(page).to have_content("My post")
+        expect(page).to have_content("Post title 1")
+        expect(page).to have_content("Post title 2")
+      end
+    end
+  end
 end
