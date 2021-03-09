@@ -6,7 +6,6 @@ pl:
         description: Opis
         title: Tytuł
         total_budget: Całkowity budżet
-        weight: Kolejność na stronie
       project:
         budget_amount: Kwota budżetu
         decidim_category_id: Kategoria
