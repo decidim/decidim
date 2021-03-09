@@ -203,7 +203,6 @@ ja:
             price: 価格
             registrations_count: 登録数
             title: タイトル
-            weight: 重量
           name: 登録タイプ
       partners:
         create:
