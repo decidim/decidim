@@ -9,7 +9,7 @@ on:
   pull_request:
     branches:
       - '**'
-      - '!chore/l10n**'
+      - '!chore/l10n/test-pr'
 env:
   CI: "true"
   SIMPLECOV: "true"
