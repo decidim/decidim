@@ -1,12 +1,19 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [0.23.4](https://github.com/decidim/decidim/tree/v0.23.4)
 
 **Added**
 
 **Changed**
 
 **Fixed**
+
+- **decidim-admin**: Fix and tests to avoid registered users being invited again [\#7455](https://github.com/decidim/decidim/pull/7455)
+- **decidim-proposals**: Fix the proposal body validation error messages [\#7495](https://github.com/decidim/decidim/pull/7495)
+- **decidim-admin**: Only share tokens if component exists [\#7503](https://github.com/decidim/decidim/pull/7503)
+- **decidim-core**: Invalidate all user sessions when destroying the account [\#7510](https://github.com/decidim/decidim/pull/7510)
+- **decidim-core**: Fix user profile timeline activity cards texts showing "New resource" on updates [\#7559](https://github.com/decidim/decidim/pull/7559)
+- **decidim-core**: Sanitize address inputs [\#7577](https://github.com/decidim/decidim/pull/7577)
 
 **Removed**
 
