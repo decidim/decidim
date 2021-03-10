@@ -212,6 +212,7 @@ cs:
             price: Cena
             registrations_count: Registrace se počítají
             title: Název
+            weight: Pozice v řazení
           name: Typ registrace
       partners:
         create:
