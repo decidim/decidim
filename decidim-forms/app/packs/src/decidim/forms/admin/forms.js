@@ -4,9 +4,13 @@ import './auto_buttons_by_min_items.component'
 import './auto_select_options_by_total_items.component'
 import './auto_select_options_from_url.component'
 import './live_text_update.component'
+import AutoButtonsByPositionComponent from './auto_buttons_by_position.component'
+import AutoLabelByPositionComponent from './auto_label_by_position.component'
+import createSortableList from './createSortList.component'
+import createDynamicFields from './dynamic_fields.component'
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, AutoSelectOptionsFromUrl, createLiveTextUpdateComponent, createFieldDependentInputs, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, AutoSelectOptionsFromUrl, createLiveTextUpdateComponent, createFieldDependentInputs} = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = ".questionnaire-questions";

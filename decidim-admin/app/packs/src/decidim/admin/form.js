@@ -1,20 +1,17 @@
-// = require ./budget_rule_toggler.component
-// = require ./scope_picker_enabler.component
-// = require ./proposal_infinite_edit
+import './scope_picker_enabler.component'
+import './proposal_infinite_edit'
 
-((exports) => {
-  const { BudgetRuleTogglerComponent } = exports.DecidimAdmin;
+import BudgetRuleTogglerComponent from './budget_rule_toggler.component'
 
+// Checks if the form contains fields with special CSS classes added in
+// Decidim::Admin::SettingsHelper and acts accordingly.
+$(() => {
   const budgetRuleToggler = new BudgetRuleTogglerComponent({
     ruleCheckboxes: $("input[id^='component_settings_vote_rule_']")
   });
 
   budgetRuleToggler.run();
-})(window);
 
-// Checks if the form contains fields with special CSS classes added in
-// Decidim::Admin::SettingsHelper and acts accordingly.
-$(() => {
   // Prevents readonly containers from being modified.
   const $readonlyContainer = $(".readonly_container input");
 

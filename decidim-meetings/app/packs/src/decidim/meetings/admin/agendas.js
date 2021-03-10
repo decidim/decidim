@@ -1,5 +1,9 @@
+import AutoButtonsByPositionComponent from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/auto_buttons_by_position.component'
+import AutoLabelByPositionComponent from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/auto_label_by_position.component'
+import createSortList from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/sort_list.component'
+import createDynamicFields from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/dynamic_fields.component'
+
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = ".meeting-agenda-items";

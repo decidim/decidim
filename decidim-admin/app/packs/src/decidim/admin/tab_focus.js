@@ -1,5 +1,3 @@
-// = require_self
-
 /**
  * When switching tabs in i18n fields, autofocus on the input to save clicks #212
  */

@@ -9,9 +9,10 @@ import 'html5sortable'
 
 import './tab_focus'
 import './choose_language'
-import './toggle_nav'
-import './sort_list.component'
-import '../../../../../../decidim-core/app/packs/src/decidim/editor'
+import toggleNav from './toggle_nav'
+import createSortList from './sort_list.component'
+// TODO-blat fie editor
+// import '../../../../../../decidim-core/app/packs/src/decidim/editor'
 import '../../../../../../decidim-core/app/packs/src/decidim/form_datepicker'
 import '../../../../../../decidim-core/app/packs/src/decidim/data_picker'
 import './auto_label_by_position.component'
@@ -36,13 +37,12 @@ window.Decidim = window.Decidim || {};
 window.DecidimAdmin = window.DecidimAdmin || {};
 
 const pageLoad = () => {
-  const { toggleNav, createSortList, renderAutocompleteSelects } = window.DecidimAdmin;
-
   $(document).foundation();
 
   toggleNav();
 
-  renderAutocompleteSelects('[data-plugin="autocomplete"]');
+  // TODO-blat: remove Typescript and import this module
+  // renderAutocompleteSelects('[data-plugin="autocomplete"]');
 
   createSortList("#steps tbody", {
     placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0],

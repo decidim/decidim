@@ -1,13 +1,9 @@
-// = require ./subform_toggler.component
+import SubformTogglerComponent from './subform_toggler.component'
 
-((exports) => {
-  const { SubformTogglerComponent } = exports.DecidimAdmin;
+const subformToggler = new SubformTogglerComponent({
+  controllerSelect: $("select#impersonate_user_authorization_handler_name"),
+  subformWrapperClass: "authorization-handler",
+  globalWrapperSelector: "form"
+});
 
-  const subformToggler = new SubformTogglerComponent({
-    controllerSelect: $("select#impersonate_user_authorization_handler_name"),
-    subformWrapperClass: "authorization-handler",
-    globalWrapperSelector: "form"
-  });
-
-  subformToggler.run();
-})(window);
+subformToggler.run();
