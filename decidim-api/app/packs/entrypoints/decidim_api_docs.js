@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-no-undef */
 
 import jQuery from 'jquery'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import GraphQLDocs from 'graphql-docs'
+import { render } from 'react-dom'
+import { GraphQLDocs } from 'graphql-docs'
 
 const fetcherFactory = (path) => {
   return (query) => {
@@ -18,8 +17,9 @@ const fetcherFactory = (path) => {
 }
 
 window.renderDocumentation = (path) => {
-  ReactDOM.render(
-    <GraphQLDocs.GraphQLDocs fetcher={fetcherFactory(path)} />,
+  render(
+    <GraphQLDocs fetcher={fetcherFactory(path)} />,
     document.getElementById("documentation"),
   );
 };
+

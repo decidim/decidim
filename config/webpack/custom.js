@@ -20,7 +20,23 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        loader: "babel-loader"
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: "graphql-tag/loader",
+      },
+      {
+        test: /\.json$/,
+        loader: "json-loader",
+      },
+      {
+        test: require.resolve("react"),
+        loader: "expose-loader",
+        options: {
+          exposes: ["React"]
+        }
       },
       // {
       //   test: /\.modernizrrc$/,
@@ -47,6 +63,7 @@ module.exports = {
     decidim_accountability_admin: './decidim-accountability/app/packs/entrypoints/decidim_accountability_admin.js',
     decidim_assemblies: './decidim-assemblies/app/packs/entrypoints/decidim_assemblies.js',
     decidim_assemblies_admin: './decidim-assemblies/app/packs/entrypoints/decidim_assemblies_admin.js',
+    decidim_api_docs: './decidim-api/app/packs/entrypoints/decidim_api_docs.js',
   },
 }
 
