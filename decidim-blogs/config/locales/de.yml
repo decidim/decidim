@@ -15,6 +15,7 @@ de:
         edit: Bearbeiten
         new: Neuer Beitrag
         title: Aktionen
+        user_group_id: Beitrag erstellen als
       admin:
         models:
           components:

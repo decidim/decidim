@@ -24,7 +24,6 @@ pl:
       component:
         name: Nazwa
         published_at: Opublikowano
-        weight: Kolejność na stronie
       id: ID
       import:
         user_group_id: Utwórz import jako
@@ -111,12 +110,10 @@ pl:
         show_in_footer: Pokaż w stopce
         slug: URL slug
         title: Tytuł
-        weight: Kolejność na stronie
       static_page_topic:
         description: Opis
         show_in_footer: Pokaż w stopce
         title: Tytuł
-        weight: Kolejność na stronie
       user_group_csv_verification:
         file: Plik
     errors:

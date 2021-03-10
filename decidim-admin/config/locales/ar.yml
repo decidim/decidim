@@ -23,7 +23,6 @@ ar:
       component:
         name: اسم
         published_at: نشرت في
-        weight: وزن
       id: هوية شخصية
       newsletter:
         body: المحتوى
@@ -90,12 +89,10 @@ ar:
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة العنوان الشبكي
         title: العنوان
-        weight: وزن
       static_page_topic:
         description: وصف
         show_in_footer: تظهر في تذييل الصفحة
         title: العنوان
-        weight: وزن
       user_group_csv_verification:
         file: ملف
     errors:

@@ -206,7 +206,6 @@ it:
             price: Prezzo
             registrations_count: Conteggio delle iscrizioni
             title: Titolo
-            weight: Peso
           name: Tipo di iscrizione
       partners:
         create:

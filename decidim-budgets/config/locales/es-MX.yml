@@ -6,7 +6,6 @@ es-MX:
         description: Descripción
         title: Título
         total_budget: Presupuesto total
-        weight: Peso
       project:
         budget_amount: Importe del presupuesto
         decidim_category_id: Categoría

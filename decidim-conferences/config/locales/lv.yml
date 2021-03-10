@@ -209,7 +209,6 @@ lv:
             price: Cena
             registrations_count: Reģistrāciju skaits
             title: Nosaukums
-            weight: Svarīgums
           name: Reģistrācijas veids
       partners:
         create:

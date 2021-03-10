@@ -15,6 +15,7 @@ fi-pl:
         edit: Muokkaa
         new: Uusi artikkeli
         title: Toiminnot
+        user_group_id: Luo artikkeli käyttäjänä
       admin:
         models:
           components:

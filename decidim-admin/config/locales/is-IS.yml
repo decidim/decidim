@@ -24,7 +24,6 @@ is-IS:
       component:
         name: Nafn
         published_at: Birt á
-        weight: Þyngd
       id: Auðkenni
       newsletter:
         body: Líkami
@@ -90,12 +89,10 @@ is-IS:
         show_in_footer: Sýna í fæti
         slug: URL slug
         title: Titill
-        weight: Þyngd
       static_page_topic:
         description: Lýsing
         show_in_footer: Sýna í fæti
         title: Titill
-        weight: Þyngd
       user_group_csv_verification:
         file: Skrá
     errors:

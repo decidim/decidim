@@ -34,7 +34,7 @@ fi-pl:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       participatory_process_group:
         description: Kuvaus
         developer_group: Edistäjäryhmä

@@ -206,7 +206,6 @@ ca:
             price: Preu
             registrations_count: Nombre d'inscripcions
             title: Títol
-            weight: Pes
           name: Tipus d'inscripció
       partners:
         create:

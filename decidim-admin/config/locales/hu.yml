@@ -24,7 +24,6 @@ hu:
       component:
         name: Név
         published_at: Publikálva
-        weight: Súly
       id: ID
       newsletter:
         body: Szöveg
@@ -97,12 +96,10 @@ hu:
         show_in_footer: Mutassa a láblécben
         slug: URL slug
         title: Cím
-        weight: Súly
       static_page_topic:
         description: Leírás
         show_in_footer: Mutassa a láblécben
         title: Cím
-        weight: Súly
       user_group_csv_verification:
         file: Fájl
     errors:

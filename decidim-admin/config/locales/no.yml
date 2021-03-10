@@ -24,7 +24,6 @@
       component:
         name: Navn
         published_at: Publisert den
-        weight: Vekt
       id: ID
       import:
         user_group_id: Opprett importer som
@@ -103,12 +102,10 @@
         show_in_footer: Vis i bunnteksten
         slug: URL slug
         title: Tittel
-        weight: Vekt
       static_page_topic:
         description: Beskrivelse
         show_in_footer: Vis i bunnteksten
         title: Tittel
-        weight: Vekt
       user_group_csv_verification:
         file: Fil
     errors:

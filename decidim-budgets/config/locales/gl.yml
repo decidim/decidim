@@ -6,7 +6,6 @@ gl:
         description: Descripción
         title: Título
         total_budget: Orzamento total
-        weight: Peso
       project:
         budget_amount: Importe do orzamento
         decidim_category_id: Categoría

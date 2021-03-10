@@ -203,7 +203,6 @@ zh-CN:
             price: 价格
             registrations_count: 注册次数
             title: 标题
-            weight: 权重
           name: 注册类型
       partners:
         create:

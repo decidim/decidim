@@ -202,7 +202,6 @@ id:
             price: Harga
             registrations_count: Jumlah registrasi
             title: Judul
-            weight: Berat
           name: Jenis pendaftaran
       partners:
         create:

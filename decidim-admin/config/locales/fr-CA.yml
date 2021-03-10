@@ -24,7 +24,6 @@ fr-CA:
       component:
         name: Titre
         published_at: Publiée à
-        weight: Rang d'affichage
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -111,12 +110,10 @@ fr-CA:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Poids
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Poids
       user_group_csv_verification:
         file: Fichier
     errors:

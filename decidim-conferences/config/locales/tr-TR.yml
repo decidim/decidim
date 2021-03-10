@@ -206,7 +206,6 @@ tr:
             price: Fiyat
             registrations_count: Kayıt sayısı
             title: Başlık
-            weight: Ağırlık
           name: Kayıt Türü
       partners:
         create:

@@ -242,3 +242,5 @@ ja:
         result_project: この結果に含まれるプロジェクト
       included_proposals:
         result_proposal: この結果に含まれる提案
+    statistics:
+      results_count: 結果

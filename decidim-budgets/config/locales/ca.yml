@@ -6,7 +6,6 @@ ca:
         description: Descripció
         title: Títol
         total_budget: Pressupost total
-        weight: Pes
       project:
         budget_amount: Import del pressupost
         decidim_category_id: Categoria

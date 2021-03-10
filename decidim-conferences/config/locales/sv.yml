@@ -206,7 +206,6 @@ sv:
             price: Pris
             registrations_count: Antal registreringar
             title: Titel
-            weight: Vikt
           name: Registreringstyp
       partners:
         create:
