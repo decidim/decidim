@@ -8,9 +8,8 @@ on:
       - '!chore/l10n**'
       - '!chore/l10n/test-pr'
   pull_request:
-    branches:
-      - '**'
-      - '!chore/l10n/test-pr'
+    branches-ignore:
+      - 'chore/l10n/test-pr'
 env:
   CI: "true"
   SIMPLECOV: "true"
