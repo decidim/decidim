@@ -464,6 +464,8 @@ pl:
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
         unspecified: Nieokreślony
+    statistics:
+      processes_count: Procesy
   layouts:
     decidim:
       participatory_process_groups:
