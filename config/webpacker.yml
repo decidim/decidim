@@ -3,9 +3,8 @@
 default: &default
   # source_path only supports a single location, thus all the entrypoints will be
   # defined in decidim-core, whil the sources are distributed accross all the modules
-  source_path: 'decidim-core/app/packs'
+  source_path: ''
   source_entry_path: entrypoints
-  public_root_path: development_app/public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
   webpack_compile_output: true
@@ -18,6 +17,9 @@ default: &default
 development:
   <<: *default
   compile: true
+  # Compile test packs to decidim development app
+  public_root_path: development_app/public
+  cache_path: development_app/tmp/cache/webpacker
 
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
@@ -54,8 +56,10 @@ test:
   <<: *default
   compile: true
 
-  # Compile test packs to a separate directory
+  # Compile test packs to decidim dummy app
+  public_root_path: spec/decidim_dummy_app/public
   public_output_path: packs-test
+  cache_path: spec/decidim_dummy_app/tmp/cache/webpacker
 
 production:
   <<: *default

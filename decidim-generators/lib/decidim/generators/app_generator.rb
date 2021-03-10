@@ -207,6 +207,15 @@ module Decidim
                   "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
       end
 
+      def install_webpacker_initializer
+        copy_file "webpacker_initializer.rb", "config/initializers/webpacker.rb"
+
+        # Depending on the path, the location of config/webpacker.yml may change
+        # i.e for the development_app RELATIVE_PATH is "..", but for the testing dummy app
+        # the RELATIVE_PATH is "../.."
+        gsub_file "config/initializers/webpacker.rb", /RELATIVE_PATH = ""/, %Q{RELATIVE_PATH = #{options[:path].split('/')}}
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [
