@@ -8,7 +8,7 @@ module Decidim
     let(:record) do
       DummyAuthorizationHandler.new({})
     end
-    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(nil)) }
+    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
     let(:builder) { described_class.new(:authorization_handler, record, helper, {}) }
 
     before do

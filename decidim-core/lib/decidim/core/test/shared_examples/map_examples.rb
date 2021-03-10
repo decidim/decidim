@@ -24,7 +24,7 @@ shared_context "with frontend map builder" do
     end
   end
   let(:organization) { create(:organization) }
-  let(:template) { template_class.new(ActionView::LookupContext.new(nil)) }
+  let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
   let(:options) { {} }
   let(:js_options) { options.transform_keys { |k| k.to_s.camelize(:lower) }.to_h }
 
