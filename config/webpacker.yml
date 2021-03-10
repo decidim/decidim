@@ -1,9 +1,13 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  # source_path only supports a single location, thus all the entrypoints will be
-  # defined in decidim-core, whil the sources are distributed accross all the modules
-  source_path: ''
+  # source_path is not being used here as the entrypoints are declared in config/webpacker/custom.js
+  # but, it's important to don't update this source_path. The reason why is because all the files
+  # below source_path will be used to calculate the digest  of the compiled assets (in development
+  # and test environments). If the path is updated and includes by mistake development_app or
+  # decidim_dummy_app, cache will be expired on each test and the test suite will get reallly
+  # slow.
+  source_path: 'decidim-core/app/packs'
   source_entry_path: entrypoints
   public_output_path: packs
   cache_path: tmp/cache/webpacker
