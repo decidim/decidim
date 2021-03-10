@@ -258,6 +258,8 @@ pl:
             title: Gotowy do startu
           processing: Przetwarzanie...
           results_published:
+            answer: Odpowiedź
+            result: Wynik
             title: Opublikowano wyniki
           tally:
             title: Podsumowanie procesu
