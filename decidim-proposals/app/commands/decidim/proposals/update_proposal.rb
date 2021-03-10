@@ -30,8 +30,6 @@ module Decidim
         return broadcast(:invalid) if invalid?
 
         if process_attachments?
-          @proposal.attachments.destroy_all
-
           build_attachments
           return broadcast(:invalid) if attachments_invalid?
         end
@@ -47,11 +45,12 @@ module Decidim
           else
             update_proposal
           end
-          create_gallery if process_gallery?
-          create_attachments if process_attachments?
 
           photo_cleanup!
           document_cleanup!
+
+          create_gallery if process_gallery?
+          create_attachments if process_attachments?
         end
 
         broadcast(:ok, proposal)
