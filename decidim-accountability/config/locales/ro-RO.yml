@@ -47,6 +47,7 @@ ro:
         import_results:
           new:
             import: Importă
+            info: "<p>Vă recomandăm să urmați aceste etape:</p><ol><li>Creați statutele pentru rezultatele pe care doriți să le adăugați (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Creați manual cel puțin un rezultat prin acest panou de administrare (<a href='%{link_new_result}' target='_blank'>link</a>) înainte de a folosi funcția Importare, pentru a înțelege mai bine formatul și ceea ce trebuie completat.</li><li>Descărcați exportul cu format CVS (%{link_export_csv})</li><li>Efectuați modificările local. Puteți modifica numai următoarele coloane din CSV:</li></ol><ul><li><b>category/id:</b> ID-ul categoriei</li><li><b>scope/id:</b> ID-ul domeniului</li><li><b>parent/id:</b> ID-ul elementului părinte (pentru rezultatele corelate). Opțional</li><li><b>title/I18N:</b> Titlu în limba X </li><li><b>description/I18N:</b> Descriere în limba X</li><li><b>start_date:</b> data la care rezultatul începe executarea (format YYYY-MM-DD)</li><li><b>end_date:</b> data la care rezultatul încheie executarea (format YYYY-MM-DD)</li><li><b>status/id:</b> ID-ul Statutului pentru acest rezultat</li><li><b>progres:</b> Procent (de la 0 la 100) de executare</li><li><b>proposals_ids:</b> ID-ul intern al propunerilor înrudite (separate prin virgulă). Este automat convertit în <span class='attribute-name'>proposal_url</span></li></ul>"
             link: link
             title: Importați rezultate de la CSV
         imports:
@@ -169,6 +170,7 @@ ro:
         show:
           stats:
             attendees: Participanți
+            back_to_resource: Înapoi la rezultat
             comments: Comentarii
             contributions: Contribuții
             last_edited_by: Ultima editare de
@@ -190,6 +192,8 @@ ro:
             heading_leaf_level_results: Nume pentru "Proiecte"
             heading_parent_level_results: Nume pentru "Rezultate"
             intro: Introducere
+            scope_id: Domeniu de aplicare
+            scopes_enabled: Domenii de aplicare activate
             subcategories_label: Nume pentru "Subcategorii"
           step:
             comments_blocked: Comentarii blocate
