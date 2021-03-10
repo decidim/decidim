@@ -150,6 +150,10 @@ module Decidim
         run "bundle install"
       end
 
+      def install_webpacker
+        rails "webpacker:install"
+      end
+
       private
 
       def recreate_db
