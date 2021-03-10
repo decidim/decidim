@@ -34,6 +34,7 @@ ro:
     accountability:
       actions:
         attachment_collections: Dosare
+        attachments: Atașamente
         confirm_destroy: Ești sigur că vrei să ștergi acest %{name}?
         destroy: Ștergere
         edit: Editare
@@ -44,6 +45,7 @@ ro:
         title: Acțiuni
       admin:
         exports:
+          result_comments: Comentarii
           results: Rezultate
         import_results:
           new:
