@@ -1281,6 +1281,13 @@ pl:
         share_link: Udostępnij link
     statistics:
       comments_count: Komentarze
+      endorsements_count: Rekomendacje
+      followers_count: Obserwujący
+      headline: Statystyki
+      no_stats: Nie ma jeszcze żadnych statystyk.
+      pages_count: Stron
+      participants_count: Użytkowników
+      users_count: Uczestników
     tags:
       filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
       filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
