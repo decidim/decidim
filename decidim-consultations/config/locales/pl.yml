@@ -380,6 +380,8 @@ pl:
       consultations:
         actions:
           vote: Głosuj
+    statistics:
+      votes_count: Głosy
   layouts:
     decidim:
       consultation_voting_data:
