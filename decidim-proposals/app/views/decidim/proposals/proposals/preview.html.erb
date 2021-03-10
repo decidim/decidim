@@ -28,7 +28,7 @@
         <%= render partial: "dynamic_map_instructions" %>
         <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>
           <%= stylesheet_link_tag "decidim/map" %>
-          <%= javascript_include_tag "decidim/map" %>
+          <%# javascript_include_tag "decidim/map" %>
         <% end %>
         <%= decidim_form_for(@form, url: update_draft_proposal_path(@form), html: { method: :patch }) do |form| %>
           <%= form.hidden_field :title, value: form_presenter.title %>
