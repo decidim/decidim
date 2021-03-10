@@ -261,6 +261,8 @@ pl:
           processing: Przetwarzanie...
           results_published:
             answer: Odpowiedź
+            not_selected: Nie wybrano
+            question: Pytanie
             result: Wynik
             selected: Wybrane
             submit: Prześlij
@@ -270,7 +272,12 @@ pl:
             trustees: Powiernicy
           tally_ended:
             answer: Odpowiedź
+            not_selected: Nie wybrano
+            question: Pytanie
+            result: Wynik
+            selected: Wybrano
             submit: Publikuj wyniki
+            title: Obliczone wyniki
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
@@ -390,7 +397,9 @@ pl:
         answer:
           fields:
             proposals: Propozycje
+            selected: Wybrano
             title: Tytuł
+            votes: Głosy
         election:
           fields:
             bb_status: Status tablicy ogłoszeń
@@ -511,6 +520,9 @@ pl:
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
+        ballot_decision:
+          back: Rozpocznij proces głosowania ponownie
+          cast: Rozpocznij głosowanie
         confirm:
           answer: Odpowiedz
           answer_number: odpowiedź %{number}
