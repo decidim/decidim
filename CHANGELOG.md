@@ -1,16 +1,42 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [v0.24.0.rc2](https://github.com/decidim/decidim/releases/tag/v0.24.0.rc2)
 
 ### Added
 
+Nothing.
+
 ### Changed
+
+Nothing.
 
 ### Fixed
 
+- **decidim-core**: Fix invalid signature on message decryption [\#7490](https://github.com/decidim/decidim/pull/7490)
+- **decidim-assemblies**, **decidim-participatory processes**: Fix NULL error with weight field in assemblies & processes [\#7491](https://github.com/decidim/decidim/pull/7491)
+- **decidim-core**: Fix record encryptor hash values JSON parsing for legacy unencrypted hash values [\#7496](https://github.com/decidim/decidim/pull/7496)
+- **decidim-admin**: Only share tokens if component exists [\#7504](https://github.com/decidim/decidim/pull/7504)
+- **decidim-core**: Invalidate all user sessions when destroying the account [\#7511](https://github.com/decidim/decidim/pull/7511)
+- **decidim-proposals**: Fix non-unique IDs element in filter hash cash [\#7533](https://github.com/decidim/decidim/pull/7533)
+- **decidim-core**: Fix record encryptor trying to decrypt or decode non-String values [\#7538](https://github.com/decidim/decidim/pull/7538)
+- **decidim-core**: Fix record encryptor trying to decrypt empty strings [\#7547](https://github.com/decidim/decidim/pull/7547)
+- **decidim-admin**, **decidim-budgets**:  New Admin users cannot accept Terms and conditions [\#7520](https://github.com/decidim/decidim/pull/7520)
+- **decidim-core**, **decidim-proposals**: Fix cells caching by using cache_key_with_version instead of cache version [\#7556](https://github.com/decidim/decidim/pull/7556)
+- **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Fix user profile timeline activity cards texts showing "New resource" on updates [\#7558](https://github.com/decidim/decidim/pull/7558)
+- **decidim-core**: Sanitize address inputs [\#7576](https://github.com/decidim/decidim/pull/7576)
+
 ### Removed
 
-## [v0.24.0](https://github.com/decidim/decidim/releases/tag/v0.24.0)
+Nothing.
+
+### Developer improvements
+
+- Remove duplicated migration [\#7521](https://github.com/decidim/decidim/pull/7521)
+
+### Unsorted
+
+
+## [v0.24.0.rc1](https://github.com/decidim/decidim/releases/tag/v0.24.0.rc1)
 
 ### Upgrade Notes
 
