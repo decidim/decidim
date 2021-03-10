@@ -381,6 +381,7 @@ pl:
         actions:
           vote: Głosuj
     statistics:
+      consultations_count: Konsultacje
       votes_count: Głosy
   layouts:
     decidim:
