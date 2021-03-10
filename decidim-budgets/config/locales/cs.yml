@@ -6,6 +6,7 @@ cs:
         description: Popis
         title: Název
         total_budget: Celkový rozpočet
+        weight: Pozice v řazení
       project:
         budget_amount: Částka rozpočtu
         decidim_category_id: Kategorie
