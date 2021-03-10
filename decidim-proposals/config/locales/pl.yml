@@ -924,3 +924,5 @@ pl:
       included_proposals:
         proposal_project: 'Propozycja występująca w tych projektach:'
         proposal_result: 'Propozycja pojawiająca się w tych wynikach:'
+    statistics:
+      proposals_count: Propozycje
