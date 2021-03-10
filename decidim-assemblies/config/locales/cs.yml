@@ -52,6 +52,7 @@ cs:
         target: Kdo se účastní
         title: Titul
         twitter: Twitter
+        weight: Pozice v řazení
         youtube: Youtube
       assembly_member:
         birthday: Narozeniny
