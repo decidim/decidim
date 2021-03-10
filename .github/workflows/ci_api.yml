@@ -6,6 +6,7 @@ on:
       - release/*
       - '*-stable'
       - '!chore/l10n**'
+      - '!chore/l10n/test-pr'
   pull_request:
     branches:
       - '**'
