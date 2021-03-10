@@ -546,6 +546,8 @@ pl:
         title: Media i linki
     menu:
       conferences: Konferencje
+    statistics:
+      conferences_count: Konferencje
   devise:
     mailer:
       join_conference:
