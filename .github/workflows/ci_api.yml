@@ -7,6 +7,8 @@ on:
       - '*-stable'
       - '!chore/l10n**'
   pull_request:
+    branches:
+      - '!chore/fix-ci-ignores-for-crowdin'
 
 env:
   CI: "true"
