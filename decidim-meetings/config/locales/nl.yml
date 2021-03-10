@@ -339,6 +339,7 @@ nl:
             space_type: Participatieve ruimte
             upcoming: Aankomende
       last_activity:
+        meeting_updated_at_html: "<span>Vergadering bijgewerkt op %{link}</span>"
         new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
       mailer:
         invite_join_meeting_mailer:

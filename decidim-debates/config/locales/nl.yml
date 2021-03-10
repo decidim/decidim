@@ -140,6 +140,7 @@ nl:
         versions_list:
           back_to_resource: Ga terug naar het debat
       last_activity:
+        debate_updated_at_html: "<span>Debat bijgewerkt op %{link}</span>"
         new_debate_at_html: "<span>Nieuw debat op %{link}</span>"
       models:
         debate:
