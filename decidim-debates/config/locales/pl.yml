@@ -238,3 +238,5 @@ pl:
         description: Liczba utworzonych debat
         object: debaty
         title: Debaty
+    statistics:
+      debates_count: Debaty
