@@ -1194,7 +1194,7 @@ cs:
         currently_selected: Aktuálně vybraný rozsah
         title: Vyberte %{field}
       prompt: Vyberte oblast
-      scopes: Scopes
+      scopes: Oblasti působnosti
       scopes_picker_input:
         select_scope: 'Vyberte rozsah (v současné době: %{current})'
     search:
