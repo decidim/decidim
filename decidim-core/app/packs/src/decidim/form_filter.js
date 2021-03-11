@@ -6,7 +6,10 @@
  * @class
  * @augments Component
  */
+
 import delayed from './delayed'
+import CheckBoxesTree from './check_boxes_tree'
+const theCheckBoxesTree = new CheckBoxesTree();
 
 export default class FormFilterComponent {
   constructor($form) {
@@ -37,6 +40,7 @@ export default class FormFilterComponent {
       this.mounted = false;
       this.$form.off("change", "input, select", this._onFormChange);
 
+      // TODO-blat
       exports.Decidim.History.unregisterCallback(`filters-${this.id}`)
     }
   }
@@ -84,7 +88,7 @@ export default class FormFilterComponent {
         this.$form.find(".spinner-container").addClass("hide");
       });
 
-      exports.theCheckBoxesTree.setContainerForm(this.$form);
+      theCheckBoxesTree.setContainerForm(this.$form);
 
       exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
         this._onPopState(state);
@@ -185,7 +189,7 @@ export default class FormFilterComponent {
     });
     this.$form.find("input[type=radio]").attr("checked", false);
     this.$form.find(".data-picker").each((_index, picker) => {
-      exports.theDataPicker.clear(picker);
+      theDataPicker.clear(picker);
     });
 
     // This ensure the form is reset in a valid state where a fieldset of
@@ -220,7 +224,7 @@ export default class FormFilterComponent {
 
         if (Array.isArray(value)) {
           let checkboxes = this.$form.find(`input[type=checkbox][name="filter[${fieldName}][]"]`);
-          window.theCheckBoxesTree.updateChecked(checkboxes, value);
+          theCheckBoxesTree.updateChecked(checkboxes, value);
         } else {
           this.$form.find(`*[name="filter[${fieldName}]"]`).each((index, element) => {
             switch (element.type) {
@@ -242,12 +246,13 @@ export default class FormFilterComponent {
     $(".data-picker", this.$form).each((_index, picker) => {
       let pickerState = state[picker.id];
       if (pickerState) {
-        exports.theDataPicker.load(picker, pickerState);
+        theDataPicker.load(picker, pickerState);
       }
     })
 
     // Only one instance should submit the form on browser history navigation
     if (this.popStateSubmiter) {
+      // TODO-blat: FIXME
       exports.Rails.fire(this.$form[0], "submit");
     }
 
@@ -295,7 +300,7 @@ export default class FormFilterComponent {
 
     // Stores picker information for selected values (value, text and link) in the state object
     $(".data-picker", this.$form).each((_index, picker) => {
-      state[picker.id] = exports.theDataPicker.save(picker);
+      state[picker.id] = window.theDataPicker.save(picker);
     })
 
     return [path, state];

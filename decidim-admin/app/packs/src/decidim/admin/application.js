@@ -2,7 +2,6 @@ require("@rails/ujs").start()
 import $ from 'jquery'
 import 'foundation-sites'
 import 'foundation-datepicker'
-import 'moment'
 import 'jquery.autocomplete'
 import 'jquery-serializejson'
 import 'html5sortable'
@@ -11,14 +10,9 @@ import './tab_focus'
 import './choose_language'
 import toggleNav from './toggle_nav'
 import createSortList from './sort_list.component'
-// TODO-blat fie editor
-// import '../../../../../../decidim-core/app/packs/src/decidim/editor'
-import '../../../../../../decidim-core/app/packs/src/decidim/form_datepicker'
-import '../../../../../../decidim-core/app/packs/src/decidim/data_picker'
-import './auto_label_by_position.component'
-import './auto_buttons_by_position.component'
-import './dynamic_fields.component'
-import './field_dependent_inputs.component'
+import '../../../../../../decidim-core/app/packs/src/decidim/editor'
+import formDatePicker from '../../../../../../decidim-core/app/packs/src/decidim/form_datepicker'
+import DataPicker from '../../../../../../decidim-core/app/packs/src/decidim/data_picker'
 import './draggable-list'
 import './sortable'
 import './gallery'
@@ -30,7 +24,6 @@ import '../../../../../../decidim-core/app/packs/src/decidim/vizzs'
 import '../../../../../../decidim-core/app/packs/src/decidim/ajax_modals'
 import './officializations'
 import '../../../../../../decidim-core/app/packs/src/decidim/input_character_counter'
-import '../../../../../../decidim-core/app/packs/src/decidim/geocoding/attach_input'
 import '../../../../../../decidim-core/app/packs/src/decidim/session_timeouter'
 
 window.Decidim = window.Decidim || {};
@@ -61,15 +54,11 @@ const pageLoad = () => {
 };
 
 $(() => {
-  if (window.Decidim.DataPicker) {
-    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
-  }
+  window.theDataPicker = new DataPicker($(".data-picker"));
 
   pageLoad();
 
-  if (window.Decidim.formDatePicker) {
-    window.Decidim.formDatePicker();
-  }
+  formDatePicker();
 
   if (window.Decidim.quillEditor) {
     window.Decidim.quillEditor();

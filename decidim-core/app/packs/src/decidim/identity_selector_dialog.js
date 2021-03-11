@@ -3,8 +3,7 @@
  * select with which identity he wants to perform an action.
  *
  */
-$(document).ready(function () {
-
+$(() => {
   let button = $("#select-identity-button"),
       identitiesUrl = null,
       userIdentitiesDialog = $("#user-identities");
@@ -26,7 +25,7 @@ $(document).ready(function () {
  * Manage the identity selector for endorsements.
  *
  */
-$(document).ready(function () {
+$(() => {
   $("#select-identity-button").on("ajax:success", function() {
     // once reveal popup has been rendered register event callbacks
     $("#user-identities ul.reveal__list li").each(function(index, elem) {

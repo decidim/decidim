@@ -1,6 +1,6 @@
-$(() => {
-  const { attachGeocoding } = window.Decidim;
+import attachGeocoding from '../../../../../../decidim-core/app/packs/src/decidim/geocoding/attach_input'
 
+$(() => {
   window.DecidimProposals = window.DecidimProposals || {};
 
   window.DecidimProposals.bindProposalAddress = () => {

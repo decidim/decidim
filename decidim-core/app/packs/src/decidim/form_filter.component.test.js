@@ -71,7 +71,7 @@ describe("FormFilterComponent", () => {
     `;
     $("body").append(form);
 
-    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
+    window.theDataPicker = new DataPicker($(".data-picker"));
     window.theCheckBoxesTree = new window.Decidim.CheckBoxesTree();
     subject = new FormFilterComponent($(document).find("form"));
   });

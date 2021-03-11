@@ -1,24 +1,17 @@
-((exports) => {
-  class Configuration {
-    constructor() {
-      this.config = {};
-    }
+export default class Configuration {
+  constructor() {
+    this.config = {};
+  }
 
-    set(key, value = null) {
-      if (typeof key === "object") {
-        this.config = Object.assign({}, this.config, key);
-        //this.config = { ...this.config, ...key };
-      } else {
-        this.config[key] = value;
-      }
-    }
-
-    get(key) {
-      return this.config[key];
+  set(key, value = null) {
+    if (typeof key === "object") {
+      this.config = { ...this.config, ...key };
+    } else {
+      this.config[key] = value;
     }
   }
 
-  exports.Decidim = exports.Decidim || {};
-  exports.Decidim.Configuration = Configuration;
-  exports.Decidim.config = new Configuration();
-})(window);
+  get(key) {
+    return this.config[key];
+  }
+}

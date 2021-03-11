@@ -3,7 +3,7 @@
 
 $(() => {
 
-const metricsData = {};
+  const metricsData = {};
   const metricsContainer = {};
   const metricsParams = {};
 

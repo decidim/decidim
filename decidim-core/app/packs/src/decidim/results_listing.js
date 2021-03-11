@@ -1,42 +1,42 @@
-((exports) => {
-  const { pushState, registerCallback } = window.Decidim.History;
-  const initializeListingOptionsMenu = (options) => {
-    exports.$(document).on("click", `${options.containerSelector} a`, (event) => {
-      const $target = $(event.target);
+// TOOD-blat: window.Decidim.History??
+const { pushState, registerCallback } = window.Decidim.History;
 
-      $target.parents(".menu").find("a:first").text($target.text());
+const initializeListingOptionsMenu = (options) => {
+  $(document).on("click", `${options.containerSelector} a`, (event) => {
+    const $target = $(event.target);
 
-      pushState($target.attr("href"));
-    })
+    $target.parents(".menu").find("a:first").text($target.text());
 
-    registerCallback(options.callbackName, () => {
-      const url = window.location.toString();
-      const match = url.match(/${options.urlParameter}=([^&]*)/);
-      const $targetMenu = $(`${options.containerSelector} .menu`);
-      let value = $targetMenu.find(".menu a:first").data(options.dataAttribute);
+    pushState($target.attr("href"));
+  })
 
-      if (match) {
-        value = match[1];
-      }
+  registerCallback(options.callbackName, () => {
+    const url = window.location.toString();
+    const match = url.match(/${options.urlParameter}=([^&]*)/);
+    const $targetMenu = $(`${options.containerSelector} .menu`);
+    let value = $targetMenu.find(".menu a:first").data(options.dataAttribute);
 
-      const linkText = $targetMenu.find(`.menu a[data-${options.dataAttribute}="${value}"]`).text();
+    if (match) {
+      value = match[1];
+    }
 
-      $targetMenu.find("a:first").text(linkText);
-    });
-  };
+    const linkText = $targetMenu.find(`.menu a[data-${options.dataAttribute}="${value}"]`).text();
 
-  exports.$(() => {
-    initializeListingOptionsMenu({
-      containerSelector: ".order-by",
-      callbackName: "orders",
-      urlParameter: "order",
-      dataAttribute: "order"
-    });
-    initializeListingOptionsMenu({
-      containerSelector: ".results-per-page",
-      callbackName: "results_per_page",
-      urlParameter: "per_page",
-      dataAttribute: "per-page-option"
-    });
+    $targetMenu.find("a:first").text(linkText);
   });
-})(window)
+};
+
+$(() => {
+  initializeListingOptionsMenu({
+    containerSelector: ".order-by",
+    callbackName: "orders",
+    urlParameter: "order",
+    dataAttribute: "order"
+  });
+  initializeListingOptionsMenu({
+    containerSelector: ".results-per-page",
+    callbackName: "results_per_page",
+    urlParameter: "per_page",
+    dataAttribute: "per-page-option"
+  });
+});

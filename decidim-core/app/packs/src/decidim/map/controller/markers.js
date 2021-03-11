@@ -1,83 +1,78 @@
-((exports) => {
-  exports.Decidim = exports.Decidim || {};
+import * as L from "leaflet";
+import MapController from '../controller'
 
-  const MapController = exports.Decidim.MapController;
+export default class MapMarkersController extends MapController {
+  start() {
+    this.markerClusters = null;
 
-  class MapMarkersController extends MapController {
-    start() {
-      this.markerClusters = null;
-
-      if (Array.isArray(this.config.markers) && this.config.markers.length > 0) {
-        this.addMarkers(this.config.markers);
-      } else {
-        this.map.fitWorld();
-      }
-    }
-
-    addMarkers(markersData) {
-      if (this.markerClusters === null) {
-        this.markerClusters = L.markerClusterGroup();
-        this.map.addLayer(this.markerClusters);
-      }
-
-      // Pre-compiles the template
-      $.template(
-        this.config.popupTemplateId,
-        $(`#${this.config.popupTemplateId}`).html()
-      );
-
-      const updateCoordinates = (data) => {
-        $('input[data-type="latitude"]').val(data.lat);
-        $('input[data-type="longitude"]').val(data.lng);
-      };
-
-      const bounds = new L.LatLngBounds(
-        markersData.map(
-          (markerData) => [markerData.latitude, markerData.longitude]
-        )
-      );
-
-      markersData.forEach((markerData) => {
-        let marker = L.marker([markerData.latitude, markerData.longitude], {
-          icon: this.createIcon(),
-          keyboard: true,
-          title: markerData.title,
-          draggable: markerData.draggable
-        });
-
-        if (markerData.draggable) {
-          updateCoordinates({
-            lat: markerData.latitude,
-            lng: markerData.longitude
-          });
-          marker.on("drag", (ev) => {
-            updateCoordinates(ev.target.getLatLng());
-          });
-        } else {
-          let node = document.createElement("div");
-
-          $.tmpl(this.config.popupTemplateId, markerData).appendTo(node);
-
-          marker.bindPopup(node, {
-            maxwidth: 640,
-            minWidth: 500,
-            keepInView: true,
-            className: "map-info"
-          }).openPopup();
-        }
-
-        this.markerClusters.addLayer(marker);
-      });
-
-      this.map.fitBounds(bounds, { padding: [100, 100] });
-    }
-
-    clearMarkers() {
-      this.map.removeLayer(this.markerClusters);
-      this.markerClusters = L.markerClusterGroup();
-      this.map.addLayer(this.markerClusters);
+    if (Array.isArray(this.config.markers) && this.config.markers.length > 0) {
+      this.addMarkers(this.config.markers);
+    } else {
+      this.map.fitWorld();
     }
   }
 
-  exports.Decidim.MapMarkersController = MapMarkersController;
-})(window);
+  addMarkers(markersData) {
+    if (this.markerClusters === null) {
+      this.markerClusters = L.markerClusterGroup();
+      this.map.addLayer(this.markerClusters);
+    }
+
+    // Pre-compiles the template
+    $.template(
+      this.config.popupTemplateId,
+      $(`#${this.config.popupTemplateId}`).html()
+    );
+
+    const updateCoordinates = (data) => {
+      $('input[data-type="latitude"]').val(data.lat);
+      $('input[data-type="longitude"]').val(data.lng);
+    };
+
+    const bounds = new L.LatLngBounds(
+      markersData.map(
+        (markerData) => [markerData.latitude, markerData.longitude]
+      )
+    );
+
+    markersData.forEach((markerData) => {
+      let marker = L.marker([markerData.latitude, markerData.longitude], {
+        icon: this.createIcon(),
+        keyboard: true,
+        title: markerData.title,
+        draggable: markerData.draggable
+      });
+
+      if (markerData.draggable) {
+        updateCoordinates({
+          lat: markerData.latitude,
+          lng: markerData.longitude
+        });
+        marker.on("drag", (ev) => {
+          updateCoordinates(ev.target.getLatLng());
+        });
+      } else {
+        let node = document.createElement("div");
+
+        $.tmpl(this.config.popupTemplateId, markerData).appendTo(node);
+
+        marker.bindPopup(node, {
+          maxwidth: 640,
+          minWidth: 500,
+          keepInView: true,
+          className: "map-info"
+        }).openPopup();
+      }
+
+      this.markerClusters.addLayer(marker);
+    });
+
+    this.map.fitBounds(bounds, { padding: [100, 100] });
+  }
+
+  clearMarkers() {
+    this.map.removeLayer(this.markerClusters);
+    this.markerClusters = L.markerClusterGroup();
+    this.map.addLayer(this.markerClusters);
+  }
+}

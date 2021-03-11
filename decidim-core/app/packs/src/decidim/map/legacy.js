@@ -1,8 +1,8 @@
-import 'leaflet'
+import * as L from "leaflet";
 import 'leaflet-tilelayer-here'
 import 'leaflet-svg-icon'
 import 'leaflet.markercluster'
-import 'decidim/map/factory'
+import createMapController './factory'
 
 /**
  * @deprecated
@@ -11,76 +11,68 @@ import 'decidim/map/factory'
  * available globally. This is not really needed unless someone is still relying
  * on these methods or the have customizations that are hard to update.
  */
-((exports) => {
-  exports.Decidim = exports.Decidim || {};
+const legacyMapSupport = ($map) => {
+  const hereAppId = $map.data("here-app-id");
+  const hereAppCode = $map.data("here-app-code");
+  const hereApiKey = $map.data("here-api-key");
 
-  const legacyMapSupport = ($map) => {
-    const hereAppId = $map.data("here-app-id");
-    const hereAppCode = $map.data("here-app-code");
-    const hereApiKey = $map.data("here-api-key");
+  let mapApiConfig = null;
+  if (hereApiKey) {
+    mapApiConfig = { apiKey: hereApiKey };
+  } else if (hereAppId && hereAppCode) {
+    mapApiConfig = {
+      appId: hereAppId,
+      appCode: hereAppCode
+    };
+  } else {
+    throw new Error("Legacy map support: Please provide the HERE API configuration");
+  }
 
-    let mapApiConfig = null;
-    if (hereApiKey) {
-      mapApiConfig = { apiKey: hereApiKey };
-    } else if (hereAppId && hereAppCode) {
-      mapApiConfig = {
-        appId: hereAppId,
-        appCode: hereAppCode
-      };
-    } else {
-      throw new Error("Legacy map support: Please provide the HERE API configuration");
-    }
+  const markersData = $map.data("markers-data");
 
-    const markersData = $map.data("markers-data");
+  let markerColor = getComputedStyle(document.documentElement).getPropertyValue("--primary");
+  if (!markerColor || markerColor.length < 1) {
+    markerColor = "#ef604d";
+  }
 
-    let markerColor = getComputedStyle(document.documentElement).getPropertyValue("--primary");
-    if (!markerColor || markerColor.length < 1) {
-      markerColor = "#ef604d";
-    }
+  // Configure the map element with the new style
+  const mapConfig = {
+    markerColor,
+    popupTemplateId: "marker-popup",
+    markers: markersData,
+    tileLayer: mapApiConfig
+  }
 
-    // Configure the map element with the new style
-    const mapConfig = {
-      markerColor,
-      popupTemplateId: "marker-popup",
-      markers: markersData,
-      tileLayer: mapApiConfig
-    }
+  $map.data("decidim-map", mapConfig);
 
-    $map.data("decidim-map", mapConfig);
+  window.Decidim.mapConfiguration = $.extend({
+    markerColor: markerColor
+  }, mapApiConfig);
+};
 
-    exports.Decidim.mapConfiguration = $.extend({
-      markerColor: markerColor
-    }, mapApiConfig);
-  };
+const loadMap = (mapId, markersData) => {
+  // Allow the configured map service to configure the map, e.g. attaching the
+  // tile layer to the map.
+  const $map = $(`#${mapId}`);
+  $map.data("markers-data", markersData);
+  legacyMapSupport($map);
 
-  const loadMap = (mapId, markersData) => {
-    // Allow the configured map service to configure the map, e.g. attaching the
-    // tile layer to the map.
-    const $map = $(`#${mapId}`);
-    $map.data("markers-data", markersData);
-    legacyMapSupport($map);
+  const mapData = $map.data("decidim-map");
+  const ctrl = createMapController(mapId, mapData);
+  const map = ctrl.load();
 
-    const mapData = $map.data("decidim-map");
-    const ctrl = exports.Decidim.createMapController(mapId, mapData);
-    const map = ctrl.load();
+  L.tileLayer.here(mapData.tileLayer).addTo(map);
 
-    L.tileLayer.here(mapData.tileLayer).addTo(map);
+  ctrl.start();
 
-    ctrl.start();
+  window.Decidim.currentMap = map;
 
-    exports.Decidim.currentMap = map;
+  return map;
+};
 
-    return map;
-  };
-
-  $(() => {
-    const $map = $("#map");
-    if ($map.length > 0) {
-      loadMap($map.attr("id"), $map.data("markers-data"));
-    }
-  });
-
-  exports.Decidim.loadMap = loadMap;
-  exports.Decidim.currentMap = null;
-  exports.Decidim.mapConfiguration = {};
-})(window);
+$(() => {
+  const $map = $("#map");
+  if ($map.length > 0) {
+    loadMap($map.attr("id"), $map.data("markers-data"));
+  }
+});
