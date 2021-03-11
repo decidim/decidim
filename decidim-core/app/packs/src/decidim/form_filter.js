@@ -9,7 +9,10 @@
 
 import delayed from './delayed'
 import CheckBoxesTree from './check_boxes_tree'
+import { registerCallback, unregisterCallback, pushState, replaceState, state } from './history'
+import DataPicker from './data_picker'
 const theCheckBoxesTree = new CheckBoxesTree();
+const theDataPicker = new DataPicker($(".data-picker"));
 
 export default class FormFilterComponent {
   constructor($form) {
@@ -40,8 +43,7 @@ export default class FormFilterComponent {
       this.mounted = false;
       this.$form.off("change", "input, select", this._onFormChange);
 
-      // TODO-blat
-      exports.Decidim.History.unregisterCallback(`filters-${this.id}`)
+      unregisterCallback(`filters-${this.id}`)
     }
   }
 
@@ -68,6 +70,7 @@ export default class FormFilterComponent {
         }
         this.currentFormRequest = e.originalEvent.detail[0];
         queue += 1;
+        console.log(contentContainer)
         if (queue > 0 && contentContainer.length > 0 && !contentContainer.hasClass("spinner-container")) {
           contentContainer.addClass("spinner-container");
         }
@@ -90,7 +93,7 @@ export default class FormFilterComponent {
 
       theCheckBoxesTree.setContainerForm(this.$form);
 
-      exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
+      registerCallback(`filters-${this.id}`, (state) => {
         this._onPopState(state);
       });
     }
@@ -104,7 +107,7 @@ export default class FormFilterComponent {
   _updateInitialState() {
     const [initialPath, initialState] = this._currentStateAndPath();
     initialState._path = initialPath
-    exports.Decidim.History.replaceState(null, initialState);
+    replaceState(null, initialState);
   }
 
   /**
@@ -114,17 +117,17 @@ export default class FormFilterComponent {
    * @returns {String} - Returns the current location.
    */
   _getLocation(withHost = true) {
-    const state = exports.Decidim.History.state();
+    const currentState = state();
     let path = "";
 
-    if (state && state._path) {
-      path = state._path;
+    if (currentState && currentState._path) {
+      path = currentState._path;
     } else {
-      path = exports.location.pathname + exports.location.search + exports.location.hash;
+      path = window.location.pathname + window.location.search + window.location.hash;
     }
 
     if (withHost) {
-      return exports.location.origin + path;
+      return window.location.origin + path;
     }
     return path;
   }
@@ -252,8 +255,7 @@ export default class FormFilterComponent {
 
     // Only one instance should submit the form on browser history navigation
     if (this.popStateSubmiter) {
-      // TODO-blat: FIXME
-      exports.Rails.fire(this.$form[0], "submit");
+      Rails.fire(this.$form[0], "submit");
     }
 
     this.changeEvents = true;
@@ -276,8 +278,8 @@ export default class FormFilterComponent {
       return;
     }
 
-    exports.Rails.fire(this.$form[0], "submit");
-    exports.Decidim.History.pushState(newPath, newState);
+    Rails.fire(this.$form[0], "submit");
+    pushState(newPath, newState);
   }
 
   /**
@@ -290,7 +292,7 @@ export default class FormFilterComponent {
     const params = this.$form.find(":not(.ignore-filters)").find("select:not(.ignore-filter), input:not(.ignore-filter)").serialize();
 
     let path = "";
-    let state = {};
+    let currentState = {};
 
     if (formAction.indexOf("?") < 0) {
       path = `${formAction}?${params}`;
@@ -298,12 +300,13 @@ export default class FormFilterComponent {
       path = `${formAction}&${params}`;
     }
 
-    // Stores picker information for selected values (value, text and link) in the state object
+    // Stores picker information for selected values (value, text and link) in the currentState object
     $(".data-picker", this.$form).each((_index, picker) => {
-      state[picker.id] = window.theDataPicker.save(picker);
+      console.log('form_filter.data-picker loop')
+      currentState[picker.id] = theDataPicker.save(picker);
     })
 
-    return [path, state];
+    return [path, currentState];
   }
 
   /**

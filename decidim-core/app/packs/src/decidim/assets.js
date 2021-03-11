@@ -1,0 +1,1 @@
+window.Decidim = window.Decidim || {};

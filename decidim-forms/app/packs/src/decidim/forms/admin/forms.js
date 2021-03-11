@@ -1,18 +1,17 @@
 /* eslint-disable max-lines */
 
-import './auto_buttons_by_min_items.component'
-import './auto_select_options_by_total_items.component'
-import './auto_select_options_from_url.component'
-import './live_text_update.component'
+import AutoButtonsByMinItemsComponent from './auto_buttons_by_min_items.component'
+import AutoSelectOptionsByTotalItemsComponent from './auto_select_options_by_total_items.component'
+import AutoSelectOptionsFromUrl from './auto_select_options_from_url.component'
+import createLiveTextUpdateComponent from './live_text_update.component'
 import AutoButtonsByPositionComponent from './auto_buttons_by_position.component'
 import AutoLabelByPositionComponent from './auto_label_by_position.component'
 import createSortableList from './createSortList.component'
 import createDynamicFields from './dynamic_fields.component'
+import createFieldDependentInputs from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component'
+import createQuillEditor from '../../../../../../../decidim-core/app/packs/src/decidim/editor'
 
-((exports) => {
-  const { AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, AutoSelectOptionsFromUrl, createLiveTextUpdateComponent, createFieldDependentInputs} = exports.DecidimAdmin;
-  const { createQuillEditor } = exports.Decidim;
-
+$(() => {
   const wrapperSelector = ".questionnaire-questions";
   const fieldSelector = ".questionnaire-question";
   const questionTypeSelector = "select[name$=\\[question_type\\]]";
@@ -433,4 +432,4 @@ import createDynamicFields from './dynamic_fields.component'
 
   autoLabelByPosition.run();
   autoButtonsByPosition.run();
-})(window);
+})

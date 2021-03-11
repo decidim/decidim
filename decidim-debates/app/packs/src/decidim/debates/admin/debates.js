@@ -1,6 +1,6 @@
-((exports) => {
-  const { createFieldDependentInputs } = exports.DecidimAdmin;
+import createFieldDependentInputs from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component'
 
+$(() => {
   const $debateType = $('[name="debate[finite]"');
 
   createFieldDependentInputs({
@@ -22,4 +22,4 @@
       return $("#debate_finite_true").is(":checked")
     }
   });
-})(window);
+})

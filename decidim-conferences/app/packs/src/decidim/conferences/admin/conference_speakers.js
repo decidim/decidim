@@ -1,6 +1,6 @@
-((exports) => {
-  const { createFieldDependentInputs } = exports.DecidimAdmin;
+import createFieldDependentInputs from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component'
 
+$(() => {
   const $conferenceSpeakerType = $("#conference_speaker_existing_user");
 
   createFieldDependentInputs({
@@ -23,4 +23,4 @@
     }
   });
 
-})(window);
+})

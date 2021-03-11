@@ -1,11 +1,9 @@
-import './option_attached_inputs.component'
-import './autosortable_checkboxes.component'
-import './display_conditions.component'
-import './max_choices_alert.component'
+import createOptionAttachedInputs from './option_attached_inputs.component'
+import createAutosortableCheckboxes from './autosortable_checkboxes.component'
+import createDisplayConditions from './display_conditions.component'
+import createMaxChoicesAlertComponent from './max_choices_alert.component'
 
-((exports) => {
-  const { createOptionAttachedInputs, createAutosortableCheckboxes, createMaxChoicesAlertComponent, createDisplayConditions } = exports.Decidim;
-
+$(() => {
   $(".radio-button-collection, .check-box-collection").each((idx, el) => {
     createOptionAttachedInputs({
       wrapperField: $(el),
@@ -65,4 +63,4 @@ import './max_choices_alert.component'
       event.returnValue = true;
     });
   }
-})(window);
+})

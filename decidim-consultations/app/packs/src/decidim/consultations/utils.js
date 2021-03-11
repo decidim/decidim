@@ -1,6 +1,4 @@
-/* eslint-disable no-invalid-this, no-undefined */
-
-(() => {
+$(() => {
   $(".vote-button-caption").mouseover(function () {
     const replaceText = $(this).data("replace");
 
@@ -16,4 +14,4 @@
       $(this).text(originalText);
     }
   });
-})(this);
+})

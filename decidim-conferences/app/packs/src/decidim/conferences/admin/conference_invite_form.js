@@ -1,6 +1,6 @@
-((exports) => {
-  const { createFieldDependentInputs } = exports.DecidimAdmin;
+import createFieldDependentInputs from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component'
 
+$(() => {
   const $attendeeType = $('[name="conference_registration_invite[existing_user]"');
 
   createFieldDependentInputs({
@@ -22,4 +22,4 @@
       return $("#conference_registration_invite_existing_user_true").is(":checked")
     }
   });
-})(window);
+})

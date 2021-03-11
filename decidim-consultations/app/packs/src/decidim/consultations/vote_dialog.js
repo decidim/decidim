@@ -1,6 +1,6 @@
 /* eslint-disable no-invalid-this */
 
-$(document).ready(function () {
+$(() => {
   let button = $("#vote_button"),
       buttonChange = $("#question-vote-confirm-modal-button-change"),
       responseButtons = $(".response-title"),

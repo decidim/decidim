@@ -1,6 +1,6 @@
-((exports) => {
-  const { createFieldDependentInputs } = exports.DecidimAdmin;
+import createFieldDependentInputs from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component'
 
+$(() => {
   const $participantType = $("#polling_officer_existing_user");
 
   createFieldDependentInputs({
@@ -32,4 +32,4 @@
       return $field.val() === "true"
     }
   });
-})(window);
+})
