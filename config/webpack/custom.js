@@ -72,6 +72,11 @@ module.exports = {
     decidim_assemblies: './decidim-assemblies/app/packs/entrypoints/decidim_assemblies.js',
     decidim_assemblies_admin: './decidim-assemblies/app/packs/entrypoints/decidim_assemblies_admin.js',
     decidim_api_docs: './decidim-api/app/packs/entrypoints/decidim_api_docs.js',
+    decidim_budgets: './decidim-budgets/app/packs/entrypoints/decidim_budgets.js',
+    decidim_conferences_admin: './decidim-conferences/app/packs/entrypoints/decidim_conferences_admin.js',
+    decidim_consultations: './decidim-consultations/app/packs/entrypoints/decidim_consultations.js',
+    decidim_forms: './decidim-forms/app/packs/entrypoints/decidim_forms.js',
+    decidim_forms_admin: './decidim-forms/app/packs/entrypoints/decidim_forms_admin.js',
   },
 }
 

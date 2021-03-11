@@ -1,4 +1,4 @@
-export default class FieldDependentInputsComponent {
+class FieldDependentInputsComponent {
   constructor(options = {}) {
     this.controllerField = options.controllerField;
     this.wrapperSelector = options.wrapperSelector;
@@ -29,3 +29,8 @@ export default class FieldDependentInputsComponent {
     });
   }
 }
+
+export default function createFieldDependentInputs(options) {
+  return new FieldDependentInputsComponent(options);
+}
+
