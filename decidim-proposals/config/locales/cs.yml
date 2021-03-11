@@ -546,23 +546,23 @@ cs:
         withdrawn: Staženo
       application_helper:
         filter_category_values:
-          all: Všechno
+          all: Vše
         filter_origin_values:
-          all: Všechno
+          all: Vše
           citizens: Občané
           meetings: Setkání
           official: Oficiální
           user_groups: Skupiny uživatelů
         filter_scope_values:
-          all: Všechno
+          all: Vše
         filter_state_values:
           accepted: Přijato
-          all: Všechno
+          all: Vše
           evaluating: Hodnocení
           not_answered: Nezodpovězeno
           rejected: Odmítnuto
         filter_type_values:
-          all: Všechno
+          all: Vše
           amendments: Změny
           proposals: Návrhy
       collaborative_drafts:
@@ -600,7 +600,7 @@ cs:
           send: Poslat
           title: Úprava konceptu spolupráce
         filters:
-          all: Všechno
+          all: Vše
           amendment: Změny
           category: Kategorie
           open: otevřeno

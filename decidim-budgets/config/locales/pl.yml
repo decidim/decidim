@@ -295,5 +295,10 @@ pl:
       destroy:
         error: Podczas anulowania Twojego głosu wystąpił błąd
         success: Twój głos został anulowany
+    resource_links:
+      included_proposals:
+        project_proposal: Propozycje zawarte w tym projekcie
+    statistics:
+      projects_count: Projekty
   index:
     confirmed_orders_count: Liczba głosów

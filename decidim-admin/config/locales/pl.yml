@@ -375,6 +375,7 @@ pl:
         file_help:
           import:
             explanation: 'Wytyczne dotyczące pliku:'
+            message_1: Pliki CSV, JSON i Excel (.xlsx) są obsługiwane
             message_2: Dla plików w formacie CSV separatorem kolumn musi być średnik (";")
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy
@@ -426,6 +427,7 @@ pl:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Wróć
           file_legend: Zaimportuj plik, który zostanie przetworzony.

@@ -686,7 +686,7 @@ cs:
       subject: Váš export "%{name}" je připraven
     filters:
       linked_classes:
-        all: Všechno
+        all: Vše
         collaborative_draft: Návrh spolupráce
         dummy_resource: Dummy prostředky
         meeting: Setkání
@@ -1194,7 +1194,7 @@ cs:
         currently_selected: Aktuálně vybraný rozsah
         title: Vyberte %{field}
       prompt: Vyberte oblast
-      scopes: Scopes
+      scopes: Oblasti působnosti
       scopes_picker_input:
         select_scope: 'Vyberte rozsah (v současné době: %{current})'
     search:
@@ -1204,12 +1204,12 @@ cs:
     searches:
       filters:
         back: Zpět na výsledky
-        jump_to: 'Skočit do:'
+        jump_to: 'Přejít na:'
         state:
           active: Aktivní
-          all: Všechno
-          future: Budoucnost
-          past: Minulost
+          all: Vše
+          future: Budoucí
+          past: Minulé
       filters_small_view:
         close_modal: Zavřít modální
         filter: Filtr
