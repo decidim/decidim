@@ -10,7 +10,7 @@ import './tab_focus'
 import './choose_language'
 import toggleNav from './toggle_nav'
 import createSortList from './sort_list.component'
-import '../../../../../../decidim-core/app/packs/src/decidim/editor'
+import createQuillEditor from '../../../../../../decidim-core/app/packs/src/decidim/editor'
 import formDatePicker from '../../../../../../decidim-core/app/packs/src/decidim/form_datepicker'
 import DataPicker from '../../../../../../decidim-core/app/packs/src/decidim/data_picker'
 import './draggable-list'
@@ -60,7 +60,7 @@ $(() => {
 
   formDatePicker();
 
-  if (window.Decidim.quillEditor) {
-    window.Decidim.quillEditor();
-  }
+  $(".editor-container").each((_idx, container) => {
+    createQuillEditor(container);
+  });
 });

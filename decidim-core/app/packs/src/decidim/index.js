@@ -4,6 +4,7 @@ import DataPicker from './data_picker'
 import fixDropdownMenus from './dropdowns_menus'
 import Configuration from './configuration'
 import ExternalLink from './external_link'
+import createQuillEditor from './editor'
 
 window.Decidim = window.Decidim || {};
 
@@ -25,9 +26,9 @@ $(() => {
 
   formDatePicker();
 
-  if (window.Decidim.quillEditor) {
-    window.Decidim.quillEditor();
-  }
+  $(".editor-container").each((_idx, container) => {
+    createQuillEditor(container);
+  });
 
   $('a[target="_blank"]').each((_i, elem) => {
     const $link = $(elem);

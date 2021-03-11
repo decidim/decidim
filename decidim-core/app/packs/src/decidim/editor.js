@@ -1,81 +1,70 @@
-import './editor/linebreak_module'
+import lineBreakButtonHandler from './editor/linebreak_module'
 
-((exports) => {
-  const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
+const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
 
-  const createQuillEditor = (container) => {
-    const toolbar = $(container).data("toolbar");
-    const disabled = $(container).data("disabled");
+export default function createQuillEditor(container){
+  const toolbar = $(container).data("toolbar");
+  const disabled = $(container).data("disabled");
 
-    let quillToolbar = [
-      ["bold", "italic", "underline", "linebreak"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "clean"]
+  let quillToolbar = [
+    ["bold", "italic", "underline", "linebreak"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["link", "clean"]
+  ];
+
+  if (toolbar === "full") {
+    quillToolbar = [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ...quillToolbar,
+      ["video"]
     ];
+  } else if (toolbar === "basic") {
+    quillToolbar = [
+      ...quillToolbar,
+      ["video"]
+    ];
+  }
 
-    if (toolbar === "full") {
-      quillToolbar = [
-        [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        ...quillToolbar,
-        ["video"]
-      ];
-    } else if (toolbar === "basic") {
-      quillToolbar = [
-        ...quillToolbar,
-        ["video"]
-      ];
-    }
+  const $input = $(container).siblings('input[type="hidden"]');
+  container.innerHTML = $input.val() || "";
 
-    const $input = $(container).siblings('input[type="hidden"]');
-    container.innerHTML = $input.val() || "";
-
-    const quill = new Quill(container, {
-      modules: {
-        linebreak: {},
-        toolbar: {
-          container: quillToolbar,
-          handlers: {
-            "linebreak": exports.Decidim.Editor.lineBreakButtonHandler
-          }
+  const quill = new Quill(container, {
+    modules: {
+      linebreak: {},
+      toolbar: {
+        container: quillToolbar,
+        handlers: {
+          "linebreak": lineBreakButtonHandler
         }
-      },
-      formats: quillFormats,
-      theme: "snow"
-    });
-
-    if (disabled) {
-      quill.disable();
-    }
-
-    quill.on("text-change", () => {
-      const text = quill.getText();
-
-      // Triggers CustomEvent with the cursor position
-      // It is required in input_mentions.js
-      let event = new CustomEvent("quill-position", {
-        detail: quill.getSelection()
-      });
-      container.dispatchEvent(event);
-
-      if (text === "\n" || text === "\n\n") {
-        $input.val("");
-      } else {
-        $input.val(quill.root.innerHTML);
       }
+    },
+    formats: quillFormats,
+    theme: "snow"
+  });
+
+  if (disabled) {
+    quill.disable();
+  }
+
+  quill.on("text-change", () => {
+    const text = quill.getText();
+
+    // Triggers CustomEvent with the cursor position
+    // It is required in input_mentions.js
+    let event = new CustomEvent("quill-position", {
+      detail: quill.getSelection()
     });
-    // After editor is ready, linebreak_module deletes two extraneous new lines
-    quill.emitter.emit("editor-ready");
+    container.dispatchEvent(event);
 
-    return quill;
-  };
+    if (text === "\n" || text === "\n\n") {
+      $input.val("");
+    } else {
+      $input.val(quill.root.innerHTML);
+    }
+  });
+  // After editor is ready, linebreak_module deletes two extraneous new lines
+  quill.emitter.emit("editor-ready");
 
-  const quillEditor = () => {
-    $(".editor-container").each((_idx, container) => {
-      createQuillEditor(container);
-    });
-  };
+  return quill;
+};
 
-  exports.Decidim = exports.Decidim || {};
-  exports.Decidim.quillEditor = quillEditor;
-  exports.Decidim.createQuillEditor = createQuillEditor;
-})(window);
