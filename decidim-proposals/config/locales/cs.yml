@@ -453,7 +453,7 @@ cs:
             split: Rozdělit návrhy
             split_button: Rozdělit
             title: Návrhy
-            unassign_from_valuator: Zrušit přiřazení od hodnotitele
+            unassign_from_valuator: Odebrat přiřazení od hodnotitele
             unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
             update_scope_button: Aktualizovat rozsah
@@ -706,7 +706,7 @@ cs:
       participatory_text_proposal:
         alternative_title: Momentálně nejsou k dispozici žádné příspěvky
         buttons:
-          amend: Pozměňovací návrh
+          amend: Pozměnit
           comment: Komentář
           comments: Komentáře
       proposal_votes:
