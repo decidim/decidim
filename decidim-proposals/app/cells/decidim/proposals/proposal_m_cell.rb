@@ -132,7 +132,7 @@ module Decidim
         hash << model.cache_key_with_version
         hash << model.proposal_votes_count
         hash << model.endorsements_count
-        hash << Digest::MD5.hexdigest(model.component.settings.to_json)
+        hash << Digest::MD5.hexdigest(model.component.cache_key_with_version)
         hash << Digest::MD5.hexdigest(resource_image_path) if resource_image_path
         if current_user
           hash << current_user.cache_key_with_version
