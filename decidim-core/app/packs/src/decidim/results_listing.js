@@ -1,5 +1,4 @@
-// TOOD-blat: window.Decidim.History??
-const { pushState, registerCallback } = window.Decidim.History;
+import { pushState, registerCallback } from '../../../../../decidim-core/app/packs/src/decidim/history'
 
 const initializeListingOptionsMenu = (options) => {
   $(document).on("click", `${options.containerSelector} a`, (event) => {

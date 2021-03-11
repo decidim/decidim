@@ -1,4 +1,5 @@
-require("@rails/ujs").start()
+import Rails from "@rails/ujs"
+Rails.start()
 import $ from 'jquery'
 import 'foundation-sites'
 import 'foundation-datepicker'
@@ -25,6 +26,7 @@ import '../../../../../../decidim-core/app/packs/src/decidim/ajax_modals'
 import './officializations'
 import '../../../../../../decidim-core/app/packs/src/decidim/input_character_counter'
 import '../../../../../../decidim-core/app/packs/src/decidim/session_timeouter'
+import '../../../../../../decidim-core/app/packs/src/decidim/filters'
 
 window.Decidim = window.Decidim || {};
 window.DecidimAdmin = window.DecidimAdmin || {};

@@ -2,7 +2,9 @@
 // import 'src/decidim/core/bundle.js'
 // import 'src/decidim/core/extrapoly.js'
 
-require("@rails/ujs").start()
+import Rails from "@rails/ujs"
+Rails.start()
+
 import $ from "jquery"
 
 // External dependencies

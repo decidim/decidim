@@ -38,6 +38,14 @@ module.exports = {
           exposes: ["React"]
         }
       },
+      {
+        test: require.resolve("@rails/ujs"),
+        loader: "expose-loader",
+        options: {
+          exposes: ["Rails"],
+        },
+      },
+
       // {
       //   test: /\.modernizrrc$/,
       //   use: ["modernizr-loader"]
