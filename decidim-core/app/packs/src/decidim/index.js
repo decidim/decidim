@@ -5,12 +5,17 @@ import fixDropdownMenus from './dropdowns_menus'
 import Configuration from './configuration'
 import ExternalLink from './external_link'
 import createQuillEditor from './editor'
+import InputCharacterCounter from './input_character_counter'
+import FormValidator from './form_validator'
 
 window.Decidim = window.Decidim || {};
+window.Decidim.config = new Configuration()
+window.Decidim.ExternalLink = ExternalLink;
+window.Decidim.InputCharacterCounter = InputCharacterCounter;
+window.Decidim.FormValidator = FormValidator;
 
 $(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));
-  window.Decidim.config = new Configuration()
 
   $(document).foundation();
 

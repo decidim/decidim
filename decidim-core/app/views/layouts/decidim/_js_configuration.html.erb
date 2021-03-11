@@ -27,11 +27,8 @@ validator_messages = {
 %>
 
 <script>
-$(document).ready(function(){
   Decidim.config.set(<%== js_configs.to_json %>);
-  // TODO-blat
-  // Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
-  ExternalLink.configureMessages(<%== external_link_messages.to_json %>);
-  // Decidim.FormValidator.configureMessages(<%== validator_messages.to_json %>);
-});
+  Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
+  Decidim.ExternalLink.configureMessages(<%== external_link_messages.to_json %>);
+  Decidim.FormValidator.configureMessages(<%== validator_messages.to_json %>);
 </script>
