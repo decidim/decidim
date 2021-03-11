@@ -139,7 +139,7 @@ module Decidim
           hash << current_user.follows?(model) ? 1 : 0
         end
         hash << model.follows_count
-        hash << Digest::MD5.hexdigest(model.coauthorships.map(&:cache_key_with_version).to_s)
+        hash << Digest::MD5.hexdigest(model.authors.map(&:cache_key_with_version).to_s)
 
         hash.join("/")
       end
