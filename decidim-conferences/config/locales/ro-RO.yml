@@ -1,4 +1,27 @@
 ro:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Organizații asemănătoare
+        banner_image: Imagine pentru banner
+        consultations_ids: Consultări conexe
+        copy_categories: Copiază categoriile
+        copy_components: Copiază componentele
+        copy_features: Copiază caracteristici
+        decidim_scope_id: Domeniu de interes
+        description: Descriere
+        hashtag: Hashtag
+        hero_image: Imagine pagina principală
+        participatory_processes_ids: Procese participative conexe
+        promoted: Evidenţiat
+        published_at: Publicat la
+        scope_id: Domeniu de interes
+        scopes_enabled: Domenii de interes activate
+        short_description: Descriere scurtă
+        show_statistics: Arată statistici
+        slogan: Slogan
+        slug: Adresă URL
+        title: Titlu
   decidim:
     admin:
       actions:
