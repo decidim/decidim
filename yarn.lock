@@ -1005,6 +1005,13 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@codevadmin/jquery-tmpl@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@codevadmin/jquery-tmpl/-/jquery-tmpl-1.0.7.tgz#f1567a54605e0305a3e4869f5bf38a24bce765f7"
+  integrity sha512-Jp+JduQO1QTnD2JN2VnhABBeOKOC5TG1bXF7C2bE7PHpjF4lkSyOSz89a4AKNvicF7ZfvKwCdgK6B98yvQT6wA==
+  dependencies:
+    jquery "^3.3.1"
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
@@ -6257,7 +6264,7 @@ jquery.autocomplete@1.2.0:
   resolved "https://registry.yarnpkg.com/jquery.autocomplete/-/jquery.autocomplete-1.2.0.tgz#c6476e85035cd7cedefeab04d8774477324d6e33"
   integrity sha512-aoJC3KVrPpRGaZBUo9UxhwznYmQ0UuYd+FfjP9RAKmyB+1T3OLIjuQImT8pKX6eKpBt1z9JmD48GiD2Dx303bA==
 
-jquery@^3.2.1:
+jquery@^3.2.1, jquery@^3.3.1:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==

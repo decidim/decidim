@@ -1,5 +1,4 @@
 import 'leaflet'
-import 'leaflet-svgicon'
 import 'leaflet.markercluster'
 
 /**

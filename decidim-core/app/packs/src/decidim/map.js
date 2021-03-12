@@ -4,8 +4,6 @@ $(() => {
   // Load the map controller factory method in the document.ready handler to
   // allow overriding it by any script that is loaded before the document is
   // ready.
-  // TODO-blat review maps
-  // const createMapController = exports.Decidim.createMapController;
 
   let $mapElements = $("[data-decidim-map]");
   if ($mapElements.length < 1 && $("#map").length > 0) {

@@ -1,7 +1,5 @@
 import 'leaflet'
 import 'leaflet-tilelayer-here'
-import 'leaflet-svgicon'
-import 'leaflet.markercluster'
 
 /**
  * NOTE:
