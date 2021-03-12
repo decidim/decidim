@@ -149,12 +149,33 @@ ro:
           finished: Terminat
           ongoing: Activ
           upcoming: Urmează
+        end_date: Se termină
+        footer:
+          view: Vizualizare
+          vote: Votează
+        label:
+          date: Date
+        questions: Întrebări %{count}
+        start_date: Începe
+        unspecified: Nu este specificat
       elections:
         count:
           elections_count:
             one: "%{count} alegeri"
             few: "%{count} alegeri"
             other: "%{count} alegeri"
+        filters:
+          active: Activ
+          all: Toate
+          finished: Finalizat
+          search: Caută
+          state: Stare
+          upcoming: Urmează
+        filters_small_view:
+          close_modal: Închidere
+          filter: Filtrare
+          filter_by: Filtrează după
+          unfold: Desfășurat
         show:
           back: Toate alegerile
           preview: Previzualizare
@@ -186,6 +207,7 @@ ro:
           edit: editează
           header: Confirmă votul tău
           intro: Iată un rezumat al votului pe care urmează să îl exprimați. <br> Vă rugăm să confirmați votul sau să editați răspunsurile.
+          nota_option: Necompletat
           question: Întrebarea %{count}
         confirmed:
           back: Înapoi la alegeri
