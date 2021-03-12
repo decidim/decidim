@@ -115,7 +115,38 @@ ro:
           total_votes: 'Total: %{count} voturi'
         update:
           error: A apărut o eroare la actualizarea acestei consultări.
+          success: Consultarea a fost actualizată.
+      menu:
+        consultations: Consultări
+        consultations_submenu:
+          info: Informații
+          questions: Întrebări
+          results: Rezultate
+        questions_submenu:
+          components: Componente
+          configuration: Configurare
+          consultation: Consultare
+          info: Informație
+          responses: Răspunsuri
       models:
+        consultation:
+          fields:
+            created_at: Creat la
+            published: Publicat
+            title: Titlu
+          name:
+            one: Consultare
+            few: Consultări
+            other: Consultări
+        question:
+          fields:
+            created_at: Creat la
+            published: Publicat
+            title: Titlu
+          name:
+            one: Intrebare
+            few: Întrebări
+            other: Întrebări
         response:
           fields:
             created_at: Creat la
@@ -302,6 +333,10 @@ ro:
           title: Ce sunt consultările?
     menu:
       consultations: Consultări
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultări
     questions:
       next_button: Următoarea întrebare
       previous_button: Întrebarea precedentă
