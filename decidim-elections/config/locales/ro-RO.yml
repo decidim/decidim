@@ -76,6 +76,7 @@ ro:
             title: Editare răspuns
             update: Actualizare răspuns
           index:
+            invalid_max_selections: Mai ai nevoie de %{missing_answers} răspuns/s pentru a se potrivi cu selecțiile maxime
             title: Răspunsuri
           new:
             create: Creează răspuns
@@ -94,6 +95,7 @@ ro:
             title: Editare alegeri
             update: Actualizează alegerea
           index:
+            no_bulletin_board: Nu există <a href="https://github.com/decidim/decidim-bulletin-board">Serverul Bulletin Board</a> configurat, care este necesar pentru a utiliza acest modul. Această sarcină trebuie realizată de Administratorul de sistem.
             title: Alegeri
           new:
             create: Creați alegeri
@@ -142,6 +144,11 @@ ro:
         election:
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
           unpublish: "%{user_name} nepublicat alegerea %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Terminat
+          ongoing: Activ
+          upcoming: Urmează
       elections:
         count:
           elections_count:
