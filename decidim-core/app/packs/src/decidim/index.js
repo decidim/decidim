@@ -7,12 +7,14 @@ import createQuillEditor from './editor'
 import InputCharacterCounter from './input_character_counter'
 import FormValidator from './form_validator'
 import './filters'
+import CommentsComponent from '../../../../../decidim-comments/app/packs/src/decidim/comments/comments.component'
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
 window.Decidim.ExternalLink = ExternalLink;
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
 window.Decidim.FormValidator = FormValidator;
+window.Decidim.CommentsComponent = CommentsComponent;
 
 $(() => {
   // TODO-blat

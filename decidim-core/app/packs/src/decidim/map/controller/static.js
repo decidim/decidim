@@ -1,7 +1,7 @@
 import * as L from "leaflet";
 import MapController from '../controller'
 
-const openLink = exports.open;
+const openLink = window.open;
 
 class MapStaticController extends MapController {
   start() {

@@ -1,5 +1,4 @@
-// = require_self
-$(document).ready(function () {
+$(() => {
   let selectedProposalsCount = function() {
     return $('.table-list .js-check-all-proposal:checked').length
   }

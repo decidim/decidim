@@ -1,31 +1,25 @@
 import attachGeocoding from '../../../../../../decidim-core/app/packs/src/decidim/geocoding/attach_input'
 
 $(() => {
-  window.DecidimProposals = window.DecidimProposals || {};
+  const $checkbox = $("input:checkbox[name$='[has_address]']");
+  const $addressInput = $("#address_input");
+  const $addressInputField = $("input", $addressInput);
 
-  window.DecidimProposals.bindProposalAddress = () => {
-    const $checkbox = $("input:checkbox[name$='[has_address]']");
-    const $addressInput = $("#address_input");
-    const $addressInputField = $("input", $addressInput);
-
-    if ($checkbox.length > 0) {
-      const toggleInput = () => {
-        if ($checkbox[0].checked) {
-          $addressInput.show();
-          $addressInputField.prop("disabled", false);
-        } else {
-          $addressInput.hide();
-          $addressInputField.prop("disabled", true);
-        }
+  if ($checkbox.length > 0) {
+    const toggleInput = () => {
+      if ($checkbox[0].checked) {
+        $addressInput.show();
+        $addressInputField.prop("disabled", false);
+      } else {
+        $addressInput.hide();
+        $addressInputField.prop("disabled", true);
       }
-      toggleInput();
-      $checkbox.on("change", toggleInput);
     }
+    toggleInput();
+    $checkbox.on("change", toggleInput);
+  }
 
-    if ($addressInput.length > 0) {
-      attachGeocoding($addressInputField);
-    }
-  };
-
-  window.DecidimProposals.bindProposalAddress();
+  if ($addressInput.length > 0) {
+    attachGeocoding($addressInputField);
+  }
 });

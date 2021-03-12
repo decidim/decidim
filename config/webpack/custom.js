@@ -75,8 +75,18 @@ module.exports = {
     decidim_budgets: './decidim-budgets/app/packs/entrypoints/decidim_budgets.js',
     decidim_conferences_admin: './decidim-conferences/app/packs/entrypoints/decidim_conferences_admin.js',
     decidim_consultations: './decidim-consultations/app/packs/entrypoints/decidim_consultations.js',
+    decidim_debates_admin: './decidim-debates/app/packs/entrypoints/decidim_debates_admin.js',
     decidim_forms: './decidim-forms/app/packs/entrypoints/decidim_forms.js',
     decidim_forms_admin: './decidim-forms/app/packs/entrypoints/decidim_forms_admin.js',
+    decidim_initiatives: './decidim-initiatives/app/packs/entrypoints/decidim_initiatives.js',
+    decidim_initiatives_admin: './decidim-initiatives/app/packs/entrypoints/decidim_initiatives_admin.js',
+    decidim_meetings: './decidim-meetings/app/packs/entrypoints/decidim_meetings.js',
+    decidim_meetings_admin: './decidim-meetings/app/packs/entrypoints/decidim_meetings_admin.js',
+    decidim_participatory_processes: './decidim-participatory_processes/app/packs/entrypoints/decidim_participatory_processes.js',
+    decidim_participatory_processes_admin: './decidim-participatory_processes/app/packs/entrypoints/decidim_participatory_processes_admin.js',
+    decidim_proposals: './decidim-proposals/app/packs/entrypoints/decidim_proposals.js',
+    decidim_proposals_admin: './decidim-proposals/app/packs/entrypoints/decidim_proposals_admin.js',
+    decidim_system: './decidim-system/app/packs/entrypoints/decidim_system.js',
   },
 }
 

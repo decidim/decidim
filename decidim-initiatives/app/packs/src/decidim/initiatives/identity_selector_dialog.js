@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(() => {
   let button = $("#select-identity-button"),
       userIdentitiesDialog = $("#user-identities");
 
@@ -11,4 +11,4 @@ $(document).ready(function () {
       });
     });
   }
-});
+})

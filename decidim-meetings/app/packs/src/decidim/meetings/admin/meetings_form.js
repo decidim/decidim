@@ -4,7 +4,6 @@ import createSortList from '../../../../../../../decidim-admin/app/packs/src/dec
 import createDynamicFields from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/dynamic_fields.component'
 import attachGeocoding from '../../../../../../../decidim-core/app/packs/src/decidim/geocoding/attach_input'
 
-
 const wrapperSelector = ".meeting-services";
 const fieldSelector = ".meeting-service";
 

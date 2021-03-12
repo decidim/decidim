@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 
-(function () {
+$(() => {
   let inviteUsersButton = document.querySelector(".invite-users-link");
 
   if (inviteUsersButton !== null) {
@@ -20,4 +20,4 @@
       window.getSelection().removeAllRanges();
     });
   }
-}());
+});

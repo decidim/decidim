@@ -27,7 +27,7 @@ let controlSelector = function(source, prefix, currentValueKey) {
   }
 };
 
-$(document).ready(function () {
+$(() => {
   let typeSelector = $("[data-scope-selector]");
   controlSelector(typeSelector, "scope", "scope-id");
   controlSelector(typeSelector, "signature-types", "signature-type");

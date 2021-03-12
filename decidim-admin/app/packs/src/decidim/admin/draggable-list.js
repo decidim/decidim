@@ -1,6 +1,6 @@
 import createSortList from './sort_list.component'
 
-const createSortableList = (lists) => {
+export default function createSortableList(lists) {
   createSortList(lists, {
     handle: "li",
     forcePlaceholderSize: true,
