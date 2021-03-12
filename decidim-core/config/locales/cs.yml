@@ -379,7 +379,7 @@ cs:
         name: Zástupná část
         settings:
           global:
-            amendments_enabled: Změny povoleny
+            amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentářů
             dummy_global_attribute_1: Zástupný atribut 1
