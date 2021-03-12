@@ -1,6 +1,3 @@
-import Rails from "@rails/ujs"
-Rails.start()
-
 import $ from 'jquery'
 import Quill from "quill"
 
@@ -34,3 +31,7 @@ import '../../../../decidim-core/app/packs/src/decidim/session_timeouter'
 import '../../../../decidim-core/app/packs/src/decidim/filters'
 import '../../../../decidim-core/app/packs/src/decidim/slug_form'
 
+// This needs to be loaded at the bottom because there are some events attached to
+// rails:attachBindings that need to be declared before the import
+import Rails from "@rails/ujs"
+Rails.start()

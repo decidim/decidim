@@ -2,9 +2,6 @@
 // import 'src/decidim/core/bundle.js'
 // import 'src/decidim/core/extrapoly.js'
 
-import Rails from "@rails/ujs"
-Rails.start()
-
 import $ from "jquery"
 import Quill from "quill"
 
@@ -58,3 +55,10 @@ import '../src/decidim/impersonation'
 import '../src/decidim/start_conversation_dialog'
 import '../src/decidim/notifications'
 import '../src/decidim/identity_selector_dialog'
+
+// This needs to be loaded at the bottom because there are some events attached to
+// rails:attachBindings that need to be declared before the import
+import Rails from "@rails/ujs"
+Rails.start()
+
+

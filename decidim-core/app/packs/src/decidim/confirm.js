@@ -62,7 +62,7 @@ class ConfirmDialog {
 // https://github.com/rails/rails/commit/e9aa7ecdee0aa7bb4dcfa5046881bde2f1fe21cc#diff-e1aaa45200e9adcbcb8baf1c5375b5d1
 
 // Attach bindings BEFORE Rails adds its own bindings.
-window.document.addEventListener("rails:attachBindings", () => {
+document.addEventListener("rails:attachBindings", () => {
   const allowAction = (ev, element) => {
     const message = $(element).data("confirm");
     if (!message) {
@@ -143,17 +143,17 @@ window.document.addEventListener("rails:attachBindings", () => {
     });
   };
 
-  window.document.addEventListener("click", (ev) => {
+  document.addEventListener("click", (ev) => {
     return handleDocumentEvent(ev, [
       Rails.linkClickSelector,
       Rails.buttonClickSelector,
       Rails.formInputClickSelector
     ]);
   });
-  window.document.addEventListener("change", (ev) => {
+  document.addEventListener("change", (ev) => {
     return handleDocumentEvent(ev, [Rails.inputChangeSelector]);
   });
-  window.document.addEventListener("submit", (ev) => {
+  document.addEventListener("submit", (ev) => {
     return handleDocumentEvent(ev, [Rails.formSubmitSelector]);
   });
 
@@ -161,7 +161,7 @@ window.document.addEventListener("rails:attachBindings", () => {
   // Abide registers its own submit click listeners since Foundation 5.6.x
   // which will be handled before the document listeners above. This would
   // break the custom confirm functionality when used with Foundation Abide.
-  window.document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
       handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
     });
