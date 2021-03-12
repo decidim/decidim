@@ -417,6 +417,9 @@ ro:
           type: Tipul
           type_values:
             all: Toate
+            hybrid: Ambele
+            in_person: În persoană
+            online: Online
         filters_small_view:
           close_modal: Închide fereastra
           filter: Filtrare
@@ -424,9 +427,16 @@ ro:
           unfold: Desfășurat
         form:
           address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
+          available_slots_help: Lăsați această opțiune la 0 dacă aveți sloturi disponibile nelimitate
           create_as: Creaza o sedinta ca
+          disclaimer: 'Declinare: Prin utilizarea unui sistem extern de înregistrare, știți că organizatorii %{organization} nu sunt responsabili pentru datele furnizate de utilizatori serviciului extern.'
           location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
+          location_hints_help: 'Sugestii privind locaţia: informaţii suplimentare. Exemplu: podeaua clădirii dacă este o întâlnire interpersonală, sau dacă este vorba de o întâlnire online cu acces restrâns.'
+          online_meeting_url_help: 'Link: permiteți participanților să se conecteze direct la întâlnirea dvs'
+          registration_url_help: 'Link: permiteți participanților să acceseze serviciul extern pe care îl utilizați pentru înregistrare'
           select_a_category: Vă rugăm să selectaţi o categorie
+          select_a_meeting_type: Vă rugăm să selectați un tip de ședință
+          select_a_registration_type: Vă rugăm să selectaţi un tip de înregistrare
         index:
           new_meeting: Ședință nouă
         meeting_minutes:
@@ -445,6 +455,7 @@ ro:
         show:
           attendees: Numărul participanților
           back: Înapoi la listă
+          close_meeting: Închide ședința
           contributions: Număr de contribuții
           date: Data
           edit_meeting: Editați ședința
@@ -492,6 +503,10 @@ ro:
           confirmed_html: Înregistrarea dvs. pentru ședința <a href="%{url}">%{title}</a> a fost confirmată.
           details: Detaliile şedinţei vor fi găsite în ataşament.
           registration_code: Codul dvs. de înregistrare este %{code}.
+      registration_type:
+        on_different_platform: Pe o platformă diferită
+        on_this_platform: Pe această platformă
+        registration_disabled: Înregistrare Dezactivată
       registrations:
         create:
           invalid: A apărut o problemă la această întâlnire.
@@ -502,6 +517,10 @@ ro:
         destroy:
           invalid: A existat o problemă la părăsirea acestei reuniuni.
           success: Ai părăsit şedinţa cu succes.
+      type_of_meeting:
+        hybrid: Ambele
+        in_person: În persoană
+        online: Online
       types:
         private_meeting: Întâlnire privată
         transparent: Transparență
@@ -526,6 +545,8 @@ ro:
       proposals_from_meeting:
         meeting_proposal: 'Propuneri conexe:'
         proposal_meeting: 'Întâlniri conexe:'
+    statistics:
+      meetings_count: Întruniri
   devise:
     mailer:
       join_meeting:
