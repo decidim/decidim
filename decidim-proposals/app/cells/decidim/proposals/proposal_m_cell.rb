@@ -134,6 +134,7 @@ module Decidim
         hash << model.endorsements_count
         hash << Digest::MD5.hexdigest(model.component.settings.to_json)
         hash << Digest::MD5.hexdigest(resource_image_path) if resource_image_path
+        hash << render_space? ? 1 : 0
         if current_user
           hash << current_user.cache_key_with_version
           hash << current_user.follows?(model) ? 1 : 0
