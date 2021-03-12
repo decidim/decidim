@@ -1,32 +1,8 @@
-import Rails from "@rails/ujs"
-Rails.start()
-import $ from 'jquery'
-import 'foundation-sites'
-import 'foundation-datepicker'
-import 'jquery.autocomplete'
-import 'jquery-serializejson'
-import 'html5sortable'
-
-import './tab_focus'
-import './choose_language'
 import toggleNav from './toggle_nav'
 import createSortList from './sort_list.component'
 import createQuillEditor from '../../../../../../decidim-core/app/packs/src/decidim/editor'
 import formDatePicker from '../../../../../../decidim-core/app/packs/src/decidim/form_datepicker'
 import DataPicker from '../../../../../../decidim-core/app/packs/src/decidim/data_picker'
-import './draggable-list'
-import './sortable'
-import './gallery'
-import './moderations'
-import '../../../../../../decidim-core/app/packs/src/decidim/input_tags'
-import '../../../../../../decidim-core/app/packs/src/decidim/input_hashtags'
-import '../../../../../../decidim-core/app/packs/src/decidim/input_mentions'
-import '../../../../../../decidim-core/app/packs/src/decidim/vizzs'
-import '../../../../../../decidim-core/app/packs/src/decidim/ajax_modals'
-import './officializations'
-import '../../../../../../decidim-core/app/packs/src/decidim/input_character_counter'
-import '../../../../../../decidim-core/app/packs/src/decidim/session_timeouter'
-import '../../../../../../decidim-core/app/packs/src/decidim/filters'
 
 window.Decidim = window.Decidim || {};
 window.DecidimAdmin = window.DecidimAdmin || {};
