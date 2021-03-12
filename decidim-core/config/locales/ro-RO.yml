@@ -69,6 +69,7 @@ ro:
     errors:
       general: Eroare la procesarea imaginii
       image_too_big: Imaginea este prea mare
+      not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -362,6 +363,8 @@ ro:
             dummy_global_translatable_text: Text traductibil Dummy
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Permisiuni resurse activate
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
           step:
             amendment_creation_enabled: Crearea de amendamente activată
             amendment_promotion_enabled: Modificare promoție activată
