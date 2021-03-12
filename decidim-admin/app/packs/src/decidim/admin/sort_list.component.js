@@ -1,4 +1,4 @@
-import sortable from 'html5sortable'
+import sortable from 'html5sortable/dist/html5sortable.es'
 
 class SortListComponent {
   /**

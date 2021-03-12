@@ -6,6 +6,7 @@ import Rails from "@rails/ujs"
 Rails.start()
 
 import $ from "jquery"
+import Quill from "quill"
 
 // External dependencies
 // TODO-blat: is necessary?

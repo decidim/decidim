@@ -1,5 +1,3 @@
-import Quill from "quill"
-
 const Parchment = Quill.import("parchment")
 const Delta = Quill.import("delta");
 

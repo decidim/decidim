@@ -1,11 +1,13 @@
 import Rails from "@rails/ujs"
 Rails.start()
+
 import $ from 'jquery'
+import Quill from "quill"
+
 import 'foundation-sites'
 import 'foundation-datepicker'
 import 'jquery.autocomplete'
 import 'jquery-serializejson'
-import 'html5sortable'
 
 import '../src/decidim/admin/tab_focus'
 import '../src/decidim/admin/choose_language'
