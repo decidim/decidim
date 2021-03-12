@@ -34,10 +34,20 @@ ro:
         subtitle: Subtitrare
         target: Cine participă
         title: Titlu
+        weight: Ordinea procesului
       participatory_process_group:
         description: Descriere
+        developer_group: Grup promotor
+        group_url: Pagină Web
+        hashtag: Hashtag
         hero_image: Imagine
+        local_area: Zona organizației
+        meta_scope: Metadate privind domeniul de interes
         participatory_process_ids: Procese conexe
+        participatory_scope: Ce se decide
+        participatory_structure: Cum se decide
+        target: Cine participă
+        title: Titlu
       participatory_process_step:
         cta_path: Apel la calea de acțiune
         cta_text: Apel la textul Acțiune
@@ -96,6 +106,9 @@ ro:
         unpublish: De-publicare
       menu:
         participatory_process_groups: Grupuri de proces
+        participatory_process_groups_submenu:
+          info: Informații
+          landing_page: Pagina principală
         participatory_processes: Procese
         participatory_processes_submenu:
           attachment_collections: Dosare
@@ -118,6 +131,8 @@ ro:
             title: Titlu
           name: Procesul participativ
         participatory_process_group:
+          fields:
+            title: Titlu
           name: Procesează grup
         participatory_process_step:
           fields:
@@ -145,6 +160,13 @@ ro:
           copy: Copiază
           select: Selectați datele pe care doriți să le duplicați
           title: Duplicarea procesului participativ
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocuri de conținut activ
+          inactive_content_blocks: Blocuri de conținut inactiv
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Actualizare
       participatory_process_groups:
         destroy:
           error: A apărut o eroare la distrugerea grupului de proces participativ.
@@ -302,8 +324,29 @@ ro:
         related_assemblies: Asambluri asemănătoare
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Primul bloc HTML
+        html_2:
+          name: Al doilea bloc HTML
+        html_3:
+          name: Al treilea bloc HTML
+        metadata:
+          developer_group: Promovat de
+          name: Metadate
+          participatory_scope: Ce se decide
+          participatory_structure: Cum se decide
+          target: Cine participă
+        participatory_processes:
+          name: Procese participative
         stats:
           name: Statistici
+        title:
+          meta_scope: Domeniu de interes
+          name: Titlu, descriere și hashtag
+          participatory_processes:
+            one: 1 proces
+            few: "%{count} procese"
+            other: "%{count} procese"
       show:
         title: Grupuri participante
     participatory_process_steps:
@@ -315,9 +358,17 @@ ro:
         content_blocks:
           highlighted_processes:
             max_results: Cantitatea maximă de elemente de afișat
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadate
+            title: Informaţii generale
+            visibility: Vizibilitate
         participatory_process_imports:
           form:
             document_legend: Adaugă un document
@@ -393,6 +444,7 @@ ro:
           loading: Se încarcă rezultatele...
       show:
         area: Suprafață
+        belongs_to_group: Acest proces aparține lui
         dates: Date
         developer_group: Grup promotor
         end_date: Data de încheiere
