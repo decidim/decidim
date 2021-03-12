@@ -14,14 +14,40 @@ ro:
       question:
         description: Descriere
         max_selections: Numărul maxim de selecții
+        min_selections: Niciuna dintre opțiunile de mai sus
         title: Titlu
+      voting:
+        end_time: Votarea se încheie
+        start_time: Votarea începe
     errors:
       models:
         answer:
           attributes:
             attachment:
               needs_to_be_reattached: Trebuie să fie reatașate
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Trebuie să fie reatașate
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: nu poate fi schimbat
+            public_key:
+              cant_be_changed: nu poate fi schimbat
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Ofiţerul de sondare a opiniei publice este deja preşedintele/managerul secţiilor de votare
+            voting:
+              different_organization: Votul trebuie să fie în aceeași organizație ca și utilizatorul
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Ofiţerul de votare trebuie să se afle în acelaşi vot ca şi secţia de votare
     models:
       decidim/elections/answer:
         one: Răspuns
@@ -35,6 +61,14 @@ ro:
         one: Întrebare
         few: Întrebări
         other: Întrebări
+      decidim/votings/polling_officer:
+        one: Ofițer de sondaj
+        few: Ofițer de sondaj
+        other: Ofiţeri de votare
+      decidim/votings/polling_station:
+        one: Stație de votare
+        few: Stație de votare
+        other: Secţii de votare
   decidim:
     components:
       elections:
