@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:rails/webpacker.git
+  remote: https://github.com/rails/webpacker.git
   revision: da362b8c96a4be5a4af8f8ad886f5dd8451f457f
   specs:
     webpacker (6.0.0.beta.6)
@@ -582,7 +582,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.7)
     nobspw (0.6.2)
-    nokogiri (1.11.1)
+    nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     oauth (0.5.5)
