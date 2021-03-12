@@ -103,8 +103,15 @@ ro:
           email_subject: Există un nou comentariu de la %{author_name} în %{resource_title}
           notification_title: Există un nou comentariu de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> în <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
+          email_intro: Comentariul tău în "%{resource_title}" a fost refuzat. Acesta are acum un total de %{upvotes} aprecieri şi %{downvotes} refuzuri.
           email_outro: Ați primit această notificare deoarece sunteți autorul acestui comentariu.
           email_subject: Comentariul tău în "%{resource_title}" a fost refuzat.
+          notification_title: Comentariul tău <a href="%{resource_path}"></a> în "%{resource_title}" a fost refuzat. Acum are un total de %{upvotes} aprecieri și %{downvotes} refuzuri.
+        comment_upvoted:
+          email_intro: Comentariul tău în "%{resource_title}" a fost apreciat. Acesta are acum un total de %{upvotes} aprecieri şi %{downvotes} refuzuri.
+          email_outro: Ați primit această notificare deoarece sunteți autorul acestui comentariu.
+          email_subject: Comentariul tău în "%{resource_title}" a fost apreciat.
+          notification_title: Comentariul tău <a href="%{resource_path}"></a> în "%{resource_title}" a fost apreciat. Acum are un total de %{upvotes} aprecieri și %{downvotes} refuzuri.
         reply_created:
           email_intro: "%{author_name} a răspuns comentariului tău în %{resource_title}. Îl poți citi în această pagină:"
           email_outro: Ați primit această notificare deoarece comentariul dvs. a fost răspuns.
