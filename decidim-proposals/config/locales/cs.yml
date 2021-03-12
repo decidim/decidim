@@ -129,7 +129,7 @@ cs:
         settings:
           global:
             allow_card_image: Povolit obrázek karty
-            amendments_enabled: Změny povoleny
+            amendments_enabled: Pozměňovací návrhy povoleny
             amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
