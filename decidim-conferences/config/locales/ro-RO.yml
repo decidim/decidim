@@ -22,6 +22,32 @@ ro:
         slogan: Slogan
         slug: Adresă URL
         title: Titlu
+      conference_speaker:
+        full_name: Numele complet
+      conference_user_role:
+        email: E-mail
+        name: Nume
+        role: Rol
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Acest e-mail a fost deja invitat
+  activerecord:
+    models:
+      decidim/conference:
+        one: Conferinţă
+        few: Conferințe
+        other: Conferințe
+      decidim/conference_speaker:
+        one: Vorbitor la conferință
+        few: Vorbitori la conferință
+        other: Vorbitori la conferință
+      decidim/conference_user_role:
+        one: Rolul utilizatorului în cadrul conferinței
+        few: Rolurile utilizatorului în cadrul conferinței
+        other: Rolurile utilizatorului în cadrul conferinței
   decidim:
     admin:
       actions:
@@ -453,6 +479,7 @@ ro:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
           login_as: Ești autentificat ca %{name} <%{email}>
+          no_registrations: Fără înregistrări
           register: Inregistrare
           title: Tipuri de înregistrare
       shared:
