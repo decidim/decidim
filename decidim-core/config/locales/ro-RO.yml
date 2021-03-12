@@ -905,7 +905,10 @@ ro:
         create:
           error: Conversația nu a început. Încercați din nou mai târziu
         error_modal:
+          close: Închidere
           correct_errors: Te rugăm să remediezi erorile și să încerci din nou.
+          intro: 'Au existat următoarele erori cu mesajul tău:'
+          ok: Ok
         index:
           ago: acum
           close: Închide fereastra
@@ -1182,6 +1185,10 @@ ro:
           few: "%{count} rezultate"
           other: "%{count} rezultate"
         view_all: Vezi toate (%{count})
+    security:
+      selfxss_warning:
+        description: Această caracteristică de browser este destinată dezvoltatorilor și nu ar trebui să inserați nimic aici dacă vi s-a cerut să faceți acest lucru. Lipirea conținutului în această fereastră poate compromite intimitatea ta și permite hackerilor să îți acceseze contul.
+        title: Opriți!
     shared:
       confirm_modal:
         cancel: Anulează
