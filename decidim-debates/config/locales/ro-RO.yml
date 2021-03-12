@@ -87,6 +87,12 @@ ro:
       debates:
         close:
           invalid: A existat o problemă la închiderea dezbaterii.
+          success: Dezbatere închisă.
+        close_debate_modal:
+          close: Închide
+          description: Care este rezumatul sau concluzia acestei dezbateri?
+          send: Închide dezbaterea
+        closed: Închis
         count:
           debates_count:
             one: "%{count} dezbatere"
@@ -102,13 +108,22 @@ ro:
           save: Salvează modificările
           title: Editare dezbatere
         filters:
+          activity: Activitatea mea
           all: Toate
           category: Categorie
           category_prompt: Selectați o categorie
           citizens: Cetățeni
+          commented: Comentat
+          my_debates: Dezbaterile mele
           official: Oficial
           origin: Origine
+          scope: Domeniu de interes
           search: Caută
+          state: Stare
+          state_values:
+            closed: Inchide
+            open: Deschide
+          user_groups: Grupuri
         filters_small_view:
           close_modal: Închide fereastra
           filter: Filtrare
@@ -122,10 +137,24 @@ ro:
           back: Înapoi
           create: Crează
           title: Dezbatere nouă
+        orders:
+          commented: Cele mai comentate
+          label: Dezbateri de ordine
+          random: Ordine aleatorie
+          recent: Cele mai recente
+          updated: Actualizate recent
         show:
           back: Înapoi la listă
+          close_debate: Închide dezbaterea
           date: Data
+          debate_closed: Inchide
+          debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
+          edit_conclusions: Editați concluziile
           edit_debate: Editare dezbatere
+          groups_count: Grupuri
+          last_comment_by: Ultimul comentariu din partea
+          no_comments_yet: Încă nu există comentarii
+          participants_count: Participanţi
         update:
           invalid: A apărut o problemă la actualizarea dezbaterii.
           success: Dezbatere actualizata cu succes.
@@ -137,6 +166,7 @@ ro:
         versions_list:
           back_to_resource: Revenire la dezbatere
       last_activity:
+        debate_updated_at_html: "<span>Dezbatere actualizată la %{link}</span>"
         new_debate_at_html: "<span>Noua dezbatere la %{link}</span>"
       models:
         debate:
