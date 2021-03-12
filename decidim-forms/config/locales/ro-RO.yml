@@ -3,15 +3,22 @@ ro:
     attributes:
       answer:
         body: Răspuns
+        choices: Opțiuni
+        selected_choices: Alegeri selectate
       question:
         max_choices: Numărul maxim de opțiuni
         question_type: Tip
       questionnaire_question:
         mandatory: Mandatory
+        max_characters: Limita de caractere (lăsați la 0 dacă nu este limită)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Trebuie să fie reatașate
+            body:
+              too_long: este prea lung
             choices:
               missing: nu sunt complete
               too_many: sunt prea multe
@@ -76,6 +83,7 @@ ro:
             collapse: Restrânge toate întrebările
             expand: Extinde toate întrebările
             preview: Previzualizare
+            title: Editare formular pentru %{questionnaire_for}
             unpublished_warning: Formularul nu este publicat. Puteți modifica întrebările, dar acest lucru va șterge răspunsurile curente.
           matrix_row:
             matrix_row: Rând
@@ -102,6 +110,7 @@ ro:
             up: Sus
           update:
             invalid: A apărut o eroare la salvarea formularului.
+            success: Formular salvat cu succes.
       errors:
         answer:
           body: Corpul nu poate fi gol
@@ -114,6 +123,7 @@ ro:
           resize_and_pad: Redimensionat și padded la
           resize_to_fit: Redimensionat pentru a se potrivi
       question_types:
+        files: Fișiere
         long_answer: Răspuns lung
         matrix_multiple: Matricea (opțiune multiplă)
         matrix_single: Matricea (opțiunea unică)
@@ -151,8 +161,10 @@ ro:
           tos_agreement: Prin participare acceptați termenii și condițiile sale de utilizare
       step_navigation:
         show:
+          are_you_sure: Această acțiune nu poate fi anulată și nu veți putea să vă editați răspunsurile. Sunteți sigur?
           back: Înapoi
           continue: Continuă
+          submit: Trimiteți
       user_answers_serializer:
         body: Răspuns
         completion: Finalizare
