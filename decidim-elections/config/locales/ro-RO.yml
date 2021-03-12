@@ -69,7 +69,24 @@ ro:
         one: Stație de votare
         few: Stație de votare
         other: Secţii de votare
+      decidim/votings/voting:
+        one: Votare
+        few: Votări
+        other: Votări
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Ofiţeri
+          values:
+            assigned: Atribuit
+            unassigned: Nu este atribuit
+        role_eq:
+          label: Rol
+          values:
+            manager: Administrator
+            president: Președinte
+            unassigned: Neatribuit
     components:
       elections:
         actions:
@@ -85,7 +102,11 @@ ro:
         confirm_destroy: Ești sigur?
         destroy: Distruge
         edit: Editare
+        feedback: Feedback la votare
         import: Importă propunerile pentru răspunsuri
+        manage_answers: Gestionare răspunsuri
+        manage_questions: Gestionează întrebările
+        manage_steps: Gestionați pașii
         new: '%{name} nou'
         preview: Previzualizare
         publish: Publică
@@ -103,10 +124,21 @@ ro:
             title: Editare răspuns
             update: Actualizare răspuns
           index:
+            invalid_max_selections: Mai ai nevoie de %{missing_answers} răspuns/s pentru a se potrivi cu selecțiile maxime
             title: Răspunsuri
           new:
             create: Creează răspuns
             title: Răspuns nou
+          not_selected: Nu este selectat
+          select:
+            disable: Deselectare răspuns
+            enable: Marchează răspunsul ca selectat
+            invalid: A apărut o eroare la selectarea acestui răspuns
+            success: Răspuns selectat cu succes
+          selected: Selectate
+          unselect:
+            invalid: A apărut o eroare la selectarea acestui răspuns
+            success: Răspuns selectat cu succes
           update:
             invalid: A apărut o problemă la actualizarea acestui răspuns
             success: Răspuns actualizat cu succes
@@ -121,6 +153,7 @@ ro:
             title: Editare alegeri
             update: Actualizează alegerea
           index:
+            no_bulletin_board: Nu există <a href="https://github.com/decidim/decidim-bulletin-board">Serverul Bulletin Board</a> configurat, care este necesar pentru a utiliza acest modul. Această sarcină trebuie realizată de Administratorul de sistem.
             title: Alegeri
           new:
             create: Creați alegeri
@@ -132,6 +165,9 @@ ro:
           update:
             invalid: A apărut o eroare la actualizarea acestei alegeri
             success: Alegerile au fost actualizate
+        exports:
+          elections: Alegeri
+          feedback_form_answers: Răspunsuri la formularul de feedback
         models:
           answer:
             name: Răspuns
@@ -139,6 +175,8 @@ ro:
             name: Alegeri
           question:
             name: Întrebare
+          trustee:
+            name: Împuternicit
         proposals_imports:
           create:
             invalid: A apărut o problemă la importarea propunerilor în răspunsuri
@@ -147,6 +185,7 @@ ro:
             create: Importă propunerile pentru răspunsuri
             no_components: Nu există alte componente de propunere în acest spațiu participativ pentru a se obține răspunsuri la propuneri.
             select_component: Vă rugăm să selectaţi o componentă
+            title: Importă propuneri
         questions:
           create:
             invalid: A apărut o problemă la crearea acestei întrebări
@@ -165,10 +204,64 @@ ro:
           update:
             invalid: A apărut o eroare la actualizarea acestei întrebări
             success: Întrebare actualizată cu succes
+        steps:
+          create_election:
+            errors:
+              max_selections: Întrebările nu au <strong>o valoare corectă pentru suma de răspunsuri</strong>
+              minimum_answers: Întrebările trebuie să aibă <strong>cel puţin două răspunsuri</strong>.
+              minimum_questions: Alegerea <strong>trebuie să aibă cel puţin o întrebare</strong>.
+              published: Alegerea nu este <strong>publicată</strong>.
+              time_before: Timpul de începere este în <strong>mai puţin de 3 ore</strong> înainte de începerea alegerilor.
+              trustees_number: Spațiul participativ <strong>trebuie să aibă cel puțin %{number} administratori cu cheie publică</strong>.
+            invalid: A apărut o eroare la organizarea acestor alegeri
+            no_trustees: Nu există trupe configurate pentru acest spațiu participativ
+            not_used_trustee: "(nu este folosit)"
+            public_key:
+              'false': nu are <strong>o cheie publică</strong>
+              'true': are o <strong>cheie publică</strong>
+          vote_ended:
+            submit: Începeți să numărați
+            success: Solicitarea de începere a fost trimisă cu succes la Panoul de Buletin
+            text: Votul s-a terminat. Puteţi începe numărătoarea acum.
+            title: Perioada de vot s-a încheiat
+          vote_stats:
+            no_vote_statistics_yet: Încă nu există statistici despre voturi
+            title: Statistici Votare
+            voters: Votanți
+            votes: Voturi
+        trustees_participatory_spaces:
+          actions:
+            disable: Dezactivează
+            enable: Luați în considerare
+          create:
+            exists: Există Administrator pentru acest spațiu participativ
+            invalid: A apărut o problemă la crearea unui administrator
+            success: Administrator creat cu succes
+          delete:
+            invalid: A apărut o eroare la eliminarea acestui administrator
+            success: Administratorul a fost sters
+          form:
+            select_user: Selectați utilizatorul
+          index:
+            title: Administrator
+          new:
+            create: Crează Administrator
+            title: Administrator nou
+          update:
+            invalid: A apărut o problemă la actualizarea administratorului %{trustee}
+            success: Administrator %{trustee} actualizat cu succes
       admin_log:
         election:
+          end_vote: "%{user_name} a încheiat perioada de votare pentru %{resource_name} alegerea în Buletin Board"
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
+          setup: "%{user_name} a creat alegerea %{resource_name} în Panoul de Buletin"
+          start_key_ceremony: "%{user_name} a început ceremonia cheii pentru alegerile %{resource_name} din Panoul de Buletin"
+          start_tally: "%{user_name} a început numărătoarea pentru alegerea %{resource_name} în Panoul de Buletin"
+          start_vote: "%{user_name} a început perioada de votare pentru %{resource_name} alegeri în Bulletin Board"
           unpublish: "%{user_name} nepublicat alegerea %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Terminat
       elections:
         count:
           elections_count:
