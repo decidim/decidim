@@ -113,7 +113,20 @@ ro:
         cancel_order:
           more_than_one: șterge votul pentru %{name} și începe din nou
           only_one: șterge votul și începe din nou.
+        finished_message: Ai terminat procesul de vot. Mulțumim pentru participare!
+        highlighted_cta: Votează la %{name}
+        if_change_opinion: Dacă v-ați răzgândit, puteți
+        my_budgets: Bugetele mele
+        voted_on: Ai votat pentru %{links}
+      limit_announcement:
+        cant_vote: Nu puteți vota pentru acest buget. <a href="%{landing_path}">Încercați un alt buget</a>.
+        limit_reached: Voturi active în %{links}. Pentru a vota cu privire la acest buget, trebuie să <a href="%{landing_path}">ștergeți votul și să reîncepeți</a>.
       models:
+        budget:
+          fields:
+            name: Nume
+            projects_count: Număr de proiecte
+            total_budget: Buget total
         project:
           fields:
             title: Titlu
@@ -121,6 +134,8 @@ ro:
         order_summary:
           selected_projects: 'Proiectele pe care le-aţi selectat sunt:'
           subject: Ați votat pentru spațiul participativ %{space_name}
+          voted_on_space: Ați votat asupra bugetului %{budget_name} pentru spațiul participativ al %{space_name}.
+          voted_on_space_with_scope: Ați votat bugetul pentru %{budget_name} pentru spațiul participativ %{space_name} pe %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           cancel: Anulează
@@ -214,5 +229,8 @@ ro:
       destroy:
         error: A apărut o problemă la anularea votului tău
         success: Votul tău a fost anulat cu succes
+    statistics:
+      orders_count: Susține
+      projects_count: Proiecte
   index:
     confirmed_orders_count: Numărul de voturi
