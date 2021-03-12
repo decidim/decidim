@@ -3,7 +3,7 @@ import MapController from '../controller'
 
 const openLink = window.open;
 
-class MapStaticController extends MapController {
+export default class MapStaticController extends MapController {
   start() {
     this.map.removeControl(this.map.zoomControl);
     this.map.dragging.disable();

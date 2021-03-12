@@ -1,7 +1,7 @@
 // TODO-blat: where does this file comes from?
 // = require jquery-tmpl
 import * as L from "leaflet";
-import 'decidim/map/icon'
+import './icon'
 import MapControllerRegistry from './controller_registry'
 
 export default class MapController {

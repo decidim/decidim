@@ -1,5 +1,5 @@
 import 'leaflet'
-import 'leaflet-svg-icon'
+import 'leaflet-svgicon'
 import 'leaflet.markercluster'
 
 /**
@@ -15,4 +15,4 @@ $(() => {
   });
 });
 
-import 'decidim/map'
+import '../../map'

@@ -15,6 +15,7 @@ import "core-js/stable";
 
 import 'morphdom'
 import 'foundation-datepicker'
+import 'social-share-button'
 
 import '../src/decidim/index'
 import '../src/decidim/history'
@@ -49,3 +50,4 @@ import '../src/decidim/assets'
 import '../src/decidim/floating_help'
 import '../src/decidim/confirm'
 import '../../../../decidim-comments/app/packs/src/decidim/comments/comments'
+import '../src/decidim/results_listing'

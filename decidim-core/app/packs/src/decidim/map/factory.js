@@ -1,5 +1,5 @@
-import MapMarkersController from 'decidim/map/controller/markers'
-import MapStaticController from 'decidim/map/controller/static'
+import MapMarkersController from './controller/markers'
+import MapStaticController from './controller/static'
 // TODO-blat: update docs
 
 /**

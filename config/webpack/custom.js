@@ -65,7 +65,6 @@ module.exports = {
     runtimeChunk: false
   },
   entry: {
-    decidim_core: './decidim-core/app/packs/entrypoints/decidim_core.js',
     decidim_admin: './decidim-admin/app/packs/entrypoints/decidim_admin.js',
     decidim_accountability: './decidim-accountability/app/packs/entrypoints/decidim_accountability.js',
     decidim_accountability_admin: './decidim-accountability/app/packs/entrypoints/decidim_accountability_admin.js',
@@ -75,6 +74,7 @@ module.exports = {
     decidim_budgets: './decidim-budgets/app/packs/entrypoints/decidim_budgets.js',
     decidim_conferences_admin: './decidim-conferences/app/packs/entrypoints/decidim_conferences_admin.js',
     decidim_consultations: './decidim-consultations/app/packs/entrypoints/decidim_consultations.js',
+    decidim_core: './decidim-core/app/packs/entrypoints/decidim_core.js',
     decidim_debates_admin: './decidim-debates/app/packs/entrypoints/decidim_debates_admin.js',
     decidim_forms: './decidim-forms/app/packs/entrypoints/decidim_forms.js',
     decidim_forms_admin: './decidim-forms/app/packs/entrypoints/decidim_forms_admin.js',
@@ -87,6 +87,11 @@ module.exports = {
     decidim_proposals: './decidim-proposals/app/packs/entrypoints/decidim_proposals.js',
     decidim_proposals_admin: './decidim-proposals/app/packs/entrypoints/decidim_proposals_admin.js',
     decidim_system: './decidim-system/app/packs/entrypoints/decidim_system.js',
+    decidim_geocoding_provider_photon: './decidim-core/app/packs/entrypoints/decidim_geocoding_provider_photon.js',
+    decidim_geocoding_provider_here: './decidim-core/app/packs/entrypoints/decidim_geocoding_provider_here.js',
+    decidim_map_provider_default: './decidim-core/app/packs/entrypoints/decidim_map_provider_default.js',
+    decidim_map_provider_here: './decidim-core/app/packs/entrypoints/decidim_map_provider_here.js',
+
   },
 }
 
