@@ -13,7 +13,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 2.7.1
-  NODE_VERSION: 12.9.1
+  NODE_VERSION: 14.16.0
 
 jobs:
   lint:
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: npm ci
+      - run: yarn install --frozen-lockfile
         name: Install JS deps
       - run: bundle exec rubocop -P
         name: Lint Ruby files
