@@ -62,10 +62,11 @@ module Decidim
       let!(:past) { create :participatory_process, :past }
       let!(:upcoming) { create :participatory_process, :upcoming }
       let!(:active) { create :participatory_process, :active }
+      let!(:ends_today) { create :participatory_process, start_date: 1.month.ago, end_date: Date.current }
 
       describe "active_spaces" do
         it "returns the currently active ones" do
-          expect(described_class.active_spaces).to include active
+          expect(described_class.active_spaces).to match_array [active, ends_today]
           expect(described_class.active_spaces).not_to include past
           expect(described_class.active_spaces).not_to include upcoming
         end
