@@ -35,6 +35,53 @@ module Decidim
       it { is_expected.to be_valid }
     end
 
+    describe "#active?" do
+      context "when it ends in the past" do
+        it "returns false" do
+          participatory_process.end_date = 1.day.ago
+          expect(participatory_process).not_to be_active
+        end
+      end
+
+      context "when it starts before today and ends in the future" do
+        it "returns true" do
+          participatory_process.start_date = 1.week.ago
+          participatory_process.end_date = 1.week.from_now
+          expect(participatory_process).to be_active
+        end
+      end
+
+      context "when it starts today and ends in the future" do
+        it "returns true" do
+          participatory_process.start_date = Date.current
+          participatory_process.end_date = 1.week.from_now
+          expect(participatory_process).to be_active
+        end
+      end
+
+      context "when it ends today" do
+        it "returns true" do
+          participatory_process.start_date = 1.week.ago
+          participatory_process.end_date = Date.current
+          expect(participatory_process).to be_active
+        end
+      end
+
+      context "when it starts in the future and ends in the future" do
+        it "returns false" do
+          participatory_process.end_date = 1.day.from_now
+          expect(participatory_process).not_to be_past
+        end
+      end
+
+      context "when it doesn't have an end date" do
+        it "returns false" do
+          participatory_process.end_date = nil
+          expect(participatory_process).not_to be_past
+        end
+      end
+    end
+
     describe "#past?" do
       context "when it ends in the past" do
         it "returns true" do
