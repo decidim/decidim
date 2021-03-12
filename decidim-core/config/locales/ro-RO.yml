@@ -35,6 +35,7 @@ ro:
       decidim/profile_updated_event: Profil actualizat
       decidim/promote_to_admin: Promovat la grupul de administratori
       decidim/removed_from_group: Eliminat din grup
+      decidim/resource_endorsed_event: Resursă aprobată
   activerecord:
     attributes:
       decidim/user:
@@ -68,6 +69,7 @@ ro:
     errors:
       general: Eroare la procesarea imaginii
       image_too_big: Imaginea este prea mare
+      not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -86,6 +88,7 @@ ro:
         file_no_exists: Fișierul nu există
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       delete:
+        alert: Această acțiune nu poate fi anulată. Dacă vă ștergeți contul, nu veți mai putea să vă autentificați cu datele de autentificare. Ștergerea contului dvs. va duce la anonimizarea contribuțiilor dvs. Veți putea crea în continuare un cont nou, dar aceste contribuții nu vor fi asociate cu acesta.
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
@@ -115,6 +118,8 @@ ro:
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
         hide: "%{user_name} a ascuns o resursă de tip %{resource_type} în spațiul %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
@@ -131,6 +136,7 @@ ro:
         update: "%{user_name} a actualizat setările organizației"
       participatory_space_private_user:
         create: "%{user_name} a invitat %{resource_name} să fie un participant privat"
+        create_via_csv: "%{user_name} a invitat %{resource_name} prin CSV să fie un participant privat"
         delete: "%{user_name} a eliminat participantul %{resource_name} ca participant privat"
       scope:
         create: "%{user_name} a creat scopul %{resource_name}"
@@ -144,15 +150,21 @@ ro:
         delete: "%{user_name} a șters pagina statică %{resource_name}"
         update: "%{user_name} a actualizat pagina statică %{resource_name}"
       user:
+        block: "%{user_name} utilizator blocat %{resource_name}"
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
         officialize: "%{user_name} a oficializat participantul %{resource_name}"
+        promote: "%{user_name} a promovat %{resource_name}"
         remove_from_admin: "%{user_name} a eliminat participantul %{resource_name} cu rolul: %{role}"
         show_email: "%{user_name} a recuperat e-mailul participantului %{resource_name}"
+        transfer: "%{user_name} a transferat participantul %{resource_name}"
+        unblock: "%{user_name} utilizator deblocat %{resource_name}"
         unofficialize: "%{user_name} a neoficializat participantul %{resource_name}"
       user_group:
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
         verify: "%{user_name} a verificat grupul %{resource_name}"
         verify_via_csv: "%{user_name} a verificat grupul %{resource_name} printr-un fișier CSV"
+      user_moderation:
+        unreport: "%{user_name} neraportat %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMENI DE UTILIZARE</h2><p>Avem încredere că ați primit prelegerea obișnuită de la Administratorul de Sistem local. De obicei se reduce la aceste trei lucruri:</p><ol><li>Respectă confidențialitatea altora.</li><li>Gândiți-vă înainte de a da click.</li><li>Cu mare putere vine o mare responsabilitate.</li></ol>"
     alert:
@@ -277,6 +289,8 @@ ro:
         name: Exemplu de autorizare
       dummy_authorization_workflow:
         name: Flux de lucru autorizare fictiv
+      errors:
+        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:
@@ -324,7 +338,11 @@ ro:
         close_modal: Închide fereastra
     block_user_mailer:
       notify:
+        body_1: Contul tău a fost blocat.
+        body_2: 'Motiv: %{justification}'
+        greetings: Bună ziua, <br/>%{organization_name} <br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Salut,
+        subject: Contul tău a fost blocat de %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: și încă %{count}
@@ -361,6 +379,8 @@ ro:
             dummy_global_translatable_text: Text traductibil Dummy
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Permisiuni resurse activate
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
           step:
             amendment_creation_enabled: Crearea de amendamente activată
             amendment_promotion_enabled: Modificare promoție activată
@@ -372,8 +392,11 @@ ro:
             dummy_step_translatable_text: Text traductibil paşi fichar@@0ier
     contact: Contact
     content_blocks:
+      cta:
+        name: Butonul Imagine, Text și Apel la Acțiune
       cta_settings_form:
         background_image: Imagine de fundal
+        button_text: Textul butonului de Apel la acțiune
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
