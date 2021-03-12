@@ -91,7 +91,7 @@ module.exports = {
     decidim_geocoding_provider_here: './decidim-core/app/packs/entrypoints/decidim_geocoding_provider_here.js',
     decidim_map_provider_default: './decidim-core/app/packs/entrypoints/decidim_map_provider_default.js',
     decidim_map_provider_here: './decidim-core/app/packs/entrypoints/decidim_map_provider_here.js',
-
+    decidim_widget: './decidim-core/app/packs/entrypoints/decidim_widget.js',
   },
 }
 

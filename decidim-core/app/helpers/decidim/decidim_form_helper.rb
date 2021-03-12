@@ -214,7 +214,7 @@ module Decidim
     end
 
     def foundation_datepicker_locale_tag
-      # TODO-blat: create a pack for each locale
+      # TODO-blat: create a pack for each locale??
       # javascript_include_tag "datepicker-locales/foundation-datepicker.#{I18n.locale}.js" if I18n.locale != :en
     end
 

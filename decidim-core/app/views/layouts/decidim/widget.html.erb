@@ -27,7 +27,7 @@
       <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
     </div>
 
-    <%# javascript_include_tag "decidim/widget" %>
+    <%= javascript_pack_tag "decidim_widget" %>
     <%= render partial: "layouts/decidim/js_configuration" %>
   </body>
 </html>

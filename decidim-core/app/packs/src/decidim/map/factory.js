@@ -1,6 +1,5 @@
 import MapMarkersController from './controller/markers'
 import MapStaticController from './controller/static'
-// TODO-blat: update docs
 
 /**
  * A factory method that creates a new map controller instance. This method
@@ -14,7 +13,7 @@ import MapStaticController from './controller/static'
  *
  * An example how to use in the ERB view:
  *   <%= dynamic_map_for type: "custom" do %>
- *     <%= javascript_include_tag "map_customization" %>
+ *     <%= javascript_pack_tag "map_customization" %>
  *   <% end %>
  *
  * And then the actual customization at `map_customization.js.es6`:

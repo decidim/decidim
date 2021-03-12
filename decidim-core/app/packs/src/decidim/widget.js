@@ -1,4 +1,3 @@
-// TODO-blat: move it to it's own pack?
 window.addEventListener("message", (event) => {
   if (event.data.type === "GET_HEIGHT") {
     const body = document.body;
