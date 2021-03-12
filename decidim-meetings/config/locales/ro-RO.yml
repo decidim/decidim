@@ -91,6 +91,8 @@ ro:
             default_registration_terms: Condiții de înregistrare implicite
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Permisiunile de acțiuni pot fi setate pentru fiecare întâlnire
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
@@ -162,6 +164,11 @@ ro:
         confirm_destroy: Sunteţi sigur că doriţi să ştergeţi această întâlnire?
         destroy: Ștergere
         edit: Editare
+        invalid_destroy:
+          proposals_count:
+            one: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propunere asociată:'
+            few: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propunere asociată:'
+            other: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate acestuia:'
         minutes: Minute
         new: Ședință nouă
         preview: Previzualizare
@@ -240,6 +247,11 @@ ro:
             invalid: A apărut o problemă la crearea acestei întâlniri
             success: Ședință creată cu succes
           destroy:
+            invalid:
+              proposals_count:
+                one: Întâlnirea nu poate fi eliminată deoarece are %{count} propunere asociată
+                few: Întâlnirile nu pot fi eliminate deoarece au %{count} propuneri asociate
+                other: Întâlnirile nu pot fi eliminate deoarece au %{count} propuneri asociate
             success: Şedinţa a fost ştearsă
           edit:
             update: Actualizare
@@ -341,6 +353,7 @@ ro:
             space_type: Spaţiu participativ
             upcoming: Urmează
       last_activity:
+        meeting_updated_at_html: "<span>Întâlnire actualizată la %{link}</span>"
         new_meeting_at_html: "<span>O nouă ședință la %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
