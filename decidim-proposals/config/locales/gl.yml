@@ -7,6 +7,7 @@ gl:
         category_id: Categoría
         decidim_scope_id: Alcance
         has_address: Ten enderezo
+        scope_id: Ámbito
         state: Estado
         title: Título
         user_group_id: Crear un borrador colaborativo como
@@ -17,13 +18,18 @@ gl:
         automatic_hashtags: Engadíronse automaticamente os hexágonos
         body: Corpo
         category_id: Categoría
+        decidim_scope_id: Ámbito
         has_address: Ten enderezo
+        scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags suxeridos
         title: Título
         user_group_id: Crear proposta como
       proposal_answer:
         answer: Resposta
+        cost: Custo
+        cost_report: Informe de custos
+        execution_period: Período de execución
       proposals_copy:
         copy_proposals: Comprendo que isto importará todas as propostas do compoñente seleccionado ao actual e que esta acción non se pode revertir.
         origin_component_id: Componente para copiar as propostas de
@@ -69,6 +75,17 @@ gl:
         one: Vota
         other: Votos
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Categoría
+          is_emendation_true:
+            label: Tipo
+          scope_id_eq:
+            label: Ámbito
+          state_eq:
+            label: Estado
     components:
       proposals:
         actions:
@@ -99,6 +116,8 @@ gl:
             proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
             proposal_wizard_step_4_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por proposta
             vote_limit: Límite de voto por usuario
           step:
