@@ -47,12 +47,14 @@ gl:
             attachment:
               needs_to_be_reattached: Necesita ser reenxerado
             body:
+              cant_be_equal_to_template: non pode ser igual ao modelo
               identical: E o título non pode ser idéntico
             title:
               identical: E o corpo non pode ser idéntico
     models:
       decidim/proposals/accepted_proposal_event: A proposta foi aceptada
       decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta
+      decidim/proposals/admin/update_proposal_scope_event: Mudouse o ámbito da proposta
       decidim/proposals/creation_enabled_event: Creación de proposta habilitada
       decidim/proposals/endorsing_enabled_event: Aprobación da proposta habilitada
       decidim/proposals/evaluating_proposal_event: A proposta está a ser avaliada
@@ -82,10 +84,23 @@ gl:
             label: Categoría
           is_emendation_true:
             label: Tipo
+            values:
+              'false': Propostas
           scope_id_eq:
             label: Ámbito
           state_eq:
             label: Estado
+            values:
+              accepted: Aceptada
+              evaluating: En avaliación
+              published: Publicadas
+              rejected: Rexeitada
+              validating: Validación técnica
+              withdrawn: Retiradas
+          state_null:
+            label: Estado
+        search_placeholder:
+          id_string_or_title_cont: Procurar %{collection} por ID ou título.
     components:
       proposals:
         actions:
@@ -294,10 +309,12 @@ gl:
         see_all: Ver todos (%{count})
     proposals:
       actions:
+        answer_proposal: Responder á proposta
         edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
         participatory_texts: Textos participativos
+        show: Amosar proposta
         title: Accións
       admin:
         actions:
@@ -393,7 +410,15 @@ gl:
             authors: Autores
             body: Corpo
             created_at: Data de creación
+            documents: Documentos
+            link: Ligazón
+            n_more_endorsers:
+              one: e 1 máis
+              other: e %{count} máis
+            photos: Fotos
             proposals: Propostas
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Xuntanzas relacionadas
             votes_count: Reconto de votos
           update_category:
             select_a_category: Selecciona unha categoría
@@ -590,6 +615,8 @@ gl:
             scope: Alcance
             state: Estado
             title: Título
+            valuator: Avaliador/a
+            valuators: Avaliadores/as
             votes: Votos
       new:
         limit_reached: Non podes crear novas propostas xa que superaches o límite.
@@ -615,8 +642,13 @@ gl:
             one: "%{count} proposta"
             other: "%{count} propostas"
         edit:
+          add_documents: Documentos
+          add_images: Ficheiro
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
+          delete_document: Eliminar documento
+          delete_image: Eliminar imaxe
+          gallery_legend: "(Opcional) Engadir unha imaxe ao cartón de proposta"
           select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar proposta
@@ -626,8 +658,11 @@ gl:
           send: Vista previa
           title: Editar borrador de proposta
         filters:
+          activity: A miña actividade
+          all: Todas
           amendment_type: Tipo
           category: Categoría
+          my_proposals: As miñas propostas
           origin: Orixe
           related_to: Relacionado con
           scope: Alcance
@@ -654,6 +689,7 @@ gl:
           title: Crea a túa proposta
         orders:
           label: 'Solicitar propostas por:'
+          most_commented: Máis comentadas
           most_voted: A maioría votada
           random: Aleatorio
           recent: Recentes
