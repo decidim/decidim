@@ -69,6 +69,8 @@ gl:
             errors:
               minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
             not_used_trustee: "(non usada)"
+          tally_ended:
+            title: Resultados calculados
       election_m:
         badge_name:
           finished: Finalizada
@@ -95,8 +97,22 @@ gl:
           filter_by: Filtrar por
         preview:
           available_answers: Respostas dispoñibles
+          description: Estas son as preguntas que atoparás non proceso de votación
         results:
+          description: Estes son os resultados da votación, para cada pregunta
           selected: Seleccionado
+        show:
+          action-button:
+            change-vote: Troca o teu voto
+            vote: Comezar votación
+            vote-again: Votar de novo
+          callout:
+            already-voted: Xa votaches nesta elección. Podes trocar o teu voto ou verificalo.
+            vote-rejected: Non foi posíbel verificar o teu voto. Por favor, faino de novo.
+          verify:
+            already-voted: Xa votaches?
+            verify-here: Verifica o teu voto aquí.
+            will-verify: Poderás verificar o teu voto unha vez comece a elección.
       models:
         answer:
           fields:
@@ -144,6 +160,9 @@ gl:
           encrypting: Confirmando o voto
         modal:
           close: Pechar
+        processing:
+          header: Procesando...
+          text: Recibiuse o teu voto e está a ser procesado. Por favor, agarda.
         update:
           error: Produciuse un problema ao actualizar o estado do voto
           success: Estado do voto actualizado con éxito
