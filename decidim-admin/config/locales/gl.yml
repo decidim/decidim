@@ -52,6 +52,7 @@ gl:
         highlighted_content_banner_image: Imaxe
         highlighted_content_banner_short_description: Descrición curta
         highlighted_content_banner_title: Título
+        host: Host
         instagram_handler: Administrador de Instagram
         logo: Logo
         machine_translation_display_priority: Prioridade ao amosar as traducións automáticas
@@ -68,6 +69,7 @@ gl:
         reference_prefix: Prefijo de referencia
         rich_text_editor_in_public_views: Habilitar o editor de texto avanzado para os participantes
         secondary_color: Secundaria
+        secondary_hosts: Hosts secundarios
         send_welcome_notification: Enviar notificación de benvida
         success_color: Éxito
         time_zone: Fuso horario
@@ -113,6 +115,10 @@ gl:
               allowed_file_content_types: Ficheiro de imaxe non válido
             official_img_header:
               allowed_file_content_types: Ficheiro de imaxe non válido
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tipo Mime non válido
   activerecord:
     attributes:
       decidim/static_page:
@@ -139,6 +145,7 @@ gl:
         category:
           new: Nova categoría
         export: Exportar
+        import: Importar
         manage: Xestionar
         new: Novo %{name}
         newsletter:
@@ -297,6 +304,7 @@ gl:
           success: O compoñente foi actualizado correctamente.
       conflicts:
         'false': 'Non'
+        managed_user_name: Usuario xestionado
         solved: Resolto
         title: Conflitos de verificación
         transfer:
@@ -349,6 +357,10 @@ gl:
           title_cont: Procurar %{collection} por título.
         state_eq:
           label: Estado
+      forms:
+        file_help:
+          import:
+            message_1: Están soportados os ficheiros CSV, JSON e Excel (.xlsx)
       help_sections:
         error: Produciuse un erro ao actualizar as seccións de axuda
         form:
@@ -387,6 +399,16 @@ gl:
           impersonate_existing_managed_user: Substituír o usuario xestionado "%{name}"
           impersonate_existing_user: Substitúe o usuario "%{name}"
           impersonate_new_managed_user: Substituír o novo usuario xestor
+      imports:
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Volver
+          import: Importar
+        notice: "%{number}%{resource_name} importados con éxito"
       logs:
         logs_list:
           no_logs_yet: Aínda non hai rexistros
@@ -474,6 +496,7 @@ gl:
             created_at: Creado o
             expires_at: Caduca o
             last_used_at: Empregado por última vez
+            times_used: Veces utilizado
             token: Token
             user: Creado por
         static_page:
@@ -503,7 +526,9 @@ gl:
       moderated_users:
         index:
           actions:
+            block: Bloquear usuario
             title: Accións
+            unblock: Desbloquear usuario
           name: Nome
           nickname: Alcume
           reason: Motivo
