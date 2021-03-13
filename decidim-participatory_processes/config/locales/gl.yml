@@ -283,9 +283,15 @@ gl:
         content_blocks:
           highlighted_processes:
             max_results: Cantidade máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Engadir un documento
         participatory_process_steps:
           form:
             cta_path_help: 'Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. Se non está establecido, non se mostrará o botón. Exemplo: %{url}'
@@ -348,6 +354,7 @@ gl:
           loading: Cargando resultados ...
       show:
         area: Área
+        dates: Datas
         developer_group: Grupo promotor
         end_date: Data de finalización
         local_area: Área de organización
