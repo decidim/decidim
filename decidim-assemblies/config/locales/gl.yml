@@ -380,6 +380,10 @@ gl:
         description: Número de xuntanzas creadas
         object: xuntanzas
         title: Xuntanzas
+    pages:
+      home:
+        sub_hero:
+          register_title: Rexístrate para crear unha conta na plataforma
   errors:
     messages:
       cannot_be_blank: non pode estar baleiro
