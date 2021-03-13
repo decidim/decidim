@@ -30,6 +30,7 @@ gl:
         subject: Asunto
       organization:
         alert_color: Alerta
+        available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
         comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
         cta_button_path: Camiño do botón de chamada a acción
@@ -40,6 +41,8 @@ gl:
         enable_omnipresent_banner: Mostrar o banner omnipresente
         facebook_handler: Administrador de Facebook
         favicon: Ícona
+        force_authentication: Forzar autenticación
+        force_users_to_authenticate_before_access_organization: Forzar aos usuarios a se autenticar antes de acceder á organización
         from: Correo electrónico do remitente
         github_handler: Xestor de GitHub
         header_snippets: Fragmentos de cabeceira
@@ -361,6 +364,7 @@ gl:
         file_help:
           import:
             message_1: Están soportados os ficheiros CSV, JSON e Excel (.xlsx)
+            message_2: Para os ficheiros CSV, o separador entre columnas ten de ser o punto e coa (";")
       help_sections:
         error: Produciuse un erro ao actualizar as seccións de axuda
         form:
@@ -400,6 +404,10 @@ gl:
           impersonate_existing_user: Substitúe o usuario "%{name}"
           impersonate_new_managed_user: Substituír o novo usuario xestor
       imports:
+        error: Produciuse un problema durante a importación
+        help:
+          proposalcreator: O ficheiro ten de incluír os nomes de columna title/en e body/en (ou outro idioma da túa preferencia, por exemplo title/gl e body/gl). Admítense tamén as columnas scope/id e category/id.
+        import_from_file: Importar dende o ficheiro
         new:
           accepted_mime_types:
             csv: csv
@@ -532,6 +540,7 @@ gl:
           name: Nome
           nickname: Alcume
           reason: Motivo
+          title: Listando os usuarios reportados
         report:
           reasons:
             offensive: Ofensivo
@@ -766,7 +775,11 @@ gl:
           confirm_destroy: Estás certo/a de querer eliminar este token?
           destroy: Eliminar
           share: Compartir
+        destroy:
+          error: Produciuse un problema ao destruír o token.
         share_tokens:
+          empty: Non hai tokens activos
+          help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
           title: Compartir tokens
       shared:
         gallery:
