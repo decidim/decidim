@@ -17,7 +17,7 @@ ro:
         title: Titlu
       initiative_author:
         address: Adresa
-        city: Oraș
+        city: Localitate
         id_document: DNI/NIE
         name: Nume și prenume
         phone_number: Număr de telefon
@@ -246,6 +246,7 @@ ro:
             destroy: Ștergere
             update: Actualizare
           form:
+            child_scope_threshold_enabled_help: 'Acest steag de configurare nu acceptă voturi offline, permite sub-jauges și funcționează cu un handler de autorizare care asociază un domeniu utilizatorului, asigură-te că ai ales acea autorizație, mai jos în setările de autorizare. Pentru ca acesta să funcţioneze domeniile de aplicare trebuie configurate în mod ierarhic: 1 părinte - N Child. Pentru mai multe informații despre cum funcționează această configurație, vedeți linkul <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"></a>.'
             title: Informaţii generale
           initiative_type_scopes:
             title: Domeniul de aplicare al tipului de inițiativă
