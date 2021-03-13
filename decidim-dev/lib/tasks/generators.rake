@@ -29,6 +29,7 @@ namespace :decidim do
       "../..",
       "--recreate_db",
       "--skip_gemfile",
+      "--skip_spring",
       "--demo"
     )
   end
