@@ -313,7 +313,7 @@ ro:
           page: "<p>Un <strong>proces participativ</strong> este o secvență de activități participative (de ex. mai întâi să completaţi un sondaj, apoi să faceţi propuneri, discutându-le în cadrul reuniunilor directe sau virtuale; și, în cele din urmă, prioritizarea acestora) în scopul definirii și luării unei decizii cu privire la un subiect specific.</p> <p>Exemple de procese participative sunt: un proces de alegere a membrilor comitetului (în care sunt prezentate pentru prima dată candidații), apoi să se dezbată și, în cele din urmă, să se aleagă candidatura), bugetele participative (unde se fac propuneri, a apreciat din punct de vedere economic şi a votat cu banii disponibili), un proces de planificare strategică; elaborarea în colaborare a unui regulament sau normă, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
           title: Ce este un proces participativ?
     menu:
-      processes: Procese
+      processes: Procese participative
     metrics:
       participatory_processes:
         description: Numărul de procese participative în această organizație
@@ -321,7 +321,7 @@ ro:
         title: Procese participative
     participatory_process:
       show:
-        related_assemblies: Asambluri asemănătoare
+        related_assemblies: Organizații relaționate
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -443,7 +443,7 @@ ro:
         index:
           loading: Se încarcă rezultatele...
       show:
-        area: Suprafață
+        area: Zonă
         belongs_to_group: Acest proces aparține lui
         dates: Date
         developer_group: Grup promotor
@@ -453,7 +453,7 @@ ro:
         participatory_structure: Cum se decide
         private_space: Acesta este un proces privat
         related_processes: Procese conexe
-        scope: Domeniu
+        scope: Domeniu de interes
         start_date: Data de început
         target: Cine participă
         unspecified: Nu este specificat
