@@ -50,6 +50,7 @@ gl:
         target: Quen participa
         title: Título
         twitter: Twitter
+        weight: Peso
         youtube: YouTube
       assembly_member:
         birthday: Aniversario
@@ -347,11 +348,15 @@ gl:
         comments_count: Comentarios
         debates_count: Debates
         endorsements_count: Aprobacións
+        followers_count: Seguidores
+        headline: Estatísticas
         meetings_count: Reunións
+        no_stats: Aínda non hai estatísticas.
         orders_count: Votos
         pages_count: Páxinas
         participants_count: Participantes
         posts_count: Publicacións
+        processes_count: Procesos
         projects_count: Proxectos
         proposals_count: Propostas
         results_count: Resultados
