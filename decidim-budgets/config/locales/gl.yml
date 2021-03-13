@@ -143,6 +143,8 @@ gl:
           status: Estado
           status_values:
             all: Todos
+            not_selected: Non seleccionado
+            selected: Seleccionado
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -158,11 +160,16 @@ gl:
           view: Ver
         orders:
           label: Ordenar proxectos por
+          most_voted: Máis votado
+          random: Orde ao chou
+          selected: Seleccionado
         project:
+          selected: Seleccionado
           view: Ver
           votes:
             one: voto
             other: votos
+          you_voted: Votaches isto
         projects_for: Proxectos para %{name}
         show:
           budget: Orzamento
