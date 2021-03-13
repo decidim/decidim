@@ -51,6 +51,8 @@ gl:
       errors:
         answer:
           body: O corpo non pode estar en branco
+      files:
+        extension_whitelist: 'Formatos aceptados:'
       question_types:
         long_answer: Resposta longa
         multiple_option: Múltipla opción
