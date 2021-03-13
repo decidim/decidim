@@ -39,6 +39,11 @@ gl:
           no_data: Sen participantes verificados
           title: Revogación de autorización
         authorization_workflows: Autorizacións
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} actualizou a configuración de Documentos de identidade"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verificou %{resource_name} usando unha autorización fora de liña de Documentos de identidade"
     authorization_handlers:
       admin:
         csv_census:
