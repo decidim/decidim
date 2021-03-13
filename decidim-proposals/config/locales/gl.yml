@@ -406,6 +406,8 @@ gl:
           show:
             authors: Autores
             body: Corpo
+            comments_neutral_count: Neutral
+            comments_positive_count: A favor
             created_at: Data de creación
             documents: Documentos
             link: Ligazón
@@ -416,12 +418,16 @@ gl:
             proposals: Propostas
             ranking: "%{ranking} de %{total}"
             related_meetings: Xuntanzas relacionadas
+            remove_assignment_confirmation: Estás seguro de que desexas eliminar este avaliador/a da proposta?
+            valuators: Avaliadores/as
             votes_count: Reconto de votos
+            votes_ranking: Clasificación por apoios
           update_category:
             select_a_category: Selecciona unha categoría
             select_a_proposal: Selecciona unha proposta
           update_scope:
             select_a_proposal: Selecciona unha proposta
+            select_a_scope: Por favor, escolle un ámbito
         proposals_imports:
           create:
             invalid: Produciuse un problema na importación das propostas
@@ -431,6 +437,7 @@ gl:
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas.
             select_component: Selecciona un compoñente
             select_states: Comprobe os estados das propostas para importar
+            title: Importar propostas
         proposals_merges:
           create:
             invalid: Produciuse un erro ao fusionar as propostas seleccionadas.
@@ -439,6 +446,9 @@ gl:
           create:
             invalid: Produciuse un erro dividindo as propostas seleccionadas.
             success: Reaccionou con éxito as propostas en novas.
+        valuation_assignments:
+          create:
+            invalid: Produciuse un erro ao asignar propostas a un avaliador/a
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
@@ -582,6 +592,7 @@ gl:
         success: O borrador da proposta eliminouse con éxito.
       last_activity:
         new_proposal_at_html: "<span>Nova proposta en %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta actualizada en %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -595,6 +606,7 @@ gl:
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
+            published_answer: Resposta publicada
             published_at: Publicado en
             scope: Alcance
             state: Estado
@@ -676,14 +688,19 @@ gl:
         orders:
           label: 'Solicitar propostas por:'
           most_commented: Máis comentadas
+          most_endorsed: Con máis adhesións
+          most_followed: Con máis seguidores
           most_voted: A maioría votada
           random: Aleatorio
           recent: Recentes
+          with_more_authors: Con máis autores
         participatory_texts:
           index:
             document_index: Índice do documento
           view_index:
             see_index: Ver índice
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           announcement_body: A túa proposta gardouse coma borrador. É preciso que sexa publicada para aparecer no sitio.
           announcement_title: A túa proposta aínda non foi publicada
@@ -693,12 +710,16 @@ gl:
             other: Poderás editar esta proposta durante o primeiro %{count} minutos despois da publicación da proposta. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.
           publish: Publicar
           title: Publica a túa proposta
+          update_position: Actualizar posición
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
+        proposals:
+          empty: Aínda non hai ningunha proposta
         show:
           answer: Resposta
           back_to: Voltar
+          back_to_list: Volver á listaxe
           comments: Comentarios
           edit_proposal: Editar proposta
           endorsements_list: Lista de avales
