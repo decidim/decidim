@@ -32,6 +32,7 @@ gl:
         subtitle: Subtítulo
         target: Quen participa
         title: Título
+        weight: Peso
       participatory_process_group:
         description: Descrición
         hero_image: Imaxe
@@ -106,6 +107,8 @@ gl:
             title: Título
           name: Proceso participativo
         participatory_process_group:
+          fields:
+            title: Título
           name: Grupo de procesos
         participatory_process_step:
           fields:
@@ -280,9 +283,18 @@ gl:
         content_blocks:
           highlighted_processes:
             max_results: Cantidade máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadatos
+        participatory_process_imports:
+          form:
+            document_legend: Engadir un documento
         participatory_process_steps:
           form:
             cta_path_help: 'Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. Se non está establecido, non se mostrará o botón. Exemplo: %{url}'
@@ -345,6 +357,7 @@ gl:
           loading: Cargando resultados ...
       show:
         area: Área
+        dates: Datas
         developer_group: Grupo promotor
         end_date: Data de finalización
         local_area: Área de organización
@@ -361,8 +374,10 @@ gl:
         comments_count: Comentarios
         debates_count: Debates
         endorsements_count: Aprobacións
+        followers_count: Seguidores
         headline: Actividade
         meetings_count: Reunións
+        no_stats: Aínda non hai estatísticas.
         orders_count: Votos
         pages_count: Páxinas
         participants_count: Participantes
@@ -394,6 +409,8 @@ gl:
           active_step: 'Paso actual:'
           more_info: Máis información
           take_part: Tomar parte en
+        promoted_process_group:
+          more_info: Máis información
       process_header_steps:
         step: Paso %{current} de %{total}
         view_steps: Ver pasos
