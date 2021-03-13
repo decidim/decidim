@@ -23,6 +23,8 @@ ro:
           global:
             announcement: Anunţ
             clean_after_publish: Ștergeți răspunsurile la publicarea sondajului
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
           step:
             allow_answers: Permite răspunsuri
             allow_unregistered: Permite utilizatorilor neînregistrați să răspundă la chestionar
