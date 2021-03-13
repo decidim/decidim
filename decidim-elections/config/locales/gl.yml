@@ -87,6 +87,8 @@ gl:
         show:
           back: Todas as votacións
           vote: Votar
+          voting_period_status:
+            ongoing: A votación termina en %{end_time}
       models:
         answer:
           fields:
