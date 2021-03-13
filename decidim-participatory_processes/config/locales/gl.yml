@@ -364,8 +364,10 @@ gl:
         comments_count: Comentarios
         debates_count: Debates
         endorsements_count: Aprobacións
+        followers_count: Seguidores
         headline: Actividade
         meetings_count: Reunións
+        no_stats: Aínda non hai estatísticas.
         orders_count: Votos
         pages_count: Páxinas
         participants_count: Participantes
