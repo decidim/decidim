@@ -26,6 +26,7 @@ gl:
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
+        show_metrics: Amosar métricas
         show_statistics: Amosar estatísticas
         slug: URL slug
         start_date: Data de inicio
@@ -35,8 +36,14 @@ gl:
         weight: Peso
       participatory_process_group:
         description: Descrición
+        group_url: Sitio web
+        hashtag: Cancelo
         hero_image: Imaxe
         participatory_process_ids: Procesos relacionados
+        participatory_scope: Que se decide
+        participatory_structure: Como é decidido
+        target: Quen participa
+        title: Título
       participatory_process_step:
         cta_path: Camiño de chamada a Acción
         cta_text: Texto de chamada a acción
@@ -49,6 +56,12 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento non válido. Formatos aceptados: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Paso activado
       decidim/participatory_process_step_changed_event: O paso cambiou
@@ -75,6 +88,7 @@ gl:
         filter:
           all_processes: Mostrar todos os procesos
           process_groups: Procesar grupos
+        import_process: Importar
         new_process: Novo proceso
         new_process_group: Novo grupo de procesos
         new_process_step: Novo paso
@@ -85,6 +99,9 @@ gl:
         unpublish: Non publicar
       menu:
         participatory_process_groups: Grupos de procesos
+        participatory_process_groups_submenu:
+          info: Información
+          landing_page: Páxina de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -135,6 +152,13 @@ gl:
           copy: Copiar
           select: Seleccione os datos que desexa duplicar
           title: Duplicar o proceso participativo
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Bloques de contido activos
+          inactive_content_blocks: Bloques de contido inactivos
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Actualizar
       participatory_process_groups:
         destroy:
           success: Grupo de proceso participativo eliminado con éxito.
@@ -147,6 +171,9 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este grupo de procesos participativo.
           success: Grupo de proceso participativo actualizado con éxito.
+      participatory_process_imports:
+        new:
+          import: Importar
       participatory_process_publications:
         create:
           error: Produciuse un erro ao publicar este proceso participativo.
@@ -268,10 +295,33 @@ gl:
         description: Número de procesos participativos nesta organización
         object: procesos participativos
         title: Procesos participativos
+    participatory_process:
+      show:
+        related_assemblies: Xuntanzas relacionadas
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Primeiro bloque HTML
+        html_2:
+          name: Segundo bloque HTML
+        html_3:
+          name: Terceiro bloque HTML
+        metadata:
+          developer_group: Promovido por
+          name: Metadatos
+          participatory_scope: Que se decide
+          participatory_structure: Como é decidido
+          target: Quen participa
+        participatory_processes:
+          name: Procesos participativos
         stats:
           name: Actividade
+        title:
+          meta_scope: Ámbito
+          name: Título, descrición e cancelos
+          participatory_processes:
+            one: 1 proceso
+            other: "%{count} procesos"
       show:
         title: Grupos de procesos participativos
     participatory_process_steps:
@@ -292,6 +342,8 @@ gl:
         participatory_process_groups:
           form:
             metadata: Metadatos
+            title: Información xeral
+            visibility: Visibilidade
         participatory_process_imports:
           form:
             document_legend: Engadir un documento
