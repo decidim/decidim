@@ -617,6 +617,18 @@ ro:
           label: 'Ordonare ciorne după:'
           most_contributed: Cu cele mai multe contribuții
           random: Aleatoriu
+          recent: Recente
+        requests:
+          accepted_request:
+            error: Nu a putut fi acceptat ca și colaborator, vă rugăm să încercați din nou mai târziu.
+            success: "@%{user} a fost acceptat ca și colaborator"
+          access_requested:
+            error: Cererea dvs. nu a putut fi completată, vă rugăm să încercați din nou mai târziu.
+            success: Cererea dvs. de colaborare a fost trimisă
+          collaboration_requests:
+            accept_request: Acceptare
+            reject_request: Respingere
+            title: Cereri de colaborare
         show:
           info-message: Acesta este un <strong>proiect de colaborare</strong> pentru o propunere. Aceasta înseamnă că îi poți ajuta pe autorii lor să modeleze propunerea folosind secțiunea de mai jos sau să o îmbunătățească direct prin solicitarea accesului la editare. Odată ce autorii vă acordă accesul, veți putea face modificări la acest proiect.
           publish: Publică
