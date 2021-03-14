@@ -1,4 +1,53 @@
 ro:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Organizații asemănătoare
+        banner_image: Imagine pentru banner
+        consultations_ids: Consultări conexe
+        copy_categories: Copiază categoriile
+        copy_components: Copiază componentele
+        copy_features: Copiază caracteristici
+        decidim_scope_id: Domeniu de interes
+        description: Descriere
+        hashtag: Hashtag
+        hero_image: Imagine pagina principală
+        participatory_processes_ids: Procese participative conexe
+        promoted: Evidenţiat
+        published_at: Publicat la
+        scope_id: Domeniu de interes
+        scopes_enabled: Domenii de interes activate
+        short_description: Descriere scurtă
+        show_statistics: Arată statistici
+        slogan: Slogan
+        slug: Adresă URL
+        title: Titlu
+      conference_speaker:
+        full_name: Numele complet
+      conference_user_role:
+        email: E-mail
+        name: Nume
+        role: Rol
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Acest e-mail a fost deja invitat
+  activerecord:
+    models:
+      decidim/conference:
+        one: Conferinţă
+        few: Conferințe
+        other: Conferințe
+      decidim/conference_speaker:
+        one: Vorbitor la conferință
+        few: Vorbitori la conferință
+        other: Vorbitori la conferință
+      decidim/conference_user_role:
+        one: Rolul utilizatorului în cadrul conferinței
+        few: Rolurile utilizatorului în cadrul conferinței
+        other: Rolurile utilizatorului în cadrul conferinței
   decidim:
     admin:
       actions:
@@ -160,6 +209,7 @@ ro:
             price: Preț
             registrations_count: Numărul de înregistrări
             title: Titlu
+            weight: Poziția comenzii
           name: Tip de înregistrare
       partners:
         create:
@@ -219,6 +269,10 @@ ro:
       conferences:
         conference_registration:
           confirm: "%{user_name} a confirmat înregistrarea conferinței în %{resource_name} conferință"
+        partner:
+          create: "%{user_name} a creat vorbitorul %{resource_name} pentru conferința %{space_name}"
+          delete: "%{user_name} a şters vorbitorul %{resource_name} de la conferinţa %{space_name}"
+          update: "%{user_name} a actualizat vorbitorul %{resource_name} în conferința %{space_name}"
         registration_type:
           create: "%{user_name} a creat tipul de înregistrare %{resource_name} în conferința %{space_name}"
           publish: "%{user_name} a publicat tipul de înregistrare %{resource_name} în conferința %{space_name}"
@@ -352,6 +406,7 @@ ro:
         personal_website: Website personal
         show:
           more_info: mai multe informații
+          speaking_at: Vorbind la
       conference_speaker_cell:
         personal_url:
           personal_website: Website personal
@@ -425,6 +480,7 @@ ro:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
           login_as: Ești autentificat ca %{name} <%{email}>
+          no_registrations: Fără înregistrări
           register: Inregistrare
           title: Tipuri de înregistrare
       shared:
@@ -471,6 +527,12 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți „” conferința%{resource_title}. O puteți anula de la link-ul anterior.
           email_subject: Vine conferința "%{resource_title}" !
           notification_title: Conferința <a href="%{resource_path}">%{resource_title}</a> urmează în 2 zile.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>O <strong>conferință</strong> este o colecție de întâlniri organizate într-un program, cu un număr de persoane invitate ca vorbitori, precum și alte domenii de informare tipice marilor congrese sau evenimente sociale (înregistrare, lista organizațiilor care sponsorizează evenimentul etc.</p> <p>Exemple: O conferință poate fi un eveniment relevant pentru o organizație și membrii acesteia; sau să se desfășoare ca parte a unui proces participativ sau în urma unei consultări.</p>\n"
+          page: "<p>O <strong>conferință</strong> este o colecție de întâlniri organizate într-un program, cu un număr de persoane invitate ca vorbitori, precum și alte domenii de informare tipice marilor congrese sau evenimente sociale (înregistrare, lista organizațiilor care sponsorizează evenimentul etc.</p> <p>Exemple: O conferință poate fi un eveniment relevant pentru o organizație și membrii acesteia; sau să se desfășoare ca parte a unui proces participativ sau în urma unei consultări.</p>\n"
+          title: Ce sunt conferinţele?
     log:
       value_types:
         conference_presenter:
@@ -481,6 +543,8 @@ ro:
         title: Mass-media și link-uri
     menu:
       conferences: Conferințe
+    statistics:
+      conferences_count: Conferințe
   devise:
     mailer:
       join_conference:

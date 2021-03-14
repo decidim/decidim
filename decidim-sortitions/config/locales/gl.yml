@@ -144,3 +144,5 @@ gl:
           count:
             one: 1 sortition
             other: "%{count} sortións"
+    statistics:
+      sortitions_count: Sorteos
