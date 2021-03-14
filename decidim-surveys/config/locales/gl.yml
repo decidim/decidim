@@ -26,6 +26,7 @@ gl:
           step:
             allow_answers: Permitir respostas
             allow_unregistered: Permitir aos usuarios non rexistrados responder a enquisa
+            allow_unregistered_help: Se está activo, non será preciso iniciar sesión para contestar a enquisa. Isto pode comportar que os datos sexan pouco fiábeis e aumentará a vulnerabilidade a ataques automatizados. Empregar con precaución!
             announcement: Anuncio
     events:
       surveys:
@@ -57,4 +58,5 @@ gl:
       surveys:
         answer:
           invalid: Houbo erros ao responder a enquisa.
+          spam_detected: Produciuse un problema ao contestar o formulario. É posíbel que o fixeras rápido de máis, podes tentalo de novo?
           success: A enquisa respondeu con éxito.

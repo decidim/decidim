@@ -444,6 +444,7 @@ gl:
             created_at: Creado o
             expires_at: Caduca o
             last_used_at: Empregado por última vez
+            times_used: Veces utilizado
             token: Token
             user: Creado por
         static_page:
@@ -677,7 +678,11 @@ gl:
           confirm_destroy: Estás certo/a de querer eliminar este token?
           destroy: Eliminar
           share: Compartir
+        destroy:
+          error: Produciuse un problema ao destruír o token.
         share_tokens:
+          empty: Non hai tokens activos
+          help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
           title: Compartir tokens
       shared:
         gallery:

@@ -26,6 +26,7 @@ gl:
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
+        show_metrics: Amosar métricas
         show_statistics: Amosar estatísticas
         slug: URL slug
         start_date: Data de inicio
@@ -49,6 +50,12 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento non válido. Formatos aceptados: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Paso activado
       decidim/participatory_process_step_changed_event: O paso cambiou
@@ -75,6 +82,7 @@ gl:
         filter:
           all_processes: Mostrar todos os procesos
           process_groups: Procesar grupos
+        import_process: Importar
         new_process: Novo proceso
         new_process_group: Novo grupo de procesos
         new_process_step: Novo paso
@@ -147,6 +155,9 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este grupo de procesos participativo.
           success: Grupo de proceso participativo actualizado con éxito.
+      participatory_process_imports:
+        new:
+          import: Importar
       participatory_process_publications:
         create:
           error: Produciuse un erro ao publicar este proceso participativo.
@@ -268,6 +279,9 @@ gl:
         description: Número de procesos participativos nesta organización
         object: procesos participativos
         title: Procesos participativos
+    participatory_process:
+      show:
+        related_assemblies: Xuntanzas relacionadas
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -283,9 +297,15 @@ gl:
         content_blocks:
           highlighted_processes:
             max_results: Cantidade máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Engadir un documento
         participatory_process_steps:
           form:
             cta_path_help: 'Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. Se non está establecido, non se mostrará o botón. Exemplo: %{url}'
@@ -348,6 +368,7 @@ gl:
           loading: Cargando resultados ...
       show:
         area: Área
+        dates: Datas
         developer_group: Grupo promotor
         end_date: Data de finalización
         local_area: Área de organización
@@ -364,8 +385,10 @@ gl:
         comments_count: Comentarios
         debates_count: Debates
         endorsements_count: Aprobacións
+        followers_count: Seguidores
         headline: Actividade
         meetings_count: Reunións
+        no_stats: Aínda non hai estatísticas.
         orders_count: Votos
         pages_count: Páxinas
         participants_count: Participantes

@@ -319,6 +319,9 @@ ro:
         content_blocks:
           highlighted_processes:
             max_results: Cantitatea maximă de elemente de afișat
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'

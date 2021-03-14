@@ -69,6 +69,7 @@ ro:
     errors:
       general: Eroare la procesarea imaginii
       image_too_big: Imaginea este prea mare
+      not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -362,6 +363,8 @@ ro:
             dummy_global_translatable_text: Text traductibil Dummy
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Permisiuni resurse activate
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
           step:
             amendment_creation_enabled: Crearea de amendamente activată
             amendment_promotion_enabled: Modificare promoție activată
@@ -902,7 +905,10 @@ ro:
         create:
           error: Conversația nu a început. Încercați din nou mai târziu
         error_modal:
+          close: Închidere
           correct_errors: Te rugăm să remediezi erorile și să încerci din nou.
+          intro: 'Au existat următoarele erori cu mesajul tău:'
+          ok: Ok
         index:
           ago: acum
           close: Închide fereastra
@@ -1037,7 +1043,7 @@ ro:
           headline: Valori
         statistics:
           answers_count: Chestionare finalizate
-          assemblies_count: Adunări
+          assemblies_count: Organizații
           comments_count: Comentarii
           conferences_count: Conferințe
           debates_count: Dezbateri
@@ -1179,6 +1185,10 @@ ro:
           few: "%{count} rezultate"
           other: "%{count} rezultate"
         view_all: Vezi toate (%{count})
+    security:
+      selfxss_warning:
+        description: Această caracteristică de browser este destinată dezvoltatorilor și nu ar trebui să inserați nimic aici dacă vi s-a cerut să faceți acest lucru. Lipirea conținutului în această fereastră poate compromite intimitatea ta și permite hackerilor să îți acceseze contul.
+        title: Opriți!
     shared:
       confirm_modal:
         cancel: Anulează

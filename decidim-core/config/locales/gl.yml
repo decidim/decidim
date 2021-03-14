@@ -25,6 +25,7 @@ gl:
       decidim/profile_updated_event: Perfil actualizado
       decidim/promote_to_admin: Ascendido ao administrador do grupo
       decidim/removed_from_group: Eliminouse do grupo
+      decidim/resource_endorsed_event: Adhesión a recurso feita
   activerecord:
     attributes:
       decidim/user:
@@ -532,6 +533,7 @@ gl:
       create:
         button: Segue
         error: Produciuse un erro tras este recurso.
+        participatory_space: Xa segues <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Deixar de seguir
         error: Houbo un erro ao seguir este recurso.

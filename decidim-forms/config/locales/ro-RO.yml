@@ -3,6 +3,8 @@ ro:
     attributes:
       answer:
         body: Răspuns
+        choices: Opțiuni
+        selected_choices: Alegeri selectate
       question:
         max_choices: Numărul maxim de opțiuni
         question_type: Tip
@@ -103,6 +105,7 @@ ro:
             up: Sus
           update:
             invalid: A apărut o eroare la salvarea formularului.
+            success: Formular salvat cu succes.
       errors:
         answer:
           body: Corpul nu poate fi gol
@@ -152,8 +155,10 @@ ro:
           tos_agreement: Prin participare acceptați termenii și condițiile sale de utilizare
       step_navigation:
         show:
+          are_you_sure: Această acțiune nu poate fi anulată și nu veți putea să vă editați răspunsurile. Sunteți sigur?
           back: Înapoi
           continue: Continuă
+          submit: Trimiteți
       user_answers_serializer:
         body: Răspuns
         completion: Finalizare

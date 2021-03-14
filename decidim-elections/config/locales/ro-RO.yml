@@ -14,10 +14,15 @@ ro:
       question:
         description: Descriere
         max_selections: Numărul maxim de selecții
+        min_selections: Niciuna dintre opțiunile de mai sus
         title: Titlu
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Trebuie să fie reatașate
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Trebuie să fie reatașate
@@ -71,6 +76,7 @@ ro:
             title: Editare răspuns
             update: Actualizare răspuns
           index:
+            invalid_max_selections: Mai ai nevoie de %{missing_answers} răspuns/s pentru a se potrivi cu selecțiile maxime
             title: Răspunsuri
           new:
             create: Creează răspuns
@@ -89,6 +95,7 @@ ro:
             title: Editare alegeri
             update: Actualizează alegerea
           index:
+            no_bulletin_board: Nu există <a href="https://github.com/decidim/decidim-bulletin-board">Serverul Bulletin Board</a> configurat, care este necesar pentru a utiliza acest modul. Această sarcină trebuie realizată de Administratorul de sistem.
             title: Alegeri
           new:
             create: Creați alegeri
@@ -137,12 +144,38 @@ ro:
         election:
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
           unpublish: "%{user_name} nepublicat alegerea %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Terminat
+          ongoing: Activ
+          upcoming: Urmează
+        end_date: Se termină
+        footer:
+          view: Vizualizare
+          vote: Votează
+        label:
+          date: Date
+        questions: Întrebări %{count}
+        start_date: Începe
+        unspecified: Nu este specificat
       elections:
         count:
           elections_count:
             one: "%{count} alegeri"
             few: "%{count} alegeri"
             other: "%{count} alegeri"
+        filters:
+          active: Activ
+          all: Toate
+          finished: Finalizat
+          search: Caută
+          state: Stare
+          upcoming: Urmează
+        filters_small_view:
+          close_modal: Închidere
+          filter: Filtrare
+          filter_by: Filtrează după
+          unfold: Desfășurat
         show:
           back: Toate alegerile
           preview: Previzualizare
@@ -174,6 +207,7 @@ ro:
           edit: editează
           header: Confirmă votul tău
           intro: Iată un rezumat al votului pe care urmează să îl exprimați. <br> Vă rugăm să confirmați votul sau să editați răspunsurile.
+          nota_option: Necompletat
           question: Întrebarea %{count}
         confirmed:
           back: Înapoi la alegeri

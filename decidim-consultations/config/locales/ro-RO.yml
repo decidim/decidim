@@ -97,7 +97,56 @@ ro:
       consultations:
         create:
           error: A apărut o problemă la crearea unei noi consultări.
+          success: Consultarea a fost creată.
+        edit:
+          update: Actualizare
+        form:
+          slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această consultare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+          title: Informaţii generale
+        index:
+          not_published: Nepublicat
+          published: Publicat
+        new:
+          create: Crează
+          title: Consultare nouă
+        results:
+          not_visible: Rezultatele vor fi disponibile atunci când consultarea va fi închisă
+          participants: "%{count} participanți"
+          total_votes: 'Total: %{count} voturi'
+        update:
+          error: A apărut o eroare la actualizarea acestei consultări.
+          success: Consultarea a fost actualizată.
+      menu:
+        consultations: Consultări
+        consultations_submenu:
+          info: Informații
+          questions: Întrebări
+          results: Rezultate
+        questions_submenu:
+          components: Componente
+          configuration: Configurare
+          consultation: Consultare
+          info: Informație
+          responses: Răspunsuri
       models:
+        consultation:
+          fields:
+            created_at: Creat la
+            published: Publicat
+            title: Titlu
+          name:
+            one: Consultare
+            few: Consultări
+            other: Consultări
+        question:
+          fields:
+            created_at: Creat la
+            published: Publicat
+            title: Titlu
+          name:
+            one: Intrebare
+            few: Întrebări
+            other: Întrebări
         response:
           fields:
             created_at: Creat la
@@ -284,6 +333,10 @@ ro:
           title: Ce sunt consultările?
     menu:
       consultations: Consultări
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultări
     questions:
       next_button: Următoarea întrebare
       previous_button: Întrebarea precedentă

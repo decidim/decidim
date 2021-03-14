@@ -22,6 +22,7 @@ ro:
       comments_count: Numărul de comentarii
       last_activity:
         new_comment_at_html: "<span>Comentariu nou la %{link}</span>"
+      view: Vizualizare
       votes:
         create:
           error: A apărut o problemă la votarea comentariului.

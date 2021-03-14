@@ -84,9 +84,28 @@ ro:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Categorie
           is_emendation_true:
+            label: Tipul
             values:
+              'false': Propuneri
               'true': Modificări
+          scope_id_eq:
+            label: Domeniu de interes
+          state_eq:
+            label: Stare
+            values:
+              accepted: Acceptat
+              evaluating: Evaluare
+              published: Publicat
+              rejected: Refuzat
+              validating: Validarea tehnică
+              withdrawn: Retras
+          state_null:
+            label: Stare
+            values:
+              'true': Nu s-a răspuns
           valuator_role_ids_has:
             label: Atribuit evaluatorului
         search_placeholder:
@@ -119,6 +138,7 @@ ro:
             new_proposal_help_text: Noua propunere ajută textul
             official_proposals_enabled: Propuneri oficiale activate
             participatory_texts_enabled: Texte participative activate
+            participatory_texts_enabled_readonly: Nu se poate interacționa cu această setare dacă există propuneri existente. Vă rugăm, creați o nouă `Componenta de Propuneri` dacă doriți să activați această caracteristică sau să renunțați la toate propunerile importate din meniul `Textele participative` dacă doriți să o dezactivați.
             proposal_answering_enabled: Propunere de răspuns activată
             proposal_edit_before_minutes: Propunerile pot fi editate de către autori înainte de expirarea acestor mai multe minute
             proposal_length: Lungimea maximă a corpului propunerii
@@ -128,6 +148,8 @@ ro:
             proposal_wizard_step_3_help_text: Asistentul propunerii „Finalizare” ajută textul
             proposal_wizard_step_4_help_text: Asistentul propunerii „Publici” pas ajutător text
             resources_permissions_enabled: Permisiunile de acțiuni pot fi setate pentru fiecare propunere
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
             threshold_per_proposal: Pragul per propunere
             vote_limit: Limită suport per participant
           step:
@@ -405,6 +427,7 @@ ro:
           form:
             attachment_legend: "(Opțional) Adăugați un atașament"
             created_in_meeting: Prezenta propunere provine dintr-o ședință
+            delete_attachment: Ștergere atașament
             select_a_category: Selectați o categorie
             select_a_meeting: Selectați o ședință
           index:
@@ -578,8 +601,38 @@ ro:
           amendment: Amendamente
           category: Categorie
           open: Deschideți
+          published: Publicat
+          related_to: Legat de
+          scope: Domeniu de interes
+          search: Caută
+          state: Stare
+          withdrawn: Retras
+        filters_small_view:
+          close_modal: Închidere
+          filter: Filtrare
+          filter_by: Filtrează după
+          unfold: Desfășurat
         new:
+          send: Continuă
           title: Creare proiect colaborativ
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nouă ciornă de colaborare
+        orders:
+          label: 'Ordonare ciorne după:'
+          most_contributed: Cu cele mai multe contribuții
+          random: Aleatoriu
+          recent: Recente
+        requests:
+          accepted_request:
+            error: Nu a putut fi acceptat ca și colaborator, vă rugăm să încercați din nou mai târziu.
+            success: "@%{user} a fost acceptat ca și colaborator"
+          access_requested:
+            error: Cererea dvs. nu a putut fi completată, vă rugăm să încercați din nou mai târziu.
+            success: Cererea dvs. de colaborare a fost trimisă
+          collaboration_requests:
+            accept_request: Acceptare
+            reject_request: Respingere
+            title: Cereri de colaborare
         show:
           info-message: Acesta este un <strong>proiect de colaborare</strong> pentru o propunere. Aceasta înseamnă că îi poți ajuta pe autorii lor să modeleze propunerea folosind secțiunea de mai jos sau să o îmbunătățească direct prin solicitarea accesului la editare. Odată ce autorii vă acordă accesul, veți putea face modificări la acest proiect.
           publish: Publică

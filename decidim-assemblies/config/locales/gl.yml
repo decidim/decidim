@@ -219,6 +219,8 @@ gl:
         create: "%{user_name} creou o membro %{resource_name} no conxunto %{space_name}"
         delete: "%{user_name} eliminou o %{resource_name} membro do conxunto %{space_name}"
         update: "%{user_name} actualizou o membro %{resource_name} na montaxe %{space_name}"
+      assembly_type:
+        delete: "%{user_name} eliminou o membro %{resource_name} do espazo %{space_name}"
       assembly_user_role:
         create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
         delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
@@ -380,6 +382,10 @@ gl:
         description: Número de xuntanzas creadas
         object: xuntanzas
         title: Xuntanzas
+    pages:
+      home:
+        sub_hero:
+          register_title: Rexístrate para crear unha conta na plataforma
   errors:
     messages:
       cannot_be_blank: non pode estar baleiro

@@ -140,6 +140,8 @@ gl:
           status: Estado
           status_values:
             all: Todos
+            not_selected: Non seleccionado
+            selected: Seleccionado
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -155,12 +157,23 @@ gl:
           view: Ver
         orders:
           label: Ordenar proxectos por
+          most_voted: Máis votado
+          random: Orde ao chou
+          selected: Seleccionado
         project:
+          add: Engadir o proxecto %{resource_name} ao teu voto
+          remove: Eliminar o proxecto %{resource_name} do teu voto
+          selected: Seleccionado
           view: Ver
           votes:
             one: voto
             other: votos
           you_voted: Votaches
+        project_budget_button:
+          add: Engadir ao teu voto
+          add_descriptive: Engadir o proxecto %{resource_name} ao teu voto
+          added: Engadido ao teu voto
+          added_descriptive: O proxecto %{resource_name} engadiuse ao teu voto
         projects_for: Proxectos para %{name}
         show:
           budget: Orzamento
@@ -186,6 +199,8 @@ gl:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            list_heading: Título da listaxe
+            more_information_modal: Modal de "Máis información"
             show_votes: Mostrar votos
             title: Título
             votes: Votación

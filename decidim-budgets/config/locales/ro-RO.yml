@@ -1,11 +1,18 @@
 ro:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Domeniu de aplicare
+        description: Descriere
+        title: Titlu
+        total_budget: Total budget
       project:
+        budget_amount: Sumă bugetară
         decidim_category_id: Categorie
         decidim_scope_id: Domeniu
         description: Descriere
         proposal_ids: Propuneri conexe
+        selected: Selectate pentru implementare
         title: Titlu
   activerecord:
     models:
@@ -21,11 +28,33 @@ ro:
         confirm_destroy: Sunteţi sigur că doriţi să ştergeţi acest proiect?
         destroy: Ștergere
         edit: Editare
+        edit_projects: Gestionați proiectele
         import: Importă propuneri în proiecte
+        new: Nou %{name}
         preview: Previzualizare
         title: Acțiuni
       admin:
+        budgets:
+          create:
+            invalid: A apărut o problemă la crearea acestui buget
+            success: Buget creat cu succes
+          destroy:
+            invalid: A apărut o eroare la ștergerea acestui buget
+            success: Bugetul a fost șters
+          edit:
+            title: Editare buget
+            update: Actualizați bugetul
+          index:
+            title: Bugete
+          new:
+            create: Creați un buget
+            title: Buget nou
+          update:
+            invalid: A apărut o eroare la actualizarea acestui buget
+            success: Buget actualizat cu succes
         models:
+          budget:
+            name: Buget
           project:
             name: Proiect
         projects:
@@ -40,6 +69,7 @@ ro:
           index:
             finished_orders: Voturi terminate
             pending_orders: Voturi în așteptare
+            selected: Selectate
             title: Proiecte
           new:
             create: Crează
@@ -56,11 +86,39 @@ ro:
             no_components: Nu există alte componente de propunere în acest spațiu participativ pentru a importa propunerile în proiecte.
             select_component: Vă rugăm să selectaţi o componentă
       admin_log:
+        budget:
+          create: "%{user_name} a creat bugetul %{resource_name} în spațiul %{space_name}"
+          delete: "%{user_name} a șters bugetul %{resource_name} în spațiul %{space_name}"
+          update: "%{user_name} a actualizat bugetul %{resource_name} în spațiul %{space_name}"
         project:
           create: "%{user_name} a creat proiectul %{resource_name} în spațiul %{space_name}"
           delete: "%{user_name} a șters proiectul %{resource_name} în spațiul %{space_name}"
           update: "%{user_name} a actualizat proiectul %{resource_name} în spațiul %{space_name}"
+      budget:
+        view: Vezi toate proiectele bugetare
+      budget_information_modal:
+        back_to: Înapoi la %{component_name}
+        close_modal: Închidere
+        continue: Continuă
+        more_information: Mai multe informații
+      budgets_list:
+        cancel_order:
+          more_than_one: șterge votul pentru %{name} și începe din nou
+          only_one: șterge votul și începe din nou.
+        finished_message: Ai terminat procesul de vot. Mulțumim pentru participare!
+        highlighted_cta: Votează la %{name}
+        if_change_opinion: Dacă v-ați răzgândit, puteți
+        my_budgets: Bugetele mele
+        voted_on: Ai votat pentru %{links}
+      limit_announcement:
+        cant_vote: Nu puteți vota pentru acest buget. <a href="%{landing_path}">Încercați un alt buget</a>.
+        limit_reached: Voturi active în %{links}. Pentru a vota cu privire la acest buget, trebuie să <a href="%{landing_path}">ștergeți votul și să reîncepeți</a>.
       models:
+        budget:
+          fields:
+            name: Nume
+            projects_count: Număr de proiecte
+            total_budget: Buget total
         project:
           fields:
             title: Titlu
@@ -68,6 +126,8 @@ ro:
         order_summary:
           selected_projects: 'Proiectele pe care le-aţi selectat sunt:'
           subject: Ați votat pentru spațiul participativ %{space_name}
+          voted_on_space: Ați votat asupra bugetului %{budget_name} pentru spațiul participativ al %{space_name}.
+          voted_on_space_with_scope: Ați votat bugetul pentru %{budget_name} pentru spațiul participativ %{space_name} pe %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           cancel: Anulează

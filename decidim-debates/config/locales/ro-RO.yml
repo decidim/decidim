@@ -29,16 +29,21 @@ ro:
       debates:
         actions:
           create: Crează
+          endorse: Aprobare
         name: Dezbateri
         settings:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
             creation_enabled: Crearea de dezbateri de către participanți este activată
+            endorsements_blocked: Aprobări blocate
+            endorsements_enabled: Aprobări activate
     debates:
       actions:
         close: Închide
@@ -48,6 +53,10 @@ ro:
         new: '%{name} nou'
         title: Acțiuni
       admin:
+        debate_closes:
+          edit:
+            close: Inchide
+            title: Închide dezbaterea
         debates:
           create:
             invalid: A existat o problemă la crearea dezbaterii.
@@ -70,9 +79,20 @@ ro:
             name: Dezbatere
       admin_log:
         debate:
+          close: "%{user_name} a închis dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
           create: "%{user_name} a creat dezbaterea %{resource_name} pentru spațiul %{space_name}"
           update: "%{user_name} a actualizat dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
+      debate_m:
+        commented_time_ago: Comentat acum %{time}
       debates:
+        close:
+          invalid: A existat o problemă la închiderea dezbaterii.
+          success: Dezbatere închisă.
+        close_debate_modal:
+          close: Închide
+          description: Care este rezumatul sau concluzia acestei dezbateri?
+          send: Închide dezbaterea
+        closed: Închis
         count:
           debates_count:
             one: "%{count} dezbatere"
@@ -88,13 +108,22 @@ ro:
           save: Salvează modificările
           title: Editare dezbatere
         filters:
+          activity: Activitatea mea
           all: Toate
           category: Categorie
           category_prompt: Selectați o categorie
           citizens: Cetățeni
+          commented: Comentat
+          my_debates: Dezbaterile mele
           official: Oficial
           origin: Origine
+          scope: Domeniu de interes
           search: Caută
+          state: Stare
+          state_values:
+            closed: Inchide
+            open: Deschide
+          user_groups: Grupuri
         filters_small_view:
           close_modal: Închide fereastra
           filter: Filtrare
@@ -108,10 +137,24 @@ ro:
           back: Înapoi
           create: Crează
           title: Dezbatere nouă
+        orders:
+          commented: Cele mai comentate
+          label: Dezbateri de ordine
+          random: Ordine aleatorie
+          recent: Cele mai recente
+          updated: Actualizate recent
         show:
           back: Înapoi la listă
+          close_debate: Închide dezbaterea
           date: Data
+          debate_closed: Inchide
+          debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
+          edit_conclusions: Editați concluziile
           edit_debate: Editare dezbatere
+          groups_count: Grupuri
+          last_comment_by: Ultimul comentariu din partea
+          no_comments_yet: Încă nu există comentarii
+          participants_count: Participanţi
         update:
           invalid: A apărut o problemă la actualizarea dezbaterii.
           success: Dezbatere actualizata cu succes.
@@ -123,6 +166,7 @@ ro:
         versions_list:
           back_to_resource: Revenire la dezbatere
       last_activity:
+        debate_updated_at_html: "<span>Dezbatere actualizată la %{link}</span>"
         new_debate_at_html: "<span>Noua dezbatere la %{link}</span>"
       models:
         debate:

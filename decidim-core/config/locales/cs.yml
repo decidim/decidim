@@ -363,7 +363,7 @@ cs:
         name: Zástupná část
         settings:
           global:
-            amendments_enabled: Změny povoleny
+            amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentářů
             dummy_global_attribute_1: Zástupný atribut 1
@@ -648,7 +648,7 @@ cs:
       subject: Váš export "%{name}" je připraven
     filters:
       linked_classes:
-        all: Všechno
+        all: Vše
         collaborative_draft: Návrh spolupráce
         dummy_resource: Dummy prostředky
         meeting: Setkání
@@ -656,10 +656,10 @@ cs:
         proposal: Návrhy
         result: Výsledky
     fingerprint:
-      check: Kontrola otisků prstů
+      check: Ověřit identifikaci
       explanation: Níže uvedený text je zkráceným, zakódovaným znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl pozměněn, protože jediná změna by vedla k úplně jiné hodnotě.
       online_calculator_name: MD5 kalkulačka online
-      replicate_help: Tento otisk prstu se vypočítá algoritmem SHA256. Abyste je mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
+      replicate_help: Tato digitální identifikace se vypočítá algoritmem SHA256. Abyste ji mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
       source: Zdroj
       title: Digitální otisk
       value: Hodnota
@@ -1167,7 +1167,7 @@ cs:
         currently_selected: Aktuálně vybraný rozsah
         title: Vyberte %{field}
       prompt: Vyberte oblast
-      scopes: Scopes
+      scopes: Oblasti působnosti
       scopes_picker_input:
         select_scope: 'Vyberte rozsah (v současné době: %{current})'
     search:
@@ -1177,12 +1177,12 @@ cs:
     searches:
       filters:
         back: Zpět na výsledky
-        jump_to: 'Skočit do:'
+        jump_to: 'Přejít na:'
         state:
           active: Aktivní
-          all: Všechno
-          future: Budoucnost
-          past: Minulost
+          all: Vše
+          future: Budoucí
+          past: Minulé
       filters_small_view:
         close_modal: Zavřít modální
         filter: Filtr
