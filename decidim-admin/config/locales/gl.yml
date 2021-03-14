@@ -31,6 +31,7 @@ gl:
         subject: Asunto
       organization:
         alert_color: Alerta
+        available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
         comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
         cta_button_path: Camiño do botón de chamada a acción
@@ -41,6 +42,8 @@ gl:
         enable_omnipresent_banner: Mostrar o banner omnipresente
         facebook_handler: Administrador de Facebook
         favicon: Ícona
+        force_authentication: Forzar autenticación
+        force_users_to_authenticate_before_access_organization: Forzar aos usuarios a se autenticar antes de acceder á organización
         from: Correo electrónico do remitente
         github_handler: Xestor de GitHub
         header_snippets: Fragmentos de cabeceira
@@ -53,6 +56,7 @@ gl:
         highlighted_content_banner_image: Imaxe
         highlighted_content_banner_short_description: Descrición curta
         highlighted_content_banner_title: Título
+        host: Host
         instagram_handler: Administrador de Instagram
         logo: Logo
         machine_translation_display_priority: Prioridade ao amosar as traducións automáticas
@@ -69,6 +73,7 @@ gl:
         reference_prefix: Prefijo de referencia
         rich_text_editor_in_public_views: Habilitar o editor de texto avanzado para os participantes
         secondary_color: Secundaria
+        secondary_hosts: Hosts secundarios
         send_welcome_notification: Enviar notificación de benvida
         success_color: Éxito
         time_zone: Fuso horario
@@ -116,6 +121,10 @@ gl:
               allowed_file_content_types: Ficheiro de imaxe non válido
             official_img_header:
               allowed_file_content_types: Ficheiro de imaxe non válido
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tipo Mime non válido
   activerecord:
     attributes:
       decidim/static_page:
@@ -142,6 +151,7 @@ gl:
         category:
           new: Nova categoría
         export: Exportar
+        import: Importar
         manage: Xestionar
         new: Novo %{name}
         newsletter:
@@ -300,6 +310,7 @@ gl:
           success: O compoñente foi actualizado correctamente.
       conflicts:
         'false': 'Non'
+        managed_user_name: Usuario xestionado
         solved: Resolto
         title: Conflitos de verificación
         transfer:
@@ -352,6 +363,11 @@ gl:
           title_cont: Procurar %{collection} por título.
         state_eq:
           label: Estado
+      forms:
+        file_help:
+          import:
+            message_1: Están soportados os ficheiros CSV, JSON e Excel (.xls)
+            message_2: Para os ficheiros CSV, o separador entre columnas ten de ser o punto e coa (";")
       help_sections:
         error: Produciuse un erro ao actualizar as seccións de axuda
         form:
@@ -390,6 +406,20 @@ gl:
           impersonate_existing_managed_user: Substituír o usuario xestionado "%{name}"
           impersonate_existing_user: Substitúe o usuario "%{name}"
           impersonate_new_managed_user: Substituír o novo usuario xestor
+      imports:
+        error: Produciuse un problema durante a importación
+        help:
+          proposalcreator: O ficheiro ten de incluír os nomes de columna title/en e body/en (ou outro idioma da túa preferencia, por exemplo title/gl e body/gl). Admítense tamén as columnas scope/id e category/id.
+        import_from_file: Importar dende o ficheiro
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Volver
+          import: Importar
+        notice: "%{number}%{resource_name} importados con éxito"
       logs:
         logs_list:
           no_logs_yet: Aínda non hai rexistros
@@ -477,6 +507,7 @@ gl:
             created_at: Creado o
             expires_at: Caduca o
             last_used_at: Empregado por última vez
+            times_used: Veces utilizado
             token: Token
             user: Creado por
         static_page:
@@ -506,10 +537,13 @@ gl:
       moderated_users:
         index:
           actions:
+            block: Bloquear usuario
             title: Accións
+            unblock: Desbloquear usuario
           name: Nome
           nickname: Alcume
           reason: Motivo
+          title: Listando os usuarios reportados
         report:
           reasons:
             offensive: Ofensivo
@@ -744,7 +778,11 @@ gl:
           confirm_destroy: Estás certo/a de querer eliminar este token?
           destroy: Eliminar
           share: Compartir
+        destroy:
+          error: Produciuse un problema ao destruír o token.
         share_tokens:
+          empty: Non hai tokens activos
+          help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
           title: Compartir tokens
       shared:
         gallery:
