@@ -446,6 +446,49 @@ module Decidim
 
       template.html_safe
     end
+
+    def as_upload(attribute, options = {})
+      self.multipart = true
+      options[:optional] = options[:optional].nil? ? true : options[:optional]
+      label_text = options[:label] || label_for(attribute)
+      alt_text = label_text
+
+      file = object.send attribute
+      template = ""
+      template += label(attribute, label_text + required_for_attribute(attribute))
+      template += upload_help(attribute, options)
+      template += @template.file_field @object_name, attribute
+
+      template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
+      template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
+
+      if file.attached?
+        if file.attachment.image?
+          template += @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
+          template += @template.link_to @template.image_tag(file, alt: alt_text), file, target: "_blank", rel: "noopener"
+        else
+          template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
+          template += @template.link_to file.filename, file, target: "_blank", rel: "noopener"
+        end
+      end
+
+      if file.attached? && options[:optional]
+        template += content_tag :div, class: "field" do
+          safe_join([
+                      @template.check_box(@object_name, "remove_#{attribute}"),
+                      label("remove_#{attribute}", I18n.t("remove_this_file", scope: "decidim.forms"))
+                    ])
+        end
+      end
+
+      if object.errors[attribute].any?
+        template += content_tag :p, class: "is-invalid-label" do
+          safe_join object.errors[attribute], "<br/>".html_safe
+        end
+      end
+
+      template.html_safe
+    end
     # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/PerceivedComplexity
 
