@@ -31,6 +31,7 @@ module Decidim
       helper Decidim::MenuHelper
       helper Decidim::OmniauthHelper
       helper Decidim::CacheHelper
+      helper Decidim::MainAppMissingRoutesHelper
 
       layout "layouts/decidim/application"
 

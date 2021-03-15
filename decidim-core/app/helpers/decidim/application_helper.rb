@@ -8,6 +8,7 @@ module Decidim
     include Decidim::ContextualHelpHelper
     include Decidim::AmendmentsHelper
     include Decidim::CacheHelper
+    include Decidim::MainAppMissingRoutesHelper
 
     # Truncates a given text respecting its HTML tags.
     #
