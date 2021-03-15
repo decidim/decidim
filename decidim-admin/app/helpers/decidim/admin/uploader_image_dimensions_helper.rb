@@ -5,6 +5,10 @@ module Decidim
     # This class contains helpers needed to obtain information about
     # image dimensions from the processors defined in the specific image's Uploader class
     module UploaderImageDimensionsHelper
+      UPLOADERS = {
+        logo: Decidim::OrganizationLogoUploader
+      }.with_indifferent_access.freeze
+
       # Find the dimensions info of a model's image field and get the first value for dimensions ([w, h])
       #
       # model - The model to which the image belongs (An instance of `ActiveRecord`)
@@ -12,7 +16,11 @@ module Decidim
       #
       # Returns an integer array with [width, height]
       def image_dimensions(model, image_name)
-        versions = model.send(image_name).dimensions_info
+        versions = if model.send(image_name).is_a? Decidim::ApplicationUploader
+                     model.send(image_name).dimensions_info
+                   else
+                     UPLOADERS[image_name].new.dimensions_info
+                   end
         [:small, :medium, :default].map { |v| versions.dig(v, :dimensions) }.compact.first
       end
 

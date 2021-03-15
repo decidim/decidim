@@ -10,7 +10,7 @@ module Decidim
       # organization - The Organization that will be updated.
       # form - A form object with the params.
       def initialize(organization, form)
-        image_fields.each do |field|
+        cw_image_fields.each do |field|
           form.send("#{field}=".to_sym, organization.send(field)) if form.send(field).blank?
         end
         @organization = organization
@@ -40,7 +40,15 @@ module Decidim
       private
 
       def image_fields
-        [:highlighted_content_banner_image, :logo, :favicon, :official_img_header, :official_img_footer]
+        cw_image_fields + as_attachment_fields
+      end
+
+      def cw_image_fields
+        [:highlighted_content_banner_image, :favicon, :official_img_header, :official_img_footer]
+      end
+
+      def as_attachment_fields
+        [:logo]
       end
 
       attr_reader :form, :organization
@@ -55,6 +63,7 @@ module Decidim
 
       def attributes
         appearance_attributes
+          .merge(as_attachment_attributes)
           .merge(highlighted_content_banner_attributes)
           .merge(omnipresent_banner_attributes)
           .merge(colors_attributes)
@@ -64,13 +73,17 @@ module Decidim
           end
       end
 
+      def as_attachment_attributes
+        as_attachment_fields.each_with_object({}) do |attribute, attributes|
+          attributes[attribute] = form.send(attribute) if form.send("remove_#{attribute}") || form.send(attribute).present?
+        end
+      end
+
       def appearance_attributes
         {
           cta_button_path: form.cta_button_path,
           cta_button_text: form.cta_button_text,
           description: form.description,
-          logo: form.logo,
-          remove_logo: form.remove_logo,
           favicon: form.favicon,
           remove_favicon: form.remove_favicon,
           official_img_header: form.official_img_header,
