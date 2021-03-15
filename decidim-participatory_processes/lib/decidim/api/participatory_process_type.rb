@@ -8,6 +8,7 @@ module Decidim
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
       implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::CategoriesContainerInterface
 
       description "A participatory process"
 
@@ -40,7 +41,6 @@ module Decidim
 
       field :reference, GraphQL::Types::String, "Reference prefix for this participatory process", null: true
       field :steps, [Decidim::ParticipatoryProcesses::ParticipatoryProcessStepType, { null: true }], "All the steps of this process.", null: false
-      field :categories, [Decidim::Core::CategoryType, { null: true }], "Categories for this participatory process", null: false
 
       field :participatory_process_group, Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupType,
             null: true,
