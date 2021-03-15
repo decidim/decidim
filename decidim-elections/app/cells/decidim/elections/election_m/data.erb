@@ -1,3 +1,10 @@
+
+<% if needs_to_show_remaining_time? %>
+  <div class="callout secondary">
+    <%= remaining_time %>
+  </div>
+<% end %>
+
 <div class="card__icondata">
   <ul class="card-data">
     <li class="card-data__item">
