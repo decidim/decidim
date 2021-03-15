@@ -11,8 +11,6 @@ module Decidim
                description: "Returns the sub-categories for the given parent category or top-level categories if set to `null`",
                required: false,
                prepare: lambda { |parent_id, _ctx|
-                          # ->(_model_name, _locale) { ["(settings->'global'->>'geocoding_enabled')::boolean is ? or manifest_name='meetings'", active] }
-                          # ->(_model_name, _locale) { ["parent_id = ?", parent_id] }
                           { parent_id: parent_id }
                         }
     end
