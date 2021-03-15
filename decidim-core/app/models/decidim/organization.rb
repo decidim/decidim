@@ -52,8 +52,8 @@ module Decidim
     validates_upload :official_img_footer
     mount_uploader :official_img_footer, Decidim::OfficialImageFooterUploader
 
-    validates_upload :logo
-    mount_uploader :logo, Decidim::OrganizationLogoUploader
+    # Pending validation
+    has_one_attached :logo
 
     validates_upload :favicon
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
