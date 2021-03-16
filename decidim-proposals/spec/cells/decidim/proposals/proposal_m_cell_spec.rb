@@ -136,6 +136,7 @@ module Decidim::Proposals
           component_settings = component.settings
           old_hash = my_cell.send(:cache_hash)
           component.settings = { foo: "bar" }
+          component.save!
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
 
@@ -212,6 +213,15 @@ module Decidim::Proposals
 
         it "returns different hashes" do
           expect(cached_proposals.uniq.length).to eq(5)
+        end
+      end
+
+      context "when space is rendered" do
+        it "generates a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          my_cell.context.merge!({ show_space: true })
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
       end
     end
