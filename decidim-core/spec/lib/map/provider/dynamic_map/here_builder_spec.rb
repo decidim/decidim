@@ -31,22 +31,7 @@ module Decidim
           describe "#javascript_snippets" do
             it "returns the expected JavaScript assets" do
               expect(subject.javascript_snippets).to match(
-                %r{<script src="/assets/leaflet\.self-[^.]*\.js\?body=1"></script>}
-              )
-              expect(subject.javascript_snippets).to match(
-                %r{<script src="/assets/leaflet-tilelayer-here\.self-[^.]*\.js\?body=1"></script>}
-              )
-              expect(subject.javascript_snippets).to match(
-                %r{<script src="/assets/leaflet-svg-icon\.self-[^.]*\.js\?body=1"></script>}
-              )
-              expect(subject.javascript_snippets).to match(
-                %r{<script src="/assets/leaflet\.markercluster\.self-[^.]*\.js\?body=1"></script>}
-              )
-              expect(subject.javascript_snippets).to match(
-                %r{<script src="/assets/jquery-tmpl\.self-[^.]*\.js\?body=1"></script>}
-              )
-              expect(subject.javascript_snippets).to match(
-                %r{<script src="/assets/decidim/map\.self-[^.]*\.js\?body=1"></script>}
+                %r{<script src="/packs-test/js/decidim_map_provider_here-[^.]*\.js\"></script>}
               )
             end
           end
