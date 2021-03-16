@@ -8,6 +8,7 @@ module Decidim
       end
 
       def call(env)
+        Decidim::Core::Engine.routes.polymorphic_mappings.merge! Rails.application.routes.polymorphic_mappings
         Decidim::Admin::Engine.routes.polymorphic_mappings.merge! Rails.application.routes.polymorphic_mappings
         @app.call(env)
       end
