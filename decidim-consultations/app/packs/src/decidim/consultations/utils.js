@@ -1,3 +1,5 @@
+/* eslint-disable no-invalid-this */
+
 $(() => {
   $(".vote-button-caption").mouseover(function () {
     const replaceText = $(this).data("replace");

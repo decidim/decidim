@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0 */
 import Tribute from "tributejs"
 
 $(() => {

@@ -1,8 +1,10 @@
+/* eslint-disable require-jsdoc */
+
 import * as L from "leaflet";
-import 'leaflet-tilelayer-here'
-import 'leaflet-svg-icon'
-import 'leaflet.markercluster'
-import createMapController './factory'
+import "leaflet-tilelayer-here"
+import "leaflet-svg-icon"
+import "leaflet.markercluster"
+import createMapController from "./factory"
 
 /**
  * @deprecated
@@ -10,6 +12,9 @@ import createMapController './factory'
  * This adds support for the legacy style of map configuration and the methods
  * available globally. This is not really needed unless someone is still relying
  * on these methods or the have customizations that are hard to update.
+ * @param {Object} $map A selector with the map container
+ *
+ * @returns {void} Nothing.
  */
 const legacyMapSupport = ($map) => {
   const hereAppId = $map.data("here-app-id");

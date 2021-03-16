@@ -1,11 +1,11 @@
 /* eslint-disable require-jsdoc, max-lines, no-return-assign, func-style, id-length, no-plusplus, no-use-before-define, no-negated-condition, init-declarations, no-invalid-this, no-param-reassign, no-ternary, multiline-ternary, no-nested-ternary, no-eval, no-extend-native, prefer-reflect */
 /* eslint dot-location: ["error", "property"], no-negated-condition: "error" */
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
-/* eslint no-unused-vars: ["error", { "args": "none" }] */
+/* eslint no-unused-vars: 0 */
 /* global d3 */
 
 import * as d3 from "d3"
-import RenderChart from "../../../../../../decidim-core/app/packs/src/decidim/vizzs/renders"
+import renderChart from "../../../../../../decidim-core/app/packs/src/decidim/vizzs/renders"
 
 // lib
 const renderOrgCharts = () => {
@@ -521,7 +521,6 @@ const renderOrgCharts = () => {
       return selection
     }
 
-    // TODO-blat: review this is working
     // custom radial layout
     function radial() {
       return function (root) {
@@ -692,5 +691,5 @@ const renderOrgCharts = () => {
 }
 
 $(() => {
-  RenderChart(renderOrgCharts);
+  renderChart(renderOrgCharts);
 })

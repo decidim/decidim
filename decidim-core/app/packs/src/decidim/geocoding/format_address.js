@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 // If you want to customize the geocoder address format which is displayed
 // when showing the geocoding results list, add this configuration code to
 // your geocoder at config/initializers/decidim.rb:

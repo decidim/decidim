@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 class DynamicFieldsComponent {
   constructor(options = {}) {
     this.wrapperSelector = options.wrapperSelector;

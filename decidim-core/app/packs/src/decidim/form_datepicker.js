@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 export default function formDatePicker() {
   $("[data-datepicker]").each((_index, node) => {
     const language = $("html").attr("lang") || "en";

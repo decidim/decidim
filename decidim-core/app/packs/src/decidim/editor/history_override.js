@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 const History = Quill.import("modules/history");
 History.DEFAULTS = {
   delay: 1000,

@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 // ORGINAL: https://github.com/quilljs/delta/blob/ddda3bf088cda3ec03d5dbcc1179679d147f3a02/src/AttributeMap.ts
 export default function attributeDiff(attributes1, attributes2) {
   let alpha = attributes1;

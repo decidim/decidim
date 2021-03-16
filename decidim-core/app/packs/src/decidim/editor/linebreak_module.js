@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 import addEnterBindings from "./modified_enter"
 import backspaceBindingsRangeAny from "./modified_backspace_offset_any"
 import backspaceBindings from "./modified_backspace_offset1"

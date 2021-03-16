@@ -70,7 +70,6 @@ export default class FormFilterComponent {
         }
         this.currentFormRequest = e.originalEvent.detail[0];
         queue += 1;
-        console.log(contentContainer)
         if (queue > 0 && contentContainer.length > 0 && !contentContainer.hasClass("spinner-container")) {
           contentContainer.addClass("spinner-container");
         }
@@ -93,8 +92,8 @@ export default class FormFilterComponent {
 
       theCheckBoxesTree.setContainerForm(this.$form);
 
-      registerCallback(`filters-${this.id}`, (state) => {
-        this._onPopState(state);
+      registerCallback(`filters-${this.id}`, (currentState) => {
+        this._onPopState(currentState);
       });
     }
   }
@@ -206,10 +205,10 @@ export default class FormFilterComponent {
   /**
    * Handles the logic when going back to a previous state in the filter form.
    * @private
-   * @param {Object} state - state stored along with location URL
+   * @param {Object} currentState - state stored along with location URL
    * @returns {Void} - Returns nothing.
    */
-  _onPopState(state) {
+  _onPopState(currentState) {
     this.changeEvents = false;
     this._clearForm();
 
@@ -247,7 +246,7 @@ export default class FormFilterComponent {
 
     // Retrieves picker information for selected values (value, text and link) from the state object
     $(".data-picker", this.$form).each((_index, picker) => {
-      let pickerState = state[picker.id];
+      let pickerState = currentState[picker.id];
       if (pickerState) {
         theDataPicker.load(picker, pickerState);
       }
@@ -302,7 +301,6 @@ export default class FormFilterComponent {
 
     // Stores picker information for selected values (value, text and link) in the currentState object
     $(".data-picker", this.$form).each((_index, picker) => {
-      console.log("form_filter.data-picker loop")
       currentState[picker.id] = theDataPicker.save(picker);
     })
 

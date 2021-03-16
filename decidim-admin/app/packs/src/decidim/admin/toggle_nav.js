@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 const showHideNav = (evt) => {
   const navMenu = document.querySelector(".layout-nav");
 

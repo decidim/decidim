@@ -1,16 +1,10 @@
-// TODO-blat: React/Typescript bundle for the autocomplete component
-// import 'src/decidim/core/bundle.js'
-// import 'src/decidim/core/extrapoly.js'
+/* eslint no-unused-vars: 0 */
+/* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
 import $ from "jquery"
 import Quill from "quill"
 
-// External dependencies
-// TODO-blat: is necessary?
-// import Modernizr from 'modernizr'
-
 import "core-js/stable";
-
 import "morphdom"
 import "foundation-datepicker"
 import "social-share-button"

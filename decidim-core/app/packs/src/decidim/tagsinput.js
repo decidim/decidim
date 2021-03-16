@@ -1,5 +1,7 @@
+/* eslint-disable require-jsdoc */
+
 (function ($) {
-  
+
 
   let defaultOptions = {
     tagClass: function(item) {
@@ -591,9 +593,9 @@
     if (typeof arg1 === "string") {
       // Return the results from the invoked function calls
       return results.length > 1 ? results : results[0];
-    } 
+    }
     return results;
-    
+
   };
 
   $.fn.tagsinput.Constructor = TagsInput;
@@ -623,9 +625,9 @@
   function htmlEncode(value) {
     if (value) {
       return htmlEncodeContainer.text(value).html();
-    } 
+    }
     return "";
-    
+
   }
 
   /**

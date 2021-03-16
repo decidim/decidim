@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 import attributeDiff from "./attribute_diff"
 
 export default function backspaceBindingsRangeAny(quill) {

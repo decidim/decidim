@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 // This will apply some fixes for the Foundation dropdown menu element
 // according to W3C instructions at:
 // https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html

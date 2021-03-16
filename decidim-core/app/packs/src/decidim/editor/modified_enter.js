@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 const Parchment = Quill.import("parchment")
 const Delta = Quill.import("delta");
 

@@ -1,4 +1,4 @@
-/* eslint-disable max-lines, id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-sequences, no-ternary */
+/* eslint-disable require-jsdoc, max-lines, id-length, no-invalid-this, no-cond-assign, no-unused-vars, max-params, no-sequences, no-ternary */
 /* eslint prefer-reflect: ["error", { "exceptions": ["call"] }] */
 /* eslint dot-location: ["error", "property"] */
 /* global d3, DATACHARTS, fetchDatacharts */

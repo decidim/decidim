@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable no-prototype-builtins, no-restricted-syntax, no-param-reassign */
 
 let callbacks = {};

@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable require-jsdoc, no-console */
 /* global areachart */
 
 $(() => {

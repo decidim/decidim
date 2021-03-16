@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import createSortList from "./sort_list.component"
 
 export default function createSortableList(lists) {

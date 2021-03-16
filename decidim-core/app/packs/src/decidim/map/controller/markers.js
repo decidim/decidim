@@ -1,7 +1,6 @@
 import "@codevadmin/jquery-tmpl"
 import * as L from "leaflet";
 import MapController from "../controller"
-// TODO-blat: review marker cluster
 import "leaflet.markercluster"
 
 export default class MapMarkersController extends MapController {
