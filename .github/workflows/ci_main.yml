@@ -13,7 +13,6 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 2.7.1
-  NODE_VERSION: 14.16.0
 
 jobs:
   main:
@@ -28,14 +27,9 @@ jobs:
       - uses: actions/checkout@v2.0.0
         with:
           fetch-depth: 1
-      - uses: actions/setup-node@master
-        with:
-          node-version: ${{ env.NODE_VERSION }}
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - run: yarn install --frozen-lockfile
-        name: Install JS deps
       - run: bundle exec rspec
         name: RSpec
