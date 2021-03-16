@@ -6,6 +6,7 @@ module Decidim
       module LandingPage
         class ElectionsCell < Decidim::ViewModel
           delegate :current_participatory_space, to: :controller
+          helper_method :single_election
 
           def show
             if single?
@@ -39,6 +40,10 @@ module Decidim
 
           def single?
             elections.one?
+          end
+
+          def single_election
+            @single_election ||= elections.first
           end
         end
       end
