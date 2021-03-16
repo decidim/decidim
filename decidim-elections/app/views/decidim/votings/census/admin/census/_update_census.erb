@@ -1,0 +1,42 @@
+<div class="card-section">
+  <% info_message = t("update.info_message", scope: "decidim.votings.census.admin.census",
+                        count: current_census.data.count,
+                        updated_at: l(current_census.updated_at, format: :long)) %>
+  <%= cell("decidim/announcement", info_message) %>
+
+  <%= link_to t("update.generate_access_codes", scope: "decidim.votings.census.admin.census"),
+      "#",
+      class: "button disabled",
+      data: { confirm: t("update.generate_access_codes_confirm", scope: "decidim.votings.census.admin.census") } %>
+
+  <div class="card">
+    <div class="card-section">
+
+      <h4><%= t("update.title", scope: "decidim.votings.census.admin.census") %></h4>
+
+      <%= render "upload_info" %>
+
+      <%= decidim_form_for(@form, url: admin_voting_census_path,
+                            method: :patch,
+                            html: { class: "form" }) do |form| %>
+        <div class="field">
+          <%= form.upload :file %>
+        </div>
+
+        <%= submit_tag t("update.submit", scope: "decidim.votings.census.admin.census"), class: "button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="card-divider">
+  <h2 class="card-title"><%= t("delete.title", scope: "decidim.votings.census.admin.census") %></h2>
+</div>
+
+<div class="card-section">
+  <%= link_to t("delete.button", scope: "decidim.votings.census.admin.census"),
+              admin_voting_census_path,
+              class: "button alert hollow destroy",
+              method: :delete,
+              data: { confirm: t("delete.confirm", scope: "decidim.votings.census.admin.census") } %>
+</div>
