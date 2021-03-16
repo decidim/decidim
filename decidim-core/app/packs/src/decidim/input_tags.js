@@ -1,5 +1,4 @@
-// TODO-blat: this is an external jquery plugin I haven't found a reference in npmjs
-import "./tagsinput"
+import "bootstrap-tagsinput"
 
 $(() => {
   const $tagContainer = $(".js-tags-container");
