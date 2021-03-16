@@ -7,7 +7,7 @@ module Decidim
       name "CategorizableInterface"
       description "An interface that can be used in categorizable objects."
 
-      field :category, !Decidim::Core::CategoryType, "The object's category"
+      field :category, Decidim::Core::CategoryType, "The object's category"
     end
   end
 end
