@@ -36,7 +36,7 @@ module Decidim
           it "return proposals with and without categories" do
             ids = response["proposals"]["edges"].map { |edge| edge["node"]["id"] }
             expect(ids.count).to eq(3)
-            expect(ids).to eq(all_proposals.map(&:id).sort.map(&:to_s))
+            expect(ids).to include(*all_proposals.map(&:id).map(&:to_s))
           end
         end
       end
