@@ -57,8 +57,7 @@ import '../src/decidim/start_conversation_dialog'
 import '../src/decidim/notifications'
 import '../src/decidim/identity_selector_dialog'
 
-// This needs to be loaded at the bottom because there are some events attached to
-// rails:attachBindings that need to be declared before the import
+// This needs to be loaded after confirm dialog to bind properly
 import Rails from "@rails/ujs"
 Rails.start()
 
