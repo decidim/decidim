@@ -1,11 +1,11 @@
 
 <div class="section">
-  <%= cell("decidim/elections/election_preview", single_election) %>
+  <%= cell("decidim/elections/election_preview", elections.first) %>
 
-  <%= cell("decidim/elections/election_results", single_election) %>
+  <%= cell("decidim/elections/election_results", elections.first) %>
 
   <div class="row columns">
-    <%= cell("decidim/elections/remaining_time_callout", single_election) %>
-    <%= cell("decidim/elections/election_vote_cta", single_election) %>
+    <%= cell("decidim/elections/remaining_time_callout", elections.first) %>
+    <%= cell("decidim/elections/election_vote_cta", elections.first) %>
   </div>
 </div>
