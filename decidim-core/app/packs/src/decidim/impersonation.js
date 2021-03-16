@@ -1,8 +1,8 @@
-import moment from 'moment'
+import moment from "moment"
 
 $(() => {
   const $impersonationWarning = $(".impersonation-warning");
-  if($impersonationWarning.length) {
+  if ($impersonationWarning.length) {
     const endsAt = moment($impersonationWarning.data("session-ends-at"));
     const exitInterval = setInterval(() => {
       const diff = (endsAt - moment()) / 60000;

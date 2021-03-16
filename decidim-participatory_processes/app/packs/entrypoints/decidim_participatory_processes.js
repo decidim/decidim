@@ -1,1 +1,1 @@
-import '../src/decidim/participatory_processes/filters'
+import "../src/decidim/participatory_processes/filters"

@@ -36,6 +36,6 @@ class MaxChoicesAlertComponent {
   }
 }
 
-export default function createMaxChoicesAlertComponent(options){
+export default function createMaxChoicesAlertComponent(options) {
   return new MaxChoicesAlertComponent(options);
 }

@@ -1,4 +1,4 @@
-import createSortList from './sort_list.component'
+import createSortList from "./sort_list.component"
 
 export default function createSortableList(lists) {
   createSortList(lists, {
@@ -6,7 +6,7 @@ export default function createSortableList(lists) {
     forcePlaceholderSize: true,
     connectWith: ".js-connect"
   })
-};
+}
 
 // Once in DOM
 $(() => {

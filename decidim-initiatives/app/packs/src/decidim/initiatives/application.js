@@ -1,1 +1,1 @@
-import '../../../../../../decidim-core/app/packs/src/decidim/editor'
+import "../../../../../../decidim-core/app/packs/src/decidim/editor"

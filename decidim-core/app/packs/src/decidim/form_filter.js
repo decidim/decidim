@@ -7,10 +7,10 @@
  * @augments Component
  */
 
-import delayed from './delayed'
-import CheckBoxesTree from './check_boxes_tree'
-import { registerCallback, unregisterCallback, pushState, replaceState, state } from './history'
-import DataPicker from './data_picker'
+import delayed from "./delayed"
+import CheckBoxesTree from "./check_boxes_tree"
+import { registerCallback, unregisterCallback, pushState, replaceState, state } from "./history"
+import DataPicker from "./data_picker"
 const theCheckBoxesTree = new CheckBoxesTree();
 const theDataPicker = new DataPicker($(".data-picker"));
 
@@ -302,7 +302,7 @@ export default class FormFilterComponent {
 
     // Stores picker information for selected values (value, text and link) in the currentState object
     $(".data-picker", this.$form).each((_index, picker) => {
-      console.log('form_filter.data-picker loop')
+      console.log("form_filter.data-picker loop")
       currentState[picker.id] = theDataPicker.save(picker);
     })
 

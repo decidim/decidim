@@ -1,7 +1,7 @@
-import addEnterBindings from './modified_enter'
-import backspaceBindingsRangeAny from './modified_backspace_offset_any'
-import backspaceBindings from './modified_backspace_offset1'
-import HistoryOverride from './history_override'
+import addEnterBindings from "./modified_enter"
+import backspaceBindingsRangeAny from "./modified_backspace_offset_any"
+import backspaceBindings from "./modified_backspace_offset1"
+import HistoryOverride from "./history_override"
 
 // It all started with these snippets of code: https://github.com/quilljs/quill/issues/252
 const Delta = Quill.import("delta");
@@ -27,7 +27,7 @@ class SmartBreak extends Break {
 }
 Quill.register(SmartBreak);
 
-export default function lineBreakButtonHandler(quill){
+export default function lineBreakButtonHandler(quill) {
   let range = quill.selection.getRange()[0];
   let currentLeaf = quill.getLeaf(range.index)[0];
   let nextLeaf = quill.getLeaf(range.index + 1)[0];
@@ -47,7 +47,7 @@ export default function lineBreakButtonHandler(quill){
 
   // Now that we've inserted a line break, move the cursor forward
   quill.setSelection(range.index + 1, Quill.sources.SILENT);
-};
+}
 
 Quill.register("modules/linebreak", (quill) => {
   quill.getModule("toolbar").addHandler("linebreak", () => {

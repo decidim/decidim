@@ -1,6 +1,6 @@
-import attributeDiff from './attribute_diff'
+import attributeDiff from "./attribute_diff"
 
-export default function backspaceBindingsRangeAny(quill){
+export default function backspaceBindingsRangeAny(quill) {
   quill.keyboard.addBinding({ key: 8, altKey: null, ctrlKey: null, metaKey: null, shiftKey: null, collapsed: true }, (range, context) => {
     let length = 1;
     if (range.index === 0 || quill.getLength() <= 1) {

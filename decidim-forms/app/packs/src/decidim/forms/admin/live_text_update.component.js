@@ -42,6 +42,6 @@ class LiveTextUpdateComponent {
   }
 }
 
-export default function createLiveTextUpdateComponent(options){
+export default function createLiveTextUpdateComponent(options) {
   return new LiveTextUpdateComponent(options);
 }

@@ -1,8 +1,8 @@
 // TODO-blat: where does this file comes from?
 // = require jquery-tmpl
 import * as L from "leaflet";
-import './icon'
-import MapControllerRegistry from './controller_registry'
+import "./icon"
+import MapControllerRegistry from "./controller_registry"
 
 export default class MapController {
   constructor(mapId, config) {

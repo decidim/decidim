@@ -1,5 +1,5 @@
-import 'leaflet'
-import 'leaflet-tilelayer-here'
+import "leaflet"
+import "leaflet-tilelayer-here"
 
 /**
  * NOTE:
@@ -13,4 +13,4 @@ $(() => {
   });
 });
 
-import '../../map'
+import "../../map"

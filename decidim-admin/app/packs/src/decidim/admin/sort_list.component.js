@@ -1,6 +1,7 @@
-import sortable from 'html5sortable/dist/html5sortable.es'
+import sortable from "html5sortable/dist/html5sortable.es"
 
 class SortListComponent {
+
   /**
    * Creates a sortable list using hmtl5sortable function.
    *

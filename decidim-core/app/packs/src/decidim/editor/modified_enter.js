@@ -54,7 +54,7 @@ const lineBreakHandler = (quill, range, context) => {
   continueFormats(quill, context, lineFormats);
 };
 
-export default function addEnterBindings(quill){
+export default function addEnterBindings(quill) {
   quill.clipboard.addMatcher("BR", () => {
     let newDelta = new Delta();
     newDelta.insert({"break": ""});

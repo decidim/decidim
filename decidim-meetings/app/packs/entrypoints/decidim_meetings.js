@@ -1,1 +1,1 @@
-import '../src/decidim/meetings/meetings_form'
+import "../src/decidim/meetings/meetings_form"

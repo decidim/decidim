@@ -1,5 +1,5 @@
-import MapMarkersController from './controller/markers'
-import MapStaticController from './controller/static'
+import MapMarkersController from "./controller/markers"
+import MapStaticController from "./controller/static"
 
 /**
  * A factory method that creates a new map controller instance. This method
@@ -32,7 +32,7 @@ import MapStaticController from './controller/static'
  * @param {Object} config The map configuration object.
  * @returns {MapController} The controller for the map.
  */
-export default function createMapController(mapId, config){
+export default function createMapController(mapId, config) {
   if (config.type === "static") {
     return new MapStaticController(mapId, config);
   }

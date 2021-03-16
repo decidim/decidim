@@ -1,5 +1,5 @@
 /* eslint-disable no-invalid-this */
-import FormFilterComponent from './form_filter'
+import FormFilterComponent from "./form_filter"
 
 $(() => {
   $("form.new_filter").each(function () {

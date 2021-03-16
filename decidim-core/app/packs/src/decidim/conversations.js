@@ -10,7 +10,7 @@ function scrollToLastMessage() {
       behavior: "smooth"
     });
   }
-};
+}
 
 $(document).ready(() => {
   scrollToLastMessage();

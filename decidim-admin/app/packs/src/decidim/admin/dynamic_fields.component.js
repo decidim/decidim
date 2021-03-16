@@ -224,6 +224,6 @@ class DynamicFieldsComponent {
   }
 }
 
-export default function createDynamicFields(options){
+export default function createDynamicFields(options) {
   return new DynamicFieldsComponent(options);
 }

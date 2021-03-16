@@ -1,6 +1,6 @@
 /* eslint-disable no-invalid-this */
 
-import Foundation from 'foundation-sites'
+import Foundation from "foundation-sites"
 
 $(() => {
   // True if small devices

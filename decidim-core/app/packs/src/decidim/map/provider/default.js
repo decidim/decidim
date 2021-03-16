@@ -1,5 +1,5 @@
-import 'leaflet'
-import 'leaflet.markercluster'
+import "leaflet"
+import "leaflet.markercluster"
 
 /**
  * NOTE:
@@ -14,4 +14,4 @@ $(() => {
   });
 });
 
-import '../../map'
+import "../../map"

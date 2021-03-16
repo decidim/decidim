@@ -20,11 +20,7 @@
     "not dead"
   ],
   "scripts": {
-    "build": "webpack --env.dev",
-    "build:prod": "NODE_ENV=production webpack -p --env.prod",
-    "start": "webpack --env.dev --watch --progress --color --display-error-details",
-    "prelint": "tslint decidim-*/**/*.ts decidim-*/**/*.tsx",
-    "lint": "eslint -c .eslintrc.json --ext .js,.js.es6,.jsx .",
+    "lint": "eslint -c .eslintrc.json --ext .js,.jsx .",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "test:ci": "npm run lint && npm run test"

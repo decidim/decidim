@@ -1,15 +1,15 @@
 /* eslint-disable max-lines */
 
-import AutoButtonsByMinItemsComponent from './auto_buttons_by_min_items.component'
-import AutoSelectOptionsByTotalItemsComponent from './auto_select_options_by_total_items.component'
-import AutoSelectOptionsFromUrl from './auto_select_options_from_url.component'
-import createLiveTextUpdateComponent from './live_text_update.component'
-import AutoButtonsByPositionComponent from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/auto_buttons_by_position.component'
-import AutoLabelByPositionComponent from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/auto_label_by_position.component'
-import createSortList from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/sort_list.component'
-import createDynamicFields from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/dynamic_fields.component'
-import createFieldDependentInputs from '../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component'
-import createQuillEditor from '../../../../../../../decidim-core/app/packs/src/decidim/editor'
+import AutoButtonsByMinItemsComponent from "./auto_buttons_by_min_items.component"
+import AutoSelectOptionsByTotalItemsComponent from "./auto_select_options_by_total_items.component"
+import AutoSelectOptionsFromUrl from "./auto_select_options_from_url.component"
+import createLiveTextUpdateComponent from "./live_text_update.component"
+import AutoButtonsByPositionComponent from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/auto_buttons_by_position.component"
+import AutoLabelByPositionComponent from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/auto_label_by_position.component"
+import createSortList from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/sort_list.component"
+import createDynamicFields from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/dynamic_fields.component"
+import createFieldDependentInputs from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component"
+import createQuillEditor from "../../../../../../../decidim-core/app/packs/src/decidim/editor"
 
 $(() => {
   const wrapperSelector = ".questionnaire-questions";

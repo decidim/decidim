@@ -24,6 +24,6 @@ class OptionAttachedInputsComponent {
   }
 }
 
-export default function createOptionAttachedInputs(options){
+export default function createOptionAttachedInputs(options) {
   return new OptionAttachedInputsComponent(options);
 }

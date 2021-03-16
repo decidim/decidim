@@ -10,7 +10,7 @@ const DEFAULT_ATTRIBUTES = {
  * @private
  * @returns {Void} - Returns nothing.
  */
-export default function icon(iconKey, attributes = {}){
+export default function icon(iconKey, attributes = {}) {
   const iconAttributes = $.extend(DEFAULT_ATTRIBUTES, attributes);
   const title = iconAttributes.title || iconAttributes.ariaLabel;
   Reflect.deleteProperty(iconAttributes, "title");
@@ -37,4 +37,4 @@ export default function icon(iconKey, attributes = {}){
   $el.attr(htmlAttributes);
 
   return $("<div />").append($el).html();
-};
+}

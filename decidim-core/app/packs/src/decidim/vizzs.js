@@ -1,4 +1,4 @@
-import './vizzs/areachart'
-import './vizzs/linechart'
-import './vizzs/metrics'
-import './vizzs/rowchart'
+import "./vizzs/areachart"
+import "./vizzs/linechart"
+import "./vizzs/metrics"
+import "./vizzs/rowchart"

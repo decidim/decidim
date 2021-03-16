@@ -1,4 +1,4 @@
-import formatAddress from '../../geocoding/format_address'
+import formatAddress from "../../geocoding/format_address"
 
 /**
  * For the available address format keys, refer to:

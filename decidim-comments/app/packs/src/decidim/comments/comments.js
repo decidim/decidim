@@ -1,3 +1,3 @@
-import './comments.component'
+import "./comments.component"
 
 window.DecidimComments = window.DecidimComments || {};

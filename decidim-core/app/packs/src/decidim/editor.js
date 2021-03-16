@@ -1,8 +1,8 @@
-import lineBreakButtonHandler from './editor/linebreak_module'
+import lineBreakButtonHandler from "./editor/linebreak_module"
 
 const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
 
-export default function createQuillEditor(container){
+export default function createQuillEditor(container) {
   const toolbar = $(container).data("toolbar");
   const disabled = $(container).data("disabled");
 
@@ -66,5 +66,5 @@ export default function createQuillEditor(container){
   quill.emitter.emit("editor-ready");
 
   return quill;
-};
+}
 

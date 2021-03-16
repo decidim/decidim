@@ -1,5 +1,5 @@
 import * as L from "leaflet";
-import MapController from '../controller'
+import MapController from "../controller"
 
 const openLink = window.open;
 

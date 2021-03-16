@@ -1,7 +1,7 @@
-import './scope_picker_enabler.component'
-import './proposal_infinite_edit'
+import "./scope_picker_enabler.component"
+import "./proposal_infinite_edit"
 
-import BudgetRuleTogglerComponent from './budget_rule_toggler.component'
+import BudgetRuleTogglerComponent from "./budget_rule_toggler.component"
 
 // Checks if the form contains fields with special CSS classes added in
 // Decidim::Admin::SettingsHelper and acts accordingly.

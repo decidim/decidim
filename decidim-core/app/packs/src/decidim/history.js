@@ -4,7 +4,7 @@ let callbacks = {};
 
 export default function registerCallback(callbackId, callback) {
   callbacks[callbackId] = callback;
-};
+}
 
 const unregisterCallback = (callbackId) => {
   callbacks[callbackId] = null;
@@ -42,4 +42,4 @@ $(() => {
   }
 });
 
-export { registerCallback, unregisterCallback, pushState, replaceState, state } ;
+export { registerCallback, unregisterCallback, pushState, replaceState, state };

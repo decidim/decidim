@@ -195,6 +195,6 @@ class DisplayConditionsComponent {
   }
 }
 
-export default function createDisplayConditions(options){
+export default function createDisplayConditions(options) {
   return new DisplayConditionsComponent(options);
 }

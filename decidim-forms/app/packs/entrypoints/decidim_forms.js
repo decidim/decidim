@@ -1,1 +1,1 @@
-import '../src/decidim/forms/forms'
+import "../src/decidim/forms/forms"

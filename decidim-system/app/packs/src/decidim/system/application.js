@@ -1,11 +1,11 @@
-import $ from 'jquery'
+import $ from "jquery"
 import Quill from "quill"
-import 'foundation-sites'
+import "foundation-sites"
 
-import '../../../../../../decidim-core/app/packs/src/decidim/editor'
-import '../../../../../../decidim-core/app/packs/src/decidim/input_tags'
-import '../../../../../../decidim-core/app/packs/src/decidim/configuration'
-import '../../../../../../decidim-core/app/packs/src/decidim/confirm'
+import "../../../../../../decidim-core/app/packs/src/decidim/editor"
+import "../../../../../../decidim-core/app/packs/src/decidim/input_tags"
+import "../../../../../../decidim-core/app/packs/src/decidim/configuration"
+import "../../../../../../decidim-core/app/packs/src/decidim/confirm"
 
 $(() => {
   $(document).foundation();

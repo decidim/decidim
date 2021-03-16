@@ -1,4 +1,4 @@
-import attributeDiff from './attribute_diff'
+import attributeDiff from "./attribute_diff"
 
 const Delta = Quill.import("delta");
 

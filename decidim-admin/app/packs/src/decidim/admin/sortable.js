@@ -1,6 +1,6 @@
 /* eslint-disable no-ternary */
 
-import createSortList from './sort_list.component'
+import createSortList from "./sort_list.component"
 
 // Once in DOM
 $(() => {
@@ -12,10 +12,10 @@ $(() => {
       ? `#${elem.id}`
       : selector
 
-      createSortList(item, {
-        handle: "li",
-        forcePlaceholderSize: true,
-        placeholderClass: "sort-placeholder"
-      })
+    createSortList(item, {
+      handle: "li",
+      forcePlaceholderSize: true,
+      placeholderClass: "sort-placeholder"
+    })
   })
 })

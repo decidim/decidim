@@ -5,7 +5,7 @@
 // NOTE:
 // This needs to run AFTER Foundation has been initialized because those
 // initializers will affect the drop down menu elements.
-export default function fixDropdownMenus(){
+export default function fixDropdownMenus() {
   $("[data-dropdown-menu]").each((_i, element) => {
     // This will break navigation on macOS VoiceOver app since it will let the
     // user to focus on the li element instead of the <a> element where we

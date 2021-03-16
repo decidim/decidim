@@ -1,8 +1,8 @@
-import toggleNav from './toggle_nav'
-import createSortList from './sort_list.component'
-import createQuillEditor from '../../../../../../decidim-core/app/packs/src/decidim/editor'
-import formDatePicker from '../../../../../../decidim-core/app/packs/src/decidim/form_datepicker'
-import DataPicker from '../../../../../../decidim-core/app/packs/src/decidim/data_picker'
+import toggleNav from "./toggle_nav"
+import createSortList from "./sort_list.component"
+import createQuillEditor from "../../../../../../decidim-core/app/packs/src/decidim/editor"
+import formDatePicker from "../../../../../../decidim-core/app/packs/src/decidim/form_datepicker"
+import DataPicker from "../../../../../../decidim-core/app/packs/src/decidim/data_picker"
 
 window.Decidim = window.Decidim || {};
 window.DecidimAdmin = window.DecidimAdmin || {};

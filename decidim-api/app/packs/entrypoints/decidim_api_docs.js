@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-undef */
 
-import jQuery from 'jquery'
-import { render } from 'react-dom'
-import { GraphQLDocs } from 'graphql-docs'
+import jQuery from "jquery"
+import { render } from "react-dom"
+import { GraphQLDocs } from "graphql-docs"
 
 const fetcherFactory = (path) => {
   return (query) => {

@@ -1,4 +1,4 @@
-import '@zeitiger/appendaround'
+import "@zeitiger/appendaround"
 
 $(() => {
   let $appendableElements = $(".js-append");

@@ -1,5 +1,5 @@
-import moment from 'moment'
-import Foundation from 'foundation-sites';
+import moment from "moment"
+import Foundation from "foundation-sites";
 
 $(() => {
   const $timeoutModal = $("#timeoutModal");
