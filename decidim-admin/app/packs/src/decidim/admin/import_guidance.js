@@ -1,4 +1,4 @@
-(() => {
+$(() => {
   const $creatorSelect = $("#import_creator");
   const $creatorGuidances = $(".creator-guidances").find(".guidance");
 
@@ -25,5 +25,4 @@
   }
   $creatorGuidances.hide();
   $creatorGuidances.first().show();
-})();
-
+})

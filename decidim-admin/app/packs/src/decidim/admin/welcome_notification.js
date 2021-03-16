@@ -1,4 +1,4 @@
-(() => {
+$(() => {
   const $scope = $("#welcome-notification-details");
 
   const $sendNotificationCheckbox = $(
@@ -29,4 +29,4 @@
   $($customizeCheckbox).click(() => toggleVisibility());
 
   toggleVisibility();
-})();
+});

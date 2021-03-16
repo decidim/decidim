@@ -6,4 +6,6 @@ const subformMultiToggler = new SubformMultiTogglerComponent({
   globalWrapperSelector: "fieldset"
 });
 
-subformMultiToggler.run();
+$(() => {
+  subformMultiToggler.run();
+})

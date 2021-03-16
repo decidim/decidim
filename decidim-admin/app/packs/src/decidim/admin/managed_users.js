@@ -6,4 +6,6 @@ const subformToggler = new SubformTogglerComponent({
   globalWrapperSelector: "form"
 });
 
-subformToggler.run();
+$(() => {
+  subformToggler.run();
+});
