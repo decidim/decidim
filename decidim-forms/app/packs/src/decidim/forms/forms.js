@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 import createOptionAttachedInputs from "./option_attached_inputs.component"
 import createAutosortableCheckboxes from "./autosortable_checkboxes.component"
 import createDisplayConditions from "./display_conditions.component"

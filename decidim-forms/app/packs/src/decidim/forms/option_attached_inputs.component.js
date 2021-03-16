@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 class OptionAttachedInputsComponent {
   constructor(options = {}) {
     this.wrapperField = options.wrapperField;

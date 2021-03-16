@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 /**
  * This component allows for an element's text value to be updated with the value
  * of an input whenever this input's value is changed.

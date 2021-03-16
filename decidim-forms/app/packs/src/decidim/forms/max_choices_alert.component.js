@@ -1,3 +1,5 @@
+/* eslint-disable require-jsdoc */
+
 class MaxChoicesAlertComponent {
   constructor(options = {}) {
     this.wrapperField = options.wrapperField;

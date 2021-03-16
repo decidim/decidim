@@ -1,4 +1,4 @@
-/* eslint-disable no-ternary, no-plusplus */
+/* eslint-disable no-ternary, no-plusplus, require-jsdoc */
 
 class DisplayCondition {
   constructor(options = {}) {

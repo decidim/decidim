@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable no-ternary */
 
 class AutosortableCheckboxesComponent {
