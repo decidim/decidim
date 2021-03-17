@@ -263,7 +263,7 @@ cs:
           other: "%{count} konzultací"
       filters:
         active: Aktivní
-        all: Všechno
+        all: Vše
         finished: Dokončeno
         search: Vyhledávání
         state: Stav
