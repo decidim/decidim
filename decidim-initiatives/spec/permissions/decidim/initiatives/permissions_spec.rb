@@ -251,6 +251,9 @@ describe Decidim::Initiatives::Permissions do
 
   context "when managing an initiative" do
     let(:action_subject) { :initiative }
+    let(:context) do
+      { initiative: initiative }
+    end
 
     context "when updating" do
       let(:action_name) { :edit }
@@ -262,6 +265,14 @@ describe Decidim::Initiatives::Permissions do
         let(:initiative) { create :initiative, :created, organization: organization }
 
         it { is_expected.to eq true }
+      end
+
+      [:validating, :discarded, :published, :rejected, :accepted].each do |state|
+        context "when initiative is #{state}" do
+          let(:initiative) { create :initiative, state, organization: organization }
+
+          it { is_expected.to eq false }
+        end
       end
     end
 
