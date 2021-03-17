@@ -79,7 +79,7 @@ ca:
       logo: "Logo oficial de %{organization}"
       skip_button: Vés al contingut principal
     account:
-      blocked: Aquest compte ha estat bloquejada degut a una violació dels Termes i Condicions d'ús
+      blocked: Aquest compte ha estat bloquejat degut a una violació dels Termes i Condicions d'ús
       data_portability_export:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
