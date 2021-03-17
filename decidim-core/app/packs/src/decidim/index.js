@@ -6,7 +6,6 @@ import ExternalLink from "./external_link"
 import createQuillEditor from "./editor"
 import InputCharacterCounter from "./input_character_counter"
 import FormValidator from "./form_validator"
-import "./filters"
 import CommentsComponent from "../../../../../decidim-comments/app/packs/src/decidim/comments/comments.component"
 
 window.Decidim = window.Decidim || {};
@@ -43,3 +42,5 @@ $(() => {
     $link.data("external-link", new ExternalLink($link));
   });
 });
+
+import "./filters"
