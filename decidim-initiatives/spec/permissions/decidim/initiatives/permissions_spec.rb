@@ -89,6 +89,16 @@ describe Decidim::Initiatives::Permissions do
     end
   end
 
+  shared_examples "with several states" do |expected, states|
+    states.each do |state|
+      context "when initiative is #{state}" do
+        let(:initiative) { create :initiative, state, organization: organization }
+
+        it { is_expected.to eq expected }
+      end
+    end
+  end
+
   context "when the action is for the admin part" do
     let(:action) do
       { scope: :admin, action: :foo, subject: :initiative }
@@ -251,15 +261,15 @@ describe Decidim::Initiatives::Permissions do
 
   context "when managing an initiative" do
     let(:action_subject) { :initiative }
+    let(:action) do
+      { scope: :public, action: action_name, subject: action_subject }
+    end
     let(:context) do
       { initiative: initiative }
     end
 
-    context "when updating" do
+    context "when editing" do
       let(:action_name) { :edit }
-      let(:action) do
-        { scope: :public, action: :edit, subject: :initiative }
-      end
 
       context "when initiative is created" do
         let(:initiative) { create :initiative, :created, organization: organization }
@@ -267,26 +277,19 @@ describe Decidim::Initiatives::Permissions do
         it { is_expected.to eq true }
       end
 
-      [:validating, :discarded, :published, :rejected, :accepted].each do |state|
-        context "when initiative is #{state}" do
-          let(:initiative) { create :initiative, state, organization: organization }
-
-          it { is_expected.to eq false }
-        end
-      end
+      include_examples "with several states", false, [:validating, :discarded, :published, :rejected, :accepted]
     end
 
     context "when updating" do
       let(:action_name) { :update }
-      let(:action) do
-        { scope: :public, action: :edit, subject: :initiative }
-      end
 
       context "when initiative is created" do
         let(:initiative) { create :initiative, :created, organization: organization }
 
         it { is_expected.to eq true }
       end
+
+      include_examples "with several states", false, [:validating, :discarded, :published, :rejected, :accepted]
     end
   end
 
