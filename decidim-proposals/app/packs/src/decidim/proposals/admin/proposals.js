@@ -34,7 +34,7 @@ $(() => {
     }
   }
 
-  let showBulkActionsButton = function() {
+  const showBulkActionsButton = function() {
     if (selectedProposalsCount() > 0) {
       $("#js-bulk-actions-button").removeClass("hide");
     }
@@ -58,6 +58,13 @@ $(() => {
   const hideBulkActionForms = function() {
     $(".js-bulk-action-form").addClass("hide");
   }
+
+  // Expose functions to make them avaialble in .js.erb templates
+  window.showBulkActionsButton = showBulkActionsButton;
+  window.hideBulkActionsButton = hideBulkActionsButton;
+  window.showOtherActionsButtons = showOtherActionsButtons;
+  window.hideOtherActionsButtons = hideOtherActionsButtons;
+  window.hideBulkActionForms = hideBulkActionForms;
 
   if ($(".js-bulk-action-form").length) {
     hideBulkActionForms();
