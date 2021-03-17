@@ -15,6 +15,7 @@ en:
       meeting:
         address: Address
         available_slots: Available slots for this meeting
+        customize_registration_email: Customize registration email
         decidim_category_id: Category
         decidim_scope_id: Scope
         decidim_user_group_id: User group
@@ -26,6 +27,7 @@ en:
         organizer_gid: Create as
         organizer_id: Organizer
         private_meeting: Private meeting
+        registration_email_custom_content: Registration email custom content
         registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registration_url: Registration URL
@@ -265,6 +267,7 @@ en:
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+            registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type

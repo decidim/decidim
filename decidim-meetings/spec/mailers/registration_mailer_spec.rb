@@ -39,8 +39,27 @@ module Decidim::Meetings
         component.update!(settings: { registration_code_enabled: false })
       end
 
-      it "includes the registration code" do
+      it "does not include the registration code" do
         expect(email_body(mail)).not_to match("Your registration code is #{registration.code}")
+      end
+    end
+
+    describe "custom content" do
+      context "when custom content is enabled" do
+        before do
+          meeting.customize_registration_email = true
+          meeting.registration_email_custom_content = { "en" => "Customized registration email content" }
+        end
+
+        it "includes the customized content" do
+          expect(email_body(mail)).to match("Customized registration email content")
+        end
+      end
+
+      context "when custom content is disabled" do
+        it "does not include the customized content" do
+          expect(email_body(mail)).not_to match("Customized registration email content")
+        end
       end
     end
 
