@@ -213,7 +213,7 @@ module Decidim
         # Depending on the path, the location of config/webpacker.yml may change
         # i.e for the development_app RELATIVE_PATH is "..", but for the testing dummy app
         # the RELATIVE_PATH is "../.."
-        gsub_file "config/initializers/webpacker.rb", /RELATIVE_PATH = ""/, %Q{RELATIVE_PATH = #{options.fetch(:path, "").split('/')}}
+        gsub_file "config/initializers/webpacker.rb", /RELATIVE_PATH = ""/, %(RELATIVE_PATH = #{options.fetch(:path, "").split("/")})
       end
 
       def install
