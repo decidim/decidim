@@ -9,6 +9,7 @@ import morphdom from "morphdom"
 // To be available in .js.erb templates
 window.morphdom = morphdom
 import "foundation-datepicker"
+import "../src/decidim/foundation_datepicker_locales"
 import "social-share-button"
 
 import "../src/decidim/input_tags"

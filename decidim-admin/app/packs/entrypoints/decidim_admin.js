@@ -6,6 +6,7 @@ import Quill from "quill"
 
 import "foundation-sites"
 import "foundation-datepicker"
+import "../../../../decidim-core/app/packs/src/decidim/foundation_datepicker_locales"
 import "jquery.autocomplete"
 import "jquery-serializejson"
 
