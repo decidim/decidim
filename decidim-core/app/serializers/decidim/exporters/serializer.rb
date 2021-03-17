@@ -33,7 +33,6 @@ module Decidim
 
       # Public: Publishes notification (event) so that subscribers can modify serialized data.
       #
-      # resource - The Object to serialize.
       # serialized_data - Hash with the serialized data for this resource.
       #
       # Returns a nested Hash with the fields by default.
