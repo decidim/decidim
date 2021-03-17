@@ -126,7 +126,7 @@ cs:
         settings:
           global:
             allow_card_image: Povolit obrázek karty
-            amendments_enabled: Změny povoleny
+            amendments_enabled: Pozměňovací návrhy povoleny
             amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
@@ -450,7 +450,7 @@ cs:
             split: Rozdělit návrhy
             split_button: Rozdělit
             title: Návrhy
-            unassign_from_valuator: Zrušit přiřazení od hodnotitele
+            unassign_from_valuator: Odebrat přiřazení od hodnotitele
             unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
             update_scope_button: Aktualizovat rozsah
@@ -542,23 +542,23 @@ cs:
         withdrawn: Staženo
       application_helper:
         filter_category_values:
-          all: Všechno
+          all: Vše
         filter_origin_values:
-          all: Všechno
+          all: Vše
           citizens: Občané
           meetings: Setkání
           official: Oficiální
           user_groups: Skupiny uživatelů
         filter_scope_values:
-          all: Všechno
+          all: Vše
         filter_state_values:
           accepted: Přijato
-          all: Všechno
+          all: Vše
           evaluating: Hodnocení
           not_answered: Nezodpovězeno
           rejected: Odmítnuto
         filter_type_values:
-          all: Všechno
+          all: Vše
           amendments: Změny
           proposals: Návrhy
       collaborative_drafts:
@@ -603,7 +603,7 @@ cs:
           send: Poslat
           title: Úprava konceptu spolupráce
         filters:
-          all: Všechno
+          all: Vše
           amendment: Změny
           category: Kategorie
           open: otevřeno
@@ -719,7 +719,7 @@ cs:
       participatory_text_proposal:
         alternative_title: Momentálně nejsou k dispozici žádné příspěvky
         buttons:
-          amend: Pozměňovací návrh
+          amend: Pozměnit
           comment: Komentář
           comments: Komentáře
       proposal_votes:
