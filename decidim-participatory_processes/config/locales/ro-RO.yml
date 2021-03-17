@@ -3,20 +3,20 @@ ro:
     attributes:
       participatory_process:
         announcement: Anunţ
-        area_id: Suprafață
+        area_id: Zonă
         banner_image: Imagine banner
         copy_categories: Copiază categoriile
         copy_components: Copiază componentele
         copy_steps: Copiază pașii
-        decidim_area_id: Suprafață
+        decidim_area_id: Zonă
         description: Descriere
         developer_group: Grup promotor
         domain: Domeniu
         end_date: Data de încheiere
         hashtag: Hashtag
-        hero_image: Imagine acasă
+        hero_image: Imagine pagina principală
         local_area: Zonă organizație
-        meta_scope: Sferă metadate
+        meta_scope: Metadate privind domeniul de interes
         participatory_process_group_id: Grup procese
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
@@ -63,7 +63,7 @@ ro:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Procesul participativ
+        one: Proces participativ
         few: Procese participative
         other: Procese participative
       decidim/participatory_process_group:
@@ -81,7 +81,7 @@ ro:
         configure: Configurare
         confirm_destroy: Confirmă ștergerea
         destroy: Ștergere
-        duplicate: Duplicate
+        duplicate: Duplicare
         edit: Editare
         filter:
           all_processes: Arată toate procesele
@@ -90,22 +90,22 @@ ro:
         new_process: Proces nou
         new_process_group: Proces nou de grup
         new_process_step: Faza nouă
-        new_process_user_role: Proces nou admin
+        new_process_user_role: Administrator nou al procesului
         preview: Previzualizare
         publish: Publică
         resend_invitation: Retrimite invitația
         unpublish: De-publicare
       menu:
         participatory_process_groups: Grupuri de proces
-        participatory_processes: Procese
+        participatory_processes: Procese participative
         participatory_processes_submenu:
           attachment_collections: Dosare
           attachment_files: Fișiere
           attachments: Atașamente
           categories: Categorii
           components: Componente
-          info: Info
-          moderations: Moderatii
+          info: Informații
+          moderations: Moderări
           private_users: Participanți privați
           process_admins: Procesează administratori
           steps: Faze
@@ -114,10 +114,10 @@ ro:
           fields:
             created_at: Creat la
             private: Privat
-            promoted: Evident
+            promoted: Evidenţiat
             published: Publicat
             title: Titlu
-          name: Procesul participativ
+          name: Proces participativ
         participatory_process_group:
           fields:
             name: Nume
@@ -150,7 +150,7 @@ ro:
           title: Duplicarea procesului participativ
       participatory_process_groups:
         destroy:
-          error: A apărut o eroare la distrugerea grupului de proces participativ.
+          error: A apărut o eroare la eliminarea grupului de proces participativ.
           success: Grupul procesului participativ a fost şters.
         edit:
           title: Editare grup proces
@@ -174,7 +174,7 @@ ro:
           error: A apărut o problemă la publicarea acestui proces participativ.
           success: Procesul participativ a fost publicat.
         destroy:
-          error: A apărut o problemă la publicarea acestui proces participativ.
+          error: S-a întâmpinat o problemă la retragerea de la publicare a acestui proces participativ.
           success: Procesul participativ a fost de-publicat.
       participatory_process_step_activations:
         create:
@@ -294,7 +294,7 @@ ro:
           page: "<p>Un <strong>proces participativ</strong> este o secvență de activități participative (de ex. mai întâi să completaţi un sondaj, apoi să faceţi propuneri, discutându-le în cadrul reuniunilor directe sau virtuale; și, în cele din urmă, prioritizarea acestora) în scopul definirii și luării unei decizii cu privire la un subiect specific.</p> <p>Exemple de procese participative sunt: un proces de alegere a membrilor comitetului (în care sunt prezentate pentru prima dată candidații), apoi să se dezbată și, în cele din urmă, să se aleagă candidatura), bugetele participative (unde se fac propuneri, a apreciat din punct de vedere economic şi a votat cu banii disponibili), un proces de planificare strategică; elaborarea în colaborare a unui regulament sau normă, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
           title: Ce este un proces participativ?
     menu:
-      processes: Procese
+      processes: Procese participative
     metrics:
       participatory_processes:
         description: Numărul de procese participative în această organizație
@@ -302,7 +302,7 @@ ro:
         title: Procese participative
     participatory_process:
       show:
-        related_assemblies: Asambluri asemănătoare
+        related_assemblies: Organizații relaționate
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -399,7 +399,7 @@ ro:
         index:
           loading: Se încarcă rezultatele...
       show:
-        area: Suprafață
+        area: Zonă
         dates: Date
         developer_group: Grup promotor
         end_date: Data de încheiere
@@ -408,7 +408,7 @@ ro:
         participatory_structure: Cum se decide
         private_space: Acesta este un proces privat
         related_processes: Procese conexe
-        scope: Domeniu
+        scope: Domeniu de interes
         start_date: Data de început
         target: Cine participă
         unspecified: Nu este specificat
@@ -424,7 +424,7 @@ ro:
         orders_count: Suportă
         pages_count: Pagini
         participants_count: Participanți
-        processes_count: Procese
+        processes_count: Procese participative
         projects_count: Proiecte
         proposals_count: Propuneri
         results_count: Rezultate
