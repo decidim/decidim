@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   class Engine < ::Rails::Engine
     config.app_middleware.use(
@@ -9,10 +11,10 @@ module Decidim
 
     initializer "webpacker.proxy" do |app|
       insert_middleware = begin
-                            Decidim.webpacker.config.dev_server.present?
-                          rescue
-                            nil
-                          end
+        Decidim.webpacker.config.dev_server.present?
+      rescue StandardError
+        nil
+      end
       next unless insert_middleware
 
       app.middleware.insert_before(
