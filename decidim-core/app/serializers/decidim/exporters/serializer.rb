@@ -21,7 +21,7 @@ module Decidim
 
       # Publishes a serialize event and returns serialized hash by default (can be customized at the event).
       def run
-        finalize(resource, serialize)
+        finalize(serialize)
       end
 
       # Public: Returns a serialized view of the provided resource.
@@ -37,7 +37,7 @@ module Decidim
       # serialized_data - Hash with the serialized data for this resource.
       #
       # Returns a nested Hash with the fields by default.
-      def finalize(resource, serialized_data)
+      def finalize(serialized_data)
         event_data = {
           resource: resource,
           serialized_data: serialized_data
