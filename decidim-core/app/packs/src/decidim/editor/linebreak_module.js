@@ -5,11 +5,14 @@ import backspaceBindingsRangeAny from "./modified_backspace_offset_any"
 import backspaceBindings from "./modified_backspace_offset1"
 import HistoryOverride from "./history_override"
 
+// Disable warning messages from overwritting modules
+Quill.debug('error');
+
 // It all started with these snippets of code: https://github.com/quilljs/quill/issues/252
 const Delta = Quill.import("delta");
 const Break = Quill.import("blots/break");
 const Embed = Quill.import("blots/embed");
-Quill.register({"modules/history": HistoryOverride}, true)
+Quill.register({"modules/history": HistoryOverride}, true);
 let icons = Quill.import("ui/icons");
 icons.linebreak = "⏎";
 
