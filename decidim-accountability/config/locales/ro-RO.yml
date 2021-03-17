@@ -2,11 +2,11 @@ ro:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Status
+        decidim_accountability_status_id: Stare
         decidim_category_id: Categorie
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de aplicare
         description: Descriere
-        end_date: Data de încheiere
+        end_date: Data de sfârșit
         progress: Progresul
         project_ids: Proiecte incluse
         proposals: Propuneri incluse
@@ -79,7 +79,7 @@ ro:
             success: Rezultatul a fost actualizat
         shared:
           subnav:
-            statuses: Statuses
+            statuses: Status-uri
         statuses:
           create:
             invalid: A apărut o eroare la crearea acestui status
@@ -90,7 +90,7 @@ ro:
             title: Editare stare
             update: Stare actualizare
           index:
-            title: Statuses
+            title: Status-uri
           new:
             create: Creare stare
             title: Stare nouă
