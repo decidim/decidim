@@ -1,9 +1,22 @@
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import toggleNav from "./toggle_nav"
 import createSortList from "./sort_list.component"
 import createQuillEditor from "../../../../../../decidim-core/app/packs/src/decidim/editor"
 import formDatePicker from "../../../../../../decidim-core/app/packs/src/decidim/form_datepicker"
 import DataPicker from "../../../../../../decidim-core/app/packs/src/decidim/data_picker"
+import Autocomplete, { AutocompleteProps } from "./autocomplete.component";
 
+const renderAutocompleteSelects = (nodeSelector) => {
+  window.$(nodeSelector).each((index, node) => {
+    const props = { ...window.$(node).data("autocomplete") };
+
+    ReactDOM.render(
+      React.createElement(Autocomplete, props),
+      node
+    );
+  });
+};
 window.Decidim = window.Decidim || {};
 window.DecidimAdmin = window.DecidimAdmin || {};
 
@@ -12,8 +25,7 @@ const pageLoad = () => {
 
   toggleNav();
 
-  // TODO-blat: remove Typescript and import this module
-  // renderAutocompleteSelects('[data-plugin="autocomplete"]');
+  renderAutocompleteSelects('[data-plugin="autocomplete"]');
 
   createSortList("#steps tbody", {
     placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0],
@@ -42,3 +54,4 @@ $(() => {
     createQuillEditor(container);
   });
 });
+
