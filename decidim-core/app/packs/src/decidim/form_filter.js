@@ -11,8 +11,6 @@ import delayed from "./delayed"
 import CheckBoxesTree from "./check_boxes_tree"
 import { registerCallback, unregisterCallback, pushState, replaceState, state } from "./history"
 import DataPicker from "./data_picker"
-const theCheckBoxesTree = new CheckBoxesTree();
-const theDataPicker = new DataPicker($(".data-picker"));
 
 export default class FormFilterComponent {
   constructor($form) {
@@ -31,6 +29,9 @@ export default class FormFilterComponent {
       this.popStateSubmiter = true;
       window.Decidim.PopStateHandler = this.id;
     }
+
+    this.theCheckBoxesTree = new CheckBoxesTree();
+    this.theDataPicker = new DataPicker($(".data-picker"));
   }
 
   /**
@@ -90,7 +91,7 @@ export default class FormFilterComponent {
         this.$form.find(".spinner-container").addClass("hide");
       });
 
-      theCheckBoxesTree.setContainerForm(this.$form);
+      this.theCheckBoxesTree.setContainerForm(this.$form);
 
       registerCallback(`filters-${this.id}`, (currentState) => {
         this._onPopState(currentState);
@@ -191,7 +192,7 @@ export default class FormFilterComponent {
     });
     this.$form.find("input[type=radio]").attr("checked", false);
     this.$form.find(".data-picker").each((_index, picker) => {
-      theDataPicker.clear(picker);
+      this.theDataPicker.clear(picker);
     });
 
     // This ensure the form is reset in a valid state where a fieldset of
@@ -226,7 +227,7 @@ export default class FormFilterComponent {
 
         if (Array.isArray(value)) {
           let checkboxes = this.$form.find(`input[type=checkbox][name="filter[${fieldName}][]"]`);
-          theCheckBoxesTree.updateChecked(checkboxes, value);
+          this.theCheckBoxesTree.updateChecked(checkboxes, value);
         } else {
           this.$form.find(`*[name="filter[${fieldName}]"]`).each((index, element) => {
             switch (element.type) {
@@ -248,7 +249,7 @@ export default class FormFilterComponent {
     $(".data-picker", this.$form).each((_index, picker) => {
       let pickerState = currentState[picker.id];
       if (pickerState) {
-        theDataPicker.load(picker, pickerState);
+        this.theDataPicker.load(picker, pickerState);
       }
     })
 
@@ -301,7 +302,7 @@ export default class FormFilterComponent {
 
     // Stores picker information for selected values (value, text and link) in the currentState object
     $(".data-picker", this.$form).each((_index, picker) => {
-      currentState[picker.id] = theDataPicker.save(picker);
+      currentState[picker.id] = this.theDataPicker.save(picker);
     })
 
     return [path, currentState];
