@@ -136,6 +136,7 @@ module Decidim::Proposals
           component_settings = component.settings
           old_hash = my_cell.send(:cache_hash)
           component.settings = { foo: "bar" }
+          component.save!
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
 
