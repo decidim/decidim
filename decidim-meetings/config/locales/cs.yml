@@ -231,7 +231,7 @@ cs:
           index:
             filter:
               accepted: Přijato
-              all: Všechno
+              all: Vše
               rejected: Odmítnuto
               sent: Odeslaná
             filter_by: Filtrovat podle
@@ -351,10 +351,10 @@ cs:
       directory:
         meetings:
           index:
-            all: Všechno
+            all: Vše
             date: Datum
             meetings: Setkání
-            past: Minulost
+            past: Minulé
             search: Vyhledávání
             space_type: Účastní prostor
             upcoming: Nadcházející
