@@ -73,8 +73,10 @@ module Decidim
       end
 
       def edit_public_initiative?
-        allow! if permission_action.subject == :initiative &&
-                  permission_action.action == :edit
+        return unless permission_action.subject == :initiative &&
+                      permission_action.action == :edit
+
+        toggle_allow(initiative.created?)
       end
 
       def update_public_initiative?
