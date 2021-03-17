@@ -5,7 +5,9 @@ import $ from "jquery"
 import Quill from "quill"
 
 import "core-js/stable";
-import "morphdom"
+import morphdom from "morphdom"
+// To be available in .js.erb templates
+window.morphdom = morphdom
 import "foundation-datepicker"
 import "social-share-button"
 
