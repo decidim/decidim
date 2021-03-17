@@ -92,10 +92,11 @@ module Decidim
 
       initializer "decidim_initiatives.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.initiatives", scope: "decidim"),
-                    decidim_initiatives.initiatives_path,
-                    position: 2.4,
-                    active: :inclusive
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 2.4,
+                        active: :inclusive
         end
       end
 

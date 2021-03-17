@@ -61,11 +61,12 @@ module Decidim
 
       initializer "decidim_participatory_processes.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.processes", scope: "decidim"),
-                    decidim_participatory_processes.participatory_processes_path,
-                    position: 2,
-                    if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                    active: %r{^/process(es|_groups)}
+          menu.add_item :participatory_processes,
+                        I18n.t("menu.processes", scope: "decidim"),
+                        decidim_participatory_processes.participatory_processes_path,
+                        position: 2,
+                        if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
+                        active: %r{^/process(es|_groups)}
         end
       end
 
