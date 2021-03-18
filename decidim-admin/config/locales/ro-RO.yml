@@ -24,6 +24,7 @@ ro:
       component:
         name: Nume
         published_at: Publicat la
+        weight: Ordinea procesului
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -60,6 +61,7 @@ ro:
         host: Gazdă
         instagram_handler: Gestionar instagram
         logo: Logo
+        machine_translation_display_priority: Prioritate de afișare a traducerii automate
         machine_translation_display_priority_original: Mai întâi textul original
         machine_translation_display_priority_translation: Mai întâi textul tradus
         name: Nume
@@ -71,10 +73,12 @@ ro:
         omnipresent_banner_url: URL
         organization_admin_email: E-mail administrator organizație
         organization_admin_name: Nume administrator organizație
+        organization_locales: Zona organizației
         primary_color: Primară
         reference_prefix: Prefix de referință
         rich_text_editor_in_public_views: Activează editorul de text bogat pentru participanți
         secondary_color: Secundar
+        secondary_hosts: Gazde secundare
         send_welcome_notification: Trimite notificare de bun venit
         success_color: Succes
         time_zone: Fus orar
@@ -97,6 +101,8 @@ ro:
         name: Nume
         organization: Organizație
         plural: Plural
+      settings:
+        scope_id: Domeniul de Aplicare
       static_page:
         allow_public_access: Permiteți accesul fără autentificare
         changed_notably: Au existat schimbări vizibile.
@@ -105,10 +111,12 @@ ro:
         show_in_footer: Arată în subsol
         slug: URL slug
         title: Titlu
+        weight: Ordinea procesului
       static_page_topic:
         description: Descriere
         show_in_footer: Arată în subsol
         title: Titlu
+        weight: Ordinea procesului
       user_group_csv_verification:
         file: Fişier
     errors:
@@ -119,6 +127,10 @@ ro:
               allowed_file_content_types: Fișier imagine nevalid
             official_img_header:
               allowed_file_content_types: Fișier imagine nevalid
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tip mime nevalid
   activerecord:
     attributes:
       decidim/static_page:
@@ -148,9 +160,14 @@ ro:
         import: Importă
         manage: Gestionează
         new: '%{name} nou'
+        newsletter:
+          new: Buletin informativ nou
+        participatory_space_private_user:
+          new: Noul utilizator privat al spațiului participativ
         per_page: Pe pagină
         permissions: Permisiuni
         reject: Respingere
+        share: Distribuie
         user:
           new: Creează utilizator
         verify: Verifică
@@ -159,6 +176,7 @@ ro:
           error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
+          accept: Sunt de acord cu următorii termeni
           are_you_sure: Sigur doriți să refuzați termenii de administrator?
           refuse: Refuză termenii de administrare
           title: Sunt de acord cu termenii și condițiile de utilizare
@@ -237,6 +255,12 @@ ro:
       autocomplete:
         no_results: Nici un rezultat găsit
         search_prompt: Tastați cel puțin trei caractere pentru a căuta
+      block_user:
+        new:
+          action: Blochează contul și trimite justificarea
+          description: Blocarea unui utilizator va face contul inutilizabil, puteți oferi justificări și îndrumări cu privire la modul în care considerați că ați putea debloca utilizatorul.
+          justification: Justificare
+          title: Blochează utilizator %{name}
       categories:
         create:
           error: A apărut o eroare la crearea acestei categorii.
@@ -279,6 +303,7 @@ ro:
           headers:
             actions: Acțiuni
             name: Numele componentei
+            scope: Domeniul de aplicare al componentei
             type: Tipul componentei
         new:
           add: Adaugă componentă
@@ -291,6 +316,21 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestei componente.
           success: Componenta a fost actualizată cu succes.
+      conflicts:
+        attempts: Încercări
+        'false': 'Nu'
+        managed_user_name: Gestionare utilizatori
+        solved: Rezolvat
+        title: Verificare conflicte
+        transfer:
+          email: E-mail
+          error: A apărut o problemă la transferul participantului curent către participantul gestionat.
+          name: Nume
+          reason: Motiv
+          success: Transferul a fost finalizat cu succes.
+          title: Transfer
+        'true': 'Da'
+        user_name: Utilizator
       dashboard:
         show:
           view_more_logs: Vezi mai multe însemnări
@@ -307,6 +347,9 @@ ro:
         category_id_eq:
           label: Categorie
         filter_label: Filtrare
+        moderations:
+          reportable_type_string_eq:
+            label: Tip
         officialized_at_null:
           label: Județ
           values:
@@ -327,8 +370,16 @@ ro:
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Căutare %{collection} după e-mail, nume sau poreclă.
+          reported_id_string_or_reported_content_cont: Căutare %{collection} după id sau conținut raportabil.
+          title_cont: Căutați %{collection} după titlu.
         state_eq:
           label: Județ
+      forms:
+        file_help:
+          import:
+            explanation: 'Orientări pentru fișier:'
+            message_1: Fișierele CSV, JSON și Excel (.xlsx) sunt suportate
+            message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor
         form:
@@ -367,6 +418,24 @@ ro:
           impersonate_existing_managed_user: Gestionați participantul"%{name}"
           impersonate_existing_user: Gestionați participantul"%{name}"
           impersonate_new_managed_user: Gestionați participantul nou
+      imports:
+        creators:
+          proposalcreator: Creator de propunere
+        error: A apărut o problemă în timpul importului
+        help:
+          proposalcreator: Fişierul trebuie să aibă titlu/en şi corp (sau o altă localizare pe care o preferaţi. title/ca și corpul/ca). De asemenea, sunt acceptate coloane de scope/id și categorie/id.
+        import_from_file: Importă dintr-un fișier
+        invalid_lines: Eroare găsită în numărul resursei %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Înapoi
+          file_legend: Adăugați un fișier de import care va fi analizat.
+          import: Importă
+        notice: "%{number} %{resource_name} importate cu succes"
       logs:
         logs_list:
           no_logs_yet: Încă nu există jurnale
@@ -390,8 +459,10 @@ ro:
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
+        moderation: Moderație globală
         newsletters: Newslettere
         participants: Participanți
+        reported_users: Utilizator raportat
         scope_types: Tipuri de domeniu
         scopes: Domeniu
         settings: Setări
@@ -662,6 +733,13 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestui domeniu de aplicare.
           success: Scope actualizat cu succes
+      share_tokens:
+        destroy:
+          success: Jetonul a fost eliminat.
+        share_tokens:
+          empty: Nu există token-uri active
+          help: Aceste token-uri sunt utilizate pentru a partaja public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de partajare a token-ului pentru a vizita URL-ul partajat.
+          title: Partajați token-urile
       shared:
         gallery:
           add_images: Adaugă imagini
