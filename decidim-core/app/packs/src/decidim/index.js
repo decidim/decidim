@@ -18,6 +18,8 @@ window.Decidim.DataPicker = DataPicker;
 window.Decidim.CommentsComponent = CommentsComponent;
 
 $(() => {
+  window.theDataPicker = new DataPicker($(".data-picker"));
+
   $(document).foundation();
 
   fixDropdownMenus();
