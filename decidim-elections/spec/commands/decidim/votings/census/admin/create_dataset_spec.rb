@@ -51,5 +51,6 @@ module Decidim::Votings::Census::Admin
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_present
       expect(action_log.version.event).to eq "create"
+    end
   end
 end
