@@ -874,6 +874,8 @@ nl:
         impersonate_user:
           reason: U moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     metrics:
+      blocked_users:
+        object: geblokkeerde gebruikers
       reported_users:
         object: gerapporteerde gebruikers
         title: Gerapporteerde gebruikers
