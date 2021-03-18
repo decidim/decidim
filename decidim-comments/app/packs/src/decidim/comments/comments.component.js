@@ -5,6 +5,7 @@
  * @augments Component
  */
 
+import $ from "jquery"
 import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter"
 
 export default class CommentsComponent {

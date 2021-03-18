@@ -1,7 +1,6 @@
-// TODO-blat: add this tests to a runner
 /* eslint-disable id-length, max-lines */
 /* global spyOn, jest */
-const $ = require("jquery");
+import $ from "jquery"
 
 // Ability to spy on the jQuery methods inside the component in order to test
 // the sub-elements correctly. Needs to be defined before the modules are loaded
@@ -10,15 +9,14 @@ window.$ = jest.fn().mockImplementation((...args) => $(...args));
 window.$.ajax = jest.fn().mockImplementation((...args) => $.ajax(...args));
 
 // Quill is expected by the input character counter
-window.Quill = require("../../../../../../decidim-core/vendor/assets/javascripts/quill.min.js");
+import Quill from "quill"
+window.Quill = Quill
 
 // Fake timers for testing polling
 jest.useFakeTimers();
 
-require("../../../../../../decidim-core/app/assets/javascripts/decidim/input_character_counter.js.es6");
-require("./comments.component.js.es6");
-
-const { Decidim: { CommentsComponent, createCharacterCounter } } = window;
+import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter";
+import CommentsComponent from "./comments.component";
 
 // Create a dummy foundation jQuery method for the comments component to call
 $.fn.foundation = () => {};

@@ -1,3 +1,5 @@
+import $ from "jquery"
+
 const COUNT_KEY = "%count%";
 const DEFAULT_MESSAGES = {
   charactersAtLeast: {

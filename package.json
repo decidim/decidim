@@ -193,20 +193,9 @@
     "@babel/preset-react": "^7.12.13",
     "@babel/types": "^7.0.0-beta.40",
     "@rails/webpacker": "^6.0.0-beta.5",
-    "@types/classnames": "^2.2.3",
-    "@types/enzyme": "^3.1.0",
-    "@types/enzyme-adapter-react-16": "^1.0.2",
-    "@types/es6-promise": "^3.3.0",
-    "@types/faker": "^4.1.1",
-    "@types/jest": "^22.2.0",
-    "@types/jquery": "^3.3.1",
-    "@types/react": "^16.0.7",
-    "@types/react-dom": "^16.0.2",
-    "@types/react-select": "^1.2.6",
-    "@types/uuid": "^3.4.2",
     "@webpack-cli/serve": "^1.3.0",
     "babel-eslint": "^8.2.2",
-    "babel-jest": "^22.4.1",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.0.4",
     "babel-plugin-__coverage__": "~11.0.0",
     "babel-preset-airbnb": "^5.0.0",
@@ -225,7 +214,7 @@
     "expose-loader": "^2.0.0",
     "faker": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.4.4",
+    "jest": "^26.6.3",
     "jest-localstorage-mock": "^2.4.3",
     "json-loader": "~0.5.7",
     "mini-css-extract-plugin": "^0.4.5",
@@ -236,12 +225,6 @@
     "sass-loader": "^7.3.1",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.21.0",
-    "ts-jest": "^22.4.6",
-    "ts-loader": "^4.5.0",
-    "tslint": "^5.20.1",
-    "tslint-react": "^3.6.0",
-    "typescript": "^2.9.2",
-    "typescript-babel-jest": "^1.0.6",
     "webpack": "^5.11.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^4.2.0",
@@ -259,6 +242,7 @@
     "classnames": "^2.2.5",
     "core-js": "^3.9.1",
     "d3": "5.4.0",
+    "diff": "^5.0.0",
     "foundation-datepicker": "1.5.6",
     "foundation-sites": "^6.6.3",
     "graphql-docs": "https://github.com/Platoniq/graphql-docs.git",
@@ -292,22 +276,22 @@
   "jest": {
     "testURL": "https://decidim.dev/",
     "setupFiles": [
-      "raf/polyfill",
-      "<rootDir>/decidim-admin/app/frontend/entry_test.ts"
+      "<rootDir>/decidim-core/spec/js/entry_test.js",
+      "raf/polyfill"
     ],
     "moduleFileExtensions": [
-      "ts",
-      "tsx",
       "js"
+    ],
+    "moduleDirectories": [
+      "node_modules"
     ],
     "moduleNameMapper": {
       "\\.(scss|css|less)$": "identity-obj-proxy"
     },
     "transform": {
-      "^.+\\.(ts|tsx)$": "typescript-babel-jest",
       "\\.yml$": "yaml-jest",
-      ".*": "babel-jest"
+      "\\.js$": "babel-jest"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.js$"
   }
 }
