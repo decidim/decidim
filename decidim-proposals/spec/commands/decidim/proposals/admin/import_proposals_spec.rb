@@ -97,6 +97,10 @@ module Decidim
               expect(new_proposal.answer).to be_nil
               expect(new_proposal.answered_at).to be_nil
               expect(new_proposal.reference).not_to eq(proposal.reference)
+              expect(new_proposal.comments_count).to eq 0
+              expect(new_proposal.endorsements_count).to eq 0
+              expect(new_proposal.proposal_notes_count).to eq 0
+              expect(new_proposal.proposal_votes_count).to eq 0
             end
 
             describe "when keep_authors is true" do
