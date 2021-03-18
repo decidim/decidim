@@ -60,6 +60,7 @@ $(() => {
   }
 
   // Expose functions to make them avaialble in .js.erb templates
+  window.selectedProposalsCount = selectedProposalsCount;
   window.showBulkActionsButton = showBulkActionsButton;
   window.hideBulkActionsButton = hideBulkActionsButton;
   window.showOtherActionsButtons = showOtherActionsButtons;
