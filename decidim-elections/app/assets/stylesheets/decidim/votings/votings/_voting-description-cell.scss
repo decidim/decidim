@@ -1,10 +1,9 @@
 .voting-description-cell{
   .content{
     height: auto;
-    max-height: 7.8em;
     margin-bottom: 1rem;
     position: relative;
-    overflow-y: hidden;
+    overflow: hidden;
     transition: max-height .1s linear;
 
     &::before{
