@@ -213,11 +213,6 @@ module Decidim
       alert_box(record.errors.full_messages_for(:base).join(","), "alert", false)
     end
 
-    def foundation_datepicker_locale_tag
-      # TODO-blat: create a pack for each locale??
-      # javascript_include_tag "datepicker-locales/foundation-datepicker.#{I18n.locale}.js" if I18n.locale != :en
-    end
-
     # Handle which collection to pass to Decidim::FilterFormBuilder.areas_select
     def areas_for_select(organization)
       return organization.areas if organization.area_types.blank?
