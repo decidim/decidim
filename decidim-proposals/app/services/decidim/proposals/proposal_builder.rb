@@ -70,7 +70,6 @@ module Decidim
           "reference",
           "comments_count",
           "endorsements_count",
-          "follows_count",
           "proposal_notes_count",
           "proposal_votes_count"
         ).merge(

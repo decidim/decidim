@@ -99,7 +99,6 @@ module Decidim
               expect(new_proposal.reference).not_to eq(proposal.reference)
               expect(new_proposal.comments_count).to eq 0
               expect(new_proposal.endorsements_count).to eq 0
-              expect(new_proposal.follows_count).to eq 0
               expect(new_proposal.proposal_notes_count).to eq 0
               expect(new_proposal.proposal_votes_count).to eq 0
             end
