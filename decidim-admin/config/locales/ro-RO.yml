@@ -553,7 +553,7 @@ ro:
       newsletter_templates:
         index:
           preview_template: Previzualizare
-          title: Şabloane newsletter
+          title: Modele de buletine informative
           use_template: Utilizați acest șablon
         show:
           preview: 'Previzualizați șablonul: %{template_name}'
@@ -561,64 +561,64 @@ ro:
       newsletters:
         create:
           error: A apărut o eroare la crearea acestui buletin informativ.
-          success: Newsletter creat cu succes. Vă rugăm să îl revizuiți înainte de a trimite.
+          success: Buletinul informativ a fost creat. Vă rugăm să îl revedeți înainte de trimitere.
         deliver:
           error: A apărut o eroare la livrarea acestui buletin informativ.
-          success: Newsletter livrat cu succes.
+          success: Buletinul informativ a fost livrat.
         destroy:
-          error_already_sent: 'Nu se poate distruge buletinul informativ: A fost deja trimis.'
-          success: Newsletter distrus cu succes.
+          error_already_sent: 'Nu se poate elimina buletinul informativ: A fost deja trimis.'
+          success: Newsletter eliminat cu succes.
         edit:
           save_and_preview: Salvare și previzualizare
-          title: Editare newsletter
+          title: Editați buletinul informativ
         index:
-          all: toate
+          all: toți
           all_users: 'Toți utilizatorii '
           and: 'şi '
           confirm_delete: Sunteţi sigur că doriţi să ştergeţi acest buletin informativ?
           followers: 'urmăritori '
           has_been_sent_to: 'A fost trimis la: '
-          no_scopes: Nici un domeniu
+          no_scopes: Nici un domeniu de aplicare
           not_sent: Nu a fost trimis
           participants: 'participanți '
           segmented_to: 'Segmentat la %{subject}: '
           subscribed_count: 'Abonat:'
-          title: Newslettere
+          title: Buletine informative
         new:
           save: Salvează
-          title: Noutăți noi
+          title: Buletin informativ nou
         select_recipients_to_deliver:
-          all_spaces: Toate
-          all_users_help: Trimite newsletter tuturor utilizatorilor confirmați.
+          all_spaces: Toți
+          all_users_help: Trimite buletinul informativ tuturor utilizatorilor confirmați.
           confirm_deliver: Sunteţi sigur că doriţi să livraţi acest buletin informativ? Această acţiune nu poate fi anulată.
-          deliver: Buletin informativ de livrare
-          followers_help: Trimite newsletter tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
+          deliver: Buletin informativ trimis
+          followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
           none: Niciunul
-          participants_help: Trimite newsletter tuturor utilizatorilor confirmați care au participat în oricare dintre spațiile participative selectate din listă.
+          participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
-          scopes_help: Trimite newsletter utilizatorilor care au unul din domeniile selectate activat în setările contului "Interesele mele".
-          select_scopes: Filtrează pentru utilizatorii care au activat orice domeniu selectat în setările contului Meu Interes.
+          scopes_help: Trimite buletinul informativ utilizatorilor care au unul din domeniile selectate activat în setările contului "Interesele mele".
+          select_scopes: Filtrați pentru utilizatorii care au activat oricare dintre domenii în setările pentru „Interesele mele” din contul lor.
           select_spaces: Selectați spațiile pentru segmentarea buletinului de știri
-          select_users: Selectați utilizatorii pe care doriți să îi trimiteți newsletter-ul
+          select_users: Selectați utilizatorii pe care doriți să îi trimiteți buletinul informativ
           send_to_all_users: Trimite către toți utilizatorii
           send_to_followers: Trimite către urmăritori
           send_to_participants: Trimite către participanți
-          title: Selectați destinatarii pentru livrare
+          title: Selectați destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
           no_recipients: Niciun destinatar pentru această selecție
         show:
           preview: Previzualizare
-          select_recipients_to_deliver: Selectați destinatarii pentru livrare
+          select_recipients_to_deliver: Selectați destinatarii pentru trimitere
           subject: Subiect
         update:
           error: A apărut o eroare la actualizarea acestui buletin informativ.
-          success: Newsletter actualizat cu succes. Vă rugăm să îl revizuiți înainte de a trimite.
+          success: Buletin informativ actualizat cu succes. Vă rugăm să îl revizuiți înainte de a trimite.
       officializations:
         create:
-          success: Participant oficializat cu succes
+          success: Participantul a fost verificat cu succes
         destroy:
-          success: Participant neoficializat cu succes
+          success: Participantul nu mai este verificat
         index:
           actions: Acțiuni
           badge: Insignă
