@@ -6,9 +6,6 @@ module Decidim
       class Datum < ApplicationRecord
         include Decidim::RecordEncryptor
 
-        encrypt_attribute :document_number, type: :string
-        encrypt_attribute :document_type, type: :string
-        encrypt_attribute :birthdate, type: :string
         encrypt_attribute :full_name, type: :string
         encrypt_attribute :full_address, type: :string
         encrypt_attribute :postal_code, type: :string
@@ -21,16 +18,15 @@ module Decidim
         belongs_to :voting, foreign_key: "decidim_votings_voting_id",
                             class_name: "Decidim::Votings::Voting"
 
-        validates :document_number,
-                  :document_type,
-                  :birthdate,
-                  :full_name,
+        validates :full_name,
                   :full_address,
                   :postal_code,
+                  :hashed_booth_data,
+                  :hashed_personal_data,
                   presence: true
 
-        # validates :email, format: { with: ::Devise.email_regexp }
-        validates :document_number, uniqueness: { scope: :voting }
+        validates :email, format: { with: ::Devise.email_regexp }
+        validates :hashed_personal_data, uniqueness: { scope: :voting }
       end
     end
   end
