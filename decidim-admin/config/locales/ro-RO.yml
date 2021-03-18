@@ -240,7 +240,7 @@ ro:
           error: A apărut o eroare la crearea unui nou atașament.
           success: Atașament creat cu succes.
         destroy:
-          success: Atașament distrus cu succes.
+          success: Atașament eliminat cu succes.
         edit:
           title: Editare atașament
           update: Actualizare
@@ -289,7 +289,7 @@ ro:
           error: A apărut o eroare la crearea acestei componente.
           success: Componenta a fost creată.
         destroy:
-          error: A existat o problemă la distrugerea acestei componente.
+          error: A existat o problemă la eliminarea acestei componente.
           success: Componenta ștearsă cu succes.
         edit:
           title: Editare componentă
@@ -333,8 +333,8 @@ ro:
         user_name: Utilizator
       dashboard:
         show:
-          view_more_logs: Vezi mai multe însemnări
-          welcome: Bine ați venit în Panoul de administrare Decidim.
+          view_more_logs: Afișați mai multe jurnale
+          welcome: Bine ați venit în Panoul de administrare Decidem.
       exports:
         export_as: "%{name} ca %{export_format}"
         formats:
@@ -351,14 +351,14 @@ ro:
           reportable_type_string_eq:
             label: Tip
         officialized_at_null:
-          label: Județ
+          label: Stare
           values:
             'false': Oficializat
             'true': Nu este oficializat
         private_space_eq:
           label: Privat
           values:
-            'false': Publice
+            'false': Public
             'true': Privat
         published_at_null:
           label: Publicat
@@ -366,14 +366,14 @@ ro:
             'false': Publicat
             'true': Nepublicat
         scope_id_eq:
-          label: Domeniu
+          label: Domeniu de aplicare
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Căutare %{collection} după e-mail, nume sau poreclă.
           reported_id_string_or_reported_content_cont: Căutare %{collection} după id sau conținut raportabil.
           title_cont: Căutați %{collection} după titlu.
         state_eq:
-          label: Județ
+          label: Stare
       forms:
         file_help:
           import:
