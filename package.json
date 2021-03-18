@@ -243,6 +243,7 @@
     "core-js": "^3.9.1",
     "d3": "5.4.0",
     "diff": "^5.0.0",
+    "foundation-datepicker": "1.5.6",
     "foundation-sites": "^6.6.3",
     "graphql-docs": "https://github.com/Platoniq/graphql-docs.git",
     "html5sortable": "0.10.0",
