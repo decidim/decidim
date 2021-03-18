@@ -35,14 +35,9 @@ module Decidim
 
           # validates :document_number, length: {within: 3..40}, format: { with: /^([a-z0-9\-]+)$/i }
           validate :email_is_unique
-          validate :document_number_is_unique
 
           def email_is_unique
             errors.add(:email, "email is taken") if Datum.exists?(email: email)
-          end
-
-          def document_number_is_unique
-            errors.add(:document_number, "document_number is taken") if Datum.exists?(document_number: document_number)
           end
         end
       end

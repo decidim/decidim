@@ -30,9 +30,8 @@ module Decidim
 
           def create_census_datum!
             attributes = {
-              document_number: form.document_number,
-              document_type: form.document_type,
-              birthdate: form.birthdate,
+              hashed_booth_data: hashed_booth_data,
+              hashed_personal_data: hashed_personal_data,
               full_name: form.full_name,
               full_address: form.full_address,
               postal_code: form.postal_code,
@@ -50,6 +49,14 @@ module Decidim
               },
               visibility: "admin-only"
             )
+          end
+
+          def hashed_booth_data
+            Digest::SHA256.hexdigest([form.document_number, form.document_type, form.birthdate].join("."))
+          end
+
+          def hashed_personal_data
+            Digest::SHA256.hexdigest([form.document_number, form.document_type, form.birthdate, form.postal_code].join("."))
           end
         end
       end
