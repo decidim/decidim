@@ -462,7 +462,7 @@ module Decidim
       template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
       template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
-      if file.attached?
+      if file_is_attached?(file)
         if file.attachment.image?
           template += @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
           template += @template.link_to @template.image_tag(file, alt: alt_text), file, target: "_blank", rel: "noopener"
@@ -472,7 +472,7 @@ module Decidim
         end
       end
 
-      if file.attached? && options[:optional]
+      if file_is_attached?(file) && options[:optional]
         template += content_tag :div, class: "field" do
           safe_join([
                       @template.check_box(@object_name, "remove_#{attribute}"),
@@ -802,6 +802,12 @@ module Decidim
       return unless file && file.respond_to?(:url)
 
       file.present?
+    end
+
+    def file_is_attached?(file)
+      return unless file && file.respond_to?(:attached?)
+
+      file.attached?
     end
 
     def required_for_attribute(attribute)
