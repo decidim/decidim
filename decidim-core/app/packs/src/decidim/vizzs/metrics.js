@@ -1,6 +1,8 @@
 /* eslint-disable require-jsdoc, no-console */
 /* global areachart */
 
+import areachart from "./areachart"
+
 $(() => {
 
   const metricsData = {};
