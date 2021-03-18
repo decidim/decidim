@@ -63,7 +63,8 @@ module Decidim
             :votings, :voting,
             :polling_station, :polling_stations,
             :polling_officer, :polling_officers,
-            :monitoring_committee_member, :monitoring_committee_members
+            :monitoring_committee_member, :monitoring_committee_members,
+            :census
           ].member? permission_action.subject
 
           case permission_action.subject
@@ -103,6 +104,8 @@ module Decidim
             end
           when :monitoring_committee_members
             toggle_allow(user.admin?) if permission_action.action == :read
+          when :census
+            toggle_allow(user.admin?)
           end
         end
 
