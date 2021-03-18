@@ -15,8 +15,7 @@ class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeVa
 
     return if values.empty?
 
-    uploader = record.send(attribute)
-    return unless uploader
+    uploader = record.attached_uploader(attribute) || record.send(attribute)
     return unless uploader.is_a?(Decidim::ApplicationUploader)
 
     mode = option_value(record, :mode)

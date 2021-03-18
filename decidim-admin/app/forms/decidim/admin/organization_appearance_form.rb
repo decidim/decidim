@@ -47,9 +47,9 @@ module Decidim
       translatable_attribute :omnipresent_banner_short_description, String
 
       validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-_/]+\z} }, allow_blank: true
-      # Logo validation pending
       validates :official_img_header,
                 :official_img_footer,
+                :logo,
                 passthru: { to: Decidim::Organization }
 
       validates :highlighted_content_banner_action_url, url: true, presence: true, if: :highlighted_content_banner_enabled?

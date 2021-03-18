@@ -15,7 +15,7 @@
       </div>
 
       <div class="preview">
-        <%= form.as_upload :logo, dimensions_info: Decidim::Admin::UploaderImageDimensionsHelper::UPLOADERS[:logo].new.dimensions_info, extension_allowlist: current_organization.favicon.extension_allowlist %>
+        <%= form.as_upload :logo, dimensions_info: current_organization.attached_uploader(:logo).dimensions_info, extension_allowlist: current_organization.favicon.extension_allowlist %>
       </div>
 
       <div class="preview">
