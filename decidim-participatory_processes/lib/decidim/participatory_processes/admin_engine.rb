@@ -95,43 +95,48 @@ module Decidim
 
       initializer "decidim_participatory_processes.admin_menu" do
         Decidim.menu :admin_menu do |menu|
-          menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
-                    decidim_admin_participatory_processes.participatory_processes_path,
-                    icon_name: "target",
-                    position: 2,
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path, :inclusive) ||
-                            is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path, :inclusive),
-                    if: allowed_to?(:enter, :space_area, space_name: :processes) || allowed_to?(:enter, :space_area, space_name: :process_groups)
+          menu.add_item :participatory_processes,
+                        I18n.t("menu.participatory_processes", scope: "decidim.admin"),
+                        decidim_admin_participatory_processes.participatory_processes_path,
+                        icon_name: "target",
+                        position: 2,
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path, :inclusive) ||
+                                is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path, :inclusive),
+                        if: allowed_to?(:enter, :space_area, space_name: :processes) || allowed_to?(:enter, :space_area, space_name: :process_groups)
         end
       end
 
       initializer "decidim_participatory_processes.admin_participatory_processes_menu" do
         Decidim.menu :admin_participatory_processes_menu do |menu|
-          menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
-                    decidim_admin_participatory_processes.participatory_processes_path,
-                    position: 1,
-                    if: allowed_to?(:enter, :space_area, space_name: :processes),
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path)
+          menu.add_item :participatory_processes,
+                        I18n.t("menu.participatory_processes", scope: "decidim.admin"),
+                        decidim_admin_participatory_processes.participatory_processes_path,
+                        position: 1,
+                        if: allowed_to?(:enter, :space_area, space_name: :processes),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path)
 
-          menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
-                    decidim_admin_participatory_processes.participatory_process_groups_path,
-                    position: 2,
-                    if: allowed_to?(:enter, :space_area, space_name: :process_groups),
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path)
+          menu.add_item :participatory_process_groups,
+                        I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
+                        decidim_admin_participatory_processes.participatory_process_groups_path,
+                        position: 2,
+                        if: allowed_to?(:enter, :space_area, space_name: :process_groups),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path)
         end
       end
 
       initializer "decidim_participatory_processes.admin_process_attachments_menu" do
         Decidim.menu :admin_participatory_process_attachments_menu do |menu|
-          menu.item I18n.t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)),
-                    if: allowed_to?(:read, :attachment_collection)
+          menu.add_item :participatory_process_attachment_collections,
+                        I18n.t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment_collection)
 
-          menu.item I18n.t("attachment_files", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)),
-                    if: allowed_to?(:read, :attachment)
+          menu.add_item :participatory_process_attachments,
+                        I18n.t("attachment_files", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment)
         end
       end
 
@@ -143,74 +148,85 @@ module Decidim
               caption += content_tag(:span, component.primary_stat, class: component.primary_stat.zero? ? "component-counter component-counter--off" : "component-counter")
             end
 
-            menu.item caption.html_safe,
-                      manage_component_path(component),
-                      active: is_active_link?(manage_component_path(component)) ||
-                              is_active_link?(decidim_admin_participatory_processes.edit_component_path(current_participatory_space, component)) ||
-                              is_active_link?(decidim_admin_participatory_processes.edit_component_permissions_path(current_participatory_space, component)) ||
-                              participatory_space_active_link?(component),
-                      if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
+            menu.add_item [component.manifest_name, component.id].join("_"),
+                          caption.html_safe,
+                          manage_component_path(component),
+                          active: is_active_link?(manage_component_path(component)) ||
+                                  is_active_link?(decidim_admin_participatory_processes.edit_component_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_participatory_processes.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  participatory_space_active_link?(component),
+                          if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
           end
         end
       end
 
       initializer "decidim_participatory_processes.admin_process_group_menu" do
         Decidim.menu :admin_participatory_process_menu do |menu|
-          menu.item I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
-                    if: allowed_to?(:update, :process, process: current_participatory_space)
+          menu.add_item :edit_participatory_process,
+                        I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)),
+                        if: allowed_to?(:update, :process, process: current_participatory_space)
 
-          menu.item I18n.t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space)),
-                    if: allowed_to?(:read, :process_step)
+          menu.add_item :participatory_process_steps,
+                        I18n.t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space)),
+                        if: allowed_to?(:read, :process_step)
 
-          menu.item I18n.t("components", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.components_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space)),
-                    if: allowed_to?(:read, :component),
-                    submenu: { target_menu: :admin_participatory_process_components_menu, options: { container_options: { id: "components-list" } } }
+          menu.add_item :components,
+                        I18n.t("components", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.components_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space)),
+                        if: allowed_to?(:read, :component),
+                        submenu: { target_menu: :admin_participatory_process_components_menu, options: { container_options: { id: "components-list" } } }
 
-          menu.item I18n.t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.categories_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.categories_path(current_participatory_space)),
-                    if: allowed_to?(:read, :category)
+          menu.add_item :categories,
+                        I18n.t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.categories_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.categories_path(current_participatory_space)),
+                        if: allowed_to?(:read, :category)
 
-          menu.item I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    "#",
-                    if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
-                    submenu: { target_menu: :admin_participatory_process_attachments_menu }
+          menu.add_item :attachments,
+                        I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        "#",
+                        if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
+                        submenu: { target_menu: :admin_participatory_process_attachments_menu }
 
-          menu.item I18n.t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space)),
-                    if: allowed_to?(:read, :process_user_role)
+          menu.add_item :participatory_process_user_roles,
+                        I18n.t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space)),
+                        if: allowed_to?(:read, :process_user_role)
 
-          menu.item I18n.t("private_users", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space)),
-                    if: allowed_to?(:read, :space_private_user)
+          menu.add_item :participatory_space_private_users,
+                        I18n.t("private_users", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space)),
+                        if: allowed_to?(:read, :space_private_user)
 
-          menu.item I18n.t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                    decidim_admin_participatory_processes.moderations_path(current_participatory_space),
-                    active: is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)),
-                    if: allowed_to?(:read, :moderation)
+          menu.add_item :moderations,
+                        I18n.t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                        decidim_admin_participatory_processes.moderations_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)),
+                        if: allowed_to?(:read, :moderation)
         end
       end
 
       initializer "decidim_participatory_processes.admin_process_group_menu" do
         Decidim.menu :admin_participatory_process_group_menu do |menu|
-          menu.item I18n.t("info", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
-                    decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group),
-                    position: 1,
-                    if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
-                    active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group))
-          menu.item I18n.t("landing_page", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
-                    decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group),
-                    position: 2,
-                    if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
-                    active: is_active_link?(decidim_admin_participatory_processes.participatory_process_group_landing_page_path(participatory_process_group))
+          menu.add_item :edit_participatory_process_group,
+                        I18n.t("info", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
+                        decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group),
+                        position: 1,
+                        if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
+                        active: is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_group_path(participatory_process_group))
+          menu.add_item :edit_participatory_process_group_landing_page,
+                        I18n.t("landing_page", scope: "decidim.admin.menu.participatory_process_groups_submenu"),
+                        decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group),
+                        position: 2,
+                        if: allowed_to?(:update, :process_group, process_group: participatory_process_group),
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_group_landing_page_path(participatory_process_group))
         end
       end
     end

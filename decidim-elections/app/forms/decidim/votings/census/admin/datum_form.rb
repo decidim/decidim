@@ -30,10 +30,10 @@ module Decidim
 
           validates :full_name, format: { with: UserBaseEntity::REGEXP_NAME }
 
-          validates :email, format: { with: ::Devise.email_regexp }
+          # validates :email, format: { with: ::Devise.email_regexp }
           validates :document_type, inclusion: { in: DOCUMENT_TYPES }
-          validates :document_number, length: { within: 3..40 }, format: { with: /\A([a-z0-9\-]+)\z/i }
 
+          # validates :document_number, length: {within: 3..40}, format: { with: /^([a-z0-9\-]+)$/i }
           validate :email_is_unique
 
           def email_is_unique

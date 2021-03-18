@@ -6,6 +6,10 @@ module Decidim
       class Datum < ApplicationRecord
         include Decidim::RecordEncryptor
 
+        include Traceable
+        include Loggable
+        include Decidim::RecordEncryptor
+
         encrypt_attribute :full_name, type: :string
         encrypt_attribute :full_address, type: :string
         encrypt_attribute :postal_code, type: :string
@@ -27,6 +31,10 @@ module Decidim
 
         validates :email, format: { with: ::Devise.email_regexp }
         validates :hashed_personal_data, uniqueness: { scope: :voting }
+
+        def self.log_presenter_class_for(_log)
+          Decidim::Votings::Census::AdminLog::DatumPresenter
+        end
       end
     end
   end

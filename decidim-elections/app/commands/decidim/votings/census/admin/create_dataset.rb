@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "csv"
+
 module Decidim
   module Votings
     module Census
@@ -10,6 +12,7 @@ module Decidim
           def initialize(form, current_user)
             @form = form
             @current_user = current_user
+            @dataset = nil
           end
 
           # Executes the command. Broadcast this events:
@@ -23,26 +26,28 @@ module Decidim
             dataset = create_census_dataset!
 
             if dataset
-              Decidim::Votings::Census::Admin::ProcessDatasetJob.perform_later(
-                current_user,
-                dataset,
-                dataset.file.path
-              )
+              CSV.foreach(form.file.tempfile.path, col_sep: ";") do |row|
+                CreateDatumJob.perform_later(current_user, dataset, row)
+              end
             end
 
             broadcast(:ok)
           end
 
           attr_reader :form, :current_user
+          attr_accessor :dataset
 
           def create_census_dataset!
             Decidim.traceability.create(
               Decidim::Votings::Census::Dataset,
               current_user,
-              organization: form.current_participatory_space.organization,
-              voting: form.current_participatory_space,
-              file: form.file,
-              status: :review_data
+              {
+                organization: form.current_participatory_space.organization,
+                voting: form.current_participatory_space,
+                file: form.file.original_filename,
+                status: :review_data
+              },
+              visibility: "admin-only"
             )
           end
         end

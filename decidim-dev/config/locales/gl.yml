@@ -3,11 +3,27 @@ gl:
     attributes:
       dummy_resource:
         created_at: Creado en
+        decidim_scope_id: Ámbito
         field: O meu campo
         start_date: Data de inicio
         title: Título
+        translatable_text: Texto traducíbel
         updated_at: Actualizado en
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Atributo de só lectura
+            test: Unha proba
+            test_choices:
+              a: Opción A
+              b: Opción B
+              c: Opción C
+          step:
+            endorsements_blocked: Adhesións bloqueadas
+            endorsements_enabled: Adhesións habilitadas
+            readonly_step_attribute: Atributo de paso de só lectura
     dummy:
       admin:
         exports:

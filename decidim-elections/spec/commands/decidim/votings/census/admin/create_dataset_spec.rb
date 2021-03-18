@@ -36,5 +36,21 @@ module Decidim::Votings::Census::Admin
     it "enqueues a job for processing the dataset" do
       expect { subject.call }.to enqueue_job(ProcessDatasetJob)
     end
+
+    it "traces the action", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:create)
+        .with(
+          Decidim::Votings::Census::Dataset,
+          user,
+          kind_of(Hash)
+        )
+        .and_call_original
+
+      expect { subject.call }.to change(Decidim::ActionLog, :count)
+      action_log = Decidim::ActionLog.last
+      expect(action_log.version).to be_present
+      expect(action_log.version.event).to eq "create"
+    end
   end
 end

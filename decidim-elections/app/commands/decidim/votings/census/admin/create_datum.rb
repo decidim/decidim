@@ -42,9 +42,12 @@ module Decidim
             Decidim.traceability.create(
               Decidim::Votings::Census::Datum,
               user,
-              dataset: dataset,
-              voting: voting,
-              attributes: attributes
+              {
+                dataset: dataset,
+                voting: voting,
+                attributes: attributes
+              },
+              visibility: "admin-only"
             )
           end
 

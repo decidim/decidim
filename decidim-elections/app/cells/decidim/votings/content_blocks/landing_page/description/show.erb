@@ -1,21 +1,23 @@
-<div class="section">
-  <div class="row voting-description-cell">
-    <div class="columns mediumlarge-8">
-      <div class="content">
-          <%= description_text %>
+<div class="row section voting-description-cell">
+  <div class="columns">
+    <% if introductory_image.present? %>
+      <div id="introductory-image" class="columns medium-4 mediumlarge-5">
+        <img src="<%= introductory_image.url %>" alt="">
       </div>
+    <% end %>
+    <div class="columns medium-8 mediumlarge-7 content">
+      <div><%= description_text %></div>
+    </div>
+    <div class="content-height-toggler show-more">
+      <button class="button button--muted tiny">
+        <span class="button-text show-more-content">
+          <%= button_show_more_text %>
+        </span>
 
-      <div class="content-height-toggler show-more">
-        <button class="button button--muted tiny">
-          <span class="button-text show-more-content">
-            <%= button_show_more_text %>
-          </span>
-
-          <span class="button-text show-less-content hide">
-            <%= button_show_less_text %>
-          </span>
-        </button>
-      </div>
+        <span class="button-text show-less-content hide">
+          <%= button_show_less_text %>
+        </span>
+      </button>
     </div>
   </div>
 </div>
