@@ -6,7 +6,6 @@ $results.html('<%= j(cell("decidim/search_results", @sections, params: params).s
 $filters.html('<%= j(render partial: "filters").strip.html_safe %>');
 $count.html('<%= j(render partial: "count").strip.html_safe %>');
 
-// TODO-blat: verify it works
 if (window.Decidim.DataPicker) {
   window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
 }

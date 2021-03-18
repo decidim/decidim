@@ -5,7 +5,7 @@ import createSortList from "./sort_list.component"
 import createQuillEditor from "../../../../../../decidim-core/app/packs/src/decidim/editor"
 import formDatePicker from "../../../../../../decidim-core/app/packs/src/decidim/form_datepicker"
 import DataPicker from "../../../../../../decidim-core/app/packs/src/decidim/data_picker"
-import Autocomplete, { AutocompleteProps } from "./autocomplete.component";
+import Autocomplete from "./autocomplete.component";
 
 const renderAutocompleteSelects = (nodeSelector) => {
   window.$(nodeSelector).each((index, node) => {
@@ -17,10 +17,10 @@ const renderAutocompleteSelects = (nodeSelector) => {
     );
   });
 };
-window.Decidim = window.Decidim || {};
-window.DecidimAdmin = window.DecidimAdmin || {};
 
-const pageLoad = () => {
+$(() => {
+  window.theDataPicker = new DataPicker($(".data-picker"));
+
   $(document).foundation();
 
   toggleNav();
@@ -41,12 +41,6 @@ const pageLoad = () => {
       );
     }
   })
-};
-
-$(() => {
-  window.theDataPicker = new DataPicker($(".data-picker"));
-
-  pageLoad();
 
   formDatePicker();
 

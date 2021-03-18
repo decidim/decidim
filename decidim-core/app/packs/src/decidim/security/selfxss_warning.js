@@ -5,8 +5,7 @@ $(() => {
     return;
   }
 
-  const config = window.Decidim.config;
-  const allMessages = config.get("messages");
+  const allMessages = window.Decidim.config.get("messages");
   if (!allMessages) {
     return;
   }
