@@ -7,12 +7,12 @@ module Decidim
         @user = user
         @organization = organization
 
-        args = { to: "#{user.name} <#{user.email}>" }
-        args[:subject] = subject if subject
-        args[:reply_to] = reply_to if reply_to
+        hash = { to: "#{user.name} <#{user.email}>" }
+        hash[:subject] = subject if subject
+        hash[:reply_to] = reply_to if reply_to
 
         mail(
-          args
+          hash
         ) do |format|
           format.text { "This is the test" }
           format.html { "<p>This is a mail </p>" }
