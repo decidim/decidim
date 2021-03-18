@@ -18,6 +18,8 @@ export default class FormFilterComponent {
     this.id = this.$form.attr("id") || this._getUID();
     this.mounted = false;
     this.changeEvents = true;
+    this.theCheckBoxesTree = new CheckBoxesTree();
+    this.theDataPicker = new DataPicker($(".data-picker"));
 
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
@@ -29,9 +31,6 @@ export default class FormFilterComponent {
       this.popStateSubmiter = true;
       window.Decidim.PopStateHandler = this.id;
     }
-
-    this.theCheckBoxesTree = new CheckBoxesTree();
-    this.theDataPicker = new DataPicker($(".data-picker"));
   }
 
   /**
@@ -59,7 +58,7 @@ export default class FormFilterComponent {
       let queue = 0;
 
       let contentContainer = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
-      if (contentContainer.length === 0) {
+      if (contentContainer.length === 0 && this.$form.data("remoteFill")) {
         contentContainer = this.$form.data("remoteFill");
       }
       this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
