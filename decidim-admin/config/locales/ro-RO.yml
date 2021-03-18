@@ -109,7 +109,7 @@ ro:
         content: Conținut
         organization: Organizație
         show_in_footer: Arată în subsol
-        slug: URL slug
+        slug: Adresă URL
         title: Titlu
         weight: Ordinea procesului
       static_page_topic:
@@ -135,7 +135,7 @@ ro:
     attributes:
       decidim/static_page:
         content: Conținut
-        slug: URL slug
+        slug: Adresă URL
         title: Titlu
       doorkeeper/application:
         authorize_url: Autorizare URL
@@ -153,9 +153,9 @@ ro:
           new: Atașament nou
         attachment_collection:
           new: Colecție nouă de atașamente
-        browse: Răsfoiţi
+        browse: Caută
         category:
-          new: Adaugă Categorie
+          new: Categorie nouă
         export: Exportă
         import: Importă
         manage: Gestionează
@@ -169,28 +169,28 @@ ro:
         reject: Respingere
         share: Distribuie
         user:
-          new: Creează utilizator
+          new: Utilizator nou
         verify: Verifică
       admin_terms_of_use:
         accept:
-          error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
-          success: Super! Ai acceptat termenii de utilizare ai administratorului.
+          error: A apărut o eroare la acceptarea termenilor de utilizare.
+          success: Super! Ai acceptat termenii de utilizare.
         actions:
           accept: Sunt de acord cu următorii termeni
-          are_you_sure: Sigur doriți să refuzați termenii de administrator?
-          refuse: Refuză termenii de administrare
+          are_you_sure: Sigur doriți să refuzați termenii de utilizare?
+          refuse: Refuz termenii
           title: Sunt de acord cu termenii și condițiile de utilizare
         required_review:
-          alert: 'Necesar: Examinați termenii de utilizare ai administratorului'
-          callout: Vă rugăm să acordați un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu veți putea admin platforma.
-          cta: Revizuiește-le acum.
-        title: Termeni de Utilizare ai Administratorului
+          alert: 'Necesar: Examinați termenii de utilizare'
+          callout: Vă rugăm să acordați un moment pentru a revizui Termenii de utilizare. În caz contrar, nu veți putea administra platforma.
+          cta: Revizuiți termenii, acum.
+        title: Termeni de Utilizare
       area_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de zonă.
           success: Tipul de zonă creat cu succes.
         destroy:
-          success: Tipul ariei distrus cu succes
+          success: Tipul ariei eliminat cu succes
         edit:
           title: Editează tipul zonei
           update: Actualizare
@@ -206,7 +206,7 @@ ro:
           success: Zonă creată cu succes.
         destroy:
           has_spaces: Zona are spaţii dependente, nu trebuie să aibă dependenţe pentru a fi ştersă.
-          success: Zonă distrusă cu succes
+          success: Zonă eliminată cu succes
         edit:
           title: Editare zonă
           update: Actualizare
@@ -220,9 +220,9 @@ ro:
       attachment_collections:
         create:
           error: A apărut o eroare la crearea unui nou dosar.
-          success: Folder creat cu succes.
+          success: Dosar creat cu succes.
         destroy:
-          success: Folder distrus cu succes.
+          success: Dosar eliminat cu succes.
         edit:
           title: Editare dosar
           update: Actualizare
@@ -233,7 +233,7 @@ ro:
           create: Crează
           title: Dosar nou
         update:
-          error: A apărut o eroare la actualizarea acestui folder.
+          error: A apărut o eroare la actualizarea acestui dosar.
           success: Dosar actualizat cu succes.
       attachments:
         create:
