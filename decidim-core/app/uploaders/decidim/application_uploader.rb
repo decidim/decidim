@@ -52,5 +52,37 @@ module Decidim
 
       raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.not_inside_organization")
     end
+
+    # Checks if the file is an image based on the content type. We need this so
+    # we only create different versions of the file when it's an image.
+    #
+    # new_file - The uploaded file.
+    #
+    # Returns a Boolean.
+    def image?(new_file)
+      content_type = model.try(:content_type) || new_file.content_type
+      content_type.to_s.start_with? "image"
+    end
+
+    class << self
+      # Each class inherits variants from parents and can define their own
+      # variants with the set_variants class method which calss the version
+      # CarrierWave macro to define versions from variants
+      def variants
+        @variants ||= superclass.respond_to?(:variants) ? superclass.variants.dup : {}
+      end
+
+      def set_variants
+        return unless block_given?
+
+        variants.merge!(yield)
+
+        variants.each do |key, value|
+          version key, if: :image? do
+            process value
+          end
+        end
+      end
+    end
   end
 end

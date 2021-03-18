@@ -7,12 +7,11 @@ module Decidim
     process :validate_dimensions
     process :strip
 
-    version :thumbnail, if: :image? do
-      process resize_to_fit: [nil, 237]
-    end
-
-    version :big, if: :image? do
-      process resize_to_limit: [nil, 1000]
+    set_variants do
+      {
+        thumbnail: { resize_to_fit: [nil, 237] },
+        big: { resize_to_limit: [nil, 1000] }
+      }
     end
 
     def extension_allowlist
@@ -51,17 +50,6 @@ module Decidim
       return :participant unless model.respond_to?(:context)
 
       model.context
-    end
-
-    # Checks if the file is an image based on the content type. We need this so
-    # we only create different versions of the file when it's an image.
-    #
-    # new_file - The uploaded file.
-    #
-    # Returns a Boolean.
-    def image?(new_file)
-      content_type = model.content_type || new_file.content_type
-      content_type.to_s.start_with? "image"
     end
 
     # Copies the content type and file size to the model where this is mounted.
