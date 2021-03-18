@@ -324,6 +324,9 @@ de:
           upcoming: Anstehend
         end_date: Endet am
         footer:
+          remaining_time:
+            one: "<strong>%{count} Stunde %{minutes} Minuten</strong> verbleiben zur Abstimmung."
+            other: "<strong>%{count} Stunden %{minutes} Minuten</strong> verbleiben zur Abstimmung."
           view: Ansicht
           vote: Abstimmung
         label:
