@@ -4,6 +4,8 @@ module Decidim
   module Votings
     module Census
       class Datum < ApplicationRecord
+        include Traceable
+        include Loggable
         include Decidim::RecordEncryptor
 
         encrypt_attribute :document_number, type: :string
@@ -31,6 +33,10 @@ module Decidim
 
         # validates :email, format: { with: ::Devise.email_regexp }
         validates :document_number, uniqueness: { scope: :voting }
+
+        def self.log_presenter_class_for(_log)
+          Decidim::Votings::Census::AdminLog::DatumPresenter
+        end
       end
     end
   end
