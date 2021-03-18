@@ -1,5 +1,5 @@
 <% content_for :sidebar_menu_nav do %>
-  <%= global_moderation_menu.render(title: t(".title" )) %>
+  <%= sidebar_menu(:admin_global_moderation_menu).render(title: t(".title" )) %>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>

@@ -202,7 +202,6 @@ id:
             price: Harga
             registrations_count: Jumlah registrasi
             title: Judul
-            weight: Berat
           name: Jenis pendaftaran
       partners:
         create:
@@ -478,23 +477,6 @@ id:
         related_assemblies: Rakitan Terkait
         related_consultations: Konsultasi Terkait
         related_participatory_processes: Proses Partisipatif Terkait
-      statistics:
-        answers_count: Jawaban
-        comments_count: Komentar
-        conference_count: Konferensi
-        debates_count: Perdebatan
-        endorsements_count: Endorsemen
-        headline: Aktivitas
-        meetings_count: Rapat
-        orders_count: Suara
-        pages_count: Halaman
-        posts_count: Kiriman
-        projects_count: Proyek
-        proposals_count: Proposal
-        results_count: Hasil
-        surveys_count: Survei
-        users_count: Peserta
-        votes_count: Suara
     events:
       conferences:
         conference_registration_confirmed:

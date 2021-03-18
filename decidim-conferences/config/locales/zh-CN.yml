@@ -203,7 +203,6 @@ zh-CN:
             price: 价格
             registrations_count: 注册次数
             title: 标题
-            weight: 权重
           name: 注册类型
       partners:
         create:
@@ -483,23 +482,6 @@ zh-CN:
         related_assemblies: 相关的会议
         related_consultations: 相关协商
         related_participatory_processes: 相关的参与进程
-      statistics:
-        answers_count: 答案
-        comments_count: 评论
-        conference_count: 会议
-        debates_count: 辩论
-        endorsements_count: 授权
-        headline: 活动
-        meetings_count: 会议
-        orders_count: 支持
-        pages_count: 页 次
-        posts_count: 员额
-        projects_count: 项目
-        proposals_count: 建议
-        results_count: 成果
-        surveys_count: 调查
-        users_count: 参加者
-        votes_count: 支持
     events:
       conferences:
         conference_registration_confirmed:

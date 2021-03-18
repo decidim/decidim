@@ -206,7 +206,6 @@
             price: Pris
             registrations_count: Registrerings teller
             title: Tittel
-            weight: Vekt
           name: Registreringstype
       partners:
         create:
@@ -486,23 +485,6 @@
         related_assemblies: Relaterte forsamlinger
         related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
-      statistics:
-        answers_count: Svar
-        comments_count: Kommentarer
-        conference_count: Konferanser
-        debates_count: Debatter
-        endorsements_count: Påtegnelser
-        headline: Aktivitet
-        meetings_count: Møter
-        orders_count: Støtter
-        pages_count: Sider
-        posts_count: Innlegg
-        projects_count: Prosjekter
-        proposals_count: Forslag
-        results_count: Resultater
-        surveys_count: Undersøkelse
-        users_count: Deltakere
-        votes_count: Støtter
     events:
       conferences:
         conference_registration_confirmed:

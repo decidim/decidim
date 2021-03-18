@@ -189,7 +189,6 @@ tr:
           assembly_members: Üyeler
           attachment_collections: Klasörler
           attachment_files: Dosyalar
-          attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
           info: Bilgi
@@ -379,22 +378,6 @@ tr:
         social_networks: Sosyal ağlar
         social_networks_title: Bu kurulu paylaş
         target: Katılanlar
-      statistics:
-        answers_count: Cevaplar
-        assemblies_count: Kurullar
-        comments_count: Yorumlar
-        debates_count: Tartışmalar
-        endorsements_count: Onaylar
-        meetings_count: Toplantılar
-        orders_count: Destekler
-        pages_count: Sayfalar
-        posts_count: Yayınlar
-        projects_count: Projeler
-        proposals_count: Teklifler
-        results_count: Sonuçlar
-        surveys_count: Anketler
-        users_count: Katılımcılar
-        votes_count: Destekler
     assembly_members:
       assembly_member:
         designated_on: Üzerinde belirlenen

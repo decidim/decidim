@@ -25,6 +25,14 @@ module Decidim
       Decidim::AdminLog::ImpersonationLogPresenter
     end
 
+    def ensure_not_expired!
+      expire! if started_at + SESSION_TIME_IN_MINUTES.minutes < Time.current
+    end
+
+    def expire!
+      update!(expired_at: Time.current)
+    end
+
     private
 
     def same_organization

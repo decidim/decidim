@@ -127,11 +127,13 @@ fi:
           new:
             create: Luo vastaus
             title: Uusi vastaus
+          not_selected: Ei valittu
           select:
             disable: Poista vastausvalinta
             enable: Merkitse vastaus valituksi
             invalid: Vastauksen valinta epäonnistui
             success: Vastauksen valinta onnistui
+          selected: Valittu
           unselect:
             invalid: Vastauksen valinnan poisto epäonnistui
             success: Vastauksen valinnan poisto onnistui
@@ -246,13 +248,25 @@ fi:
             title: Valmis alkamaan
           processing: Käsitellään...
           results_published:
+            answer: Vastaus
+            not_selected: Ei valittu
+            question: Kysymys
+            result: Tulos
+            selected: Valittu
+            submit: Lähetä
             title: Tulokset julkaistu
           tally:
             title: Ääntenlaskun prosessi
             trustees: Luottamushenkilöt
           tally_ended:
+            answer: Vastaus
+            not_selected: Ei valittu
+            question: Kysymys
+            result: Tulos
+            selected: Valittu
             submit: Julkaise tulokset
-            title: Tulokset laskettu
+            success: Ääntenlasku on suoritettu onnistuneesti
+            title: Ääntenlaskun tulokset
           vote:
             errors:
               time_after: Vaali on edelleen käynnissä. Sinun on odotettava päättymisaikaan saakka (%{end_time}) päättääksesi äänestyksen.
@@ -266,6 +280,7 @@ fi:
             invalid: Ääntenlaskennan käynnistäminen epäonnistui
             submit: Aloita ääntenlaskenta
             success: Pyyntösi aloittaa ääntenlaskenta on onnistuneesti lähetetty äänestystaululle
+            text: Äänestys on päättynyt. Voit nyt aloittaa ääntenlaskun.
             title: Äänestysaika on päättynyt
           vote_stats:
             no_vote_statistics_yet: Ei vielä äänitilastoja
@@ -334,30 +349,30 @@ fi:
           filter_by: Rajaa hakua
           unfold: Avaa
         preview:
-          available_answers: Vastausvaihtoehdot
-          description: Nämä kysymykset esitetään äänestyksen yhteydessä
+          available_answers: 'Vastausvaihtoehdot:'
+          description: 'Nämä kysymykset esitetään äänestyksen yhteydessä:'
           title: Vaaliin liittyvät kysymykset
         results:
-          description: Tässä on äänestyksen tulokset kaikille kysymyksille
+          description: 'Tässä on äänestyksen tulokset kaikille kysymyksille:'
           selected: Valittu
           title: Vaalin tulokset
           votes:
             one: "%{count} ääni"
             other: "%{count} ääntä"
         show:
-          action-button:
-            change-vote: Muuta ääntäsi
+          action_button:
+            change_vote: Muuta ääntäsi
             vote: Aloita äänestys
-            vote-again: Äänestä uudelleen
+            vote_again: Äänestä uudelleen
           back: Käynnissä olevat vaalit
           callout:
-            already-voted: Olet jo äänestänyt näissä vaaleissa. Voit muuttaa ääntäsi tai tarkastaa sen.
-            vote-rejected: Ääntäsi ei voida tarkastaa. Ole hyvä ja lähetä äänesi uudestaan.
+            already_voted: Olet jo äänestänyt näissä vaaleissa. Voit muuttaa ääntäsi tai tarkastaa sen.
+            vote_rejected: Ääntäsi ei voida tarkastaa. Ole hyvä ja lähetä äänesi uudestaan.
           preview: Esikatsele
           verify:
-            already-voted: Oletko jo äänestänyt?
-            verify-here: Tarkista äänesi täältä.
-            will-verify: Voit tarkistaa äänesi, kun vaalit ovat alkaneet.
+            already_voted: Oletko jo äänestänyt?
+            verify_here: Tarkista äänesi täältä.
+            will_verify: Voit tarkistaa äänesi, kun vaalit ovat alkaneet.
           voting_period_status:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
             ongoing: 'Äänestysaika päättyy: %{end_time}'
@@ -371,7 +386,9 @@ fi:
         answer:
           fields:
             proposals: Ehdotukset
+            selected: Valittu
             title: Otsikko
+            votes: Äänet
         election:
           fields:
             bb_status: Äänestystaulun tila
@@ -492,6 +509,12 @@ fi:
           update:
             success: Julkisen tunnistusavaimesi tallentaminen onnistui.
       votes:
+        ballot_decision:
+          audit: "( Tarkasta äänesi )"
+          back: Aloita äänestysprosessi uudestaan
+          cast: Lähetä äänesi
+          description: Tässä näkymässä voit tarkastaa, että äänesi on laskettu oikein tai että äänesi salaaminen onnistui. Turvallisuussyistä äänesi tarkastaminen kumoaa aikaisemman äänesi. Tämä tarkoittaa, että jättääksesi äänesi, sinun tulee käynnistää äänestysprosessi uudestaan.
+          header: 'Äänesi on salattu: lähetä tai tarkasta se'
         confirm:
           answer: Vastaa
           answer_number: 'vastaus #%{number}'
@@ -518,6 +541,7 @@ fi:
           lead: Ääntäsi ei ole annettu!
           text: Jokin meni pieleen, yritä uudelleen.
         header:
+          ballot_decision: Lähetä tai tarkasta äänesi
           confirm: Vahvista äänesi
           confirmed: Ääni vahvistettu
           encrypting: Ääntäsi vahvistetaan
@@ -533,9 +557,6 @@ fi:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
-        processing:
-          header: Käsitellään ääntä...
-          text: Äänesi on vastaanotettu ja sitä käsitellään. Odota hetki.
         update:
           error: Äänen tilan päivitys epäonnistui
           success: Äänen tilan päivitys onnistui
@@ -600,13 +621,9 @@ fi:
           title: Mitä ovat äänestykset?
     menu:
       votings: Äänestykset
-    pages:
-      home:
-        statistics:
-          elections_count: Vaalit
-    participatory_processes:
-      statistics:
-        elections_count: Vaalia
+    statistics:
+      elections_count: Vaalia
+      votings_count: Äänestystä
     votings:
       admin:
         content_blocks:
@@ -790,6 +807,17 @@ fi:
       content_blocks:
         highlighted_votings:
           name: Korostetut äänestykset
+        landing_page:
+          description:
+            show_less: Näytä vähemmän
+            show_more: Lue lisää
+          metrics:
+            heading: Tilastomittarit
+          polling_stations:
+            heading: Äänestyspaikat
+            no_polling_stations: Äänestyspaikkoja ei vielä ole.
+          timeline:
+            heading: Aikajana
       monitoring_committee_members:
         actions:
           confirm_destroy: Oletko varma?
@@ -883,6 +911,8 @@ fi:
     decidim:
       election_votes_header:
         exit: Poistu
+      voting_navigation:
+        voting_menu_item: Äänestys
       votings:
         index:
           promoted_votings: Korostetut äänestykset

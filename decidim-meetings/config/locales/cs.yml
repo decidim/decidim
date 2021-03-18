@@ -237,7 +237,7 @@ cs:
           index:
             filter:
               accepted: Přijato
-              all: Všechno
+              all: Vše
               rejected: Odmítnuto
               sent: Odeslaná
             filter_by: Filtrovat podle
@@ -365,14 +365,15 @@ cs:
       directory:
         meetings:
           index:
-            all: Všechno
+            all: Vše
             date: Datum
             meetings: Setkání
-            past: Minulost
+            past: Minulé
             search: Vyhledávání
             space_type: Účastní prostor
             upcoming: Nadcházející
       last_activity:
+        meeting_updated_at_html: "<span>Schůzka aktualizována na %{link}</span>"
         new_meeting_at_html: "<span>Nové setkání v %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -552,6 +553,8 @@ cs:
       proposals_from_meeting:
         meeting_proposal: 'Související návrhy:'
         proposal_meeting: 'Související setkání:'
+    statistics:
+      meetings_count: Setkání
   devise:
     mailer:
       join_meeting:

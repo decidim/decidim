@@ -851,24 +851,7 @@ ar:
         metrics:
           headline: المشاركة في الأرقام
         statistics:
-          answers_count: المسوحات المكتملة
-          assemblies_count: الجمعيات
-          comments_count: تعليقات
-          conferences_count: المؤتمرات
-          debates_count: المناقشات
-          endorsements_count: موافقات
           headline: الحالة الحالية لـ %{organization}
-          meetings_count: اجتماعات
-          orders_count: الأصوات
-          pages_count: صفحات
-          processes_count: العمليات
-          projects_count: مشاريع
-          proposals_accepted: المقترحات المقبولة
-          proposals_count: اقتراحات
-          results_count: النتائج
-          surveys_count: الدراسات الاستقصائية
-          users_count: المشاركين
-          votes_count: الأصوات
         sub_hero:
           register: تسجيل
       index:
@@ -1018,6 +1001,8 @@ ar:
         close_window: أغلق النافذة
         share: شارك
         share_link: مشاركة الرابط
+    statistics:
+      comments_count: تعليقات
     user_activity:
       index:
         no_activities_warning: هذا المشارك لم يقم بأي نشاط حتى الآن.

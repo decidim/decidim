@@ -6,7 +6,6 @@ sv:
         description: Beskrivning
         title: Titel
         total_budget: Total budget
-        weight: Vikt
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
@@ -279,8 +278,5 @@ sv:
       destroy:
         error: Det gick inte att dra tillbaka din röst
         success: Din röst har dragits tillbaka
-    resource_links:
-      included_proposals:
-        project_proposal: 'Förslag som ingår i detta projekt:'
   index:
     confirmed_orders_count: Antal röster

@@ -60,7 +60,7 @@ module Decidim
           {
             trustees: trustees_data,
             default_locale: current_organization.default_locale,
-            title: election.title,
+            title: flatten_translations(election.title),
             start_date: election.start_time,
             end_date: election.end_time,
             questions: questions_data,
@@ -84,8 +84,8 @@ module Decidim
               slug: question.slug,
               weight: question.weight,
               max_selections: question.max_selections,
-              title: question.title,
-              description: question.description,
+              title: flatten_translations(question.title),
+              description: flatten_translations(question.description),
               answers: question_answers_data(question)
             }
           end
@@ -104,7 +104,7 @@ module Decidim
           answers.map do |answer|
             {
               slug: answer.slug,
-              title: answer.title
+              title: flatten_translations(answer.title)
             }
           end
         end
@@ -134,6 +134,22 @@ module Decidim
           }
 
           Decidim::EventsManager.publish(data)
+        end
+
+        # Since machine_translations return a nested hash but Electionguard and other
+        # schemes expect the translations to be returned in a "simple" hash, we need to
+        # flatten the translations.
+        #   {
+        #     "language": "en",
+        #      "value": "Jubilee Alliance"
+        #   }
+        # You can read more about the Civics Common Standard Data Specification here:
+        # https://developers.google.com/civics-data/reference/internationalized-text
+        def flatten_translations(translated_attribute)
+          translated_attribute.deep_symbolize_keys!
+          machine_translations = translated_attribute.delete(:machine_translations) || {}
+
+          machine_translations.merge(translated_attribute)
         end
       end
     end

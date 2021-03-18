@@ -6,7 +6,7 @@ module Decidim::ParticipatoryProcesses
   describe Statistics, type: :cell do
     controller Decidim::ApplicationController
 
-    subject { cell("decidim/participatory_processes/statistics", model).call }
+    subject { cell("decidim/statistics", model).call }
 
     let(:model) do
       [
@@ -17,7 +17,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when rendering" do
       it "renders the statistics wrapper" do
-        expect(subject).to have_css("#participatory_process-statistics")
+        expect(subject).to have_css(".section-statistics")
       end
 
       it "renders the title" do
@@ -25,7 +25,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "renders each stat" do
-        expect(subject).to have_css(".space-stats__data", count: 2)
+        expect(subject).to have_css(".statistic__data", count: 2)
       end
     end
   end

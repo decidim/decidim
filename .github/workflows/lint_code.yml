@@ -22,7 +22,7 @@ jobs:
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
         if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

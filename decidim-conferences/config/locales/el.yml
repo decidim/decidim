@@ -206,7 +206,6 @@ el:
             price: Τιμή
             registrations_count: Αριθμός εγγραφών
             title: Τίτλος
-            weight: Βάρος
           name: Τύπος εγγραφής
       partners:
         create:
@@ -486,23 +485,6 @@ el:
         related_assemblies: Σχετικές συνελεύσεις
         related_consultations: Σχετικές διαβουλεύσεις
         related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
-      statistics:
-        answers_count: Απαντήσεις
-        comments_count: Σχόλια
-        conference_count: Διασκέψεις
-        debates_count: Συζητήσεις
-        endorsements_count: Επιδοκιμασίες
-        headline: Δραστηριότητα
-        meetings_count: Συσκέψεις
-        orders_count: Υποστηρίξεις
-        pages_count: Σελίδες
-        posts_count: Δημοσιεύσεις
-        projects_count: Έργα
-        proposals_count: Προτάσεις
-        results_count: Αποτελέσματα
-        surveys_count: Έρευνες
-        users_count: Συμμετέχοντες
-        votes_count: Υποστηρίξεις
     events:
       conferences:
         conference_registration_confirmed:

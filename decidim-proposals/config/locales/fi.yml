@@ -140,6 +140,10 @@ fi:
             participatory_texts_enabled_readonly: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
+            proposal_edit_time: Ehdotusten muokkaus
+            proposal_edit_time_choices:
+              infinite: Ehdotusten muokkaus on sallittu ilman aikarajaa
+              limited: Ehdotusten muokkaus on sallittu määritetyn aikarajan sisällä niiden julkaisusta
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
@@ -661,6 +665,7 @@ fi:
         success: Ehdotusluonnoksen poistaminen onnistui.
       last_activity:
         new_proposal_at_html: "<span>Uusi ehdotus osoitteessa %{link}</span>"
+        proposal_updated_at_html: "<span>Ehdotus päivitetty osoitteessa %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -895,3 +900,7 @@ fi:
       included_proposals:
         proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
         proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
+    statistics:
+      proposals_accepted: Hyväksyttyä ehdotusta
+      proposals_count: Ehdotusta
+      supports_count: Kannatusta

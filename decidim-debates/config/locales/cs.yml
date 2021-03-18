@@ -175,6 +175,7 @@ cs:
         versions_list:
           back_to_resource: Přejít zpět k debatě
       last_activity:
+        debate_updated_at_html: "<span>Debata byla aktualizována na %{link}</span>"
         new_debate_at_html: "<span>Nová debata na %{link}</span>"
       models:
         debate:
@@ -238,3 +239,5 @@ cs:
         description: Počet vytvořených debat
         object: debaty
         title: Debaty
+    statistics:
+      debates_count: Debaty

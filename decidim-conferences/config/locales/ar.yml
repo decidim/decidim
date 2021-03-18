@@ -217,7 +217,6 @@ ar:
             price: السعر
             registrations_count: عدد التسجيلات
             title: عنوان
-            weight: وزن
           name: نوع التسجيل
       partners:
         create:
@@ -498,23 +497,6 @@ ar:
         related_assemblies: الجمعيات ذات الصلة
         related_consultations: المشاورات ذات الصلة
         related_participatory_processes: العمليات التشاركية ذات الصلة
-      statistics:
-        answers_count: الأجوبة
-        comments_count: تعليقات
-        conference_count: المؤتمرات
-        debates_count: المناقشات
-        endorsements_count: موافقات
-        headline: نشاط
-        meetings_count: اجتماعات
-        orders_count: الدعم
-        pages_count: صفحات
-        posts_count: المشاركات
-        projects_count: مشاريع
-        proposals_count: اقتراحات
-        results_count: النتائج
-        surveys_count: الدراسات الاستقصائية
-        users_count: المشاركين
-        votes_count: الدعم
     events:
       conferences:
         conference_registration_confirmed:

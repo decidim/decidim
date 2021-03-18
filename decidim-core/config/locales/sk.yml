@@ -939,24 +939,7 @@ sk:
         metrics:
           headline: Metrika
         statistics:
-          answers_count: Dokončené prieskumy
-          assemblies_count: Zostavy
-          comments_count: Komentáre
-          conferences_count: Konferencia
-          debates_count: Debaty
-          endorsements_count: Potvrdenie
           headline: Aktuálny stav %{organization}
-          meetings_count: Stretnutie
-          orders_count: Hlasy
-          pages_count: Stránky
-          processes_count: Procesy
-          projects_count: Projekty
-          proposals_accepted: Prijaté návrhy
-          proposals_count: Návrhy
-          results_count: Výsledok
-          surveys_count: Prieskumy
-          users_count: Účastníci
-          votes_count: Hlasy
         sub_hero:
           register: Registrovať
       index:
@@ -1108,6 +1091,8 @@ sk:
         close_window: Zátvor okno
         share: Zdieľať
         share_link: Zdieľať odkaz
+    statistics:
+      comments_count: Komentáre
     user_activity:
       index:
         no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.

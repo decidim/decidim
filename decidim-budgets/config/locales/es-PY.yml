@@ -6,13 +6,13 @@ es-PY:
         description: Descripción
         title: Título
         total_budget: Presupuesto total
-        weight: Peso
       project:
         budget_amount: Importe del presupuesto
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas relacionadas
+        selected: Seleccionado para implementar
         title: Título
   activerecord:
     models:
@@ -44,13 +44,19 @@ es-PY:
             title: Editar presupuesto
             update: Actualizar presupuesto
           index:
+            finished_orders: Votos finalizados
+            pending_orders: Votos pendientes
             title: Presupuestos
+            users_with_finished_orders: Usuarias con votos finalizados
+            users_with_pending_orders: Usuarias con votos pendientes
           new:
             create: Crear presupuesto
             title: Nuevo presupuesto
           update:
             invalid: Se ha producido un problema al actualizar este presupuesto
             success: Presupuesto actualizado correctamente
+        exports:
+          projects: Proyectos
         models:
           budget:
             name: Presupuesto
@@ -84,6 +90,7 @@ es-PY:
             create: Importar propuestas a proyectos
             no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
             select_component: Por favor seleccione un componente
+            title: Importar propuestas
       admin_log:
         budget:
           create: "%{user_name} creó el presupuesto %{resource_name} en el espacio %{space_name}"
@@ -245,6 +252,8 @@ es-PY:
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínimo de proyectos a votar'
             vote_rule_selected_projects_enabled: 'Habilitar regla: proyectos seleccionados con un número mínimo y máximo de proyectos en los que votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: porcentaje mínimo del pressupuesto'
+            vote_selected_projects_maximum: Cantidad máxima de proyectos a seleccionar
+            vote_selected_projects_minimum: Cantidad mínima de proyectos a seleccionar
             vote_threshold_percent: Porcentaje de votos
             workflow: Workflow
             workflow_choices:
@@ -278,8 +287,5 @@ es-PY:
       destroy:
         error: Ha habido un error al cancelar tu voto
         success: Tu voto ha sido cancelado correctamente
-    resource_links:
-      included_proposals:
-        project_proposal: 'Propuestas incluidas en este proyecto:'
   index:
     confirmed_orders_count: Número de votos

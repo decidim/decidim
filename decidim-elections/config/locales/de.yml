@@ -127,11 +127,13 @@ de:
           new:
             create: Antwort erstellen
             title: Neue Antwort
+          not_selected: Nicht ausgewählt
           select:
             disable: Antwort abwählen
             enable: Antwort als ausgewählt markieren
             invalid: Beim Auswählen dieser Antwort ist ein Fehler aufgetreten
             success: Antwort erfolgreich ausgewählt
+          selected: Ausgewählt
           unselect:
             invalid: Beim Abwählen dieser Antwort ist ein Fehler aufgetreten
             success: Antwort erfolgreich abgwählt
@@ -246,13 +248,25 @@ de:
             title: Startbereit
           processing: In Verarbeitung...
           results_published:
+            answer: Antwort
+            not_selected: Nicht ausgewählt
+            question: Frage
+            result: Ergebnis
+            selected: Ausgewählt
+            submit: Absenden
             title: Ergebnisse veröffentlicht
           tally:
             title: Stimmenzähl-Prozess
             trustees: Wahlhelfer
           tally_ended:
+            answer: Antwort
+            not_selected: Nicht ausgewählt
+            question: Frage
+            result: Ergebnis
+            selected: Ausgewählt
             submit: Resultate veröffentlichen
-            title: Resultate berechnet
+            success: Stimmenzählung erfolgreich beendet
+            title: Berechnete Ergebnisse
           vote:
             errors:
               time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
@@ -266,6 +280,7 @@ de:
             invalid: Beim Starten der Stimmenzählung ist ein Fehler aufgetreten
             submit: Stimmenzählung starten
             success: Die Anfrage zum Starten der Stimmenzählung wurde erfolgreich ans Bulletin Board gesendet
+            text: Die Abstimmung ist beendet. Sie können jetzt die Stimmenzählung starten.
             title: Abstimmungsperiode abgeschlossen
           vote_stats:
             no_vote_statistics_yet: Noch keine Statistiken zur Abstimmung
@@ -334,30 +349,30 @@ de:
           filter_by: Filtern nach
           unfold: Aufklappen
         preview:
-          available_answers: Verfügbare Antworten
-          description: Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden
+          available_answers: 'Verfügbare Antworten:'
+          description: 'Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden:'
           title: Wahlfragen
         results:
-          description: Dies sind die Abstimmungsergebnisse für jede Frage
+          description: 'Dies sind die Abstimmungsergebnisse für jede Frage:'
           selected: Ausgewählt
           title: Wahlergebnisse
           votes:
             one: "%{count} Stimme"
             other: "%{count} Stimmen"
         show:
-          action-button:
-            change-vote: Stimme ändern
+          action_button:
+            change_vote: Stimme ändern
             vote: Jetzt abstimmen
-            vote-again: Erneut abstimmen
+            vote_again: Erneut abstimmen
           back: Verfügbare Wahlen
           callout:
-            already-voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
-            vote-rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
+            already_voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
+            vote_rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
           preview: Vorschau
           verify:
-            already-voted: Bereits abgestimmt?
-            verify-here: Stimme hier verifizieren.
-            will-verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
+            already_voted: Bereits abgestimmt?
+            verify_here: Stimme hier verifizieren.
+            will_verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
             ongoing: 'Abstimmung aktiv bis: %{end_time}'
@@ -371,7 +386,9 @@ de:
         answer:
           fields:
             proposals: Vorschläge
+            selected: Ausgewählt
             title: Titel
+            votes: Stimmen
         election:
           fields:
             bb_status: Bulletin Board Status
@@ -492,6 +509,12 @@ de:
           update:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
+        ballot_decision:
+          audit: "(Stimmzettel überprüfen)"
+          back: Abstimmungsvorgang erneut starten
+          cast: Stimme abgeben
+          description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
+          header: 'Stimmzettel ist verschlüsselt: Senden sie Ihre Stimme ab oder überprüfen Sie die Verschlüsselung'
         confirm:
           answer: Antwort
           answer_number: Antwort %{number}
@@ -518,6 +541,7 @@ de:
           lead: Ihre Stimme wurde nicht abgegeben!
           text: Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.
         header:
+          ballot_decision: Stimme abgeben oder überprüfen
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
           encrypting: Wahl bestätigen
@@ -533,9 +557,6 @@ de:
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
-        processing:
-          header: Stimme wird verarbeitet...
-          text: Ihre Stimme wurde empfangen und wird verarbeitet. Bitte warten.
         update:
           error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
           success: Abstimmung erfolgreich aktualisiert
@@ -600,13 +621,9 @@ de:
           title: Was sind Abstimmungen?
     menu:
       votings: Abstimmungen
-    pages:
-      home:
-        statistics:
-          elections_count: Wahlen
-    participatory_processes:
-      statistics:
-        elections_count: Wahlen
+    statistics:
+      elections_count: Wahlen
+      votings_count: Abstimmungen
     votings:
       admin:
         content_blocks:
@@ -790,6 +807,17 @@ de:
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
+        landing_page:
+          description:
+            show_less: Weniger anzeigen
+            show_more: Mehr anzeigen
+          metrics:
+            heading: Metriken
+          polling_stations:
+            heading: Wahllokale
+            no_polling_stations: Es gibt noch keine Wahllokale.
+          timeline:
+            heading: Zeitachse
       monitoring_committee_members:
         actions:
           confirm_destroy: Sind Sie sicher?
@@ -883,6 +911,8 @@ de:
     decidim:
       election_votes_header:
         exit: Beenden
+      voting_navigation:
+        voting_menu_item: Die Abstimmung
       votings:
         index:
           promoted_votings: Hervorgehobene Abstimmungen

@@ -68,6 +68,8 @@ ro:
       actions:
         new_initiative_type: Noul tip de inițiativă
       menu:
+        components: Componente
+        information: Informare
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative
       models:
@@ -464,12 +466,6 @@ ro:
           vote: Semnare
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Atașamente
-          committee_members: Membrii Comitetului
-          components: Componente
-          information: Informare
       initiative_creation_header:
         back: Înapoi
         fill_data: Crează

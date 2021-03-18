@@ -7,6 +7,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
+      helper UserGroupHelper
       include Decidim::ApplicationHelper
       include Flaggable
       include Withdrawable

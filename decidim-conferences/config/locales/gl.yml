@@ -205,7 +205,6 @@ gl:
             price: Prezo
             registrations_count: Contas de rexistro
             title: Título
-            weight: Peso
           name: Tipo de rexistro
       partners:
         create:
@@ -482,23 +481,6 @@ gl:
         related_assemblies: Asembleas relacionadas
         related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
-      statistics:
-        answers_count: Respostas
-        comments_count: Comentarios
-        conference_count: Conferencias
-        debates_count: Debates
-        endorsements_count: Aprobacións
-        headline: Actividade
-        meetings_count: Reunións
-        orders_count: Votos
-        pages_count: Páxinas
-        posts_count: Publicacións
-        projects_count: Proxectos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Enquisas
-        users_count: Participantes
-        votes_count: Votos
     events:
       conferences:
         conference_registration_confirmed:

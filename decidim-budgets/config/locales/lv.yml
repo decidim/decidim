@@ -153,8 +153,5 @@ lv:
       destroy:
         error: Jūsu balsojuma atcelšanas laikā radās problēma
         success: Jūsu balsojums ir veiksmīgi atcelts
-    resource_links:
-      included_proposals:
-        project_proposal: 'Šajā projektā iekļautie priekšlikumi:'
   index:
     confirmed_orders_count: Balsu skaits

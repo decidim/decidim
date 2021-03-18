@@ -995,24 +995,7 @@
         metrics:
           headline: Deltakelse i tall
         statistics:
-          answers_count: Gjennomførte Undersøkelser
-          assemblies_count: Forsamlinger
-          comments_count: Kommentarer
-          conferences_count: Konferanser
-          debates_count: Debatter
-          endorsements_count: Påtegnelser
           headline: Nåværende status for %{organization}
-          meetings_count: Møter
-          orders_count: Stemmer
-          pages_count: Sider
-          processes_count: Prosesser
-          projects_count: Prosjekter
-          proposals_accepted: Godkjente Forslag
-          proposals_count: Forslag
-          results_count: Resultater
-          surveys_count: Undersøkelse
-          users_count: Deltakere
-          votes_count: Stemmer
         sub_hero:
           register: Registrer deg
       index:
@@ -1169,6 +1152,8 @@
         close_window: Lukk vindu
         share: Del
         share_link: Del lenke
+    statistics:
+      comments_count: Kommentarer
     user_activity:
       index:
         no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.

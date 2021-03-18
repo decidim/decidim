@@ -6,7 +6,6 @@ fr-CA:
         description: Description
         title: Titre
         total_budget: Budget total
-        weight: Rang d'affichage
       project:
         budget_amount: Montant du budget
         decidim_category_id: Catégorie
@@ -290,6 +289,6 @@ fr-CA:
         success: Votre vote a été annulé avec succès
     resource_links:
       included_proposals:
-        project_proposal: 'Propositions incluses dans ce projet:'
+        project_proposal: Propositions incluses dans ce projet
   index:
     confirmed_orders_count: Nombre de votes

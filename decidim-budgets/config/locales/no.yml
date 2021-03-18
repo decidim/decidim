@@ -6,7 +6,6 @@
         description: Beskrivelse
         title: Tittel
         total_budget: Totalt budsjett
-        weight: Vekt
       project:
         budget_amount: Budsjettbeløp
         decidim_category_id: Kategori
@@ -170,8 +169,5 @@
       destroy:
         error: Det oppstod et problem med å avbryte stemmen din
         success: Stemmen din ble kansellert
-    resource_links:
-      included_proposals:
-        project_proposal: 'Forslag inkludert i dette prosjektet:'
   index:
     confirmed_orders_count: Stemmer teller

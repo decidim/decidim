@@ -24,7 +24,6 @@ it:
       component:
         name: Nome
         published_at: Pubblicato il
-        weight: Peso
       id: ID
       newsletter:
         body: Testo
@@ -100,12 +99,10 @@ it:
         show_in_footer: Mostra nel footer
         slug: URL slug
         title: Titolo
-        weight: Peso
       static_page_topic:
         description: Descrizione
         show_in_footer: Mostra nel footer
         title: Titolo
-        weight: Peso
       user_group_csv_verification:
         file: File
     errors:

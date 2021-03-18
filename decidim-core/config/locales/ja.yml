@@ -1006,24 +1006,7 @@ ja:
         metrics:
           headline: 指標
         statistics:
-          answers_count: 完了した調査
-          assemblies_count: 参加スペース
-          comments_count: コメント
-          conferences_count: カンファレンス
-          debates_count: ディベート
-          endorsements_count: 支持
           headline: '%{organization} の現在の状態'
-          meetings_count: ミーティング
-          orders_count: 投票
-          pages_count: ページ
-          processes_count: 参加型プロセス
-          projects_count: プロジェクト
-          proposals_accepted: 承認された提案
-          proposals_count: 提案
-          results_count: 結果
-          surveys_count: 調査
-          users_count: 参加者
-          votes_count: 投票
         sub_hero:
           register: 登録
       index:
@@ -1200,6 +1183,8 @@ ja:
         close_window: ウィンドウを閉じる
         share: 共有
         share_link: リンクを共有
+    statistics:
+      comments_count: コメント
     tags:
       filter_results_for_category: 'カテゴリの検索結果: %{resource}'
       filter_results_for_scope: 'スコープの検索結果: %{resource}'

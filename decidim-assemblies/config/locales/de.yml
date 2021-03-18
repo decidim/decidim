@@ -52,7 +52,7 @@ de:
         target: Wer nimmt teil?
         title: Titel
         twitter: Twitter
-        weight: Gewicht
+        weight: Bestellposition
         youtube: Youtube
       assembly_member:
         birthday: Geburtstag
@@ -190,7 +190,6 @@ de:
           assembly_members: Mitglieder
           attachment_collections: Ordner
           attachment_files: Dateien
-          attachments: Anhänge
           categories: Kategorien
           components: Komponenten
           info: Info
@@ -381,28 +380,6 @@ de:
         social_networks: Soziale Netzwerke
         social_networks_title: Diese Versammlung auf teilen
         target: Wer nimmt teil?
-      statistics:
-        answers_count: Antworten
-        assemblies_count: Gremien
-        comments_count: Bemerkungen
-        debates_count: Debatten
-        endorsements_count: Empfehlungen
-        followers_count: Beobachter
-        headline: Statistiken
-        meetings_count: Meetings
-        no_stats: Noch keine Statistik vorhanden.
-        orders_count: Stimmen
-        pages_count: Seiten
-        participants_count: Teilnehmer
-        posts_count: Beiträge
-        processes_count: Prozesse
-        projects_count: Projekte
-        proposals_count: Vorschläge
-        results_count: Ergebnisse
-        supports_count: Unterstützungen
-        surveys_count: Umfragen
-        users_count: Teilnehmer
-        votes_count: Stimmen
     assembly_members:
       assembly_member:
         designated_on: Bezeichnet am
@@ -458,6 +435,8 @@ de:
             processes_button_title: Verknüpfung zu der Prozessseite mit einem Überblick aller Prozesse
       show:
         related_assemblies: Ähnliche Versammlungen
+    statistics:
+      assemblies_count: Gremien
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein

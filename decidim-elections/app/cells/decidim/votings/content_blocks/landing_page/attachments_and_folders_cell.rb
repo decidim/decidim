@@ -5,8 +5,15 @@ module Decidim
     module ContentBlocks
       module LandingPage
         class AttachmentsAndFoldersCell < Decidim::ViewModel
+          include Cell::ViewModel::Partial
+          include Decidim::IconHelper
+          include ActiveSupport::NumberHelper
+          include Decidim::AttachmentsHelper
+
+          delegate :current_participatory_space, to: :controller
+
           def show
-            content_tag(:div, "AttachmentsAndFoldersCell")
+            attachments_for(current_participatory_space)
           end
         end
       end

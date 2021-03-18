@@ -52,7 +52,6 @@ ca:
         target: Qui participa
         title: Títol
         twitter: Twitter
-        weight: Pes
         youtube: YouTube
       assembly_member:
         birthday: Aniversari
@@ -190,7 +189,6 @@ ca:
           assembly_members: Membres
           attachment_collections: Carpetes
           attachment_files: Fitxers
-          attachments: Adjunts
           categories: Categories
           components: Components
           info: Informació
@@ -250,6 +248,7 @@ ca:
         update: "%{user_name} ha actualitzat la configuració de les assemblees"
       assembly_type:
         create: "%{user_name} ha creat l'assemblea %{resource_name}"
+        delete: "%{user_name} ha eliminat el tipus d'assemblea %{resource_name}"
         publish: "%{user_name} ha publicat el tipus d'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat el tipus d'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat el tipus d'assemblea %{resource_name}"
@@ -380,22 +379,6 @@ ca:
         social_networks: Xarxes socials
         social_networks_title: Compartir aquesta assemblea a
         target: Qui participa
-      statistics:
-        answers_count: Respostes
-        assemblies_count: Assemblees
-        comments_count: Comentaris
-        debates_count: Debats
-        endorsements_count: Adhesions
-        meetings_count: Trobades
-        orders_count: Suports
-        pages_count: Pàgines
-        posts_count: Publicacions
-        projects_count: Projectes
-        proposals_count: Propostes
-        results_count: Resultats
-        surveys_count: Enquestes
-        users_count: Participants
-        votes_count: Suports
     assembly_members:
       assembly_member:
         designated_on: Designat a
@@ -442,6 +425,8 @@ ca:
       home:
         hero:
           participate_title: Participa als processos de la plataforma
+        sub_hero:
+          register_title: Registra't
     participatory_processes:
       pages:
         home:

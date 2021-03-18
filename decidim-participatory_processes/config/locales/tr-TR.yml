@@ -448,25 +448,6 @@ tr:
         start_date: Başlangıç tarihi
         target: Kimler katılır
         unspecified: Belirtilmemiş
-      statistics:
-        answers_count: Cevaplar
-        comments_count: Yorumlar
-        debates_count: Tartışmalar
-        endorsements_count: Cirolar
-        followers_count: Takipçiler
-        headline: Aktivite
-        meetings_count: Toplantılar
-        no_stats: Henüz canlı istatistikler yok.
-        orders_count: oy
-        pages_count: Sayfalar
-        participants_count: Katılımcılar
-        processes_count: Süreçler
-        projects_count: Projeler
-        proposals_count: Teklif
-        results_count: Sonuçlar
-        supports_count: oy
-        surveys_count: Anketler
-        users_count: Katılımcılar
   layouts:
     decidim:
       participatory_process_groups:

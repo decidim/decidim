@@ -166,7 +166,6 @@ gl:
           assembly_members: Membros
           attachment_collections: Carpetas
           attachment_files: Arquivos
-          attachments: Anexos
           categories: Categorías
           components: Compoñentes
           info: Información
@@ -341,22 +340,6 @@ gl:
         scope: Alcance
         social_networks: Redes Sociais
         target: Quen participa
-      statistics:
-        answers_count: Respostas
-        assemblies_count: Asembleas
-        comments_count: Comentarios
-        debates_count: Debates
-        endorsements_count: Aprobacións
-        meetings_count: Reunións
-        orders_count: Votos
-        pages_count: Páxinas
-        posts_count: Publicacións
-        projects_count: Proxectos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Enquisas
-        users_count: Participantes
-        votes_count: Votos
     assembly_members:
       assembly_member:
         designated_on: Designado en

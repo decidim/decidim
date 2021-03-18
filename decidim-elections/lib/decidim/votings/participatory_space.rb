@@ -69,6 +69,27 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
       end
       voting.add_to_index_as_search_resource
 
+      unless voting.online_voting?
+        3.times do
+          params = {
+            voting: voting,
+            title: Decidim::Faker::Localized.sentence(word_count: 5),
+            address: Faker::Address.full_address,
+            latitude: Faker::Address.latitude,
+            longitude: Faker::Address.longitude,
+            location: Decidim::Faker::Localized.sentence,
+            location_hints: Decidim::Faker::Localized.sentence
+          }
+
+          Decidim.traceability.create!(
+            Decidim::Votings::PollingStation,
+            organization.users.first,
+            params,
+            visibility: "all"
+          )
+        end
+      end
+
       landing_page_content_blocks = [:header, :description, :elections, :polling_stations, :attachments_and_folders, :stats, :metrics]
 
       landing_page_content_blocks.each.with_index(1) do |manifest_name, index|
@@ -80,6 +101,20 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
           scoped_resource_id: voting.id,
           published_at: Time.current
         )
+      end
+
+      2.times do
+        Decidim::Category.create!(
+          name: Decidim::Faker::Localized.sentence(word_count: 5),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          participatory_space: voting
+        )
+      end
+
+      Decidim.component_manifests.each do |manifest|
+        manifest.seed!(voting.reload)
       end
     end
   end

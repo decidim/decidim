@@ -52,7 +52,7 @@ nl:
         target: Wie neemt deel
         title: Titel
         twitter: Twitter
-        weight: Gewicht
+        weight: Bestelpositie
         youtube: YouTube
       assembly_member:
         birthday: Geboortedatum
@@ -190,7 +190,6 @@ nl:
           assembly_members: Leden
           attachment_collections: Mappen
           attachment_files: Bestanden
-          attachments: Bijlagen
           categories: Categorieën
           components: Onderdelen
           info: Info
@@ -381,28 +380,6 @@ nl:
         social_networks: Sociale netwerken
         social_networks_title: Deze groep delen op
         target: Wie doet mee
-      statistics:
-        answers_count: Antwoorden
-        assemblies_count: Groepen
-        comments_count: Reacties
-        debates_count: Debatten
-        endorsements_count: Aanbevelingen
-        followers_count: Volgers
-        headline: Statistieken
-        meetings_count: Events
-        no_stats: Er zijn nog geen statistieken.
-        orders_count: Ondersteunt
-        pages_count: Pagina's
-        participants_count: Deelnemers
-        posts_count: Berichten
-        processes_count: Processen
-        projects_count: Projecten
-        proposals_count: Voorstellen
-        results_count: Resultaten
-        supports_count: Aantal keer gesteund
-        surveys_count: Enquêtes
-        users_count: Deelnemers
-        votes_count: Ondersteunt
     assembly_members:
       assembly_member:
         designated_on: Aangewezen op
@@ -458,6 +435,8 @@ nl:
             processes_button_title: Link naar de pagina Processen die alle processen weergeeft
       show:
         related_assemblies: Verwante assemblies
+    statistics:
+      assemblies_count: Groepen
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn

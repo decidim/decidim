@@ -120,6 +120,8 @@ de:
           questions: Fragen
           results: Ergebnisse
         questions_submenu:
+          attachments: Anhänge
+          categories: Kategorien
           components: Komponenten
           configuration: Konfiguration
           consultation: Beratung
@@ -324,10 +326,6 @@ de:
           title: Was sind Konsultationen?
     menu:
       consultations: Konsultationen
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultationen
     questions:
       next_button: Nächste Frage
       previous_button: Vorherige Frage
@@ -362,12 +360,11 @@ de:
       consultations:
         actions:
           vote: Abstimmung
+    statistics:
+      consultations_count: Beratungen
+      votes_count: Stimmen
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Anhänge
-          categories: Kategorien
       consultation_voting_data:
         start_voting_date: Die Abstimmung beginnt
       question_components:

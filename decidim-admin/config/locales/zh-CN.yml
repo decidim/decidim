@@ -24,7 +24,6 @@ zh-CN:
       component:
         name: 名称
         published_at: 发布于
-        weight: 权重
       id: ID
       newsletter:
         body: 正文内容
@@ -97,12 +96,10 @@ zh-CN:
         show_in_footer: 在页脚显示
         slug: URL 名称
         title: 标题
-        weight: 权重
       static_page_topic:
         description: 描述
         show_in_footer: 在页脚显示
         title: 标题
-        weight: 权重
       user_group_csv_verification:
         file: 文件
     errors:

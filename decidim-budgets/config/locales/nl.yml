@@ -6,7 +6,7 @@ nl:
         description: Omschrijving
         title: Titel
         total_budget: Totale budget
-        weight: Gewicht
+        weight: Bestelpositie
       project:
         budget_amount: Budget bedrag
         decidim_category_id: Categorie
@@ -290,6 +290,9 @@ nl:
         success: Uw stem is geannuleerd
     resource_links:
       included_proposals:
-        project_proposal: 'Voorstellen opgenomen in dit project:'
+        project_proposal: Voorstellen opgenomen in dit project
+    statistics:
+      orders_count: Aantal keer gesteund
+      projects_count: Projecten
   index:
     confirmed_orders_count: Aantal stemmen

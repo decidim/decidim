@@ -52,7 +52,7 @@ fi-pl:
         target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
-        weight: Painoarvo
+        weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
@@ -190,7 +190,6 @@ fi-pl:
           assembly_members: Jäsenet
           attachment_collections: Kansiot
           attachment_files: Tiedostot
-          attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
           info: Tiedot
@@ -381,28 +380,6 @@ fi-pl:
         social_networks: Sosiaalinen media
         social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
-      statistics:
-        answers_count: Vastaukset
-        assemblies_count: Ryhmiä
-        comments_count: Kommentteja
-        debates_count: Keskusteluja
-        endorsements_count: Suosituksia
-        followers_count: Seuraajat
-        headline: Tilastot
-        meetings_count: Tapaamisia
-        no_stats: Tilastoja ei vielä ole.
-        orders_count: Ääniä
-        pages_count: Sivuja
-        participants_count: Osallistujaa
-        posts_count: Artikkeleja
-        processes_count: Prosessia
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        supports_count: Kannatusta
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
-        votes_count: Ääniä
     assembly_members:
       assembly_member:
         designated_on: Nimetty
@@ -458,6 +435,8 @@ fi-pl:
             processes_button_title: Linkki kaikkien prosessien sivulle
       show:
         related_assemblies: Liittyvät ryhmät
+    statistics:
+      assemblies_count: Ryhmää
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

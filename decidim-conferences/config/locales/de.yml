@@ -206,7 +206,7 @@ de:
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
-            weight: Gewicht
+            weight: Bestellposition
           name: Registrierungstyp
       partners:
         create:
@@ -492,23 +492,6 @@ de:
         related_assemblies: Ähnliche Gremien
         related_consultations: Verwandte Konsultationen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
-      statistics:
-        answers_count: Antworten
-        comments_count: Bemerkungen
-        conference_count: Konferenzen
-        debates_count: Debatten
-        endorsements_count: Empfehlungen
-        headline: Aktivität
-        meetings_count: Meetings
-        orders_count: Stimmen
-        pages_count: Seiten
-        posts_count: Beiträge
-        projects_count: Projekte
-        proposals_count: Vorschläge
-        results_count: Ergebnisse
-        surveys_count: Umfragen
-        users_count: Teilnehmer
-        votes_count: Stimmen
     events:
       conferences:
         conference_registration_confirmed:
@@ -556,6 +539,8 @@ de:
         title: Medien und Links
     menu:
       conferences: Konferenzen
+    statistics:
+      conferences_count: Konferenzen
   devise:
     mailer:
       join_conference:

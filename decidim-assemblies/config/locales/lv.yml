@@ -169,7 +169,6 @@ lv:
           assembly_members: Dalībnieki
           attachment_collections: Mapes
           attachment_files: Faili
-          attachments: Pielikumi
           categories: Kategorijas
           components: Komponenti
           info: Informācija
@@ -352,21 +351,6 @@ lv:
         social_networks: Sociālie tīkli
         social_networks_title: Dalīties ar šo asambleju
         target: Kas piedalās
-      statistics:
-        answers_count: Atbildes
-        assemblies_count: Asambleja
-        comments_count: Komentāri
-        endorsements_count: Atbalsts
-        meetings_count: Sanāksmes
-        orders_count: Atbalsta
-        pages_count: Lapas
-        posts_count: Ziņas
-        projects_count: Projekti
-        proposals_count: Priekšlikumi
-        results_count: Rezultāti
-        surveys_count: Aptaujas
-        users_count: Dalībnieki
-        votes_count: Atbalsta
     assembly_members:
       assembly_member:
         designated_on: Izraudzīts
