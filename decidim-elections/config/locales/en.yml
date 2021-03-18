@@ -681,6 +681,7 @@ en:
             attachment_collections: Folders
             attachment_files: Files
             attachments: Attachments
+            census: Census
             components: Components
             info: Information
             landing_page: Landing Page
@@ -817,6 +818,36 @@ en:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
           unpublish: "%{user_name} unpublished the %{resource_name} voting"
+      census:
+        admin:
+          census:
+            create:
+              error: an error ocurred uploading the census, please try again later.
+              success: csv file uploaded with success, its being created in the bg
+            delete:
+              button: Delete all census data
+              confirm: Delete all the census can not be undone. Are you sure you want to continue?
+              title: Delete the census
+            destroy:
+              error: An error ocurred deleting the census, please try again later.
+              success: Census data deleted
+            new:
+              info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
+              submit: Submit csv
+              title: Create the census
+            show:
+              heading: Voting space census
+            update:
+              error: An error ocurred, please try again later.
+              generate_access_codes: Generate Voting Access Codes
+              generate_access_codes_confirm: If you continue, you will not be able to modify the census.
+              info_message: There are %{count} records loaded in total. Last update was on %{updated_at}
+              submit: Submit csv 2
+              success: csv file uploaded with success, census is updating in the bg
+              title: Update the census
+            upload_info:
+              csv_example: 'An example of the file contents:'
+              csv_fields: 'Must be a .csv file format with these fields:'
       content_blocks:
         highlighted_votings:
           name: Highlighted votings
