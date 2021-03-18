@@ -1,0 +1,8 @@
+(function() {
+  var $foo = $("<div />")
+  $foo.html('<%= j(render partial: "modal").strip.html_safe %>');
+  $("body").append($foo)
+  var $reveal = $(".reveal", $foo);
+  $foo.foundation()
+  $reveal.foundation("open")
+})()

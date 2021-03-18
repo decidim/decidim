@@ -23,6 +23,7 @@
       const $link = $(link);
       const externalHref = `/link?external_url=${encodeURIComponent($link.attr("href"))}`;
       $link.attr("href", externalHref)
+      $link.attr("data-remote", true)
     });
   }
 

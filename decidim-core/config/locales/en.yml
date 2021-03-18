@@ -857,12 +857,17 @@ en:
     links:
       invalid_url: Invalid URL
       new:
-        body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site. Most links on this site are safe to visit but occasionally there may be malicious users who try to take advantage of people not paying attention to the links they click.
+        body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
         body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
-        cancel: To cancel, close this window
-        external_link: 'External link:'
+        cancel: Cancel
         proceed: Proceed
-        title: External link warning
+        title: Open external link
+      warning:
+        body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
+        body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
+        cancel: Cancel
+        proceed: Proceed
+        title: Open external link
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
