@@ -400,7 +400,7 @@ ro:
           not_managed: Nu este gestionat
           promote: Promovează
           search: Caută
-          status: Status
+          status: Stare
           view_logs: Vezi jurnalele
       impersonations:
         close_session:
@@ -449,22 +449,22 @@ ro:
             new_managed_user_promotion: Promovarea noilor participanți gestionați
             promote: Promovează
       menu:
-        admin_log: Jurnal activitate admin
+        admin_log: Jurnal activitate administrare
         admins: Administratori
         appearance: Aspectul
         area_types: Tipuri de zone
-        areas: Domenii
+        areas: Zone
         configuration: Configurare
-        dashboard: Panou
+        dashboard: Panou de administrare
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
-        moderation: Moderație globală
-        newsletters: Newslettere
+        moderation: Moderări globale
+        newsletters: Buletine informative
         participants: Participanți
         reported_users: Utilizator raportat
-        scope_types: Tipuri de domeniu
-        scopes: Domeniu
+        scope_types: Tipuri de domeniu de aplicare
+        scopes: Domenii de aplicare
         settings: Setări
         static_pages: Pagini
         user_groups: Grupuri
@@ -475,7 +475,7 @@ ro:
       models:
         area:
           fields:
-            area_type: Tipul zonei
+            area_type: Tipul de zonă
             name: Nume
         area_type:
           fields:
@@ -494,7 +494,7 @@ ro:
           name: Categorie
         impersonation_log:
           fields:
-            admin: Admin
+            admin: Administrator
             ended_at: Terminat la
             expired_at: Expirat la
             reason: Motiv
@@ -507,13 +507,13 @@ ro:
             sent_at: Trimis la
             sent_to: Trimis către
             subject: Subiect
-          name: Newsletter
+          name: Buletin Informativ
         participatory_space_private_user:
-          name: Participant privat la spațiu
+          name: Participant privat pentru spațiul participativ
         scope:
           fields:
             name: Nume
-            scope_type: Tip domeniu
+            scope_type: Tip domeniu de aplicare
         scope_type:
           fields:
             name: Nume
@@ -530,7 +530,7 @@ ro:
             name: Nume
             role: Rol
             roles:
-              admin: Admin
+              admin: Administrator
               user_manager: Manager de participanți
           name: Participant
         user_group:
@@ -544,7 +544,7 @@ ro:
             users_count: Numărul de participanți
       moderations:
         index:
-          title: Moderatii
+          title: Moderări
         report:
           reasons:
             does_not_belong: Nu aparține
