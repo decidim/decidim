@@ -5,6 +5,7 @@ module Decidim
   class InitiativesType < ApplicationRecord
     include Decidim::HasResourcePermission
     include Decidim::TranslatableResource
+    include Decidim::HasUploadValidations
 
     translatable_fields :title, :description, :extra_fields_legal_information
 

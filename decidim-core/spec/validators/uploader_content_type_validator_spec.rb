@@ -28,6 +28,7 @@ describe UploaderContentTypeValidator do
     Class.new do
       extend CarrierWave::Mount
       include ActiveModel::Model
+      include Decidim::HasUploadValidations
 
       def self.model_name
         ActiveModel::Name.new(self, nil, "Validatable")

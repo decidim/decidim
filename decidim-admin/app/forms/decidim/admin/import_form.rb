@@ -4,6 +4,7 @@ module Decidim
   module Admin
     class ImportForm < Form
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
+      include Decidim::HasUploadValidations
 
       attribute :creator, String, default: ->(form, _attribute) { form.creators.first[:creator].to_s }
       attribute :file

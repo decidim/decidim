@@ -18,6 +18,7 @@ module Decidim
         include ActiveModel::Model
         include Virtus.model
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         attribute :slug, String
         attribute :proposal_title, String

@@ -76,6 +76,7 @@ module Decidim
       @images_container = Class.new do
         extend ::CarrierWave::Mount
         include ActiveModel::Validations
+        include Decidim::HasUploadValidations
 
         cattr_accessor :manifest, :manifest_scope
         attr_reader :content_block

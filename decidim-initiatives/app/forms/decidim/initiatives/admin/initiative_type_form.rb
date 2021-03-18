@@ -35,6 +35,8 @@ module Decidim
         validates :banner_image, presence: true, if: ->(form) { form.context.initiative_type.nil? }
         validates :document_number_authorization_handler, presence: true, if: ->(form) { form.collect_user_extra_fields? }
 
+        validates :banner_image, passthru: { to: Decidim::InitiativesType }
+
         def minimum_committee_members=(value)
           super(value.presence)
         end
