@@ -68,6 +68,12 @@ en:
       decidim/votings/voting:
         one: Voting
         other: Votings
+      decidim/votings/census/dataset:
+        one: Dataset
+        other: Datasets
+      decidim/votings/census/datum:
+        one: Datum
+        other: Data
   decidim:
     admin:
       filters:
@@ -823,7 +829,7 @@ en:
           census:
             create:
               error: an error ocurred uploading the census, please try again later.
-              success: csv file uploaded with success, its being created in the bg
+              success: The uploaded csv file is being processed!
             delete:
               button: Delete all census data
               confirm: Delete all the census can not be undone. Are you sure you want to continue?
@@ -842,8 +848,8 @@ en:
               generate_access_codes: Generate Voting Access Codes
               generate_access_codes_confirm: If you continue, you will not be able to modify the census.
               info_message: There are %{count} records loaded in total. Last update was on %{updated_at}
-              submit: Submit csv 2
-              success: csv file uploaded with success, census is updating in the bg
+              submit: Submit csv to update records
+              success: The uploaded csv file is being processed!
               title: Update the census
             upload_info:
               csv_example: 'An example of the file contents:'
