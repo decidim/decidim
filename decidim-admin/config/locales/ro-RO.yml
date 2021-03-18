@@ -2,7 +2,7 @@ ro:
   activemodel:
     attributes:
       area:
-        area_type: Tipul zonei
+        area_type: Tipul de zonă
         name: Nume
         organization: Organizație
       area_type:
@@ -35,7 +35,7 @@ ro:
         alert_color: Alertă
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
-        comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+        comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
         cta_button_path: Calea butonului Apel la acţiune
         cta_button_text: Text buton Apel la Acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
@@ -65,9 +65,9 @@ ro:
         machine_translation_display_priority_original: Mai întâi textul original
         machine_translation_display_priority_translation: Mai întâi textul tradus
         name: Nume
-        official_img_footer: Subsol cu logo oficial
-        official_img_header: Antet logo oficial
-        official_url: URL organizație oficială
+        official_img_footer: Logo oficial pentru footer
+        official_img_header: Logo oficial pentru header
+        official_url: URL oficial al organizației
         omnipresent_banner_short_description: Descriere scurtă
         omnipresent_banner_title: Titlu
         omnipresent_banner_url: URL
@@ -76,7 +76,7 @@ ro:
         organization_locales: Zona organizației
         primary_color: Primară
         reference_prefix: Prefix de referință
-        rich_text_editor_in_public_views: Activează editorul de text bogat pentru participanți
+        rich_text_editor_in_public_views: Activează editorul de text înbogățit pentru participanți
         secondary_color: Secundar
         secondary_hosts: Gazde secundare
         send_welcome_notification: Trimite notificare de bun venit
@@ -87,16 +87,16 @@ ro:
         user_groups_enabled: Activare grupuri
         users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
-        welcome_notification_body: Organismul de notificare de bun venit
-        welcome_notification_subject: Subiectul notificării de bun venit
+        welcome_notification_body: Corpul notificării de întâmpinare
+        welcome_notification_subject: Subiectul notificării de întâmpinare
         youtube_handler: Handler YouTube
       scope:
         code: Cod
         name: Nume
         organization: Organizație
         parent_id: Părinte
-        scope_type: Tip domeniu
-        scope_type_id: Tip domeniu
+        scope_type: Tip domeniu de aplicare
+        scope_type_id: Tip domeniu de aplicare
       scope_type:
         name: Nume
         organization: Organizație
@@ -737,9 +737,9 @@ ro:
         destroy:
           success: Jetonul a fost eliminat.
         share_tokens:
-          empty: Nu există token-uri active
-          help: Aceste token-uri sunt utilizate pentru a partaja public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de partajare a token-ului pentru a vizita URL-ul partajat.
-          title: Partajați token-urile
+          empty: Nu există jetoane active
+          help: Aceste jetoane sunt utilizate pentru a partaja public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de partajare a jetonului pentru a vizita URL-ul partajat.
+          title: Partajați jetoanele
       shared:
         gallery:
           add_images: Adaugă imagini
@@ -797,6 +797,7 @@ ro:
         impersonatable_users: Participanți gestionabili
         impersonations: Gestionarea participanților
         metrics: Valori
+        panel: Administrator
         participants: Participanți
         scope_types: Tipuri de domeniu
         scopes: Domeniu
@@ -860,8 +861,19 @@ ro:
       errors:
         impersonate_user:
           reason: Trebuie să furnizați un motiv atunci când gestionați un participant negestionat
+    metrics:
+      blocked_users:
+        object: utilizatori blocați
+        title: Utilizatori blocați
+      reported_users:
+        object: utilizator raportat
+        title: Utilizator raportat
+      user_reports:
+        object: rapoarte de utilizator
+        title: Rapoarte de utilizator
     moderations:
       actions:
+        expand: Extinde
         hidden: Hidden
         hide: Ascunde
         not_hidden: Nu este ascuns
@@ -882,17 +894,28 @@ ro:
       models:
         moderation:
           fields:
+            created_at: Data crearii
             hidden_at: Ascuns la
+            participatory_space: Spațiu participativ
             report_count: Număr
+            reportable_id: Id
+            reportable_type: Tip
             reported_content_url: URL-ul conținutului raportat
             reports: Rapoarte
             visit_url: Vizitaţi URL-ul
+        report:
+          fields:
+            details: Detalii motiv
+            locale: Limbă
+            reason: Motiv
   errors:
     messages:
       invalid_json: JSON invalid
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderație globală
         newsletters:
           title: Newslettere
         settings:
