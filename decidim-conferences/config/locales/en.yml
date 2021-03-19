@@ -41,6 +41,11 @@ en:
         logo: Logo
         partner_type: Partner type
         weight: Weight
+      conference_registration_invite:
+        email: Email
+        name: Name
+        registration_type_id: Registration type
+        user_id: User
       conference_registration_type:
         description: Description
         price: Price
@@ -55,6 +60,7 @@ en:
         position: Position
         short_bio: Short Bio
         twitter_handle: Twitter handle
+        user_id: User
       conference_user_role:
         email: Email
         name: Name
