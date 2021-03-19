@@ -41,10 +41,15 @@ en:
         logo: Logo
         partner_type: Partner type
         weight: Weight
+      conference_registration_type:
+        description: Description
+        price: Price
+        title: Title
+        weight: Weight
       conference_speaker:
         affiliation: Affiliation
         avatar: Avatar
-        conference_meeting_ids: Related Meetings
+        conference_meeting_ids: Related meetings
         full_name: Full name
         personal_url: Personal url
         position: Position
