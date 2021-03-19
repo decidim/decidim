@@ -1,4 +1,5 @@
 // = require decidim/map/factory
+// = require decidim/map/integration/forms
 // = require_self
 
 ((exports) => {

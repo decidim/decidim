@@ -31,12 +31,14 @@ module Decidim
       describe "#proposal_preview_data_for_map" do
         subject { helper.proposal_preview_data_for_map(proposal) }
 
+        let(:marker) { subject[:marker] }
+
         it "returns preview data" do
-          expect(subject.first["latitude"]).to eq(latitude)
-          expect(subject.first["longitude"]).to eq(longitude)
-          expect(subject.first["address"]).to eq(address)
-          expect(subject.first["icon"]).to match(/<svg.+/)
-          expect(subject.first["draggable"]).to eq(true)
+          expect(subject[:type]).to eq("drag-marker")
+          expect(marker["latitude"]).to eq(latitude)
+          expect(marker["longitude"]).to eq(longitude)
+          expect(marker["address"]).to eq(address)
+          expect(marker["icon"]).to match(/<svg.+/)
         end
       end
 
