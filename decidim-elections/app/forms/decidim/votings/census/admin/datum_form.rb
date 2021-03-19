@@ -29,17 +29,7 @@ module Decidim
                     presence: true
 
           validates :document_type, inclusion: { in: DOCUMENT_TYPES }
-          validate :hashed_id_data_is_unique
 
-          def hashed_id_data_is_unique
-            errors.add(:hashed_id_data, "hashed_id_data is taken") if Datum.exists?(hashed_id_data: hashed_id_data)
-          end
-
-          # hash of document type and number
-          # useful to find a record
-          def hashed_id_data
-            hash_for [document_number, document_type]
-          end
 
           # hash of birth, document type and number
           # used by the polling officer to identify a person
