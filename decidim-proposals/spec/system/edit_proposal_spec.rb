@@ -148,6 +148,24 @@ describe "Edit proposals", type: :system do
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
+
+    context "when rich text editor is enabled on the frontend" do
+      before do
+        organization.update(rich_text_editor_in_public_views: true)
+        body = proposal.body
+        body["en"] = 'Hello <a href="http://www.linux.org" target="_blank">external link</a> World'
+        proposal.update!(body: body)
+      end
+
+      it "doesnt change the href" do
+        visit_component
+
+        click_link proposal_title
+        click_link "Edit proposal"
+
+        expect(page).to have_link("external link", href: "http://www.linux.org")
+      end
+    end
   end
 
   describe "editing someone else's proposal" do

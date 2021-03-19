@@ -8,7 +8,7 @@
 
     $("a", $target).filter((_i, link) => {
       const $link = $(link);
-      if (!$link[0].hasAttribute("href")) {
+      if (!$link[0].hasAttribute("href") || $link.parents(".ql-editor").length > 0) {
         return false;
       }
 
