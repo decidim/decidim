@@ -49,7 +49,7 @@ module Decidim::Votings::Census::Admin
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)
-      action_log = Decidim::ActionLog.where(resource_type:"Decidim::Votings::Census::Dataset").last
+      action_log = Decidim::ActionLog.where(resource_type: "Decidim::Votings::Census::Dataset").last
       expect(action_log.version).to be_present
       expect(action_log.version.event).to eq "create"
     end

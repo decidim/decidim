@@ -89,12 +89,19 @@ FactoryBot.define do
   end
 
   factory :datum, class: "Decidim::Votings::Census::Datum" do
-    document_number { Faker::IDNumber.spanish_citizen_number }
-    document_type { "DNI" }
-    birthdate { Faker::Date.birthday(min_age: 18, max_age: 65) }
+    document_number = Faker::IDNumber.spanish_citizen_number
+    document_type = "DNI"
+    birthdate = Faker::Date.birthday(min_age: 18, max_age: 65)
+    postal_code = Faker::Address.postcode
+
+    in_person_data = [document_number, document_type, birthdate]
+    check_data = [document_number, document_type, birthdate, postal_code]
+
+    hashed_in_person_data { Digest::SHA256.hexdigest(in_person_data.join(".")) }
+    hashed_check_data { Digest::SHA256.hexdigest(check_data.join(".")) }
+
     full_name { Faker::Name.name }
     full_address { Faker::Address.full_address }
-    postal_code { Faker::Address.postcode }
     mobile_phone_number { Faker::PhoneNumber.cell_phone }
     email { Faker::Internet.email }
     voting { create :voting }
