@@ -1,6 +1,8 @@
 gl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de montaxe
@@ -65,6 +67,12 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento non válido. Formatos aceptados: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -237,8 +245,14 @@ gl:
         create: "%{user_name} creou o membro %{resource_name} no conxunto %{space_name}"
         delete: "%{user_name} eliminou o %{resource_name} membro do conxunto %{space_name}"
         update: "%{user_name} actualizou o membro %{resource_name} na montaxe %{space_name}"
+      assembly_setting:
+        update: "%{user_name} actualizou os axustes de xuntanzas"
       assembly_type:
+        create: "%{user_name} creou o tipo de xuntanza %{resource_name}"
         delete: "%{user_name} eliminou o membro %{resource_name} do espazo %{space_name}"
+        publish: "%{user_name} publicou o tipo de xuntanza %{resource_name}"
+        unpublish: "%{user_name} eliminou o tipo de xuntanza %{resource_name}"
+        update: "%{user_name} actualizou o tipo de xuntanza %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
         delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
@@ -265,6 +279,8 @@ gl:
         assemblies_settings:
           edit:
             update: Actualizar
+          form:
+            title: Axustes das xuntanzas
         assemblies_types:
           form:
             title: Título
@@ -330,6 +346,7 @@ gl:
         home:
           highlighted_assemblies:
             active_assemblies: Asembleas activas
+            assemblies_button_title: Ligazón á páxina de Xuntanzas que amosa todas as xuntanzas
             see_all_assemblies: Ver todos os conxuntos
         user_profile:
           member_of:
@@ -384,6 +401,15 @@ gl:
         designated_on: Designado en
       index:
         title: Membros
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Un administrador da xuntanza <a href="%{resource_url}">%{resource_name}</a> engadiute coma un dos seus membros.
     help:
       participatory_spaces:
         assemblies:
