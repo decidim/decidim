@@ -11,8 +11,6 @@ module Decidim
           attribute :file
 
           validates :file, presence: true
-
-          alias organization current_organization
         end
       end
     end
