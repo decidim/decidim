@@ -10,7 +10,6 @@ class FixCountersForCopiedProposals < ActiveRecord::Migration[5.2]
                  ).pluck(:to_id)
 
     Decidim::Proposals::Proposal.where(id: copies_ids).find_each do |record|
-      record.class.reset_counters(record.id, :follows)
       record.update_comments_count
     end
   end
