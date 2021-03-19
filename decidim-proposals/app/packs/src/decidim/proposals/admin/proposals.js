@@ -3,11 +3,11 @@
 /* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
 $(() => {
-  let selectedProposalsCount = function() {
+  const selectedProposalsCount = function() {
     return $(".table-list .js-check-all-proposal:checked").length
   }
 
-  let selectedProposalsNotPublishedAnswerCount = function() {
+  const selectedProposalsNotPublishedAnswerCount = function() {
     return $(".table-list [data-published-state=false] .js-check-all-proposal:checked").length
   }
 
@@ -61,6 +61,8 @@ $(() => {
 
   // Expose functions to make them avaialble in .js.erb templates
   window.selectedProposalsCount = selectedProposalsCount;
+  window.selectedProposalsNotPublishedAnswerCount = selectedProposalsNotPublishedAnswerCount;
+  window.selectedProposalsCountUpdate = selectedProposalsCountUpdate;
   window.showBulkActionsButton = showBulkActionsButton;
   window.hideBulkActionsButton = hideBulkActionsButton;
   window.showOtherActionsButtons = showOtherActionsButtons;
