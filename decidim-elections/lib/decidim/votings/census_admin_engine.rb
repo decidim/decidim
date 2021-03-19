@@ -10,7 +10,8 @@ module Decidim
 
       initializer "decidim_votings.decidim_voting_menu" do
         Decidim.menu :decidim_voting_menu do |menu|
-          menu.item I18n.t("census", scope: "decidim.votings.admin.menu.votings_submenu"),
+          menu.add_item :voting_census,
+                    I18n.t("census", scope: "decidim.votings.admin.menu.votings_submenu"),
                     decidim_admin_votings.voting_census_path(current_participatory_space),
                     active: is_active_link?(decidim_admin_votings.voting_census_path(current_participatory_space)),
                     if: allowed_to?(:update, :voting, voting: current_participatory_space)
