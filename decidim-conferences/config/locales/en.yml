@@ -35,6 +35,12 @@ en:
         date: Date
         link: Link
         weight: Weight
+      conference_partner:
+        name: Name
+        link: Link
+        logo: Logo
+        partner_type: Partner type
+        weight: Weight
       conference_speaker:
         full_name: Full name
       conference_user_role:
