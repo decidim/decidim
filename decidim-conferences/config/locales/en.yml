@@ -16,6 +16,7 @@ en:
         hashtag: Hashtag
         hero_image: Home image
         location: Location
+        main_logo: Main logo
         objectives: Objectives
         participatory_processes_ids: Related participatory processes
         promoted: Highlighted
@@ -26,6 +27,9 @@ en:
         scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
+        sign_date: Sign date
+        signature: Signature
+        signature_name: signature name
         slogan: Slogan
         slug: URL slug
         start_date: Start date
