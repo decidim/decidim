@@ -81,6 +81,7 @@ gl:
       actions:
         import_assembly: Importar
         new_assembly: Nova montaxe
+        new_assembly_type: Novo tipo de xuntanza
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
@@ -107,16 +108,30 @@ gl:
           error: Produciuse un problema ao actualizar os axustes.
           success: Axustes actualizados con éxito.
       assemblies_types:
+        create:
+          error: Produciuse un problema ao crear un novo tipo de xuntanza.
+          success: Tipo de xuntanza creado con éxito.
+        destroy:
+          success: Tipo de xuntanza eliminado con éxito.
         new:
           create: Crear
+          title: Novo tipo de xuntanza
+        update:
+          error: Produciuse un problema ao actualizar este tipo de xuntanza.
+          success: Tipo de xuntanza modificado con éxito.
       assembly_copies:
         new:
           copy: Copiar
           select: Seleccione os datos que desexa duplicar
           title: Conxunto duplicado
       assembly_imports:
+        create:
+          error: Produciuse un problema ao importar esta xuntanza.
+          success: Xuntanza importada con éxito.
         new:
           import: Importar
+          select: Selecciona que tipo de datos desexas importar
+          title: Importar xuntanza
       assembly_members:
         create:
           error: Produciuse un erro ao engadir un membro para este conxunto.
@@ -171,6 +186,7 @@ gl:
           info: Información
           moderations: Moderacións
           private_users: Usuarios privados
+        assemblies_types: Tipos de xuntanzas
       models:
         assemblies_types:
           fields:
@@ -206,8 +222,10 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador/a
       titles:
         assemblies: Asembleas
+        assemblies_types: Tipo de xuntanzas
     admin_log:
       assembly:
         create: "%{user_name} creou o conxunto %{resource_name}"
@@ -339,6 +357,7 @@ gl:
         related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         social_networks: Redes Sociais
+        social_networks_title: Compartir esta xuntanza en
         target: Quen participa
     assembly_members:
       assembly_member:
@@ -362,6 +381,11 @@ gl:
         description: Número de xuntanzas creadas
         object: xuntanzas
         title: Xuntanzas
+    participatory_processes:
+      show:
+        related_assemblies: Xuntanzas relacionadas
+    statistics:
+      assemblies_count: Xuntanzas
   errors:
     messages:
       cannot_be_blank: non pode estar baleiro
@@ -372,6 +396,7 @@ gl:
           more_info: Máis información
           take_part: Participar
         index:
+          children: 'Xuntanzas: '
           organizational_chart: Organigrama
           promoted_assemblies: Xuntanzas destacadas
           reset_chart: Restablecer
