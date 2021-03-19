@@ -32,7 +32,7 @@ module Decidim::Votings::Census::Admin
 
     let(:form) { DatumForm.from_params(params).with_context(context) }
 
-    let(:document_number) { "123456789Y"}
+    let(:document_number) { "123456789Y" }
     let(:email) {"example@test.org"}
 
     context "when the form is not valid" do
@@ -45,23 +45,6 @@ module Decidim::Votings::Census::Admin
 
     it "broadcasts ok" do
       expect(subject.call).to broadcast(:ok)
-    end
-
-    it "traces the action", versioning: true do
-      expect(Decidim.traceability)
-        .to receive(:create)
-        .with(
-          Decidim::Votings::Census::Datum,
-          user,
-          kind_of(Hash),
-          visibility: "admin-only"
-        )
-        .and_call_original
-
-      expect { subject.call }.to change(Decidim::ActionLog, :count)
-      action_log = Decidim::ActionLog.where(resource_type: "Decidim::Votings::Census::Datum").last
-      expect(action_log.version).to be_present
-      expect(action_log.version.event).to eq "create"
     end
   end
 end

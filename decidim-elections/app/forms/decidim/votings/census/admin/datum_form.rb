@@ -30,7 +30,6 @@ module Decidim
 
           validates :document_type, inclusion: { in: DOCUMENT_TYPES }
 
-
           # hash of birth, document type and number
           # used by the polling officer to identify a person
           def hashed_in_person_data
