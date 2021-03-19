@@ -26,15 +26,13 @@
     <% if component_settings.geocoding_enabled? %>
       <% if has_position?(@proposal) %>
         <%= render partial: "dynamic_map_instructions" %>
-        <%= dynamic_map_for proposal_preview_data_for_map(@proposal) do %>
-          <%= stylesheet_link_tag "decidim/map" %>
-        <% end %>
+        <%= dynamic_map_for proposal_preview_data_for_map(@proposal), "data-connected-input" => ".coordinates-input" %>
         <%= decidim_form_for(@form, url: update_draft_proposal_path(@form), html: { method: :patch }) do |form| %>
           <%= form.hidden_field :title, value: form_presenter.title %>
           <%= form.hidden_field :body, value: form_presenter.body %>
           <%= form.hidden_field :address %>
-          <%= form.hidden_field :latitude, data: { type: "latitude" } %>
-          <%= form.hidden_field :longitude, data: { type: "longitude" } %>
+          <%= form.hidden_field :latitude, class: "coordinates-input", data: { type: "latitude" } %>
+          <%= form.hidden_field :longitude, class: "coordinates-input", data: { type: "longitude" } %>
           <div class="preview--form__hidden">
             <% if @form.categories&.any? %>
               <%= form.categories_select :category_id, @form.categories %>

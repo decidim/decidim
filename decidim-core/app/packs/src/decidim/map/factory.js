@@ -1,5 +1,6 @@
 import MapMarkersController from "./controller/markers"
 import MapStaticController from "./controller/static"
+import MapDragMarkerController from "./controller/drag_marker"
 
 /**
  * A factory method that creates a new map controller instance. This method
@@ -35,6 +36,8 @@ import MapStaticController from "./controller/static"
 export default function createMapController(mapId, config) {
   if (config.type === "static") {
     return new MapStaticController(mapId, config);
+  } else if (config.type === "drag-marker") {
+    return new MapDragMarkerController(mapId, config);
   }
 
   return new MapMarkersController(mapId, config);
