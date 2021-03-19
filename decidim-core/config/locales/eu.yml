@@ -805,24 +805,7 @@ eu:
         metrics:
           headline: Zifretan parte hartzea
         statistics:
-          answers_count: Amaitutako inkestak
-          assemblies_count: Batzar
-          comments_count: Iruzkinak
-          conferences_count: Jardunaldiak
-          debates_count: Eztabaidak
-          endorsements_count: Oniritziak
           headline: '%{organization} erakundearen egungo egoera'
-          meetings_count: Bilerak
-          orders_count: Euskarriak
-          pages_count: Orriak
-          processes_count: Prozesuak
-          projects_count: Proiektuak
-          proposals_accepted: Onartutako proposamenak
-          proposals_count: proposamenak
-          results_count: Emaitzak
-          surveys_count: Inkestak
-          users_count: Parte-hartzaileak
-          votes_count: Euskarriak
         sub_hero:
           register: Erregistroa
       index:
@@ -968,6 +951,8 @@ eu:
         close_window: Itxi leihoa
         share: Partekatu
         share_link: Partekatu esteka
+    statistics:
+      comments_count: Iruzkinak
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.

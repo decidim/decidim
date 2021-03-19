@@ -33,54 +33,24 @@ module Decidim
 
     describe "#highlighted" do
       it "renders a collection of high priority stats including users and proceses" do
-        a =
-          "<div class=\"home-pam__highlight\">" \
-            "<div class=\"home-pam__data\">" \
-              "<h4 class=\"home-pam__title\">Participants</h4>" \
-              "<span class=\"home-pam__number users_count\"> 1</span>" \
-            "</div>" \
-            "<div class=\"home-pam__data\">" \
-              "<h4 class=\"home-pam__title\">Processes</h4>" \
-              "<span class=\"home-pam__number processes_count\"> 1</span>" \
-            "</div>" \
-          "</div>" \
-          "<div class=\"home-pam__highlight\">" \
-            "<div class=\"home-pam__data\">" \
-              "<h4 class=\"home-pam__title\">Assemblies</h4>" \
-              "<span class=\"home-pam__number assemblies_count\"> 1</span>" \
-            "</div>" \
-            "<div class=\"home-pam__data\">" \
-              "<h4 class=\"home-pam__title\">Foo</h4>" \
-              "<span class=\"home-pam__number foo\"> 10</span>" \
-            "</div>" \
-          "</div>" \
-          "<div class=\"home-pam__highlight\">" \
-            "<div class=\"home-pam__data\">" \
-              "<h4 class=\"home-pam__title\">Dummies high</h4>" \
-              "<span class=\"home-pam__number dummies_count_high\"> 20</span>" \
-            "</div>" \
-          "</div>"
-        expect(subject.highlighted).to eq(a)
+        stats =
+          [{ stat_number: 1, stat_title: :users_count },
+           { stat_number: 1, stat_title: :processes_count },
+           { stat_number: 1, stat_title: :assemblies_count },
+           { stat_number: 10, stat_title: :foo },
+           { stat_number: 20, stat_title: :dummies_count_high }]
+
+        expect(subject.highlighted).to eq(stats)
       end
     end
 
     describe "#not_highlighted" do
       it "renders a collection of medium priority stats" do
-        expect(subject.not_highlighted).to eq(
-          "<div class=\"home-pam__lowlight\">" \
-            "<div class=\"home-pam__data\">" \
-              "<h4 class=\"home-pam__title\">Bar</h4>" \
-              "<span class=\"home-pam__number bar\"> 20</span>" \
-            "</div>" \
-            "<div class=\"home-pam__data\">" \
-              "<h4 class=\"home-pam__title\">Dummies medium</h4>" \
-              "<span class=\"home-pam__number dummies_count_medium\"> 200</span>" \
-            "</div>" \
-            "<div class=\"home-pam__data\">" \
-              "&nbsp;" \
-            "</div>" \
-          "</div>"
-        )
+        stats =
+          [{ stat_number: 20, stat_title: :bar },
+           { stat_number: 200, stat_title: :dummies_count_medium }]
+
+        expect(subject.not_highlighted).to eq(stats)
       end
     end
   end

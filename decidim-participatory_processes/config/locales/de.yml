@@ -34,7 +34,7 @@ de:
         subtitle: Untertitel
         target: Wer nimmt teil?
         title: Titel
-        weight: Gewicht
+        weight: Bestellposition
       participatory_process_group:
         description: Beschreibung
         developer_group: Gruppe der Unterstützer
@@ -449,25 +449,8 @@ de:
         start_date: Startdatum
         target: Wer nimmt teil?
         unspecified: Keine Angabe
-      statistics:
-        answers_count: Antworten
-        comments_count: Bemerkungen
-        debates_count: Debatten
-        endorsements_count: Empfehlungen
-        followers_count: Follower
-        headline: Aktivität
-        meetings_count: Meetings
-        no_stats: Es gibt noch keine Statistiken.
-        orders_count: Stimmen
-        pages_count: Seiten
-        participants_count: Teilnehmer
-        processes_count: Beteiligungsprozesse
-        projects_count: Projekte
-        proposals_count: Vorschläge
-        results_count: Ergebnisse
-        supports_count: Stimmen
-        surveys_count: Umfragen
-        users_count: Teilnehmer
+    statistics:
+      processes_count: Beteiligungsprozesse
   layouts:
     decidim:
       participatory_process_groups:

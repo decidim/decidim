@@ -24,7 +24,6 @@ ro:
       component:
         name: Nume
         published_at: Publicat la
-        weight: Greutate
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -33,6 +32,7 @@ ro:
         subject: Subiect
       organization:
         alert_color: Alertă
+        available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
         cta_button_path: Calea butonului Apel la acţiune
@@ -43,6 +43,8 @@ ro:
         enable_omnipresent_banner: Show omnipresent banner
         facebook_handler: Manipulator Facebook
         favicon: Iconiță
+        force_authentication: Forțează autentificarea
+        force_users_to_authenticate_before_access_organization: Forțează utilizatorii să se autentifice înainte de a accesa organizația
         from: De la adresa de e-mail
         github_handler: GitHub handler
         header_snippets: Snippet-uri antet
@@ -55,6 +57,7 @@ ro:
         highlighted_content_banner_image: Imagine
         highlighted_content_banner_short_description: Descriere scurtă
         highlighted_content_banner_title: Titlu
+        host: Gazdă
         instagram_handler: Gestionar instagram
         logo: Logo
         machine_translation_display_priority_original: Mai întâi textul original
@@ -66,6 +69,8 @@ ro:
         omnipresent_banner_short_description: Descriere scurtă
         omnipresent_banner_title: Titlu
         omnipresent_banner_url: URL
+        organization_admin_email: E-mail administrator organizație
+        organization_admin_name: Nume administrator organizație
         primary_color: Primară
         reference_prefix: Prefix de referință
         rich_text_editor_in_public_views: Activează editorul de text bogat pentru participanți
@@ -76,6 +81,7 @@ ro:
         tos_version: Termenii versiunii serviciului
         twitter_handler: Twitter handler
         user_groups_enabled: Activare grupuri
+        users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
         welcome_notification_body: Organismul de notificare de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
@@ -92,18 +98,17 @@ ro:
         organization: Organizație
         plural: Plural
       static_page:
+        allow_public_access: Permiteți accesul fără autentificare
         changed_notably: Au existat schimbări vizibile.
         content: Conținut
         organization: Organizație
         show_in_footer: Arată în subsol
         slug: URL slug
         title: Titlu
-        weight: Greutate
       static_page_topic:
         description: Descriere
         show_in_footer: Arată în subsol
         title: Titlu
-        weight: Greutate
       user_group_csv_verification:
         file: Fişier
     errors:
@@ -132,10 +137,15 @@ ro:
     admin:
       actions:
         add: Adăugare
+        attachment:
+          new: Atașament nou
+        attachment_collection:
+          new: Colecție nouă de atașamente
         browse: Răsfoiţi
         category:
           new: Adaugă Categorie
         export: Exportă
+        import: Importă
         manage: Gestionează
         new: '%{name} nou'
         per_page: Pe pagină

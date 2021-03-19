@@ -205,7 +205,6 @@ eu:
             price: Prezioa
             registrations_count: Erregistroak zenbatzea
             title: Izenburua
-            weight: pisu
           name: Izen-emate mota
       partners:
         create:
@@ -482,23 +481,6 @@ eu:
         related_assemblies: Lotutako Batzarrak
         related_consultations: Lotutako kontsultak
         related_participatory_processes: Parte hartze prozesu erlazionatuak
-      statistics:
-        answers_count: Erantzunak
-        comments_count: Oharrak
-        conference_count: Jardunaldiak
-        debates_count: eztabaidak
-        endorsements_count: Oniritziak
-        headline: Jarduera
-        meetings_count: Bilerak
-        orders_count: Botoak
-        pages_count: orrialdeak
-        posts_count: Mezuak
-        projects_count: Proiektuak
-        proposals_count: proposamenak
-        results_count: Emaitzak
-        surveys_count: Inkestak
-        users_count: Parte-hartzaileak
-        votes_count: Botoak
     events:
       conferences:
         conference_registration_confirmed:

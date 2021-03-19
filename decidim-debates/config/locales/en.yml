@@ -172,6 +172,7 @@ en:
         versions_list:
           back_to_resource: Go back to debate
       last_activity:
+        debate_updated_at_html: "<span>Debate updated at %{link}</span>"
         new_debate_at_html: "<span>New debate at %{link}</span>"
       models:
         debate:
@@ -235,3 +236,5 @@ en:
         description: Number of debates created
         object: debates
         title: Debates
+    statistics:
+      debates_count: Debates

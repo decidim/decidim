@@ -40,17 +40,11 @@ it:
           next_level_in: Crea altri %{score} test per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora creato alcun test.
           unearned_own: Non hai ancora creato alcun test.
-    pages:
-      home:
-        statistics:
-          bar: Bar
-          dummies_count_high: Manichini in alto
-          dummies_count_medium: Manichino medio
-          foo: foo
-    participatory_processes:
-      statistics:
-        dummies_count_high: Manichini in alto
-        dummies_count_medium: Manichino medio
     resource_links:
       test_link:
         dummy_resource_dummy: Risorse fittizie correlate
+    statistics:
+      bar: Bar
+      dummies_count_high: Manichini in alto
+      dummies_count_medium: Manichino medio
+      foo: foo

@@ -50,6 +50,19 @@ module Decidim
         [:trustees]
       end
 
+      initializer "decidim_admin_elections.menu_entry" do
+        Decidim.menu :admin_participatory_process_menu do |menu|
+          component = current_participatory_space.components.find_by(manifest_name: :elections)
+          if component
+            menu.add_item :trustees,
+                          "Trustees", # I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                          Decidim::EngineRouter.admin_proxy(component).trustees_path,
+                          active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path),
+                          if: allowed_to?(:update, :process, process: current_participatory_space)
+          end
+        end
+      end
+
       initializer "decidim_admin_elections.view_hooks" do
         Decidim::Admin.view_hooks.register(:admin_secondary_nav, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           component = view_context.current_participatory_space.components.find_by(manifest_name: :elections)

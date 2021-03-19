@@ -153,7 +153,6 @@ sl:
           assembly_members: Člani
           attachment_collections: Mape
           attachment_files: Datoteke
-          attachments: Priponke
           categories: Kategorije
           components: Komponente
           info: Informacije
@@ -233,21 +232,6 @@ sl:
         scope: Področje
         social_networks: Socialna omrežja
         target: Kdor je prisostoval
-      statistics:
-        answers_count: Odgovori
-        assemblies_count: Združbe
-        comments_count: Komentarji
-        debates_count: Debate
-        meetings_count: Sestanki
-        orders_count: Podpora
-        pages_count: Strani
-        posts_count: Objave
-        projects_count: Projekti
-        proposals_count: Predlogi
-        results_count: Rezultati
-        surveys_count: Ankete
-        users_count: Udeleženci
-        votes_count: Podpora
     help:
       participatory_spaces:
         assemblies:

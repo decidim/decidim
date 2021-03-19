@@ -6,7 +6,7 @@ fi:
         description: Kuvaus
         title: Otsikko
         total_budget: Kokonaisbudjetti
-        weight: Painoarvo
+        weight: Järjestysnumero
       project:
         budget_amount: Budjetti
         decidim_category_id: Aihepiiri
@@ -290,6 +290,9 @@ fi:
         success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:
-        project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
+        project_proposal: Tähän projektiin liittyvät ehdotukset
+    statistics:
+      orders_count: Kannatusta
+      projects_count: Suunnitelmaa
   index:
     confirmed_orders_count: Äänten määrä

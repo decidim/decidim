@@ -212,7 +212,7 @@ pl:
             create: Utwórz
             title: Nowy program
           update:
-            invalid: Wystąpił problem podczas aktualizowania tego programu
+            invalid: Wystąpił błąd podczas aktualizowania tego programu
             success: Program został zaktualizowany
         exports:
           meeting_comments: Komentarze
@@ -225,7 +225,7 @@ pl:
             join: Dołącz do spotkania "%{meeting_title}"
         invites:
           create:
-            error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
+            error: Wystąpił błąd przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
             success: Zaproszono użytkownika do udziału w spotkaniu.
           form:
             attendee_type: Typ uczestnika
@@ -269,12 +269,12 @@ pl:
             update: Aktualizuj
           form:
             address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
-            available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych okienek czasowych
-            disclaimer: 'Wyłączenie odpowiedzialności: Korzystając z zewnętrznego systemu rejestracji, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników do usługi zewnętrznej.'
+            available_slots_help: Pozostaw 0, jeśli masz dostęp do nieograniczonej liczby miejsc
+            disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
             location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
             location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostępem.'
             online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
-            registration_url_help: 'Link: zezwól uczestnikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
+            registration_url_help: 'Link: zezwól użytkownikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
             select_a_meeting_type: Wybierz typ spotkania
             select_a_registration_type: Wybierz typ rejestracji
           index:
@@ -373,6 +373,7 @@ pl:
             space_type: Przestrzeń partycypacyjna
             upcoming: Nadchodzące
       last_activity:
+        meeting_updated_at_html: "<span>Spotkanie zaktualizowane o %{link}</span>"
         new_meeting_at_html: "<span>Nowe spotkanie %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -522,7 +523,7 @@ pl:
           invalid: Wystąpił błąd podczas próby odrzucenia zaproszenia.
           success: Zaproszenie zostało odrzucone.
         destroy:
-          invalid: Wystąpił problem podczas próby opuszczenia tego spotkania.
+          invalid: Wystąpił błąd podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
       type_of_meeting:
         hybrid: Oba
@@ -552,6 +553,8 @@ pl:
       proposals_from_meeting:
         meeting_proposal: 'Powiązane propozycje:'
         proposal_meeting: 'Powiązane spotkania:'
+    statistics:
+      meetings_count: Spotkania
   devise:
     mailer:
       join_meeting:

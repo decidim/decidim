@@ -175,6 +175,7 @@ pl:
         versions_list:
           back_to_resource: Wróć do debaty
       last_activity:
+        debate_updated_at_html: "<span>Debata zaktualizowana o %{link}</span>"
         new_debate_at_html: "<span>Nowa debata pod adresem %{link}</span>"
       models:
         debate:
@@ -238,3 +239,5 @@ pl:
         description: Liczba utworzonych debat
         object: debaty
         title: Debaty
+    statistics:
+      debates_count: Debaty

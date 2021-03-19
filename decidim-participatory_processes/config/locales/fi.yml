@@ -34,7 +34,7 @@ fi:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       participatory_process_group:
         description: Kuvaus
         developer_group: Edistäjäryhmä
@@ -449,25 +449,8 @@ fi:
         start_date: Alkamispäivä
         target: Kuka osallistuu
         unspecified: Ei määritelty
-      statistics:
-        answers_count: Vastausta
-        comments_count: Kommenttia
-        debates_count: Keskustelua
-        endorsements_count: Suositusta
-        followers_count: Seuraajia
-        headline: Tilastot
-        meetings_count: Tapaamista
-        no_stats: Tilastoja ei ole vielä saatavilla.
-        orders_count: Kannatusta
-        pages_count: Sivua
-        participants_count: Osallistujaa
-        processes_count: Prosessia
-        projects_count: Suunnitelmaa
-        proposals_count: Ehdotusta
-        results_count: Tulosta
-        supports_count: Kannatusta
-        surveys_count: Kyselyä
-        users_count: Osallistujaa
+    statistics:
+      processes_count: Prosessia
   layouts:
     decidim:
       participatory_process_groups:

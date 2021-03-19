@@ -6,7 +6,6 @@ zh-CN:
         description: 描述
         title: 标题
         total_budget: 预算总额
-        weight: 权重
       project:
         budget_amount: 预算金额
         decidim_category_id: 类别
@@ -248,8 +247,5 @@ zh-CN:
       destroy:
         error: 取消投票时出现问题
         success: 您的投票已成功取消
-    resource_links:
-      included_proposals:
-        project_proposal: '本项目中的建议：'
   index:
     confirmed_orders_count: 所得票数

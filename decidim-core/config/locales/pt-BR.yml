@@ -804,24 +804,7 @@ pt:
         metrics:
           headline: Participação em números
         statistics:
-          answers_count: Inquéritos concluídos
-          assemblies_count: Assembleias
-          comments_count: Comentários
-          conferences_count: Conferências
-          debates_count: Debates
-          endorsements_count: Avais
           headline: Estado atual de %{organization}
-          meetings_count: Encontros
-          orders_count: Votos
-          pages_count: Páginas
-          processes_count: Processos
-          projects_count: Projetos
-          proposals_accepted: Propostas aceitas
-          proposals_count: Propostas
-          results_count: Resultados
-          surveys_count: pesquisas
-          users_count: Participantes
-          votes_count: Votos
         sub_hero:
           register: Registrar-se
       index:
@@ -966,6 +949,8 @@ pt:
         close_window: Fechar janela
         share: Compartilhar
         share_link: Partilhar link
+    statistics:
+      comments_count: Comentários
     user_activity:
       index:
         no_activities_warning: Este usuário ainda não possui nenhuma atividade.

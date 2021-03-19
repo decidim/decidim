@@ -74,7 +74,7 @@ module Decidim
 
     scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }
     scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
-    scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gt(Date.current).or(arel_table[:end_date].eq(nil)))) }
+    scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gteq(Date.current).or(arel_table[:end_date].eq(nil)))) }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
@@ -124,7 +124,7 @@ module Decidim
     def active?
       return false if start_date.blank?
 
-      start_date < Date.current && (end_date.blank? || end_date > Date.current)
+      start_date <= Date.current && (end_date.blank? || end_date >= Date.current)
     end
 
     def past?

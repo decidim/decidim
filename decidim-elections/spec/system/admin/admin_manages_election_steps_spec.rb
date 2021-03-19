@@ -204,4 +204,47 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
       end
     end
   end
+
+  describe "tally ended" do
+    let!(:election) { create :election, :bb_test, :tally_ended, component: current_component }
+    let!(:question) { election.questions.first }
+    let!(:answer) { question.answers.first }
+
+    it "shows the calculated results" do
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--manage-steps").click
+      end
+
+      within ".form.tally_ended" do
+        expect(page).to have_content("Calculated results")
+        expect(page).to have_content(translated(question.title))
+        expect(page).to have_content(translated(answer.title))
+        expect(page).to have_content(answer.votes_count)
+      end
+    end
+  end
+
+  describe "publishing results" do
+    let!(:election) { create :election, :bb_test, :tally_ended, component: current_component }
+    let!(:question) { election.questions.first }
+    let!(:answer) { question.answers.first }
+
+    it "performs the action successfully" do
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--manage-steps").click
+      end
+
+      within ".form.tally_ended" do
+        expect(page).to have_content("Calculated results")
+
+        click_button "Publish results"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within ".form.results_published" do
+        expect(page).to have_content("Results published")
+      end
+    end
+  end
 end

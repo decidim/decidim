@@ -21,8 +21,12 @@ ca:
           global:
             announcement: Avís
             clean_after_publish: Esborrar les respostes en publicar l'enquesta
+            ends_at: Respostes acceptades fins a
+            ends_at_help: Deixar en blanc per cap data específica
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            starts_at: Respostes acceptades de
+            starts_at_help: Deixar en blanc per cap data específica
           step:
             allow_answers: Permetre respostes
             allow_unregistered: Permet a usuàries no registrades contestar l'enquesta

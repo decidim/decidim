@@ -379,7 +379,7 @@ cs:
         name: Zástupná část
         settings:
           global:
-            amendments_enabled: Změny povoleny
+            amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentářů
             dummy_global_attribute_1: Zástupný atribut 1
@@ -686,7 +686,7 @@ cs:
       subject: Váš export "%{name}" je připraven
     filters:
       linked_classes:
-        all: Všechno
+        all: Vše
         collaborative_draft: Návrh spolupráce
         dummy_resource: Dummy prostředky
         meeting: Setkání
@@ -694,10 +694,10 @@ cs:
         proposal: Návrhy
         result: Výsledky
     fingerprint:
-      check: Kontrola otisků prstů
-      explanation: Níže uvedený text je zkráceným, rušivým znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl narušován, protože jediná změna by vedla k úplně jiné hodnotě.
+      check: Ověřit identifikaci
+      explanation: Níže uvedený text je zkráceným, zakódovaným znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl pozměněn, protože jediná změna by vedla k úplně jiné hodnotě.
       online_calculator_name: MD5 kalkulačka online
-      replicate_help: Tento otisk prstu se vypočítá algoritmem SHA256. Abyste je mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
+      replicate_help: Tato digitální identifikace se vypočítá algoritmem SHA256. Abyste ji mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
       source: Zdroj
       title: Digitální otisk
       value: Hodnota
@@ -1091,24 +1091,7 @@ cs:
         metrics:
           headline: Metriky
         statistics:
-          answers_count: Dokončené průzkumy
-          assemblies_count: Shromáždění
-          comments_count: Komentáře
-          conferences_count: Konference
-          debates_count: Debaty
-          endorsements_count: Schválení
           headline: Aktuální stav %{organization}
-          meetings_count: Setkání
-          orders_count: Hlasy
-          pages_count: Stránky
-          processes_count: Procesy
-          projects_count: Projekty
-          proposals_accepted: Přijaté návrhy
-          proposals_count: Návrhy
-          results_count: Výsledek
-          surveys_count: Průzkumy
-          users_count: Účastníci
-          votes_count: Hlasy
         sub_hero:
           register: Registrovat
       index:
@@ -1211,7 +1194,7 @@ cs:
         currently_selected: Aktuálně vybraný rozsah
         title: Vyberte %{field}
       prompt: Vyberte oblast
-      scopes: Scopes
+      scopes: Oblasti působnosti
       scopes_picker_input:
         select_scope: 'Vyberte rozsah (v současné době: %{current})'
     search:
@@ -1221,12 +1204,12 @@ cs:
     searches:
       filters:
         back: Zpět na výsledky
-        jump_to: 'Skočit do:'
+        jump_to: 'Přejít na:'
         state:
           active: Aktivní
-          all: Všechno
-          future: Budoucnost
-          past: Minulost
+          all: Vše
+          future: Budoucí
+          past: Minulé
       filters_small_view:
         close_modal: Zavřít modální
         filter: Filtr
@@ -1302,6 +1285,15 @@ cs:
         close_window: Zavřete okno
         share: Sdílet
         share_link: Sdílet odkaz
+    statistics:
+      comments_count: Komentáře
+      endorsements_count: Schválení
+      followers_count: Sledující
+      headline: Statistiky
+      no_stats: Zatím nejsou žádné statistiky.
+      pages_count: Stránky
+      participants_count: Účastníci
+      users_count: Účastníci
     tags:
       filter_results_for_category: 'Filtrovat výsledky pro kategorii: %{resource}'
       filter_results_for_scope: 'Výsledky filtru pro rozsah: %{resource}'

@@ -115,6 +115,8 @@ ja:
           questions: 質問
           results: 結果
         questions_submenu:
+          attachments: 添付ファイル
+          categories: カテゴリ
           components: コンポーネント
           configuration: 設定
           consultation: 議案
@@ -311,10 +313,6 @@ ja:
           title: 議案とは何ですか?
     menu:
       consultations: 議案
-    pages:
-      home:
-        statistics:
-          consultations_count: 議案
     questions:
       next_button: 次の質問
       previous_button: 前の質問
@@ -351,10 +349,6 @@ ja:
           vote: 投票
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: 添付ファイル
-          categories: カテゴリ
       consultation_voting_data:
         start_voting_date: 投票が始まります
       question_components:

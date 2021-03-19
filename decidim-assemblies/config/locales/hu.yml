@@ -186,7 +186,6 @@ hu:
           assembly_members: Tagok
           attachment_collections: Mappák
           attachment_files: Fájlok
-          attachments: Mellékletek
           categories: Kategóriák
           components: Elemek
           info: Info
@@ -372,22 +371,6 @@ hu:
         social_networks: Közösségi háló
         social_networks_title: Ennek a gyűlésnek a megosztása
         target: Ki vesz részt benne
-      statistics:
-        answers_count: Válaszok
-        assemblies_count: Gyűlések
-        comments_count: Hozzászólások
-        debates_count: Viták
-        endorsements_count: Jóváhagyások
-        meetings_count: Találkozók
-        orders_count: Támogatja
-        pages_count: Oldalak
-        posts_count: Bejegyzések
-        projects_count: Projektek
-        proposals_count: Javaslatok
-        results_count: Eredmények
-        surveys_count: Felmérések
-        users_count: Résztvevők
-        votes_count: Támogatók
     assembly_members:
       assembly_member:
         designated_on: Kijelölt

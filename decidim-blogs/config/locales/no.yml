@@ -75,10 +75,3 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å følge den fra den forrige lenken.
           email_subject: Nytt innlegg publisert i %{participatory_space_title}
           notification_title: Innlegget <a href="%{resource_path}">%{resource_title}</a> er blitt publisert til %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Innlegg
-    participatory_processes:
-      statistics:
-        posts_count: Innlegg

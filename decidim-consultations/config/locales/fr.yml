@@ -120,6 +120,8 @@ fr:
           questions: Questions
           results: Résultats
         questions_submenu:
+          attachments: Documents liés
+          categories: Catégories
           components: Fonctionnalités
           configuration: Configuration
           consultation: Votation
@@ -324,10 +326,6 @@ fr:
           title: Que sont les consultations?
     menu:
       consultations: Votations
-    pages:
-      home:
-        statistics:
-          consultations_count: Votations
     questions:
       next_button: Question suivante
       previous_button: Question précédente
@@ -364,10 +362,6 @@ fr:
           vote: Voter
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Documents liés
-          categories: Catégories
       consultation_voting_data:
         start_voting_date: Le vote commence le
       question_components:

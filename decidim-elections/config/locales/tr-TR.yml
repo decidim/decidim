@@ -213,11 +213,8 @@ tr:
           filter_by: Şuna göre filtrele
           unfold: Aç
         preview:
-          available_answers: Mevcut cevaplar
-          description: Oylama sürecinde bulacağınız sorular bunlar
           title: Seçim soruları
         results:
-          description: Bunlar, her soru için oylamanın sonuçlarıdır
           selected: Seçili
           title: Seçim sonuçları
           votes:
@@ -357,13 +354,6 @@ tr:
             email_outro: Bu bildirimi, %{resource_name} için vekil kişi olarak eklendiğiniz için aldınız.
             email_subject: '%{resource_name} için vekil birisiniz.'
             notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
-    pages:
-      home:
-        statistics:
-          elections_count: Seçimler
-    participatory_processes:
-      statistics:
-        elections_count: Seçimler
   layouts:
     decidim:
       election_votes_header:

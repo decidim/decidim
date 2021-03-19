@@ -986,24 +986,7 @@ zh-CN:
         metrics:
           headline: 指标
         statistics:
-          answers_count: 已完成的调查
-          assemblies_count: 程序集
-          comments_count: 评论
-          conferences_count: 会议
-          debates_count: 辩论
-          endorsements_count: 授权
           headline: 当前状态 %{organization}
-          meetings_count: 会议
-          orders_count: 所得票数
-          pages_count: 页 次
-          processes_count: 进程
-          projects_count: 项目
-          proposals_accepted: 已接受的提议
-          proposals_count: 建议
-          results_count: 成果
-          surveys_count: 调查
-          users_count: 参加者
-          votes_count: 所得票数
         sub_hero:
           register: 注册
       index:
@@ -1180,6 +1163,8 @@ zh-CN:
         close_window: 关闭窗口
         share: 分享
         share_link: 分享链接
+    statistics:
+      comments_count: 评论
     tags:
       filter_results_for_category: '分类筛选结果: %{resource}'
       filter_results_for_scope: '范围筛选结果: %{resource}'

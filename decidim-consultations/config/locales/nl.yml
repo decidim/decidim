@@ -120,6 +120,8 @@ nl:
           questions: vragen
           results: Resultaten
         questions_submenu:
+          attachments: Bijlagen
+          categories: Categorieën
           components: Onderdelen
           configuration: Configuratie
           consultation: Raadpleging
@@ -322,10 +324,6 @@ nl:
           title: Wat zijn raadplegingen?
     menu:
       consultations: Burgerinspraaken
-    pages:
-      home:
-        statistics:
-          consultations_count: Raadplegingen
     questions:
       next_button: Volgende vraag
       previous_button: Vorige vraag
@@ -360,12 +358,11 @@ nl:
       consultations:
         actions:
           vote: Stem
+    statistics:
+      consultations_count: Raadplegingen
+      votes_count: Stemmen
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Bijlagen
-          categories: Categorieën
       consultation_voting_data:
         start_voting_date: Stemmen begint
       question_components:

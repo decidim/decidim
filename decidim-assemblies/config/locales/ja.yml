@@ -186,7 +186,6 @@ ja:
           assembly_members: メンバー
           attachment_collections: フォルダ
           attachment_files: ファイル
-          attachments: 添付ファイル
           categories: カテゴリ
           components: コンポーネント
           info: 情報
@@ -376,22 +375,6 @@ ja:
         social_networks: ソーシャル ネットワーク
         social_networks_title: この参加スペースを共有
         target: 参加者
-      statistics:
-        answers_count: 回答
-        assemblies_count: 参加スペース
-        comments_count: コメント
-        debates_count: ディベート
-        endorsements_count: 支持
-        meetings_count: ミーティング
-        orders_count: サポート
-        pages_count: ページ
-        posts_count: 投稿
-        projects_count: プロジェクト
-        proposals_count: 提案
-        results_count: 結果
-        surveys_count: 調査
-        users_count: 参加者
-        votes_count: サポート
     assembly_members:
       assembly_member:
         designated_on: 指定日時：

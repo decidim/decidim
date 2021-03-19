@@ -65,9 +65,9 @@ describe Decidim::Admin::Import::Importer do
     it_behaves_like "proposal importer"
   end
 
-  context "with XLS" do
-    let(:file) { File.new Decidim::Dev.asset("import_proposals.xls") }
-    let(:reader) { Decidim::Admin::Import::Readers::XLS }
+  context "with XLSX" do
+    let(:file) { File.new Decidim::Dev.asset("import_proposals.xlsx") }
+    let(:reader) { Decidim::Admin::Import::Readers::XLSX }
 
     it_behaves_like "proposal importer"
   end

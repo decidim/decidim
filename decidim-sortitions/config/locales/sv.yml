@@ -31,13 +31,6 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att följa det via föregående länk.
           email_subject: Ny tilldelning har lagts till i %{participatory_space_title}
           notification_title: Tilldelningen <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Tilldelningar
-    participatory_processes:
-      statistics:
-        sortitions_count: Tilldelningar
     sortitions:
       admin:
         actions:

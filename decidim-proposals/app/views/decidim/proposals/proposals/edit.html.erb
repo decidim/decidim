@@ -13,7 +13,7 @@
 <div class="row">
   <div class="columns large-6 medium-centered">
     <div class="card">
-      <%= cell("decidim/announcement", component_settings.new_proposal_help_text) %>
+      <%= cell("decidim/announcement", translated_attribute(component_settings.new_proposal_help_text)) %>
 
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>

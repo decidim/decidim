@@ -205,7 +205,6 @@ pt:
             price: Preço
             registrations_count: Contagem de registros
             title: Título
-            weight: Peso
           name: Tipo de Registro
       partners:
         create:
@@ -482,23 +481,6 @@ pt:
         related_assemblies: Assembleias Relacionadas
         related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
-      statistics:
-        answers_count: Respostas
-        comments_count: Comentários
-        conference_count: Conferências
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Atividade
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        posts_count: Postagens
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: pesquisas
-        users_count: Participantes
-        votes_count: Votos
     events:
       conferences:
         conference_registration_confirmed:

@@ -119,6 +119,8 @@
           questions: Spørsmål
           results: Resultater
         questions_submenu:
+          attachments: Vedlegg
+          categories: Kategorier
           components: Komponenter
           configuration: Konfigurasjon
           consultation: Konsultasjon
@@ -321,10 +323,6 @@
           title: Hva er konsultasjoner?
     menu:
       consultations: Konsultasjoner
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultasjoner
     questions:
       next_button: Neste spørsmål
       previous_button: Forrige spørsmål
@@ -359,10 +357,6 @@
           vote: Stemme
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Vedlegg
-          categories: Kategorier
       consultation_voting_data:
         start_voting_date: Stemming begynner
       question_components:

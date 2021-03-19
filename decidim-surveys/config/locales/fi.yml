@@ -49,6 +49,8 @@ fi:
         description: Kyselyvastausten määrä
         object: kyselyvastaukset
         title: Kyselyvastaukset
+    statistics:
+      answers_count: Vastausta
     surveys:
       admin:
         exports:

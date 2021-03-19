@@ -85,6 +85,8 @@ fr-CA:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
       menu:
+        components: Fonctionnalités
+        information: Informations
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
       models:
@@ -580,12 +582,6 @@ fr-CA:
           vote: Vote
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Documents liés
-          committee_members: Membres du Comité de promotion
-          components: Fonctionnalités
-          information: Informations
       initiative_creation_header:
         back: Retour
         fill_data: Complétez votre initiative

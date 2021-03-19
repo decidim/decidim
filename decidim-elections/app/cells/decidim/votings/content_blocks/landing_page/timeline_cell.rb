@@ -5,8 +5,10 @@ module Decidim
     module ContentBlocks
       module LandingPage
         class TimelineCell < Decidim::ViewModel
-          def show
-            content_tag(:div, "VotingTimelineCell")
+          private
+
+          def html_content
+            translated_attribute(model.settings.html_content).html_safe
           end
         end
       end

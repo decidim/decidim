@@ -76,10 +76,3 @@ tr:
           email_outro: Bu bildirimi aldınız çünkü "%{participatory_space_title}" u takip ediyorsun. Bunu önceki linkten takip edebilirsiniz.
           email_subject: '%{participatory_space_title}yayınlanan yeni gönderi'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> sonrası %{participatory_space_title}olarak yayınlandı.
-    pages:
-      home:
-        statistics:
-          posts_count: Mesajlar
-    participatory_processes:
-      statistics:
-        posts_count: Mesajlar

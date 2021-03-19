@@ -298,6 +298,9 @@ pt:
       show:
         related_assemblies: Reuniões relacionadas
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Estatísticas
       show:
         title: Grupos do processo participativo
     participatory_process_steps:
@@ -395,25 +398,6 @@ pt:
         start_date: Data de início
         target: Quem participa
         unspecified: Não especificado
-      statistics:
-        answers_count: Respostas
-        comments_count: Comentários
-        debates_count: Debates
-        endorsements_count: Endossos
-        followers_count: Seguidores
-        headline: Estatísticas
-        meetings_count: Reuniões
-        no_stats: Ainda não existem estatísticas.
-        orders_count: Votos
-        pages_count: Páginas
-        participants_count: Participantes
-        processes_count: Processos
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        supports_count: Votos
-        surveys_count: Inquéritos
-        users_count: Participantes
   layouts:
     decidim:
       participatory_process_groups:

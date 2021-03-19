@@ -206,7 +206,7 @@ fi:
             price: Hinta
             registrations_count: Ilmoittautuneiden määrä
             title: Otsikko
-            weight: Painoarvo
+            weight: Järjestysnumero
           name: Ilmoittautumistyypit
       partners:
         create:
@@ -492,23 +492,6 @@ fi:
         related_assemblies: Liittyvät ryhmät
         related_consultations: Liittyvät kuulemiset
         related_participatory_processes: Liittyvät osallistumisprosessit
-      statistics:
-        answers_count: Vastausta
-        comments_count: Kommenttia
-        conference_count: Konferenssia
-        debates_count: Keskustelua
-        endorsements_count: Suositusta
-        headline: Toiminta
-        meetings_count: Tapaamista
-        orders_count: Kannatusta
-        pages_count: Sivua
-        posts_count: Viestiä
-        projects_count: Suunnitelmaa
-        proposals_count: Ehdotusta
-        results_count: Tulosta
-        surveys_count: Kyselyä
-        users_count: Osallistujaa
-        votes_count: Kannatusta
     events:
       conferences:
         conference_registration_confirmed:
@@ -556,6 +539,8 @@ fi:
         title: Media ja linkit
     menu:
       conferences: Konferenssit
+    statistics:
+      conferences_count: Konferenssia
   devise:
     mailer:
       join_conference:

@@ -91,6 +91,8 @@ id:
           info: Informasi
           questions: Pertanyaan
         questions_submenu:
+          attachments: Lampiran
+          categories: Kategori
           components: Komponen
           consultation: Konsultasi
           info: Informasi
@@ -239,10 +241,6 @@ id:
           title: Apa itu konsultasi?
     menu:
       consultations: Konsultasi
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultasi
     questions:
       results:
         title: Hasil
@@ -270,10 +268,6 @@ id:
         title: 'Konsultasi: konfirmasi dukungan'
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Lampiran
-          categories: Kategori
       consultation_voting_data:
         start_voting_date: Voting dimulai
       question_components:

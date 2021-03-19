@@ -1,10 +1,14 @@
 // = require decidim/bulletin_board/decidim-bulletin_board
+// = require decidim/bulletin_board/dummy-voting-scheme
+// = require decidim/bulletin_board/election_guard-voting-scheme
 
 $(() => {
   const { TallyComponent, IdentificationKeys, MessageIdentifier, MESSAGE_RECEIVED } = window.decidimBulletinBoard;
+  const { TrusteeWrapperAdapter: DummyTrusteeWrapperAdapter } = window.dummyVotingScheme;
+  const { TrusteeWrapperAdapter: ElectionGuardTrusteeWrapperAdapter } = window.electionGuardVotingScheme;
 
   // UI Elements
-  const $tally = $(".tally");
+  const $tally = $(".trustee-step");
   const $startButton = $tally.find(".start");
   const getStepRow = (step) => {
     return $(`#${step.replace(".", "-")}`);
@@ -17,9 +21,12 @@ $(() => {
   const bulletinBoardClientParams = {
     apiEndpointUrl: $tally.data("apiEndpointUrl")
   };
-  const electionUniqueId = `${$tally.data("authorityUniqueId")}.${$tally.data("electionId")}`
+  const electionUniqueId = `${$tally.data("authoritySlug")}.${$tally.data("electionId")}`
+  const authorityPublicKeyJSON = JSON.stringify($tally.data("authorityPublicKey"))
+  const schemeName = $tally.data("schemeName");
+
   const trusteeContext = {
-    uniqueId: $tally.data("trusteeUniqueId"),
+    uniqueId: $tally.data("trusteeSlug"),
     publicKeyJSON: JSON.stringify($tally.data("trusteePublicKey"))
   };
   const trusteeIdentificationKeys = new IdentificationKeys(
@@ -28,12 +35,30 @@ $(() => {
   );
   let currentStep = null;
 
+  // Use the correct trustee wrapper adapter
+  let trusteeWrapperAdapter = null;
+
+  if (schemeName === "dummy") {
+    trusteeWrapperAdapter = new DummyTrusteeWrapperAdapter({
+      trusteeId: trusteeContext.uniqueId
+    });
+  } else if (schemeName === "election_guard") {
+    trusteeWrapperAdapter = new ElectionGuardTrusteeWrapperAdapter({
+      trusteeId: trusteeContext.uniqueId,
+      workerUrl: "/assets/election_guard/webworker.js"
+    });
+  } else {
+    throw new Error(`Voting scheme ${schemeName} not supported.`);
+  }
+
   // Use the tally component and bind all UI events
   const component = new TallyComponent({
     bulletinBoardClientParams,
+    authorityPublicKeyJSON,
     electionUniqueId,
     trusteeUniqueId: trusteeContext.uniqueId,
-    trusteeIdentificationKeys
+    trusteeIdentificationKeys,
+    trusteeWrapperAdapter
   });
 
   const bindComponentEvents = async () => {
@@ -55,9 +80,6 @@ $(() => {
             $currentStep.attr("data-step-status", "processing");
           }
         }
-      },
-      onSetup() {
-        $startButton.prop("disabled", false);
       },
       onBindStartButton(onEventTriggered) {
         $startButton.on("click", onEventTriggered);
@@ -94,6 +116,7 @@ $(() => {
         $restoreModal.foundation("close");
       }
     });
+    $startButton.prop("disabled", false);
   };
 
   trusteeIdentificationKeys.present(async (exists) => {

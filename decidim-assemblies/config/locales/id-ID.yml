@@ -153,7 +153,6 @@ id:
           assembly_members: Anggota
           attachment_collections: Folder
           attachment_files: File
-          attachments: Lampiran
           categories: Kategori
           components: Komponen
           info: Info
@@ -318,21 +317,6 @@ id:
         scope: Cakupan
         social_networks: Jaringan sosial
         target: Yang berpartisipasi
-      statistics:
-        answers_count: Jawaban
-        assemblies_count: Assemblies
-        comments_count: Komentar
-        debates_count: Perdebatan
-        endorsements_count: Endorsemen
-        meetings_count: Rapat
-        orders_count: Suara
-        pages_count: Halaman
-        projects_count: Proyek
-        proposals_count: Proposal
-        results_count: Hasil
-        surveys_count: Survei
-        users_count: Peserta
-        votes_count: Suara
     assembly_members:
       assembly_member:
         designated_on: Ditunjuk pada

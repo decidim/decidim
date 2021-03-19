@@ -5,8 +5,23 @@ module Decidim
     module ContentBlocks
       module LandingPage
         class DescriptionCell < Decidim::ViewModel
-          def show
-            content_tag(:div, "VotingDescriptionCell")
+          include Decidim::SanitizeHelper
+
+          delegate :current_participatory_space, to: :controller
+          delegate :introductory_image, to: :current_participatory_space
+
+          private
+
+          def description_text
+            decidim_sanitize(translated_attribute(current_participatory_space.description))
+          end
+
+          def button_show_more_text
+            t(:show_more, scope: "decidim.votings.content_blocks.landing_page.description")
+          end
+
+          def button_show_less_text
+            t(:show_less, scope: "decidim.votings.content_blocks.landing_page.description")
           end
         end
       end

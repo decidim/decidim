@@ -16,6 +16,7 @@ en:
         edit: Edit
         new: New post
         title: Actions
+        user_group_id: Create post as
       admin:
         models:
           components:
@@ -77,10 +78,5 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New post published in %{participatory_space_title}
           notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Posts
-    participatory_processes:
-      statistics:
-        posts_count: Posts
+    statistics:
+      posts_count: Posts

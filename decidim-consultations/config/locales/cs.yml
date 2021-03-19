@@ -128,6 +128,8 @@ cs:
           questions: Otázky
           results: Výsledky
         questions_submenu:
+          attachments: Přílohy
+          categories: Kategorie
           components: Komponenty
           configuration: Nastavení
           consultation: Konzultace
@@ -264,7 +266,7 @@ cs:
           other: "%{count} konzultací"
       filters:
         active: Aktivní
-        all: Všechno
+        all: Vše
         finished: Dokončeno
         search: Vyhledávání
         state: Stav
@@ -344,10 +346,6 @@ cs:
           title: Co jsou konzultace?
     menu:
       consultations: Konzultace
-    pages:
-      home:
-        statistics:
-          consultations_count: Konzultace
     questions:
       next_button: Další otázka
       previous_button: Předchozí otázka
@@ -382,12 +380,11 @@ cs:
       consultations:
         actions:
           vote: Hlasovat
+    statistics:
+      consultations_count: Konzultace
+      votes_count: Hlasy
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Přílohy
-          categories: Kategorie
       consultation_voting_data:
         start_voting_date: Hlasování začíná
       question_components:

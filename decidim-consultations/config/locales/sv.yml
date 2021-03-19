@@ -119,6 +119,8 @@ sv:
           questions: Frågor
           results: Resultat
         questions_submenu:
+          attachments: Bilagor
+          categories: Kategorier
           components: Komponenter
           configuration: Konfiguration
           consultation: Samråd
@@ -321,10 +323,6 @@ sv:
           title: Vad är samråd?
     menu:
       consultations: Samråd
-    pages:
-      home:
-        statistics:
-          consultations_count: Samråd
     questions:
       next_button: Nästa fråga
       previous_button: Föregående fråga
@@ -361,10 +359,6 @@ sv:
           vote: Rösta
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Bilagor
-          categories: Kategorier
       consultation_voting_data:
         start_voting_date: Omröstningen börjar
       question_components:

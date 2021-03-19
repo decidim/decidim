@@ -119,6 +119,8 @@ hu:
           questions: Kérdések
           results: Eredmények
         questions_submenu:
+          attachments: Mellékletek
+          categories: Kategóriák
           components: Elemek
           configuration: Konfiguráció
           consultation: Konzultáció
@@ -319,10 +321,6 @@ hu:
           title: Mi a konzultáció?
     menu:
       consultations: Konzultációk
-    pages:
-      home:
-        statistics:
-          consultations_count: Konzultációk
     questions:
       next_button: Következő kérdés
       previous_button: Előző kérdés
@@ -357,10 +355,6 @@ hu:
           vote: Szavazás
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Mellékletek
-          categories: Kategóriák
       consultation_voting_data:
         start_voting_date: Szavazás kezdése
       question_components:
