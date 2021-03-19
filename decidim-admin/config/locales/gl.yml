@@ -777,6 +777,7 @@ gl:
           share: Compartir
         destroy:
           error: Produciuse un problema ao destruír o token.
+          success: Token eliminado con éxito.
         share_tokens:
           empty: Non hai tokens activos
           help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
