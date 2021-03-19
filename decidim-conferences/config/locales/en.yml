@@ -30,6 +30,11 @@ en:
         slug: URL slug
         start_date: Start date
         title: Title
+      conference_media_link:
+        title: Title
+        date: Date
+        link: Link
+        weight: Weight
       conference_speaker:
         full_name: Full name
       conference_user_role:
