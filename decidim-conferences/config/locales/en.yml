@@ -4,6 +4,7 @@ en:
     attributes:
       conference:
         assemblies_ids: Related Assemblies
+        available_slots: Available slots
         banner_image: Banner image
         consultations_ids: Related Consultations
         copy_categories: Copy categories
@@ -11,17 +12,23 @@ en:
         copy_features: Copy features
         decidim_scope_id: Scope
         description: Description
+        end_date: End date
         hashtag: Hashtag
         hero_image: Home image
+        location: Location
+        objectives: Objectives
         participatory_processes_ids: Related participatory processes
         promoted: Highlighted
         published_at: Published at
+        registration_terms: Registration terms
+        registrations_enabled: Registrations enabled
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
         slogan: Slogan
         slug: URL slug
+        start_date: Start date
         title: Title
       conference_speaker:
         full_name: Full name
