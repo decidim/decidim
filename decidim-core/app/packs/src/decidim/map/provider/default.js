@@ -13,5 +13,3 @@ $(() => {
     L.tileLayer(tilesConfig.url, tilesConfig.options).addTo(map);
   });
 });
-
-import "../../map"

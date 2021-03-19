@@ -12,5 +12,3 @@ $(() => {
     L.tileLayer.here(mapConfig.tileLayer).addTo(map);
   });
 });
-
-import "../../map"

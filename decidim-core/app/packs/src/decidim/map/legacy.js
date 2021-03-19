@@ -3,7 +3,6 @@
 import * as L from "leaflet";
 import "leaflet-tilelayer-here"
 import "leaflet-svg-icon"
-import "leaflet.markercluster"
 import createMapController from "./factory"
 
 /**
