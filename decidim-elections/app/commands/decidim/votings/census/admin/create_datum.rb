@@ -30,7 +30,6 @@ module Decidim
 
           def create_census_datum!
             attributes = {
-              hashed_id_data: form.hashed_id_data,
               hashed_in_person_data: form.hashed_in_person_data,
               hashed_check_data: form.hashed_check_data,
 

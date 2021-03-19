@@ -3,7 +3,6 @@
 class AddDecidimVotingsCensusData < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_votings_census_data do |t|
-      t.string :hashed_id_data, index: true
       t.string :hashed_in_person_data, index: true
       t.string :hashed_check_data, index: true
 

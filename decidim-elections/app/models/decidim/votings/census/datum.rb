@@ -21,12 +21,10 @@ module Decidim
         validates :full_name,
                   :full_address,
                   :postal_code,
-                  :hashed_id_data,
                   :hashed_in_person_data,
                   :hashed_check_data,
                   presence: true
 
-        validates :hashed_id_data, uniqueness: { scope: :voting }
         validates :hashed_in_person_data, uniqueness: { scope: :voting }
         validates :hashed_check_data, uniqueness: { scope: :voting }
       end
