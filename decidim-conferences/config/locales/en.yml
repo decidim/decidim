@@ -42,7 +42,14 @@ en:
         partner_type: Partner type
         weight: Weight
       conference_speaker:
+        affiliation: Affiliation
+        avatar: Avatar
+        conference_meeting_ids: Related Meetings
         full_name: Full name
+        personal_url: Personal url
+        position: Position
+        short_bio: Short Bio
+        twitter_handle: Twitter handle
       conference_user_role:
         email: Email
         name: Name
