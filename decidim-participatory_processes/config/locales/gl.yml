@@ -379,6 +379,9 @@ gl:
             more_information: Máis información
             participate: Participar
             see_all_processes: Ver todos os procesos
+      participatory_process_steps:
+        index:
+          back_to_process: Volver á páxina do proceso
       participatory_processes:
         filters:
           counters:
@@ -408,6 +411,7 @@ gl:
           loading: Cargando resultados ...
       show:
         area: Área
+        belongs_to_group: Este proceso pertence a
         dates: Datas
         developer_group: Grupo promotor
         end_date: Data de finalización
