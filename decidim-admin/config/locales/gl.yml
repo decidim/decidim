@@ -719,6 +719,7 @@ gl:
           update: Actualización
         form:
           none: Nada
+          slug_help: 'Empregar aquí rutas parciais dos URLs. Acepta letras, números, guións, barras e ten de comezar cunha letra. Exemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
