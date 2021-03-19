@@ -106,8 +106,9 @@
 </div>
 
 <% if questionnaire.questions_editable? %>
-  <%# TODO-blat: is still necessary? %>
-  <%# javascript_include_tag "decidim/forms/admin/forms" %>
+  <% javascript_tag do %>
+    window.Decidim.createEditableForm()
+  <% end %>
 <% end %>
 
 <%= javascript_pack_tag "decidim_forms_admin" %>

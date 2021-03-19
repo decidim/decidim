@@ -11,7 +11,7 @@ import createDynamicFields from "../../../../../../../decidim-admin/app/packs/sr
 import createFieldDependentInputs from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component"
 import createQuillEditor from "../../../../../../../decidim-core/app/packs/src/decidim/editor"
 
-$(() => {
+export default function createEditableForm(options) {
   const wrapperSelector = ".questionnaire-questions";
   const fieldSelector = ".questionnaire-question";
   const questionTypeSelector = "select[name$=\\[question_type\\]]";
@@ -432,4 +432,4 @@ $(() => {
 
   autoLabelByPosition.run();
   autoButtonsByPosition.run();
-})
+}

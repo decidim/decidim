@@ -7,6 +7,8 @@ import formDatePicker from "../../../../../../decidim-core/app/packs/src/decidim
 import DataPicker from "../../../../../../decidim-core/app/packs/src/decidim/data_picker"
 import Autocomplete from "./autocomplete.component";
 
+window.Decidim = window.Decidim || {};
+
 const renderAutocompleteSelects = (nodeSelector) => {
   window.$(nodeSelector).each((index, node) => {
     const props = { ...window.$(node).data("autocomplete") };
