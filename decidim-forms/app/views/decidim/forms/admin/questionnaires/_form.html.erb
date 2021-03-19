@@ -105,10 +105,11 @@
   <% end %>
 </div>
 
+<%= javascript_pack_tag "decidim_forms_admin" %>
+
 <% if questionnaire.questions_editable? %>
-  <% javascript_tag do %>
+  <%= javascript_tag do %>
     window.Decidim.createEditableForm()
   <% end %>
 <% end %>
 
-<%= javascript_pack_tag "decidim_forms_admin" %>
