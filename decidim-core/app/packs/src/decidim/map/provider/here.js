@@ -1,5 +1,4 @@
-import "leaflet"
-import "leaflet-tilelayer-here"
+import * as L from "leaflet"
 
 /**
  * NOTE:

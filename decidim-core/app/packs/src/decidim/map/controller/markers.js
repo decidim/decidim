@@ -1,7 +1,7 @@
 import "@codevadmin/jquery-tmpl"
 import * as L from "leaflet";
 import MapController from "../controller"
-import "leaflet.markercluster"
+import "leaflet.markercluster";
 
 export default class MapMarkersController extends MapController {
   start() {
@@ -16,7 +16,7 @@ export default class MapMarkersController extends MapController {
 
   addMarkers(markersData) {
     if (this.markerClusters === null) {
-      this.markerClusters = L.markerClusterGroup();
+      this.markerClusters = new L.MarkerClusterGroup();
       this.map.addLayer(this.markerClusters);
     }
 
@@ -74,7 +74,7 @@ export default class MapMarkersController extends MapController {
 
   clearMarkers() {
     this.map.removeLayer(this.markerClusters);
-    this.markerClusters = L.markerClusterGroup();
+    this.markerClusters = new L.MarkerClusterGroup();
     this.map.addLayer(this.markerClusters);
   }
 }

@@ -1,5 +1,4 @@
-import "leaflet"
-import "leaflet.markercluster"
+import * as L from "leaflet"
 
 /**
  * NOTE:
