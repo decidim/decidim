@@ -33,7 +33,8 @@
   <% end %>
 </div>
 
-<%# TODO-blat check 5>
-<%# if other_available_authorizations.any? %>
-  <%# javascript_pack_tag "decidim/admin/managed_users" %>
-<%# end %>
+<% if other_available_authorizations.any? %>
+  <%= javascript_tag do %>
+    window.Decidim.managedUsersForm()
+  <% end %>
+<% end %>
