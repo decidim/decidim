@@ -338,7 +338,11 @@ gl:
             active_step: Paso activo
             more_information: Máis información
             participate: Participar
+            participate_in: Participar no proceso %{resource_name}
             see_all_processes: Ver todos os procesos
+      participatory_process_steps:
+        index:
+          back_to_process: Volver á páxina do proceso
       participatory_processes:
         filters:
           counters:
