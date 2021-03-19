@@ -1,5 +1,5 @@
 /* eslint no-unused-vars: 0 */
-import Tribute from "tributejs"
+import Tribute from "./vendor/tribute"
 
 $(() => {
   const $mentionContainer = $(".js-mentions");

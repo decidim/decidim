@@ -1,4 +1,4 @@
-import Tribute from "tributejs"
+import Tribute from "./vendor/tribute"
 
 $(() => {
   $("[data-decidim-geocoding]").each((_i, el) => {

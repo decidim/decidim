@@ -1,3 +1,4 @@
+import "../../geocoding"
 import formatAddress from "../../geocoding/format_address"
 
 /**
