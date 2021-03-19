@@ -324,6 +324,9 @@ fi:
           upcoming: Tuleva
         end_date: Päättyy
         footer:
+          remaining_time:
+            one: "<strong>%{count} tunti ja %{minutes} minuuttia</strong> äänestysaikaa jäljellä."
+            other: "<strong>%{count} tuntia ja %{minutes} minuuttia</strong> äänestysaikaa jäljellä."
           view: Näytä
           vote: Äänestä
         label:
