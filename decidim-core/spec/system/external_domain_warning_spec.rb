@@ -14,9 +14,14 @@ describe "ExternalDomainWarning", type: :system do
     click_link static_page.title["en"]
   end
 
-  it "shows warning when clicking link with an external link" do
+  after do
+    expect_no_js_errors
+  end
+
+  it "reveals warning when clicking link with an external href" do
     click_link "Very nice link"
-    expect(page).to have_content("External link warning")
+    expect(page).to have_css(".reveal-overlay")
+    expect(page).to have_content("Open external link")
   end
 
   it "doesnt show warning on whitelisted links" do

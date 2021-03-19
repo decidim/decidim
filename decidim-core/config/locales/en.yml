@@ -856,16 +856,11 @@ en:
         resource_type: Type
     links:
       invalid_url: Invalid URL
-      new:
-        body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
-        body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
-        cancel: Cancel
-        proceed: Proceed
-        title: Open external link
       warning:
         body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
         body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
         cancel: Cancel
+        close_modal: Close modal
         proceed: Proceed
         title: Open external link
     log:

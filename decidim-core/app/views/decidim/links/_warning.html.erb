@@ -1,21 +1,4 @@
-<div class="heading3 text-center"><%= t(".title") %></div>
-<div>
-  <div class="card-section">
-    <p><%= t(".body_1") %></p>
-    <p><%= t(".body_2") %></p>
-  </div>
-  <div class="card-section padding-0">
-    <div class="card external-link-url">
-      <div class="card__content text-center">
-        <%= highlight_domain %>
-      </div>
-    </div>
-    <div class="row text-center" style="white-space: nowrap;">
-      <button class="link" data-close>
-        <%= t(".cancel") %>
-      </button>
-      <%= link_to t(".proceed"), params[:external_url], class: "button primary margin-bottom-0 margin-left-1" %>
-    </div>
-  </div>
+<div class="card-section">
+  <p><%= t(".body_1") %></p>
+  <p><%= t(".body_2") %></p>
 </div>
-

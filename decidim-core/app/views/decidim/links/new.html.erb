@@ -1,12 +1,9 @@
 <div class="wrapper external-link-page-content">
-  <h1 class="text-center"><%= t(".title") %></h1>
+  <h1 class="text-center"><%= t("decidim.links.warning.title") %></h1>
   <div class="row columns large-centered large-8">
     <div class="card">
       <div>
-        <div class="card-section">
-          <p><%= t(".body_1") %></p>
-          <p><%= t(".body_2") %></p>
-        </div>
+        <%= render partial: "warning" %>
         <div class="card-section">
           <div class="card external-link-url">
             <div class="card__content text-center">
@@ -15,7 +12,7 @@
           </div>
           <div class="row">
             <div class="columns large-12 text-center">
-              <%= link_to t(".proceed"), params[:external_url], class: "button expanded primary" %>
+              <%= link_to t("decidim.links.warning.proceed"), params[:external_url], class: "button expanded primary" %>
             </div>
           </div>
         </div>

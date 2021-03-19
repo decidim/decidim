@@ -8,6 +8,10 @@
 
     $("a", $target).filter((_i, link) => {
       const $link = $(link);
+      if (!$link[0].hasAttribute("href")) {
+        return false;
+      }
+
       const parts = $link.attr("href").match(/^(([a-z]+):)?\/\/([^/:]+)(:[0-9]*)?(\/.*)?$/) || null;
       if (!parts) {
         return false;
