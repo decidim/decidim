@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Census
       module AdminLog
-        # This class holds the logic to present a `Decidim::Votings::Voting`
+        # This class holds the logic to present a `Decidim::Votings::Census::Dataset`
         # for the `AdminLog` log.
         #
         # Usage should be automatic and you shouldn't need to call this class
@@ -12,7 +12,7 @@ module Decidim
         #
         #    action_log = Decidim::ActionLog.last
         #    view_helpers # => this comes from the views
-        #    ElectionPresenter.new(action_log, view_helpers).present
+        #    DatasetPresenter.new(action_log, view_helpers).present
         class DatasetPresenter < Decidim::Log::BasePresenter
           private
 

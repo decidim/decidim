@@ -6,7 +6,7 @@ module Decidim
       class Dataset < ApplicationRecord
         include Traceable
         include Loggable
-        include Decidim::HasUploadValidations
+
         # The data store for a whole Census for a voting.
         belongs_to :organization, foreign_key: :decidim_organization_id,
                                   class_name: "Decidim::Organization"
@@ -20,10 +20,6 @@ module Decidim
         enum status: [:create_data, :review_data, :generate_codes, :export_codes, :freeze]
 
         validates :file, presence: true
-
-        # mount_uploader :file, Decidim::Votings::Census::Admin::CensusDatasetUploader
-
-        # validates_upload :file
 
         def self.log_presenter_class_for(_log)
           Decidim::Votings::Census::AdminLog::DatasetPresenter
