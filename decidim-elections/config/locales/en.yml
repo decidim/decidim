@@ -59,6 +59,12 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/census/dataset:
+        one: Dataset
+        other: Datasets
+      decidim/votings/census/datum:
+        one: Datum
+        other: Data
       decidim/votings/polling_officer:
         one: Polling officer
         other: Polling officers
@@ -68,12 +74,6 @@ en:
       decidim/votings/voting:
         one: Voting
         other: Votings
-      decidim/votings/census/dataset:
-        one: Dataset
-        other: Datasets
-      decidim/votings/census/datum:
-        one: Datum
-        other: Data
   decidim:
     admin:
       filters:

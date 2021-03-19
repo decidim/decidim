@@ -30,8 +30,10 @@ module Decidim
 
           def create_census_datum!
             attributes = {
-              hashed_booth_data: hashed_booth_data,
-              hashed_personal_data: hashed_personal_data,
+              hashed_id_data: form.hashed_id_data,
+              hashed_in_person_data: form.hashed_in_person_data,
+              hashed_check_data: form.hashed_check_data,
+
               full_name: form.full_name,
               full_address: form.full_address,
               postal_code: form.postal_code,
@@ -39,24 +41,11 @@ module Decidim
               email: form.email
             }
 
-            Decidim.traceability.create(
-              Decidim::Votings::Census::Datum,
-              user,
-              {
-                dataset: dataset,
-                voting: voting,
-                attributes: attributes
-              },
-              visibility: "admin-only"
+            Decidim::Votings::Census::Datum.create(
+              dataset: dataset,
+              voting: voting,
+              attributes: attributes
             )
-          end
-
-          def hashed_booth_data
-            Digest::SHA256.hexdigest([form.document_number, form.document_type, form.birthdate].join("."))
-          end
-
-          def hashed_personal_data
-            Digest::SHA256.hexdigest([form.document_number, form.document_type, form.birthdate, form.postal_code].join("."))
           end
         end
       end

@@ -23,7 +23,7 @@ module Decidim::Votings::Census::Admin
       end
 
       it "does not enqueue any job" do
-        expect(ProcessDatasetJob).not_to receive(:perform_later)
+        expect(CreateDatumJob).not_to receive(:perform_later)
 
         subject.call
       end
@@ -34,7 +34,7 @@ module Decidim::Votings::Census::Admin
     end
 
     it "enqueues a job for processing the dataset" do
-      expect { subject.call }.to enqueue_job(ProcessDatasetJob)
+      expect { subject.call }.to enqueue_job(CreateDatumJob).at_least(4).times
     end
 
     it "traces the action", versioning: true do
@@ -43,12 +43,13 @@ module Decidim::Votings::Census::Admin
         .with(
           Decidim::Votings::Census::Dataset,
           user,
-          kind_of(Hash)
+          kind_of(Hash),
+          visibility: "admin-only"
         )
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)
-      action_log = Decidim::ActionLog.last
+      action_log = Decidim::ActionLog.where(resource_type:"Decidim::Votings::Census::Dataset").last
       expect(action_log.version).to be_present
       expect(action_log.version.event).to eq "create"
     end

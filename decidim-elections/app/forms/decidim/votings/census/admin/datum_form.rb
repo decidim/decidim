@@ -28,16 +28,33 @@ module Decidim
                     :postal_code,
                     presence: true
 
-          validates :full_name, format: { with: UserBaseEntity::REGEXP_NAME }
-
-          # validates :email, format: { with: ::Devise.email_regexp }
           validates :document_type, inclusion: { in: DOCUMENT_TYPES }
+          validate :hashed_id_data_is_unique
 
-          # validates :document_number, length: {within: 3..40}, format: { with: /^([a-z0-9\-]+)$/i }
-          validate :email_is_unique
+          def hashed_id_data_is_unique
+            errors.add(:hashed_id_data, "hashed_id_data is taken") if Datum.exists?(hashed_id_data: hashed_id_data)
+          end
 
-          def email_is_unique
-            errors.add(:email, "email is taken") if Datum.exists?(email: email)
+          # hash of document type and number
+          # useful to find a record
+          def hashed_id_data
+            hash_for [document_number, document_type]
+          end
+
+          # hash of birth, document type and number
+          # used by the polling officer to identify a person
+          def hashed_in_person_data
+            hash_for [document_number, document_type, birthdate]
+          end
+
+          # hash of postal code birth, document type and number
+          # used by a person to check if present in dataset
+          def hashed_check_data
+            hash_for [document_number, document_type, birthdate, postal_code]
+          end
+
+          def hash_for(data)
+            Digest::SHA256.hexdigest(data.join("."))
           end
         end
       end
