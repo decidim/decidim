@@ -13,6 +13,7 @@ module Decidim
         validates(
           attribute,
           file_size: { less_than_or_equal_to: max_size },
+          organization_present: true,
           uploader_content_type: true
         )
 

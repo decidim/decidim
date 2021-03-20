@@ -8,7 +8,6 @@ module Decidim
     include CarrierWave::MiniMagick
 
     delegate :variants, to: :class
-    process :validate_inside_organization
 
     # Override the directory where uploaded files will be stored.
     # This is a sensible default for uploaders that are meant to be mounted:
@@ -43,16 +42,6 @@ module Decidim
     end
 
     protected
-
-    # Validates that the associated model is always within an organization in
-    # order to pass the organization specific settings for the file upload
-    # checks (e.g. file extension, mime type, etc.).
-    def validate_inside_organization
-      return if model.is_a?(Decidim::Organization)
-      return if model.respond_to?(:organization) && model.organization.is_a?(Decidim::Organization)
-
-      raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.not_inside_organization")
-    end
 
     # Checks if the file is an image based on the content type. We need this so
     # we only create different versions of the file when it's an image.
