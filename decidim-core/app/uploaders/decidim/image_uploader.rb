@@ -20,19 +20,15 @@ module Decidim
       end
     end
 
-    # Fetches info about different versions, their processors and dimensions
+    # Fetches info about different variants, their processors and dimensions
     def dimensions_info
-      if versions.any?
-        versions.transform_values do |info|
-          {
-            processor: info.processors[0][0],
-            dimensions: info.processors[0][1]
-          }
-        end
-      else
-        processors.map do |info|
-          [:default, { processor: info[0], dimensions: info[1] }]
-        end.to_h
+      return if variants.blank?
+
+      variants.transform_values do |variant|
+        {
+          processor: variant.keys.first,
+          dimensions: variant.values.first
+        }
       end
     end
 

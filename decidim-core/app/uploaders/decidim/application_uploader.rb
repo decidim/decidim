@@ -7,6 +7,7 @@ module Decidim
   class ApplicationUploader < CarrierWave::Uploader::Base
     include CarrierWave::MiniMagick
 
+    delegate :variants, to: :class
     process :validate_inside_organization
 
     # Override the directory where uploaded files will be stored.
