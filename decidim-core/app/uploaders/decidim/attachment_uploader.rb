@@ -7,6 +7,10 @@ module Decidim
     process :validate_dimensions
     process :strip
 
+    def validable_dimensions
+      true
+    end
+
     set_variants do
       {
         thumbnail: { resize_to_fit: [nil, 237] },
@@ -32,6 +36,10 @@ module Decidim
       else
         Decidim.organization_settings(model).upload_allowed_content_types
       end
+    end
+
+    def max_image_height_or_width
+      8000
     end
 
     protected
@@ -72,10 +80,6 @@ module Decidim
 
         image
       end
-    end
-
-    def max_image_height_or_width
-      8000
     end
   end
 end

@@ -6,6 +6,7 @@ module Decidim
   # then tweak any configuration you need.
   class ApplicationUploader < CarrierWave::Uploader::Base
     include CarrierWave::MiniMagick
+    attr_reader :validable_dimensions
 
     delegate :variants, to: :class
 
