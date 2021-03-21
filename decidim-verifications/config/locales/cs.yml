@@ -130,7 +130,7 @@ cs:
             confirm: Odstranění veškerých kontaktů členů organizace nelze vrátit zpět. Jste si jistý, že chcete pokračovat?
             title: Smazat všechna data členů organizace
           index:
-            data: Celkem bylo načteno celkem %{count} záznamů. Poslední nahraje datum %{due_date}
+            data: Celkem načteno %{count} záznamů. Poslední datum načtení bylo %{due_date}
             empty: Neexistují data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
             title: Aktuální údaje o členech organizace
           instructions:
