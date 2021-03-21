@@ -19,7 +19,7 @@ cs:
       initiative_author:
         address: Adresa
         city: Město
-        id_document: IČ / Občanský průkaz
+        id_document: Občanský průkaz / Daňové identifikační číslo
         name: Jméno a příjmení
         phone_number: Telefonní číslo
         post_code: PSČ
