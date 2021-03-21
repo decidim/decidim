@@ -20,7 +20,9 @@ module Decidim
       validates :organization_logo, passthru: { to: Decidim::OAuthApplication }
       validate :redirect_uri_is_ssl
 
-      alias organization current_organization
+      def organization
+        current_organization || Decidim::Organization.find_by(id: decidim_organization_id)
+      end
 
       private
 

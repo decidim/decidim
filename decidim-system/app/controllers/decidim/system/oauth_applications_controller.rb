@@ -42,7 +42,10 @@ module Decidim
 
       def update
         @oauth_application = collection.find(params[:id])
-        @form = form(OAuthApplicationForm).from_params({ organization_logo: @oauth_application.organization_logo }.merge(params.to_unsafe_h))
+        @form = form(OAuthApplicationForm)
+                .from_params({ organization_logo: @oauth_application.organization_logo }
+                .merge(params.to_unsafe_h))
+                .with_context(current_organization: @oauth_application.organization)
 
         UpdateOAuthApplication.call(@oauth_application, @form, current_user) do
           on(:ok) do |_application|
