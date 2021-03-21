@@ -17,11 +17,11 @@ cs:
       offline_confirmation:
         email: Uživatelský e-mail
       postal_letter_address:
-        full_address: Celá adresa
+        full_address: Celá poštovní adresa
       postal_letter_confirmation:
         verification_code: Ověřovací kód
       postal_letter_postage:
-        full_address: Celá adresa
+        full_address: Celá poštovní adresa
         verification_code: Ověřovací kód
   decidim:
     admin:
