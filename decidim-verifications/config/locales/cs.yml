@@ -216,8 +216,8 @@ cs:
           update:
             error: Při načítání dokumentu došlo k problému
             success: Dokument byl úspěšně obnoven
-        dni: DNI
-        nie: Občanský průkaz
+        dni: Občanský průkaz
+        nie: Daňové identifikační číslo
         passport: Cestovní pas
       postal_letter:
         admin:
@@ -241,7 +241,7 @@ cs:
           edit:
             send: Potvrdit
             title: Zadejte ověřovací kód, který jste obdrželi
-            waiting_for_letter: Na váš adresu vám brzy zašleme váš ověřovací kód
+            waiting_for_letter: Brzy pošleme dopis na Vaši adresu s Vaším ověřovacím kódem
           new:
             send: Pošlete mi dopis
             title: Požádejte o ověřovací kód
