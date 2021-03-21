@@ -187,7 +187,7 @@ shared_examples "comments" do
             expect(page.find(".opinion-toggle--ok")["aria-pressed"]).to eq("true")
             expect(page.find(".opinion-toggle--meh")["aria-pressed"]).to eq("false")
             expect(page.find(".opinion-toggle--ko")["aria-pressed"]).to eq("false")
-            page.find(".opinion-toggle .selected-state", visible: false).to have_content("Your opinion about this topic is positive")
+            expect(page.find(".opinion-toggle .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
 
             within ".add-comment form" do
               fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "I am in favor about this!"
