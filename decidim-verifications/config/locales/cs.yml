@@ -138,7 +138,7 @@ cs:
             title: Musíte aktivovat CSV s kontakty členů organizace
           new:
             file: ".csv soubor s daty e-mailů"
-            info: 'Must být soubor ve formátu CSV s pouze jedním sloupcem s e-mailovou adresou:'
+            info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
             submit: Nahrát soubor
             title: Nahrajte nové členy organizace
         authorizations:
