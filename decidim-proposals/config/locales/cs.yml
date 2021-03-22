@@ -763,7 +763,7 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozvinout
         index:
-          collaborative_drafts_list: Získejte přístup ke spolupráci
+          collaborative_drafts_list: Přístup ke konceptům spolupráce
           new_proposal: Nový návrh
           see_all_withdrawn: Podívejte se na všechny stažené návrhy
           view_proposal: Zobrazit návrh
