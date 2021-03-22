@@ -42,6 +42,14 @@ module Decidim
       Decidim::Downloader
     end
 
+    def variant(key)
+      if variants[key].present?
+        model.send(mounted_as).variant(variants[key])
+      else
+        model.send(mounted_as)
+      end
+    end
+
     protected
 
     # Checks if the file is an image based on the content type. We need this so
