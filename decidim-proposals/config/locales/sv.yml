@@ -722,6 +722,7 @@ sv:
         edit:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
+          gallery_legend: "(Frivilligt) Lägg till en bild"
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
