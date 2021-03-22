@@ -8,7 +8,7 @@
     <span class="author__name">
       <% if author.try(:deleted?) %>
         <span class="label label--small label--basic">
-          <%= t(".deleted") %>
+          <%= t("decidim.version_author.show.deleted") %>
         </span>
       <% else %>
         <%= decidim_sanitize(author_name || author) %>

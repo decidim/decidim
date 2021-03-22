@@ -10,7 +10,7 @@ module Decidim
 
     def author_name
       return nil unless author
-      return t(".deleted") if author.deleted?
+      return t("decidim.version_author.show.deleted") if author.deleted?
 
       author.name
     end
