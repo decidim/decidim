@@ -10,13 +10,16 @@
   <% else %>
     <p><%= t("decidim.shared.flag_modal.description") %></p>
     <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil } do |f| %>
-      <%= f.collection_radio_buttons :reason, [
-        [:spam, t("decidim.shared.flag_modal.spam")],
-        [:offensive, t("decidim.shared.flag_modal.offensive")],
-        [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
-      ], :first, :last do |builder| %>
-        <%= builder.label { builder.radio_button(id: nil) + builder.text } %>
-      <% end %>
+      <fieldset>
+        <legend><%= t("decidim.shared.flag_modal.reason") %></legend>
+        <%= f.collection_radio_buttons :reason, [
+          [:spam, t("decidim.shared.flag_modal.spam")],
+          [:offensive, t("decidim.shared.flag_modal.offensive")],
+          [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
+        ], :first, :last do |builder| %>
+          <%= builder.label { builder.radio_button(id: nil) + builder.text } %>
+        <% end %>
+      </fieldset>
       <%= f.text_area :details, rows: 4, id: nil %>
       <%= f.submit t("decidim.shared.flag_modal.report") %>
     <% end %>

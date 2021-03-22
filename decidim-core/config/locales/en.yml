@@ -1229,6 +1229,7 @@ en:
         description: Is this content inappropriate?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        reason: Reason
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
