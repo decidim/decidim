@@ -154,6 +154,30 @@ module Decidim
               end
             end
 
+            describe "proposal scopes" do
+              let(:states) { ProposalsImportForm::VALID_STATES.dup }
+              let(:scope) { create(:scope, organization: current_component.organization) }
+              let(:other_scope) { create(:scope, organization: current_component.organization) }
+
+              let(:scopes) { [scope] }
+              let(:scope_ids) { [scope.id] }
+
+              let!(:proposals) do
+                [
+                  create(:proposal, component: proposal.component, scope: scope),
+                  create(:proposal, component: proposal.component, scope: other_scope)
+                ]
+              end
+
+              it "only imports proposals from the selected scope" do
+                expect do
+                  command.call
+                end.to change { Proposal.where(component: current_component).count }.by(1)
+
+                expect(Proposal.where(component: current_component).scope.id).to eq(scope.id)
+              end
+            end
+
             describe "when the proposal has attachments" do
               let!(:attachment) do
                 create(:attachment, attached_to: proposal)
