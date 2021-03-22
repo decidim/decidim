@@ -75,7 +75,7 @@
 
     <% if component_settings.attachments_allowed? %>
       <div class="row column">
-        <fieldset>
+        <fieldset class="attachments_container">
           <legend><%= t(".attachment_legend") %></legend>
           <%= form.fields_for :attachment, @form.attachment do |form| %>
             <div class="row column">
