@@ -36,6 +36,7 @@ en:
         origin_component_id: Component to copy the proposals from
       proposals_import:
         import_proposals: Import proposals
+        keep_answers: Keep state and answers
         keep_authors: Keep original authors
       valuation_assignment:
         admin_log:
