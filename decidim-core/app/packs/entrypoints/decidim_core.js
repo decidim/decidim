@@ -6,7 +6,7 @@ import Quill from "quill"
 
 import "core-js/stable";
 import morphdom from "morphdom"
-// To be available in .js.erb templates
+// Export variable to make it available in .js.erb templates
 window.morphdom = morphdom
 import "../src/decidim/vendor/foundation-datepicker"
 import "../src/decidim/foundation_datepicker_locales"
