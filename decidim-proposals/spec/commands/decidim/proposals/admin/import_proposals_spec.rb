@@ -9,6 +9,7 @@ module Decidim
         describe "call" do
           let!(:proposal) { create(:proposal, :accepted) }
           let(:keep_authors) { false }
+          let(:keep_answers) { false }
           let(:current_component) do
             create(
               :proposal_component,
@@ -22,12 +23,17 @@ module Decidim
               current_component: current_component,
               current_organization: current_component.organization,
               keep_authors: keep_authors,
+              keep_answers: keep_answers,
               states: states,
+              scopes: scopes,
+              scope_ids: scope_ids,
               current_user: create(:user),
               valid?: valid
             )
           end
           let(:states) { ["accepted"] }
+          let(:scopes) { [] }
+          let(:scope_ids) { scopes.map(&:id) }
           let(:command) { described_class.new(form) }
 
           describe "when the form is not valid" do
@@ -114,6 +120,20 @@ module Decidim
                 expect(new_proposal.title).to eq(proposal.title)
                 expect(new_proposal.body).to eq(proposal.body)
                 expect(new_proposal.creator_author).to eq(proposal.creator_author)
+              end
+            end
+
+            describe "when keep_answers is true" do
+              let(:keep_answers) { true }
+
+              it "keeps the proposal state and answers" do
+                command.call
+
+                new_proposal = Proposal.where(component: current_component).last
+                expect(new_proposal.answer).to eq(proposal.answer)
+                expect(new_proposal.answered_at).to be_within(1.second).of(proposal.answered_at)
+                expect(new_proposal.state).to eq(proposal.state)
+                expect(new_proposal.state_published_at).to be_within(1.second).of(proposal.state_published_at)
               end
             end
 
