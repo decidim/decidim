@@ -37,6 +37,8 @@ module BillyProxyPatch
     return unless EM.reactor_running?
 
     super
+  rescue Timeout::Error
+    nil
   end
 end
 Billy::Proxy.prepend(BillyProxyPatch)
@@ -53,3 +55,5 @@ Billy.module_eval do
     end
   end
 end
+
+raise Object.const_source_location(:EM).inspect
