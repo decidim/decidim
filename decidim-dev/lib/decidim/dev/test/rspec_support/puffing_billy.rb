@@ -55,5 +55,3 @@ Billy.module_eval do
     end
   end
 end
-
-raise Object.const_source_location(:EM).inspect
