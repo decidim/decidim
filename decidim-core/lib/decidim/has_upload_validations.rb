@@ -60,7 +60,7 @@ module Decidim
     def attached_uploader(attached_name)
       return if (uploader = attached_config.dig(attached_name, :uploader)).blank?
 
-      uploader.new(self)
+      uploader.new(self, attached_name)
     end
 
     def maximum_upload_size
