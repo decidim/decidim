@@ -1,6 +1,8 @@
 // = require decidim/bulletin_board/decidim-bulletin_board
-// = require decidim/bulletin_board/dummy-voting-scheme
-// = require decidim/bulletin_board/election_guard-voting-scheme
+
+// Note: these gems will be moved to the application in the next release
+// = require voting_schemes/dummy/dummy
+// = require voting_schemes/electionguard/electionguard
 
 /**
  * This file is responsible to generate election keys,
