@@ -127,6 +127,7 @@ FactoryBot.define do
     hashed_in_person_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate].join(".")) }
     hashed_check_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate, postal_code].join(".")) }
 
+    postal_code { postal_code }
     full_name { Faker::Name.name }
     full_address { Faker::Address.full_address }
     postal_code { Faker::Address.postcode }

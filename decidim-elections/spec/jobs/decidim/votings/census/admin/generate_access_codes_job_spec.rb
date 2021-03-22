@@ -19,16 +19,18 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
 
         it "does not update the dataset nor the data" do
           expect(Decidim::Votings::Census::Admin::UpdateDataset).not_to receive(:call)
+          expect(Decidim::Votings::Census::Admin::GenerateAccessCodes).not_to receive(:call)
 
           described_class.perform_now(dataset, user)
         end
       end
 
       context "when the dataset is not in the correct status" do
-        let(:dataset) { create(:dataset, status: :codes_generated) }
+        let(:dataset) { create(:dataset, organization: organization, status: :export_codes) }
 
         it "does not update the dataset nor the data" do
           expect(Decidim::Votings::Census::Admin::UpdateDataset).not_to receive(:call)
+          expect(Decidim::Votings::Census::Admin::GenerateAccessCodes).not_to receive(:call)
 
           described_class.perform_now(dataset, user)
         end
@@ -39,6 +41,7 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
 
         it "does not update the dataset nor the data" do
           expect(Decidim::Votings::Census::Admin::UpdateDataset).not_to receive(:call)
+          expect(Decidim::Votings::Census::Admin::GenerateAccessCodes).not_to receive(:call)
 
           described_class.perform_now(dataset, user)
         end
@@ -46,22 +49,18 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
     end
 
     context "when this input is valid" do
-      let!(:data) { create_list(:datum, 5, dataset: dataset) }
-
-      it "generates the codes" do
-        described_class.perform_now(dataset, user)
-
-        data.each do |datum|
-          datum.reload
-          expect(datum.access_code.length).to be(8)
-          expect(datum.hashed_online_data).not_to be_nil
-        end
-      end
-
-      it "delegates the work to the command" do
+      it "delegates the work to the commands" do
         expect(Decidim::Votings::Census::Admin::UpdateDataset)
           .to receive(:call)
-          .with(dataset, { status: :codes_generated }, user)
+          .with(dataset, { status: :generate_codes }, user)
+
+        expect(Decidim::Votings::Census::Admin::UpdateDataset)
+          .to receive(:call)
+          .with(dataset, { status: :export_codes }, user)
+
+        expect(Decidim::Votings::Census::Admin::GenerateAccessCodes)
+          .to receive(:call)
+          .with(dataset, user)
 
         described_class.perform_now(dataset, user)
       end

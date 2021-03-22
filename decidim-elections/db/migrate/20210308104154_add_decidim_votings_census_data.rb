@@ -6,6 +6,8 @@ class AddDecidimVotingsCensusData < ActiveRecord::Migration[5.2]
       t.string :hashed_in_person_data, index: true
       t.string :hashed_online_data, index: true
       t.string :hashed_check_data, index: true
+      t.string :hashed_online_data, index: true
+      t.string :hashed_check_data, index: true
 
       t.string :full_name
       t.string :full_address
