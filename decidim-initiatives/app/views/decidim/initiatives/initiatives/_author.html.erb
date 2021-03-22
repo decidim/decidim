@@ -2,7 +2,7 @@
   <div class="author-data__main ">
     <div class="author author--inline">
       <span class="author__avatar author__avatar--small">
-        <%= image_tag initiative.author_avatar_url, t("decidim.author.avatar", name: decidim_sanitize(initiative.author_name)) %>
+        <%= image_tag initiative.author_avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(initiative.author_name)) %>
       </span>
       <span class="author__name">
         <% if initiative.author.deleted? %>
