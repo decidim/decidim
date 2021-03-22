@@ -149,7 +149,7 @@ fi:
             title: Muokkaa vaalia
             update: Päivitä vaali
           index:
-            no_bulletin_board: Järjestelmässä ei ole <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board -palvelinta</a> määritettynä, mitä tarvitaan käyttääksesi tätä moduulia. Tämä tehtävä tulisi toteuttaa yhteistyössä järjestelmänvalvojan kanssa.
+            no_bulletin_board: Järjestelmään ei ole määritetty <a href="https://github.com/decidim/decidim-bulletin-board">sähköisen ääniuurnan palvelinta</a>, joka tarvitaan käyttääksesi tätä moduulia. Tämä tehtävä tulisi toteuttaa yhteistyössä järjestelmänvalvojan kanssa.
             title: Vaalit
           new:
             create: Luo vaali
@@ -223,13 +223,13 @@ fi:
               time_before: Vaalin määritys tulee tapahtua <strong>vähintään %{hours} tuntia</strong> ennen sen alkamista.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             submit: Määritä vaali
-            success: Vaalin lähetys äänestystaululle onnistui
+            success: Vaalin lähetys sähköiselle ääniuurnalle onnistui
             title: Määritä vaali
             trustees: Vaalin luottamushenkilöt
           created:
             invalid: Avainseremonian käynnistäminen epäonnistui
             submit: Aloita avainseremonia
-            success: Avainseremonian aloituspyyntö on onnistuneesti lähetetty äänestystaululle
+            success: Avainseremonian aloituspyyntö on onnistuneesti lähetetty sähköiselle ääniuurnalle
             title: Vaali luotu
             trustees: Luottamushenkilöt
           key_ceremony:
@@ -242,7 +242,7 @@ fi:
             requirements:
               time_before: 'Äänestys alkaa pian. Voit käynnistää äänestysajan manuaalisesti tai se käynnistetään automaattisesti ennen alkamisaikaa: %{start_time}.'
             submit: Käynnistä äänestys
-            success: Pyyntösi aloittaa äänestysaika on onnistuneesti lähetetty äänestystaululle
+            success: Pyyntösi aloittaa äänestysaika on onnistuneesti lähetetty sähköiselle ääniuurnalle
             title: Valmis alkamaan
           processing: Käsitellään...
           results_published:
@@ -260,12 +260,12 @@ fi:
             requirements:
               time_after: Äänestys on päättynyt. Voit sulkea äänestysajan manuaalisesti tai se suljetaan automaattisesti muutaman minuutin päästä.
             submit: Päätä äänestysaika
-            success: Pyyntösi päättää äänestysaika on onnistuneesti lähetetty äänestystaululle
+            success: Pyyntösi päättää äänestysaika on onnistuneesti lähetetty sähköiselle ääniuurnalle
             title: Äänestysaika
           vote_ended:
             invalid: Ääntenlaskennan käynnistäminen epäonnistui
             submit: Aloita ääntenlaskenta
-            success: Pyyntösi aloittaa ääntenlaskenta on onnistuneesti lähetetty äänestystaululle
+            success: Pyyntösi aloittaa ääntenlaskenta on onnistuneesti lähetetty sähköiselle ääniuurnalle
             title: Äänestysaika on päättynyt
           vote_stats:
             no_vote_statistics_yet: Ei vielä äänitilastoja
@@ -295,12 +295,12 @@ fi:
             success: Luottamushenkilön %{trustee} päivittäminen onnistui
       admin_log:
         election:
-          end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} äänestystaululla"
+          end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} sähköisellä ääniuurnalla"
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
-          setup: "%{user_name} loi vaalin %{resource_name} äänestystaululle"
-          start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} äänestystaululla"
-          start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} äänestystaululla"
-          start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} äänestystalululla"
+          setup: "%{user_name} loi vaalin %{resource_name} sähköiselle ääniuurnalle"
+          start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} sähköisellä ääniuurnalla"
+          start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} sähköisellä ääniuurnalla"
+          start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} sähköisellä ääniuurnalla"
           unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun"
       election_m:
         badge_name:
@@ -374,7 +374,7 @@ fi:
             title: Otsikko
         election:
           fields:
-            bb_status: Äänestystaulun tila
+            bb_status: Sähköisen ääniuurnan tila
             end_time: Päättymisaika
             start_time: Alkamisaika
             title: Otsikko
@@ -399,13 +399,13 @@ fi:
       trustee_zone:
         elections:
           backup_modal:
-            description: Näitä vaaleja luodaan äänestystaululle. On erityisen tärkeää, että jokainen luottamushenkilö luo varmuuskopion näistä avaimista ja tallentaa sen turvalliseen paikkaan. Tämän jälkeen, prosessi jatkuu.
+            description: Näitä vaaleja luodaan sähköiselle ääniuurnalle. On erityisen tärkeää, että jokainen luottamushenkilö luo varmuuskopion näistä avaimista ja tallentaa sen turvalliseen paikkaan. Tämän jälkeen, prosessi jatkuu.
             download_election_keys: Lataa avaimet
             download_icon: Kuvake, joka ilmaisee lataustoiminnon
             title: Varmuuskopioi vaaliavaimet kohteelle %{election}
           key_ceremony_steps:
             back: Takaisin
-            description: Näitä vaaleja luodaan parhaillaan äänestystaululle. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
+            description: Näitä vaaleja luodaan parhaillaan sähköiselle ääniuurnalle. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
             keys:
               create_election: Avainten luonti
               key_ceremony:
@@ -423,13 +423,13 @@ fi:
               processing: Käsitellään
             title: Luo vaaliavaimet kohteelle %{election}
           restore_modal:
-            description: Äänestystaululle on liitetty tieto sinusta näiden vaalien luottamushenkilönä. Jatkaaksesi tätä prosessia, lataa oma varmuuskopiotiedostosi, joka luotiin edellisen istuntosi yhteydessä.
+            description: Sähköiseen ääniuurnaan on liitetty tieto sinusta näiden vaalien luottamushenkilönä. Jatkaaksesi tätä prosessia, lataa oma varmuuskopiotiedostosi, joka luotiin edellisen istuntosi yhteydessä.
             title: Palauta vaaliavaimet kohteelle %{election}
             upload_election_keys: Lataa vaaliavaimet
             upload_icon: Kuvake, joka ilmaisee lataustoiminnon
           tally_steps:
             back: Takaisin
-            description: Näiden vaalien tuloksia lasketaan parhaillaan äänestystaululla. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
+            description: Näiden vaalien tuloksia lasketaan parhaillaan sähköiseen ääniuurnaan. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
             keys:
               end_tally: Ääntenlaskennan päättyminen
               tally:
@@ -452,8 +452,8 @@ fi:
         menu:
           trustee_zone: Luottamushenkilön alue
         no_bulletin_board:
-          body: Tätä osiota varten vaaditaan äänestystaulupalvelin. Ota yhteyttä järjestelmänvalvojaan saadaksesi lisätietoja tästä.
-          title: Pahoittelut, äänestystalulua ei ole vielä määritetty.
+          body: Tätä osiota varten vaaditaan sähköisen ääniuurnan palvelin. Ota yhteyttä järjestelmänvalvojaan saadaksesi lisätietoja tästä.
+          title: Pahoittelut, sähköistä ääniuurnaa ei ole vielä määritetty.
         trustees:
           show:
             elections:
