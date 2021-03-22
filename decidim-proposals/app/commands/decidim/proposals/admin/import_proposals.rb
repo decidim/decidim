@@ -86,7 +86,7 @@ module Decidim
         end
 
         def proposal_answer_attributes(original_proposal)
-          return {} unless form.keep_answers?
+          return {} unless form.keep_answers
 
           {
             answer: original_proposal.answer,
