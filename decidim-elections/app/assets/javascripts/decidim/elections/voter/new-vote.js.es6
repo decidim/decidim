@@ -1,38 +1,12 @@
 /* eslint-disable no-console */
-// = require decidim/bulletin_board/decidim-bulletin_board
-// = require decidim/bulletin_board/dummy-voting-scheme
-// = require decidim/bulletin_board/election_guard-voting-scheme
-
-// Note: these gems will be moved to the application in the next release
-// = require voting_schemes/dummy/dummy
-// = require voting_schemes/electionguard/electionguard
-
 // = require ./vote_questions.component
 
 $(async () => {
-  const { VoteQuestionsComponent } = window.Decidim;
-  const { VoteComponent } = window.decidimBulletinBoard;
-  const {
-    VoterWrapperAdapter: DummyVoterWrapperAdapter,
-  } = window.dummyVotingScheme;
-  const {
-    VoterWrapperAdapter: ElectionGuardVoterWrapperAdapter,
-  } = window.electionGuardVotingScheme;
+  const { VoteQuestionsComponent, setupVoteComponent } = window.Decidim;
 
   // UI Elements
   const $voteWrapper = $(".vote-wrapper");
   const $ballotHash = $voteWrapper.find(".ballot-hash");
-
-  // Data
-  const bulletinBoardClientParams = {
-    apiEndpointUrl: $voteWrapper.data("apiEndpointUrl"),
-  };
-  const electionUniqueId = $voteWrapper.data("electionUniqueId");
-  const authorityPublicKeyJSON = JSON.stringify(
-    $voteWrapper.data("authorityPublicKey")
-  );
-  const voterUniqueId = $voteWrapper.data("voterId");
-  const schemeName = $voteWrapper.data("schemeName");
 
   // Use the questions component
   const questionsComponent = new VoteQuestionsComponent($voteWrapper);
@@ -42,31 +16,8 @@ $(async () => {
     questionsComponent.init();
   });
 
-  // Use the correct voter wrapper adapter
-  let voterWrapperAdapter = null;
-
-  if (schemeName === "dummy") {
-    voterWrapperAdapter = new DummyVoterWrapperAdapter({
-      voterId: voterUniqueId,
-    });
-  } else if (schemeName === "electionguard") {
-    voterWrapperAdapter = new ElectionGuardVoterWrapperAdapter({
-      voterId: voterUniqueId,
-      workerUrl: "/assets/electionguard/webworker.js",
-    });
-  } else {
-    throw new Error(`Voting scheme ${schemeName} not supported.`);
-  }
-
-  // Use the voter component and bind all UI events
-  const voteComponent = new VoteComponent({
-    bulletinBoardClientParams,
-    authorityPublicKeyJSON,
-    electionUniqueId,
-    voterUniqueId,
-    voterWrapperAdapter,
-  });
-
+  // Get the vote component and bind it to all UI events
+  const voteComponent = setupVoteComponent($voteWrapper);
   await voteComponent.bindEvents({
     onBindEncryptButton(onEventTriggered) {
       $(".button.confirm").on("click", onEventTriggered);

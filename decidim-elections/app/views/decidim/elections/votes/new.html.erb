@@ -56,4 +56,9 @@
   </div>
 </div>
 
+<% if preview_mode? %>
+  <%= javascript_include_tag "decidim/elections/voter/setup-preview", integrity: true %>
+<% else %>
+  <%= javascript_include_tag "decidim/elections/voter/setup-vote", integrity: true %>
+<% end %>
 <%= javascript_include_tag "decidim/elections/voter/new-vote", integrity: true %>
