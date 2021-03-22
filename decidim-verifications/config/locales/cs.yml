@@ -52,16 +52,16 @@ cs:
             - Ověřit se mohou pouze účastníci s e-mailem v tomto souboru CSV
         id_documents:
           help:
-            - Uživatelé vyplní informace o své identitě a nahrají kopii dokumentu.
+            - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
             - Vyplníte informace obsažené v nahraném obrázku.
-            - Informace by měly odpovídat uživateli, který vyplnil.
+            - Informace by se měly shodovat s tím, co uživatel vyplní.
             - Pokud nemůžete informace zřetelně vidět nebo ji nelze ověřit, můžete žádost odmítnout a uživatel ji bude moci opravit.
         postal_letter:
           help:
-            - Uživatelé požadují, aby jejich adresa byla odeslána ověřovacímu kódu.
+            - Účastníci požádají o zaslání ověřovacího kódu na jejich poštovní adresu.
             - Na adresu zasíláte dopis s ověřovacím kódem.
-            - Označte písmeno jako odesláno.
-            - Jakmile označíte odeslané písmeno, uživatel bude schopen kód zadat a ověřit.
+            - Označte dopis jako odeslaný.
+            - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
       csv_census:
         explanation: Získejte ověření pomocí členství v organizaci
         name: Členství organizace
