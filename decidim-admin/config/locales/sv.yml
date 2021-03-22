@@ -141,12 +141,17 @@ sv:
         category:
           new: Ny kategori
         export: Exportera
+        import: Importera
         manage: Hantera
         new: Ny %{name}
+        newsletter:
+          new: Nytt nyhetsbrev
         per_page: Per sida
         permissions: Behörigheter
         reject: Avvisa
         share: Dela
+        user:
+          new: Ny användare
         verify: Kontrollera
       admin_terms_of_use:
         accept:
@@ -382,6 +387,14 @@ sv:
           impersonate_existing_managed_user: Hantera deltagaren "%{name}"
           impersonate_existing_user: Hantera deltagaren "%{name}"
           impersonate_new_managed_user: Hantera ny deltagare
+      imports:
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+          actions:
+            back: Tillbaka
+          import: Importera
       logs:
         logs_list:
           no_logs_yet: Det finns inga loggar än
@@ -405,8 +418,10 @@ sv:
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
+        moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
+        reported_users: Rapporterade användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: inställningar
@@ -494,6 +509,15 @@ sv:
             phone: Telefon
             state: Status
             users_count: Antal användare
+      moderated_users:
+        index:
+          actions:
+            unblock: Avblockera användare
+        report:
+          reasons:
+            spam: Skräp
+        tabs:
+          unblocked: Icke blockerade
       moderations:
         index:
           title: Moderering
@@ -596,8 +620,10 @@ sv:
           officialize: Gör officiell
           officialized: Gjord officiell
           reofficialize: Gör officiell igen
+          reports: Rapporter
           show_email: Visa e-postadress
           status: Status
+          unblock: Avblockera användare
           unofficialize: Sluta gör officiell
         new:
           badge: Officiellt märke
@@ -727,7 +753,7 @@ sv:
         gallery:
           add_images: Lägg till bilder
           delete_image: Ta bort bild
-          gallery_legend: Lägg till ett bildgalleri (valfritt)
+          gallery_legend: Lägg till ett bildgalleri (Frivilligt)
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.
