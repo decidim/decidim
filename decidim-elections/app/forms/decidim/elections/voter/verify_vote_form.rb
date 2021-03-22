@@ -2,7 +2,7 @@
 
 module Decidim
   module Elections
-    module Ballot
+    module Voter
       # This class holds the data to verify a vote.
       class VerifyVoteForm < Decidim::Form
         attribute :vote_identifier, String

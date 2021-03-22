@@ -43,7 +43,7 @@ module Decidim
       end
 
       def verify
-        @form = form(Ballot::VerifyVoteForm).instance(election: election)
+        @form = form(Voter::VerifyVoteForm).instance(election: election)
       end
 
       private

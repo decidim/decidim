@@ -52,7 +52,7 @@
           <label>
             <%= t("decidim.elections.votes.verify.form.vote_identifier") %>
 
-            <input type="text" class="vote-identifier" name="vote-identifier" data-value="qw12Sf35vVb556Hfvh7qw12Sf35vVb556Hfvh7">
+            <input type="text" class="vote-identifier" name="vote-identifier" value="<%= params[:vote_id].gsub("_","") %>">
           </label>
           <div>
             <%= link_to(

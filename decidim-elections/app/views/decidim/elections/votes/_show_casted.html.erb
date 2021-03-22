@@ -10,7 +10,7 @@
     <div class="evote__content">
       <%= t("decidim.elections.votes.confirmed.text", e_vote_poll_id: params[:id]).html_safe %>
       <p>
-        <%= t("decidim.elections.votes.confirmed.verify_link", link: verify_election_votes_path(election, id: params[:id])).html_safe %>
+        <%= t("decidim.elections.votes.confirmed.verify_link", link: election_vote_verify_path(election, vote_id: params[:id])).html_safe %>
       </p>
     </div>
 

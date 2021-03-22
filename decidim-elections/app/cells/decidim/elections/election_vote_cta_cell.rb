@@ -34,11 +34,12 @@ module Decidim
         end
       end
 
-      def verify_election_votes_path
-        engine_router.verify_election_votes_path(
+      def election_vote_verify_path
+        engine_router.election_vote_verify_path(
           "#{key_participatory_space_slug}": current_participatory_space.slug,
           component_id: current_component.id,
-          election_id: model.id
+          election_id: model.id,
+          vote_id: "_"
         )
       end
 
