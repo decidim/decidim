@@ -16,29 +16,31 @@ module Decidim
 
       def proposal_data_for_map(proposal)
         proposal
-          .slice(:latitude, :longitude, :address)
-          .merge(
-            title: decidim_html_escape(present(proposal).title),
-            body: html_truncate(decidim_sanitize(present(proposal).body), length: 100),
-            icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
-            link: proposal_path(proposal)
-          )
+            .slice(:latitude, :longitude, :address)
+            .merge(
+                title: decidim_html_escape(present(proposal).title),
+                body: html_truncate(decidim_sanitize(present(proposal).body), length: 100),
+                icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
+                link: proposal_path(proposal)
+            )
       end
 
       def proposal_preview_data_for_map(proposal)
         {
-          type: "drag-marker",
-          marker: proposal.slice(
-            :latitude,
-            :longitude,
-            :address
-          ).merge(
-            icon: icon("proposals", width: 40, height: 70, remove_icon_class: true)
-          )
+            type: "drag-marker",
+            marker: proposal.slice(
+                :latitude,
+                :longitude,
+                :address
+            ).merge(
+                icon: icon("proposals", width: 40, height: 70, remove_icon_class: true)
+            )
         }
       end
 
       def has_position?(proposal)
+        return unless proposal.address.present?
+
         proposal.latitude.present? && proposal.longitude.present?
       end
     end
