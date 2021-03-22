@@ -35,14 +35,14 @@ en:
         start_date: Start date
         title: Title
       conference_media_link:
-        title: Title
         date: Date
         link: Link
+        title: Title
         weight: Weight
       conference_partner:
-        name: Name
         link: Link
         logo: Logo
+        name: Name
         partner_type: Partner type
         weight: Weight
       conference_registration_invite:
