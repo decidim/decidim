@@ -35,10 +35,10 @@
             <div class="card__support">
               <div>
                 <button class="card__button button small hollow" type="button">
-                  <%= icon "x", role: "img" %> <%= t(".identification_keys.cancel") %>
+                  <%= icon "x", role: "presentation", "aria-hidden": true %> <%= t(".identification_keys.cancel") %>
                 </button>
                 <label class="card__button button small" for="submit_identification_public_key">
-                  <%= icon "check", role: "img" %> <%= t(".identification_keys.submit") %>
+                  <%= icon "check", role: "presentation", "aria-hidden": true %> <%= t(".identification_keys.submit") %>
                 </label>
               </div>
             </div>
@@ -47,7 +47,7 @@
     </div>
     <div id="generate_identification_keys" data-error="<%= t(".identification_keys.generate_error") %>">
       <button class="button">
-        <%= icon "key", role: "img" %> <%= t(".identification_keys.generate") %>
+        <%= icon "key", role: "presentation", "aria-hidden": true %> <%= t(".identification_keys.generate") %>
       </button>
     </div>
   <% else %>
@@ -56,7 +56,7 @@
       <h2><%= t(".identification_keys.title") %></h2>
       <p><%= t(".identification_keys.upload_legend") %></p>
       <button class="button" type="button">
-        <%= icon "data-transfer-upload", role: "img" %> <%= t(".identification_keys.upload") %>
+        <%= icon "data-transfer-upload", role: "presentation", "aria-hidden": true %> <%= t(".identification_keys.upload") %>
       </button>
     </div>
 

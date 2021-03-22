@@ -7,7 +7,7 @@
         <% unless current_user %>
           <%= link_to decidim.new_user_registration_path, class: "button--sc link subhero-cta", title: t("decidim.pages.home.sub_hero.register_title") do %>
             <%= t("decidim.pages.home.sub_hero.register") %>
-            <%= icon "chevron-right", aria_hidden: true, role: "img" %>
+            <%= icon "chevron-right", aria_hidden: true, role: "presentation" %>
           <% end %>
         <% end %>
       </div>

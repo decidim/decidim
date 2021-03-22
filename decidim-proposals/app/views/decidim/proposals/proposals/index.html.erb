@@ -34,7 +34,7 @@
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
       <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small", data: { "redirect_url" => new_proposal_path } do %>
         <%= t(".new_proposal") %>
-        <%= icon "plus", role: "img", "aria-hidden": true %>
+        <%= icon "plus", role: "presentation", "aria-hidden": true %>
       <% end %>
     <% end %>
 

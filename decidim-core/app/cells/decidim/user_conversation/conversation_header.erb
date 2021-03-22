@@ -1,11 +1,11 @@
 <div class="conversation-header flex--cc absolutes">
   <div class="left center mr-s">
     <%= link_to decidim.profile_conversations_path(nickname: user.nickname), class: "card--list__data__icon card--list__data__icon--back" do %>
-      <%= icon "chevron-left", role: "img" %>
+      <%= icon "chevron-left", role: "img", aria_label: t("decidim.user_conversations.show.back") %>
     <% end %>
   </div>
   <%= link_to profile_path(user.nickname) do %>
-    <%= image_tag conversation_avatar, alt: t("decidim.author.avatar") %>
+    <%= image_tag conversation_avatar, alt: conversation_avatar_alt) %>
   <% end %>
 
   <div class="ml-s">
