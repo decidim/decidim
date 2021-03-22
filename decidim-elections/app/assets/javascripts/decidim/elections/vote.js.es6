@@ -43,10 +43,10 @@ $(async () => {
     voterWrapperAdapter = new DummyVoterWrapperAdapter({
       voterId: voterUniqueId
     });
-  } else if (schemeName === "election_guard") {
+  } else if (schemeName === "electionguard") {
     voterWrapperAdapter = new ElectionGuardVoterWrapperAdapter({
       voterId: voterUniqueId,
-      workerUrl: "/assets/election_guard/webworker.js"
+      workerUrl: "/assets/electionguard/webworker.js"
     });
   } else {
     throw new Error(`Voting scheme ${schemeName} not supported.`);
