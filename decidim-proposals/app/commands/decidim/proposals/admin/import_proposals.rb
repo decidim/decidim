@@ -48,7 +48,7 @@ module Decidim
           @proposals = Decidim::Proposals::Proposal
                        .where(component: origin_component)
                        .where(state: proposal_states)
-          @proposals = @proposals.where(scope: proposal_scopes) if proposal_scopes.any?
+          @proposals = @proposals.where(scope: proposal_scopes) unless proposal_scopes.empty?
           @proposals
         end
 
