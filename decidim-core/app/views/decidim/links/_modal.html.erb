@@ -13,10 +13,10 @@
       </div>
     </div>
     <div class="row reveal__buttons text-center">
+      <%= link_to t("decidim.links.warning.proceed"), params[:external_url], target: "_blank", data: { close: "" }, class: "button primary button--nomargin" %>
       <button class="link" data-close>
         <%= t("decidim.links.warning.cancel") %>
       </button>
-      <%= link_to t("decidim.links.warning.proceed"), params[:external_url], target: "_blank", data: { close: "" }, class: "button primary button--nomargin" %>
     </div>
   </div>
 </div>
