@@ -30,17 +30,15 @@ const state = () => {
   return null;
 };
 
-$(() => {
-  window.onpopstate = (event) => {
-    // Ensure the event is caused by user action
-    if (event.isTrusted) {
-      for (let callbackId in callbacks) {
-        if (callbacks.hasOwnProperty(callbackId)) {
-          callbacks[callbackId](event.state);
-        }
+window.onpopstate = (event) => {
+  // Ensure the event is caused by user action
+  if (event.isTrusted) {
+    for (let callbackId in callbacks) {
+      if (callbacks.hasOwnProperty(callbackId)) {
+        callbacks[callbackId](event.state);
       }
     }
   }
-});
+}
 
 export { registerCallback, unregisterCallback, pushState, replaceState, state };

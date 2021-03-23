@@ -42,6 +42,14 @@ $(() => {
     const $link = $(elem);
     $link.data("external-link", new ExternalLink($link));
   });
+
+  // Mount comments component
+  $("[data-decidim-comments]").each((_i, el) => {
+    const $el = $(el);
+    const comments = new CommentsComponent($el, $el.data("decidim-comments"));
+    comments.mountComponent();
+    $(el).data("comments", comments);
+  });
 });
 
 import "./filters"

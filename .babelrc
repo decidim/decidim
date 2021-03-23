@@ -1,0 +1,6 @@
+// This file is required by jest (otherwise, it doesn't transpile the test files)
+{
+    "presets": [
+        "@babel/preset-env"
+    ]
+}

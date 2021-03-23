@@ -5,7 +5,9 @@
  * @augments Component
  */
 
-import $ from "jquery"
+// This is necessary for testing purposes
+const $ = window.$;
+
 import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter"
 
 export default class CommentsComponent {
@@ -276,12 +278,3 @@ export default class CommentsComponent {
     }
   }
 }
-
-$(() => {
-  $("[data-decidim-comments]").each((_i, el) => {
-    const $el = $(el);
-    const comments = new CommentsComponent($el, $el.data("decidim-comments"));
-    comments.mountComponent();
-    $(el).data("comments", comments);
-  });
-});

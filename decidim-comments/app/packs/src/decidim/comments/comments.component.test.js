@@ -1,6 +1,7 @@
 /* eslint-disable id-length, max-lines */
 /* global spyOn, jest */
-import $ from "jquery"
+
+const $ = require('jquery');
 
 // Ability to spy on the jQuery methods inside the component in order to test
 // the sub-elements correctly. Needs to be defined before the modules are loaded
@@ -16,7 +17,10 @@ window.Quill = Quill
 jest.useFakeTimers();
 
 import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter";
-import CommentsComponent from "./comments.component";
+// Component is loaded with require because using import loads it before $ has been mocked
+// so tests aren't able to check the spied behaviours
+const CommentsComponent = require("./comments.component_for_testing.js");
+
 
 // Create a dummy foundation jQuery method for the comments component to call
 $.fn.foundation = () => {};

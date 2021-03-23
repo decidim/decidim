@@ -1,15 +1,13 @@
 /* global spyOn */
 /* eslint-disable id-length */
-// TOOD-blat, what should we do with this component??
-window.$ = require("jquery");
+window.$ = $;
 
-require("./delayed.js.es6");
-require("./history.js.es6");
-require("./data_picker.js.es6");
-require("./check_boxes_tree.js.es6");
-require("./form_filter.component.js.es6");
+import delayed from "./delayed"
+import CheckBoxesTree from "./check_boxes_tree"
+import { registerCallback, unregisterCallback, pushState, replaceState, state } from "./history"
+import DataPicker from "./data_picker"
 
-const { Decidim: { FormFilterComponent } } = window;
+const FormFilterComponent = require("./form_filter.component_for_testing.js");
 
 describe("FormFilterComponent", () => {
   const selector = "form#new_filter";
@@ -71,8 +69,10 @@ describe("FormFilterComponent", () => {
     `;
     $("body").append(form);
 
+    window.Decidim = window.Decidim || {};
+
     window.theDataPicker = new DataPicker($(".data-picker"));
-    window.theCheckBoxesTree = new window.Decidim.CheckBoxesTree();
+    window.theCheckBoxesTree = new CheckBoxesTree();
     subject = new FormFilterComponent($(document).find("form"));
   });
 
