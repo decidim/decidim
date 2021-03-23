@@ -98,13 +98,10 @@ FactoryBot.define do
     dataset
     voting
 
-    document_number = (111111111 .. 999999999).to_a.sample
+    document_number = (111_111_111..999_999_999).to_a.sample
     document_type = %w(DNI NIE PASSPORT).sample
     birthdate = Faker::Date.birthday(min_age: 18, max_age: 65)
     postal_code = Faker::Address.postcode
-
-    in_person_data = [document_number, document_type, birthdate]
-    check_data = [document_number, document_type, birthdate, postal_code]
 
     hashed_in_person_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate].join(".")) }
     hashed_check_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate, postal_code].join(".")) }

@@ -19,7 +19,9 @@ module Decidim
           def call
             return broadcast(:invalid) unless dataset
 
-            Decidim::Votings::Census::Dataset.increment_counter(:csv_row_processed_count, dataset.id)
+            # rubocop:disable Rails/SkipsModelValidations
+            Dataset.increment_counter(:csv_row_processed_count, dataset.id)
+            # rubocop:enable Rails/SkipsModelValidations
 
             dataset.data_created! if all_rows_processed?
 

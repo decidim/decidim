@@ -835,6 +835,9 @@ en:
             destroy:
               error: An error ocurred deleting the census, please try again later.
               success: Census data deleted
+            generate_access_codes:
+              button: Generate voting Access Codes
+              confirm: If you continue, you will not be able to modify the census.
             new:
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
               submit: Submit csv

@@ -10,9 +10,9 @@
 <div class="card-section">
   <%= cell("decidim/announcement", msg, callout_class: callout_class ) %>
 
-  <%= link_to t("update.generate_access_codes", scope: "decidim.votings.census.admin.census"),
+  <%= link_to t("generate_access_codes.button", scope: "decidim.votings.census.admin.census"),
       "#",
       class: "button disabled",
-      data: { confirm: t("update.generate_access_codes_confirm", scope: "decidim.votings.census.admin.census") } %>
+      data: { confirm: t("generate_access_codes.confirm", scope: "decidim.votings.census.admin.census") } %>
 </div>
 
