@@ -323,6 +323,19 @@ shared_examples "proposals wizards" do |options|
           expect(page).to have_content("EDIT PROPOSAL DRAFT")
         end
       end
+
+      context "when there is no address" do
+        let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: nil, component: component, title: proposal_title, body: proposal_body) }
+
+        it "doesn't shows a preview" do
+          expect(page).to have_content(proposal_title)
+          expect(page).to have_content(user.name)
+          expect(page).to have_content(proposal_body)
+
+          expect(page).not_to have_css(".dynamic-map-instructions")
+          expect(page).not_to have_css(".google-map")
+        end
+      end
     end
   end
 
