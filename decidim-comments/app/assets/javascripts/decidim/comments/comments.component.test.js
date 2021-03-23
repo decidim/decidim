@@ -251,7 +251,7 @@ describe("CommentsComponent", () => {
 
   beforeEach(() => {
     let orderSelector = `
-      <ul class="dropdown menu" data-dropdown-menu="data-dropdown-menu" data-autoclose="false" data-disable-hover="true" data-click-open="true" data-close-on-click="true" tabindex="-1" role="menubar">
+      <ul id="comments-order-menu" class="dropdown menu" data-dropdown-menu="data-dropdown-menu" data-autoclose="false" data-disable-hover="true" data-click-open="true" data-close-on-click="true" tabindex="-1" role="menubar">
         <li class="is-dropdown-submenu-parent opens-right" tabindex="-1" role="none">
           <a href="#" id="comments-order-menu-control" aria-label="Order by:" aria-controls="comments-order-menu" aria-haspopup="true" role="menuitem">Older</a>
           <ul class="menu is-dropdown-submenu submenu first-sub vertical" id="comments-order-chooser-menu" role="menu" aria-labelledby="comments-order-menu-control" tabindex="-1" data-submenu="">
