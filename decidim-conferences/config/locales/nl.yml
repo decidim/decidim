@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Gerelateerde assemblies
+        assemblies_ids: Gerelateerde bijeenkomsten
         banner_image: Banner afbeelding
         consultations_ids: Gerelateerde consultaties
         copy_categories: Categorieën kopiëren
@@ -540,6 +540,12 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: De "%{resource_title}" -conferentie komt eraan!
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie komt over 2 dagen.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Een <strong>conferentie</strong> is een verzameling van bijeenkomsten georganiseerd in een programma, waarbij een aantal mensen is uitgenodigd als spreker. en andere informatievelden die typerend zijn voor grote congressen of sociale evenementen (registratie, lijst van organisaties die het evenement ondersteunen, sponsoren, etc.)</p> <p>Voorbeelden: een conferentie kan een relevante gebeurtenis zijn voor een organisatie en haar leden, of maakt deel uit van een participatief proces of volgt na een consultatie.</p>\n"
+          page: "<p>Een <strong>conferentie</strong> is een verzameling van bijeenkomsten georganiseerd in een programma, waarbij een aantal mensen is uitgenodigd als spreker. en andere informatievelden die typerend zijn voor grote congressen of sociale evenementen (registratie, lijst van organisaties die het evenement ondersteunen, sponsoren, etc.)</p> <p>Voorbeelden: een conferentie kan een relevante gebeurtenis zijn voor een organisatie en haar leden, of maakt deel uit van een participatief proces of volgt na een consultatie.</p>\n"
+          title: Wat zijn conferenties?
     log:
       value_types:
         conference_presenter:
