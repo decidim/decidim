@@ -243,7 +243,6 @@ sv:
       photos:
         related_photos: Relaterade bilder
     author:
-      avatar: Profilbild
       comments:
         one: kommentar
         other: kommentarer
