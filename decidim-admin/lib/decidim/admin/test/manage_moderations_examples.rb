@@ -24,6 +24,16 @@ shared_examples "manage moderations" do
   end
 
   context "when listing moderations" do
+    it "only lists moderations for the current organization" do
+      external_reportable = create :dummy_resource
+      external_moderation = create(:moderation, reportable: external_reportable, report_count: 1, reported_content: external_reportable.reported_searchable_content_text)
+      create(:report, moderation: external_moderation)
+
+      visit current_path
+
+      expect(page).to have_no_selector("tr[data-id=\"#{external_moderation.id}\"]")
+    end
+
     it "user can review them" do
       moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
