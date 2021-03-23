@@ -267,6 +267,8 @@ cs:
       photos:
         related_photos: Související fotografie
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar pro více uživatelů
       comments:
         one: komentář
         few: komentáře
@@ -1247,6 +1249,7 @@ cs:
         description: Je tento obsah nevhodný?
         does_not_belong: Obsahuje nezákonnou činnost, sebevražedné hrozby, osobní informace nebo něco jiného, o kterém si myslíte, že nepatří na %{organization_name}.
         offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
+        reason: Důvod
         report: Zpráva
         spam: Obsahuje clickbait, reklama, podvody nebo skripty.
         title: Nahlásit problém
@@ -1330,6 +1333,7 @@ cs:
         send: Odeslat
         title_reply: Odpovědět
       show:
+        back: Zobrazit všechny konverzace
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
         title: Konverzace s %{usernames}
       update:
@@ -1375,6 +1379,7 @@ cs:
         number_of_versions: Verze
         title: Verze
     versions_list_item:
+      back: Zobrazit všechny verze
       show:
         version_index: Verze %{index}
     welcome_notification:
