@@ -37,6 +37,10 @@ module Decidim
         .where("extended_data->>'document_number' = ?", number)
     end
 
+    def non_deleted_memberships
+      memberships.where(decidim_users: { deleted_at: nil })
+    end
+
     # Returns the presenter for this author, to be used in the views.
     # Required by ActsAsAuthor.
     def presenter
