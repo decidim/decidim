@@ -262,7 +262,6 @@ ro:
       photos:
         related_photos: Imagini asemănătoare
     author:
-      avatar: Avatar
       comments:
         one: comentariu
         few: comentarii
