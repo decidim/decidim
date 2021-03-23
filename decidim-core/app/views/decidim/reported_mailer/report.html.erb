@@ -35,7 +35,15 @@
   <% if author_profile_url.present? %>
     <p><%= link_to @author.name, author_profile_url, target: :blank %></p>
   <% else %>
-    <p><%= @author.name %></p>
+    <p>
+      <%=
+        if @author.respond_to?(:name)
+          @author.name
+        elsif @author.respond_to?(:title)
+          translated_attribute(@author.title)
+        end
+        %>
+    </p>
   <% end %>
 <% end %>
 <br>
