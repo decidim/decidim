@@ -80,6 +80,17 @@
   padding: 0 1rem;
 }
 
-.reveal__nopadding{
-  padding: 0;
+.external-domain-warning{
+  .card-section{
+    padding: 0;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: center;
+
+    .button{
+      margin: 0;
+    }
+  }
 }

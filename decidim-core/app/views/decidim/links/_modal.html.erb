@@ -1,4 +1,4 @@
-<div class="reveal" data-reveal>
+<div class="reveal external-domain-warning" data-reveal>
   <button class="close-button" data-close
           aria-label="<%= t("decidim.links.warning.close_modal") %>"
           type="button">
@@ -6,15 +6,15 @@
   </button>
   <div class="heading3 text-center"><%= t("decidim.links.warning.title") %></div>
   <%= render partial: "warning" %>
-  <div class="card-section reveal__nopadding">
+  <div class="card-section">
     <div class="card external-link-url">
       <div class="card__content text-center">
         <%= highlight_domain %>
       </div>
     </div>
-    <div class="row reveal__buttons text-center">
+    <div class="row buttons">
       <%= link_to t("decidim.links.warning.proceed"), params[:external_url], target: "_blank", data: { close: "" }, class: "button primary button--nomargin" %>
-      <button class="link" data-close>
+      <button class="button clear" data-close>
         <%= t("decidim.links.warning.cancel") %>
       </button>
     </div>
