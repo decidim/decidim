@@ -77,7 +77,7 @@
         send_welcome_notification: Send velkomst varsel
         success_color: Vellykket
         time_zone: Tidssone
-        tos_version: Vilkår for tjenester versjon
+        tos_version: Vilkår for tjenesten
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         warning_color: Advarsel
