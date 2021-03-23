@@ -13,7 +13,6 @@ module Decidim
             @form = form
             @current_user = current_user
             @dataset = nil
-            @csv_row_count = nil
           end
 
           # Executes the command. Broadcast this events:
@@ -36,7 +35,7 @@ module Decidim
           end
 
           attr_reader :form, :current_user
-          attr_accessor :dataset, :csv_row_count
+          attr_accessor :dataset
 
           def create_census_dataset!
             Decidim.traceability.create(
