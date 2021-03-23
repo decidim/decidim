@@ -91,6 +91,15 @@ shared_examples "manage moderations" do
       reported_content_slice = moderation.reportable.reported_searchable_content_text.split("\n").first
       expect(page).to have_content(reported_content_slice)
     end
+
+    context "when the reported content does not exist" do
+      it "still renders the page" do
+        moderation.reportable.destroy
+        visit current_path
+
+        expect(page).to have_no_selector("tr[data-id=\"#{moderation.id}\"]")
+      end
+    end
   end
 
   context "when listing hidden resources" do
