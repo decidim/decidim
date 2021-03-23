@@ -347,7 +347,7 @@ ca:
             space_type: Espai participatiu
             upcoming: Properes
       last_activity:
-        meeting_updated_at_html: "<span>Trobada actualitzada a %{link}</span>"
+        meeting_updated_at_html: "<span>Trobada actualitzada el %{link}</span>"
         new_meeting_at_html: "<span>Nova trobada a %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
