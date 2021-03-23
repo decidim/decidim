@@ -25,7 +25,7 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
       end
 
       context "when the dataset is not in the correct status" do
-        let(:dataset) { create(:dataset, organization: organization, status: :export_codes) }
+        let(:dataset) { create(:dataset, organization: organization, status: :codes_generated) }
 
         it "does not update the dataset nor the data" do
           expect(Decidim::Votings::Census::Admin::UpdateDataset).not_to receive(:call)
@@ -61,7 +61,7 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
       it "delegates the work to the command" do
         expect(Decidim::Votings::Census::Admin::UpdateDataset)
           .to receive(:call)
-          .with(dataset, { status: :export_codes }, user)
+          .with(dataset, { status: :codes_generated }, user)
 
         described_class.perform_now(dataset, user)
       end
