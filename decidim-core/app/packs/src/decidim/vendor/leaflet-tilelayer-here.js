@@ -1,3 +1,4 @@
+/* eslint-disable */
 
 // 🍂class TileLayer.HERE
 // Tile layer for HERE maps tiles.

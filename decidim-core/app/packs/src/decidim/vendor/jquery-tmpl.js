@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /*
  * jQuery Templating Plugin
  * Copyright 2010, John Resig
@@ -144,7 +146,7 @@
             if ( options && options.wrapped ) {
                 updateWrapped( options, options.wrapped );
             }
-            ret = jQuery.isArray( data ) ? 
+            ret = jQuery.isArray( data ) ?
                 jQuery.map( data, function( dataItem ) {
                     return dataItem ? newTmplItem( options, parentItem, tmpl, dataItem ) : null;
                 }) :
@@ -189,10 +191,10 @@
                 return typeof name === "string" ? (jQuery.template[name] = tmpl) : tmpl;
             }
             // Return named compiled template
-            return name ? (typeof name !== "string" ? jQuery.template( null, name ): 
-                (jQuery.template[name] || 
-                    // If not in map, treat as a selector. (If integrated with core, use quickExpr.exec) 
-                    jQuery.template( null, htmlExpr.test( name ) ? name : jQuery( name )))) : null; 
+            return name ? (typeof name !== "string" ? jQuery.template( null, name ):
+                (jQuery.template[name] ||
+                    // If not in map, treat as a selector. (If integrated with core, use quickExpr.exec)
+                    jQuery.template( null, htmlExpr.test( name ) ? name : jQuery( name )))) : null;
         },
 
         encode: function( text ) {
@@ -207,7 +209,7 @@
                 _default: { $2: "null" },
                 open: "if($notnull_1){_=_.concat($item.nest($1,$2));}"
                 // tmpl target parameter can be of type function, so use $1, not $1a (so not auto detection of functions)
-                // This means that {{tmpl foo}} treats foo as a template (which IS a function). 
+                // This means that {{tmpl foo}} treats foo as a template (which IS a function).
                 // Explicit parens can be used if foo is a function that returns a template: {{tmpl foo()}}.
             },
             "wrap": {
@@ -229,7 +231,7 @@
                 open: "}else if(($notnull_1) && $1a){"
             },
             "html": {
-                // Unecoded expression evaluation. 
+                // Unecoded expression evaluation.
                 open: "if($notnull_1){_.push($1a);}"
             },
             "=": {
@@ -268,16 +270,16 @@
     //========================== Private helper functions, used by code above ==========================
 
     function build( tmplItem, nested, content ) {
-        // Convert hierarchical content into flat string array 
+        // Convert hierarchical content into flat string array
         // and finally return array of fragments ready for DOM insertion
         var frag, ret = content ? jQuery.map( content, function( item ) {
-            return (typeof item === "string") ? 
+            return (typeof item === "string") ?
                 // Insert template item annotations, to be converted to jQuery.data( "tmplItem" ) when elems are inserted into DOM.
                 (tmplItem.key ? item.replace( /(<\w+)(?=[\s>])(?![^>]*_tmplitem)([^>]*)/g, "$1 " + tmplItmAtt + "=\"" + tmplItem.key + "\" $2" ) : item) :
                 // This is a child template item. Build nested template.
                 build( item, tmplItem, item._ctnt );
-        }) : 
-        // If content is not defined, insert tmplItem directly. Not a template item. May be a string, or a string array, e.g. from {{html $item.html()}}. 
+        }) :
+        // If content is not defined, insert tmplItem directly. Not a template item. May be a string, or a string array, e.g. from {{html $item.html()}}.
         tmplItem;
         if ( nested ) {
             return ret;
@@ -334,7 +336,7 @@
                         parens = "";
                     }
                     if ( target ) {
-                        target = unescape( target ); 
+                        target = unescape( target );
                         args = args ? ("," + unescape( args ) + ")") : (parens ? ")" : "");
                         // Support for target being things like a.toLowerCase();
                         // In that case don't call with template item as 'this' pointer. Just evaluate...
@@ -344,7 +346,7 @@
                         exprAutoFnDetect = expr = def.$1 || "null";
                     }
                     fnargs = unescape( fnargs );
-                    return "');" + 
+                    return "');" +
                         tag[ slash ? "close" : "open" ]
                             .split( "$notnull_1" ).join( target ? "typeof(" + target + ")!=='undefined' && (" + target + ")!=null" : "true" )
                             .split( "$1a" ).join( exprAutoFnDetect )
@@ -362,8 +364,8 @@
         );
     }
     function updateWrapped( options, wrapped ) {
-        // Build the wrapped content. 
-        options._wrap = build( options, true, 
+        // Build the wrapped content.
+        options._wrap = build( options, true,
             // Suport imperative scenario in which options.wrapped can be set to a selector or an HTML string.
             jQuery.isArray( wrapped ) ? wrapped : [htmlExpr.test( wrapped ) ? wrapped : jQuery( wrapped ).html()]
         ).join("");
@@ -423,9 +425,9 @@
             }
             if ( tmplItem ) {
                 pntItem = tmplItem;
-                // Find the template item of the parent element. 
+                // Find the template item of the parent element.
                 // (Using !=, not !==, since pntItem.key is number, and pntNode may be a string)
-                while ( pntItem && pntItem.key != pntNode ) { 
+                while ( pntItem && pntItem.key != pntNode ) {
                     // Add this element as a top-level node for this rendered template item, as well as for any
                     // ancestor items between this item and the item of its parent element
                     pntItem.nodes.push( el );
@@ -439,7 +441,7 @@
             }
             function cloneTmplItem( key ) {
                 key = key + keySuffix;
-                tmplItem = newClonedItems[key] = 
+                tmplItem = newClonedItems[key] =
                     (newClonedItems[key] || newTmplItem( tmplItem, newTmplItems[tmplItem.parent.key + keySuffix] || tmplItem.parent, null, true ));
             }
         }
@@ -463,7 +465,7 @@
         // nested template, using {{wrap}} tag
         var options = call.options || {};
         options.wrapped = wrapped;
-        // Apply the template, which may incorporate wrapped content, 
+        // Apply the template, which may incorporate wrapped content,
         return jQuery.tmpl( jQuery.template( call.tmpl ), call.data, options, call.item );
     }
 

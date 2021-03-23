@@ -8,7 +8,7 @@ const showHideNav = (evt) => {
 
 export default function toggleNav() {
   const navTrigger = document.querySelector(".menu-trigger");
-  if(navTrigger) {
+  if (navTrigger) {
     navTrigger.addEventListener("click", showHideNav);
   }
 }
