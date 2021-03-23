@@ -65,8 +65,6 @@ jobs:
             yarn-
       - name: Install JS dependencies
         run: yarn install --frozen-lockfile
-      - run: npm run test
-        name: Test JS files
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
@@ -75,6 +73,8 @@ jobs:
       - run: bundle exec rails assets:precompile
         name: Precompile assets
         working-directory: ./spec/decidim_dummy_app/
+      - run: npm run test
+        name: Test JS files
       - run: bundle exec rspec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
