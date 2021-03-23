@@ -1,9 +1,7 @@
 <%= render("focus_header", header_title: t("decidim.elections.votes.header.casting")) %>
 <div class="focus__content evote casting-vote-wrapper"
   data-api-endpoint-url="<%= bulletin_board_server %>"
-  data-election-unique-id="<%= election_unique_id %>"
-  data-message-id="<%= vote.message_id %>"
-  data-encrypted-data-hash="<%= vote.encrypted_vote_hash %>">
+  data-message-id="<%= vote.message_id %>">
   <div class="row">
     <h1 class="heading2">
       <%= t("decidim.elections.votes.casting.header") %>
