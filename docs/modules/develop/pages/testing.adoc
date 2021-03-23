@@ -55,6 +55,6 @@ branches, or added to a Pull Request. In the latter case, only the tests for
 the modules affected by any the PR commits will be executed.
 
 This means that the workflows defined for each module in the folder
-`.github/workflows/` should be alwaysd updated with the module's dependencies
+`.github/workflows/` should be always updated with the module's dependencies
 list. The script `.github/workflows/dependencies.sh` can be helpful to keep
 those files updated until we have an automatic process to do it.
