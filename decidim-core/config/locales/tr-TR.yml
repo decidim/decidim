@@ -253,7 +253,6 @@ tr:
       photos:
         related_photos: İlgili fotoğraflar
     author:
-      avatar: Avatar
       comments:
         one: yorum
         other: yorumlar
