@@ -50,6 +50,10 @@ module Decidim
 
     skip_before_action :disable_http_caching, unless: :user_signed_in?
 
+    def back_url
+      root_path
+    end
+
     private
 
     # Stores the url where the user will be redirected after login.
