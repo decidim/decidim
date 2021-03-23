@@ -10,9 +10,7 @@ module Decidim
           def perform(dataset, user)
             return unless user_valid?(user) && dataset_valid?(dataset)
 
-            update_dataset_status(dataset, :generate_codes, user)
-
-            GenerateAccessCodes.call(dataset, user)
+            generate_access_codes(dataset)
 
             update_dataset_status(dataset, :export_codes, user)
           end
@@ -24,7 +22,16 @@ module Decidim
           end
 
           def dataset_valid?(dataset)
-            dataset.present? && dataset.review_data_status?
+            dataset.present? && dataset.generate_codes_status?
+          end
+
+          def generate_access_codes(dataset)
+            dataset.data.find_each do |datum|
+              access_code = SecureRandom.alphanumeric(8)
+              hashed_online_data = Digest::SHA256.hexdigest([datum.hashed_check_data, access_code].join("."))
+
+              datum.update!(access_code: access_code, hashed_online_data: hashed_online_data)
+            end
           end
 
           def update_dataset_status(dataset, status, user)
