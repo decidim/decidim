@@ -33,7 +33,8 @@ describe Decidim::Elections::Admin::PublishResults do
     }
   end
   let(:method_name) { :publish_results }
-  let(:response) { OpenStruct.new(status: "results_published") }
+  let(:response) { OpenStruct.new(status: "enqueued") }
+  let(:action) { Decidim::Elections::Action.last }
 
   let(:bulletin_board) do
     double(Decidim::Elections.bulletin_board)
@@ -49,15 +50,10 @@ describe Decidim::Elections::Admin::PublishResults do
                                                              })
     allow(bulletin_board).to receive(:authority_name).and_return("Decidim Test Authority")
     allow(bulletin_board).to receive(:authority_slug).and_return("decidim-test-authority")
-    allow(bulletin_board).to receive(:scheme).and_return(scheme)
-    allow(bulletin_board).to receive(method_name).and_return(response)
+    allow(bulletin_board).to receive(method_name).and_yield("a.message+id").and_return(response)
   end
 
   context "when valid form" do
-    it "updates the election status" do
-      expect { subject.call }.to change { Decidim::Elections::Election.last.bb_status }.from(nil).to("results_published")
-    end
-
     it "logs the performed action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
@@ -67,6 +63,15 @@ describe Decidim::Elections::Admin::PublishResults do
       expect { subject.call }.to change(Decidim::ActionLog, :count)
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_present
+    end
+
+    it "creates an action" do
+      expect { subject.call }.to change { Decidim::Elections::Action.count }.by(1)
+
+      expect(action.election).to eq(election)
+      expect(action.message_id).to eq "a.message+id"
+      expect(action).to be_pending
+      expect(action).to be_publish_results
     end
 
     it "calls the bulletin board method with the correct params" do
