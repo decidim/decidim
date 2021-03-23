@@ -1,0 +1,86 @@
+<div class="polling_officer_zone">
+  <div>
+    <a href="evote-polling-station-officer">
+      <svg role="img" class="icon--caret-left icon icon--small"><title></title><use href="/assets/decidim/icons-12032a129d2a2668259128b86df2c8829ea6cdaa07beb8538a61c4872aa66328.svg#icon-caret-left"></use></svg>&nbsp;Back to polling stations
+    </a>
+  </div>
+  <h2>Identify and verify a person</h2>
+    
+  <div class="row section">
+    <div class="columns">
+      <% if locals[:error_online] %>
+        <div class="callout warning mt-s">
+          <h5>This person has already participated online.</h5>
+          <p>
+            <strong>Name:</strong> Lorem Ipsum
+            <br>
+            <strong>ID:</strong> 1234567-K
+          </p>
+          <p>The previous vote will ve overriden. Do you want to continue?</p>
+          <div>
+            <button class="button small">Override vote</button>
+            <button class="button small button--muted">Cancel</button>
+          </div>
+        </div>
+      <% elsif locals[:error] %>
+        <div class="callout alert mt-s">
+          <h5>This person has already participated in a physical booth. She can not participate again.</h5>
+          <p>
+            <strong>Name:</strong> Lorem Ipsum
+            <br>
+            <strong>ID:</strong> 1234567-K
+          </p>
+        </div>
+      <% else %>
+        <div class="row mt-sm">
+          <div class="columns large-8">
+            <div class="card--secondary">
+              <div class="card__content">
+                <form>
+                  <div>
+                    <div>
+                      <label>Document type
+                        <select>
+                          <option disabled selected hidden>Select the type of document</option>
+                          <option>Passport</option>
+                          <option>DNI</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div>
+                      <label>Document number
+                        <input type="text" placeholder="ID number">
+                      </label>
+                    </div>
+                    <div>
+                      <label>Postal code
+                        <input type="text" placeholder="Postal code number">
+                      </label>
+                    </div>
+                    <fieldset>
+                      <legend>Date of birth</legend>
+                      <div class="row">
+                        <label class="columns small-4">Day
+                          <input type="text" placeholder="DD">
+                        </label>
+                        <label class="columns small-4">Month
+                          <input type="text" placeholder="MM">
+                        </label>
+                        <label class="columns small-4">Year
+                          <input type="text" placeholder="YY">
+                        </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <button type="button" class="button expanded mt-s mb-none">Validate document</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+  </div>
+</div>
+
+</div>
