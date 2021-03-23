@@ -73,7 +73,7 @@
         show_statistics: Vis statistikk
         success_color: Vellykket
         time_zone: Tidssone
-        tos_version: Vilkår for tjenester versjon
+        tos_version: Vilkår for tjenesten
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         warning_color: Advarsel
@@ -152,7 +152,7 @@
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for Bruk. Ellers vil du ikke kunne administrere plattformen.
+          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for bruk. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:
