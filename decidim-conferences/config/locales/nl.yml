@@ -474,8 +474,8 @@ nl:
           related_photos: Afbeeldingen
       registration_types:
         index:
-          choose_an_option: 'Kies uw registratieoptie:'
-          login_as: U bent ingelogd als %{name} <%{email}>
+          choose_an_option: 'Kies je registratieoptie:'
+          login_as: Je bent ingelogd als %{name} <%{email}>
           no_registrations: Geen inschrijvingen
           register: Registreren
           title: Registratie soorten
@@ -487,11 +487,11 @@ nl:
           sign_up: Maak een account aan in decidim om u te registreren voor de conferentie
       show:
         details: Details
-        introduction: Invoering
+        introduction: Inleiding
         objectives: Doelen
-        related_assemblies: Gerelateerde assemblies
+        related_assemblies: Gerelateerde bijeenkomsten
         related_consultations: Gerelateerde consultaties
-        related_participatory_processes: Verwante participatieprocessen
+        related_participatory_processes: Verwante participatieve processen
     events:
       conferences:
         conference_registration_confirmed:
@@ -502,27 +502,27 @@ nl:
           email_intro: De door de '%{resource_title}conferentie ingenomen slots zijn meer dan %{percentage}%.
           email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de inspraakruimte van de conferentie.
           email_subject: De "%{resource_title}" -bezette slots zijn meer dan %{percentage}%
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie bezet slots zijn meer dan %{percentage}%.
+          notification_title: De door de <a href="%{resource_path}">%{resource_title}</a> conferentie bezette slots zijn meer dan %{percentage}%.
         conference_updated:
           email_intro: 'De "%{resource_title}" -conferentie is bijgewerkt. Je kunt de nieuwe versie van de pagina lezen:'
-          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je de "%{resource_title}" -conferentie volgt. Je kunt het volgen opzeggen via de voorgaande link.
           email_subject: De "%{resource_title}" -conferentie is bijgewerkt
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie is bijgewerkt.
         registrations_enabled:
-          email_intro: 'De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt. U kunt uzelf registreren op zijn pagina:'
-          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt.
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie heeft registraties mogelijk gemaakt.
+          email_intro: 'De "%{resource_title}" -conferentie heeft registraties geactiveerd. Je kunt jezelf registreren op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je de "%{resource_title}" -conferentie volgt. Je kunt het volgen opzeggen via de voorgaande link.
+          email_subject: De "%{resource_title}" -conferentie heeft registraties geactiveerd.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie heeft registraties geactiveerd.
         role_assigned:
-          email_intro: U bent toegewezen als %{role} voor de conferentie "%{resource_title}".
-          email_outro: U heeft deze melding ontvangen omdat u %{role} van de "%{resource_title}" conferentie bent.
-          email_subject: U bent toegewezen als %{role} voor "%{resource_title}".
+          email_intro: Je bent toegewezen als %{role} voor de conferentie "%{resource_title}".
+          email_outro: Je heeft deze melding ontvangen omdat je %{role} van de "%{resource_title}" conferentie bent.
+          email_subject: Je bent toegewezen als %{role} voor "%{resource_title}".
           notification_title: Je bent toegewezen als %{role} voor de conferentie <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
-          email_intro: 'De "%{resource_title}" -conferentie vindt plaats over 2 dagen. U kunt de beschrijving van zijn pagina lezen:'
-          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: 'De "%{resource_title}" -conferentie vindt plaats over 2 dagen. Je kunt de beschrijving op deze pagina lezen:'
+          email_outro: Je hebt deze melding ontvangen omdat je de "%{resource_title}" -conferentie volgt. Je kunt het volgen opzeggen via de voorgaande link.
           email_subject: De "%{resource_title}" -conferentie komt eraan!
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie komt over 2 dagen.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie start over 2 dagen.
     help:
       participatory_spaces:
         conferences:
@@ -557,7 +557,7 @@ nl:
           more_info: Meer informatie
           take_part: Deelnemen
         index:
-          promoted_conferences: Gepromoveerde conferenties
+          promoted_conferences: Gemarkeerde conferenties
         order_by_conferences:
           conferences:
             one: "%{count} conferentie"
@@ -567,7 +567,7 @@ nl:
           take_part: Deelnemen
       conferences_nav:
         conference_menu_item: Informatie
-        conference_partners_menu_item: partners
-        conference_speaker_menu_item: sprekers
+        conference_partners_menu_item: Partners
+        conference_speaker_menu_item: Sprekers
         media: Media
-        venues: locaties
+        venues: Locaties
