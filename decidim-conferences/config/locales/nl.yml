@@ -8,18 +8,18 @@ nl:
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
-        decidim_scope_id: strekking
+        decidim_scope_id: Scope
         description: Beschrijving
         hashtag: Hashtag
         hero_image: Home afbeelding
         participatory_processes_ids: Verwante participatieve processen
-        promoted: gepromoveerd
+        promoted: Gemarkeerd
         published_at: Gepubliceerd op
-        scope_id: strekking
+        scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
-        slogan: leuze
+        slogan: Slogan
         slug: URL-slug
         title: Titel
       conference_speaker:
@@ -38,13 +38,13 @@ nl:
     models:
       decidim/conference:
         one: Conferentie
-        other: conferenties
+        other: Conferenties
       decidim/conference_speaker:
-        one: Conferentie spreker
+        one: Conferentiespreker
         other: Sprekers van de conferentie
       decidim/conference_user_role:
         one: Conferentiegebruikersrol
-        other: Conferentiegebruikersrol
+        other: Conferentiegebruikersrollen
   decidim:
     admin:
       actions:
@@ -61,15 +61,15 @@ nl:
           error: Er is een fout opgetreden bij het publiceren van deze conferentie.
           success: Conferentie met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het niet-publiceren van deze conferentie.
-          success: Conferentie ongepubliceerd succesvol.
+          error: Er is een fout opgetreden bij het depubliceren van deze conferentie.
+          success: Conferentie succesvol gedepubliceerd.
       conference_registration:
         confirm:
-          error: Er is een fout opgetreden bij het bevestigen van deze conferentieregistratie.
+          error: Er is een probleem opgetreden bij het bevestigen van deze conferentieregistratie.
           success: Conferentieregistratie succesvol bevestigd.
       conference_speakers:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een spreker voor deze conferentie.
+          error: Er was een probleem met het toevoegen van een spreker aan deze conferentie.
           success: Luidspreker gemaakt voor deze conferentie.
         destroy:
           success: Spreker is met succes verwijderd voor deze conferentie.
