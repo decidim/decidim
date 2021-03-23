@@ -250,7 +250,6 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
-      avatar: Profielafbeelding
       comments:
         one: commentaar
         other: commentaren
