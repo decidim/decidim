@@ -6,9 +6,9 @@ module Decidim::Votings::Census::Admin
   describe UpdateDataset do
     subject { described_class.new(dataset, attributes, user) }
 
-    let(:dataset) { create(:dataset, organization: user.organization, status: "create_data") }
+    let(:dataset) { create(:dataset, organization: user.organization, status: "init_data") }
     let(:user) { create(:user, :admin) }
-    let(:attributes) { { status: :review_data } }
+    let(:attributes) { { status: :data_created } }
 
     context "when the inputs are NOT valid" do
       context "when the user is nil" do
@@ -40,7 +40,7 @@ module Decidim::Votings::Census::Admin
     context "when the inputs are valid" do
       it "updates the dataset" do
         expect(subject.call).to broadcast(:ok)
-        expect(dataset.reload.status).to match("review_data")
+        expect(dataset.reload.status).to match("data_created")
       end
 
       it "traces the action", versioning: true do
