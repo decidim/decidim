@@ -19,7 +19,7 @@ module Decidim
           def call
             return broadcast(:invalid) unless valid?
 
-            update_dataset_status(dataset, :generate_codes, user)
+            update_dataset_status(dataset, :generating_codes, user)
 
             GenerateAccessCodesJob.perform_later(dataset, user)
 
@@ -31,7 +31,7 @@ module Decidim
           private
 
           def valid?
-            user.present? && dataset&.data&.present? && dataset.review_data_status?
+            user.present? && dataset&.data&.present? && dataset.data_created?
           end
 
           def update_dataset_status(dataset, status, user)
