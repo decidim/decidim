@@ -47,15 +47,15 @@ $(() => {
 
   function verifyVoteIdentifier() {
     const bulletinBoardClient = new Client({
-      apiEndpointUrl: $voteVerifyWrapper.data("apiEndpointUrl"),
+      apiEndpointUrl: $voteVerifyWrapper.data("apiEndpointUrl")
     });
 
-    bulletinBoardClient
-      .getLogEntry({
+    bulletinBoardClient.
+      getLogEntry({
         electionUniqueId: $voteVerifyWrapper.data("electionUniqueId"),
-        contentHash: $formData.val(),
-      })
-      .then((result) => {
+        contentHash: $formData.val()
+      }).
+      then((result) => {
         if (result) {
           hideErrorCallout();
           $voteVerifyWrapper.find(".verify-vote-success").removeClass("hide");

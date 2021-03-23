@@ -5,10 +5,10 @@ $(() => {
     const unit = $("html").css("font-size");
 
     if (typeof count !== "undefined" && count > 0) {
-      return (parseInt(unit, 0) * count);
+      return (parseInt(unit) || 0) * count;
     }
-    return parseInt(unit, 0);
-  }
+    return parseInt(unit) || 0;
+  };
 
   const $button = $(".voting-description-cell .content-height-toggler .button");
   const $content = $button.closest(".voting-description-cell").find(".content");
@@ -22,7 +22,7 @@ $(() => {
   if (contentHeight < contentMaxHeight) {
     $button.hide();
   } else {
-    $content.css("max-height", contentMaxHeight)
+    $content.css("max-height", contentMaxHeight);
   }
 
   $button.on("click", (event) => {
@@ -38,4 +38,4 @@ $(() => {
     $buttonTextLess.toggleClass("hide");
     $buttonTextMore.toggleClass("hide");
   });
-})
+});

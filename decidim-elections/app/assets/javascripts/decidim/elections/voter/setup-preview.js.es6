@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 
-const FAKE_ENCRYPTION_TIME = 1000; // 1s
+// The wait time used to simulate the encryption of the vote during the preview
+const FAKE_ENCRYPTION_TIME = 1000;
 
 ((exports) => {
   class PreviewVoteComponent {
@@ -20,7 +21,7 @@ const FAKE_ENCRYPTION_TIME = 1000; // 1s
       onCastBallot,
       onAuditComplete,
       onCastComplete,
-      onInvalid,
+      onInvalid
     }) {
       onBindEncryptButton(async () => {
         onStart();
@@ -54,26 +55,26 @@ const FAKE_ENCRYPTION_TIME = 1000; // 1s
       return {
         encryptedData: plainVote,
         encryptedDataHash: this.generateHexString(64),
-        auditableData: plainVote,
+        auditableData: plainVote
       };
     }
     generateHexString(length) {
-      return Array(length)
-        .fill("")
-        .map((v) => Math.random().toString(16).charAt(2))
-        .join("");
+      return Array(length).
+        fill("").
+        map(() => Math.random().toString(16).charAt(2)).
+        join("");
     }
   }
 
-  function setupVoteComponent($voteWrapper) {
+  const setupVoteComponent = ($voteWrapper) => {
     const voterUniqueId = $voteWrapper.data("voterId");
     const electionUniqueId = $voteWrapper.data("electionUniqueId");
 
     return new PreviewVoteComponent({
       electionUniqueId,
-      voterUniqueId,
+      voterUniqueId
     });
-  }
+  };
 
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.setupVoteComponent = setupVoteComponent;

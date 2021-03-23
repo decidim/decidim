@@ -8,18 +8,18 @@
 // = require voting_schemes/electionguard/electionguard
 
 ((exports) => {
-  function setupVoteComponent($voteWrapper) {
+  const setupVoteComponent = ($voteWrapper) => {
     const { VoteComponent } = window.decidimBulletinBoard;
     const {
-      VoterWrapperAdapter: DummyVoterWrapperAdapter,
+      VoterWrapperAdapter: DummyVoterWrapperAdapter
     } = window.dummyVotingScheme;
     const {
-      VoterWrapperAdapter: ElectionGuardVoterWrapperAdapter,
+      VoterWrapperAdapter: ElectionGuardVoterWrapperAdapter
     } = window.electionGuardVotingScheme;
 
     // Data
     const bulletinBoardClientParams = {
-      apiEndpointUrl: $voteWrapper.data("apiEndpointUrl"),
+      apiEndpointUrl: $voteWrapper.data("apiEndpointUrl")
     };
     const electionUniqueId = $voteWrapper.data("electionUniqueId");
     const authorityPublicKeyJSON = JSON.stringify(
@@ -33,12 +33,12 @@
 
     if (schemeName === "dummy") {
       voterWrapperAdapter = new DummyVoterWrapperAdapter({
-        voterId: voterUniqueId,
+        voterId: voterUniqueId
       });
     } else if (schemeName === "electionguard") {
       voterWrapperAdapter = new ElectionGuardVoterWrapperAdapter({
         voterId: voterUniqueId,
-        workerUrl: "/assets/electionguard/webworker.js",
+        workerUrl: "/assets/electionguard/webworker.js"
       });
     } else {
       throw new Error(`Voting scheme ${schemeName} not supported.`);
@@ -50,9 +50,9 @@
       authorityPublicKeyJSON,
       electionUniqueId,
       voterUniqueId,
-      voterWrapperAdapter,
+      voterWrapperAdapter
     });
-  }
+  };
 
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.setupVoteComponent = setupVoteComponent;

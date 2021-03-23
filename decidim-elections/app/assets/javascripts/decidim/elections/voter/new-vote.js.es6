@@ -76,6 +76,6 @@ $(async () => {
     },
     onInvalid() {
       console.log("Something went wrong.");
-    },
+    }
   });
 });
