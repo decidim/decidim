@@ -107,7 +107,7 @@ module Decidim
         return unless author.is_a?(Decidim::User)
 
         joins(:coauthorships)
-          .where(decidim_coauthorships: { coauthorable_type: name })
+          .where("decidim_coauthorships.coauthorable_type = ?", name)
           .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
       end
 
@@ -245,7 +245,7 @@ module Decidim
 
       # Public: Whether the proposal is created in a meeting or not.
       def official_meeting?
-        authors.first.instance_of?(Decidim::Meetings::Meeting)
+        authors.first.class.name == "Decidim::Meetings::Meeting"
       end
 
       # Public: The maximum amount of votes allowed for this proposal.

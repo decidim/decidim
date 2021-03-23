@@ -6,16 +6,12 @@
       <%= link_to t("actions.participatory_texts", scope: "decidim.proposals"), participatory_texts_path, id: "participatory_texts", class: "button tiny button--simple" %>
     <% end %>
 
+    <% if proposal_hidden? :proposal %>
+      <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path, class: "button tiny button--simple" if allowed_to? :import, :proposals %>
+  <% end %>
+
     <% if allowed_to? :export, :proposals %>
       <%= export_dropdown %>
-    <% end %>
-
-    <% if allowed_to? :import, :proposals %>
-      <%= import_dropdown do %>
-        <% content_tag :li do %>
-          <% link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path %>
-        <% end %>
-      <% end %>
     <% end %>
 
     <% if allowed_to? :create, :proposal %>
