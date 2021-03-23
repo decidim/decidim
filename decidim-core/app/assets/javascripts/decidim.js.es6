@@ -12,6 +12,7 @@
 
 // = require decidim/history
 // = require decidim/callout
+// = require decidim/clipboard
 // = require decidim/append_elements
 // = require decidim/user_registrations
 // = require decidim/account_form
