@@ -24,13 +24,25 @@ module Decidim
 
       describe "GET index" do
         context "when participatory texts are disabled" do
-          let(:component) { create(:proposal_component) }
+          let(:component) { create(:proposal_component, :with_geocoding_enabled) }
 
           it "sorts proposals by search defaults" do
             get :index
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:index)
             expect(assigns(:proposals).order_values).to eq(["RANDOM()"])
+          end
+
+          it "sets two different collections" do
+            geocoded_proposals = create_list :proposal, 10, component: component, latitude: 1.1, longitude: 2.2
+            _non_geocoded_proposals = create_list :proposal, 2, component: component, latitude: nil, longitude: nil
+
+            get :index, params: { per_page: 5 }
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:index)
+
+            expect(assigns(:proposals).count).to eq 5
+            expect(assigns(:all_geocoded_proposals)).to match_array(geocoded_proposals)
           end
         end
 
