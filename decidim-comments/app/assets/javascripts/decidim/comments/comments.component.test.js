@@ -321,7 +321,7 @@ describe("CommentsComponent", () => {
                   </svg>
                   <span class="show-for-sr">Negative</span>
                 </button>
-                <div aria-role="alert" aria-live="assertive" class="selected-state shot-for-sr"></div>
+                <div aria-role="alert" aria-live="assertive" aria-atomic="true" class="selected-state shot-for-sr"></div>
               </div>
 
               ${generateCommentForm("Dummy", 123)}
