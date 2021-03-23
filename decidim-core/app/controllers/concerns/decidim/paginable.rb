@@ -18,7 +18,11 @@ module Decidim
       end
 
       def per_page
-        params[:per_page] || OPTIONS.first
+        if OPTIONS.include?(params[:per_page])
+          params[:per_page]
+        else
+          OPTIONS.first
+        end
       end
 
       def page_offset
