@@ -35,11 +35,13 @@ module Decidim
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
-          @proposals = search
-                       .results
-                       .published
-                       .not_hidden
-                       .includes(:component, :coauthorships)
+          @base_query = search
+                        .results
+                        .published
+                        .not_hidden
+
+          @proposals = @base_query.includes(:component, :coauthorships)
+          @all_geocoded_proposals = @base_query.geocoded
 
           @voted_proposals = if current_user
                                ProposalVote.where(

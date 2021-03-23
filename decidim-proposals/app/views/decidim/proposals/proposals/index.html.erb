@@ -1,7 +1,7 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <% if component_settings.geocoding_enabled? %>
-  <%= dynamic_map_for proposals_data_for_map(@proposals.select(&:geocoded?)) do %>
+  <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
     <template id="marker-popup">
       <div class="map-info__content">
         <h3>${title}</h3>
