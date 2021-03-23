@@ -12,7 +12,7 @@ module Decidim
 
             generate_access_codes(dataset)
 
-            update_dataset_status(dataset, :export_codes, user)
+            update_dataset_status(dataset, :codes_generated, user)
           end
 
           private
@@ -22,7 +22,7 @@ module Decidim
           end
 
           def dataset_valid?(dataset)
-            dataset.present? && dataset.generate_codes_status?
+            dataset.present? && dataset.generating_codes?
           end
 
           def generate_access_codes(dataset)

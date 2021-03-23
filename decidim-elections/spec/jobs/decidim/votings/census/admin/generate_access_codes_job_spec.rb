@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
   let(:organization) { create(:organization) }
-  let(:dataset) { create(:dataset, organization: organization, status: :generate_codes) }
+  let(:dataset) { create(:dataset, organization: organization, status: :generating_codes) }
   let(:user) { create(:user, :admin, organization: organization) }
 
   describe "queue" do
@@ -26,7 +26,7 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
       end
 
       context "when the dataset is not in the correct status" do
-        let(:dataset) { create(:dataset, organization: organization, status: :export_codes) }
+        let(:dataset) { create(:dataset, organization: organization, status: :codes_generated) }
 
         it "does not update the dataset nor the data" do
           expect(Decidim::Votings::Census::Admin::UpdateDataset).not_to receive(:call)
@@ -62,7 +62,7 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
       it "delegates the work to the command" do
         expect(Decidim::Votings::Census::Admin::UpdateDataset)
           .to receive(:call)
-          .with(dataset, { status: :export_codes }, user)
+          .with(dataset, { status: :codes_generated }, user)
 
         described_class.perform_now(dataset, user)
       end
@@ -70,7 +70,7 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
       it "updates the dataset status" do
         described_class.perform_now(dataset, user)
 
-        expect(dataset.reload.status).to match("export_codes")
+        expect(dataset.reload).to be_codes_generated
       end
     end
   end

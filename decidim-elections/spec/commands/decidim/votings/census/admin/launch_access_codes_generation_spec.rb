@@ -6,9 +6,8 @@ module Decidim::Votings::Census::Admin
   describe LaunchAccessCodesGeneration do
     subject { described_class.new(dataset, user) }
 
-    let(:dataset) { create(:dataset, organization: user.organization, status: :review_data) }
+    let(:dataset) { create(:dataset, organization: user.organization, status: :data_created) }
     let(:user) { create(:user, :admin) }
-    let!(:data) { create_list(:datum, 5, dataset: dataset) }
 
     context "when the inputs are not valid" do
       context "when the user in nil" do
@@ -19,25 +18,23 @@ module Decidim::Votings::Census::Admin
       end
 
       context "when the is no datum in the dataset" do
-        let!(:data) { [] }
-
         it { expect(subject).to broadcast(:invalid) }
       end
 
       context "when the dataset is not in the right status" do
-        let(:dataset) { create(:dataset, organization: user.organization, status: :export_codes) }
+        let(:dataset) { create(:dataset, organization: user.organization, status: :init_data) }
 
         it { expect(subject).to broadcast(:invalid) }
       end
     end
 
     context "when the inputs are valid" do
-      let(:dataset) { create(:dataset, organization: user.organization, status: :review_data) }
+      let(:dataset) { create(:dataset, :with_datum, organization: user.organization, status: :data_created) }
 
       it "updates the data" do
         expect(subject).to broadcast(:ok)
 
-        expect(dataset.reload).to be_generate_codes_status
+        expect(dataset.reload).to be_generating_codes
       end
     end
   end
