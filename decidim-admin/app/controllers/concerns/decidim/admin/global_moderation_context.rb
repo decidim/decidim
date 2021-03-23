@@ -15,9 +15,8 @@ module Decidim
         end
 
         # Private: Finds the participatory spaces the current user is admin to.
-        # This is only used for users that are "participatoy space admins", not
-        # organization-wide admins. This method will later be used to find out
-        # what moderations can the current user manage.
+        # This method will later be used to find out what moderations the
+        # current user can manage.
         #
         # Returns an Array.
         def spaces_user_is_admin_to
