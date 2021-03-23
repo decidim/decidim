@@ -832,9 +832,13 @@ en:
               success: Census data deleted
             generate_access_codes:
               button: Generate voting Access Codes
+              callout: The census has been succesfully processed. You can now proceed to generate the access codes. Mind that after generating the access codes you will not be able to modify the census anymore.
               confirm: If you continue, you will not be able to modify the census.
               info_message_all: "<strong>All rows imported successfully</strong> from %{file} file (%{raw_count} of %{data_count})."
               info_message_warn: Please check that no data is missing, because %{data_count} records were created and the uploaded file %{file} had %{raw_count} rows.
+              launch_error: "Problem launching the access codes generation"
+              launch_success: Codes generation launched.
+              title: Generate Voting Access Codes
             new:
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
               submit: Submit csv
