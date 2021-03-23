@@ -1152,6 +1152,7 @@ sv:
         description: Är detta innehåll olämpligt?
         does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
         offensive: Innehåller rasism, sexism, nedsättande kommentarer, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
+        reason: Anledning
         report: Rapportera
         spam: Innehåller klickbete, reklam, bedrägerier eller skräpprogramvara.
         title: Rapportera ett problem
