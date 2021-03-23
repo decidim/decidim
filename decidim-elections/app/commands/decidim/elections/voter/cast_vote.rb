@@ -34,7 +34,7 @@ module Decidim
         delegate :bulletin_board, to: :form
 
         def cast_vote
-          bulletin_board.cast_vote(form.election_id, form.voter_id, form.encrypted_vote) do |message_id|
+          bulletin_board.cast_vote(form.election_id, form.voter_id, form.encrypted_data) do |message_id|
             create_vote(message_id)
           end
         end
@@ -48,7 +48,7 @@ module Decidim
             message_id: message_id,
             election: form.election,
             voter_id: form.voter_id,
-            encrypted_vote_hash: form.encrypted_vote_hash,
+            encrypted_vote_hash: form.encrypted_data_hash,
             status: :pending,
             user: user
           )

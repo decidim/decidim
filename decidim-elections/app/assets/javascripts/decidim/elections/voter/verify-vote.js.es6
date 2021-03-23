@@ -4,7 +4,7 @@
 
 $(() => {
   const { Client } = decidimBulletinBoard;
-  const $voteVerifyWrapper = $(".vote-verify-wrapper");
+  const $voteVerifyWrapper = $(".verify-vote-wrapper");
   const $verifySubmitButton = $voteVerifyWrapper.find("a.focus__next.confirm");
 
   let $formData = $voteVerifyWrapper.find(".vote-identifier");
@@ -14,7 +14,7 @@ $(() => {
     onVoteIdentifierChange();
   }
 
-  initStep()
+  initStep();
 
   function onVoteIdentifierChange() {
     $formData.on("keyup input", (event) => {
@@ -26,9 +26,9 @@ $(() => {
 
   function toggleVerifyButton() {
     if ($formData.val().length > 5) {
-      $($verifySubmitButton).removeClass("disabled")
+      $($verifySubmitButton).removeClass("disabled");
     } else {
-      $($verifySubmitButton).addClass("disabled")
+      $($verifySubmitButton).addClass("disabled");
     }
   }
 
@@ -48,24 +48,25 @@ $(() => {
   function verifyVoteIdentifier() {
     const bulletinBoardClient = new Client({
       apiEndpointUrl: $voteVerifyWrapper.data("apiEndpointUrl"),
-      wsEndpointUrl: $voteVerifyWrapper.data("websocketUrl")
     });
 
-    bulletinBoardClient.getLogEntry({
-      electionUniqueId: $voteVerifyWrapper.data("electionUniqueId"),
-      contentHash: $formData.val()
-    }).then((result) => {
-      if (result) {
-        hideErrorCallout();
-        $voteVerifyWrapper.find(".verify-vote-success").removeClass("hide");
-      } else {
-        hideSuccessCallout();
-        $voteVerifyWrapper.find(".verify-vote-error").removeClass("hide");
-      }
-    })
+    bulletinBoardClient
+      .getLogEntry({
+        electionUniqueId: $voteVerifyWrapper.data("electionUniqueId"),
+        contentHash: $formData.val(),
+      })
+      .then((result) => {
+        if (result) {
+          hideErrorCallout();
+          $voteVerifyWrapper.find(".verify-vote-success").removeClass("hide");
+        } else {
+          hideSuccessCallout();
+          $voteVerifyWrapper.find(".verify-vote-error").removeClass("hide");
+        }
+      });
   }
 
   $(document).on("on.zf.toggler", (event) => {
-    initStep()
+    initStep();
   });
 });
