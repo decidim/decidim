@@ -257,6 +257,8 @@ de:
       photos:
         related_photos: Zugehörige Bilder
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar für mehrere Benutzer
       comments:
         one: Kommentar
         other: Kommentare
@@ -1307,6 +1309,7 @@ de:
         send: Senden
         title_reply: Antworten
       show:
+        back: Alle Unterhaltungen anzeigen
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
         title: Unterhaltung mit %{usernames}
       update:
@@ -1352,6 +1355,7 @@ de:
         number_of_versions: Versionen
         title: Versionen
     versions_list_item:
+      back: Alle Versionen anzeigen
       show:
         version_index: Version %{index}
     welcome_notification:
