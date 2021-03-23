@@ -1,4 +1,6 @@
+import * as L from "leaflet";
 import MapController from "../controller"
+import "../../vendor/leaflet-tilelayer-here"
 
 export default class MapDragMarkerController extends MapController {
   start() {

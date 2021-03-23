@@ -78,9 +78,9 @@ shared_context "with frontend map elements" do
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
             // finished loading.
-            $(document).ready(function() {
+            window.$(document).ready(function() {
               setTimeout(function() {
-                $("body").append('<div id="ready_indicator">Document ready</div>');
+                window.$("body").append('<div id="ready_indicator">Document ready</div>');
               }, 1000);
             });
           </script>

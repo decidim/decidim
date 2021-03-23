@@ -1,4 +1,4 @@
-import "@codevadmin/jquery-tmpl"
+import "../../vendor/jquery-tmpl"
 import * as L from "leaflet";
 import MapController from "../controller"
 import "leaflet.markercluster";
