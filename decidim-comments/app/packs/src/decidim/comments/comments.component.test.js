@@ -307,21 +307,24 @@ describe("CommentsComponent", () => {
               <h4 class="section-heading">Add your comment</h4>
 
               <div class="opinion-toggle button-group">
-                <button class="button tiny button--muted opinion-toggle--ok">
+                <button aria-pressed="false" class="button tiny button--muted opinion-toggle--ok" data-selected-label="Your opinion about this topic is positive">
                   <svg role="none presentation" class="icon--thumb-up icon">
                     <title></title>
                     <use role="none presentation" href="/assets/decidim/icons-2ba788b32e181c1a7197f7a54a0f03101c146dd434b9e56191690c7c2d7bdae3.svg#icon-thumb-up"></use>
                   </svg>
+                  <span class="show-for-sr">Positive</span>
                 </button>
-                <button class="button tiny button--muted opinion-toggle--meh is-active">
+                <button aria-pressed="true" class="button tiny button--muted opinion-toggle--meh is-active" data-selected-label="Your opinion about this topic is neutral">
                   Neutral
                 </button>
-                <button class="button tiny button--muted opinion-toggle--ko">
+                <button aria-pressed="false" class="button tiny button--muted opinion-toggle--ko" data-selected-label="Your opinion about this topic is negative">
                   <svg role="none presentation" class="icon--thumb-down icon">
                     <title></title>
                     <use role="none presentation" href="/assets/decidim/icons-2ba788b32e181c1a7197f7a54a0f03101c146dd434b9e56191690c7c2d7bdae3.svg#icon-thumb-down"></use>
                   </svg>
+                  <span class="show-for-sr">Negative</span>
                 </button>
+                <div aria-role="alert" aria-live="assertive" class="selected-state shot-for-sr"></div>
               </div>
 
               ${generateCommentForm("Dummy", 123)}
@@ -491,29 +494,43 @@ describe("CommentsComponent", () => {
     describe("opinion toggles", () => {
       let commentSection = null;
       let toggles = null;
+      let toggleContainer = null;
 
       beforeEach(() => {
         commentSection = addComment[addComment.length - 1];
         toggles = commentSection.opinionToggles;
+        toggleContainer = $(toggles[0]).parent();
       });
 
       it("adds the correct alignment on positive toggle", () => {
         $(toggles[0]).trigger("click");
 
+        expect($(toggles[0]).attr("aria-pressed")).toEqual("true");
+        expect($(toggles[1]).attr("aria-pressed")).toEqual("false");
+        expect($(toggles[2]).attr("aria-pressed")).toEqual("false");
         expect($(".alignment-input", commentSection).val()).toEqual("1");
+        expect($(".selected-state", toggleContainer).text()).toEqual("Your opinion about this topic is positive");
       });
 
       it("adds the correct alignment on neutral toggle", () => {
         $(toggles[0]).trigger("click");
         $(toggles[1]).trigger("click");
 
+        expect($(toggles[0]).attr("aria-pressed")).toEqual("false");
+        expect($(toggles[1]).attr("aria-pressed")).toEqual("true");
+        expect($(toggles[2]).attr("aria-pressed")).toEqual("false");
         expect($(".alignment-input", commentSection).val()).toEqual("0");
+        expect($(".selected-state", toggleContainer).text()).toEqual("Your opinion about this topic is neutral");
       });
 
       it("adds the correct alignment on negative toggle", () => {
         $(toggles[2]).trigger("click");
 
+        expect($(toggles[0]).attr("aria-pressed")).toEqual("false");
+        expect($(toggles[1]).attr("aria-pressed")).toEqual("false");
+        expect($(toggles[2]).attr("aria-pressed")).toEqual("true");
         expect($(".alignment-input", commentSection).val()).toEqual("-1");
+        expect($(".selected-state", toggleContainer).text()).toEqual("Your opinion about this topic is negative");
       });
     });
   });
