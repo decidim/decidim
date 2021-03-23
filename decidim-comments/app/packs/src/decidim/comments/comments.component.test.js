@@ -1,7 +1,7 @@
 /* eslint-disable id-length, max-lines */
 /* global spyOn, jest */
 
-const $ = require('jquery');
+const $ = require("jquery");
 
 // Ability to spy on the jQuery methods inside the component in order to test
 // the sub-elements correctly. Needs to be defined before the modules are loaded

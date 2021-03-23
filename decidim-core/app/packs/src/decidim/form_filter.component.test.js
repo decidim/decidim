@@ -2,9 +2,7 @@
 /* eslint-disable id-length */
 window.$ = $;
 
-import delayed from "./delayed"
 import CheckBoxesTree from "./check_boxes_tree"
-import { registerCallback, unregisterCallback, pushState, replaceState, state } from "./history"
 import DataPicker from "./data_picker"
 
 const FormFilterComponent = require("./form_filter.component_for_testing.js");

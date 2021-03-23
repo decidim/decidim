@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+/* eslint-disable require-jsdoc */
 
 import AutoButtonsByMinItemsComponent from "./auto_buttons_by_min_items.component"
 import AutoSelectOptionsByTotalItemsComponent from "./auto_select_options_by_total_items.component"
@@ -11,7 +12,7 @@ import createDynamicFields from "../../../../../../../decidim-admin/app/packs/sr
 import createFieldDependentInputs from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component"
 import createQuillEditor from "../../../../../../../decidim-core/app/packs/src/decidim/editor"
 
-export default function createEditableForm(options) {
+export default function createEditableForm() {
   const wrapperSelector = ".questionnaire-questions";
   const fieldSelector = ".questionnaire-question";
   const questionTypeSelector = "select[name$=\\[question_type\\]]";

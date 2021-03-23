@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /*
   Modified file from the original tribute.js
   Adding inside click event the conditional if the li element has no disabled-tribute-element class name. if true, then it must continue with normal behaviour.

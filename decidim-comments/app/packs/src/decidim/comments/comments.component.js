@@ -1,3 +1,5 @@
+/* eslint id-length: ["error", { "exceptions": ["$"] }] */
+
 /**
  * A plain Javascript component that handles the comments.
  *

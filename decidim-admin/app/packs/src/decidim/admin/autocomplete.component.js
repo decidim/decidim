@@ -137,7 +137,7 @@ Autocomplete.propTypes = {
   noResultsText: PropTypes.string,
   searchURL: PropTypes.string,
   selected: PropTypes.string,
-  options: PropTypes.object,
+  options: PropTypes.array,
   autoload: PropTypes.bool,
   name: PropTypes.string,
   placeholder: PropTypes.string
