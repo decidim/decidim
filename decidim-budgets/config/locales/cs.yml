@@ -110,6 +110,9 @@ cs:
         close_modal: Zavřít okno
         continue: Pokračovat
         more_information: Více informací
+      budget_list_item:
+        voting_finished: Hlasovali jste v tomto rozpočtu
+        voting_started: Začali jste hlasovat v tomto rozpočtu
       budgets_list:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
