@@ -1,18 +1,24 @@
 <% if current_census.csv_row_raw_count != current_census.data.size %>
-    <% msg =  "Please check that no data is missing, because #{current_census.data.size} records were created and the uploaded file #{current_census.file} had #{current_census.csv_row_raw_count} rows."
-    callout_class =  "warning"
-    %>
+  <% info_message = t("generate_access_codes.info_message_warn",
+                      scope: "decidim.votings.census.admin.census",
+                      data_count: current_census.data.size,
+                      raw_count: current_census.csv_row_raw_count,
+                      file: current_census.file) %>
+  <% callout_class = "warning" %>
 <% else %>
-  <% msg = "All rows from #{current_census.file} were imported successfully (#{current_census.csv_row_raw_count} of #{current_census.data.size})."
-  callout_class = "success" %>
+  <% info_message = t("generate_access_codes.info_message_all",
+                      scope: "decidim.votings.census.admin.census",
+                      data_count: current_census.data.size,
+                      raw_count: current_census.csv_row_raw_count,
+                      file: current_census.file) %>
+  <% callout_class = "success" %>
 <% end %>
 
 <div class="card-section">
-  <%= cell("decidim/announcement", msg, callout_class: callout_class ) %>
+  <%= cell("decidim/announcement", info_message, callout_class: callout_class ) %>
 
   <%= link_to t("generate_access_codes.button", scope: "decidim.votings.census.admin.census"),
       "#",
       class: "button disabled",
       data: { confirm: t("generate_access_codes.confirm", scope: "decidim.votings.census.admin.census") } %>
 </div>
-

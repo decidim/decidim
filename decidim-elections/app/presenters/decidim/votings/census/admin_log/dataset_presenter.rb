@@ -19,7 +19,8 @@ module Decidim
           def i18n_params
             {
               user_name: user_presenter.present,
-              resource_name: Dataset.model_name.human
+              resource_name: Dataset.model_name.human,
+              space_name: space_presenter.present
             }
           end
         end

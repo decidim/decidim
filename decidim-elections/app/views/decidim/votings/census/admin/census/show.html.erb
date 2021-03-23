@@ -13,5 +13,11 @@
     </h2>
   </div>
 
-  <%= render current_census_action_view %>
+  <div id="wrapper-action-view">
+    <%= render current_census_action_view %>
+  </div>
 </div>
+
+<% if current_census.creating_data? %>
+  <%= javascript_include_tag "decidim/votings/admin/update_census_dataset_status" %>
+<% end %>

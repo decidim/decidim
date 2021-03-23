@@ -8,8 +8,6 @@ module Decidim
           queue_as :default
 
           def perform(user, dataset, csv_row)
-            Decidim::Votings::Census::Admin::IncrementDatasetProcessedRows.call(dataset)
-
             return if user.blank? || dataset.blank? || csv_row.blank?
 
             params = {
@@ -31,6 +29,10 @@ module Decidim
                                   )
 
             CreateDatum.call(datum_form, dataset, user)
+          end
+
+          after_perform do |job|
+            Decidim::Votings::Census::Admin::IncrementDatasetProcessedRows.call(job.arguments.second)
           end
         end
       end

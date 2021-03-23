@@ -6,7 +6,8 @@ module Decidim
       module Admin
         # This controller allows to create or update the census.
         class CensusController < Admin::ApplicationController
-          helper_method :votings, :current_participatory_space, :current_census, :census_steps, :current_census_action_view, :admin_voting_census_path
+          helper_method :votings, :current_participatory_space, :current_census, :census_steps, :current_census_action_view,
+                        :admin_voting_census_path, :admin_status_voting_census_path
 
           def show
             enforce_permission_to :manage, :census, voting: current_participatory_space
@@ -48,6 +49,12 @@ module Decidim
             redirect_to admin_voting_census_path
           end
 
+          def status
+            respond_to do |format|
+              format.js
+            end
+          end
+
           private
 
           def votings
@@ -71,7 +78,9 @@ module Decidim
             decidim_votings_admin.voting_census_path(current_participatory_space)
           end
 
-          # [:init_data, :creating_data, :data_created, :generating_codes, :codes_generated, :freeze]
+          def admin_status_voting_census_path
+            decidim_votings_admin.status_voting_census_path(current_participatory_space)
+          end
 
           def current_census_action_view
             case current_census.status
