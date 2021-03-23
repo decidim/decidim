@@ -70,101 +70,101 @@ nl:
       conference_speakers:
         create:
           error: Er was een probleem met het toevoegen van een spreker aan deze conferentie.
-          success: Luidspreker gemaakt voor deze conferentie.
+          success: Conferentiespreker succesvol aangemaakt.
         destroy:
-          success: Spreker is met succes verwijderd voor deze conferentie.
+          success: Conferentiespreker is met succes verwijderd.
         edit:
-          title: Conferentieluidspreker updaten.
+          title: Conferentiespreker updaten.
           update: Bijwerken
         index:
           conference_speakers_title: Sprekers van de conferentie
         new:
-          create: creëren
+          create: Creëren
           title: Nieuwe spreker voor conferenties.
         update:
           error: Er is een fout opgetreden bij het bijwerken van de spreker voor deze conferentie.
           success: Luidspreker succesvol bijgewerkt voor deze conferentie.
       conference_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze conferentie.
-          success: Gebruiker succesvol toegevoegd aan deze conferentie.
+          error: Er is een probleem opgetreden bij het toevoegen van een beheerder aan deze conferentie.
+          success: Conference-beheerder succesvol toegevoegd
         destroy:
-          success: Gebruiker is met succes van deze conferentie verwijderd.
+          success: Conference-beheerder verwijderd.
         edit:
-          title: Conferentiegebruiker updaten.
+          title: Update conferentiebeheerder.
           update: Bijwerken
         index:
-          conference_admins_title: conferentie gebruikers
+          conference_admins_title: conferentiebeheerders
         new:
-          create: creëren
-          title: Nieuwe conferentiegebruiker.
+          create: Creëren
+          title: Nieuwe conferentiebeheerder.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze conferentie.
-          success: Gebruiker is succesvol geüpdatet voor deze conferentie.
+          error: Er is een probleem opgetreden bij het bijwerken van deze conferentiebeheerder.
+          success: Conferentiebeheerder succesvol bijgewerkt.
       conferences:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe conferentie.
-          success: Conferentie met succes gemaakt.
+          error: Er is een probleem opgetreden bij het maken van deze conferentie.
+          success: Conferentie met succes aangemaakt.
         edit:
           update: Bijwerken
         exports:
-          registrations: registraties
+          registrations: Inschrijvingen
         form:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
           published: Gepubliceerd
         new:
-          create: creëren
+          create: Creëren
           title: Conferentie
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze conferentie.
+          error: Er is een probleem opgetreden bij het bijwerken van deze conferentie.
           success: Conferentie succesvol bijgewerkt.
       conferences_copies:
         create:
-          error: Er is een fout opgetreden bij het dupliceren van deze conferentie.
+          error: Er was een probleem bij het dupliceren van deze conferentie.
           success: Conferentie succesvol gedupliceerd.
       media_links:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe mediakoppeling.
-          success: Media Link is met succes gemaakt.
+          error: Er is een probleem opgetreden bij het maken van een nieuwe mediakoppeling.
+          success: Mediakoppeling met succes aangemaakt.
         destroy:
-          success: Media Link is succesvol verwijderd.
+          success: Mediakoppeling succesvol verwijderd.
         edit:
           title: Mediakoppeling bijwerken.
           update: Bijwerken
         index:
-          media_links_title: Media links
+          media_links_title: Mediakoppelingen
         new:
-          create: creëren
-          title: Media Link
+          create: Creëren
+          title: Mediakoppeling
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze mediakoppeling.
-          success: Media Link is succesvol bijgewerkt.
+          error: Er is een probleem opgetreden bij het bijwerken van deze mediakoppeling.
+          success: Mediakoppeling succesvol bijgewerkt.
       menu:
         conferences: Conferenties
         conferences_submenu:
-          attachment_collections: folders
-          attachment_files: bestanden
+          attachment_collections: Mappen
+          attachment_files: Bestanden
           attachments: Bijlagen
           categories: Categorieën
-          components: Components
+          components: Componenten
           conference_admins: Conferentiebeheerders
           conference_invites: Uitnodigingen
-          conference_speakers: sprekers
-          diploma: Certificaat van aanwezigheid
-          info: info
-          media_links: Media links
+          conference_speakers: Sprekers
+          diploma: Certificaat van Deelname
+          info: Info
+          media_links: Mediakoppelingen
           moderations: Moderaties
-          partners: partners
-          registration_types: Registratie Types
-          registrations: registraties
+          partners: Partners
+          registration_types: Registratietypes
+          registrations: Inschrijvingen
           user_registrations: Gebruikersregistraties
       models:
         conference:
           fields:
-            created_at: Gemaakt bij
-            promoted: gepromoveerd
+            created_at: Aangemaakt op
+            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
         conference_speaker:
