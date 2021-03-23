@@ -248,7 +248,7 @@ it:
       photos:
         related_photos: Immagini relative
     author:
-      avatar: Immagine di profilo
+      avatar: Immagine del profilo
       comments:
         one: commento
         other: Commenti
