@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t("show.heading", scope: "decidim.votings.census.admin.census") %>
 
-      <% if current_census.persisted? %>
+      <% if current_census.data_created? %>
         <%= link_to t("delete.button", scope: "decidim.votings.census.admin.census"),
                   admin_voting_census_path,
                   class: "button alert hollow tiny button--title destroy",
@@ -12,8 +12,6 @@
       <% end %>
     </h2>
   </div>
-
-  <%#= cell "decidim/admin/breadcrumbs", census_steps %>
 
   <%= render current_census_action_view %>
 </div>

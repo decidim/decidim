@@ -83,27 +83,36 @@ FactoryBot.define do
 
   factory :dataset, class: "Decidim::Votings::Census::Dataset" do
     organization
-    file { "file.csv" }
     voting { create(:voting, organization: organization) }
-    status { "create_data" }
+    file { "file.csv" }
+    status { "init_data" }
+    csv_row_raw_count { 1 }
+    csv_row_processed_count { 1 }
+
+    after(:create) do |dataset|
+      create(:datum, dataset: dataset, voting: dataset.voting)
+    end
   end
 
   factory :datum, class: "Decidim::Votings::Census::Datum" do
-    document_number = Faker::IDNumber.spanish_citizen_number
-    document_type = "DNI"
+    dataset
+    voting
+
+    document_number = (111111111 .. 999999999).to_a.sample
+    document_type = %w(DNI NIE PASSPORT).sample
     birthdate = Faker::Date.birthday(min_age: 18, max_age: 65)
     postal_code = Faker::Address.postcode
 
     in_person_data = [document_number, document_type, birthdate]
     check_data = [document_number, document_type, birthdate, postal_code]
 
-    hashed_in_person_data { Digest::SHA256.hexdigest(in_person_data.join(".")) }
-    hashed_check_data { Digest::SHA256.hexdigest(check_data.join(".")) }
+    hashed_in_person_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate].join(".")) }
+    hashed_check_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate, postal_code].join(".")) }
 
     full_name { Faker::Name.name }
     full_address { Faker::Address.full_address }
+    postal_code { postal_code }
     mobile_phone_number { Faker::PhoneNumber.cell_phone }
     email { Faker::Internet.email }
-    voting { create :voting }
   end
 end

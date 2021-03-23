@@ -12,7 +12,8 @@ module Decidim
         encrypt_attribute :mobile_phone_number, type: :string
         encrypt_attribute :email, type: :string
 
-        belongs_to :dataset, foreign_key: "decidim_votings_census_dataset_id",
+        belongs_to :dataset, counter_cache: :data_count,
+                             foreign_key: "decidim_votings_census_dataset_id",
                              class_name: "Decidim::Votings::Census::Dataset"
 
         belongs_to :voting, foreign_key: "decidim_votings_voting_id",

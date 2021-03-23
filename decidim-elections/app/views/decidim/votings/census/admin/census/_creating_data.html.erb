@@ -1,0 +1,5 @@
+<div class="card-section">
+  <% msg = "<strong>Please wait</strong>, processed #{current_census.csv_row_processed_count} of #{current_census.csv_row_raw_count} rows from #{current_census.file} file."%>
+
+  <%= cell("decidim/announcement", msg, callout_class: "warning") %>
+</div>

@@ -1,0 +1,18 @@
+<% if current_census.csv_row_raw_count != current_census.data.size %>
+    <% msg =  "Please check that no data is missing, because #{current_census.data.size} records were created and the uploaded file #{current_census.file} had #{current_census.csv_row_raw_count} rows."
+    callout_class =  "warning"
+    %>
+<% else %>
+  <% msg = "All rows from #{current_census.file} were imported successfully (#{current_census.csv_row_raw_count} of #{current_census.data.size})."
+  callout_class = "success" %>
+<% end %>
+
+<div class="card-section">
+  <%= cell("decidim/announcement", msg, callout_class: callout_class ) %>
+
+  <%= link_to t("update.generate_access_codes", scope: "decidim.votings.census.admin.census"),
+      "#",
+      class: "button disabled",
+      data: { confirm: t("update.generate_access_codes_confirm", scope: "decidim.votings.census.admin.census") } %>
+</div>
+
