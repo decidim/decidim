@@ -1,5 +1,9 @@
-<div class="card-section">
-  <% msg = "<strong>Please wait</strong>, processed #{current_census.csv_row_processed_count} of #{current_census.csv_row_raw_count} rows from #{current_census.file} file."%>
+<div class="card-section" id="census-creating-data-wrapper" data-update-status-url="<%= admin_status_voting_census_path %>">
+  <% info_message = t("creating_data.info_message",
+                      scope: "decidim.votings.census.admin.census",
+                      processed_count: current_census.csv_row_processed_count,
+                      raw_count: current_census.csv_row_raw_count,
+                      file: current_census.file) %>
 
-  <%= cell("decidim/announcement", msg, callout_class: "warning") %>
+  <%= cell("decidim/announcement", info_message, callout_class: "warning") %>
 </div>

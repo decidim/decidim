@@ -30,6 +30,7 @@ module Decidim
 
           resource :census, only: [:show, :destroy], controller: "/decidim/votings/census/admin/census" do
             member do
+              get :status, action: :status
               post :create, action: :create
               put :update, action: :update
             end

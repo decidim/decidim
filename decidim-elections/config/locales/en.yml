@@ -822,6 +822,8 @@ en:
           census:
             create:
               error: an error ocurred uploading the census, please try again later.
+            creating_data:
+              info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
               button: Delete all census data
               confirm: Delete all the census can not be undone. Are you sure you want to continue?
@@ -831,6 +833,8 @@ en:
             generate_access_codes:
               button: Generate voting Access Codes
               confirm: If you continue, you will not be able to modify the census.
+              info_message_all: "<strong>All rows imported successfully</strong> from %{file} file (%{raw_count} of %{data_count})."
+              info_message_warn: Please check that no data is missing, because %{data_count} records were created and the uploaded file %{file} had %{raw_count} rows.
             new:
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
               submit: Submit csv
