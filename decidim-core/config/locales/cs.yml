@@ -267,7 +267,6 @@ cs:
       photos:
         related_photos: Související fotografie
     author:
-      avatar: Avatar
       comments:
         one: komentář
         few: komentáře
