@@ -108,10 +108,10 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
     context "and update an initiative" do
       it "are allowed" do
         put :update,
-          params: {
-            slug: created_initiative.to_param,
-            initiative: valid_attributes
-          }
+            params: {
+              slug: created_initiative.to_param,
+              initiative: valid_attributes
+            }
         expect(flash[:alert]).to be_nil
         expect(response).to have_http_status(:found)
       end
@@ -122,10 +122,10 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
         invalid_attributes = valid_attributes.merge(title: nil)
 
         put :update,
-          params: {
-            slug: created_initiative.to_param,
-            initiative: invalid_attributes
-          }
+            params: {
+              slug: created_initiative.to_param,
+              initiative: invalid_attributes
+            }
 
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:ok)
