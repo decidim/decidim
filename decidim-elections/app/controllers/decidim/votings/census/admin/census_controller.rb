@@ -11,6 +11,10 @@ module Decidim
           def show
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
+            if current_census.data_created?
+              flash[:notice] = "Finished processing #{current_census.file}"
+            end
+
             @form = form(DatasetForm).instance
           end
 
@@ -22,34 +26,8 @@ module Decidim
             )
 
             CreateDataset.call(@form, current_user) do
-              on(:ok) do
-                flash[:notice] = t("create.success", scope: "decidim.votings.census.admin.census")
-              end
-
               on(:invalid) do
                 flash[:alert] = t("create.error", scope: "decidim.votings.census.admin.census")
-              end
-            end
-
-            redirect_to admin_voting_census_path
-          end
-
-          def update
-            enforce_permission_to :manage, :census, voting: current_participatory_space
-
-            @form = form(DatasetForm).from_params(params).with_context(
-              current_participatory_space: current_participatory_space,
-              voting: current_participatory_space,
-              census: current_census
-            )
-
-            UpdateDataset.call(@form, current_user) do
-              on(:ok) do
-                flash[:notice] = t("update.success", scope: "decidim.votings.census.admin.census")
-              end
-
-              on(:invalid) do
-                flash[:alert] = t("update.error", scope: "decidim.votings.census.admin.census")
               end
             end
 
@@ -59,10 +37,14 @@ module Decidim
           def destroy
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
-            if current_census.destroy
-              flash[:notice] = t("destroy.success", scope: "decidim.votings.census.admin.census")
-            else
-              flash[:alert] = t("destroy.error", scope: "decidim.votings.census.admin.census")
+            DestroyDataset.call(current_census, current_user) do
+              on(:ok) do
+                flash[:notice] = t("destroy.success", scope: "decidim.votings.census.admin.census")
+              end
+
+              on(:invalid) do
+                flash[:alert] = t("destroy.error", scope: "decidim.votings.census.admin.census")
+              end
             end
 
             redirect_to admin_voting_census_path
@@ -84,40 +66,23 @@ module Decidim
             @current_census ||= Dataset.find_by(
               organization: current_organization,
               voting: current_participatory_space
-            ) || Dataset.new(status: :create_data)
-          end
-
-          def census_steps
-            [
-              ["Create census", current_step(:create_data)],
-              ["Review Data", current_step(:review_data)],
-              ["Create Acess Codes", current_step(:generate_codes)],
-              ["Export Acess Codes", current_step(:export_codes)],
-              ["Unlock Election", current_step(:freeze)]
-            ]
-          end
-
-          def current_step(step)
-            if step == current_census.status.to_sym
-              :current
-            else
-              current_pointer = Dataset.statuses[current_census.status]
-              pointer = Dataset.statuses[step]
-
-              pointer > current_pointer ? :next : :prev
-            end
+            ) || Dataset.new(status: :init_data)
           end
 
           def admin_voting_census_path
             decidim_votings_admin.voting_census_path(current_participatory_space)
           end
 
+          # [:init_data, :creating_data, :data_created, :generating_codes, :codes_generated, :freeze]
+
           def current_census_action_view
             case current_census.status
-            when "create_data"
+            when "init_data"
               "new_census"
-            when "review_data"
-              "update_census"
+            when "creating_data"
+              "creating_data"
+            when "data_created"
+              "generate_codes"
             else
               raise "no view for this status"
             end

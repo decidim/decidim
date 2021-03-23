@@ -13,6 +13,7 @@ module Decidim
             @form = form
             @current_user = current_user
             @dataset = nil
+            @csv_row_count = nil
           end
 
           # Executes the command. Broadcast this events:
@@ -35,7 +36,7 @@ module Decidim
           end
 
           attr_reader :form, :current_user
-          attr_accessor :dataset
+          attr_accessor :dataset, :csv_row_count
 
           def create_census_dataset!
             Decidim.traceability.create(
@@ -45,10 +46,19 @@ module Decidim
                 organization: form.current_participatory_space.organization,
                 voting: form.current_participatory_space,
                 file: form.file.original_filename,
-                status: :review_data
+                csv_row_raw_count: csv_row_count,
+                status: :creating_data
               },
               visibility: "admin-only"
             )
+          end
+
+          def csv_rows
+            @csv_rows ||= CSV.read(form.file.tempfile.path)
+          end
+
+          def csv_row_count
+            @csv_row_count ||= csv_rows.count
           end
         end
       end

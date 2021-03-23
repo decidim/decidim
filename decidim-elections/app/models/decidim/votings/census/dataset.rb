@@ -17,7 +17,7 @@ module Decidim
                  class_name: "Decidim::Votings::Census::Datum",
                  dependent: :destroy
 
-        enum status: [:create_data, :review_data, :generate_codes, :export_codes, :freeze]
+        enum status: [:init_data, :creating_data, :data_created, :generating_codes, :codes_generated, :freeze]
 
         validates :file, presence: true
 

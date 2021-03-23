@@ -33,7 +33,7 @@ module Decidim::Votings::Census::Admin
     let(:form) { DatumForm.from_params(params).with_context(context) }
 
     let(:document_number) { "123456789Y" }
-    let(:email) {"example@test.org"}
+    let(:email) { "example@test.org" }
 
     context "when the form is not valid" do
       let(:document_number) {}
