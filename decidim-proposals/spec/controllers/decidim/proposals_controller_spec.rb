@@ -34,7 +34,7 @@ module Decidim
           end
 
           it "sets two different collections" do
-            geocoded_proposals = create_list :proposal, 10, component: component
+            geocoded_proposals = create_list :proposal, 10, component: component, latitude: 1.1, longitude: 2.2
             _non_geocoded_proposals = create_list :proposal, 2, component: component, latitude: nil, longitude: nil
 
             get :index, params: { per_page: 5 }
