@@ -292,6 +292,6 @@
       "\\.yml$": "yaml-jest",
       "\\.js$": "babel-jest"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.js$"
+    "testRegex": "\\.(test|spec)\\.js$"
   }
 }
