@@ -313,16 +313,16 @@ nl:
           new:
             explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een conferentie. Als de e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
             invite: Nodig uit
-            new_invite: Nodig gebruiker uit
+            new_invite: Nodig deelnemer uit
         conference_registrations:
           index:
-            registrations: registraties
+            registrations: Inschrijvingen
         conference_speakers:
           form:
-            existing_user: Bestaande gebruiker
-            non_user: Niet gebruiker
-            select_user: Selecteer gebruiker
-            user_type: Gebruikerstype
+            existing_user: Bestaande deelnemer
+            non_user: Niet deelnemer
+            select_user: Selecteer deelnemer
+            user_type: Type deelnemer
           index:
             search: Zoeken
         conferences:
@@ -335,7 +335,7 @@ nl:
         diplomas:
           edit:
             save: Opslaan
-            title: Certificaat van aanwezigheid
+            title: Certificaat van Deelname
         invite_join_conference_mailer:
           invite:
             decline: Uitnodiging '%{conference_title}' weigeren
@@ -343,52 +343,52 @@ nl:
             registration: Registratie voor '%{conference_title}'
         partners:
           index:
-            title: partners
+            title: Partners
         registration_types:
           form:
-            select_conference_meetings: Selecteer conferentievergaderingen
+            select_conference_meetings: Selecteer conferentiesessies
           index:
             title: Registratie soorten
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: U vindt het certificaat van aanwezigheid voor de conferentie <a href="%{url}">%{title}</a> in de bijlagen.
+            diploma_html: U vindt het certificaat van deelname voor de conferentie <a href="%{url}">%{title}</a> in de bijlagen.
           diploma_user:
             attendance_verified_by: Aanwezigheid geverifieerd door
-            certificate_of_attendance: Certificaat van aanwezigheid
-            certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> heeft deelgenomen en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
+            certificate_of_attendance: Certificaat van Deelname
+            certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> aanwezig is geweest en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Er is een probleem opgetreden tijdens het verzenden van de aanwezigheidsvergaderingscertificaten.
-          success: Conference certificaten van aanwezigheid correct verzonden
+          error: Er is een probleem opgetreden tijdens het verzenden van de certificaten van deelname.
+          success: Conference certificaten van deelname correct verzonden
       conference:
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
         show:
           free: Gratis
-          going: gaand
+          going: Ingeschreven
           no_slots_available: Geen slots beschikbaar
-          registration: registratie
+          registration: Inschrijving
       conference_program:
         program_meeting:
           content: Inhoud
           location: Plaats
-          speakers: sprekers
-          streaming: streaming
+          speakers: Sprekers
+          streaming: Streaming
         show:
           day: Dag
           program: Programma
       conference_registration_mailer:
         confirmation:
           confirmed_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is bevestigd.
-          details_1: 'U bent bij de conferentie geregistreerd met het type %{registration_type} . Het kost %{price} en je kunt deelnemen aan de volgende evenementen:'
+          details_1: 'U bent bij de conferentie geregistreerd met het type %{registration_type}. Het kost %{price} en je kunt deelnemen aan de volgende evenementen:'
           details_2: U vindt de details van de conferentie in de bijlage.
         pending_validation:
           confirmation_pending: U ontvangt de bevestiging binnenkort
           details: 'Je hebt je geregistreerd voor het %{registration_type} type met een prijs van %{price} en je kunt deelnemen aan de volgende evenementen:'
-          pending_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is in afwachting van bevestiging.
+          pending_html: Je registratie voor de conferentie <a href="%{url}">%{title}</a> is in afwachting van bevestiging.
       conference_registrations:
         create:
-          invalid: Er is een probleem opgetreden bij deze conferentie.
+          invalid: Er is een probleem opgetreden bij het deelnemen aan deze conferentie.
           success: U bent succesvol bij de conferentie gekomen.
         decline_invitation:
           invalid: Er is een probleem opgetreden bij het afwijzen van de uitnodiging.
@@ -410,11 +410,11 @@ nl:
           go_to_twitter: Ga naar Twitter
       conference_speakers:
         index:
-          speakers: sprekers
+          speakers: Sprekers
       conferences:
         partners:
-          collaborators: partners
-          main_promotors: organisatoren
+          collaborators: Partners
+          main_promotors: Organisatoren
         show:
           login_as: U bent ingelogd als %{name} <%{email}>
           make_conference_registration: 'Maak uw registratie in de conferentie:'
@@ -435,7 +435,7 @@ nl:
             subject: Uitnodiging om deel te nemen aan een conferentie
         send_conference_diploma_mailer:
           diploma:
-            subject: Uw certificaat van aanwezigheid is verzonden
+            subject: Uw certificaat van deelname is verzonden
       models:
         conference_invite:
           fields:
@@ -443,10 +443,10 @@ nl:
             name: Naam
             registration_type: Registratie type
             sent_at: Verzonden op
-            status: staat
+            status: Status
           status:
             accepted: Geaccepteerd (%{at})
-            rejected: Rejected (%{at})
+            rejected: Afgewezen (%{at})
             sent: Verzonden
         conference_registration:
           fields:
@@ -455,7 +455,7 @@ nl:
             registration_type: Registratie type
             state: Staat
             states:
-              confirmed: bevestigd
+              confirmed: Bevestigd
               pending: In afwachting
       pages:
         home:
@@ -468,10 +468,10 @@ nl:
             alt: Media afbeelding
         show:
           close_modal: Modal sluiten
-          photo: Foto
+          photo: Beeld
       photos_list:
         show:
-          related_photos: foto's
+          related_photos: Afbeeldingen
       registration_types:
         index:
           choose_an_option: 'Kies uw registratieoptie:'
