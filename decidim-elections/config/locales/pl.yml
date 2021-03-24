@@ -356,10 +356,9 @@ pl:
           selected: Wybrane
           title: Wyniki wyborów
           votes:
-            one: ""
-            few: ""
-            many: ""
-            other: ""
+            one: "%{count} głos"
+            other: "%{count} głosy"
+            zero: "%{count} głosów"
         show:
           action-button:
             change-vote: Zmień swój głos
