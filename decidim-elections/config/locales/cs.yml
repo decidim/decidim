@@ -272,6 +272,7 @@ cs:
             result: Výsledek
             selected: Vybráno
             submit: Publikovat výsledky
+            success: Žádost o Zveřejnění výsledků bylo úspěšně odesláno na Vývěsku
             title: Vypočítané výsledky
           vote:
             errors:
