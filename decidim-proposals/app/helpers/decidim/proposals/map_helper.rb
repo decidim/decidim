@@ -39,6 +39,8 @@ module Decidim
       end
 
       def has_position?(proposal)
+        return if proposal.address.blank?
+
         proposal.latitude.present? && proposal.longitude.present?
       end
     end

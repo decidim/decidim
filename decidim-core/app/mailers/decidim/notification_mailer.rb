@@ -7,8 +7,6 @@ module Decidim
     helper Decidim::ResourceHelper
 
     def event_received(event, event_class_name, resource, user, user_role, extra) # rubocop:disable Metrics/ParameterLists
-      return if user.email.blank?
-
       with_user(user) do
         @organization = user.organization
         event_class = event_class_name.constantize
