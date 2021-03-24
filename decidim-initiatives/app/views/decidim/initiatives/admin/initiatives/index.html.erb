@@ -61,7 +61,7 @@
               <% if allowed_to?(:answer, :initiative, initiative: initiative) %>
                 <%= icon_link_to "comment-square", edit_initiative_answer_path(initiative.slug), t("actions.answer", scope: "decidim.initiatives"), class: "action-icon action-icon--answer" %>
               <% else %>
-                <%= icon "comment-square", scope: "decidim.admin", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
+                <%= icon "comment-square", scope: "decidim.admin", class: "action-icon action-icon--disabled", role: "presentation", "aria-hidden": true %>
               <% end %>
 
               <% if allowed_to? :read, :initiative, initiative: initiative %>

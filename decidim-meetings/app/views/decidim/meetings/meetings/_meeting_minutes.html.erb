@@ -23,7 +23,7 @@
             </div>
             <div class="card--list__data" aria-hidden="true">
               <%= link_to decidim_url_escape(meeting.minutes.video_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
-                <%= icon "external-link", role: "img", "aria-hidden": true %>
+                <%= icon "external-link", role: "presentation", "aria-hidden": true %>
               <% end %>
             </div>
           </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="card--list__data" aria-hidden="true">
               <%= link_to decidim_url_escape(meeting.minutes.audio_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
-                <%= icon "external-link", role: "img", "aria-hidden": true %>
+                <%= icon "external-link", role: "presentation", "aria-hidden": true %>
               <% end %>
             </div>
           </div>

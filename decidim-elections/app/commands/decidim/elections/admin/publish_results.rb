@@ -20,7 +20,6 @@ module Decidim
 
           transaction do
             log_action
-            update_election
             publish_results
           end
 
@@ -45,13 +44,18 @@ module Decidim
         end
 
         def publish_results
-          bb_election = bulletin_board.publish_results(election.id)
-
-          raise StandardError, "Wrong status for the election with published results" if bb_election.status != "results_published"
+          bulletin_board.publish_results(election.id) do |message_id|
+            create_election_action(message_id)
+          end
         end
 
-        def update_election
-          election.bb_results_published!
+        def create_election_action(message_id)
+          Decidim::Elections::Action.create!(
+            election: election,
+            action: :publish_results,
+            message_id: message_id,
+            status: :pending
+          )
         end
       end
     end
