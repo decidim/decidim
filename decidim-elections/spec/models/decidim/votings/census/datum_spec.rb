@@ -5,7 +5,9 @@ require "spec_helper"
 describe Decidim::Votings::Census::Datum do
   subject { datum }
 
-  let(:datum) { build(:datum) }
+  let(:dataset) { create(:dataset) }
+
+  let(:datum) { build(:datum, dataset: dataset) }
 
   it { is_expected.to be_valid }
 
@@ -13,15 +15,11 @@ describe Decidim::Votings::Census::Datum do
     expect(datum.dataset).to be_a(Decidim::Votings::Census::Dataset)
   end
 
-  it "has an associated voting" do
-    expect(datum.voting).to be_a(Decidim::Votings::Voting)
-  end
-
   describe "uniqueness" do
     context "with hashed_in_person_data" do
       let!(:another_datum) do
         create :datum,
-               voting: datum.voting,
+               dataset: dataset,
                hashed_in_person_data: datum.hashed_in_person_data
       end
 
@@ -31,7 +29,7 @@ describe Decidim::Votings::Census::Datum do
     context "with hashed_check_data" do
       let!(:another_datum) do
         create :datum,
-               voting: datum.voting,
+               dataset: dataset,
                hashed_check_data: datum.hashed_check_data
       end
 

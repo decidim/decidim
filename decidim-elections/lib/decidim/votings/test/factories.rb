@@ -82,33 +82,32 @@ FactoryBot.define do
   end
 
   factory :dataset, class: "Decidim::Votings::Census::Dataset" do
-    organization
-    voting { create(:voting, organization: organization) }
+    voting { create(:voting) }
     file { "file.csv" }
     status { "init_data" }
     csv_row_raw_count { 1 }
     csv_row_processed_count { 1 }
 
     after(:create) do |dataset|
-      create(:datum, dataset: dataset, voting: dataset.voting)
+      create(:datum, dataset: dataset)
     end
   end
 
   factory :datum, class: "Decidim::Votings::Census::Datum" do
     dataset
-    voting
 
-    document_number = (111_111_111..999_999_999).to_a.sample
-    document_type = %w(DNI NIE PASSPORT).sample
-    birthdate = Faker::Date.birthday(min_age: 18, max_age: 65)
-    postal_code = Faker::Address.postcode
+    transient do
+      document_number { Faker::IDNumber.spanish_citizen_number }
+      document_type { %w(DNI NIE PASSPORT).sample }
+      birthdate { Faker::Date.birthday(min_age: 18, max_age: 65) }
+    end
 
     hashed_in_person_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate].join(".")) }
     hashed_check_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate, postal_code].join(".")) }
 
     full_name { Faker::Name.name }
     full_address { Faker::Address.full_address }
-    postal_code { postal_code }
+    postal_code { Faker::Address.postcode }
     mobile_phone_number { Faker::PhoneNumber.cell_phone }
     email { Faker::Internet.email }
   end

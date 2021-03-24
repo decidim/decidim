@@ -24,11 +24,10 @@ module Decidim
             datum_form = DatumForm.from_params(params)
                                   .with_context(
                                     current_user: user,
-                                    dataset: dataset,
-                                    voting: dataset.voting
+                                    dataset: dataset
                                   )
 
-            CreateDatum.call(datum_form, dataset, user)
+            CreateDatum.call(datum_form, dataset)
           end
 
           after_perform do |job|

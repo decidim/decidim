@@ -15,10 +15,6 @@ describe Decidim::Votings::Census::Dataset do
       .to eq Decidim::Votings::Census::AdminLog::DatasetPresenter
   end
 
-  it "has an associated organization" do
-    expect(dataset.organization).to be_a(Decidim::Organization)
-  end
-
   it "has an associated voting" do
     expect(dataset.voting).to be_a(Decidim::Votings::Voting)
   end

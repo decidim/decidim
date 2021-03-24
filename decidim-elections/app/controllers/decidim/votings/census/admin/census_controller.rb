@@ -69,7 +69,6 @@ module Decidim
 
           def current_census
             @current_census ||= Dataset.find_by(
-              organization: current_organization,
               voting: current_participatory_space
             ) || Dataset.new(status: :init_data)
           end

@@ -6,8 +6,8 @@ module Decidim::Votings::Census::Admin
   describe DestroyDataset do
     subject { described_class.new(dataset, user) }
 
-    let(:dataset) { create(:dataset, organization: user.organization) }
-    let(:user) { create(:user, :admin) }
+    let(:dataset) { create(:dataset) }
+    let(:user) { create(:user, :admin, organization: dataset.voting.organization) }
 
     context "when everything is ok" do
       it "destroys the dataset" do

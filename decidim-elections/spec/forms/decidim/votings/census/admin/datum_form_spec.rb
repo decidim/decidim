@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Votings::Census::Admin::DatumForm do
   subject { described_class.from_params(attributes).with_context(context) }
 
-  let(:dataset) { create(:dataset, organization: user.organization) }
-  let(:user) { create(:user, :admin) }
+  let(:dataset) { create(:dataset) }
+  let(:user) { create(:user, :admin, organization: dataset.voting.organization) }
   let(:document_number) { "123456789Y" }
   let(:document_type) { "DNI" }
   let(:birthdate) { "20010414" }
@@ -32,9 +32,7 @@ describe Decidim::Votings::Census::Admin::DatumForm do
   let(:context) do
     {
       current_user: user,
-      dataset: dataset,
-      voting: dataset.voting,
-      organization: user.organization
+      dataset: dataset
     }
   end
 

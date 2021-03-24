@@ -42,7 +42,6 @@ module Decidim
               Decidim::Votings::Census::Dataset,
               current_user,
               {
-                organization: form.current_participatory_space.organization,
                 voting: form.current_participatory_space,
                 file: form.file.original_filename,
                 csv_row_raw_count: csv_row_count,

@@ -7,8 +7,7 @@ module Decidim::Votings::Census::Admin
     subject { described_class.new(form, user) }
 
     let(:voting) { create(:voting) }
-    let(:organization) { voting.organization }
-    let(:user) { create(:user, :admin, organization: organization) }
+    let(:user) { create(:user, :admin, organization: voting.organization) }
     let(:file) { Decidim::Dev.test_file("import_voting_census.csv", "text/csv") }
     let(:params) { { file: file } }
     let(:context) { { current_participatory_space: voting } }
