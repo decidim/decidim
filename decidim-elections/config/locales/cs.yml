@@ -272,7 +272,6 @@ cs:
             result: Výsledek
             selected: Vybráno
             submit: Publikovat výsledky
-            success: Volební přepočítání úspěšně zakončeno
             title: Vypočítané výsledky
           vote:
             errors:
