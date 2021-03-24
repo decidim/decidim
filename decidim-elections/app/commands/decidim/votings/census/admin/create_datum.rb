@@ -7,11 +7,9 @@ module Decidim
         # A command with the business logic to create the datum for a
         # dataset row.
         class CreateDatum < Rectify::Command
-          def initialize(form, dataset, user)
+          def initialize(form, dataset)
             @form = form
             @dataset = dataset
-            @voting = dataset.voting
-            @user = user
           end
 
           # Executes the command. Broadcast this events:
@@ -26,7 +24,7 @@ module Decidim
             broadcast(:ok)
           end
 
-          attr_reader :form, :dataset, :voting, :user
+          attr_reader :form, :dataset
 
           def create_census_datum!
             attributes = {
@@ -42,7 +40,6 @@ module Decidim
 
             Decidim::Votings::Census::Datum.create(
               dataset: dataset,
-              voting: voting,
               attributes: attributes
             )
           end

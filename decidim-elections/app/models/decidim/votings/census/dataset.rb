@@ -8,8 +8,6 @@ module Decidim
         include Loggable
 
         # The data store for a whole Census for a voting.
-        belongs_to :organization, foreign_key: :decidim_organization_id,
-                                  class_name: "Decidim::Organization"
         belongs_to :voting, foreign_key: :decidim_votings_voting_id,
                             class_name: "Decidim::Votings::Voting"
         has_many :data,

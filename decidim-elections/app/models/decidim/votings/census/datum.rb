@@ -16,9 +16,6 @@ module Decidim
                              foreign_key: "decidim_votings_census_dataset_id",
                              class_name: "Decidim::Votings::Census::Dataset"
 
-        belongs_to :voting, foreign_key: "decidim_votings_voting_id",
-                            class_name: "Decidim::Votings::Voting"
-
         validates :full_name,
                   :full_address,
                   :postal_code,
@@ -26,8 +23,8 @@ module Decidim
                   :hashed_check_data,
                   presence: true
 
-        validates :hashed_in_person_data, uniqueness: { scope: :voting }
-        validates :hashed_check_data, uniqueness: { scope: :voting }
+        validates :hashed_in_person_data, uniqueness: { scope: :dataset }
+        validates :hashed_check_data, uniqueness: { scope: :dataset }
       end
     end
   end

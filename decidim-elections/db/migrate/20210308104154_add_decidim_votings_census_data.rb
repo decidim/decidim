@@ -16,7 +16,6 @@ class AddDecidimVotingsCensusData < ActiveRecord::Migration[5.2]
       t.string :access_code, null: true
 
       t.belongs_to :decidim_votings_census_dataset, null: false, index: { name: "decidim_votings_census_dataset_census_datum" }
-      t.belongs_to :decidim_votings_voting, null: false, index: { name: "decidim_votings_voting_census_datum" }
 
       t.timestamps
     end

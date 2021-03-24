@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim::Votings::Census::Admin
   describe CreateDatum do
-    subject { described_class.new(form, dataset, user) }
+    subject { described_class.new(form, dataset) }
 
-    let(:dataset) { create(:dataset, organization: user.organization) }
-    let(:user) { create(:user, :admin) }
+    let(:dataset) { create(:dataset) }
+    let(:user) { create(:user, :admin, organization: dataset.voting.organization) }
     let(:params) do
       {
         document_number: document_number,
@@ -25,8 +25,7 @@ module Decidim::Votings::Census::Admin
       {
         current_user: user,
         dataset: dataset,
-        voting: dataset.voting,
-        organization: user.organization
+        voting: dataset.voting
       }
     end
 

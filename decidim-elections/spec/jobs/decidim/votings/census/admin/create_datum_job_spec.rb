@@ -3,9 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Votings::Census::Admin::CreateDatumJob do
-  let(:organization) { create(:organization) }
-  let!(:dataset) { create(:dataset, organization: organization) }
-  let!(:user) { create(:user, :admin, organization: organization) }
+  let!(:dataset) { create(:dataset) }
+  let(:user) { create(:user, :admin, organization: dataset.voting.organization) }
   let!(:csv_row) { ["12345678X", "DNI", "20011202", "John Doe", "The full address one", "08001", "123456789", "user@example.org"] }
 
   describe "queue" do
@@ -23,6 +22,7 @@ describe Decidim::Votings::Census::Admin::CreateDatumJob do
 
     context "when the dataset is missing" do
       let!(:dataset) { nil }
+      let(:user) { create(:user, :admin) }
 
       it "does not create a datum" do
         expect(Decidim::Votings::Census::Admin::CreateDatum).not_to receive(:call)
