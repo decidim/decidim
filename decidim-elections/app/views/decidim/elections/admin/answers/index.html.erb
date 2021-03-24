@@ -60,13 +60,13 @@
                 <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
                   <%= icon_link_to "pencil", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
                 <% end %>
 
                 <% if allowed_to? :delete, :answer, election: election, question: question, answer: answer %>
                   <%= icon_link_to "circle-x", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
                 <% end %>
               </td>
             </tr>

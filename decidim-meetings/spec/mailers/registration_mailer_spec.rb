@@ -21,7 +21,7 @@ module Decidim::Meetings
       let(:body) { "arxiu adjunt" }
       let(:default_body) { "You will find the meeting" }
 
-      include_examples "user localised email"
+      include_examples "localised email"
     end
 
     context "when registration code is enabled" do

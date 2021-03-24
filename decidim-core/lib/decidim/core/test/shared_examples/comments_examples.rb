@@ -201,6 +201,10 @@ shared_examples "comments" do
         it "works according to the setting in the commentable" do
           if commentable.comments_have_alignment?
             page.find(".opinion-toggle--ok").click
+            expect(page.find(".opinion-toggle--ok")["aria-pressed"]).to eq("true")
+            expect(page.find(".opinion-toggle--meh")["aria-pressed"]).to eq("false")
+            expect(page.find(".opinion-toggle--ko")["aria-pressed"]).to eq("false")
+            expect(page.find(".opinion-toggle .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
 
             within ".add-comment form" do
               fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "I am in favor about this!"

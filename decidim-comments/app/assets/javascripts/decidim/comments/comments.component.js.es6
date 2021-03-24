@@ -250,10 +250,11 @@
       const $add = $btn.closest(".add-comment");
       const $form = $("form", $add);
       const $opinionButtons = $(".opinion-toggle .button", $add);
+      const $selectedState = $(".opinion-toggle .selected-state", $add);
       const $alignment = $(".alignment-input", $form);
 
-      $opinionButtons.removeClass("is-active");
-      $btn.addClass("is-active");
+      $opinionButtons.removeClass("is-active").attr("aria-pressed", "false");
+      $btn.addClass("is-active").attr("aria-pressed", "true");
 
       if ($btn.is(".opinion-toggle--ok")) {
         $alignment.val(1);
@@ -262,6 +263,9 @@
       } else if ($btn.is(".opinion-toggle--ko")) {
         $alignment.val(-1);
       }
+
+      // Announce the selected state for the screen reader
+      $selectedState.text($btn.data("selected-label"));
     }
 
     /**

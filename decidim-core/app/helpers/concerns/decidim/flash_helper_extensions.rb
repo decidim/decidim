@@ -19,9 +19,12 @@ module Decidim
       #
       # Returns a HTML string.
       def alert_box(value, alert_class, closable)
-        options = { class: "flash callout #{alert_class}" }
+        options = {
+          class: "flash callout #{alert_class}",
+          role: "alert",
+          aria: { atomic: "true" }
+        }
         options[:data] = { closable: "" } if closable
-        options[:role] = "alert"
         content_tag(:div, options) do
           concat value
           concat close_link if closable
