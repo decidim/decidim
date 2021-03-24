@@ -18,7 +18,7 @@ edit_link(
 <div class="row column view-header">
   <div class="m-bottom">
     <%= link_to meetings_path(filter_link_params), class: "small hollow" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= icon "chevron-left", class: "icon--small", role: "presentation", "aria-hidden": true %>
       <%= t(".back") %>
     <% end %>
   </div>
@@ -96,7 +96,7 @@ edit_link(
         <% meeting.services.each do |service| %>
           <div class="card--list__item">
             <div class="card--list__text card--list__text--top">
-              <%= icon "actions", class: "card--list__icon alert", role: "img", "aria-hidden": true %>
+              <%= icon "actions", class: "card--list__icon alert", role: "presentation", "aria-hidden": true %>
               <div>
                 <h3 class="card--list__heading heading-small"><%= translated_attribute(service["title"]) %></h3>
                 <span class="text-medium"><%= translated_attribute(service["description"]) %></span>
@@ -128,6 +128,9 @@ edit_link(
 
       <% if meeting.online_meeting? %>
         <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+      <% elsif meeting.hybrid_meeting? %>
+       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+       <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
       <% else %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <% end %>

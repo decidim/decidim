@@ -1,7 +1,7 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <% if component_settings.geocoding_enabled? %>
-  <%= dynamic_map_for proposals_data_for_map(@proposals.select(&:geocoded?)) do %>
+  <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
     <template id="marker-popup">
       <div class="map-info__content">
         <h3>${title}</h3>
@@ -34,7 +34,7 @@
     <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
       <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small", data: { "redirect_url" => new_proposal_path } do %>
         <%= t(".new_proposal") %>
-        <%= icon "plus", role: "img", "aria-hidden": true %>
+        <%= icon "plus", role: "presentation", "aria-hidden": true %>
       <% end %>
     <% end %>
 

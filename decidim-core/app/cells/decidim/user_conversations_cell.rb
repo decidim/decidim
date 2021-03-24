@@ -4,6 +4,7 @@ module Decidim
   class UserConversationsCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include Decidim::LayoutHelper
+    include Decidim::SanitizeHelper
     include CellsPaginateHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Messaging::ConversationHelper
@@ -29,6 +30,12 @@ module Decidim
       return user.avatar.default_multiuser_url unless conversation.interlocutors(user).count == 1
 
       conversation.interlocutors(user).first.avatar_url
+    end
+
+    def conversation_avatar_alt(conversation)
+      return t("decidim.author.avatar_multiuser") unless conversation.interlocutors(user).count == 1
+
+      t("decidim.author.avatar", name: decidim_sanitize(conversation.interlocutors(user).first.name))
     end
 
     def conversation_interlocutors(conversation)

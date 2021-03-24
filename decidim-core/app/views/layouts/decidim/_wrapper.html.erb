@@ -31,70 +31,72 @@ end
       <div class="footer-separator">
         <!--separates the footer from the rest of the page,
              creates a sticky footer-->
-        <!-- Topbar -->
-        <div class="title-bar">
-          <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "skip" %>
-          <% if current_organization.official_img_header? %>
-            <%= link_to  current_organization.official_url, class: "logo-cityhall" do %>
-              <%= image_tag current_organization.official_img_header.url.to_s , alt: current_organization.name %>
+        <div class="header" aria-role="banner">
+          <!-- Topbar -->
+          <div class="title-bar">
+            <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "skip" %>
+            <% if current_organization.official_img_header? %>
+              <%= link_to  current_organization.official_url, class: "logo-cityhall" do %>
+                <%= image_tag current_organization.official_img_header.url.to_s , alt: current_organization.name %>
+              <% end %>
             <% end %>
-          <% end %>
-          <div class="row column topbar">
-            <div class="logo-wrapper">
-              <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
-            </div>
-            <%= render partial: "layouts/decidim/topbar_search" %>
-            <%= render partial: "layouts/decidim/language_chooser" %>
-            <div class="hide-for-medium topbar__menu">
-              <button type="button" data-toggle="offCanvas" aria-label="<%= t("layouts.decidim.header.navigation") %>">
-                <%= icon "menu", aria_label: t("layouts.decidim.header.navigation"), role: "img" %>
-              </button>
-            </div>
-            <% if current_user %>
-              <nav class="topbar__dropmenu topbar__user__logged">
-                <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
-                  <%= icon "bell", role: "img", aria_label: t("layouts.decidim.user_menu.notifications") %>
-                <% end %>
-                <%= link_to decidim.conversations_path, class: "topbar__conversations #{current_user.unread_conversations.any? ? "is-active" : ""}" do %>
-                  <%= icon "envelope-closed", role: "img", aria_label: t("layouts.decidim.user_menu.conversations") %>
-                <% end %>
-                <ul class="dropdown menu" data-dropdown-menu
-                  data-autoclose="false"
-                  data-disable-hover="true"
-                  data-click-open="true"
-                  data-close-on-click="true">
-                  <li class="is-dropdown-submenu-parent show-for-medium" tabindex="-1">
-                    <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
-                    <ul class="menu is-dropdown-submenu" id="user-menu" role="menu" aria-labelledby="user-menu-control" tabindex="-1">
-                      <%= render partial: "layouts/decidim/user_menu" %>
-                    </ul>
-                    <div data-set="nav-login-holder" class="show-for-medium">
-                      <!-- Repeated due to dropdown limitations -->
-                      <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+            <div class="row column topbar">
+              <div class="logo-wrapper">
+                <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+              </div>
+              <%= render partial: "layouts/decidim/topbar_search" %>
+              <%= render partial: "layouts/decidim/language_chooser" %>
+              <div class="hide-for-medium topbar__menu">
+                <button type="button" data-toggle="offCanvas" aria-label="<%= t("layouts.decidim.header.navigation") %>">
+                  <%= icon "menu", aria_label: t("layouts.decidim.header.navigation"), role: "img" %>
+                </button>
+              </div>
+              <% if current_user %>
+                <nav class="topbar__dropmenu topbar__user__logged">
+                  <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
+                    <%= icon "bell", role: "img", aria_label: t("layouts.decidim.user_menu.notifications") %>
+                  <% end %>
+                  <%= link_to decidim.conversations_path, class: "topbar__conversations #{current_user.unread_conversations.any? ? "is-active" : ""}" do %>
+                    <%= icon "envelope-closed", role: "img", aria_label: t("layouts.decidim.user_menu.conversations") %>
+                  <% end %>
+                  <ul class="dropdown menu" data-dropdown-menu
+                    data-autoclose="false"
+                    data-disable-hover="true"
+                    data-click-open="true"
+                    data-close-on-click="true">
+                    <li class="is-dropdown-submenu-parent show-for-medium" tabindex="-1">
+                      <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
+                      <ul class="menu is-dropdown-submenu" id="user-menu" role="menu" aria-labelledby="user-menu-control" tabindex="-1">
                         <%= render partial: "layouts/decidim/user_menu" %>
                       </ul>
-                    </div>
-                  </li>
-                </ul>
-              </nav>
-            <% else %>
-              <div class="topbar__user show-for-medium" data-set="nav-login-holder">
-                <div class="topbar__user__login js-append">
-                  <% if current_organization.sign_up_enabled? %>
-                    <%= link_to t("layouts.decidim.header.sign_up"), decidim.new_user_registration_path, class: "sign-up-link" %>
-                  <% end %>
-                  <%= link_to t("layouts.decidim.header.sign_in"), decidim.new_user_session_path, class: "sign-in-link" %>
+                      <div data-set="nav-login-holder" class="show-for-medium">
+                        <!-- Repeated due to dropdown limitations -->
+                        <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+                          <%= render partial: "layouts/decidim/user_menu" %>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </nav>
+              <% else %>
+                <div class="topbar__user show-for-medium" data-set="nav-login-holder">
+                  <div class="topbar__user__login js-append">
+                    <% if current_organization.sign_up_enabled? %>
+                      <%= link_to t("layouts.decidim.header.sign_up"), decidim.new_user_registration_path, class: "sign-up-link" %>
+                    <% end %>
+                    <%= link_to t("layouts.decidim.header.sign_in"), decidim.new_user_session_path, class: "sign-in-link" %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
 
-            <%= render partial: "layouts/decidim/admin_links" %>
+              <%= render partial: "layouts/decidim/admin_links" %>
+            </div>
           </div>
-        </div>
-        <div class="show-for-medium" data-set="nav-holder">
-          <div class="navbar js-append">
-            <div class="row column">
-              <%= main_menu.render %>
+          <div class="show-for-medium" data-set="nav-holder">
+            <div class="navbar js-append">
+              <div class="row column">
+                <%= main_menu.render %>
+              </div>
             </div>
           </div>
         </div>
@@ -104,8 +106,10 @@ end
           <%= yield %>
         </main>
       </div>
-      <%= render partial: "layouts/decidim/main_footer" %>
-      <%= render partial: "layouts/decidim/mini_footer" %>
+      <div class="footer" aria-role="contentinfo">
+        <%= render partial: "layouts/decidim/main_footer" %>
+        <%= render partial: "layouts/decidim/mini_footer" %>
+      </div>
     </div>
   </div>
 </div>

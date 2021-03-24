@@ -43,7 +43,7 @@ module Decidim
     def icon_options
       options = model[:icon_options].presence || {}
 
-      options.merge(role: "img", "aria-hidden": true)
+      options.merge(role: "presentation", "aria-hidden": true)
     end
   end
 end
