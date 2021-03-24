@@ -265,7 +265,6 @@ es:
             result: Resultado
             selected: Seleccionado
             submit: Publicar resultados
-            success: Recuento finalizado con éxito
             title: Resultados calculados
           vote:
             errors:
