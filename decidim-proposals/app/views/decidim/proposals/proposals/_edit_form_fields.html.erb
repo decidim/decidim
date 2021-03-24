@@ -66,7 +66,7 @@
 
     <% if @form.photos.any? %>
       <% @form.photos.each do |photo| %>
-        <div class="callout gallery__item" data-closable>
+        <div class="callout gallery__item" id="attachment_<%= photo.id %>" data-closable>
           <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
           <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
           <button class="close-button"
@@ -90,7 +90,7 @@
 
     <% if @form.documents.any? %>
       <% @form.documents.each do |document| %>
-        <div class="callout" data-closable>
+        <div class="callout" id="attachment_<%= document.id %>" data-closable>
           <%= link_to translated_attribute(document.title), document.url %>
           <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
           <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>
