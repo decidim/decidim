@@ -108,7 +108,7 @@
             message += "&nbsp;";
           }
         } else {
-          $msg = $('<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="selected-state show-for-sr"></div>');
+          $msg = $('<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="clipboard-announcement show-for-sr"></div>');
           $el.after($msg);
           $el.data("clipboard-message-element", $msg);
         }
