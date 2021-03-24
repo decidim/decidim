@@ -18,6 +18,7 @@ shared_examples "share link" do
             $test.text(
               "The following text was copied to clipboard: " + selObj.toString()
             );
+            return true;
           } else {
             return Reflect.apply(origExec, document, arguments)
           }
@@ -36,8 +37,14 @@ shared_examples "share link" do
       expect(page).to have_content("Share link:")
       find("button[data-clipboard-copy]").click
 
+      expect(find("button[data-clipboard-copy]")).to have_content("Copied!")
+
       input = find("#urlShareLink")
       expect(page).to have_content("The following text was copied to clipboard: #{input.value}")
+
+      # Check that the screen reader announcement is properly added.
+      announcement = find(".clipboard-announcement")
+      expect(announcement).to have_content("The link was successfully copied to clipboard.")
     end
   end
 end
