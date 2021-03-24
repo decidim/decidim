@@ -11,11 +11,12 @@ describe Decidim::DateCell, type: :cell do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
   let(:model) { { start: start_time, end: end_time } }
-  let(:start_time) { Time.zone.now - 1.hour }
-  let(:start_time_past_year) { Time.zone.now - 1.year }
-  let(:end_time_same_date) { Time.zone.now + 1.hour }
-  let(:end_time_different_date) { Time.zone.now + 1.day }
-  let(:end_time_different_year) { Time.zone.now + 1.year }
+  let(:base_time) { Time.zone.parse("#{Time.zone.now.strftime("%Y-%m-%d 12:00:00")}") }
+  let(:start_time) { base_time - 1.hour }
+  let(:start_time_past_year) { base_time - 1.year }
+  let(:end_time_same_date) { base_time + 1.hour }
+  let(:end_time_different_date) { base_time + 1.day }
+  let(:end_time_different_year) { base_time + 1.year }
   let(:end_time_past_year) { start_time_past_year + 1.hour }
 
   context "when rendering a date" do
