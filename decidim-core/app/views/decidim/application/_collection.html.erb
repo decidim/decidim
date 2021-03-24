@@ -1,6 +1,6 @@
 <% unless attachment_collection.unused? %>
   <div class="docs__container">
-    <span data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;
+    <span data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small", role: "presentation", "aria-hidden": true %>&nbsp;
       <strong><%= translated_attribute(attachment_collection.name) %></strong>
 
       <% attachment_collection_documents_count =  attachment_collection.attachments.select(&:document?).count %>

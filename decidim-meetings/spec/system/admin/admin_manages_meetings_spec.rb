@@ -19,6 +19,16 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     stub_geocoding(address, [latitude, longitude])
   end
 
+  describe "listing meetings" do
+    it "lists the meetings by start date" do
+      old_meeting = create :meeting, scope: scope, services: [], component: current_component, start_time: 2.years.ago
+      visit current_path
+
+      expect(page).to have_selector("tbody tr:first-child", text: Decidim::Meetings::MeetingPresenter.new(meeting).title)
+      expect(page).to have_selector("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(old_meeting).title)
+    end
+  end
+
   describe "admin form" do
     before { click_on "New meeting" }
 
@@ -206,6 +216,13 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
+
+    # the field is not visible by default
+    expect(page).not_to have_field("Custom content in registration email")
+    # make the field visible
+    find("#meeting_customize_registration_email").click
+    expect(help_text_for("div[data-tabs-content*='meeting-registration_email_custom_content-tab']")).to be_present
+    fill_in_i18n(:meeting_registration_email_custom_content, "#meeting-registration_email_custom_content-tabs", { "en" => "We're very happy you registered for this event!" })
 
     within ".new_meeting" do
       find("*[type=submit]").click

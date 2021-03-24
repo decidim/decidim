@@ -8,6 +8,18 @@ on:
   pull_request:
     branches-ignore:
       - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-accountability/**"
+      - "decidim-admin/**"
+      - "decidim-assemblies/**"
+      - "decidim-comments/**"
+      - "decidim-core/**"
+      - "decidim-dev/**"
+      - "decidim-meetings/**"
+      - "decidim-participatory_processes/**"
+      - "decidim-proposals/**"
 
 env:
   CI: "true"

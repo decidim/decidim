@@ -73,7 +73,7 @@ decidim decidim_application
 ----
 
 We've set up a guide on how to install, set up and upgrade Decidim.
-See the https://github.com/decidim/decidim/blob/develop/docs/getting_started.md[Getting started guide].
+See the https://docs.decidim.org/en/install/[Getting started guide].
 
 == How to contribute
 
