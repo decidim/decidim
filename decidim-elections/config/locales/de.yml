@@ -342,8 +342,9 @@ de:
           selected: Ausgewählt
           title: Wahlergebnisse
           votes:
-            one: ""
-            other: ""
+            one: "%{count} Stimme"
+            other: "%{count} Stimmen"
+            zero: "%{count} Stimmen"
         show:
           action-button:
             change-vote: Stimme ändern
