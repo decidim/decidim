@@ -21,7 +21,7 @@ module Decidim::Meetings
       let(:body) { "detalls de la" }
       let(:default_body) { "details in the attachment" }
 
-      include_examples "user localised email"
+      include_examples "localised email"
     end
 
     context "when registration code is enabled" do
