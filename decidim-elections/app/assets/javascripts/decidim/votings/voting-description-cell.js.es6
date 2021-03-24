@@ -5,9 +5,9 @@ $(() => {
     const unit = $("html").css("font-size");
 
     if (typeof count !== "undefined" && count > 0) {
-      return (parseInt(unit) || 0) * count;
+      return (parseInt(unit, 10) || 0) * count;
     }
-    return parseInt(unit) || 0;
+    return parseInt(unit, 10) || 0;
   };
 
   const $button = $(".voting-description-cell .content-height-toggler .button");
