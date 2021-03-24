@@ -31,6 +31,11 @@
 // = require decidim/geocoding/attach_input
 // = require decidim/session_timeouter
 // = require_self
+// = require decidim/configuration
+// = require decidim/icon
+// = require decidim/external_link
+// = require decidim/form_validator
+
 
 window.Decidim = window.Decidim || {};
 window.DecidimAdmin = window.DecidimAdmin || {};
