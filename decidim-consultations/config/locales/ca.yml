@@ -360,6 +360,9 @@ ca:
       consultations:
         actions:
           vote: Vota
+    statistics:
+      consultations_count: Consultes
+      votes_count: Vots
   layouts:
     decidim:
       consultation_voting_data:
