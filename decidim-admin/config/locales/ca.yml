@@ -24,6 +24,7 @@ ca:
       component:
         name: Nom
         published_at: Publicat el
+        weight: Ordre de posició
       id: ID
       import:
         user_group_id: Importar com
@@ -110,10 +111,12 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        weight: Ordre de posició
       static_page_topic:
         description: Descripció
         show_in_footer: Mostra al peu de pàgina
         title: Títol
+        weight: Ordre de posició
       user_group_csv_verification:
         file: Fitxer
     errors:
@@ -375,6 +378,7 @@ ca:
         file_help:
           import:
             explanation: 'Instruccions per a l''arxiu:'
+            message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
@@ -426,6 +430,7 @@ ca:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Tornar
           file_legend: Afegir un arxiu d'importació que serà processat.
