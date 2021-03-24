@@ -890,6 +890,7 @@ en:
               info_message_warn: Please check that no data is missing, because %{data_count} records were created and the uploaded file %{file} had %{raw_count} rows.
               launch_error: Problem launching the access codes generation
               launch_success: Codes generation launched.
+              title: Generate Voting Access Codes
             generating_access_codes:
               info_message: "<strong>Please wait</strong>, the voting access codes are being generated..."
             new:
