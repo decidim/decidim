@@ -81,7 +81,7 @@
                   <% if !user_group.verified? %>
                     <%= icon_link_to "circle-check", decidim_admin.verify_user_group_path(user_group), t("actions.verify", scope: "decidim.admin"), method: :put, class: "action-icon--verify" %>
                   <% else %>
-                    <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img" %>
+                    <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.verify", scope: "decidim.admin") %>
                   <% end %>
                 <% end %>
 
@@ -89,7 +89,7 @@
                   <% if !user_group.rejected? %>
                     <%= icon_link_to "circle-x", decidim_admin.reject_user_group_path(user_group), t("actions.reject", scope: "decidim.admin"), method: :put, class: "action-icon--reject" %>
                   <% else %>
-                    <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                    <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.reject", scope: "decidim.admin") %>
                   <% end %>
                 <% end %>
               </td>

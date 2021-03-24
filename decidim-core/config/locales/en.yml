@@ -258,7 +258,8 @@ en:
       photos:
         related_photos: Related images
     author:
-      avatar: Avatar
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar for multiple users
       comments:
         one: comment
         other: comments
@@ -1313,6 +1314,7 @@ en:
         send: Send
         title_reply: Reply
       show:
+        back: Show all conversations
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
@@ -1358,6 +1360,7 @@ en:
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Show all versions
       show:
         version_index: Version %{index}
     welcome_notification:
