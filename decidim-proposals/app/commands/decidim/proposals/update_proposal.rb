@@ -30,8 +30,6 @@ module Decidim
         return broadcast(:invalid) if invalid?
 
         if process_attachments?
-          document_cleanup!
-
           build_attachments
           return broadcast(:invalid) if attachments_invalid?
         end
