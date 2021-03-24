@@ -265,7 +265,6 @@ ca:
             result: Resultat
             selected: Seleccionat
             submit: Publicar resultats
-            success: Recompte finalitzat amb èxit
             title: Resultats calculats
           vote:
             errors:
