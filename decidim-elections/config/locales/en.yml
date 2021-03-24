@@ -34,13 +34,13 @@ en:
           attributes:
             name:
               cant_be_changed: can't be changed
-              is_taken: is taken
+              is_taken: There is already another trustee using a username like yours and it has to be unique. Please, change it in your account and try it again.
             public_key:
               cant_be_changed: can't be changed
         trustees_participatory_space:
           attributes:
             base:
-              is_taken: Name is taken
+              is_taken: There is already a trustee in this organization using this username which has to be unique.
   activerecord:
     errors:
       models:

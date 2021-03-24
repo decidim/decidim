@@ -19,9 +19,7 @@ module Decidim
         end
 
         def unique_trustee_name
-          if Decidim::Elections::Trustee.joins(:user).where(decidim_users: { decidim_organization_id: current_organization.id }).where(name: user.name).any?
-            errors.add :base, :is_taken
-          end
+          errors.add :base, :is_taken if Decidim::Elections::Trustee.joins(:user).exists?(name: user.name, decidim_users: { decidim_organization_id: current_organization.id })
         end
       end
     end

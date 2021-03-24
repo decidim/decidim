@@ -19,7 +19,7 @@ module Decidim
         end
 
         def valid_name
-          errors.add :name, :is_taken if Decidim::Elections::Trustee.joins(:user).where(decidim_users: { decidim_organization_id: current_organization.id }).where(name: name).any?
+          errors.add :name, :is_taken if Decidim::Elections::Trustee.joins(:user).exists?(name: name, decidim_users: { decidim_organization_id: current_organization.id })
         end
 
         def trustee
