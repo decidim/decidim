@@ -22,4 +22,12 @@ shared_examples "localised email" do
       expect(mail.body.encoded).to match(default_body)
     end
   end
+
+  context "when the user doesn't have an email" do
+    let(:user) { create(:user, :deleted) }
+
+    it "does nothing" do
+      expect(mail.deliver_now).to be_nil
+    end
+  end
 end
