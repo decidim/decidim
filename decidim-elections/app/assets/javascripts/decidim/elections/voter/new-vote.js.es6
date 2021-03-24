@@ -65,7 +65,7 @@ $(async () => {
       document.body.removeChild(link);
     },
     onAuditComplete() {
-      console.log("AUDIT COMPLETED");
+      console.log("Audit completed");
     },
     onCastBallot() {
       questionsComponent.voteCasted = true;

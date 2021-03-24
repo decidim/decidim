@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 // The wait time used to simulate the encryption of the vote during the preview
 const FAKE_ENCRYPTION_TIME = 1000;
 
@@ -59,10 +57,10 @@ const FAKE_ENCRYPTION_TIME = 1000;
       };
     }
     generateHexString(length) {
-      return Array(length).
-        fill("").
-        map(() => Math.random().toString(16).charAt(2)).
-        join("");
+      return Array(length)
+        .fill("")
+        .map(() => Math.random().toString(16).charAt(2))
+        .join("");
     }
   }
 

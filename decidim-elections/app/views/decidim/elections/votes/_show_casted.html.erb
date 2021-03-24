@@ -14,13 +14,13 @@
       </p>
     </div>
 
-  <%= link_to :elections, class: "button" do %>
-    <%= t("decidim.elections.votes.confirmed.back") %>
-  <% end %>
+    <%= link_to :elections, class: "button" do %>
+      <%= t("decidim.elections.votes.confirmed.back") %>
+    <% end %>
 
-  <div>
-    <%= t("decidim.elections.votes.confirmed.experience") %>
-    <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election) %>
-  </div>
+    <div>
+      <%= t("decidim.elections.votes.confirmed.experience") %>
+      <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election) %>
+    </div>
   </div>
 </div>
