@@ -12,7 +12,7 @@ const DEFAULT_ATTRIBUTES = {
  * @returns {Void} - Returns nothing.
  */
 export default function icon(iconKey, attributes = {}) {
-  const iconAttributes = exports.$.extend(DEFAULT_ATTRIBUTES, attributes);
+  const iconAttributes = $.extend(DEFAULT_ATTRIBUTES, attributes);
   const title = iconAttributes.title || iconAttributes.ariaLabel;
   Reflect.deleteProperty(iconAttributes, "title");
 
@@ -29,7 +29,7 @@ export default function icon(iconKey, attributes = {}) {
     }
   });
 
-  const iconsPath = exports.Decidim.config.get("icons_path");
+  const iconsPath = window.Decidim.config.get("icons_path");
   const elHtml = `<svg><use href="${iconsPath}#icon-${iconKey}"></use></svg>`;
   const $el = $(elHtml);
   if (title) {
