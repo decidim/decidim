@@ -3,20 +3,17 @@
 require "spec_helper"
 
 describe Decidim::Elections::Trustee do
-  subject(:trustee) { build(:trustee) }
+  subject { trustee }
+
+  let(:trustee) { build(:trustee, name: "Trustee 1") }
+  let(:organization) { trustee.organization }
 
   it { is_expected.to be_valid }
 
-  context "when the name is taken" do
-    subject(:trustee) { build(:trustee, name: "Trustee 1") }
-
-    let!(:other_trustee) { create(:trustee, name: "Trustee 1") }
-
-    it { is_expected.not_to be_valid }
-  end
+  it { expect(subject.full_name).to eql("#{organization.name.parameterize}-trustee-1") }
 
   context "when it is considered" do
-    subject(:trustee) { build :trustee, :considered }
+    let(:trustee) { build :trustee, :considered }
 
     it { is_expected.to be_valid }
   end

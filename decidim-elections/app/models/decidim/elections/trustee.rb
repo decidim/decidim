@@ -10,7 +10,7 @@ module Decidim
       has_many :elections, through: :elections_trustees
       has_many :trustees_participatory_spaces, inverse_of: :trustee, foreign_key: "decidim_elections_trustee_id", dependent: :destroy
 
-      validates :name, uniqueness: true, allow_nil: true
+      delegate :organization, to: :user
 
       def self.trustee?(user)
         exists?(user: user)
@@ -22,6 +22,14 @@ module Decidim
 
       def slug
         name.parameterize
+      end
+
+      # The full_name is used as `unique_id` on the Bulletin Board, where
+      # the "authority.name" gets added as identification. If the organization
+      # name would be missing, it could result in an error, when two organizations
+      # inside the same "authority" have a trustee with the same name.
+      def full_name
+        "#{organization.name.parameterize}-#{slug}"
       end
     end
   end

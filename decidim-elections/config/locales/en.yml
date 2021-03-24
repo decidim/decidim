@@ -37,6 +37,10 @@ en:
               is_taken: is taken
             public_key:
               cant_be_changed: can't be changed
+        trustees_participatory_space:
+          attributes:
+            base:
+              is_taken: Name is taken
   activerecord:
     errors:
       models:

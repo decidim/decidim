@@ -9,6 +9,7 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
   let(:public_key) { nil }
   let(:trustee_name) { "Shelton Runolfsson Sr." }
   let(:new_public_key) { "1234567890abcde" }
+  let(:current_organization) { trustee.organization }
   let(:attributes) do
     {
       public_key: new_public_key,
@@ -17,7 +18,8 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
   end
   let(:context) do
     {
-      trustee: trustee
+      trustee: trustee,
+      current_organization: current_organization
     }
   end
 
@@ -42,8 +44,14 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
   end
 
   context "when a trustee with the same name exists" do
-    let!(:other_trustee) { create(:trustee, :with_public_key, name: "Shelton Runolfsson Sr.") }
+    let!(:other_trustee) { create(:trustee, :with_public_key, name: "Shelton Runolfsson Sr.", organization: current_organization) }
 
     it { is_expected.not_to be_valid }
+  end
+
+  context "when a trustee with the same name but different organization exists" do
+    let!(:other_trustee) { create(:trustee, :with_public_key, name: "Shelton Runolfsson Sr.") }
+
+    it { is_expected.to be_valid }
   end
 end

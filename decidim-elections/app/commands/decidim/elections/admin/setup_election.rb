@@ -72,7 +72,7 @@ module Decidim
           trustees.map do |trustee|
             {
               name: trustee.name,
-              slug: trustee.slug,
+              slug: trustee.full_name,
               public_key: JSON.parse(trustee.public_key)
             }
           end

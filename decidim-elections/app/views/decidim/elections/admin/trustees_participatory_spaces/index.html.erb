@@ -23,7 +23,11 @@
           <% trustees.each do |trustee| %>
             <tr>
               <td>
-                <%= trustee.user.name %>
+                <% if trustee.name %>
+                  <%= trustee.name %>
+                <% else %>
+                  <%= trustee.user.name %>
+                <% end %>
               </td>
               <td>
                 <%= trustee.user.email %>
