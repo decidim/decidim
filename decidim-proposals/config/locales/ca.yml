@@ -900,3 +900,7 @@ ca:
       included_proposals:
         proposal_project: 'Proposta vinculada a aquests projectes:'
         proposal_result: 'Proposta vinculada a aquests resultats:'
+    statistics:
+      proposals_accepted: Propostes acceptades
+      proposals_count: Propostes
+      supports_count: Suports
