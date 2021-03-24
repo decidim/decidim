@@ -22,7 +22,6 @@ module Decidim
           redirect_to election_steps_path(election) && return unless params[:id] == current_step
 
           @form = form(current_step_form_class).from_params(params, election: election)
-
           if @form.pending_action
             Decidim::Elections::Admin::UpdateActionStatus.call(@form.pending_action)
             return redirect_to election_steps_path(election)
@@ -53,8 +52,7 @@ module Decidim
             "key_ceremony_ended" => VotePeriodForm,
             "vote" => VotePeriodForm,
             "vote_ended" => ActionForm,
-            "tally_ended" => ActionForm,
-            "results_published" => ActionForm
+            "tally_ended" => ActionForm
           }[current_step]
         end
 

@@ -266,7 +266,7 @@ en:
             result: Result
             selected: Selected
             submit: Publish results
-            success: Tally successfully ended
+            success: Publish results request was successfully sent to the Bulletin Board
             title: Calculated results
           vote:
             errors:
