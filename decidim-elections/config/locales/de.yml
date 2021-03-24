@@ -265,6 +265,7 @@ de:
             result: Ergebnis
             selected: Ausgewählt
             submit: Resultate veröffentlichen
+            success: Die Anfrage zur Veröffentlichung der Resultate wurde erfolgreich ans Bulletin Board gesendet
             title: Berechnete Ergebnisse
           vote:
             errors:
