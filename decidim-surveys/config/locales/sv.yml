@@ -21,6 +21,8 @@ sv:
           global:
             announcement: Meddelande
             clean_after_publish: Ta bort svar vid publicering av enkäten
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             allow_answers: Tillåt svar
             allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
