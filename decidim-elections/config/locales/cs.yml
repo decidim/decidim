@@ -350,6 +350,10 @@ cs:
           description: To jsou výsledky hlasování, pro každou otázku
           selected: Vybrané
           title: Výsledky voleb
+          votes:
+            one: "%{count} hlas"
+            other: "%{count} hlasů"
+            zero: "%{count} hlasů"
         show:
           action-button:
             change-vote: Změňte svůj hlas
