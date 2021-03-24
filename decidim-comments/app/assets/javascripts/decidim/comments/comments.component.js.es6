@@ -111,7 +111,6 @@
 
         $opinionButtons.on("click.decidim-comments", this._onToggleOpinion);
         $text.on("input.decidim-comments", this._onTextInput);
-
         $(document).trigger("attach-mentions-element", [$text.get(0)]);
 
         $form.on("submit.decidim-comments", () => {
@@ -173,7 +172,6 @@
       if (!$add.parent().is(".comments")) {
         $add.addClass("hide");
       }
-
       // Restart the polling
       this._pollComments();
     }
@@ -263,7 +261,6 @@
       } else if ($btn.is(".opinion-toggle--ko")) {
         $alignment.val(-1);
       }
-
       // Announce the selected state for the screen reader
       $selectedState.text($btn.data("selected-label"));
     }
