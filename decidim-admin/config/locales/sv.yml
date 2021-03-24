@@ -65,6 +65,9 @@ sv:
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        organization_admin_email: Organisationsadministratörens e-postadress
+        organization_admin_name: Organisationsadministratörens namn
+        organization_locales: Organisationsspråk
         primary_color: Primär
         reference_prefix: Referensprefix
         rich_text_editor_in_public_views: Aktivera rik textredigering för deltagare
@@ -349,6 +352,10 @@ sv:
           title_cont: Sök %{collection} efter titel.
         state_eq:
           label: Län
+      forms:
+        file_help:
+          import:
+            message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
         form:
@@ -512,11 +519,22 @@ sv:
       moderated_users:
         index:
           actions:
+            block: Blockera användare
+            title: Åtgärder
             unblock: Avblockera användare
+            unreport: Ta bort rapport
+          name: Namn
+          nickname: Användarnamn
+          reason: Anledning
+          reports: Antal anmälningar
+          title: Rapporterade användare
         report:
           reasons:
+            does_not_belong: Tillhör inte
+            offensive: Offensivt
             spam: Skräp
         tabs:
+          blocked: Blockerad
           unblocked: Icke blockerade
       moderations:
         index:
