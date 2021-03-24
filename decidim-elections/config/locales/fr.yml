@@ -227,7 +227,6 @@ fr:
             result: Réalisation
             selected: Sélectionné
             submit: Publier les résultats
-            success: Dépouillement correctement terminé
             title: Résultat du calcul
           vote:
             errors:
