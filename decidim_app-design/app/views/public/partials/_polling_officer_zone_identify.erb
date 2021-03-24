@@ -4,36 +4,19 @@
       <svg role="img" class="icon--caret-left icon icon--small"><title></title><use href="/assets/decidim/icons-12032a129d2a2668259128b86df2c8829ea6cdaa07beb8538a61c4872aa66328.svg#icon-caret-left"></use></svg>&nbsp;Back to polling stations
     </a>
   </div>
-  <h2>Identify and verify a person</h2>
+  <h2>Identify and verify a participant</h2>
     
   <div class="row section">
     <div class="columns">
-      <% if locals[:error_online] %>
-        <div class="callout warning mt-s">
-          <h5>This person has already participated online.</h5>
-          <p>
-            <strong>Name:</strong> Lorem Ipsum
-            <br>
-            <strong>ID:</strong> 1234567-K
-          </p>
-          <p>The previous vote will ve overriden. Do you want to continue?</p>
-          <div>
-            <button class="button small">Override vote</button>
-            <button class="button small button--muted">Cancel</button>
-          </div>
-        </div>
-      <% elsif locals[:error] %>
+      <% if locals[:error] %>
         <div class="callout alert mt-s">
-          <h5>This person has already participated in a physical booth. She can not participate again.</h5>
-          <p>
-            <strong>Name:</strong> Lorem Ipsum
-            <br>
-            <strong>ID:</strong> 1234567-K
-          </p>
+          <h5>This participant is not listed in the census.</h5>
+          <p>She must go to the census complaint office or contact support.</p>
         </div>
       <% else %>
         <div class="row mt-sm">
-          <div class="columns large-8">
+          <div class="columns large-7">
+            <p><strong>Select the document type and enter the participant's document number:</strong></p>
             <div class="card--secondary">
               <div class="card__content">
                 <form>
@@ -52,27 +35,8 @@
                         <input type="text" placeholder="ID number">
                       </label>
                     </div>
-                    <div>
-                      <label>Postal code
-                        <input type="text" placeholder="Postal code number">
-                      </label>
-                    </div>
-                    <fieldset>
-                      <legend>Date of birth</legend>
-                      <div class="row">
-                        <label class="columns small-4">Day
-                          <input type="text" placeholder="DD">
-                        </label>
-                        <label class="columns small-4">Month
-                          <input type="text" placeholder="MM">
-                        </label>
-                        <label class="columns small-4">Year
-                          <input type="text" placeholder="YY">
-                        </label>
-                      </div>
-                    </fieldset>
                   </div>
-                  <button type="button" class="button expanded mt-s mb-none">Validate document</button>
+                  <button type="button" class="button button--sc expanded mt-sm mb-none">Validate document</button>
                 </form>
               </div>
             </div>

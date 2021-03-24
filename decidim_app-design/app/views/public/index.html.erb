@@ -292,9 +292,20 @@
             <li>
               <%= link_to "Polling Officer Zone", page_path("evote-polling-station-officer") %>
               <ul>
-                <li><%= link_to "Identify and verify a person", page_path("evote-polling-station-officer-identify") %></li>
-                <li><%= link_to "Error: already participated", page_path("evote-polling-station-officer-identify-error") %></li>
-                <li><%= link_to "Warning: already participated online", page_path("evote-polling-station-officer-identify-warning") %></li>
+                <li>
+                  <%= link_to "Identify and verify a person", page_path("evote-polling-station-officer-identify") %>
+                  <ul>
+                    <li><%= link_to "Error", page_path("evote-polling-station-officer-identify-error") %></li>
+                    <li><%= link_to "Success: check data", page_path("evote-polling-station-officer-identify-success") %></li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Questions she has the right to participate in", page_path("evote-polling-station-officer-questions") %>
+                  <ul>
+                    <li><%= link_to "Warning: already voted online", page_path("evote-polling-station-officer-questions-warning") %></li>
+                    <li><%= link_to "Error: already voted in person", page_path("evote-polling-station-officer-questions-error") %></li>
+                  </ul>
+                </li>
               </ul>
             </li>
          </ul>
