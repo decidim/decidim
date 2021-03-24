@@ -254,6 +254,8 @@ ca:
       photos:
         related_photos: Imatges relacionades
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar per múltiples usuàries
       comments:
         one: comentari
         other: comentaris
@@ -1220,6 +1222,7 @@ ca:
         description: Aquest contingut no és apropiat?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort o de suïcidi o qualsevol forma de discurs d'odi.
+        reason: Motiu
         report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
         title: Reportar contingut inapropiat
@@ -1259,6 +1262,13 @@ ca:
         share_link: Compartir l'enllaç
     statistics:
       comments_count: Comentaris
+      endorsements_count: Adhesions
+      followers_count: Seguidores
+      headline: Estadístiques
+      no_stats: Encara no hi ha estadístiques.
+      pages_count: Pàgines
+      participants_count: Participants
+      users_count: Participants
     tags:
       filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
       filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
@@ -1296,6 +1306,7 @@ ca:
         send: Enviar
         title_reply: Respondre
       show:
+        back: Mostra totes les converses
         not_allowed: Aquesta participant no accepta missatges directes.
         title: Conversa amb %{usernames}
       update:
@@ -1341,6 +1352,7 @@ ca:
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Mostra totes les versions
       show:
         version_index: Versió %{index}
     welcome_notification:
