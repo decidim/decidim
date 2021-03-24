@@ -265,6 +265,7 @@ ca:
             result: Resultat
             selected: Seleccionat
             submit: Publicar resultats
+            success: La sol·licitud per publicar els resultats s'ha enviat correctament al Bulletin Board
             title: Resultats calculats
           vote:
             errors:
@@ -323,6 +324,9 @@ ca:
           upcoming: Properes
         end_date: Finalitza
         footer:
+          remaining_time:
+            one: "queda <strong>%{count} hora %{minutes} minuts</strong> per votar."
+            other: "queden <strong>%{count} hores %{minutes} minuts</strong> per votar."
           view: Veure
           vote: Votar
         label:
@@ -348,8 +352,11 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         preview:
+          available_answers: 'Respostes disponibles:'
+          description: 'Aquestes són les preguntes que trobaràs al procés de votació:'
           title: Preguntes de l'elecció
         results:
+          description: 'Aquests són els resultats de la votació, per a cada pregunta:'
           selected: Seleccionat
           title: Resultats de l'elecció
           votes:
@@ -617,6 +624,9 @@ ca:
           title: Què són les votacions?
     menu:
       votings: Votacions
+    statistics:
+      elections_count: Eleccions
+      votings_count: Votacions
     votings:
       admin:
         content_blocks:
@@ -800,6 +810,17 @@ ca:
       content_blocks:
         highlighted_votings:
           name: Votacions destacades
+        landing_page:
+          description:
+            show_less: Llegir menys
+            show_more: Llegir més
+          metrics:
+            heading: Mètriques
+          polling_stations:
+            heading: Punts de votació
+            no_polling_stations: Encara no hi ha cap punt de voració.
+          timeline:
+            heading: Línia de temps
       monitoring_committee_members:
         actions:
           confirm_destroy: N'estàs segura?
@@ -893,6 +914,8 @@ ca:
     decidim:
       election_votes_header:
         exit: Sortir
+      voting_navigation:
+        voting_menu_item: La votació
       votings:
         index:
           promoted_votings: Votacions destacades
