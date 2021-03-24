@@ -315,8 +315,10 @@ sv:
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
+          edit_my_initiative: Redigera mitt initiativ
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
+          send_my_initiative: Skicka mitt initiativ till teknisk validering
         previous_form:
           back: Tillbaka
           continue: Fortsätt
@@ -338,6 +340,15 @@ sv:
           compare_help: Om något av följande initiativ liknar ditt, uppmanar vi dig att skriva under det. Det ger ditt förslag fler chanser att genomföras.
           continue: Mitt initiativ är annorlunda
           more_information: "(Mer information)"
+      edit:
+        back: Tillbaka
+        confirm: Är du säker?
+        discard: Kasta bort initiativet
+        export_pdf_signatures: Exportera PDF med underskrifter
+        export_votes: Exportera underskrifter
+        reject: Avvisa initiativ
+        title: Redigera mitt initiativ
+        update: Uppdatera
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, som du följer, har skapat ett nytt initiativ. Ta en titt och bidra:"
@@ -349,6 +360,10 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: '%{author_nickname} instämmer i Initiativet'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> instämde i initiativet <a href="%{resource_path}">%{resource_title}</a>.
+      form:
+        add_attachments: Dokument
+        attachment_legend: "(Valfritt) Lägg till bilagor"
+        delete_attachment: Radera
       index:
         title: Initiativ
       initiative_signatures:
@@ -385,6 +400,9 @@ sv:
           hidden_authors_count:
             one: och ytterligare en person
             other: och %{count} till personer
+        committee_members:
+          approve: Godkänn
+          confirm_revoke: Är du säker?
         count:
           title:
             one: "%{count} initiativ"
@@ -430,7 +448,10 @@ sv:
         result:
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
+          edit: Redigera
           follow_description: Få ett meddelande när det finns nyheter om detta initiativ
+          print: Skriva ut initiativet
+          send_to_technical_validation: Skicka till teknisk validering
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
@@ -476,6 +497,9 @@ sv:
         accepted: Godkända
         expired: Utgångna
       unavailable_scope: Ej tillgängligt omfång
+      update:
+        error: Ett fel har inträffat
+        success: Initiativet har uppdaterats
       versions:
         shared:
           back_to_resource: Gå tillbaka till initiativet
