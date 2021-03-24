@@ -148,6 +148,7 @@ sv:
             notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
         support_threshold_reached:
           email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har nått tröskelvärdet för att stödjas
     gamification:
       badges:
         initiatives:
@@ -192,12 +193,16 @@ sv:
         content_blocks:
           highlighted_initiatives:
             max_results: Högsta antal element att visa
+            order:
+              default: Standard (Äldste)
+              most_recent: Senaste
         exports:
           initiatives: Initiativ
         initiatives:
           edit:
             accept: Godkänn initiativ
             confirm: Är du säker?
+            confirm_send_to_technical_validation: Är du säker?
             discard: Kasta bort initiativet
             export_pdf_signatures: Exportera PDF med underskrifter
             export_votes: Exportera underskrifter
@@ -253,6 +258,7 @@ sv:
             destroy: Radera
             update: Uppdatera
           form:
+            authorizations: Inställningar för autentisering
             title: Allmän information
           initiative_type_scopes:
             title: Omfång för initiativtypen
