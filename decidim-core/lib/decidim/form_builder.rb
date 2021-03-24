@@ -463,12 +463,13 @@ module Decidim
       template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
       if file_is_attached?(file)
+        file_path = Rails.application.routes.url_helpers.rails_blob_path(file.blob, only_path: true)
         if file.attachment.image?
           template += @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
-          template += @template.link_to @template.image_tag(file, alt: alt_text), file, target: "_blank", rel: "noopener"
+          template += @template.link_to @template.image_tag(file_path, alt: alt_text), file_path, target: "_blank", rel: "noopener"
         else
           template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
-          template += @template.link_to file.filename, file, target: "_blank", rel: "noopener"
+          template += @template.link_to file.filename, file_path, target: "_blank", rel: "noopener"
         end
       end
 

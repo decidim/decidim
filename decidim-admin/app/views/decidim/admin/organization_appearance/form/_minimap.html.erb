@@ -14,7 +14,7 @@
 
     <div class="minimap-header">
       <% if current_organization.logo.present? %>
-        <%= image_tag current_organization.logo, class: "minimap-logo" %>
+        <%= image_tag current_organization.attached_uploader(:logo).path, class: "minimap-logo" %>
       <% else %>
         <%= content_tag :div, nil, { class: "minimap-logo placeholder", style: "width: #{image_width(current_organization, :logo) * size_factor }px; height: #{image_height(current_organization, :logo) * size_factor }px;" } do %>
           <span><%= t("logo", scope: "activemodel.attributes.organization") %></span>

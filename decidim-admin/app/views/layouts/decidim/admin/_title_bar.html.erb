@@ -2,7 +2,7 @@
   <a href="#menu" class="menu-trigger"><%= icon "menu" %></a>
   <%= link_to decidim.root_path, class: "logo", target: "_blank" do %>
     <% if current_organization.logo.present? %>
-      <%= image_tag current_organization.logo, alt: current_organization.name %>
+      <%= image_tag current_organization.attached_uploader(:logo).path, alt: current_organization.name %>
     <% else %>
       <%= current_organization.name %>
     <% end %>

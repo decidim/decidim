@@ -7,7 +7,7 @@
   <%= link_to url do %>
     <% if organization.logo.attached? %>
       <%= image_tag(
-            Rails.application.routes.url_helpers.rails_representation_path(organization.logo.variant(resize_to_fit: [600, 160]), host: organization.host),
+            organization.attached_uploader(:logo).variant_url(:medium, host: organization.host),
             style: "max-height: 50px",
             alt: "#{organization.name}"
           ) %>

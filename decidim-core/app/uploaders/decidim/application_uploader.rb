@@ -43,11 +43,39 @@ module Decidim
     end
 
     def variant(key)
-      if variants[key].present?
+      if key && variants[key].present?
         model.send(mounted_as).variant(variants[key])
       else
         model.send(mounted_as)
       end
+    end
+
+    def url(options = {})
+      representable = model.send(mounted_as)
+      return super unless representable.is_a? ActiveStorage::Attached
+
+      variant_url(nil, **options)
+    end
+
+    def variant_url(key, options = {})
+      representable = variant(key)
+
+      if representable.is_a? ActiveStorage::Attached
+        Rails.application.routes.url_helpers.rails_blob_url(representable.blob, **options)
+      else
+        Rails.application.routes.url_helpers.rails_representation_url(representable, **options)
+      end
+    end
+
+    def path(options = {})
+      representable = model.send(mounted_as)
+      return super() unless representable.is_a? ActiveStorage::Attached
+
+      variant_path(nil, **options)
+    end
+
+    def variant_path(key, options = {})
+      variant_url(key, **options.merge(only_path: true))
     end
 
     protected
