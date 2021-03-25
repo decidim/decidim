@@ -4,6 +4,7 @@
   </h5>
 
   <%= form_for form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
+    <%= f.label :body, nil, class: "show-for-sr" %>
     <%= f.text_area :body, label: false, rows: 4, required: true, placeholder: t(".placeholder") %>
 
     <%= f.submit t(".send"), class: "button pull-right", data: { disable: true } %>

@@ -11,6 +11,7 @@
     <% @form.recipient.each do |recipient| %>
       <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
     <% end %>
+    <%= f.label :body, nil, class: "show-for-sr" %>
     <%= f.text_area :body, label: false, rows: 4, required: true %>
 
     <%= f.submit t(".send") %>
