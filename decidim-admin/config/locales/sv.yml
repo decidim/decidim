@@ -52,6 +52,7 @@ sv:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
+        host: Värd
         instagram_handler: Instagram-hanterare
         logo: Logo
         machine_translation_display_priority: Maskinöversättnings visnings prioritet
@@ -304,6 +305,7 @@ sv:
           email: E-post
           name: Namn
           reason: Anledning
+          title: Överföring
         'true': 'Ja'
         user_name: Användare
       dashboard:
@@ -823,6 +825,7 @@ sv:
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
+        panel: Administratör
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
