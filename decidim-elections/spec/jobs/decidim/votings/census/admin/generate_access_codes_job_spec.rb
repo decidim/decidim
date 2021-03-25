@@ -3,9 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
-  let(:organization) { create(:organization) }
-  let(:dataset) { create(:dataset, organization: organization, status: :generating_codes) }
-  let(:user) { create(:user, :admin, organization: organization) }
+  let(:dataset) { create(:dataset, status: :generating_codes) }
+  let(:user) { create(:user, :admin) }
 
   describe "queue" do
     it "is queued to events" do
@@ -26,7 +25,7 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
       end
 
       context "when the dataset is not in the correct status" do
-        let(:dataset) { create(:dataset, organization: organization, status: :codes_generated) }
+        let(:dataset) { create(:dataset, status: :codes_generated) }
 
         it "does not update the dataset nor the data" do
           expect(Decidim::Votings::Census::Admin::UpdateDataset).not_to receive(:call)
