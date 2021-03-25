@@ -43,12 +43,13 @@ module Decidim
 
         validate :slug_uniqueness
 
+        validates :available_slots, presence: true, if: ->(form) { form.registrations_enabled? }
+        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? && form.available_slots.present? }
         validates :registration_terms, translatable_presence: true, if: ->(form) { form.registrations_enabled? }
-        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }
 
         validates :hero_image, passthru: { to: Decidim::Conference }
         validates :banner_image, passthru: { to: Decidim::Conference }
-        validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.positive? }
+        validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.try(:positive?) }
 
         validates :start_date, presence: true, date: { before_or_equal_to: :end_date }
         validates :end_date, presence: true, date: { after_or_equal_to: :start_date }
