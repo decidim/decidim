@@ -9,7 +9,8 @@ module Decidim
         :menu,
         self,
         element_class: "main-nav__link",
-        active_class: "main-nav__link--active"
+        active_class: "main-nav__link--active",
+        label: t("layouts.decidim.header.main_menu")
       )
     end
 
@@ -19,7 +20,8 @@ module Decidim
         :user_menu,
         self,
         element_class: "tabs-title",
-        active_class: "is-active"
+        active_class: "is-active",
+        label: t("layouts.decidim.user_menu.title")
       )
     end
   end

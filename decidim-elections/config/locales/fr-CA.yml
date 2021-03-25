@@ -227,7 +227,6 @@ fr-CA:
             result: Réalisation
             selected: Sélectionné
             submit: Publier les résultats
-            success: Dépouillement correctement terminé
             title: Résultat du calcul
           vote:
             errors:
@@ -278,6 +277,9 @@ fr-CA:
           upcoming: À venir
         end_date: Se termine le
         footer:
+          remaining_time:
+            one: "<strong>Il reste %{count} heure %{minutes} minutes</strong> pour voter."
+            other: "<strong>Il reste %{count} heures %{minutes} minutes</strong> pour voter."
           view: Voir
           vote: Voter
         label:

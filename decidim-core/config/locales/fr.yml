@@ -257,7 +257,6 @@ fr:
       photos:
         related_photos: Photos associées
     author:
-      avatar: Avatar
       comments:
         one: commentaire
         other: commentaires

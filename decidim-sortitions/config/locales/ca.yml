@@ -144,3 +144,5 @@ ca:
           count:
             one: 1 sorteig
             other: "%{count} classificacions"
+    statistics:
+      sortitions_count: Sortejos

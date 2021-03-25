@@ -231,7 +231,6 @@ ar:
       photos:
         related_photos: الصور ذات الصلة
     author:
-      avatar: الصورة الرمزية
       comments:
         zero: تعليقات
         one: تعليق

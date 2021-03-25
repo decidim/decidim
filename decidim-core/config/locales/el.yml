@@ -241,7 +241,6 @@ el:
       photos:
         related_photos: Σχετικές εικόνες
     author:
-      avatar: Άβαταρ
       comments:
         one: σχόλιο
         other: σχόλια

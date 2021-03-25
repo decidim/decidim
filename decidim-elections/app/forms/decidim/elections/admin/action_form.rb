@@ -19,14 +19,6 @@ module Decidim
           @election ||= context[:election]
         end
 
-        def questions
-          @questions ||= election.questions
-        end
-
-        def answers
-          @answers ||= Decidim::Elections::Answer.where(question: questions)
-        end
-
         def pending_action
           return @pending_action if defined?(@pending_action)
 

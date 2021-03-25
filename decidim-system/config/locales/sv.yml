@@ -7,6 +7,13 @@ sv:
         organization_name: Organisation
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
+      organization:
+        address: SMTP-värdnamn
+        from_email: Från (e-postadress)
+        from_label: Från (namn)
+        password: Lösenord
+        port: Port
+        user_name: Användarnamn
     errors:
       models:
         oauth_application:
