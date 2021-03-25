@@ -91,6 +91,10 @@ FactoryBot.define do
     after(:create) do |dataset|
       create(:datum, dataset: dataset)
     end
+
+    trait :data_created do
+      status { "data_created" }
+    end
   end
 
   factory :datum, class: "Decidim::Votings::Census::Datum" do
