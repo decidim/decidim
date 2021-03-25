@@ -1,1 +1,19 @@
 sv:
+  decidim:
+    admin:
+      menu:
+        templates: Mallar
+      titles:
+        templates: Mallar
+    models:
+      template:
+        name: Mall
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            skip_template: Hoppa över
+          edit:
+            edit: Redigera
+          form:
+            save: Spara
