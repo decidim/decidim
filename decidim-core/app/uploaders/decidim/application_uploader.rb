@@ -50,6 +50,10 @@ module Decidim
       end
     end
 
+    def attached?
+      model.send(mounted_as).attached?
+    end
+
     def url(options = {})
       representable = model.send(mounted_as)
       return super unless representable.is_a? ActiveStorage::Attached

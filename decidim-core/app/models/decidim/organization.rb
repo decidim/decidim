@@ -63,6 +63,8 @@ module Decidim
     validates_upload :highlighted_content_banner_image
     mount_uploader :highlighted_content_banner_image, ImageUploader
 
+    has_one_attached :open_data_file
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OrganizationPresenter
     end
@@ -122,13 +124,6 @@ module Decidim
 
     def sign_in_enabled?
       !users_registration_mode_disabled?
-    end
-
-    def open_data_file
-      @open_data_file ||= OpenDataUploader.new(self).tap do |uploader|
-        uploader.retrieve_from_store! open_data_file_path
-        uploader.cache! open_data_file_path
-      end
     end
 
     def open_data_file_path
