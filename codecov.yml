@@ -10,7 +10,31 @@ coverage:
       default: false
       develop:
         threshold: 0.1%
-        branches:
-          - develop
+        flag_coverage_not_uploaded_behavior: exclude
+        flags:
+          - decidim-accountability
+          - decidim-admin
+          - decidim-api
+          - decidim-assemblies
+          - decidim-blogs
+          - decidim-budgets
+          - decidim-comments
+          - decidim-conferences
+          - decidim-consultations
+          - decidim-core
+          - decidim-debates
+          - decidim-elections
+          - decidim-forms
+          - decidim-generators
+          - decidim-initiatives
+          - decidim-meetings
+          - decidim-pages
+          - decidim-participatory_processes
+          - decidim-proposals
+          - decidim-sortitions
+          - decidim-surveys
+          - decidim-system
+          - decidim-templates
+          - decidim-verifications
 github_checks:
   annotations: false
