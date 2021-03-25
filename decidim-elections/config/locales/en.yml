@@ -84,7 +84,8 @@ en:
             unassigned: Unassigned
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Search %{collection} by name/email/nickname or polling station.
-          title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont: Search %{collection} by title, address or officer name/email/nickname.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Search %{collection} by title, address or officer name/email/nickname.
     components:
       elections:
         actions:
@@ -215,8 +216,8 @@ en:
             no_trustees: There are no Trustees configured for this participatory space
             not_used_trustee: "(not used)"
             public_key:
-              "false": does not have a <strong>public key</strong>
-              "true": has a <strong>public key</strong>
+              'false': does not have a <strong>public key</strong>
+              'true': has a <strong>public key</strong>
             requirements:
               max_selections: All the questions have a correct value for <strong>maximum of answers</strong>.
               minimum_answers: Each question has <strong>at least 2 answers</strong>.
@@ -353,11 +354,11 @@ en:
           filter_by: Filter by
           unfold: Unfold
         preview:
-          available_answers: "Available answers:"
-          description: "These are the questions you will find in the voting process:"
+          available_answers: 'Available answers:'
+          description: 'These are the questions you will find in the voting process:'
           title: Election questions
         results:
-          description: "These are the results of the voting, for each question:"
+          description: 'These are the results of the voting, for each question:'
           selected: Selected
           title: Election results
           votes:
@@ -381,7 +382,7 @@ en:
             will_verify: You will be able to verify your vote once the election is started.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
-            ongoing: "Active voting until: %{end_time}"
+            ongoing: 'Active voting until: %{end_time}'
             upcoming: Voting begins on %{start_time}
       feedback:
         answer:
@@ -471,7 +472,7 @@ en:
             title: Tally for %{election}
           update:
             error: The election status wasn't updated.
-            success: "The election status is: %{status}"
+            success: 'The election status is: %{status}'
         menu:
           trustee_zone: Trustee zone
         no_bulletin_board:
@@ -482,9 +483,9 @@ en:
             elections:
               list:
                 action_required:
-                  "false": "No"
+                  'false': 'No'
                   name: Action required?
-                  "true": Perform action
+                  'true': Perform action
                 bb_status: Status
                 election: Election
                 voting_period: Voting period
@@ -520,7 +521,7 @@ en:
           back: Start voting process again
           cast: Cast ballot
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
-          header: "Ballot is encrypted: cast it or audit it"
+          header: 'Ballot is encrypted: cast it or audit it'
         casting:
           header: Casting the vote...
           text: Your ballot is being casted on the ballot box.
@@ -535,7 +536,6 @@ en:
           question: Question %{count}
         confirmed:
           back: Back to elections
-          error: Sorry, there was an error confirming the vote. Please vote again.
           experience: How was your experience?
           feedback: Give us some feedback
           header: Vote confirmed
@@ -561,7 +561,7 @@ en:
           not_allowed: You are not allowed to vote on this election at this moment.
         modal:
           close: Close
-          proposal_header: "Proposals:"
+          proposal_header: 'Proposals:'
         new:
           answer_choices: You can select up to %{choices} answers
           more_information: More information
@@ -570,8 +570,7 @@ en:
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
         update:
-          error: There was a problem updating the vote status
-          success: Vote status successfully updated
+          error: There was a problem updating the vote status. Please, vote again.
         verify:
           content:
             heading: Verify your vote
@@ -582,7 +581,7 @@ en:
           form:
             back: Back to Decidim
             submit: Check
-            vote_identifier: "Identifier code:"
+            vote_identifier: 'Identifier code:'
           header:
             title: Verify your vote
           success:
@@ -597,7 +596,7 @@ en:
     events:
       elections:
         election_published:
-          email_intro: "The %{resource_title} election is now active for %{participatory_space_title}. You can see it from this page:"
+          email_intro: 'The %{resource_title} election is now active for %{participatory_space_title}. You can see it from this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
@@ -763,11 +762,11 @@ en:
             title: Edit polling station
             update: Update polling station
           form:
-            address_help: "Address: used by Geocoder to find the location"
-            location_help: "Location: message directed to the voters implying the exact place of the polling station"
-            location_hints_help: "Location hints: additional info. Example: the floor of the building where the polling station is located."
-            polling_station_managers_help: "Polling station managers: the officers that will act as polling station managers. Make sure the officers have already been created in Polling Officers and that they are not already assigned to another polling station"
-            polling_station_president_help: "Polling station officer: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station"
+            address_help: 'Address: used by Geocoder to find the location'
+            location_help: 'Location: message directed to the voters implying the exact place of the polling station'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
+            polling_station_managers_help: 'Polling station managers: the officers that will act as polling station managers. Make sure the officers have already been created in Polling Officers and that they are not already assigned to another polling station'
+            polling_station_president_help: 'Polling station officer: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station'
             select_president: Select a polling officer as president of the polling station
           index:
             title: Polling stations
@@ -795,7 +794,7 @@ en:
             update: Update
           form:
             select_a_voting_type: Please select a voting type
-            slug_help: "URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}"
+            slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             voting_type:
               hybrid: Hybrid
@@ -899,7 +898,7 @@ en:
           only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
         orders:
-          label: "Sort votings by:"
+          label: 'Sort votings by:'
           random: Random
           recent: Most recent
         show:
