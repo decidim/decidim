@@ -77,6 +77,8 @@ sv:
           update:
             invalid: Det gick inte att uppdatera debatten.
             success: Debatten uppdaterades.
+        exports:
+          comments: Kommentarer
         models:
           debate:
             name: Debatt
@@ -112,9 +114,16 @@ sv:
           category: Kategori
           category_prompt: Välj en kategori
           citizens: Medborgare
+          commented: Kommenterade
           official: Officiell
           origin: Ursprung
+          scope: Omfång
           search: Sök
+          state: Status
+          state_values:
+            closed: Stängda
+            open: Öppna
+          user_groups: Grupper
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -220,3 +229,5 @@ sv:
         description: Antal skapade debatter
         object: debatter
         title: Debatter
+    statistics:
+      debates_count: Debatter
