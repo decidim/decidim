@@ -219,6 +219,8 @@ ro:
             public_key:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
+          tally_ended:
+            success: Cererea de publicare a rezultatelor a fost trimisă cu succes la Bulletin Board
           vote_ended:
             submit: Începeți să numărați
             success: Solicitarea de începere a fost trimisă cu succes la Panoul de Buletin
@@ -266,6 +268,10 @@ ro:
           upcoming: Urmează
         end_date: Se termină
         footer:
+          remaining_time:
+            one: "<strong>%{count} oră %{minutes} minute</strong> rămase de votat."
+            few: "<strong>%{count} ore %{minutes} minute</strong> rămase de votat."
+            other: "<strong>%{count} ore %{minutes} minute</strong> rămase pentru a vota."
           view: Vizualizare
           vote: Votează
         label:

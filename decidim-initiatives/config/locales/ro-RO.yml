@@ -68,10 +68,13 @@ ro:
       actions:
         new_initiative_type: Noul tip de inițiativă
       menu:
+        attachments: Atașamente
+        committee_members: Membrii Comitetului
         components: Componente
         information: Informare
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative
+        moderations: Moderări
       models:
         initiatives:
           fields:
