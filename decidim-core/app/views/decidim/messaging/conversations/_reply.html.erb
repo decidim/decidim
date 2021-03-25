@@ -1,7 +1,7 @@
 <div class="conversation-reply conversation-reply--offset">
-  <h5 class="section-heading">
+  <h2 class="section-heading">
     <%= t(".title") %>
-  </h5>
+  </h2>
 
   <%= form_for form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
     <%= f.label :body, nil, class: "show-for-sr" %>
