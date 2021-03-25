@@ -31,7 +31,7 @@ end
       <div class="footer-separator">
         <!--separates the footer from the rest of the page,
              creates a sticky footer-->
-        <div class="header" aria-role="banner">
+        <div class="header" role="banner">
           <!-- Topbar -->
           <div class="title-bar">
             <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "skip" %>
@@ -106,7 +106,7 @@ end
           <%= yield %>
         </main>
       </div>
-      <div class="footer" aria-role="contentinfo">
+      <div class="footer" role="contentinfo">
         <%= render partial: "layouts/decidim/main_footer" %>
         <%= render partial: "layouts/decidim/mini_footer" %>
       </div>
