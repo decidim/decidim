@@ -31,7 +31,6 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
-        admin_terms_of_use_body: Body for the admin terms of use
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
