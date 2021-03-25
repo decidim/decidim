@@ -678,6 +678,7 @@ es-MX:
         success: El borrador de la propuesta fue eliminado con éxito.
       last_activity:
         new_proposal_at_html: "<span>Nueva propuesta en %{link}</span>"
+        proposal_updated_at_html: "<span>Propuesta actualizada a las %{link}</span>"
       models:
         collaborative_draft:
           fields:
