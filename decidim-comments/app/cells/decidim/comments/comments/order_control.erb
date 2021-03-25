@@ -7,9 +7,8 @@
     data-disable-hover="true"
     data-click-open="true"
     data-close-on-click="true"
-    tabindex="-1"
     role="menubar">
-    <li class="is-dropdown-submenu-parent opens-right" tabindex="-1" role="none">
+    <li class="is-dropdown-submenu-parent opens-right" role="presentation">
       <a href="#" id="comments-order-menu-control"
         aria-label="<%= t("decidim.components.comment_order_selector.title") %>"
         aria-controls="comments-order-menu"
@@ -19,10 +18,9 @@
         id="comments-order-chooser-menu"
         role="menu"
         aria-labelledby="comments-order-menu-control"
-        tabindex="-1"
         data-submenu="">
         <% available_orders.each do |order_value| %>
-          <li role="none" class="is-submenu-item is-dropdown-submenu-item">
+          <li role="presentation" class="is-submenu-item is-dropdown-submenu-item">
             <%= link_to(
               t("decidim.components.comment_order_selector.order.#{order_value}"),
               decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1),
