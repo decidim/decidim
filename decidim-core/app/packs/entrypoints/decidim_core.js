@@ -54,6 +54,18 @@ import "../src/decidim/notifications"
 import "../src/decidim/identity_selector_dialog"
 import "../src/decidim/gallery"
 
+// CSS
+import "./decidim_core.scss"
+
+// Images
+import "../images/decidim/avatar-multiuser.png"
+import "../images/decidim/cc-badge.png"
+import "../images/decidim/decidim-logo.svg"
+import "../images/decidim/default-avatar.svg"
+import "../images/decidim/icons.svg"
+import "../images/decidim/pattern.png"
+import "../images/decidim/placeholder.jpg"
+
 // This needs to be loaded after confirm dialog to bind properly
 import Rails from "@rails/ujs"
 Rails.start()

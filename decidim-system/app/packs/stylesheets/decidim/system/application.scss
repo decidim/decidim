@@ -6,8 +6,8 @@ $alert-color: null;
 $-zf-size: null;
 $-zf-bp-value: null;
 
-@import "_foundation_and_overrides.scss";
-@import "_layout.scss";
+@import "foundation_and_overrides";
+@import "layout";
 @import "login";
 @import "sidebar";
 @import "tables";
@@ -19,4 +19,3 @@ $-zf-bp-value: null;
 body{
   font-family: 'Source Sans Pro', sans-serif;
 }
-table { color: red; }

@@ -4,8 +4,8 @@
 @import "utils/keyframes";
 @import "utils/settings";
 @import "utils/toggle-expand";
-@import "foundation";
-@import "foundation-overrides/components/button-group";
+@import "~foundation-sites/scss/foundation";
+@import "decidim-core/app/packs/stylesheets/foundation-overrides/components/button-group";
 
 @include foundation-everything();
 

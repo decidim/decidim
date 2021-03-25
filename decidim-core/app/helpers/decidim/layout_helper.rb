@@ -55,7 +55,7 @@ module Decidim
 
       content_tag :svg, html_properties do
         inner = content_tag :title, title
-        inner += content_tag :use, nil, "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
+        inner += content_tag :use, nil, "href" => "#{asset_pack_path("media/images/icons.svg")}#icon-#{name}"
 
         inner
       end

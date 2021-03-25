@@ -71,7 +71,7 @@ module Decidim
       #
       # Returns a String with the image.
       def image
-        ActionController::Base.helpers.asset_path("decidim/gamification/badges/#{name}.svg")
+        ActionController::Base.helpers.asset_pack_path("decidim/gamification/badges/#{name}.svg")
       end
 
       def valid_for?(model)
