@@ -9,7 +9,8 @@ module Decidim
         @main_menu ||= ::Decidim::MenuPresenter.new(
           :admin_menu,
           self,
-          active_class: "is-active"
+          active_class: "is-active",
+          label: t("layouts.decidim.header.main_menu")
         )
       end
 
