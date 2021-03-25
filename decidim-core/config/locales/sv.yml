@@ -313,6 +313,9 @@ sv:
           title: Bekräfta din e-postadress
       show:
         close_modal: Stäng modal
+    block_user_mailer:
+      notify:
+        hello: Hej,
     collapsible_list:
       hidden_elements_count:
         one: och %{count} fler
@@ -348,6 +351,7 @@ sv:
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
+            scope_id: Omfång
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -368,6 +372,9 @@ sv:
         welcome_text: Välkomsttext
       highlighted_content_banner:
         name: Banner för uppmärksammat innehåll
+      highlighted_elements_settings_form:
+        orders:
+          random: Slumpmässig
       how_to_participate:
         name: Hur du deltar
       html:
