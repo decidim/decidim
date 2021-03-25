@@ -843,6 +843,10 @@ en:
               info_message_all: "<strong>All rows imported successfully</strong> from %{file} file (%{raw_count} of %{data_count})."
               info_message_warn: Please check that no data is missing, because %{data_count} records were created and the uploaded file %{file} had %{raw_count} rows.
             new:
+              file_help:
+                explanation: 'Guidance for file:'
+                message_1: only CSV (.csv) files are allowed
+                message_2: For CSV files, the separator between columns must be a semicolon (";")
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
               submit: Submit csv
               title: Create the census

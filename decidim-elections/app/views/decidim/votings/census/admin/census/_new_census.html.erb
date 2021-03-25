@@ -11,7 +11,8 @@
                             method: :post,
                             html: { class: "form" }) do |form| %>
         <div class="field">
-          <%= form.upload :file %>
+          <%= form.upload :file, optional: false, help_i18n_scope: "decidim.votings.census.admin.census.new.file_help" %>
+
         </div>
 
         <%= submit_tag t("new.submit", scope: "decidim.votings.census.admin.census"), class: "button" %>
