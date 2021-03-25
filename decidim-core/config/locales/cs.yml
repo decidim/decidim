@@ -1588,9 +1588,11 @@ cs:
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
       header:
         close_menu: Zavřít nabídku
+        main_menu: Hlavní menu
         navigation: Navigace
         sign_in: Přihlásit se
         sign_up: Registrovat
+        user_menu: Uživatelské Menu
       impersonation_warning:
         close_session: Zavřít sezení
         description_html: Spravujete účastníka <b>%{user_name}</b>.
@@ -1619,6 +1621,7 @@ cs:
         profile: Můj účet
         public_profile: Můj veřejný profil
         sign_out: Odhlásit se
+        title: Profilové odkazy
       user_profile:
         account: Účet
         authorizations: Autorizace
