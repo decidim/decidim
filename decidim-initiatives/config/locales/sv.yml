@@ -117,6 +117,7 @@ sv:
             initiative_title: Initiativtitel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
+            scope: Omfång
             time_and_date: Tid och datum
             timestamp: Tidsstämpel
       titles:
@@ -403,6 +404,7 @@ sv:
         committee_members:
           approve: Godkänn
           confirm_revoke: Är du säker?
+          revoke: Återkalla
         count:
           title:
             one: "%{count} initiativ"
@@ -445,6 +447,10 @@ sv:
           recently_published: Senast publicerade
         print:
           city: Stad
+          email: E-post
+          initiative:
+            title: 'Titel:'
+          print: Skriv ut
         result:
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
