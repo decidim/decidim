@@ -2,24 +2,24 @@ nl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Gerelateerde assemblies
+        assemblies_ids: Gerelateerde bijeenkomsten
         banner_image: Banner afbeelding
         consultations_ids: Gerelateerde consultaties
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer componenten
         copy_features: Functies kopiëren
-        decidim_scope_id: strekking
+        decidim_scope_id: Scope
         description: Beschrijving
         hashtag: Hashtag
         hero_image: Home afbeelding
         participatory_processes_ids: Verwante participatieve processen
-        promoted: gepromoveerd
+        promoted: Gemarkeerd
         published_at: Gepubliceerd op
-        scope_id: strekking
+        scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
-        slogan: leuze
+        slogan: Slogan
         slug: URL-slug
         title: Titel
       conference_speaker:
@@ -38,13 +38,13 @@ nl:
     models:
       decidim/conference:
         one: Conferentie
-        other: conferenties
+        other: Conferenties
       decidim/conference_speaker:
-        one: Conferentie spreker
+        one: Conferentiespreker
         other: Sprekers van de conferentie
       decidim/conference_user_role:
         one: Conferentiegebruikersrol
-        other: Conferentiegebruikersrol
+        other: Conferentiegebruikersrollen
   decidim:
     admin:
       actions:
@@ -61,124 +61,124 @@ nl:
           error: Er is een fout opgetreden bij het publiceren van deze conferentie.
           success: Conferentie met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het niet-publiceren van deze conferentie.
-          success: Conferentie ongepubliceerd succesvol.
+          error: Er is een fout opgetreden bij het depubliceren van deze conferentie.
+          success: Conferentie succesvol gedepubliceerd.
       conference_registration:
         confirm:
-          error: Er is een fout opgetreden bij het bevestigen van deze conferentieregistratie.
+          error: Er is een probleem opgetreden bij het bevestigen van deze conferentieregistratie.
           success: Conferentieregistratie succesvol bevestigd.
       conference_speakers:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een spreker voor deze conferentie.
-          success: Luidspreker gemaakt voor deze conferentie.
+          error: Er was een probleem met het toevoegen van een spreker aan deze conferentie.
+          success: Conferentiespreker succesvol aangemaakt.
         destroy:
-          success: Spreker is met succes verwijderd voor deze conferentie.
+          success: Conferentiespreker is met succes verwijderd.
         edit:
-          title: Conferentieluidspreker updaten.
+          title: Conferentiespreker updaten.
           update: Bijwerken
         index:
           conference_speakers_title: Sprekers van de conferentie
         new:
-          create: creëren
+          create: Creëren
           title: Nieuwe spreker voor conferenties.
         update:
           error: Er is een fout opgetreden bij het bijwerken van de spreker voor deze conferentie.
           success: Luidspreker succesvol bijgewerkt voor deze conferentie.
       conference_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze conferentie.
-          success: Gebruiker succesvol toegevoegd aan deze conferentie.
+          error: Er is een probleem opgetreden bij het toevoegen van een beheerder aan deze conferentie.
+          success: Conference-beheerder succesvol toegevoegd
         destroy:
-          success: Gebruiker is met succes van deze conferentie verwijderd.
+          success: Conference-beheerder verwijderd.
         edit:
-          title: Conferentiegebruiker updaten.
+          title: Update conferentiebeheerder.
           update: Bijwerken
         index:
-          conference_admins_title: conferentie gebruikers
+          conference_admins_title: conferentiebeheerders
         new:
-          create: creëren
-          title: Nieuwe conferentiegebruiker.
+          create: Creëren
+          title: Nieuwe conferentiebeheerder.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze conferentie.
-          success: Gebruiker is succesvol geüpdatet voor deze conferentie.
+          error: Er is een probleem opgetreden bij het bijwerken van deze conferentiebeheerder.
+          success: Conferentiebeheerder succesvol bijgewerkt.
       conferences:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe conferentie.
-          success: Conferentie met succes gemaakt.
+          error: Er is een probleem opgetreden bij het maken van deze conferentie.
+          success: Conferentie met succes aangemaakt.
         edit:
           update: Bijwerken
         exports:
-          registrations: registraties
+          registrations: Inschrijvingen
         form:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
           published: Gepubliceerd
         new:
-          create: creëren
+          create: Creëren
           title: Conferentie
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze conferentie.
+          error: Er is een probleem opgetreden bij het bijwerken van deze conferentie.
           success: Conferentie succesvol bijgewerkt.
       conferences_copies:
         create:
-          error: Er is een fout opgetreden bij het dupliceren van deze conferentie.
+          error: Er was een probleem bij het dupliceren van deze conferentie.
           success: Conferentie succesvol gedupliceerd.
       media_links:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe mediakoppeling.
-          success: Media Link is met succes gemaakt.
+          error: Er is een probleem opgetreden bij het maken van een nieuwe mediakoppeling.
+          success: Mediakoppeling met succes aangemaakt.
         destroy:
-          success: Media Link is succesvol verwijderd.
+          success: Mediakoppeling succesvol verwijderd.
         edit:
           title: Mediakoppeling bijwerken.
           update: Bijwerken
         index:
-          media_links_title: Media links
+          media_links_title: Mediakoppelingen
         new:
-          create: creëren
-          title: Media Link
+          create: Creëren
+          title: Mediakoppeling
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze mediakoppeling.
-          success: Media Link is succesvol bijgewerkt.
+          error: Er is een probleem opgetreden bij het bijwerken van deze mediakoppeling.
+          success: Mediakoppeling succesvol bijgewerkt.
       menu:
         conferences: Conferenties
         conferences_submenu:
-          attachment_collections: folders
-          attachment_files: bestanden
+          attachment_collections: Mappen
+          attachment_files: Bestanden
           attachments: Bijlagen
           categories: Categorieën
-          components: Components
+          components: Componenten
           conference_admins: Conferentiebeheerders
           conference_invites: Uitnodigingen
-          conference_speakers: sprekers
-          diploma: Certificaat van aanwezigheid
-          info: info
-          media_links: Media links
+          conference_speakers: Sprekers
+          diploma: Certificaat van Deelname
+          info: Info
+          media_links: Mediakoppelingen
           moderations: Moderaties
-          partners: partners
-          registration_types: Registratie Types
-          registrations: registraties
+          partners: Partners
+          registration_types: Registratietypes
+          registrations: Inschrijvingen
           user_registrations: Gebruikersregistraties
       models:
         conference:
           fields:
-            created_at: Gemaakt bij
-            promoted: gepromoveerd
+            created_at: Aangemaakt op
+            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
         conference_speaker:
           fields:
-            affiliation: Aansluiting
+            affiliation: Lidmaatschap
             full_name: Voor-en achternaam
             position: Positie
-          name: Conference Speaker
+          name: Conferentiespreker
         conference_user_role:
           fields:
             email: E-mail
             name: Naam
             role: Rol
-          name: Conferentie Gebruiker
+          name: Conferentiebeheerder
           roles:
             admin: Beheerder
             collaborator: Medewerker
@@ -189,7 +189,7 @@ nl:
             date: Datum
             link: Link
             title: Titel
-          name: Media Link
+          name: Mediakoppeling
         partner:
           fields:
             link: Link
@@ -202,9 +202,9 @@ nl:
             main_promotor: Hoofdpromotor
         registration_type:
           fields:
-            conference_meetings: Conferentie vergaderingen
+            conference_meetings: Conferentiesessies
             price: Prijs
-            registrations_count: Registraties tellen mee
+            registrations_count: Aantal registraties
             title: Titel
             weight: Gewicht
           name: Registratie type
@@ -218,18 +218,18 @@ nl:
           title: Update partner.
           update: Bijwerken
         new:
-          create: creëren
+          create: Creëren
           title: Nieuwe partner
         update:
-          error: Er is een fout opgetreden bij het bijwerken van een partner voor deze conferentie.
+          error: Er is een probleem opgetreden bij het bijwerken van een partner voor deze conferentie.
           success: Partner is succesvol geüpdatet voor deze conferentie.
       registration_type_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van dit registratietype.
-          success: Registratietype met succes gepubliceerd.
+          error: Er is een probleem opgetreden bij het publiceren van dit registratietype.
+          success: Registratie met succes gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het on-publiceren van dit registratietype.
-          success: Registratietype ongepubliceerd succesvol.
+          error: Er is een probleem opgetreden met het ongedaan maken van publicatie van dit registratietype.
+          success: Registratietype met succes gedepubliceerd.
       registration_types:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een registratietype voor deze conferentie.
@@ -240,7 +240,7 @@ nl:
           title: Update registratietype.
           update: Bijwerken
         new:
-          create: creëren
+          create: Creëren
           title: Nieuw registratietype
         update:
           error: Er is een fout opgetreden bij het updaten van een registratietype voor deze conferentie.
@@ -251,32 +251,32 @@ nl:
       conference:
         create: "%{user_name} heeft de %{resource_name} conferentie gemaakt"
         publish: "%{user_name} heeft de %{resource_name} conferentie gepubliceerd"
-        send_conference_diplomas: "%{user_name} verzonden presentielingscertificaten voor de %{resource_name} conferentierondes"
-        unpublish: "%{user_name} ongepubliceerd de %{resource_name} conferentie"
+        send_conference_diplomas: "%{user_name} heeft certificaten van deelname verzonden voor de %{resource_name} conferentiedeelnemers"
+        unpublish: "%{user_name} heeft de %{resource_name} conferentie gedepubliceerd"
         update: "%{user_name} heeft de %{resource_name} conferentie bijgewerkt"
-        update_diploma: "%{user_name} heeft de aanwezigheidsconfiguratiecertificaten bijgewerkt voor %{resource_name} conferentie"
+        update_diploma: "%{user_name} heeft de configuratie van de certificaten van deelname bijgewerkt voor de %{resource_name} conferentie"
       conference_speaker:
-        create: "%{user_name} heeft de %{resource_name} luidspreker gemaakt in de %{space_name} conferentie"
-        delete: "%{user_name} heeft de %{resource_name} luidspreker van de %{space_name} conferentie verwijderd"
+        create: "%{user_name} heeft de %{resource_name} preker gemaakt in de %{space_name} conferentie"
+        delete: "%{user_name} heeft de %{resource_name} spreker van de %{space_name} conferentie verwijderd"
         update: "%{user_name} heeft de %{resource_name} spreker in de %{space_name} conferentie geüpdatet"
       conference_user_role:
         create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie uitgenodigd"
-        delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
+        delete: "%{user_name} heeft de beheerder %{resource_name} van de %{space_name} conferentie verwijderd"
         update: "%{user_name} veranderde de rol van %{resource_name} in de %{space_name} conferentie"
       conferences:
         conference_registration:
           confirm: "%{user_name} bevestigde een conferentie-registratie in %{resource_name} conferentie"
         partner:
           create: "%{user_name} heeft %{resource_name} voor de %{space_name} conferentie"
-          delete: "%{user_name} heeft gebruiker %{resource_name} van de %{space_name} conferentie verwijderd"
+          delete: "%{user_name} heeft de beheerder %{resource_name} van de %{space_name} conferentie verwijderd"
           update: "%{user_name} bijgewerkt %{resource_name} in de %{space_name} conferentie"
         registration_type:
-          create: "%{user_name} heeft het %{resource_name} registratietype gemaakt in de %{space_name} conferentie"
+          create: "%{user_name} heeft het %{resource_name} registratietype aangemaakt in de %{space_name} conferentie"
           publish: "%{user_name} heeft het %{resource_name} registratietype gepubliceerd in de %{space_name} conferentie"
-          unpublish: "%{user_name} ongepubliceerd het %{resource_name} registratietype in de %{space_name} conferentie"
+          unpublish: "%{user_name} heeft het %{resource_name} registratietype in de %{space_name} conferentie gedepubliceerd"
           update: "%{user_name} heeft het %{resource_name} registratietype bijgewerkt in de %{space_name} conferentie"
       media_link:
-        create: "%{user_name} heeft de %{resource_name} mediakoppeling in de %{space_name} conferentie gemaakt"
+        create: "%{user_name} heeft de %{resource_name} mediakoppeling in de %{space_name} conferentie aangemaakt"
         delete: "%{user_name} verwijderde de %{resource_name} mediakoppeling van de %{space_name} conferentie"
         update: "%{user_name} heeft de %{resource_name} mediakoppeling in de %{space_name} conferentie bijgewerkt"
     conference_program:
@@ -284,7 +284,7 @@ nl:
         title: Programma
     conference_speakers:
       index:
-        title: sprekers
+        title: Sprekers
     conferences:
       admin:
         conference_copies:
@@ -307,22 +307,22 @@ nl:
               rejected: Verworpen
               sent: Verzonden
             filter_by: Filteren op
-            invite_attendee: Nodig Deelnemer uit
+            invite_attendee: Nodig deelnemer uit
             invites: Uitnodigingen
             search: Zoeken
           new:
             explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een conferentie. Als de e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
             invite: Nodig uit
-            new_invite: Nodig gebruiker uit
+            new_invite: Nodig deelnemer uit
         conference_registrations:
           index:
-            registrations: registraties
+            registrations: Inschrijvingen
         conference_speakers:
           form:
-            existing_user: Bestaande gebruiker
-            non_user: Niet gebruiker
-            select_user: Selecteer gebruiker
-            user_type: Gebruikerstype
+            existing_user: Bestaande deelnemer
+            non_user: Niet deelnemer
+            select_user: Selecteer deelnemer
+            user_type: Type deelnemer
           index:
             search: Zoeken
         conferences:
@@ -335,7 +335,7 @@ nl:
         diplomas:
           edit:
             save: Opslaan
-            title: Certificaat van aanwezigheid
+            title: Certificaat van Deelname
         invite_join_conference_mailer:
           invite:
             decline: Uitnodiging '%{conference_title}' weigeren
@@ -343,52 +343,52 @@ nl:
             registration: Registratie voor '%{conference_title}'
         partners:
           index:
-            title: partners
+            title: Partners
         registration_types:
           form:
-            select_conference_meetings: Selecteer conferentievergaderingen
+            select_conference_meetings: Selecteer conferentiesessies
           index:
             title: Registratie soorten
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: U vindt het certificaat van aanwezigheid voor de conferentie <a href="%{url}">%{title}</a> in de bijlagen.
+            diploma_html: U vindt het certificaat van deelname voor de conferentie <a href="%{url}">%{title}</a> in de bijlagen.
           diploma_user:
             attendance_verified_by: Aanwezigheid geverifieerd door
-            certificate_of_attendance: Certificaat van aanwezigheid
-            certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> heeft deelgenomen en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
+            certificate_of_attendance: Certificaat van Deelname
+            certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> aanwezig is geweest en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
         send_diploma:
-          error: Er is een probleem opgetreden tijdens het verzenden van de aanwezigheidsvergaderingscertificaten.
-          success: Conference certificaten van aanwezigheid correct verzonden
+          error: Er is een probleem opgetreden tijdens het verzenden van de certificaten van deelname.
+          success: Conference certificaten van deelname correct verzonden
       conference:
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
         show:
           free: Gratis
-          going: gaand
+          going: Ingeschreven
           no_slots_available: Geen slots beschikbaar
-          registration: registratie
+          registration: Inschrijving
       conference_program:
         program_meeting:
           content: Inhoud
           location: Plaats
-          speakers: sprekers
-          streaming: streaming
+          speakers: Sprekers
+          streaming: Streaming
         show:
           day: Dag
           program: Programma
       conference_registration_mailer:
         confirmation:
           confirmed_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is bevestigd.
-          details_1: 'U bent bij de conferentie geregistreerd met het type %{registration_type} . Het kost %{price} en je kunt deelnemen aan de volgende evenementen:'
+          details_1: 'U bent bij de conferentie geregistreerd met het type %{registration_type}. Het kost %{price} en je kunt deelnemen aan de volgende evenementen:'
           details_2: U vindt de details van de conferentie in de bijlage.
         pending_validation:
           confirmation_pending: U ontvangt de bevestiging binnenkort
           details: 'Je hebt je geregistreerd voor het %{registration_type} type met een prijs van %{price} en je kunt deelnemen aan de volgende evenementen:'
-          pending_html: Uw registratie voor de conferentie <a href="%{url}">%{title}</a> is in afwachting van bevestiging.
+          pending_html: Je registratie voor de conferentie <a href="%{url}">%{title}</a> is in afwachting van bevestiging.
       conference_registrations:
         create:
-          invalid: Er is een probleem opgetreden bij deze conferentie.
+          invalid: Er is een probleem opgetreden bij het deelnemen aan deze conferentie.
           success: U bent succesvol bij de conferentie gekomen.
         decline_invitation:
           invalid: Er is een probleem opgetreden bij het afwijzen van de uitnodiging.
@@ -409,11 +409,11 @@ nl:
           go_to_twitter: Ga naar Twitter
       conference_speakers:
         index:
-          speakers: sprekers
+          speakers: Sprekers
       conferences:
         partners:
-          collaborators: partners
-          main_promotors: organisatoren
+          collaborators: Partners
+          main_promotors: Organisatoren
         show:
           login_as: U bent ingelogd als %{name} <%{email}>
           make_conference_registration: 'Maak uw registratie in de conferentie:'
@@ -434,7 +434,7 @@ nl:
             subject: Uitnodiging om deel te nemen aan een conferentie
         send_conference_diploma_mailer:
           diploma:
-            subject: Uw certificaat van aanwezigheid is verzonden
+            subject: Uw certificaat van deelname is verzonden
       models:
         conference_invite:
           fields:
@@ -442,10 +442,10 @@ nl:
             name: Naam
             registration_type: Registratie type
             sent_at: Verzonden op
-            status: staat
+            status: Status
           status:
             accepted: Geaccepteerd (%{at})
-            rejected: Rejected (%{at})
+            rejected: Afgewezen (%{at})
             sent: Verzonden
         conference_registration:
           fields:
@@ -454,7 +454,7 @@ nl:
             registration_type: Registratie type
             state: Staat
             states:
-              confirmed: bevestigd
+              confirmed: Bevestigd
               pending: In afwachting
       pages:
         home:
@@ -467,14 +467,14 @@ nl:
             alt: Media afbeelding
         show:
           close_modal: Modal sluiten
-          photo: Foto
+          photo: Beeld
       photos_list:
         show:
-          related_photos: foto's
+          related_photos: Afbeeldingen
       registration_types:
         index:
-          choose_an_option: 'Kies uw registratieoptie:'
-          login_as: U bent ingelogd als %{name} <%{email}>
+          choose_an_option: 'Kies je registratieoptie:'
+          login_as: Je bent ingelogd als %{name} <%{email}>
           no_registrations: Geen inschrijvingen
           register: Registreren
           title: Registratie soorten
@@ -486,11 +486,11 @@ nl:
           sign_up: Maak een account aan in decidim om u te registreren voor de conferentie
       show:
         details: Details
-        introduction: Invoering
+        introduction: Inleiding
         objectives: Doelen
-        related_assemblies: Gerelateerde assemblies
+        related_assemblies: Gerelateerde bijeenkomsten
         related_consultations: Gerelateerde consultaties
-        related_participatory_processes: Verwante participatieprocessen
+        related_participatory_processes: Verwante participatieve processen
       statistics:
         answers_count: antwoorden
         comments_count: Comments
@@ -518,27 +518,27 @@ nl:
           email_intro: De door de '%{resource_title}conferentie ingenomen slots zijn meer dan %{percentage}%.
           email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de inspraakruimte van de conferentie.
           email_subject: De "%{resource_title}" -bezette slots zijn meer dan %{percentage}%
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie bezet slots zijn meer dan %{percentage}%.
+          notification_title: De door de <a href="%{resource_path}">%{resource_title}</a> conferentie bezette slots zijn meer dan %{percentage}%.
         conference_updated:
           email_intro: 'De "%{resource_title}" -conferentie is bijgewerkt. Je kunt de nieuwe versie van de pagina lezen:'
-          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_outro: Je hebt deze melding ontvangen omdat je de "%{resource_title}" -conferentie volgt. Je kunt het volgen opzeggen via de voorgaande link.
           email_subject: De "%{resource_title}" -conferentie is bijgewerkt
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie is bijgewerkt.
         registrations_enabled:
-          email_intro: 'De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt. U kunt uzelf registreren op zijn pagina:'
-          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt.
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie heeft registraties mogelijk gemaakt.
+          email_intro: 'De "%{resource_title}" -conferentie heeft registraties geactiveerd. Je kunt jezelf registreren op deze pagina:'
+          email_outro: Je hebt deze melding ontvangen omdat je de "%{resource_title}" -conferentie volgt. Je kunt het volgen opzeggen via de voorgaande link.
+          email_subject: De "%{resource_title}" -conferentie heeft registraties geactiveerd.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie heeft registraties geactiveerd.
         role_assigned:
-          email_intro: U bent toegewezen als %{role} voor de conferentie "%{resource_title}".
-          email_outro: U heeft deze melding ontvangen omdat u %{role} van de "%{resource_title}" conferentie bent.
-          email_subject: U bent toegewezen als %{role} voor "%{resource_title}".
+          email_intro: Je bent toegewezen als %{role} voor de conferentie "%{resource_title}".
+          email_outro: Je heeft deze melding ontvangen omdat je %{role} van de "%{resource_title}" conferentie bent.
+          email_subject: Je bent toegewezen als %{role} voor "%{resource_title}".
           notification_title: Je bent toegewezen als %{role} voor de conferentie <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
-          email_intro: 'De "%{resource_title}" -conferentie vindt plaats over 2 dagen. U kunt de beschrijving van zijn pagina lezen:'
-          email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_intro: 'De "%{resource_title}" -conferentie vindt plaats over 2 dagen. Je kunt de beschrijving op deze pagina lezen:'
+          email_outro: Je hebt deze melding ontvangen omdat je de "%{resource_title}" -conferentie volgt. Je kunt het volgen opzeggen via de voorgaande link.
           email_subject: De "%{resource_title}" -conferentie komt eraan!
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie komt over 2 dagen.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie start over 2 dagen.
     log:
       value_types:
         conference_presenter:
@@ -565,7 +565,7 @@ nl:
           more_info: Meer informatie
           take_part: Deelnemen
         index:
-          promoted_conferences: Gepromoveerde conferenties
+          promoted_conferences: Gemarkeerde conferenties
         order_by_conferences:
           conferences:
             one: "%{count} conferentie"
@@ -575,7 +575,7 @@ nl:
           take_part: Deelnemen
       conferences_nav:
         conference_menu_item: Informatie
-        conference_partners_menu_item: partners
-        conference_speaker_menu_item: sprekers
+        conference_partners_menu_item: Partners
+        conference_speaker_menu_item: Sprekers
         media: Media
-        venues: locaties
+        venues: Locaties

@@ -689,7 +689,7 @@ sv:
         gallery:
           add_images: Lägg till bilder
           delete_image: Ta bort bild
-          gallery_legend: Lägg till ett bildgalleri (valfritt)
+          gallery_legend: Lägg till ett bildgalleri (Frivilligt)
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.

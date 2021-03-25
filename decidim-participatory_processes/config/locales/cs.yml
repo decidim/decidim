@@ -400,8 +400,8 @@ cs:
             no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
           names:
             active: Aktivní
-            all: Všechno
-            past: Minulost
+            all: Vše
+            past: Minulé
             upcoming: Nadcházející
           see: Vidět
         index:

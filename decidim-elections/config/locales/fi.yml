@@ -92,7 +92,7 @@ fi:
             title: Muokkaa vaalia
             update: Päivitä vaali
           index:
-            no_bulletin_board: Järjestelmässä ei ole <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board -palvelinta</a> määritettynä, mitä tarvitaan käyttääksesi tätä moduulia. Tämä tehtävä tulisi toteuttaa yhteistyössä järjestelmänvalvojan kanssa.
+            no_bulletin_board: Järjestelmään ei ole määritetty <a href="https://github.com/decidim/decidim-bulletin-board">sähköisen ääniuurnan palvelinta</a>, joka tarvitaan käyttääksesi tätä moduulia. Tämä tehtävä tulisi toteuttaa yhteistyössä järjestelmänvalvojan kanssa.
             title: Vaalit
           new:
             create: Luo vaali

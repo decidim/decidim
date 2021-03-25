@@ -35,6 +35,8 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade

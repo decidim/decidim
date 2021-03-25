@@ -126,7 +126,7 @@ cs:
         settings:
           global:
             allow_card_image: Povolit obrázek karty
-            amendments_enabled: Změny povoleny
+            amendments_enabled: Pozměňovací návrhy povoleny
             amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
@@ -169,7 +169,7 @@ cs:
               participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
-            answers_with_costs: Povolit finanční náklady v odpovědích návrhu
+            answers_with_costs: Povolit finanční náklady v odpovědích k návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
@@ -296,9 +296,9 @@ cs:
       badges:
         accepted_proposals:
           conditions:
-            - Zvolte prostor pro účast, který vás zajímá, s podáním návrhů povolených
+            - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
             - Snažte se učinit návrhy, které lze provést. Tímto způsobem je pravděpodobnější, že budou přijaty.
-          description: Tento odznak se uděluje, když se aktivně účastníte nových návrhů a jsou přijaty.
+          description: Tento odznak se uděluje, když se aktivně účastníte nových návrhů a ty jsou přijaty.
           description_another: Uživatel obdržel %{score} přijatých návrhů.
           description_own: Bylo přijato %{score} návrhů.
           name: Přijaté návrhy
@@ -307,7 +307,7 @@ cs:
           unearned_own: Dosud jste žádné návrhy nepřijali.
         proposal_votes:
           conditions:
-            - Procházet a strávit nějaký čas čtením návrhů jiných lidí
+            - Procházejte a strávte nějaký čas čtením návrhů jiných lidí
             - Podpořte návrhy, které se vám líbí nebo které jsou zajímavé
           description: Tento odznak je udělen při podpoře návrhů jiných lidí.
           description_another: Tento uživatel podpořil %{score} návrhů.
@@ -318,7 +318,7 @@ cs:
           unearned_own: Podporili jste ještě žádné návrhy.
         proposals:
           conditions:
-            - Zvolte prostor pro účast, který vás zajímá, s podáním návrhů povolených
+            - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
             - Vytvořte nový návrh
           description: Tento odznak je udělen, když se aktivně podílíte na nových návrzích.
           description_another: Tento uživatel vytvořil %{score} návrhů.
@@ -450,7 +450,7 @@ cs:
             split: Rozdělit návrhy
             split_button: Rozdělit
             title: Návrhy
-            unassign_from_valuator: Zrušit přiřazení od hodnotitele
+            unassign_from_valuator: Odebrat přiřazení od hodnotitele
             unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
             update_scope_button: Aktualizovat rozsah
@@ -542,23 +542,23 @@ cs:
         withdrawn: Staženo
       application_helper:
         filter_category_values:
-          all: Všechno
+          all: Vše
         filter_origin_values:
-          all: Všechno
+          all: Vše
           citizens: Občané
           meetings: Setkání
           official: Oficiální
           user_groups: Skupiny uživatelů
         filter_scope_values:
-          all: Všechno
+          all: Vše
         filter_state_values:
           accepted: Přijato
-          all: Všechno
+          all: Vše
           evaluating: Hodnocení
           not_answered: Nezodpovězeno
           rejected: Odmítnuto
         filter_type_values:
-          all: Všechno
+          all: Vše
           amendments: Změny
           proposals: Návrhy
       collaborative_drafts:
@@ -603,7 +603,7 @@ cs:
           send: Poslat
           title: Úprava konceptu spolupráce
         filters:
-          all: Všechno
+          all: Vše
           amendment: Změny
           category: Kategorie
           open: otevřeno
@@ -719,7 +719,7 @@ cs:
       participatory_text_proposal:
         alternative_title: Momentálně nejsou k dispozici žádné příspěvky
         buttons:
-          amend: Pozměňovací návrh
+          amend: Pozměnit
           comment: Komentář
           comments: Komentáře
       proposal_votes:
@@ -774,7 +774,7 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozvinout
         index:
-          collaborative_drafts_list: Získejte přístup ke spolupráci
+          collaborative_drafts_list: Přístup ke konceptům spolupráce
           new_proposal: Nový návrh
           see_all_withdrawn: Podívejte se na všechny stažené návrhy
           view_proposal: Zobrazit návrh

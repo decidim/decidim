@@ -144,6 +144,8 @@ sv:
             proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
             proposal_wizard_step_4_help_text: Förslagsguidens hjälptext för steg "Publicera"
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
             threshold_per_proposal: Tröskel per förslag
             vote_limit: Stödgräns per deltagare
           step:
@@ -421,6 +423,7 @@ sv:
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
+            delete_attachment: Ta bort bilaga
             select_a_category: Välj en kategori
             select_a_meeting: Välj ett möte
           index:
@@ -720,8 +723,13 @@ sv:
             one: "%{count} förslag"
             other: "%{count} förslag"
         edit:
+          add_documents: Dokument
+          add_images: Bild
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
+          delete_document: Radera dokument
+          delete_image: Radera bild
+          gallery_legend: "(Frivilligt) Lägg till en bild"
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag

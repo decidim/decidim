@@ -707,8 +707,8 @@ cs:
       badges:
         followers:
           conditions:
-            - Být aktivní a následovat jiné lidi jistě přimějí ostatní lidi, aby vás následovali.
-          description: Tento odznak je udělen, když dosáhnete určitého počtu následovníků. %{organization_name} je společenská a politická síť, tkát váš web komunikovat s ostatními lidmi na platformě.
+            - Buďte aktivní a sledujte jiné lidi, to určitě namotivuje ostatní lidi, aby vás sledovali.
+          description: Tento odznak je udělen, když dosáhnete určitého počtu sledujících. %{organization_name} je společenská a politická síť, vytváří vaši síť komunikace s ostatními lidmi na platformě.
           description_another: Tento uživatel má %{score} následovníků.
           description_own: "Uživatelé vás sledují %{score} uživatelů."
           name: Sledující
@@ -717,14 +717,14 @@ cs:
           unearned_own: Už nemáte žádné následovníky.
         index:
           badge_title: "%{name} odznak"
-          how: Jak si to můžete vydělat
+          how: Jak ho můžete získat
           page_description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky. Zde je seznam odznaků a některé způsoby, jak si je můžete vydělat.
           title: Odznaky
         invitations:
           conditions:
             - Pomocí odkazu "pozvat přátele" na své uživatelské stránce můžete pozvat své přátele
             - Přizpůsobte, pokud chcete, zprávu, kterou posíláte
-            - Vyrovnáváte tím, že posíláte pozvánky a získáte je.
+            - Posíláním pozvánek a jejich registrací se dostáváte výš.
           description: Tento odznak je udělen, když jste pozvali některé lidi a tráví čas, aby se zaregistrovali v %{organization_name} a stali se účastníky. Děkujeme za %{organization_name} je známo, že ostatní a pomáhá rozšířit komunitu!
           description_another: Tento uživatel pozval %{score} uživatelů.
           description_own: Pozvali jste %{score} uživatelů.
@@ -1040,7 +1040,7 @@ cs:
           meetings_explanation: Zjistěte, kde a kdy se můžete účastnit veřejných setkání.
           more_info: Více informací
           proposals: Návrhy
-          proposals_explanation: Vytvářejte návrhy, podporujte stávající a prosazujte změny, které chcete vidět.
+          proposals_explanation: Vytvářejte návrhy, podporujte stávající návrhy a prosazujte změny, které chcete vidět.
         footer_sub_hero:
           footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.

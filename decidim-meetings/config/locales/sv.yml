@@ -88,6 +88,8 @@ sv:
             default_registration_terms: Villkor för standardregistrering
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade

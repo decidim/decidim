@@ -204,6 +204,7 @@ gl:
           process_admins_title: Usuarios de procesos participativos
         new:
           create: Crear
+          title: Novo/a administrador/a do proceso participativo
         update:
           error: Houbo un erro actualizado por un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
@@ -256,6 +257,8 @@ gl:
         update: "%{user_name} cambiou o papel do usuario %{resource_name} no proceso participativo %{space_name}"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Fuches asignado ao rol %{role} no proceso participativo "%{resource_title}".
         step_activated:
           email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -338,7 +341,11 @@ gl:
             active_step: Paso activo
             more_information: Máis información
             participate: Participar
+            participate_in: Participar no proceso %{resource_name}
             see_all_processes: Ver todos os procesos
+      participatory_process_steps:
+        index:
+          back_to_process: Volver á páxina do proceso
       participatory_processes:
         filters:
           counters:
@@ -404,6 +411,7 @@ gl:
       participatory_process_groups:
         participatory_process_group:
           browse: Buscar
+          browse_resource: Explorar o grupo de procesos %{resource_name}
           processes_count: 'Procesos:'
       participatory_process_widgets:
         show:
@@ -415,11 +423,15 @@ gl:
         participatory_process:
           active_step: 'Paso actual:'
           more_info: Máis información
+          more_info_about: Máis información sobre o proceso %{resource_name}
           take_part: Tomar parte en
+          take_part_in: Participar no proceso %{resource_name}
         promoted_process:
           active_step: 'Paso actual:'
           more_info: Máis información
+          more_info_about: Máis información sobre o proceso %{resource_name}
           take_part: Tomar parte en
+          take_part_in: Participar no proceso %{resource_name}
       process_header_steps:
         step: Paso %{current} de %{total}
         view_steps: Ver pasos

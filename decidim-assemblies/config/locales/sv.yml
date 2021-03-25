@@ -60,6 +60,7 @@ sv:
         full_name: Fullständigt namn
         gender: Kön
         position: Befattning
+        user_id: Användare
       assembly_user_role:
         email: E-post
         name: Namn

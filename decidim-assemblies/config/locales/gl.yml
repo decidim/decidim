@@ -1,6 +1,8 @@
 gl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de montaxe
@@ -65,6 +67,12 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento non válido. Formatos aceptados: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -81,6 +89,7 @@ gl:
       actions:
         import_assembly: Importar
         new_assembly: Nova montaxe
+        new_assembly_type: Novo tipo de xuntanza
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
@@ -107,16 +116,30 @@ gl:
           error: Produciuse un problema ao actualizar os axustes.
           success: Axustes actualizados con éxito.
       assemblies_types:
+        create:
+          error: Produciuse un problema ao crear un novo tipo de xuntanza.
+          success: Tipo de xuntanza creado con éxito.
+        destroy:
+          success: Tipo de xuntanza eliminado con éxito.
         new:
           create: Crear
+          title: Novo tipo de xuntanza
+        update:
+          error: Produciuse un problema ao actualizar este tipo de xuntanza.
+          success: Tipo de xuntanza modificado con éxito.
       assembly_copies:
         new:
           copy: Copiar
           select: Seleccione os datos que desexa duplicar
           title: Conxunto duplicado
       assembly_imports:
+        create:
+          error: Produciuse un problema ao importar esta xuntanza.
+          success: Xuntanza importada con éxito.
         new:
           import: Importar
+          select: Selecciona que tipo de datos desexas importar
+          title: Importar xuntanza
       assembly_members:
         create:
           error: Produciuse un erro ao engadir un membro para este conxunto.
@@ -172,6 +195,7 @@ gl:
           info: Información
           moderations: Moderacións
           private_users: Usuarios privados
+        assemblies_types: Tipos de xuntanzas
       models:
         assemblies_types:
           fields:
@@ -207,8 +231,10 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador/a
       titles:
         assemblies: Asembleas
+        assemblies_types: Tipo de xuntanzas
     admin_log:
       assembly:
         create: "%{user_name} creou o conxunto %{resource_name}"
@@ -219,8 +245,14 @@ gl:
         create: "%{user_name} creou o membro %{resource_name} no conxunto %{space_name}"
         delete: "%{user_name} eliminou o %{resource_name} membro do conxunto %{space_name}"
         update: "%{user_name} actualizou o membro %{resource_name} na montaxe %{space_name}"
+      assembly_setting:
+        update: "%{user_name} actualizou os axustes de xuntanzas"
       assembly_type:
+        create: "%{user_name} creou o tipo de xuntanza %{resource_name}"
         delete: "%{user_name} eliminou o membro %{resource_name} do espazo %{space_name}"
+        publish: "%{user_name} publicou o tipo de xuntanza %{resource_name}"
+        unpublish: "%{user_name} eliminou o tipo de xuntanza %{resource_name}"
+        update: "%{user_name} actualizou o tipo de xuntanza %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
         delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
@@ -247,6 +279,8 @@ gl:
         assemblies_settings:
           edit:
             update: Actualizar
+          form:
+            title: Axustes das xuntanzas
         assemblies_types:
           form:
             title: Título
@@ -312,6 +346,7 @@ gl:
         home:
           highlighted_assemblies:
             active_assemblies: Asembleas activas
+            assemblies_button_title: Ligazón á páxina de Xuntanzas que amosa todas as xuntanzas
             see_all_assemblies: Ver todos os conxuntos
         user_profile:
           member_of:
@@ -342,6 +377,7 @@ gl:
         related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         social_networks: Redes Sociais
+        social_networks_title: Compartir esta xuntanza en
         target: Quen participa
       statistics:
         answers_count: Respostas
@@ -365,6 +401,16 @@ gl:
         designated_on: Designado en
       index:
         title: Membros
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Un administrador da xuntanza <a href="%{resource_url}">%{resource_name}</a> engadiute coma un dos seus membros.
+          email_outro: Recibiches esta notificación porque fuches convidado a unha xuntanza. Entra na <a href="%{resource_path}">páxina da xuntaza</a> para contribuír!
     help:
       participatory_spaces:
         assemblies:
@@ -386,6 +432,9 @@ gl:
       home:
         sub_hero:
           register_title: Rexístrate para crear unha conta na plataforma
+    participatory_processes:
+      show:
+        related_assemblies: Xuntanzas relacionadas
   errors:
     messages:
       cannot_be_blank: non pode estar baleiro
@@ -396,6 +445,7 @@ gl:
           more_info: Máis información
           take_part: Participar
         index:
+          children: 'Xuntanzas: '
           organizational_chart: Organigrama
           promoted_assemblies: Xuntanzas destacadas
           reset_chart: Restablecer

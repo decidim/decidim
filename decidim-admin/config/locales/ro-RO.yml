@@ -2,7 +2,7 @@ ro:
   activemodel:
     attributes:
       area:
-        area_type: Tipul zonei
+        area_type: Tipul de zonă
         name: Nume
         organization: Organizație
       area_type:
@@ -32,7 +32,7 @@ ro:
       organization:
         alert_color: Alertă
         badges_enabled: Activează insigne
-        comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+        comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
         cta_button_path: Calea butonului Apel la acţiune
         cta_button_text: Text buton Apel la Acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
@@ -55,18 +55,19 @@ ro:
         highlighted_content_banner_title: Titlu
         instagram_handler: Gestionar instagram
         logo: Logo
+        machine_translation_display_priority: Prioritate de afișare a traducerii automate
         machine_translation_display_priority_original: Mai întâi textul original
         machine_translation_display_priority_translation: Mai întâi textul tradus
         name: Nume
-        official_img_footer: Subsol cu logo oficial
-        official_img_header: Antet logo oficial
-        official_url: URL organizație oficială
+        official_img_footer: Logo oficial pentru footer
+        official_img_header: Logo oficial pentru header
+        official_url: URL oficial al organizației
         omnipresent_banner_short_description: Descriere scurtă
         omnipresent_banner_title: Titlu
         omnipresent_banner_url: URL
         primary_color: Primară
         reference_prefix: Prefix de referință
-        rich_text_editor_in_public_views: Activează editorul de text bogat pentru participanți
+        rich_text_editor_in_public_views: Activează editorul de text înbogățit pentru participanți
         secondary_color: Secundar
         send_welcome_notification: Trimite notificare de bun venit
         show_statistics: Arată statistici
@@ -76,26 +77,28 @@ ro:
         twitter_handler: Twitter handler
         user_groups_enabled: Activare grupuri
         warning_color: Avertizare
-        welcome_notification_body: Organismul de notificare de bun venit
-        welcome_notification_subject: Subiectul notificării de bun venit
+        welcome_notification_body: Corpul notificării de întâmpinare
+        welcome_notification_subject: Subiectul notificării de întâmpinare
         youtube_handler: Handler YouTube
       scope:
         code: Cod
         name: Nume
         organization: Organizație
         parent_id: Părinte
-        scope_type: Tip domeniu
-        scope_type_id: Tip domeniu
+        scope_type: Tip domeniu de aplicare
+        scope_type_id: Tip domeniu de aplicare
       scope_type:
         name: Nume
         organization: Organizație
         plural: Plural
+      settings:
+        scope_id: Domeniul de Aplicare
       static_page:
         changed_notably: Au existat schimbări vizibile.
         content: Conținut
         organization: Organizație
         show_in_footer: Arată în subsol
-        slug: URL slug
+        slug: Adresă URL
         title: Titlu
         weight: Greutate
       static_page_topic:
@@ -117,7 +120,7 @@ ro:
     attributes:
       decidim/static_page:
         content: Conținut
-        slug: URL slug
+        slug: Adresă URL
         title: Titlu
       doorkeeper/application:
         authorize_url: Autorizare URL
@@ -131,34 +134,35 @@ ro:
     admin:
       actions:
         add: Adăugare
-        browse: Răsfoiţi
+        browse: Caută
         export: Exportă
         manage: Gestionează
         new: '%{name} nou'
         per_page: Pe pagină
         permissions: Permisiuni
         reject: Respingere
+        share: Distribuie
         verify: Verifică
       admin_terms_of_use:
         accept:
-          error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
-          success: Super! Ai acceptat termenii de utilizare ai administratorului.
+          error: A apărut o eroare la acceptarea termenilor de utilizare.
+          success: Super! Ai acceptat termenii de utilizare.
         actions:
           accept: Sunt de acord cu termenii de administrare
-          are_you_sure: Sigur doriți să refuzați termenii de administrator?
-          refuse: Refuză termenii de administrare
+          are_you_sure: Sigur doriți să refuzați termenii de utilizare?
+          refuse: Refuz termenii
           title: Sunt de acord cu termenii și condițiile de utilizare
         required_review:
-          alert: 'Necesar: Examinați termenii de utilizare ai administratorului'
-          callout: Vă rugăm să acordați un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu veți putea admin platforma.
-          cta: Revizuiește-le acum.
-        title: Termeni de Utilizare ai Administratorului
+          alert: 'Necesar: Examinați termenii de utilizare'
+          callout: Vă rugăm să acordați un moment pentru a revizui Termenii de utilizare. În caz contrar, nu veți putea administra platforma.
+          cta: Revizuiți termenii, acum.
+        title: Termeni de Utilizare
       area_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de zonă.
           success: Tipul de zonă creat cu succes.
         destroy:
-          success: Tipul ariei distrus cu succes
+          success: Tipul ariei eliminat cu succes
         edit:
           title: Editează tipul zonei
           update: Actualizare
@@ -174,7 +178,7 @@ ro:
           success: Zonă creată cu succes.
         destroy:
           has_spaces: Zona are spaţii dependente, nu trebuie să aibă dependenţe pentru a fi ştersă.
-          success: Zonă distrusă cu succes
+          success: Zonă eliminată cu succes
         edit:
           title: Editare zonă
           update: Actualizare
@@ -188,9 +192,9 @@ ro:
       attachment_collections:
         create:
           error: A apărut o eroare la crearea unui nou dosar.
-          success: Folder creat cu succes.
+          success: Dosar creat cu succes.
         destroy:
-          success: Folder distrus cu succes.
+          success: Dosar eliminat cu succes.
         edit:
           title: Editare dosar
           update: Actualizare
@@ -201,14 +205,14 @@ ro:
           create: Crează
           title: Dosar nou
         update:
-          error: A apărut o eroare la actualizarea acestui folder.
+          error: A apărut o eroare la actualizarea acestui dosar.
           success: Dosar actualizat cu succes.
       attachments:
         create:
           error: A apărut o eroare la crearea unui nou atașament.
           success: Atașament creat cu succes.
         destroy:
-          success: Atașament distrus cu succes.
+          success: Atașament eliminat cu succes.
         edit:
           title: Editare atașament
           update: Actualizare
@@ -251,7 +255,7 @@ ro:
           error: A apărut o eroare la crearea acestei componente.
           success: Componenta a fost creată.
         destroy:
-          error: A existat o problemă la distrugerea acestei componente.
+          error: A existat o problemă la eliminarea acestei componente.
           success: Componenta ștearsă cu succes.
         edit:
           title: Editare componentă
@@ -265,6 +269,7 @@ ro:
           headers:
             actions: Acțiuni
             name: Numele componentei
+            scope: Domeniul de aplicare al componentei
             type: Tipul componentei
         new:
           add: Adaugă componentă
@@ -279,8 +284,8 @@ ro:
           success: Componenta a fost actualizată cu succes.
       dashboard:
         show:
-          view_more_logs: Vezi mai multe însemnări
-          welcome: Bine ați venit în Panoul de administrare Decidim.
+          view_more_logs: Afișați mai multe jurnale
+          welcome: Bine ați venit în Panoul de administrare Decidem.
       exports:
         export_as: "%{name} ca %{export_format}"
         formats:
@@ -294,14 +299,14 @@ ro:
           label: Categorie
         filter_label: Filtrare
         officialized_at_null:
-          label: Județ
+          label: Stare
           values:
             'false': Oficializat
             'true': Nu este oficializat
         private_space_eq:
           label: Privat
           values:
-            'false': Publice
+            'false': Public
             'true': Privat
         published_at_null:
           label: Publicat
@@ -309,12 +314,13 @@ ro:
             'false': Publicat
             'true': Nepublicat
         scope_id_eq:
-          label: Domeniu
+          label: Domeniu de aplicare
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Căutare %{collection} după e-mail, nume sau poreclă.
+          title_cont: Căutați %{collection} după titlu.
         state_eq:
-          label: Județ
+          label: Stare
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor
         form:
@@ -335,7 +341,7 @@ ro:
           not_managed: Nu este gestionat
           promote: Promovează
           search: Caută
-          status: Status
+          status: Stare
           view_logs: Vezi jurnalele
       impersonations:
         close_session:
@@ -366,20 +372,20 @@ ro:
             new_managed_user_promotion: Promovarea noilor participanți gestionați
             promote: Promovează
       menu:
-        admin_log: Jurnal activitate admin
+        admin_log: Jurnal activitate administrare
         admins: Administratori
         appearance: Aspectul
         area_types: Tipuri de zone
-        areas: Domenii
+        areas: Zone
         configuration: Configurare
-        dashboard: Panou
+        dashboard: Panou de administrare
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
-        newsletters: Newslettere
+        newsletters: Buletine informative
         participants: Participanți
-        scope_types: Tipuri de domeniu
-        scopes: Domeniu
+        scope_types: Tipuri de domeniu de aplicare
+        scopes: Domenii de aplicare
         settings: Setări
         static_pages: Pagini
         user_groups: Grupuri
@@ -390,7 +396,7 @@ ro:
       models:
         area:
           fields:
-            area_type: Tipul zonei
+            area_type: Tipul de zonă
             name: Nume
         area_type:
           fields:
@@ -409,7 +415,7 @@ ro:
           name: Categorie
         impersonation_log:
           fields:
-            admin: Admin
+            admin: Administrator
             ended_at: Terminat la
             expired_at: Expirat la
             reason: Motiv
@@ -422,13 +428,13 @@ ro:
             sent_at: Trimis la
             sent_to: Trimis către
             subject: Subiect
-          name: Newsletter
+          name: Buletin Informativ
         participatory_space_private_user:
-          name: Participant privat la spațiu
+          name: Participant privat pentru spațiul participativ
         scope:
           fields:
             name: Nume
-            scope_type: Tip domeniu
+            scope_type: Tip domeniu de aplicare
         scope_type:
           fields:
             name: Nume
@@ -445,7 +451,7 @@ ro:
             name: Nume
             role: Rol
             roles:
-              admin: Admin
+              admin: Administrator
               user_manager: Manager de participanți
           name: Participant
         user_group:
@@ -459,7 +465,7 @@ ro:
             users_count: Numărul de participanți
       moderations:
         index:
-          title: Moderatii
+          title: Moderări
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -468,7 +474,7 @@ ro:
       newsletter_templates:
         index:
           preview_template: Previzualizare
-          title: Şabloane newsletter
+          title: Modele de buletine informative
           use_template: Utilizați acest șablon
         show:
           preview: 'Previzualizați șablonul: %{template_name}'
@@ -476,88 +482,88 @@ ro:
       newsletters:
         create:
           error: A apărut o eroare la crearea acestui buletin informativ.
-          success: Newsletter creat cu succes. Vă rugăm să îl revizuiți înainte de a trimite.
+          success: Buletinul informativ a fost creat. Vă rugăm să îl revedeți înainte de trimitere.
         deliver:
           error: A apărut o eroare la livrarea acestui buletin informativ.
-          success: Newsletter livrat cu succes.
+          success: Buletinul informativ a fost livrat.
         destroy:
-          error_already_sent: 'Nu se poate distruge buletinul informativ: A fost deja trimis.'
-          success: Newsletter distrus cu succes.
+          error_already_sent: 'Nu se poate elimina buletinul informativ: A fost deja trimis.'
+          success: Newsletter eliminat cu succes.
         edit:
           save_and_preview: Salvare și previzualizare
-          title: Editare newsletter
+          title: Editați buletinul informativ
         index:
-          all: toate
+          all: toți
           all_users: 'Toți utilizatorii '
           and: 'şi '
           confirm_delete: Sunteţi sigur că doriţi să ştergeţi acest buletin informativ?
           followers: 'urmăritori '
           has_been_sent_to: 'A fost trimis la: '
-          no_scopes: Nici un domeniu
+          no_scopes: Nici un domeniu de aplicare
           not_sent: Nu a fost trimis
           participants: 'participanți '
           segmented_to: 'Segmentat la %{subject}: '
           subscribed_count: 'Abonat:'
-          title: Newslettere
+          title: Buletine informative
         new:
           save: Salvează
-          title: Noutăți noi
+          title: Buletin informativ nou
         select_recipients_to_deliver:
-          all_spaces: Toate
-          all_users_help: Trimite newsletter tuturor utilizatorilor confirmați.
+          all_spaces: Toți
+          all_users_help: Trimite buletinul informativ tuturor utilizatorilor confirmați.
           confirm_deliver: Sunteţi sigur că doriţi să livraţi acest buletin informativ? Această acţiune nu poate fi anulată.
-          deliver: Buletin informativ de livrare
-          followers_help: Trimite newsletter tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
+          deliver: Buletin informativ trimis
+          followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
           none: Niciunul
-          participants_help: Trimite newsletter tuturor utilizatorilor confirmați care au participat în oricare dintre spațiile participative selectate din listă.
+          participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
-          scopes_help: Trimite newsletter utilizatorilor care au unul din domeniile selectate activat în setările contului "Interesele mele".
-          select_scopes: Filtrează pentru utilizatorii care au activat orice domeniu selectat în setările contului Meu Interes.
+          scopes_help: Trimite buletinul informativ utilizatorilor care au unul din domeniile selectate activat în setările contului "Interesele mele".
+          select_scopes: Filtrați pentru utilizatorii care au activat oricare dintre domenii în setările pentru „Interesele mele” din contul lor.
           select_spaces: Selectați spațiile pentru segmentarea buletinului de știri
-          select_users: Selectați utilizatorii pe care doriți să îi trimiteți newsletter-ul
+          select_users: Selectați utilizatorii pe care doriți să îi trimiteți buletinul informativ
           send_to_all_users: Trimite către toți utilizatorii
           send_to_followers: Trimite către urmăritori
           send_to_participants: Trimite către participanți
-          title: Selectați destinatarii pentru livrare
+          title: Selectați destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
           no_recipients: Niciun destinatar pentru această selecție
         show:
           preview: Previzualizare
-          select_recipients_to_deliver: Selectați destinatarii pentru livrare
+          select_recipients_to_deliver: Selectați destinatarii pentru trimitere
           subject: Subiect
         update:
           error: A apărut o eroare la actualizarea acestui buletin informativ.
-          success: Newsletter actualizat cu succes. Vă rugăm să îl revizuiți înainte de a trimite.
+          success: Buletin informativ actualizat cu succes. Vă rugăm să îl revizuiți înainte de a trimite.
       officializations:
         create:
-          success: Participant oficializat cu succes
+          success: Participantul a fost verificat cu succes
         destroy:
-          success: Participant neoficializat cu succes
+          success: Participantul nu mai este verificat
         index:
           actions: Acțiuni
           badge: Insignă
           created_at: Creat la
           name: Nume
           nickname: Porecla
-          not_officialized: Nu este oficializat
-          officialize: Oficializare
-          officialized: Oficializat
-          reofficialize: Reoficializare
+          not_officialized: Neverificat
+          officialize: Verificare
+          officialized: Verificat
+          reofficialize: Reverificare
           show_email: Arată adresa de e-mail
-          status: Status
-          unofficialize: Neoficializare
+          status: Stare
+          unofficialize: Retrageți verificarea
         new:
-          badge: Insigna de oficializare
-          officialize: Oficializare
-          title: Oficialul participantului"%{name}"
+          badge: Ecuson de verificare
+          officialize: Verificare
+          title: Verificați participantul "%{name}"
         show_email_modal:
           close_modal: Închide fereastra
           description: Dacă trebuie să contactați direct un participant, puteți face clic pe butonul Arată pentru a vedea adresa de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
           full_name: Numele complet
-          hidden: hidden
-          show: Afișare
+          hidden: ascuns
+          show: Arată
           title: Arată adresa de e-mail a participantului
       organization:
         edit:
@@ -567,8 +573,8 @@ ro:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: În unele domenii de text, participanţii vor putea insera unele tag-uri HTML folosind bogatul editor de text.
-          social_handlers: Sociale
+          rich_text_editor_in_public_views_help: În unele zone de text, participanţii vor putea insera unele tag-uri HTML folosind bogatul editor de text.
+          social_handlers: Social
           twitter: Twitter
           url: Url-ul
           youtube: YouTube
@@ -582,10 +588,10 @@ ro:
           cta_button_path_help: 'Puteţi suprascrie unde butonul Apel la Acţiune din pagina de pornire. Utilizaţi căi parţiale, nu adrese URL complete aici. Acceptă litere, numere, cratime și tăieturi, și trebuie să înceapă cu o literă. Butonul Apel la Acțiune este afișat în pagina de start dintre textul de bun venit și descriere. Exemplu: %{url}'
           cta_button_text_help: Puteţi suprascrie textul butonului Apel la Acţiune din pagina de start pentru fiecare limbă disponibilă din organizaţie. Dacă nu este setată, va fi folosită valoarea implicită. Butonul Apel la Acțiune este afișat în pagina de start dintre textul de bun venit și descriere.
           homepage_appearance_title: Editează aspectul paginii de start
-          homepage_highlighted_content_banner_title: Banner conținut subscris
+          homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
           images:
             preview: Previzualizare
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          omnipresent_banner_appearance_title: Editare banner omniprezent
       organization_homepage:
         edit:
           active_content_blocks: Blocuri de conținut active
@@ -599,7 +605,7 @@ ro:
           success: Accesul participanților privați la spațiul participativ a fost creat cu succes.
         destroy:
           error: A apărut o eroare la ștergerea unui participant privat pentru acest spațiu participativ.
-          success: Accesul participanților privați la spațiul participativ a fost distrus cu succes.
+          success: Accesul participanților privați la spațiul participativ a fost eliminat cu succes.
         index:
           import_via_csv: Import prin csv
           title: Participant privat la spațiu
@@ -622,34 +628,41 @@ ro:
       scope_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de domeniu de aplicare.
-          success: Tipul de domeniu a fost creat.
+          success: Tipul de domeniu de aplicare a fost creat.
         destroy:
-          success: Tipul de domeniu distrus cu succes
+          success: Tipul de domeniu de aplicare eliminat cu succes
         edit:
-          title: Modifică tipul domeniului
+          title: Modifică tipul domeniului de aplicare
           update: Actualizare
         new:
-          create: Creare tip de domeniu
-          title: Nou domeniu
+          create: Creare tip de domeniu de aplicare
+          title: Nou domeniu de aplicare
         update:
-          error: A apărut o problemă la actualizarea acestui tip de domeniu.
-          success: Tipul de domeniu actualizat cu succes
+          error: A apărut o problemă la actualizarea acestui tip de domeniu de aplicare.
+          success: Tipul de domeniu de aplicare actualizat cu succes
       scopes:
         create:
           error: A apărut o problemă la crearea unui nou domeniu de aplicare.
           success: Domeniul de aplicare a fost creat.
         destroy:
-          success: Domeniul de aplicare distrus cu succes
+          success: Domeniul de aplicare eliminat cu succes
         edit:
-          title: Editare domeniu
+          title: Editare domeniu de aplicare
           update: Actualizare
         new:
-          create: Creare domeniu
-          title: Nou domeniu
-        no_scopes: Nici un domeniu la acest nivel.
+          create: Creare domeniu de aplicare
+          title: Nou domeniu de aplicare
+        no_scopes: Nici un domeniude aplicare la acest nivel.
         update:
           error: A apărut o eroare la actualizarea acestui domeniu de aplicare.
-          success: Scope actualizat cu succes
+          success: Domeniu de aplicare actualizat cu succes
+      share_tokens:
+        destroy:
+          success: Jetonul a fost eliminat.
+        share_tokens:
+          empty: Nu există jetoane active
+          help: Aceste jetoane sunt utilizate pentru a partaja public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de partajare a jetonului pentru a vizita URL-ul partajat.
+          title: Partajați jetoanele
       shared:
         gallery:
           add_images: Adaugă imagini
@@ -660,7 +673,7 @@ ro:
           error: A apărut o problemă la crearea unui subiect nou.
           success: Subiectul a fost creat.
         destroy:
-          success: Subiectul a fost distrus
+          success: Subiectul a fost eliminat
         edit:
           title: Editare subiect
           update: Actualizare subiect
@@ -677,7 +690,7 @@ ro:
           error: A apărut o eroare la crearea unei pagini noi.
           success: Pagină creată cu succes.
         destroy:
-          success: Pagină distrusă cu succes
+          success: Pagină eliminată cu succes
         edit:
           changed_notably_help: Dacă este bifat, participanții vor fi notificați să accepte termenii și condițiile noi.
           title: Editare pagină
@@ -686,12 +699,12 @@ ro:
           none: Niciunul
           slug_help: 'Utilizaţi căi parţiale, nu adrese URL complete aici. Acceptă litere, numere, - şi trebuie să înceapă cu o literă. Exemplu: %{url}'
         index:
-          last_notable_change: Ultima modificare notabilă
+          last_notable_change: Ultima modificare importantă
         new:
           create: Creare pagină
           title: Pagină nouă
         topic:
-          destroy: Elimină subiectul
+          destroy: Elimină subiect
           edit: Editare subiect
           empty: Nu există nicio pagină în acest subiect
           without_topic: Pagini fără subiect
@@ -701,15 +714,15 @@ ro:
       titles:
         admin_log: Jurnal de administrare
         area_types: Tipuri de zone
-        areas: Domenii
+        areas: Zone
         authorization_workflows: Metode de verificare
-        dashboard: Panou
+        dashboard: Panou de administrare
         impersonatable_users: Participanți gestionabili
         impersonations: Gestionarea participanților
-        metrics: Valori
+        metrics: Măsurători
         participants: Participanți
-        scope_types: Tipuri de domeniu
-        scopes: Domeniu
+        scope_types: Tipuri de domeniu de aplicare
+        scopes: Domenii de aplicare
         static_pages: Pagini
         statistics: Activitate
         user_groups: Grupuri
@@ -732,7 +745,7 @@ ro:
             rejected: Respins
             verified: Verificat
           filter_by: Filtrare după
-          search: Caută
+          search: Căutare
           state:
             pending: In asteptare
             rejected: Respins
@@ -762,7 +775,7 @@ ro:
           admins: Administratori
           last_day: Ultima zi
           last_month: Ultima lună
-          last_week: Săptămâna trecută
+          last_week: Ultima Săptămînă
           no_users_count_statistics_yet: Încă nu există niciun număr de statistici pentru utilizatori
           participants: Participanți
       view_public_page: Vezi pagina publică
@@ -772,12 +785,12 @@ ro:
           reason: Trebuie să furnizați un motiv atunci când gestionați un participant negestionat
     moderations:
       actions:
-        hidden: Hidden
+        hidden: Ascuns
         hide: Ascunde
         not_hidden: Nu este ascuns
         title: Acțiuni
-        unhide: Unhide
-        unreport: Anulează
+        unhide: Anulează ascunderea
+        unreport: Anulează raportarea
       admin:
         reportable:
           hide:
@@ -805,7 +818,7 @@ ro:
     decidim:
       admin:
         newsletters:
-          title: Newslettere
+          title: Buletine informative
         settings:
           title: Setări
         users:

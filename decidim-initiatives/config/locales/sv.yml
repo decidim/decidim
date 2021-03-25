@@ -262,6 +262,7 @@ sv:
             destroy: Radera
             update: Uppdatera
           form:
+            authorizations: Inställningar för autentisering
             title: Allmän information
           initiative_type_scopes:
             title: Omfång för initiativtypen

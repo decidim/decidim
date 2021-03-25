@@ -65,6 +65,7 @@ sv:
     errors:
       general: Fel vid bearbetning av bild
       image_too_big: Bilden är för stor
+      not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -886,6 +887,9 @@ sv:
           show: Visa konversation med %{sender}
         create:
           error: Konversationen har inte startat. Försök igen senare
+        error_modal:
+          close: Stäng fönster
+          ok: OK
         index:
           ago: sedan
           close: Stäng modal
@@ -1052,6 +1056,7 @@ sv:
           error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
+          agreement: Jag godkänner villkoren
           legend: Godkänn användarvillkoren
         refuse:
           modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.
@@ -1158,6 +1163,9 @@ sv:
           one: "%{count} resultat"
           other: "%{count} resultat"
         view_all: Visa alla (%{count})
+    security:
+      selfxss_warning:
+        title: OBS!
     shared:
       confirm_modal:
         cancel: Avbryt
@@ -1524,6 +1532,7 @@ sv:
         see_more: Visa mer
   locale:
     name: Svenska
+    name_with_error: Svenska (fel!)
   password_validator:
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för likt din e-post
