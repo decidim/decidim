@@ -36,7 +36,20 @@ sv:
       decidim/elections/question:
         one: Fråga
         other: Frågor
+      decidim/votings/voting:
+        one: Omröstning
+        other: Omröstningar
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Handläggare
+          values:
+            assigned: Tilldelade
+        role_eq:
+          label: Roll
+          values:
+            manager: Koordinator
     components:
       elections:
         actions:
@@ -74,6 +87,7 @@ sv:
           new:
             create: Skapa svar
             title: Nytt svar
+          selected: Valda
           update:
             invalid: Det gick inte att uppdatera svaret
             success: Svaret har uppdaterats
@@ -135,10 +149,28 @@ sv:
             invalid: Det gick inte att uppdatera denna fråga
             success: Frågan har uppdaterats
         steps:
+          created:
+            trustees: Förvaltare
+          key_ceremony:
+            trustees: Förvaltare
+          results_published:
+            question: Fråga
+            selected: Valda
+          tally:
+            trustees: Förvaltare
+          tally_ended:
+            question: Fråga
+            selected: Valda
           vote_stats:
             no_vote_statistics_yet: Ingen röstningsstatistik ännu
             title: Röstningsstatistik
+            voters: Väjare
             votes: Röster
+        trustees_participatory_spaces:
+          actions:
+            enable: Tillåt
+          index:
+            title: Förvaltare
       admin_log:
         election:
           publish: "%{user_name} publicerade valet %{resource_name}"
@@ -174,6 +206,8 @@ sv:
           filter: Filter
           filter_by: Filtrera efter
           unfold: Veckla ut
+        results:
+          selected: Valda
         show:
           preview: Förhandsgranska
           voting_period_status:
@@ -183,7 +217,9 @@ sv:
         answer:
           fields:
             proposals: Förslag
+            selected: Valda
             title: Titel
+            votes: Röster
         election:
           fields:
             end_time: Avsluta vid
@@ -194,10 +230,44 @@ sv:
             answers: Svar
             max_selections: Max. val
             title: Titel
+        trustees_participatory_space:
+          fields:
+            email: E-post
+            inactive: inaktiv
+            name: Namn
+            status: Status
       orders:
         label: Sortera omröstningar efter
         older: Äldre
         recent: Senaste
+      trustee_zone:
+        elections:
+          key_ceremony_steps:
+            back: Tillbaka
+            list:
+              status: Status
+              task: Uppgift
+            start: Start
+          tally_steps:
+            back: Tillbaka
+            list:
+              status: Status
+              task: Uppgift
+            start: Start
+            status:
+              pending: Väntande
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Nej'
+                bb_status: Status
+                election: Val
+              title: Omröstningar
+            identification_keys:
+              cancel: Avbryt
+              submit: Skicka in
       votes:
         confirm:
           answer: Svar
@@ -206,6 +276,7 @@ sv:
           edit: redigera
           header: Bekräfta din röst
           intro: Här är en sammanfattning av den röst som du ska rösta. <br> Vänligen bekräfta din röst eller redigera dina svar.
+          nota_option: Tom
           question: Fråga %{count}
         confirmed:
           back: Tillbaka till val
@@ -231,6 +302,9 @@ sv:
           preview_alert: Detta är en förhandsvisning av röstlängden.
           question_steps: Fråga %{current_step} av %{total_steps}
           selections: "%{selected} av %{max_selections}<br> val"
+        verify:
+          form:
+            submit: Kontrollera
         voting_step:
           back: Tillbaka
           continue: Nästa
@@ -244,7 +318,126 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden via föregående länk.
           email_subject: Valet %{resource_title} är nu aktivt för %{participatory_space_title}.
           notification_title: Valet <a href="%{resource_path}">%{resource_title}</a> är nu aktivt för %{participatory_space_title}.
+    menu:
+      votings: Omröstningar
+    statistics:
+      votings_count: Omröstningar
+    votings:
+      admin:
+        landing_page:
+          content_blocks:
+            edit:
+              update: Uppdatera
+        menu:
+          votings_submenu:
+            attachment_collections: Mappar
+            attachment_files: Filer
+        models:
+          monitoring_committee_member:
+            fields:
+              email: E-post
+              name: Namn
+          polling_officer:
+            fields:
+              email: E-post
+              name: Namn
+          polling_station:
+            fields:
+              address: Adress
+              polling_station_managers: Koordinatorer
+              title: Titel
+          voting:
+            fields:
+              title: Titel
+        monitoring_committee_members:
+          new:
+            create: Skapa
+        polling_officers:
+          index:
+            role_manager: chef
+          new:
+            create: Skapa
+          polling_officers_picker:
+            close: Stäng
+        polling_stations:
+          new:
+            create: Skapa
+        votings:
+          actions:
+            destroy: Ta bort
+            publish: Publicera
+          edit:
+            update: Uppdatera
+          form:
+            title: Titel
+            voting_type:
+              hybrid: Hybrid
+              online: Online
+          new:
+            create: Skapa
+      content_blocks:
+        landing_page:
+          metrics:
+            heading: Metrik
+          timeline:
+            heading: Tidslinje
+      monitoring_committee_members:
+        actions:
+          destroy: Radera
+          title: Åtgärder
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Åtgärder
+                address: Adress
+                name: Namn
+      polling_officers:
+        actions:
+          destroy: Radera
+          new: Ny
+          title: Åtgärder
+        roles:
+          manager: Koordinator
+      polling_stations:
+        actions:
+          destroy: Radera
+          edit: Redigera
+          new: Ny
+          title: Åtgärder
+      votings:
+        filters:
+          active: Aktiva
+          all: Alla
+          finished: Avslutade
+          search: Sök
+          state: Status
+          upcoming: Kommande
+        filters_small_view:
+          filter: Filtrera
+          unfold: Veckla ut
+        index:
+          title: Omröstningar
+        orders:
+          random: Slumpmässig
+        show:
+          dates: Datum
+      votings_m:
+        badge_name:
+          finished: Avslutade
+          ongoing: Pågående
+          upcoming: Kommande
+        footer_button_text:
+          view: Visa
+          vote: Rösta
+        voting_type:
+          hybrid: Hybrid
+          online: Online
   layouts:
     decidim:
       election_votes_header:
         exit: Avsluta
+      votings:
+        promoted_voting:
+          vote: Omröstning
