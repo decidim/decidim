@@ -16,7 +16,7 @@
           <%= icon "thumb-down", role: "img", "aria-hidden": true %>
           <span class="show-for-sr"><%= t("decidim.components.add_comment_form.opinion.negative") %></span>
         </button>
-        <div aria-role="alert" aria-live="assertive" aria-atomic="true" class="selected-state show-for-sr"></div>
+        <div role="alert" aria-live="assertive" aria-atomic="true" class="selected-state show-for-sr"></div>
       </div>
     <% end %>
     <%== cell("decidim/comments/comment_form", model, root_depth: root_depth) %>

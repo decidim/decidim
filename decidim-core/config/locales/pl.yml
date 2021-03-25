@@ -265,7 +265,6 @@ pl:
       photos:
         related_photos: Powiązane zdjęcia
     author:
-      avatar: Awatar
       comments:
         one: komentarz
         few: komentarze

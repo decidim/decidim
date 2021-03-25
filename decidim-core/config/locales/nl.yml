@@ -250,7 +250,6 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
-      avatar: Profielafbeelding
       comments:
         one: commentaar
         other: commentaren
@@ -1202,6 +1201,7 @@ nl:
         description: Is deze inhoud ongepast?
         does_not_belong: Bevat illegale activiteit, dreiging met zelfmoord, persoonlijke gegevens, of iets anders dat u denkt dat niet thuis hoort op %{organization_name}.
         offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen, zelfmoord dreiging of haat zaaien.
+        reason: Reden
         report: Rapporteren
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem

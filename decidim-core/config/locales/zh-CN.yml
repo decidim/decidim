@@ -229,7 +229,6 @@ zh-CN:
       photos:
         related_photos: 相关图像
     author:
-      avatar: 头像
       comments:
         other: 评论
       endorsements:
