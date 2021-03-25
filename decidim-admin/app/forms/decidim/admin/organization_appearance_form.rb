@@ -14,18 +14,18 @@ module Decidim
       attribute :logo
       attribute :remove_logo, Boolean, default: false
       attribute :favicon
-      attribute :remove_favicon
+      attribute :remove_favicon, Boolean, default: false
       attribute :official_img_header
-      attribute :remove_official_img_header
+      attribute :remove_official_img_header, Boolean, default: false
       attribute :official_img_footer
-      attribute :remove_official_img_footer
+      attribute :remove_official_img_footer, Boolean, default: false
       attribute :official_url
       attribute :header_snippets, String
       attribute :cta_button_path, String
       attribute :highlighted_content_banner_enabled, Boolean, default: false
       attribute :highlighted_content_banner_action_url, String
       attribute :highlighted_content_banner_image
-      attribute :remove_highlighted_content_banner_image
+      attribute :remove_highlighted_content_banner_image, Boolean, default: false
       attribute :enable_omnipresent_banner, Boolean, default: false
       attribute :omnipresent_banner_url, String
 

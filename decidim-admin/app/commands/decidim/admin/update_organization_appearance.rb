@@ -10,9 +10,6 @@ module Decidim
       # organization - The Organization that will be updated.
       # form - A form object with the params.
       def initialize(organization, form)
-        cw_image_fields.each do |field|
-          form.send("#{field}=".to_sym, organization.send(field)) if form.send(field).blank?
-        end
         @organization = organization
         @form = form
       end
@@ -40,15 +37,7 @@ module Decidim
       private
 
       def image_fields
-        cw_image_fields + as_attachment_fields
-      end
-
-      def cw_image_fields
-        [:highlighted_content_banner_image, :favicon, :official_img_header, :official_img_footer]
-      end
-
-      def as_attachment_fields
-        [:logo]
+        [:logo, :highlighted_content_banner_image, :favicon, :official_img_header, :official_img_footer]
       end
 
       attr_reader :form, :organization
@@ -63,7 +52,7 @@ module Decidim
 
       def attributes
         appearance_attributes
-          .merge(as_attachment_attributes)
+          .merge(attachment_attributes)
           .merge(highlighted_content_banner_attributes)
           .merge(omnipresent_banner_attributes)
           .merge(colors_attributes)
@@ -73,8 +62,8 @@ module Decidim
           end
       end
 
-      def as_attachment_attributes
-        as_attachment_fields.each_with_object({}) do |attribute, attributes|
+      def attachment_attributes
+        image_fields.each_with_object({}) do |attribute, attributes|
           attributes[attribute] = form.send(attribute) if form.send("remove_#{attribute}") || form.send(attribute).present?
         end
       end
@@ -84,12 +73,6 @@ module Decidim
           cta_button_path: form.cta_button_path,
           cta_button_text: form.cta_button_text,
           description: form.description,
-          favicon: form.favicon,
-          remove_favicon: form.remove_favicon,
-          official_img_header: form.official_img_header,
-          remove_official_img_header: form.remove_official_img_header,
-          official_img_footer: form.official_img_footer,
-          remove_official_img_footer: form.remove_official_img_footer,
           official_url: form.official_url
         }
       end
@@ -98,8 +81,6 @@ module Decidim
         {
           highlighted_content_banner_enabled: form.highlighted_content_banner_enabled,
           highlighted_content_banner_action_url: form.highlighted_content_banner_action_url,
-          highlighted_content_banner_image: form.highlighted_content_banner_image,
-          remove_highlighted_content_banner_image: form.remove_highlighted_content_banner_image,
           highlighted_content_banner_title: form.highlighted_content_banner_title,
           highlighted_content_banner_short_description: form.highlighted_content_banner_short_description,
           highlighted_content_banner_action_title: form.highlighted_content_banner_action_title,

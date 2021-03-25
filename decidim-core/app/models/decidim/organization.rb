@@ -46,22 +46,30 @@ module Decidim
     validates :time_zone, presence: true, time_zone: true
     validates :default_locale, inclusion: { in: :available_locales }
 
-    validates_upload :official_img_header
-    mount_uploader :official_img_header, Decidim::OfficialImageHeaderUploader
+    has_one_attached :official_img_header
+    validates_upload :official_img_header do |config|
+      config.uploader = Decidim::OfficialImageHeaderUploader
+    end
 
-    validates_upload :official_img_footer
-    mount_uploader :official_img_footer, Decidim::OfficialImageFooterUploader
+    has_one_attached :official_img_footer
+    validates_upload :official_img_footer do |config|
+      config.uploader = Decidim::OfficialImageFooterUploader
+    end
 
     has_one_attached :logo
     validates_upload :logo do |config|
       config.uploader = Decidim::OrganizationLogoUploader
     end
 
-    validates_upload :favicon
-    mount_uploader :favicon, Decidim::OrganizationFaviconUploader
+    has_one_attached :favicon
+    validates_upload :favicon do |config|
+      config.uploader = Decidim::OrganizationFaviconUploader
+    end
 
-    validates_upload :highlighted_content_banner_image
-    mount_uploader :highlighted_content_banner_image, ImageUploader
+    has_one_attached :highlighted_content_banner_image
+    validates_upload :highlighted_content_banner_image do |config|
+      config.uploader = Decidim::ImageUploader
+    end
 
     has_one_attached :open_data_file
 
