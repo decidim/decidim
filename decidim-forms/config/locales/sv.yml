@@ -3,6 +3,7 @@ sv:
     attributes:
       answer:
         body: Svar
+        choices: Val
       question:
         max_choices: Högst antal val
         question_type: Typ
