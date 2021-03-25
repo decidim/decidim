@@ -1,3 +1,4 @@
+
 # frozen_string_literal: true
 
 require "spec_helper"
@@ -6,7 +7,7 @@ module Decidim::Votings::Census::Admin
   describe UpdateDataset do
     subject { described_class.new(dataset, attributes, user) }
 
-    let(:dataset) { create(:dataset, organization: user.organization, status: "init_data") }
+    let(:dataset) { create(:dataset, status: "init_data") }
     let(:user) { create(:user, :admin) }
     let(:attributes) { { status: :data_created } }
 
