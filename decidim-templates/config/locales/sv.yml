@@ -15,5 +15,9 @@ sv:
             skip_template: Hoppa över
           edit:
             edit: Redigera
+            questionnaire: Enkät
           form:
             save: Spara
+            title: Enkät
+          preview:
+            current_step: Steg %{step} av
