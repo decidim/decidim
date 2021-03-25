@@ -1491,9 +1491,11 @@ sv:
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
         close_menu: Stäng meny
+        main_menu: Huvudmeny
         navigation: Navigera
         sign_in: Logga in
         sign_up: Registrera
+        user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session
         description_html: Du hanterar deltagaren <b>%{user_name}</b>.
@@ -1522,6 +1524,7 @@ sv:
         profile: Mitt konto
         public_profile: Min offentliga profil
         sign_out: Logga ut
+        title: Profillänkar
       user_profile:
         account: Konto
         authorizations: Auktoriseringar
