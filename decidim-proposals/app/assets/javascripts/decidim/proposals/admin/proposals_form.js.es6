@@ -21,7 +21,7 @@ $(() => {
     $proposalCreatedInMeeting.on("change", toggleDisabledHiddenFields);
     toggleDisabledHiddenFields();
 
-    const $proposalAddress= $form.find("#proposal_address");
+    const $proposalAddress = $form.find("#proposal_address");
     if ($proposalAddress.length !== 0) {
       attachGeocoding($proposalAddress);
     }
