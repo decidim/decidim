@@ -38,6 +38,7 @@ sv:
         description: Beskrivning
         hero_image: Bild
         participatory_process_ids: Relaterade dialoger
+        title: Titel
       participatory_process_step:
         cta_path: Uppmaningens sökväg
         cta_text: Uppmaningens text
@@ -93,6 +94,8 @@ sv:
         unpublish: Avpublicera
       menu:
         participatory_process_groups: Dialoggrupper
+        participatory_process_groups_submenu:
+          info: Info
         participatory_processes: Dialoger
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -115,6 +118,8 @@ sv:
             title: Titel
           name: Dialog
         participatory_process_group:
+          fields:
+            title: Titel
           name: Dialoggrupp
         participatory_process_step:
           fields:
@@ -142,6 +147,9 @@ sv:
           copy: Kopiera
           select: Välj vilka data som du vill duplicera
           title: Duplicera dialog
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Uppdatera
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera dialoggruppen.
@@ -299,10 +307,14 @@ sv:
         related_assemblies: Relaterade sammankomster
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Metadata
         participatory_processes:
           name: Dialoger
         stats:
           name: Statistik
+        title:
+          meta_scope: Omfång
       show:
         title: Dialoggrupper
     participatory_process_steps:
@@ -320,6 +332,9 @@ sv:
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadata
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
