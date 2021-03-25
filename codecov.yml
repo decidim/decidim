@@ -7,7 +7,8 @@ ignore:
 coverage:
   status:
     project:
-      default:
+      default: false
+      develop:
         threshold: 0.1%
         branches:
           - develop
