@@ -6,6 +6,8 @@ en:
         delete_reason: Reason to delete your account
       common:
         created_at: Created at
+      conversation:
+        body: Body
       group:
         about: About
         avatar: Avatar
@@ -14,6 +16,8 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      message:
+        body: Body
       report:
         details: Additional comments
       user:
