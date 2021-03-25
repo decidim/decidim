@@ -19,7 +19,7 @@ module Decidim
 
         # Strip the surrounding paragraph tag because it is not allowed within
         # a <hN> element.
-        desc.sub(/^<p>/, "").sub(%r{</p>$}, "")
+        desc.gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, "\\1")
       end
     end
   end
