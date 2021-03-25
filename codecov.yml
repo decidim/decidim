@@ -9,6 +9,7 @@ coverage:
     project:
       default:
         threshold: 0.1%
-        branches: develop
+        branches:
+          - develop
 github_checks:
   annotations: false
