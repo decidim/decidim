@@ -154,6 +154,7 @@ sv:
           groups_count: Grupper
           last_comment_by: Senaste kommentar av
           no_comments_yet: Inga kommentarer ännu
+          open: Öppna debatt
           participants_count: Deltagare
         update:
           invalid: Det gick inte att uppdatera debatten.
