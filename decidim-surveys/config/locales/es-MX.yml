@@ -49,6 +49,8 @@ es-MX:
         description: Número de encuestas respondidas por los usuarios
         object: respuestas a encuestas
         title: Respuestas a encuestas
+    statistics:
+      answers_count: Respuestas
     surveys:
       admin:
         exports:
