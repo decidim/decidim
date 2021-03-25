@@ -674,6 +674,7 @@ ro:
         success: Proiectul propunerii a fost şters cu succes.
       last_activity:
         new_proposal_at_html: "<span>Noua propunere la %{link}</span>"
+        proposal_updated_at_html: "<span>Propunere actualizată la %{link}</span>"
       models:
         collaborative_draft:
           fields:
