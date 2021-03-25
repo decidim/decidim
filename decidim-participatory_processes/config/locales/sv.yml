@@ -36,8 +36,11 @@ sv:
         title: Titel
       participatory_process_group:
         description: Beskrivning
+        group_url: Webbplats
+        hashtag: Hashtag
         hero_image: Bild
         participatory_process_ids: Relaterade dialoger
+        participatory_scope: Vad som bestäms
         title: Titel
       participatory_process_step:
         cta_path: Uppmaningens sökväg
@@ -96,6 +99,7 @@ sv:
         participatory_process_groups: Dialoggrupper
         participatory_process_groups_submenu:
           info: Info
+          landing_page: Landningssida
         participatory_processes: Dialoger
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -308,7 +312,9 @@ sv:
     participatory_process_groups:
       content_blocks:
         metadata:
+          developer_group: Annonserad av
           name: Metadata
+          participatory_scope: Vad som bestäms
         participatory_processes:
           name: Dialoger
         stats:
