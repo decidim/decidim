@@ -375,6 +375,7 @@ sv:
       highlighted_elements_settings_form:
         orders:
           random: Slumpmässig
+          recent: Senaste
       how_to_participate:
         name: Hur du deltar
       html:
