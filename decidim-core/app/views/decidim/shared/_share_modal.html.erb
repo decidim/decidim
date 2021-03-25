@@ -4,7 +4,7 @@
     <% if try(:resource) %>
       <span class="show-for-sr"><%= resource_title(resource) %></span>
     <% end %>
-    <%= icon "share", class: "icon--after", role: "img", "aria-hidden": true %>
+    <%= icon "share", class: "icon--after", role: "presentation", "aria-hidden": true %>
   </button>
 </div>
 <div class="reveal" id="socialShare" data-reveal>
@@ -21,7 +21,7 @@
         desc: h(decidim_meta_description),
         via: decidim_meta_twitter_handler) %>
     <a href="#" class="button" data-open="urlShare">
-      <%= icon "link-intact", role: "img", "aria-hidden": true %>
+      <%= icon "link-intact", role: "presentation", "aria-hidden": true %>
       <%= t(".share_link") %>
     </a>
   </div>

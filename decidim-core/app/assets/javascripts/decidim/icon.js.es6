@@ -1,6 +1,7 @@
 ((exports) => {
   const DEFAULT_ATTRIBUTES = {
-    role: "none presentation"
+    role: "presentation",
+    "aria-hidden": "true"
   };
 
   /**

@@ -39,7 +39,13 @@ de:
           user_group_id:
             label: Kommentieren als
         opinion:
+          label: Ihre Meinung zu diesem Thema
+          negative: Negativ
+          negative_selected: Ihre Meinung zu diesem Thema ist negativ
           neutral: Neutral
+          neutral_selected: Ihre Meinung zu diesem Thema ist neutral
+          positive: Positiv
+          positive_selected: Ihre Meinung zu diesem Thema ist positiv
         remaining_characters: "%{count} Zeichen übrig"
         remaining_characters_1: "%{count} Zeichen übrig"
         title: Kommentar hinzufügen

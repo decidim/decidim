@@ -14,6 +14,7 @@ ca:
       meeting:
         address: Adreça
         available_slots: Espais disponibles per a aquesta trobada
+        customize_registration_email: Personalitzar el correu d'inscripció
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         decidim_user_group_id: Grup d'usuàries
@@ -25,6 +26,7 @@ ca:
         organizer_gid: Crear com a
         organizer_id: Organitzador
         private_meeting: Trobada privada
+        registration_email_custom_content: Contingut personalitzat del correu d'inscripció
         registration_form_enabled: Formulari d'inscripcions habilitat
         registration_terms: Termes i condicions d'inscripció
         registration_url: URL d'inscripció
@@ -264,6 +266,7 @@ ca:
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
             online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
+            registration_email_help: Aquest text apareixerà enmig del correu de confirmació de la inscripció. Just a sota del codi d'inscripció.
             registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
@@ -361,7 +364,7 @@ ca:
             space_type: Espai participatiu
             upcoming: Properes
       last_activity:
-        meeting_updated_at_html: "<span>Trobada actualitzada a %{link}</span>"
+        meeting_updated_at_html: "<span>Trobada actualitzada el %{link}</span>"
         new_meeting_at_html: "<span>Nova trobada a %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -537,6 +540,8 @@ ca:
       proposals_from_meeting:
         meeting_proposal: 'Propostes relacionades:'
         proposal_meeting: 'Trobades relacionades:'
+    statistics:
+      meetings_count: Trobades
   devise:
     mailer:
       join_meeting:

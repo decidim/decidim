@@ -158,7 +158,7 @@ es-PY:
           groups_count: Grupos
           last_comment_by: Último comentario de
           no_comments_yet: No hay comentarios todavía
-          open: Abrir debate
+          open: Debate abierto
           participants_count: Participantes
         update:
           invalid: Se ha producido un error al actualizar este debate.

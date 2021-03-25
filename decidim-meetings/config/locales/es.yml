@@ -14,6 +14,7 @@ es:
       meeting:
         address: Dirección
         available_slots: Espacios disponibles para este encuentro
+        customize_registration_email: Personalizar email de inscripción
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         decidim_user_group_id: Grupo
@@ -25,6 +26,7 @@ es:
         organizer_gid: Crear como
         organizer_id: Organizador
         private_meeting: Encuentro privado
+        registration_email_custom_content: Contenido personalizado del email de inscripción
         registration_form_enabled: Formulario de inscripción habilitado
         registration_terms: Términos y condiciones de inscripción
         registration_url: URL de inscripción
@@ -264,6 +266,7 @@ es:
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
+            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
@@ -361,6 +364,7 @@ es:
             space_type: Espacio participativo
             upcoming: Próximas
       last_activity:
+        meeting_updated_at_html: "<span>Encuentro actualizado a las %{link}</span>"
         new_meeting_at_html: "<span>Nuevo encuentro en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -536,6 +540,8 @@ es:
       proposals_from_meeting:
         meeting_proposal: 'Propuestas relacionadas:'
         proposal_meeting: 'Encuentros relacionados:'
+    statistics:
+      meetings_count: Encuentros
   devise:
     mailer:
       join_meeting:

@@ -75,6 +75,9 @@ gl:
           ongoing: Activa
           upcoming: Vindeiras
         footer:
+          remaining_time:
+            one: "<strong>%{count} hora %{minutes} minutos</strong> para votar."
+            other: "<strong>%{count} horas %{minutes} minutos</strong> para votar."
           view: Ver
           vote: Votar
         label:

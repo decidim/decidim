@@ -243,7 +243,6 @@ pt:
       photos:
         related_photos: Imagens relacionadas
     author:
-      avatar: Avatar
       comments:
         one: comentário
         other: comentários

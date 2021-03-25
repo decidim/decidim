@@ -6,6 +6,7 @@ module Decidim
     include Decidim::LayoutHelper
     include Decidim::ApplicationHelper
     include Decidim::FormFactory
+    include Decidim::SanitizeHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Messaging::ConversationHelper
 
@@ -41,6 +42,14 @@ module Decidim
         interlocutors.first.avatar_url
       else
         current_user.avatar.default_multiuser_url
+      end
+    end
+
+    def conversation_avatar_alt
+      if interlocutors.count == 1
+        t("decidim.author.avatar", name: decidim_sanitize(interlocutors.first.name))
+      else
+        t("decidim.author.avatar_multiuser")
       end
     end
 
