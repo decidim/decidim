@@ -402,7 +402,7 @@ ro:
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
         print:
-          city: Oraș
+          city: Localitate
         result:
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
         show:

@@ -265,7 +265,6 @@ fi-pl:
             result: Tulos
             selected: Valittu
             submit: Julkaise tulokset
-            success: Ääntenlasku on suoritettu onnistuneesti
             title: Ääntenlaskun tulokset
           vote:
             errors:
@@ -324,6 +323,9 @@ fi-pl:
           upcoming: Tuleva
         end_date: Päättyy
         footer:
+          remaining_time:
+            one: "<strong>%{count} tunti ja %{minutes} minuuttia</strong> äänestysaikaa jäljellä."
+            other: "<strong>%{count} tuntia ja %{minutes} minuuttia</strong> äänestysaikaa jäljellä."
           view: Näytä
           vote: Äänestä
         label:

@@ -504,6 +504,11 @@ ja:
             title: アクション
             unreport: 報告解除
           nickname: ニックネーム
+        report:
+          reasons:
+            spam: スパム
+        tabs:
+          unblocked: 未ブロック
       moderations:
         index:
           title: モデレーション
@@ -512,6 +517,9 @@ ja:
             does_not_belong: 属していません
             offensive: 攻撃
             spam: スパム
+        reports:
+          index:
+            author: 投稿者
       newsletter_templates:
         index:
           preview_template: プレビュー
