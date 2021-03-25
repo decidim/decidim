@@ -82,12 +82,11 @@ module Decidim
           end
 
           def current_census_action_view
-            case current_census.status
-            when "init_data"
+            if current_census.init_data?
               "new_census"
-            when "creating_data"
+            elsif current_census.creating_data?
               "creating_data"
-            when "data_created"
+            elsif current_census.data_created?
               "generate_codes"
             else
               raise "no view for this status"
