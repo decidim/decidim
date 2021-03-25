@@ -347,6 +347,7 @@ es:
             space_type: Espacio participativo
             upcoming: Próximas
       last_activity:
+        meeting_updated_at_html: "<span>Encuentro actualizado a las %{link}</span>"
         new_meeting_at_html: "<span>Nuevo encuentro en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
