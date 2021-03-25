@@ -32,7 +32,7 @@ module Decidim
           it "implements role attribute" do
             result = helper.component_icon(component, role: "img")
             expect(result).to eq <<~SVG.strip
-              <svg class="icon external-icon" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.02 36.02"><circle cx="18.01" cy="18.01" r="15.75" fill="none" stroke="#2ecc71" stroke-width="4"/><circle cx="18.01" cy="18.01" r="11.25" fill="none" stroke="#08BCD0" stroke-width="4"/></svg>
+              <svg class="icon external-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.02 36.02"><circle cx="18.01" cy="18.01" r="15.75" fill="none" stroke="#2ecc71" stroke-width="4"/><circle cx="18.01" cy="18.01" r="11.25" fill="none" stroke="#08BCD0" stroke-width="4"/></svg>
             SVG
           end
         end
