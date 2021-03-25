@@ -1,6 +1,6 @@
-@import "quill.snow";
-@import "decidim/variables";
-@import "decidim/utils/settings";
+@import "~quill/dist/quill.snow";
+@import "_variables";
+@import "utils/settings";
 
 .editor-container{
   margin-bottom: 1.5rem;

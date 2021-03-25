@@ -1,4 +1,3 @@
-// Foundation Variables
 $primary-color: null;
 $secondary-color: null;
 $success-color: null;
@@ -7,16 +6,17 @@ $alert-color: null;
 $-zf-size: null;
 $-zf-bp-value: null;
 
-@import "foundation_and_overrides";
-@import "layout";
+@import "_foundation_and_overrides.scss";
+@import "_layout.scss";
 @import "login";
 @import "sidebar";
 @import "tables";
 @import "actions";
 @import "forms";
-@import "decidim/editor";
-@import "decidim/utils/fontface";
+@import "decidim-core/app/packs/stylesheets/decidim/editor";
+@import "decidim-core/app/packs/stylesheets/decidim/utils/fontface";
 
 body{
   font-family: 'Source Sans Pro', sans-serif;
 }
+table { color: red; }

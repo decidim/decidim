@@ -60,7 +60,7 @@
 //  55. Top Bar
 //  56. Xy Grid
 
-@import "util/util";
+@import "~foundation-sites/scss/util/util";
 
 // 1. Global
 // ---------
@@ -880,4 +880,4 @@ $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
 
-@import "decidim/decidim-settings";
+@import "../decidim-settings";
