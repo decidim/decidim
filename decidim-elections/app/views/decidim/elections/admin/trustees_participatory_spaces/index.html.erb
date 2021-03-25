@@ -23,7 +23,7 @@
           <% trustees.each do |trustee| %>
             <tr>
               <td>
-                <% if trustee.name %>
+                <% if trustee.name.present? %>
                   <%= trustee.name %>
                 <% else %>
                   <%= trustee.user.name %>
