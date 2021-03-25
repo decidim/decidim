@@ -268,6 +268,10 @@ ro:
           upcoming: Urmează
         end_date: Se termină
         footer:
+          remaining_time:
+            one: "<strong>%{count} oră %{minutes} minute</strong> rămase de votat."
+            few: "<strong>%{count} ore %{minutes} minute</strong> rămase de votat."
+            other: "<strong>%{count} ore %{minutes} minute</strong> rămase pentru a vota."
           view: Vizualizare
           vote: Votează
         label:
