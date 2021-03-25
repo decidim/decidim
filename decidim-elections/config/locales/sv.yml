@@ -15,6 +15,8 @@ sv:
         description: Beskrivning
         max_selections: Maximalt antal val
         title: Titel
+      voting:
+        end_time: Omröstningen avslutas
     errors:
       models:
         answer:
@@ -46,6 +48,7 @@ sv:
           label: Handläggare
           values:
             assigned: Tilldelade
+            unassigned: Inte tilldelad
         role_eq:
           label: Roll
           values:
@@ -87,6 +90,7 @@ sv:
           new:
             create: Skapa svar
             title: Nytt svar
+          not_selected: Inte vald
           selected: Valda
           update:
             invalid: Det gick inte att uppdatera svaret
@@ -122,6 +126,8 @@ sv:
             name: Val
           question:
             name: Fråga
+          trustee:
+            name: Förvaltare
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen till svar
@@ -153,14 +159,25 @@ sv:
             trustees: Förvaltare
           key_ceremony:
             trustees: Förvaltare
+          processing: Bearbetar...
           results_published:
+            answer: Svar
+            not_selected: Inte vald
             question: Fråga
+            result: Resultat
             selected: Valda
+            submit: Skicka in
           tally:
             trustees: Förvaltare
           tally_ended:
+            answer: Svar
+            not_selected: Inte vald
             question: Fråga
+            result: Resultat
             selected: Valda
+            submit: Publicera resultat
+          vote:
+            title: Röstningsperiod
           vote_stats:
             no_vote_statistics_yet: Ingen röstningsstatistik ännu
             title: Röstningsstatistik
@@ -168,6 +185,7 @@ sv:
             votes: Röster
         trustees_participatory_spaces:
           actions:
+            disable: Avaktivera
             enable: Tillåt
           index:
             title: Förvaltare
@@ -208,7 +226,12 @@ sv:
           unfold: Veckla ut
         results:
           selected: Valda
+          votes:
+            one: "%{count} röst"
+            other: "%{count} röster"
         show:
+          action_button:
+            vote: Starta omröstningen
           preview: Förhandsgranska
           voting_period_status:
             finished: Omröstningen började den %{start_time} och slutade den %{end_time}
@@ -242,12 +265,18 @@ sv:
         recent: Senaste
       trustee_zone:
         elections:
+          backup_modal:
+            download_election_keys: Hämta nycklar
           key_ceremony_steps:
             back: Tillbaka
+            keys:
+              create_election: Nycklar generering
             list:
               status: Status
               task: Uppgift
             start: Start
+            status:
+              pending: Avvaktande
           tally_steps:
             back: Tillbaka
             list:
@@ -264,6 +293,7 @@ sv:
                   'false': 'Nej'
                 bb_status: Status
                 election: Val
+                voting_period: Röstningsperiod
               title: Omröstningar
             identification_keys:
               cancel: Avbryt
@@ -304,6 +334,7 @@ sv:
           selections: "%{selected} av %{max_selections}<br> val"
         verify:
           form:
+            back: Tillbaka till Decidim
             submit: Kontrollera
         voting_step:
           back: Tillbaka
@@ -324,14 +355,20 @@ sv:
       votings_count: Omröstningar
     votings:
       admin:
+        index:
+          not_published: Ej publicerade
         landing_page:
           content_blocks:
             edit:
               update: Uppdatera
         menu:
+          votings: Omröstningar
           votings_submenu:
             attachment_collections: Mappar
             attachment_files: Filer
+            attachments: Bilagor
+            info: Information
+            landing_page: Landningssida
         models:
           monitoring_committee_member:
             fields:
@@ -348,6 +385,7 @@ sv:
               title: Titel
           voting:
             fields:
+              promoted: Uppmärksammad
               title: Titel
         monitoring_committee_members:
           new:
@@ -362,8 +400,11 @@ sv:
         polling_stations:
           new:
             create: Skapa
+        titles:
+          votings: Omröstningar
         votings:
           actions:
+            confirm_destroy: Är du säker?
             destroy: Ta bort
             publish: Publicera
           edit:
@@ -385,6 +426,10 @@ sv:
         actions:
           destroy: Radera
           title: Åtgärder
+      pages:
+        home:
+          highlighted_votings:
+            see_all_votings: Se alla omröstningar
       polling_officer_zone:
         polling_officers:
           show:
@@ -393,6 +438,7 @@ sv:
                 actions: Åtgärder
                 address: Adress
                 name: Namn
+                voting: Omröstning
       polling_officers:
         actions:
           destroy: Radera
@@ -402,6 +448,7 @@ sv:
           manager: Koordinator
       polling_stations:
         actions:
+          confirm_destroy: Är du säker?
           destroy: Radera
           edit: Redigera
           new: Ny
@@ -415,12 +462,14 @@ sv:
           state: Status
           upcoming: Kommande
         filters_small_view:
+          close_modal: Stäng fönster
           filter: Filtrera
           unfold: Veckla ut
         index:
           title: Omröstningar
         orders:
           random: Slumpmässig
+          recent: Senaste
         show:
           dates: Datum
       votings_m:
@@ -429,8 +478,10 @@ sv:
           ongoing: Pågående
           upcoming: Kommande
         footer_button_text:
+          participate: Delta
           view: Visa
           vote: Rösta
+        unspecified: Ej angivet
         voting_type:
           hybrid: Hybrid
           online: Online
