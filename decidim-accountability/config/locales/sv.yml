@@ -244,3 +244,5 @@ sv:
         result_project: Projekt som ingår i detta resultat
       included_proposals:
         result_proposal: Förslag som ingår i detta resultat
+    statistics:
+      results_count: Resultat

@@ -108,6 +108,9 @@ de:
         close_modal: Dialog schließen
         continue: Weiter
         more_information: Mehr Informationen
+      budget_list_item:
+        voting_finished: Sie haben bei diesem Budget abgestimmt
+        voting_started: Sie haben damit begonnen, bei diesem Budget abzustimmen
       budgets_list:
         cancel_order:
           more_than_one: lösche deine Stimme am %{name} und beginne neu

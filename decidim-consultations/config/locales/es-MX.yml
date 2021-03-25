@@ -360,6 +360,9 @@ es-MX:
       consultations:
         actions:
           vote: Votar
+    statistics:
+      consultations_count: Consultas
+      votes_count: Votos
   layouts:
     decidim:
       consultation_voting_data:

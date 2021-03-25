@@ -35,6 +35,8 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -63,6 +65,10 @@ sv:
           edit:
             title: Redigera debatt
             update: Uppdatera debatt
+          form:
+            debate_type: Typ av debatt
+            finite: Tidsbegränsad (med start- och sluttider)
+            open: Oendlig (inga start- eller slutdatum)
           index:
             title: Debatter
           new:
