@@ -53,6 +53,7 @@ sv:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
+        host: Värd
         instagram_handler: Instagram-hanterare
         logo: Logo
         machine_translation_display_priority: Maskinöversättnings visnings prioritet
@@ -302,11 +303,13 @@ sv:
       conflicts:
         attempts: Försök
         'false': 'Nej'
+        managed_user_name: Hanterad användare
         solved: Löst
         transfer:
           email: E-post
           name: Namn
           reason: Anledning
+          title: Överföring
         'true': 'Ja'
         user_name: Användare
       dashboard:
@@ -399,6 +402,7 @@ sv:
           accepted_mime_types:
             csv: csv
             json: json
+            xls: xls
           actions:
             back: Tillbaka
           import: Importera
@@ -824,6 +828,7 @@ sv:
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
+        panel: Administratör
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
@@ -887,6 +892,13 @@ sv:
       errors:
         impersonate_user:
           reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
+    metrics:
+      blocked_users:
+        object: blockerade användare
+        title: Blockerade användare
+      user_reports:
+        object: användarrapporter
+        title: Användarrapporter
     moderations:
       actions:
         expand: Expandera
