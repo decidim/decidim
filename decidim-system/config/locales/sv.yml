@@ -130,6 +130,8 @@ sv:
             api_key: API-nyckel
             api_secret: API-hemlighet
         smtp_settings:
+          fieldsets:
+            sender: Avsändare
           placeholder:
             from_label: din-organisation-namn
         update:
