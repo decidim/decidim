@@ -922,6 +922,35 @@ en:
           new: New
           title: Actions
       votings:
+        check_census:
+          blocked:
+            info: There has been too many incorrect attempts. You can try again in 24 hours.
+            title: Too many attempts.
+          description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
+          error:
+            info: Please try again. If you think the data in the system is incorrect, you can %{report_link}.
+            report: report it
+            title: Your census data is incorrect!
+          success:
+            access_link: ask for an Access Code
+            info: If you don't have one, you can %{access_code_link}.
+            title: Your census data is correct!
+          title: Check your census data
+        check_census_form:
+          check_status: Check status
+          date_of_birth: Date of birth
+          day: Day
+          description: 'Fill the following form to check your census data:'
+          dni: DNI
+          document_number: Document number
+          document_number_placeholder: ID number
+          document_type: Document type
+          month: Month
+          passport: Passport
+          postal_code: Postal code
+          postal_code_placeholder: Postal code number
+          select: Select the type of the document
+          year: Year
         count:
           title:
             one: "%{count} voting"
@@ -968,6 +997,7 @@ en:
       election_votes_header:
         exit: Exit
       voting_navigation:
+        check_census: How to vote
         voting_menu_item: The voting
       votings:
         index:

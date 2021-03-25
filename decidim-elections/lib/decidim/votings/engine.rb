@@ -12,7 +12,9 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :votings, param: :slug, only: [:index, :show, :update]
+        resources :votings, param: :slug, only: [:index, :show, :update] do
+          get :check_census
+        end
 
         get "votings/:voting_id", to: redirect { |params, _request|
           voting = Decidim::Votings::Voting.find(params[:voting_id])

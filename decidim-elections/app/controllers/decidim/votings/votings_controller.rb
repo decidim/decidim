@@ -36,6 +36,8 @@ module Decidim
         enforce_permission_to :read, :voting, voting: current_participatory_space
       end
 
+      def check_census; end
+
       private
 
       def current_participatory_space_manifest

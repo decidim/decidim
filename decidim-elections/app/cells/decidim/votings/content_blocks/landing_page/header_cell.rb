@@ -73,6 +73,11 @@ module Decidim
                   name: t("layouts.decidim.voting_navigation.voting_menu_item"),
                   url: decidim_votings.voting_path(current_participatory_space),
                   active: is_active_link?(decidim_votings.voting_path(current_participatory_space), :exclusive)
+                },
+                {
+                  name: t("layouts.decidim.voting_navigation.check_census"),
+                  url: decidim_votings.voting_check_census_path(current_participatory_space),
+                  active: is_active_link?(decidim_votings.voting_check_census_path(current_participatory_space), :exclusive)
                 }
               ] + components.map do |component|
                 {

@@ -1,0 +1,48 @@
+
+<div class="row mt-sm">
+  <div class="columns medium-7">
+    <p><strong><%= t(".description") %></strong></p>
+    <div class="card">
+      <div class="card__content">
+        <form>
+          <div>
+            <div>
+              <label><%= t(".document_type") %>
+                <select>
+                  <option disabled selected hidden><%= t(".select") %></option>
+                  <option><%= t(".passport") %></option>
+                  <option><%= t(".dni") %></option>
+                </select>
+              </label>
+            </div>
+            <div>
+              <label><%= t(".document_number") %>
+                <input type="text" placeholder="<%= t(".document_number_placeholder") %>">
+              </label>
+            </div>
+            <div>
+              <label><%= t(".postal_code") %>
+                <input type="text" placeholder="<%= t(".postal_code_placeholder") %>">
+              </label>
+            </div>
+            <fieldset>
+              <legend><%= t(".date_of_birth") %></legend>
+              <div class="row">
+                <label class="columns small-4"><%= t(".day") %>
+                  <input type="text" placeholder="DD">
+                </label>
+                <label class="columns small-4"><%= t(".month") %>
+                  <input type="text" placeholder="MM">
+                </label>
+                <label class="columns small-4"><%= t(".year") %>
+                  <input type="text" placeholder="YY">
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          <button type="button" class="button expanded mt-s mb-none"><%= t(".check_status") %></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

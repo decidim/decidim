@@ -1,0 +1,46 @@
+<% add_decidim_meta_tags(title: translated_attribute(current_participatory_space.title)) %>
+
+<%
+edit_link(
+  resource_locator(current_participatory_space).edit,
+  :update,
+  :voting,
+  voting: current_participatory_space
+)
+%>
+
+<%= cell("decidim/votings/content_blocks/landing_page/header", nil) %>
+
+<div class="wrapper">
+  <div class="row section">
+    <div class="columns large-8">
+      <h1 class="heading3"><%= t(".title") %></h1>
+      <p><%= t(".description") %></p>
+
+      <div class="verify-census-success callout success mt-s">
+        <h5><%= t("decidim.votings.votings.check_census.success.title") %></h5>
+        <p>
+          <%== t("decidim.votings.votings.check_census.success.info", access_code_link: link_to(t("decidim.votings.votings.check_census.success.access_link"), "#")) %>
+        </p>
+      </div>
+
+      <div class="verify-census-blocked callout alert mt-s">
+        <h5><%= t("decidim.votings.votings.check_census.blocked.title") %></h5>
+        <p><%= t("decidim.votings.votings.check_census.blocked.info") %></p>
+      </div>
+
+      <div class="verify-census-error callout alert mt-s">
+        <h5><%= t("decidim.votings.votings.check_census.error.title") %></h5>
+        <p>
+          <%== t("decidim.votings.votings.check_census.error.info", report_link: link_to(t("decidim.votings.votings.check_census.error.report"), "#")) %>
+        </p>
+      </div>
+
+      <div class="verify-census-form">
+        <%= render partial: "check_census_form" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/votings/check_census", integrity: true %>
