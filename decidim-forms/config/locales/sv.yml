@@ -114,6 +114,7 @@ sv:
           resize_and_pad: Anpassad och vadderad till
           resize_to_fit: Anpassad för att passa
       question_types:
+        files: Filer
         long_answer: Långt svar
         matrix_multiple: Matris (flera alternativ)
         matrix_single: Matris (Single alternativ)
