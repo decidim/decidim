@@ -2,7 +2,7 @@
     <div class="row">
       <div class="columns small-centered large-10">
         <h2 class="heading2">
-          <%= decidim_sanitize translated_attribute current_organization.description %>
+          <%= organization_description %>
         </h2>
         <% unless current_user %>
           <%= link_to decidim.new_user_registration_path, class: "button--sc link subhero-cta", title: t("decidim.pages.home.sub_hero.register_title") do %>
