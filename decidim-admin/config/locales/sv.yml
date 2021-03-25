@@ -300,6 +300,7 @@ sv:
       conflicts:
         attempts: Försök
         'false': 'Nej'
+        managed_user_name: Hanterad användare
         solved: Löst
         transfer:
           email: E-post
@@ -889,6 +890,13 @@ sv:
       errors:
         impersonate_user:
           reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
+    metrics:
+      blocked_users:
+        object: blockerade användare
+        title: Blockerade användare
+      user_reports:
+        object: användarrapporter
+        title: Användarrapporter
     moderations:
       actions:
         expand: Expandera
