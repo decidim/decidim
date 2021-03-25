@@ -74,11 +74,13 @@ module Decidim
                   url: decidim_votings.voting_path(current_participatory_space),
                   active: is_active_link?(decidim_votings.voting_path(current_participatory_space), :exclusive)
                 },
-                {
-                  name: t("layouts.decidim.voting_navigation.check_census"),
-                  url: decidim_votings.voting_check_census_path(current_participatory_space),
-                  active: is_active_link?(decidim_votings.voting_check_census_path(current_participatory_space), :exclusive)
-                }
+                if current_participatory_space.dataset.present?
+                  {
+                    name: t("layouts.decidim.voting_navigation.check_census"),
+                    url: decidim_votings.voting_check_census_path(current_participatory_space),
+                    active: is_active_link?(decidim_votings.voting_check_census_path(current_participatory_space), :exclusive)
+                  }
+                end
               ] + components.map do |component|
                 {
                   name: translated_attribute(component.name),
