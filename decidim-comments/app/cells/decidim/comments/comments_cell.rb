@@ -51,7 +51,7 @@ module Decidim
       end
 
       def comments_count
-        model.comments.count
+        model.comments_count
       end
 
       def root_depth
