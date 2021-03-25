@@ -164,6 +164,7 @@ es:
         versions_list:
           back_to_resource: Volver al debate
       last_activity:
+        debate_updated_at_html: "<span>Debate actualizado a las %{link}</span>"
         new_debate_at_html: "<span>Nuevo debate en %{link}</span>"
       models:
         debate:
