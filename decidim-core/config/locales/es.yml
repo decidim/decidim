@@ -254,7 +254,6 @@ es:
       photos:
         related_photos: Imágenes relacionadas
     author:
-      avatar: Avatar
       comments:
         one: comentario
         other: comentarios

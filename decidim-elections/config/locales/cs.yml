@@ -158,7 +158,7 @@ cs:
             title: Upravit volbu
             update: Aktualizovat volby
           index:
-            no_bulletin_board: Není nastaven žádný <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a>, který je potřebný pro použití tohoto modulu. Tento úkol by měl provést správce systému.
+            no_bulletin_board: Není nastaven žádný <a href="https://github.com/decidim/decidim-bulletin-board">server Vývěsky</a>, který je potřebný pro použití tohoto modulu. Tento úkol by měl provést správce systému.
             title: Volby
           new:
             create: Vytvořit volbu
@@ -232,13 +232,13 @@ cs:
               time_before: Nastavení se provádí <strong>alespoň %{hours} hodin</strong> před zahájením voleb.
               trustees_number: Participační prostor má <strong>alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             submit: Nastavení voleb
-            success: Volba byla úspěšně odeslána do Bulletin Board
+            success: Volby byly úspěšně odeslány do Vývěsky
             title: Nastavení voleb
             trustees: Volební důvěrníci
           created:
             invalid: Vyskytl se problém při zahájení ceremoniálu
             submit: Zahájit ceremoniál
-            success: Počáteční žádost o ceremoniál byla úspěšně odeslána do Bulletin Board
+            success: Žádost o Úvodní ceremoniál byla úspěšně odeslána do Vývěsky
             title: Volba vytvořena
             trustees: Důvěrníci
           key_ceremony:
@@ -251,7 +251,7 @@ cs:
             requirements:
               time_before: Volba začne brzy. Hlasovací období můžete začít ručně, nebo bude spuštěna automaticky před časem začátku v %{start_time}.
             submit: Začátek doby hlasování
-            success: Počátek období hlasování bylo úspěšně odesláno do Bulletin Board
+            success: Žádost o Počátek voleb byla úspěšně odeslána do Vývěsky
             title: Připraveno k zahájení
           processing: Zpracovávání...
           results_published:
@@ -272,7 +272,7 @@ cs:
             result: Výsledek
             selected: Vybráno
             submit: Publikovat výsledky
-            success: Volební přepočítání úspěšně zakončeno
+            success: Žádost o Zveřejnění výsledků bylo úspěšně odesláno na Vývěsku
             title: Vypočítané výsledky
           vote:
             errors:
@@ -281,12 +281,12 @@ cs:
             requirements:
               time_after: Volba skončila. Hlasovací dobu můžete ukončit ručně, nebo bude automaticky ukončena za několik minut.
             submit: Konec doby hlasování
-            success: Žádost o ukončení hlasování byla úspěšně odeslána do Bulletin Board
+            success: Žádost o ukončení voleb byla úspěšně odeslána do Vývěsky
             title: Období hlasování
           vote_ended:
             invalid: Vyskytl se problém při startu Volební listiny
             submit: Začít Volební přepočítání
-            success: Požadavek zahájení Volebního přepočítání byl úspěšně odeslán na Bulletin Board
+            success: Požadavek zahájení Volebního přepočítání byl úspěšně odeslán do Vývěsky
             text: Hlasování bylo ukončeno. Nyní můžete začít volební přepočítání.
             title: Období hlasování skončilo
           vote_stats:
@@ -317,12 +317,12 @@ cs:
             success: Důvěrník %{trustee} úspěšně aktualizován
       admin_log:
         election:
-          end_vote: "%{user_name} ukončil hlasovací období pro volby v %{resource_name} na Bulletin Board"
+          end_vote: "%{user_name} ukončil hlasovací období pro volby v %{resource_name} na Vývěsce"
           publish: "%{user_name} zveřejnil volby %{resource_name}"
-          setup: "%{user_name} vytvořil %{resource_name} volby na Bulletin Boardu"
-          start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby ve Bulletin Board %{resource_name}"
-          start_tally: "%{user_name} zahájil Volební přepočítání pro volby v %{resource_name} na Bulletin Board"
-          start_vote: "%{user_name} zahájil hlasovací období pro volby v %{resource_name} na Bulletin Boardu"
+          setup: "%{user_name} vytvořil %{resource_name} volby na Vývěsce"
+          start_key_ceremony: "%{user_name} zahájil Úvodní volební ceremoniál na Vývěsce %{resource_name}"
+          start_tally: "%{user_name} zahájil Volební přepočítání pro volby v %{resource_name} na Vývěsce"
+          start_vote: "%{user_name} zahájil hlasovací období pro volby %{resource_name} na Vývěsce"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
         badge_name:
@@ -402,7 +402,7 @@ cs:
             votes: Hlasy
         election:
           fields:
-            bb_status: Stav Bulletin Boardu
+            bb_status: Stav Vývěsky
             end_time: Končí v
             start_time: Začíná v
             title: Název
@@ -427,13 +427,13 @@ cs:
       trustee_zone:
         elections:
           backup_modal:
-            description: Tyto volby se konají v Bulletin Board. Je velmi důležité, aby každý důvěrník, který se na něm podílí, vytvořil záložní kopii těchto klíčů a uložil je na bezpečném místě. Poté proces pokračuje.
+            description: Tyto volby jsou vytvořeny na Vývěsce. Je velmi důležité, aby každý důvěrník, který se na něm podílí, vytvořil záložní kopii těchto klíčů a uložil je na bezpečném místě. Poté proces pokračuje.
             download_election_keys: Stáhnout klíče
             download_icon: Ikona, která indikuje akci ke stažení
             title: Zálohovat volební klíče pro %{election}
           key_ceremony_steps:
             back: Zpět
-            description: Tyto volby se odehrávají v Bulletin Board. Pro dokončení tohoto procesu je nutná vaše účast jako důvěrníka.
+            description: Tyto volby jsou vytvořeny na Vývěsce. Pro dokončení tohoto procesu je nutná vaše účast jako důvěrníka.
             keys:
               create_election: Generování klíčů
               key_ceremony:
@@ -451,13 +451,13 @@ cs:
               processing: Zpracovávání
             title: Vytvořit volební klíče pro %{election}
           restore_modal:
-            description: Bulletin Board má od vás jako důvěrníka informace o těchto volbách. Chcete-li pokračovat v procesu, nejprve nahrajte záložní soubor generovaný během předchozí relace.
+            description: Vývěska má od vás jako důvěrníka informace o těchto volbách. Chcete-li pokračovat v procesu, nejprve nahrajte záložní soubor generovaný během předchozí relace.
             title: Obnovit volební klíče pro %{election}
             upload_election_keys: Nahrát volební klíče
             upload_icon: Ikona, která indikuje akci ke stažení
           tally_steps:
             back: Zpět
-            description: Výsledky těchto voleb jsou vypočítány v Bulletin Board. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
+            description: Výsledky těchto voleb jsou vyčísleny na Vývěsce. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
             keys:
               end_tally: Volební přepočítání uzavřeno
               tally:
@@ -480,8 +480,8 @@ cs:
         menu:
           trustee_zone: Zóna důvěrníků
         no_bulletin_board:
-          body: Konfigurovaný bulletin Board je vyžadován pro tuto sekci. Pro více informací kontaktujte správce.
-          title: Omlouváme se, ale Bulletin Board ještě není nakonfigurován.
+          body: Konfigurovaná Vývěska je vyžadována pro tuto sekci. Pro více informací kontaktujte správce.
+          title: Omlouváme se, ale Vývěska ještě není nakonfigurována.
         trustees:
           show:
             elections:

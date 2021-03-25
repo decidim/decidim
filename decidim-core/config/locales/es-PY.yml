@@ -257,7 +257,6 @@ es-PY:
       photos:
         related_photos: Fotos relacionadas
     author:
-      avatar: Avatar
       comments:
         one: comentario
         other: comentarios

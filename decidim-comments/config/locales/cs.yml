@@ -43,7 +43,13 @@ cs:
           user_group_id:
             label: Komentovat jako
         opinion:
+          label: Váš názor na toto téma
+          negative: Negativní
+          negative_selected: Váš názor na toto téma je negativní
           neutral: Neutrální
+          neutral_selected: Váš názor na toto téma je neutrální
+          positive: Pozitivní
+          positive_selected: Váš názor na toto téma je pozitivní
         remaining_characters: "Zbývá %{count} znaků"
         remaining_characters_1: "Zbývá %{count} znak"
         title: Přidejte svůj komentář
