@@ -39,7 +39,13 @@ es-MX:
           user_group_id:
             label: Comentar como
         opinion:
+          label: Tu opinión sobre este tema
+          negative: Negativa
+          negative_selected: Tu opinión sobre este tema es negativa
           neutral: Neutral
+          neutral_selected: Tu opinión sobre este tema es neutral
+          positive: Positiva
+          positive_selected: Tu opinión sobre este tema es positiva
         remaining_characters: "Quedan %{count} caracteres"
         remaining_characters_1: "Queda %{count} carácter"
         title: Deje su comentario
