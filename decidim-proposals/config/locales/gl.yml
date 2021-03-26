@@ -803,3 +803,4 @@ gl:
     statistics:
       proposals_accepted: Propostas aceptadas
       proposals_count: Propostas
+      supports_count: Apoios
