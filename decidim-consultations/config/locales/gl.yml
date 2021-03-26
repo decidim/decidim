@@ -276,6 +276,8 @@ gl:
         confirm: Confirmar
         contextual_help: Confirma a opción seleccionada.
         title: 'Consulta: confirma o soporte'
+    statistics:
+      votes_count: Votos
   layouts:
     decidim:
       consultation_voting_data:
