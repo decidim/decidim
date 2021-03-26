@@ -315,13 +315,9 @@ sv:
           header: Rösta bekräftad
           lead: Din röst har redan skickats!
           text: 'Du kan kontrollera att din röst har lagts till i röstsedeln med följande identifierare: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        encrypting:
-          header: Kodar omröstning...
-          text: Din röst krypteras så att du kan skicka den anonymt.
         header:
           confirm: Bekräfta din röst
           confirmed: Rösta bekräftad
-          encrypting: Bekräftar omröstning
         messages:
           not_allowed: Ni får inte rösta om detta val just nu.
         modal:
