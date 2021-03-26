@@ -12,10 +12,6 @@ shared_context "with controller rendering the view" do
     allow(controller.view_context).to receive(:url_for).and_return("/")
   end
 
-  after do
-    controller.class_eval { clear_helpers }
-  end
-
   # Rendering of the view is necessary to see the view renders correctly
   # when there are errors on the form. This is hard to test with a
   # system test because there is some JS blocking us to submit the form
