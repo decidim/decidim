@@ -955,6 +955,12 @@ gl:
         share_link: Compartir a ligazón
     statistics:
       comments_count: Comentarios
+      followers_count: Seguidores
+      headline: Estatísticas
+      no_stats: Aínda non hai estatísticas.
+      pages_count: Páxinas
+      participants_count: Participantes
+      users_count: Participantes
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
