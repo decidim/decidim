@@ -16,7 +16,7 @@
         <%= form.fields_for(:proposals) do |prop_form| %>
         <% proposal= @drafts[prop_form.index] %>
           <li class="accordion-item <%= proposal.article? ? "is-active" : nil %>" data-accordion-item>
-            <a href="#" class="accordion-title flex--sbc"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "presentation", "aria-hidden": true %></span></a>
+            <a href="#" class="accordion-title flex--sbc"><%= preview_participatory_text_section_title(proposal) %><span class="mr-m"><%= icon "menu", class: "icon--small", role: "img", "aria-hidden": true %></span></a>
             <div class="accordion-content" data-tab-content>
               <%= render "article-preview", { form: prop_form, proposal: proposal } %>
             </div>

@@ -6,14 +6,14 @@
       <div class="opinion-toggle button-group">
         <span class="show-for-sr"><%= t("decidim.components.add_comment_form.opinion.label") %></span>
         <button aria-pressed="false" class="button tiny button--muted opinion-toggle--ok" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.positive_selected") %>">
-          <%= icon "thumb-up", role: "presentation", "aria-hidden": true %>
+          <%= icon "thumb-up", role: "img", "aria-hidden": true %>
           <span class="show-for-sr"><%= t("decidim.components.add_comment_form.opinion.positive") %></span>
         </button>
         <button aria-pressed="true" class="button tiny button--muted opinion-toggle--meh is-active" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.neutral_selected") %>">
           <%= t("decidim.components.add_comment_form.opinion.neutral") %>
         </button>
         <button aria-pressed="false" class="button tiny button--muted opinion-toggle--ko" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
-          <%= icon "thumb-down", role: "presentation", "aria-hidden": true %>
+          <%= icon "thumb-down", role: "img", "aria-hidden": true %>
           <span class="show-for-sr"><%= t("decidim.components.add_comment_form.opinion.negative") %></span>
         </button>
         <div role="alert" aria-live="assertive" aria-atomic="true" class="selected-state show-for-sr"></div>
