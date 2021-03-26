@@ -147,7 +147,7 @@ describe "Edit proposals", type: :system do
           click_button "Send"
         end
 
-        expect(page).to have_content("at least 15 characters", count: 2)
+        expect(page).to have_content("At least 15 characters", count: 2)
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "WE DO NOT WANT TO SHOUT IN THE PROPOSAL BODY TEXT!"
