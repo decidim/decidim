@@ -22,6 +22,12 @@ ja:
         slogan: Slogan
         slug: URL スラグ
         title: タイトル
+      conference_media_link:
+        weight: 重量
+      conference_partner:
+        weight: 重量
+      conference_registration_type:
+        weight: 重量
       conference_speaker:
         full_name: フルネーム
       conference_user_role:
