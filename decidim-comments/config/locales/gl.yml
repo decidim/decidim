@@ -39,6 +39,7 @@ gl:
           user_group_id:
             label: Comentar como
         opinion:
+          negative: Negativa
           neutral: Neutro
         remaining_characters: "Faltan %{count} caracteres"
         remaining_characters_1: "Faltou o personaxe %{count}"
