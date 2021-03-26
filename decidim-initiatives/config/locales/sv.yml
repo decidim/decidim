@@ -82,10 +82,12 @@ sv:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
       menu:
+        attachments: Bilagor
         components: Komponenter
         information: Information
         initiatives: Initiativ
         initiatives_types: Initiativtyper
+        moderations: Moderering
       models:
         initiatives:
           fields:
@@ -117,6 +119,7 @@ sv:
             initiative_title: Initiativtitel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
+            scope: Omfång
             time_and_date: Tid och datum
             timestamp: Tidsstämpel
       titles:
@@ -259,6 +262,7 @@ sv:
             update: Uppdatera
           form:
             authorizations: Inställningar för autentisering
+            options: Alternativ
             title: Allmän information
           initiative_type_scopes:
             title: Omfång för initiativtypen
@@ -403,6 +407,7 @@ sv:
         committee_members:
           approve: Godkänn
           confirm_revoke: Är du säker?
+          revoke: Återkalla
         count:
           title:
             one: "%{count} initiativ"
@@ -444,7 +449,14 @@ sv:
           recent: Senaste
           recently_published: Senast publicerade
         print:
+          address: Adress
           city: Stad
+          email: E-post
+          initiative:
+            description: 'Beskrivning:'
+            title: 'Titel:'
+          phone_number: Telefonnummer
+          print: Skriv ut
         result:
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:

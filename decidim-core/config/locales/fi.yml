@@ -1557,9 +1557,11 @@ fi:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
+        main_menu: Päävalikko
         navigation: Navigaatio
         sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
+        user_menu: Käyttäjän valikko
       impersonation_warning:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
@@ -1588,6 +1590,7 @@ fi:
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
         sign_out: Kirjaudu ulos
+        title: Profiilin linkit
       user_profile:
         account: Käyttäjätili
         authorizations: Vahvistukset
