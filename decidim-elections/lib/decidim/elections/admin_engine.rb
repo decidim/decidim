@@ -54,10 +54,11 @@ module Decidim
         Decidim.menu :admin_participatory_process_menu do |menu|
           component = current_participatory_space.components.find_by(manifest_name: :elections)
           if component
-            menu.item "Trustees", # I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                      Decidim::EngineRouter.admin_proxy(component).trustees_path,
-                      active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path),
-                      if: allowed_to?(:update, :process, process: current_participatory_space)
+            menu.add_item :trustees,
+                          "Trustees", # I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
+                          Decidim::EngineRouter.admin_proxy(component).trustees_path,
+                          active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path),
+                          if: allowed_to?(:update, :process, process: current_participatory_space)
           end
         end
       end

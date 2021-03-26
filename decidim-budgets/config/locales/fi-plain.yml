@@ -6,7 +6,7 @@ fi-pl:
         description: Kuvaus
         title: Otsikko
         total_budget: Kokonaisbudjetti
-        weight: Painoarvo
+        weight: Järjestysnumero
       project:
         budget_amount: Budjetti
         decidim_category_id: Aihepiiri
@@ -108,6 +108,9 @@ fi-pl:
         close_modal: Sulje ikkuna
         continue: Jatka
         more_information: Lisätietoa
+      budget_list_item:
+        voting_finished: Olet äänestänyt tästä budjetista
+        voting_started: Olet aloittanut äänestämään tästä budjetista
       budgets_list:
         cancel_order:
           more_than_one: poista äänesi budjetista %{name} ja aloita alusta

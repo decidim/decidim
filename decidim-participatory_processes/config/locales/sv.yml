@@ -34,7 +34,6 @@ sv:
         subtitle: Underrubrik
         target: Vilka deltar
         title: Titel
-        weight: Vikt
       participatory_process_group:
         description: Beskrivning
         hero_image: Bild
@@ -431,6 +430,8 @@ sv:
           more_info_about: Mer information om dialogen %{resource_name}
           take_part: Delta
           take_part_in: Delta i dialogen %{resource_name}
+        promoted_process_group:
+          more_info: Mer information
       process_header_steps:
         step: Steg %{current} av %{total}
         view_steps: Visa steg

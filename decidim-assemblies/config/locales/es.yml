@@ -52,7 +52,7 @@ es:
         target: Quién participa
         title: Título
         twitter: Twitter
-        weight: Peso
+        weight: Orden de posición
         youtube: YouTube
       assembly_member:
         birthday: Cumpleaños
@@ -435,6 +435,8 @@ es:
             processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
       show:
         related_assemblies: Asambleas relacionadas
+    statistics:
+      assemblies_count: Asambleas
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco

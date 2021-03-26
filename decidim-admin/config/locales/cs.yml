@@ -24,7 +24,7 @@ cs:
       component:
         name: Název
         published_at: Publikováno v
-        weight: Váha
+        weight: Pozice v řazení
       id: ID
       import:
         user_group_id: Vytvořit importy jako
@@ -111,12 +111,12 @@ cs:
         show_in_footer: Zobrazit v zápatí
         slug: URL slug
         title: Titul
-        weight: Váha
+        weight: Pozice v řazení
       static_page_topic:
         description: Popis
         show_in_footer: Zobrazit v zápatí
         title: Titul
-        weight: Váha
+        weight: Pozice v řazení
       user_group_csv_verification:
         file: Soubor
     errors:

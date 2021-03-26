@@ -24,7 +24,7 @@ nl:
       component:
         name: Naam
         published_at: Gepubliceerd op
-        weight: Gewicht
+        weight: Bestelpositie
       id: ID
       import:
         user_group_id: Import maken als
@@ -106,12 +106,12 @@ nl:
         show_in_footer: Laat het in het voettekst zien
         slug: URL pad
         title: Titel
-        weight: Gewicht
+        weight: Bestelpositie
       static_page_topic:
         description: Beschrijving
         show_in_footer: Laat het in het voettekst zien
         title: Titel
-        weight: Gewicht
+        weight: Bestelpositie
       user_group_csv_verification:
         file: Bestand
     errors:
@@ -357,6 +357,7 @@ nl:
         file_help:
           import:
             explanation: 'Eigenschappen bestand:'
+            message_1: CSV, JSON en Excel (.xlsx) bestanden worden ondersteund
             message_2: Voor CSV-bestanden moet het scheidingsteken tussen kolommen een puntkomma (";") zijn
       help_sections:
         error: Er is een fout opgetreden bij het bijwerken van de Help-gedeelten
@@ -408,6 +409,7 @@ nl:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Terug
           file_legend: Een importbestand toevoegen dat zal worden verwerkt.
@@ -872,6 +874,8 @@ nl:
         impersonate_user:
           reason: U moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     metrics:
+      blocked_users:
+        object: geblokkeerde gebruikers
       reported_users:
         object: gerapporteerde gebruikers
         title: Gerapporteerde gebruikers

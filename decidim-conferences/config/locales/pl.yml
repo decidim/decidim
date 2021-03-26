@@ -212,7 +212,6 @@ pl:
             price: Cena
             registrations_count: Liczba rejestracji
             title: Tytuł
-            weight: Kolejność na stronie
           name: Typ rejestracji
       partners:
         create:
@@ -547,6 +546,8 @@ pl:
         title: Media i linki
     menu:
       conferences: Konferencje
+    statistics:
+      conferences_count: Konferencje
   devise:
     mailer:
       join_conference:

@@ -75,6 +75,9 @@ gl:
           ongoing: Activa
           upcoming: Vindeiras
         footer:
+          remaining_time:
+            one: "<strong>%{count} hora %{minutes} minutos</strong> para votar."
+            other: "<strong>%{count} horas %{minutes} minutos</strong> para votar."
           view: Ver
           vote: Votar
         label:
@@ -95,6 +98,18 @@ gl:
           filter_by: Filtrar por
         results:
           selected: Seleccionado
+        show:
+          action_button:
+            change_vote: Troca o teu voto
+            vote: Comezar votación
+            vote_again: Votar de novo
+          callout:
+            already_voted: Xa votaches nesta elección. Podes trocar o teu voto ou verificalo.
+            vote_rejected: Non foi posíbel verificar o teu voto. Por favor, faino de novo.
+          verify:
+            already_voted: Xa votaches?
+            verify_here: Verifica o teu voto aquí.
+            will_verify: Poderás verificar o teu voto unha vez comece a elección.
       models:
         answer:
           fields:

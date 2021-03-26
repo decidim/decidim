@@ -34,7 +34,7 @@ cs:
         subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
-        weight: Váha
+        weight: Pozice v řazení
       participatory_process_group:
         description: Popis
         developer_group: Skupina propagátorů
@@ -444,8 +444,8 @@ cs:
             no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
           names:
             active: Aktivní
-            all: Všechno
-            past: Minulost
+            all: Vše
+            past: Minulé
             upcoming: Nadcházející
           see: Vidět
         index:

@@ -241,7 +241,6 @@
       photos:
         related_photos: Illustrasjoner
     author:
-      avatar: Profilbilde
       comments:
         one: kommentar
         other: kommentarer

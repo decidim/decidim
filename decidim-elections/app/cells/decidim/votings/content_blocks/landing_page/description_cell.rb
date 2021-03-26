@@ -8,6 +8,7 @@ module Decidim
           include Decidim::SanitizeHelper
 
           delegate :current_participatory_space, to: :controller
+          delegate :introductory_image, to: :current_participatory_space
 
           private
 

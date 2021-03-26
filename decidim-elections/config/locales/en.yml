@@ -266,7 +266,7 @@ en:
             result: Result
             selected: Selected
             submit: Publish results
-            success: Tally successfully ended
+            success: Publish results request was successfully sent to the Bulletin Board
             title: Calculated results
           vote:
             errors:
@@ -325,6 +325,10 @@ en:
           upcoming: Upcoming
         end_date: Ends
         footer:
+          remaining_time:
+            one: "<strong>%{count} hour %{minutes} minutes</strong> remaining to vote."
+            other: "<strong>%{count} hours %{minutes} minutes</strong> remaining to vote."
+            zero: "<strong>%{minutes} minutes</strong> remaining to vote."
           view: View
           vote: Vote
         label:

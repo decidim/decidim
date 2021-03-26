@@ -33,6 +33,7 @@
         </thead>
         <tbody>
           <% moderations.each do |moderation| %>
+            <% next unless moderation.reportable %>
             <tr data-id="<%= moderation.id %>">
               <td><%= moderation.reportable.id %></td>
               <td>

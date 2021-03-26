@@ -206,7 +206,7 @@ ca:
             price: Preu
             registrations_count: Nombre d'inscripcions
             title: Títol
-            weight: Pes
+            weight: Ordre de posició
           name: Tipus d'inscripció
       partners:
         create:
@@ -539,6 +539,8 @@ ca:
         title: Multimedia i enllaços
     menu:
       conferences: Jornades
+    statistics:
+      conferences_count: Jornades
   devise:
     mailer:
       join_conference:

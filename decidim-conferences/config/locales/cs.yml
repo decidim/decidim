@@ -212,7 +212,7 @@ cs:
             price: Cena
             registrations_count: Registrace se počítají
             title: Název
-            weight: Váha
+            weight: Pozice v řazení
           name: Typ registrace
       partners:
         create:
@@ -309,7 +309,7 @@ cs:
           index:
             filter:
               accepted: Přijato
-              all: Všechno
+              all: Vše
               rejected: Odmítnuto
               sent: Odesláno
             filter_by: Filtrovat podle

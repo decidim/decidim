@@ -15,6 +15,7 @@ nl:
         edit: Bewerk
         new: Nieuw bericht
         title: acties
+        user_group_id: Bericht aanmaken als
       admin:
         models:
           components:

@@ -52,7 +52,7 @@ ro:
         target: Cine participă
         title: Titlu
         twitter: Twitter
-        weight: Pondere
+        weight: Ordinea procesului
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii

@@ -206,7 +206,7 @@ es-MX:
             price: Precio
             registrations_count: Número de inscripciones
             title: Título
-            weight: Peso
+            weight: Orden de posición
           name: Tipo de inscripción
       partners:
         create:
@@ -539,6 +539,8 @@ es-MX:
         title: Multimedia y enlaces
     menu:
       conferences: Conferencias
+    statistics:
+      conferences_count: Jornadas
   devise:
     mailer:
       join_conference:

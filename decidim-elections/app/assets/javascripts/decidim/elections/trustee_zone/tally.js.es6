@@ -1,6 +1,8 @@
 // = require decidim/bulletin_board/decidim-bulletin_board
-// = require decidim/bulletin_board/dummy-voting-scheme
-// = require decidim/bulletin_board/election_guard-voting-scheme
+
+// Note: these gems will be moved to the application in the next release
+// = require voting_schemes/dummy/dummy
+// = require voting_schemes/electionguard/electionguard
 
 $(() => {
   const { TallyComponent, IdentificationKeys, MessageIdentifier, MESSAGE_RECEIVED } = window.decidimBulletinBoard;
@@ -42,10 +44,10 @@ $(() => {
     trusteeWrapperAdapter = new DummyTrusteeWrapperAdapter({
       trusteeId: trusteeContext.uniqueId
     });
-  } else if (schemeName === "election_guard") {
+  } else if (schemeName === "electionguard") {
     trusteeWrapperAdapter = new ElectionGuardTrusteeWrapperAdapter({
       trusteeId: trusteeContext.uniqueId,
-      workerUrl: "/assets/election_guard/webworker.js"
+      workerUrl: "/assets/electionguard/webworker.js"
     });
   } else {
     throw new Error(`Voting scheme ${schemeName} not supported.`);

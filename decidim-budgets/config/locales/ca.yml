@@ -6,7 +6,7 @@ ca:
         description: Descripció
         title: Títol
         total_budget: Pressupost total
-        weight: Pes
+        weight: Ordre de posició
       project:
         budget_amount: Import del pressupost
         decidim_category_id: Categoria
@@ -108,6 +108,9 @@ ca:
         close_modal: Tancar el modal
         continue: Continuar
         more_information: Més informació
+      budget_list_item:
+        voting_finished: Has votat en aquest pressupost
+        voting_started: Has començat a votar en aquest pressupost
       budgets_list:
         cancel_order:
           more_than_one: eliminar el teu vot a %{name} i començar de nou
@@ -291,5 +294,8 @@ ca:
     resource_links:
       included_proposals:
         project_proposal: Propostes incloses en aquest projecte
+    statistics:
+      orders_count: Suports
+      projects_count: Projectes
   index:
     confirmed_orders_count: Recompte de vots

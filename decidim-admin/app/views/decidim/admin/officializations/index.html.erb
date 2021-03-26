@@ -45,13 +45,13 @@
                 <% end %>
                 <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
                 <% if user.officialized? %>
-                  <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "presentation", aria_label: t(".officialize") %>
                   <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
                   <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
                 <% else %>
                   <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
                 <% end %>
               </td>
             </tr>

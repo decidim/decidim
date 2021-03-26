@@ -34,7 +34,6 @@ pl:
         subtitle: Podtytuł
         target: Kto uczestniczy
         title: Tytuł
-        weight: Kolejność na stronie
       participatory_process_group:
         description: Opis
         developer_group: Grupa inicjatorów
@@ -465,6 +464,8 @@ pl:
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
         unspecified: Nieokreślony
+    statistics:
+      processes_count: Procesy
   layouts:
     decidim:
       participatory_process_groups:

@@ -244,3 +244,5 @@ gl:
         result_project: Proxectos incluídos neste resultado
       included_proposals:
         result_proposal: Propostas incluídas neste resultado
+    statistics:
+      results_count: Resultados

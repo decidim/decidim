@@ -139,11 +139,13 @@ pl:
           new:
             create: Utwórz odpowiedź
             title: Nowa odpowiedź
+          not_selected: Nie wybrane
           select:
             disable: Odznacz odpowiedź
             enable: Zaznacz odpowiedź
             invalid: Wystąpił błąd z przy wybieraniu tej odpowiedzi
             success: Zaznaczono odpowiedź
+          selected: Wybrane
           unselect:
             invalid: Wystąpił problem z odznaczaniem tej odpowiedzi
             success: Odznaczono odpowiedź
@@ -258,12 +260,24 @@ pl:
             title: Gotowy do startu
           processing: Przetwarzanie...
           results_published:
+            answer: Odpowiedź
+            not_selected: Nie wybrano
+            question: Pytanie
+            result: Wynik
+            selected: Wybrane
+            submit: Prześlij
             title: Opublikowano wyniki
           tally:
             title: Podsumowanie procesu
             trustees: Powiernicy
           tally_ended:
+            answer: Odpowiedź
+            not_selected: Nie wybrano
+            question: Pytanie
+            result: Wynik
+            selected: Wybrano
             submit: Publikuj wyniki
+            title: Obliczone wyniki
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
@@ -383,7 +397,9 @@ pl:
         answer:
           fields:
             proposals: Propozycje
+            selected: Wybrano
             title: Tytuł
+            votes: Głosy
         election:
           fields:
             bb_status: Status tablicy ogłoszeń
@@ -504,6 +520,9 @@ pl:
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
+        ballot_decision:
+          back: Rozpocznij proces głosowania ponownie
+          cast: Rozpocznij głosowanie
         confirm:
           answer: Odpowiedz
           answer_number: odpowiedź %{number}
@@ -609,6 +628,9 @@ pl:
           title: Czym są głosowania?
     menu:
       votings: Głosowania
+    statistics:
+      elections_count: Wybory
+      votings_count: Głosowań
     votings:
       admin:
         content_blocks:
@@ -792,6 +814,15 @@ pl:
       content_blocks:
         highlighted_votings:
           name: Wyróżnione głosowania
+        landing_page:
+          description:
+            show_less: Zwiń
+            show_more: Pokaż więcej
+          polling_stations:
+            heading: Lokale wyborcze
+            no_polling_stations: Nie ma jeszcze żadnych punktów wyborczych.
+          timeline:
+            heading: Oś czasu
       monitoring_committee_members:
         actions:
           confirm_destroy: Jesteś pewny?
@@ -887,6 +918,8 @@ pl:
     decidim:
       election_votes_header:
         exit: Wyjście
+      voting_navigation:
+        voting_menu_item: Głosowanie
       votings:
         index:
           promoted_votings: Wyróżnione głosowania

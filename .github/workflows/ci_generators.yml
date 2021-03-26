@@ -8,6 +8,11 @@ on:
   pull_request:
     branches-ignore:
       - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-core/**"
+      - "decidim-generators/**"
 
 env:
   CI: "true"
