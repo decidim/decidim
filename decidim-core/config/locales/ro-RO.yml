@@ -1524,11 +1524,6 @@ ro:
       too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
-    length_validator:
-      minimum:
-        one: cel puțin %{count} caracter
-        few: cel puțin %{count} caractere
-        other: cel puțin %{count} caractere
     required: Necesar
     required_explanation: "* Câmpurile obligatorii sunt marcate cu un asterisc"
   invisible_captcha:
