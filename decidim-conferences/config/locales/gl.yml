@@ -240,6 +240,7 @@ gl:
             price: Prezo
             registrations_count: Contas de rexistro
             title: Título
+            weight: Orde de posición
           name: Tipo de rexistro
       partners:
         create:
