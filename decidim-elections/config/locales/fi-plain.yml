@@ -265,6 +265,7 @@ fi-pl:
             result: Tulos
             selected: Valittu
             submit: Julkaise tulokset
+            success: Pyyntösi julkaista äänestyksen tulokset on onnistuneesti lähetetty sähköiselle ääniuurnalle
             title: Ääntenlaskun tulokset
           vote:
             errors:

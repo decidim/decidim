@@ -262,6 +262,8 @@ ro:
       photos:
         related_photos: Imagini asemănătoare
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar pentru mai mulți utilizatori
       comments:
         one: comentariu
         few: comentarii
@@ -1307,6 +1309,7 @@ ro:
         send: Trimite
         title_reply: Răspuns
       show:
+        back: Arată toate conversațiile
         not_allowed: Acest utilizator nu mai acceptă mesaje directe.
         title: Conversație cu %{usernames}
       update:
@@ -1341,6 +1344,7 @@ ro:
         number_of_versions: Versiuni
         title: Versiuni
     versions_list_item:
+      back: Arată toate versiunile
       show:
         version_index: Versiunea %{index}
     welcome_notification:

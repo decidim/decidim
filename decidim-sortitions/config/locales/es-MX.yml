@@ -144,3 +144,5 @@ es-MX:
           count:
             one: 1 sorteo
             other: "%{count} clasificaciones"
+    statistics:
+      sortitions_count: Sorteos

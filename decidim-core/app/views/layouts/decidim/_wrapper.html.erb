@@ -52,7 +52,7 @@ end
                 </button>
               </div>
               <% if current_user %>
-                <nav class="topbar__dropmenu topbar__user__logged">
+                <nav class="topbar__dropmenu topbar__user__logged" aria-label="<%= t("layouts.decidim.header.user_menu") %>">
                   <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
                     <%= icon "bell", role: "img", aria_label: t("layouts.decidim.user_menu.notifications") %>
                   <% end %>
