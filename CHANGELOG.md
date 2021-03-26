@@ -1,42 +1,6 @@
 # Change Log
 
-## [v0.24.0.rc2](https://github.com/decidim/decidim/releases/tag/v0.24.0.rc2)
-
-### Added
-
-Nothing.
-
-### Changed
-
-Nothing.
-
-### Fixed
-
-- **decidim-core**: Fix invalid signature on message decryption [\#7490](https://github.com/decidim/decidim/pull/7490)
-- **decidim-assemblies**, **decidim-participatory processes**: Fix NULL error with weight field in assemblies & processes [\#7491](https://github.com/decidim/decidim/pull/7491)
-- **decidim-core**: Fix record encryptor hash values JSON parsing for legacy unencrypted hash values [\#7496](https://github.com/decidim/decidim/pull/7496)
-- **decidim-admin**: Only share tokens if component exists [\#7504](https://github.com/decidim/decidim/pull/7504)
-- **decidim-core**: Invalidate all user sessions when destroying the account [\#7511](https://github.com/decidim/decidim/pull/7511)
-- **decidim-proposals**: Fix non-unique IDs element in filter hash cash [\#7533](https://github.com/decidim/decidim/pull/7533)
-- **decidim-core**: Fix record encryptor trying to decrypt or decode non-String values [\#7538](https://github.com/decidim/decidim/pull/7538)
-- **decidim-core**: Fix record encryptor trying to decrypt empty strings [\#7547](https://github.com/decidim/decidim/pull/7547)
-- **decidim-admin**, **decidim-budgets**:  New Admin users cannot accept Terms and conditions [\#7520](https://github.com/decidim/decidim/pull/7520)
-- **decidim-core**, **decidim-proposals**: Fix cells caching by using cache_key_with_version instead of cache version [\#7556](https://github.com/decidim/decidim/pull/7556)
-- **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Fix user profile timeline activity cards texts showing "New resource" on updates [\#7558](https://github.com/decidim/decidim/pull/7558)
-- **decidim-core**: Sanitize address inputs [\#7576](https://github.com/decidim/decidim/pull/7576)
-
-### Removed
-
-Nothing.
-
-### Developer improvements
-
-- Remove duplicated migration [\#7521](https://github.com/decidim/decidim/pull/7521)
-
-### Unsorted
-
-
-## [v0.24.0.rc1](https://github.com/decidim/decidim/releases/tag/v0.24.0.rc1)
+## [v0.24.0](https://github.com/decidim/decidim/releases/tag/v0.24.0)
 
 ### Upgrade Notes
 
@@ -208,6 +172,7 @@ This is less performant but it is more secure. Security weighs more.
 - **decidim-assemblies**: Add order in not highlighted assemblies by weight [\#7444](https://github.com/decidim/decidim/pull/7444)
 - **decidim-elections**: Add Votings to Open Data export [\#7388](https://github.com/decidim/decidim/pull/7388)
 - **decidim-proposals**: Feature proposal infinite edit time [\#7406](https://github.com/decidim/decidim/pull/7406)
+- **decidim-meetings**: Display map and link for hybrid meetings [\#7065](https://github.com/decidim/decidim/pull/7065)
 
 ### Changed
 
@@ -244,6 +209,7 @@ This is less performant but it is more secure. Security weighs more.
 - **decidim-meetings**: Improve seeds dates in meetings [\#7339](https://github.com/decidim/decidim/pull/7339)
 - **decidim-admin**: Migrate Admin menus to Menu Registry [\#7368](https://github.com/decidim/decidim/pull/7368)
 - **decidim-core**: Align Data Picker selected values styles [\#7448](https://github.com/decidim/decidim/pull/7448)
+- **decidim-comments**: Make API commentable mutation translation attributes optional [\#7694](https://github.com/decidim/decidim/pull/7694)
 
 ### Fixed
 
@@ -371,6 +337,38 @@ This is less performant but it is more secure. Security weighs more.
 - **decidim-admin**: Fix to avoid registered users being invited again [\#7392](https://github.com/decidim/decidim/pull/7392)
 - **decidim-debates**: Fix display of debates with multiple dates [\#7393](https://github.com/decidim/decidim/pull/7393)
 - **decidim-core**: Fix session timeout when using multiple windows or tabs [\#7459](https://github.com/decidim/decidim/pull/7459)
+- **decidim-core**: Fix invalid signature on message decryption [\#7490](https://github.com/decidim/decidim/pull/7490)
+- **decidim-assemblies**, **decidim-participatory processes**: Fix NULL error with weight field in assemblies & processes [\#7491](https://github.com/decidim/decidim/pull/7491)
+- **decidim-core**: Fix record encryptor hash values JSON parsing for legacy unencrypted hash values [\#7496](https://github.com/decidim/decidim/pull/7496)
+- **decidim-admin**: Only share tokens if component exists [\#7504](https://github.com/decidim/decidim/pull/7504)
+- **decidim-core**: Invalidate all user sessions when destroying the account [\#7511](https://github.com/decidim/decidim/pull/7511)
+- **decidim-proposals**: Fix non-unique IDs element in filter hash cash [\#7533](https://github.com/decidim/decidim/pull/7533)
+- **decidim-core**: Fix record encryptor trying to decrypt or decode non-String values [\#7538](https://github.com/decidim/decidim/pull/7538)
+- **decidim-core**: Fix record encryptor trying to decrypt empty strings [\#7547](https://github.com/decidim/decidim/pull/7547)
+- **decidim-admin**, **decidim-budgets**:  New Admin users cannot accept Terms and conditions [\#7520](https://github.com/decidim/decidim/pull/7520)
+- **decidim-core**, **decidim-proposals**: Fix cells caching by using cache_key_with_version instead of cache version [\#7556](https://github.com/decidim/decidim/pull/7556)
+- **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Fix user profile timeline activity cards texts showing "New resource" on updates [\#7558](https://github.com/decidim/decidim/pull/7558)
+- **decidim-core**: Sanitize address inputs [\#7576](https://github.com/decidim/decidim/pull/7576)
+- **decidim-participatory processes**: Fix process serializer to consider nil images [\#7614](https://github.com/decidim/decidim/pull/7614)
+- **decidim-core**: Make category in the API non-mandatory [\#7626](https://github.com/decidim/decidim/pull/7626)
+- **decidim-proposals**: Improve proposals listing performance after cache implementation [\#7630](https://github.com/decidim/decidim/pull/7630)
+- **decidim-meetings**: Do not crash if mandatory fields are blank and registrations are enabled [\#7636](https://github.com/decidim/decidim/pull/7636)
+- **decidim-participatory processes**: Show processes finishing today [\#7637](https://github.com/decidim/decidim/pull/7637)
+- **decidim-proposals**: Fix rendering of proposals in map [\#7645](https://github.com/decidim/decidim/pull/7645)
+- **decidim-proposals**: Don't copy counters when copying proposals [\#7639](https://github.com/decidim/decidim/pull/7639)
+- **decidim-proposals**: Show all proposals in map (#7660) [\#7678](https://github.com/decidim/decidim/pull/7678)
+- **decidim-core**: Fit the map properly on mobile screens with multiple markers [\#7651](https://github.com/decidim/decidim/pull/7651)
+- **decidim-initiatives**: Fix initiative-m card hashtags [\#7679](https://github.com/decidim/decidim/pull/7679)
+- **decidim-core**: Ensure pagination elements per page is a valid option [\#7680](https://github.com/decidim/decidim/pull/7680)
+- **decidim-core**: Don't show deleted users on user group members page [\#7681](https://github.com/decidim/decidim/pull/7681)
+- **decidim-core**: Fix report mailers when author is a meeting [\#7683](https://github.com/decidim/decidim/pull/7683)
+- **decidim-admin**: Don't render a moderation when its reportable is deleted [\#7684](https://github.com/decidim/decidim/pull/7684)
+- **decidim-meetings**: Show newer meetings first [\#7685](https://github.com/decidim/decidim/pull/7685)
+- **decidim-admin**: Only show moderations from current organization in Global Moderation panel [\#7686](https://github.com/decidim/decidim/pull/7686)
+- **decidim-core**: Don't send emails to deleted users [\#7688](https://github.com/decidim/decidim/pull/7688)
+- **decidim-proposals**: Fix a series of issues with proposal attachments in the public area [\#7699](https://github.com/decidim/decidim/pull/7699)
+- **decidim-proposals**: Fix map preview when there is no address [\#7673](https://github.com/decidim/decidim/pull/7673)
+- **decidim-core**, **decidim-proposals**: Fix announcements when sending an empty translations hash [\#7568](https://github.com/decidim/decidim/pull/7568)
 
 ### Removed
 
@@ -491,7 +489,9 @@ This is less performant but it is more secure. Security weighs more.
 - Improve menus sorting [\#7460](https://github.com/decidim/decidim/pull/7460)
 - Add changelog generator based on PR data [\#7461](https://github.com/decidim/decidim/pull/7461)
 - Trigger docs build on folder changes [\#7360](https://github.com/decidim/decidim/pull/7360)
+- Remove duplicated migration [\#7521](https://github.com/decidim/decidim/pull/7521)
+- Bump mimemagic to 0.3.6 [\#7701](https://github.com/decidim/decidim/pull/7701)
 
 ## Previous versions
 
-Please check [release/0.24-stable](https://github.com/decidim/decidim/blob/release/0.24-stable/CHANGELOG.md) for previous changes.
+Please check [release/0.23-stable](https://github.com/decidim/decidim/blob/release/0.23-stable/CHANGELOG.md) for previous changes.
