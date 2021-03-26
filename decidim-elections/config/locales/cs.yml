@@ -547,6 +547,9 @@ cs:
           lead: Váš hlas již byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
+        encrypting:
+          header: Šifrování hlasování...
+          text: Váš hlasovací lístek je šifrován, aby bylo zajištěno že vaše hlasování je tajné.
         failed:
           header: Hlasování se nezdařilo
           lead: Váš hlas nebyl odeslán!
