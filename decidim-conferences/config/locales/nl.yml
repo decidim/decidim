@@ -22,6 +22,12 @@ nl:
         slogan: Slogan
         slug: URL-slug
         title: Titel
+      conference_media_link:
+        weight: Gewicht
+      conference_partner:
+        weight: Gewicht
+      conference_registration_type:
+        weight: Gewicht
       conference_speaker:
         full_name: Voor-en achternaam
       conference_user_role:
