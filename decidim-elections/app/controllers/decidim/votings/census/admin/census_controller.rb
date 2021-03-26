@@ -108,11 +108,11 @@ module Decidim
               "creating_data"
             elsif current_census.data_created?
               "generate_codes"
-            when "generating_codes"
+            elsif current_census.generating_codes?
               "generating_codes"
-            when "codes_generated"
+            elsif current_census.codes_generated?
               "export_codes"
-            when "freeze"
+            elsif current_census.freeze?
               "freeze"
             else
               raise "no view for this status"
