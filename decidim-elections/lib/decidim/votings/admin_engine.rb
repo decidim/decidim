@@ -35,6 +35,8 @@ module Decidim
               post :create, action: :create
               put :update, action: :update
               get :generate_access_codes, action: :generate_access_codes
+              get :export_access_codes, action: :export_access_codes
+              get :download_access_codes_file, action: :download_access_codes_file
             end
           end
         end
