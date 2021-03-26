@@ -23,6 +23,7 @@ gl:
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         show_statistics: Amosar estatísticas
+        sign_date: Data de sinatura
         signature: Sinatura
         slogan: Eslogan
         slug: URL slug
@@ -50,10 +51,12 @@ gl:
         title: Título
         weight: Peso
       conference_speaker:
+        affiliation: Afiliación
         avatar: Avatar
         conference_meeting_ids: Xuntanzas relacionadas
         full_name: Nome completo
         personal_url: Url persoal
+        position: Posición
         short_bio: Pequena biografía
         user_id: Usuario
       conference_user_role:
