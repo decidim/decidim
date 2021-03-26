@@ -1566,6 +1566,12 @@ cs:
       too_short: je příliš krátká (pod 15 znaků)
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
+    length_validator:
+      minimum:
+        one: Alespoň %{count} znak
+        few: Alespoň %{count} znaky
+        many: Alespoň %{count} znaků
+        other: Alespoň %{count} znaků
     required: Povinný
     required_explanation: "* Povinná pole jsou označena hvězdičkou"
   invisible_captcha:
