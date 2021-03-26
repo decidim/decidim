@@ -147,19 +147,14 @@ gl:
               submit: Enviar
       votes:
         confirmed:
-          error: Sentímolo, produciuse un erro confirmando o voto. Por favor, vota de novo.
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
           header: Voto confirmado
         header:
           confirm: Confirma o teu voto
           confirmed: Voto confirmado
-          encrypting: Confirmando o voto
         modal:
           close: Pechar
-        update:
-          error: Produciuse un problema ao actualizar o estado do voto
-          success: Estado do voto actualizado con éxito
     events:
       elections:
         votes:
