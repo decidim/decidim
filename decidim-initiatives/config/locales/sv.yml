@@ -123,6 +123,7 @@ sv:
             initiative_title: Initiativtitel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
+            scope: Omfång
             time_and_date: Tid och datum
             timestamp: Tidsstämpel
       titles:
@@ -263,6 +264,7 @@ sv:
             update: Uppdatera
           form:
             authorizations: Inställningar för autentisering
+            options: Alternativ
             title: Allmän information
           initiative_type_scopes:
             title: Omfång för initiativtypen

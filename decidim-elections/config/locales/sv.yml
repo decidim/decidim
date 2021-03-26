@@ -204,6 +204,7 @@ sv:
           edit: redigera
           header: Bekräfta din röst
           intro: Här är en sammanfattning av den röst som du ska rösta. <br> Vänligen bekräfta din röst eller redigera dina svar.
+          nota_option: Tom
           question: Fråga %{count}
         confirmed:
           back: Tillbaka till val
