@@ -56,6 +56,7 @@ import "../src/decidim/gallery"
 
 // CSS
 import "./decidim_core.scss"
+import "./decidim_email.scss"
 
 // Images
 import "../images/decidim/avatar-multiuser.png"
