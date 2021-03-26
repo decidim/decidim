@@ -3,8 +3,7 @@
 shared_context "with controller rendering the view" do
   # Fix "No route matches" errors with the view.
   before do
-    view_context_class = controller.view_context_class
-    view_context_class.class_eval do
+    controller.view_context_class.class_eval do
       # Needed for the form_for to work (through decidim_form_for)
       # The path shouldn't matter in the controller specs.
       def polymorphic_path(_record, _options)
@@ -17,8 +16,6 @@ shared_context "with controller rendering the view" do
         "/"
       end
     end
-
-    allow(controller).to receive(:view_context_class).and_return(view_context_class)
   end
 
   after do
