@@ -50,6 +50,8 @@ gl:
           new:
             create: Crear resposta
             title: Nova resposta
+          not_selected: Non seleccionada
+          selected: Seleccionada
         models:
           answer:
             name: Resposta
@@ -71,13 +73,17 @@ gl:
             not_used_trustee: "(non usada)"
           results_published:
             answer: Resposta
+            not_selected: Non seleccionado
             question: Pregunta
             result: Resultado
+            selected: Seleccionado
             submit: Enviar
           tally_ended:
             answer: Resposta
+            not_selected: Non seleccionado
             question: Pregunta
             result: Resultado
+            selected: Seleccionado
             success: A solicitude de publicación de resultados foi enviada con éxito ao Bulletin Board
             title: Resultados calculados
           vote_ended:
@@ -165,6 +171,8 @@ gl:
             identification_keys:
               submit: Enviar
       votes:
+        ballot_decision:
+          back: Comezar o proceso de voto de novo
         confirmed:
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
