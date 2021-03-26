@@ -1487,10 +1487,6 @@ nl:
       too_short: is te kort (minder dan 15 tekens)
   forms:
     correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
-    length_validator:
-      minimum:
-        one: ten minste %{count} tekens
-        other: ten minste %{count} tekens
     required: Vereist
     required_explanation: "* Verplichte velden zijn gemarkeerd met een sterretje"
   invisible_captcha:
