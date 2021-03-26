@@ -99,6 +99,7 @@ gl:
           filter: Filtrar
           filter_by: Filtrar por
         results:
+          description: 'Estes son os resultados da votación, para cada pregunta:'
           selected: Seleccionado
         show:
           action_button:
@@ -152,6 +153,9 @@ gl:
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
           header: Voto confirmado
+        encrypting:
+          header: Cifrando o voto...
+          text: Cifrando a papeleta para asegurar que o teu voto é segredo.
         failed:
           try_again: Tentar de novo
         header:
@@ -160,6 +164,8 @@ gl:
           encrypting: Cifrando o voto
         modal:
           close: Pechar
+        update:
+          error: Produciuse un problema ao actualizar o estado do voto. Por favor, téntao de novo.
     events:
       elections:
         votes:
@@ -168,6 +174,9 @@ gl:
             email_outro: Recibiches esta notificación porque votaches pola elección de %{resource_name}.
             email_subject: O teu voto por %{resource_name} foi aceptado.
             notification_title: 'O teu voto foi aceptado, verifícao <a href="%{verify_url}">aquí</a> empregando o teu token de votación: %{encrypted_vote_hash}'
+    statistics:
+      elections_count: Eleccións
+      votings_count: Votacións
     votings:
       admin:
         menu:
@@ -180,3 +189,13 @@ gl:
               hybrid: Híbrido
               in_person: En persoa
               online: En liña
+      content_blocks:
+        landing_page:
+          description:
+            show_less: Ler menos
+            show_more: Ler máis
+          metrics:
+            heading: Métricas
+          polling_stations:
+            heading: Puntos de votación
+            no_polling_stations: Aínda non hai puntos de votación.
