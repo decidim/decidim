@@ -17,10 +17,10 @@
           [:offensive, t("decidim.shared.flag_modal.offensive")],
           [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
         ], :first, :last do |builder| %>
-          <%= builder.label { builder.radio_button(id: nil) + builder.text } %>
+          <label><%= builder.radio_button(id: nil) + builder.text %></label>
         <% end %>
       </fieldset>
-      <%= f.text_area :details, rows: 4, id: nil %>
+      <%= f.text_area :details, rows: 4, id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details" } %>
       <%= f.submit t("decidim.shared.flag_modal.report") %>
     <% end %>
   <% end %>
