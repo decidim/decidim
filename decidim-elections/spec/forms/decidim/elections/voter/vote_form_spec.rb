@@ -2,13 +2,13 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Voter::EncryptedVoteForm do
+describe Decidim::Elections::Voter::VoteForm do
   subject { described_class.from_params(params).with_context(context) }
 
   let(:params) do
     {
-      encrypted_vote: "{ \"question_1\": \"aNsWeR 1\" }",
-      encrypted_vote_hash: "f149b928f7a00eae7e634fc5db0c3cc5531eefb81f49febce8da5bb4a153548b"
+      encrypted_data: "{ \"question_1\": \"aNsWeR 1\" }",
+      encrypted_data_hash: "f149b928f7a00eae7e634fc5db0c3cc5531eefb81f49febce8da5bb4a153548b"
     }
   end
   let(:context) do
@@ -56,29 +56,15 @@ describe Decidim::Elections::Voter::EncryptedVoteForm do
   end
 
   context "when the current user is not present" do
-    let(:context) do
-      {
-        election: create(:election)
-      }
-    end
+    let(:user) { nil }
 
     it { is_expected.to be_invalid }
   end
 
   context "when the election is not present" do
-    let(:context) do
-      {
-        current_user: create(:user)
-      }
-    end
+    let(:election) { nil }
 
     it { is_expected.to be_invalid }
-  end
-
-  describe ".election_unique_id" do
-    it "returns the election unique id" do
-      expect(subject.election_unique_id).to eq("decidim-test-authority.#{election.id}")
-    end
   end
 
   describe ".voter_id" do

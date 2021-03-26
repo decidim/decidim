@@ -11,7 +11,7 @@ describe Decidim::Elections::Votes::VoteAcceptedEvent do
   let(:resource) { vote.election }
   let(:encrypted_vote_hash) { vote.encrypted_vote_hash }
   let(:resource_name) { resource.title["en"] }
-  let(:verify_url) { Decidim::EngineRouter.main_proxy(resource.component).verify_election_vote_url(resource) }
+  let(:verify_url) { Decidim::EngineRouter.main_proxy(resource.component).election_vote_verify_url(resource, vote_id: encrypted_vote_hash) }
 
   it_behaves_like "a simple event"
 
