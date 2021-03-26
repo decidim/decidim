@@ -486,6 +486,7 @@
       margin-top: 2px;
 
       /*
+       * TODO-blat: review if this icon-path works
        * This is a hack to comply with google guidelines
        * https://developers.google.com/identity/branding-guidelines
        * Currently the icons.svg file have the wrong google icon, until that's fixed
@@ -500,7 +501,7 @@
           display: none;
         }
 
-        background-image: image-url("decidim/brands/google.svg");
+        background-image: url("../images/decidim/brands/google.svg");
       }
     }
   }

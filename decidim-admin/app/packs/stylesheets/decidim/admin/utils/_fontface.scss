@@ -3,9 +3,9 @@
   font-style: normal;
   font-weight: 400;
   src:
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_400.woff2') format('woff2'),
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_400.woff') format('woff'),
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_400.ttf') format('truetype');
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_400.woff2') format('woff2'),
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_400.woff') format('woff'),
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_400.ttf') format('truetype');
 }
 
 @font-face{
@@ -13,9 +13,9 @@
   font-style: normal;
   font-weight: 600;
   src:
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_600.woff2') format('woff2'),
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_600.woff') format('woff'),
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_600.ttf') format('truetype');
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_600.woff2') format('woff2'),
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_600.woff') format('woff'),
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_600.ttf') format('truetype');
 }
 
 @font-face{
@@ -23,7 +23,7 @@
   font-style: normal;
   font-weight: 900;
   src:
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_900.woff2') format('woff2'),
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_900.woff') format('woff'),
-    font-url('../../../../../../decidim-core/app/packs/fonts/Source_Sans_Pro_900.ttf') format('truetype');
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_900.woff2') format('woff2'),
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_900.woff') format('woff'),
+    url('../../../../decidim-core/app/packs/fonts/decidim/Source_Sans_Pro_900.ttf') format('truetype');
 }

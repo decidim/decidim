@@ -17,10 +17,10 @@
     //   radial-gradient(circle at 0    50%, $motif_backcolor 5%, $motif_frontcolor 6%, $motif_frontcolor 15%, $motif_backcolor 16%, $motif_backcolor 20%, $motif_frontcolor 21%, $motif_frontcolor 30%, $motif_backcolor 31%, $motif_backcolor 35%, $motif_frontcolor 36%, $motif_frontcolor 45%, $motif_backcolor 46%, $motif_backcolor 49%, transparent 50%, transparent);
     // background-size: 16px 8px;
 
-    -moz-border-image: url("../images/pattern.png") 20 repeat;
-    -webkit-border-image: url("../images/pattern.png") 20 repeat;
-    -o-border-image: url("../images/pattern.png") 20 repeat;
-    border-image: url("../images/pattern.png") 20 repeat;
+    -moz-border-image: url("../images/decidim/pattern.png") 20 repeat;
+    -webkit-border-image: url("../images/decidim/pattern.png") 20 repeat;
+    -o-border-image: url("../images/decidim/pattern.png") 20 repeat;
+    border-image: url("../images/decidim/pattern.png") 20 repeat;
     border-style: solid;
     border-width: 1rem;
 
@@ -64,10 +64,10 @@
   .conference-diploma{
     .diploma__border{
       margin: 0;
-      -moz-border-image: url("../images/pattern.png") 20 repeat;
-      -webkit-border-image: url("../images/pattern.png") 20 repeat;
-      -o-border-image: url("../images/pattern.png") 20 repeat;
-      border-image: url("../images/pattern.png") 20 repeat;
+      -moz-border-image: url("../images/decidim/pattern.png") 20 repeat;
+      -webkit-border-image: url("../images/decidim/pattern.png") 20 repeat;
+      -o-border-image: url("../images/decidim/pattern.png") 20 repeat;
+      border-image: url("../images/decidim/pattern.png") 20 repeat;
       border-style: solid;
       border-width: 1rem;
     }

@@ -16,6 +16,7 @@ module Decidim
       let(:method) { :avatar_url }
 
       it "returns the default avatar url" do
+        # TODO-blat: fix test
         expect(subject.starts_with?("/assets/decidim/default-avatar-")).to be true
         expect(subject.ends_with?(".svg")).to be true
       end
