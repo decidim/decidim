@@ -89,6 +89,7 @@ module.exports = {
     decidim_proposals: "./decidim-proposals/app/packs/entrypoints/decidim_proposals.js",
     decidim_proposals_admin: "./decidim-proposals/app/packs/entrypoints/decidim_proposals_admin.js",
     decidim_system: "./decidim-system/app/packs/entrypoints/decidim_system.js",
+    decidim_templates: "./decidim-templates/app/packs/entrypoints/decidim_templates.js",
     decidim_geocoding_provider_photon: "./decidim-core/app/packs/entrypoints/decidim_geocoding_provider_photon.js",
     decidim_geocoding_provider_here: "./decidim-core/app/packs/entrypoints/decidim_geocoding_provider_here.js",
     decidim_map_provider_default: "./decidim-core/app/packs/entrypoints/decidim_map_provider_default.js",
