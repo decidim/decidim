@@ -4,6 +4,11 @@
 
     border-bottom: $border;
 
+    h1{
+      font-size: $global-font-size;
+      font-weight: normal;
+    }
+
     img{
       width: rem-calc(66);
       height: rem-calc(66);

@@ -24,11 +24,13 @@
           <% end %>
 
           <div class="ml-s">
-            <% if participants.count == 1 %>
-              <%= t(".chat_with") %> <strong><%= participants.first.name %></strong><br><span class="muted">@<%= participants.first.nickname %></span>
-            <% else %>
-              <%= t(".title", usernames: username_list(participants)) %>
-            <% end %>
+            <h1>
+              <% if participants.count == 1 %>
+                <%= t(".chat_with") %> <strong><%= participants.first.name %></strong><br><span class="muted">@<%= participants.first.nickname %></span>
+              <% else %>
+                <%= t(".title", usernames: username_list(participants)) %>
+              <% end %>
+            </h1>
           </div>
         </div>
 
