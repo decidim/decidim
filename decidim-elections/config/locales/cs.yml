@@ -69,6 +69,11 @@ cs:
         few: Volební komisaři
         many: Volebních komisařů
         other: Volební komisaři
+      decidim/votings/polling_station:
+        one: Volební místnost
+        few: Volební místnosti
+        many: Volebních místností
+        other: Volebních místnostech
       decidim/votings/voting:
         one: Hlasování
         few: Hlasování
