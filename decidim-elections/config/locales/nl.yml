@@ -399,7 +399,6 @@ nl:
           back: Start het stemproces opnieuw
           cast: Stem uitbrengen
           description: 'Hier heb je de opties om je stem uit te brengen zodat ze goed geteld wordt, of -ook een optie: controleren of je stem correct is versleuteld. Om veiligheidsredenen vernietigen we stem op het moment dat je deze controleert. In dat geval moet je het stemproces herstarten om je stem uit te brengen.'
-          header: 'Stem is versleuteld: uitbrengen of controleren'
         confirm:
           answer: Beantwoorden
           answer_number: antwoord %{number}
@@ -410,16 +409,12 @@ nl:
           question: Vraag %{count}
         confirmed:
           back: Terug naar verkiezingen
-          error: Sorry, er is iets misgegaan bij het bevestigen van de stem. Probeer het nog eens.
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
           lead: Je stem is al verstuurd!
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
-        encrypting:
-          header: Stem coderen...
-          text: Je stem wordt versleuteld om ervoor te zorgen dat je deze anoniem kunt werpen.
         failed:
           header: Stem mislukt
           lead: Je stem is niet uitgebracht!
@@ -428,7 +423,6 @@ nl:
           ballot_decision: Stem uitbrengen of stem controleren
           confirm: Bevestig uw stem
           confirmed: Stem bevestigd
-          encrypting: Bevestigen van stem
         messages:
           not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
         modal:
@@ -439,9 +433,6 @@ nl:
           preview_alert: Dit is een voorbeeld van de stembooth.
           question_steps: Vraag %{current_step} van %{total_steps}
           selections: "%{selected} van %{max_selections}<br> selecties"
-        update:
-          error: Er is een probleem opgetreden bij het bijwerken van de status van de stem
-          success: Status stemming succesvol bijgewerkt
         verify:
           content:
             heading: Verifieer je stem
