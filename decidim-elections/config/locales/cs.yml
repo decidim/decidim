@@ -378,6 +378,7 @@ cs:
           back: Dostupné volby
           callout:
             already_voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
+            pending_vote: Váš hlas se odehrává na serveru.
             vote_rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
           preview: Náhled
           verify:
@@ -525,6 +526,10 @@ cs:
           back: Zahájit proces hlasování znovu
           cast: Zahlasování hlasovacího lístku
           description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
+          header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
+        casting:
+          header: Hlasování...
+          text: Váš hlasovací lístek byl vložen do volební urny.
         confirm:
           answer: Odpověď
           answer_number: odpověď %{number}
