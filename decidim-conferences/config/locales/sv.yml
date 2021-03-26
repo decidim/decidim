@@ -22,6 +22,12 @@ sv:
         slogan: Slogan
         slug: URL-slug
         title: Titel
+      conference_media_link:
+        weight: Vikt
+      conference_partner:
+        weight: Vikt
+      conference_registration_type:
+        weight: Vikt
       conference_speaker:
         full_name: Fullständigt namn
       conference_user_role:
