@@ -552,6 +552,8 @@ gl:
         title: Medios e enlaces
     menu:
       conferences: Conferencias
+    statistics:
+      conferences_count: Conferencias
   devise:
     mailer:
       join_conference:
