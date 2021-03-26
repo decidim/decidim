@@ -517,7 +517,6 @@ fi-pl:
           back: Aloita äänestysprosessi uudestaan
           cast: Lähetä äänesi
           description: Tässä näkymässä voit tarkastaa, että äänesi on laskettu oikein tai että äänesi salaaminen onnistui. Turvallisuussyistä äänesi tarkastaminen kumoaa aikaisemman äänesi. Tämä tarkoittaa, että jättääksesi äänesi, sinun tulee käynnistää äänestysprosessi uudestaan.
-          header: 'Äänesi on salattu: lähetä tai tarkasta se'
         confirm:
           answer: Vastaa
           answer_number: 'vastaus #%{number}'
@@ -529,16 +528,12 @@ fi-pl:
           question: Kysymys %{count}
         confirmed:
           back: Takaisin vaaleihin
-          error: Pahoittelut, äänen vahvistaminen epäonnistui. Ole hyvä ja äänestä uudestaan.
           experience: Minkälainen käyttökokemuksesi oli?
           feedback: Jätä meille palautetta
           header: Ääni vahvistettu
           lead: Olet jo äänestänyt!
           text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
-        encrypting:
-          header: Ääntäsi salataan...
-          text: Äänesi salataan, jotta henkilöllisyyttäsi ei voida selvittää äänesi perusteella.
         failed:
           header: Äänestys epäonnistui
           lead: Ääntäsi ei ole annettu!
@@ -547,7 +542,6 @@ fi-pl:
           ballot_decision: Lähetä tai tarkasta äänesi
           confirm: Vahvista äänesi
           confirmed: Ääni vahvistettu
-          encrypting: Ääntäsi vahvistetaan
         messages:
           not_allowed: Et voi äänestää tässä vaalissa tällä hetkellä.
         modal:
@@ -560,9 +554,6 @@ fi-pl:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
-        update:
-          error: Äänen tilan päivitys epäonnistui
-          success: Äänen tilan päivitys onnistui
         verify:
           content:
             heading: Vahvista äänesi
