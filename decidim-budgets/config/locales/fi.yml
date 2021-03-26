@@ -108,10 +108,13 @@ fi:
         close_modal: Sulje ikkuna
         continue: Jatka
         more_information: Lisätietoa
+      budget_list_item:
+        voting_finished: Olet äänestänyt tästä budjetista
+        voting_started: Olet aloittanut äänestämään tästä budjetista
       budgets_list:
         cancel_order:
-          more_than_one: poista äänesi budjetista %{name} ja aloita alusta
-          only_one: poista äänesi ja aloita alusta.
+          more_than_one: poistaa äänesi budjetista %{name} ja aloittaa alusta
+          only_one: poistaa äänesi ja aloittaa alusta.
         finished_message: Olet suorittanut äänestysprosessin. Kiitos osallistumisesta!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit

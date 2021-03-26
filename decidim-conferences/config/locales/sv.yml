@@ -265,6 +265,10 @@ sv:
       conferences:
         conference_registration:
           confirm: "%{user_name} bekräftade en konferensregistrering till konferensen %{resource_name}"
+        partner:
+          create: "%{user_name} skapade partnern %{resource_name} i konferensen %{space_name}"
+          delete: "%{user_name} tog bort partnern %{resource_name} från konferensen %{space_name}"
+          update: "%{user_name} uppdaterade partnern %{resource_name} i konferensen %{space_name}"
         registration_type:
           create: "%{user_name} skapade registreringstypen %{resource_name} på konferensen %{space_name}"
           publish: "%{user_name} publicerade registreringstypen %{resource_name} till konferensen %{space_name}"
@@ -397,6 +401,7 @@ sv:
         personal_website: Personlig hemsida
         show:
           more_info: mer information
+          speaking_at: Talar vid
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig hemsida
@@ -533,6 +538,8 @@ sv:
         title: Media och länkar
     menu:
       conferences: Konferenser
+    statistics:
+      conferences_count: Konferenser
   devise:
     mailer:
       join_conference:

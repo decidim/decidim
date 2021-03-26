@@ -254,7 +254,8 @@ es:
       photos:
         related_photos: Imágenes relacionadas
     author:
-      avatar: Avatar
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar para varias usuarias
       comments:
         one: comentario
         other: comentarios
@@ -1221,6 +1222,7 @@ es:
         description: Este contenido no es apropiado?
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa pienses que no pertenece en %{organization_name}.
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte o de suicidio o cualquier forma de discurso de odio.
+        reason: Motivo
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Reportar contenido inapropiado
@@ -1260,7 +1262,13 @@ es:
         share_link: Compartir enlace
     statistics:
       comments_count: Comentarios
+      endorsements_count: Adhesiones
+      followers_count: Seguidoras
       headline: Estadísticas
+      no_stats: No hay estadísticas aún.
+      pages_count: Páginas
+      participants_count: Participantes
+      users_count: Participantes
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
@@ -1298,6 +1306,7 @@ es:
         send: Enviar
         title_reply: Responder
       show:
+        back: Ver todas las conversaciones
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:
@@ -1343,6 +1352,7 @@ es:
         number_of_versions: Versiones
         title: Versiones
     versions_list_item:
+      back: Mostrar todas las versiones
       show:
         version_index: Versión %{index}
     welcome_notification:

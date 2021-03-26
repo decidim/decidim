@@ -242,7 +242,11 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".form.results_published" do
+      within ".form.tally_ended" do
+        expect(page).to have_content("Processing...")
+      end
+
+      within ".content.results_published" do
         expect(page).to have_content("Results published")
       end
     end
