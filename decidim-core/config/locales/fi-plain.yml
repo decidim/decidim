@@ -5,6 +5,8 @@ fi-pl:
         delete_reason: Syy tilisi poistoon
       common:
         created_at: Luontiaika
+      conversation:
+        body: Viestin teksti
       group:
         about: Tietoja
         avatar: Avatar
@@ -13,6 +15,8 @@ fi-pl:
         name: Nimi
         nickname: Nimimerkki
         phone: Puhelinnumero
+      message:
+        body: Viestin teksti
       report:
         details: Lisätiedot
       user:
@@ -1533,10 +1537,6 @@ fi-pl:
       too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
-    length_validator:
-      minimum:
-        one: vähintään %{count} kirjain
-        other: vähintään %{count} kirjainta
     required: Vaadittu
     required_explanation: "* Vaaditut kentät on merkitty tähtimerkillä"
   invisible_captcha:
