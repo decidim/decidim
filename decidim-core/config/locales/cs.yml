@@ -5,6 +5,8 @@ cs:
         delete_reason: Důvod odstranění účtu
       common:
         created_at: Vytvořeno v
+      conversation:
+        body: Tělo zprávy
       group:
         about: O nás
         avatar: Avatar
@@ -13,6 +15,8 @@ cs:
         name: Jméno
         nickname: Přezdívka
         phone: Telefon
+      message:
+        body: Tělo zprávy
       report:
         details: Další komentáře
       user:
@@ -1562,12 +1566,6 @@ cs:
       too_short: je příliš krátká (pod 15 znaků)
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
-    length_validator:
-      minimum:
-        one: alespoň %{count} znak
-        few: alespoň %{count} znaků
-        many: alespoň %{count} znaků
-        other: alespoň %{count} znaků
     required: Povinný
     required_explanation: "* Povinná pole jsou označena hvězdičkou"
   invisible_captcha:
