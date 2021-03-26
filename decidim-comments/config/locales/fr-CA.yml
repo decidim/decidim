@@ -39,7 +39,13 @@ fr-CA:
           user_group_id:
             label: Commenter en tant que
         opinion:
+          label: Votre avis sur ce sujet
+          negative: Négatif
+          negative_selected: Votre avis sur ce sujet est négatif
           neutral: Neutre
+          neutral_selected: Votre avis sur ce sujet est neutre
+          positive: Positif
+          positive_selected: Votre avis sur ce sujet est positif
         remaining_characters: "%{count} caractères restants"
         remaining_characters_1: "%{count} caractère restant"
         title: Ajoutez votre commentaire

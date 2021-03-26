@@ -50,6 +50,7 @@ import "../src/decidim/impersonation"
 import "../src/decidim/start_conversation_dialog"
 import "../src/decidim/notifications"
 import "../src/decidim/identity_selector_dialog"
+import "../src/decidim/gallery"
 
 // This needs to be loaded after confirm dialog to bind properly
 import Rails from "@rails/ujs"

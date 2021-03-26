@@ -14,6 +14,7 @@ cs:
       meeting:
         address: Adresa
         available_slots: Dostupné sloty pro toto schůzku
+        customize_registration_email: Přizpůsobit registrační e-mail
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah
         decidim_user_group_id: Uživatelská skupina
@@ -25,6 +26,7 @@ cs:
         organizer_gid: Vytvořit jako
         organizer_id: Organizátor
         private_meeting: Soukromá schůzka
+        registration_email_custom_content: Přizpůsobený obsah registračního e-mailu
         registration_form_enabled: Registrační formulář je povolen
         registration_terms: Podmínky registrace
         registration_url: URL registrace
@@ -274,6 +276,7 @@ cs:
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
             online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
+            registration_email_help: Tento text se zobrazí uprostřed potvrzení registračním e-mailem. Hned za registračním kódem.
             registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace

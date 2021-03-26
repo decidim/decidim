@@ -39,7 +39,13 @@ fi:
           user_group_id:
             label: Kommentoi käyttäjänä
         opinion:
+          label: Mielipiteesi tästä aiheesta
+          negative: Negatiivinen
+          negative_selected: Mielipiteesi tästä aiheesta on negatiivinen
           neutral: Neutraali
+          neutral_selected: Mielipiteesi tästä aiheesta on neutraali
+          positive: Positiivinen
+          positive_selected: Mielipiteesi tästä aiheesta on positiivinen
         remaining_characters: "%{count} merkkiä jäljellä"
         remaining_characters_1: "%{count} merkki jäljellä"
         title: Lisää oma kommenttisi
