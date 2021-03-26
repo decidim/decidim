@@ -38,7 +38,7 @@
       $interval: ($i % 4) * 24 + 1;
       $tints: tint($color, $interval);
       $shades: shade($color, $interval);
-      $adjusts: adjust-color($color, $lightness: $interval, $hue: -$interval);
+      $adjusts: adjust-color($color, $lightness: $interval * 1%, $hue: -$interval);
 
       .type-#{$i}:not(.legend){
         @if $i < 4{

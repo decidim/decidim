@@ -1,24 +1,13 @@
 @import "editor";
 @import "decidim";
 
-// TODO-blat
-// <%# Decidim.component_manifests.map(&:stylesheet).compact.each do |stylesheet| %>
-// @import "<%= stylesheet %>";
-// <%# end %>
-
-/*@import "decidim-accountability/stylesheets/decidim/accountability/accountability";*/
-/*@import "decidim-budgets/stylesheets/decidim/budgets/budgets";*/
-/*@import "decidim-elections/stylesheets/decidim/elections/elections";*/
-/*@import "decidim-proposals/stylesheets/decidim/proposals/proposals";*/
-/*@import "decidim-surveys/stylesheets/decidim/surveys/surveys";*/
-
-// TODO-blat
-// <%# Decidim.participatory_space_manifests.map(&:stylesheet).compact.each do |stylesheet| %>
-// @import "<%= stylesheet %>";
-// <%# end %>
-
-/*@import "decidim-conferences/stylesheets/decidim/conferences/conferences";*/
-/*@import "decidim-consultations/stylesheets/decidim/consultations/consultations";*/
-/*@import "decidim-initiatives/stylesheets/decidim/initiatives/initiatives";*/
-/*@import "decidim-elections/stylesheets/decidim/votings/votings";*/
-
+@import "decidim-accountability/app/packs/stylesheets/decidim/accountability/accountability";
+@import "decidim-budgets/app/packs/stylesheets/decidim/budgets/budgets";
+@import "decidim-conferences/app/packs/stylesheets/decidim/conferences/conferences";
+@import "decidim-consultations/app/packs/stylesheets/decidim/consultations/consultations";
+@import "decidim-initiatives/app/packs/stylesheets/decidim/initiatives/initiatives";
+// TODO-blat migrate elections
+// @import "decidim-elections/app/packs/stylesheets/decidim/elections/elections";
+// @import "decidim-elections/app/packs/stylesheets/decidim/votings/votings";
+@import "decidim-proposals/app/packs/stylesheets/decidim/proposals/proposals";
+@import "decidim-surveys/app/packs/stylesheets/decidim/surveys/surveys";

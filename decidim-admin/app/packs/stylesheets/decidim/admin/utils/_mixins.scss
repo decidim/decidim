@@ -86,7 +86,7 @@ $side:(
   }
 }
 
-@include make-spaces()
+@include make-spaces();
 
   @mixin animation($animation){
   -webkit-animation: $animation;
