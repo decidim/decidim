@@ -24,6 +24,7 @@ gl:
       component:
         name: Nome
         published_at: Publicado en
+        weight: Orde de posición
       id: ID
       newsletter:
         body: Corpo
@@ -104,10 +105,12 @@ gl:
         show_in_footer: Amosar no pé de páxina
         slug: URL slug
         title: Título
+        weight: Orde de posición
       static_page_topic:
         description: Descrición
         show_in_footer: Amosar no pé de páxina
         title: Título
+        weight: Orde de posición
       user_group_csv_verification:
         file: Arquivo
     errors:
