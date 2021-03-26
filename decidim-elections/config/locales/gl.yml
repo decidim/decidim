@@ -69,6 +69,8 @@ gl:
             errors:
               minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
             not_used_trustee: "(non usada)"
+          tally_ended:
+            success: A solicitude de publicación de resultados foi enviada con éxito ao Bulletin Board
       election_m:
         badge_name:
           finished: Finalizada
@@ -150,9 +152,12 @@ gl:
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
           header: Voto confirmado
+        failed:
+          try_again: Tentar de novo
         header:
           confirm: Confirma o teu voto
           confirmed: Voto confirmado
+          encrypting: Cifrando o voto
         modal:
           close: Pechar
     events:
