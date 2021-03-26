@@ -69,8 +69,19 @@ gl:
             errors:
               minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
             not_used_trustee: "(non usada)"
+          results_published:
+            answer: Resposta
+            question: Pregunta
+            result: Resultado
+            submit: Enviar
           tally_ended:
+            answer: Resposta
+            question: Pregunta
+            result: Resultado
             success: A solicitude de publicación de resultados foi enviada con éxito ao Bulletin Board
+            title: Resultados calculados
+          vote_ended:
+            text: Rematou a votación. Podes comezar o reconto agora.
       election_m:
         badge_name:
           finished: Finalizada
@@ -98,6 +109,9 @@ gl:
           close_modal: Pechar modal
           filter: Filtrar
           filter_by: Filtrar por
+        preview:
+          available_answers: 'Respostas dispoñibles:'
+          description: 'Estas son as preguntas que atoparás non proceso de votación:'
         results:
           description: 'Estes son os resultados da votación, para cada pregunta:'
           selected: Seleccionado
@@ -116,7 +130,9 @@ gl:
       models:
         answer:
           fields:
+            selected: Seleccionado
             title: Título
+            votes: Votos
         election:
           fields:
             title: Título
@@ -199,3 +215,9 @@ gl:
           polling_stations:
             heading: Puntos de votación
             no_polling_stations: Aínda non hai puntos de votación.
+          timeline:
+            heading: Liña de tempo
+  layouts:
+    decidim:
+      voting_navigation:
+        voting_menu_item: A votación
