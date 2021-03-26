@@ -22,6 +22,12 @@ fi-pl:
         slogan: Iskulause
         slug: URL-tunniste
         title: Otsikko
+      conference_media_link:
+        weight: Painoarvo
+      conference_partner:
+        weight: Painoarvo
+      conference_registration_type:
+        weight: Painoarvo
       conference_speaker:
         full_name: Koko nimi
       conference_user_role:
