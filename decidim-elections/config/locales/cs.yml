@@ -525,7 +525,6 @@ cs:
           back: Zahájit proces hlasování znovu
           cast: Zahlasování hlasovacího lístku
           description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
-          header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
         confirm:
           answer: Odpověď
           answer_number: odpověď %{number}
@@ -537,16 +536,12 @@ cs:
           question: Otázka %{count}
         confirmed:
           back: Zpět k volbám
-          error: Omlouváme se, došlo k chybě při potvrzení hlasování. Prosím, hlasujte znovu.
           experience: Jaká byla vaše zkušenost?
           feedback: Dejte nám zpětnou vazbu
           header: Hlasování potvrzeno
           lead: Váš hlas již byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
-        encrypting:
-          header: Zakódování hlasů...
-          text: Váš hlas je šifrován, abyste ho mohli anonymně posílat.
         failed:
           header: Hlasování se nezdařilo
           lead: Váš hlas nebyl odeslán!
@@ -555,7 +550,6 @@ cs:
           ballot_decision: Zahlasování nebo audit vašeho hlasování
           confirm: Potvrďte svůj hlas
           confirmed: Hlasování potvrzeno
-          encrypting: Potvrzení hlasování
         messages:
           not_allowed: V tuto chvíli vám není dovoleno hlasovat o těchto volbách.
         modal:
@@ -568,9 +562,6 @@ cs:
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
-        update:
-          error: Při aktualizaci stavu hlasování došlo k chybě
-          success: Stav hlasování byl úspěšně aktualizován
         verify:
           content:
             heading: Ověřte svůj hlas
