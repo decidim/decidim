@@ -92,6 +92,8 @@ describe "Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_processes_path
       end
 
+      it_behaves_like "accessible page"
+
       context "and accessing from the homepage" do
         it "the menu link is not shown" do
           visit decidim.root_path
@@ -111,6 +113,8 @@ describe "Participatory Processes", type: :system do
           promoted_process.save!
           visit decidim_participatory_processes.participatory_processes_path
         end
+
+        it_behaves_like "accessible page"
 
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
