@@ -94,6 +94,7 @@ PATH
       jquery-rails (~> 4.4)
       kaminari (~> 1.2, >= 1.2.1)
       loofah (~> 2.3.1)
+      mimemagic (~> 0.3.9)
       mini_magick (~> 4.9)
       mustache (~> 1.1.0)
       nobspw (~> 0.6.0)
