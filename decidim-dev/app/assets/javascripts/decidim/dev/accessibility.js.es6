@@ -116,7 +116,7 @@
             const selector = target.replace(/#\\3([0-9]) /g, "#$1")
             const $target = $(selector);
             const $indicator = $(`
-              <div class="decidim-accessibility-indicator">${icons.violation}</div>
+              <div class="decidim-accessibility-indicator" aria-hidden="true">${icons.violation}</div>
             `);
             $indicator.data("accessibility-target", $target);
             $target.data("accessibility-indicator", $indicator);
