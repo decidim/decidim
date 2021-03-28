@@ -102,9 +102,9 @@ module Decidim
       end
       content_tag :div, class: "row column" do
         map = builder.map_element(map_html_options, &block)
-        link = link_to("", "#", id: "map_bottom")
+        bottom = content_tag(:div, "", id: "map_bottom")
 
-        help + map + link
+        help + map + bottom
       end
     end
 
