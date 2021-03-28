@@ -93,16 +93,17 @@ module Decidim
       end
 
       map_html_options = { id: "map", class: "google-map" }.merge(html_options)
+      bottom_id = "#{map_html_options[:id]}_bottom"
 
       help = content_tag(:div, class: "map__help") do
         sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "show-for-sr")
-        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "#map_bottom", class: "skip")
+        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "##{bottom_id}", class: "skip")
 
         sr_content + link
       end
       content_tag :div, class: "row column" do
         map = builder.map_element(map_html_options, &block)
-        bottom = content_tag(:div, "", id: "map_bottom")
+        bottom = content_tag(:div, "", id: bottom_id)
 
         help + map + bottom
       end
