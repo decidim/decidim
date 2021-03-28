@@ -38,10 +38,6 @@
   };
 
   $(() => {
-    const icons = {
-      success: icon("check"),
-      violation: icon("warning")
-    }
     const $badge = $(`
       <div lang="en" class="decidim-accessibility-badge" tabindex="0" aria-label="Toggle accessibility report">
         <div class="decidim-accessibility-title">WAI WCAG</div>
@@ -68,7 +64,7 @@
 
       if (results.violations.length < 1) {
         $badge.addClass("decidim-accessibility-success");
-        $(".decidim-accessibility-info", $badge).append(icons.success);
+        $(".decidim-accessibility-info", $badge).append(icon("check"));
         $report.append(`
           <div class="decidim-accessibility-report-item">
             <div class="decidim-accessibility-report-item-title">
@@ -80,7 +76,7 @@
       }
 
       $badge.addClass("decidim-accessibility-violation");
-      $(".decidim-accessibility-info", $badge).append(icons.violation).append(`
+      $(".decidim-accessibility-info", $badge).append(icon("warning")).append(`
         <span class="decidim-accessibility-info-amount">
           ${results.violations.length}
         </span>
@@ -116,7 +112,7 @@
             const selector = target.replace(/#\\3([0-9]) /g, "#$1")
             const $target = $(selector);
             const $indicator = $(`
-              <div class="decidim-accessibility-indicator" aria-hidden="true">${icons.violation}</div>
+              <div class="decidim-accessibility-indicator" aria-hidden="true">${icon("warning")}</div>
             `);
             $indicator.data("accessibility-target", $target);
             $target.data("accessibility-indicator", $indicator);
