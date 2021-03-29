@@ -186,7 +186,7 @@
     }
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
+    "@babel/core": "^7.13.13",
     "@babel/plugin-transform-classes": "^7.13.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.13.5",
@@ -266,7 +266,7 @@
     "react-test-renderer": "^16.0.0",
     "sass": "^1.32.8",
     "social-share-button": "2.2.0",
-    "stylelint": "^13.6.1",
+    "stylelint": "^13.12.0",
     "svg4everybody": "2.1.9",
     "tributejs": "5.1.3",
     "unfetch": "^3.0.0",
