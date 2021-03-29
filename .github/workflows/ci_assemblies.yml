@@ -67,7 +67,7 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-${{ hashFiles('yarn.lock') }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             yarn-
       - name: Install JS dependencies
