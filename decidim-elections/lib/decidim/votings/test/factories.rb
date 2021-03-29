@@ -106,7 +106,12 @@ FactoryBot.define do
     end
 
     trait :codes_generated do
+      with_access_code_data
       status { "codes_generated" }
+    end
+
+    trait :frozen do
+      status { "freeze" }
     end
   end
 

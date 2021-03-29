@@ -17,10 +17,6 @@ module Decidim::Votings::Census::Admin
         it { expect(subject).to broadcast(:invalid) }
       end
 
-      context "when the is no datum in the dataset" do
-        it { expect(subject).to broadcast(:invalid) }
-      end
-
       context "when the dataset is not in the right status" do
         let(:dataset) { create(:dataset, status: :init_data) }
 
@@ -29,7 +25,7 @@ module Decidim::Votings::Census::Admin
     end
 
     context "when the inputs are valid" do
-      let(:dataset) { create(:dataset, :with_access_code_data, :codes_generated) }
+      let(:dataset) { create(:dataset, :codes_generated) }
 
       it "updates the data" do
         expect(subject).to broadcast(:ok)

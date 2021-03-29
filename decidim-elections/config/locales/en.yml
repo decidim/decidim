@@ -880,6 +880,8 @@ en:
               file_not_exists: This file does not exists
               launch_error: Problem launching the access codes export
               launch_success: Access codes export launched. Shortly you will receive an email to %{email}
+            freeze:
+              callout: The census is frozen and cannot be modified.
             generate_access_codes:
               button: Generate voting Access Codes
               callout: You can now proceed to generate the access codes. Mind that after generating the access codes you will not be able to modify the census anymore.

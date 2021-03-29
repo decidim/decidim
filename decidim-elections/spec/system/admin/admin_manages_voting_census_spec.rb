@@ -71,4 +71,31 @@ describe "Admin manages polling officers", type: :system do
       end
     end
   end
+
+  context "when access codes have been generated" do
+    before do
+      create :dataset, :codes_generated, voting: voting
+      visit decidim_admin_votings.voting_census_path(voting)
+    end
+
+    it "exports the access codes" do
+      within ".voting-content" do
+        accept_confirm { click_link "Export voting Access Codes" }
+      end
+
+      expect(page).to have_admin_callout("Access codes export launched")
+      expect(page).to have_admin_callout(user.email)
+    end
+  end
+
+  context "when census is frozen" do
+    before do
+      create :dataset, :frozen, voting: voting
+      visit decidim_admin_votings.voting_census_path(voting)
+    end
+
+    it "Shows that the census is frozen" do
+      expect(page).to have_content("The census is frozen")
+    end
+  end
 end

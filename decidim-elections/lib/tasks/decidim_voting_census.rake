@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 namespace :decidim_votings_census do
-
   # Removes the census access code export files older than the configured expiry time.
   desc "Deletes the census access codes export file `Decidim::Votings::Census.census_access_codes_export_expiry_time` from now."
   task delete_census_access_codes_export: :environment do

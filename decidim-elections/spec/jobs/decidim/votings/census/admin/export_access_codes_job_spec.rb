@@ -7,7 +7,7 @@ module Decidim
     module Census
       module Admin
         describe ExportAccessCodesJob do
-          let(:dataset) { create :dataset, :codes_generated, :with_access_code_data }
+          let(:dataset) { create :dataset, :codes_generated }
           let!(:user) { create(:user, :admin, organization: dataset.voting.organization) }
 
           it "sends an email with the result of the export" do
