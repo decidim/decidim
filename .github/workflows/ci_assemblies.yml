@@ -67,11 +67,9 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          key: yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             yarn-
-      - name: Remove package-lock.json
-        run: rm -f package-lock.json
       - name: Install JS dependencies
         run: yarn install --frozen-lockfile
       - run: bundle exec rake test_app
