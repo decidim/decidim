@@ -452,11 +452,14 @@ sv:
           address: Adress
           city: Stad
           email: E-post
+          full_name: Fullständigt namn
+          id_number: ID-nummer
           initiative:
             description: 'Beskrivning:'
             title: 'Titel:'
           phone_number: Telefonnummer
           print: Skriv ut
+          signature: Underskrift
         result:
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
