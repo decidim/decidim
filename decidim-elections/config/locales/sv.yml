@@ -299,6 +299,10 @@ sv:
               cancel: Avbryt
               submit: Skicka in
       votes:
+        ballot_decision:
+          audit: "( Granska valsedel )"
+          back: Starta om omröstningsprocessen
+          cast: Rösta
         confirm:
           answer: Svar
           answer_number: svara %{number}
@@ -316,6 +320,7 @@ sv:
           lead: Din röst har redan skickats!
           text: 'Du kan kontrollera att din röst har lagts till i röstsedeln med följande identifierare: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         header:
+          ballot_decision: Lägg eller granska din röst
           confirm: Bekräfta din röst
           confirmed: Rösta bekräftad
         messages:
