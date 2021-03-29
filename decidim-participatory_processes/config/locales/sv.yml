@@ -34,6 +34,7 @@ sv:
         subtitle: Underrubrik
         target: Vilka deltar
         title: Titel
+        weight: Vikt
       participatory_process_group:
         description: Beskrivning
         group_url: Webbplats
@@ -321,6 +322,9 @@ sv:
           name: Statistik
         title:
           meta_scope: Omfång
+          participatory_processes:
+            one: 1 dialog
+            other: "%{count} dialoger"
       show:
         title: Dialoggrupper
     participatory_process_steps:
@@ -341,6 +345,7 @@ sv:
         participatory_process_groups:
           form:
             metadata: Metadata
+            visibility: Synlighet
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
@@ -425,6 +430,8 @@ sv:
         start_date: Startdatum
         target: Vilka deltar
         unspecified: Ej angivet
+    statistics:
+      processes_count: Dialoger
   layouts:
     decidim:
       participatory_process_groups:
