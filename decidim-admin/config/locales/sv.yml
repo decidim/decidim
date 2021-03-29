@@ -633,6 +633,7 @@ sv:
         index:
           actions: Åtgärder
           badge: Märke
+          block: Blockera användare
           created_at: Skapad
           name: Namn
           nickname: Användarnamn
