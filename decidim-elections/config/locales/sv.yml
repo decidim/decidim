@@ -53,6 +53,8 @@ sv:
           label: Roll
           values:
             manager: Koordinator
+            president: Ordförande
+            unassigned: Otilldelad
     components:
       elections:
         actions:
@@ -153,6 +155,8 @@ sv:
             invalid: Det gick inte att uppdatera denna fråga
             success: Frågan har uppdaterats
         steps:
+          create_election:
+            not_used_trustee: "(används inte)"
           created:
             trustees: Förvaltare
           key_ceremony:
@@ -173,6 +177,8 @@ sv:
           actions:
             disable: Avaktivera
             enable: Tillåt
+          form:
+            select_user: Välj användare
           index:
             title: Förvaltare
       admin_log:
@@ -215,6 +221,7 @@ sv:
         show:
           action-button:
             vote: Starta omröstningen
+            vote-again: Rösta om
           preview: Förhandsgranska
           voting_period_status:
             finished: Omröstningen började den %{start_time} och slutade den %{end_time}
@@ -236,9 +243,11 @@ sv:
             title: Titel
         trustees_participatory_space:
           fields:
+            considered: tillåten
             email: E-post
             inactive: inaktiv
             name: Namn
+            public_key: Offentlig nyckel
             status: Status
       orders:
         label: Sortera omröstningar efter
@@ -257,7 +266,9 @@ sv:
               task: Uppgift
             start: Start
             status:
+              completed: Slutförd
               pending: Avvaktande
+              processing: Bearbetar
           tally_steps:
             back: Tillbaka
             list:
@@ -265,7 +276,9 @@ sv:
               task: Uppgift
             start: Start
             status:
+              completed: Slutförd
               pending: Väntande
+              processing: Bearbetar
         trustees:
           show:
             elections:
@@ -343,6 +356,7 @@ sv:
       admin:
         index:
           not_published: Ej publicerade
+          published: Publicerad
         landing_page:
           content_blocks:
             edit:
@@ -353,6 +367,7 @@ sv:
             attachment_collections: Mappar
             attachment_files: Filer
             attachments: Bilagor
+            components: Komponenter
             info: Information
             landing_page: Landningssida
         models:
@@ -368,10 +383,13 @@ sv:
             fields:
               address: Adress
               polling_station_managers: Koordinatorer
+              polling_station_president: Ordförande
               title: Titel
           voting:
             fields:
+              created_at: Skapad den
               promoted: Uppmärksammad
+              published: Publicerad
               title: Titel
         monitoring_committee_members:
           new:
@@ -379,6 +397,7 @@ sv:
         polling_officers:
           index:
             role_manager: chef
+            role_president: ordförande
           new:
             create: Skapa
           polling_officers_picker:
@@ -393,18 +412,22 @@ sv:
             confirm_destroy: Är du säker?
             destroy: Ta bort
             publish: Publicera
+            unpublish: Avpublicera
           edit:
             update: Uppdatera
           form:
             title: Titel
             voting_type:
               hybrid: Hybrid
+              in_person: Fysisk
               online: Online
           new:
             create: Skapa
+            title: Ny omröstning
       monitoring_committee_members:
         actions:
           destroy: Radera
+          new: Ny medlem
           title: Åtgärder
       pages:
         home:
@@ -418,6 +441,7 @@ sv:
                 actions: Åtgärder
                 address: Adress
                 name: Namn
+                role: Din roll
                 voting: Omröstning
       polling_officers:
         actions:
@@ -426,6 +450,8 @@ sv:
           title: Åtgärder
         roles:
           manager: Koordinator
+          president: Ordförande
+          unassigned: Otilldelad
       polling_stations:
         actions:
           confirm_destroy: Är du säker?
@@ -444,6 +470,7 @@ sv:
         filters_small_view:
           close_modal: Stäng fönster
           filter: Filtrera
+          filter_by: Filtrera efter
           unfold: Veckla ut
         index:
           title: Omröstningar
@@ -464,6 +491,7 @@ sv:
         unspecified: Ej angivet
         voting_type:
           hybrid: Hybrid
+          in_person: Fysisk
           online: Online
   layouts:
     decidim:
@@ -471,4 +499,5 @@ sv:
         exit: Avsluta
       votings:
         promoted_voting:
+          more_info: Mer information
           vote: Omröstning
