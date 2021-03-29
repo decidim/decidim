@@ -23,13 +23,26 @@ sv:
         slug: URL-slug
         title: Titel
       conference_media_link:
+        date: Datum
+        link: Länk
+        title: Titel
         weight: Vikt
       conference_partner:
+        link: Länk
+        logo: Logga
+        name: Namn
         weight: Vikt
+      conference_registration_invite:
+        email: E-post
+        name: Namn
+        user_id: Användare
       conference_registration_type:
+        price: Pris
+        title: Titel
         weight: Vikt
       conference_speaker:
         full_name: Fullständigt namn
+        user_id: Användare
       conference_user_role:
         email: E-post
         name: Namn
