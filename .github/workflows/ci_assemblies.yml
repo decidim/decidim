@@ -70,6 +70,8 @@ jobs:
           key: yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             yarn-
+      - name: Remove package-lock.json
+        run: rm package-lock.json
       - name: Install JS dependencies
         run: yarn install --frozen-lockfile
       - run: bundle exec rake test_app
