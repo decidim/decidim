@@ -5,6 +5,8 @@ sv:
         delete_reason: Skäl att ta bort ditt konto
       common:
         created_at: Skapad den
+      conversation:
+        body: Innehåll
       group:
         about: Om
         avatar: Profilbild
@@ -13,6 +15,8 @@ sv:
         name: Namn
         nickname: Smeknamn
         phone: Telefon
+      message:
+        body: Innehåll
       report:
         details: Ytterligare kommentarer
       user:
