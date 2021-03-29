@@ -385,11 +385,14 @@ sv:
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Instämmanden
+        followers_count: Följare
+        headline: Statistik
         meetings_count: Möten
         orders_count: Stöd
         pages_count: Sidor
         participants_count: Deltagare
         posts_count: Inlägg
+        processes_count: Dialoger
         projects_count: Projekt
         proposals_count: Förslag
         results_count: Resultat
