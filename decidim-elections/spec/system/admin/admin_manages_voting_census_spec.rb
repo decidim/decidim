@@ -33,13 +33,13 @@ describe "Admin manages polling officers", type: :system do
 
   context "when data exists" do
     before do
-      create :dataset, :data_created, :with_datum, voting: voting
+      create :dataset, :data_created, :with_data, voting: voting
       visit decidim_admin_votings.voting_census_path(voting)
     end
 
     it "shows the processed file result" do
       expect(page).to have_admin_callout("Finished processing")
-      expect(page).to have_content("All rows imported successfully")
+      expect(page).to have_content("You can now proceed to generate the access codes")
     end
 
     it "shows an option to delete the census" do
