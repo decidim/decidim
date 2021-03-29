@@ -10,8 +10,12 @@ sv:
         copy_features: Kopiera funktioner
         decidim_scope_id: Omfång
         description: Beskrivning
+        end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Bild till startsida
+        location: Plats
+        main_logo: Huvudbild
+        objectives: Mål
         participatory_processes_ids: Relaterade dialoger
         promoted: Uppmärksammad
         published_at: Publicerad
@@ -19,8 +23,11 @@ sv:
         scopes_enabled: Omfång aktiverat
         short_description: Kort beskrivning
         show_statistics: Visa statistik
+        sign_date: Underskriftsdatum
+        signature: Underskrift
         slogan: Slogan
         slug: URL-slug
+        start_date: Startdatum
         title: Titel
       conference_media_link:
         date: Datum
@@ -41,7 +48,11 @@ sv:
         title: Titel
         weight: Vikt
       conference_speaker:
+        avatar: Avatar
         full_name: Fullständigt namn
+        position: Plats
+        short_bio: Kort biographi
+        twitter_handle: Twitternamn
         user_id: Användare
       conference_user_role:
         email: E-post
@@ -225,6 +236,7 @@ sv:
             price: Pris
             registrations_count: Antal registreringar
             title: Titel
+            weight: Vikt
           name: Registreringstyp
       partners:
         create:
