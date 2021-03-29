@@ -1549,9 +1549,11 @@ ro:
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
       header:
         close_menu: Închide meniul
+        main_menu: Meniul principal
         navigation: Navigation
         sign_in: Conectare în cont
         sign_up: Înscrie-te
+        user_menu: Meniu utilizator
       impersonation_warning:
         close_session: Închide sesiunea
         description_html: Gestionați participantul <b>%{user_name}</b>.
@@ -1575,6 +1577,7 @@ ro:
         profile: Contul meu
         public_profile: Profilul meu public
         sign_out: Deconectare
+        title: Link-uri profil
       user_profile:
         account: Cont
         authorizations: Autorizații

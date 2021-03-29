@@ -34,7 +34,7 @@ module Decidim
     private
 
     def resource_icon
-      icon "meetings", class: "icon--big", role: "presentation", "aria-hidden": true
+      icon "meetings", class: "icon--big", role: "img", "aria-hidden": true
     end
   end
 end

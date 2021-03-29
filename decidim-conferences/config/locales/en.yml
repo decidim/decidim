@@ -4,6 +4,7 @@ en:
     attributes:
       conference:
         assemblies_ids: Related Assemblies
+        available_slots: Available slots
         banner_image: Banner image
         consultations_ids: Related Consultations
         copy_categories: Copy categories
@@ -11,20 +12,59 @@ en:
         copy_features: Copy features
         decidim_scope_id: Scope
         description: Description
+        end_date: End date
         hashtag: Hashtag
         hero_image: Home image
+        location: Location
+        main_logo: Main logo
+        objectives: Objectives
         participatory_processes_ids: Related participatory processes
         promoted: Highlighted
         published_at: Published at
+        registration_terms: Registration terms
+        registrations_enabled: Registrations enabled
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
+        sign_date: Sign date
+        signature: Signature
+        signature_name: signature name
         slogan: Slogan
         slug: URL slug
+        start_date: Start date
         title: Title
+      conference_media_link:
+        date: Date
+        link: Link
+        title: Title
+        weight: Weight
+      conference_partner:
+        link: Link
+        logo: Logo
+        name: Name
+        partner_type: Partner type
+        weight: Weight
+      conference_registration_invite:
+        email: Email
+        name: Name
+        registration_type_id: Registration type
+        user_id: User
+      conference_registration_type:
+        description: Description
+        price: Price
+        title: Title
+        weight: Weight
       conference_speaker:
+        affiliation: Affiliation
+        avatar: Avatar
+        conference_meeting_ids: Related meetings
         full_name: Full name
+        personal_url: Personal url
+        position: Position
+        short_bio: Short Bio
+        twitter_handle: Twitter handle
+        user_id: User
       conference_user_role:
         email: Email
         name: Name

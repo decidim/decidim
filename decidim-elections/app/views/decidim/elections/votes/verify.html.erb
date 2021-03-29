@@ -1,7 +1,7 @@
-<div class="vote-verify-wrapper"
+<div class="verify-vote-wrapper"
   data-election-id="<%= election.id %>"
-  data-api-endpoint-url="<%= Rails.application.secrets.elections[:bulletin_board_server] %>"
-  data-election-unique-id="<%= @form.election_unique_id %>">
+  data-api-endpoint-url="<%= bulletin_board_server %>"
+  data-election-unique-id="<%= election_unique_id %>">
 
   <div class="focus__header">
     <div class="row">
@@ -52,15 +52,12 @@
           <label>
             <%= t("decidim.elections.votes.verify.form.vote_identifier") %>
 
-            <input type="text" class="vote-identifier" name="vote-identifier" data-value="qw12Sf35vVb556Hfvh7qw12Sf35vVb556Hfvh7">
+            <input type="text" class="vote-identifier" name="vote-identifier" value="<%= params[:vote_id].gsub("_","") %>">
           </label>
           <div>
             <%= link_to(
               "#",
-              class: "button focus__next confirm",
-              data: {
-                booth_mode: booth_mode
-              }
+              class: "button focus__next confirm"
             ) do %>
 
               <%= t("decidim.elections.votes.verify.form.submit") %>
@@ -75,4 +72,4 @@
 
 </div>
 
-<%= javascript_include_tag "decidim/elections/vote_verify", integrity: true %>
+<%= javascript_include_tag "decidim/elections/voter/verify-vote", integrity: true %>

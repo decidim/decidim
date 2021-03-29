@@ -22,7 +22,7 @@ $(() => {
     toggleDisabledHiddenFields();
 
     const $proposalAddress = $form.find("#proposal_address");
-    if ($proposalAddress.length) {
+    if ($proposalAddress.length !== 0) {
       attachGeocoding($proposalAddress);
     }
   }

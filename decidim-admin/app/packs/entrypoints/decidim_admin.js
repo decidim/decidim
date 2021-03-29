@@ -33,6 +33,7 @@ import "../../../../decidim-core/app/packs/src/decidim/input_character_counter"
 import "../../../../decidim-core/app/packs/src/decidim/session_timeouter"
 import "../../../../decidim-core/app/packs/src/decidim/filters"
 import "../../../../decidim-core/app/packs/src/decidim/slug_form"
+import "../../../../decidim-core/app/packs/src/decidim/configuration"
 import managedUsersForm from "../src/decidim/admin/managed_users"
 window.Decidim.managedUsersForm = managedUsersForm
 

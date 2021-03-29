@@ -89,7 +89,7 @@ $timeline-padding: 1rem;
 }
 
 .timeline__date{
-  color: $muted;
+  color: $dark-gray;
 
   .timeline__item--current &{
     color: rgba($white, .8);

@@ -1541,9 +1541,11 @@ fr-CA:
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
+        main_menu: Menu principal
         navigation: Navigation
         sign_in: Se connecter
         sign_up: S'inscrire
+        user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session
         description_html: Vous agissez en tant que l'utilisateur <b>%{user_name}</b>.
@@ -1572,6 +1574,7 @@ fr-CA:
         profile: Mon compte
         public_profile: Mon profil public
         sign_out: Déconnexion
+        title: Liens du profil
       user_profile:
         account: Compte
         authorizations: Autorisations

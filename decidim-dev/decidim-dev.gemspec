@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 4.8"
 
+  s.add_dependency "axe-core-rspec", "~> 4.1.0"
   s.add_dependency "byebug", "~> 11.0"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
   s.add_dependency "erb_lint", "~> 0.0.28"
@@ -46,6 +47,7 @@ Gem::Specification.new do |s|
   s.add_dependency "simplecov-cobertura", "~> 1.3.1"
   s.add_dependency "system_test_html_screenshots", "~> 0.1.1"
   s.add_dependency "vcr", "~> 6.0"
+  s.add_dependency "w3c_rspec_validators", "~> 0.3.0"
   s.add_dependency "webmock", "~> 3.6"
   s.add_dependency "wisper-rspec", "~> 1.0"
 end
