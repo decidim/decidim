@@ -104,11 +104,13 @@ sv:
           save: Spara ändringar
           title: Redigera debatt
         filters:
+          activity: Min aktivitet
           all: Alla
           category: Kategori
           category_prompt: Välj en kategori
           citizens: Medborgare
           commented: Kommenterade
+          my_debates: Mina debatter
           official: Officiell
           origin: Ursprung
           scope: Omfång
