@@ -131,6 +131,8 @@ fr:
         exports:
           elections: Élections
           feedback_form_answers: Feedbacks des répondants
+        menu:
+          trustees: Garants
         models:
           answer:
             name: Réponse
