@@ -5,6 +5,8 @@ nl:
         delete_reason: Reden om uw account te verwijderen
       common:
         created_at: Aangemaakt op
+      conversation:
+        body: Body
       group:
         about: Over
         avatar: Profielafbeelding
@@ -13,6 +15,8 @@ nl:
         name: Naam
         nickname: Roepnaam
         phone: Telefoon
+      message:
+        body: Body
       report:
         details: Aanvullende opmerkingen
       user:
