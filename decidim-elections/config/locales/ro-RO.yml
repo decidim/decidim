@@ -168,6 +168,8 @@ ro:
         exports:
           elections: Alegeri
           feedback_form_answers: Răspunsuri la formularul de feedback
+        menu:
+          trustees: Împuternicit
         models:
           answer:
             name: Răspuns
