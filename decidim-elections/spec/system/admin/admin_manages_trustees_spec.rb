@@ -3,14 +3,14 @@
 require "spec_helper"
 
 describe "Admin manages trustees", type: :system do
-  let!(:participatory_space) { create :participatory_process }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit_trustees
+    visit_component_admin
     click_link "Trustees"
   end
 
@@ -104,7 +104,19 @@ describe "Admin manages trustees", type: :system do
     end
   end
 
-  def visit_trustees
-    visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_space)
+  context "within an assembly" do
+    let(:participatory_space) { create(:assembly, organization: organization) }
+
+    it "shows the trustees page" do
+      expect(page).to have_content("New Trustee")
+    end
+  end
+
+  context "within a voting" do
+    let(:participatory_space) { create(:voting, organization: organization) }
+
+    it "shows the trustees page" do
+      expect(page).to have_content("New Trustee")
+    end
   end
 end
