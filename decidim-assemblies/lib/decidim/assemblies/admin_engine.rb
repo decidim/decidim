@@ -142,7 +142,7 @@ module Decidim
         end
       end
       initializer "decidim_assemblies.assemblies_admin_menu" do
-        Decidim.menu :assemblies_admin_menu do |menu|
+        Decidim.menu :admin_assembly_menu do |menu|
           menu.add_item :edit_assembly,
                         I18n.t("info", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.edit_assembly_path(current_participatory_space),
