@@ -145,6 +145,8 @@ nl:
             success: Verkiezing succesvol bijgewerkt
         exports:
           elections: Verkiezingen
+        menu:
+          trustees: Trustees
         models:
           answer:
             name: Beantwoorden
