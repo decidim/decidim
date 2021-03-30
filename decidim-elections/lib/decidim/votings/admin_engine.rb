@@ -31,12 +31,12 @@ module Decidim
 
           resource :census, only: [:show, :destroy], controller: "/decidim/votings/census/admin/census" do
             member do
-              get :status, action: :status
-              post :create, action: :create
-              put :update, action: :update
-              get :generate_access_codes, action: :generate_access_codes
-              get :export_access_codes, action: :export_access_codes
-              get :download_access_codes_file, action: :download_access_codes_file
+              get :status
+              post :create
+              put :update
+              get :generate_access_codes
+              get :export_access_codes
+              get :download_access_codes_file
             end
           end
         end
