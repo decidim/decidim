@@ -254,6 +254,8 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
+      avatar: 'Profiel: %{name}'
+      avatar_multiuser: Profiel voor meerdere gebruikers
       comments:
         one: commentaar
         other: commentaren
@@ -1276,6 +1278,7 @@ nl:
         send: Verzenden
         title_reply: Beantwoorden
       show:
+        back: Toon alle gesprekken
         not_allowed: Deze gebruiker accepteert geen directe berichten meer.
         title: Gesprek met %{usernames}
       update:
@@ -1313,6 +1316,7 @@ nl:
         number_of_versions: versies
         title: versies
     versions_list_item:
+      back: Toon alle versies
       show:
         version_index: Versie %{index}
     welcome_notification:
