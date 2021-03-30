@@ -178,6 +178,8 @@ cs:
         exports:
           elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
+        menu:
+          trustees: Volební důvěrníci
         models:
           answer:
             name: Odpověď
