@@ -28,7 +28,7 @@ module Decidim
           question_title: question.title,
           answer_id: answer.id,
           answer_title: answer.title,
-          answer_votes: answer.votes_count
+          answer_votes: answer.results_total
         }
       end
 

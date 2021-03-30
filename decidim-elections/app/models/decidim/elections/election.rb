@@ -92,7 +92,8 @@ module Decidim
       #
       # Returns a boolean.
       def results_published?
-        bb_results_published?
+        # doubt: when results are published?
+        bb_results_published? || questions.all? { |question| question.results_total > 1 }
       end
 
       # Public: Checks if the election results are present
