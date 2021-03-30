@@ -166,6 +166,8 @@ de:
         exports:
           elections: Wahlen
           feedback_form_answers: Antworten auf Feedback-Formular
+        menu:
+          trustees: Wahlhelfer
         models:
           answer:
             name: Antwort
