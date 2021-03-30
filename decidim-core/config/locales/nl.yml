@@ -1515,9 +1515,11 @@ nl:
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
+        main_menu: Hoofdmenu
         navigation: Navigatie
         sign_in: Aanmelden
         sign_up: Registreren
+        user_menu: Gebruikersmenu
       impersonation_warning:
         close_session: Sluit sessie
         description_html: U beheert de gebruiker <b>%{user_name}</b>.
@@ -1541,6 +1543,7 @@ nl:
         profile: Mijn account
         public_profile: Mijn openbaar profiel
         sign_out: Afmelden
+        title: Profiellinks
       user_profile:
         account: Account
         authorizations: Bevoegdheden
