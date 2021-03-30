@@ -104,7 +104,7 @@ describe "Admin manages trustees", type: :system do
     end
   end
 
-  context "within an assembly" do
+  context "when inside an assembly" do
     let(:participatory_space) { create(:assembly, organization: organization) }
 
     it "shows the trustees page" do
@@ -112,7 +112,7 @@ describe "Admin manages trustees", type: :system do
     end
   end
 
-  context "within a voting" do
+  context "when inside a voting" do
     let(:participatory_space) { create(:voting, organization: organization) }
 
     it "shows the trustees page" do
