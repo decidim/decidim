@@ -279,6 +279,7 @@ nl:
           back: Beschikbare verkiezingen
           callout:
             already_voted: Je hebt al gestemd in deze verkiezing. Je kunt je stem wijzigen of controleren.
+            pending_vote: Jouw stem wordt uitgebracht op de server.
             vote_rejected: Het was niet mogelijk om je stem te verifiëren. Gelieve je stem opnieuw uit te brengen.
           preview: Voorvertoning
           verify:
@@ -399,6 +400,10 @@ nl:
           back: Start het stemproces opnieuw
           cast: Stem uitbrengen
           description: 'Hier heb je de opties om je stem uit te brengen zodat ze goed geteld wordt, of -ook een optie: controleren of je stem correct is versleuteld. Om veiligheidsredenen vernietigen we stem op het moment dat je deze controleert. In dat geval moet je het stemproces herstarten om je stem uit te brengen.'
+          header: 'Stem is versleuteld: uitbrengen of controleren'
+        casting:
+          header: Aan het stemmen...
+          text: Je stem wordt uitgebracht in de stembus.
         confirm:
           answer: Beantwoorden
           answer_number: antwoord %{number}
@@ -415,6 +420,8 @@ nl:
           lead: Je stem is al verstuurd!
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
+        encrypting:
+          header: Versleutelen van de stem...
         failed:
           header: Stem mislukt
           lead: Je stem is niet uitgebracht!
