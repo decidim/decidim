@@ -422,14 +422,19 @@ nl:
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
         encrypting:
           header: Versleutelen van de stem...
+          text: Je stem wordt versleuteld om het geheim ervan te waarborgen.
         failed:
           header: Stem mislukt
           lead: Je stem is niet uitgebracht!
           text: Er is iets mis gegaan, probeer het alsjeblief nog een keer.
+          try_again: Probeer opnieuw
         header:
           ballot_decision: Stem uitbrengen of stem controleren
+          casting: Aan het stemmen
           confirm: Bevestig uw stem
           confirmed: Stem bevestigd
+          encrypting: Versleutelen van de stem
+          failed: Stem mislukt
         messages:
           not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
         modal:
@@ -440,6 +445,8 @@ nl:
           preview_alert: Dit is een voorbeeld van de stembooth.
           question_steps: Vraag %{current_step} van %{total_steps}
           selections: "%{selected} van %{max_selections}<br> selecties"
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van stemstatus. Probeer het opnieuw.
         verify:
           content:
             heading: Verifieer je stem
