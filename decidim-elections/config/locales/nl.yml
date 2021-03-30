@@ -225,6 +225,7 @@ nl:
             question: Vraag
             result: Resultaat
             selected: Geselecteerd
+            success: Verzoek om de resultaten te publiceren is met succes verzonden naar het Bulletin Board
             title: Berekende resultaten
           vote:
             title: Stemperiode
