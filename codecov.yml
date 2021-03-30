@@ -7,8 +7,7 @@ ignore:
 coverage:
   status:
     project:
-      default: false
-      develop:
+      default:
         threshold: 0.1%
         flag_coverage_not_uploaded_behavior: exclude
         flags:
