@@ -45,8 +45,11 @@ sv:
             title: Redigera budget
             update: Uppdatera budget
           index:
+            finished_orders: Avslutade röster
             pending_orders: Pågående omröstningar
             title: Budgetar
+            users_with_finished_orders: Användare med avslutade röster
+            users_with_pending_orders: Användare med väntande röster
           new:
             create: Skapa budget
             title: Ny budget
