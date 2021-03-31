@@ -63,6 +63,7 @@ module Decidim
 
     def variant_url(key, options = {})
       representable = variant(key)
+      return unless attached?
 
       if representable.is_a? ActiveStorage::Attached
         Rails.application.routes.url_helpers.rails_blob_url(representable.blob, **options)
