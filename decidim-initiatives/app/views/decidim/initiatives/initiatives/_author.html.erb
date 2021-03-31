@@ -19,7 +19,7 @@
       <% unless m.user.deleted? %>
         <div class="author author--inline">
           <span class="author__avatar author__avatar--small">
-            <%= image_tag m.user.avatar_url %>
+            <%= image_tag present(m.user).avatar_url %>
           </span>
           <span class="author__name">
             <%= decidim_sanitize(m.user.name) %>
