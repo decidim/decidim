@@ -58,7 +58,7 @@ module Decidim
       representable = model.send(mounted_as)
       return super unless representable.is_a? ActiveStorage::Attached
 
-      variant_url(nil, **options)
+      variant_url(options.delete(:variant), **options)
     end
 
     def variant_url(key, options = {})
@@ -76,7 +76,7 @@ module Decidim
       representable = model.send(mounted_as)
       return super() unless representable.is_a? ActiveStorage::Attached
 
-      variant_path(nil, **options)
+      variant_path(options.delete(:variant), **options)
     end
 
     def variant_path(key, options = {})
