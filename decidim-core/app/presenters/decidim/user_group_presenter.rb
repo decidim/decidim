@@ -15,8 +15,6 @@ module Decidim
       "verified-badge"
     end
 
-    delegate :url, to: :avatar, prefix: true
-
     def can_be_contacted?
       true
     end
