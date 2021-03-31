@@ -58,7 +58,7 @@ module Decidim
     delegate :attached_config, to: :class
 
     def attached_uploader(attached_name)
-      return if (uploader = attached_config.dig(attached_name, :uploader)).blank?
+      uploader = attached_config.dig(attached_name, :uploader) || Decidim::ApplicationUploader
 
       uploader.new(self, attached_name)
     end
