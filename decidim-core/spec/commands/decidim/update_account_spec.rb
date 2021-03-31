@@ -89,7 +89,7 @@ module Decidim
 
       describe "avatar" do
         before do
-          form.avatar = File.open("spec/assets/avatar.jpg")
+          form.avatar = fixture_file_upload(File.open("spec/assets/avatar.jpg"))
         end
 
         it "updates the avatar" do
@@ -99,7 +99,7 @@ module Decidim
       end
 
       describe "remove_avatar" do
-        let(:user) { create(:user, avatar: File.open("spec/assets/avatar.jpg")) }
+        let(:user) { create(:user, avatar: fixture_file_upload(File.open("spec/assets/avatar.jpg"))) }
 
         before do
           form.remove_avatar = true
@@ -129,7 +129,7 @@ module Decidim
         before do
           form.avatar = user.avatar
 
-          allow(form.avatar).to receive(:size).and_return(1000.megabytes)
+          allow(form.avatar.blob).to receive(:byte_size).and_return(1000.megabytes)
         end
 
         it "broadcasts invalid" do
