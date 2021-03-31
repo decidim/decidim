@@ -4,15 +4,21 @@
 
 <div>
   <% if model.ongoing? %>
-    <%= action_authorized_link_to :vote, new_election_vote_path, resource: model, class: "button button--sc" do %>
-      <%= vote_action_button_text %>
+    <% if vote_flow.login_path(new_election_vote_path) %>
+      <%= link_to vote_flow.login_path(new_election_vote_path), class: "button button--sc" do %>
+        <%= vote_action_button_text %>
+      <% end %>
+    <% else %>
+      <%= action_authorized_link_to :vote, new_election_vote_path, resource: model, class: "button button--sc" do %>
+        <%= vote_action_button_text %>
+      <% end %>
     <% end %>
   <% elsif !model.finished? %>
     <span class="button button--sc disabled"><%= t("action_button.vote", scope: "decidim.elections.elections.show") %></span>
   <% end %>
 
-  <% if allowed_to? :preview, :election, election: model %>
-    <%= link_to new_election_vote_path, class: "button" do %>
+  <% if can_preview? %>
+    <%= link_to new_election_vote_path, class: "button button--sc" do %>
       <%= t("preview", scope: "decidim.elections.elections.show") %>
     <% end %>
   <% end %>
