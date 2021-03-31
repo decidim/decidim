@@ -913,6 +913,10 @@ en:
               csv_example_without_ballot_style: 'An example of the file <strong>without</strong> ballot styles:'
               csv_header_after: Do not include the last field ("%{ballot_style_code_header}") if you do not need ballot styles/conditional questions
               csv_header_before: 'The census file must be a CSV file with the following header:'
+        document_types:
+          dni: "DNI"
+          nie: "NIE"
+          passport: "Passport"
         export_mailer:
           access_codes_export:
             click_button: 'Click the next link to download the access codes data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
