@@ -24,12 +24,17 @@ sv:
       component:
         name: Namn
         published_at: Publicerad
+        weight: Vikt
       id: ID
+      import:
+        user_group_id: Skapa import som
       newsletter:
         body: Innehåll
         subject: Ämne
       organization:
+        admin_terms_of_use_body: Innehåll för administratörsvillkoren
         alert_color: Larm
+        available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
         comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
         cta_button_path: Uppmaningens knappsökväg
@@ -40,6 +45,8 @@ sv:
         enable_omnipresent_banner: Visa banner på alla sidor
         facebook_handler: Facebook-hanterare
         favicon: Ikon
+        force_authentication: Tvinga autentisering
+        force_users_to_authenticate_before_access_organization: Tvinga användare att autentisera sig innan att komma in organisationen
         from: Från e-postadress
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
@@ -72,12 +79,14 @@ sv:
         reference_prefix: Referensprefix
         rich_text_editor_in_public_views: Aktivera rik textredigering för deltagare
         secondary_color: Sekundär
+        secondary_hosts: Sekundära hosts
         send_welcome_notification: Skicka välkomstmeddelande
         success_color: Färdigt
         time_zone: Tidszon
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
+        users_registration_mode: Registreringsmode
         warning_color: Varning
         welcome_notification_body: Välkomstmeddelandets brödtext
         welcome_notification_subject: Välkomstmeddelandets ämnesrad
@@ -96,16 +105,19 @@ sv:
       settings:
         scope_id: Omfång
       static_page:
+        allow_public_access: Tillåt tillgång utan autentisering
         changed_notably: Det har skett större förändringar.
         content: Innehåll
         organization: Organisation
         show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
+        weight: Vikt
       static_page_topic:
         description: Beskrivning
         show_in_footer: Visa i sidfoten
         title: Titel
+        weight: Vikt
       user_group_csv_verification:
         file: Fil
     errors:
@@ -116,6 +128,10 @@ sv:
               allowed_file_content_types: Ogiltig bildfil
             official_img_header:
               allowed_file_content_types: Ogiltig bildfil
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Ogiltig MIME type
   activerecord:
     attributes:
       decidim/static_page:
@@ -147,6 +163,8 @@ sv:
         new: Ny %{name}
         newsletter:
           new: Nytt nyhetsbrev
+        participatory_space_private_user:
+          new: Ny privat deltagare i deltagarutrymme
         per_page: Per sida
         permissions: Behörigheter
         reject: Avvisa
@@ -240,6 +258,8 @@ sv:
         search_prompt: Sök genom att skriva minst tre tecken
       block_user:
         new:
+          action: Blockera konto och skicka motivering
+          description: Att blockera en användare kommer att göra dess konto oanvändbart, du kan skriva din motivering och riktlinjer för hur du anser att du skulle överväga att avblockera användaren.
           justification: Motivering
           title: Blockera användare %{name}
       categories:
@@ -304,8 +324,10 @@ sv:
         solved: Löst
         transfer:
           email: E-post
+          error: Det gick inte att konvertera användaren till hanterad användare.
           name: Namn
           reason: Anledning
+          success: Flytten slutfördes problemfritt.
           title: Överföring
         'true': 'Ja'
         user_name: Användare
@@ -355,6 +377,7 @@ sv:
       forms:
         file_help:
           import:
+            explanation: 'Vägledning för fil:'
             message_1: CSV, JSON och Excel (.xlsx) filer stöds
             message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
       help_sections:
@@ -396,6 +419,12 @@ sv:
           impersonate_existing_user: Hantera deltagaren "%{name}"
           impersonate_new_managed_user: Hantera ny deltagare
       imports:
+        creators:
+          proposalcreator: Förslagsförfattare
+        help:
+          proposalcreator: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/ca och body/ca). Även scope/id och category/id kolumner stöds.
+        import_from_file: Importera från fil
+        invalid_lines: Hittade fel i resursnumret %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
@@ -895,6 +924,9 @@ sv:
       blocked_users:
         object: blockerade användare
         title: Blockerade användare
+      reported_users:
+        object: rapporterade användare
+        title: Rapporterade användare
       user_reports:
         object: användarrapporter
         title: Användarrapporter
@@ -923,6 +955,7 @@ sv:
           fields:
             created_at: Skapandedatum
             hidden_at: Dold
+            participatory_space: Deltagarutrymme
             report_count: Antal
             reportable_id: Id
             reportable_type: Typ
@@ -940,6 +973,8 @@ sv:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Global moderering
         newsletters:
           title: Nyhetsbrev
         settings:
