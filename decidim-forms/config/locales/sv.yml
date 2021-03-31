@@ -3,6 +3,7 @@ sv:
     attributes:
       answer:
         body: Svar
+        choices: Val
       question:
         max_choices: Högst antal val
         question_type: Typ
@@ -12,6 +13,8 @@ sv:
       models:
         answer:
           attributes:
+            body:
+              too_long: är för långt
             choices:
               missing: är inte fullständiga
               too_many: är för många
@@ -114,6 +117,7 @@ sv:
           resize_and_pad: Anpassad och vadderad till
           resize_to_fit: Anpassad för att passa
       question_types:
+        files: Filer
         long_answer: Långt svar
         matrix_multiple: Matris (flera alternativ)
         matrix_single: Matris (Single alternativ)

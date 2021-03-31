@@ -1,12 +1,5 @@
 # frozen_string_literal: true
 
-require "kaminari"
-require "social-share-button"
-require "ransack"
-require "cells/rails"
-require "cells-erb"
-require "cell/partial"
-
 module Decidim
   module Proposals
     # This is the engine that runs on the public interface of `decidim-proposals`.

@@ -34,16 +34,19 @@ module Decidim
         end
       end
 
-      def verify_election_vote_path
-        engine_router.verify_election_vote_path(
+      def election_vote_verify_path
+        engine_router.election_vote_verify_path(
           "#{key_participatory_space_slug}": current_participatory_space.slug,
           component_id: current_component.id,
-          election_id: model.id
+          election_id: model.id,
+          vote_id: "_"
         )
       end
 
       def callout_text
-        if last_vote_accepted?
+        if last_vote_pending?
+          t("callout.pending_vote", scope: "decidim.elections.elections.show")
+        elsif last_vote_accepted?
           t("callout.already_voted", scope: "decidim.elections.elections.show")
         else
           t("callout.vote_rejected", scope: "decidim.elections.elections.show")
@@ -52,6 +55,10 @@ module Decidim
 
       def already_voted?
         last_vote.present?
+      end
+
+      def last_vote_pending?
+        !!last_vote&.pending?
       end
 
       def last_vote_accepted?

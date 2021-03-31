@@ -16,7 +16,7 @@ module Decidim
         end
 
         def verify_url
-          Decidim::EngineRouter.main_proxy(resource.component).verify_election_vote_url(resource)
+          Decidim::EngineRouter.main_proxy(resource.component).election_vote_verify_url(resource, vote_id: encrypted_vote_hash)
         end
       end
     end

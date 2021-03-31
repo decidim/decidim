@@ -47,7 +47,7 @@ module Decidim
 
     # Renders the counter of endorsements that appears in m-cards.
     def render_endorsements_count
-      content = icon("bullhorn", class: "icon--small", aria_label: t("decidim.endorsable.endorsements_count"), role: "presentation")
+      content = icon("bullhorn", class: "icon--small", aria_label: t("decidim.endorsable.endorsements_count"), role: "img")
       content += resource.endorsements_count.to_s
       html_class = "button small compact button--shadow secondary"
       html_class += " active" if fully_endorsed?(resource, current_user)

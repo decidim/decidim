@@ -20,13 +20,10 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "cells-erb", "~> 0.1.0"
-  s.add_dependency "cells-rails", "~> 0.1.3"
   s.add_dependency "decidim-core", Decidim::Meetings.version
   s.add_dependency "decidim-forms", Decidim::Meetings.version
   s.add_dependency "icalendar", "~> 2.5"
   s.add_dependency "jquery-tmpl-rails", "~> 1.1"
-  s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
   s.add_dependency "searchlight", "~> 4.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Meetings.version

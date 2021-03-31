@@ -1,6 +1,6 @@
 ((exports) => {
   const DEFAULT_ATTRIBUTES = {
-    role: "presentation",
+    role: "img",
     "aria-hidden": "true"
   };
 
@@ -35,6 +35,11 @@
     const $el = $(elHtml);
     if (title) {
       $el.prepend(`<title>${title}</title>`);
+    } else {
+      // This keeps accessibility audit tools happy
+      $el.prepend(`<title>${iconKey}</title>`);
+      // Force hidden if title is not defined
+      htmlAttributes["aria-hidden"] = "true";
     }
     $el.attr(htmlAttributes);
 

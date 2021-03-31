@@ -23,7 +23,7 @@ module Decidim
       end
 
       def button_continue_text
-        "#{t("decidim.elections.votes.voting_step.continue")}  #{icon("chevron-right", class: "icon", role: "presentation", "aria-hidden": true)}"
+        "#{t("decidim.elections.votes.voting_step.continue")}  #{icon("chevron-right", class: "icon", role: "img", "aria-hidden": true)}"
       end
 
       def previous_step_dom_id

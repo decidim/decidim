@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "active_link_to", "~> 1.0"
+  s.add_dependency "acts_as_list", "~> 0.9"
   s.add_dependency "anchored", "~> 1.1"
   s.add_dependency "autoprefixer-rails", "~> 8.0"
   s.add_dependency "batch-loader", "~> 1.2"
@@ -61,6 +62,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rack-attack", "~> 6.0"
   s.add_dependency "rails", "~> 6.0"
   s.add_dependency "rails-i18n", "~> 6.0"
+  s.add_dependency "ransack", "~> 2.1.1"
   s.add_dependency "rectify", "~> 0.13.0"
   s.add_dependency "redis", "~> 4.1"
   s.add_dependency "request_store", "~> 1.5.0"

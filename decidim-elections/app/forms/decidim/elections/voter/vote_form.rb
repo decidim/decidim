@@ -4,18 +4,16 @@ module Decidim
   module Elections
     module Voter
       # This class holds the data to cast a vote.
-      class EncryptedVoteForm < Decidim::Form
-        attribute :encrypted_vote, String
-        attribute :encrypted_vote_hash, String
+      class VoteForm < Decidim::Form
+        mimic :vote
 
-        validates :encrypted_vote, :encrypted_vote_hash, :current_user, :election, presence: true
+        attribute :encrypted_data, String
+        attribute :encrypted_data_hash, String
+
+        validates :encrypted_data, :encrypted_data_hash, :current_user, :election, presence: true
         validate :hash_is_valid
 
         delegate :id, to: :election, prefix: true
-
-        def election_unique_id
-          @election_unique_id ||= Decidim::BulletinBoard::MessageIdentifier.unique_election_id(bulletin_board.authority_name.parameterize, election_id)
-        end
 
         # Public: computes a unique id for the voter/election pair.
         def voter_id
@@ -32,16 +30,16 @@ module Decidim
         end
 
         def current_user
-          @current_user ||= context[:current_user]
+          @current_user ||= context.current_user
         end
 
         private
 
         # Private: check if the hash sent by the browser is correct.
         def hash_is_valid
-          return if encrypted_vote.blank? || encrypted_vote_hash.blank?
+          return if encrypted_data.blank? || encrypted_data_hash.blank?
 
-          errors.add(:encrypted_vote_hash, :invalid) if Digest::SHA256.hexdigest(encrypted_vote) != encrypted_vote_hash
+          errors.add(:encrypted_data_hash, :invalid) if Digest::SHA256.hexdigest(encrypted_data) != encrypted_data_hash
         end
       end
     end

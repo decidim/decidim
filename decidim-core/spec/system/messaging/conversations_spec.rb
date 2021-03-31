@@ -14,6 +14,8 @@ describe "Conversations", type: :system do
   context "when user has no conversations" do
     before { visit_inbox }
 
+    it_behaves_like "accessible page"
+
     it "shows a notice informing about that" do
       expect(page).to have_content("You have no conversations yet")
     end
@@ -47,6 +49,8 @@ describe "Conversations", type: :system do
     before do
       visit decidim.new_conversation_path(recipient_id: recipient.id)
     end
+
+    it_behaves_like "accessible page"
 
     it "shows an empty conversation page" do
       expect(page).to have_no_selector(".card--list__item")
@@ -101,6 +105,10 @@ describe "Conversations", type: :system do
         interlocutors: [interlocutor],
         body: "who wants apples?"
       )
+    end
+
+    it_behaves_like "accessible page" do
+      before { visit_inbox }
     end
 
     it "shows user's conversation list" do
@@ -361,6 +369,8 @@ describe "Conversations", type: :system do
                                                 user7.id, user8.id, user9.id
                                               ])
         end
+
+        it_behaves_like "accessible page"
 
         it "shows the other 9 participant name" do
           within ".conversation-header .ml-s" do

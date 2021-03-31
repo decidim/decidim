@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Ballot::VerifyVoteForm do
+describe Decidim::Elections::Voter::VerifyVoteForm do
   subject { described_class.from_params(params).with_context(context) }
 
   let(:params) do
@@ -35,11 +35,5 @@ describe Decidim::Elections::Ballot::VerifyVoteForm do
     let(:context) { {} }
 
     it { is_expected.to be_invalid }
-  end
-
-  describe ".election_unique_id" do
-    it "returns the election unique id" do
-      expect(subject.election_unique_id).to eq("decidim-test-authority.#{election.id}")
-    end
   end
 end
