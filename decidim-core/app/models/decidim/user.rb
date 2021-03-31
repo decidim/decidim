@@ -50,7 +50,10 @@ module Decidim
 
     validate :all_roles_are_valid
 
-    mount_uploader :avatar, Decidim::AvatarUploader
+    has_one_attached :avatar
+    validates_upload :avatar do |config|
+      config.uploader = Decidim::AvatarUploader
+    end
 
     scope :not_deleted, -> { where(deleted_at: nil) }
 
