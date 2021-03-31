@@ -5,7 +5,7 @@
   <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "off" }) do |f| %>
     <input autocomplete="off" name="hidden" type="password" style="display:none;">
     <div class="columns large-4">
-      <%= f.upload :avatar %>
+      <%= f.as_upload :avatar %>
     </div>
 
     <div class="columns large-8 end">

@@ -40,8 +40,11 @@ module Decidim
     end
 
     def update_avatar
-      @user.avatar = @form.avatar
-      @user.remove_avatar = @form.remove_avatar
+      if @form.avatar.present?
+        @user.avatar = @form.avatar
+      elsif @form.remove_avatar
+        @user.avatar = nil
+      end
     end
 
     def update_password

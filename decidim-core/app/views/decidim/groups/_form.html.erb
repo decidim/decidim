@@ -11,7 +11,7 @@
     <%= f.text_field :email, help_text: t(".email_help") %>
   </div>
   <div class="field">
-    <%= f.upload :avatar %>
+    <%= f.as_upload :avatar %>
   </div>
   <div class="field">
     <%= f.text_area :about, rows: 5 %>
