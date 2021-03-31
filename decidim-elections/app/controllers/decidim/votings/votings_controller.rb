@@ -6,12 +6,14 @@ module Decidim
     # public layout.
     class VotingsController < Decidim::Votings::ApplicationController
       layout "layouts/decidim/voting_landing", only: :show
+
       include FormFactory
       include ParticipatorySpaceContext
       include NeedsVoting
       include FilterResource
       include Paginable
       include Decidim::Votings::Orderable
+      include Decidim::Elections::HasVoteFlow
 
       helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks, :census_contact_information
 
@@ -34,6 +36,15 @@ module Decidim
         raise ActionController::RoutingError, "Not Found" unless current_participatory_space
 
         enforce_permission_to :read, :voting, voting: current_participatory_space
+      end
+
+      helper_method :election, :exit_path
+
+      def login
+        @form = form(Census::LoginForm).from_params(params, election: election)
+
+        render :login,
+               layout: "decidim/election_votes"
       end
 
       def show_check_census
@@ -63,6 +74,14 @@ module Decidim
       end
 
       private
+
+      def election
+        @election ||= Decidim::Elections::Election.find(params[:election_id])
+      end
+
+      def exit_path
+        EngineRouter.main_proxy(election.component).election_path(election)
+      end
 
       def census_contact_information
         @census_contact_information ||= current_participatory_space.census_contact_information.presence || t("no_census_contact_information", scope: "decidim.votings.votings")

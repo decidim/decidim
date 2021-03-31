@@ -1,0 +1,72 @@
+
+<%= display_flash_messages unless request.post? && @form.invalid? %>
+<div class="focus__header">
+  <div class="row">
+    <div class="focus__steps">
+      <strong>
+        <%= t("votings.login.step", scope: "decidim.votings") %>
+      </strong>
+    </div>
+    <div class="heading5 focus__header-title">
+      <%= translated_attribute(election.title) %>
+    </div>
+  </div>
+</div>
+<div class="focus__content evote">
+  <div class="row">
+    <h1 class="heading2">
+      <%= t("votings.login.title", scope: "decidim.votings") %>
+    </h1>
+    <div class="evote__content">
+      <div class="evote__grid">
+        <div class="row mt-sm">
+          <div class="columns medium-centered large-8">
+            <p class="text-center"><strong><%= t("votings.login.subtitle", scope: "decidim.votings") %></strong></p>
+            <div class="card">
+              <div class="card__content">
+                <%= decidim_form_for @form,
+                     method: :post,
+                     url: params[:vote_path] do |f| %>
+                  <div>
+                    <div>
+                      <%= f.select :document_type, @form.document_types_for_select %>
+                    </div>
+                    <div>
+                      <%= f.text_field :document_number %>
+                    </div>
+                    <div>
+                      <%= f.text_field :postal_code %>
+                    </div>
+                    <fieldset>
+                      <legend <%= "class=is-invalid-label" if @form.errors[:birthdate].present? %>><%= t("votings.login.date_of_birth", scope: "decidim.votings") %></legend>
+                      <%= f.error_for(:birthdate) %>
+                      <div class="row">
+                        <label class="columns small-4">
+                          <%= f.text_field :day %>
+                        </label>
+                        <label class="columns small-4">
+                          <%= f.text_field :month %>
+                        </label>
+                        <label class="columns small-4">
+                          <%= f.text_field :year %>
+                        </label>
+                      </div>
+                    </fieldset>
+                    <div>
+                      <%= f.text_field :access_code %>
+                    </div>
+                  </div>
+                  <%= f.submit t(".start_voting"), class: "button expanded mt-s mb-none" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        <%= t("votings.login.dont_have_access_code", scope: "decidim.votings") %>
+        <%= link_to t("votings.login.ask_for_a_new_one", scope: "decidim.votings"), "#"%>
+      </p>
+    </div>
+  </div>
+</div>

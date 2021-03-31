@@ -1026,6 +1026,14 @@ en:
           no_votings: No voting matches your search criteria.
           only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
+        login:
+          ask_for_a_new_one: Ask for a new one.
+          date_of_birth: Date of birth
+          dont_have_access_code: Don't have an access code?
+          start_voting: Start voting
+          step: Identification
+          subtitle: "Fill the following form to access the voting:"
+          title: Identify myself with my voting census data
         no_census_contact_information: There's no contact information yet
         orders:
           label: 'Sort votings by:'
