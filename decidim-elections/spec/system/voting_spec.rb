@@ -41,7 +41,7 @@ describe "Voting", type: :system do
     end
 
     context "when the voting has census" do
-      let!(:census) { create(:dataset, voting: voting)}
+      let!(:census) { create(:dataset, voting: voting) }
 
       before do
         switch_to_host(organization.host)
