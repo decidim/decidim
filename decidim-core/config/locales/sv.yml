@@ -64,6 +64,7 @@ sv:
     errors:
       general: Fel vid bearbetning av bild
       image_too_big: Bilden är för stor
+      not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -243,7 +244,6 @@ sv:
       photos:
         related_photos: Relaterade bilder
     author:
-      avatar: Profilbild
       comments:
         one: kommentar
         other: kommentarer
@@ -313,6 +313,9 @@ sv:
           title: Bekräfta din e-postadress
       show:
         close_modal: Stäng modal
+    block_user_mailer:
+      notify:
+        hello: Hej,
     collapsible_list:
       hidden_elements_count:
         one: och %{count} fler
@@ -348,6 +351,7 @@ sv:
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
+            scope_id: Omfång
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -368,6 +372,10 @@ sv:
         welcome_text: Välkomsttext
       highlighted_content_banner:
         name: Banner för uppmärksammat innehåll
+      highlighted_elements_settings_form:
+        orders:
+          random: Slumpmässig
+          recent: Senaste
       how_to_participate:
         name: Hur du deltar
       html:
@@ -875,6 +883,9 @@ sv:
           show: Visa konversation med %{sender}
         create:
           error: Konversationen har inte startat. Försök igen senare
+        error_modal:
+          close: Stäng fönster
+          ok: OK
         index:
           ago: sedan
           close: Stäng modal
@@ -897,6 +908,8 @@ sv:
           send: Skicka
           title: Starta en konversation
     metrics:
+      download:
+        csv: Ladda ner data (CSV)
       followers:
         description: Antal deltagare som följer detta deltagarområde
         object: följare
@@ -958,6 +971,7 @@ sv:
       no_notifications: Inga meddelanden ännu.
     notifications_settings:
       show:
+        administrators: Administratörer
         allow_public_contact: Tillåt alla att skicka direktmeddelanden till mig, även de som jag inte följer.
         direct_messages: Ta emot direktmeddelanden från alla
         email_on_notification: Jag vill få ett e-brev varje gång jag får ett meddelande.
@@ -1021,6 +1035,7 @@ sv:
           error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
+          agreement: Jag godkänner villkoren
           legend: Godkänn användarvillkoren
         refuse:
           modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.
@@ -1130,6 +1145,9 @@ sv:
           one: "%{count} resultat"
           other: "%{count} resultat"
         view_all: Visa alla (%{count})
+    security:
+      selfxss_warning:
+        title: OBS!
     shared:
       confirm_modal:
         cancel: Avbryt
@@ -1152,9 +1170,16 @@ sv:
         description: Är detta innehåll olämpligt?
         does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
         offensive: Innehåller rasism, sexism, nedsättande kommentarer, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
+        reason: Anledning
         report: Rapportera
         spam: Innehåller klickbete, reklam, bedrägerier eller skräpprogramvara.
         title: Rapportera ett problem
+      flag_user_modal:
+        already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
+        close: Stäng
+        report: Rapportera
+        spam: Innehåller klickbete, reklam, bedrägerier eller skriptbottar.
+        title: Rapportera olämplig användare
       floating_help:
         close: Stäng hjälp
         help: Hjälp
@@ -1182,6 +1207,13 @@ sv:
         share_link: Dela länk
     statistics:
       comments_count: Kommentarer
+      endorsements_count: Instämmanden
+      followers_count: Följare
+      headline: Statistik
+      no_stats: Det finns ingen statistik ännu.
+      pages_count: Sidor
+      participants_count: Deltagare
+      users_count: Deltagare
     tags:
       filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
       filter_results_for_scope: 'Filtrera resultat för omfattning: %{resource}'
@@ -1219,6 +1251,7 @@ sv:
         send: Skicka
         title_reply: Svara
       show:
+        back: Visa alla samtal
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
         title: Konversation med %{usernames}
       update:
@@ -1232,6 +1265,12 @@ sv:
       update:
         error: Det gick inte att uppdatera dina intressen.
         success: Dina intressen har uppdaterats.
+    user_report_mailer:
+      notify:
+        body_1: Användaren %{user} har rapporterats av %{token}
+        body_2: 'Anledning: %{reason}'
+        greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hej %{admin},
     version:
       show:
         back_to_resource: Gå tillbaka
@@ -1257,6 +1296,7 @@ sv:
         number_of_versions: Versioner
         title: Versioner
     versions_list_item:
+      back: Visa alla versioner
       show:
         version_index: Version %{index}
     welcome_notification:
@@ -1459,9 +1499,11 @@ sv:
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
         close_menu: Stäng meny
+        main_menu: Huvudmeny
         navigation: Navigera
         sign_in: Logga in
         sign_up: Registrera
+        user_menu: Användarmeny
       impersonation_warning:
         close_session: Stäng session
         description_html: Du hanterar deltagaren <b>%{user_name}</b>.
@@ -1477,6 +1519,11 @@ sv:
         instagram: "%{organization} på Instagram"
         twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
+      timeout_modal:
+        body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
+        continue_session: Förtsätt med din session
+        sign_out: Logga ut
+        title: Vill du fortsätta med din session?
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Admin kontrollpanel
@@ -1485,6 +1532,7 @@ sv:
         profile: Mitt konto
         public_profile: Min offentliga profil
         sign_out: Logga ut
+        title: Profillänkar
       user_profile:
         account: Konto
         authorizations: Auktoriseringar
@@ -1498,6 +1546,7 @@ sv:
         see_more: Visa mer
   locale:
     name: Svenska
+    name_with_error: Svenska (fel!)
   password_validator:
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för likt din e-post

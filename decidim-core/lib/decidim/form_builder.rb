@@ -622,7 +622,7 @@ module Decidim
       length_validator = find_validator(attribute, ActiveModel::Validations::LengthValidator)
       return length_validator.options[type] if length_validator
 
-      length_validator = find_validator(attribute, ProposalLengthValidator)
+      length_validator = find_validator(attribute, ProposalLengthValidator) if Object.const_defined?("ProposalLengthValidator")
       if length_validator
         length = length_validator.options[type]
         return length.call(object) if length.respond_to?(:call)

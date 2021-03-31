@@ -49,6 +49,8 @@ ca:
         description: Nombre d'enquestes contestades per les participants
         object: respostes a enquestes
         title: Respostes a enquestes
+    statistics:
+      answers_count: Respostes
     surveys:
       admin:
         exports:

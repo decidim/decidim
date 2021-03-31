@@ -35,7 +35,13 @@ nl:
           user_group_id:
             label: Reageer als
         opinion:
+          label: Jouw mening over dit onderwerp
+          negative: Negatief
+          negative_selected: Jouw mening over dit onderwerp is negatief
           neutral: Neutraal
+          neutral_selected: Jouw mening over dit onderwerp is neutraal
+          positive: Positief
+          positive_selected: Jouw mening over dit onderwerp is positief
         remaining_characters: "%{count} tekens over"
         remaining_characters_1: "%{count} teken over"
         title: Voeg je reactie toe

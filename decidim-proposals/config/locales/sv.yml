@@ -146,6 +146,8 @@ sv:
             proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
             proposal_wizard_step_4_help_text: Förslagsguidens hjälptext för steg "Publicera"
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
             threshold_per_proposal: Tröskel per förslag
             vote_limit: Stödgräns per deltagare
           step:
@@ -352,6 +354,7 @@ sv:
         actions:
           preview: Förhandsvisa
         exports:
+          proposal_comments: Kommentarer
           proposals: Förslag
         models:
           proposal:
@@ -375,7 +378,9 @@ sv:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Du kommer att kunna förhandsvisa och sortera dokumentavsnitt)"
+            document_legend: 'Lägg till ett dokument som är mindre än 2MB, varje avsnitt upp till 3 nivåers djup kommer läsas in till förslagen. Möjliga format är: %{valid_mime_types}'
             title: LÄGG TILL DOKUMENT
             upload_document: Skicka in dokument
           publish:
@@ -416,6 +421,7 @@ sv:
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
+            delete_attachment: Ta bort bilaga
             select_a_category: Välj en kategori
             select_a_meeting: Välj ett möte
           index:
@@ -490,6 +496,7 @@ sv:
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
             select_states: Kontrollera status för förslagen som ska importeras
+            title: Importera förslag
         proposals_merges:
           create:
             invalid: Det gick inte att slå samman de valda förslagen.
@@ -642,6 +649,9 @@ sv:
           info: Du skapar ett <strong>gemensamt utkast</strong>.
         wizard_header:
           title: Skapa ditt gemensamma utkast
+      content_blocks:
+        highlighted_proposals:
+          proposals: Förslag
       create:
         error: Det gick inte att spara förslaget.
         success: Förslaget har skapats. Det är sparat som ett utkast.
@@ -697,8 +707,13 @@ sv:
         dynamic_map_instructions:
           instructions: <h3>Nu kan du dra markören och flytta den på kartan. </h3><p>Glöm inte att klicka på knappen "Uppdatera position" innan du publicerar ditt förslag.</p>
         edit:
+          add_documents: Dokument
+          add_images: Bild
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
+          delete_document: Radera dokument
+          delete_image: Radera bild
+          gallery_legend: "(Frivilligt) Lägg till en bild"
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
@@ -751,7 +766,11 @@ sv:
             document_index: Dokumentindex
           view_index:
             see_index: Visa index
+        placeholder:
+          address: Drottninggatan 23, 123 45 Stockholm
         preview:
+          announcement_body: Ditt förslag har sparats som ett utkast. Det måste publiceras för att det ska visas på webbplatsen.
+          announcement_title: Ditt förslag har ännu inte publicerats
           modify: Ändra förslaget
           proposal_edit_before_minutes:
             one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det tidsfönstret har passerat kommer du inte att kunna redigera förslaget.
@@ -875,3 +894,7 @@ sv:
       included_proposals:
         proposal_project: 'Förslag som ingår i dessa projekt:'
         proposal_result: 'Förslag som ingår i dessa resultat:'
+    statistics:
+      proposals_accepted: Godkända Förslag
+      proposals_count: Förslag
+      supports_count: Stöd

@@ -98,7 +98,7 @@ module Decidim
       end
 
       initializer "decidim_votings.decidim_voting_menu" do
-        Decidim.menu :decidim_voting_menu do |menu|
+        Decidim.menu :admin_voting_menu do |menu|
           menu.add_item :edit_voting,
                         I18n.t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_path(current_participatory_space),

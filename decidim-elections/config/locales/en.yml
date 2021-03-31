@@ -167,6 +167,8 @@ en:
         exports:
           elections: Elections
           feedback_form_answers: Feedback form answers
+        menu:
+          trustees: Trustees
         models:
           answer:
             name: Answer
@@ -266,7 +268,7 @@ en:
             result: Result
             selected: Selected
             submit: Publish results
-            success: Tally successfully ended
+            success: Publish results request was successfully sent to the Bulletin Board
             title: Calculated results
           vote:
             errors:
@@ -373,6 +375,7 @@ en:
           back: Available elections
           callout:
             already_voted: You have already voted in this election. You can change your vote or verify it.
+            pending_vote: Your vote is being casted on the server.
             vote_rejected: It was not possible to verify your vote. Please cast it again.
           preview: Preview
           verify:
@@ -520,7 +523,10 @@ en:
           back: Start voting process again
           cast: Cast ballot
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
-          header: 'Ballot is encrypted: cast or audit it'
+          header: 'Ballot is encrypted: cast it or audit it'
+        casting:
+          header: Casting the vote...
+          text: Your ballot is being casted on the ballot box.
         confirm:
           answer: Answer
           answer_number: answer %{number}
@@ -532,7 +538,6 @@ en:
           question: Question %{count}
         confirmed:
           back: Back to elections
-          error: Sorry, there was an error confirming the vote. Please vote again.
           experience: How was your experience?
           feedback: Give us some feedback
           header: Vote confirmed
@@ -540,17 +545,20 @@ en:
           text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote verification page</a>
         encrypting:
-          header: Encoding vote...
-          text: Your vote is being encrypted to ensure you can cast it anonymously.
+          header: Encrypting the vote...
+          text: Your ballot is being encrypted to ensure the secret of your vote.
         failed:
           header: Vote failed
           lead: Your vote has not been casted!
           text: Something went wrong, please try it again.
+          try_again: Try again
         header:
           ballot_decision: Cast or audit your vote
+          casting: Casting the vote
           confirm: Confirm your vote
           confirmed: Vote confirmed
-          encrypting: Confirming vote
+          encrypting: Encrypting the vote
+          failed: Vote failed
         messages:
           not_allowed: You are not allowed to vote on this election at this moment.
         modal:
@@ -564,8 +572,7 @@ en:
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
         update:
-          error: There was a problem updating the vote status
-          success: Vote status successfully updated
+          error: There was a problem updating the vote status. Please, vote again.
         verify:
           content:
             heading: Verify your vote
