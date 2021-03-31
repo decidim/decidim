@@ -527,6 +527,7 @@ en:
         ballot_decision:
           audit: "( Audit ballot )"
           back: Start voting process again
+          ballot_hash: "Your ballot identifier is:"
           cast: Cast ballot
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
           header: 'Ballot is encrypted: cast it or audit it'
@@ -547,7 +548,7 @@ en:
           experience: How was your experience?
           feedback: Give us some feedback
           header: Vote confirmed
-          lead: Your vote has already been cast!
+          lead: Your vote has been cast!
           text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote verification page</a>
         encrypting:
@@ -567,6 +568,8 @@ en:
           failed: Vote failed
         messages:
           not_allowed: You are not allowed to vote on this election at this moment.
+          invalid_token: Your session in the voting booth is not valid. Try to vote again.
+          invalid_timestamp: Your session in the voting booth expired. Try to vote again.
         modal:
           close: Close
           proposal_header: 'Proposals:'
@@ -922,6 +925,8 @@ en:
             click_button: 'Click the next link to download the access codes data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
             download: Download
             subject: The export of the voting access codes for %{voting_title} is available
+        vote_flow:
+          datum_not_found: "The given data doesn't match to any voter."
       content_blocks:
         highlighted_votings:
           name: Highlighted votings

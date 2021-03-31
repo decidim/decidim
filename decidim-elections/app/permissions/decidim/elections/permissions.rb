@@ -6,8 +6,6 @@ module Decidim
       def permissions
         check_view_election_permissions
 
-        toggle_allow(can_answer_feedback?) if permission_action.scope == :public && permission_action.subject == :questionnaire && permission_action.action == :answer
-
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
@@ -20,6 +18,8 @@ module Decidim
         return permission_action if permission_action.subject != :election
 
         case permission_action.action
+        when :user_vote
+          toggle_allow(can_vote_with_user?)
         when :vote
           toggle_allow(can_vote?)
         when :preview
@@ -40,25 +40,19 @@ module Decidim
       end
 
       def can_view?
-        election.published? || user&.admin?
+        election.published? || can_preview?
       end
 
       def can_vote?
-        election.published? && election.ongoing? && authorized_to_vote?
+        (election.published? && election.ongoing?) || can_preview?
       end
 
-      def can_preview?
-        user.admin? && !can_vote?
-      end
-
-      def authorized_to_vote?
+      def can_vote_with_user?
         authorized?(:vote, resource: election)
       end
 
-      def can_answer_feedback?
-        return unless user && election
-
-        authorized_to_vote? && !election.questionnaire.answered_by?(user)
+      def can_preview?
+        !election.started? && user&.admin?
       end
 
       def election
