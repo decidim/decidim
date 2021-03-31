@@ -184,8 +184,8 @@ module Decidim
     #
     # RETURNS STRING
     def author_avatar_url
-      author.avatar&.url ||
-        ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
+      author.attached_uploader(:avatar).url(host: organization.host) ||
+        ActionController::Base.helpers.asset_pack_path("decidim/default-avatar.svg")
     end
 
     def votes_enabled?
