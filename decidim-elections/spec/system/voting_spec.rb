@@ -39,5 +39,29 @@ describe "Voting", type: :system do
         expect(page).to have_current_path("/")
       end
     end
+
+    context "when the voting has census" do
+      let!(:census) { create(:dataset, voting: voting)}
+
+      before do
+        switch_to_host(organization.host)
+        visit decidim_votings.voting_path(voting)
+      end
+
+      it "shows 'How to vote' tab" do
+        expect(page).to have_link("How to vote")
+      end
+    end
+
+    context "when the voting doesn't has a census" do
+      before do
+        switch_to_host(organization.host)
+        visit decidim_votings.voting_path(voting)
+      end
+
+      it "doesn't has 'How to vote' tab" do
+        expect(page).not_to have_link("How to vote")
+      end
+    end
   end
 end

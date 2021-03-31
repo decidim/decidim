@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class VotingsController < Decidim::Votings::ApplicationController
       layout "layouts/decidim/voting_landing", only: :show
-
+      include FormFactory
       include ParticipatorySpaceContext
       include NeedsVoting
       include FilterResource
@@ -36,7 +36,31 @@ module Decidim
         enforce_permission_to :read, :voting, voting: current_participatory_space
       end
 
-      def check_census; end
+      def show_check_census
+        @form = form(CheckCensusForm).instance
+        render :check_census, locals: { success: false, not_found: false }
+      end
+
+      def check_census
+        @form = form(CheckCensusForm).from_params(params).with_context(
+          current_participatory_space: current_participatory_space
+        )
+
+        CheckCensus.call(@form) do
+          on(:ok) do
+            render action: :check_census, locals: { success: true, not_found: false }
+          end
+
+          on(:not_found) do
+            render action: :check_census, locals: { success: false, not_found: true }
+          end
+
+          on(:invalid) do
+            render action: :check_census, locals: { success: false, not_found: false }
+            flash[:alert] = t("check_census.invalid", scope: "decidim.votings.votings")
+          end
+        end
+      end
 
       private
 
