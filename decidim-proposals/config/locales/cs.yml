@@ -222,10 +222,10 @@ cs:
           email_subject: Byl jste odmítnut jako přispěvatel %{resource_title}.
           notification_title: Byl jsi <strong>odmítnut přístup jako přispěvatel</strong> na <a href="%{resource_path}">%{resource_title}</a> společném návrhu.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> zrušil <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> stáhl společný koncept <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} stáhl %{resource_title} návrh spolupráce."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>staženo</strong> <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.
+          email_subject: "%{author_name} %{author_nickname} stáhl společný koncept %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>stáhl</strong> <a href="%{resource_path}">%{resource_title}</a> společný koncept.
         creation_enabled:
           email_intro: 'Nyní můžete vytvořit nové návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
@@ -264,7 +264,7 @@ cs:
           email_subject: Váš návrh "%{mentioned_proposal_title}" byl zmíněn
           notification_title: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, který sledujete, zveřejnil nový návrh nazvaný "%{resource_title}". Vyzkoušejte to a přispějte:'
+          email_intro: '%{author_name} %{author_nickname}, kterého sledujete, zveřejnil nový návrh nazvaný "%{resource_title}". Omrkněte ho a přispějte:'
           email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: Nový návrh "%{resource_title}" od %{author_nickname}
           notification_title: Byl zveřejněn návrh <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
