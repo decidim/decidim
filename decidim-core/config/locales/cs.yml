@@ -548,12 +548,12 @@ cs:
             email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
             email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: <a href="%{emendation_path}">pozměňovací návrh</a> vytvořený <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
-            email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Pozměňovací návrh přijatý k %{amendable_title} od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořený od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl přijat.
         amendment_created:
           affected_user:
             email_intro: 'Nová změna byla vytvořena pro %{amendable_title}. Můžete ji vidět z této stránky:'
@@ -569,8 +569,8 @@ cs:
           affected_user:
             email_intro: 'Zamítnutý pozměňovací návrh pro %{amendable_title} byl publikován jako nový %{amendable_type}. Můžete ho vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Pozměňovací návrh z %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
-            notification_title: <a href="%{emendation_path}">zamítnout změnu</a> pro <a href="%{amendable_path}">%{amendable_title}</a> byla publikována jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Pozměňovací návrh od %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
+            notification_title: <a href="%{emendation_path}">Odmítnutý pozměňovací návrh</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl publikován jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Označení odmítnuté pro číslo %{amendable_title} bylo povýšeno na nezávislý %{amendable_type}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
