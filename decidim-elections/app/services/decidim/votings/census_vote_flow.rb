@@ -33,7 +33,7 @@ module Decidim
 
       def can_vote?
         @can_vote ||= begin
-          @datum ||= Decidim::Votings::Census::Datum.find_by(hashed_check_data: form.hashed_check_data)
+          @datum ||= Decidim::Votings::Census::Datum.find_by(hashed_online_data: form.hashed_online_data)
           has_voter?
         end
       end
