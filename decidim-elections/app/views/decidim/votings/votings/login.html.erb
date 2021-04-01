@@ -20,7 +20,7 @@
     </h1>
     <div class="evote__content">
       <div class="evote__grid">
-        <%= decidim_form_for(@form, url: params[:vote_path], html: { class: "form" }) do |f| %>
+        <%= decidim_form_for(@form, url: params[:vote_path], html: { class: "form", autocomplete: "off" }) do |f| %>
           <div class="row mt-sm">
             <div class="columns medium-centered large-8">
               <p class="text-center"><strong><%= t(".form_title") %></strong></p>

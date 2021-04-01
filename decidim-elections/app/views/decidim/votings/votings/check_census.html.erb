@@ -35,7 +35,7 @@ edit_link(
 
       <% if !success %>
         <div class="verify-census-form">
-          <%= decidim_form_for(@form, url: voting_check_census_path, html: { class: "form" }) do |f| %>
+          <%= decidim_form_for(@form, url: voting_check_census_path, html: { class: "form", autocomplete: "off" }) do |f| %>
             <div class="row mt-sm">
               <div class="columns medium-7">
                 <p><strong><%= t(".form_title") %></strong></p>
