@@ -210,7 +210,7 @@ cs:
           email_intro: '%{requester_name} požadoval přístup jako přispěvatel. Můžete <strong>přijmout nebo odmítnout žádost</strong> ze <a href="%{resource_path}">%{resource_title}</a> společném návrhu stránky.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} požádal o přístup k příspěvku na %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> požádal o přístup k příspěvku ke společnému konceptu <a href="%{resource_path}">%{resource_title}</a>. Prosím, <strong>žádost přijměte nebo odmítněte</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> požádal o přístup k přispění ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>. Prosím, <strong>přijměte nebo odmítněte žádost</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Byli jste přijati k přístupu jako přispěvatel projektu spolupráce <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Toto oznámení jste obdrželi, protože jste požádali, abyste se stal spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
