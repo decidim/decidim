@@ -66,7 +66,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = t("destroy.error", scope: "decidim.votings.admin.ballot_styles")
+              flash[:alert] = t("destroy.invalid", scope: "decidim.votings.admin.ballot_styles")
             end
           end
 

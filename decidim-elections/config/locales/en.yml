@@ -652,14 +652,14 @@ en:
           destroy:
             invalid: There was a problem deleting this ballot style
             success: Ballot style successfully deleted
-          update:
-            invalid: There was a problem updating this ballot style
-            success: Ballot style successfully updated
+          edit:
+            title: Edit ballot style
+            update: Update
           form:
-            code_help: "Hint: the code is the link between the census and a ballot style. When uploading the census data, every entry will be assigned a ballot style by matching the code"
-            questions: Questions for this ballot style
-            questions_help: "Hint: select the questions from the election components to be presented to the voters assigned to this ballot style"
+            code_help: 'Hint: the code is the link between the census and a ballot style. When uploading the census data, every entry will be assigned a ballot style by matching the code'
             election: Election
+            questions: Questions for this ballot style
+            questions_help: 'Hint: select the questions from the election components to be presented to the voters assigned to this ballot style'
           index:
             actions:
               confirm_destroy: Are you sure?
@@ -668,12 +668,12 @@ en:
               new: New
               title: Actions
             title: Ballot Styles
-          edit: 
-            title: Edit ballot style
-            update: Update
           new:
             create: Create
             title: Create ballot style
+          update:
+            invalid: There was a problem updating this ballot style
+            success: Ballot style successfully updated
         content_blocks:
           highlighted_votings:
             max_results: Maximum amount of elements to show
