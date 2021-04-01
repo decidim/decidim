@@ -109,6 +109,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan avfölja det från föregående länk.
           email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Din kommentar i "%{resource_title}" har blivit nedröstad. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
+          email_subject: Din kommentar i "%{resource_title}" har nedröstats.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har nedröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
         reply_created:
           email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
