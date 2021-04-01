@@ -927,7 +927,6 @@ en:
           description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
           error:
             info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
-            report: report it
             title: Your census data is incorrect!
           invalid: There was a problem checking the census.
           success:
