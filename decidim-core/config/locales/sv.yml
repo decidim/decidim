@@ -35,6 +35,7 @@ sv:
       decidim/profile_updated_event: Profilen har uppdaterats
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
+      decidim/resource_endorsed_event: Resurs instämd
   activerecord:
     attributes:
       decidim/user:
@@ -78,10 +79,12 @@ sv:
       logo: "%{organization}s logotyp"
       skip_button: Gå till innehåll
     account:
+      blocked: Detta konto har blockerats på grund av överträdelse av användarvillkoren
       data_portability_export:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
+        alert: Denna åtgärd kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in med dina uppgifter. Raderingen av ditt konto kommer att resultera i anonymiseringen av dina bidrag. Du kommer fortfarande kunna skapa ett nytt konto, men dina gamla bidrag kommer inte förknippas med det.
         confirm:
           close: Stäng fönster
           ok: Ja, radera mitt konto
@@ -111,6 +114,8 @@ sv:
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
         unpublish: "%{user_name} avpublicerade komponenten %{resource_name} från utrymmet %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} har hanterat %{resource_name} eftersom %{reason}"
       moderation:
         hide: "%{user_name} gömde en resurs av typen %{resource_type} i utrymmet %{space_name}"
         unreport: "%{user_name} drog tillbaka en resurs av typen %{resource_type} i utrymmet %{space_name}"
@@ -127,6 +132,7 @@ sv:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       participatory_space_private_user:
         create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
+        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV"
         delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
@@ -140,15 +146,19 @@ sv:
         delete: "%{user_name} raderade den statiska sidan %{resource_name}"
         update: "%{user_name} uppdaterade den statiska sidan %{resource_name}"
       user:
+        block: "%{user_name} blockerade användaren %{resource_name}"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         show_email: "%{user_name} hämtade e-postadressen för deltagaren %{resource_name}"
+        unblock: "%{user_name} avblockerade användaren %{resource_name}"
         unofficialize: "%{user_name} gjorde deltagaren %{resource_name} inofficiell"
       user_group:
         reject: "%{user_name} avvisade gruppverifieringen för %{resource_name}"
         verify: "%{user_name} verifierade gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifierade gruppen %{resource_name} via en CSV-fil"
+      user_moderation:
+        unreport: "%{user_name} avrapporterade en %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ANVÄNDARVILLKOR FÖR ADMINISTRATÖRER</h2><p>Vi förutsätter att du har fått den vanliga föreläsningen från den lokala systemadministratören. Det brukar bygga på tre saker:</p><ol><li>Respektera andras integritet.</li><li>Tänk innan du klickar.</li><li>Med stora krafter följer stort ansvar.</li></ol>"
     alert:
@@ -269,6 +279,8 @@ sv:
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
+      errors:
+        duplicate_authorization: En deltagare är redan behörig med samma data.
       expired_at: Förföll vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:
@@ -316,7 +328,11 @@ sv:
         close_modal: Stäng modal
     block_user_mailer:
       notify:
+        body_1: Ditt konto har spärrats.
+        body_2: 'Anledning: %{justification}'
+        greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hej,
+        subject: Ditt konto har spärrats av %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: och %{count} fler
@@ -353,6 +369,7 @@ sv:
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
             scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -364,6 +381,11 @@ sv:
             dummy_step_translatable_text: Översättningsbar text för exempelsteg
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Bild, text och Åtgärdsknapp
+      cta_settings_form:
+        background_image: Bakgrundsbild
+        button_text: Uppmaningens text
       footer_sub_hero:
         name: Sidfot sub hero banner
       hero:
