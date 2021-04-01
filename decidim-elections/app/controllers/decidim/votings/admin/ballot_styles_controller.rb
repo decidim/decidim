@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     module Admin
-      # This controller allows to create or update the census.
+      # This controller allows to create or update the ballot styles.
       class BallotStylesController < Admin::ApplicationController
         include VotingAdmin
         helper_method :ballot_styles, :current_voting, :voting_elections, :current_ballot_style
@@ -77,16 +77,6 @@ module Decidim
 
         def current_ballot_style
           @current_ballot_style ||= BallotStyle.find(params[:id])
-        end
-
-        def votings
-          @votings ||= OrganizationVotings.new(current_user.organization).query
-        end
-
-        def current_census
-          @current_census ||= Dataset.find_by(
-            voting: current_voting
-          ) || Dataset.new(status: :init_data)
         end
 
         def ballot_styles
