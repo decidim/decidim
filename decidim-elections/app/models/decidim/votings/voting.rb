@@ -38,6 +38,7 @@ module Decidim
                class_name: "Decidim::Votings::MonitoringCommitteeMember",
                inverse_of: :voting,
                dependent: :destroy
+      has_many :ballot_styles, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::BallotStyle", inverse_of: :voting, dependent: :destroy
 
       validates :slug, uniqueness: { scope: :organization }
       validates :slug, presence: true, format: { with: Decidim::Votings::Voting.slug_format }

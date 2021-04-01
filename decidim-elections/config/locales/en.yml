@@ -645,6 +645,30 @@ en:
       votings_count: Votings
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: There was a problem creating this ballot style
+            success: Ballot style successfully created
+          destroy:
+            invalid: There was a problem deleting this ballot style
+            success: Ballot style successfully deleted
+          update:
+            invalid: There was a problem updating this ballot style
+            success: Ballot style successfully updated
+          index:
+            actions:
+              confirm_destroy: Are you sure?
+              destroy: Delete
+              edit: Edit
+              new: New
+              title: Actions
+            title: Ballot Styles
+          edit: 
+            title: Edit ballot style
+            update: Update
+          new:
+            create: Create
+            title: Create ballot style
         content_blocks:
           highlighted_votings:
             max_results: Maximum amount of elements to show
@@ -688,6 +712,7 @@ en:
             attachment_files: Files
             attachments: Attachments
             census: Census
+            ballot_styles: Ballot Styles
             components: Components
             info: Information
             landing_page: Landing Page
@@ -695,6 +720,11 @@ en:
             polling_officers: Polling Officers
             polling_stations: Polling Stations
         models:
+          ballot_style:
+            fields:
+              code: Code
+              title: Title
+            name: Ballot Style
           monitoring_committee_member:
             fields:
               email: Email
