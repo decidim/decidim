@@ -802,6 +802,7 @@ en:
             assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
+            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a Decidim survey for visitors, etc.
             select_a_voting_type: Please select a voting type
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
@@ -925,7 +926,7 @@ en:
         check_census:
           description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
           error:
-            info: Please try again. If you think the data in the system is incorrect, you can %{report_link}.
+            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
             report: report it
             title: Your census data is incorrect!
           invalid: There was a problem checking the census.
@@ -965,6 +966,7 @@ en:
           no_votings: No voting matches your search criteria.
           only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
+        no_census_contact_information: There's no contact information yet.
         orders:
           label: 'Sort votings by:'
           random: Random

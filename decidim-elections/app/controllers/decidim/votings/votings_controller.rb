@@ -13,7 +13,7 @@ module Decidim
       include Paginable
       include Decidim::Votings::Orderable
 
-      helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks
+      helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks, :census_contact_information
 
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
@@ -63,6 +63,14 @@ module Decidim
       end
 
       private
+
+      def census_contact_information
+        @census_contact_information ||= if !current_participatory_space.census_contact_information.empty?
+                                          current_participatory_space.census_contact_information
+                                        else
+                                          t("no_census_contact_information", scope: "decidim.votings.votings")
+                                        end
+      end
 
       def current_participatory_space_manifest
         @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:votings)

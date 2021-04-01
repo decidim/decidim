@@ -30,7 +30,7 @@ edit_link(
         <div class="verify-census-error callout alert mt-s">
           <h5><%= t("decidim.votings.votings.check_census.error.title") %></h5>
           <p>
-            <%== t("decidim.votings.votings.check_census.error.info", report_link: link_to(t("decidim.votings.votings.check_census.error.report"), "#")) %>
+            <%== t("decidim.votings.votings.check_census.error.info", census_contact_information: census_contact_information ) %>
           </p>
         </div>
       <% end %>

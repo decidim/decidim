@@ -6,7 +6,7 @@ describe "Check Census", type: :system do
   include Rack::Test::Methods
 
   let!(:organization) { create(:organization) }
-  let!(:voting) { create(:voting, :published, organization: organization) }
+  let!(:voting) { create(:voting, :published, organization: organization, census_contact_information: "census_help@example.com") }
   let!(:dataset) { create(:dataset, :data_created, voting: voting) }
   let!(:datum) do
     create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: "19800511", postal_code: "04001", dataset: dataset)
@@ -57,9 +57,6 @@ describe "Check Census", type: :system do
   context "when no census data is found" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
-    end
-
-    it "shows note that census data is correct" do
       within ".card__content" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "987654321X"
@@ -69,10 +66,18 @@ describe "Check Census", type: :system do
         fill_in "Year", with: "1982"
         find("*[type=submit]").click
       end
+    end
 
+    it "shows note that census data is correct" do
       within ".wrapper" do
         expect(page).to have_content("Your census data is incorrect")
         expect(page).to have_content("Fill the following form to check your census data:")
+      end
+    end
+
+    it "shows contact information to edit census data if wrong" do
+      within ".wrapper" do
+        expect(page).to have_content("census_help@example.com")
       end
     end
   end
