@@ -265,9 +265,9 @@ cs:
           notification_title: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, který sledujete, zveřejnil nový návrh nazvaný "%{resource_title}". Vyzkoušejte to a přispějte:'
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Nový návrh "%{resource_title}" o %{author_nickname}
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
+          email_subject: Nový návrh "%{resource_title}" od %{author_nickname}
+          notification_title: Byl zveřejněn návrh <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Návrh "%{resource_title}" byl přidán k "%{participatory_space_title}", který sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
