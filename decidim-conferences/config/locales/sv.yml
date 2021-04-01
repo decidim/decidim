@@ -3,6 +3,7 @@ sv:
     attributes:
       conference:
         assemblies_ids: Relaterade grupper
+        available_slots: Tillgängliga platser
         banner_image: Bannerbild
         consultations_ids: Relaterade samråd
         copy_categories: Kopiera kategorier
@@ -19,12 +20,15 @@ sv:
         participatory_processes_ids: Relaterade dialoger
         promoted: Uppmärksammad
         published_at: Publicerad
+        registration_terms: Registreringsvillkor
+        registrations_enabled: Registrering aktiverad
         scope_id: Omfång
         scopes_enabled: Omfång aktiverat
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         sign_date: Underskriftsdatum
         signature: Underskrift
+        signature_name: signaturnamn
         slogan: Slogan
         slug: URL-slug
         start_date: Startdatum
@@ -38,18 +42,24 @@ sv:
         link: Länk
         logo: Logga
         name: Namn
+        partner_type: Typ av partner
         weight: Vikt
       conference_registration_invite:
         email: E-post
         name: Namn
+        registration_type_id: Registreringstyp
         user_id: Användare
       conference_registration_type:
+        description: Beskrivning
         price: Pris
         title: Titel
         weight: Vikt
       conference_speaker:
+        affiliation: Anknytning
         avatar: Avatar
+        conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
+        personal_url: Personlig URL
         position: Plats
         short_bio: Kort biographi
         twitter_handle: Twitternamn
