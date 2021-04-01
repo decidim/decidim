@@ -200,12 +200,12 @@ cs:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel k <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} byl přijat k přístupu jako přispěvatel %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> je <strong>přijat přístup jako přispěvatel</strong> z <a href="%{resource_path}">%{resource_title}</a> společném návrhu.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> je <strong>přijat k přístupu jako přispěvatel</strong> ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} byl odmítnut jako přístupový člen projektu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} byl odmítnut pro přístup jako přispěvatel k %{resource_title} kolektivnímu návrhu."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> bylo <strong>odmítnuto k přístupu jako přispěvatel</strong> z projektu <a href="%{resource_path}">%{resource_title}</a> spolupráce.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> byl <strong>odmítnut k přístupu jako přispěvatel</strong> ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} požadoval přístup jako přispěvatel. Můžete <strong>přijmout nebo odmítnout žádost</strong> ze <a href="%{resource_path}">%{resource_title}</a> společném návrhu stránky.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
