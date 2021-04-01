@@ -87,8 +87,8 @@ module Decidim
         end
       end
 
-      initializer "decidim_consultations.admin_consultation_question_menu" do
-        Decidim.menu :admin_consultation_question_menu do |menu|
+      initializer "decidim_consultations.admin_question_menu" do
+        Decidim.menu :admin_question_menu do |menu|
           menu.add_item :edit_consultation,
                         I18n.t("consultation", scope: "decidim.admin.menu.questions_submenu"),
                         decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation),

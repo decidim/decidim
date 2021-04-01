@@ -1,5 +1,5 @@
 <% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:admin_consultation_question_menu).render do
+  <%= sidebar_menu(:admin_question_menu).render do
     public_page_link decidim_consultations.consultation_path(current_participatory_space.consultation)
   end %>
 <% end %>
