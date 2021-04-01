@@ -10,7 +10,7 @@ describe Decidim::Elections::Trustee do
 
   it { is_expected.to be_valid }
 
-  it { expect(subject.full_name).to eql("#{organization.name.parameterize}-trustee-1") }
+  it { expect(subject.bulletin_board_slug).to eql("#{organization.name.parameterize}-trustee-1") }
 
   context "when it is considered" do
     let(:trustee) { build :trustee, :considered }

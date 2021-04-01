@@ -11,15 +11,10 @@ module Decidim
         attribute :public_key, String
         validates :name, :public_key, presence: true
         validate :dont_change_data
-        validate :valid_name
 
         def dont_change_data
           errors.add :name, :cant_be_changed if trustee.name.present?
           errors.add :public_key, :cant_be_changed if trustee.public_key.present?
-        end
-
-        def valid_name
-          errors.add :name, :is_taken if Decidim::Elections::Trustee.joins(:user).exists?(name: name, decidim_users: { decidim_organization_id: current_organization.id })
         end
 
         def trustee

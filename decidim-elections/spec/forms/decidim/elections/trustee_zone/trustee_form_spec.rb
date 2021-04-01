@@ -31,6 +31,12 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
     it { is_expected.not_to be_valid }
   end
 
+  context "when namey is missing" do
+    let(:trustee_name) { "" }
+
+    it { is_expected.not_to be_valid }
+  end
+
   context "when the trustee already has a public key" do
     let(:public_key) { "1234567890abcde" }
 
@@ -41,17 +47,5 @@ describe Decidim::Elections::TrusteeZone::TrusteeForm do
     let(:trustee) { create(:trustee, public_key: public_key, name: "Sheldon") }
 
     it { is_expected.not_to be_valid }
-  end
-
-  context "when a trustee with the same name exists" do
-    let!(:other_trustee) { create(:trustee, :with_public_key, name: "Shelton Runolfsson Sr.", organization: current_organization) }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  context "when a trustee with the same name but different organization exists" do
-    let!(:other_trustee) { create(:trustee, :with_public_key, name: "Shelton Runolfsson Sr.") }
-
-    it { is_expected.to be_valid }
   end
 end
