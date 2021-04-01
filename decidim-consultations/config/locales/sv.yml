@@ -94,6 +94,7 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt samråd.
           success: Samrådet har skapats.
+        deprecation_warning: Konsultationsmodulen kommer att tas bort inom en nära framtid. Vi arbetar på nästa kryptografiskt säkra version som kallas Omröstningar.
         edit:
           update: Uppdatera
         form:
