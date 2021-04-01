@@ -655,6 +655,11 @@ en:
           update:
             invalid: There was a problem updating this ballot style
             success: Ballot style successfully updated
+          form:
+            code_help: "Hint: the code is the link between the census and a ballot style. When uploading the census data, every entry will be assigned a ballot style by matching the code"
+            questions: Questions for this ballot style
+            questions_help: "Hint: select the questions from the election components to be presented to the voters assigned to this ballot style"
+            election: Election
           index:
             actions:
               confirm_destroy: Are you sure?
