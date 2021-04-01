@@ -322,6 +322,7 @@ sv:
         'false': 'Nej'
         managed_user_name: Hanterad användare
         solved: Löst
+        title: Verifieringskonflikter
         transfer:
           email: E-post
           error: Det gick inte att konvertera användaren till hanterad användare.
@@ -421,6 +422,7 @@ sv:
       imports:
         creators:
           proposalcreator: Förslagsförfattare
+        error: Ett fel uppstod under importeringsprocessen
         help:
           proposalcreator: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/ca och body/ca). Även scope/id och category/id kolumner stöds.
         import_from_file: Importera från fil
@@ -432,7 +434,9 @@ sv:
             xlsx: xlsx
           actions:
             back: Tillbaka
+          file_legend: Lägg till en fil som kommer importeras.
           import: Importera
+        notice: "%{number} %{resource_name} har importerats"
       logs:
         logs_list:
           no_logs_yet: Det finns inga loggar än
@@ -655,6 +659,9 @@ sv:
           error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
       officializations:
+        block:
+          error: Det gick inte att blockera användaren
+          success: Deltagaren har blockerats
         create:
           success: Deltagaren har gjorts officiell
         destroy:
@@ -687,6 +694,9 @@ sv:
           hidden: dold
           show: Visa
           title: Visa deltagarens e-postadress
+        unblock:
+          error: Det gick inte att avblockera användaren
+          success: Deltagaren har avblockerats
       organization:
         edit:
           title: Redigera organisation
