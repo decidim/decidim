@@ -9,7 +9,7 @@ module Decidim
                class_name: "Decidim::Votings::BallotStyleQuestion",
                foreign_key: :decidim_votings_ballot_style_id,
                inverse_of: :ballot_style,
-               dependent: :destroy
+               dependent: :delete_all
       has_many :questions, through: :ballot_style_questions
 
       validates :code, presence: true, uniqueness: { scope: :voting }

@@ -115,4 +115,15 @@ FactoryBot.define do
     mobile_phone_number { Faker::PhoneNumber.cell_phone }
     email { Faker::Internet.email }
   end
+
+  factory :ballot_style, class: "Decidim::Votings::BallotStyle" do
+    title { Faker::Lorem.word }
+    code { Faker::Lorem.sentence(word_count: 3) }
+    voting { create(:voting) }
+  end
+
+  factory :ballot_style_question, class: "Decidim::Votings::BallotStyleQuestion" do
+    question
+    ballot_style
+  end
 end

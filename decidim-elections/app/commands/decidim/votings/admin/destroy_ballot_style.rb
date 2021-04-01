@@ -25,7 +25,7 @@ module Decidim
         attr_reader :ballot_style
 
         def destroy_ballot_style!
-          ballot_style.destroy
+          ballot_style.destroy!
         end
       end
     end
