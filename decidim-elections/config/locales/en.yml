@@ -167,6 +167,8 @@ en:
         exports:
           elections: Elections
           feedback_form_answers: Feedback form answers
+        menu:
+          trustees: Trustees
         models:
           answer:
             name: Answer

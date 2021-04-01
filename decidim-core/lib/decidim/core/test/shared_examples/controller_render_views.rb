@@ -3,9 +3,7 @@
 shared_context "with controller rendering the view" do
   # Fix "No route matches" errors with the view.
   before do
-    controller.class_eval do
-      helper_method :polymorphic_path, :url_for
-
+    controller.view_context_class.class_eval do
       # Needed for the form_for to work (through decidim_form_for)
       # The path shouldn't matter in the controller specs.
       def polymorphic_path(_record, _options)
@@ -18,6 +16,13 @@ shared_context "with controller rendering the view" do
         "/"
       end
     end
+  end
+
+  after do
+    # Ensure that the customized view context class is not being kept in the
+    # cache variable. Otherwise we might mess up the following specs using the
+    # same controller in the same run.
+    controller.class.remove_instance_variable(:@view_context_class)
   end
 
   # Rendering of the view is necessary to see the view renders correctly
