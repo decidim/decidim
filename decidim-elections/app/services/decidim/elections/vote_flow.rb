@@ -32,22 +32,20 @@ module Decidim
       attr_writer :voter_token
 
       def voter_token
-        @voter_token ||= format_token(voter_token_data.to_json)
+        @voter_token ||= message_decryptor.encrypt_and_sign(voter_token_data.to_json)
       end
 
       def voter_token_parsed_data
-        @voter_token_parsed_data ||= JSON.parse(parse_token(voter_token) || "{}").with_indifferent_access
-      end
-
-      def format_token(data)
-        message_decryptor.encrypt_and_sign(data)
-      end
-
-      def parse_token(token)
-        token && message_decryptor.decrypt_and_verify(token)
+        @voter_token_parsed_data ||= JSON.parse(message_decryptor.decrypt_and_verify(voter_token)).with_indifferent_access
       rescue ActiveSupport::MessageEncryptor::InvalidMessage
-        nil
+        {}
       end
+
+      def voter_id_token(a_voter_id = nil)
+        @voter_id_token ||= tokenizer.hex_digest(a_voter_id || voter_id)
+      end
+
+      private
 
       def voter_token_data
         @voter_token_data = {
@@ -68,6 +66,10 @@ module Decidim
 
       def message_decryptor
         @message_decryptor ||= ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base[0..31])
+      end
+
+      def tokenizer
+        @tokenizer ||= Decidim::Tokenizer.new(salt: Rails.application.secrets.secret_key_base, length: 10)
       end
     end
   end

@@ -34,7 +34,7 @@ module Decidim
           Voter::CastVote.call(@form)
         end
 
-        redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash])
+        redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash], token: vote_flow.voter_id_token)
       end
 
       def show
@@ -48,7 +48,7 @@ module Decidim
 
         Voter::UpdateVoteStatus.call(vote, verify_url) do
           on(:ok) do
-            redirect_to election_vote_path(election, id: vote.encrypted_vote_hash)
+            redirect_to election_vote_path(election, id: vote.encrypted_vote_hash, token: vote_flow.voter_id_token(vote.voter_id))
           end
           on(:invalid) do
             flash[:alert] = I18n.t("votes.update.error", scope: "decidim.elections")
@@ -113,8 +113,8 @@ module Decidim
           return
         end
 
-        return redirect_to(vote_flow.login_path(new_election_vote_path) || exit_path, alert: vote_flow.no_access_message, status: 307) unless vote_flow.can_vote?
-        return redirect_to(election_vote_path(election, id: pending_vote.encrypted_vote_hash)) if pending_vote.present?
+        return redirect_to(vote_flow.login_path(new_election_vote_path) || exit_path, alert: vote_flow.no_access_message, status: :temporary_redirect) unless vote_flow.can_vote?
+        return redirect_to(election_vote_path(election, id: pending_vote.encrypted_vote_hash, token: vote_flow.voter_id_token)) if pending_vote.present?
       end
 
       def valid_voter_token?
