@@ -1132,7 +1132,7 @@ cs:
     profile:
       deleted: Vymazaný uživatel
       inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
-      view: Pohled
+      view: Zobrazit
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému jménu
       default_officialization_text_for_users: Tento účastník je veřejně ověřen, jeho jméno nebo role byly ověřeny tak, aby odpovídaly jeho skutečnému jménu a roli
