@@ -117,9 +117,23 @@ FactoryBot.define do
   end
 
   factory :ballot_style, class: "Decidim::Votings::BallotStyle" do
-    title { Faker::Lorem.word }
+    title { Faker::Lorem.sentence(word_count: 3) }
     code { Faker::Lorem.word }
     voting { create(:voting) }
+
+    trait :with_questions do
+      transient do
+        election { create(:election, :complete, component: create(:elections_component, participatory_space: voting)) }
+      end
+    end
+
+    trait :with_ballot_style_questions do
+      with_questions
+
+      after(:create) do |ballot_style, evaluator|
+        evaluator.election.questions.first(2).map { |question| create(:ballot_style_question, question: question, ballot_style: ballot_style) }
+      end
+    end
   end
 
   factory :ballot_style_question, class: "Decidim::Votings::BallotStyleQuestion" do

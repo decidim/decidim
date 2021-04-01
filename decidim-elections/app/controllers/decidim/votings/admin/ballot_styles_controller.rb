@@ -47,7 +47,7 @@ module Decidim
           UpdateBallotStyle.call(@form, current_ballot_style) do
             on(:ok) do
               flash[:notice] = I18n.t("update.success", scope: "decidim.votings.admin.ballot_styles")
-              redirect_to edit_voting_ballot_style_path(current_voting, current_ballot_style)
+              redirect_to voting_ballot_styles_path(current_voting)
             end
 
             on(:invalid) do
@@ -58,7 +58,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :manage, :ballot_style, ballot_style: current_ballot_style
+          enforce_permission_to :delete, :ballot_style, ballot_style: current_ballot_style
 
           DestroyBallotStyle.call(current_ballot_style) do
             on(:ok) do
