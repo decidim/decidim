@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Aktivera organisationskarta
       assembly:
         area_id: Område
         assembly_type: Typ av grupp
