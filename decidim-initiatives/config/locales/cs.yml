@@ -405,8 +405,8 @@ cs:
         revoke_membership_request:
           email_intro: "%{author_nickname} odmítl vaši nabídku k členství funkcionáře ve výboru propagace pro tuto iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
-          email_subject: "%{author_nickname} odmítl vaši žádost na funkcionáře výboru"
-          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> odmítl vaši žádost o členství v propagačním výboru pro následující iniciativu <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: "%{author_nickname} odmítl vaši nabídku na funkcionáře výboru propagace"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> odmítl vaši nabídku k členství v propagačním výboru pro následující iniciativu <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} požádal o funkci ve výboru vaší iniciativy %{resource_title}. Chcete-li přijmout nebo zamítnout žádost, přejděte na editační formulář vaší iniciativy."
           email_outro: 'Obdrželi jste toto oznámení, protože jste autorem této iniciativy: %{resource_title}'
