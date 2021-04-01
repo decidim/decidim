@@ -388,9 +388,9 @@ cs:
         update: Aktualizovat
       events:
         approve_membership_request:
-          email_intro: "%{author_nickname} přijal vaši žádost o to, aby byla součástí propagačního výboru pro iniciativu %{resource_title}."
+          email_intro: "%{author_nickname} přijal vaši žádost, aby se stal součástí propagačního výboru pro iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}'
-          email_subject: "Uživatel %{author_nickname} přijal vaši žádost k funkcionáři výboru"
+          email_subject: "Uživatel %{author_nickname} přijal vaši nabídku k propagačnímu výboru"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> přijal vaši žádost o členství ve výboru funkcionářů pro iniciativu <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
