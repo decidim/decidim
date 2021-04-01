@@ -355,6 +355,7 @@ sv:
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
             scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
