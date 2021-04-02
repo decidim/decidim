@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "searchlight"
 require "jquery-tmpl-rails"
 require "icalendar"
 

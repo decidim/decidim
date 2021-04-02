@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
-
 module Decidim
   module Budgets
     # This is the engine that runs on the public interface of `decidim-budgets`.
