@@ -699,7 +699,7 @@ cs:
         proposal: Návrhy
         result: Výsledky
     fingerprint:
-      check: Ověřit identifikaci
+      check: Kontrola jedinečnosti
       explanation: Níže uvedený text je zkráceným, zakódovaným znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl pozměněn, protože jediná změna by vedla k úplně jiné hodnotě.
       online_calculator_name: MD5 kalkulačka online
       replicate_help: Tato digitální identifikace se vypočítá algoritmem SHA256. Abyste ji mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
