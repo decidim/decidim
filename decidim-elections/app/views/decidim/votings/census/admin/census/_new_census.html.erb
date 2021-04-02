@@ -1,21 +1,27 @@
+<%
+  scope = "decidim.votings.census.admin.census.new"
+  ballot_style_code_header = "Ballot Style Code"
+  ballot_style_callout_message, ballot_style_callout_level = current_participatory_space.ballot_styles.any? ? [t("has_ballot_styles_message", ballot_style_code_header: ballot_style_code_header, scope: scope), "warning"] : [t("missing_ballot_styles_message", ballot_styles_admin_path: admin_voting_ballot_styles_path, scope: scope), "alert"]
+%>
+
 <div class="card-section">
-  <%= cell("decidim/announcement", t("new.info_message", scope: "decidim.votings.census.admin.census"), callout_class: "warning") %>
+  <%= cell("decidim/announcement", t("info_message", scope: scope), callout_class: "warning") %>
+  <%= cell("decidim/announcement", ballot_style_callout_message, callout_class: ballot_style_callout_level) %>
 
   <div class="card">
     <div class="card-section">
-      <h4><%= t("new.title", scope: "decidim.votings.census.admin.census") %></h4>
+      <h4><%= t("title", scope: scope) %></h4>
 
-      <%= render "upload_info" %>
+      <%= render "upload_info", ballot_style_code_header: ballot_style_code_header %>
 
       <%= decidim_form_for(@form, url: admin_voting_census_path,
                             method: :post,
                             html: { class: "form new_census" }) do |form| %>
         <div class="field">
           <%= form.upload :file, optional: false, help_i18n_scope: "decidim.votings.census.admin.census.new.file_help" %>
-
         </div>
 
-        <%= submit_tag t("new.submit", scope: "decidim.votings.census.admin.census"), class: "button" %>
+        <%= submit_tag t("submit", scope: scope), class: "button" %>
       <% end %>
     </div>
   </div>
