@@ -66,22 +66,12 @@ module Decidim
             allow(Decidim::Accountability).to receive(:enable_proposal_linking).and_return(false)
           end
 
-          after do
-            # Re-enable proposal linking before reloading the class
-            allow(Decidim::Accountability).to receive(:enable_proposal_linking).and_return(true)
-
-            # Reload the class with proposal linking enabled
-            Decidim::Accountability::Admin.send(:remove_const, :ResultsController)
-            load "#{Decidim::Accountability::Engine.root}/app/controllers/decidim/accountability/admin/results_controller.rb"
-          end
-
           it "does not load the proposals admin picker concern" do
-            Decidim::Accountability::Admin.send(:remove_const, :ResultsController)
-            load "#{Decidim::Accountability::Engine.root}/app/controllers/decidim/accountability/admin/results_controller.rb"
+            expect(Decidim::Accountability::Admin::ResultsController).not_to receive(:include).with(
+              Decidim::Proposals::Admin::Picker
+            )
 
-            expect(
-              Decidim::Accountability::Admin::ResultsController.include?(Decidim::Proposals::Admin::Picker)
-            ).to be(false)
+            load "#{Decidim::Accountability::Engine.root}/app/controllers/decidim/accountability/admin/results_controller.rb"
           end
         end
       end
