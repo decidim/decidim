@@ -443,7 +443,7 @@ cs:
         name: Pruh pod hlavním pruhem
     core:
       actions:
-        login_before_access: Prosím přihlašte se k účtu před přístupem
+        login_before_access: Prosím přihlašte se k účtu abyste mohli vstoupit
         unauthorized: Nemáte oprávnění k provedení této akce
     data_portability:
       export:
