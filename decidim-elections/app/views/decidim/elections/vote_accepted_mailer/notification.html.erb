@@ -1,3 +1,3 @@
-<h2><%= t("votes.accepted_votes.email_subject", scope: "decidim.events.elections", resource_name: @election_name) %></h2>
+<h2><%= t("votes.accepted_votes.email_subject", scope: "decidim.events.elections", resource_name: @election_title) %></h2>
 <p><%= raw t("votes.accepted_votes.email_intro", scope: "decidim.events.elections", encrypted_vote_hash: @vote.encrypted_vote_hash, verify_url: @verify_url) %></p>
-<p><%= t("votes.accepted_votes.email_outro", scope: "decidim.events.elections", resource_name: @election_name) %></p>
+<p><%= t("votes.accepted_votes.email_outro", scope: "decidim.events.elections", resource_name: @election_title) %></p>

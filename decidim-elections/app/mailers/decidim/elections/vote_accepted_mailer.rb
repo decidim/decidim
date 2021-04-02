@@ -17,11 +17,11 @@ module Decidim
       def notification(vote, verify_url, locale = nil)
         @vote = vote
         @verify_url = verify_url
-        @election_name = translated_attribute(vote.election.title)
         @organization = vote.election.component.organization
 
         I18n.with_locale(locale || @organization.default_locale) do
-          mail(to: vote.email, subject: I18n.t("votes.accepted_votes.email_subject", scope: "decidim.events.elections", resource_name: @election_name))
+          @election_title = translated_attribute(vote.election.title)
+          mail(to: vote.email, subject: I18n.t("votes.accepted_votes.email_subject", scope: "decidim.events.elections", resource_name: @election_title))
         end
       end
     end
