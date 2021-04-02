@@ -35,7 +35,8 @@ module Decidim
               full_address: form.full_address,
               postal_code: form.postal_code,
               mobile_phone_number: form.mobile_phone_number,
-              email: form.email
+              email: form.email,
+              decidim_votings_ballot_style_id: form.ballot_style_id
             }
 
             Decidim::Votings::Census::Datum.create(

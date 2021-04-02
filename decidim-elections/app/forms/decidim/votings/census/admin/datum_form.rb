@@ -19,6 +19,7 @@ module Decidim
           attribute :postal_code, String
           attribute :mobile_phone_number, String
           attribute :email, String
+          attribute :ballot_style_id, Integer
 
           validates :document_number,
                     :document_type,
