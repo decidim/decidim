@@ -54,14 +54,14 @@ module Decidim
         Decidim.participatory_space_registry.manifests.each do |participatory_space|
           menu_id = :"admin_#{participatory_space.name.to_s.singularize}_menu"
           Decidim.menu menu_id do |menu|
-            component = current_participatory_space.components.find_by(manifest_name: :elections)
-            if component
-              menu.add_item :trustees,
-                            I18n.t("trustees", scope: "decidim.elections.admin.menu"),
-                            Decidim::EngineRouter.admin_proxy(component).trustees_path,
-                            position: 100,
-                            active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path)
-            end
+            component = current_participatory_space.try(:components)&.find_by(manifest_name: :elections)
+            next unless component
+
+            menu.add_item :trustees,
+                          I18n.t("trustees", scope: "decidim.elections.admin.menu"),
+                          Decidim::EngineRouter.admin_proxy(component).trustees_path,
+                          position: 100,
+                          active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path)
           end
         end
       end
