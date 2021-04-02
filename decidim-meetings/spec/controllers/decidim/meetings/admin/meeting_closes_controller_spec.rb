@@ -8,22 +8,12 @@ describe Decidim::Meetings::Admin::MeetingClosesController, type: :controller do
       allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
     end
 
-    after do
-      # Re-enable proposal linking before reloading the class
-      allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(true)
-
-      # Reload the class with proposal linking enabled
-      Decidim::Meetings::Admin.send(:remove_const, :MeetingClosesController)
-      load "#{Decidim::Meetings::Engine.root}/app/controllers/decidim/meetings/admin/meeting_closes_controller.rb"
-    end
-
     it "does not load the proposals admin picker concern" do
-      Decidim::Meetings::Admin.send(:remove_const, :MeetingClosesController)
-      load "#{Decidim::Meetings::Engine.root}/app/controllers/decidim/meetings/admin/meeting_closes_controller.rb"
+      expect(Decidim::Meetings::Admin::MeetingClosesController).not_to receive(:include).with(
+        Decidim::Proposals::Admin::Picker
+      )
 
-      expect(
-        Decidim::Meetings::Admin::MeetingClosesController.include?(Decidim::Proposals::Admin::Picker)
-      ).to be(false)
+      load "#{Decidim::Meetings::Engine.root}/app/controllers/decidim/meetings/admin/meeting_closes_controller.rb"
     end
   end
 end
