@@ -717,8 +717,8 @@ en:
             attachment_collections: Folders
             attachment_files: Files
             attachments: Attachments
-            census: Census
             ballot_styles: Ballot Styles
+            census: Census
             components: Components
             info: Information
             landing_page: Landing Page
