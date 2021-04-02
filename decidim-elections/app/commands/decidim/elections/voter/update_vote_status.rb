@@ -7,9 +7,12 @@ module Decidim
       class UpdateVoteStatus < Rectify::Command
         # Public: Initializes the command.
         #
-        # message_id - the message_id to find a pending_message that is related to a vote.
-        def initialize(vote)
+        # vote        - the vote that has been updated
+        # verify_url  - the url to verify the vote
+        def initialize(vote, verify_url)
           @vote = vote
+          @verify_url = verify_url
+          @locale = locale
         end
 
         # Update status and send notification
@@ -20,7 +23,7 @@ module Decidim
 
           transaction do
             update_vote_status
-            send_vote_notification
+            notify_voter
           end
 
           broadcast(:ok)
@@ -30,7 +33,7 @@ module Decidim
 
         private
 
-        attr_reader :vote
+        attr_reader :vote, :verify_url, :locale
 
         def status_changed?
           vote.status != vote_status
@@ -49,20 +52,33 @@ module Decidim
           vote.save!
         end
 
-        def send_vote_notification
+        def notify_voter
           return unless vote.accepted?
 
+          if vote.user
+            send_vote_notification
+          elsif vote.email
+            send_vote_email
+          end
+        end
+
+        def send_vote_notification
           data = {
             event: "decidim.events.elections.votes.accepted_votes",
             event_class: Decidim::Elections::Votes::VoteAcceptedEvent,
             resource: vote.election,
             affected_users: [vote.user],
             extra: {
-              vote: vote
+              vote: vote,
+              verify_url: verify_url
             }
           }
 
           Decidim::EventsManager.publish(data)
+        end
+
+        def send_vote_email
+          Decidim::Elections::VoteAcceptedMailer.notification(vote, verify_url, I18n.locale.to_s).deliver_later
         end
       end
     end
