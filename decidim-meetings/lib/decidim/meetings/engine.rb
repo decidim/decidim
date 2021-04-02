@@ -3,6 +3,8 @@
 require "jquery-tmpl-rails"
 require "icalendar"
 
+require "decidim/core"
+
 module Decidim
   module Meetings
     # This is the engine that runs on the public interface of `decidim-meetings`.
