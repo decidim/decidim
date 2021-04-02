@@ -25,8 +25,12 @@ module Decidim
             )
 
             CreateDataset.call(@form, current_user) do
+              on(:invalid_csv_header) do
+                flash[:alert] = t("create.invalid_csv_header", scope: "decidim.votings.census.admin.census")
+              end
+
               on(:invalid) do
-                flash[:alert] = t("create.error", scope: "decidim.votings.census.admin.census")
+                flash[:alert] = t("create.invalid", scope: "decidim.votings.census.admin.census")
               end
             end
 

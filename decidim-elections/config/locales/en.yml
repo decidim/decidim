@@ -864,7 +864,9 @@ en:
         admin:
           census:
             create:
-              error: an error ocurred uploading the census, please try again later.
+              invalid: An error ocurred uploading the census, please try again later.
+              invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
+              error: An error ocurred uploading the census, please try again later.
             creating_data:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
