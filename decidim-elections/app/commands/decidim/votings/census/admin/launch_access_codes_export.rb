@@ -21,7 +21,7 @@ module Decidim
 
             ExportAccessCodesJob.perform_later(dataset, user)
 
-            update_dataset_status(dataset, :freeze, user)
+            UpdateDataset.call(dataset, { status: :freeze }, user)
 
             broadcast(:ok)
           end
@@ -32,10 +32,6 @@ module Decidim
 
           def valid?
             user.present? && dataset&.data&.present? && dataset.codes_generated?
-          end
-
-          def update_dataset_status(dataset, status, user)
-            UpdateDataset.call(dataset, { status: status }, user)
           end
         end
       end
