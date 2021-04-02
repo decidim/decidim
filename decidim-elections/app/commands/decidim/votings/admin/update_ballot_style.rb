@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     module Admin
-      # A command with the business logic to udpate the ballot style
+      # A command with the business logic to update the ballot style
       class UpdateBallotStyle < Rectify::Command
         def initialize(form, ballot_style)
           @form = form
@@ -19,7 +19,7 @@ module Decidim
           return broadcast(:invalid) unless form.valid?
 
           transaction do
-            udpate_ballot_style!
+            update_ballot_style!
             destroy_removed_ballot_style_questions!
             create_added_ballot_style_questions!
           end
@@ -31,7 +31,7 @@ module Decidim
 
         attr_reader :form, :ballot_style
 
-        def udpate_ballot_style!
+        def update_ballot_style!
           attributes = {
             code: form.code,
             title: form.title
