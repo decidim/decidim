@@ -385,7 +385,7 @@ module Decidim::Meetings
 
       it "returns the proposals authored in the meeting" do
         expect(subject.authored_proposals.count).to eq(5)
-        expect(subject.authored_proposals.map(&:id)).to eq(proposals.map(&:id))
+        expect(subject.authored_proposals.map(&:id)).to match_array(proposals.map(&:id))
       end
 
       context "when proposal linking is disabled" do
