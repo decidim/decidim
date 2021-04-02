@@ -4,7 +4,18 @@ module Decidim
   module Elections
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        check_view_election_permissions
+        if permission_action.scope == :public && permission_action.subject == :election
+          case permission_action.action
+          when :preview
+            toggle_allow(can_preview?)
+          when :view
+            toggle_allow(can_view?)
+          when :vote
+            toggle_allow(can_vote?)
+          when :user_vote
+            toggle_allow(can_vote_with_user?)
+          end
+        end
 
         return permission_action unless user
 
@@ -14,30 +25,10 @@ module Decidim
         # Delegate the trustee_zone permission checks to the trustee zone permissions class
         return Decidim::Elections::TrusteeZone::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :trustee_zone
 
-        return permission_action if permission_action.scope != :public
-        return permission_action if permission_action.subject != :election
-
-        case permission_action.action
-        when :user_vote
-          toggle_allow(can_vote_with_user?)
-        when :vote
-          toggle_allow(can_vote?)
-        when :preview
-          toggle_allow(can_preview?)
-        end
-
         permission_action
       end
 
       private
-
-      def check_view_election_permissions
-        return unless permission_action.scope == :public &&
-                      permission_action.action == :view &&
-                      permission_action.subject == :election
-
-        toggle_allow(can_view?)
-      end
 
       def can_view?
         election.published? || can_preview?
@@ -48,7 +39,7 @@ module Decidim
       end
 
       def can_vote_with_user?
-        authorized?(:vote, resource: election)
+        can_vote? && user && authorized?(:vote, resource: election)
       end
 
       def can_preview?

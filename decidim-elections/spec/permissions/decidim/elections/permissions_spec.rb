@@ -88,30 +88,6 @@ describe Decidim::Elections::Permissions do
     end
   end
 
-  describe "election vote" do
-    let(:action) do
-      { scope: :public, action: :vote, subject: :election }
-    end
-
-    context "when election is upcoming" do
-      let(:election) { create :election, :published, :upcoming, component: elections_component }
-
-      it { is_expected.to be_falsey }
-    end
-
-    context "when election is ongoing" do
-      let(:election) { create :election, :published, :ongoing, component: elections_component }
-
-      it { is_expected.to be_truthy }
-    end
-
-    context "when election has finished" do
-      let(:election) { create :election, :published, :finished, component: elections_component }
-
-      it { is_expected.to be_falsey }
-    end
-  end
-
   describe "election preview" do
     let(:action) do
       { scope: :public, action: :preview, subject: :election }
@@ -129,8 +105,92 @@ describe Decidim::Elections::Permissions do
       let(:election) { create :election, :published, :ongoing, component: elections_component }
 
       it { is_expected.to be_falsey }
+    end
 
-      context "when the user is not authorized to vote" do
+    context "when election has finished" do
+      let(:election) { create :election, :published, :finished, component: elections_component }
+
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  describe "election vote" do
+    let(:action) do
+      { scope: :public, action: :vote, subject: :election }
+    end
+
+    context "when election is not published" do
+      let(:election) { create :election, :upcoming, component: elections_component }
+
+      it { is_expected.to be_falsey }
+
+      context "when user is an administrator" do
+        let(:user) { create :user, :admin, organization: elections_component.organization }
+
+        it { is_expected.to be_truthy }
+      end
+    end
+
+    context "when election is upcoming" do
+      let(:election) { create :election, :published, :upcoming, component: elections_component }
+
+      it { is_expected.to be_falsey }
+    end
+
+    context "when election is ongoing" do
+      let(:election) { create :election, :published, :ongoing, component: elections_component }
+
+      it { is_expected.to be_truthy }
+
+      context "without a user" do
+        let(:user) { nil }
+
+        it { is_expected.to be_truthy }
+      end
+    end
+
+    context "when election has finished" do
+      let(:election) { create :election, :published, :finished, component: elections_component }
+
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  describe "election vote with a user flow" do
+    let(:action) do
+      { scope: :public, action: :user_vote, subject: :election }
+    end
+
+    context "when election is not published" do
+      let(:election) { create :election, :upcoming, component: elections_component }
+
+      it { is_expected.to be_falsey }
+
+      context "when user is an administrator" do
+        let(:user) { create :user, :admin, organization: elections_component.organization }
+
+        it { is_expected.to be_truthy }
+      end
+    end
+
+    context "when election is upcoming" do
+      let(:election) { create :election, :published, :upcoming, component: elections_component }
+
+      it { is_expected.to be_falsey }
+    end
+
+    context "when election is ongoing" do
+      let(:election) { create :election, :published, :ongoing, component: elections_component }
+
+      it { is_expected.to be_truthy }
+
+      context "without a user" do
+        let(:user) { nil }
+
+        it { is_expected.to be_falsey }
+      end
+
+      context "when the election has an authorization" do
         before do
           elections_component.update!(permissions: {
                                         vote: {
@@ -141,30 +201,20 @@ describe Decidim::Elections::Permissions do
                                       })
         end
 
-        it { is_expected.to be_truthy }
+        it { is_expected.to be_falsey }
+
+        context "when user is not authorized to vote" do
+          let!(:authorization) { create(:authorization, name: "dummy_authorization_handler", user: user) }
+
+          it { is_expected.to be_truthy }
+        end
       end
     end
 
     context "when election has finished" do
       let(:election) { create :election, :published, :finished, component: elections_component }
 
-      it { is_expected.to be_truthy }
-    end
-
-    context "when subject is a questionnaire" do
-      let(:action) do
-        { scope: :public, action: :answer, subject: :questionnaire }
-      end
-
-      context "and user is logged in" do
-        it { is_expected.to be_truthy }
-      end
-
-      context "and user is not logged in" do
-        let(:user) { nil }
-
-        it { is_expected.to be_falsey }
-      end
+      it { is_expected.to be_falsey }
     end
   end
 end
