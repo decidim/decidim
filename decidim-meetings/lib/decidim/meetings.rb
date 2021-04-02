@@ -13,5 +13,13 @@ module Decidim
   module Meetings
     autoload :Registrations, "decidim/meetings/registrations"
     autoload :MeetingSerializer, "decidim/meetings/meeting_serializer"
+
+    include ActiveSupport::Configurable
+
+    # Public Setting that defines whether proposals can be linked to meetings
+    config_accessor :enable_proposal_linking do
+      # Decidim.const_defined?("Proposals")
+      false
+    end
   end
 end
