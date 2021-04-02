@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-comments", Decidim::Budgets.version
   s.add_dependency "decidim-core", Decidim::Budgets.version
 
-
   s.add_development_dependency "decidim-admin", Decidim::Budgets.version
   s.add_development_dependency "decidim-dev", Decidim::Budgets.version
   s.add_development_dependency "decidim-proposals", Decidim::Budgets.version
