@@ -64,6 +64,16 @@ cs:
         few: Otázek
         many: Otázek
         other: Otázek
+      decidim/votings/census/dataset:
+        one: Datová sada
+        few: Datové sady
+        many: Datových sad
+        other: Datové sady
+      decidim/votings/census/datum:
+        one: Datum
+        few: Data
+        many: Datumů
+        other: Datumy
       decidim/votings/polling_officer:
         one: Volební komisař
         few: Volební komisaři
@@ -696,6 +706,7 @@ cs:
             attachment_collections: Složky
             attachment_files: Soubory
             attachments: Přílohy
+            census: Seznam obyvatel
             components: Komponenty
             info: Informace
             landing_page: Vstupní stránka
@@ -832,6 +843,15 @@ cs:
           create: "%{user_name} vytvořil %{resource_name} hlasování"
           publish: "%{user_name} zveřejnil %{resource_name} hlasování"
           unpublish: "%{user_name} zrušil publikování %{resource_name} hlasování"
+      census:
+        admin:
+          census:
+            create:
+              error: došlo k chybě při nahrávání seznamu obyvatel, opakujte akci později.
+            creating_data:
+              info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
+            delete:
+              button: Odstranit všechna data ze seznamu obyvatel
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
