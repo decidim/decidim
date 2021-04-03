@@ -410,7 +410,7 @@ cs:
         name: Pruh pod hlavním pruhem
     core:
       actions:
-        login_before_access: Prosím přihlašte se k účtu před přístupem
+        login_before_access: Prosím přihlašte se k účtu abyste mohli vstoupit
         unauthorized: Nemáte oprávnění k provedení této akce
     data_portability:
       export:
@@ -442,7 +442,7 @@ cs:
           sign_up: Zaregistrovat se
           sign_up_as:
             legend: Zaregistrovat se jako
-          subtitle: Registrujte se, abyste se účastnili diskusí a návrhů podpory.
+          subtitle: Registrujte se, abyste se mohli účastnit Diskusí a podpořit Návrhy.
           terms: podmínky používání
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
@@ -513,12 +513,12 @@ cs:
             email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
             email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: <a href="%{emendation_path}">pozměňovací návrh</a> vytvořený <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Změna byla přijata pro %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
-            email_subject: Pozměňovací návrh přijatý pro %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byl přijat <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Pozměňovací návrh přijatý k %{amendable_title} od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořený od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl přijat.
         amendment_created:
           affected_user:
             email_intro: 'Nová změna byla vytvořena pro %{amendable_title}. Můžete ji vidět z této stránky:'
@@ -534,24 +534,24 @@ cs:
           affected_user:
             email_intro: 'Zamítnutý pozměňovací návrh pro %{amendable_title} byl publikován jako nový %{amendable_type}. Můžete ho vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Pozměňovací návrh z %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
-            notification_title: <a href="%{emendation_path}">zamítnout změnu</a> pro <a href="%{amendable_path}">%{amendable_title}</a> byla publikována jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Pozměňovací návrh od %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
+            notification_title: <a href="%{emendation_path}">Odmítnutý pozměňovací návrh</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl publikován jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Označení odmítnuté pro číslo %{amendable_title} bylo povýšeno na nezávislý %{amendable_type}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Změna z %{emendation_author_nickname} byla zveřejněna jako nová %{amendable_type}
-            notification_title: <a href="%{emendation_path}">zamítnout změnu</a> pro <a href="%{amendable_path}">%{amendable_title}</a> byla publikována jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_subject: Pozměňovací návrh od %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
+            notification_title: <a href="%{emendation_path}">Odmítnutý pozměňovací návrh</a> k <a href="%{amendable_path}">%{amendable_title}</a> byla publikován jako nový %{amendable_type} od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Oznámení bylo zamítnuto za %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
-            email_subject: Změna byla zamítnuta pro %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byla odmítnuta <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Pozměňovací návrh k %{amendable_title} byl zamítnut od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořen od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl odmítnut.
           follower:
             email_intro: 'Oznámení bylo zamítnuto za %{amendable_title}. Můžete ji vidět z této stránky:'
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-            email_subject: Změna byla zamítnuta pro %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">změna</a> vytvořeny <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> byla odmítnuta <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_subject: Pozměňovací návrh k %{amendable_title} byl zamítnut od %{emendation_author_nickname}
+            notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořen od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl odmítnut.
       attachments:
         attachment_created:
           email_intro: 'Do dokumentu %{resource_title} byl přidán nový dokument. Můžete jej vidět z této stránky:'
@@ -629,16 +629,16 @@ cs:
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a my si myslíme, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
+        email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a myslíme si, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
         email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
         email_subject: "%{endorser_nickname} provedl nové schválení"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} byl schválen <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
-          email_intro: <a href="%{resource_url}">profilová stránka</a> ze %{name} (%{nickname}), kterou sledujete, byla aktualizována.
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_intro: <a href="%{resource_url}">Profilová stránka</a> od %{name} (%{nickname}), kterého sledujete, byla aktualizována.
+          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: "%{nickname} aktualizoval svůj profil"
-          notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
+          notification_title: <a href="%{resource_path}">Profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
         click_button: 'Klikněte na další tlačítko pro stažení vašich dat. <br/> Soubor bude k dispozici do %{date}. <br/> Pro otevření budete potřebovat <a href=''https://www.7-zip.org/''>7-Zip</a>. Heslo: %{password}'
@@ -656,7 +656,7 @@ cs:
         proposal: Návrhy
         result: Výsledky
     fingerprint:
-      check: Ověřit identifikaci
+      check: Kontrola jedinečnosti
       explanation: Níže uvedený text je zkráceným, zakódovaným znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl pozměněn, protože jediná změna by vedla k úplně jiné hodnotě.
       online_calculator_name: MD5 kalkulačka online
       replicate_help: Tato digitální identifikace se vypočítá algoritmem SHA256. Abyste ji mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
@@ -1097,13 +1097,13 @@ cs:
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
           alert: Aktualizovali jsme Smluvní podmínky, přečtěte si je.
-          body: Věnujte prosím prosím pozornost aktualizaci našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
+          body: Věnujte prosím pozornost aktualizaci našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
           title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     profile:
       deleted: Vymazaný uživatel
-      view: Pohled
+      view: Zobrazit
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému jménu
       default_officialization_text_for_users: Tento účastník je veřejně ověřen, jeho jméno nebo role byly ověřeny tak, aby odpovídaly jeho skutečnému jménu a roli
