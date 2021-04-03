@@ -16,6 +16,7 @@ module Decidim
       belongs_to :question, foreign_key: "decidim_elections_question_id", class_name: "Decidim::Elections::Question", inverse_of: :answers
       has_one :election, through: :question, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Election"
       has_one :component, through: :election, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
+      has_many :results, foreign_key: "decidim_elections_answer_id", class_name: "Decidim::Elections::Result", dependent: :destroy
 
       default_scope { order(weight: :asc, id: :asc) }
 
@@ -28,6 +29,22 @@ module Decidim
 
       def slug
         "answer-#{id}"
+      end
+
+      # Sum all results from different origins (PollingStations or BulletinBoard)
+      def results_total
+        @results_total ||= results.sum(:votes_count)
+      end
+
+      # A result percentage relative to the question
+      # Returns a Float.
+      def results_percentage
+        @results_percentage ||= begin
+          return 0 unless results_total.positive?
+
+          result = results_total.to_f / question.results_total * 100.0
+          result.round
+        end
       end
     end
   end

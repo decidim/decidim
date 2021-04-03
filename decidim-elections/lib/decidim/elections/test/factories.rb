@@ -116,10 +116,10 @@ FactoryBot.define do
       finished
       bb_status { "vote_ended" }
 
-      after(:build) do |election|
+      after(:create) do |election|
         election.questions.each do |question|
           question.answers.each do |answer|
-            answer.votes_count = Faker::Number.number(digits: 1)
+            create(:election_result, answer: answer)
           end
         end
       end
@@ -219,10 +219,11 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { Faker::Number.number(digits: 1) }
     selected { false }
-    votes_count { 0 }
 
     trait :with_votes do
-      votes_count { Faker::Number.number(digits: 1) }
+      after(:build) do |answer|
+        create(:election_result, answer: answer)
+      end
     end
 
     trait :with_photos do
@@ -239,6 +240,15 @@ FactoryBot.define do
           )
         end
       end
+    end
+  end
+
+  factory :election_result, class: "Decidim::Elections::Result" do
+    answer { create :election_answer }
+    votes_count { Faker::Number.number(digits: 1) }
+
+    trait :with_polling_station do
+      polling_station
     end
   end
 
