@@ -1537,6 +1537,10 @@ fi-pl:
       too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
+    length_validator:
+      minimum:
+        one: Vähintään %{count} kirjain
+        other: Vähintään %{count} kirjainta
     required: Vaadittu
     required_explanation: "* Vaaditut kentät on merkitty tähtimerkillä"
   invisible_captcha:
