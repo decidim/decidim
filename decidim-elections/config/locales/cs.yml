@@ -852,6 +852,12 @@ cs:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
               button: Odstranit všechna data ze seznamu obyvatel
+              confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
+            destroy:
+              error: Došlo k chybě při odstraňování seznamů členů, opakujte akci později.
+              success: Seznam členů byl smazán
+            generate_access_codes:
+              button: Generovat hlasovací přístupové kódy
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
