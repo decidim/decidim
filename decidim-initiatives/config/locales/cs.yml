@@ -34,7 +34,7 @@ cs:
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
-        document_number_authorization_handler: Povolení ověřit číslo dokumentu na hlasování
+        document_number_authorization_handler: Autorizace k ověření čísla dokumentu na podpisech
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
@@ -371,15 +371,15 @@ cs:
           more_information: "(Více informací)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
+          email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, omrkněte ji a přispějte:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Nová iniciativa od %{author_nickname}
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla vytvořena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil Iniciativu <a href="%{resource_path}">%{resource_title}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, kterého sledujete, schválil následující iniciativu, možná chcete přispět k konverzaci:"
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: Iniciativa byla schválena od %{author_nickname}
-          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena od <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Iniciativy
       initiative_signatures:
