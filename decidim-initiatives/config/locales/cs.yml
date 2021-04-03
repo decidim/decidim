@@ -360,7 +360,7 @@ cs:
           choose_html: Chci vytvořit <strong>%{title}</strong>
           more_information: "(Více informací)"
           select: Chci tuto iniciativu podpořit
-          select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým může občanství zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Kterou iniciativu chcete spustit?
+          select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým mohou občané zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Kterou iniciativu chcete začít?
         share_committee_link:
           continue: Pokračovat
           invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí podporovaného výboru
