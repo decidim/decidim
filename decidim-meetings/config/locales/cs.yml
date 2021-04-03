@@ -445,7 +445,7 @@ cs:
             few: "%{count} zbývajících bloků"
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
-          view: Zobrazení
+          view: Zobrazit
         update:
           invalid: Při aktualizaci schůzky došlo k chybě.
           success: Úspěšně jste aktualizovali schůzku.
