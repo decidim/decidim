@@ -861,6 +861,10 @@ cs:
               confirm: Budete-li pokračovat, nebudete moci měnit seznam členů.
               info_message_all: "<strong>Všechny řádky úspěšně importovány</strong> ze souboru %{file} (%{raw_count} z %{data_count})."
               info_message_warn: Zkontrolujte, že žádná data nechybí, protože byly vytvořeno %{data_count} záznamů a nahraný soubor %{file} měl %{raw_count} řádků.
+            new:
+              file_help:
+                explanation: 'Pokyny pro soubor:'
+                message_1: Jsou povoleny pouze soubory CSV (.csv).
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
