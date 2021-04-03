@@ -867,6 +867,13 @@ cs:
                 message_1: Jsou povoleny pouze soubory CSV (.csv).
                 message_2: Oddělovač sloupců musí být středník (";").
               info_message: "<strong>Zatím neexistuje žádný seznam osob.</strong> Použijte prosím formulář níže pro vytvoření importu souboru CSV."
+              submit: Odeslat csv
+              title: Vytvořit seznam osob
+            show:
+              heading: Hlasovací prostor seznamu osob
+            upload_info:
+              csv_example: 'Příklad obsahu souboru:'
+              csv_fields: 'Musí být formát souboru .csv s těmito poli:'
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
