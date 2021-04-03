@@ -80,4 +80,39 @@ FactoryBot.define do
     user
     voting { create :voting, organization: user.organization }
   end
+
+  factory :dataset, class: "Decidim::Votings::Census::Dataset" do
+    voting { create(:voting) }
+    file { "file.csv" }
+    status { "init_data" }
+    csv_row_raw_count { 1 }
+    csv_row_processed_count { 1 }
+
+    after(:create) do |dataset|
+      create(:datum, dataset: dataset)
+    end
+
+    trait :data_created do
+      status { "data_created" }
+    end
+  end
+
+  factory :datum, class: "Decidim::Votings::Census::Datum" do
+    dataset
+
+    transient do
+      document_number { Faker::IDNumber.spanish_citizen_number }
+      document_type { %w(DNI NIE PASSPORT).sample }
+      birthdate { Faker::Date.birthday(min_age: 18, max_age: 65) }
+    end
+
+    hashed_in_person_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate].join(".")) }
+    hashed_check_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate, postal_code].join(".")) }
+
+    full_name { Faker::Name.name }
+    full_address { Faker::Address.full_address }
+    postal_code { Faker::Address.postcode }
+    mobile_phone_number { Faker::PhoneNumber.cell_phone }
+    email { Faker::Internet.email }
+  end
 end

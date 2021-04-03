@@ -27,6 +27,14 @@ module Decidim
           resources :monitoring_committee_members, only: [:new, :create, :destroy, :index]
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
+
+          resource :census, only: [:show, :destroy], controller: "/decidim/votings/census/admin/census" do
+            member do
+              get :status, action: :status
+              post :create, action: :create
+              put :update, action: :update
+            end
+          end
         end
 
         scope "/votings/:voting_slug" do

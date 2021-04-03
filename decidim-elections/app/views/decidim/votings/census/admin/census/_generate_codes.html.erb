@@ -1,0 +1,24 @@
+<% if current_census.csv_row_raw_count != current_census.data.size %>
+  <% info_message = t("generate_access_codes.info_message_warn",
+                      scope: "decidim.votings.census.admin.census",
+                      data_count: current_census.data.size,
+                      raw_count: current_census.csv_row_raw_count,
+                      file: current_census.file) %>
+  <% callout_class = "warning" %>
+<% else %>
+  <% info_message = t("generate_access_codes.info_message_all",
+                      scope: "decidim.votings.census.admin.census",
+                      data_count: current_census.data.size,
+                      raw_count: current_census.csv_row_raw_count,
+                      file: current_census.file) %>
+  <% callout_class = "success" %>
+<% end %>
+
+<div class="card-section">
+  <%= cell("decidim/announcement", info_message, callout_class: callout_class ) %>
+
+  <%= link_to t("generate_access_codes.button", scope: "decidim.votings.census.admin.census"),
+      "#",
+      class: "button disabled",
+      data: { confirm: t("generate_access_codes.confirm", scope: "decidim.votings.census.admin.census") } %>
+</div>
