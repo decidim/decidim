@@ -858,6 +858,8 @@ cs:
               success: Seznam členů byl smazán
             generate_access_codes:
               button: Generovat hlasovací přístupové kódy
+              confirm: Budete-li pokračovat, nebudete moci měnit seznam členů.
+              info_message_all: "<strong>Všechny řádky úspěšně importovány</strong> ze souboru %{file} (%{raw_count} z %{data_count})."
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
