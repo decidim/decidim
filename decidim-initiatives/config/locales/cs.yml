@@ -325,7 +325,7 @@ cs:
         fill_data:
           back: Zpět
           continue: Pokračovat
-          fill_data_help: "<ul> <li>Přezkoumejte obsah své iniciativy. Je váš titul snadný pochopit? Je jasný cíl vaší iniciativy?</li> <li>Musíte zvolit typ podpisu. Osobně, online nebo kombinace obou</li> <li>Který je geografický rozsah iniciativy? Město, okres?</li> </ul>"
+          fill_data_help: "<ul> <li>Zkontrolujte obsah své iniciativy. Je váš nadpis snadno pochopitelný? Je jasný cíl vaší iniciativy?</li> <li>Musíte zvolit typ podpisu. Osobně, online nebo kombinace obou</li> <li>Jaký je geografický rozsah iniciativy? Město, okres?</li> </ul>"
           initiative_type: Typ iniciativy
           more_information: "(Více informací)"
           select_area: Vybrat oblast
