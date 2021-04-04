@@ -58,6 +58,12 @@ fi:
       decidim/elections/question:
         one: Kysymys
         other: Kysymykset
+      decidim/votings/census/dataset:
+        one: Tietoaineisto
+        other: Tietoaineistot
+      decidim/votings/census/datum:
+        one: Tieto
+        other: Tiedot
       decidim/votings/polling_officer:
         one: Äänestysvirkailija
         other: Äänestysvirkailijat
@@ -678,6 +684,7 @@ fi:
             attachment_collections: Kansiot
             attachment_files: Tiedostot
             attachments: Liitteet
+            census: Henkilötietorekisteri
             components: Komponentit
             info: Tiedot
             landing_page: Laskeutumissivu
@@ -814,6 +821,13 @@ fi:
           create: "%{user_name} loi äänestyksen %{resource_name}"
           publish: "%{user_name} julkaisi äänestyksen %{resource_name}"
           unpublish: "%{user_name} lopetti äänestyksen %{resource_name} julkaisun"
+      census:
+        admin:
+          census:
+            create:
+              error: henkilötietorekisterin lataus epäonnistui, yritä uudestaan myöhemmin.
+            creating_data:
+              info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file}."
       content_blocks:
         highlighted_votings:
           name: Korostetut äänestykset
