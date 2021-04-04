@@ -11,7 +11,7 @@ cs:
         signature_start_date: Začátek doby sběru podpisu
         signature_type: Typ sbírky podpisu
         signature_type_values:
-          any: Smíšený
+          any: Online nebo naživo
           offline: Z očí do očí
           online: OnLine
         state: Stav
@@ -110,7 +110,7 @@ cs:
         initiatives_type_scope:
           fields:
             scope: Rozsah
-            supports_required: Potřebné podpory
+            supports_required: Vyžadováno podpisů
           name: Rozsah typu iniciativy
         initiatives_types:
           fields:
@@ -285,7 +285,7 @@ cs:
             options: Možnosti
             title: Obecná informace
           initiative_type_scopes:
-            title: Zaměřuje se na typ iniciativy
+            title: Rozsahy působnosti pro tento druh iniciativ
           new:
             create: Vytvořit
             title: Nový typ iniciativy
@@ -544,7 +544,7 @@ cs:
           other: " podpisy"
         vote_cabin:
           already_voted: Již jste podepsal
-          supports_required: "Vyžaduje se %{total_supports} podpisů"
+          supports_required: "Vyžaduje %{total_supports} podpisů"
           verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán
