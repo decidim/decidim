@@ -33,7 +33,7 @@ cs:
         only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
         title: Titul
-        undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
+        undo_online_signatures_enabled: Povolit účastníkům vrátit zpět své online podpisy
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
       initiatives_vote:
         date_of_birth: Datum narození
