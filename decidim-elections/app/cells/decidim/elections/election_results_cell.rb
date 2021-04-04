@@ -8,12 +8,6 @@ module Decidim
       def show
         render if model.results_published?
       end
-
-      private
-
-      def votes_percentage_for(answer)
-        answer.question.votes_percentage(answer.votes_count)
-      end
     end
   end
 end

@@ -42,8 +42,7 @@ module Decidim
               result_key = get_answer_id_from_result(key)
               answers = Decidim::Elections::Answer.where(id: result_key)
               answers.each do |answer|
-                answer.votes_count = value
-                answer.save!
+                answer.results.create!(votes_count: value)
               end
             end
           end

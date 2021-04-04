@@ -219,7 +219,7 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
         expect(page).to have_content("Calculated results")
         expect(page).to have_content(translated(question.title))
         expect(page).to have_content(translated(answer.title))
-        expect(page).to have_content(answer.votes_count)
+        expect(page).to have_content(answer.results_total)
       end
     end
   end

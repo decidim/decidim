@@ -25,16 +25,16 @@
 
                   <div class="progress__bar">
                     <div class="evote__preview-bar">
-                      <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= answer.question.votes_percentage(answer.votes_count) %>%" aria-valuemin="0" aria-valuetext="<%= answer.question.votes_percentage(answer.votes_count) %>% percent" aria-valuemax="100">
-                        <div class="progress-meter progress__bar__bar--complete" style="width: <%= answer.question.votes_percentage(answer.votes_count) %>%"></div>
-                        <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= answer.question.votes_percentage(answer.votes_count) %>%);"></div>
+                      <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= answer.results_percentage %>%" aria-valuemin="0" aria-valuetext="<%= answer.results_percentage %>% percent" aria-valuemax="100">
+                        <div class="progress-meter progress__bar__bar--complete" style="width: <%= answer.results_percentage %>%"></div>
+                        <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= answer.results_percentage %>%);"></div>
                       </div>
                       <div class="evote__preview-perc">
-                        <%= answer.question.votes_percentage(answer.votes_count) %>%
+                        <%= answer.results_percentage %>%
                       </div>
                       </div>
                       <div class="evote__preview-label">
-                        <%= t(".votes", count: answer.votes_count) %>
+                        <%= t(".votes", count: answer.results_total) %>
                       </div>
                     </div>
                   </div>
