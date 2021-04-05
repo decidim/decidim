@@ -33,6 +33,7 @@ gl:
         subtitle: Subtítulo
         target: Quen participa
         title: Título
+        weight: Orde de posición
       participatory_process_group:
         description: Descrición
         group_url: Sitio web

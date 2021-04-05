@@ -52,6 +52,7 @@ gl:
         target: Quen participa
         title: Título
         twitter: Twitter
+        weight: Orde de posición
         youtube: YouTube
       assembly_member:
         birthday: Aniversario
@@ -189,6 +190,7 @@ gl:
           assembly_members: Membros
           attachment_collections: Carpetas
           attachment_files: Arquivos
+          attachments: Anexos
           categories: Categorías
           components: Compoñentes
           info: Información
