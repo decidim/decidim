@@ -6,6 +6,7 @@ import createQuillEditor from "../../../../../../decidim-core/app/packs/src/deci
 import formDatePicker from "../../../../../../decidim-core/app/packs/src/decidim/form_datepicker"
 import DataPicker from "../../../../../../decidim-core/app/packs/src/decidim/data_picker"
 import Autocomplete from "./autocomplete.component";
+import FormFilterComponent from "../../../../../../decidim-core/app/packs/src/decidim/form_filter"
 
 window.Decidim = window.Decidim || {};
 
@@ -49,5 +50,11 @@ $(() => {
   $(".editor-container").each((_idx, container) => {
     createQuillEditor(container);
   });
+
+  $("form.new_filter").each(function () {
+    const formFilter = new FormFilterComponent($(this));
+
+    formFilter.mountComponent();
+  })
 });
 
