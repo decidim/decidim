@@ -19,7 +19,6 @@ export default class FormFilterComponent {
     this.mounted = false;
     this.changeEvents = true;
     this.theCheckBoxesTree = new CheckBoxesTree();
-    this.theDataPicker = new DataPicker($(".data-picker"));
 
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
@@ -191,7 +190,7 @@ export default class FormFilterComponent {
     });
     this.$form.find("input[type=radio]").attr("checked", false);
     this.$form.find(".data-picker").each((_index, picker) => {
-      this.theDataPicker.clear(picker);
+      window.theDataPicker.clear(picker);
     });
 
     // This ensure the form is reset in a valid state where a fieldset of
@@ -248,7 +247,7 @@ export default class FormFilterComponent {
     $(".data-picker", this.$form).each((_index, picker) => {
       let pickerState = currentState[picker.id];
       if (pickerState) {
-        this.theDataPicker.load(picker, pickerState);
+        window.theDataPicker.load(picker, pickerState);
       }
     })
 
@@ -301,7 +300,7 @@ export default class FormFilterComponent {
 
     // Stores picker information for selected values (value, text and link) in the currentState object
     $(".data-picker", this.$form).each((_index, picker) => {
-      currentState[picker.id] = this.theDataPicker.save(picker);
+      currentState[picker.id] = window.theDataPicker.save(picker);
     })
 
     return [path, currentState];
