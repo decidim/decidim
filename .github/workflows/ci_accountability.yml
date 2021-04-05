@@ -76,7 +76,7 @@ jobs:
           restore-keys: |
             yarn-
       - name: Install JS dependencies
-        run: yarn install --frozen-lockfile --cache-folder "$(yarn cache dir)-${{ env.DECIDIM_MODULE }}"
+        run: yarn install --frozen-lockfile --cache-folder ${{ steps.yarn-cache-dir-path.outputs.dir }}
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
