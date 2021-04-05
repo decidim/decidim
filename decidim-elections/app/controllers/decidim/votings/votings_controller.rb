@@ -6,14 +6,14 @@ module Decidim
     # public layout.
     class VotingsController < Decidim::Votings::ApplicationController
       layout "layouts/decidim/voting_landing", only: :show
-
+      include FormFactory
       include ParticipatorySpaceContext
       include NeedsVoting
       include FilterResource
       include Paginable
       include Decidim::Votings::Orderable
 
-      helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks
+      helper_method :published_votings, :paginated_votings, :filter, :promoted_votings, :only_finished_votings?, :landing_content_blocks, :census_contact_information
 
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
@@ -36,7 +36,37 @@ module Decidim
         enforce_permission_to :read, :voting, voting: current_participatory_space
       end
 
+      def show_check_census
+        @form = form(CheckCensusForm).instance
+        render :check_census, locals: { success: false, not_found: false }
+      end
+
+      def check_census
+        @form = form(CheckCensusForm).from_params(params).with_context(
+          current_participatory_space: current_participatory_space
+        )
+
+        CheckCensus.call(@form) do
+          on(:ok) do
+            render action: :check_census, locals: { success: true, not_found: false }
+          end
+
+          on(:not_found) do
+            render action: :check_census, locals: { success: false, not_found: true }
+          end
+
+          on(:invalid) do
+            render action: :check_census, locals: { success: false, not_found: false }
+            flash[:alert] = t("check_census.invalid", scope: "decidim.votings.votings")
+          end
+        end
+      end
+
       private
+
+      def census_contact_information
+        @census_contact_information ||= current_participatory_space.census_contact_information.presence || t("no_census_contact_information", scope: "decidim.votings.votings")
+      end
 
       def current_participatory_space_manifest
         @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:votings)

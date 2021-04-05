@@ -163,6 +163,7 @@ PATH
       decidim-core (= 0.25.0.dev)
       decidim-forms (= 0.25.0.dev)
       decidim-proposals (= 0.25.0.dev)
+      rack-attack (~> 6.0)
       voting_schemes-dummy (= 0.15.2)
       voting_schemes-electionguard (= 0.15.2)
     decidim-forms (0.25.0.dev)

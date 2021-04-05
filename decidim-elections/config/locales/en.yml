@@ -802,6 +802,7 @@ en:
             assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
+            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a Decidim survey for visitors, etc.
             select_a_voting_type: Please select a voting type
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
@@ -922,6 +923,28 @@ en:
           new: New
           title: Actions
       votings:
+        check_census:
+          description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
+          error:
+            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
+            title: Your census data is incorrect!
+          invalid: There was a problem checking the census.
+          success:
+            access_link: ask for an Access Code
+            info: If you don't have one, you can %{access_code_link}.
+            title: Your census data is correct!
+          title: Check your census data
+        check_census_form:
+          check_status: Check status
+          date_of_birth: Date of birth
+          description: 'Fill the following form to check your census data:'
+          dni: DNI
+          document_number: Document number
+          document_number_placeholder: ID number
+          passport: Passport
+          postal_code: Postal code
+          postal_code_placeholder: Postal code number
+          select: Select the type of the document
         count:
           title:
             one: "%{count} voting"
@@ -942,6 +965,7 @@ en:
           no_votings: No voting matches your search criteria.
           only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
+        no_census_contact_information: There's no contact information yet
         orders:
           label: 'Sort votings by:'
           random: Random
@@ -968,6 +992,7 @@ en:
       election_votes_header:
         exit: Exit
       voting_navigation:
+        check_census: How to vote
         voting_menu_item: The voting
       votings:
         index:
