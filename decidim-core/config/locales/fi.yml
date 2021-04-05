@@ -1539,8 +1539,8 @@ fi:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:
       minimum:
-        one: vähintään %{count} kirjain
-        other: vähintään %{count} kirjainta
+        one: Vähintään %{count} kirjain
+        other: Vähintään %{count} kirjainta
     required: Pakollinen kenttä
     required_explanation: "* Vaaditut kentät on merkitty tähtimerkillä"
   invisible_captcha:
