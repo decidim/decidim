@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Aktivera organisationskarta
       assembly:
         area_id: Område
         assembly_type: Typ av grupp
@@ -50,6 +52,7 @@ sv:
         target: Vem deltar
         title: Titel
         twitter: Twitter
+        weight: Vikt
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
@@ -187,6 +190,7 @@ sv:
           assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
+          attachments: Bilagor
           categories: Kategorier
           components: Komponenter
           info: Info

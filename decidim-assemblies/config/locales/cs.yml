@@ -196,6 +196,7 @@ cs:
           assembly_members: Členové
           attachment_collections: Složky
           attachment_files: Soubory
+          attachments: Přílohy
           categories: Kategorie
           components: Komponenty
           info: Info

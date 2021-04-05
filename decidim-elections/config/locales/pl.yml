@@ -534,16 +534,12 @@ pl:
           question: Pytanie %{count}
         confirmed:
           back: Powrót do wyborów
-          error: Przepraszamy, wystąpił błąd podczas potwierdza głosu. Proszę zagłosować ponownie.
           experience: Jak oceniasz to przeprowadzony proces?
           feedback: Podziel się z nami swoją opinią
           header: Oddanie głosu potwierdzone
           lead: Twój głos został już wysłany!
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
-        encrypting:
-          header: Kodowanie głosu...
-          text: Twój głos jest szyfrowany, aby mieć pewność, że przekazałeś go anonimowo.
         failed:
           header: Oddanie głosu nie powiodło się
           lead: Twój głos nie został oddany!
@@ -551,7 +547,6 @@ pl:
         header:
           confirm: Potwierdź swój głos
           confirmed: Głosowanie potwierdzone
-          encrypting: Potwierdzanie głosu
         messages:
           not_allowed: W tej chwili nie wolno Ci głosować na ten wybór.
         modal:
@@ -564,9 +559,6 @@ pl:
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
-        update:
-          error: Podczas aktualizowania głosu wystąpił błąd
-          success: Status głosu został zaktualizowany
         verify:
           content:
             heading: Zweryfikuj swój głos

@@ -70,6 +70,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rubyzip", "~> 2.0"
   s.add_dependency "sassc", "~> 2.4.0"
   s.add_dependency "sassc-rails", "~> 2.1.2"
+  s.add_dependency "searchlight", "~> 4.1"
   s.add_dependency "seven_zip_ruby", "~> 1.3"
   s.add_dependency "social-share-button", "~> 1.2", ">= 1.2.1"
   s.add_dependency "sprockets", "~> 3.7", "< 4"

@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
-
 module Decidim
   module Debates
     # This is the engine that runs on the public interface of `decidim-debates`.

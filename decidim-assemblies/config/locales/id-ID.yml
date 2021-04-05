@@ -153,6 +153,7 @@ id:
           assembly_members: Anggota
           attachment_collections: Folder
           attachment_files: File
+          attachments: Lampiran
           categories: Kategori
           components: Komponen
           info: Info

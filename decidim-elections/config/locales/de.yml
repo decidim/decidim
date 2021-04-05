@@ -166,6 +166,8 @@ de:
         exports:
           elections: Wahlen
           feedback_form_answers: Antworten auf Feedback-Formular
+        menu:
+          trustees: Wahlhelfer
         models:
           answer:
             name: Antwort
@@ -517,7 +519,6 @@ de:
           back: Abstimmungsvorgang erneut starten
           cast: Stimme abgeben
           description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
-          header: 'Stimmzettel ist verschlüsselt: Senden sie Ihre Stimme ab oder überprüfen Sie die Verschlüsselung'
         confirm:
           answer: Antwort
           answer_number: Antwort %{number}
@@ -529,16 +530,12 @@ de:
           question: Frage %{count}
         confirmed:
           back: Zurück zu den Wahlen
-          error: Leider ist ein Fehler bei der Bestätigung der Abstimmung aufgetreten. Bitte erneut abstimmen.
           experience: Wie war Ihre Erfahrung mit uns?
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
           lead: Deine Stimme wurde bereits abgegeben!
           text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
-        encrypting:
-          header: Abstimmung wird verschlüsselt...
-          text: Deine Stimme wird verschlüsselt, um sicherzustellen, dass du sie anonym abgeben kannst.
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
@@ -547,7 +544,6 @@ de:
           ballot_decision: Stimme abgeben oder überprüfen
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
-          encrypting: Wahl bestätigen
         messages:
           not_allowed: Sie dürfen zur Zeit nicht an dieser Wahl teilnehmen.
         modal:
@@ -560,9 +556,6 @@ de:
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
-        update:
-          error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
-          success: Abstimmung erfolgreich aktualisiert
         verify:
           content:
             heading: Stimme verifizieren

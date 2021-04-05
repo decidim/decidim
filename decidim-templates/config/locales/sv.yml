@@ -7,6 +7,8 @@ sv:
         templates: Mallar
     models:
       template:
+        fields:
+          created_at: Skapad den
         name: Mall
     templates:
       admin:

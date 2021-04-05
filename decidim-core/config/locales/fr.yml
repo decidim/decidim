@@ -1517,10 +1517,6 @@ fr:
       too_short: est trop court (moins de 15 caractères)
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
-    length_validator:
-      minimum:
-        one: au moins %{count} caractères
-        other: au moins %{count} caractères
     required: Champ obligatoire
     required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   invisible_captcha:

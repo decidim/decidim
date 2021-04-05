@@ -168,6 +168,8 @@ ro:
         exports:
           elections: Alegeri
           feedback_form_answers: Răspunsuri la formularul de feedback
+        menu:
+          trustees: Împuternicit
         models:
           answer:
             name: Răspuns
@@ -385,7 +387,6 @@ ro:
           back: Începe procesul de votare din nou
           cast: Transmite votul
           description: Aici, aveţi opţiunea de a vota pentru ca acesta să fie numărat corespunzător sau, ca alternativă, puteţi verifica dacă voturile dumneavoastră au fost corect criptate. Din motive de securitate, auditarea buletinului de vot va duce la spargerea lui. Asta înseamnă că, pentru a-ți exprima votul, va trebui să repornești procesul de votare.
-          header: 'Sold este criptat: difuzează sau auditează'
         confirm:
           answer: Răspuns
           answer_number: răspunde la %{number}
@@ -397,22 +398,17 @@ ro:
           question: Întrebarea %{count}
         confirmed:
           back: Înapoi la alegeri
-          error: Ne pare rău, a apărut o eroare la confirmarea votului. Vă rugăm să votați din nou.
           experience: Cum a fost experiența ta?
           feedback: Oferă-ne un feedback
           header: Votare confirmată
           lead: Votul tău a fost deja exprimat!
           text: 'Poți verifica dacă votul tău a fost adăugat cu succes în urna de vot cu următorul identificator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Pentru a verifica, copiați identificatorul și lipiți-l pe pagina <a href="%{link}">pentru verificarea votului</a>
-        encrypting:
-          header: Codificarea votului...
-          text: Votul tău este criptat pentru a te asigura că îl poți trimite anonim.
         failed:
           header: Vot eșuat
         header:
           confirm: Confirmă votul tău
           confirmed: Votare confirmată
-          encrypting: Confirmarea votului
         messages:
           not_allowed: Nu aveţi voie să votaţi asupra acestor alegeri în acest moment.
         modal:

@@ -1513,10 +1513,6 @@ tr:
       too_short: çok kısa (15 karakterin altında)
   forms:
     correct_errors: Aşağıdaki formda hatalar oluştu, Devam etmek için lütfen bunları düzeltin.
-    length_validator:
-      minimum:
-        one: en az %{count} karakter
-        other: en az %{count} karakter
     required: gereklidir
     required_explanation: "* Gerekli alanlar yıldız işareti ile işaretlenmiştir"
   invisible_captcha:
