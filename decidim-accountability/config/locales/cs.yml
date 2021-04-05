@@ -179,7 +179,7 @@ cs:
             last_updated_at: Poslední aktualizace v
             meetings: Setkání
             proposals: Návrhy
-            votes: Podpory
+            votes: Hlasy
         timeline:
           title: Vývoj projektu
     components:
