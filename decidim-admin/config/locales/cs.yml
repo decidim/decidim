@@ -783,7 +783,7 @@ cs:
           success: Typ oblasti působnosti byl úspěšně aktualizován
       scopes:
         create:
-          error: Při vytváření nového oboru došlo k chybě.
+          error: Při vytváření nové oblasti působnosti došlo k chybě.
           success: Oblast působnosti byla úspěšně vytvořena.
         destroy:
           success: Oblast působnosti úspěšně zničena
