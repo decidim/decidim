@@ -65,11 +65,7 @@ module Decidim
       private
 
       def census_contact_information
-        @census_contact_information ||= if !current_participatory_space.census_contact_information.empty?
-                                          current_participatory_space.census_contact_information
-                                        else
-                                          t("no_census_contact_information", scope: "decidim.votings.votings")
-                                        end
+        @census_contact_information ||= current_participatory_space.census_contact_information.presence || t("no_census_contact_information", scope: "decidim.votings.votings")
       end
 
       def current_participatory_space_manifest
