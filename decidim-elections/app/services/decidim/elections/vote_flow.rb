@@ -26,10 +26,10 @@ module Decidim
 
       def voter_token
         @voter_token ||= received_voter_token ||
-                           message_encryptor.encrypt_and_sign(
-                             voter_token_data.to_json,
-                             expires_at: Decidim::Elections.voter_token_expiration_minutes.minutes.from_now
-                           )
+                         message_encryptor.encrypt_and_sign(
+                           voter_token_data.to_json,
+                           expires_at: Decidim::Elections.voter_token_expiration_minutes.minutes.from_now
+                         )
       end
 
       def valid_received_data?
@@ -85,7 +85,7 @@ module Decidim
       end
 
       def message_encryptor
-        @message_encryptor ||= ActiveSupport::MessageEncryptor.new([election.salt].pack('H*'))
+        @message_encryptor ||= ActiveSupport::MessageEncryptor.new([election.salt].pack("H*"))
       end
 
       def tokenizer

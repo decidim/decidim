@@ -53,7 +53,7 @@ module Decidim::Votings
         access_code: access_code,
         day: birthdate.day,
         month: birthdate.month,
-        year: birthdate.year,
+        year: birthdate.year
       }
     end
     let(:params_changes) { {} }
@@ -151,7 +151,7 @@ module Decidim::Votings
         it { expect(subject.email).to eq(datum.email) }
         it { expect(subject.voter_name).to eq(datum.full_name) }
         it { expect(subject.voter_data).to eq(id: datum.id, created: datum.created_at.to_i, name: datum.full_name) }
-        it { expect(subject.can_vote?).to be_truthy }
+        it { expect(subject).to be_can_vote }
       end
     end
 
@@ -162,7 +162,7 @@ module Decidim::Votings
       it { expect(subject.email).to be_nil }
       it { expect(subject.voter_name).to be_nil }
       it { expect(subject.voter_data).to be_nil }
-      it { expect(subject.can_vote?).to be_falsey }
+      it { expect(subject).not_to be_can_vote }
     end
 
     describe "#no_access_message" do

@@ -126,7 +126,7 @@ module Decidim::Elections
       it { expect(subject.email).to eq(user.email) }
       it { expect(subject.voter_name).to eq(user.name) }
       it { expect(subject.voter_data).to eq(id: user.id, created: user.created_at.to_i) }
-      it { expect(subject.can_vote?).to be_truthy }
+      it { expect(subject).to be_can_vote }
 
       context "when there is no user" do
         let(:user) { nil }
@@ -136,7 +136,7 @@ module Decidim::Elections
         it { expect(subject.email).to be_nil }
         it { expect(subject.voter_name).to be_nil }
         it { expect(subject.voter_data).to be_nil }
-        it { expect(subject.can_vote?).to be_falsey }
+        it { expect(subject).not_to be_can_vote }
       end
 
       context "when the user is not authorized to vote" do
@@ -144,7 +144,7 @@ module Decidim::Elections
           allow(context).to receive(:allowed_to?).and_return(false)
         end
 
-        it { expect(subject.can_vote?).to be_falsey }
+        it { expect(subject).not_to be_can_vote }
       end
     end
 
