@@ -14,7 +14,9 @@ module Decidim
 
       default_scope { order(partner_type: :desc, weight: :asc) }
 
-      validates_avatar :logo
+      validates_avatar :logo do |config|
+        config.uploader = Decidim::Conferences::PartnerLogoUploader
+      end
       mount_uploader :logo, Decidim::Conferences::PartnerLogoUploader
 
       delegate :organization, to: :conference

@@ -13,7 +13,9 @@ module Decidim
 
     mount_uploader :file, Decidim::AttachmentUploader
 
-    validates_upload :file
+    validates_upload :file do |config|
+      config.uploader = Decidim::AttachmentUploader
+    end
     validates :file, :content_type, presence: true
 
     default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }

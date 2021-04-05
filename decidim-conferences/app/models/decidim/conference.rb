@@ -55,16 +55,24 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
 
-    validates_upload :hero_image
+    validates_upload :hero_image do |config|
+      config.uploader = Decidim::HeroImageUploader
+    end
     mount_uploader :hero_image, Decidim::HeroImageUploader
 
-    validates_upload :banner_image
+    validates_upload :banner_image do |config|
+      config.uploader = Decidim::HomepageImageUploader
+    end
     mount_uploader :banner_image, Decidim::HomepageImageUploader
 
-    validates_upload :main_logo
+    validates_upload :main_logo do |config|
+      config.uploader = Decidim::Conferences::DiplomaUploader
+    end
     mount_uploader :main_logo, Decidim::Conferences::DiplomaUploader
 
-    validates_upload :signature
+    validates_upload :signature do |config|
+      config.uploader = Decidim::Conferences::DiplomaUploader
+    end
     mount_uploader :signature, Decidim::Conferences::DiplomaUploader
 
     searchable_fields({

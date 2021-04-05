@@ -66,10 +66,14 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
 
-    validates_upload :hero_image
+    validates_upload :hero_image do |config|
+      config.uploader = Decidim::HeroImageUploader
+    end
     mount_uploader :hero_image, Decidim::HeroImageUploader
 
-    validates_upload :banner_image
+    validates_upload :banner_image do |config|
+      config.uploader = Decidim::BannerImageUploader
+    end
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
     scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }
