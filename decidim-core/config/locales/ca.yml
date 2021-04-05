@@ -1534,10 +1534,6 @@ ca:
       too_short: És massa curt (menys de 15 caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
-    length_validator:
-      minimum:
-        one: com a mínim %{count} caràcter
-        other: com a mínim %{count} caràcters
     required: Obligatori
     required_explanation: "* Els camps obligatoris estan marcats amb un asterisc"
   invisible_captcha:

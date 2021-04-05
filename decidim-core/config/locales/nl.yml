@@ -1497,8 +1497,8 @@ nl:
     correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
     length_validator:
       minimum:
-        one: ten minste %{count} tekens
-        other: ten minste %{count} tekens
+        one: Ten minste %{count} teken
+        other: Ten minste %{count} tekens
     required: Vereist
     required_explanation: "* Verplichte velden zijn gemarkeerd met een sterretje"
   invisible_captcha:

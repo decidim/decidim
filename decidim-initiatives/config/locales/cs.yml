@@ -11,7 +11,7 @@ cs:
         signature_start_date: Začátek doby sběru podpisu
         signature_type: Typ sbírky podpisu
         signature_type_values:
-          any: Smíšený
+          any: Online nebo naživo
           offline: Z očí do očí
           online: OnLine
         state: Stav
@@ -19,21 +19,21 @@ cs:
       initiatives_committee_member:
         user: Člen výboru
       initiatives_type:
-        area_enabled: Povolit autorům vybrat oblast pro jejich iniciativu
+        area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
-        document_number_authorization_handler: Autorizace k ověření čísla dokumentu na podpisech
+        document_number_authorization_handler: Autorizace k ověření čísla dokumentu pro podpisy
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
         only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
         title: Titul
-        undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
+        undo_online_signatures_enabled: Povolit účastníkům vrátit zpět své online podpisy
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
       initiatives_vote:
         date_of_birth: Datum narození
@@ -105,7 +105,7 @@ cs:
         initiatives_type_scope:
           fields:
             scope: Rozsah
-            supports_required: Potřebné podpory
+            supports_required: Vyžadováno podpisů
           name: Rozsah typu iniciativy
         initiatives_types:
           fields:
@@ -280,7 +280,7 @@ cs:
             options: Možnosti
             title: Obecná informace
           initiative_type_scopes:
-            title: Zaměřuje se na typ iniciativy
+            title: Rozsahy působnosti pro tento druh iniciativ
           new:
             create: Vytvořit
             title: Nový typ iniciativy
@@ -539,7 +539,7 @@ cs:
           other: " podpisy"
         vote_cabin:
           already_voted: Již jste podepsal
-          supports_required: "Vyžaduje se %{total_supports} podpisů"
+          supports_required: "Vyžaduje %{total_supports} podpisů"
           verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán

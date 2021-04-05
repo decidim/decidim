@@ -1433,10 +1433,6 @@ el:
       too_short: είναι πολύ μικρό (κάτω από 15 χαρακτήρες)
   forms:
     correct_errors: Υπάρχουν λάθη στη φόρμα, παρακαλούμε διορθώστε τα για να συνεχίσετε.
-    length_validator:
-      minimum:
-        one: τουλάχιστον %{count} χαρακτήρας
-        other: τουλάχιστον %{count} χαρακτήρες
     required: Υποχρεωτικό πεδίο
     required_explanation: "* Τα υποχρεωτικά πεδία επισημαίνονται με αστερίσκο"
   invisible_captcha:

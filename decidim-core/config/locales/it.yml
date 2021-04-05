@@ -1529,10 +1529,6 @@ it:
       too_short: è troppo corto (meno di 15 caratteri)
   forms:
     correct_errors: Ci sono errori nel modulo, correggerli per continuare.
-    length_validator:
-      minimum:
-        one: almeno %{count} carattere
-        other: almeno %{count} caratteri
     required: Richiesto
     required_explanation: "* I campi obbligatori sono contrassegnati con un asterisco"
   invisible_captcha:
