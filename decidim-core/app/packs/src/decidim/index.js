@@ -1,3 +1,5 @@
+/* eslint-disable no-invalid-this */
+
 import svg4everybody from "svg4everybody"
 import formDatePicker from "./form_datepicker"
 import fixDropdownMenus from "./dropdowns_menus"
@@ -8,6 +10,7 @@ import InputCharacterCounter from "./input_character_counter"
 import FormValidator from "./form_validator"
 import CommentsComponent from "../../../../../decidim-comments/app/packs/src/decidim/comments/comments.component"
 import DataPicker from "./data_picker"
+import FormFilterComponent from "./form_filter"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -50,6 +53,11 @@ $(() => {
     comments.mountComponent();
     $(el).data("comments", comments);
   });
+
+  $("form.new_filter").each(function () {
+    const formFilter = new FormFilterComponent($(this));
+
+    formFilter.mountComponent();
+  })
 });
 
-import "./filters"
