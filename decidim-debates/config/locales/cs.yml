@@ -191,7 +191,7 @@ cs:
             email_intro: |-
               Ahoj,
               %{author_name} %{author_nickname}, kterého sledujete, vytvořil novou debatu "%{resource_title}". Omrkněte ji a přispějte:
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
+            email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete zrušit přijem oznámení.
             email_subject: Nová debata "%{resource_title}" od %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil <a href="%{resource_path}">%{resource_title}</a> debatu.
         creation_disabled:

@@ -327,11 +327,11 @@ cs:
         badge_name:
           finished: Dokončeno
           open: otevřeno
-          open_votes: Otevřené hlasy
+          open_votes: Hlasování zahájeno
           published_results: Publikované výsledky
         footer_button_text:
           debate: Debata
-          view: Pohled
+          view: Zobrazit
           view_results: Zobrazit výsledky
           vote: Hlasování
         unspecified: Nespecifikováno

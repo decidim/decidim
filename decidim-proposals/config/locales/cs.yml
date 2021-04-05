@@ -193,17 +193,17 @@ cs:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel k <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} byl přijat k přístupu jako přispěvatel %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> je <strong>přijat přístup jako přispěvatel</strong> z <a href="%{resource_path}">%{resource_title}</a> společném návrhu.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> je <strong>přijat k přístupu jako přispěvatel</strong> ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} byl odmítnut jako přístupový člen projektu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} byl odmítnut pro přístup jako přispěvatel k %{resource_title} kolektivnímu návrhu."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> bylo <strong>odmítnuto k přístupu jako přispěvatel</strong> z projektu <a href="%{resource_path}">%{resource_title}</a> spolupráce.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> byl <strong>odmítnut k přístupu jako přispěvatel</strong> ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} požadoval přístup jako přispěvatel. Můžete <strong>přijmout nebo odmítnout žádost</strong> ze <a href="%{resource_path}">%{resource_title}</a> společném návrhu stránky.'
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} požádal o přístup k příspěvku na %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> požádal o přístup k příspěvku ke společnému konceptu <a href="%{resource_path}">%{resource_title}</a>. Prosím, <strong>žádost přijměte nebo odmítněte</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> požádal o přístup k přispění ke společnému návrhu <a href="%{resource_path}">%{resource_title}</a>. Prosím, <strong>přijměte nebo odmítněte žádost</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Byli jste přijati k přístupu jako přispěvatel projektu spolupráce <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Toto oznámení jste obdrželi, protože jste požádali, abyste se stal spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
@@ -215,10 +215,10 @@ cs:
           email_subject: Byl jste odmítnut jako přispěvatel %{resource_title}.
           notification_title: Byl jsi <strong>odmítnut přístup jako přispěvatel</strong> na <a href="%{resource_path}">%{resource_title}</a> společném návrhu.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> zrušil <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> stáhl společný koncept <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Toto oznámení jste dostali, protože jste spolupracovníkem uživatele <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} stáhl %{resource_title} návrh spolupráce."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>staženo</strong> <a href="%{resource_path}">%{resource_title}</a> návrh spolupráce.
+          email_subject: "%{author_name} %{author_nickname} stáhl společný koncept %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>stáhl</strong> <a href="%{resource_path}">%{resource_title}</a> společný koncept.
         creation_enabled:
           email_intro: 'Nyní můžete vytvořit nové návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
@@ -257,10 +257,10 @@ cs:
           email_subject: Váš návrh "%{mentioned_proposal_title}" byl zmíněn
           notification_title: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_path}">v tomto prostoru</a> v komentářích.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, který sledujete, zveřejnil nový návrh nazvaný "%{resource_title}". Vyzkoušejte to a přispějte:'
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Nový návrh "%{resource_title}" o %{author_nickname}
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: '%{author_name} %{author_nickname}, kterého sledujete, zveřejnil nový návrh nazvaný "%{resource_title}". Omrkněte ho a přispějte:'
+          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
+          email_subject: Nový návrh "%{resource_title}" od %{author_nickname}
+          notification_title: Byl zveřejněn návrh <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Návrh "%{resource_title}" byl přidán k "%{participatory_space_title}", který sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
@@ -312,7 +312,7 @@ cs:
           description: Tento odznak je udělen při podpoře návrhů jiných lidí.
           description_another: Tento uživatel podpořil %{score} návrhů.
           description_own: Podporili jste %{score} návrhů.
-          name: Návrh podporuje
+          name: Podpora návrhů
           next_level_in: Poskytněte podporu %{score} dalších návrhů, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím nepodporoval žádné návrhy.
           unearned_own: Podporili jste ještě žádné návrhy.
