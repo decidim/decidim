@@ -312,7 +312,7 @@ cs:
           description: Tento odznak je udělen při podpoře návrhů jiných lidí.
           description_another: Tento uživatel podpořil %{score} návrhů.
           description_own: Podporili jste %{score} návrhů.
-          name: Návrh podporuje
+          name: Podpora návrhů
           next_level_in: Poskytněte podporu %{score} dalších návrhů, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím nepodporoval žádné návrhy.
           unearned_own: Podporili jste ještě žádné návrhy.
