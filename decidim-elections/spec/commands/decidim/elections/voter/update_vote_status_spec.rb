@@ -3,9 +3,13 @@
 require "spec_helper"
 
 describe Decidim::Elections::Voter::UpdateVoteStatus do
-  subject { described_class.new(vote) }
+  subject { described_class.new(vote, verify_url) }
 
-  let(:vote) { create :vote }
+  let(:election) { create :election }
+  let(:vote) { create :vote, user: user, email: email, election: election }
+  let(:user) { create :user, organization: election.component.organization }
+  let(:email) { "an_email@example.org" }
+  let(:verify_url) { "https://example.org/verify_url?hash=123" }
   let(:method_name) { :get_pending_message_status }
   let(:response) { :accepted }
 
@@ -31,9 +35,77 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
         resource: vote.election,
         affected_users: [vote.user],
         extra: {
-          vote: vote
+          vote: vote,
+          verify_url: verify_url
         }
       )
     subject.call
+  end
+
+  it "doesn't send an extra email" do
+    expect(Decidim::Elections::VoteAcceptedMailer)
+      .not_to receive(:notification)
+
+    subject.call
+  end
+
+  context "when the vote doesn't have a user, but has an email address" do
+    let(:user) { nil }
+    let(:mailer) { double(:mailer) }
+
+    it "broadcasts ok" do
+      expect { subject.call }.to broadcast(:ok)
+    end
+
+    it "updates the vote status" do
+      subject.call
+      expect(vote.status).to eq "accepted"
+    end
+
+    it "doesn't sends a notification" do
+      expect(Decidim::EventsManager)
+        .not_to receive(:publish)
+
+      subject.call
+    end
+
+    it "sends an email" do
+      expect(Decidim::Elections::VoteAcceptedMailer)
+        .to receive(:notification)
+        .with(vote, verify_url, I18n.locale.to_s)
+        .and_return(mailer)
+      expect(mailer)
+        .to receive(:deliver_later)
+
+      subject.call
+    end
+  end
+
+  context "when the vote doesn't have a user not an email address" do
+    let(:user) { nil }
+    let(:email) { nil }
+
+    it "broadcasts ok" do
+      expect { subject.call }.to broadcast(:ok)
+    end
+
+    it "updates the vote status" do
+      subject.call
+      expect(vote.status).to eq "accepted"
+    end
+
+    it "doesn't sends a notification" do
+      expect(Decidim::EventsManager)
+        .not_to receive(:publish)
+
+      subject.call
+    end
+
+    it "doesn't send an email" do
+      expect(Decidim::Elections::VoteAcceptedMailer)
+        .not_to receive(:notification)
+
+      subject.call
+    end
   end
 end

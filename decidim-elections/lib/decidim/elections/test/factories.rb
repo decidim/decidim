@@ -309,5 +309,6 @@ FactoryBot.define do
     status { "pending" }
     message_id { "decidim-test-authority.2.vote.cast+v.5826de088371d1b15b38f00c8203871caec07041ed0c8fb0c6fb875f0df763b6" }
     user { build(:user) }
+    email { "an_email@example.org" }
   end
 end
