@@ -7,8 +7,9 @@ module Decidim::Votings
     subject { described_class.new(form) }
 
     let(:voting) { create(:voting) }
-    let(:datum) { create(:datum, document_numer: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code) }
+    let(:datum) { create(:datum, document_numer: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code, dataset: dataset) }
     let(:context) { { current_participatory_space: voting } }
+    let(:dataset) { create(:dataset, voting: voting) }
     let(:params) do
       {
         document_number: document_number,
@@ -38,7 +39,7 @@ module Decidim::Votings
     end
 
     context "when census is found" do
-      let!(:datum) { create(:datum, document_number: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code) }
+      let!(:datum) { create(:datum, document_number: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code, dataset: dataset) }
 
       it "broadcasts ok" do
         expect(subject.call).to broadcast(:ok)
@@ -47,6 +48,15 @@ module Decidim::Votings
 
     context "when census is not found" do
       let!(:datum) { create(:datum, document_number: "987654321Y", document_type: document_type, birthdate: birthdate, postal_code: postal_code) }
+
+      it "returns not_found" do
+        expect(subject.call).to broadcast(:not_found)
+      end
+    end
+
+    context "when hashed_checked_data exists in different dataset" do
+      let!(:datum) { create(:datum, document_number: "987654321Y", document_type: document_type, birthdate: birthdate, postal_code: postal_code) }
+      let!(:voting) { create(:voting) }
 
       it "returns not_found" do
         expect(subject.call).to broadcast(:not_found)
