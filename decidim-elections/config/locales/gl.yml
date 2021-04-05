@@ -101,6 +101,10 @@ gl:
         results:
           description: Estes son os resultados da votación, para cada pregunta
           selected: Seleccionado
+          votes:
+            one: "%{count} voto"
+            other: "%{count} votos"
+            zero: "%{count} votos"
         show:
           action-button:
             change-vote: Troca o teu voto

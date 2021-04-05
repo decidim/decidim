@@ -342,8 +342,9 @@ ca:
           selected: Seleccionat
           title: Resultats de l'elecció
           votes:
-            one: ""
-            other: ""
+            one: "%{count} vot"
+            other: "%{count} vots"
+            zero: "%{count} vots"
         show:
           action-button:
             change-vote: Canvia el teu vot

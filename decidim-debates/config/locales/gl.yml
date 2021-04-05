@@ -98,6 +98,7 @@ gl:
           create: Crear
           title: Novo debate
       last_activity:
+        debate_updated_at_html: "<span>Debate actualizado en %{link}</span>"
         new_debate_at_html: "<span>Novo debate en %{link}</span>"
       models:
         debate:

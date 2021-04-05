@@ -29,6 +29,7 @@ sv:
             success: Inlägget har raderats
           edit:
             save: Uppdatera
+            title: Redigera inlägg
           index:
             title: Inlägg
           new:

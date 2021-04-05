@@ -35,6 +35,8 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -63,6 +65,10 @@ sv:
           edit:
             title: Redigera debatt
             update: Uppdatera debatt
+          form:
+            debate_type: Typ av debatt
+            finite: Tidsbegränsad (med start- och sluttider)
+            open: Oendlig (inga start- eller slutdatum)
           index:
             title: Debatter
           new:
@@ -71,6 +77,8 @@ sv:
           update:
             invalid: Det gick inte att uppdatera debatten.
             success: Debatten uppdaterades.
+        exports:
+          comments: Kommentarer
         models:
           debate:
             name: Debatt
@@ -102,13 +110,22 @@ sv:
           save: Spara ändringar
           title: Redigera debatt
         filters:
+          activity: Min aktivitet
           all: Alla
           category: Kategori
           category_prompt: Välj en kategori
           citizens: Medborgare
+          commented: Kommenterade
+          my_debates: Mina debatter
           official: Officiell
           origin: Ursprung
+          scope: Omfång
           search: Sök
+          state: Status
+          state_values:
+            closed: Stängda
+            open: Öppna
+          user_groups: Grupper
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -139,6 +156,7 @@ sv:
           groups_count: Grupper
           last_comment_by: Senaste kommentar av
           no_comments_yet: Inga kommentarer ännu
+          open: Öppna debatt
           participants_count: Deltagare
         update:
           invalid: Det gick inte att uppdatera debatten.

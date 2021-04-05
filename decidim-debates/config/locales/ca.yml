@@ -158,7 +158,7 @@ ca:
           groups_count: Grups
           last_comment_by: Darrer comentari de
           no_comments_yet: Encara no hi ha comentaris
-          open: Obrir debat
+          open: Debat obert
           participants_count: Participants
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.
@@ -171,7 +171,7 @@ ca:
         versions_list:
           back_to_resource: Tornar al debat
       last_activity:
-        debate_updated_at_html: "<span>Debat actualitzat a %{link}</span>"
+        debate_updated_at_html: "<span>Debat actualitzat el %{link}</span>"
         new_debate_at_html: "<span>Nou debat a %{link}</span>"
       models:
         debate:

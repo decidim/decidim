@@ -1070,7 +1070,7 @@ fi:
         statistics:
           answers_count: Kyselyiden vastauksia
           assemblies_count: Kehitysryhmiä
-          comments_count: Kommentteja
+          comments_count: Kommenttia
           conferences_count: Konferensseja
           debates_count: Keskustelut
           endorsements_count: Suositukset

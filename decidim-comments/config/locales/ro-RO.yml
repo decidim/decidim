@@ -81,6 +81,10 @@ ro:
         loading: Se încarcă comentariile...
         single_comment_warning: Puteţi verifica restul comentariilor <a href="%{url}">aici</a>.
         single_comment_warning_title: Vedeți un singur comentariu
+        title:
+          one: "%{count} comentariu"
+          few: "%{count} comentarii"
+          other: "%{count} comentarii"
       down_vote_button:
         text: Nu sunt de acord cu acest comentariu
       up_vote_button:

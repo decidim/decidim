@@ -342,8 +342,9 @@ es:
           selected: Seleccionado
           title: Resultados de la elección
           votes:
-            one: ""
-            other: ""
+            one: "%{count} voto"
+            other: "%{count} votos"
+            zero: "%{count} votos"
         show:
           action-button:
             change-vote: Cambia tu voto

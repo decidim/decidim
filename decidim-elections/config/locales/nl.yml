@@ -249,6 +249,11 @@ nl:
           elections_count:
             one: "%{count} verkiezing"
             other: "%{count} verkiezingen"
+        results:
+          votes:
+            one: "%{count} stem"
+            other: "%{count} stemmen"
+            zero: "%{count} stemmen"
         show:
           action-button:
             change-vote: Wijzig je stem
