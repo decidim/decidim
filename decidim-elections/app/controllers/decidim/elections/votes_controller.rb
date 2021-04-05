@@ -119,15 +119,10 @@ module Decidim
       end
 
       def valid_voter_token?
-        vote_flow.voter_token = params[:vote][:voter_token]
+        return unless vote_flow.receive_data(params.require(:vote).permit(:voter_token, :voter_id))
 
         unless vote_flow.valid_token_common_data? && vote_flow.valid_token_flow_data? && vote_flow.valid_voter_id?
           redirect_to(exit_path, alert: t("votes.messages.invalid_token", scope: "decidim.elections"))
-          return false
-        end
-
-        unless vote_flow.valid_token_timestamp?
-          redirect_to(exit_path, alert: t("votes.messages.invalid_timestamp", scope: "decidim.elections"))
           return false
         end
 

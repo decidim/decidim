@@ -4,26 +4,23 @@ module Decidim
   module Elections
     # Service that encapsulates the vote flow used for elections for registered users.
     class CurrentUserVoteFlow < VoteFlow
-      def initialize(election, context)
-        @election = election
-        @context = context
-      end
-
       def has_voter?
         current_user.present?
       end
 
       def voter_name
-        current_user.name
+        current_user&.name
       end
 
-      delegate :email, to: :current_user
+      delegate :email, to: :current_user, allow_nil: true
 
       def user
         current_user
       end
 
       def voter_data
+        return nil unless current_user
+
         {
           id: current_user.id,
           created: current_user.created_at.to_i
@@ -31,7 +28,9 @@ module Decidim
       end
 
       def can_vote?
-        @can_vote ||= context.allowed_to?(:user_vote, :election, election: election)
+        return @can_vote if defined?(@can_vote)
+
+        @can_vote = user && context.allowed_to?(:user_vote, :election, election: election)
       end
 
       def valid_token_flow_data?
@@ -41,7 +40,7 @@ module Decidim
       end
 
       def no_access_message
-        t("votes.messages.not_allowed", scope: "decidim.elections")
+        I18n.t("votes.messages.not_allowed", scope: "decidim.elections")
       end
 
       def login_path(vote_path); end

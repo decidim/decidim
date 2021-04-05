@@ -2,28 +2,27 @@
 
 module Decidim
   module Votings
-    # Service that encapsulates the vote flow used for Votings.
+    # Service that encapsulates the vote flow used for Votings, using a census instead of users.
     class CensusVoteFlow < Decidim::Elections::VoteFlow
-      def initialize(election, context)
-        @election = election
-        @context = context
-      end
-
       def has_voter?
         datum.present?
       end
+
+      alias can_vote? has_voter?
 
       def voter_name
         datum&.full_name
       end
 
-      delegate :email, to: :datum
+      delegate :email, to: :datum, allow_nil: true
 
       def user
         nil
       end
 
       def voter_data
+        return nil unless datum
+
         {
           id: datum.id,
           created: datum.created_at.to_i,
@@ -31,21 +30,9 @@ module Decidim
         }
       end
 
-      def can_vote?
-        @can_vote ||= begin
-          @datum ||= Decidim::Votings::Census::Datum.find_by(hashed_online_data: form.hashed_online_data)
-          has_voter?
-        end
-      end
-
-      def form
-        @form ||= context.form(Decidim::Votings::Census::LoginForm).from_params(context.params, election: election)
-      end
-
       def valid_token_flow_data?
         @valid_token_flow_data ||= begin
-          @datum = Decidim::Votings::Census::Datum.find_by(id: voter_token_parsed_data[:flow][:id].to_i)
-          has_voter? && voter_token_parsed_data[:flow].as_json == voter_data.as_json
+          has_voter? && received_voter_token_data[:flow].as_json == voter_data.as_json
         end
       end
 
@@ -54,12 +41,30 @@ module Decidim
       end
 
       def login_path(vote_path)
-        EngineRouter.main_proxy(context.current_participatory_space).voting_login_path(election_id: election.id, vote_path: vote_path)
+        EngineRouter.main_proxy(election.component.participatory_space).voting_login_path(election_id: election.id, vote_path: vote_path)
       end
 
       private
 
-      attr_accessor :election, :context, :datum
+      attr_accessor :election, :context
+
+      def datum
+        return @datum if defined?(@datum)
+
+        if received_voter_token
+          @datum = Decidim::Votings::Census::Datum.find_by(id: received_voter_token_datum_id) if received_voter_token_datum_id
+        else
+          @datum = Decidim::Votings::Census::Datum.find_by(hashed_online_data: form.hashed_online_data)
+        end
+      end
+
+      def received_voter_token_datum_id
+        @received_voter_token_datum_id ||= received_voter_token_data.dig(:flow, :id)&.to_i
+      end
+
+      def form
+        @form ||= Decidim::Votings::Census::LoginForm.from_params(context.params, election: election)
+      end
     end
   end
 end

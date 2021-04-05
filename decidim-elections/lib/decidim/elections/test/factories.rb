@@ -28,6 +28,7 @@ FactoryBot.define do
     bb_status { nil }
     questionnaire
     component { create(:elections_component, organization: organization) }
+    salt { SecureRandom.hex(32) }
 
     trait :bb_test do
       bb_status { "key_ceremony" }

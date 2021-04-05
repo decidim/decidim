@@ -567,7 +567,6 @@ en:
           encrypting: Encrypting the vote
           failed: Vote failed
         messages:
-          invalid_timestamp: Your session in the voting booth expired. Try to vote again.
           invalid_token: Your session in the voting booth is not valid. Try to vote again.
           not_allowed: You are not allowed to vote on this election at this moment.
         modal:

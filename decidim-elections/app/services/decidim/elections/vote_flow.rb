@@ -9,47 +9,47 @@ module Decidim
         @context = context
       end
 
-      def valid_token_common_data?
-        voter_token_parsed_data[:common] == voter_common_data.as_json
-      end
-
-      def valid_voter_id?
-        context.params[:vote][:voter_id] == calculate_voter_id(voter_token_parsed_data)
-      end
-
-      def valid_token_timestamp?
-        voter_token_parsed_data.fetch(:timestamp, 0) > Decidim::Elections.voter_token_expiration_minutes.minutes.ago.to_i
-      end
-
       def voter_id
         @voter_id ||= calculate_voter_id(voter_token_data)
-      end
-
-      def calculate_voter_id(data)
-        Digest::SHA256.hexdigest(data.slice(:common, :flow).to_json)
-      end
-
-      attr_writer :voter_token
-
-      def voter_token
-        @voter_token ||= message_decryptor.encrypt_and_sign(voter_token_data.to_json)
-      end
-
-      def voter_token_parsed_data
-        @voter_token_parsed_data ||= JSON.parse(message_decryptor.decrypt_and_verify(voter_token)).with_indifferent_access
-      rescue ActiveSupport::MessageEncryptor::InvalidMessage
-        {}
       end
 
       def voter_id_token(a_voter_id = nil)
         @voter_id_token ||= tokenizer.hex_digest(a_voter_id || voter_id)
       end
 
+      def valid_voter_id?
+        received_voter_id && received_voter_id == calculate_voter_id(received_voter_token_data)
+      end
+
+      def receive_data(params)
+        @received_voter_token = params[:voter_token]
+        @received_voter_id = params[:voter_id]
+
+        received_voter_token.present? && received_voter_id.present?
+      end
+
+      def voter_token
+        @voter_token ||= received_voter_token ||
+                           message_decryptor.encrypt_and_sign(
+                             voter_token_data.to_json,
+                             expires_at: Decidim::Elections.voter_token_expiration_minutes.minutes.from_now
+                           )
+      end
+
+      def valid_token_common_data?
+        received_voter_token && received_voter_token_data[:common] == voter_common_data.as_json
+      end
+
       private
+
+      attr_accessor :received_voter_token, :received_voter_id
+
+      def calculate_voter_id(data)
+        Digest::SHA256.hexdigest(data.to_json)
+      end
 
       def voter_token_data
         @voter_token_data = {
-          timestamp: Time.current.to_i,
           common: voter_common_data,
           flow: voter_data
         }
@@ -57,19 +57,35 @@ module Decidim
 
       def voter_common_data
         @voter_common_data = {
-          secret: Digest::SHA256.hexdigest(Rails.application.credentials.secret_key_base),
+          salt: election.salt,
           slug: Decidim::Elections.bulletin_board.authority_slug,
           created: election.created_at.to_i,
           election: election.id
         }
       end
 
+      def received_voter_token_data
+        return {} unless verified_received_voter_token
+
+        @received_voter_token_data ||= JSON.parse(verified_received_voter_token).with_indifferent_access
+      end
+
+      def verified_received_voter_token
+        return @verified_received_voter_token if defined?(@verified_received_voter_token)
+
+        @verified_received_voter_token = begin
+          message_decryptor.decrypt_and_verify(received_voter_token)
+        rescue ActiveSupport::MessageEncryptor::InvalidMessage
+          nil
+        end
+      end
+
       def message_decryptor
-        @message_decryptor ||= ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base[0..31])
+        @message_decryptor ||= ActiveSupport::MessageEncryptor.new([election.salt].pack('H*'))
       end
 
       def tokenizer
-        @tokenizer ||= Decidim::Tokenizer.new(salt: Rails.application.secrets.secret_key_base, length: 10)
+        @tokenizer ||= Decidim::Tokenizer.new(salt: election.salt, length: 10)
       end
     end
   end
