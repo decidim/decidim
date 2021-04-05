@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/core"
+
 module Decidim
   module Verifications
     # Decidim's core Rails Engine.
