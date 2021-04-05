@@ -121,9 +121,9 @@ module Decidim
       def valid_voter_token?
         return unless vote_flow.receive_data(params.require(:vote).permit(:voter_token, :voter_id))
 
-        unless vote_flow.valid_token_common_data? && vote_flow.valid_token_flow_data? && vote_flow.valid_voter_id?
+        unless vote_flow.valid_received_data?
           redirect_to(exit_path, alert: t("votes.messages.invalid_token", scope: "decidim.elections"))
-          return false
+          false
         end
 
         true

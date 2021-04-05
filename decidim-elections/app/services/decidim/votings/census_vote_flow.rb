@@ -30,12 +30,6 @@ module Decidim
         }
       end
 
-      def valid_token_flow_data?
-        @valid_token_flow_data ||= begin
-          has_voter? && received_voter_token_data[:flow].as_json == voter_data.as_json
-        end
-      end
-
       def no_access_message
         I18n.t("vote_flow.datum_not_found", scope: "decidim.votings.census")
       end
@@ -64,6 +58,12 @@ module Decidim
 
       def form
         @form ||= Decidim::Votings::Census::LoginForm.from_params(context.params, election: election)
+      end
+
+      def valid_token_flow_data?
+        @valid_token_flow_data ||= begin
+          has_voter? && received_voter_token_data[:flow].as_json == voter_data.as_json
+        end
       end
     end
   end

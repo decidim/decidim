@@ -86,11 +86,10 @@ module Decidim::Elections
       let(:invalid_token) { "A3TF3yp1KNfxclpeKGkbvIsjezpKtETOu3iEniMxWkJ86Af0d2GQZB4Yx2PbZNE9WdfleiAYaVuRq+fiC179DzWc+NzlwsdaK6WHjBte2G9LcEr7XnOhIEVcPfLI3G9jdJkL+JTxPt2T3PQnHDNnNAvcCU2sf+bWwekECGzuEZHknpM605Y2qRQfZG78Y6F17pv7u7S0e+z/CzakCcTVwOphcf2x9n+8Sy/Of7zMPO+Rbrl2KImIfpetXSvuEMcH4g/T2omCvtDvDyCPR8e8jHvlp4fAdiDU8nRX28M/xa6Vkx15MjOVfcS/NqrNMU7IxWN+xXimaausObOSkuwgb2Jq0wtoXCcDiw/SgVdr1y+o+LzqfqX+gqFL7nAgQA96WJ2SVHDo0TLybTeiPBV1MQwM/gJbRyaIjvfMKt0Q0EkPkUfJxLbt/MtUizmitLUWVNsCwqJkkV3x--rMnBzxE1CoHEpKEB--IdLlo8iGMec4qhii0/Lzwg==" }
 
       context "when a voter token was not received" do
-        it { expect(subject).not_to be_valid_voter_id }
-        it { expect(subject).not_to be_valid_token_common_data }
+        it { expect(subject).not_to be_valid_received_data }
 
         it "generates a token with the token data" do
-          generated_data = vote_flow.send(:message_decryptor).decrypt_and_verify(subject.voter_token)
+          generated_data = vote_flow.send(:message_encryptor).decrypt_and_verify(subject.voter_token)
           expect(generated_data).to eq(vote_flow.send(:voter_token_data).to_json)
         end
       end
@@ -98,15 +97,13 @@ module Decidim::Elections
       context "when a valid voter token was received" do
         before { vote_flow.receive_data(voter_token: valid_token, voter_id: valid_voter_id) }
 
-        it { expect(subject).to be_valid_voter_id }
-        it { expect(subject).to be_valid_token_common_data }
+        it { expect(subject).to be_valid_received_data }
         it { expect(subject.voter_token).to eq(valid_token) }
 
         context "when the voter token has expired" do
           let(:now) { Time.new(2000, 1, 1, 3, 0, 0, 0) }
 
-          it { expect(subject).not_to be_valid_voter_id }
-          it { expect(subject).not_to be_valid_token_common_data }
+          it { expect(subject).not_to be_valid_received_data }
           it { expect(subject.voter_token).to eq(valid_token) }
         end
       end
@@ -114,8 +111,7 @@ module Decidim::Elections
       context "when a wrong voter token was received" do
         before { vote_flow.receive_data(voter_token: invalid_token, voter_id: valid_voter_id) }
 
-        it { expect(subject).not_to be_valid_voter_id }
-        it { expect(subject).not_to be_valid_token_common_data }
+        it { expect(subject).not_to be_valid_received_data }
         it { expect(subject.voter_token).to eq(invalid_token) }
       end
     end
