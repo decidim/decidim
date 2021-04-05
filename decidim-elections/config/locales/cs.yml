@@ -64,11 +64,26 @@ cs:
         few: Otázek
         many: Otázek
         other: Otázek
+      decidim/votings/census/dataset:
+        one: Datová sada
+        few: Datové sady
+        many: Datových sad
+        other: Datové sady
+      decidim/votings/census/datum:
+        one: Datum
+        few: Data
+        many: Datumů
+        other: Datumy
       decidim/votings/polling_officer:
         one: Volební komisař
         few: Volební komisaři
         many: Volebních komisařů
         other: Volební komisaři
+      decidim/votings/polling_station:
+        one: Volební místnost
+        few: Volební místnosti
+        many: Volebních místností
+        other: Volebních místnostech
       decidim/votings/voting:
         one: Hlasování
         few: Hlasování
@@ -173,6 +188,8 @@ cs:
         exports:
           elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
+        menu:
+          trustees: Volební důvěrníci
         models:
           answer:
             name: Odpověď
@@ -331,6 +348,11 @@ cs:
           upcoming: Nadcházející
         end_date: Končí
         footer:
+          remaining_time:
+            one: "Na hlasování zbývá <strong>%{count} hodina a %{minutes} minut</strong>."
+            few: "Na hlasování zbývá <strong>%{count} hodiny a %{minutes} minut</strong>."
+            many: "Na hlasování zbývá <strong>%{count} hodin a %{minutes} minut</strong>."
+            other: "Na hlasování zbývá <strong>%{count} hodin a %{minutes} minut</strong>."
           view: Zobrazit
           vote: Hlasovat
         label:
@@ -378,6 +400,7 @@ cs:
           back: Dostupné volby
           callout:
             already_voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
+            pending_vote: Váš hlas se odehrává na serveru.
             vote_rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
           preview: Náhled
           verify:
@@ -526,6 +549,9 @@ cs:
           cast: Zahlasování hlasovacího lístku
           description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
           header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
+        casting:
+          header: Hlasování...
+          text: Váš hlasovací lístek byl vložen do volební urny.
         confirm:
           answer: Odpověď
           answer_number: odpověď %{number}
@@ -537,7 +563,6 @@ cs:
           question: Otázka %{count}
         confirmed:
           back: Zpět k volbám
-          error: Omlouváme se, došlo k chybě při potvrzení hlasování. Prosím, hlasujte znovu.
           experience: Jaká byla vaše zkušenost?
           feedback: Dejte nám zpětnou vazbu
           header: Hlasování potvrzeno
@@ -545,17 +570,20 @@ cs:
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
         encrypting:
-          header: Zakódování hlasů...
-          text: Váš hlas je šifrován, abyste ho mohli anonymně posílat.
+          header: Šifrování hlasování...
+          text: Váš hlasovací lístek je šifrován, aby bylo zajištěno že vaše hlasování je tajné.
         failed:
           header: Hlasování se nezdařilo
           lead: Váš hlas nebyl odeslán!
           text: Něco se pokazilo, zkuste to prosím znovu.
+          try_again: Zkuste to znovu
         header:
           ballot_decision: Zahlasování nebo audit vašeho hlasování
+          casting: Hlasování
           confirm: Potvrďte svůj hlas
           confirmed: Hlasování potvrzeno
-          encrypting: Potvrzení hlasování
+          encrypting: Šifrování hlasování
+          failed: Hlasování se nezdařilo
         messages:
           not_allowed: V tuto chvíli vám není dovoleno hlasovat o těchto volbách.
         modal:
@@ -569,8 +597,7 @@ cs:
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
         update:
-          error: Při aktualizaci stavu hlasování došlo k chybě
-          success: Stav hlasování byl úspěšně aktualizován
+          error: Při aktualizaci statusu hlasování se vyskytl problém. Prosím, hlasujte znovu.
         verify:
           content:
             heading: Ověřte svůj hlas
@@ -679,6 +706,7 @@ cs:
             attachment_collections: Složky
             attachment_files: Soubory
             attachments: Přílohy
+            census: Seznam obyvatel
             components: Komponenty
             info: Informace
             landing_page: Vstupní stránka
@@ -815,6 +843,37 @@ cs:
           create: "%{user_name} vytvořil %{resource_name} hlasování"
           publish: "%{user_name} zveřejnil %{resource_name} hlasování"
           unpublish: "%{user_name} zrušil publikování %{resource_name} hlasování"
+      census:
+        admin:
+          census:
+            create:
+              error: došlo k chybě při nahrávání seznamu obyvatel, opakujte akci později.
+            creating_data:
+              info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
+            delete:
+              button: Odstranit všechna data ze seznamu obyvatel
+              confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
+            destroy:
+              error: Došlo k chybě při odstraňování seznamů členů, opakujte akci později.
+              success: Seznam členů byl smazán
+            generate_access_codes:
+              button: Generovat hlasovací přístupové kódy
+              confirm: Budete-li pokračovat, nebudete moci měnit seznam členů.
+              info_message_all: "<strong>Všechny řádky úspěšně importovány</strong> ze souboru %{file} (%{raw_count} z %{data_count})."
+              info_message_warn: Zkontrolujte, že žádná data nechybí, protože byly vytvořeno %{data_count} záznamů a nahraný soubor %{file} měl %{raw_count} řádků.
+            new:
+              file_help:
+                explanation: 'Pokyny pro soubor:'
+                message_1: Jsou povoleny pouze soubory CSV (.csv).
+                message_2: Oddělovač sloupců musí být středník (";").
+              info_message: "<strong>Zatím neexistuje žádný seznam osob.</strong> Použijte prosím formulář níže pro vytvoření importu souboru CSV."
+              submit: Odeslat csv
+              title: Vytvořit seznam osob
+            show:
+              heading: Hlasovací prostor seznamu osob
+            upload_info:
+              csv_example: 'Příklad obsahu souboru:'
+              csv_fields: 'Musí být formát souboru .csv s těmito poli:'
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování

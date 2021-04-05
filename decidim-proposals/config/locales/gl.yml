@@ -800,3 +800,7 @@ gl:
       included_proposals:
         proposal_project: 'Proposta que aparece nestes proxectos:'
         proposal_result: 'Proposta que aparece nestes resultados:'
+    statistics:
+      proposals_accepted: Propostas aceptadas
+      proposals_count: Propostas
+      supports_count: Apoios

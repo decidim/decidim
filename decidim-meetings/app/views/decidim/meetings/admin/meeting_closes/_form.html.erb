@@ -21,8 +21,11 @@
         <%= form.number_field :contributions_count, min: 0 %>
       </div>
     </div>
-    <div class="row column">
-      <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
-    </div>
+
+    <% if Decidim::Meetings.enable_proposal_linking %>
+      <div class="row column">
+        <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
+      </div>
+    <% end %>
   </div>
 </div>

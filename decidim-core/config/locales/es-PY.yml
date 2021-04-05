@@ -1534,10 +1534,6 @@ es-PY:
       too_short: es demasiado corto (menos de 15 caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
-    length_validator:
-      minimum:
-        one: al menos %{count} carácter
-        other: al menos %{count} caracteres
     required: Obligatorio
     required_explanation: "* Los campos requeridos están marcados con un asterisco"
   invisible_captcha:

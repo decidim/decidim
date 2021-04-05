@@ -133,8 +133,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-              votes_count: 0
+              selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
             },
             visibility: "all"
           )
@@ -227,8 +226,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-              votes_count: 0
+              selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
             },
             visibility: "all"
           )
@@ -323,8 +321,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.5),
-              votes_count: Faker::Number.number(digits: 3)
+              selected: Faker::Boolean.boolean(true_ratio: 0.5)
             },
             visibility: "all"
           )
@@ -334,6 +331,11 @@ Decidim.register_component(:elections) do |component|
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
             file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+          )
+
+          Decidim::Elections::Result.create!(
+            votes_count: Faker::Number.number(digits: 3),
+            answer: answer
           )
         end
 
@@ -416,8 +418,7 @@ Decidim.register_component(:elections) do |component|
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
             weight: Faker::Number.number(digits: 1),
-            selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-            votes_count: 0
+            selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
           },
           visibility: "all"
         )

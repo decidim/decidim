@@ -39,7 +39,13 @@ gl:
           user_group_id:
             label: Comentar como
         opinion:
+          label: A túa opinión canto a este tema
+          negative: Negativa
+          negative_selected: A túa opinión canto a este tema é negativa
           neutral: Neutro
+          neutral_selected: A túa opinión canto a este tema é neutral
+          positive: Positiva
+          positive_selected: A túa opinión canto a este tema é positiva
         remaining_characters: "Faltan %{count} caracteres"
         remaining_characters_1: "Faltou o personaxe %{count}"
         title: Engade o teu comentario

@@ -5,6 +5,8 @@ nl:
         delete_reason: Reden om uw account te verwijderen
       common:
         created_at: Aangemaakt op
+      conversation:
+        body: Body
       group:
         about: Over
         avatar: Profielafbeelding
@@ -13,6 +15,8 @@ nl:
         name: Naam
         nickname: Roepnaam
         phone: Telefoon
+      message:
+        body: Body
       report:
         details: Aanvullende opmerkingen
       user:
@@ -250,6 +254,8 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
+      avatar: 'Profiel: %{name}'
+      avatar_multiuser: Profiel voor meerdere gebruikers
       comments:
         one: commentaar
         other: commentaren
@@ -1272,6 +1278,7 @@ nl:
         send: Verzenden
         title_reply: Beantwoorden
       show:
+        back: Toon alle gesprekken
         not_allowed: Deze gebruiker accepteert geen directe berichten meer.
         title: Gesprek met %{usernames}
       update:
@@ -1309,6 +1316,7 @@ nl:
         number_of_versions: versies
         title: versies
     versions_list_item:
+      back: Toon alle versies
       show:
         version_index: Versie %{index}
     welcome_notification:
@@ -1489,8 +1497,8 @@ nl:
     correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
     length_validator:
       minimum:
-        one: ten minste %{count} tekens
-        other: ten minste %{count} tekens
+        one: Ten minste %{count} teken
+        other: Ten minste %{count} tekens
     required: Vereist
     required_explanation: "* Verplichte velden zijn gemarkeerd met een sterretje"
   invisible_captcha:
@@ -1511,9 +1519,11 @@ nl:
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
+        main_menu: Hoofdmenu
         navigation: Navigatie
         sign_in: Aanmelden
         sign_up: Registreren
+        user_menu: Gebruikersmenu
       impersonation_warning:
         close_session: Sluit sessie
         description_html: U beheert de gebruiker <b>%{user_name}</b>.
@@ -1537,6 +1547,7 @@ nl:
         profile: Mijn account
         public_profile: Mijn openbaar profiel
         sign_out: Afmelden
+        title: Profiellinks
       user_profile:
         account: Account
         authorizations: Bevoegdheden

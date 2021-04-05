@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/core"
+
 module Decidim
   module Surveys
     # This is the engine that runs on the public interface of `decidim-surveys`.

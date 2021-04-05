@@ -3,6 +3,7 @@ cs:
     attributes:
       conference:
         assemblies_ids: Související shromáždění
+        available_slots: Dostupné sloty
         banner_image: Obrázek banneru
         consultations_ids: Související konzultace
         copy_categories: Kopírovat kategorie
@@ -10,20 +11,59 @@ cs:
         copy_features: Funkce kopírování
         decidim_scope_id: Oblast působnosti
         description: Popis
+        end_date: Datum ukončení
         hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
+        location: Lokalita
+        main_logo: Hlavní logo
+        objectives: Cíle
         participatory_processes_ids: Související procesy účasti
         promoted: Propagováno
         published_at: Publikováno v
+        registration_terms: Podmínky registrace
+        registrations_enabled: Registrace povoleny
         scope_id: Oblast působnosti
         scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_statistics: Zobrazit statistiky
+        sign_date: Datum podpisu
+        signature: Podpis
+        signature_name: podpisové jméno
         slogan: Motto
         slug: URL slug
+        start_date: Datum zahájení
         title: Titul
+      conference_media_link:
+        date: Datum
+        link: Odkaz
+        title: Název
+        weight: Váha
+      conference_partner:
+        link: Odkaz
+        logo: Logo
+        name: Název
+        partner_type: Typ partnera
+        weight: Váha
+      conference_registration_invite:
+        email: E-mail
+        name: Jméno
+        registration_type_id: Typ registrace
+        user_id: Uživatel
+      conference_registration_type:
+        description: Popis
+        price: Cena
+        title: Oslovení
+        weight: Váha
       conference_speaker:
+        affiliation: Příslušnost
+        avatar: Avatar
+        conference_meeting_ids: Související schůzky
         full_name: Celé jméno
+        personal_url: Osobní adresa Url
+        position: Pozice
+        short_bio: Krátký životopis
+        twitter_handle: Twitter účet
+        user_id: Uživatel
       conference_user_role:
         email: E-mail
         name: název

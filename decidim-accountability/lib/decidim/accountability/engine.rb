@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
+require "decidim/core"
 
 module Decidim
   module Accountability

@@ -2,7 +2,6 @@
 
 require "rails"
 require "active_support/all"
-require "kaminari"
 require "jquery-tmpl-rails"
 
 require "decidim/core"

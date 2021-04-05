@@ -3,6 +3,9 @@
 //= link decidim/elections/trustee/key_ceremony.js
 //= link decidim/elections/trustee/tally.js
 //= link decidim/elections/trustee/trustee_zone.js
-//= link decidim/elections/voter/vote.js
+//= link decidim/elections/voter/casting-vote.js
+//= link decidim/elections/voter/new-vote.js
+//= link decidim/elections/voter/setup-preview.js
+//= link decidim/elections/voter/setup-vote.js
 //= link decidim/elections/voter/verify-vote.js
 //= link_tree ../images/decidim

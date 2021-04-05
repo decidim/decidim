@@ -277,8 +277,10 @@
                 <li><%= link_to "Blocked", page_path("evote-how-to-participate-blocked") %></li>
               </ul>
             </li>
+            <li><%= link_to "Election log", page_path("evote-election-log") %></li>
             <li><%= link_to "Available elections (follows current component list models)", page_path("evote-poll-list") %></li>
             <li><%= link_to "Election landing page", page_path("evote-poll-landing") %></li>
+            <li><%= link_to "Identification with access code", page_path("evote-identification") %></li>
             <li><%= link_to "Question model 1", page_path("evote-1") %></li>
             <li><%= link_to "Question model 2 (+ more info)", page_path("evote-2") %></li>
             <li><%= link_to "Question model 3 (+ counter)", page_path("evote-3") %></li>
@@ -306,6 +308,19 @@
                     <li><%= link_to "Error: already voted in person", page_path("evote-polling-station-officer-questions-error") %></li>
                   </ul>
                 </li>
+                <li>
+                  <%= link_to "Votes recount - Step 1: Count envelopes", page_path("evote-polling-station-officer-count-votes") %>
+                  <ul>
+                    <li><%= link_to "Error", page_path("evote-polling-station-officer-count-votes-error") %></li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Votes recount - Step 2: Count answers", page_path("evote-polling-station-officer-count-votes-step2") %>
+                  <ul>
+                    <li><%= link_to "Error", page_path("evote-polling-station-officer-count-votes-step2-error") %></li>
+                  </ul>
+                </li>
+                <li><%= link_to "Votes recount - Step 3: Upload certificate", page_path("evote-polling-station-officer-count-votes-step3") %></li>
               </ul>
             </li>
          </ul>

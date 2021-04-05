@@ -6,6 +6,7 @@ gl:
         description: Descripción
         title: Título
         total_budget: Orzamento total
+        weight: Orde de posición
       project:
         budget_amount: Importe do orzamento
         decidim_category_id: Categoría
@@ -93,6 +94,9 @@ gl:
         close_modal: Pechar modal
         continue: Continuar
         more_information: Máis información
+      budget_list_item:
+        voting_finished: Votaches neste orzamento
+        voting_started: Comezaches o voto neste orzamento
       budgets_list:
         cancel_order:
           more_than_one: eliminar o teu voto de %{name} e comezar de novo
@@ -220,6 +224,7 @@ gl:
       included_proposals:
         project_proposal: Propostas incluídas neste proxecto
     statistics:
+      orders_count: Apoios
       projects_count: Proxectos
   index:
     confirmed_orders_count: Reconto de votos
