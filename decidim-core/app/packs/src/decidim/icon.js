@@ -1,5 +1,5 @@
 const DEFAULT_ATTRIBUTES = {
-  role: "presentation",
+  role: "img",
   "aria-hidden": "true"
 };
 

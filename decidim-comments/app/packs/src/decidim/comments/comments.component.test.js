@@ -166,7 +166,7 @@ describe("CommentsComponent", () => {
             </div>
             <div class="author-data__extra">
                 <button type="button" class="link-alt" data-open="flagModalComment${commentId}" title="Report inappropriate content" aria-controls="flagModalComment${commentId}" aria-haspopup="true" tabindex="0">
-                  <svg role="presentation" aria-hidden="true" class="icon--flag icon icon--small">
+                  <svg role="img" aria-hidden="true" class="icon--flag icon icon--small">
                     <title></title>
                     <use href="/assets/decidim/icons-123.svg#icon-flag"></use>
                   </svg>
@@ -175,7 +175,7 @@ describe("CommentsComponent", () => {
 
                 <a title="Get link to single comment" href="/path/to/dummy/123?commentId=${commentId}#comment_${commentId}">
                   <span class="show-for-sr">Get link to single comment</span>
-                  <svg role="presentation" aria-hidden="true" class="icon--link-intact icon icon--small">
+                  <svg role="img" aria-hidden="true" class="icon--link-intact icon icon--small">
                     <title></title>
                     <use href="/assets/decidim/icons-123.svg#icon-link-intact"></use>
                   </svg>
@@ -189,7 +189,7 @@ describe("CommentsComponent", () => {
         <div class="comment__footer">
             <div class="comment__actions">
               <button class="comment__reply muted-link" aria-controls="comment${commentId}-reply" data-toggle="comment${commentId}-reply" aria-expanded="true">
-                <svg role="presentation" aria-hidden="true" class="icon--pencil icon icon--small">
+                <svg role="img" aria-hidden="true" class="icon--pencil icon icon--small">
                   <title></title>
                   <use href="/assets/decidim/icons-123.svg#icon-pencil"></use>
                 </svg>
@@ -201,7 +201,7 @@ describe("CommentsComponent", () => {
               <form class="button_to" method="post" action="/comments/${commentId}/votes?weight=1" data-remote="true">
                 <button class="comment__votes--up" title="I agree with this comment" type="submit">
                   <span class="show-for-sr">I agree with this comment</span>
-                  <svg role="presentation" aria-hidden="true" class="icon--chevron-top icon icon--small">
+                  <svg role="img" aria-hidden="true" class="icon--chevron-top icon icon--small">
                     <title></title>
                     <use href="/assets/decidim/icons-123.svg#icon-chevron-top"></use>
                   </svg>
@@ -213,7 +213,7 @@ describe("CommentsComponent", () => {
               <form class="button_to" method="post" action="/comments/${commentId}/votes?weight=-1" data-remote="true">
                 <button class="comment__votes--down" title="I disagree with this comment" type="submit">
                   <span class="show-for-sr">I disagree with this comment</span>
-                  <svg role="presentation" aria-hidden="true" class="icon--chevron-bottom icon icon--small">
+                  <svg role="img" aria-hidden="true" class="icon--chevron-bottom icon icon--small">
                     <title></title>
                     <use href="/assets/decidim/icons-123.svg#icon-chevron-bottom"></use>
                   </svg>
@@ -227,7 +227,7 @@ describe("CommentsComponent", () => {
 
         <div class="comment__additionalreply hide">
           <button class="comment__reply muted-link" aria-controls="comment${commentId}-reply" data-toggle="comment${commentId}-reply" aria-expanded="true">
-            <svg role="presentation" aria-hidden="true" class="icon--pencil icon icon--small">
+            <svg role="img" aria-hidden="true" class="icon--pencil icon icon--small">
               <title></title>
               <use href="/assets/decidim/icons-123.svg#icon-pencil"></use>
             </svg>
@@ -308,7 +308,7 @@ describe("CommentsComponent", () => {
 
               <div class="opinion-toggle button-group">
                 <button aria-pressed="false" class="button tiny button--muted opinion-toggle--ok" data-selected-label="Your opinion about this topic is positive">
-                  <svg role="presentation" aria-hidden="true" class="icon--thumb-up icon">
+                  <svg role="img" aria-hidden="true" class="icon--thumb-up icon">
                     <title></title>
                     <use href="/assets/decidim/icons-2ba788b32e181c1a7197f7a54a0f03101c146dd434b9e56191690c7c2d7bdae3.svg#icon-thumb-up"></use>
                   </svg>
@@ -318,7 +318,7 @@ describe("CommentsComponent", () => {
                   Neutral
                 </button>
                 <button aria-pressed="false" class="button tiny button--muted opinion-toggle--ko" data-selected-label="Your opinion about this topic is negative">
-                  <svg role="presentation" aria-hidden="true" class="icon--thumb-down icon">
+                  <svg role="img" aria-hidden="true" class="icon--thumb-down icon">
                     <title></title>
                     <use href="/assets/decidim/icons-2ba788b32e181c1a7197f7a54a0f03101c146dd434b9e56191690c7c2d7bdae3.svg#icon-thumb-down"></use>
                   </svg>
