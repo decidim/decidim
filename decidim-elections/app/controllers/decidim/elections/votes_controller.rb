@@ -44,9 +44,7 @@ module Decidim
       def update
         enforce_permission_to :view, :election, election: election
 
-        verify_url = election_vote_verify_url(election, vote_id: vote.encrypted_vote_hash)
-
-        Voter::UpdateVoteStatus.call(vote, verify_url) do
+        Voter::UpdateVoteStatus.call(vote) do
           on(:ok) do
             redirect_to election_vote_path(election, id: vote.encrypted_vote_hash, token: vote_flow.voter_id_token(vote.voter_id))
           end

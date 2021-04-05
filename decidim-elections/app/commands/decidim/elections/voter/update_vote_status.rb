@@ -8,11 +8,8 @@ module Decidim
         # Public: Initializes the command.
         #
         # vote        - the vote that has been updated
-        # verify_url  - the url to verify the vote
-        def initialize(vote, verify_url)
+        def initialize(vote)
           @vote = vote
-          @verify_url = verify_url
-          @locale = locale
         end
 
         # Update status and send notification
@@ -33,7 +30,11 @@ module Decidim
 
         private
 
-        attr_reader :vote, :verify_url, :locale
+        attr_reader :vote, :locale
+
+        def verify_url
+          @verify_url ||= Decidim::EngineRouter.main_proxy(vote.election.component).election_vote_verify_url(vote.election, vote_id: vote.encrypted_vote_hash)
+        end
 
         def status_changed?
           vote.status != vote_status

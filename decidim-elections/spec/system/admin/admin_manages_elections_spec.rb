@@ -203,6 +203,6 @@ describe "Admin manages elections", type: :system do
   end
 
   def questionnaire_public_path
-    Decidim::EngineRouter.main_proxy(current_component).election_feedback_path(election_id: election.id)
+    Decidim::EngineRouter.main_proxy(current_component).election_feedback_path(election)
   end
 end

@@ -93,24 +93,12 @@ describe Decidim::Elections::Permissions do
       { scope: :public, action: :preview, subject: :election }
     end
 
-    let(:user) { create :user, :admin, organization: elections_component.organization }
+    it { is_expected.to be_falsey }
 
-    context "when election is upcoming" do
-      let(:election) { create :election, :published, :upcoming, component: elections_component }
+    context "when user is an administrator" do
+      let(:user) { create :user, :admin, organization: elections_component.organization }
 
       it { is_expected.to be_truthy }
-    end
-
-    context "when election is ongoing" do
-      let(:election) { create :election, :published, :ongoing, component: elections_component }
-
-      it { is_expected.to be_falsey }
-    end
-
-    context "when election has finished" do
-      let(:election) { create :election, :published, :finished, component: elections_component }
-
-      it { is_expected.to be_falsey }
     end
   end
 
@@ -123,12 +111,6 @@ describe Decidim::Elections::Permissions do
       let(:election) { create :election, :upcoming, component: elections_component }
 
       it { is_expected.to be_falsey }
-
-      context "when user is an administrator" do
-        let(:user) { create :user, :admin, organization: elections_component.organization }
-
-        it { is_expected.to be_truthy }
-      end
     end
 
     context "when election is upcoming" do
@@ -165,12 +147,6 @@ describe Decidim::Elections::Permissions do
       let(:election) { create :election, :upcoming, component: elections_component }
 
       it { is_expected.to be_falsey }
-
-      context "when user is an administrator" do
-        let(:user) { create :user, :admin, organization: elections_component.organization }
-
-        it { is_expected.to be_truthy }
-      end
     end
 
     context "when election is upcoming" do

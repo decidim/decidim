@@ -35,7 +35,7 @@ module Decidim
       end
 
       def can_vote?
-        (election.published? && election.ongoing?) || can_preview?
+        election.published? && election.ongoing?
       end
 
       def can_vote_with_user?
@@ -43,7 +43,7 @@ module Decidim
       end
 
       def can_preview?
-        !election.started? && user&.admin?
+        user&.admin?
       end
 
       def election

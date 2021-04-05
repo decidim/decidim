@@ -40,8 +40,6 @@ module Decidim
 
       private
 
-      attr_accessor :election, :context
-
       def datum
         return @datum if defined?(@datum)
 

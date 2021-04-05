@@ -38,7 +38,7 @@ module Decidim
 
       private
 
-      attr_accessor :received_voter_token, :received_voter_id
+      attr_accessor :election, :context, :received_voter_token, :received_voter_id
 
       def calculate_voter_id(data)
         Digest::SHA256.hexdigest(data.to_json)

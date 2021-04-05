@@ -25,7 +25,7 @@ module Decidim
       end
 
       def allow_answers?
-        election.ongoing? && valid_token?
+        can_preview? || (election.ongoing? && valid_token?)
       end
 
       def visitor_already_answered?
@@ -37,7 +37,7 @@ module Decidim
       end
 
       def enforce_permission_to_answer_questionnaire
-        valid_token?
+        can_preview? || valid_token?
       end
 
       def allow_unregistered?
