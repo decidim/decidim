@@ -1148,6 +1148,10 @@ gl:
       too_much_caps: está a usar letras maiúsculas (máis do 25% do texto)
       too_short: é demasiado curto (menos de 15 caracteres)
   forms:
+    length_validator:
+      minimum:
+        one: Mínimo %{count} carácter
+        other: Mínimo %{count} caracteres
     required: Requerido
   invisible_captcha:
     sentence_for_humans: Se es humano, ignore este campo
