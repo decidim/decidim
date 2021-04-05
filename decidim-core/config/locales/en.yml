@@ -1545,8 +1545,8 @@ en:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:
       minimum:
-        one: at least %{count} character
-        other: at least %{count} characters
+        one: At least %{count} character
+        other: At least %{count} characters
     required: Required field
     required_explanation: "* Required fields are marked with an asterisk"
   invisible_captcha:
