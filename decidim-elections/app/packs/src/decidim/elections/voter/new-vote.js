@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
-// = require ./vote_questions.component
+import VoteQuestionsComponent from './vote_questions.component';
+import setupVoteComponent from './setup-vote';
 
 $(async () => {
-  const { VoteQuestionsComponent, setupVoteComponent } = window.Decidim;
-
   // UI Elements
   const $voteWrapper = $(".vote-wrapper");
   const $ballotHash = $voteWrapper.find(".ballot-hash");

@@ -1,5 +1,6 @@
 /* eslint-disable require-jsdoc, prefer-template, func-style, id-length, no-use-before-define, init-declarations, no-invalid-this */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
+// TODO-blat
 // = require decidim/bulletin_board/decidim-bulletin_board
 
 $(() => {

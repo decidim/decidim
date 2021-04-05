@@ -1,3 +1,4 @@
+// TODO-blat
 // = require decidim/bulletin_board/decidim-bulletin_board
 
 $(async () => {
