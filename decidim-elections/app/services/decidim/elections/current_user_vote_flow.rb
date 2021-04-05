@@ -49,6 +49,7 @@ module Decidim
       private
 
       attr_accessor :election, :context
+
       delegate :current_user, to: :context
     end
   end

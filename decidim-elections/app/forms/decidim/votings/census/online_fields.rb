@@ -11,17 +11,16 @@ module Decidim
 
         included do
           include Decidim::Votings::Census::CheckFields
+          include Decidim::Votings::Census::FrontendFields
 
           attribute :access_code, String
-
-          validates :access_code,
-                    presence: true
+          validates :access_code, presence: true
         end
 
-        # hash of access code, postal code, birth, document type and number
+        # hash of hashed_check_data and access code
         # used by a voter to identify before online voting
         def hashed_online_data
-          hash_for [document_number, document_type, birthdate, postal_code, access_code]
+          hash_for hashed_check_data, access_code
         end
       end
     end

@@ -19,7 +19,7 @@ module Decidim
 
         return if access_denied?
 
-        @form = form(Voter::VoteForm).from_params({voter_token: voter_token, voter_id: voter_id},
+        @form = form(Voter::VoteForm).from_params({ voter_token: voter_token, voter_id: voter_id },
                                                   election: election, user: vote_flow.user)
       end
 
@@ -77,10 +77,10 @@ module Decidim
 
       def exit_path
         @exit_path ||= if allowed_to? :view, :election, election: election
-                           election_path(election)
-                         else
-                           elections_path
-                         end
+                         election_path(election)
+                       else
+                         elections_path
+                       end
       end
 
       def pending_vote
@@ -110,6 +110,7 @@ module Decidim
       def access_denied?
         if preview_mode?
           return redirect_to(exit_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless can_preview?
+
           return
         end
 

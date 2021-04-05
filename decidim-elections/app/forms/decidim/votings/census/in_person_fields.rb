@@ -27,11 +27,20 @@ module Decidim
         # hash of birth, document type and number
         # used by the polling officer to identify a person
         def hashed_in_person_data
-          hash_for [document_number, document_type, birthdate]
+          hash_for document_number, document_type, birthdate
         end
 
-        def hash_for(data)
+        def hash_for(*data)
           Digest::SHA256.hexdigest(data.join("."))
+        end
+
+        def options_for_document_type_select
+          DOCUMENT_TYPES.map do |document_type|
+            [
+              I18n.t(document_type.downcase, scope: "decidim.votings.census.document_types"),
+              document_type
+            ]
+          end
         end
       end
     end

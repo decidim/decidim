@@ -60,7 +60,7 @@ module Decidim
           secret: Digest::SHA256.hexdigest(Rails.application.credentials.secret_key_base),
           slug: Decidim::Elections.bulletin_board.authority_slug,
           created: election.created_at.to_i,
-          election: election.id,
+          election: election.id
         }
       end
 

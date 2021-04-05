@@ -3,9 +3,9 @@
 module Decidim
   module Votings
     module Census
-      # This class holds the data to login with census data
-      class LoginForm < Decidim::Form
-        include Decidim::Votings::Census::OnlineFields
+      # A form to check if data matches census
+      class CheckForm < Form
+        include Decidim::Votings::Census::CheckFields
         include Decidim::Votings::Census::FrontendFields
       end
     end

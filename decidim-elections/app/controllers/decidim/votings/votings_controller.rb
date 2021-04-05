@@ -48,29 +48,29 @@ module Decidim
       end
 
       def show_check_census
-        @form = form(CheckCensusForm).instance
+        @form = form(Census::CheckForm).instance
         render :check_census, locals: { success: false, not_found: false }
       end
 
       def check_census
-        @form = form(CheckCensusForm).from_params(params).with_context(
+        @form = form(Census::CheckForm).from_params(params).with_context(
           current_participatory_space: current_participatory_space
         )
 
+        success = not_found = false
         CheckCensus.call(@form) do
           on(:ok) do
-            render action: :check_census, locals: { success: true, not_found: false }
+            success = true
           end
-
           on(:not_found) do
-            render action: :check_census, locals: { success: false, not_found: true }
+            not_found = true
           end
-
           on(:invalid) do
-            render action: :check_census, locals: { success: false, not_found: false }
             flash[:alert] = t("check_census.invalid", scope: "decidim.votings.votings")
           end
         end
+
+        render action: :check_census, locals: { success: success, not_found: not_found }
       end
 
       private
