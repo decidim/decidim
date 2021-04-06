@@ -11,5 +11,9 @@
 
   <body>
     <%= yield %>
+
+    <script>
+    Decidim.config.set(<%== { icons_path: image_path("decidim/icons.svg") }.to_json %>);
+    </script>
   </body>
 </html>
