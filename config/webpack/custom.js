@@ -45,19 +45,10 @@ module.exports = {
           exposes: ["Rails"]
         }
       }
-
-      // {
-      //   test: /\.modernizrrc$/,
-      //   use: ["modernizr-loader"]
-      // }
     ]
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
-    alias: {
-      // TODO-blat: modernizr?
-      // modernizr$: path.resolve(__dirname, './.modernizrrc')
-    }
+    extensions: ["*", ".js", ".jsx"]
   },
   // https://github.com/rails/webpacker/issues/2932
   // As Decidim uses multiple packs, we need to enforce a single runtime, to prevent duplication

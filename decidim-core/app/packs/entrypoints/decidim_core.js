@@ -10,6 +10,7 @@ import morphdom from "morphdom"
 window.morphdom = morphdom
 import "../src/decidim/vendor/foundation-datepicker"
 import "../src/decidim/foundation_datepicker_locales"
+import "../src/decidim/vendor/modernizr"
 import "social-share-button"
 
 import "../src/decidim/input_tags"
