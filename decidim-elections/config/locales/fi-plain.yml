@@ -642,6 +642,16 @@ fi-pl:
       votings_count: Äänestystä
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Äänestystyylin luonti epäonnistui
+            success: Äänestystyylin luonti onnistui
+          destroy:
+            invalid: Äänestystyylin poisto epäonnistui
+            success: Äänestystyylin poisto onnistui
+          edit:
+            title: Muokkaa äänestystyyliä
+            update: Päivitä
         content_blocks:
           highlighted_votings:
             max_results: Näytettävien elementtien enimmäismäärä
