@@ -44,6 +44,15 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="columns xlarge-6 census_contact_information">
+        <%= form.text_field :census_contact_information %>
+        <p class="help-text">
+          <%== t(".census_contact_information_help") %>
+        </p>
+      </div>
+    </div>
+
     <div class="row column">
       <%= form.check_box :promoted %>
     </div>

@@ -33,6 +33,7 @@ module Decidim
               get :status, action: :status
               post :create, action: :create
               put :update, action: :update
+              get :generate_access_codes, action: :generate_access_codes
             end
           end
         end
