@@ -23,12 +23,15 @@ describe UploaderContentTypeValidator do
     end
   end
 
+  let(:file_validation_options) { {} }
+
   let(:validatable) do
     mount_class = uploader
-    Class.new do
-      extend CarrierWave::Mount
-      include ActiveModel::Model
+    validation_options = file_validation_options
+    Class.new(ApplicationRecord) do
       include Decidim::HasUploadValidations
+
+      self.table_name = "decidim_dummy_resources_dummy_resources"
 
       def self.model_name
         ActiveModel::Name.new(self, nil, "Validatable")
@@ -36,8 +39,13 @@ describe UploaderContentTypeValidator do
 
       attr_accessor :file
 
-      validates :file, uploader_content_type: true
-      mount_uploader :file, mount_class
+      validates_upload(:file, **validation_options) do |config|
+        config.uploader = mount_class
+      end
+
+      def organization
+        @organization ||= FactoryBot.create(:organization)
+      end
     end
   end
 
@@ -48,7 +56,7 @@ describe UploaderContentTypeValidator do
   end
 
   context "when the file is not valid" do
-    let(:file) { Decidim::Dev.test_file("city.jpeg", "application/pdf") }
+    let(:file) { fixture_file_upload(Decidim::Dev.test_file("city.jpeg", "application/pdf"), "application/pdf") }
 
     it "adds the content type error" do
       expect(subject.count).to eq(1)
