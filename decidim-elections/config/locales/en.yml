@@ -645,6 +645,36 @@ en:
       votings_count: Votings
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: There was a problem creating this ballot style
+            success: Ballot style successfully created
+          destroy:
+            invalid: There was a problem deleting this ballot style
+            success: Ballot style successfully deleted
+          edit:
+            title: Edit ballot style
+            update: Update
+          form:
+            code_help: 'Hint: the code is the link between the census and a ballot style. When uploading the census data, every entry will be assigned a ballot style by matching the code'
+            election: Election
+            questions: Questions for this ballot style
+            questions_help: 'Hint: select the questions from the election components to be presented to the voters assigned to this ballot style'
+          index:
+            actions:
+              confirm_destroy: Are you sure?
+              destroy: Delete
+              edit: Edit
+              new: New
+              title: Actions
+            explanation_callout: A ballot style specifies what questions a voter will be presented in the booth. In a ballot style, you can choose what questions from this voting's election components belong to a ballot. The ballot style code is used to match a voter from the census with the ballot they will be presented in the booth. Don't create any ballot style if you always want to present all the questions.
+            title: Ballot Styles
+          new:
+            create: Create
+            title: Create ballot style
+          update:
+            invalid: There was a problem updating this ballot style
+            success: Ballot style successfully updated
         content_blocks:
           highlighted_votings:
             max_results: Maximum amount of elements to show
@@ -687,6 +717,7 @@ en:
             attachment_collections: Folders
             attachment_files: Files
             attachments: Attachments
+            ballot_styles: Ballot Styles
             census: Census
             components: Components
             info: Information
@@ -695,6 +726,10 @@ en:
             polling_officers: Polling Officers
             polling_stations: Polling Stations
         models:
+          ballot_style:
+            fields:
+              code: Code
+            name: Ballot Style
           monitoring_committee_member:
             fields:
               email: Email

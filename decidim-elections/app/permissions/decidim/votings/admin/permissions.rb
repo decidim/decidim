@@ -64,7 +64,8 @@ module Decidim
             :polling_station, :polling_stations,
             :polling_officer, :polling_officers,
             :monitoring_committee_member, :monitoring_committee_members,
-            :census
+            :census,
+            :ballot_style, :ballot_styles
           ].member? permission_action.subject
 
           case permission_action.subject
@@ -106,6 +107,15 @@ module Decidim
             toggle_allow(user.admin?) if permission_action.action == :read
           when :census
             toggle_allow(user.admin?)
+          when :ballot_style
+            case permission_action.action
+            when :create
+              allow!
+            when :update, :delete
+              toggle_allow(ballot_style.present?)
+            end
+          when :ballot_styles
+            toggle_allow(user.admin?) if permission_action.action == :read
           end
         end
 
@@ -123,6 +133,10 @@ module Decidim
 
         def monitoring_committee_member
           @monitoring_committee_member ||= context.fetch(:monitoring_committee_member, nil)
+        end
+
+        def ballot_style
+          @ballot_style ||= context.fetch(:ballot_style, nil)
         end
       end
     end
