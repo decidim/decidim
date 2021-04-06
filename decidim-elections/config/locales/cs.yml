@@ -664,6 +664,13 @@ cs:
       votings_count: Hlasování
     votings:
       admin:
+        ballot_styles:
+          edit:
+            update: Aktualizovat
+          form:
+            code_help: 'Tip: kód je spojitost mezi seznamem členů a stylem hlasování. Při nahrávání dat ze seznamu členů bude každému záznamu přiřazen styl hlasovacích lístků podle odpovídajícího kódu'
+            election: Volby
+            questions: Otázky pro tento styl voleb
         content_blocks:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
