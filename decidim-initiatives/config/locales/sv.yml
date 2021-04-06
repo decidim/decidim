@@ -450,16 +450,27 @@ sv:
           recently_published: Senast publicerade
         print:
           address: Adress
+          author_title: Initiativförfattare
           city: Stad
           email: E-post
+          full_name: Fullständigt namn
+          id_number: ID-nummer
           initiative:
             description: 'Beskrivning:'
             title: 'Titel:'
+            type: Initiativtyp
           phone_number: Telefonnummer
+          place_date: Plats, datum
+          postal_code: Postnummer/ZIP
           print: Skriv ut
+          province: Region/Land
+          section: 'Om det begärs av organisationen, skriv ut och fyll i detta formulär för att skicka där det anges:'
+          signature: Underskrift
         result:
+          answer_title: Detta initiativ "" har fått ett svar
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
+          any_vote_method: Detta initiativ samlar in både digitala och fysiska underskrifter.
           edit: Redigera
           follow_description: Få ett meddelande när det finns nyheter om detta initiativ
           print: Skriva ut initiativet

@@ -1,0 +1,9 @@
+<%= content_tag :p, t("upload_info.csv_fields", scope: "decidim.votings.census.admin.census") %>
+
+<pre class="code-block">Document ID;Document Type;Date of Birth;Full name;Full address;Postal Code;Mobile phone number;Email address</pre>
+
+<%= content_tag :p, t("upload_info.csv_example", scope: "decidim.votings.census.admin.census") %>
+
+<pre class="code-block">12345678X;DNI;20011130;John Doe;The full address;08001;123456789;user@example.org
+87654321X;DNI;20010808;Alice Doe;The full address;08002;987654321;user2@example.org
+...</pre>

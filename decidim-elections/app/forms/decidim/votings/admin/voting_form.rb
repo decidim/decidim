@@ -19,6 +19,7 @@ module Decidim
         attribute :remove_introductory_image
         attribute :introductory_image, String
         attribute :voting_type, String
+        attribute :census_contact_information, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

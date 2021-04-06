@@ -115,7 +115,7 @@ module Decidim
       end
 
       initializer "admin_decidim_initiative.admin_menu" do
-        Decidim.menu :decidim_initiative_menu do |menu|
+        Decidim.menu :admin_initiative_menu do |menu|
           menu.add_item :edit_initiative,
                         I18n.t("menu.information", scope: "decidim.admin"),
                         decidim_admin_initiatives.edit_initiative_path(current_participatory_space),

@@ -207,13 +207,9 @@ zh-CN:
           header: 已确认投票
           lead: 您的投票已被投出！
           text: '您可以检查您的投票是否已成功地添加到选票箱，其标识符如下： <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        encrypting:
-          header: 编码投票...
-          text: 您的投票正在加密，以确保您可以匿名投射。
         header:
           confirm: 确认您的投票
           confirmed: 已确认投票
-          encrypting: 确认投票
         messages:
           not_allowed: 此时您无权投票于此次选举。
         modal:

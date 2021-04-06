@@ -5,11 +5,11 @@ require "spec_helper"
 describe Decidim::Elections::Admin::AddUserAsTrustee do
   subject { described_class.new(form, current_user) }
 
-  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:current_user) { create :user, :admin, :confirmed, organization: organization }
   let(:user) { create :user, :confirmed }
+  let(:organization) { user.organization }
   let(:form) do
     double(
       invalid?: invalid,
@@ -27,6 +27,11 @@ describe Decidim::Elections::Admin::AddUserAsTrustee do
 
     it "adds the user to trustees" do
       expect { subject.call }.to change { Decidim::Elections::Trustee.count }.by(1)
+    end
+
+    it "adds the user organization to trustee" do
+      subject.call
+      expect(Decidim::Elections::Trustee.last.organization).to eql(user.organization)
     end
 
     it "sends a notification to a new trustee" do

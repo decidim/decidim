@@ -3,6 +3,7 @@ fi:
     attributes:
       conference:
         assemblies_ids: Liittyvät ryhmät
+        available_slots: Vapaat paikat
         banner_image: Bannerikuva
         consultations_ids: Liittyvät kuulemiset
         copy_categories: Kopioi aihepiirit
@@ -10,20 +11,59 @@ fi:
         copy_features: Kopioi ominaisuudet
         decidim_scope_id: Teema
         description: Kuvaus
+        end_date: Päättymispäivä
         hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
+        location: Sijainti
+        main_logo: Päälogo
+        objectives: Tavoitteet
         participatory_processes_ids: Liittyvät osallistumisprosessit
         promoted: Korostettu
         published_at: Julkaisuaika
+        registration_terms: Ilmoittautumisehdot
+        registrations_enabled: Ilmoittautumiset ovat käytössä
         scope_id: Teema
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
+        sign_date: Allekirjoituksen päivämäärä
+        signature: Allekirjoitus
+        signature_name: allekirjoituksen nimi
         slogan: Iskulause
         slug: URL-tunniste
+        start_date: Alkamispäivä
         title: Otsikko
+      conference_media_link:
+        date: Päivämäärä
+        link: Linkki
+        title: Otsikko
+        weight: Painoarvo
+      conference_partner:
+        link: Linkki
+        logo: Logo
+        name: Nimi
+        partner_type: Kumppanin tyyppi
+        weight: Painoarvo
+      conference_registration_invite:
+        email: Sähköposti
+        name: Nimi
+        registration_type_id: Ilmoittautumistyyppi
+        user_id: Käyttäjä
+      conference_registration_type:
+        description: Kuvaus
+        price: Hinta
+        title: Otsikko
+        weight: Painoarvo
       conference_speaker:
+        affiliation: Jäsenyys
+        avatar: Avatar
+        conference_meeting_ids: Liittyvät tapaamiset
         full_name: Koko nimi
+        personal_url: Henkilökohtainen URL-osoite
+        position: Asema
+        short_bio: Lyhyt henkilökuvaus
+        twitter_handle: Twitter-käyttäjänimi
+        user_id: Käyttäjä
       conference_user_role:
         email: Sähköposti
         name: Nimi

@@ -517,7 +517,6 @@ ca:
           back: Començar de nou el procés de votació
           cast: Enviar papereta
           description: Aquí tens les opcions per emetre la teva papereta perquè sigui degudament comptada o, alternativament, pots auditar que la teva papereta hagi estat xifrada correctament. Per raons de seguretat, l'auditoria de la teva papereta l'espatllarà, cosa que significa, que per a emetre el teu vot hauràs de reiniciar el procés de votació.
-          header: 'La papereta està encriptada: envia-la o audita-la'
         confirm:
           answer: Resposta
           answer_number: resposta %{number}
@@ -529,16 +528,12 @@ ca:
           question: Preguntes %{count}
         confirmed:
           back: Tornar a les votacions
-          error: Ho sentim, hi ha hagut un error al guardar el teu vot. Si us plau, vota de nou.
           experience: Com valores l'experiència?
           feedback: Dona'ns la teva opinió
           header: Vot confirmat
           lead: El teu vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
-        encrypting:
-          header: Codificant el vot...
-          text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
         failed:
           header: Vot fallit
           lead: El teu vot no s'ha enviat!
@@ -547,7 +542,6 @@ ca:
           ballot_decision: Envia o audita el teu vot
           confirm: Confirma el teu vot
           confirmed: Vot confirmat
-          encrypting: Confirmant vot
         messages:
           not_allowed: No pots votar en aquesta votació en aquest moment.
         modal:
@@ -560,9 +554,6 @@ ca:
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
-        update:
-          error: S'ha produït un error en actualitzar l'estat del vot
-          success: L'estat del vot s'ha actualitzat correctament
         verify:
           content:
             heading: Verifica el teu vot

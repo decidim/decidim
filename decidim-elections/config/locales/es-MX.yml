@@ -517,7 +517,6 @@ es-MX:
           back: Comenzar de nuevo el proceso de votación
           cast: Emitir papeleta
           description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de su papeleta la estropeará, lo que significa, que para emitir tu voto tendrás que reiniciar el proceso de votación.
-          header: 'La papeleta está cifrada: envíala o audítala'
         confirm:
           answer: Respuesta
           answer_number: respuesta %{number}
@@ -529,16 +528,12 @@ es-MX:
           question: Preguntas %{count}
         confirmed:
           back: Volver a las votaciones
-          error: Lo sentimos, hubo un error al confirmar el voto. Por favor, vota de nuevo.
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
           lead: '¡Tu voto ha sido emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
-        encrypting:
-          header: Codificando voto...
-          text: Tu voto está siendo cifrado para asegurar que se emite de forma anónima.
         failed:
           header: Voto fallido
           lead: '¡Tu voto no ha sido emitido!'
@@ -547,7 +542,6 @@ es-MX:
           ballot_decision: Emitir o auditar tu voto
           confirm: Confirma tu voto
           confirmed: Voto confirmado
-          encrypting: Confirmando voto
         messages:
           not_allowed: En este momento no puedes votar en esta votación.
         modal:
@@ -560,9 +554,6 @@ es-MX:
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
-        update:
-          error: Hubo un problema al actualizar el estado del voto
-          success: Estado de voto actualizado correctamente
         verify:
           content:
             heading: Verifica tu voto

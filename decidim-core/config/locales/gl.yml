@@ -188,6 +188,8 @@ gl:
       photos:
         related_photos: Fotos relacionadas
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar para varios usuarios
       comments:
         one: comentario
         other: comentarios
@@ -925,6 +927,7 @@ gl:
         description: Este contido é inapropiado?
         does_not_belong: Contén actividades ilegais, ameazas de suicidio, información persoal ou outra cousa que pensas que non pertence a %{organization_name}.
         offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
+        reason: Motivo
         report: Informe
         spam: Contén clic, publicidade, fraudes ou bots de script.
         title: Informar dun problema
@@ -952,10 +955,19 @@ gl:
         share_link: Compartir a ligazón
     statistics:
       comments_count: Comentarios
+      endorsements_count: Adhesións
+      followers_count: Seguidores
+      headline: Estatísticas
+      no_stats: Aínda non hai estatísticas.
+      pages_count: Páxinas
+      participants_count: Participantes
+      users_count: Participantes
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
     user_conversations:
+      show:
+        back: Amosar todas as conversas
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
@@ -970,6 +982,8 @@ gl:
     version_author:
       show:
         deleted: Usuario eliminado
+    versions_list_item:
+      back: Amosar todas as versións
     welcome_notification:
       default_body: <p>Hola {{name}}, grazas por unirte a {{organization}} e benvido!</p><ul><li>Se queres ter unha idea rápida do que podes facer aquí, consulta a sección de <a href="{{help_url}}">Axuda</a> .</li><li>Unha vez que o liches, obterás a túa primeira insignia. Aquí tes unha lista de <a href="{{badges_url}}">de todas as insignias</a> que podes obter a medida que participas en {{organization}}</li><li>último pero non menos importante, únete a outras persoas, comparte con eles a experiencia de participar e participar do {{organization}}. Facer propostas, comentarios, debater, pensar como contribuír ao ben común, proporcionar argumentos para convencer, escoitar e ler para convencerse, expresar as túas ideas dun xeito concreto e directo, responder con paciencia e decisión, defender as túas ideas e manter unha mente aberta para colaborar e unirse ás ideas doutras persoas.</li></ul>
       default_subject: Grazas por unirte a {{organization}}!
@@ -1133,6 +1147,10 @@ gl:
       too_much_caps: está a usar letras maiúsculas (máis do 25% do texto)
       too_short: é demasiado curto (menos de 15 caracteres)
   forms:
+    length_validator:
+      minimum:
+        one: Mínimo %{count} carácter
+        other: Mínimo %{count} caracteres
     required: Requerido
   invisible_captcha:
     sentence_for_humans: Se es humano, ignore este campo
@@ -1150,9 +1168,11 @@ gl:
         made_with_open_source: Sitio web feito con <a target="_blank" href="https://github.com/decidim/decidim"> software libre</a>.
       header:
         close_menu: Pechar o menú
+        main_menu: Menú principal
         navigation: Navegación
         sign_in: Rexístrate
         sign_up: Rexistrarse
+        user_menu: Menú de usuario
       impersonation_warning:
         close_session: Pechar sesión
         description_html: Estás a suplantar o usuario <b>%{user_name}</b>.
@@ -1166,6 +1186,7 @@ gl:
         profile: A miña conta
         public_profile: O meu perfil público
         sign_out: Saír
+        title: Ligazóns do perfil
       user_profile:
         account: Conta
         authorizations: Autorizacións

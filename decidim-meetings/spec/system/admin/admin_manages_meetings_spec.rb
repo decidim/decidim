@@ -523,6 +523,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       end
 
       within ".edit_close_meeting" do
+        expect(page).to have_content "Choose proposals"
+
         fill_in_i18n_editor(
           :close_meeting_closing_report,
           "#close_meeting-closing_report-tabs",
@@ -558,6 +560,24 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         end
 
         expect(page).to have_admin_callout("Meeting successfully closed")
+      end
+    end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+      end
+
+      it "does not display the proposal picker" do
+        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+          page.click_link "Close"
+        end
+
+        expect(page).to have_content "Close meeting"
+
+        within "form.edit_close_meeting" do
+          expect(page).not_to have_content "Choose proposals"
+        end
       end
     end
   end

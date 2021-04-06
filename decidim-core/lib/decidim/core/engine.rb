@@ -45,6 +45,7 @@ require "diffy"
 require "anchored"
 require "social-share-button"
 require "ransack"
+require "searchlight"
 
 require "decidim/api"
 

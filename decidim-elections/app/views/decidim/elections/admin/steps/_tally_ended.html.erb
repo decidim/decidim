@@ -26,10 +26,10 @@
                     <% question.answers.each do |answer| %>
                       <tr>
                         <td><%= translated_attribute(answer.title) %></td>
-                        <% if answer.votes_count > 0 %>
-                          <td class="text-success"><%= answer.votes_count %></td>
+                        <% if answer.results_total > 0 %>
+                          <td class="text-success"><%= answer.results_total %></td>
                         <% else %>
-                          <td><%= answer.votes_count %></td>
+                          <td><%= answer.results_total %></td>
                         <% end %>
                         <% if answer.selected %>
                           <td class="text-success"><%= t(".selected") %></td>
@@ -38,6 +38,12 @@
                         <% end %>
                       </tr>
                     <% end %>
+
+                    <tr>
+                      <td></td>
+                      <td class="text-muted"><%= question.results_total %></td>
+                      <td></td>
+                    </tr>
                   </tbody>
                 </table>
               </div>

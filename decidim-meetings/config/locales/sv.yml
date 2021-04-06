@@ -14,6 +14,7 @@ sv:
       meeting:
         address: Adress
         available_slots: Tillgängliga platser för detta möte
+        customize_registration_email: Anpassa e-post för registrering
         decidim_category_id: Kategori
         decidim_scope_id: Omfång
         decidim_user_group_id: Användargrupp
