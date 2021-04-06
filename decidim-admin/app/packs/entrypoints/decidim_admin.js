@@ -36,6 +36,7 @@ import "../../../../decidim-core/app/packs/src/decidim/configuration"
 import managedUsersForm from "../src/decidim/admin/managed_users"
 window.Decidim.managedUsersForm = managedUsersForm
 
+// CSS
 import "./decidim_admin.scss";
 
 // This needs to be loaded after confirm dialog to bind properly
