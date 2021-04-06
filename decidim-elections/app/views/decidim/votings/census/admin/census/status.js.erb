@@ -1,5 +1,1 @@
-<% if current_census.data_created? %>
-  $("#wrapper-action-view").html('<%= j(render partial: "generate_codes").strip.html_safe %>');
-<% else %>
-  $("#wrapper-action-view").html('<%= j(render partial: "creating_data").strip.html_safe %>');
-<% end %>
+$("#wrapper-action-view").html('<%= j(render partial: current_census_action_view).strip.html_safe %>');
