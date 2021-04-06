@@ -998,7 +998,17 @@ cs:
           error:
             info: 'Zkuste to prosím znovu. Pokud si myslíte, že data v systému jsou nesprávná, můžete je nahlásit zde: %{census_contact_information}.'
             title: Vaše data ze seznamu osob jsou nesprávná!
+          invalid: Při kontrole seznamu osob došlo k chybě.
+          success:
+            access_link: požádat o přístupový kód
+            info: Pokud ho nemáte, zkuste %{access_code_link}.
+            title: Vaše data seznamu osob jsou nesprávná!
+          title: Zkontrolujte si vstupní data seznamu osob
         check_census_form:
+          check_status: Zkontrolovat stav
+          date_of_birth: Datum narození
+          description: 'Vyplňte následující formulář pro kontrolu dat seznamu osob:'
+          dni: Občanský průkaz
           document_number: Číslo dokumentu
           document_number_placeholder: Číslo občanského průkazu
           passport: Pas
