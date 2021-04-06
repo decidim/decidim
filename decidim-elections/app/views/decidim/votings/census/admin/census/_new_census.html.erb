@@ -1,7 +1,7 @@
 <%
   ballot_style_code_header = "Ballot Style Code"
   ballot_style_callout_message, ballot_style_callout_level =
-    current_participatory_space.ballot_styles.any? ?
+    current_participatory_space.has_ballot_styles? ?
     [t("has_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_style_code_header: ballot_style_code_header), "warning"] :
     [t("missing_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_styles_admin_path: admin_voting_ballot_styles_path), "alert"]
 %>

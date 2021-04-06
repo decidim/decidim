@@ -131,6 +131,10 @@ module Decidim
           .where(managed_polling_station_id: nil)
       end
 
+      def has_ballot_styles?
+        ballot_styles.exists?
+      end
+
       def has_elections?
         components.where(manifest_name: :elections).any? do |component|
           Decidim::Elections::Election.where(component: component).any?

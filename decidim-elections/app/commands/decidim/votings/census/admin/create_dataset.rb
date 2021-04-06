@@ -61,7 +61,7 @@ module Decidim
           end
 
           def expected_header_size
-            @expected_header_size ||= form.current_participatory_space.ballot_styles.any? ? 9 : 8
+            @expected_header_size ||= form.current_participatory_space.has_ballot_styles? ? 9 : 8
           end
 
           def csv_rows
