@@ -19,6 +19,23 @@ module Decidim
             expect(email.subject).to include("The export of the voting access codes")
             expect(email.body.encoded).to match("Click the next link to download the access codes data")
           end
+
+          it "delegates the work to the command" do
+            expect(Decidim::Votings::Census::Admin::UpdateDataset)
+              .to receive(:call)
+              .with(dataset, { status: :exporting_codes }, user)
+            expect(Decidim::Votings::Census::Admin::UpdateDataset)
+              .to receive(:call)
+              .with(dataset, { status: :freeze }, user)
+
+            described_class.perform_now(dataset, user)
+          end
+
+          it "updates the dataset status" do
+            described_class.perform_now(dataset, user)
+
+            expect(dataset.reload).to be_freeze
+          end
         end
       end
     end

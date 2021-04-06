@@ -28,9 +28,7 @@ module Decidim::Votings::Census::Admin
       let(:dataset) { create(:dataset, :codes_generated) }
 
       it "updates the data" do
-        expect(subject).to broadcast(:ok)
-
-        expect(dataset.reload).to be_freeze
+        expect { subject.call }.to enqueue_job(ExportAccessCodesJob)
       end
     end
   end

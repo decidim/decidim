@@ -21,8 +21,6 @@ module Decidim
 
             ExportAccessCodesJob.perform_later(dataset, user)
 
-            UpdateDataset.call(dataset, { status: :freeze }, user)
-
             broadcast(:ok)
           end
 

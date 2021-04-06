@@ -143,6 +143,8 @@ module Decidim
               "generating_codes"
             elsif current_census.codes_generated?
               "export_codes"
+            elsif current_census.exporting_codes?
+              "exporting_codes"
             elsif current_census.freeze?
               "freeze"
             else

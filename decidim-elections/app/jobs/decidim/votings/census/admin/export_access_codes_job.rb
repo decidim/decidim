@@ -12,10 +12,15 @@ module Decidim
             path = Rails.root.join("tmp/#{filename}")
             password = SecureRandom.urlsafe_base64
 
-            generate_zip_file(dataset, path, password)
-            save_or_upload_file(dataset, path)
+            ActiveRecord::Base.transaction do
+              UpdateDataset.call(dataset, { status: :exporting_codes }, user)
 
-            ExportMailer.access_codes_export(user, dataset.voting, filename, password).deliver_later
+              generate_zip_file(dataset, path, password)
+              save_or_upload_file(dataset, path)
+              ExportMailer.access_codes_export(user, dataset.voting, filename, password).deliver_later
+
+              UpdateDataset.call(dataset, { status: :freeze }, user)
+            end
           end
 
           private

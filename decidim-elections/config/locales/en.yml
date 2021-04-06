@@ -880,6 +880,8 @@ en:
               file_not_exists: This file does not exists
               launch_error: Problem launching the access codes export
               launch_success: Access codes export launched. Shortly you will receive an email to %{email}
+            exporting_access_codes:
+              info_message: "<strong>Please wait</strong>, the export is being prepared, you will receive it shortly to %{email}"
             freeze:
               callout: The census is frozen and cannot be modified.
             generate_access_codes:

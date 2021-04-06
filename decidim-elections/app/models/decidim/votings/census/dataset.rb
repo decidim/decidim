@@ -17,7 +17,7 @@ module Decidim
 
         delegate :organization, to: :voting
 
-        enum status: [:init_data, :creating_data, :data_created, :generating_codes, :codes_generated, :freeze]
+        enum status: [:init_data, :creating_data, :data_created, :generating_codes, :codes_generated, :exporting_codes, :freeze]
 
         validates :file, presence: true
 
