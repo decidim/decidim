@@ -910,6 +910,9 @@ cs:
               info_message_all: "<strong>Všechny řádky úspěšně importovány</strong> ze souboru %{file} (%{raw_count} z %{data_count})."
               info_message_warn: Zkontrolujte, že žádná data nechybí, protože byly vytvořeno %{data_count} záznamů a nahraný soubor %{file} měl %{raw_count} řádků.
               launch_error: Problém při spuštění generování přístupových kódů
+              launch_success: Vytváření kódů bylo spuštěno.
+            generating_access_codes:
+              info_message: "<strong>Počkejte prosím</strong>, přístupové kódy hlasování jsou generovány..."
             new:
               file_help:
                 explanation: 'Pokyny pro soubor:'
@@ -923,6 +926,11 @@ cs:
             upload_info:
               csv_example: 'Příklad obsahu souboru:'
               csv_fields: 'Musí být formát souboru .csv s těmito poli:'
+        export_mailer:
+          access_codes_export:
+            click_button: 'Klikněte na následující odkaz pro stažení přístupových kódů.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
+            download: Stáhnout
+            subject: Export hlasovacích kódů pro %{voting_title} je k dispozici
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
@@ -985,6 +993,11 @@ cs:
           new: Nový
           title: Akce
       votings:
+        check_census:
+          description: Zde máte možnost zkontrolovat údaje ze seznamu osob, abyste věděli, zda máte právo účastnit se tohoto hlasování. Měli byste mít přístupový kód již k dispozici, ale pokud ho ztratíte, můžete ho znovu vyžádat, až budou vaše údaje správné.
+          error:
+            info: 'Zkuste to prosím znovu. Pokud si myslíte, že data v systému jsou nesprávná, můžete je nahlásit zde: %{census_contact_information}.'
+            title: Vaše data ze seznamu osob jsou nesprávná!
         check_census_form:
           document_number: Číslo dokumentu
           document_number_placeholder: Číslo občanského průkazu
