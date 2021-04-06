@@ -26,6 +26,12 @@ describe "Participatory Process Steps", type: :system do
       participatory_process.steps.first.update!(active: true)
     end
 
+    it_behaves_like "accessible page" do
+      before do
+        visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
+      end
+    end
+
     it "lists all the steps" do
       visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
 

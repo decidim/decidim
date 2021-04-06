@@ -240,7 +240,6 @@ ja:
       photos:
         related_photos: 関連画像
     author:
-      avatar: アバター
       comments:
         other: コメント
       endorsements:
@@ -1436,9 +1435,6 @@ ja:
       too_short: 短すぎます（15文字未満）
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
-    length_validator:
-      minimum:
-        other: 少なくとも %{count} 文字
     required: 必須項目
     required_explanation: "* 必須項目にはアスタリスクが付いています"
   invisible_captcha:

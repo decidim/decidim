@@ -2,6 +2,7 @@
 
 module Decidim
   module Core
+    autoload :CategoryList, "decidim/api/functions/category_list"
     autoload :ComponentFinderBase, "decidim/api/functions/component_finder_base"
     autoload :ComponentList, "decidim/api/functions/component_list"
     autoload :ComponentListBase, "decidim/api/functions/component_list_base"
@@ -37,6 +38,7 @@ module Decidim
     autoload :UserType, "decidim/api/types/user_type"
 
     autoload :BaseInputFilter, "decidim/api/input_filters/base_input_filter"
+    autoload :CategoryInputFilter, "decidim/api/input_filters/category_input_filter"
     autoload :ComponentInputFilter, "decidim/api/input_filters/component_input_filter"
     autoload :HasHastaggableInputFilter, "decidim/api/input_filters/has_hastaggable_input_filter"
     autoload :HasLocalizedInputFilter, "decidim/api/input_filters/has_localized_input_filter"
@@ -59,6 +61,7 @@ module Decidim
     autoload :AuthorInterface, "decidim/api/interfaces/author_interface"
     autoload :AuthorableInterface, "decidim/api/interfaces/authorable_interface"
     autoload :CoauthorableInterface, "decidim/api/interfaces/coauthorable_interface"
+    autoload :CategoriesContainerInterface, "decidim/api/interfaces/categories_container_interface"
     autoload :CategorizableInterface, "decidim/api/interfaces/categorizable_interface"
     autoload :ScopableInterface, "decidim/api/interfaces/scopable_interface"
     autoload :AttachableInterface, "decidim/api/interfaces/attachable_interface"

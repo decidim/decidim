@@ -24,6 +24,7 @@ gl:
       component:
         name: Nome
         published_at: Publicado en
+        weight: Orde de posición
       id: ID
       newsletter:
         body: Corpo
@@ -104,10 +105,12 @@ gl:
         show_in_footer: Amosar no pé de páxina
         slug: URL slug
         title: Título
+        weight: Orde de posición
       static_page_topic:
         description: Descrición
         show_in_footer: Amosar no pé de páxina
         title: Título
+        weight: Orde de posición
       user_group_csv_verification:
         file: Arquivo
     errors:
@@ -777,6 +780,7 @@ gl:
           share: Compartir
         destroy:
           error: Produciuse un problema ao destruír o token.
+          success: Token eliminado con éxito.
         share_tokens:
           empty: Non hai tokens activos
           help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
@@ -815,6 +819,7 @@ gl:
           update: Actualización
         form:
           none: Nada
+          slug_help: 'Empregar aquí rutas parciais dos URLs. Acepta letras, números, guións, barras e ten de comezar cunha letra. Exemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
@@ -900,6 +905,10 @@ gl:
       errors:
         impersonate_user:
           reason: Debe proporcionar un motivo ao suplantar a un usuario non xestionado
+    metrics:
+      blocked_users:
+        object: usuarias bloqueadas
+        title: Usuarias bloqueadas
     moderations:
       actions:
         expand: Expandir

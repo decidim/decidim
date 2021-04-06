@@ -6,8 +6,10 @@
       <% if locals[:success] %>
         <div class="callout success mt-s">
           <h5>Your census data is correct!</h5>
-          <p>If you don't have one, you can <a href="#">ask for an Access Code</a>.</p>
+          <p>In order to vote, you will need an Access Code.</p>
+          <p>If you didn't receive one by postal mail, you can <button type="button" class="link" data-open="evote-access-code-modal">ask for one here</button>.</p>
         </div>
+        <%= partial "evote_access_code_modal" %>
       <% elsif locals[:blocked] %>
         <div class="callout alert mt-s">
           <h5>Too many attempts.</h5>

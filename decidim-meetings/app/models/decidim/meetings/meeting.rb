@@ -216,6 +216,8 @@ module Decidim
       end
 
       def authored_proposals
+        return [] unless Decidim::Meetings.enable_proposal_linking
+
         Decidim::Proposals::Proposal
           .joins(:coauthorships)
           .where(

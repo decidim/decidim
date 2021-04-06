@@ -1,0 +1,26 @@
+<%
+js_configs = {
+  icons_path: image_path("decidim/icons.svg"),
+  messages: {
+    "selfxssWarning": {
+      title: t("decidim.security.selfxss_warning.title"),
+      description: t("decidim.security.selfxss_warning.description")
+    }
+  }
+}
+character_messages = {
+  "charactersAtLeast": {
+    one: t("forms.length_validator.minimum.one", count: "%count%", default: "forms.length_validator.minimum.other"),
+    other: t("forms.length_validator.minimum.other", count: "%count%")
+  },
+  "charactersLeft": {
+    one: t("decidim.components.add_comment_form.remaining_characters_1", count: "%count%"),
+    other: t("decidim.components.add_comment_form.remaining_characters", count: "%count%")
+  }
+}
+%>
+
+<script>
+  Decidim.config.set(<%== js_configs.to_json %>);
+  Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
+</script>

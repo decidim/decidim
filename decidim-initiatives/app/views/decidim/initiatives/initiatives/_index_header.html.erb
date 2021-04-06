@@ -6,18 +6,18 @@
     <% if current_user && allowed_to?(:create, :initiative) %>
       <%= link_to create_initiative_path(:select_initiative_type), class: "title-action__action button small" do %>
         <%= t(".new_initiative") %>
-        <%= icon "plus", role: "presentation", "aria-hidden": true %>
+        <%= icon "plus", role: "img", "aria-hidden": true %>
       <% end %>
     <% elsif current_user %>
       <button type="button" class="title-action__action button small" data-open="not-authorized-modal" aria-controls="not-authorized-modal" aria-haspopup="true" tabindex="0">
         <%= t(".new_initiative") %>
-        <%= icon "plus", role: "presentation", "aria-hidden": true %>
+        <%= icon "plus", role: "img", "aria-hidden": true %>
       </button>
     <% else %>
       <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type) } %>
       <button type="button" class="title-action__action button small" data-open="loginModal" aria-controls="loginModal" aria-haspopup="true" tabindex="0">
         <%= t(".new_initiative") %>
-        <%= icon "plus", role: "presentation", "aria-hidden": true %>
+        <%= icon "plus", role: "img", "aria-hidden": true %>
       </button>
     <% end %>
   <% end %>

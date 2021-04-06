@@ -43,6 +43,8 @@ describe "User edit meeting", type: :system do
       expect(page).to have_content "CLOSE MEETING"
 
       within "form.edit_close_meeting" do
+        expect(page).to have_content "Choose proposals"
+
         fill_in :close_meeting_closing_report, with: closing_report
 
         click_button "Close meeting"
@@ -53,6 +55,25 @@ describe "User edit meeting", type: :system do
       expect(page).not_to have_content "ATTENDEES COUNT"
       expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
       expect(meeting.reload.closed_at).not_to be nil
+    end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+      end
+
+      it "does not display the proposal picker" do
+        visit_component
+
+        click_link translated(meeting.title)
+        click_link "Close meeting"
+
+        expect(page).to have_content "CLOSE MEETING"
+
+        within "form.edit_close_meeting" do
+          expect(page).not_to have_content "Choose proposals"
+        end
+      end
     end
   end
 

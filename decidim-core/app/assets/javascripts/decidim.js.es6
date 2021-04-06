@@ -40,6 +40,7 @@
 // = require decidim/geocoding/attach_input
 // = require decidim/security/selfxss_warning
 // = require decidim/session_timeouter
+// = require decidim/gallery
 
 // = require_self
 // = require decidim/configuration

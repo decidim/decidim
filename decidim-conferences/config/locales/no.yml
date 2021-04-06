@@ -22,6 +22,12 @@
         slogan: Slagord
         slug: URL slug
         title: Tittel
+      conference_media_link:
+        weight: Vekt
+      conference_partner:
+        weight: Vekt
+      conference_registration_type:
+        weight: Vekt
       conference_speaker:
         full_name: Fullt navn
       conference_user_role:

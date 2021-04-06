@@ -32,6 +32,7 @@ nl:
         body: Body
         subject: Onderwerp
       organization:
+        admin_terms_of_use_body: Body voor de admin gebruiksvoorwaarden
         alert_color: Alarm
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
@@ -874,6 +875,8 @@ nl:
         impersonate_user:
           reason: U moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     metrics:
+      blocked_users:
+        object: geblokkeerde gebruikers
       reported_users:
         object: gerapporteerde gebruikers
         title: Gerapporteerde gebruikers

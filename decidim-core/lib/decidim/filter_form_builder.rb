@@ -55,9 +55,9 @@ module Decidim
     end
 
     # Wrap the areas select in a custom fieldset.
-    def areas_select(method, collection, options = {})
+    def areas_select(method, collection, options = {}, html_options = {})
       fieldset_wrapper(options[:legend_title], "#{method}_areas_select_filter") do
-        super(method, collection, options)
+        super(method, collection, options, html_options)
       end
     end
 
