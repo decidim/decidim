@@ -57,6 +57,12 @@ nl:
       decidim/elections/question:
         one: Vraag
         other: vragen
+      decidim/votings/census/dataset:
+        one: Dataset
+        other: Datasets
+      decidim/votings/census/datum:
+        one: Datum
+        other: Data
       decidim/votings/polling_officer:
         one: Stembeambte
         other: Stembeambtes
