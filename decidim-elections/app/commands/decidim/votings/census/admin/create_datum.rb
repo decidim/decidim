@@ -36,13 +36,17 @@ module Decidim
               postal_code: form.postal_code,
               mobile_phone_number: form.mobile_phone_number,
               email: form.email,
-              decidim_votings_ballot_style_id: form.ballot_style_id
+              decidim_votings_ballot_style_id: ballot_style_for_code(dataset.voting, form.ballot_style_code&.upcase)&.id
             }
 
             Decidim::Votings::Census::Datum.create(
               dataset: dataset,
               attributes: attributes
             )
+          end
+
+          def ballot_style_for_code(voting, code)
+            Decidim::Votings::Admin::BallotStyleByVotingCode.for(voting, code)
           end
         end
       end

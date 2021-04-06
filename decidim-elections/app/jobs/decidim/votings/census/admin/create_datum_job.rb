@@ -18,9 +18,9 @@ module Decidim
               full_address: csv_row[4],
               postal_code: csv_row[5],
               mobile_phone_number: csv_row[6],
-              email: csv_row[7]
+              email: csv_row[7],
+              ballot_style_code: csv_row[8]
             }
-            params[:ballot_style_id] = ballot_style_for_code(dataset.voting, csv_row[8])&.id if csv_row[8].present?
 
             datum_form = DatumForm.from_params(params)
                                   .with_context(
@@ -33,10 +33,6 @@ module Decidim
 
           after_perform do |job|
             Decidim::Votings::Census::Admin::IncrementDatasetProcessedRows.call(job.arguments.second)
-          end
-
-          def ballot_style_for_code(voting, code)
-            Decidim::Votings::Admin::BallotStyleByVotingCode.for(voting, code)
           end
         end
       end

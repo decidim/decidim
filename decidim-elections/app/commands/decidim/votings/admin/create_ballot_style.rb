@@ -35,7 +35,7 @@ module Decidim
 
         def create_ballot_style!
           attributes = {
-            code: form.code
+            code: form.code.upcase
           }
 
           @ballot_style = Decidim::Votings::BallotStyle.create!(
