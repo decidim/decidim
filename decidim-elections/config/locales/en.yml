@@ -971,19 +971,16 @@ en:
         menu:
           polling_officer_zone: Polling Officer zone
         polling_officers:
-          show:
-            actions:
-              count_votes: Count the votes in the ballot box
-              identify_person: Identify and verify a person
+          index:
             polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
-            polling_stations:
-              list:
-                actions: Actions
-                address: Address
-                name: Name
-                role: Your role
-                voting: Voting
+            polling_station:
+              address: Address
+              count_votes: Count votes
+              election: Election name
+              identify_person: Identify a person
+              name: Polling station name
               no_polling_stations: You are not assigned to any Polling Station yet.
+              role: Your role
               title: Polling Stations
         votes:
           create:
@@ -1014,6 +1011,16 @@ en:
             validate_document: Validate document
             verify_document: Verify document
             verify_title: 'Check that the following data is correct:'
+              voting: Voting space
+        results:
+          create:
+            error: An error ocurred creating the results, please try again later.
+            success: Results successfully created
+          new:
+            back_to_polling_stations: Back to polling stations
+            heading: Vote recount - Answers recount
+            info_text: Please introduce the total number of answers for each question.
+            save_recount: Save recount
       polling_officers:
         actions:
           confirm_destroy: Are you sure?
