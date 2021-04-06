@@ -667,6 +667,7 @@ en:
               edit: Edit
               new: New
               title: Actions
+            associated_census_data: Associated census entries
             explanation_callout: A ballot style specifies what questions a voter will be presented in the booth. In a ballot style, you can choose what questions from this voting's election components belong to a ballot. The ballot style code is used to match a voter from the census with the ballot they will be presented in the booth. Don't create any ballot style if you always want to present all the questions.
             title: Ballot Styles
           new:

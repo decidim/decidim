@@ -11,6 +11,11 @@ module Decidim
                inverse_of: :ballot_style,
                dependent: :delete_all
       has_many :questions, through: :ballot_style_questions
+      has_many :census_data,
+               foreign_key: "decidim_votings_ballot_style_id",
+               class_name: "Decidim::Votings::Census::Datum",
+               inverse_of: :ballot_style,
+               dependent: :nullify
     end
   end
 end
