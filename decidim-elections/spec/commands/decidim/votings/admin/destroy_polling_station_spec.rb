@@ -13,7 +13,7 @@ module Decidim
         let(:organization) { create(:organization) }
 
         context "when everything is ok" do
-          it "destroys the meeting" do
+          it "destroys the polling station" do
             subject.call
 
             expect { polling_station.reload }.to raise_error(ActiveRecord::RecordNotFound)
