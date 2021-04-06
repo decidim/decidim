@@ -1,0 +1,11 @@
+<% form.object.election.questions.each do |question| %>
+  <%= content_tag :h5,
+              translated_attribute(question.title),
+              class: "heading5 mt-sm" %>
+
+  <div class="card--secondary">
+    <div class="card__content">
+      <%= render partial: "answer_results_form_fields", locals: { form: form, question: question } %>
+    </div>
+  </div>
+<% end %>

@@ -1098,6 +1098,16 @@ en:
             validate_document: Validate document
             verify_document: Verify document
             verify_title: 'Check that the following data is correct:'
+              voting: Voting space
+        results:
+          create:
+            error: An error ocurred creating the results, please try again later.
+            success: Results successfully created
+          new:
+            back_to_polling_stations: Back to polling stations
+            heading: Vote recount - Answers recount
+            info_text: Please introduce the total number of answers for each question.
+            save_recount: Save recount
       polling_officers:
         actions:
           confirm_destroy: Are you sure?
