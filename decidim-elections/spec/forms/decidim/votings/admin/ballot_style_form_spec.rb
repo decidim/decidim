@@ -27,18 +27,6 @@ module Decidim
 
           it { is_expected.not_to be_valid }
         end
-
-        describe "when the code is already in use in the voting" do
-          let!(:other_ballot_style) { create(:ballot_style, code: code, voting: voting) }
-
-          it { is_expected.not_to be_valid }
-        end
-
-        describe "when the code is already in use in another voting" do
-          let!(:other_ballot_style) { create(:ballot_style, code: code) }
-
-          it { is_expected.to be_valid }
-        end
       end
     end
   end

@@ -17,10 +17,14 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          transaction do
+          begin
             create_ballot_style!
-            create_ballot_style_questions!
+          rescue ActiveRecord::RecordNotUnique
+            form.errors.add(:code, :taken)
+            return broadcast(:invalid)
           end
+
+          create_ballot_style_questions!
 
           broadcast(:ok)
         end

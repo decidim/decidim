@@ -18,8 +18,14 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          transaction do
+          begin
             update_ballot_style!
+          rescue ActiveRecord::RecordNotUnique
+            form.errors.add(:code, :taken)
+            return broadcast(:invalid)
+          end
+
+          transaction do
             destroy_removed_ballot_style_questions!
             create_added_ballot_style_questions!
           end

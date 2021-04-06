@@ -729,7 +729,6 @@ en:
           ballot_style:
             fields:
               code: Code
-              title: Title
             name: Ballot Style
           monitoring_committee_member:
             fields:

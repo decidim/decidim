@@ -8,6 +8,7 @@ module Decidim
       describe UpdateBallotStyle do
         let(:voting) { create(:voting) }
         let(:ballot_style) { create :ballot_style, voting: voting }
+        let!(:other_ballot_style) { create :ballot_style, voting: voting, code: taken_code }
         let(:election) { create :election, :complete, component: elections_component }
         let(:elections_component) { create :elections_component, participatory_space: voting }
         let(:ballot_style_questions) do
@@ -24,6 +25,7 @@ module Decidim
           }
         end
         let(:updated_code) { "Updated code" }
+        let(:taken_code) { "Taken code" }
         let(:updated_question_ids) { election.questions.last(3).map(&:id) }
         let(:form) do
           BallotStyleForm.from_params(params).with_context(
@@ -34,10 +36,20 @@ module Decidim
         let(:subject) { described_class.new(form, ballot_style) }
 
         context "when the form is not valid" do
-          let(:updated_code) { nil }
+          context "when the code is not present" do
+            let(:updated_code) { nil }
 
-          it "is not valid" do
-            expect { subject.call }.to broadcast(:invalid)
+            it "is not valid" do
+              expect { subject.call }.to broadcast(:invalid)
+            end
+          end
+
+          context "when the code is already in use" do
+            let(:updated_code) { taken_code }
+
+            it "is not valid" do
+              expect { subject.call }.to broadcast(:invalid)
+            end
           end
         end
 

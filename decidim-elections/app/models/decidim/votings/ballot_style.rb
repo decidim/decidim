@@ -11,8 +11,6 @@ module Decidim
                inverse_of: :ballot_style,
                dependent: :delete_all
       has_many :questions, through: :ballot_style_questions
-
-      validates :code, presence: true, uniqueness: { scope: :voting }
     end
   end
 end

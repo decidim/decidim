@@ -19,13 +19,15 @@ module Decidim
             valid?: valid,
             code: code,
             question_ids: question_ids,
-            current_participatory_space: voting
+            current_participatory_space: voting,
+            errors: errors
           )
         end
 
         let(:valid) { true }
         let(:code) { "Code" }
         let(:question_ids) { election.questions.sample(2).map(&:id) }
+        let(:errors) { double.as_null_object }
 
         let(:ballot_style) { Decidim::Votings::BallotStyle.last }
 
@@ -52,6 +54,25 @@ module Decidim
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)
+          end
+        end
+
+        context "when a ballot style with the same code exists" do
+          context "when it's in the same voting" do
+            let!(:existing_ballot_style) { create(:ballot_style, voting: voting, code: code) }
+
+            it "is not valid" do
+              expect(errors).to receive(:add).with(:code, :taken)
+              expect { subject.call }.to broadcast(:invalid)
+            end
+          end
+
+          context "when it's in another voting" do
+            let!(:existing_ballot_style) { create(:ballot_style, code: code) }
+
+            it "is valid" do
+              expect { subject.call }.to broadcast(:ok)
+            end
           end
         end
       end
