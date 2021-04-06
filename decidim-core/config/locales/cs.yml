@@ -1210,10 +1210,10 @@ cs:
         choose: Vybrat
         currently_selected: Aktuálně vybraný rozsah
         title: Vyberte %{field}
-      prompt: Vyberte oblast
+      prompt: Vyberte oblast působnosti
       scopes: Oblasti působnosti
       scopes_picker_input:
-        select_scope: 'Vyberte rozsah (v současné době: %{current})'
+        select_scope: 'Vyberte oblast působnosti (v současné době: %{current})'
     search:
       results: Výsledky hledání
       results_found_for_term: '%{count} Výsledky pro vyhledávání: "%{term}"'
@@ -1346,7 +1346,7 @@ cs:
     user_interests:
       show:
         my_interests: Mé zájmy
-        no_scopes: Tato organizace zatím nemá žádný rozsah!
+        no_scopes: Tato organizace zatím nemá žádnou oblast působnosti!
         select_your_interests: Zvolte témata, která vás zajímají, abyste mohli přijímat události, které s nimi souvisejí, na kartě Časová osa profilu.
         update_my_interests: Aktualizujte své zájmy
       update:
