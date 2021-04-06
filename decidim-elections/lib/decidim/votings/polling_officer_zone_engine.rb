@@ -11,8 +11,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resource :polling_officers, path: "/", only: [:show] do
-          resources :polling_stations, only: [:show]
+        resources :polling_officers, path: "/", only: [:index] do
+          resources :results, only: [:new, :create], path_names: { new: "new/:election_id" }
         end
       end
 

@@ -25,8 +25,7 @@ describe "Polling Officer zone", type: :system do
 
     click_link "Polling Officer zone"
 
-    expect(page).to have_content(translated(voting.title))
-    expect(page).to have_content(translated(other_voting.title))
+    expect(page).to have_content("You are not assigned to any Polling Station yet.")
   end
 
   context "when the user is not a polling officer" do
