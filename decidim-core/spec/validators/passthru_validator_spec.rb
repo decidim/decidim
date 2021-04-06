@@ -17,10 +17,10 @@ describe PassthruValidator do
 
   let(:to_class) do
     mount_class = uploader
-    Class.new do
-      extend CarrierWave::Mount
-      include ActiveModel::Model
+    Class.new(ApplicationRecord) do
       include Decidim::HasUploadValidations
+
+      self.table_name = "decidim_dummy_resources_dummy_resources"
 
       def self.model_name
         ActiveModel::Name.new(self, nil, "Passthrough")
@@ -28,8 +28,9 @@ describe PassthruValidator do
 
       attr_accessor :organization, :file
 
-      validates_upload :file
-      mount_uploader :file, mount_class
+      validates_upload(:file) do |config|
+        config.uploader = mount_class
+      end
     end
   end
 
