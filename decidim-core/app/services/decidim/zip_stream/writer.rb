@@ -22,21 +22,10 @@ module Decidim
 
           folder_name = attachment_block.first.parameterize
           attachment_block.last.each do |attachment_uploader|
-            next if attachment_uploader.file.nil?
+            next unless attachment_uploader.attached?
 
-            case attachment_uploader.provider
-            when "file" # file system
-              next unless File.exist?(attachment_uploader.file.file)
-            when "aws"
-              cache_attachment_from_aws(attachment_uploader)
-            else
-              Rails.logger.info "Carrierwave fog_provider not supported by DataPortabilityExporter for attachment: #{attachment_uploader}"
-              next
-            end
-
-            attachment_local_path = attachment_uploader.file.file
-            out.put_next_entry("#{folder_name}/#{attachment_uploader.file.filename}")
-            File.open(attachment_local_path) do |f|
+            out.put_next_entry("#{folder_name}/#{attachment_uploader.blob.filename}")
+            attachment_uploader.blob.open do |f|
               out << f.read
             end
             CarrierWave.clean_cached_files!
