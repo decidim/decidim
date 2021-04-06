@@ -629,6 +629,8 @@ en:
             email_subject: Your vote for %{resource_name} was accepted.
             notification_title: 'Your vote was accepted. Verify your vote <a href="%{verify_url}">here</a> using your vote token: %{encrypted_vote_hash}'
       votings:
+        access_code:
+          email_intro:
         polling_officers:
           polling_station_assigned:
             email_intro: You have been assigned as %{role} of the Polling Station %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a>. You can manage the Polling Station from the dedicated <a href="%{polling_officer_zone_url}">Polling Officer Zone</a>.
@@ -1018,6 +1020,12 @@ en:
           new: New
           title: Actions
       votings:
+        access_code_modal:
+          email: Send by email to %{email}
+          info: You need an Access Code to participate. If you didn't get one by postal mail, we can send you a new one.
+          no_sms: No phone number available
+          sms: Send by SMS to %{sms}
+          title: Get Access Code
         check_census:
           check_status: Check status
           description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
@@ -1027,8 +1035,8 @@ en:
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:
-            access_link: ask for an Access Code
-            info: If you don't have one, you can %{access_code_link}.
+            access_link: via SMS or email.
+            info: You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here
             title: Your census data is correct!
           title: Check your census data
         check_fields:

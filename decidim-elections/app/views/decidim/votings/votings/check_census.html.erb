@@ -16,14 +16,17 @@ edit_link(
     <div class="columns large-8">
       <h1 class="heading3"><%= t(".title") %></h1>
       <p><%= t(".description") %></p>
-
       <% if success %>
         <div class="verify-census-success callout success mt-s">
           <h5><%= t("decidim.votings.votings.check_census.success.title") %></h5>
           <p>
-            <%== t("decidim.votings.votings.check_census.success.info", access_code_link: link_to(t("decidim.votings.votings.check_census.success.access_link"), "#")) %>
+            <%= t("decidim.votings.votings.check_census.success.info") %>
+            <button type="button" class="link" data-open="access-code-modal">
+              <%= t("decidim.votings.votings.check_census.success.access_link") %>
+            </button>
           </p>
         </div>
+        <%= render partial: "access_code_modal", locals: { email: datum.email.gsub!(/.{4}(?=@)/,"****"), sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
       <% elsif not_found %>
         <div class="verify-census-error callout alert mt-s">
           <h5><%= t("decidim.votings.votings.check_census.error.title") %></h5>

@@ -58,9 +58,11 @@ module Decidim
         )
 
         success = not_found = false
+        datum = nil
         CheckCensus.call(@form) do
-          on(:ok) do
+          on(:ok) do |census|
             success = true
+            datum = census
           end
           on(:not_found) do
             not_found = true
@@ -70,7 +72,7 @@ module Decidim
           end
         end
 
-        render action: :check_census, locals: { success: success, not_found: not_found }
+        render action: :check_census, locals: { success: success, not_found: not_found, datum: datum }
       end
 
       private

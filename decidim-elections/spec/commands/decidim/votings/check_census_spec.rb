@@ -41,8 +41,8 @@ module Decidim::Votings
     context "when census is found" do
       let!(:datum) { create(:datum, document_number: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code, dataset: dataset) }
 
-      it "broadcasts ok" do
-        expect(subject.call).to broadcast(:ok)
+      it "broadcasts ok and returns the datum" do
+        expect(subject.call).to broadcast(:ok, datum)
       end
     end
 

@@ -34,9 +34,6 @@ describe "Check Census", type: :system do
   context "when census data is correct" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
-    end
-
-    it "shows note that census data is correct" do
       within ".card__content" do
         select("DNI", from: "Document type")
         fill_in "Document number", with: "12345678X"
@@ -46,10 +43,18 @@ describe "Check Census", type: :system do
         fill_in "Year", with: "1980"
         find("*[type=submit]").click
       end
+    end
 
+    it "shows note that census data is correct" do
       within ".wrapper" do
         expect(page).to have_content("Your census data is correct")
         expect(page).not_to have_content("Fill the following form to check your census data:")
+      end
+    end
+
+    it "shows instructions to ask for access code again" do
+      within ".wrapper" do
+        expect(page).to have_content("You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here via SMS or email")
       end
     end
   end
