@@ -20,6 +20,7 @@ FactoryBot.define do
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     voting_type { "hybrid" }
+    census_contact_information { nil }
 
     trait :unpublished do
       published_at { nil }
@@ -88,8 +89,10 @@ FactoryBot.define do
     csv_row_raw_count { 1 }
     csv_row_processed_count { 1 }
 
-    after(:create) do |dataset|
-      create(:datum, dataset: dataset)
+    trait :with_datum do
+      after(:create) do |dataset|
+        create(:datum, dataset: dataset)
+      end
     end
 
     trait :data_created do

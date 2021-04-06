@@ -33,7 +33,7 @@ describe "Admin manages polling officers", type: :system do
 
   context "when data exists" do
     before do
-      create :dataset, :data_created, voting: voting
+      create :dataset, :data_created, :with_datum, voting: voting
       visit decidim_admin_votings.voting_census_path(voting)
     end
 
@@ -54,6 +54,20 @@ describe "Admin manages polling officers", type: :system do
 
         expect(page).to have_admin_callout("Census data deleted")
         expect(page).to have_content("There is no census yet")
+      end
+    end
+
+    it "shows an option to generate the access codes" do
+      expect(page).to have_link("Generate voting Access Codes")
+    end
+
+    context "when generating the access codes" do
+      it "deletes the census" do
+        within ".voting-content" do
+          accept_confirm { click_link "Generate voting Access Codes" }
+        end
+
+        expect(page).to have_content("Please wait")
       end
     end
   end

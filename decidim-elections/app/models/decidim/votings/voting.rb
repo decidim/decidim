@@ -24,7 +24,10 @@ module Decidim
       belongs_to :organization,
                  foreign_key: "decidim_organization_id",
                  class_name: "Decidim::Organization"
-
+      has_one :dataset,
+              foreign_key: "decidim_votings_voting_id",
+              class_name: "Decidim::Votings::Census::Dataset",
+              dependent: :destroy
       has_many :components, as: :participatory_space, dependent: :destroy
       has_many :categories,
                foreign_key: "decidim_participatory_space_id",
