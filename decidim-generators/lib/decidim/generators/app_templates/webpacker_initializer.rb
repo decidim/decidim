@@ -8,7 +8,9 @@
 RELATIVE_PATH = ""
 DECIDIM_WEBPACKER_ROOT_PATH = Pathname.new(File.join(__dir__, "..", "..", *RELATIVE_PATH))
 
-Webpacker.instance = ::Webpacker::Instance.new(
-  root_path: DECIDIM_WEBPACKER_ROOT_PATH,
-  config_path: DECIDIM_WEBPACKER_ROOT_PATH.join("config/webpacker.yml")
-)
+if defined?(Webpacker)
+  Webpacker.instance = ::Webpacker::Instance.new(
+    root_path: DECIDIM_WEBPACKER_ROOT_PATH,
+    config_path: DECIDIM_WEBPACKER_ROOT_PATH.join("config/webpacker.yml")
+  )
+end
