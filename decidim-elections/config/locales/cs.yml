@@ -670,12 +670,15 @@ cs:
             success: Styl hlasování byl úspěšně vytvořen
           destroy:
             invalid: Při mazání tohoto stylu hlasování došlo k chybě
+            success: Styl hlasování byl úspěšně smazán
           edit:
+            title: Upravit styl hlasování
             update: Aktualizovat
           form:
             code_help: 'Tip: kód je spojitost mezi seznamem členů a stylem hlasování. Při nahrávání dat ze seznamu členů bude každému záznamu přiřazen styl hlasovacích lístků podle odpovídajícího kódu'
             election: Volby
             questions: Otázky pro tento styl voleb
+            questions_help: 'Tip: vyberte otázky z volebních složek, které mají být předloženy voličům přiřazeným k tomuto stylu hlasování'
           index:
             actions:
               confirm_destroy: Jste si jist?
@@ -685,6 +688,11 @@ cs:
               title: Akce
             explanation_callout: Styl hlasování specifikuje, jaké otázky budou předloženy u přítomného voliče za plentou. Ve stylu hlasování si můžete vybrat, jaké otázky z volebních složek tohoto hlasování patří k volbám. Kód stylu hlasování se používá k tomu, aby volič ze seznamu členů odpovídal na hlasování, které bude prezentováno za plentou. Pokud chcete vždy prezentovat všechny otázky, nevytvářejte žádný styl hlasování.
             title: Styly hlasování
+          new:
+            create: Vytvořit
+            title: Vytvořit styl hlasování
+          update:
+            invalid: Při aktualizaci tohoto stylu hlasování došlo k chybě
         content_blocks:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
@@ -957,6 +965,13 @@ cs:
           new: Nový
           title: Akce
       votings:
+        check_census_form:
+          document_number: Číslo dokumentu
+          document_number_placeholder: Číslo občanského průkazu
+          passport: Pas
+          postal_code: PSČ
+          postal_code_placeholder: Poštovní směrovací číslo
+          select: Vyberte typ dokumentu
         count:
           title:
             one: "%{count} hlasování"
@@ -979,6 +994,7 @@ cs:
           no_votings: Žádné hlasování neodpovídá vašim kritériím hledání.
           only_finished: Momentálně nejsou žádné naplánované hlasování, ale zde můžete najít dokončené hlasování uvedené v seznamu.
           title: Hlasování
+        no_census_contact_information: Zatím neexistují žádné kontaktní informace
         orders:
           label: 'Seřadit hlasy podle:'
           random: Náhodně
@@ -1005,6 +1021,7 @@ cs:
       election_votes_header:
         exit: Ukončit
       voting_navigation:
+        check_census: Jak hlasovat
         voting_menu_item: Hlasování
       votings:
         index:
