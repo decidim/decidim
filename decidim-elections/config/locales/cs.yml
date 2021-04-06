@@ -665,6 +665,11 @@ cs:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Při vytváření tohoto stylu hlasování došlo k chybě
+            success: Styl hlasování byl úspěšně vytvořen
+          destroy:
+            invalid: Při mazání tohoto stylu hlasování došlo k chybě
           edit:
             update: Aktualizovat
           form:
