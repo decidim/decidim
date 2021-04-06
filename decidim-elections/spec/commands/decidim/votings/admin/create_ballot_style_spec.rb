@@ -17,7 +17,6 @@ module Decidim
         let(:form) do
           double(
             valid?: valid,
-            title: title,
             code: code,
             question_ids: question_ids,
             current_participatory_space: voting
@@ -25,7 +24,6 @@ module Decidim
         end
 
         let(:valid) { true }
-        let(:title) { "Ballot style" }
         let(:code) { "Code" }
         let(:question_ids) { election.questions.sample(2).map(&:id) }
 
@@ -45,7 +43,6 @@ module Decidim
 
         it "stores the given data" do
           subject.call
-          expect(ballot_style.title).to eq title
           expect(ballot_style.code).to eq code
           expect(ballot_style.questions.pluck(:id)).to match_array(question_ids)
         end

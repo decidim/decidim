@@ -17,14 +17,12 @@ module Decidim
           {
             ballot_style: {
               id: ballot_style.id,
-              title: updated_title,
               code: updated_code,
               voting: ballot_style.voting,
               question_ids: updated_question_ids
             }
           }
         end
-        let(:updated_title) { "Updated title" }
         let(:updated_code) { "Updated code" }
         let(:updated_question_ids) { election.questions.last(3).map(&:id) }
         let(:form) do
@@ -48,7 +46,6 @@ module Decidim
             expect { subject.call }.to broadcast(:ok)
             ballot_style.reload
 
-            expect(ballot_style.title).to eq(updated_title)
             expect(ballot_style.code).to eq(updated_code)
           end
 

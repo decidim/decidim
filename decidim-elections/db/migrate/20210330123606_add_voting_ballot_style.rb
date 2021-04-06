@@ -3,7 +3,6 @@
 class AddVotingBallotStyle < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_votings_ballot_styles do |t|
-      t.string :title
       t.string :code, index: true
       t.references :decidim_votings_voting,
                    null: false,

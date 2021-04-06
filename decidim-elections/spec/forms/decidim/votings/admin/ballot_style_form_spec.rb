@@ -10,13 +10,11 @@ module Decidim
 
         let(:voting) { create(:voting) }
         let(:context) { { voting: voting } }
-        let(:title) { ::Faker::Lorem.word }
         let(:code) { ::Faker::Lorem.word }
         let(:question_ids) { [1, 2, 4, 5] }
 
         let(:attributes) do
           {
-            title: title,
             code: code,
             question_ids: question_ids
           }

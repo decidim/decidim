@@ -15,7 +15,6 @@
         <thead>
           <tr>
             <th rowspan="2"><%= t("code", scope: "decidim.votings.admin.models.ballot_style.fields") %></th>
-            <th rowspan="2"><%= t("title", scope: "decidim.votings.admin.models.ballot_style.fields") %></th>
             <% voting_elections.each do |election| %>
               <th colspan="<%= election.questions.count %>"><%= translated_attribute(election.title) %></th>
             <% end %>
@@ -34,9 +33,6 @@
             <tr data-id="<%= ballot_style.id %>">
               <td>
                 <%= ballot_style.code %>
-              </td>
-              <td>
-                <%= ballot_style.title %>
               </td>
               <% voting_elections.each do |election| %>
                 <% election.questions.each do |question| %>

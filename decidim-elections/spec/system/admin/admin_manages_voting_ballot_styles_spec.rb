@@ -26,7 +26,6 @@ describe "Admin manages ballot styles", type: :system do
     context "when listing the ballot styles" do
       it "lists all the ballot styles for the voting" do
         within "#ballot_styles table" do
-          expect(page).to have_content(ballot_style.title)
           expect(page).to have_content(ballot_style.code)
           each_question do |question|
             expect(page).to have_content(translated(question.title).slice(0, 2))
@@ -41,7 +40,6 @@ describe "Admin manages ballot styles", type: :system do
 
       within ".new_ballot_style" do
         fill_in :ballot_style_code, with: "new code"
-        fill_in :ballot_style_title, with: "new title"
 
         check translated(ballot_style.questions.sample.title)
 
@@ -52,31 +50,29 @@ describe "Admin manages ballot styles", type: :system do
 
       within "#ballot_styles table" do
         expect(page).to have_text("new code")
-        expect(page).to have_text("new title")
         expect(page).to have_selector(".icon--check", count: ballot_style.questions.count + 1)
       end
     end
 
     it "can delete a ballot style" do
-      within find("tr", text: ballot_style.title) do
+      within find("tr", text: ballot_style.code) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_no_content(ballot_style.title)
+      expect(page).to have_no_content(ballot_style.code)
     end
 
     it "can update a ballot style" do
       within "#ballot_styles" do
-        within find("tr", text: ballot_style.title) do
+        within find("tr", text: ballot_style.code) do
           click_link "Edit"
         end
       end
 
       within ".edit_ballot_style" do
         fill_in :ballot_style_code, with: "updated code"
-        fill_in :ballot_style_title, with: "updated title"
 
         each_question do |question|
           uncheck translated(question.title)
@@ -91,7 +87,6 @@ describe "Admin manages ballot styles", type: :system do
 
       within "#ballot_styles table" do
         expect(page).to have_text("updated code")
-        expect(page).to have_text("updated title")
         expect(page).to have_selector(".icon--check", count: 1)
       end
     end

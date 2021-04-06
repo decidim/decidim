@@ -5,7 +5,6 @@ module Decidim
     module Admin
       # A form to create/edit a ballot style
       class BallotStyleForm < Form
-        attribute :title, String
         attribute :code, String
         attribute :question_ids, Array[Integer]
 

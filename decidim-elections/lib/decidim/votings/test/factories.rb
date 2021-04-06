@@ -117,7 +117,6 @@ FactoryBot.define do
   end
 
   factory :ballot_style, class: "Decidim::Votings::BallotStyle" do
-    title { Faker::Lorem.sentence(word_count: 3) }
     code { Faker::Lorem.word }
     voting { create(:voting) }
 
