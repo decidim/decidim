@@ -29,11 +29,9 @@ module Decidim
           resources :attachment_collections, controller: "voting_attachment_collections"
           resources :ballot_styles
 
-          resource :census, only: [:show, :destroy], controller: "/decidim/votings/census/admin/census" do
+          resource :census, only: [:show, :destroy, :create], controller: "/decidim/votings/census/admin/census" do
             member do
               get :status
-              post :create
-              put :update
               get :generate_access_codes
               get :export_access_codes
               get :download_access_codes_file
