@@ -132,7 +132,7 @@
         let $link = $(link);
         $link.click((event) => {
           event.preventDefault();
-          if ($link.data("data-close")) {
+          if ($link.data("close") || $link.data("close") === "") {
             return;
           }
 
