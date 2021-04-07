@@ -1,0 +1,17 @@
+<ul>
+  <%= content_tag :li,
+                  t("totals.all_ballots", scope:"decidim.elections.elections.results", count: present(model).total_votes,
+                  percentage: present(model).total_votes_percentage) %>
+
+  <%= content_tag :li,
+                  t("totals.valid_ballots", scope:"decidim.elections.elections.results", count: present(model).total_valid_votes,
+                  percentage: present(model).total_valid_votes_percentage) %>
+
+  <%= content_tag :li,
+                  t("totals.blank_ballots", scope:"decidim.elections.elections.results", count: present(model).total_blank_votes,
+                  percentage: present(model).total_blank_votes_percentage) %>
+
+  <%= content_tag :li,
+                  t("totals.null_ballots", scope:"decidim.elections.elections.results", count: present(model).total_null_votes,
+                  percentage: present(model).total_null_votes_percentage) %>
+</ul>
