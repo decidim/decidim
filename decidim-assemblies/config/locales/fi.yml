@@ -190,6 +190,7 @@ fi:
           assembly_members: Jäsenet
           attachment_collections: Kansiot
           attachment_files: Tiedostot
+          attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
           info: Tiedot

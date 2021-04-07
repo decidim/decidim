@@ -5,6 +5,8 @@ ro:
         delete_reason: Motivul pentru a-ți șterge contul
       common:
         created_at: Creat la
+      conversation:
+        body: Conținut
       group:
         about: Despre
         avatar: Avatar
@@ -13,6 +15,8 @@ ro:
         name: Nume
         nickname: Porecla
         phone: Telefon
+      message:
+        body: Conținut
       report:
         details: Observaţii suplimentare
       user:
@@ -262,6 +266,8 @@ ro:
       photos:
         related_photos: Imagini asemănătoare
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar pentru mai mulți utilizatori
       comments:
         one: comentariu
         few: comentarii
@@ -1307,6 +1313,7 @@ ro:
         send: Trimite
         title_reply: Răspuns
       show:
+        back: Arată toate conversațiile
         not_allowed: Acest utilizator nu mai acceptă mesaje directe.
         title: Conversație cu %{usernames}
       update:
@@ -1341,6 +1348,7 @@ ro:
         number_of_versions: Versiuni
         title: Versiuni
     versions_list_item:
+      back: Arată toate versiunile
       show:
         version_index: Versiunea %{index}
     welcome_notification:
@@ -1520,11 +1528,6 @@ ro:
       too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
-    length_validator:
-      minimum:
-        one: cel puțin %{count} caracter
-        few: cel puțin %{count} caractere
-        other: cel puțin %{count} caractere
     required: Necesar
     required_explanation: "* Câmpurile obligatorii sunt marcate cu un asterisc"
   invisible_captcha:
@@ -1545,9 +1548,11 @@ ro:
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
       header:
         close_menu: Închide meniul
+        main_menu: Meniul principal
         navigation: Navigation
         sign_in: Conectare în cont
         sign_up: Înscrie-te
+        user_menu: Meniu utilizator
       impersonation_warning:
         close_session: Închide sesiunea
         description_html: Gestionați participantul <b>%{user_name}</b>.
@@ -1571,6 +1576,7 @@ ro:
         profile: Contul meu
         public_profile: Profilul meu public
         sign_out: Deconectare
+        title: Link-uri profil
       user_profile:
         account: Cont
         authorizations: Autorizații

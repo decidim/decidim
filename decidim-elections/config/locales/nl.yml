@@ -145,6 +145,8 @@ nl:
             success: Verkiezing succesvol bijgewerkt
         exports:
           elections: Verkiezingen
+        menu:
+          trustees: Trustees
         models:
           answer:
             name: Beantwoorden
@@ -225,6 +227,7 @@ nl:
             question: Vraag
             result: Resultaat
             selected: Geselecteerd
+            success: Verzoek om de resultaten te publiceren is met succes verzonden naar het Bulletin Board
             title: Berekende resultaten
           vote:
             title: Stemperiode
@@ -279,6 +282,7 @@ nl:
           back: Beschikbare verkiezingen
           callout:
             already_voted: Je hebt al gestemd in deze verkiezing. Je kunt je stem wijzigen of controleren.
+            pending_vote: Jouw stem wordt uitgebracht op de server.
             vote_rejected: Het was niet mogelijk om je stem te verifiëren. Gelieve je stem opnieuw uit te brengen.
           preview: Voorvertoning
           verify:
@@ -400,6 +404,9 @@ nl:
           cast: Stem uitbrengen
           description: 'Hier heb je de opties om je stem uit te brengen zodat ze goed geteld wordt, of -ook een optie: controleren of je stem correct is versleuteld. Om veiligheidsredenen vernietigen we stem op het moment dat je deze controleert. In dat geval moet je het stemproces herstarten om je stem uit te brengen.'
           header: 'Stem is versleuteld: uitbrengen of controleren'
+        casting:
+          header: Aan het stemmen...
+          text: Je stem wordt uitgebracht in de stembus.
         confirm:
           answer: Beantwoorden
           answer_number: antwoord %{number}
@@ -410,7 +417,6 @@ nl:
           question: Vraag %{count}
         confirmed:
           back: Terug naar verkiezingen
-          error: Sorry, er is iets misgegaan bij het bevestigen van de stem. Probeer het nog eens.
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
@@ -418,17 +424,20 @@ nl:
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
         encrypting:
-          header: Stem coderen...
-          text: Je stem wordt versleuteld om ervoor te zorgen dat je deze anoniem kunt werpen.
+          header: Versleutelen van de stem...
+          text: Je stem wordt versleuteld om het geheim ervan te waarborgen.
         failed:
           header: Stem mislukt
           lead: Je stem is niet uitgebracht!
           text: Er is iets mis gegaan, probeer het alsjeblief nog een keer.
+          try_again: Probeer opnieuw
         header:
           ballot_decision: Stem uitbrengen of stem controleren
+          casting: Aan het stemmen
           confirm: Bevestig uw stem
           confirmed: Stem bevestigd
-          encrypting: Bevestigen van stem
+          encrypting: Versleutelen van de stem
+          failed: Stem mislukt
         messages:
           not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
         modal:
@@ -440,8 +449,7 @@ nl:
           question_steps: Vraag %{current_step} van %{total_steps}
           selections: "%{selected} van %{max_selections}<br> selecties"
         update:
-          error: Er is een probleem opgetreden bij het bijwerken van de status van de stem
-          success: Status stemming succesvol bijgewerkt
+          error: Er is een probleem opgetreden bij het bijwerken van stemstatus. Probeer het opnieuw.
         verify:
           content:
             heading: Verifieer je stem

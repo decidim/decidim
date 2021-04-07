@@ -64,4 +64,14 @@ describe Decidim::Votings::Admin::Permissions do
       it { is_expected.to eq true }
     end
   end
+
+  describe "census" do
+    let(:action_subject) { :census }
+
+    context "when managing a census" do
+      let(:action_name) { :manage }
+
+      it { is_expected.to eq true }
+    end
+  end
 end

@@ -43,7 +43,7 @@ ca:
           negative: Negativa
           negative_selected: La teva opinió sobre aquest tema és negativa
           neutral: Neutral
-          neutral_selected: La teva opinió sobre aquest tema és neutra
+          neutral_selected: La teva opinió sobre aquest tema és neutral
           positive: Positiva
           positive_selected: La teva opinió sobre aquest tema és positiva
         remaining_characters: "Queden %{count} caràcters"

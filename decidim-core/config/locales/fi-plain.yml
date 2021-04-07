@@ -5,6 +5,8 @@ fi-pl:
         delete_reason: Syy tilisi poistoon
       common:
         created_at: Luontiaika
+      conversation:
+        body: Viestin teksti
       group:
         about: Tietoja
         avatar: Avatar
@@ -13,6 +15,8 @@ fi-pl:
         name: Nimi
         nickname: Nimimerkki
         phone: Puhelinnumero
+      message:
+        body: Viestin teksti
       report:
         details: Lisätiedot
       user:
@@ -1535,8 +1539,8 @@ fi-pl:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:
       minimum:
-        one: vähintään %{count} kirjain
-        other: vähintään %{count} kirjainta
+        one: Vähintään %{count} kirjain
+        other: Vähintään %{count} kirjainta
     required: Vaadittu
     required_explanation: "* Vaaditut kentät on merkitty tähtimerkillä"
   invisible_captcha:
@@ -1557,9 +1561,11 @@ fi-pl:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
+        main_menu: Päävalikko
         navigation: Navigaatio
         sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
+        user_menu: Käyttäjän valikko
       impersonation_warning:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
@@ -1588,6 +1594,7 @@ fi-pl:
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
         sign_out: Kirjaudu ulos
+        title: Profiilin linkit
       user_profile:
         account: Käyttäjätili
         authorizations: Varmennukset

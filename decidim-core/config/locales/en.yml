@@ -6,6 +6,8 @@ en:
         delete_reason: Reason to delete your account
       common:
         created_at: Created at
+      conversation:
+        body: Body
       group:
         about: About
         avatar: Avatar
@@ -14,6 +16,8 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      message:
+        body: Body
       report:
         details: Additional comments
       user:
@@ -1550,8 +1554,8 @@ en:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:
       minimum:
-        one: at least %{count} character
-        other: at least %{count} characters
+        one: At least %{count} character
+        other: At least %{count} characters
     required: Required field
     required_explanation: "* Required fields are marked with an asterisk"
   invisible_captcha:
@@ -1572,9 +1576,11 @@ en:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Close menu
+        main_menu: Main menu
         navigation: Navigation
         sign_in: Sign In
         sign_up: Sign Up
+        user_menu: User menu
       impersonation_warning:
         close_session: Close session
         description_html: You are managing the participant <b>%{user_name}</b>.
@@ -1603,6 +1609,7 @@ en:
         profile: My account
         public_profile: My public profile
         sign_out: Sign out
+        title: Profile links
       user_profile:
         account: Account
         authorizations: Authorizations

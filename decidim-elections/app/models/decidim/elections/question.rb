@@ -23,19 +23,12 @@ module Decidim
         max_selections <= answers.count
       end
 
-      def total_votes
-        answers.sum(:votes_count)
+      def results_total
+        answers.sum(&:results_total)
       end
 
       def slug
         "question-#{id}"
-      end
-
-      def votes_percentage(answer_votes)
-        return 0 unless answer_votes.positive?
-
-        result = answer_votes.to_f / total_votes * 100.0
-        result.round
       end
     end
   end

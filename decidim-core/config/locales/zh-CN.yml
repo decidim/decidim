@@ -1415,9 +1415,6 @@ zh-CN:
       too_short: 太短(低于15个字符)
   forms:
     correct_errors: 表单上有错误，请更正以继续。
-    length_validator:
-      minimum:
-        other: 至少 %{count} 个字符
     required: 必填字段
     required_explanation: "* 必填字段用星号标记。"
   invisible_captcha:

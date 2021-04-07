@@ -82,10 +82,12 @@ sv:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
       menu:
+        attachments: Bilagor
         components: Komponenter
         information: Information
         initiatives: Initiativ
         initiatives_types: Initiativtyper
+        moderations: Moderering
       models:
         initiatives:
           fields:
@@ -117,6 +119,7 @@ sv:
             initiative_title: Initiativtitel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
+            scope: Omfång
             time_and_date: Tid och datum
             timestamp: Tidsstämpel
       titles:
@@ -259,6 +262,7 @@ sv:
             update: Uppdatera
           form:
             authorizations: Inställningar för autentisering
+            options: Alternativ
             title: Allmän information
           initiative_type_scopes:
             title: Omfång för initiativtypen
@@ -403,6 +407,7 @@ sv:
         committee_members:
           approve: Godkänn
           confirm_revoke: Är du säker?
+          revoke: Återkalla
         count:
           title:
             one: "%{count} initiativ"
@@ -444,10 +449,28 @@ sv:
           recent: Senaste
           recently_published: Senast publicerade
         print:
+          address: Adress
+          author_title: Initiativförfattare
           city: Stad
+          email: E-post
+          full_name: Fullständigt namn
+          id_number: ID-nummer
+          initiative:
+            description: 'Beskrivning:'
+            title: 'Titel:'
+            type: Initiativtyp
+          phone_number: Telefonnummer
+          place_date: Plats, datum
+          postal_code: Postnummer/ZIP
+          print: Skriv ut
+          province: Region/Land
+          section: 'Om det begärs av organisationen, skriv ut och fyll i detta formulär för att skicka där det anges:'
+          signature: Underskrift
         result:
+          answer_title: Detta initiativ "" har fått ett svar
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
+          any_vote_method: Detta initiativ samlar in både digitala och fysiska underskrifter.
           edit: Redigera
           follow_description: Få ett meddelande när det finns nyheter om detta initiativ
           print: Skriva ut initiativet

@@ -59,6 +59,12 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/census/dataset:
+        one: Dataset
+        other: Datasets
+      decidim/votings/census/datum:
+        one: Datum
+        other: Data
       decidim/votings/polling_officer:
         one: Polling officer
         other: Polling officers
@@ -167,6 +173,8 @@ en:
         exports:
           elections: Elections
           feedback_form_answers: Feedback form answers
+        menu:
+          trustees: Trustees
         models:
           answer:
             name: Answer
@@ -373,6 +381,7 @@ en:
           back: Available elections
           callout:
             already_voted: You have already voted in this election. You can change your vote or verify it.
+            pending_vote: Your vote is being casted on the server.
             vote_rejected: It was not possible to verify your vote. Please cast it again.
           preview: Preview
           verify:
@@ -520,7 +529,10 @@ en:
           back: Start voting process again
           cast: Cast ballot
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
-          header: 'Ballot is encrypted: cast or audit it'
+          header: 'Ballot is encrypted: cast it or audit it'
+        casting:
+          header: Casting the vote...
+          text: Your ballot is being casted on the ballot box.
         confirm:
           answer: Answer
           answer_number: answer %{number}
@@ -532,7 +544,6 @@ en:
           question: Question %{count}
         confirmed:
           back: Back to elections
-          error: Sorry, there was an error confirming the vote. Please vote again.
           experience: How was your experience?
           feedback: Give us some feedback
           header: Vote confirmed
@@ -540,17 +551,20 @@ en:
           text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote verification page</a>
         encrypting:
-          header: Encoding vote...
-          text: Your vote is being encrypted to ensure you can cast it anonymously.
+          header: Encrypting the vote...
+          text: Your ballot is being encrypted to ensure the secret of your vote.
         failed:
           header: Vote failed
           lead: Your vote has not been casted!
           text: Something went wrong, please try it again.
+          try_again: Try again
         header:
           ballot_decision: Cast or audit your vote
+          casting: Casting the vote
           confirm: Confirm your vote
           confirmed: Vote confirmed
-          encrypting: Confirming vote
+          encrypting: Encrypting the vote
+          failed: Vote failed
         messages:
           not_allowed: You are not allowed to vote on this election at this moment.
         modal:
@@ -564,8 +578,7 @@ en:
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
         update:
-          error: There was a problem updating the vote status
-          success: Vote status successfully updated
+          error: There was a problem updating the vote status. Please, vote again.
         verify:
           content:
             heading: Verify your vote
@@ -632,6 +645,36 @@ en:
       votings_count: Votings
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: There was a problem creating this ballot style
+            success: Ballot style successfully created
+          destroy:
+            invalid: There was a problem deleting this ballot style
+            success: Ballot style successfully deleted
+          edit:
+            title: Edit ballot style
+            update: Update
+          form:
+            code_help: 'Hint: the code is the link between the census and a ballot style. When uploading the census data, every entry will be assigned a ballot style by matching the code'
+            election: Election
+            questions: Questions for this ballot style
+            questions_help: 'Hint: select the questions from the election components to be presented to the voters assigned to this ballot style'
+          index:
+            actions:
+              confirm_destroy: Are you sure?
+              destroy: Delete
+              edit: Edit
+              new: New
+              title: Actions
+            explanation_callout: A ballot style specifies what questions a voter will be presented in the booth. In a ballot style, you can choose what questions from this voting's election components belong to a ballot. The ballot style code is used to match a voter from the census with the ballot they will be presented in the booth. Don't create any ballot style if you always want to present all the questions.
+            title: Ballot Styles
+          new:
+            create: Create
+            title: Create ballot style
+          update:
+            invalid: There was a problem updating this ballot style
+            success: Ballot style successfully updated
         content_blocks:
           highlighted_votings:
             max_results: Maximum amount of elements to show
@@ -674,6 +717,8 @@ en:
             attachment_collections: Folders
             attachment_files: Files
             attachments: Attachments
+            ballot_styles: Ballot Styles
+            census: Census
             components: Components
             info: Information
             landing_page: Landing Page
@@ -681,6 +726,10 @@ en:
             polling_officers: Polling Officers
             polling_stations: Polling Stations
         models:
+          ballot_style:
+            fields:
+              code: Code
+            name: Ballot Style
           monitoring_committee_member:
             fields:
               email: Email
@@ -788,6 +837,7 @@ en:
             assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
+            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a Decidim survey for visitors, etc.
             select_a_voting_type: Please select a voting type
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
@@ -810,6 +860,58 @@ en:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
           unpublish: "%{user_name} unpublished the %{resource_name} voting"
+      census:
+        admin:
+          census:
+            create:
+              error: an error ocurred uploading the census, please try again later.
+            creating_data:
+              info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
+            delete:
+              button: Delete all census data
+              confirm: Delete all the census can not be undone. Are you sure you want to continue?
+            destroy:
+              error: An error ocurred deleting the census, please try again later.
+              success: Census data deleted
+            export_access_codes:
+              button: Export voting Access Codes
+              callout: You can now proceed to export the access codes. This can only be done once. Once you launch the exportation, you will receive an email with the instructions to <strong>%{email}</strong>
+              confirm: You can only export the access codes once. Make sure you have access to the email account <strong>%{email}</strong>.
+              file_not_exists: This file does not exists
+              launch_error: Problem launching the access codes export
+              launch_success: Access codes export launched. Shortly you will receive an email to %{email}
+            exporting_access_codes:
+              info_message: "<strong>Please wait</strong>, the export is being prepared, you will receive it shortly to %{email}"
+            freeze:
+              callout: The census is frozen and cannot be modified.
+            generate_access_codes:
+              button: Generate voting Access Codes
+              callout: You can now proceed to generate the access codes. Mind that after generating the access codes you will not be able to modify the census anymore.
+              confirm: If you continue, you will not be able to modify the census.
+              info_message_all: "<strong>All rows imported successfully</strong> from %{file} file (%{raw_count} of %{data_count})."
+              info_message_warn: Please check that no data is missing, because %{data_count} records were created and the uploaded file %{file} had %{raw_count} rows.
+              launch_error: Problem launching the access codes generation
+              launch_success: Codes generation launched.
+            generating_access_codes:
+              info_message: "<strong>Please wait</strong>, the voting access codes are being generated..."
+            new:
+              file_help:
+                explanation: 'Guidance for file:'
+                message_1: Only CSV (.csv) files are allowed.
+                message_2: The separator between columns must be a semicolon (";").
+              info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
+              submit: Submit csv
+              title: Create the census
+            show:
+              heading: Voting space census
+            upload_info:
+              csv_example: 'An example of the file contents:'
+              csv_fields: 'Must be a .csv file format with these fields:'
+        export_mailer:
+          access_codes_export:
+            click_button: 'Click the next link to download the access codes data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
+            download: Download
+            subject: The export of the voting access codes for %{voting_title} is available
       content_blocks:
         highlighted_votings:
           name: Highlighted votings
@@ -872,6 +974,28 @@ en:
           new: New
           title: Actions
       votings:
+        check_census:
+          description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
+          error:
+            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
+            title: Your census data is incorrect!
+          invalid: There was a problem checking the census.
+          success:
+            access_link: ask for an Access Code
+            info: If you don't have one, you can %{access_code_link}.
+            title: Your census data is correct!
+          title: Check your census data
+        check_census_form:
+          check_status: Check status
+          date_of_birth: Date of birth
+          description: 'Fill the following form to check your census data:'
+          dni: DNI
+          document_number: Document number
+          document_number_placeholder: ID number
+          passport: Passport
+          postal_code: Postal code
+          postal_code_placeholder: Postal code number
+          select: Select the type of the document
         count:
           title:
             one: "%{count} voting"
@@ -892,6 +1016,7 @@ en:
           no_votings: No voting matches your search criteria.
           only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
+        no_census_contact_information: There's no contact information yet
         orders:
           label: 'Sort votings by:'
           random: Random
@@ -918,6 +1043,7 @@ en:
       election_votes_header:
         exit: Exit
       voting_navigation:
+        check_census: How to vote
         voting_menu_item: The voting
       votings:
         index:

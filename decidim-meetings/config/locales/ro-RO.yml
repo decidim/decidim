@@ -14,6 +14,7 @@ ro:
       meeting:
         address: Adresa
         available_slots: Sloturi disponibile pentru această ședință
+        customize_registration_email: Personalizați e-mail de înregistrare
         decidim_category_id: Categorie
         decidim_scope_id: Domeniu
         decidim_user_group_id: Grup de utilizatori
@@ -25,6 +26,7 @@ ro:
         organizer_gid: Creează ca
         organizer_id: Organizator
         private_meeting: Întâlnire privată
+        registration_email_custom_content: Conținut personalizat de e-mail de înregistrare
         registration_form_enabled: Formular de înregistrare activat
         registration_terms: Termeni de înregistrare
         registration_url: URL înregistrare
@@ -269,6 +271,7 @@ ro:
             location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
             location_hints_help: 'Sugestii privind locaţia: informaţii suplimentare. Exemplu: podeaua clădirii dacă este o întâlnire interpersonală, sau dacă este vorba de o întâlnire online cu acces restrâns.'
             online_meeting_url_help: 'Link: permiteți participanților să se conecteze direct la întâlnirea dvs'
+            registration_email_help: Acest text va apărea în mijlocul e-mailului de confirmare a înregistrării. Chiar după codul de înregistrare.
             registration_url_help: 'Link: permiteți participanților să acceseze serviciul extern pe care îl utilizați pentru înregistrare'
             select_a_meeting_type: Vă rugăm să selectați un tip de ședință
             select_a_registration_type: Vă rugăm să selectaţi un tip de înregistrare

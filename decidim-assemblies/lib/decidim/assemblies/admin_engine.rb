@@ -142,7 +142,7 @@ module Decidim
         end
       end
       initializer "decidim_assemblies.assemblies_admin_menu" do
-        Decidim.menu :assemblies_admin_menu do |menu|
+        Decidim.menu :admin_assembly_menu do |menu|
           menu.add_item :edit_assembly,
                         I18n.t("info", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.edit_assembly_path(current_participatory_space),
@@ -164,7 +164,7 @@ module Decidim
                         active: is_active_link?(decidim_admin_assemblies.categories_path(current_participatory_space))
 
           menu.add_item :attachments,
-                        I18n.t("attachments", scope: "decidim.admin.menu.conferences_submenu"),
+                        I18n.t("attachments", scope: "decidim.admin.menu.assemblies_submenu"),
                         "#",
                         active: is_active_link?(decidim_admin_assemblies.assembly_attachment_collections_path(current_participatory_space)) ||
                                 is_active_link?(decidim_admin_assemblies.assembly_attachments_path(current_participatory_space)),

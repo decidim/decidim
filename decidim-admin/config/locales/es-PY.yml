@@ -24,6 +24,7 @@ es-PY:
       component:
         name: Nombre
         published_at: Publicado en
+        weight: Orden de posición
       id: ID
       import:
         user_group_id: Importar como
@@ -110,10 +111,12 @@ es-PY:
         show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        weight: Orden de posición
       static_page_topic:
         description: Descripción
         show_in_footer: Mostrar en el pie de página
         title: Título
+        weight: Orden de posición
       user_group_csv_verification:
         file: Expediente
     errors:
@@ -375,6 +378,7 @@ es-PY:
         file_help:
           import:
             explanation: 'Instrucciones para el archivo:'
+            message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
         error: Ha habido un error al actualizar las secciones de ayuda.
@@ -426,6 +430,7 @@ es-PY:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Volver
           file_legend: Añadir un archivo de importación que será procesado.

@@ -15,6 +15,7 @@ es-MX:
         edit: Editar
         new: Nueva publicación
         title: Comportamiento
+        user_group_id: Crear publicación como
       admin:
         models:
           components:
@@ -76,3 +77,5 @@ es-MX:
           email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva publicación publicada en %{participatory_space_title}
           notification_title: La publicación <a href="%{resource_path}">%{resource_title}</a> se publicó en %{participatory_space_title}.
+    statistics:
+      posts_count: Publicaciones

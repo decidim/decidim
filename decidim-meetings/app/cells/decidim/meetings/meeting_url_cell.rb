@@ -10,7 +10,7 @@ module Decidim
       private
 
       def resource_icon
-        icon "video", class: "icon--big", role: "presentation", "aria-hidden": true
+        icon "video", class: "icon--big", role: "img", "aria-hidden": true
       end
     end
   end

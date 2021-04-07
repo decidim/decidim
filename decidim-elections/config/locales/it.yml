@@ -281,13 +281,9 @@ it:
           header: Voto confermato
           lead: Il tuo voto è già stato espresso!
           text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        encrypting:
-          header: Codifica del voto...
-          text: Il tuo voto viene crittografato per assicurarti di poterlo lanciare in modo anonimo.
         header:
           confirm: Conferma il tuo voto
           confirmed: Voto confermato
-          encrypting: Conferma del voto
         messages:
           not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
         modal:

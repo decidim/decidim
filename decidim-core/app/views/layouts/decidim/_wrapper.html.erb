@@ -52,7 +52,7 @@ end
                 </button>
               </div>
               <% if current_user %>
-                <nav class="topbar__dropmenu topbar__user__logged">
+                <nav class="topbar__dropmenu topbar__user__logged" aria-label="<%= t("layouts.decidim.header.user_menu") %>">
                   <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
                     <%= icon "bell", role: "img", aria_label: t("layouts.decidim.user_menu.notifications") %>
                   <% end %>
@@ -63,10 +63,11 @@ end
                     data-autoclose="false"
                     data-disable-hover="true"
                     data-click-open="true"
-                    data-close-on-click="true">
-                    <li class="is-dropdown-submenu-parent show-for-medium" tabindex="-1">
-                      <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
-                      <ul class="menu is-dropdown-submenu" id="user-menu" role="menu" aria-labelledby="user-menu-control" tabindex="-1">
+                    data-close-on-click="true"
+                    role="menubar">
+                    <li class="is-dropdown-submenu-parent show-for-medium" role="presentation">
+                      <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name), "role": "menuitem" %>
+                      <ul class="menu is-dropdown-submenu" id="user-menu" role="menu" aria-labelledby="user-menu-control">
                         <%= render partial: "layouts/decidim/user_menu" %>
                       </ul>
                       <div data-set="nav-login-holder" class="show-for-medium">

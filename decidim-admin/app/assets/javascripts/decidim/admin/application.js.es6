@@ -18,7 +18,7 @@
 // = require ./bundle
 // = require ./draggable-list
 // = require ./sortable
-// = require ./gallery
+// = require decidim/gallery
 // = require ./moderations
 // = require decidim/input_tags
 // = require decidim/input_hashtags
@@ -31,6 +31,7 @@
 // = require decidim/geocoding/attach_input
 // = require decidim/session_timeouter
 // = require_self
+// = require decidim/configuration
 
 window.Decidim = window.Decidim || {};
 window.DecidimAdmin = window.DecidimAdmin || {};

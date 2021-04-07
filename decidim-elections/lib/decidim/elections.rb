@@ -9,6 +9,7 @@ require "decidim/elections/trustee_zone_engine"
 require "decidim/elections/component"
 require "decidim/bulletin_board"
 require "decidim/votings"
+
 # Note: these gems will be moved to the application in the next release
 require "voting_schemes/electionguard"
 require "voting_schemes/dummy"
