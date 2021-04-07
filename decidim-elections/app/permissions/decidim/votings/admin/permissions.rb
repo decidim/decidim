@@ -110,9 +110,9 @@ module Decidim
           when :ballot_style
             case permission_action.action
             when :create
-              toggle_allow(voting.dataset.nil? && voting.dataset.init_data?)
+              toggle_allow(voting.dataset.blank? || voting.dataset.init_data?)
             when :update, :delete
-              toggle_allow(voting.dataset.nil? && voting.dataset.init_data? && ballot_style.present?)
+              toggle_allow((voting.dataset.blank? || voting.dataset.init_data?) && ballot_style.present?)
             end
           when :ballot_styles
             toggle_allow(user.admin?) if permission_action.action == :read

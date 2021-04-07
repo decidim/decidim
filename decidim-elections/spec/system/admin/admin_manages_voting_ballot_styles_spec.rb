@@ -49,7 +49,7 @@ describe "Admin manages ballot styles", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "#ballot_styles table" do
-        expect(page).to have_text("new code")
+        expect(page).to have_text("NEW CODE")
         expect(page).to have_selector(".icon--check", count: ballot_style.questions.count + 1)
       end
     end
