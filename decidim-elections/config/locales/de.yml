@@ -872,6 +872,27 @@ de:
           new: Neu
           title: Aktionen
       votings:
+        check_census:
+          description: Hier haben Sie die Möglichkeit, Ihre Erhebungsdaten zu überprüfen, um herauszufinden ob Sie das Recht haben, an dieser Abstimmung teilzunehmen. Sie sollten bereits einen Zugangscode haben, aber wenn Sie ihn verloren haben können Sie ihn erneut anfragen, sobald Ihre Daten korrekt sind.
+          error:
+            info: 'Bitte versuchen Sie es erneut. Wenn Sie denken, dass die Daten im System nicht korrekt sind, können Sie das hier melden: %{census_contact_information}.'
+            title: Ihre Erhebungsdaten sind nicht korrekt!
+          invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
+          success:
+            access_link: Zugangscode anfragen
+            info: Wenn Sie keinen haben, können Sie einen %{access_code_link}.
+            title: Ihre Erhebungsdaten sind korrekt!
+          title: Überprüfen Sie Ihre Erhebungsdaten
+        check_census_form:
+          check_status: Status überprüfen
+          date_of_birth: Geburtsdatum
+          description: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
+          document_number: Dokumentennummer
+          document_number_placeholder: ID-Nummer
+          passport: Reisepass
+          postal_code: Postleitzahl
+          postal_code_placeholder: Postleitzahl
+          select: Wählen Sie die Art des Dokuments aus
         count:
           title:
             one: "%{count} Abstimmung"
@@ -892,6 +913,7 @@ de:
           no_votings: Keine Abstimmung gefunden, die Ihren Suchkriterien entspricht.
           only_finished: Momentan gibt es keine geplanten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
           title: Abstimmungen
+        no_census_contact_information: Es sind noch keine Kontaktinformationen vorhanden
         orders:
           label: 'Abstimmungen sortieren nach:'
           random: Zufällig
@@ -918,6 +940,7 @@ de:
       election_votes_header:
         exit: Beenden
       voting_navigation:
+        check_census: Wie stimme ich ab
         voting_menu_item: Die Abstimmung
       votings:
         index:
