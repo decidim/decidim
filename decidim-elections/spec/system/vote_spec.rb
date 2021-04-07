@@ -15,6 +15,7 @@ describe "Vote in an election", type: :system do
 
   before do
     VCR.turn_off!
+    Decidim::Elections.bulletin_board.reset_test_database
     election.reload
     login_as user, scope: :user
   end
