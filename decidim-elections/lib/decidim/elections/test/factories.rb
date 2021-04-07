@@ -245,9 +245,12 @@ FactoryBot.define do
   end
 
   factory :election_result, class: "Decidim::Elections::Result" do
+    election
+    question
     answer { create :election_answer }
     votes_count { Faker::Number.number(digits: 1) }
     result_type { "valid_answer" }
+
     trait :with_polling_station do
       polling_station
     end
