@@ -19,37 +19,27 @@
                   { disabled: !@form.state_updatable? } %>
 </div>
 
-<% if single_initiative_type? %>
-  <%= form.select :type_id,
-                  initiative_type_options,
-                  {},
-                  {
-                    disabled: !@form.signature_type_updatable?,
-                    "data-scope-selector": "initiative_decidim_scope_id",
-                    "data-scope-id": form.object.scope_id.to_s,
-                    "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
-                    "data-signature-types-selector": "initiative_signature_type",
-                    "data-signature-type": current_initiative.signature_type,
-                    "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
-                  } %>
-<% else %>
-  <%= form.hidden_field :type_id,
-                        {
-                          disabled: !@form.signature_type_updatable?,
-                          "data-scope-selector": "initiative_decidim_scope_id",
-                          "data-scope-id": form.object.scope_id.to_s,
-                          "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
-                          "data-signature-types-selector": "initiative_signature_type",
-                          "data-signature-type": current_initiative.signature_type,
-                          "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url,
-                          value: current_initiative.signature_type
-                        } %>
+<% unless single_initiative_type? %>
+  <div class="field">
+    <%= form.select :type_id,
+                    initiative_type_options,
+                    {},
+                    {
+                      disabled: !@form.signature_type_updatable?,
+                      "data-scope-selector": "initiative_decidim_scope_id",
+                      "data-scope-id": form.object.scope_id.to_s,
+                      "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
+                      "data-signature-types-selector": "initiative_signature_type",
+                      "data-signature-type": current_initiative.signature_type,
+                      "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
+                    } %>
+  </div>
 <% end %>
 
 <div class="field">
   <%= form.select :scope_id,
-                  @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
-                  { disabled: !@form.state_updatable? } %>
+                @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
+                { disabled: !@form.state_updatable? } %>
 </div>
 
 <% if can_edit_custom_signature_end_date?(current_initiative) %>

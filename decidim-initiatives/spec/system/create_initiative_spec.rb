@@ -420,31 +420,6 @@ describe "Initiative", type: :system do
 
           it_behaves_like "initiatives path redirection"
         end
-
-        context "when there is a single initiative type" do
-          let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
-          let!(:other_initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
-
-          before do
-            find_link("Continue").click
-          end
-
-          it "finish view is shown" do
-            expect(page).to have_content("Finish")
-          end
-
-          it "Offers contextual help" do
-            within ".callout.secondary" do
-              expect(page).to have_content("Congratulations! Your initiative has been successfully created.")
-            end
-          end
-
-          it "displays an edit link" do
-            within ".actions" do
-              expect(page).to have_link("Edit my initiative")
-            end
-          end
-        end
       end
     end
   end
