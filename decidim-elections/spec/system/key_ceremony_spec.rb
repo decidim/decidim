@@ -26,7 +26,16 @@ describe "Key ceremony", type: :system do
       let(:admin_component_organization_traits) { [:secure_context] }
     end
 
-    context "when performing the key ceremony", :vcr, :billy, :slow, download: true do
+    context "when performing the key ceremony", :slow, download: true do
+      before do
+        VCR.turn_off!
+        Decidim::Elections.bulletin_board.reset_test_database
+      end
+
+      after do
+        VCR.turn_on!
+      end
+
       it "generates backup keys, restores them and creates election keys" do
         setup_election(election)
 

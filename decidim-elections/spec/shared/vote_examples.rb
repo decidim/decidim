@@ -22,7 +22,6 @@ end
 
 shared_examples "allows to vote" do
   before do
-    Decidim::Elections.bulletin_board.reset_test_database
     visit_component
 
     click_link translated(election.title)
