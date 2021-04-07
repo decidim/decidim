@@ -10,7 +10,7 @@
   </p>
   <div class="row">
     <div class="columns medium-8 medium-offset-2">
-      <button class="button hollow expanded"><%= t(".email", email: email) %></button>
+      <%= button_to t(".email", email: email), voting_send_access_code_path(datum.dataset.voting, datum_id: datum), class: "button hollow expanded" %>
     </div>
   </div>
   <div class="row">

@@ -75,7 +75,21 @@ module Decidim
         render action: :check_census, locals: { success: success, not_found: not_found, datum: datum }
       end
 
+      def send_access_code
+        SendAccessCode.call(datum) do
+          on(:invalid) do
+            flash[:alert] = t("send_access_code.invalid", scope: "decidim.votings.votings")
+          end
+        end
+
+        render action: :check_census, locals: { success: true, not_found: false, datum: datum }
+      end
+
       private
+
+      def datum
+        @datum ||= Decidim::Votings::Census::Datum.find(params[:datum_id])
+      end
 
       def election
         @election ||= Decidim::Elections::Election.find(params[:election_id])

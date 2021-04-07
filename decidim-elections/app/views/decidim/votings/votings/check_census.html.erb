@@ -26,7 +26,7 @@ edit_link(
             </button>
           </p>
         </div>
-        <%= render partial: "access_code_modal", locals: { email: datum.email.gsub!(/.{4}(?=@)/,"****"), sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
+        <%= render partial: "access_code_modal", locals: { datum: datum, email: datum.email.gsub!(/.{4}(?=@)/,"****"), sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
       <% elsif not_found %>
         <div class="verify-census-error callout alert mt-s">
           <h5><%= t("decidim.votings.votings.check_census.error.title") %></h5>

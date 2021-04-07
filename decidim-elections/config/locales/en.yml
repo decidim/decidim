@@ -629,14 +629,15 @@ en:
             email_subject: Your vote for %{resource_name} was accepted.
             notification_title: 'Your vote was accepted. Verify your vote <a href="%{verify_url}">here</a> using your vote token: %{encrypted_vote_hash}'
       votings:
-        access_code:
-          email_intro:
         polling_officers:
           polling_station_assigned:
             email_intro: You have been assigned as %{role} of the Polling Station %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a>. You can manage the Polling Station from the dedicated <a href="%{polling_officer_zone_url}">Polling Officer Zone</a>.
             email_outro: You have received this notification because you have been assigned as %{role} of %{polling_station_name}.
             email_subject: You are %{role} of the Polling Station %{polling_station_name}.
             notification_title: You are %{role} of the Polling Station %{polling_station_name} in the voting <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Here is your Access Code that you asked for: %{access_code}. With this you''ll be able to participate in %{voting}'
+          subject: Your Access Code to participate in %{voting}
     help:
       participatory_spaces:
         votings:
