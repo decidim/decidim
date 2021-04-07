@@ -27,12 +27,14 @@ module Decidim
           resources :monitoring_committee_members, only: [:new, :create, :destroy, :index]
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
+          resources :ballot_styles
 
-          resource :census, only: [:show, :destroy], controller: "/decidim/votings/census/admin/census" do
+          resource :census, only: [:show, :destroy, :create], controller: "/decidim/votings/census/admin/census" do
             member do
-              get :status, action: :status
-              post :create, action: :create
-              put :update, action: :update
+              get :status
+              get :generate_access_codes
+              get :export_access_codes
+              get :download_access_codes_file
             end
           end
         end
@@ -129,6 +131,8 @@ module Decidim
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
                         "#",
+                        active: is_active_link?(decidim_admin_votings.voting_attachment_collections_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_votings.voting_attachments_path(current_participatory_space)),
                         if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
                         submenu: { target_menu: :decidim_votings_attachments_menu }
 
@@ -149,6 +153,12 @@ module Decidim
                         decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space)),
                         if: !current_participatory_space.online_voting? && allowed_to?(:read, :monitoring_committee_members)
+
+          menu.add_item :voting_ballot_styles,
+                        I18n.t("ballot_styles", scope: "decidim.votings.admin.menu.votings_submenu"),
+                        decidim_admin_votings.voting_ballot_styles_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_votings.voting_ballot_styles_path(current_participatory_space)),
+                        if: allowed_to?(:update, :voting, voting: current_participatory_space)
         end
       end
 

@@ -262,11 +262,11 @@ FactoryBot.define do
   factory :trustee, class: "Decidim::Elections::Trustee" do
     transient do
       election { nil }
-      organization { election&.component&.participatory_space&.organization || create(:organization) }
     end
 
     public_key { nil }
     user { build(:user, organization: organization) }
+    organization { create(:organization) }
 
     trait :considered do
       after(:build) do |trustee, evaluator|
@@ -282,7 +282,7 @@ FactoryBot.define do
 
     trait :with_public_key do
       considered
-      name { Faker::Name.name }
+      name { Faker::Name.unique.name }
       public_key { generate(:private_key).export.to_json }
     end
   end
