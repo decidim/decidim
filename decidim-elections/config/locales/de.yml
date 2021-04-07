@@ -58,6 +58,12 @@ de:
       decidim/elections/question:
         one: Frage
         other: Fragen
+      decidim/votings/census/dataset:
+        one: Datensatz
+        other: Datensätze
+      decidim/votings/census/datum:
+        one: Daten
+        other: Daten
       decidim/votings/polling_officer:
         one: Wahllokal-Mitarbeiter
         other: Wahllokal-Mitarbeitende
@@ -630,8 +636,22 @@ de:
             code_help: 'Hinweis: Der Code ist die Verbindung zwischen Erhebungsdaten und Wahlkategorie. Wenn die Erhebungsdaten hochgeladen werden, wird jedem Eintrag anhand dem Wahlkategorie-Code eine Wahlkategorie zugeteilt'
             election: Wahl
             questions: Fragen für diese Wahlkategorie
+            questions_help: 'Hinweis: Wählen Sie die Fragen aus den Wahlkomponenten aus, welche Wählern angezeigt werden sollen, die dieser Wahlkategorie zugeordnet werden'
           index:
+            actions:
+              confirm_destroy: Sind Sie sicher?
+              destroy: Löschen
+              edit: Bearbeiten
+              new: Neu
+              title: Aktionen
             explanation_callout: Eine Wahlkategorie legt fest, welche Fragen einem Wähler bei der Abstimmung gestellt werden. In einer Wahlkategorie können Sie auswählen, welche Fragen aus den Wahlkomponenten dieser Wahl zu einer Wahlurne gehören. Anhand dem Wahlkategorie-Code aus den Erhebungsdaten des Wählers wird die Wahlkategorie ausgewählt, die einem Wähler angezeigt wird. Wenn Sie immer alle Fragen anzeigen wollen, erstellen Sie keine Wahlkategorien.
+            title: Wahlkategorien
+          new:
+            create: Erstellen
+            title: Wahlkategorie erstellen
+          update:
+            invalid: Beim Aktualisieren dieser Wahlkategorie ist ein Problem aufgetreten
+            success: Wahlkategorie erfolgreich aktualisiert
         content_blocks:
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
@@ -674,6 +694,8 @@ de:
             attachment_collections: Ordner
             attachment_files: Dateien
             attachments: Dateianhänge
+            ballot_styles: Wahlkategorien
+            census: Erhebung
             components: Komponenten
             info: Information
             landing_page: Landing-Page
@@ -681,6 +703,10 @@ de:
             polling_officers: Wahllokal-Mitarbeitende
             polling_stations: Wahllokale
         models:
+          ballot_style:
+            fields:
+              code: Code
+            name: Wahlkategorie
           monitoring_committee_member:
             fields:
               email: E-Mail
@@ -814,12 +840,28 @@ de:
       census:
         admin:
           census:
+            export_access_codes:
+              button: Zugangscodes für die Abstimmung exportieren
+              callout: Sie können jetzt die Zugangscodes exportieren. Dies kann nur einmal geschehen. Sobald Sie den Export gestartet haben, werden Sie eine E-Mail mit den Anweisungen unter <strong>%{email}</strong> erhalten
+              confirm: Sie können die Zugangscodes nur einmal exportieren. Stellen Sie sicher, dass Sie Zugang zum E-Mail-Konto <strong>%{email}</strong> haben.
+              file_not_exists: Diese Datei existiert nicht
+              launch_error: Beim Starten des Zugangscode-Exports ist ein Problem aufgetreten
+              launch_success: Der Zugangscode-Export wurde gestartet. Sie werden in Kürze eine E-Mail an %{email} erhalten
+            exporting_access_codes:
+              info_message: "<strong>Bitte warten</strong>, der Export wird gerade vorbereitet. Sie werden ihn in Kürze an %{email} erhalten"
+            freeze:
+              callout: Die Erhebung ist geschlossen und kann nicht verändert werden.
             generate_access_codes:
               callout: Sie können nun mit der Generierung der Zugangscodes fortfahren. Beachten Sie, dass Sie nach der Generierung der Zugangscodes nicht mehr in der Lage sein werden, die Erhebung zu ändern.
               launch_error: Problem beim Starten der Zugangscodes Generierung
               launch_success: Codegenerierung gestartet.
             generating_access_codes:
               info_message: "<strong>Bitte warten Sie</strong>, die Stimmzugriffscodes werden generiert..."
+        export_mailer:
+          access_codes_export:
+            click_button: 'Klicken Sie auf den Link, um die Zugangscodes herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
+            download: Herunterladen
+            subject: Der Export der Zugangscodes für die Abstimmung %{voting_title} ist verfügbar
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
