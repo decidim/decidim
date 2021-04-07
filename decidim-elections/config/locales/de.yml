@@ -622,6 +622,16 @@ de:
       votings_count: Abstimmungen
     votings:
       admin:
+        ballot_styles:
+          edit:
+            title: Wahlkategorie bearbeiten
+            update: Aktualisieren
+          form:
+            code_help: 'Hinweis: Der Code ist die Verbindung zwischen Erhebungsdaten und Wahlkategorie. Wenn die Erhebungsdaten hochgeladen werden, wird jedem Eintrag anhand dem Wahlkategorie-Code eine Wahlkategorie zugeteilt'
+            election: Wahl
+            questions: Fragen für diese Wahlkategorie
+          index:
+            explanation_callout: Eine Wahlkategorie legt fest, welche Fragen einem Wähler bei der Abstimmung gestellt werden. In einer Wahlkategorie können Sie auswählen, welche Fragen aus den Wahlkomponenten dieser Wahl zu einer Wahlurne gehören. Anhand dem Wahlkategorie-Code aus den Erhebungsdaten des Wählers wird die Wahlkategorie ausgewählt, die einem Wähler angezeigt wird. Wenn Sie immer alle Fragen anzeigen wollen, erstellen Sie keine Wahlkategorien.
         content_blocks:
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
