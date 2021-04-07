@@ -876,6 +876,14 @@ de:
                 explanation: 'Hinweise für die Datei:'
                 message_1: Nur CSV-Dateien (.csv) sind erlaubt.
                 message_2: Das Trennzeichen zwischen den Spalten muss ein Semikolon (";") sein.
+              info_message: "<strong>Es gibt noch keine Erhebungsdaten.</strong> Bitte verwenden Sie das untenstehende Formular um die Erhebungsdaten aus einer CSV-Datei zu importieren."
+              submit: CSV absenden
+              title: Erhebungsdaten erfassen
+            show:
+              heading: Erhebungsdaten der Abstimmung
+            upload_info:
+              csv_example: 'Ein Beispiel für den Dateiinhalt:'
+              csv_fields: 'Muss eine Datei im CSV-Format mit folgenden Feldern sein:'
         export_mailer:
           access_codes_export:
             click_button: 'Klicken Sie auf den Link, um die Zugangscodes herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
