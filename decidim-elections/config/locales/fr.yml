@@ -638,6 +638,19 @@ fr:
             generate_access_codes:
               button: Générer des codes d'accès au vote
               confirm: Si vous continuez, vous ne pourrez plus modifier le recensement.
+              info_message_all: "<strong>Toutes les lignes ont été importées avec succès</strong> depuis le fichier %{file} (%{raw_count} sur %{data_count})."
+              info_message_warn: Veuillez vérifier qu'aucune donnée n'est manquante, car %{data_count} enregistrements ont été créés et le fichier téléchargé %{file} a %{raw_count} lignes.
+            new:
+              file_help:
+                explanation: 'Instructions concernant le fichier :'
+                message_1: Seuls les fichiers CSV (.csv) sont autorisés.
+                message_2: Le séparateur de colonnes doit être un point-virgule (";").
+              info_message: "<strong>Il n'y a pas encore de recensement.</strong> Veuillez utiliser le formulaire ci-dessous pour le créer en important un fichier CSV."
+              submit: Valider le fichier csv
+              title: Créer le recensement
+            upload_info:
+              csv_example: 'Un exemple de contenu du fichier :'
+              csv_fields: 'Doit être un format de fichier .csv avec ces champs :'
       content_blocks:
         highlighted_votings:
           name: Élections remarquables
