@@ -22,6 +22,12 @@ ca:
         slogan: Eslògan
         slug: URL amigable
         title: Títol
+      conference_media_link:
+        weight: Pes
+      conference_partner:
+        weight: Pes
+      conference_registration_type:
+        weight: Pes
       conference_speaker:
         full_name: Nom complet
       conference_user_role:
