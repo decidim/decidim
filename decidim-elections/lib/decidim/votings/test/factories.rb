@@ -89,14 +89,29 @@ FactoryBot.define do
     csv_row_raw_count { 1 }
     csv_row_processed_count { 1 }
 
-    trait :with_datum do
+    trait :with_data do
       after(:create) do |dataset|
-        create(:datum, dataset: dataset)
+        create_list(:datum, 5, dataset: dataset)
+      end
+    end
+
+    trait :with_access_code_data do
+      after(:create) do |dataset|
+        create_list(:datum, 5, :with_access_code, dataset: dataset)
       end
     end
 
     trait :data_created do
       status { "data_created" }
+    end
+
+    trait :codes_generated do
+      with_access_code_data
+      status { "codes_generated" }
+    end
+
+    trait :frozen do
+      status { "freeze" }
     end
   end
 
@@ -117,6 +132,11 @@ FactoryBot.define do
     postal_code { Faker::Address.postcode }
     mobile_phone_number { Faker::PhoneNumber.cell_phone }
     email { Faker::Internet.email }
+
+    trait :with_access_code do
+      access_code { SecureRandom.alphanumeric(8) }
+      hashed_online_data { Digest::SHA256.hexdigest([hashed_check_data, access_code].join(".")) }
+    end
   end
 
   factory :ballot_style, class: "Decidim::Votings::BallotStyle" do

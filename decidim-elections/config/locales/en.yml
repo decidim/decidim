@@ -873,6 +873,17 @@ en:
             destroy:
               error: An error ocurred deleting the census, please try again later.
               success: Census data deleted
+            export_access_codes:
+              button: Export voting Access Codes
+              callout: You can now proceed to export the access codes. This can only be done once. Once you launch the exportation, you will receive an email with the instructions to <strong>%{email}</strong>
+              confirm: You can only export the access codes once. Make sure you have access to the email account <strong>%{email}</strong>.
+              file_not_exists: This file does not exists
+              launch_error: Problem launching the access codes export
+              launch_success: Access codes export launched. Shortly you will receive an email to %{email}
+            exporting_access_codes:
+              info_message: "<strong>Please wait</strong>, the export is being prepared, you will receive it shortly to %{email}"
+            freeze:
+              callout: The census is frozen and cannot be modified.
             generate_access_codes:
               button: Generate voting Access Codes
               callout: You can now proceed to generate the access codes. Mind that after generating the access codes you will not be able to modify the census anymore.
@@ -896,6 +907,11 @@ en:
             upload_info:
               csv_example: 'An example of the file contents:'
               csv_fields: 'Must be a .csv file format with these fields:'
+        export_mailer:
+          access_codes_export:
+            click_button: 'Click the next link to download the access codes data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
+            download: Download
+            subject: The export of the voting access codes for %{voting_title} is available
       content_blocks:
         highlighted_votings:
           name: Highlighted votings

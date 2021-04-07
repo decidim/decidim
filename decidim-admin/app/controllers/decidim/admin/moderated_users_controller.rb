@@ -32,12 +32,16 @@ module Decidim
       private
 
       def reportable
-        @reportable ||= UserModeration.find(params[:id]).user
+        @reportable ||= base_query_finder.find(params[:id]).user
+      end
+
+      def base_query_finder
+        UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: current_organization.id })
       end
 
       def collection
         target_scope = params[:blocked] && params[:blocked] == "true" ? :blocked : :unblocked
-        UserModeration.send(target_scope)
+        base_query_finder.send(target_scope)
       end
     end
   end
