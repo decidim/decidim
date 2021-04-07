@@ -648,6 +648,8 @@ fr:
               info_message: "<strong>Il n'y a pas encore de recensement.</strong> Veuillez utiliser le formulaire ci-dessous pour le créer en important un fichier CSV."
               submit: Valider le fichier csv
               title: Créer le recensement
+            show:
+              heading: Recensement de l'espace de vote
             upload_info:
               csv_example: 'Un exemple de contenu du fichier :'
               csv_fields: 'Doit être un format de fichier .csv avec ces champs :'
