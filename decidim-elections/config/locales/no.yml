@@ -12,6 +12,8 @@
       actions:
         import: Importer forslag til svar
       admin:
+        exports:
+          elections: Valg
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
