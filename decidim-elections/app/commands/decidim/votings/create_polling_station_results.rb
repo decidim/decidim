@@ -38,6 +38,10 @@ module Decidim
           closure.attachment_phase!
         end
 
+        form.question_results.each do |question_result|
+          create_question_result_for(question_result)
+        end
+
         broadcast(:ok)
       end
 

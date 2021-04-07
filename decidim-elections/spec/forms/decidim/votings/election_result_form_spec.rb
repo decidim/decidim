@@ -16,7 +16,8 @@ describe Decidim::Votings::ElectionResultForm do
     {
       election_id: election&.id,
       polling_station_id: polling_station&.id,
-      answer_results: answer_results
+      answer_results: answer_results,
+      question_results: question_results
     }
   end
 
@@ -25,9 +26,19 @@ describe Decidim::Votings::ElectionResultForm do
       question.answers.map do |answer|
         {
           id: answer.id,
+          question_id: question.id,
           votes_count: Faker::Number.number(digits: 1)
         }
       end
+    end
+  end
+
+  let(:question_results) do
+    questions.map do |question|
+      {
+        id: question.id,
+        votes_count: Faker::Number.number(digits: 1)
+      }
     end
   end
 
