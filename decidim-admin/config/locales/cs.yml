@@ -32,6 +32,7 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
+        admin_terms_of_use_body: Tělo zprávy správcovských podmínek použití
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
