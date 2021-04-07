@@ -29,7 +29,7 @@ module Decidim::Votings::Census::Admin
     end
 
     context "when the inputs are valid" do
-      let(:dataset) { create(:dataset, :with_datum, status: :data_created) }
+      let(:dataset) { create(:dataset, :with_data, :data_created) }
 
       it "updates the data" do
         expect(subject).to broadcast(:ok)
