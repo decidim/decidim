@@ -4,7 +4,7 @@ You can add Javascript code by multiple ways in Decidim:
 
 == Asset pipeline
 
-Just add it to `app/assets/javascripts/application.js`. For example to create a new alert just add:
+Just add it to `app/packs/entrypoints/application.js`. For example to create a new alert just add:
 
 [source,javascript]
 ----
