@@ -22,6 +22,12 @@ ro:
         slogan: Slogan
         slug: Adresă URL
         title: Titlu
+      conference_media_link:
+        weight: Greutate
+      conference_partner:
+        weight: Greutate
+      conference_registration_type:
+        weight: Greutate
       conference_speaker:
         full_name: Numele complet
       conference_user_role:
