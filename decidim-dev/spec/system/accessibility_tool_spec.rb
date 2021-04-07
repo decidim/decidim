@@ -42,7 +42,7 @@ describe "Accessibility tool", type: :system do
   end
   let(:html_body) do
     <<~HTML.strip
-      <p>This page is not <span id="color_contrast" style="color:#fff;">accessible</span></p>
+      <p id="paragraph">This page is not <span id="color_contrast" style="color:#fff;">accessible</span></p>
     HTML
   end
 
@@ -63,15 +63,21 @@ describe "Accessibility tool", type: :system do
     Rails.application.reload_routes!
   end
 
-  RSpec::Matchers.define :have_accessibility_violation do |violation_id|
+  RSpec::Matchers.define :have_accessibility_violation_node do |violation_id, node_selector|
     match do |container|
       expect(container).to have_selector(
         ".decidim-accessibility-report-item[data-accessibility-violation='#{violation_id}']"
       )
+
+      within ".decidim-accessibility-report-item[data-accessibility-violation='#{violation_id}']" do
+        within "ul" do
+          expect(page).to have_selector("li", text: node_selector)
+        end
+      end
     end
 
     failure_message do
-      "expected to find accessibility violation #{violation_id} within the container"
+      "expected to find accessibility violation #{violation_id} for node #{node_selector}"
     end
   end
 
@@ -86,15 +92,12 @@ describe "Accessibility tool", type: :system do
     expect(page).to have_selector(".decidim-accessibility-report")
 
     within ".decidim-accessibility-report" do
-      expect(page).to have_css(".decidim-accessibility-report-item", count: 4)
-      expect(page).to have_accessibility_violation("color-contrast")
-      expect(page).to have_accessibility_violation("landmark-one-main")
-      expect(page).to have_accessibility_violation("page-has-heading-one")
-      expect(page).to have_accessibility_violation("region")
+      expect(page).to have_selector(".decidim-accessibility-report-item", count: 4)
 
-      within ".decidim-accessibility-report-item[data-accessibility-violation='color-contrast']" do
-        expect(page).to have_content("Nodes:\n#color_contrast")
-      end
+      expect(page).to have_accessibility_violation_node("color-contrast", "#color_contrast")
+      expect(page).to have_accessibility_violation_node("landmark-one-main", "html")
+      expect(page).to have_accessibility_violation_node("page-has-heading-one", "html")
+      expect(page).to have_accessibility_violation_node("region", "#paragraph")
     end
   end
 
