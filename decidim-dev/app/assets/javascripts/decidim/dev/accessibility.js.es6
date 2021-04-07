@@ -37,6 +37,10 @@
     }
   };
 
+  const htmlEncode = (text) => {
+    return $("<div />").text(text).html();
+  };
+
   $(() => {
     const $badge = $(`
       <div lang="en" class="decidim-accessibility-badge" tabindex="0" aria-label="Toggle accessibility report">
@@ -86,16 +90,15 @@
         const $item = $(`
           <div class="decidim-accessibility-report-item">
             <div class="decidim-accessibility-report-item-title">
-              ${violation.id} - ${violation.help}
+              ${violation.id} - ${htmlEncode(violation.help)}
             </div>
             <div class="decidim-accessibility-report-item-description">
               <div>Impact: ${violation.impact}</div>
               <div>
-                ${violation.description}
+                ${htmlEncode(violation.description)}
               </div>
               <div class="decidim-accessibility-report-item-nodes">
                 Nodes:
-                <ul></ul>
               </div>
             </div>
           </div>
