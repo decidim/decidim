@@ -7,7 +7,7 @@ module Decidim::Votings
     subject { described_class.new(form) }
 
     let(:voting) { create(:voting) }
-    let(:datum) { create(:datum, document_numer: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code, dataset: dataset) }
+    let(:datum) { create(:datum, document_number: document_number, document_type: document_type, birthdate: birthdate, postal_code: postal_code, dataset: dataset) }
     let(:context) { { current_participatory_space: voting } }
     let(:dataset) { create(:dataset, voting: voting) }
     let(:params) do
