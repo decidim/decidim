@@ -9,9 +9,11 @@ describe "Check Census", type: :system do
   let!(:voting) { create(:voting, :published, organization: organization, census_contact_information: "census_help@example.com") }
   let!(:dataset) { create(:dataset, :data_created, voting: voting) }
   let!(:datum) do
-    create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset: dataset)
+    create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset: dataset, mobile_phone_number: mobile_phone_number, email: email)
   end
   let!(:user) { create :user, :confirmed, organization: organization }
+  let(:mobile_phone_number) { "123456789" }
+  let(:email) { "census_email@example.com" }
 
   before do
     switch_to_host(organization.host)
@@ -27,7 +29,7 @@ describe "Check Census", type: :system do
     end
 
     it "shows the title of the page" do
-      expect(page).to have_content("Check your census data")
+      expect(page).to have_content("Can I vote?")
     end
   end
 
@@ -59,6 +61,61 @@ describe "Check Census", type: :system do
     end
   end
 
+  describe "when asking for access code" do
+    before do
+      visit decidim_votings.voting_check_census_path(voting)
+      within ".card__content" do
+        select("DNI", from: "Document type")
+        fill_in "Document number", with: "12345678X"
+        fill_in "Postal code", with: "04001"
+        fill_in "Day", with: "11"
+        fill_in "Month", with: "05"
+        fill_in "Year", with: "1980"
+        find("*[type=submit]").click
+      end
+    end
+
+    context "when asking by email" do
+      it "sends email" do
+        click_button "via SMS or email"
+
+        expect(page).to have_content("Get Access Code")
+
+        click_button "Send by email to"
+
+        callout = find(:xpath, '//*[@id="content"]/div[1]')
+
+        expect(callout).to have_content("successfully")
+      end
+    end
+
+    context "when asking by sms" do
+      it "sends sms" do
+        click_button "via SMS or email"
+
+        expect(page).to have_content("Get Access Code")
+
+        click_button "Send by SMS"
+
+        callout = find(:xpath, '//*[@id="content"]/div[1]')
+
+        expect(callout).to have_content("successfully")
+      end
+    end
+
+    context "when datum has no mobile phone number" do
+      let(:mobile_phone_number) { nil }
+
+      it "cannot receive access code by SMS" do
+        click_button "via SMS or email"
+
+        expect(page).to have_content("Get Access Code")
+
+        expect(page).to have_button("No phone number available")
+      end
+    end
+  end
+
   context "when no census data is found" do
     before do
       visit decidim_votings.voting_check_census_path(voting)
@@ -73,7 +130,7 @@ describe "Check Census", type: :system do
       end
     end
 
-    it "shows note that census data is correct" do
+    it "shows note that census data is not correct" do
       within ".wrapper" do
         expect(page).to have_content("Your census data is incorrect")
         expect(page).to have_content("Fill the following form to check your census data:")

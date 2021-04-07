@@ -636,7 +636,7 @@ en:
             email_subject: You are %{role} of the Polling Station %{polling_station_name}.
             notification_title: You are %{role} of the Polling Station %{polling_station_name} in the voting <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
-          instruction: 'Here is your Access Code that you asked for: %{access_code}. With this you''ll be able to participate in %{voting}'
+          instruction: 'Here is your Access Code that you asked for: %{access_code}. With this you will be able to participate in %{voting}.'
           subject: Your Access Code to participate in %{voting}
     help:
       participatory_spaces:
@@ -1024,6 +1024,7 @@ en:
         access_code_modal:
           email: Send by email to %{email}
           info: You need an Access Code to participate. If you didn't get one by postal mail, we can send you a new one.
+          no_email: No email available
           no_sms: No phone number available
           sms: Send by SMS to %{sms}
           title: Get Access Code
@@ -1039,7 +1040,7 @@ en:
             access_link: via SMS or email.
             info: You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here
             title: Your census data is correct!
-          title: Check your census data
+          title: Can I vote?
         check_fields:
           date_of_birth: Date of birth
           day: Day
@@ -1087,6 +1088,9 @@ en:
           label: 'Sort votings by:'
           random: Random
           recent: Most recent
+        send_access_code:
+          invalid: There was a problem sending the Access Code
+          success: Your Access Code got send successfully
         show:
           dates: Dates
       votings_m:
@@ -1109,7 +1113,7 @@ en:
       election_votes_header:
         exit: Exit
       voting_navigation:
-        check_census: How to vote
+        check_census: Can I vote?
         voting_menu_item: The voting
       votings:
         index:

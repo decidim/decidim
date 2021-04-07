@@ -10,7 +10,13 @@
   </p>
   <div class="row">
     <div class="columns medium-8 medium-offset-2">
-      <%= button_to t(".email", email: email), voting_send_access_code_path(datum.dataset.voting, datum_id: datum), class: "button hollow expanded" %>
+      <% if email.empty? %>
+        <button class="disabled button hollow expanded">
+          <%= t(".no_email") %>
+        </button>
+      <% else %>
+        <%= button_to t(".email", email: email), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "email"), class: "button hollow expanded" %>
+      <% end %>
     </div>
   </div>
   <div class="row">
@@ -20,9 +26,7 @@
           <%= t(".no_sms") %>
         </button>
       <% else %>
-        <button>
-          <%= t(".sms", sms: sms) %>
-        </button>
+        <%= button_to t(".sms", sms: sms), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "sms"), class: "button hollow expanded" %>
       <% end %>
     </div>
   </div>
