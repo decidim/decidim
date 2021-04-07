@@ -26,6 +26,7 @@ module Decidim
       has_many :trustees, through: :elections_trustees
       has_many :votes, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Vote", dependent: :restrict_with_exception
       has_many :actions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Action", dependent: :restrict_with_exception
+      has_many :results, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Result", dependent: :destroy
 
       scope :active, lambda {
         where("start_time <= ?", Time.current)
