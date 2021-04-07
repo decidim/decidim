@@ -98,6 +98,7 @@ en:
       show:
         change_password: Change password
         update_account: Update account
+        available_locales_helper: The language in which you'll be using to browse Decidim and receive email notifications
       update:
         error: There was a problem updating your account.
         success: Your account was successfully updated.

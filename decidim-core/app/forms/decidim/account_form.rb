@@ -8,6 +8,7 @@ module Decidim
 
     mimic :user
 
+    attribute :language_preference
     attribute :name
     attribute :nickname
     attribute :email
@@ -18,6 +19,7 @@ module Decidim
     attribute :personal_url
     attribute :about
 
+    validates :language_preference, presence: true
     validates :name, presence: true
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
     validates :nickname, presence: true, format: /\A[\w\-]+\z/

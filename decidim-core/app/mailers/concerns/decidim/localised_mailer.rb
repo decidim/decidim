@@ -13,7 +13,7 @@ module Decidim
       #
       # Returns nothing.
       def with_user(user)
-        I18n.with_locale(user.locale || user.organization.default_locale) do
+        I18n.with_locale(user.language_preference || user.locale || user.organization.default_locale) do
           yield
         end
       end
