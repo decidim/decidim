@@ -416,6 +416,11 @@ en:
           percentage: "%{count}%"
           selected: Selected
           title: Election results
+          totals:
+            all_ballots: 'Total Ballots: %{count} (%{percentage}%)'
+            blank_ballots: 'Blank Ballots: %{count} (%{percentage}%)'
+            null_ballots: 'Null Ballots: %{count} (%{percentage}%)'
+            valid_ballots: 'Valid Ballots: %{count} (%{percentage}%)'
           votes:
             one: "%{count} vote"
             other: "%{count} votes"
