@@ -1289,6 +1289,10 @@ cs:
         title: Vyberte počet výsledků na stránku
       share_modal:
         close_window: Zavřete okno
+        copy_share_link: Kopírovat
+        copy_share_link_clarification: Zkopírovat odkaz pro sdílení do schránky
+        copy_share_link_copied: Zkopírováno!
+        copy_share_link_message: Odkaz byl úspěšně zkopírován do schránky.
         share: Sdílet
         share_link: Sdílet odkaz
     statistics:
