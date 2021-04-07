@@ -58,7 +58,7 @@ module Decidim
 
         context "when a ballot style with the same code exists" do
           context "when it's in the same voting" do
-            let!(:existing_ballot_style) { create(:ballot_style, voting: voting, code: code) }
+            let!(:existing_ballot_style) { create(:ballot_style, voting: voting, code: code.upcase) }
 
             it "is not valid" do
               expect(errors).to receive(:add).with(:code, :taken)
@@ -67,7 +67,7 @@ module Decidim
           end
 
           context "when it's in another voting" do
-            let!(:existing_ballot_style) { create(:ballot_style, code: code) }
+            let!(:existing_ballot_style) { create(:ballot_style, code: code.upcase) }
 
             it "is valid" do
               expect { subject.call }.to broadcast(:ok)
