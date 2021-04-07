@@ -70,7 +70,7 @@ describe "Accessibility tool", type: :system do
       )
 
       within ".decidim-accessibility-report-item[data-accessibility-violation='#{violation_id}']" do
-        within "ul" do
+        within ".decidim-accessibility-report-item-nodes ul" do
           expect(page).to have_selector("li", text: node_selector)
         end
       end
