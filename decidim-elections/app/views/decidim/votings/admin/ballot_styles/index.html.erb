@@ -24,7 +24,7 @@
           <tr>
             <% voting_elections.each do |election| %>
               <% election.questions.each do |question| %>
-                <th data-tooltip class="ballot-style__question-header" title="<%= translated_attribute(question.title) %>"><%= truncate translated_attribute(question.title), length: 5 %></th>
+                <th data-tooltip class="ballot-style__question-header" title="<%= translated_attribute(question.title) %>"><%= translated_attribute(question.title) %></th>
               <% end %>
             <% end %>
           </tr>
