@@ -58,7 +58,7 @@ jobs:
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       RUBYOPT: "-W:no-deprecated"
-      ELECTIONS_BULLETIN_BOARD_SERVER: http://bulletin_board:8000/api
+      ELECTIONS_BULLETIN_BOARD_SERVER: http://localhost:8000/api
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
         if: "github.ref != 'refs/heads/develop'"
