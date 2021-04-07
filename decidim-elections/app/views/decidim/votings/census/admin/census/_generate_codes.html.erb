@@ -18,7 +18,6 @@
   <%= cell("decidim/announcement", info_message, callout_class: callout_class ) %>
 
   <%= cell("decidim/announcement", t("generate_access_codes.callout", scope: "decidim.votings.census.admin.census"), callout_class: "warning" ) %>
-
   <%= link_to t("generate_access_codes.button", scope: "decidim.votings.census.admin.census"),
                     generate_access_codes_path,
                     class: "button",

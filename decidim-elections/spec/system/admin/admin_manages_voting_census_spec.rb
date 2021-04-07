@@ -33,13 +33,13 @@ describe "Admin manages polling officers", type: :system do
 
   context "when data exists" do
     before do
-      create :dataset, :data_created, :with_datum, voting: voting
+      create :dataset, :data_created, :with_data, voting: voting
       visit decidim_admin_votings.voting_census_path(voting)
     end
 
     it "shows the processed file result" do
       expect(page).to have_admin_callout("Finished processing")
-      expect(page).to have_content("All rows imported successfully")
+      expect(page).to have_content("You can now proceed to generate the access codes")
     end
 
     it "shows an option to delete the census" do
@@ -69,6 +69,33 @@ describe "Admin manages polling officers", type: :system do
 
         expect(page).to have_content("Please wait")
       end
+    end
+  end
+
+  context "when access codes have been generated" do
+    before do
+      create :dataset, :codes_generated, voting: voting
+      visit decidim_admin_votings.voting_census_path(voting)
+    end
+
+    it "exports the access codes" do
+      within ".voting-content" do
+        accept_confirm { click_link "Export voting Access Codes" }
+      end
+
+      expect(page).to have_admin_callout("Access codes export launched")
+      expect(page).to have_admin_callout(user.email)
+    end
+  end
+
+  context "when census is frozen" do
+    before do
+      create :dataset, :frozen, voting: voting
+      visit decidim_admin_votings.voting_census_path(voting)
+    end
+
+    it "Shows that the census is frozen" do
+      expect(page).to have_content("The census is frozen")
     end
   end
 end

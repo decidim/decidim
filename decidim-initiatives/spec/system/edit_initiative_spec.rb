@@ -44,13 +44,6 @@ describe "Edit initiative", type: :system do
 
     it_behaves_like "manage update"
 
-    context "when there is a single initiative" do
-      let!(:other_initiative_type) { nil }
-      let!(:other_scoped_type) { nil }
-
-      it_behaves_like "manage update"
-    end
-
     context "when initiative is published" do
       let(:initiative) { create(:initiative, author: user, scoped_type: scoped_type, organization: organization) }
 

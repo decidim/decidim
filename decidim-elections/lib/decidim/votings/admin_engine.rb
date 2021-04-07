@@ -29,12 +29,12 @@ module Decidim
           resources :attachment_collections, controller: "voting_attachment_collections"
           resources :ballot_styles
 
-          resource :census, only: [:show, :destroy], controller: "/decidim/votings/census/admin/census" do
+          resource :census, only: [:show, :destroy, :create], controller: "/decidim/votings/census/admin/census" do
             member do
-              get :status, action: :status
-              post :create, action: :create
-              put :update, action: :update
-              get :generate_access_codes, action: :generate_access_codes
+              get :status
+              get :generate_access_codes
+              get :export_access_codes
+              get :download_access_codes_file
             end
           end
         end
@@ -131,6 +131,8 @@ module Decidim
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.votings.admin.menu.votings_submenu"),
                         "#",
+                        active: is_active_link?(decidim_admin_votings.voting_attachment_collections_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_votings.voting_attachments_path(current_participatory_space)),
                         if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
                         submenu: { target_menu: :decidim_votings_attachments_menu }
 
