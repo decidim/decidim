@@ -46,6 +46,9 @@ fr:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/census/dataset:
+        one: Jeu de données
+        other: Jeux de données
       decidim/votings/voting:
         one: Vote
         other: Votes
@@ -549,6 +552,7 @@ fr:
             attachment_collections: Dossiers
             attachment_files: Fichiers
             attachments: Pièces jointes
+            census: Recensement
             info: Information
             polling_stations: Bureaux de vote
         models:
@@ -618,6 +622,22 @@ fr:
           create: "%{user_name} a créé l'élection %{resource_name}"
           publish: "%{user_name} a publié l'élection %{resource_name}"
           unpublish: "%{user_name} a annulé la publication de l'élection %{resource_name}"
+      census:
+        admin:
+          census:
+            create:
+              error: une erreur s'est produite lors de du téléchargement du recensement, veuillez réessayer plus tard.
+            creating_data:
+              info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file}."
+            delete:
+              button: Supprimer toutes les données du recensement
+              confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
+            destroy:
+              error: Une erreur s'est produite lors de la suppression du recensement, veuillez réessayer plus tard.
+              success: Données de recensement supprimées
+            generate_access_codes:
+              button: Générer des codes d'accès au vote
+              confirm: Si vous continuez, vous ne pourrez plus modifier le recensement.
       content_blocks:
         highlighted_votings:
           name: Élections remarquables
