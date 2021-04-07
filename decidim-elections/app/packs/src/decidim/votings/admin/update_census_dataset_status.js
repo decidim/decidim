@@ -4,9 +4,10 @@ $(() => {
     const updateStatusUrl = $wrapper.data("updateStatusUrl")
 
     if ($wrapper.length > 0) {
-      $.get( updateStatusUrl );
+      $.get(updateStatusUrl);
     }
   }
 
-  setInterval(updateCensusDatasetStatus, 60000); // 1 minute
+  // 1 minute
+  setInterval(updateCensusDatasetStatus, 60000);
 });

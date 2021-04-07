@@ -1,3 +1,5 @@
+/* eslint-disable no-invalid-this */
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import toggleNav from "./toggle_nav"

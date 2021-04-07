@@ -1,5 +1,4 @@
 /* eslint-disable require-jsdoc, no-alert, func-style */
-// TODO-blat
 // = require decidim/bulletin_board/decidim-bulletin_board
 
 window.Decidim = window.Decidim || {};

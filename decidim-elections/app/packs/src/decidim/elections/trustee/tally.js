@@ -1,4 +1,3 @@
-// TODO-blat
 // = require decidim/bulletin_board/decidim-bulletin_board
 
 // Note: these gems will be moved to the application in the next release

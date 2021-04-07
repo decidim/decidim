@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import VoteQuestionsComponent from './vote_questions.component';
-import setupVoteComponent from './setup-vote';
+import VoteQuestionsComponent from "./vote_questions.component";
+import setupVoteComponent from "./setup-vote";
 
 $(async () => {
   // UI Elements
