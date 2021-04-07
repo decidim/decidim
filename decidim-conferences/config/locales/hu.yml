@@ -22,6 +22,12 @@ hu:
         slogan: Szlogen
         slug: URL slug
         title: Cím
+      conference_media_link:
+        weight: Súly
+      conference_partner:
+        weight: Súly
+      conference_registration_type:
+        weight: Súly
       conference_speaker:
         full_name: Teljes név
       conference_user_role:
