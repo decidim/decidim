@@ -22,6 +22,12 @@ es:
         slogan: Eslogan
         slug: URL amigable
         title: Título
+      conference_media_link:
+        weight: Peso
+      conference_partner:
+        weight: Peso
+      conference_registration_type:
+        weight: Peso
       conference_speaker:
         full_name: Nombre completo
       conference_user_role:
