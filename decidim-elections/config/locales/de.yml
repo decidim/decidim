@@ -840,6 +840,16 @@ de:
       census:
         admin:
           census:
+            create:
+              error: beim Hochladen der Erhebung ist ein Problem aufgetreten, bitte versuchen Sie es später erneut.
+            creating_data:
+              info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
+            delete:
+              button: Alle Erhebungsdaten löschen
+              confirm: Dies kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+            destroy:
+              error: Beim Löschen der Erhebungsdaten ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
+              success: Erhebungsdaten gelöscht
             export_access_codes:
               button: Zugangscodes für die Abstimmung exportieren
               callout: Sie können jetzt die Zugangscodes exportieren. Dies kann nur einmal geschehen. Sobald Sie den Export gestartet haben, werden Sie eine E-Mail mit den Anweisungen unter <strong>%{email}</strong> erhalten
@@ -852,11 +862,20 @@ de:
             freeze:
               callout: Die Erhebung ist geschlossen und kann nicht verändert werden.
             generate_access_codes:
+              button: Zugangscodes für die Abstimmung generieren
               callout: Sie können nun mit der Generierung der Zugangscodes fortfahren. Beachten Sie, dass Sie nach der Generierung der Zugangscodes nicht mehr in der Lage sein werden, die Erhebung zu ändern.
+              confirm: Wenn Sie fortfahren, werden Sie die Erhebungsdaten nicht mehr ändern können.
+              info_message_all: "Alle Zeilen aus der Datei %{file} wurden <strong>erfolgreich importiert</strong> (%{raw_count} von %{data_count})."
+              info_message_warn: Bitte überprüfen Sie, dass keine Daten fehlen, denn es wurden %{data_count} Datensätze erstellt und die hochgeladene Datei %{file} enthielt %{raw_count} Zeilen.
               launch_error: Problem beim Starten der Zugangscodes Generierung
               launch_success: Codegenerierung gestartet.
             generating_access_codes:
               info_message: "<strong>Bitte warten Sie</strong>, die Stimmzugriffscodes werden generiert..."
+            new:
+              file_help:
+                explanation: 'Hinweise für die Datei:'
+                message_1: Nur CSV-Dateien (.csv) sind erlaubt.
+                message_2: Das Trennzeichen zwischen den Spalten muss ein Semikolon (";") sein.
         export_mailer:
           access_codes_export:
             click_button: 'Klicken Sie auf den Link, um die Zugangscodes herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
