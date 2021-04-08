@@ -96,6 +96,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       show:
+        available_locales_helper: The language in which you'll be using to receive Decidim email notifications
         change_password: Change password
         update_account: Update account
       update:

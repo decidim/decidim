@@ -5,11 +5,13 @@ module Decidim
   # his own newsletter notifications settings. GDPR releated
   class NewslettersOptInMailer < ApplicationMailer
     def notify(user, token)
-      @user = user
-      @organization = user.organization
-      @token = token
+      with_user(user) do
+        @user = user
+        @organization = user.organization
+        @token = token
 
-      mail(to: user.email, subject: I18n.t("decidim.newsletters_opt_in_mailer.notify.subject", organization_name: @organization.name))
+        mail(to: user.email, subject: I18n.t("decidim.newsletters_opt_in_mailer.notify.subject", organization_name: @organization.name))
+      end
     end
   end
 end
