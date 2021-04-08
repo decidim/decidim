@@ -1,14 +1,6 @@
-<%
-  ballot_style_code_header = "Ballot Style Code"
-  ballot_style_callout_message, ballot_style_callout_level =
-    current_participatory_space.has_ballot_styles? ?
-    [t("has_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_style_code_header: ballot_style_code_header), "warning"] :
-    [t("missing_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_styles_admin_path: admin_voting_ballot_styles_path), "alert"]
-%>
-
 <div class="card-section">
   <%= cell("decidim/announcement", t("info_message", scope: "decidim.votings.census.admin.census.new"), callout_class: "warning") %>
-  <%= cell("decidim/announcement", ballot_style_callout_message, callout_class: ballot_style_callout_level) %>
+  <%= cell("decidim/announcement", ballot_style_callout_text, callout_class: ballot_style_callout_level) %>
 
   <div class="card">
     <div class="card-section">

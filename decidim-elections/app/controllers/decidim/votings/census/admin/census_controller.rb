@@ -6,8 +6,9 @@ module Decidim
       module Admin
         # This controller allows to create or update the census.
         class CensusController < Admin::ApplicationController
-          helper_method :votings, :current_participatory_space, :current_census, :census_steps, :current_census_action_view, :user_email
-          helper_method :admin_voting_census_path, :admin_status_voting_census_path, :generate_access_codes_path, :export_access_codes_path, :admin_voting_ballot_styles_path
+          helper_method :votings, :current_participatory_space, :current_census, :census_steps, :current_census_action_view,
+                        :user_email, :ballot_style_callout_text, :ballot_style_callout_level, :ballot_style_code_header
+          helper_method :admin_voting_census_path, :admin_status_voting_census_path, :generate_access_codes_path, :export_access_codes_path
 
           def show
             enforce_permission_to :manage, :census, voting: current_participatory_space
@@ -124,10 +125,6 @@ module Decidim
             decidim_votings_admin.voting_census_path(current_participatory_space)
           end
 
-          def admin_voting_ballot_styles_path
-            decidim_votings_admin.voting_ballot_styles_path(current_participatory_space)
-          end
-
           def admin_status_voting_census_path
             decidim_votings_admin.status_voting_census_path(current_participatory_space)
           end
@@ -172,6 +169,30 @@ module Decidim
 
           def user_email
             current_user.email
+          end
+
+          def ballot_style_callout_text
+            if current_participatory_space.has_ballot_styles?
+              t("has_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_style_code_header: ballot_style_code_header)
+            else
+              t("missing_ballot_styles_message", scope: "decidim.votings.census.admin.census.new", ballot_styles_admin_path: admin_voting_ballot_styles_path)
+            end
+          end
+
+          def ballot_style_callout_level
+            if current_participatory_space.has_ballot_styles?
+              "warning"
+            else
+              "alert"
+            end
+          end
+
+          def admin_voting_ballot_styles_path
+            decidim_votings_admin.voting_ballot_styles_path(current_participatory_space)
+          end
+
+          def ballot_style_code_header
+            "Ballot Style Code"
           end
         end
       end
