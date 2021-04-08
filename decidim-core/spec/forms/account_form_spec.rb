@@ -6,6 +6,7 @@ module Decidim
   describe AccountForm do
     subject do
       described_class.new(
+        language_preference: language_preference,
         name: name,
         email: email,
         nickname: nickname,
@@ -24,6 +25,7 @@ module Decidim
     let(:user) { create(:user) }
     let(:organization) { user.organization }
 
+    let(:language_preference) { "en" }
     let(:name) { "Lord of the Foo" }
     let(:email) { "depths@ofthe.bar" }
     let(:nickname) { "foo_bar" }
@@ -96,6 +98,16 @@ module Decidim
 
         it "is valid" do
           expect(subject).to be_valid
+        end
+      end
+
+      describe "language_preference" do
+        context "with an empty value" do
+          let(:language_preference) { "" }
+
+          it "is invalid" do
+            expect(subject).to be_valid
+          end
         end
       end
 
