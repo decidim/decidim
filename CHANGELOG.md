@@ -1,5 +1,7 @@
 # Change Log
 
+## [0.23.5](https://github.com/decidim/decidim/tree/v0.23.5)
+
 ## [0.23.4](https://github.com/decidim/decidim/tree/v0.23.4)
 
 **Added**
