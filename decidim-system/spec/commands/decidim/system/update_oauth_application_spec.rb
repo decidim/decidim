@@ -17,7 +17,7 @@ module Decidim::System
       }
     end
     let(:file) do
-      Rack::Test::UploadedFile.new(
+      fixture_file_upload(
         Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
         "image/jpeg"
       )
