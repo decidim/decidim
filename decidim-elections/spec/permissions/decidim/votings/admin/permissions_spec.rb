@@ -78,7 +78,7 @@ describe Decidim::Votings::Admin::Permissions do
   describe "ballot styles" do
     let(:action_subject) { :ballot_style }
 
-    context "when updating a ballot styles" do
+    context "when updating a ballot style" do
       let(:action_name) { :update }
       let(:extra_context) { { ballot_style: ballot_style } }
       let(:ballot_style) { create(:ballot_style, voting: voting) }

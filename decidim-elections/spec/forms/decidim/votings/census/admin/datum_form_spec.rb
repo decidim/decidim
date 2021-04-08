@@ -94,7 +94,7 @@ describe Decidim::Votings::Census::Admin::DatumForm do
     it { is_expected.to be_invalid }
   end
 
-  describe "when ballots style code is missing" do
+  describe "when ballot style code is missing" do
     let(:ballot_style_code) { nil }
 
     it { is_expected.to be_valid }

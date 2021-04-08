@@ -7,8 +7,8 @@ module Decidim
       class BallotStyleByVotingCode < Rectify::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
-        # voting - the voting of the Vallot Style
-        # code - the code of the Vallot Style
+        # voting - the voting of the Ballot Style
+        # code - the code of the Ballot Style
         def self.for(voting, code)
           new(voting, code).query
         end

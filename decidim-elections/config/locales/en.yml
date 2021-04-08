@@ -865,7 +865,7 @@ en:
         admin:
           census:
             create:
-              invalid: An error ocurred uploading the census, please try again later.
+              invalid: An error occurred uploading the census, please try again later.
               invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
             creating_data:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
@@ -873,7 +873,7 @@ en:
               button: Delete all census data
               confirm: Delete all the census can not be undone. Are you sure you want to continue?
             destroy:
-              error: An error ocurred deleting the census, please try again later.
+              error: An error occurred deleting the census, please try again later.
               success: Census data deleted
             export_access_codes:
               button: Export voting Access Codes
@@ -903,7 +903,7 @@ en:
                 message_2: The separator between columns must be a semicolon (";").
               has_ballot_styles_message: You set up Ballot Styles. Please make sure that the "%{ballot_style_code_header}" field in the CSV corresponds to the desired Ballot Style's code.
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
-              missing_ballot_styles_message: 'There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to presents all voters with the same questions, you can proceed with the census import procedure.'
+              missing_ballot_styles_message: 'There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to present all voters with the same questions, you can proceed with the census import procedure.'
               submit: Submit csv
               title: Create the census
             show:

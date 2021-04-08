@@ -28,7 +28,7 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        describe "when th code is lowercase" do
+        describe "when the code is lowercase" do
           it { expect(subject.code).to eq(code.upcase) }
         end
       end
