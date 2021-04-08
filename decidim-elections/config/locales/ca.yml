@@ -652,6 +652,23 @@ ca:
           edit:
             title: Modifica estil de papereta
             update: Actualitza
+          form:
+            election: Elecció
+            questions: Preguntes per a l'estil de papereta
+          index:
+            actions:
+              confirm_destroy: Va debò?
+              destroy: Esborra
+              edit: Modifica
+              new: Nou
+              title: Accions
+            title: Estils de papereta
+          new:
+            create: Crea
+            title: Crea un estil de papereta
+          update:
+            invalid: Hi ha hagut un error en actualitzar l'estil de papereta
+            success: L'estil de papereta s'ha actualitzat correctament
         content_blocks:
           highlighted_votings:
             max_results: Quantitat màxima d'elements per mostrar
@@ -694,6 +711,8 @@ ca:
             attachment_collections: Carpetes
             attachment_files: Arxius
             attachments: Adjunts
+            ballot_styles: Estils de papereta
+            census: Cens
             components: Components
             info: Informació
             landing_page: Pàgina d'inici
@@ -701,6 +720,10 @@ ca:
             polling_officers: Gestors de mesa
             polling_stations: Punts de votació
         models:
+          ballot_style:
+            fields:
+              code: Codi
+            name: Estil de papereta
           monitoring_committee_member:
             fields:
               email: Correu electrònic
@@ -833,6 +856,8 @@ ca:
       census:
         admin:
           census:
+            create:
+              error: s'ha produït un error en actualitzar el cens, prova-ho de nou més tard.
             generating_access_codes:
               info_message: "<strong>Si us plau, espereu</strong>, estem generant el code d'accès per a votar..."
             new:
