@@ -59,13 +59,9 @@ module Decidim
         remove_file "app/views/layouts/mailer.text.erb"
       end
 
-      def append_assets
-        inject_into_file "app/assets/stylesheets/application.css",
-                         before: "*= require_tree ." do
-          "*= require decidim\n "
-        end
-
-        template "decidim.scss.erb", "app/assets/stylesheets/decidim.scss", force: true
+      def remove_assets
+        # Remove manually assets
+        system("rm -rf app/assets")
       end
 
       def disable_precompilation_on_demand
@@ -109,13 +105,6 @@ module Decidim
         recreate_db if options[:recreate_db]
       end
 
-      def install_webpacker
-        rails "webpacker:install"
-
-        # Remove manually assets
-        system("rm -rf app/assets/javascripts")
-      end
-
       def letter_opener_web
         route <<~RUBY
           if Rails.env.development?
@@ -153,6 +142,10 @@ module Decidim
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
 
         run "bundle install"
+      end
+
+      def install_webpacker
+        rails "webpacker:install"
       end
 
       private
