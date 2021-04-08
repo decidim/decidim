@@ -60,8 +60,6 @@ module Decidim
       end
 
       def append_assets
-        append_file "app/assets/javascripts/application.js", "//= require decidim"
-        gsub_file "app/assets/javascripts/application.js", %r{//= require turbolinks\n}, ""
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
           "*= require decidim\n "
@@ -83,10 +81,6 @@ module Decidim
         end
       end
 
-      def configure_js_compressor
-        gsub_file "config/environments/production.rb", "config.assets.js_compressor = :uglifier", "config.assets.js_compressor = Uglifier.new(:harmony => true)"
-      end
-
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
@@ -104,6 +98,10 @@ module Decidim
             |  }
           RUBY
         end
+      end
+
+      def install_webpacker_initializer
+        copy_file "webpacker_initializer.rb", "config/initializers/webpacker.rb"
       end
 
       def copy_migrations
@@ -148,13 +146,6 @@ module Decidim
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
 
         run "bundle install"
-      end
-
-      def install_webpacker
-        rails "webpacker:install"
-
-        # Remove manually assets
-        system("rm -rf app/assets/javascripts")
       end
 
       private
