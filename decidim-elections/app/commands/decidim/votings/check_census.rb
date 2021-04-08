@@ -23,8 +23,8 @@ module Decidim
       attr_reader :form, :session
 
       def check_census
-        if Decidim::Votings::Census::Datum.exists?(dataset: form.current_participatory_space.dataset, hashed_check_data: form.hashed_check_data)
-          datum = Decidim::Votings::Census::Datum.find_by(dataset: form.current_participatory_space.dataset, hashed_check_data: form.hashed_check_data)
+        datum = Decidim::Votings::Census::Datum.find_by(dataset: form.current_participatory_space.dataset, hashed_check_data: form.hashed_check_data)
+        if datum
           broadcast(:ok, datum)
         else
           broadcast(:not_found)
