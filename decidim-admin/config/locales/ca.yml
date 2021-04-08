@@ -32,6 +32,7 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
+        admin_terms_of_use_body: Cos del text de condicions d'ús per als administradors
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
