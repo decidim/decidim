@@ -5,7 +5,7 @@ import '../src/evote_check_nota'
 import '../src/vizzs/datacharts'
 
 // Images
-const images = require.context('../images', true)
+require.context('../images', true)
 
 // CSS
 import './public.scss';

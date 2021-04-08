@@ -4,4 +4,4 @@ import "../src/decidim/conferences/admin/conference_invite_form"
 import "../../../../decidim-core/app/packs/src/decidim/slug_form"
 
 // Images
-const images = require.context('../images', true)
+require.context("../images", true)

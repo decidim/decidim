@@ -59,7 +59,7 @@ import "../src/decidim/gallery"
 import "./decidim_core.scss"
 
 // Images
-const images = require.context('../images', true)
+require.context("../images", true)
 
 // This needs to be loaded after confirm dialog to bind properly
 import Rails from "@rails/ujs"

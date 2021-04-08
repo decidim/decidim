@@ -1,4 +1,4 @@
 import "./decidim_templates.scss";
 
 // Images
-const images = require.context('../images', true)
+require.context("../images", true)

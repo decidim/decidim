@@ -5,4 +5,4 @@ import "../src/decidim/initiatives/scoped_type"
 import "./decidim_initiatives_print.scss"
 
 // Images
-const images = require.context('../images', true)
+require.context("../images", true)

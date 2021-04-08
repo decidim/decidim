@@ -5,4 +5,4 @@ import "../src/decidim/consultations/vote_dialog"
 import "../../../../decidim-core/app/packs/src/decidim/slug_form"
 
 // Images
-const images = require.context('../images', true)
+require.context("../images", true)
