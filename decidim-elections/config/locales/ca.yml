@@ -831,6 +831,7 @@ ca:
             assign_missing_officers: Hi ha punts de votació sense president i/o gestors. Si us plau, assigna'ls des de la secció de punts de votació
             update: Actualitzar
           form:
+            census_contact_information_help: La informació de contacte és per a participants que vulguin avisar d'incidències amb el cens. Pot ser una adreça de correu electrònic, un formulari de contacte ubicat en un altre lloc web, una enquesta de Decidim per a visitants, etc.
             select_a_voting_type: Si us plau selecciona un tipus de votació
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
@@ -875,7 +876,15 @@ ca:
               launch_success: Hem iniciat l'exportació dels codis d'accés. En breu rebràs un correu a %{email}
             exporting_access_codes:
               info_message: "<strong>Espera</strong>, estem preparant per a l'exportació. En breu rebràs un correu en %{email}"
+            freeze:
+              callout: El cens està blocat i no es pot modificar-lo.
             generate_access_codes:
+              button: Genera Codis d'Accès per a la votació
+              callout: Ara ja pots generar els codis d'accès. Adona-te'n que una vegada que els hagis generat ja no podràs modificar més el cens.
+              confirm: Si continues, ja no podràs modificar més el cens.
+              info_message_all: "<strong>S'han exportat correctament les fileres</strong> del fitxer %{file} (%{raw_count} de %{data_count})."
+              info_message_warn: Si us plau, comproveu que no s'hagi perdut cap dada, ja que hem creat %{data_count} registres i el fitxer pujat %{file} té %{raw_count} fileres.
+              launch_error: Hi ha hagut un error en generar els codis d'accés
               launch_success: Hem iniciat la generació dels codis.
             generating_access_codes:
               info_message: "<strong>Si us plau, espereu</strong>, estem generant el code d'accès per a votar..."
