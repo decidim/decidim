@@ -1,5 +1,31 @@
 # Change Log
 
+## [v0.24.1](https://github.com/decidim/decidim/releases/tag/v0.24.1)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-admin**: Add admin missing translations (#7702) [\#7766](https://github.com/decidim/decidim/pull/7766)
+- **decidim-initiatives**: Fix permission for initiative edit and update [\#7654](https://github.com/decidim/decidim/pull/7654)
+- **decidim-conferences**:  Fix validations for registration related fields in Conference form [\#7734](https://github.com/decidim/decidim/pull/7734)
+- **decidim-admin**, **decidim-conferences**: Add Conferences and Admin missing translations (#7653) [\#7765](https://github.com/decidim/decidim/pull/7765)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Do not modify the controller class in the controller tests that rende… [\#7775](https://github.com/decidim/decidim/pull/7775)
+- Upgrade to Rails 5.2.5 [\#7806](https://github.com/decidim/decidim/pull/7806)
+
 ## [v0.24.0](https://github.com/decidim/decidim/releases/tag/v0.24.0)
 
 ### Upgrade Notes
