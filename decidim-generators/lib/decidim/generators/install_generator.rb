@@ -153,6 +153,13 @@ module Decidim
         run "bundle install"
       end
 
+      def install_webpacker
+        rails "webpacker:install"
+
+        # Remove manually assets
+        system("rm -rf app/assets/javascripts")
+      end
+
       private
 
       def recreate_db
