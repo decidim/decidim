@@ -34,8 +34,13 @@ export default function icon(iconKey, attributes = {}) {
   const $el = $(elHtml);
   if (title) {
     $el.prepend(`<title>${title}</title>`);
+  } else {
+    // This keeps accessibility audit tools happy
+    $el.prepend(`<title>${iconKey}</title>`);
+    // Force hidden if title is not defined
+    htmlAttributes["aria-hidden"] = "true";
   }
   $el.attr(htmlAttributes);
 
   return $("<div />").append($el).html();
-}
+};

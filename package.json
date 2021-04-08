@@ -263,6 +263,7 @@
     "react-select": "^1.2.1",
     "react-test-renderer": "^16.0.0",
     "sass": "^1.32.8",
+    "select": "^1.1.2",
     "social-share-button": "2.2.0",
     "stylelint": "13.11.0",
     "svg4everybody": "2.1.9",
