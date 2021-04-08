@@ -11,7 +11,7 @@ module Decidim
       return if current_organization.favicon.blank?
 
       safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
-        favicon_pack_tag(current_organization.favicon.send(version).url, sizes: "#{size}x#{size}")
+        favicon_link_tag(current_organization.favicon.send(version).url, sizes: "#{size}x#{size}")
       end)
     end
 
