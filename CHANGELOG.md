@@ -2,15 +2,15 @@
 
 ## [0.23.5](https://github.com/decidim/decidim/tree/v0.23.5)
 
-### Added
+**Added**:
 
 Nothing.
 
-### Changed
+**Changed**:
 
 Nothing.
 
-### Fixed
+**Fixed**:
 
 - **decidim-participatory processes**: Fix process serializer to consider nil images [\#7615](https://github.com/decidim/decidim/pull/7615)
 - **decidim-proposals**: Backport proposal imports fix to 0.23 [\#7610](https://github.com/decidim/decidim/pull/7610)
@@ -19,11 +19,11 @@ Nothing.
 - **decidim-proposals**: Fix rendering of proposals in map [\#7644](https://github.com/decidim/decidim/pull/7644)
 - **decidim-proposals**: Show all proposals in map (#7660) [\#7677](https://github.com/decidim/decidim/pull/7677)
 
-### Removed
+**Removed**:
 
 Nothing.
 
-### Developer improvements
+**Developer improvements**:
 
 - Fix migration from #7640 [\#7650](https://github.com/decidim/decidim/pull/7650)
 - Lint file [\#7652](https://github.com/decidim/decidim/pull/7652)
