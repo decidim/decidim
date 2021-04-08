@@ -5,6 +5,8 @@ ca:
         delete_reason: Raó per eliminar el teu compte
       common:
         created_at: Creat el
+      conversation:
+        body: Cos
       group:
         about: Quant a
         avatar: Avatar
@@ -13,6 +15,8 @@ ca:
         name: Nom
         nickname: Àlies
         phone: Telèfon
+      message:
+        body: Cos
       report:
         details: Comentaris addicionals
       user:
@@ -1534,6 +1538,10 @@ ca:
       too_short: És massa curt (menys de 15 caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
+    length_validator:
+      minimum:
+        one: Almenys %{count} caràcter
+        other: Almenys %{count} caràcters
     required: Obligatori
     required_explanation: "* Els camps obligatoris estan marcats amb un asterisc"
   invisible_captcha:
