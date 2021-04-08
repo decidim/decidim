@@ -58,6 +58,12 @@ ca:
       decidim/elections/question:
         one: Pregunta
         other: Preguntes
+      decidim/votings/census/dataset:
+        one: Conjunt de dades
+        other: Conjunts de dades
+      decidim/votings/census/datum:
+        one: Referències
+        other: Dades
       decidim/votings/polling_officer:
         one: Gestor de mesa
         other: Gestors de mesa
@@ -166,6 +172,8 @@ ca:
         exports:
           elections: Eleccions
           feedback_form_answers: Feedback de les respostes
+        menu:
+          trustees: Garants
         models:
           answer:
             name: Resposta
@@ -370,6 +378,7 @@ ca:
           back: Eleccions disponibles
           callout:
             already_voted: Ja has votat en aquesta elecció. Pots canviar el teu vot o verificar-lo.
+            pending_vote: S'està tramitant el vot al servidor.
             vote_rejected: No ha estat possible verificar el teu vot. Si us plau, fes-ho de nou.
           preview: Previsualitzar
           verify:
@@ -517,6 +526,10 @@ ca:
           back: Començar de nou el procés de votació
           cast: Enviar papereta
           description: Aquí tens les opcions per emetre la teva papereta perquè sigui degudament comptada o, alternativament, pots auditar que la teva papereta hagi estat xifrada correctament. Per raons de seguretat, l'auditoria de la teva papereta l'espatllarà, cosa que significa, que per a emetre el teu vot hauràs de reiniciar el procés de votació.
+          header: 'La papereta està xifrada: dipositeu-la o auditeu-la'
+        casting:
+          header: El vot s'està dipositant...
+          text: La papereta s'està dipositant a la urna.
         confirm:
           answer: Resposta
           answer_number: resposta %{number}
@@ -534,6 +547,8 @@ ca:
           lead: El teu vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
+        encrypting:
+          header: El vot s'està xifrant...
         failed:
           header: Vot fallit
           lead: El teu vot no s'ha enviat!
