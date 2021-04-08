@@ -81,7 +81,7 @@ end
 def pr_link(id)
   # We need to do this so that it generates the expected Markdown format.
   # String interpolation messes with the format.
-  "[#{"\\#" + id.to_s}](https://github.com/decidim/decidim/pull/#{id})" # rubocop:disable Style/StringConcatenation
+  "[#{"\\#" + id.to_s}](https://github.com/decidim/decidim/pull/#{id})"
 end
 
 def output(str)
