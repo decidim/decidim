@@ -60,6 +60,7 @@ module Decidim
       end
 
       def append_assets
+        gsub_file "app/assets/javascripts/application.js", %r{//= require turbolinks\n}, ""
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
           "*= require decidim\n "
@@ -79,6 +80,10 @@ module Decidim
             RUBY
           end
         end
+      end
+
+      def configure_js_compressor
+        gsub_file "config/environments/production.rb", "config.assets.js_compressor = :uglifier", "config.assets.js_compressor = Uglifier.new(:harmony => true)"
       end
 
       def smtp_environment
