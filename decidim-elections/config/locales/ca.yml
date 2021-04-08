@@ -378,7 +378,7 @@ ca:
           back: Eleccions disponibles
           callout:
             already_voted: Ja has votat en aquesta elecció. Pots canviar el teu vot o verificar-lo.
-            pending_vote: S'està tramitant el vot al servidor.
+            pending_vote: S'està dipositant el vot al servidor.
             vote_rejected: No ha estat possible verificar el teu vot. Si us plau, fes-ho de nou.
           preview: Previsualitzar
           verify:
@@ -526,10 +526,10 @@ ca:
           back: Començar de nou el procés de votació
           cast: Enviar papereta
           description: Aquí tens les opcions per emetre la teva papereta perquè sigui degudament comptada o, alternativament, pots auditar que la teva papereta hagi estat xifrada correctament. Per raons de seguretat, l'auditoria de la teva papereta l'espatllarà, cosa que significa, que per a emetre el teu vot hauràs de reiniciar el procés de votació.
-          header: 'La papereta està xifrada: dipositeu-la o auditeu-la'
+          header: 'La papereta està xifrada: pots dipositar-la o auditar-la'
         casting:
           header: El vot s'està dipositant...
-          text: La papereta s'està dipositant a la urna.
+          text: La papereta s'està dipositant a l'urna.
         confirm:
           answer: Resposta
           answer_number: resposta %{number}
@@ -560,6 +560,8 @@ ca:
           casting: El vot s'està dipositant
           confirm: Confirma el teu vot
           confirmed: Vot confirmat
+          encrypting: El vot s'està xifrant
+          failed: Error en el vot
         messages:
           not_allowed: No pots votar en aquesta votació en aquest moment.
         modal:
@@ -572,6 +574,8 @@ ca:
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        update:
+          error: Hi ha hagut un error en actualitzar el vot. Proveu de nou.
         verify:
           content:
             heading: Verifica el teu vot
@@ -638,6 +642,16 @@ ca:
       votings_count: Votacions
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Hi ha hagut un error en crear l'estil de papereta
+            success: L'estil de papereta s'ha creat correctament
+          destroy:
+            invalid: Hi ha hagut un error en esborrar l'estil de papereta
+            success: S'ha esborrat l'estil de papereta correctament
+          edit:
+            title: Modifica estil de papereta
+            update: Actualitza
         content_blocks:
           highlighted_votings:
             max_results: Quantitat màxima d'elements per mostrar
@@ -943,6 +957,7 @@ ca:
           no_votings: Cap votació s'ajusta als vostres criteris de cerca.
           only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
           title: Votacions
+        no_census_contact_information: Encara no hi ha cap informació de contacte
         orders:
           label: 'Ordenar votacions per:'
           random: Aleatori
@@ -969,6 +984,7 @@ ca:
       election_votes_header:
         exit: Sortir
       voting_navigation:
+        check_census: Com votar-hi
         voting_menu_item: La votació
       votings:
         index:
