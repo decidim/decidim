@@ -1562,9 +1562,11 @@ ca:
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
+        main_menu: Menú principal
         navigation: Navegació
         sign_in: Entra
         sign_up: Registra't
+        user_menu: Menú d'usuari
       impersonation_warning:
         close_session: Tanca la sessió
         description_html: Estàs gestionant la participant <b>%{user_name}</b>.
@@ -1593,6 +1595,7 @@ ca:
         profile: El meu compte
         public_profile: El meu perfil públic
         sign_out: Surt
+        title: Enllaços del perfil
       user_profile:
         account: Compte
         authorizations: Autoritzacions
