@@ -15,8 +15,6 @@ module Decidim
       delegate :count, to: :questions, prefix: true
 
       def new
-        enforce_permission_to :vote, :election, election: election
-
         return if access_denied?
 
         @form = form(Voter::VoteForm).from_params({ voter_token: voter_token, voter_id: voter_id },
@@ -24,8 +22,6 @@ module Decidim
       end
 
       def create
-        enforce_permission_to :vote, :election, election: election
-
         return unless valid_voter_token?
         return if access_denied?
 
@@ -114,14 +110,16 @@ module Decidim
 
         return redirect_to(vote_flow.login_path(new_election_vote_path) || exit_path, alert: vote_flow.no_access_message, status: :temporary_redirect) unless vote_flow.can_vote?
         return redirect_to(election_vote_path(election, id: pending_vote.encrypted_vote_hash, token: vote_flow.voter_id_token)) if pending_vote.present?
+
+        enforce_permission_to :vote, :election, election: election
       end
 
       def valid_voter_token?
         return unless vote_flow.receive_data(params.require(:vote).permit(:voter_token, :voter_id))
 
-        unless vote_flow.valid_received_data?
+        unless preview_mode? || vote_flow.valid_received_data?
           redirect_to(exit_path, alert: t("votes.messages.invalid_token", scope: "decidim.elections"))
-          false
+          return
         end
 
         true

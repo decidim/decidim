@@ -24,7 +24,7 @@ module Decidim
       def preview_mode?
         return @preview_mode if defined?(@preview_mode)
 
-        @preview_mode = !election.started?
+        @preview_mode = !election.published? || !election.started?
       end
 
       def can_preview?

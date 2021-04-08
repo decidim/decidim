@@ -17,7 +17,7 @@
     <span class="button button--sc disabled"><%= t("action_button.vote", scope: "decidim.elections.elections.show") %></span>
   <% end %>
 
-  <% if can_preview? %>
+  <% if preview_mode? && can_preview? %>
     <%= link_to new_election_vote_path, class: "button button--sc" do %>
       <%= t("preview", scope: "decidim.elections.elections.show") %>
     <% end %>

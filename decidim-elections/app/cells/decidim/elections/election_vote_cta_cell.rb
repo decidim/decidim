@@ -7,6 +7,7 @@ module Decidim
     class ElectionVoteCtaCell < Decidim::ViewModel
       delegate :current_user,
                :current_participatory_space,
+               :preview_mode?,
                :can_preview?,
                :vote_flow,
                to: :controller
