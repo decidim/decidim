@@ -48,10 +48,19 @@ ca:
         email: Correu electrònic
         name: Nom
         registration_type_id: Tipus d'inscripció
+        user_id: Usuària
       conference_registration_type:
+        description: Descripció
+        price: Cost
+        title: Títol
         weight: Pes
       conference_speaker:
+        affiliation: Membre
+        avatar: Imatge de perfil
+        conference_meeting_ids: Trobades relacionades
         full_name: Nom complet
+        personal_url: URL personal
+        position: Càrrec
       conference_user_role:
         email: Correu electrònic
         name: Nom
