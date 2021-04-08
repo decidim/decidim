@@ -39,7 +39,7 @@ module Decidim
 
         def update_ballot_style!
           attributes = {
-            code: form.code.upcase
+            code: form.code
           }
 
           ballot_style.update!(attributes)

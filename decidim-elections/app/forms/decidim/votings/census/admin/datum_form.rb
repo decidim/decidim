@@ -46,6 +46,10 @@ module Decidim
           def hash_for(data)
             Digest::SHA256.hexdigest(data.join("."))
           end
+
+          def ballot_style_code
+            @ballot_style_code&.upcase
+          end
         end
       end
     end

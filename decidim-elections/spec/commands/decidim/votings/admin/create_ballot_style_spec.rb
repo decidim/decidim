@@ -24,7 +24,7 @@ module Decidim
         end
 
         let(:valid) { true }
-        let(:code) { "Code" }
+        let(:code) { "Code".upcase }
         let(:question_ids) { election.questions.sample(2).map(&:id) }
         let(:errors) { double.as_null_object }
 
@@ -58,7 +58,7 @@ module Decidim
 
         context "when a ballot style with the same code exists" do
           context "when it's in the same voting" do
-            let!(:existing_ballot_style) { create(:ballot_style, voting: voting, code: code.upcase) }
+            let!(:existing_ballot_style) { create(:ballot_style, voting: voting, code: code) }
 
             it "is not valid" do
               expect(errors).to receive(:add).with(:code, :taken)
@@ -67,7 +67,7 @@ module Decidim
           end
 
           context "when it's in another voting" do
-            let!(:existing_ballot_style) { create(:ballot_style, code: code.upcase) }
+            let!(:existing_ballot_style) { create(:ballot_style, code: code) }
 
             it "is valid" do
               expect { subject.call }.to broadcast(:ok)

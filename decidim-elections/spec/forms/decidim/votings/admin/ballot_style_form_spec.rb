@@ -22,10 +22,14 @@ module Decidim
 
         it { is_expected.to be_valid }
 
-        describe "when th code is missing" do
+        describe "when the code is missing" do
           let(:code) { nil }
 
           it { is_expected.not_to be_valid }
+        end
+
+        describe "when th code is lowercase" do
+          it { expect(subject.code).to eq(code.upcase) }
         end
       end
     end
