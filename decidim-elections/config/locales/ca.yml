@@ -549,12 +549,15 @@ ca:
           verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
         encrypting:
           header: El vot s'està xifrant...
+          text: La papereta s'està xifrant per a garantir el secret de vot.
         failed:
           header: Vot fallit
           lead: El teu vot no s'ha enviat!
           text: Alguna cosa ha anat malament. Si us plau, torna-ho a provar.
+          try_again: Prova-ho de nou
         header:
           ballot_decision: Envia o audita el teu vot
+          casting: El vot s'està dipositant
           confirm: Confirma el teu vot
           confirmed: Vot confirmat
         messages:
@@ -813,6 +816,16 @@ ca:
           create: "%{user_name} ha creat la votació %{resource_name}"
           publish: "%{user_name} ha publicat la votació %{resource_name}"
           unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
+      census:
+        admin:
+          census:
+            generating_access_codes:
+              info_message: "<strong>Si us plau, espereu</strong>, estem generant el code d'accès per a votar..."
+            new:
+              file_help:
+                explanation: 'Instruccions per al fitxer:'
+                message_1: Els únics fitxers permesos són en CSV (.csv).
+                message_2: El separador entre columnes ha de ser un punt i coma (";").
       content_blocks:
         highlighted_votings:
           name: Votacions destacades
