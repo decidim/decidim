@@ -53,6 +53,10 @@ module Decidim
         expect(comment.down_votes.count).to eq(1)
       end
 
+      it "has an associated participatory_process" do
+        expect(comment.participatory_process).to eq(component.participatory_space)
+      end
+
       it "is not valid if its parent is a comment and cannot accept new comments" do
         expect(comment.root_commentable).to receive(:accepts_new_comments?).and_return false
         expect(replies[0]).not_to be_valid
