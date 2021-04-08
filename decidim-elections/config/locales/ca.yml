@@ -826,6 +826,19 @@ ca:
                 explanation: 'Instruccions per al fitxer:'
                 message_1: Els únics fitxers permesos són en CSV (.csv).
                 message_2: El separador entre columnes ha de ser un punt i coma (";").
+              info_message: "<strong>Encara no n'hi ha de cens.</strong> Si us plau, importeu un fitxer CSV en el següent formulari per a crear-ne un de nou."
+              submit: Envia csv
+              title: Crea el cens
+            show:
+              heading: Espai de votació del cens
+            upload_info:
+              csv_example: 'Exemple del contingut del fitxer:'
+              csv_fields: 'Ha de ser un fitxer en format .csv amb els següents camps:'
+        export_mailer:
+          access_codes_export:
+            click_button: 'Clica el següent enllaç per baixar les dades dels codis d''accès.<br/>El fitxer estarà disponible fins el %{date}.<br/>Per obrir-lo, cal que disposeu de <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o bé <a href="https://peazip.github.io">PeaZip</a> (per a Linux). Contrasenya: %{password}'
+            download: Baixa
+            subject: Els codis d'accès a la votació de %{voting_title} ja estan exportats
       content_blocks:
         highlighted_votings:
           name: Votacions destacades
