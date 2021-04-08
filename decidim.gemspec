@@ -22,7 +22,9 @@ Gem::Specification.new do |s|
     "{docs,lib}/**/*",
     "LICENSE-AGPLv3.txt",
     "Rakefile",
-    "README.md"
+    "README.md",
+    "config/webpack/*",
+    "config/webpacker.yml"
   ]
 
   s.require_paths = ["lib"]

@@ -202,6 +202,10 @@ module Decidim
                   "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
       end
 
+      def install_webpacker_initializer
+        copy_file "webpacker_initializer.rb", "config/initializers/webpacker.rb"
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [

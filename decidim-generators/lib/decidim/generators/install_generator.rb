@@ -105,13 +105,16 @@ module Decidim
         end
       end
 
-      def install_webpacker_initializer
-        copy_file "webpacker_initializer.rb", "config/initializers/webpacker.rb"
-      end
-
       def copy_migrations
         rails "decidim:upgrade"
         recreate_db if options[:recreate_db]
+      end
+
+      def install_webpacker
+        rails "webpacker:install"
+
+        # Remove manually assets
+        system("rm -rf app/assets/javascripts")
       end
 
       def letter_opener_web
@@ -151,13 +154,6 @@ module Decidim
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
 
         run "bundle install"
-      end
-
-      def install_webpacker
-        rails "webpacker:install"
-
-        # Remove manually assets
-        system("rm -rf app/assets/javascripts")
       end
 
       private
