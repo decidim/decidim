@@ -1,6 +1,7 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
+
 import $ from "jquery"
 import Quill from "quill"
 
@@ -58,13 +59,7 @@ import "../src/decidim/gallery"
 import "./decidim_core.scss"
 
 // Images
-import "../images/decidim/avatar-multiuser.png"
-import "../images/decidim/cc-badge.png"
-import "../images/decidim/decidim-logo.svg"
-import "../images/decidim/default-avatar.svg"
-import "../images/decidim/icons.svg"
-import "../images/decidim/pattern.png"
-import "../images/decidim/placeholder.jpg"
+const images = require.context('../images', true)
 
 // This needs to be loaded after confirm dialog to bind properly
 import Rails from "@rails/ujs"

@@ -3,3 +3,6 @@ import "../src/decidim/initiatives/identity_selector_dialog"
 import "../src/decidim/initiatives/scoped_type"
 
 import "./decidim_initiatives_print.scss"
+
+// Images
+const images = require.context('../images', true)
