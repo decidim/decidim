@@ -429,7 +429,25 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Alegerea %{resource_title} este acum activă pentru %{participatory_space_title}.
           notification_title: Alegerile <a href="%{resource_path}">%{resource_title}</a> sunt acum active pentru %{participatory_space_title}.
+    votings:
+      votings:
+        check_census:
+          title: Verifică datele recensământului
+        check_census_form:
+          check_status: Verifică starea
+          date_of_birth: Data naşterii
+          description: 'Completează următorul formular pentru a verifica datele recensământului:'
+          dni: CI
+          document_number: Numărul documentului
+          document_number_placeholder: Număr ID
+          passport: Pașaport
+          postal_code: Cod poştal
+          postal_code_placeholder: Cod poștal
+          select: Selectaţi tipul documentului
+        no_census_contact_information: Nu există încă informații de contact
   layouts:
     decidim:
       election_votes_header:
         exit: Ieșire
+      voting_navigation:
+        check_census: Cum să votați
