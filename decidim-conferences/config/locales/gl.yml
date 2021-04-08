@@ -10,8 +10,12 @@ gl:
         copy_features: Copiar funcións
         decidim_scope_id: Alcance
         description: Descrición
+        end_date: Data de finalización
         hashtag: Etiqueta
         hero_image: Imaxe na casa
+        location: Localización
+        main_logo: Logotipo principal
+        objectives: Obxectivos
         participatory_processes_ids: Procesos participativos relacionados
         promoted: Promocionado
         published_at: Publicado en
@@ -19,11 +23,42 @@ gl:
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         show_statistics: Amosar estatísticas
+        sign_date: Data de sinatura
+        signature: Sinatura
         slogan: Eslogan
         slug: URL slug
+        start_date: Data de inicio
         title: Título
+      conference_media_link:
+        date: Data
+        link: Ligazón
+        title: Título
+        weight: Peso
+      conference_partner:
+        link: Ligazón
+        logo: Logotipo
+        name: Nome
+        partner_type: Tipo de socio
+        weight: Peso
+      conference_registration_invite:
+        email: Correo electrónico
+        name: Nome
+        registration_type_id: Tipo do rexistro
+        user_id: Usuario
+      conference_registration_type:
+        description: Descrición
+        price: Prezo
+        title: Título
+        weight: Peso
       conference_speaker:
+        affiliation: Afiliación
+        avatar: Avatar
+        conference_meeting_ids: Xuntanzas relacionadas
         full_name: Nome completo
+        personal_url: Url persoal
+        position: Posición
+        short_bio: Pequena biografía
+        user_id: Usuario
       conference_user_role:
         email: Correo electrónico
         name: Nome

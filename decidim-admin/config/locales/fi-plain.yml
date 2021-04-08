@@ -32,6 +32,7 @@ fi-pl:
         body: Runko
         subject: Otsikko
       organization:
+        admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
         alert_color: Ilmoitus
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön

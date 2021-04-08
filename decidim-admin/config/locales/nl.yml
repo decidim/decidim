@@ -32,6 +32,7 @@ nl:
         body: Body
         subject: Onderwerp
       organization:
+        admin_terms_of_use_body: Body voor de admin gebruiksvoorwaarden
         alert_color: Alarm
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
