@@ -901,6 +901,28 @@ ca:
           new: Nou
           title: Accions
       votings:
+        check_census:
+          description: Comproveu les dades del cens per saber si teniu dret a participar en la votació. Si les dades són correctes, hauríeu de tenir ja un codi d'accès però podeu demanar-lo de nou si encara no el teniu.
+          error:
+            info: 'Proveu de nou, si us plau. Si creus que les dades que tenim al sistema no són correctes, podeu avisar-nos a %{census_contact_information}.'
+            title: Les dades del cens no són correctes!
+          invalid: Hi ha hagut un problema en comprovar el cens.
+          success:
+            access_link: demana un Codi d'Accès
+            info: Si no en tens cap, %{access_code_link} ja.
+            title: Les dades del cens són correctes!
+          title: Comprova les dades del cens
+        check_census_form:
+          check_status: Comprova l'estat
+          date_of_birth: Data de naixement
+          description: 'Empleneu el formulari següent per comprovar les dades del cens:'
+          dni: DNI
+          document_number: Número de document
+          document_number_placeholder: Número d'identificació
+          passport: Passaport
+          postal_code: Codi postal
+          postal_code_placeholder: Número del codi postal
+          select: Escull el tipus d'informe
         count:
           title:
             one: "%{count} votació"
