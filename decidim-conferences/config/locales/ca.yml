@@ -61,6 +61,9 @@ ca:
         full_name: Nom complet
         personal_url: URL personal
         position: Càrrec
+        short_bio: Resum biogràfic
+        twitter_handle: Compte de Twitter
+        user_id: Usuària
       conference_user_role:
         email: Correu electrònic
         name: Nom
