@@ -195,15 +195,16 @@ if !Rails.env.production? || ENV["SEED"]
     end
   end
 
-  Decidim::OAuthApplication.create!(
+  oauth_application = Decidim::OAuthApplication.create!(
     organization: organization,
     name: "Test OAuth application",
     organization_name: "Example organization",
     organization_url: "http://www.example.org",
-    organization_logo: File.new(File.join(seeds_root, "homepage_image.jpg")), # Keep after organization
     redirect_uri: "https://www.example.org/oauth/decidim",
     scopes: "public"
   )
+
+  oauth_application.organization_logo.attach(io: File.open(File.join(seeds_root, "homepage_image.jpg")), filename: "organization_logo.jpg", content_type: "image/jpeg")
 
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
