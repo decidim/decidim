@@ -43,4 +43,4 @@ export default function icon(iconKey, attributes = {}) {
   $el.attr(htmlAttributes);
 
   return $("<div />").append($el).html();
-};
+}

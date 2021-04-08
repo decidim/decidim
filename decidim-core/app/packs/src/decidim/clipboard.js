@@ -1,4 +1,4 @@
-import select from 'select';
+import select from "select";
 
 /**
  * This provides functionality to add clipboard copy functionality to buttons

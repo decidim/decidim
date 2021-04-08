@@ -15,8 +15,8 @@ export default class DataPicker {
     this._setCurrentPicker($picker, null);
 
     let input = "hidden",
-      name = this.current.name,
-      values = this.current.values;
+        name = this.current.name,
+        values = this.current.values;
 
     if (this.current.multiple) {
       name += "[]";
@@ -187,7 +187,7 @@ export default class DataPicker {
       }
     } else {
       let input = "hidden",
-        name = this.current.name;
+          name = this.current.name;
 
       if (this.current.multiple) {
         name += "[]";
