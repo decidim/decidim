@@ -32,6 +32,10 @@ module Decidim
 
         @preview_mode = allowed_to?(:preview, :election, election: election)
       end
+
+      def ballot_questions
+        vote_flow.questions_for(election)
+      end
     end
   end
 end
