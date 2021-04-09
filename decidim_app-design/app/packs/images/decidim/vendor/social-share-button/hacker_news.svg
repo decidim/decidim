@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256px"
+   height="256px"
+   viewBox="-2 111 256 256"
+   version="1.1"
+   id="svg3192"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="hacker_news.svg">
+  <metadata
+     id="metadata3203">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1149"
+     id="namedview3201"
+     showgrid="false"
+     inkscape:zoom="2.9981327"
+     inkscape:cx="183.89957"
+     inkscape:cy="150.68414"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3192" />
+  <defs
+     id="defs3196" />
+  <g
+     id="hacker_news"
+     transform="translate(-2,111)"
+     style="fill:none;stroke:none">
+    <rect
+       id="bg"
+       x="0"
+       y="0"
+       width="256"
+       height="256"
+       rx="40"
+       style="fill:#ff6500" />
+    <path
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 73.349057,62.544811 44.044813,82.016509 0,54.00943 16.98113,0.059 0,-53.06607 44.10377,-83.018869 -18.98585,0.05896 -33.07783,66.096699 -32.959901,-66.155659 z"
+       id="path3087"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
