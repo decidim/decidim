@@ -65,4 +65,26 @@ describe "Vote in an election inside a Voting", type: :system do
     it_behaves_like "doesn't allow to vote"
     it_behaves_like "allows admins to preview the voting booth"
   end
+
+  context "when the census data is not right" do
+    it "can't vote", :slow do
+      visit_component
+      click_link translated(election.title)
+      click_link "Start voting"
+
+      within ".card__content" do
+        select("DNI", from: "Document type")
+        fill_in "Document number", with: "12345678X"
+        fill_in "Postal code", with: "04001"
+        fill_in "Day", with: "11"
+        fill_in "Month", with: "05"
+        fill_in "Year", with: "1980"
+        fill_in "Access code", with: "1235"
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("Document number")
+      expect(page).to have_content("The given data doesn't match any voter.")
+    end
+  end
 end

@@ -168,7 +168,7 @@ module Decidim::Votings
     describe "#no_access_message" do
       subject { vote_flow.no_access_message }
 
-      it { expect(subject).to eq("The given data doesn't match to any voter.") }
+      it { expect(subject).to eq("The given data doesn't match any voter.") }
     end
 
     describe "#login_path" do

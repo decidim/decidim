@@ -925,7 +925,7 @@ en:
             download: Download
             subject: The export of the voting access codes for %{voting_title} is available
         vote_flow:
-          datum_not_found: The given data doesn't match to any voter.
+          datum_not_found: The given data doesn't match any voter.
       content_blocks:
         highlighted_votings:
           name: Highlighted votings

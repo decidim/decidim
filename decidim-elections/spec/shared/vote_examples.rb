@@ -46,7 +46,7 @@ end
 shared_examples "doesn't allow admins to preview the voting booth" do
   let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }
 
-  it "doesn't allow clicking in the preview button" do
+  it "doesn't allow clicking the preview button" do
     visit router.election_path(id: election.id)
 
     expect(page).not_to have_link("Preview")
