@@ -857,15 +857,12 @@ ca:
       census:
         admin:
           census:
-            create:
-              error: s'ha produït un error en actualitzar el cens, prova-ho de nou més tard.
             creating_data:
               info_message: "<strong>Espera</strong>, estem procedint amb %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:
               button: Eliminar totes les dades del cens
               confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
             destroy:
-              error: S'ha produït un error en esborrar el cens, prova-ho de nou més tard.
               success: Hem esborrat les dades del cens
             export_access_codes:
               button: Exporta els Codis d'Accès de la votació
@@ -898,9 +895,6 @@ ca:
               title: Crea el cens
             show:
               heading: Espai de votació del cens
-            upload_info:
-              csv_example: 'Exemple del contingut del fitxer:'
-              csv_fields: 'Ha de ser un fitxer en format .csv amb els següents camps:'
         export_mailer:
           access_codes_export:
             click_button: 'Clica el següent enllaç per baixar les dades dels codis d''accès.<br/>El fitxer estarà disponible fins el %{date}.<br/>Per obrir-lo, cal que disposeu de <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o bé <a href="https://peazip.github.io">PeaZip</a> (per a Linux). Contrasenya: %{password}'
