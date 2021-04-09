@@ -686,6 +686,7 @@ cs:
               edit: Upravit
               new: Nový
               title: Akce
+            associated_census_data: Související záznamy ze seznamu obyvatel
             explanation_callout: Styl hlasování specifikuje, jaké otázky budou předloženy u přítomného voliče za plentou. Ve stylu hlasování si můžete vybrat, jaké otázky z volebních složek tohoto hlasování patří k volbám. Kód stylu hlasování se používá k tomu, aby volič ze seznamu členů odpovídal na hlasování, které bude prezentováno za plentou. Pokud chcete vždy prezentovat všechny otázky, nevytvářejte žádný styl hlasování.
             title: Styly hlasování
           new:
@@ -882,12 +883,16 @@ cs:
       census:
         admin:
           census:
+            create:
+              invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
+              invalid_csv_header: Záhlaví CSV nemá správný počet polí - přečtěte si prosím pečlivě pokyny
             creating_data:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
               button: Odstranit všechna data ze seznamu obyvatel
               confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
             destroy:
+              error: Došlo k chybě při odstraňování seznamu osob, opakujte akci později.
               success: Seznam členů byl smazán
             export_access_codes:
               button: Generovat hlasovací přístupové kódy
