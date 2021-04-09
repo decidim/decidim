@@ -860,15 +860,12 @@ fi:
       census:
         admin:
           census:
-            create:
-              error: henkilötietorekisterin lataus epäonnistui, yritä uudestaan myöhemmin.
             creating_data:
               info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file}."
             delete:
               button: Poista kaikki henkilötietorekisterin tiedot
               confirm: Henkilötietorekisterin tietojen poistoa ei voida peruuttaa. Haluatko varmasti jatkaa?
             destroy:
-              error: Henkilötietorekisterin tietojen poistaminen epäonnistui, yritä uudestaan myöhemmin.
               success: Henkilötietorekisterin tiedot poistettu
             export_access_codes:
               button: Vie äänestyksen pääsykoodit
@@ -901,9 +898,6 @@ fi:
               title: Luo henkilötietorekisteri
             show:
               heading: Äänestystilan henkilötietorekisteri
-            upload_info:
-              csv_example: 'Esimerkki tiedoston sisällöstä:'
-              csv_fields: 'Tiedoston on oltava .csv-tiedosto alla esitetyillä sarakkeilla:'
         export_mailer:
           access_codes_export:
             click_button: 'Voit ladata pääsykoodit seuraavan linkin kautta.<br/>Tiedosto on ladattavissa %{date} saakka.<br/>Tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelman</a> (Windowsille), <a href="https://www.keka.io/en/">Keka-ohjelman</a> (macOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelman</a> (Linux-käyttöjärjestelmille) avataksesi tiedoston. Salasana tiedoston avaamista varten: %{password}'
