@@ -51,9 +51,7 @@ module Decidim
 
         def diploma_params
           {
-            id: params[:slug],
-            signature: current_conference.signature,
-            main_logo: current_conference.main_logo
+            id: params[:slug]
           }.merge(params[:conference].to_unsafe_h)
         end
       end
