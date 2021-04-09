@@ -15,8 +15,8 @@ cs:
         end_date: Datum ukončení
         hashtag: Hashtag
         hero_image: Domácí obrázek
-        local_area: Oblast organizace
-        meta_scope: Rozsah metadat
+        local_area: Oblast působnosti organizace
+        meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
@@ -411,7 +411,7 @@ cs:
         dates: Data
         developer_group: Skupina promotérů
         end_date: Datum ukončení
-        local_area: Oblast organizace
+        local_area: Oblast působnosti organizace
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Jedná se o soukromý proces
