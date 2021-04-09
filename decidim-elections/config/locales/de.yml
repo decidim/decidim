@@ -840,15 +840,12 @@ de:
       census:
         admin:
           census:
-            create:
-              error: beim Hochladen der Erhebung ist ein Problem aufgetreten, bitte versuchen Sie es später erneut.
             creating_data:
               info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
             delete:
               button: Alle Erhebungsdaten löschen
               confirm: Dies kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             destroy:
-              error: Beim Löschen der Erhebungsdaten ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
               success: Erhebungsdaten gelöscht
             export_access_codes:
               button: Zugangscodes für die Abstimmung exportieren
@@ -881,9 +878,6 @@ de:
               title: Erhebungsdaten erfassen
             show:
               heading: Erhebungsdaten der Abstimmung
-            upload_info:
-              csv_example: 'Ein Beispiel für den Dateiinhalt:'
-              csv_fields: 'Muss eine Datei im CSV-Format mit folgenden Feldern sein:'
         export_mailer:
           access_codes_export:
             click_button: 'Klicken Sie auf den Link, um die Zugangscodes herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
