@@ -5,6 +5,8 @@ module Decidim
     # A command with all the business logic for updating the current
     # organization appearance.
     class UpdateOrganizationAppearance < Rectify::Command
+      include ::Decidim::AttachmentAttributesMethods
+
       # Public: Initializes the command.
       #
       # organization - The Organization that will be updated.
@@ -52,7 +54,7 @@ module Decidim
 
       def attributes
         appearance_attributes
-          .merge(attachment_attributes)
+          .merge(attachment_attributes(*image_fields))
           .merge(highlighted_content_banner_attributes)
           .merge(omnipresent_banner_attributes)
           .merge(colors_attributes)
@@ -60,12 +62,6 @@ module Decidim
           .tap do |attributes|
             attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
           end
-      end
-
-      def attachment_attributes
-        image_fields.each_with_object({}) do |attribute, attributes|
-          attributes[attribute] = form.send(attribute) if form.send("remove_#{attribute}") || form.send(attribute).present?
-        end
       end
 
       def appearance_attributes
