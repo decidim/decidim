@@ -920,11 +920,18 @@ cs:
                 explanation: 'Pokyny pro soubor:'
                 message_1: Jsou povoleny pouze soubory CSV (.csv).
                 message_2: Oddělovač sloupců musí být středník (";").
+              has_ballot_styles_message: Nastavili jste styl hlasování. Ujistěte se, že pole "%{ballot_style_code_header}" v CSV odpovídá požadovanému kódu Stylu hlasování.
               info_message: "<strong>Zatím neexistuje žádný seznam osob.</strong> Použijte prosím formulář níže pro vytvoření importu souboru CSV."
+              missing_ballot_styles_message: 'Pro toto hlasování zatím neexistuje žádný styl hlasování. Pokud chcete mít podmíněné otázky (tj.: představit voliče s různými otázkami podle např. okresu / regionu bydliště, musíte nastavit <a href=%{ballot_styles_admin_path}>Styly pro hlasování</a> <strong>před</strong> importováním seznamu osob. Pokud chcete všem voličům položit stejné otázky, můžete pokračovat v proceduře importu seznamu osob.'
               submit: Odeslat csv
               title: Vytvořit seznam osob
             show:
               heading: Hlasovací prostor seznamu osob
+            upload_info:
+              csv_example_with_ballot_style: 'Příklad souboru <strong>se</strong> styly hlasování:'
+              csv_example_without_ballot_style: 'Příklad souboru <strong>bez</strong> stylů hlasování:'
+              csv_header_after: Nezahrnujte poslední pole ("%{ballot_style_code_header}"), pokud nepotřebujete styly hlasování / podmíněné otázky
+              csv_header_before: 'Soubor seznamu osob musí být soubor CSV s následujícím záhlavím:'
         export_mailer:
           access_codes_export:
             click_button: 'Klikněte na následující odkaz pro stažení přístupových kódů.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
