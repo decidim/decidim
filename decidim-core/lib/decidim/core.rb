@@ -240,6 +240,11 @@ module Decidim
     true
   end
 
+  #  Show scope and area filters in /processes and /assemblies views.
+  config_accessor :enable_participatory_space_filters do
+    false
+  end
+
   # Allow organization's administrators to track newsletter links
   config_accessor :track_newsletter_links do
     true
