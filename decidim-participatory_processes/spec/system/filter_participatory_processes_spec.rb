@@ -148,5 +148,20 @@ describe "Filter Participatory Processes", type: :system do
         expect(page).not_to have_content(translated(process_without_area.title))
       end
     end
+
+    context "when filters are disabled" do
+      let!(:process_with_area) { create(:participatory_process, area: create(:area, organization: organization), organization: organization) }
+      let!(:process_with_scope) { create(:participatory_process, scope: create(:scope, organization: organization), organization: organization) }
+
+      before do
+        allow(Decidim).to receive(:enable_participatory_space_filters).and_return(false)
+        visit decidim_participatory_processes.participatory_processes_path
+      end
+
+      it "doesnt show filters" do
+        expect(page).not_to have_css(".area_id_areas_select_filter")
+        expect(page).not_to have_css(".scope_id_scopes_picker_filter")
+      end
+    end
   end
 end
