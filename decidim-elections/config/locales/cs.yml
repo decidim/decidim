@@ -882,15 +882,12 @@ cs:
       census:
         admin:
           census:
-            create:
-              error: došlo k chybě při nahrávání seznamu obyvatel, opakujte akci později.
             creating_data:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
               button: Odstranit všechna data ze seznamu obyvatel
               confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
             destroy:
-              error: Došlo k chybě při odstraňování seznamů členů, opakujte akci později.
               success: Seznam členů byl smazán
             export_access_codes:
               button: Generovat hlasovací přístupové kódy
@@ -923,9 +920,6 @@ cs:
               title: Vytvořit seznam osob
             show:
               heading: Hlasovací prostor seznamu osob
-            upload_info:
-              csv_example: 'Příklad obsahu souboru:'
-              csv_fields: 'Musí být formát souboru .csv s těmito poli:'
         export_mailer:
           access_codes_export:
             click_button: 'Klikněte na následující odkaz pro stažení přístupových kódů.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
