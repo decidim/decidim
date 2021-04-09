@@ -356,6 +356,11 @@ cs:
           values:
             'false': Ověřeno
             'true': Neověřeno
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka přijata
+            values:
+              'false': Nepřijato
         private_space_eq:
           label: Soukromé
           values:
