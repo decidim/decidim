@@ -625,15 +625,12 @@ fr:
       census:
         admin:
           census:
-            create:
-              error: une erreur s'est produite lors de du téléchargement du recensement, veuillez réessayer plus tard.
             creating_data:
               info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file}."
             delete:
               button: Supprimer toutes les données du recensement
               confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
             destroy:
-              error: Une erreur s'est produite lors de la suppression du recensement, veuillez réessayer plus tard.
               success: Données de recensement supprimées
             generate_access_codes:
               button: Générer des codes d'accès au vote
@@ -650,9 +647,6 @@ fr:
               title: Créer le recensement
             show:
               heading: Recensement de l'espace de vote
-            upload_info:
-              csv_example: 'Un exemple de contenu du fichier :'
-              csv_fields: 'Doit être un format de fichier .csv avec ces champs :'
       content_blocks:
         highlighted_votings:
           name: Élections remarquables
