@@ -15,6 +15,9 @@ module Decidim
         belongs_to :dataset, counter_cache: :data_count,
                              foreign_key: "decidim_votings_census_dataset_id",
                              class_name: "Decidim::Votings::Census::Dataset"
+        belongs_to :ballot_style, optional: true,
+                                  class_name: "Decidim::Votings::BallotStyle",
+                                  foreign_key: :decidim_votings_ballot_style_id
 
         validates :full_name,
                   :full_address,
