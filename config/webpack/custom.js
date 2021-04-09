@@ -39,6 +39,17 @@ module.exports = {
         options: {
           exposes: ["Rails"]
         }
+      },
+      {
+        test: [
+          /\.md$/,
+          /\.odt$/,
+        ],
+        exclude: [/\.(js|mjs|jsx|ts|tsx)$/],
+        type: 'asset/resource',
+        generator: {
+          filename: 'media/documents/[hash][ext][query]'
+        }
       }
     ]
   },
