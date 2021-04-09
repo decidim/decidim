@@ -100,6 +100,10 @@ module Decidim
         end
       end
 
+      def install_webpacker
+        rails "webpacker:install"
+      end
+
       def copy_migrations
         rails "decidim:upgrade"
         recreate_db if options[:recreate_db]
@@ -142,10 +146,6 @@ module Decidim
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
 
         run "bundle install"
-      end
-
-      def install_webpacker
-        rails "webpacker:install"
       end
 
       private
