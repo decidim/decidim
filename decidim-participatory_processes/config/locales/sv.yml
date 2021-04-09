@@ -37,8 +37,12 @@ sv:
         weight: Vikt
       participatory_process_group:
         description: Beskrivning
+        group_url: Webbplats
+        hashtag: Hashtag
         hero_image: Bild
         participatory_process_ids: Relaterade dialoger
+        participatory_scope: Vad som bestäms
+        title: Titel
       participatory_process_step:
         cta_path: Uppmaningens sökväg
         cta_text: Uppmaningens text
@@ -94,6 +98,9 @@ sv:
         unpublish: Avpublicera
       menu:
         participatory_process_groups: Dialoggrupper
+        participatory_process_groups_submenu:
+          info: Info
+          landing_page: Landningssida
         participatory_processes: Dialoger
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -116,6 +123,8 @@ sv:
             title: Titel
           name: Dialog
         participatory_process_group:
+          fields:
+            title: Titel
           name: Dialoggrupp
         participatory_process_step:
           fields:
@@ -143,6 +152,9 @@ sv:
           copy: Kopiera
           select: Välj vilka data som du vill duplicera
           title: Duplicera dialog
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Uppdatera
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera dialoggruppen.
@@ -300,10 +312,19 @@ sv:
         related_assemblies: Relaterade sammankomster
     participatory_process_groups:
       content_blocks:
+        metadata:
+          developer_group: Annonserad av
+          name: Metadata
+          participatory_scope: Vad som bestäms
         participatory_processes:
           name: Dialoger
         stats:
           name: Statistik
+        title:
+          meta_scope: Omfång
+          participatory_processes:
+            one: 1 dialog
+            other: "%{count} dialoger"
       show:
         title: Dialoggrupper
     participatory_process_steps:
@@ -321,6 +342,10 @@ sv:
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadata
+            visibility: Synlighet
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
@@ -405,6 +430,8 @@ sv:
         start_date: Startdatum
         target: Vilka deltar
         unspecified: Ej angivet
+    statistics:
+      processes_count: Dialoger
   layouts:
     decidim:
       participatory_process_groups:
@@ -431,6 +458,8 @@ sv:
           more_info_about: Mer information om dialogen %{resource_name}
           take_part: Delta
           take_part_in: Delta i dialogen %{resource_name}
+        promoted_process_group:
+          more_info: Mer information
       process_header_steps:
         step: Steg %{current} av %{total}
         view_steps: Visa steg

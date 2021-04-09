@@ -24,7 +24,6 @@ el:
       component:
         name: Όνομα
         published_at: Δημοσιεύτηκε στις
-        weight: Βάρος
       id: Αναγνωριστικό
       import:
         user_group_id: Δημιουργία εισαγωγών ως
@@ -111,12 +110,10 @@ el:
         show_in_footer: Εμφάνιση στο υποσέλιδο
         slug: Slug διεύθυνσης URL
         title: Τίτλος
-        weight: Βάρος
       static_page_topic:
         description: Περιγραφή
         show_in_footer: Εμφάνιση στο υποσέλιδο
         title: Τίτλος
-        weight: Βάρος
       user_group_csv_verification:
         file: Αρχείο
     errors:

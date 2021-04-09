@@ -24,7 +24,6 @@ pl:
       component:
         name: Nazwa
         published_at: Opublikowano
-        weight: Kolejność na stronie
       id: ID
       import:
         user_group_id: Utwórz import jako
@@ -111,12 +110,10 @@ pl:
         show_in_footer: Pokaż w stopce
         slug: URL slug
         title: Tytuł
-        weight: Kolejność na stronie
       static_page_topic:
         description: Opis
         show_in_footer: Pokaż w stopce
         title: Tytuł
-        weight: Kolejność na stronie
       user_group_csv_verification:
         file: Plik
     errors:
@@ -378,7 +375,7 @@ pl:
         file_help:
           import:
             explanation: 'Wytyczne dotyczące pliku:'
-            message_1: 'Wspierane formaty: CSV, JSON i Exel (.xls)'
+            message_1: Pliki CSV, JSON i Excel (.xlsx) są obsługiwane
             message_2: Dla plików w formacie CSV separatorem kolumn musi być średnik (";")
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy
@@ -430,7 +427,7 @@ pl:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
+            xlsx: xlsx
           actions:
             back: Wróć
           file_legend: Zaimportuj plik, który zostanie przetworzony.

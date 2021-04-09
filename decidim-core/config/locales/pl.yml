@@ -265,7 +265,6 @@ pl:
       photos:
         related_photos: Powiązane zdjęcia
     author:
-      avatar: Awatar
       comments:
         one: komentarz
         few: komentarze
@@ -1281,6 +1280,13 @@ pl:
         share_link: Udostępnij link
     statistics:
       comments_count: Komentarze
+      endorsements_count: Rekomendacje
+      followers_count: Obserwujący
+      headline: Statystyki
+      no_stats: Nie ma jeszcze żadnych statystyk.
+      pages_count: Stron
+      participants_count: Użytkowników
+      users_count: Uczestników
     tags:
       filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
       filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
@@ -1545,12 +1551,6 @@ pl:
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
-    length_validator:
-      minimum:
-        one: co najmniej %{count} znak
-        few: co najmniej %{count} znaków
-        many: co najmniej %{count} znaków
-        other: co najmniej %{count} znaków
     required: Wymagane
     required_explanation: "* Wymagane pola są oznaczone gwiazdką"
   invisible_captcha:

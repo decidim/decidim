@@ -6,7 +6,6 @@ ja:
         description: 説明
         title: タイトル
         total_budget: 予算の合計
-        weight: 加重
       project:
         budget_amount: 予算額
         decidim_category_id: カテゴリ

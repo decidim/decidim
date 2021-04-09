@@ -40,7 +40,13 @@ en:
           user_group_id:
             label: Comment as
         opinion:
+          label: Your opinion about this topic
+          negative: Negative
+          negative_selected: Your opinion about this topic is negative
           neutral: Neutral
+          neutral_selected: Your opinion about this topic is neutral
+          positive: Positive
+          positive_selected: Your opinion about this topic is positive
         remaining_characters: "%{count} characters left"
         remaining_characters_1: "%{count} character left"
         title: Add your comment

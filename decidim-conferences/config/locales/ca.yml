@@ -22,6 +22,12 @@ ca:
         slogan: Eslògan
         slug: URL amigable
         title: Títol
+      conference_media_link:
+        weight: Pes
+      conference_partner:
+        weight: Pes
+      conference_registration_type:
+        weight: Pes
       conference_speaker:
         full_name: Nom complet
       conference_user_role:
@@ -206,7 +212,7 @@ ca:
             price: Preu
             registrations_count: Nombre d'inscripcions
             title: Títol
-            weight: Pes
+            weight: Ordre de posició
           name: Tipus d'inscripció
       partners:
         create:
@@ -539,6 +545,8 @@ ca:
         title: Multimedia i enllaços
     menu:
       conferences: Jornades
+    statistics:
+      conferences_count: Jornades
   devise:
     mailer:
       join_conference:

@@ -6,7 +6,6 @@ tr:
         description: Açıklama
         title: Başlık
         total_budget: Toplam bütçe
-        weight: Ağırlık
       project:
         budget_amount: Bütçe tutarı
         decidim_category_id: Kategori

@@ -24,7 +24,6 @@ fr:
       component:
         name: Titre
         published_at: Publiée à
-        weight: Rang d'affichage
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -111,12 +110,10 @@ fr:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Rang d'affichage
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -378,7 +375,7 @@ fr:
         file_help:
           import:
             explanation: 'Instructions concernant le fichier:'
-            message_1: Les fichiers CSV, JSON et Excel (.xls) sont supportés
+            message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
@@ -430,7 +427,7 @@ fr:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
+            xlsx: xlsx
           actions:
             back: Retour
           file_legend: Ajouter un fichier d'import qui sera analysé.

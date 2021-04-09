@@ -22,6 +22,12 @@ es:
         slogan: Eslogan
         slug: URL amigable
         title: Título
+      conference_media_link:
+        weight: Peso
+      conference_partner:
+        weight: Peso
+      conference_registration_type:
+        weight: Peso
       conference_speaker:
         full_name: Nombre completo
       conference_user_role:
@@ -206,7 +212,7 @@ es:
             price: Precio
             registrations_count: Número de inscripciones
             title: Título
-            weight: Peso
+            weight: Orden de posición
           name: Tipo de inscripción
       partners:
         create:
@@ -539,6 +545,8 @@ es:
         title: Multimedia y enlaces
     menu:
       conferences: Jornadas
+    statistics:
+      conferences_count: Jornadas
   devise:
     mailer:
       join_conference:

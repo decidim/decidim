@@ -38,7 +38,7 @@
                 <% if allowed_to? :delete, :polling_officer, voting: current_voting, polling_officer: polling_officer %>
                   <%= icon_link_to "circle-x", voting_polling_officer_path(current_voting, polling_officer), t("actions.destroy", scope: "decidim.votings.polling_officers"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.polling_officers") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.polling_officers") %>
                 <% end %>
               </td>
             </tr>

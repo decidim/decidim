@@ -21,7 +21,8 @@ module Decidim
             invalid?: invalid,
             title: { en: title },
             body: { en: body },
-            current_component: current_component
+            current_component: current_component,
+            author: current_user
           )
         end
 

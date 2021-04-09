@@ -15,6 +15,7 @@ fr-CA:
         edit: Modifier
         new: Nouvel article
         title: Actions
+        user_group_id: Créer un article comme
       admin:
         models:
           components:

@@ -13,6 +13,7 @@ module Decidim
     it "creates a follow" do
       expect { described_class.new(form, user1).call }.to broadcast(:ok)
       expect(user2.reload.followers).to include(user1)
+      expect(user2.follows_count).to eq(1)
     end
 
     it "increments the user's score" do

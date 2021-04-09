@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
 require "jquery-tmpl-rails"
 require "icalendar"
-require "cells/rails"
-require "cells-erb"
-require "cell/partial"
+
+require "decidim/core"
 
 module Decidim
   module Meetings

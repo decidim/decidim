@@ -68,8 +68,13 @@ ro:
       actions:
         new_initiative_type: Noul tip de inițiativă
       menu:
+        attachments: Atașamente
+        committee_members: Membrii Comitetului
+        components: Componente
+        information: Informare
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative
+        moderations: Moderări
       models:
         initiatives:
           fields:
@@ -400,7 +405,7 @@ ro:
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
         print:
-          city: Oraș
+          city: Localitate
         result:
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
         show:
@@ -464,12 +469,6 @@ ro:
           vote: Semnare
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Atașamente
-          committee_members: Membrii Comitetului
-          components: Componente
-          information: Informare
       initiative_creation_header:
         back: Înapoi
         fill_data: Crează

@@ -1,5 +1,5 @@
 <% content_for :sidebar_menu_nav do %>
-  <%= sidebar_menu(:decidim_voting_menu).render do
+  <%= sidebar_menu(:admin_voting_menu).render do
     public_page_link decidim_votings.voting_path(current_participatory_space)
   end %>
 <% end %>
@@ -12,7 +12,7 @@
   </div>
 
   <div class="voting-content">
-    <% if current_participatory_space.needs_elections? %>
+    <% if !current_participatory_space.has_elections? %>
       <%= cell("decidim/announcement", t("votings.edit.add_election_component", scope: "decidim.votings.admin"), callout_class: "alert") %>
     <% end %>
     <% if current_participatory_space.polling_stations_with_missing_officers? %>

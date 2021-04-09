@@ -52,7 +52,6 @@ pl:
         target: Do kogo kierowane
         title: Tytuł
         twitter: Twitter
-        weight: Kolejność na stronie
         youtube: YouTube
       assembly_member:
         birthday: Urodziny

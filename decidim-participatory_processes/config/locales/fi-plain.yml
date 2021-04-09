@@ -34,7 +34,7 @@ fi-pl:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       participatory_process_group:
         description: Kuvaus
         developer_group: Edistäjäryhmä
@@ -449,6 +449,8 @@ fi-pl:
         start_date: Alkamispäivä
         target: Kuka osallistuu
         unspecified: Ei määritelty
+    statistics:
+      processes_count: Prosessia
   layouts:
     decidim:
       participatory_process_groups:

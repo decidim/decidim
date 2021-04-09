@@ -52,7 +52,7 @@ fi-pl:
         target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
-        weight: Painoarvo
+        weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
@@ -436,6 +436,8 @@ fi-pl:
             processes_button_title: Linkki kaikkien prosessien sivulle
       show:
         related_assemblies: Liittyvät ryhmät
+    statistics:
+      assemblies_count: Ryhmää
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

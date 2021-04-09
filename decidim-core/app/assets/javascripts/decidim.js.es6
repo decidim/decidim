@@ -12,6 +12,7 @@
 
 // = require decidim/history
 // = require decidim/callout
+// = require decidim/clipboard
 // = require decidim/append_elements
 // = require decidim/user_registrations
 // = require decidim/account_form
@@ -39,6 +40,7 @@
 // = require decidim/geocoding/attach_input
 // = require decidim/security/selfxss_warning
 // = require decidim/session_timeouter
+// = require decidim/gallery
 
 // = require_self
 // = require decidim/configuration

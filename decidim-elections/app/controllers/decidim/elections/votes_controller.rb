@@ -8,64 +8,66 @@ module Decidim
       include FormFactory
 
       helper VotesHelper
-      helper_method :elections, :election, :questions, :questions_count, :booth_mode, :vote, :bulletin_board_server, :authority_public_key, :scheme_name
+      helper_method :elections, :election, :questions, :questions_count, :preview_mode?, :vote, :bulletin_board_server, :authority_public_key, :scheme_name, :election_unique_id
 
       delegate :count, to: :questions, prefix: true
 
       def new
-        return redirect_to(return_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) if booth_mode.nil?
-        return redirect_to(pending_vote_path) if pending_vote?
+        return redirect_to(return_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless vote_mode? || preview_mode?
+        return redirect_to(election_vote_path(election, id: pending_vote.encrypted_vote_hash)) if pending_vote
 
-        @form = form(Voter::EncryptedVoteForm).instance(election: election)
+        @form = form(Voter::VoteForm).instance(election: election)
       end
+
+      def create
+        if vote_mode?
+          @form = form(Voter::VoteForm).from_params(params, election: election)
+          Voter::CastVote.call(@form)
+        end
+
+        redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash])
+      end
+
+      def show; end
 
       def update
         Voter::UpdateVoteStatus.call(vote) do
           on(:ok) do
-            flash[:notice] = I18n.t("votes.update.success", scope: "decidim.elections")
+            redirect_to election_vote_path(election, id: vote.encrypted_vote_hash)
           end
           on(:invalid) do
             flash[:alert] = I18n.t("votes.update.error", scope: "decidim.elections")
-          end
-        end
-      end
-
-      def cast
-        @form = form(Voter::EncryptedVoteForm).from_params(params, election: election)
-        return render :cast_success, locals: { message_id: "PreviewMessageId", vote_id: nil } if preview?
-
-        Voter::CastVote.call(@form) do
-          on(:ok) do |vote|
-            render :cast_success, locals: { message_id: vote.message_id, vote_id: vote.id }
-          end
-          on(:invalid) do
-            render :cast_failed
+            redirect_to election
           end
         end
       end
 
       def verify
-        @form = form(Ballot::VerifyVoteForm).instance(election: election)
+        @form = form(Voter::VerifyVoteForm).instance(election: election)
       end
 
       private
 
       delegate :bulletin_board_server, :scheme_name, to: :bulletin_board_client
 
+      def election_unique_id
+        @election_unique_id ||= Decidim::BulletinBoard::MessageIdentifier.unique_election_id(bulletin_board_client.authority_slug, election.id)
+      end
+
       def vote
-        @vote ||= Decidim::Elections::Vote.find_by(id: params[:vote_id])
+        @vote ||= Decidim::Elections::Vote.find_by(encrypted_vote_hash: params[:id]) if params[:id]
       end
 
-      def pending_vote?
-        Decidim::Elections::Votes::PendingVotes.for.exists?(user: current_user, election: election)
+      def vote_mode?
+        return @vote_mode if defined?(@vote_mode)
+
+        @vote_mode = allowed_to? :vote, :election, election: election
       end
 
-      def booth_mode
-        @booth_mode ||= if allowed_to? :vote, :election, election: election
-                          :vote
-                        elsif allowed_to? :preview, :election, election: election
-                          :preview
-                        end
+      def preview_mode?
+        return @preview_mode if defined?(@preview_mode)
+
+        @preview_mode = !vote_mode? && allowed_to?(:preview, :election, election: election)
       end
 
       def return_path
@@ -76,12 +78,8 @@ module Decidim
                          end
       end
 
-      def pending_vote_path
-        @pending_vote_path ||= if allowed_to? :view, :election, election: election
-                                 verify_election_vote_path(election)
-                               else
-                                 elections_path
-                               end
+      def pending_vote
+        @pending_vote ||= Decidim::Elections::Votes::PendingVotes.for.find_by(user: current_user, election: election)
       end
 
       def bulletin_board_client
@@ -102,10 +100,6 @@ module Decidim
 
       def questions
         @questions ||= election.questions.includes(:answers).order(weight: :asc, id: :asc)
-      end
-
-      def preview?
-        booth_mode == :preview
       end
     end
   end

@@ -14,6 +14,7 @@ de:
       meeting:
         address: Adresse
         available_slots: Verfügbare Slots für dieses Meeting
+        customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
@@ -25,6 +26,7 @@ de:
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
         private_meeting: Private Sitzung
+        registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
@@ -264,6 +266,7 @@ de:
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
@@ -361,6 +364,7 @@ de:
             space_type: Partizipativer Raum
             upcoming: Bevorstehende
       last_activity:
+        meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
         new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
       mailer:
         invite_join_meeting_mailer:

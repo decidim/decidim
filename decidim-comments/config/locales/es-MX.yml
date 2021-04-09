@@ -39,7 +39,13 @@ es-MX:
           user_group_id:
             label: Comentar como
         opinion:
+          label: Tu opinión sobre este tema
+          negative: Negativa
+          negative_selected: Tu opinión sobre este tema es negativa
           neutral: Neutral
+          neutral_selected: Tu opinión sobre este tema es neutral
+          positive: Positiva
+          positive_selected: Tu opinión sobre este tema es positiva
         remaining_characters: "Quedan %{count} caracteres"
         remaining_characters_1: "Queda %{count} carácter"
         title: Deje su comentario
@@ -109,7 +115,7 @@ es-MX:
           email_subject: Su comentario en "%{resource_title}" ha sido votado negativamente.
           notification_title: Tu <a href="%{resource_path}">comentario</a> en "%{resource_title}" ha sido votado negativamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
         comment_upvoted:
-          email_intro: Tu comentario en "%{resource_title}" ha sido votado. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
+          email_intro: Tu comentario en "%{resource_title}" ha sido votado postivamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
           email_outro: Has recibido esta notificación porque eres la autora de este comentario.
           email_subject: Tu comentario en "%{resource_title}" ha sido votado positivamente.
           notification_title: Tu <a href="%{resource_path}">comentario</a> en "%{resource_title}" ha sido votado positivamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.

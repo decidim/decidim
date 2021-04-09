@@ -14,6 +14,7 @@ nl:
       meeting:
         address: Adres
         available_slots: Beschikbare plaatsen voor dit event
+        customize_registration_email: Aanpassen registratie e-mail
         decidim_category_id: Categorie
         decidim_scope_id: Scope
         decidim_user_group_id: Gebruikers groep
@@ -25,6 +26,7 @@ nl:
         organizer_gid: Aanmaken als
         organizer_id: Organisator
         private_meeting: Privé vergadering
+        registration_email_custom_content: Registratie e-mail aangepaste inhoud
         registration_form_enabled: Inschrijvingsformulier ingeschakeld
         registration_terms: Registratievoorwaarden
         registration_url: Registratie URL
@@ -254,6 +256,7 @@ nl:
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
             location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
             online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
+            registration_email_help: Deze tekst verschijnt in het midden van de registratie bevestigingsmail, net na de registratiecode.
             registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
             select_a_meeting_type: Selecteer een vergaderingstype
             select_a_registration_type: Selecteer een registratietype
@@ -350,6 +353,7 @@ nl:
             space_type: Participatieve ruimte
             upcoming: Aankomende
       last_activity:
+        meeting_updated_at_html: "<span>Vergadering bijgewerkt op %{link}</span>"
         new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
       mailer:
         invite_join_meeting_mailer:

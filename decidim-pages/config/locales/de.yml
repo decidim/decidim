@@ -20,7 +20,7 @@ de:
       admin:
         models:
           components:
-            body: Karosserie
+            body: Haupttext
         pages:
           edit:
             save: Aktualisieren

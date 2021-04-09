@@ -34,7 +34,7 @@ ca:
         subtitle: Subtítol
         target: Qui hi participa
         title: Títol
-        weight: Pes
+        weight: Ordre de posició
       participatory_process_group:
         description: Descripció
         developer_group: Grup promotor
@@ -449,6 +449,8 @@ ca:
         start_date: Data d'inici
         target: Qui participa
         unspecified: Sense especificar
+    statistics:
+      processes_count: Processos
   layouts:
     decidim:
       participatory_process_groups:

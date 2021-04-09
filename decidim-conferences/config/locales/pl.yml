@@ -22,6 +22,12 @@ pl:
         slogan: Slogan
         slug: URL slug
         title: Tytuł
+      conference_media_link:
+        weight: Kolejność na stronie
+      conference_partner:
+        weight: Kolejność na stronie
+      conference_registration_type:
+        weight: Kolejność na stronie
       conference_speaker:
         full_name: Pełne imię i nazwisko
       conference_user_role:
@@ -212,7 +218,6 @@ pl:
             price: Cena
             registrations_count: Liczba rejestracji
             title: Tytuł
-            weight: Kolejność na stronie
           name: Typ rejestracji
       partners:
         create:
@@ -547,6 +552,8 @@ pl:
         title: Media i linki
     menu:
       conferences: Konferencje
+    statistics:
+      conferences_count: Konferencje
   devise:
     mailer:
       join_conference:

@@ -53,7 +53,7 @@ en:
         target: Who participates
         title: Title
         twitter: Twitter
-        weight: Weight
+        weight: Order position
         youtube: YouTube
       assembly_member:
         birthday: Birthday
@@ -191,6 +191,7 @@ en:
           assembly_members: Members
           attachment_collections: Folders
           attachment_files: Files
+          attachments: Attachments
           categories: Categories
           components: Components
           info: Info

@@ -24,7 +24,6 @@ ja:
       component:
         name: 名前
         published_at: 公開日時
-        weight: 重みづけ
       id: ID
       newsletter:
         body: 本文
@@ -99,12 +98,10 @@ ja:
         show_in_footer: フッターに表示
         slug: URL スラグ
         title: タイトル
-        weight: 重量
       static_page_topic:
         description: 説明
         show_in_footer: フッターに表示
         title: タイトル
-        weight: 重量
       user_group_csv_verification:
         file: ファイル
     errors:
@@ -382,7 +379,7 @@ ja:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
+            xlsx: xlsx
           actions:
             back: 戻る
           import: インポート
@@ -507,6 +504,11 @@ ja:
             title: アクション
             unreport: 報告解除
           nickname: ニックネーム
+        report:
+          reasons:
+            spam: スパム
+        tabs:
+          unblocked: 未ブロック
       moderations:
         index:
           title: モデレーション
@@ -515,6 +517,9 @@ ja:
             does_not_belong: 属していません
             offensive: 攻撃
             spam: スパム
+        reports:
+          index:
+            author: 投稿者
       newsletter_templates:
         index:
           preview_template: プレビュー

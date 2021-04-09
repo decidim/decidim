@@ -64,4 +64,46 @@ describe Decidim::Votings::Admin::Permissions do
       it { is_expected.to eq true }
     end
   end
+
+  describe "census" do
+    let(:action_subject) { :census }
+
+    context "when managing a census" do
+      let(:action_name) { :manage }
+
+      it { is_expected.to eq true }
+    end
+  end
+
+  describe "ballot styles" do
+    let(:action_subject) { :ballot_style }
+
+    context "when updating a ballot style" do
+      let(:action_name) { :update }
+      let(:extra_context) { { ballot_style: ballot_style } }
+      let(:ballot_style) { create(:ballot_style, voting: voting) }
+
+      context "when census ballot style is not present" do
+        let(:ballot_style) { nil }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when census dataset is not present" do
+        it { is_expected.to eq true }
+      end
+
+      context "when census dataset is in init_data status" do
+        let!(:dataset) { create(:dataset, voting: voting, status: :init_data) }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when census dataset is in another status" do
+        let!(:dataset) { create(:dataset, voting: voting, status: :data_created) }
+
+        it { is_expected.to eq false }
+      end
+    end
+  end
 end

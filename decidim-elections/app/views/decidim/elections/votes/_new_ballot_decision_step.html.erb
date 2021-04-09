@@ -1,0 +1,34 @@
+<%= render("focus_header", header_title: t("decidim.elections.votes.header.ballot_decision")) %>
+
+<div class="focus__content evote">
+  <div class="row">
+    <div>
+      <h1 class="heading2">
+        <%= t("decidim.elections.votes.ballot_decision.header") %>
+      </h1>
+
+      <div class="row">
+        <div class="columns">
+          <p><%= t("decidim.elections.votes.ballot_decision.description") %></p>
+          <span class="ballot-hash">
+          </span>
+          <span>
+            <a class="audit_ballot">
+              <%= t("decidim.elections.votes.ballot_decision.audit") %>
+            </a>
+          </span>
+          <div>
+            <%= decidim_form_for(@form, url: election_votes_path(election), html: { autocomplete: "off" }) do |f| %>
+              <%= f.hidden_field :encrypted_data %>
+              <%= f.hidden_field :encrypted_data_hash %>
+              <%= f.submit t("decidim.elections.votes.ballot_decision.cast"), class: "button cast_ballot" %>
+            <% end %>
+          </div>
+          <%= link_to election_path(election), class: "button back hide" do %>
+            <%= t("decidim.elections.votes.ballot_decision.back") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ fi:
       component:
         name: Nimi
         published_at: Julkaistu osoitteessa
-        weight: Painoarvo
+        weight: Järjestysnumero
       id: ID
       import:
         user_group_id: Tuo käyttäjänä
@@ -32,6 +32,7 @@ fi:
         body: Runko
         subject: Otsikko
       organization:
+        admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
         alert_color: Ilmoitus
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
@@ -111,12 +112,12 @@ fi:
         show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
-        weight: Paino
+        weight: Järjestysnumero
       static_page_topic:
         description: Kuvaus
         show_in_footer: Näytä alatunnisteessa
         title: Otsikko
-        weight: Paino
+        weight: Järjestysnumero
       user_group_csv_verification:
         file: Tiedosto
     errors:
@@ -378,7 +379,7 @@ fi:
         file_help:
           import:
             explanation: 'Tiedoston ohjeistus:'
-            message_1: CSV-, JSON- ja Excel-tiedostoja (.xls) tuetaan
+            message_1: CSV-, JSON- ja Excel-tiedostoja (.xlsx) tuetaan
             message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
       help_sections:
         error: Ohjeosioiden päivitys epäonnistui
@@ -430,7 +431,7 @@ fi:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
+            xlsx: xlsx
           actions:
             back: Takaisin
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.

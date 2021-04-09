@@ -39,6 +39,7 @@
       }, config);
 
       this.map = null;
+      this.eventHandlers = {};
 
       MapControllerRegistry.setController(mapId, this);
     }
@@ -83,6 +84,18 @@
         fillColor: this.config.markerColor,
         iconSize: L.point(28, 36)
       });
+    }
+
+    setEventHandler(name, callback) {
+      this.eventHandlers[name] = callback;
+    }
+
+    triggerEvent(eventName, payload) {
+      const handler = this.eventHandlers[eventName];
+      if (typeof handler === "function") {
+        return Reflect.apply(handler, this, payload);
+      }
+      return null;
     }
   }
 

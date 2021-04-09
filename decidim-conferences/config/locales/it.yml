@@ -22,6 +22,12 @@ it:
         slogan: Slogan
         slug: Slug URL
         title: Titolo
+      conference_media_link:
+        weight: Peso
+      conference_partner:
+        weight: Peso
+      conference_registration_type:
+        weight: Peso
       conference_speaker:
         full_name: Nome e cognome
       conference_user_role:
@@ -206,7 +212,6 @@ it:
             price: Prezzo
             registrations_count: Conteggio delle iscrizioni
             title: Titolo
-            weight: Peso
           name: Tipo di iscrizione
       partners:
         create:

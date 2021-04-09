@@ -665,6 +665,7 @@ ca:
         success: L'esborrany de proposta s'ha eliminat correctament.
       last_activity:
         new_proposal_at_html: "<span>Nova proposta a %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta actualitzada el %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -899,3 +900,7 @@ ca:
       included_proposals:
         proposal_project: 'Proposta vinculada a aquests projectes:'
         proposal_result: 'Proposta vinculada a aquests resultats:'
+    statistics:
+      proposals_accepted: Propostes acceptades
+      proposals_count: Propostes
+      supports_count: Suports

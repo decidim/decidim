@@ -24,7 +24,6 @@
       component:
         name: Navn
         published_at: Publisert den
-        weight: Vekt
       id: ID
       import:
         user_group_id: Opprett importer som
@@ -78,7 +77,7 @@
         send_welcome_notification: Send velkomst varsel
         success_color: Vellykket
         time_zone: Tidssone
-        tos_version: Vilkår for tjenester versjon
+        tos_version: Vilkår for tjenesten
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         warning_color: Advarsel
@@ -103,12 +102,10 @@
         show_in_footer: Vis i bunnteksten
         slug: URL slug
         title: Tittel
-        weight: Vekt
       static_page_topic:
         description: Beskrivelse
         show_in_footer: Vis i bunnteksten
         title: Tittel
-        weight: Vekt
       user_group_csv_verification:
         file: Fil
     errors:
@@ -156,7 +153,7 @@
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for Bruk. Ellers vil du ikke kunne administrere plattformen.
+          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for bruk. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:

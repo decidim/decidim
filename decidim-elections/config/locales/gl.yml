@@ -50,6 +50,8 @@ gl:
           new:
             create: Crear resposta
             title: Nova resposta
+          not_selected: Non seleccionada
+          selected: Seleccionada
         models:
           answer:
             name: Resposta
@@ -69,12 +71,32 @@ gl:
             errors:
               minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
             not_used_trustee: "(non usada)"
+          results_published:
+            answer: Resposta
+            not_selected: Non seleccionado
+            question: Pregunta
+            result: Resultado
+            selected: Seleccionado
+            submit: Enviar
+          tally_ended:
+            answer: Resposta
+            not_selected: Non seleccionado
+            question: Pregunta
+            result: Resultado
+            selected: Seleccionado
+            success: A solicitude de publicación de resultados foi enviada con éxito ao Bulletin Board
+            title: Resultados calculados
+          vote_ended:
+            text: Rematou a votación. Podes comezar o reconto agora.
       election_m:
         badge_name:
           finished: Finalizada
           ongoing: Activa
           upcoming: Vindeiras
         footer:
+          remaining_time:
+            one: "<strong>%{count} hora %{minutes} minutos</strong> para votar."
+            other: "<strong>%{count} horas %{minutes} minutos</strong> para votar."
           view: Ver
           vote: Votar
         label:
@@ -93,12 +115,30 @@ gl:
           close_modal: Pechar modal
           filter: Filtrar
           filter_by: Filtrar por
+        preview:
+          available_answers: 'Respostas dispoñibles:'
+          description: 'Estas son as preguntas que atoparás non proceso de votación:'
         results:
+          description: 'Estes son os resultados da votación, para cada pregunta:'
           selected: Seleccionado
+        show:
+          action_button:
+            change_vote: Troca o teu voto
+            vote: Comezar votación
+            vote_again: Votar de novo
+          callout:
+            already_voted: Xa votaches nesta elección. Podes trocar o teu voto ou verificalo.
+            vote_rejected: Non foi posíbel verificar o teu voto. Por favor, faino de novo.
+          verify:
+            already_voted: Xa votaches?
+            verify_here: Verifica o teu voto aquí.
+            will_verify: Poderás verificar o teu voto unha vez comece a elección.
       models:
         answer:
           fields:
+            selected: Seleccionado
             title: Título
+            votes: Votos
         election:
           fields:
             title: Título
@@ -131,20 +171,29 @@ gl:
             identification_keys:
               submit: Enviar
       votes:
+        ballot_decision:
+          audit: "( Auditar papeleta )"
+          back: Comezar o proceso de voto de novo
+          cast: Enviar papeleta
+          description: Aquí tes as opcións para emitir a túa papeleta e que sexa contada de xeito válido ou, alternativamente, podes auditar o correcto cifrado da túa papeleta. Por razóns de seguranza, a auditoría danará a túa papeleta, o que significa, que terás de reiniciar o proceso de votación para emitir o teu voto.
         confirmed:
-          error: Sentímolo, produciuse un erro confirmando o voto. Por favor, vota de novo.
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
           header: Voto confirmado
+        encrypting:
+          header: Cifrando o voto...
+          text: Cifrando a papeleta para asegurar que o teu voto é segredo.
+        failed:
+          try_again: Tentar de novo
         header:
+          ballot_decision: Enviar ou auditar o teu voto
           confirm: Confirma o teu voto
           confirmed: Voto confirmado
-          encrypting: Confirmando o voto
+          encrypting: Cifrando o voto
         modal:
           close: Pechar
         update:
-          error: Produciuse un problema ao actualizar o estado do voto
-          success: Estado do voto actualizado con éxito
+          error: Produciuse un problema ao actualizar o estado do voto. Por favor, téntao de novo.
     events:
       elections:
         votes:
@@ -153,6 +202,9 @@ gl:
             email_outro: Recibiches esta notificación porque votaches pola elección de %{resource_name}.
             email_subject: O teu voto por %{resource_name} foi aceptado.
             notification_title: 'O teu voto foi aceptado, verifícao <a href="%{verify_url}">aquí</a> empregando o teu token de votación: %{encrypted_vote_hash}'
+    statistics:
+      elections_count: Eleccións
+      votings_count: Votacións
     votings:
       admin:
         menu:
@@ -165,3 +217,19 @@ gl:
               hybrid: Híbrido
               in_person: En persoa
               online: En liña
+      content_blocks:
+        landing_page:
+          description:
+            show_less: Ler menos
+            show_more: Ler máis
+          metrics:
+            heading: Métricas
+          polling_stations:
+            heading: Puntos de votación
+            no_polling_stations: Aínda non hai puntos de votación.
+          timeline:
+            heading: Liña de tempo
+  layouts:
+    decidim:
+      voting_navigation:
+        voting_menu_item: A votación

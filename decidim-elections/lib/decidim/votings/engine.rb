@@ -12,7 +12,10 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :votings, param: :slug, only: [:index, :show, :update]
+        resources :votings, param: :slug, only: [:index, :show, :update] do
+          get :check_census, action: :show_check_census
+          post :check_census, action: :check_census
+        end
 
         get "votings/:voting_id", to: redirect { |params, _request|
           voting = Decidim::Votings::Voting.find(params[:voting_id])
@@ -54,11 +57,12 @@ module Decidim
 
       initializer "decidim_votings.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.votings", scope: "decidim"),
-                    decidim_votings.votings_path,
-                    position: 2.6,
-                    if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
-                    active: :inclusive
+          menu.add_item :votings,
+                        I18n.t("menu.votings", scope: "decidim"),
+                        decidim_votings.votings_path,
+                        position: 2.6,
+                        if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
+                        active: :inclusive
         end
       end
 

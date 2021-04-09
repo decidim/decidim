@@ -52,7 +52,7 @@ ca:
         target: Qui participa
         title: Títol
         twitter: Twitter
-        weight: Pes
+        weight: Ordre de posició
         youtube: YouTube
       assembly_member:
         birthday: Aniversari
@@ -436,6 +436,8 @@ ca:
             processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
       show:
         related_assemblies: Assemblees relacionades
+    statistics:
+      assemblies_count: Assemblees
   errors:
     messages:
       cannot_be_blank: no es pot estar en blanc

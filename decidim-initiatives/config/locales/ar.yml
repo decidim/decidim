@@ -66,6 +66,8 @@ ar:
       actions:
         new_initiative_type: نوع المبادرة الجديدة
       menu:
+        components: المكونات
+        information: معلومات
         initiatives: المبادرات
         initiatives_types: أنواع المبادرة
       models:
@@ -439,12 +441,6 @@ ar:
           vote: إشارة
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: مرفقات
-          committee_members: أعضاء اللجنة
-          components: المكونات
-          information: معلومات
       initiative_creation_header:
         back: الى الخلف
         fill_data: إنشاء

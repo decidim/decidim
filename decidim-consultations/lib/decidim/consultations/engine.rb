@@ -72,11 +72,12 @@ module Decidim
 
       initializer "decidim_consultations.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.consultations", scope: "decidim"),
-                    decidim_consultations.consultations_path,
-                    position: 2.65,
-                    if: Decidim::Consultation.where(organization: current_organization).published.any?,
-                    active: :inclusive
+          menu.add_item :consultations,
+                        I18n.t("menu.consultations", scope: "decidim"),
+                        decidim_consultations.consultations_path,
+                        position: 2.65,
+                        if: Decidim::Consultation.where(organization: current_organization).published.any?,
+                        active: :inclusive
         end
       end
 

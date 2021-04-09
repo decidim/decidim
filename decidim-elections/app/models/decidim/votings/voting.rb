@@ -24,7 +24,10 @@ module Decidim
       belongs_to :organization,
                  foreign_key: "decidim_organization_id",
                  class_name: "Decidim::Organization"
-
+      has_one :dataset,
+              foreign_key: "decidim_votings_voting_id",
+              class_name: "Decidim::Votings::Census::Dataset",
+              dependent: :destroy
       has_many :components, as: :participatory_space, dependent: :destroy
       has_many :categories,
                foreign_key: "decidim_participatory_space_id",
@@ -38,6 +41,7 @@ module Decidim
                class_name: "Decidim::Votings::MonitoringCommitteeMember",
                inverse_of: :voting,
                dependent: :destroy
+      has_many :ballot_styles, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::BallotStyle", inverse_of: :voting, dependent: :destroy
 
       validates :slug, uniqueness: { scope: :organization }
       validates :slug, presence: true, format: { with: Decidim::Votings::Voting.slug_format }
@@ -117,10 +121,6 @@ module Decidim
         true
       end
 
-      def needs_elections?
-        !in_person_voting? && !has_elections?
-      end
-
       def polling_stations_with_missing_officers?
         !online_voting? && polling_stations.any?(&:missing_officers?)
       end
@@ -131,7 +131,9 @@ module Decidim
           .where(managed_polling_station_id: nil)
       end
 
-      private
+      def has_ballot_styles?
+        ballot_styles.exists?
+      end
 
       def has_elections?
         components.where(manifest_name: :elections).any? do |component|

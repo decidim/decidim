@@ -34,7 +34,7 @@ es-PY:
         subtitle: Subtítulo
         target: Quién participa
         title: Título
-        weight: Peso
+        weight: Orden de posición
       participatory_process_group:
         description: Descripción
         developer_group: Grupo promotor
@@ -449,6 +449,8 @@ es-PY:
         start_date: Fecha de inicio
         target: Quién participa
         unspecified: No especificado
+    statistics:
+      processes_count: Procesos
   layouts:
     decidim:
       participatory_process_groups:

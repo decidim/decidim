@@ -131,6 +131,8 @@ fr:
         exports:
           elections: Élections
           feedback_form_answers: Feedbacks des répondants
+        menu:
+          trustees: Garants
         models:
           answer:
             name: Réponse
@@ -227,7 +229,6 @@ fr:
             result: Réalisation
             selected: Sélectionné
             submit: Publier les résultats
-            success: Dépouillement correctement terminé
             title: Résultat du calcul
           vote:
             errors:
@@ -278,6 +279,9 @@ fr:
           upcoming: À venir
         end_date: Se termine le
         footer:
+          remaining_time:
+            one: "<strong>Il reste %{count} heure %{minutes} minutes</strong> pour voter."
+            other: "<strong>Il reste %{count} heures %{minutes} minutes</strong> pour voter."
           view: Voir
           vote: Voter
         label:
@@ -458,7 +462,6 @@ fr:
           back: Recommencer le processus de vote
           cast: Valider votre vote
           description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
-          header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         confirm:
           answer: Répondre
           answer_number: répondre à %{number}
@@ -475,9 +478,6 @@ fr:
           header: Vote confirmé
           lead: Votre vote a déjà été exprimé!
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        encrypting:
-          header: Encodage du vote...
-          text: Votre vote est en cours de cryptage pour vous assurer que vous pouvez le diffuser de manière anonyme.
         failed:
           header: Le vote a échoué
           lead: Votre vote n'a pas été exprimé!
@@ -486,7 +486,6 @@ fr:
           ballot_decision: Validez ou auditez votre vote
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
-          encrypting: Confirmation du vote
         messages:
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
         modal:
@@ -499,9 +498,6 @@ fr:
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
-        update:
-          error: Un problème est survenu lors de la mise à jour du statut de vote
-          success: Statut du vote mis à jour avec succès
         verify:
           content:
             heading: Vérifiez votre vote

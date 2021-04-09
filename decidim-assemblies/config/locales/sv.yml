@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Aktivera organisationskarta
       assembly:
         area_id: Område
         assembly_type: Typ av grupp
@@ -61,6 +63,7 @@ sv:
         full_name: Fullständigt namn
         gender: Kön
         position: Befattning
+        user_id: Användare
       assembly_user_role:
         email: E-post
         name: Namn
@@ -247,6 +250,7 @@ sv:
         update: "%{user_name} uppdaterade inställningarna för församlingarna"
       assembly_type:
         create: "%{user_name} skapade grupptypen %{resource_name}"
+        delete: "%{user_name} raderade grupptypen %{resource_name}"
         publish: "%{user_name} publicerade grupptypen %{resource_name}"
         unpublish: "%{user_name} avpublicerade grupptypen %{resource_name}"
         update: "%{user_name} uppdaterade grupptypen %{resource_name}"
@@ -423,6 +427,8 @@ sv:
       home:
         hero:
           participate_title: Delta i plattformens dialoger
+        sub_hero:
+          register_title: Skapa ett konto
     participatory_processes:
       pages:
         home:
@@ -430,6 +436,8 @@ sv:
             processes_button_title: Länk till sidan som visar alla dialoger
       show:
         related_assemblies: Relaterade grupper
+    statistics:
+      assemblies_count: Grupper
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt

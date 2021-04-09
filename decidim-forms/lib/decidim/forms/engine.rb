@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/core"
+
 module Decidim
   module Forms
     # This is the engine that runs on the public interface of `decidim-forms`.

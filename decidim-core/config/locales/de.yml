@@ -5,6 +5,8 @@ de:
         delete_reason: Grund, Ihr Konto zu löschen
       common:
         created_at: Erstellt am
+      conversation:
+        body: Haupttext
       group:
         about: Über
         avatar: Profilbild
@@ -13,6 +15,8 @@ de:
         name: Name
         nickname: Spitzname
         phone: Telefonnummer
+      message:
+        body: Haupttext
       report:
         details: Zusätzliche Kommentare
       user:
@@ -257,7 +261,8 @@ de:
       photos:
         related_photos: Zugehörige Bilder
     author:
-      avatar: Profilbild
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar für mehrere Benutzer
       comments:
         one: Kommentar
         other: Kommentare
@@ -1224,6 +1229,7 @@ de:
         description: Ist dieser Inhalt unangemessen?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
         offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
+        reason: Begründung
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
@@ -1307,6 +1313,7 @@ de:
         send: Senden
         title_reply: Antworten
       show:
+        back: Alle Unterhaltungen anzeigen
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
         title: Unterhaltung mit %{usernames}
       update:
@@ -1352,6 +1359,7 @@ de:
         number_of_versions: Versionen
         title: Versionen
     versions_list_item:
+      back: Alle Versionen anzeigen
       show:
         version_index: Version %{index}
     welcome_notification:
@@ -1530,10 +1538,6 @@ de:
       too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
-    length_validator:
-      minimum:
-        one: mindestens %{count} Zeichen
-        other: mindestens %{count} Zeichen
     required: Erforderlich
     required_explanation: "* Pflichtfelder sind mit einem Stern gekennzeichnet"
   invisible_captcha:
@@ -1554,9 +1558,11 @@ de:
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
       header:
         close_menu: Menü schließen
+        main_menu: Hauptmenü
         navigation: Navigation
         sign_in: Anmelden
         sign_up: Registrieren
+        user_menu: Benutzer-Menü
       impersonation_warning:
         close_session: Sitzung schließen
         description_html: Sie geben sich als Benutzer <b>%{user_name}</b>.
@@ -1585,6 +1591,7 @@ de:
         profile: Mein Konto
         public_profile: Mein öffentliches Profil
         sign_out: Ausloggen
+        title: Profil-Links
       user_profile:
         account: Konto
         authorizations: Berechtigungen
@@ -1634,18 +1641,18 @@ de:
     xing: Xing
   time:
     formats:
-      day_of_month: "%b %d"
+      day_of_month: "%d. %b"
       day_of_week: "%a"
-      day_of_week_long: "%a %e"
+      day_of_week_long: "%a %e."
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d. %B %Y"
       decidim_short: "%d.%m.%Y %H:%M"
-      default: "%a, %d %b %Y %H:%M:%S %z"
+      default: "%a, %d. %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%B %d, %Y %H:%M"
+            accept_until_format: "%d. %B %Y %H:%M"
+      long: "%d. %B %Y %H:%M"
       long_dashed: "%d.%m.%Y %H:%M:%S"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
