@@ -878,11 +878,18 @@ de:
                 explanation: 'Hinweise für die Datei:'
                 message_1: Nur CSV-Dateien (.csv) sind erlaubt.
                 message_2: Das Trennzeichen zwischen den Spalten muss ein Semikolon (";") sein.
+              has_ballot_styles_message: Sie haben Wahlkategorien eingerichtet. Bitte stellen Sie sicher dass das Feld "%{ballot_style_code_header}" im CSV dem Code der gewünschten Wahlkategorie entspricht.
               info_message: "<strong>Es gibt noch keine Erhebungsdaten.</strong> Bitte verwenden Sie das untenstehende Formular um die Erhebungsdaten aus einer CSV-Datei zu importieren."
+              missing_ballot_styles_message: 'Es gibt noch keine Wahlkategorien für diese Abstimmung. Wenn Sie variable Fragen haben möchten (d.h. dem Wähler unterschiedliche Fragen anzeigen, je nach z.B. Wohnort), müssen Sie die <a href=%{ballot_styles_admin_path}>Wahlkategorien</a> einrichten, <strong>bevor</strong> Sie die Erhebungsdaten importieren. Wenn Sie allen Wählern die gleichen Fragen stellen wollen, können Sie mit dem Import für Erhebungsdaten fortfahren.'
               submit: CSV absenden
               title: Erhebungsdaten erfassen
             show:
               heading: Erhebungsdaten der Abstimmung
+            upload_info:
+              csv_example_with_ballot_style: 'Ein Beispiel für die Datei <strong>mit</strong> Wahlkategorien:'
+              csv_example_without_ballot_style: 'Ein Beispiel für die Datei <strong>ohne</strong> Wahlkategorien:'
+              csv_header_after: Lassen Sie das letzte Feld ("%{ballot_style_code_header}") weg, wenn Sie keine Wahlkategorien / variablen Fragen benötigen
+              csv_header_before: 'Die Erhebungsdatei muss eine CSV-Datei mit folgender Kopfzeile sein:'
         export_mailer:
           access_codes_export:
             click_button: 'Klicken Sie auf den Link, um die Zugangscodes herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
