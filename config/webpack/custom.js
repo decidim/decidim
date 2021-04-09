@@ -83,6 +83,7 @@ module.exports = {
     decidim_forms_admin: "./decidim-forms/app/packs/entrypoints/decidim_forms_admin.js",
     decidim_initiatives: "./decidim-initiatives/app/packs/entrypoints/decidim_initiatives.js",
     decidim_initiatives_admin: "./decidim-initiatives/app/packs/entrypoints/decidim_initiatives_admin.js",
+    decidim_initiatives_print: "./decidim-initiatives/app/packs/entrypoints/decidim_initiatives_print.js",
     decidim_meetings: "./decidim-meetings/app/packs/entrypoints/decidim_meetings.js",
     decidim_meetings_admin: "./decidim-meetings/app/packs/entrypoints/decidim_meetings_admin.js",
     decidim_pages: "./decidim-pages/app/packs/entrypoints/decidim_pages.js",
