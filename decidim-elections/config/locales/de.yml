@@ -644,6 +644,7 @@ de:
               edit: Bearbeiten
               new: Neu
               title: Aktionen
+            associated_census_data: Zugehörige Erhebungseinträge
             explanation_callout: Eine Wahlkategorie legt fest, welche Fragen einem Wähler bei der Abstimmung gestellt werden. In einer Wahlkategorie können Sie auswählen, welche Fragen aus den Wahlkomponenten dieser Wahl zu einer Wahlurne gehören. Anhand dem Wahlkategorie-Code aus den Erhebungsdaten des Wählers wird die Wahlkategorie ausgewählt, die einem Wähler angezeigt wird. Wenn Sie immer alle Fragen anzeigen wollen, erstellen Sie keine Wahlkategorien.
             title: Wahlkategorien
           new:
@@ -840,12 +841,16 @@ de:
       census:
         admin:
           census:
+            create:
+              invalid: Beim Hochladen der Erhebung ist ein Problem aufgetreten, bitte versuchen Sie es später erneut.
+              invalid_csv_header: Der CSV-Header hat nicht die richtige Anzahl Felder - bitte lesen Sie die Anweisungen sorgfältig
             creating_data:
               info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
             delete:
               button: Alle Erhebungsdaten löschen
               confirm: Dies kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             destroy:
+              error: Beim Löschen der Erhebungsdaten ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
               success: Erhebungsdaten gelöscht
             export_access_codes:
               button: Zugangscodes für die Abstimmung exportieren
