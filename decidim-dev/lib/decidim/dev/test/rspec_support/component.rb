@@ -189,7 +189,7 @@ end
 Decidim.register_component(:dummy) do |component|
   component.engine = Decidim::DummyResources::DummyEngine
   component.admin_engine = Decidim::DummyResources::DummyAdminEngine
-  component.icon = "decidim/dummy.svg"
+  component.icon = "media/images/decidim_dev_dummy.svg"
 
   component.actions = %w(foo bar)
 
