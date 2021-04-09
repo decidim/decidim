@@ -28,6 +28,7 @@ module Decidim::Conferences
         invalid?: invalid,
         full_name: "Full name",
         user: user,
+        avatar: avatar,
         errors: ActiveModel::Errors.new(Admin::ConferenceSpeakerForm),
         attributes: {
           full_name: "Full name",
@@ -36,8 +37,7 @@ module Decidim::Conferences
           short_bio: Decidim::Faker::Localized.sentence(word_count: 5),
           twitter_handle: "full_name",
           personal_url: Faker::Internet.url,
-          meeting_ids: meeting_ids,
-          avatar: avatar
+          meeting_ids: meeting_ids
         }
       )
     end

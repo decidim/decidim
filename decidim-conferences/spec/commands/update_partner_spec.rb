@@ -9,7 +9,7 @@ module Decidim::Conferences
     let!(:conference) { create(:conference) }
     let(:partner) { create :partner, :main_promotor, conference: conference }
     let!(:current_user) { create :user, :confirmed, organization: conference.organization }
-    let(:logo) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    let(:logo) { fixture_file_upload(File.open(Decidim::Dev.asset("avatar.jpg")), "image/jpeg") }
     let(:form) do
       double(
         Admin::PartnerForm,
