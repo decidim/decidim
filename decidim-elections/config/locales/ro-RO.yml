@@ -445,6 +445,11 @@ ro:
             new:
               has_ballot_styles_message: Ai configurat Ballot Stiluri. Te rugăm să te asiguri că câmpul "%{ballot_style_code_header}" din CSV corespunde codului dorit al Stilului Balt.
               missing_ballot_styles_message: 'Încă nu există un stil de votare pentru acest vot. Dacă doriți să aveți întrebări condiționate (i..: prezintă alegătorului întrebări diferite, în funcţie de exemplu: districtul/regiunea de reședință), trebuie să setezi <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>înainte de</strong> importul recensământului. Dacă doriţi să le adresaţi tuturor alegătorilor aceleaşi întrebări, puteţi continua cu procedura de import de recensământ.'
+            upload_info:
+              csv_example_with_ballot_style: 'Un exemplu de fișier <strong>cu</strong> stiluri de vot:'
+              csv_example_without_ballot_style: 'Un exemplu de fișier <strong>fără</strong> stiluri de vot:'
+              csv_header_after: Nu include ultimul câmp ("%{ballot_style_code_header}") dacă nu aveţi nevoie de stiluri de vot/întrebări condiţionale
+              csv_header_before: 'Fișierul de recensământ trebuie să fie un fișier CSV cu următorul antet:'
       votings:
         check_census:
           title: Verifică datele recensământului
