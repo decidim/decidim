@@ -102,6 +102,7 @@ module Decidim
 
       def install_webpacker
         rails "webpacker:install"
+        rails "assets:precompile"
       end
 
       def copy_migrations
