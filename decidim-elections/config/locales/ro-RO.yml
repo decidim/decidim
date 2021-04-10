@@ -430,6 +430,21 @@ ro:
           email_subject: Alegerea %{resource_title} este acum activă pentru %{participatory_space_title}.
           notification_title: Alegerile <a href="%{resource_path}">%{resource_title}</a> sunt acum active pentru %{participatory_space_title}.
     votings:
+      admin:
+        ballot_styles:
+          index:
+            associated_census_data: Intrări asociate recensământului
+      census:
+        admin:
+          census:
+            create:
+              invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
+              invalid_csv_header: Antetul CSV nu are numărul corect de câmpuri - vă rugăm să citiţi instrucţiunile cu atenţie
+            destroy:
+              error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
+            new:
+              has_ballot_styles_message: Ai configurat Ballot Stiluri. Te rugăm să te asiguri că câmpul "%{ballot_style_code_header}" din CSV corespunde codului dorit al Stilului Balt.
+              missing_ballot_styles_message: 'Încă nu există un stil de votare pentru acest vot. Dacă doriți să aveți întrebări condiționate (i..: prezintă alegătorului întrebări diferite, în funcţie de exemplu: districtul/regiunea de reședință), trebuie să setezi <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>înainte de</strong> importul recensământului. Dacă doriţi să le adresaţi tuturor alegătorilor aceleaşi întrebări, puteţi continua cu procedura de import de recensământ.'
       votings:
         check_census:
           title: Verifică datele recensământului
