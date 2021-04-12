@@ -223,6 +223,9 @@ gl:
           edit:
             title: Editar estilo da papeleta
             update: Actualizar
+          form:
+            election: Elección
+            questions: Preguntas para este estilo de papeleta
           index:
             actions:
               confirm_destroy: Estás certo/a?
@@ -234,6 +237,9 @@ gl:
           new:
             create: Crear
             title: Crear un estilo de papeleta
+          update:
+            invalid: Produciuse un erro ao modificar este estilo de papeleta
+            success: Estilo de papeleta modificado con éxito
         menu:
           votings_submenu:
             ballot_styles: Estilos de papeletas
@@ -263,6 +269,13 @@ gl:
               success: Datos do censo eliminados
             export_access_codes:
               button: Exportar códigos de acceso da votación
+              file_not_exists: Este ficheiro non existe
+              launch_error: Produciuse un problema ao iniciar a exportación dos códigos de acceso
+              launch_success: Iniciada a exportación dos códigos de acceso. Nun intre recibirás un correo en %{email}
+            exporting_access_codes:
+              info_message: "<strong>Agarda</strong>, a exportación esta a ser preparada, a recibirás nun intre en %{email}"
+            freeze:
+              callout: O censo está conxelado e non pode ser modificado.
             generate_access_codes:
               button: Xerar códigos de acceso para a votación
               confirm: Se continuas, non poderás modificar o censo.
@@ -281,6 +294,10 @@ gl:
               title: Crear o censo
             show:
               heading: Espazo de votación do censo
+        export_mailer:
+          access_codes_export:
+            download: Descargar
+            subject: A exportación dos códigos de acceso á votación de %{voting_title} xa están dispoñibles
       content_blocks:
         landing_page:
           description:
@@ -313,7 +330,9 @@ gl:
           postal_code: Código postal
           postal_code_placeholder: Número do código postal
           select: Seleccionar o tipo de documento
+        no_census_contact_information: Aínda non hai ningunha información de contacto
   layouts:
     decidim:
       voting_navigation:
+        check_census: Como votar
         voting_menu_item: A votación
