@@ -371,11 +371,6 @@ en:
           percentage: "%{count}%"
           selected: Selected
           title: Election results
-          totals:
-            all_ballots: 'Total Ballots: %{count} (%{percentage}%)'
-            blank_ballots: 'Blank Ballots: %{count} (%{percentage}%)'
-            null_ballots: 'Null Ballots: %{count} (%{percentage}%)'
-            valid_ballots: 'Valid Ballots: %{count} (%{percentage}%)'
           votes:
             one: "%{count} vote"
             other: "%{count} votes"
@@ -888,6 +883,7 @@ en:
         admin:
           census:
             create:
+              error: an error occurred uploading the census, please try again later.
               invalid: An error occurred uploading the census, please try again later.
               invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
             creating_data:
@@ -1020,7 +1016,7 @@ en:
               voting: Voting space
         results:
           create:
-            error: An error ocurred creating the results, please try again later.
+            error: An error occurred creating the results, please try again later.
             success: Results successfully created
           new:
             back_to_polling_stations: Back to polling stations
