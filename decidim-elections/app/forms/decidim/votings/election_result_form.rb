@@ -6,6 +6,7 @@ module Decidim
       attribute :polling_station_id, Integer
       attribute :election_id, Integer
 
+      attribute :question_results, Array[QuestionResultForm]
       attribute :answer_results, Array[AnswerResultForm]
 
       validates :polling_station_id,
@@ -15,6 +16,10 @@ module Decidim
       def map_model(model)
         self.polling_station_id = model.polling_station.id
         self.election_id = model.election.id
+
+        self.question_results = model.election.questions.flat_map do |question|
+          QuestionResultForm.from_model(question: question, polling_station: model[:polling_station])
+        end
 
         self.answer_results = model.election.questions.flat_map do |question|
           question.answers.map do |answer|
