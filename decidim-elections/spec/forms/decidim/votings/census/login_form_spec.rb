@@ -46,6 +46,12 @@ describe Decidim::Votings::Census::LoginForm do
     it { is_expected.to be_invalid }
   end
 
+  describe "when day is missing" do
+    let(:day) { nil }
+
+    it { is_expected.to be_invalid }
+  end
+
   describe "when postal_code is missing" do
     let(:postal_code) { nil }
 
