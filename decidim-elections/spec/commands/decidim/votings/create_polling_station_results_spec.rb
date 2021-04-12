@@ -18,6 +18,7 @@ module Decidim::Votings
       {
         polling_station_id: polling_station_id,
         election_id: election_id,
+        ballot_results: ballot_results,
         answer_results: answer_results,
         question_results: question_results
       }
@@ -43,6 +44,13 @@ module Decidim::Votings
           votes_count: Faker::Number.number(digits: 1)
         }
       end
+    end
+    let(:ballot_results) do
+      {
+        valid_ballots_count: Faker::Number.number(digits: 1),
+        blank_ballots_count: Faker::Number.number(digits: 1),
+        null_ballots_count: Faker::Number.number(digits: 1)
+      }
     end
 
     let(:form) { ElectionResultForm.from_params(params).with_context(context) }

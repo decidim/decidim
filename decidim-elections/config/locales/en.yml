@@ -1023,6 +1023,10 @@ en:
             heading: Vote recount - Answers recount
             info_text: Please introduce the total number of answers for each question.
             save_recount: Save recount
+            total_ballots: Total ballots
+            total_blank_ballots: Total blank ballots
+            total_null_ballots: Total null ballots
+            total_valid_ballots: Total valid ballots
       polling_officers:
         actions:
           confirm_destroy: Are you sure?

@@ -341,7 +341,7 @@ Decidim.register_component(:elections) do |component|
             election: election_with_results,
             question: result_question,
             answer: answer,
-            result_type: "valid_answer"
+            result_type: "valid_answers"
           )
         end
 
@@ -351,7 +351,7 @@ Decidim.register_component(:elections) do |component|
             election: election_with_results,
             question: result_question,
             answer: nil,
-            result_type: "blank_answer"
+            result_type: "blank_answers"
           )
         end
 

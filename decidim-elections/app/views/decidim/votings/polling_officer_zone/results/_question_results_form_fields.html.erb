@@ -1,4 +1,4 @@
-<% form.object.election.questions.each do |question| %>
+<% form.object.question_results.each do |question| %>
   <%= content_tag :h5,
               translated_attribute(question.title),
               class: "heading5 mt-sm" %>
@@ -12,8 +12,8 @@
           <%= question_form.hidden_field :id %>
 
           <%= question_form.number_field(:votes_count,
-                                   value: question.results.blank_answer.find_by(polling_station: polling_station)&.votes_count.to_i,
                                    label: t("decidim.elections.votes.new.nota_option"),
+                                   min: 0,
                                    class: "medium-3 result_votes_count") %>
         <% end %>
       <% end %>
