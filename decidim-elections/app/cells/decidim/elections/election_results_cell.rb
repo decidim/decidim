@@ -5,8 +5,6 @@ module Decidim
     # This cell renders the results
     # for a given instance of an Election
     class ElectionResultsCell < Decidim::ViewModel
-      include Decidim::ApplicationHelper
-
       def show
         render if model.results_published?
       end
