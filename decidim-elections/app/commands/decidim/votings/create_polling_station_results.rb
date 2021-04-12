@@ -59,6 +59,17 @@ module Decidim
         create_result!(params)
       end
 
+      def create_ballot_result_for!(ballot_results)
+        params = {
+          decidim_votings_polling_station_id: form.polling_station_id,
+          decidim_elections_election_id: form.election_id,
+          votes_count: ballot_results.last,
+          result_type: ballot_results.first.to_s.remove("_count")
+        }
+
+        create_result!(params)
+      end
+
       def create_answer_result_for!(answer_result)
         params = {
           value: answer_result.value,
