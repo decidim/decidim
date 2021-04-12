@@ -22,6 +22,9 @@ gl:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/votings/census/dataset:
+        one: Conxunto de datos
+        other: Conxuntos de datos
       decidim/votings/voting:
         one: Votación
         other: Votacións
@@ -227,6 +230,7 @@ gl:
         menu:
           votings_submenu:
             ballot_styles: Estilos de papeletas
+            census: Censo
             components: Compoñentes
         models:
           ballot_style:
@@ -240,6 +244,13 @@ gl:
               hybrid: Híbrido
               in_person: En persoa
               online: En liña
+      census:
+        admin:
+          census:
+            creating_data:
+              info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
+            delete:
+              button: Eliminar todos os datos do censo
       content_blocks:
         landing_page:
           description:
