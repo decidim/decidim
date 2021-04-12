@@ -208,23 +208,31 @@ gl:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Produciuse un erro ao crear este estilo de papeleta
           edit:
+            title: Editar estilo da papeleta
             update: Actualizar
           index:
             actions:
+              confirm_destroy: Estás certo/a?
               destroy: Eliminar
               edit: Editar
               new: Novo
               title: Accións
+            title: Estilos de papeletas
           new:
             create: Crear
+            title: Crear un estilo de papeleta
         menu:
           votings_submenu:
+            ballot_styles: Estilos de papeletas
             components: Compoñentes
         models:
           ballot_style:
             fields:
               code: Código
+            name: Estilo de papeleta
         votings:
           form:
             select_a_voting_type: Por favor, selecciona un tipo de votación
