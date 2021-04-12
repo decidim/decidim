@@ -1,4 +1,4 @@
-<% if Decidim.enable_participatory_space_filters %>
+<% if current_organization.enable_participatory_space_filters %>
   <div class="row" id="participatory-space-filters">
     <%= render partial: "decidim/shared/participatory_space_filters/filters_small_view" %>
     <div class="show-for-mediumlarge">

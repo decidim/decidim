@@ -152,9 +152,9 @@ describe "Filter Participatory Processes", type: :system do
     context "when filters are disabled" do
       let!(:process_with_area) { create(:participatory_process, area: create(:area, organization: organization), organization: organization) }
       let!(:process_with_scope) { create(:participatory_process, scope: create(:scope, organization: organization), organization: organization) }
+      let(:organization) { create(:organization, enable_participatory_space_filters: false) }
 
       before do
-        allow(Decidim).to receive(:enable_participatory_space_filters).and_return(false)
         visit decidim_participatory_processes.participatory_processes_path
       end
 
