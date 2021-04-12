@@ -55,15 +55,15 @@ module Decidim
                dependent: :destroy,
                as: :participatory_space
 
+      has_one_attached :hero_image
       validates_upload :hero_image do |config|
         config.uploader = Decidim::HeroImageUploader
       end
-      mount_uploader :hero_image, Decidim::HeroImageUploader
 
+      has_one_attached :banner_image
       validates_upload :banner_image do |config|
         config.uploader = Decidim::BannerImageUploader
       end
-      mount_uploader :banner_image, Decidim::BannerImageUploader
 
       default_scope { order(order: :asc) }
 

@@ -36,15 +36,15 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Consultation.slug_format }
 
+    has_one_attached :banner_image
     validates_upload :banner_image do |config|
       config.uploader = Decidim::BannerImageUploader
     end
-    mount_uploader :banner_image, Decidim::BannerImageUploader
 
+    has_one_attached :introductory_image
     validates_upload :introductory_image do |config|
       config.uploader = Decidim::BannerImageUploader
     end
-    mount_uploader :introductory_image, Decidim::BannerImageUploader
 
     scope :upcoming, -> { published.where("start_voting_date > ?", Time.now.utc) }
     scope :active, lambda {
