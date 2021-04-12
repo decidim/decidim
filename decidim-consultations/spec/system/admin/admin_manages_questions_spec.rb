@@ -168,8 +168,8 @@ describe "Admin manages questions", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{question.banner_image.url}']")
-      expect(page).to have_css("img[src*='#{question.hero_image.url}']")
+      expect(page).to have_css("img[src*='#{question.attached_uploader(:banner_image).path}']")
+      expect(page).to have_css("img[src*='#{question.attached_uploader(:hero_image).path}']")
     end
   end
 
