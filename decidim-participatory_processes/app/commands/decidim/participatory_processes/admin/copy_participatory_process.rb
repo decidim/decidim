@@ -26,6 +26,7 @@ module Decidim
 
           ParticipatoryProcess.transaction do
             copy_participatory_process
+            copy_participatory_process_attachments
             copy_participatory_process_steps if @form.copy_steps?
             copy_participatory_process_categories if @form.copy_categories?
             copy_participatory_process_components if @form.copy_components?
@@ -47,8 +48,6 @@ module Decidim
             hashtag: @participatory_process.hashtag,
             description: @participatory_process.description,
             short_description: @participatory_process.short_description,
-            hero_image: @participatory_process.hero_image,
-            banner_image: @participatory_process.banner_image,
             promoted: @participatory_process.promoted,
             scope: @participatory_process.scope,
             developer_group: @participatory_process.developer_group,
@@ -63,6 +62,14 @@ module Decidim
             participatory_process_group: @participatory_process.participatory_process_group,
             private_space: @participatory_process.private_space
           )
+        end
+
+        def copy_participatory_process_attachments
+          [:hero_image, :banner_image].each do |attribute|
+            next unless @participatory_process.attached_uploader(attribute).attached?
+
+            @copied_process.send(attribute).attach(@participatory_process.send(attribute).blob)
+          end
         end
 
         def copy_participatory_process_steps
