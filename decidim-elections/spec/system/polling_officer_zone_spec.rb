@@ -47,7 +47,7 @@ describe "Polling Officer zone", type: :system do
   context "when the user is a polling officer and an election has finished" do
     let(:component) { create(:elections_component, participatory_space: voting) }
     let!(:election) { create(:election, :finished, questions: questions, component: component) }
-    let(:questions) { create_list(:question, 3, :complete) }
+    let(:questions) { [create(:question, :complete)] }
 
     it "can access the new results form for the polling station" do
       visit decidim.decidim_votings_polling_officer_zone_path

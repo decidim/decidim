@@ -23,6 +23,10 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
+          form.ballot_results.attributes.each do |ballot_result|
+            create_ballot_result_for!(ballot_result)
+          end
+
           form.answer_results.each do |answer_result|
             create_answer_result_for!(answer_result)
           end
@@ -39,6 +43,17 @@ module Decidim
 
       attr_reader :form, :polling_officer
 
+      def create_ballot_result_for!(ballot_results)
+        params = {
+          decidim_votings_polling_station_id: form.polling_station_id,
+          decidim_elections_election_id: form.election_id,
+          votes_count: ballot_results.last,
+          result_type: ballot_results.first.to_s.remove("_count")
+        }
+
+        create_result!(params)
+      end
+
       def create_answer_result_for!(answer_result)
         params = {
           decidim_votings_polling_station_id: form.polling_station_id,
@@ -46,7 +61,7 @@ module Decidim
           votes_count: answer_result.votes_count,
           decidim_elections_question_id: answer_result.question_id,
           decidim_elections_answer_id: answer_result.id,
-          result_type: "valid_answer"
+          result_type: "valid_answers"
         }
 
         create_result!(params)
@@ -58,7 +73,7 @@ module Decidim
           decidim_elections_election_id: form.election_id,
           votes_count: question_result.votes_count,
           decidim_elections_question_id: question_result.id,
-          result_type: "blank_answer"
+          result_type: "blank_answers"
         }
 
         create_result!(params)

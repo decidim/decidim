@@ -33,7 +33,7 @@ module Decidim
 
       # Sum all valid results from different origins (PollingStations or BulletinBoard)
       def results_total
-        @results_total ||= results.valid_answer.sum(:votes_count)
+        @results_total ||= results.valid_answers.sum(:votes_count)
       end
 
       # A result percentage relative to the question

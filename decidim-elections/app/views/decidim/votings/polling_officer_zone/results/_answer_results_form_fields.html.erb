@@ -1,10 +1,10 @@
-<% question.answers.each do |answer| %>
+<% form.object.answer_results.each do |answer| %>
   <%= form.fields_for "[answer_results][]", answer do |answer_form| %>
+      <%= answer_form.hidden_field :question_id %>
       <%= answer_form.hidden_field :id %>
-      <%= answer_form.hidden_field :question_id, value: answer.question.id %>
       <%= answer_form.number_field(:votes_count,
-                                   value: answer.results.valid_answer.find_by(polling_station: polling_station)&.votes_count.to_i,
                                    label: translated_attribute(answer.title),
+                                   min: 0,
                                    class: "medium-3") %>
   <% end %>
 <% end %>

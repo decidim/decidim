@@ -249,7 +249,7 @@ FactoryBot.define do
     question
     answer { create :election_answer }
     votes_count { Faker::Number.number(digits: 1) }
-    result_type { "valid_answer" }
+    result_type { "valid_answers" }
 
     trait :with_polling_station do
       polling_station

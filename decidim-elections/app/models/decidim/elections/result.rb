@@ -7,7 +7,7 @@ module Decidim
       include Traceable
       include Loggable
 
-      enum result_type: [:valid_answer, :blank_answer, :null_ballot, :total_election]
+      enum result_type: [:valid_answers, :blank_answers, :valid_ballots, :blank_ballots, :null_ballots]
 
       belongs_to :election,
                  foreign_key: "decidim_elections_election_id",

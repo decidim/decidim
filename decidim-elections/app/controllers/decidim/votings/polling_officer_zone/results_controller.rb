@@ -36,7 +36,7 @@ module Decidim
         end
 
         def election
-          @election ||= Decidim::Elections::Election.find_by(id: params[:election_id])
+          @election ||= Decidim::Elections::Election.includes(questions: :answers).find_by(id: params[:election_id])
         end
 
         def polling_station
