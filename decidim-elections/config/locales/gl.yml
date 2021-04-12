@@ -25,6 +25,9 @@ gl:
       decidim/votings/census/dataset:
         one: Conxunto de datos
         other: Conxuntos de datos
+      decidim/votings/census/datum:
+        one: Referencias
+        other: Datos
       decidim/votings/voting:
         one: Votación
         other: Votacións
@@ -251,6 +254,23 @@ gl:
               info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
             delete:
               button: Eliminar todos os datos do censo
+              confirm: A eliminación do censo non se pode desfacer. Estas certo/a de querer continuar?
+            destroy:
+              success: Datos do censo eliminados
+            generate_access_codes:
+              button: Xerar códigos de acceso para a votación
+              confirm: Se continuas, non poderás modificar o censo.
+              info_message_all: "<strong>Todas as filas foron importadas con éxito</strong> dende o ficheiro %{file} (%{raw_count} de %{data_count})."
+            new:
+              file_help:
+                explanation: 'Instrucións para o ficheiro:'
+                message_1: Só están permitidos os ficheiros CSV (.csv).
+                message_2: O separador entre columnas ten de ser o punto e coma (";").
+              info_message: "<strong>Aínda non hai censo.</strong> Por favor, usa o formulario de abaixo para crear un importando un ficheiro CSV."
+              submit: Enviar csv
+              title: Crear o censo
+            show:
+              heading: Espazo de votación do censo
       content_blocks:
         landing_page:
           description:
