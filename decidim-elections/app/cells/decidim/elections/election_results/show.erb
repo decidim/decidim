@@ -2,8 +2,6 @@
   <div class="columns large-8">
     <h2 class="section-heading"><%= t("decidim.elections.elections.results.title") %></h2>
 
-    <%= render view: :totals %>
-
     <p><%= t("decidim.elections.elections.results.description") %></p>
 
     <ul class="accordion mb-m evote__preview"
@@ -31,7 +29,7 @@
               </div>
             <% end %>
 
-            <% if question.results.blank_question.any? %>
+            <% if question.results.blank_answer.any? %>
               <%= render view: :blank_votes, locals: { question: question } %>
             <% end %>
           </div>

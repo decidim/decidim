@@ -37,8 +37,8 @@
                   <%= translated_attribute(answer.title) %>
                 </li>
               <% end %>
-              <% if question.min_selections == 0 %>
-                <li class="<%= "hide nota_input_#{question.id}" %>">
+              <% if question.nota_option? %>
+                <li class="<%= "hide nota_input_question-#{question.id}" %>">
                   <%= t("decidim.elections.votes.confirm.nota_option") %>
                 </li>
               <% end %>

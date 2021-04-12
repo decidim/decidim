@@ -23,8 +23,15 @@ module Decidim
         max_selections <= answers.count
       end
 
+      # Public: Checks if enough answers are given for max_selections attribute
+      #
+      # Returns a boolean.
+      def nota_option?
+        @nota_option ||= min_selections.zero?
+      end
+
       def blank_votes
-        @blank_votes ||= results.blank_question.sum(:votes_count)
+        @blank_votes ||= results.blank_answer.sum(:votes_count)
       end
 
       def results_total

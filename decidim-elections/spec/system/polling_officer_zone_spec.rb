@@ -36,11 +36,43 @@ describe "Polling Officer zone", type: :system do
 
       expect(page).not_to have_content("Polling Officer zone")
 
-      visit decidim.decidim_elections_trustee_zone_path
+      visit decidim.decidim_votings_polling_officer_zone_path
 
       expect(page).to have_content("You are not authorized to perform this action")
 
       expect(page).to have_current_path(decidim.root_path)
+    end
+  end
+
+  context "when the user is a polling officer and an election has finished" do
+    let(:component) { create(:elections_component, participatory_space: voting) }
+    let!(:election) { create(:election, :finished, questions: questions, component: component) }
+    let(:questions) { create_list(:question, 3, :complete) }
+
+    it "can access the new results form for the polling station" do
+      visit decidim.decidim_votings_polling_officer_zone_path
+
+      within ".card__polling_station" do
+        expect(page).to have_content(translated(election.title))
+        expect(page).to have_content("Count votes")
+      end
+    end
+
+    it "can add results for the polling station" do
+      visit decidim_votings_polling_officer_zone.new_polling_officer_result_path(assigned_polling_officer, election)
+
+      expect(page).to have_content("Vote recount - Answers recount")
+
+      within ".form.new_result" do
+        questions.each do |question|
+          question.answers.each do |answer|
+            fill_in "election_result__answer_results__#{answer.id}_votes_count", with: Faker::Number.number(digits: 1)
+          end
+        end
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("Results successfully created")
     end
   end
 end
