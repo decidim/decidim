@@ -1,0 +1,43 @@
+<div class="polling_officer_zone">
+  <div>
+    <%= link_to polling_officers_path(polling_station) do %>
+      <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".back") %>
+    <% end %>
+  </div>
+  <h2><%= t(".title") %></h2>
+
+  <div class="row section">
+    <div class="columns">
+      <% if in_person_form.verified? %>
+        <div class="callout success mt-s">
+          <h5><%= t(".census_verified") %></h5>
+        </div>
+      <% elsif datum.present? %>
+        <div class="callout success mt-s">
+          <h5><%= t(".census_present") %></h5>
+        </div>
+      <% elsif request.post? && in_person_form.valid? %>
+        <div class="callout alert mt-s">
+          <h5><%= t(".census_not_present") %></h5>
+          <p><%= t(".census_not_present_description") %></p>
+        </div>
+      <% end %>
+      <div class="row mt-sm">
+        <div class="columns large-7">
+          <p><strong><%= t(form_title) %></strong></p>
+          <%= render partial: "questions" if in_person_form.verified? %>
+          <div class="<%= "card--secondary" unless in_person_form.verified? %>">
+            <div class="card__content">
+              <%= decidim_form_for(in_person_form, url: polling_officers_polling_station_votes_path(polling_station), html: { class: "form", autocomplete: "off" }) do |f| %>
+                <div>
+                  <%= render partial: "in_person_fields", locals: { f: f, form: in_person_form } %>
+                </div>
+                <%= f.submit t(button_text), class: "button button--sc expanded mt-sm mb-none" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

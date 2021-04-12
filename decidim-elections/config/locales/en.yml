@@ -970,6 +970,35 @@ en:
                 voting: Voting
               no_polling_stations: You are not assigned to any Polling Station yet.
               title: Polling Stations
+        votes:
+          new:
+            back: Back to polling stations
+            census_not_present: This participant is not listed in the census.
+            census_not_present_description: She must go to the census complaint office or contact support.
+            census_present: This participant is listed in the census.
+            census_verified: The participant has not voted yet.
+            complete_voting: Complete voting
+            form_title: "Select the document type and enter the participant's document number:"
+            questions_title: "She is entitled to vote in the following questions:"
+            title: Identify and verify a participant
+            validate_document: Validate document
+            verify_document: Verify document
+            verify_title: 'Check that the following data is correct:'
+          create:
+            success: In person vote casted successfully
+          in_person_fields:
+            date_of_birth: Date of birth
+            day: Day
+            day_placeholder: DD
+            document_number: Document number
+            document_number_placeholder: ID number
+            month: Month
+            month_placeholder: MM
+            name: Name
+            select: Select the type of the document
+            voted: The participant has voted
+            year: Year
+            year_placeholder: YYYY
       polling_officers:
         actions:
           confirm_destroy: Are you sure?
