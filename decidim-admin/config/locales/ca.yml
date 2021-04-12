@@ -356,6 +356,17 @@ ca:
           values:
             'false': Oficialitzada
             'true': No oficialitzada
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitació acceptada
+            values:
+              'false': No acceptada
+              'true': Acceptada
+          user_invitation_sent_at_not_null:
+            label: S'ha enviat la invitació
+            values:
+              'false': No s'enviat
+              'true': Enviada
         private_space_eq:
           label: Privat
           values:
@@ -373,6 +384,7 @@ ca:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
           reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
           title_cont: Buscar %{collection} per títol.
+          user_name_or_user_email_cont: Cerca %{collection} per nom o adreça electrònica.
         state_eq:
           label: Estat
       forms:
