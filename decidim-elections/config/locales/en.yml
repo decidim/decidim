@@ -370,11 +370,6 @@ en:
           percentage: "%{count}%"
           selected: Selected
           title: Election results
-          totals:
-            all_ballots: 'Total Ballots: %{count} (%{percentage}%)'
-            blank_ballots: 'Blank Ballots: %{count} (%{percentage}%)'
-            null_ballots: 'Null Ballots: %{count} (%{percentage}%)'
-            valid_ballots: 'Valid Ballots: %{count} (%{percentage}%)'
           votes:
             one: "%{count} vote"
             other: "%{count} votes"
@@ -870,14 +865,14 @@ en:
         admin:
           census:
             create:
-              error: an error ocurred uploading the census, please try again later.
+              error: an error occurred uploading the census, please try again later.
             creating_data:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
               button: Delete all census data
               confirm: Delete all the census can not be undone. Are you sure you want to continue?
             destroy:
-              error: An error ocurred deleting the census, please try again later.
+              error: An error occurred deleting the census, please try again later.
               success: Census data deleted
             export_access_codes:
               button: Export voting Access Codes
@@ -962,7 +957,7 @@ en:
               voting: Voting space
         results:
           create:
-            error: An error ocurred creating the results, please try again later.
+            error: An error occurred creating the results, please try again later.
             success: Results successfully created
           new:
             back_to_polling_stations: Back to polling stations
