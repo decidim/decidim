@@ -39,7 +39,7 @@ module Decidim
       end
 
       def questions_for(election)
-        if datum.ballot_style.present?
+        if datum&.ballot_style.present?
           datum.ballot_style.questions.where(election: election)
         else
           election.questions
