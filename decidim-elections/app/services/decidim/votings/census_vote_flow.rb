@@ -39,14 +39,24 @@ module Decidim
       end
 
       def questions_for(election)
-        if datum&.ballot_style.present?
-          datum.ballot_style.questions.where(election: election)
+        if ballot_style.present?
+          ballot_style.questions.where(election: election)
         else
           election.questions
         end
       end
 
+      def ballot_style_id
+        ballot_style&.slug
+      end
+
       private
+
+      def ballot_style
+        return @ballot_style if defined?(@ballot_style)
+
+        @ballot_style = datum&.ballot_style
+      end
 
       def datum
         return @datum if defined?(@datum)

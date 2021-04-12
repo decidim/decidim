@@ -159,5 +159,17 @@ module Decidim::Elections
 
       it { expect(subject).to be_nil }
     end
+
+    describe "#questions_for" do
+      subject { vote_flow.questions_for(election) }
+
+      it { expect(subject).to match_array(election.questions) }
+    end
+
+    describe "#ballot_style_id" do
+      subject { vote_flow.ballot_style_id }
+
+      it { expect(subject).to be_nil }
+    end
   end
 end

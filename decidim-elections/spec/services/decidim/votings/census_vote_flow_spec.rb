@@ -195,5 +195,22 @@ module Decidim::Votings
         it { expect(subject).to match_array(election.questions) }
       end
     end
+
+    describe "#ballot_style_id" do
+      subject { vote_flow.ballot_style_id }
+
+      context "when the election has a ballot_style" do
+        let(:datum_params_changes) { { ballot_style: ballot_style, dataset: dataset } }
+        let(:ballot_style) { create(:ballot_style, voting: voting) }
+
+        it { expect(subject).to eq(ballot_style.slug) }
+      end
+
+      context "when the election does NOT have a ballot_style" do
+        let(:datum_params_changes) { { dataset: dataset } }
+
+        it { expect(subject).to be_nil }
+      end
+    end
   end
 end

@@ -40,6 +40,8 @@ module Decidim
         election.questions
       end
 
+      def ballot_style_id; end
+
       private
 
       delegate :current_user, to: :context
