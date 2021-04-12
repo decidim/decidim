@@ -136,7 +136,7 @@ module Decidim
       end
 
       def banner_image_url
-        banner_image.present? ? banner_image.url : consultation.banner_image.url
+        banner_image.attached? ? attached_uploader(:banner_image).path : consultation.attached_uploader(:banner_image).path
       end
 
       # Public: Check if the user has voted the question.
