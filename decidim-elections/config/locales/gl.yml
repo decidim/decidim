@@ -216,6 +216,10 @@ gl:
         ballot_styles:
           create:
             error: Produciuse un erro ao crear este estilo de papeleta
+            success: Estilo de papeleta creado con éxito
+          destroy:
+            invalid: Produciuse un erro ao eliminar este estilo de papeleta
+            success: Estilo de papeleta eliminado con éxito
           edit:
             title: Editar estilo da papeleta
             update: Actualizar
