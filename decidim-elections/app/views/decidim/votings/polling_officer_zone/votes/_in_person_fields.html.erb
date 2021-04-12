@@ -30,13 +30,16 @@
     <legend><%= t(".date_of_birth") %></legend>
     <div class="row">
       <%= f.label :day, t(".day"), class: "columns small-4" do %>
-        <%= f.text_field :day, placeholder: t(".day_placeholder") %>
+        <%= f.text_field :day, placeholder: t(".day_placeholder"), "data-autojump" => true, "data-max-length" => 2,
+                         "data-jump-next" => "#in_person_month" %>
       <% end %>
       <%= f.label :month, t(".month"), class: "columns small-4" do %>
-        <%= f.text_field :month, placeholder: t(".month_placeholder") %>
+        <%= f.text_field :month, placeholder: t(".month_placeholder"), "data-autojump" => true, "data-max-length" => 2,
+                         "data-jump-prev" => "#in_person_day", "data-jump-next" => "#in_person_year" %>
       <% end %>
       <%= f.label :year, t(".year"), class: "columns small-4" do %>
-        <%= f.text_field :year, placeholder: t(".year_placeholder") %>
+        <%= f.text_field :year, placeholder: t(".year_placeholder"), "data-autojump" => true, "data-max-length" => 4,
+                         "data-jump-prev" => "#in_person_month" %>
       <% end %>
     </div>
   </fieldset>
