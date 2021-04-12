@@ -207,9 +207,24 @@ gl:
       votings_count: Votacións
     votings:
       admin:
+        ballot_styles:
+          edit:
+            update: Actualizar
+          index:
+            actions:
+              destroy: Eliminar
+              edit: Editar
+              new: Novo
+              title: Accións
+          new:
+            create: Crear
         menu:
           votings_submenu:
             components: Compoñentes
+        models:
+          ballot_style:
+            fields:
+              code: Código
         votings:
           form:
             select_a_voting_type: Por favor, selecciona un tipo de votación
