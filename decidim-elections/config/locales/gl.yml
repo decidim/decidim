@@ -257,10 +257,16 @@ gl:
               confirm: A eliminación do censo non se pode desfacer. Estas certo/a de querer continuar?
             destroy:
               success: Datos do censo eliminados
+            export_access_codes:
+              button: Exportar códigos de acceso da votación
             generate_access_codes:
               button: Xerar códigos de acceso para a votación
               confirm: Se continuas, non poderás modificar o censo.
               info_message_all: "<strong>Todas as filas foron importadas con éxito</strong> dende o ficheiro %{file} (%{raw_count} de %{data_count})."
+              info_message_warn: Por favor, verifica que non se perderan datos, xa que se teñen creado %{data_count} rexistros e o ficheiro subido %{file} ten %{raw_count} filas.
+              launch_success: Xeración dos códigos iniciada.
+            generating_access_codes:
+              info_message: "<strong>Agarda</strong>, os códigos de acceso para votar están a ser xerados..."
             new:
               file_help:
                 explanation: 'Instrucións para o ficheiro:'
@@ -283,6 +289,26 @@ gl:
             no_polling_stations: Aínda non hai puntos de votación.
           timeline:
             heading: Liña de tempo
+      votings:
+        check_census:
+          error:
+            title: Os datos do censo non son correctos!
+          success:
+            access_link: solicitar un código de acceso
+            info: Se non tes un, %{access_code_link} xa.
+            title: Os datos do censo son correctos!
+          title: Verifica os datos do censo
+        check_census_form:
+          check_status: Verificar o estado
+          date_of_birth: Data de nacemento
+          description: 'Enche o seguinte formulario para verificar os datos do censo:'
+          dni: DNI
+          document_number: Número do documento
+          document_number_placeholder: Número de identificación
+          passport: Pasaporte
+          postal_code: Código postal
+          postal_code_placeholder: Número do código postal
+          select: Seleccionar o tipo de documento
   layouts:
     decidim:
       voting_navigation:
