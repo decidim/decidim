@@ -319,17 +319,8 @@ gl:
             info: Se non tes un, %{access_code_link} xa.
             title: Os datos do censo son correctos!
           title: Verifica os datos do censo
-        check_census_form:
-          check_status: Verificar o estado
-          date_of_birth: Data de nacemento
-          description: 'Enche o seguinte formulario para verificar os datos do censo:'
-          dni: DNI
-          document_number: Número do documento
-          document_number_placeholder: Número de identificación
-          passport: Pasaporte
-          postal_code: Código postal
-          postal_code_placeholder: Número do código postal
-          select: Seleccionar o tipo de documento
+        login:
+          start_voting: Comezar votación
         no_census_contact_information: Aínda non hai ningunha información de contacto
   layouts:
     decidim:
