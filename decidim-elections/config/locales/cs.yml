@@ -566,7 +566,6 @@ cs:
           experience: Jaká byla vaše zkušenost?
           feedback: Dejte nám zpětnou vazbu
           header: Hlasování potvrzeno
-          lead: Váš hlas již byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
         encrypting:
@@ -1010,17 +1009,6 @@ cs:
             info: Pokud ho nemáte, zkuste %{access_code_link}.
             title: Vaše data seznamu osob jsou nesprávná!
           title: Zkontrolujte si vstupní data seznamu osob
-        check_census_form:
-          check_status: Zkontrolovat stav
-          date_of_birth: Datum narození
-          description: 'Vyplňte následující formulář pro kontrolu dat seznamu osob:'
-          dni: Občanský průkaz
-          document_number: Číslo dokumentu
-          document_number_placeholder: Číslo občanského průkazu
-          passport: Pas
-          postal_code: PSČ
-          postal_code_placeholder: Poštovní směrovací číslo
-          select: Vyberte typ dokumentu
         count:
           title:
             one: "%{count} hlasování"
@@ -1043,6 +1031,8 @@ cs:
           no_votings: Žádné hlasování neodpovídá vašim kritériím hledání.
           only_finished: Momentálně nejsou žádné naplánované hlasování, ale zde můžete najít dokončené hlasování uvedené v seznamu.
           title: Hlasování
+        login:
+          start_voting: Zahájit hlasování
         no_census_contact_information: Zatím neexistují žádné kontaktní informace
         orders:
           label: 'Seřadit hlasy podle:'
