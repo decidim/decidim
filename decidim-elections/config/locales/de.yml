@@ -539,7 +539,6 @@ de:
           experience: Wie war Ihre Erfahrung mit uns?
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
-          lead: Deine Stimme wurde bereits abgegeben!
           text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
         failed:
@@ -968,16 +967,6 @@ de:
             info: Wenn Sie keinen haben, können Sie einen %{access_code_link}.
             title: Ihre Erhebungsdaten sind korrekt!
           title: Überprüfen Sie Ihre Erhebungsdaten
-        check_census_form:
-          check_status: Status überprüfen
-          date_of_birth: Geburtsdatum
-          description: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
-          document_number: Dokumentennummer
-          document_number_placeholder: ID-Nummer
-          passport: Reisepass
-          postal_code: Postleitzahl
-          postal_code_placeholder: Postleitzahl
-          select: Wählen Sie die Art des Dokuments aus
         count:
           title:
             one: "%{count} Abstimmung"
@@ -998,6 +987,8 @@ de:
           no_votings: Keine Abstimmung gefunden, die Ihren Suchkriterien entspricht.
           only_finished: Momentan gibt es keine geplanten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
           title: Abstimmungen
+        login:
+          start_voting: Jetzt abstimmen
         no_census_contact_information: Es sind noch keine Kontaktinformationen vorhanden
         orders:
           label: 'Abstimmungen sortieren nach:'
