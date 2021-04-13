@@ -73,6 +73,10 @@ module Decidim::Meetings
         expect(subject.serialize[:meeting]).to(
           include(closing_report: resource.meeting.closing_report)
         )
+
+        expect(subject.serialize[:meeting]).to(
+          include(published_at: resource.meeting.published_at)
+        )
       end
     end
   end
