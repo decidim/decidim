@@ -969,12 +969,26 @@ de:
           error:
             info: 'Bitte versuchen Sie es erneut. Wenn Sie denken, dass die Daten im System nicht korrekt sind, können Sie das hier melden: %{census_contact_information}.'
             title: Ihre Erhebungsdaten sind nicht korrekt!
+          form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
           invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
           success:
             access_link: Zugangscode anfragen
             info: Wenn Sie keinen haben, können Sie einen %{access_code_link}.
             title: Ihre Erhebungsdaten sind korrekt!
           title: Überprüfen Sie Ihre Erhebungsdaten
+        check_fields:
+          date_of_birth: Geburtsdatum
+          day: Tag
+          day_placeholder: TT
+          document_number: Dokumentennummer
+          document_number_placeholder: ID-Nummer
+          month: Monat
+          month_placeholder: MM
+          postal_code: Postleitzahl
+          postal_code_placeholder: Postleitzahl
+          select: Wählen Sie die Art des Dokuments aus
+          year: Jahr
+          year_placeholder: JJJJ
         count:
           title:
             one: "%{count} Abstimmung"
@@ -996,7 +1010,14 @@ de:
           only_finished: Momentan gibt es keine geplanten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
           title: Abstimmungen
         login:
+          access_code: Zugangscode
+          access_code_placeholder: Zugangscode
+          ask_for_a_new_one: Erneut anfordern.
+          dont_have_access_code: Haben Sie keinen Zugangscode?
+          form_title: 'Füllen Sie das folgende Formular aus um auf die Abstimmung zuzugreifen:'
           start_voting: Jetzt abstimmen
+          step: Identifikation
+          title: Mich via Erhebungsdaten identifizieren
         no_census_contact_information: Es sind noch keine Kontaktinformationen vorhanden
         orders:
           label: 'Abstimmungen sortieren nach:'
