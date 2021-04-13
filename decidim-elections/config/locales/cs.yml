@@ -546,6 +546,7 @@ cs:
         ballot_decision:
           audit: "(Audit volebního lístku)"
           back: Zahájit proces hlasování znovu
+          ballot_hash: 'Identifikátor vašeho hlasování:'
           cast: Zahlasování hlasovacího lístku
           description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
           header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
@@ -566,6 +567,7 @@ cs:
           experience: Jaká byla vaše zkušenost?
           feedback: Dejte nám zpětnou vazbu
           header: Hlasování potvrzeno
+          lead: Váš hlas byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
         encrypting:
@@ -584,6 +586,7 @@ cs:
           encrypting: Šifrování hlasování
           failed: Hlasování se nezdařilo
         messages:
+          invalid_token: Vaše relace u hlasovacího místa není platná. Zkuste hlasovat znovu.
           not_allowed: V tuto chvíli vám není dovoleno hlasovat o těchto volbách.
         modal:
           close: Zavřít
@@ -931,11 +934,17 @@ cs:
               csv_example_without_ballot_style: 'Příklad souboru <strong>bez</strong> stylů hlasování:'
               csv_header_after: Nezahrnujte poslední pole ("%{ballot_style_code_header}"), pokud nepotřebujete styly hlasování / podmíněné otázky
               csv_header_before: 'Soubor seznamu osob musí být soubor CSV s následujícím záhlavím:'
+        document_types:
+          dni: Občanský průkaz
+          nie: Daňové identifikační číslo
+          passport: Cestovní pas
         export_mailer:
           access_codes_export:
             click_button: 'Klikněte na následující odkaz pro stažení přístupových kódů.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
             download: Stáhnout
             subject: Export hlasovacích kódů pro %{voting_title} je k dispozici
+        vote_flow:
+          datum_not_found: Poskytnutá data neodpovídají žádnému voliči.
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
@@ -999,16 +1008,31 @@ cs:
           title: Akce
       votings:
         check_census:
+          check_status: Zkontrolovat stav
           description: Zde máte možnost zkontrolovat údaje ze seznamu osob, abyste věděli, zda máte právo účastnit se tohoto hlasování. Měli byste mít přístupový kód již k dispozici, ale pokud ho ztratíte, můžete ho znovu vyžádat, až budou vaše údaje správné.
           error:
             info: 'Zkuste to prosím znovu. Pokud si myslíte, že data v systému jsou nesprávná, můžete je nahlásit zde: %{census_contact_information}.'
             title: Vaše data ze seznamu osob jsou nesprávná!
+          form_title: 'Vyplňte následující formulář pro kontrolu dat ze seznamu osob:'
           invalid: Při kontrole seznamu osob došlo k chybě.
           success:
             access_link: požádat o přístupový kód
             info: Pokud ho nemáte, zkuste %{access_code_link}.
             title: Vaše data seznamu osob jsou nesprávná!
           title: Zkontrolujte si vstupní data seznamu osob
+        check_fields:
+          date_of_birth: Datum narození
+          day: Den
+          day_placeholder: DD
+          document_number: Číslo dokumentu
+          document_number_placeholder: Číslo občanského průkazu
+          month: Měsíc
+          month_placeholder: MM
+          postal_code: PSČ
+          postal_code_placeholder: Poštovní směrovací číslo
+          select: Vyberte typ dokumentu
+          year: Rok
+          year_placeholder: RRRR
         count:
           title:
             one: "%{count} hlasování"
@@ -1032,7 +1056,14 @@ cs:
           only_finished: Momentálně nejsou žádné naplánované hlasování, ale zde můžete najít dokončené hlasování uvedené v seznamu.
           title: Hlasování
         login:
+          access_code: Přístupový kód
+          access_code_placeholder: Přístupový kód
+          ask_for_a_new_one: Požádejte o nový.
+          dont_have_access_code: Nemáte přístupový kód?
+          form_title: 'Pro přístup k hlasování vyplňte následující formulář:'
           start_voting: Zahájit hlasování
+          step: Identifikace
+          title: Identifikujte se podle dat mého seznamu osob
         no_census_contact_information: Zatím neexistují žádné kontaktní informace
         orders:
           label: 'Seřadit hlasy podle:'
