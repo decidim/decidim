@@ -667,6 +667,7 @@ en:
               edit: Edit
               new: New
               title: Actions
+            associated_census_data: Associated census entries
             explanation_callout: A ballot style specifies what questions a voter will be presented in the booth. In a ballot style, you can choose what questions from this voting's election components belong to a ballot. The ballot style code is used to match a voter from the census with the ballot they will be presented in the booth. Don't create any ballot style if you always want to present all the questions.
             title: Ballot Styles
           new:
@@ -864,14 +865,15 @@ en:
         admin:
           census:
             create:
-              error: an error ocurred uploading the census, please try again later.
+              invalid: An error occurred uploading the census, please try again later.
+              invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
             creating_data:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
               button: Delete all census data
               confirm: Delete all the census can not be undone. Are you sure you want to continue?
             destroy:
-              error: An error ocurred deleting the census, please try again later.
+              error: An error occurred deleting the census, please try again later.
               success: Census data deleted
             export_access_codes:
               button: Export voting Access Codes
@@ -899,14 +901,18 @@ en:
                 explanation: 'Guidance for file:'
                 message_1: Only CSV (.csv) files are allowed.
                 message_2: The separator between columns must be a semicolon (";").
+              has_ballot_styles_message: You set up Ballot Styles. Please make sure that the "%{ballot_style_code_header}" field in the CSV corresponds to the desired Ballot Style's code.
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
+              missing_ballot_styles_message: 'There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to present all voters with the same questions, you can proceed with the census import procedure.'
               submit: Submit csv
               title: Create the census
             show:
               heading: Voting space census
             upload_info:
-              csv_example: 'An example of the file contents:'
-              csv_fields: 'Must be a .csv file format with these fields:'
+              csv_example_with_ballot_style: 'An example of the file <strong>with</strong> ballot styles:'
+              csv_example_without_ballot_style: 'An example of the file <strong>without</strong> ballot styles:'
+              csv_header_after: Do not include the last field ("%{ballot_style_code_header}") if you do not need ballot styles/conditional questions
+              csv_header_before: 'The census file must be a CSV file with the following header:'
         export_mailer:
           access_codes_export:
             click_button: 'Click the next link to download the access codes data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'

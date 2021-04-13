@@ -19,6 +19,7 @@ module Decidim
           attribute :postal_code, String
           attribute :mobile_phone_number, String
           attribute :email, String
+          attribute :ballot_style_code, String
 
           validates :document_number,
                     :document_type,
@@ -44,6 +45,10 @@ module Decidim
 
           def hash_for(data)
             Digest::SHA256.hexdigest(data.join("."))
+          end
+
+          def ballot_style_code
+            @ballot_style_code&.upcase
           end
         end
       end

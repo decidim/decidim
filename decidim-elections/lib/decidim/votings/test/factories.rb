@@ -140,7 +140,7 @@ FactoryBot.define do
   end
 
   factory :ballot_style, class: "Decidim::Votings::BallotStyle" do
-    code { Faker::Lorem.word }
+    code { Faker::Lorem.word.upcase }
     voting { create(:voting) }
 
     trait :with_questions do

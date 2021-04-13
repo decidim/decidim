@@ -18,7 +18,8 @@ module Decidim
               full_address: csv_row[4],
               postal_code: csv_row[5],
               mobile_phone_number: csv_row[6],
-              email: csv_row[7]
+              email: csv_row[7],
+              ballot_style_code: csv_row[8]
             }
 
             datum_form = DatumForm.from_params(params)

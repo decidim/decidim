@@ -6,7 +6,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
-      <%= link_to t("actions.new", scope: "decidim.votings.admin.ballot_styles.index", name: t("models.ballot_style.name", scope: "decidim.votings.admin")), new_voting_ballot_style_path(current_voting), class: "button tiny button--title" if allowed_to? :create, :ballot_style %>
+      <%= link_to t("actions.new", scope: "decidim.votings.admin.ballot_styles.index", name: t("models.ballot_style.name", scope: "decidim.votings.admin")), new_voting_ballot_style_path(current_voting), class: "button tiny button--title" if allowed_to? :create, :ballot_style, voting: current_voting %>
     </h2>
   </div>
   <div class="card-section">
@@ -18,12 +18,13 @@
             <% voting_elections.each do |election| %>
               <th colspan="<%= election.questions.count %>"><%= translated_attribute(election.title) %></th>
             <% end %>
+            <th rowspan="2"><%= t("associated_census_data", scope: "decidim.votings.admin.ballot_styles.index") %></th>
             <th rowspan="2" class="actions"><%= t("actions.title", scope: "decidim.votings.admin.ballot_styles.index") %></th>
           </tr>
           <tr>
             <% voting_elections.each do |election| %>
               <% election.questions.each do |question| %>
-                <th data-tooltip class="ballot-style__question-header" title="<%= translated_attribute(question.title) %>"><%= truncate translated_attribute(question.title), length: 5 %></th>
+                <th data-tooltip class="ballot-style__question-header" title="<%= translated_attribute(question.title) %>"><%= translated_attribute(question.title) %></th>
               <% end %>
             <% end %>
           </tr>
@@ -41,13 +42,16 @@
                 <% end %>
               <% end %>
               <td>
-              <% if allowed_to? :update, :ballot_style, ballot_style: ballot_style %>
+                <%= ballot_style.census_data.count %>
+              </td>
+              <td class="table-list__actions">
+              <% if allowed_to? :update, :ballot_style, ballot_style: ballot_style, voting: current_voting %>
                   <%= icon_link_to "pencil", edit_voting_ballot_style_path(current_voting, ballot_style), t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index"), class: "action-icon--edit" %>
                 <% else %>
                   <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.votings.admin.ballot_styles.index") %>
                 <% end %>
 
-                <% if allowed_to? :delete, :ballot_style, ballot_style: ballot_style %>
+                <% if allowed_to? :delete, :ballot_style, ballot_style: ballot_style, voting: current_voting %>
                   <%= icon_link_to "trash", voting_ballot_style_path(current_voting, ballot_style), t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.admin.ballot_styles.index") } %>
                 <% else %>
                   <%= icon "trash", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.admin.ballot_styles.index") %>
