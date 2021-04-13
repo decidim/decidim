@@ -8,13 +8,13 @@ es:
         title: Título
       election:
         description: Descripción
-        end_time: La votación termina el
+        end_time: La votación acaba el
         start_time: La votación empieza el
         title: Título
       question:
         description: Descripción
         max_selections: Número máximo de opciones
-        min_selections: Ninguna de las anteriores
+        min_selections: Ninguna de las opciones anteriores
         title: Título
       voting:
         end_time: La votación finaliza
@@ -41,7 +41,7 @@ es:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: El gestor de mesa ya es presidente/gestor del punto de votación
+              president_and_manager: El gestor electoral ya es presidente/gestor del punto de votación
             voting:
               different_organization: La votación debe estar en la misma organización que el usuario
         decidim/votings/polling_station:
@@ -62,7 +62,7 @@ es:
         one: Conjunto de datos
         other: Conjuntos de datos
       decidim/votings/census/datum:
-        one: Referencia
+        one: Dato
         other: Datos
       decidim/votings/polling_officer:
         one: Gestor de mesa
