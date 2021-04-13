@@ -539,7 +539,6 @@ es:
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
-          lead: '¡Tu voto ha sido emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         failed:
@@ -888,17 +887,6 @@ es:
           new: Nuevo
           title: Acciones
       votings:
-        check_census_form:
-          check_status: Comprobar el estado
-          date_of_birth: Fecha de nacimiento
-          description: 'Rellene el siguiente formulario para comprobar sus datos en el censo:'
-          dni: DNI
-          document_number: Número de documento
-          document_number_placeholder: Número de carnet de identidad
-          passport: Pasaporte
-          postal_code: Código postal
-          postal_code_placeholder: Número de código postal
-          select: Seleccione el tipo de documento
         count:
           title:
             one: "%{count} votación"
@@ -919,6 +907,8 @@ es:
           no_votings: Ninguna votación coincide con tus criterios de búsqueda.
           only_finished: Actualmente no hay votaciones programadas, pero aquí puedes encontrar las votaciones terminadas en la lista.
           title: Votaciones
+        login:
+          start_voting: Empezar a votar
         no_census_contact_information: Aún no hay información de contacto
         orders:
           label: 'Ordenar votaciones por:'
