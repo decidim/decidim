@@ -544,7 +544,6 @@ ca:
           experience: Com valores l'experiència?
           feedback: Dona'ns la teva opinió
           header: Vot confirmat
-          lead: El teu vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
         encrypting:
@@ -987,17 +986,6 @@ ca:
             info: Si no en tens cap, %{access_code_link} ja.
             title: Les dades del cens són correctes!
           title: Comprova les dades del cens
-        check_census_form:
-          check_status: Comprova l'estat
-          date_of_birth: Data de naixement
-          description: 'Empleneu el formulari següent per comprovar les dades del cens:'
-          dni: DNI
-          document_number: Número de document
-          document_number_placeholder: Número d'identificació
-          passport: Passaport
-          postal_code: Codi postal
-          postal_code_placeholder: Número del codi postal
-          select: Escull el tipus d'informe
         count:
           title:
             one: "%{count} votació"
@@ -1018,6 +1006,8 @@ ca:
           no_votings: Cap votació s'ajusta als vostres criteris de cerca.
           only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
           title: Votacions
+        login:
+          start_voting: Començar a votar
         no_census_contact_information: Encara no hi ha cap informació de contacte
         orders:
           label: 'Ordenar votacions per:'
