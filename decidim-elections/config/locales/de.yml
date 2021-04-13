@@ -523,6 +523,7 @@ de:
         ballot_decision:
           audit: "(Stimmzettel überprüfen)"
           back: Abstimmungsvorgang erneut starten
+          ballot_hash: 'Ihre Wahlurnen-ID ist:'
           cast: Stimme abgeben
           description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
         confirm:
@@ -539,6 +540,7 @@ de:
           experience: Wie war Ihre Erfahrung mit uns?
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
+          lead: Ihre Stimme wurde abgegeben!
           text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
         failed:
@@ -550,6 +552,7 @@ de:
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
         messages:
+          invalid_token: Ihre Sitzung in der Abstimmung ist nicht gültig. Versuchen Sie, erneut abzustimmen.
           not_allowed: Sie dürfen zur Zeit nicht an dieser Wahl teilnehmen.
         modal:
           close: Schließen
@@ -889,11 +892,15 @@ de:
               csv_example_without_ballot_style: 'Ein Beispiel für die Datei <strong>ohne</strong> Wahlkategorien:'
               csv_header_after: Lassen Sie das letzte Feld ("%{ballot_style_code_header}") weg, wenn Sie keine Wahlkategorien / variablen Fragen benötigen
               csv_header_before: 'Die Erhebungsdatei muss eine CSV-Datei mit folgender Kopfzeile sein:'
+        document_types:
+          passport: Reisepass
         export_mailer:
           access_codes_export:
             click_button: 'Klicken Sie auf den Link, um die Zugangscodes herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
             download: Herunterladen
             subject: Der Export der Zugangscodes für die Abstimmung %{voting_title} ist verfügbar
+        vote_flow:
+          datum_not_found: Zu den eingegebenen Daten wurde kein Wähler gefunden.
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
@@ -957,6 +964,7 @@ de:
           title: Aktionen
       votings:
         check_census:
+          check_status: Status überprüfen
           description: Hier haben Sie die Möglichkeit, Ihre Erhebungsdaten zu überprüfen, um herauszufinden ob Sie das Recht haben, an dieser Abstimmung teilzunehmen. Sie sollten bereits einen Zugangscode haben, aber wenn Sie ihn verloren haben können Sie ihn erneut anfragen, sobald Ihre Daten korrekt sind.
           error:
             info: 'Bitte versuchen Sie es erneut. Wenn Sie denken, dass die Daten im System nicht korrekt sind, können Sie das hier melden: %{census_contact_information}.'
