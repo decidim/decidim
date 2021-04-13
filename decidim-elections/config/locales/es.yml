@@ -67,8 +67,8 @@ es:
             invalid: Se ha producido un error al crear esta respuesta
             success: Respuesta creada con éxito
           destroy:
-            invalid: Se ha producido un error al borrar esta respuesta
-            success: Respuesta creada con éxito
+            invalid: Se ha producido un error al eliminar esta respuesta
+            success: Respuesta eliminada con éxito
           edit:
             title: Editar respuesta
             update: Actualizar respuesta
