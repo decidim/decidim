@@ -136,6 +136,12 @@ module Decidim::Meetings
         expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
       end
 
+      it "is created as unpublished" do
+        subject.call
+
+        expect(meeting).not_to be_published
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
@@ -147,6 +153,7 @@ module Decidim::Meetings
         expect(action_log.version).to be_present
       end
 
+      # TODO-blat
       it "schedules a upcoming meeting notification job 48h before start time" do
         expect(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
