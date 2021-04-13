@@ -662,6 +662,7 @@ ca:
               edit: Modifica
               new: Nou
               title: Accions
+            associated_census_data: Entrades del cens associades
             title: Estils de papereta
           new:
             create: Crea
@@ -857,12 +858,16 @@ ca:
       census:
         admin:
           census:
+            create:
+              invalid: Hi ha hagut un error en pujar-hi el cens, prova-ho de nou més tard.
+              invalid_csv_header: La capçalera CSV no té el nombre correcte de camps. Consulteu les instruccions amb atenció.
             creating_data:
               info_message: "<strong>Espera</strong>, estem procedint amb %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:
               button: Eliminar totes les dades del cens
               confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
             destroy:
+              error: Hi ha hagut un error en esborrar el cens, prova-ho de nou més tard.
               success: Hem esborrat les dades del cens
             export_access_codes:
               button: Exporta els Codis d'Accès de la votació
@@ -890,6 +895,7 @@ ca:
                 explanation: 'Instruccions per al fitxer:'
                 message_1: Els únics fitxers permesos són en CSV (.csv).
                 message_2: El separador entre columnes ha de ser un punt i coma (";").
+              has_ballot_styles_message: Esteu configurant Estils de Paperetes. Adona't que el camp "%{ballot_style_code_header}" del CSV correspongui al codi de l'Estil de Papereta que vols.
               info_message: "<strong>Encara no n'hi ha de cens.</strong> Si us plau, importeu un fitxer CSV en el següent formulari per a crear-ne un de nou."
               submit: Envia csv
               title: Crea el cens
