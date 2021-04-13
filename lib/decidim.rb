@@ -37,5 +37,20 @@ module Decidim
         config_path: ROOT_PATH.join("config/webpacker.yml")
       )
     end
+    def webpacker_gem_instance
+      @webpacker_gem_instance ||= ::Webpacker::Instance.new(
+        root_path: Pathname.new(File.join(Gem.loaded_specs['decidim'].full_gem_path)),
+        # root_path: ROOT_PATH,
+        config_path: ROOT_PATH.join("config/webpacker_gem_instance.yml")
+      )
+    end
+
+    def with_decidim_webpacker_instance
+      original_instance = Webpacker.instance
+      Webpacker.instance = self.webpacker_gem_instance
+      yield(self.webpacker, original_instance)
+    ensure
+      Webpacker.instance = original_instance
+    end
   end
 end

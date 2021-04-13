@@ -1,0 +1,42 @@
+default: &default
+  # source_path is not being used here as the entrypoints are declared in config/webpacker/custom.js
+  # but, it's important to don't update this source_path. The reason why is because all the files
+  # below source_path will be used to calculate the digest  of the compiled assets (in development
+  # and test environments). If the path is updated and includes by mistake development_app or
+  # decidim_dummy_app, cache will be expired on each test and the test suite will get reallly
+  # slow.
+  source_path: 'decidim-core/app/packs'
+  source_entry_path: entrypoints
+  public_output_path: decidim-packs
+  public_root_path: ''
+  cache_path: tmp/cache/webpacker
+  webpack_compile_output: true
+  extract_css: true
+
+  additional_paths: []
+
+  # Reload manifest.json on all requests so we reload latest compiled packs
+  cache_manifest: false
+
+development:
+  <<: *default
+  compile: false
+  cache_manifest: true
+
+test:
+  <<: *default
+  compile: true
+
+  # Compile test packs to decidim dummy app
+  public_root_path: spec/decidim_dummy_app/public
+  public_output_path: packs-test
+  cache_path: spec/decidim_dummy_app/tmp/cache/webpacker
+
+production:
+  <<: *default
+
+  # Production depends on precompilation of packs prior to booting for performance.
+  compile: false
+
+  # Cache manifest.json for performance
+  cache_manifest: true

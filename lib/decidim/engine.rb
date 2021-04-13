@@ -5,7 +5,8 @@ module Decidim
     config.app_middleware.use(
       Rack::Static,
       # note! this varies from the Webpacker/engine documentation
-      urls: ["/decidim-packs"], root: Decidim::Engine.root.join("public")
+      urls: ["/decidim-packs"], root: Decidim::Engine.root #.join("decidim-packs")
+      # urls: ["/decidim-packs"], root: "decidim-packs"
       # instead of -> urls: ["/decidim-packs"], root: "decidim/public"
     )
 
