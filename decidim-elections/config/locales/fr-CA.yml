@@ -479,7 +479,6 @@ fr-CA:
           experience: Comment a été votre expérience?
           feedback: Donnez-nous votre avis
           header: Vote confirmé
-          lead: Votre vote a déjà été exprimé!
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté à la zone des urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         failed:
           header: Le vote a échoué
@@ -695,6 +694,8 @@ fr-CA:
           no_votings: Aucun vote ne correspond à votre recherche.
           only_finished: À l'heure actuelle, il n'y a pas de votes planifiés, mais vous trouverez ici une liste de tous les votes passées.
           title: Votations
+        login:
+          start_voting: Commencer à voter
         orders:
           label: 'Trier les votations par:'
           random: Aléatoire
