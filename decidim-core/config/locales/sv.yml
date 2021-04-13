@@ -1167,6 +1167,7 @@ sv:
         view_all: Visa alla (%{count})
     security:
       selfxss_warning:
+        description: Denna webbläsarfunktion är avsedd för utvecklare och du bör inte klistra in något här om du ombads att göra det. Klistra in innehåll i detta fönster kan påverka din integritet och ge hackare tillgång till ditt konto.
         title: OBS!
     shared:
       confirm_modal:
