@@ -2,16 +2,17 @@
 
 require "spec_helper"
 
-describe Decidim::Votings::CheckCensusForm do
+describe Decidim::Votings::Census::LoginForm do
   subject { described_class.from_params(attributes).with_context(context) }
 
   let(:current_participatory_space) { create(:voting) }
   let(:document_number) { "123456789Y" }
   let(:document_type) { "DNI" }
-  let(:day) { "14" }
-  let(:month) { "08" }
-  let(:year) { "1982" }
+  let(:day) { 14 }
+  let(:month) { 8 }
+  let(:year) { 1982 }
   let(:postal_code) { "12345" }
+  let(:access_code) { "123" }
 
   let(:attributes) do
     {
@@ -20,7 +21,8 @@ describe Decidim::Votings::CheckCensusForm do
       day: day,
       month: month,
       year: year,
-      postal_code: postal_code
+      postal_code: postal_code,
+      access_code: access_code
     }
   end
 
@@ -50,11 +52,17 @@ describe Decidim::Votings::CheckCensusForm do
     it { is_expected.to be_invalid }
   end
 
+  describe "when access_code is missing" do
+    let(:access_code) { nil }
+
+    it { is_expected.to be_invalid }
+  end
+
   describe "creates the birthday" do
     it { expect(subject.birthdate).to eql("19820814") }
   end
 
   describe "generate hash for data" do
-    it { expect(subject.hashed_check_data).to eql("81c540096460067c2f795349480c38786a1308a22d1434cd5b9799326676e15d") }
+    it { expect(subject.hashed_online_data).to eql("8782f5d25e944a227ca3d9a444919ff0ea479151b6733127ff04bf9cc7ce3240") }
   end
 end

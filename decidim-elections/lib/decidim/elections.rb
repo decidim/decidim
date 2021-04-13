@@ -35,5 +35,9 @@ module Decidim
     config_accessor :start_vote_maximum_hours_before_start do
       6
     end
+
+    config_accessor :voter_token_expiration_minutes do
+      120
+    end
   end
 end

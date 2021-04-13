@@ -43,7 +43,8 @@ module Decidim
             start_time: form.start_time,
             end_time: form.end_time,
             component: form.current_component,
-            questionnaire: Decidim::Forms::Questionnaire.new
+            questionnaire: Decidim::Forms::Questionnaire.new,
+            salt: Tokenizer.random_salt
           }
 
           @election = Decidim.traceability.create!(

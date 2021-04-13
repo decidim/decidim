@@ -8,16 +8,20 @@ describe Decidim::Elections::Voter::VoteForm do
   let(:params) do
     {
       encrypted_data: "{ \"question_1\": \"aNsWeR 1\" }",
-      encrypted_data_hash: "f149b928f7a00eae7e634fc5db0c3cc5531eefb81f49febce8da5bb4a153548b"
+      encrypted_data_hash: "f149b928f7a00eae7e634fc5db0c3cc5531eefb81f49febce8da5bb4a153548b",
+      voter_id: "a voter id",
+      voter_token: "a voter token"
     }
   end
   let(:context) do
     {
-      current_user: user,
+      user: user,
+      email: email,
       election: election
     }
   end
   let(:user) { create(:user) }
+  let(:email) { "an_email@example.org" }
   let(:election) { create(:election) }
 
   context "when everything is fine" do
@@ -55,21 +59,9 @@ describe Decidim::Elections::Voter::VoteForm do
     it { is_expected.to be_invalid }
   end
 
-  context "when the current user is not present" do
-    let(:user) { nil }
-
-    it { is_expected.to be_invalid }
-  end
-
   context "when the election is not present" do
     let(:election) { nil }
 
     it { is_expected.to be_invalid }
-  end
-
-  describe ".voter_id" do
-    it "returns the voter unique id" do
-      expect(subject.voter_id).to eq(Digest::SHA256.hexdigest([user.created_at, user.id, election.id, "decidim-test-authority"].join(".")))
-    end
   end
 end

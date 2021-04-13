@@ -18,9 +18,11 @@
       <%= t("decidim.elections.votes.confirmed.back") %>
     <% end %>
 
-    <div>
-      <%= t("decidim.elections.votes.confirmed.experience") %>
-      <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election) %>
-    </div>
+    <% if params[:token] %>
+      <div>
+        <%= t("decidim.elections.votes.confirmed.experience") %>
+        <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election, hash: params[:id], token: params[:token]) %>
+      </div>
+    <% end %>
   </div>
 </div>

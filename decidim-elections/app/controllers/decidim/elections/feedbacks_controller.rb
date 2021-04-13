@@ -5,6 +5,8 @@ module Decidim
     # This controller allows a user to give feedback once finished voting
     class FeedbacksController < Decidim::Elections::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
+      include HasVoteFlow
+
       helper_method :election
 
       def questionnaire_for
@@ -13,7 +15,7 @@ module Decidim
 
       # where the questionnaire will be submitted.
       def update_url
-        answer_election_feedback_path(election)
+        answer_election_feedback_path(election, hash: params[:hash], token: params[:token])
       end
 
       private
@@ -23,7 +25,11 @@ module Decidim
       end
 
       def allow_answers?
-        current_user.present? && election.ongoing?
+        can_preview? || (election.ongoing? && valid_token?)
+      end
+
+      def visitor_already_answered?
+        election.questionnaire.answered_by?(session_token)
       end
 
       def i18n_flashes_scope
@@ -31,7 +37,25 @@ module Decidim
       end
 
       def enforce_permission_to_answer_questionnaire
-        enforce_permission_to :answer, :questionnaire, election: election
+        can_preview? || valid_token?
+      end
+
+      def allow_unregistered?
+        true
+      end
+
+      def valid_token?
+        return @valid_token if defined?(@valid_token)
+
+        @valid_token = vote_flow.voter_id_token(vote.voter_id) == session_token
+      end
+
+      def session_token
+        @session_token ||= params[:token]
+      end
+
+      def vote
+        @vote ||= Decidim::Elections::Vote.find_by(encrypted_vote_hash: params[:hash])
       end
     end
   end
