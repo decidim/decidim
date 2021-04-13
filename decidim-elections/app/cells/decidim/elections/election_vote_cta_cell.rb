@@ -6,14 +6,16 @@ module Decidim
     # for a given instance of an Election
     class ElectionVoteCtaCell < Decidim::ViewModel
       delegate :current_user,
-               :allowed_to?,
                :current_participatory_space,
+               :preview_mode?,
+               :can_preview?,
+               :vote_flow,
                to: :controller
 
       private
 
       def last_vote
-        @last_vote ||= Decidim::Elections::Votes::UserElectionLastVote.new(current_user, model).query
+        @last_vote ||= Decidim::Elections::Votes::LastVoteForVoter.for(model, vote_flow.voter_id) if vote_flow.has_voter?
       end
 
       def new_election_vote_path

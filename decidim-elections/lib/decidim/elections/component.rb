@@ -99,7 +99,8 @@ Decidim.register_component(:elections) do |component|
           end,
           start_time: 3.weeks.from_now,
           end_time: 3.weeks.from_now + 4.hours,
-          published_at: Faker::Boolean.boolean(true_ratio: 0.5) ? 1.week.ago : nil
+          published_at: Faker::Boolean.boolean(true_ratio: 0.5) ? 1.week.ago : nil,
+          salt: Decidim::Tokenizer.random_salt
         },
         visibility: "all"
       )
@@ -192,7 +193,8 @@ Decidim.register_component(:elections) do |component|
           end,
           start_time: 4.weeks.ago,
           end_time: 3.weeks.ago,
-          published_at: 4.weeks.ago
+          published_at: 4.weeks.ago,
+          salt: Decidim::Tokenizer.random_salt
         },
         visibility: "all"
       )
@@ -286,7 +288,8 @@ Decidim.register_component(:elections) do |component|
           start_time: 4.weeks.ago,
           end_time: 3.weeks.ago,
           published_at: 3.weeks.ago,
-          bb_status: "results_published"
+          bb_status: "results_published",
+          salt: Decidim::Tokenizer.random_salt
 
         },
         visibility: "all"
@@ -384,7 +387,8 @@ Decidim.register_component(:elections) do |component|
         end,
         start_time: 2.weeks.ago,
         end_time: 2.weeks.from_now + 4.hours,
-        published_at: 3.weeks.ago
+        published_at: 3.weeks.ago,
+        salt: Decidim::Tokenizer.random_salt
       },
       visibility: "all"
     )

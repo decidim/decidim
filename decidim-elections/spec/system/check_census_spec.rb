@@ -9,7 +9,7 @@ describe "Check Census", type: :system do
   let!(:voting) { create(:voting, :published, organization: organization, census_contact_information: "census_help@example.com") }
   let!(:dataset) { create(:dataset, :data_created, voting: voting) }
   let!(:datum) do
-    create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: "19800511", postal_code: "04001", dataset: dataset)
+    create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset: dataset)
   end
   let!(:user) { create :user, :confirmed, organization: organization }
 

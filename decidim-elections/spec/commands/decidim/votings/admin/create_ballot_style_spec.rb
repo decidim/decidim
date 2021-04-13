@@ -8,11 +8,10 @@ module Decidim
       describe CreateBallotStyle do
         subject { described_class.new(form) }
 
-        let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
+        let(:user) { create :user, :admin, :confirmed }
         let(:election) { create :election, :complete, component: elections_component }
         let(:elections_component) { create :elections_component, participatory_space: voting }
-        let(:voting) { create :voting, organization: organization }
+        let(:voting) { create :voting, organization: user.organization }
 
         let(:form) do
           double(
@@ -25,7 +24,7 @@ module Decidim
         end
 
         let(:valid) { true }
-        let(:code) { "Code" }
+        let(:code) { "Code".upcase }
         let(:question_ids) { election.questions.sample(2).map(&:id) }
         let(:errors) { double.as_null_object }
 
@@ -45,7 +44,7 @@ module Decidim
 
         it "stores the given data" do
           subject.call
-          expect(ballot_style.code).to eq code
+          expect(ballot_style.code).to eq code.upcase
           expect(ballot_style.questions.pluck(:id)).to match_array(question_ids)
         end
 

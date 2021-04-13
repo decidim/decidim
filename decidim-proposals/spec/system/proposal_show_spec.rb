@@ -21,6 +21,8 @@ describe "Show a Proposal", type: :system do
         visit_proposal
       end
 
+      it_behaves_like "share link"
+
       describe "extra admin link" do
         before do
           login_as user, scope: :user

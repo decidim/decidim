@@ -8,7 +8,7 @@ module Decidim
       describe UpdateBallotStyle do
         let(:voting) { create(:voting) }
         let(:ballot_style) { create :ballot_style, voting: voting }
-        let!(:other_ballot_style) { create :ballot_style, voting: voting, code: taken_code }
+        let!(:other_ballot_style) { create :ballot_style, voting: voting, code: taken_code.upcase }
         let(:election) { create :election, :complete, component: elections_component }
         let(:elections_component) { create :elections_component, participatory_space: voting }
         let(:ballot_style_questions) do
@@ -58,7 +58,7 @@ module Decidim
             expect { subject.call }.to broadcast(:ok)
             ballot_style.reload
 
-            expect(ballot_style.code).to eq(updated_code)
+            expect(ballot_style.code).to eq(updated_code.upcase)
           end
 
           it "updates the ballot style questions" do

@@ -35,7 +35,23 @@ edit_link(
 
       <% if !success %>
         <div class="verify-census-form">
-          <%= render partial: "check_census_form" %>
+          <%= decidim_form_for(@form, url: voting_check_census_path, html: { class: "form", autocomplete: "off" }) do |f| %>
+            <div class="row mt-sm">
+              <div class="columns medium-7">
+                <p><strong><%= t(".form_title") %></strong></p>
+                <div class="card">
+                  <div class="card__content">
+                    <form>
+                      <div>
+                        <%= render partial: "check_fields", locals: { f: f, form: @form } %>
+                      </div>
+                      <%= f.submit t(".check_status"), class: "button expanded mt-s mb-none" %>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

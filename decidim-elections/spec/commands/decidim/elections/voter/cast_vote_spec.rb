@@ -14,7 +14,8 @@ describe Decidim::Elections::Voter::CastVote do
       election_id: election_id,
       voter_id: voter_id,
       bulletin_board: bulletin_board,
-      current_user: user,
+      user: user,
+      email: email,
       current_organization: organization
     )
   end
@@ -26,6 +27,7 @@ describe Decidim::Elections::Voter::CastVote do
   let(:voter_id) { "voter.1" }
   let(:organization) { create(:organization) }
   let(:user) { create :user, :confirmed, organization: organization }
+  let(:email) { "an_email@example.org" }
   let(:cast_vote_method) { :cast_vote }
   let(:cast_vote_message_id_method) { :cast_vote_message_id }
 
@@ -53,11 +55,32 @@ describe Decidim::Elections::Voter::CastVote do
     expect(last_vote.encrypted_vote_hash).to eq("1234")
     expect(last_vote.status).to eq("pending")
     expect(last_vote.user).to eq(user)
+    expect(last_vote.email).to eq(email)
   end
 
   it "calls the bulletin board cast_vote method with the correct params" do
     subject.call
     expect(bulletin_board).to have_received(cast_vote_method).with(election_id, voter_id, encrypted_data)
+  end
+
+  context "when there is no user for the vote" do
+    let(:user) { nil }
+
+    it "broadcasts ok" do
+      expect { subject.call }.to broadcast(:ok)
+    end
+
+    it "stores the vote without a user" do
+      expect { subject.call }.to change(Decidim::Elections::Vote, :count).by(1)
+
+      last_vote = Decidim::Elections::Vote.last
+      expect(last_vote.election).to eq(election)
+      expect(last_vote.voter_id).to eq("voter.1")
+      expect(last_vote.encrypted_vote_hash).to eq("1234")
+      expect(last_vote.status).to eq("pending")
+      expect(last_vote.user).to be_nil
+      expect(last_vote.email).to eq(email)
+    end
   end
 
   context "when the form is not valid" do

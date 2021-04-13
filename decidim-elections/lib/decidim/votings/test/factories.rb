@@ -3,6 +3,14 @@
 require "decidim/core/test/factories"
 require "decidim/forms/test/factories"
 
+def format_birthdate(birthdate)
+  format("%04d%02d%02d", birthdate.year, birthdate.month, birthdate.day) # rubocop:disable Style/FormatStringToken
+end
+
+def hash_for(*data)
+  Digest::SHA256.hexdigest(data.join("."))
+end
+
 FactoryBot.define do
   sequence(:voting_slug) do |n|
     "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
@@ -124,8 +132,8 @@ FactoryBot.define do
       birthdate { Faker::Date.birthday(min_age: 18, max_age: 65) }
     end
 
-    hashed_in_person_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate].join(".")) }
-    hashed_check_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate, postal_code].join(".")) }
+    hashed_in_person_data { hash_for(document_number, document_type, format_birthdate(birthdate)) }
+    hashed_check_data { hash_for(document_number, document_type, format_birthdate(birthdate), postal_code) }
 
     full_name { Faker::Name.name }
     full_address { Faker::Address.full_address }
@@ -134,13 +142,13 @@ FactoryBot.define do
     email { Faker::Internet.email }
 
     trait :with_access_code do
-      access_code { SecureRandom.alphanumeric(8) }
-      hashed_online_data { Digest::SHA256.hexdigest([hashed_check_data, access_code].join(".")) }
+      access_code { Faker::Alphanumeric.alphanumeric(number: 8) }
+      hashed_online_data { hash_for hashed_check_data, access_code }
     end
   end
 
   factory :ballot_style, class: "Decidim::Votings::BallotStyle" do
-    code { Faker::Lorem.word }
+    code { Faker::Lorem.word.upcase }
     voting { create(:voting) }
 
     trait :with_questions do
