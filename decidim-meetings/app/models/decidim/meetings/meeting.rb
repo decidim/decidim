@@ -23,6 +23,7 @@ module Decidim
       include Decidim::Reportable
       include Decidim::Authorable
       include Decidim::TranslatableResource
+      include Decidim::Publicable
 
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
@@ -41,6 +42,7 @@ module Decidim
 
       geocoded_by :address
 
+      scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
 
