@@ -28,17 +28,42 @@ es:
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
         signature: Firma
+        signature_name: nombre de firma
         slogan: Eslogan
         slug: URL amigable
+        start_date: Fecha de inicio
         title: Título
       conference_media_link:
+        date: Fecha
+        link: Enlace
+        title: Título
         weight: Peso
       conference_partner:
+        link: Enlace
+        logo: Logo
+        name: Nombre
+        partner_type: Tipo de colaboración
         weight: Peso
+      conference_registration_invite:
+        email: Correo electrónico
+        name: Nombre
+        registration_type_id: Tipo de inscripción
+        user_id: Usuario
       conference_registration_type:
+        description: Descripción
+        price: Coste
+        title: Título
         weight: Peso
       conference_speaker:
+        affiliation: Afiliación
+        avatar: Avatar
+        conference_meeting_ids: Encuentros relacionados
         full_name: Nombre completo
+        personal_url: URL personal
+        position: Cargo
+        short_bio: Breve Biografía
+        twitter_handle: Cuenta de Twitter
+        user_id: Usuario
       conference_user_role:
         email: Correo electrónico
         name: Nombre
