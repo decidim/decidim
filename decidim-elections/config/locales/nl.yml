@@ -426,7 +426,6 @@ nl:
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
-          lead: Je stem is al verstuurd!
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
         encrypting:
@@ -768,6 +767,8 @@ nl:
         index:
           no_votings: Er zijn geen stemrondes die voldoen aan jouw zoekcriteria.
           only_finished: Momenteel zijn er geen geplande stemrondes, maar hier vind je alle afgelopen stemrondes.
+        login:
+          start_voting: Begin met stemmen
       votings_m:
         footer_button_text:
           participate: Deelnemen
