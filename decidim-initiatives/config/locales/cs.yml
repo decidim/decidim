@@ -473,7 +473,7 @@ cs:
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
-          follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
+          follow_description: Dostat upozornění, když jsou v této iniciativě novinky
           offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
         signatures_count:
           one: " podpis"
@@ -546,7 +546,7 @@ cs:
         back: Zpět
         fill_data: Vytvořit
         finish: Dokončit
-        previous_form: Start
+        previous_form: Začít
         promotal_committee: Výbor předkladatelů
         select_initiative_type: Vybrat
         show_similar_initiatives: Porovnat
