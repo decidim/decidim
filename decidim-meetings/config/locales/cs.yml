@@ -207,7 +207,7 @@ cs:
             add_agenda_item: Přidat položku agendy
             agenda_items: Položky agendy
             end_date: Datum ukončení
-            start_date: Počáteční datum
+            start_date: Datum zahájení
           new:
             create: Vytvořit
             title: Nová agenda
@@ -503,7 +503,7 @@ cs:
             end_time: Datum ukončení
             map: Mapa
             official_meeting: Oficiální schůzka
-            start_time: Počáteční datum
+            start_time: Datum zahájení
             title: Titul
       read_more: "(Přečtěte si více)"
       registration_mailer:
