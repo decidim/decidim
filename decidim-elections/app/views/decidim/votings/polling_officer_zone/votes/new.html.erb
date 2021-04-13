@@ -24,7 +24,7 @@
       <% end %>
       <div class="row mt-sm">
         <div class="columns large-7">
-          <p><strong><%= t(form_title) %></strong></p>
+          <p><strong><%= form_title %></strong></p>
           <%= render partial: "questions" if in_person_form.verified? %>
           <div class="<%= "card--secondary" unless in_person_form.verified? %>">
             <div class="card__content">
@@ -32,7 +32,7 @@
                 <div>
                   <%= render partial: "in_person_fields", locals: { f: f, form: in_person_form } %>
                 </div>
-                <%= f.submit t(button_text), class: "button button--sc expanded mt-sm mb-none" %>
+                <%= f.submit button_text, class: "button button--sc expanded mt-sm mb-none" %>
               <% end %>
             </div>
           </div>

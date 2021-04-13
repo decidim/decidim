@@ -4,18 +4,17 @@ require "spec_helper"
 
 describe "Polling Officer zone", type: :system do
   let(:manifest_name) { "elections" }
+  let(:user) { create(:user, :confirmed, organization: organization) }
+  let!(:election) { create(:election, :complete, component: component) }
+  let(:polling_station) { create(:polling_station, voting: voting) }
+  let!(:polling_officer) { create(:polling_officer, voting: voting, user: user, presided_polling_station: polling_station) }
+  let!(:datum) { create(:datum, full_name: "Jon Doe", document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11)) }
 
   include_context "with a component" do
     let(:voting) { create(:voting, :published, organization: organization) }
     let(:participatory_space) { voting }
     let(:organization_traits) { [:secure_context] }
   end
-
-  let(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:election) { create(:election, :complete, component: component) }
-  let(:polling_station) { create(:polling_station, voting: voting) }
-  let!(:polling_officer) { create(:polling_officer, voting: voting, user: user, presided_polling_station: polling_station) }
-  let!(:datum) { create(:datum, full_name: "Jon Doe", document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11)) }
 
   before do
     switch_to_secure_context_host

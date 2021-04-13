@@ -12,8 +12,7 @@ module Decidim
                       :questions
         helper Decidim::Admin::IconLinkHelper
 
-        def new
-        end
+        def new; end
 
         def create
           if in_person_form.voted?
@@ -45,21 +44,21 @@ module Decidim
 
         def form_title
           @form_title ||= if in_person_form.verified?
-                            ".questions_title"
+                            I18n.t("votes.new.questions_title", scope: "decidim.votings.polling_officer_zone")
                           elsif datum.present?
-                            ".verify_title"
+                            I18n.t("votes.new.verify_title", scope: "decidim.votings.polling_officer_zone")
                           else
-                            ".form_title"
+                            I18n.t("votes.new.form_title", scope: "decidim.votings.polling_officer_zone")
                           end
         end
 
         def button_text
           @button_text ||= if in_person_form.verified?
-                             ".complete_voting"
+                             I18n.t("votes.new.complete_voting", scope: "decidim.votings.polling_officer_zone")
                            elsif datum.present?
-                             ".verify_document"
+                             I18n.t("votes.new.verify_document", scope: "decidim.votings.polling_officer_zone")
                            else
-                             ".validate_document"
+                             I18n.t("votes.new.validate_document", scope: "decidim.votings.polling_officer_zone")
                            end
         end
 
