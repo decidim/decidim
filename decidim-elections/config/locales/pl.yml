@@ -537,7 +537,6 @@ pl:
           experience: Jak oceniasz to przeprowadzony proces?
           feedback: Podziel się z nami swoją opinią
           header: Oddanie głosu potwierdzone
-          lead: Twój głos został już wysłany!
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
         failed:
@@ -885,6 +884,8 @@ pl:
           no_votings: Brak głosowań spełniających kryteria wyszukiwania.
           only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie przeszłe.
           title: Głosowania
+        login:
+          start_voting: Rozpocznij głosowanie
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo
