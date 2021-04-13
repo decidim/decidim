@@ -528,7 +528,7 @@ cs:
           any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
           confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
           edit: Upravit
-          follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
+          follow_description: Dostat upozornění, když jsou v této iniciativě novinky
           offline_method: Tato iniciativa shromažďuje pouze osobní podpisy.
           print: Tisk iniciativy
           send_to_technical_validation: Poslat na technické ověření
@@ -606,7 +606,7 @@ cs:
         back: Zpět
         fill_data: Vytvořit
         finish: Dokončit
-        previous_form: Start
+        previous_form: Začít
         promotal_committee: Výbor předkladatelů
         select_initiative_type: Vybrat
         show_similar_initiatives: Porovnat
