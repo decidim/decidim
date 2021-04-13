@@ -43,6 +43,7 @@ ca:
         default_locale: Idioma per defecte
         description: Descripció
         enable_omnipresent_banner: Mostrar el banner omnipresent
+        enable_participatory_space_filters: Habilitar els filtres a l'espai de participació
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
         force_authentication: Forçar autenticació
