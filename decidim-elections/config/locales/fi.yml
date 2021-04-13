@@ -544,7 +544,6 @@ fi:
           experience: Minkälainen käyttökokemuksesi oli?
           feedback: Jätä meille palautetta
           header: Ääni vahvistettu
-          lead: Olet jo äänestänyt!
           text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
         encrypting:
@@ -976,17 +975,6 @@ fi:
             info: Jos sinulla ei ole sellaista, voit %{access_code_link}.
             title: Tietosi henkilötietorekisterissä ovat oikein!
           title: Tarkasta tietosi henkilötietorekisterissä
-        check_census_form:
-          check_status: Tarkista tila
-          date_of_birth: Syntymäaika
-          description: 'Täytä seuraava lomake tarkastaaksesi tietosi henkilötietorekisterissä:'
-          dni: Henkilötunnus
-          document_number: Asiakirjan numero
-          document_number_placeholder: Henkilöllisyystodistuksen numero
-          passport: Passi
-          postal_code: Postinumero
-          postal_code_placeholder: Postinumero
-          select: Valitse asiakirjan tyyppi
         count:
           title:
             one: "%{count} äänestys"
@@ -1007,6 +995,8 @@ fi:
           no_votings: Hakuehdoillasi ei löytynyt yhtään äänestystä.
           only_finished: Tällä hetkellä ei ole yhtään ajastettua äänestystä, mutta täältä näet kaikki päättyneet äänestykset.
           title: Äänestykset
+        login:
+          start_voting: Aloita äänestys
         no_census_contact_information: Yhteystietoja ei ole vielä
         orders:
           label: 'Järjestä äänestykset:'
