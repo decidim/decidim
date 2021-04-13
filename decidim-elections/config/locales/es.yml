@@ -8,13 +8,13 @@ es:
         title: Título
       election:
         description: Descripción
-        end_time: La votación termina el
+        end_time: La votación acaba el
         start_time: La votación empieza el
         title: Título
       question:
         description: Descripción
         max_selections: Número máximo de opciones
-        min_selections: Ninguna de las anteriores
+        min_selections: Ninguna de las opciones anteriores
         title: Título
       voting:
         end_time: La votación finaliza
@@ -41,7 +41,7 @@ es:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: El gestor de mesa ya es presidente/gestor del punto de votación
+              president_and_manager: El gestor electoral ya es presidente/gestor del punto de votación
             voting:
               different_organization: La votación debe estar en la misma organización que el usuario
         decidim/votings/polling_station:
@@ -71,7 +71,7 @@ es:
     admin:
       filters:
         officers_assigned_eq:
-          label: Gestores
+          label: Responsables
           values:
             assigned: Asignado
             unassigned: No asignado
@@ -79,7 +79,7 @@ es:
           label: Rol
           values:
             manager: Gestor
-            president: Presidente
+            president: Presidencia
             unassigned: Sin asignar
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Buscar %{collection} por nombre/email/alias o punto de votación.
@@ -116,8 +116,8 @@ es:
             invalid: Se ha producido un error al crear esta respuesta
             success: Respuesta creada con éxito
           destroy:
-            invalid: Se ha producido un error al borrar esta respuesta
-            success: Respuesta creada con éxito
+            invalid: Se ha producido un error al eliminar esta respuesta
+            success: Respuesta eliminada con éxito
           edit:
             title: Editar respuesta
             update: Actualizar respuesta
