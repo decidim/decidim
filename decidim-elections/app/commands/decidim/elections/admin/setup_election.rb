@@ -44,6 +44,10 @@ module Decidim
           Decidim::Elections::Answer.where(question: questions)
         end
 
+        def ballot_styles
+          @ballot_styles ||= questions.map(&:ballot_styles).flatten.uniq
+        end
+
         def trustees
           @trustees ||= Decidim::Elections::Trustee.where(id: form.trustee_ids).order(:id)
         end
@@ -64,7 +68,8 @@ module Decidim
             start_date: election.start_time,
             end_date: election.end_time,
             questions: questions_data,
-            answers: answers_data
+            answers: answers_data,
+            ballot_styles: ballot_styles.empty? ? nil : ballot_styles_data
           }
         end
 
@@ -107,6 +112,15 @@ module Decidim
               title: flatten_translations(answer.title)
             }
           end
+        end
+
+        def ballot_styles_data
+          ballot_styles_hash = {}
+          ballot_styles.each do |ballot_style|
+            ballot_styles_hash[ballot_style.slug] = questions.to_a.intersection(ballot_style.questions).map(&:slug)
+          end
+
+          ballot_styles_hash
         end
 
         def setup_election
