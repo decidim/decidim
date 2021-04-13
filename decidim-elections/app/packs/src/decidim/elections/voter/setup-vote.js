@@ -1,20 +1,13 @@
 /* eslint-disable require-jsdoc */
 
-// = require decidim/bulletin_board/decidim-bulletin_board
+import { VoteComponent } from "@codegram/decidim-bulletin_board";
 
-// Note: these gems will be moved to the application in the next release
-// = require voting_schemes/dummy/dummy
-// = require voting_schemes/electionguard/electionguard
+import * as VotingSchemesDummy from "@codegram/voting_schemes-dummy";
+const DummyVoterWrapperAdapter = VotingSchemesDummy.TrusteeWrapperAdapter;
+import * as VotingSchemesElectionGuard from "@codegram/voting_schemes-electionguard";
+const ElectionGuardVoterWrapperAdapter = VotingSchemesElectionGuard.TrusteeWrapperAdapter;
 
 export default function setupVoteComponent($voteWrapper) {
-  const { VoteComponent } = window.decidimBulletinBoard;
-  const {
-    VoterWrapperAdapter: DummyVoterWrapperAdapter
-  } = window.dummyVotingScheme;
-  const {
-    VoterWrapperAdapter: ElectionGuardVoterWrapperAdapter
-  } = window.electionGuardVotingScheme;
-
   // Data
   const bulletinBoardClientParams = {
     apiEndpointUrl: $voteWrapper.data("apiEndpointUrl")

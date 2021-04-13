@@ -1,8 +1,14 @@
-// = require decidim/bulletin_board/decidim-bulletin_board
+import {
+  KeyCeremonyComponent,
+  MessageIdentifier,
+  IdentificationKeys,
+  MESSAGE_RECEIVED
+} from "@codegram/decidim-bulletin_board";
 
-// Note: these gems will be moved to the application in the next release
-// = require voting_schemes/dummy/dummy
-// = require voting_schemes/electionguard/electionguard
+import * as VotingSchemesDummy from "@codegram/voting_schemes-dummy";
+const DummyTrusteeWrapperAdapter = VotingSchemesDummy.TrusteeWrapperAdapter;
+import * as VotingSchemesElectionGuard from "@codegram/voting_schemes-electionguard";
+const ElectionGuardTrusteeWrapperAdapter = VotingSchemesElectionGuard.TrusteeWrapperAdapter;
 
 /**
  * This file is responsible to generate election keys,
@@ -10,14 +16,6 @@
  * update the election bulletin board status
  */
 $(() => {
-  const {
-    KeyCeremonyComponent,
-    MessageIdentifier,
-    IdentificationKeys,
-    MESSAGE_RECEIVED
-  } = window.decidimBulletinBoard;
-  const { TrusteeWrapperAdapter: DummyTrusteeWrapperAdapter } = window.dummyVotingScheme;
-  const { TrusteeWrapperAdapter: ElectionGuardTrusteeWrapperAdapter } = window.electionGuardVotingScheme;
 
   // UI Elements
   const $keyCeremony = $(".trustee-step");

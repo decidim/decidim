@@ -1,11 +1,8 @@
 /* eslint-disable require-jsdoc, no-alert, func-style */
-// = require decidim/bulletin_board/decidim-bulletin_board
 
-window.Decidim = window.Decidim || {};
+import { IdentificationKeys } from "@codegram/decidim-bulletin_board";
 
 $(() => {
-  const { IdentificationKeys } = window.decidimBulletinBoard;
-
   function identificationKeys() {
     const $form = $(".trustee_zone form");
     const $trusteeSlug = $("#trustee_slug", $form);

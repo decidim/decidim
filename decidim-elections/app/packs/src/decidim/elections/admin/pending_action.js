@@ -1,7 +1,6 @@
-// = require decidim/bulletin_board/decidim-bulletin_board
+import { Client } from "@codegram/decidim-bulletin_board";
 
 $(() => {
-  const { Client } = decidimBulletinBoard;
   const $form = $("form.step");
   const $pendingAction = $form.find("#pending_action")
   const bulletinBoardClient = new Client({

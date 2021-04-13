@@ -1,8 +1,7 @@
-// = require decidim/bulletin_board/decidim-bulletin_board
+import { Client } from "@codegram/decidim-bulletin_board";
 
 $(async () => {
   const $castingVoteWrapper = $(".casting-vote-wrapper");
-  const { Client } = decidimBulletinBoard;
 
   const bulletinBoardClient = new Client({
     apiEndpointUrl: $castingVoteWrapper.data("apiEndpointUrl")

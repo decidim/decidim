@@ -1,9 +1,9 @@
 /* eslint-disable require-jsdoc, prefer-template, func-style, id-length, no-use-before-define, init-declarations, no-invalid-this */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
-// = require decidim/bulletin_board/decidim-bulletin_board
+
+import { Client } from "@codegram/decidim-bulletin_board";
 
 $(() => {
-  const { Client } = decidimBulletinBoard;
   const $voteVerifyWrapper = $(".verify-vote-wrapper");
   const $verifySubmitButton = $voteVerifyWrapper.find("a.focus__next.confirm");
 
