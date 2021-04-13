@@ -466,12 +466,24 @@ ro:
         check_fields:
           date_of_birth: Data naşterii
           day: Zi
-          day_placeholder: DD
+          day_placeholder: ZZ
           document_number: Numărul documentului
           document_number_placeholder: Număr ID
           month: Lună
-          month_placeholder: M
+          month_placeholder: LL
+          postal_code: Cod poştal
+          postal_code_placeholder: Cod poștal
           select: Selectaţi tipul documentului
+          year: Anul
+          year_placeholder: AAAA
+        login:
+          access_code: Cod de acces
+          access_code_placeholder: Cod de acces
+          ask_for_a_new_one: Cere unul nou.
+          dont_have_access_code: Nu ai un cod de acces?
+          form_title: 'Completați următorul formular pentru a accesa votul:'
+          step: Identificare
+          title: Mă identifică cu datele mele de recensământ de vot
         no_census_contact_information: Nu există încă informații de contact
   layouts:
     decidim:
