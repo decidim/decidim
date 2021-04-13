@@ -50,7 +50,7 @@ ca:
             announcement: Avís
     elections:
       actions:
-        confirm_destroy: N'estàs segura?
+        confirm_destroy: Estàs segura?
         destroy: Eliminar
         edit: Editar
         edit_answers: Edita les respostes
