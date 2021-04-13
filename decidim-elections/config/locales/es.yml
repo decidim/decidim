@@ -58,6 +58,12 @@ es:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/votings/census/dataset:
+        one: Conjunto de datos
+        other: Conjuntos de datos
+      decidim/votings/census/datum:
+        one: Referencia
+        other: Datos
       decidim/votings/polling_officer:
         one: Gestor de mesa
         other: Gestores de mesa
@@ -166,6 +172,8 @@ es:
         exports:
           elections: Elecciones
           feedback_form_answers: Feedback de respuestas
+        menu:
+          trustees: Garantes
         models:
           answer:
             name: Respuesta
@@ -798,6 +806,11 @@ es:
           create: "%{user_name} creó la votación %{resource_name}"
           publish: "%{user_name} publicó la votación %{resource_name}"
           unpublish: "%{user_name} despublicó la votación %{resource_name}"
+      census:
+        admin:
+          census:
+            export_access_codes:
+              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
       content_blocks:
         highlighted_votings:
           name: Votaciones destacadas
