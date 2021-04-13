@@ -810,7 +810,22 @@ es:
         admin:
           census:
             export_access_codes:
-              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
+              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirá un correo en %{email}
+            exporting_access_codes:
+              info_message: "<strong>Por favor, espere</strong> que la exportación esté preparada. La recibirá en breve en %{email}"
+            freeze:
+              callout: El censo está cerrado y no se puede modificar.
+            generate_access_codes:
+              button: Generar Códigos de Acceso de la votación
+              callout: Ahora puede generar los códigos de acceso. Tenga en cuenta que después de generarlos ya no podrá modificar más el censo.
+              confirm: Si continúa, ya no podrá modificar el censo.
+              info_message_all: "<strong>Se han importado las filas correctamente</strong> del fichero %{file} (%{raw_count} de %{data_count})."
+              info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
+              launch_error: Ha habido un problema al generar los códigos de acceso
+              launch_success: Se ha iniciado la generación de códigos.
+        export_mailer:
+          access_codes_export:
+            download: Descargar
       content_blocks:
         highlighted_votings:
           name: Votaciones destacadas
@@ -873,6 +888,17 @@ es:
           new: Nuevo
           title: Acciones
       votings:
+        check_census_form:
+          check_status: Comprobar el estado
+          date_of_birth: Fecha de nacimiento
+          description: 'Rellene el siguiente formulario para comprobar sus datos en el censo:'
+          dni: DNI
+          document_number: Número de documento
+          document_number_placeholder: Número de carnet de identidad
+          passport: Pasaporte
+          postal_code: Código postal
+          postal_code_placeholder: Número de código postal
+          select: Seleccione el tipo de documento
         count:
           title:
             one: "%{count} votación"
@@ -893,6 +919,7 @@ es:
           no_votings: Ninguna votación coincide con tus criterios de búsqueda.
           only_finished: Actualmente no hay votaciones programadas, pero aquí puedes encontrar las votaciones terminadas en la lista.
           title: Votaciones
+        no_census_contact_information: Aún no hay información de contacto
         orders:
           label: 'Ordenar votaciones por:'
           random: Aleatorio
@@ -919,6 +946,7 @@ es:
       election_votes_header:
         exit: Salir
       voting_navigation:
+        check_census: Cómo votar
         voting_menu_item: La votación
       votings:
         index:
