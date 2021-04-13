@@ -365,7 +365,7 @@ ca:
           user_invitation_sent_at_not_null:
             label: S'ha enviat la invitació
             values:
-              'false': No s'enviat
+              'false': No enviada
               'true': Enviada
         private_space_eq:
           label: Privat
@@ -384,7 +384,7 @@ ca:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
           reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
           title_cont: Buscar %{collection} per títol.
-          user_name_or_user_email_cont: Cerca %{collection} per nom o adreça electrònica.
+          user_name_or_user_email_cont: Cerca %{collection} per nom o correu electrònic.
         state_eq:
           label: Estat
       forms:
