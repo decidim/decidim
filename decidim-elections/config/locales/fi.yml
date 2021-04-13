@@ -875,9 +875,9 @@ fi:
               error: Henkilötietorekisterin poistaminen epäonnistui, yritä uudestaan myöhemmin.
               success: Henkilötietorekisterin tiedot poistettu
             export_access_codes:
-              button: Vie äänestyksen pääsykoodit
-              callout: Voit nyt viedä pääsykoodit järjestelmästä. Tämä voidaan tehdä vain kerran. Kun aloitat viennin, sinulle lähetetään tarvittavat ohjeet sähköpostiin <strong>%{email}</strong>
-              confirm: Voit viedä pääsykoodit vain kerran. Varmista, että pääset käsiksi sähköpostitiliin <strong>%{email}</strong>.
+              button: Vie äänestyksen tunnistuskoodit
+              callout: Voit nyt viedä tunnistuskoodit järjestelmästä. Tämä voidaan tehdä vain kerran. Kun aloitat viennin, sinulle lähetetään tarvittavat ohjeet sähköpostiin <strong>%{email}</strong>
+              confirm: Voit viedä tunnistuskoodit vain kerran. Varmista, että pääset käsiksi sähköpostitiliin <strong>%{email}</strong>.
               file_not_exists: Tiedostoa ei ole olemassa
               launch_error: Äänestyskoodien viennin aloittaminen epäonnistui
               launch_success: Äänestyskoodien vienti aloitettu. Saat sähköpostia hetken kuluttua sähköpostiosoitteeseen %{email}
@@ -887,7 +887,7 @@ fi:
               callout: Henkilötietorekisteri on jäädytetty, minkä takia sitä ei voi muokata.
             generate_access_codes:
               button: Luo äänestyksen tunnistekoodit
-              callout: Voit nyt jatkaa pääsykoodien luontiin. Huomioithan, että pääsykoodien luonnin jälkeen, et voi enää muokata henkilötietorekisteriä.
+              callout: Voit nyt jatkaa tunnistuskoodien luontiin. Huomioithan, että tunnistuskoodien luonnin jälkeen, et voi enää muokata henkilötietorekisteriä.
               confirm: Jos jatkat, et voi enää muokata henkilötietorekisteriä.
               info_message_all: "<strong>Tietojen tuonti onnistui</strong> tiedostosta %{file} (yhteensä tuotu %{raw_count} / %{data_count} riviä)."
               info_message_warn: Tarkasta, että mitään tietoja ei puutu, koska %{data_count} tietuetta luotiin ja ladatussa tiedostossa %{file} on %{raw_count} riviä.
@@ -902,6 +902,7 @@ fi:
                 message_2: Erotin sarakkeiden välillä on oltava puolipiste (";").
               has_ballot_styles_message: Olet määrittänyt äänestystyylejä. Pidä huolta siitä, että "%{ballot_style_code_header}" -kenttä CSV-tiedostossa vastaa rivin äänestystyylin koodia.
               info_message: "<strong>Henkilötietorekisteriä ei ole vielä olemassa.</strong> Käytä alla olevaa lomaketta luodaksesi rekisterin tuomalla tiedot CSV-tiedostosta."
+              missing_ballot_styles_message: 'Tälle äänestykselle ei ole määritetty yhtään äänestystyyliä. Jos haluat lisätä ehdollisia kysymyksiä (ts. esittää äänestäjille eri kysymyksiä esimerkiksi riippuen heidän asuinalueestaan), sinun on määritettävä <a href=%{ballot_styles_admin_path}>äänestystyylit</a> <strong>ennen</strong> henkilötietorekisterin lataamista järjestelmään. Jos haluat esittää kaikille äänestäjille samat kysymykset, voit jatkaa henkilötietorekisterin lataamiseen.'
               submit: Lähetä CSV
               title: Luo henkilötietorekisteri
             show:
@@ -917,9 +918,9 @@ fi:
           passport: Passi
         export_mailer:
           access_codes_export:
-            click_button: 'Voit ladata pääsykoodit seuraavan linkin kautta.<br/>Tiedosto on ladattavissa %{date} saakka.<br/>Tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelman</a> (Windowsille), <a href="https://www.keka.io/en/">Keka-ohjelman</a> (macOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelman</a> (Linux-käyttöjärjestelmille) avataksesi tiedoston. Salasana tiedoston avaamista varten: %{password}'
+            click_button: 'Voit ladata tunnistuskoodit seuraavan linkin kautta.<br/>Tiedosto on ladattavissa %{date} saakka.<br/>Tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelman</a> (Windowsille), <a href="https://www.keka.io/en/">Keka-ohjelman</a> (macOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelman</a> (Linux-käyttöjärjestelmille) avataksesi tiedoston. Salasana tiedoston avaamista varten: %{password}'
             download: Lataa
-            subject: Äänestyksen pääsykoodien vientitiedosto äänestykselle %{voting_title} on nyt ladattavissa
+            subject: Äänestyksen tunnistuskoodien vientitiedosto äänestykselle %{voting_title} on nyt ladattavissa
         vote_flow:
           datum_not_found: Annetut tiedot eivät vastaa yhtään äänestäjää.
       content_blocks:
@@ -986,16 +987,30 @@ fi:
       votings:
         check_census:
           check_status: Tarkista tila
-          description: Täällä voit tarkastaa omat henkilötietorekisterin tietosi, selvittääksesi, onko sinulla oikeus osallistua tähän äänestykseen. Sinulla pitäisi jo olla pääsykoodi, mutta jos hävitit sen, voit pyytää sitä uudestaan, jos tietosi on syötetty oikein.
+          description: Täällä voit tarkastaa omat henkilötietorekisterin tietosi, selvittääksesi, onko sinulla oikeus osallistua tähän äänestykseen. Sinulla pitäisi jo olla tunnistuskoodi, mutta jos hävitit sen, voit pyytää sitä uudestaan, jos tietosi on syötetty oikein.
           error:
             info: 'Yritä uudestaan. Jos epäilet, että järjestelmässä olevat tiedot eivät pidä paikkaansa, voit ilmoittaa siitä täällä: %{census_contact_information}.'
             title: Tietosi henkilötietorekisterissä ovat virheellisiä!
+          form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
           invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
           success:
-            access_link: pyytää pääsykoodia
+            access_link: pyytää tunnistuskoodia
             info: Jos sinulla ei ole sellaista, voit %{access_code_link}.
             title: Tietosi henkilötietorekisterissä ovat oikein!
           title: Tarkasta tietosi henkilötietorekisterissä
+        check_fields:
+          date_of_birth: Syntymäaika
+          day: Päivä
+          day_placeholder: PV
+          document_number: Asiakirjan numero
+          document_number_placeholder: Henkilöllisyystodistuksen numero
+          month: Kuukausi
+          month_placeholder: KK
+          postal_code: Postinumero
+          postal_code_placeholder: Postinumero
+          select: Valitse asiakirjan tyyppi
+          year: Vuosi
+          year_placeholder: VVVV
         count:
           title:
             one: "%{count} äänestys"
@@ -1017,7 +1032,14 @@ fi:
           only_finished: Tällä hetkellä ei ole yhtään ajastettua äänestystä, mutta täältä näet kaikki päättyneet äänestykset.
           title: Äänestykset
         login:
+          access_code: Tunnistuskoodi
+          access_code_placeholder: Tunnistuskoodi
+          ask_for_a_new_one: Pyydä uutta.
+          dont_have_access_code: Eikö sinulla ole tunnistuskoodia?
+          form_title: 'Täytä seuraava lomake aloittaaksesi äänestyksen:'
           start_voting: Aloita äänestys
+          step: Tunnistautuminen
+          title: Tunnistan itseni henkilötietorekisterin tietojen avulla
         no_census_contact_information: Yhteystietoja ei ole vielä
         orders:
           label: 'Järjestä äänestykset:'
