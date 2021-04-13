@@ -14,11 +14,11 @@ ca:
       question:
         description: Descripció
         max_selections: Número màxim d'opcions
-        min_selections: Cap de les anteriors
+        min_selections: Cap de les opcions anteriors
         title: Títol
       voting:
-        end_time: Finalitza
-        start_time: Comença
+        end_time: La votació finalitza
+        start_time: La votació comença
     errors:
       models:
         answer:
@@ -41,7 +41,7 @@ ca:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: El gestor de mesa ja es president/gestor del punt de votació
+              president_and_manager: El gestor electoral ja és president/gestor del punt de votació
             voting:
               different_organization: La votació ha d'estar a la mateixa organització que l'usuària
         decidim/votings/polling_station:
@@ -62,7 +62,7 @@ ca:
         one: Conjunt de dades
         other: Conjunts de dades
       decidim/votings/census/datum:
-        one: Referències
+        one: Dada
         other: Dades
       decidim/votings/polling_officer:
         one: Gestor de mesa
