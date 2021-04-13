@@ -122,10 +122,10 @@ ca:
             invalid: Hi ha hagut un problema en crear aquesta resposta
             success: Resposta creada amb èxit
           destroy:
-            invalid: Hi ha hagut un problema en eliminar aquesta resposta
+            invalid: Hi ha hagut un problema en esborrar aquesta resposta
             success: Resposta eliminada amb èxit
           edit:
-            title: Editar les respostes
+            title: Editar resposta
             update: Actualitzar resposta
           index:
             invalid_max_selections: Calen %{missing_answers} respostes més per a arribar al màxim de seleccions
@@ -133,7 +133,7 @@ ca:
           new:
             create: Crear resposta
             title: Nova resposta
-          not_selected: No seleccionat
+          not_selected: No seleccionada
           select:
             disable: Deseleccionar resposta
             enable: Marcar resposta com seleccionada
