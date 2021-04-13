@@ -3,6 +3,7 @@ es:
     attributes:
       conference:
         assemblies_ids: Asambleas relacionadas
+        available_slots: Aforo disponible
         banner_image: Imagen de banner
         consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
@@ -10,15 +11,23 @@ es:
         copy_features: Copiar funcionalidades
         decidim_scope_id: Ámbito
         description: Descripción
+        end_date: Fecha de fin
         hashtag: Hashtag
         hero_image: Imagen de la pagina de inicio
+        location: Localización
+        main_logo: Logo principal
+        objectives: Objetivos
         participatory_processes_ids: Procesos participativos relacionados
         promoted: Destacada
         published_at: Publicada en
+        registration_terms: Condiciones de la inscripción
+        registrations_enabled: Habilitar inscripciones
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Breve descripción
         show_statistics: Mostrar estadísticas
+        sign_date: Fecha de firma
+        signature: Firma
         slogan: Eslogan
         slug: URL amigable
         title: Título
