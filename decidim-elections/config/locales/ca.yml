@@ -77,7 +77,7 @@ ca:
     admin:
       filters:
         officers_assigned_eq:
-          label: Gestors
+          label: Responsables
           values:
             assigned: Assignat
             unassigned: No assignat
@@ -85,7 +85,7 @@ ca:
           label: Rol
           values:
             manager: Gestor
-            president: Presidenta
+            president: Presidència
             unassigned: Sense assignar
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o punt de votació.
@@ -103,12 +103,12 @@ ca:
             announcement: Avís
     elections:
       actions:
-        confirm_destroy: N'estàs segura?
+        confirm_destroy: Estàs segura?
         destroy: Eliminar
         edit: Editar
         feedback: Feedback del votant
         import: Importar propostes com a respostes
-        manage_answers: Administrar respostes
+        manage_answers: Gestionar respostes
         manage_questions: Administrar preguntes
         manage_steps: Administrar passos
         new: Nova %{name}
