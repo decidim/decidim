@@ -41,7 +41,6 @@
           experience: Hvordan var opplevelsen din?
           feedback: Gi oss en tilbakemelding
           header: Avstemning bekreftet
-          lead: Din stemme har allerede blitt avgitt!
           text: 'Du kan sjekke at stemmen din har blitt lagt til i stemmeboksen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         header:
           confirm: Bekreft stemmen din
