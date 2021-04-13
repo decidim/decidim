@@ -653,8 +653,10 @@ ca:
             title: Modifica estil de papereta
             update: Actualitza
           form:
+            code_help: 'Pinsta: El codi és l''enllaç entre el cens i l''estil de papereta. Quan puges les dades del cens, a cada entrada s''assigna un estil de papereta segons el seu codi'
             election: Elecció
             questions: Preguntes per a l'estil de papereta
+            questions_help: 'Pista: Escull les preguntes assignades a aquest estil de papereta en el component d''elecció per presentar-les a votants'
           index:
             actions:
               confirm_destroy: Va debò?
@@ -897,10 +899,16 @@ ca:
                 message_2: El separador entre columnes ha de ser un punt i coma (";").
               has_ballot_styles_message: Esteu configurant Estils de Paperetes. Adona't que el camp "%{ballot_style_code_header}" del CSV correspongui al codi de l'Estil de Papereta que vols.
               info_message: "<strong>Encara no n'hi ha de cens.</strong> Si us plau, importeu un fitxer CSV en el següent formulari per a crear-ne un de nou."
+              missing_ballot_styles_message: 'Encara no hi ha cap Estil de Papereta per a aquesta votació. Si vols disposar de preguntes condicionals (com ara que votants puguin rebre diferents preguntes segons el seu districte o la seva regió de residència, per exemple) cal que importis el cens <strong>abans</strong> de configurar l''<a href=%{ballot_styles_admin_path}>Estil de Papereta</a>. Altrament, si el que vols és que tothom llegeixin les mateixes preguntes, pots iniciar amb el procès d''importació del cens.'
               submit: Envia csv
               title: Crea el cens
             show:
               heading: Espai de votació del cens
+            upload_info:
+              csv_example_with_ballot_style: 'Vet aquí un exemple del fitxer <strong>amb</strong> estils de papereta:'
+              csv_example_without_ballot_style: 'Vet aquí un exemple del fitxer <strong>sense</strong> estils de papereta:'
+              csv_header_after: Si no necessites les preguntes condicionals en els estils de papereta, no hi incloguis el darrer camp ("%{ballot_style_code_header}")
+              csv_header_before: 'El fitxer del cens ha de ser un fitxer CSV amb la següent capçalera:'
         export_mailer:
           access_codes_export:
             click_button: 'Clica el següent enllaç per baixar les dades dels codis d''accès.<br/>El fitxer estarà disponible fins el %{date}.<br/>Per obrir-lo, cal que disposeu de <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o bé <a href="https://peazip.github.io">PeaZip</a> (per a Linux). Contrasenya: %{password}'
