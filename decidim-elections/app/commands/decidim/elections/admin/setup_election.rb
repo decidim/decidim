@@ -69,7 +69,7 @@ module Decidim
             end_date: election.end_time,
             questions: questions_data,
             answers: answers_data,
-            ballot_styles: ballot_styles.empty? ? nil : ballot_styles_data
+            ballot_styles: ballot_styles.empty? ? {} : ballot_styles_data
           }
         end
 
