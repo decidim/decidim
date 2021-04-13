@@ -30,7 +30,7 @@ cs:
         show_metrics: Zobrazit metriku
         show_statistics: Zobrazit statistiky
         slug: URL slug
-        start_date: Počáteční datum
+        start_date: Datum zahájení
         subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
@@ -54,7 +54,7 @@ cs:
         description: Popis
         end_date: Datum ukončení
         short_description: Stručný popis
-        start_date: Počáteční datum
+        start_date: Datum zahájení
         title: Titul
       participatory_process_user_role:
         email: E-mailem
@@ -140,7 +140,7 @@ cs:
         participatory_process_step:
           fields:
             end_date: Datum ukončení
-            start_date: Počáteční datum
+            start_date: Datum zahájení
             title: Titul
           name: Participační krok procesu
         participatory_process_user_role:
@@ -462,7 +462,7 @@ cs:
         private_space: Jedná se o soukromý proces
         related_processes: Související procesy
         scope: Rozsah
-        start_date: Počáteční datum
+        start_date: Datum zahájení
         target: Kdo se účastní
         unspecified: Nespecifikováno
       statistics:
