@@ -69,15 +69,15 @@ module Decidim
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
 
+    has_one_attached :hero_image
     validates_upload :hero_image do |config|
       config.uploader = Decidim::HeroImageUploader
     end
-    mount_uploader :hero_image, Decidim::HeroImageUploader
 
+    has_one_attached :banner_image
     validates_upload :banner_image do |config|
       config.uploader = Decidim::BannerImageUploader
     end
-    mount_uploader :banner_image, Decidim::BannerImageUploader
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
