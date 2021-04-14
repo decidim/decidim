@@ -936,7 +936,6 @@ es:
       election_votes_header:
         exit: Salir
       voting_navigation:
-        check_census: Cómo votar
         voting_menu_item: La votación
       votings:
         index:
