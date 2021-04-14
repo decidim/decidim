@@ -1014,6 +1014,8 @@ cs:
             census_not_present: Tento uživatel není uveden v seznamu osob.
             census_not_present_description: Musí jít do úřadu spravující seznam osob nebo kontaktovat podporu.
             census_present: Tento uživatel je uveden v seznamu osob.
+            census_verified: Uživatel ještě nehlasoval.
+            complete_voting: Dokončené hlasování
       polling_officers:
         actions:
           confirm_destroy: Jste si jisti?
