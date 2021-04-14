@@ -137,10 +137,10 @@ def uses_the_voting_booth
   expect(page).to have_content("Vote confirmed")
   expect(page).to have_content("Your vote has been cast!")
 
-  # close voting booth without alert
-  page.find("a.focus__exit").click
+  # # close voting booth without alert
+  # page.find("a.focus__exit").click
 
-  expect(page).to have_current_path router.election_path(id: election.id)
+  # expect(page).to have_current_path router.election_path(id: election.id)
 end
 
 def question_step(number)

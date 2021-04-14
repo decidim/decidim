@@ -49,6 +49,12 @@ edit_link(
   </div>
 </div>
 
+<% if onboarding %>
+  <%= render partial: "decidim/elections/votes/onboarding_modal" %>
+<% end %>
+
 <%= cell("decidim/elections/election_preview", election) %>
 
 <%= cell("decidim/elections/election_results", election) %>
+
+<%= javascript_include_tag("decidim/elections/onboarding") %>

@@ -9,7 +9,7 @@ module Decidim
       include Decidim::Elections::Orderable
       include HasVoteFlow
 
-      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?
+      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?, :onboarding
 
       def index
         redirect_to election_path(single, single: true) if single?
@@ -27,6 +27,10 @@ module Decidim
 
       def election
         @election ||= Election.where(component: current_component).find(params[:id])
+      end
+
+      def onboarding
+        @onboarding ||= params[:onboarding] || false
       end
 
       # Public: Checks if the component has only one election resource.

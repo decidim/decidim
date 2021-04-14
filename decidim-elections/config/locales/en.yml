@@ -395,7 +395,7 @@ en:
             upcoming: Voting begins on %{start_time}
       feedback:
         answer:
-          invalid: There was a problem submiting your feedback.
+          invalid: There was a problem submitting your feedback.
           spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
           success: Feedback successfully sent.
       models:
@@ -580,6 +580,11 @@ en:
           preview_alert: This is a preview of the voting booth.
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
+        onboarding_modal:
+          create_account: Create Account
+          description: Do you want to create a new account in Decidim? You will be able to participate in the processes and be an active part of the organization.
+          no_account: No, thanks.
+          title: New to Decidim?
         update:
           error: There was a problem updating the vote status. Please, vote again.
         verify:
