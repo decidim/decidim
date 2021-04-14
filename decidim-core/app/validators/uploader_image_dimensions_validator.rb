@@ -24,11 +24,23 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
 
   def validate_image_size(record, attribute, file, uploader)
     return unless uploader.validable_dimensions
-    return unless file.is_a? ActionDispatch::Http::UploadedFile
-    return unless file.content_type.to_s.start_with? "image"
+    return if (image = extract_image(file)).blank?
 
-    image = MiniMagick::Image.new(file.path)
-    record.errors.add attribute, :invalid if image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
+    record.errors.add attribute, I18n.t("carrierwave.errors.image_too_big") if image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
+  end
+
+  def extract_image(file)
+    return unless file.try(:content_type).to_s.start_with?("image")
+
+    if file.is_a?(ActionDispatch::Http::UploadedFile)
+      MiniMagick::Image.new(file.path)
+    elsif file.is_a?(ActiveStorage::Attached) && file.blob.persisted?
+      MiniMagick::Image.read(file.blob.download)
+    end
+  rescue ActiveStorage::FileNotFoundError
+    # Although the blob is persisted, the file is not available to download and analyze
+    # after committing the record
+    nil
   end
 
   def check_validity!; end
