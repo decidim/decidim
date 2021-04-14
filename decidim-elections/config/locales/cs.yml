@@ -1016,6 +1016,12 @@ cs:
             census_present: Tento uživatel je uveden v seznamu osob.
             census_verified: Uživatel ještě nehlasoval.
             complete_voting: Dokončené hlasování
+            form_title: 'Vyberte typ dokumentu a zadejte číslo dokladu účastníka:'
+            questions_title: 'Má právo hlasovat v těchto otázkách:'
+            title: Identifikovat a ověřit účastníka
+            validate_document: Ověřit platnost dokladu
+            verify_document: Ověřit doklad
+            verify_title: 'Zkontrolujte, zda jsou tyto údaje správné:'
       polling_officers:
         actions:
           confirm_destroy: Jste si jisti?
@@ -1034,6 +1040,11 @@ cs:
           new: Nový
           title: Akce
       votings:
+        access_code_modal:
+          email: Poslat e-mailem na %{email}
+          info: K účasti potřebujete přístupový kód. Pokud jste ho nedostali poštou, můžeme vám poslat nový.
+          no_email: E-mail není k dispozici
+          no_sms: Žádné telefonní číslo není k dispozici
         check_census:
           check_status: Zkontrolovat stav
           description: Zde máte možnost zkontrolovat údaje ze seznamu osob, abyste věděli, zda máte právo účastnit se tohoto hlasování. Měli byste mít přístupový kód již k dispozici, ale pokud ho ztratíte, můžete ho znovu vyžádat, až budou vaše údaje správné.
