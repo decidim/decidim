@@ -24,12 +24,7 @@ module.exports = {
       },
       {
         test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
         loader: "graphql-tag/loader"
-      },
-      {
-        test: /\.json$/,
-        loader: "json-loader"
       },
       {
         test: require.resolve("react"),
@@ -48,7 +43,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: [".js", ".jsx", ".gql", ".graphql"]
   },
   // https://github.com/rails/webpacker/issues/2932
   // As Decidim uses multiple packs, we need to enforce a single runtime, to prevent duplication
