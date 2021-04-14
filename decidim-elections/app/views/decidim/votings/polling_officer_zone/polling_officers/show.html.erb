@@ -25,7 +25,7 @@
               <td><%= t(polling_officer.role, scope: "decidim.votings.polling_officers.roles") %></td>
               <td class="table-list__actions">
                 <% if polling_officer.polling_station.present? %>
-                  <%= icon_link_to "person", polling_officers_polling_station_path(polling_officer, polling_officer.polling_station), t(".actions.identify_person"), class: "action-icon--manage" %>
+                  <%= icon_link_to "person", new_polling_officers_polling_station_vote_path(polling_officer.polling_station), t(".actions.identify_person"), class: "action-icon--manage" %>
                   <%= icon_link_to "envelope-open", polling_officers_polling_station_path(polling_officer, polling_officer.polling_station), t(".actions.count_votes"), class: "action-icon--manage" %>
                 <% end %>
               </td>

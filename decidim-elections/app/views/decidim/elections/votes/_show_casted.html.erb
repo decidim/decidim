@@ -1,6 +1,6 @@
 <%= render("focus_header", header_title: t("decidim.elections.votes.header.confirmed")) %>
 
-<div class="focus__content evote">
+<div class="focus__content evote ballot_confirmed">
   <div class="row">
     <h1 class="heading2">
       <%= t("decidim.elections.votes.confirmed.header") %>
@@ -18,9 +18,11 @@
       <%= t("decidim.elections.votes.confirmed.back") %>
     <% end %>
 
-    <div>
-      <%= t("decidim.elections.votes.confirmed.experience") %>
-      <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election) %>
-    </div>
+    <% if params[:token] %>
+      <div>
+        <%= t("decidim.elections.votes.confirmed.experience") %>
+        <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election, hash: params[:id], token: params[:token]) %>
+      </div>
+    <% end %>
   </div>
 </div>

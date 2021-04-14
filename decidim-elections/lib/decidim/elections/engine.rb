@@ -17,6 +17,7 @@ module Decidim
 
           resources :votes, only: [:new, :create, :update, :show] do
             get :verify
+            match "new", action: :new, via: :post, as: :login, on: :collection
           end
         end
 

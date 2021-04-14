@@ -42,6 +42,7 @@ de:
         default_locale: Standardgebietsschema
         description: Beschreibung
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
+        enable_participatory_space_filters: Bereichs- und Gebietsfilter aktivieren
         facebook_handler: Facebook-Handler
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
@@ -355,6 +356,17 @@ de:
           values:
             'false': Offizialisiert
             'true': Nicht offiziell
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Einladung akzeptiert
+            values:
+              'false': Nicht akzeptiert
+              'true': Akzeptiert
+          user_invitation_sent_at_not_null:
+            label: Einladung versendet
+            values:
+              'false': Nicht versendet
+              'true': Versendet
         private_space_eq:
           label: Privat
           values:
@@ -372,6 +384,7 @@ de:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: In %{collection} nach Titel suchen.
+          user_name_or_user_email_cont: In %{collection} nach Name oder E-Mail suchen.
         state_eq:
           label: Bundesland
       forms:

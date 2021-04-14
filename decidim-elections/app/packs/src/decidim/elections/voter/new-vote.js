@@ -37,7 +37,7 @@ $(async () => {
     },
     castOrAuditBallot({ encryptedData, encryptedDataHash }) {
       $voteWrapper.find("#encrypting").addClass("hide");
-      $ballotHash.text(`Your ballot identifier is: ${encryptedDataHash}`);
+      $ballotHash.text(encryptedDataHash);
       $voteWrapper.find("#ballot_decision").removeClass("hide");
 
       const $form = $("form.new_vote");

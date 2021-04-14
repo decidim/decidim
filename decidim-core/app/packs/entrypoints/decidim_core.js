@@ -18,7 +18,7 @@ import "../src/decidim/input_hashtags"
 import "../src/decidim/input_mentions"
 import "../src/decidim/input_multiple_mentions"
 import "../src/decidim/input_character_counter"
-
+import "../src/decidim/input_autojump"
 import "../src/decidim/index"
 import "../src/decidim/history"
 import "../src/decidim/callout"

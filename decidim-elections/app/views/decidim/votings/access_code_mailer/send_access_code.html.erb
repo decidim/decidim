@@ -1,0 +1,5 @@
+<p class="email-greeting"><%= t("devise.mailer.invitation_instructions.hello", email: @datum.full_name) %></p>
+
+<p class="email-instructions">
+  <%= t("send_access_code.instruction", scope: "decidim.events.votings", access_code: @access_code, voting: @voting) %>
+</p>
