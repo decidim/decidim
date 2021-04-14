@@ -982,10 +982,7 @@ ca:
             title: Les dades del cens no són correctes!
           invalid: Hi ha hagut un problema en comprovar el cens.
           success:
-            access_link: demana un Codi d'Accès
-            info: Si no en tens cap, %{access_code_link} ja.
             title: Les dades del cens són correctes!
-          title: Comprova les dades del cens
         count:
           title:
             one: "%{count} votació"
@@ -1035,7 +1032,6 @@ ca:
       election_votes_header:
         exit: Sortir
       voting_navigation:
-        check_census: Com votar-hi
         voting_menu_item: La votació
       votings:
         index:
