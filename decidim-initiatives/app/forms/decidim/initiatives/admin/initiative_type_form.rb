@@ -32,10 +32,12 @@ module Decidim
         validates :attachments_enabled, :undo_online_signatures_enabled, :custom_signature_end_date_enabled,
                   :area_enabled, :promoting_committee_enabled, inclusion: { in: [true, false] }
         validates :minimum_committee_members, numericality: { only_integer: true }, allow_nil: true
-        validates :banner_image, presence: true, if: ->(form) { form.context.initiative_type.nil? }
+        validates :banner_image, presence: true, if: ->(form) { !form.persisted? && form.context.initiative_type.nil? }
         validates :document_number_authorization_handler, presence: true, if: ->(form) { form.collect_user_extra_fields? }
 
         validates :banner_image, passthru: { to: Decidim::InitiativesType }
+
+        alias organization current_organization
 
         def minimum_committee_members=(value)
           super(value.presence)

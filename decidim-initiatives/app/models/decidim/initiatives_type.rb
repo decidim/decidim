@@ -28,7 +28,10 @@ module Decidim
     validates :title, :description, :signature_type, presence: true
     validates :document_number_authorization_handler, presence: true, if: ->(form) { form.collect_user_extra_fields? }
 
-    mount_uploader :banner_image, Decidim::BannerImageUploader
+    validates_upload :banner_image do |config|
+      config.uploader = Decidim::BannerImageUploader
+    end
+    has_one_attached :banner_image
 
     def allowed_signature_types_for_initiatives
       return %w(online offline any) if any_signature_type?
