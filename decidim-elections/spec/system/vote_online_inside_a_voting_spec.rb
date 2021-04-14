@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Vote in an election inside a Voting", type: :system do
+describe "Vote online in an election inside a Voting", type: :system do
   let(:manifest_name) { "elections" }
   let!(:election) { create :election, :bb_test, :vote, component: component }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
@@ -36,7 +36,7 @@ describe "Vote in an election inside a Voting", type: :system do
         fill_in "Document number", with: "12345678X"
         fill_in "Postal code", with: "04001"
         fill_in "Day", with: "11"
-        fill_in "Month", with: "05"
+        fill_in "Month", with: "5"
         fill_in "Year", with: "1980"
         fill_in "Access code", with: "1234"
         find("*[type=submit]").click

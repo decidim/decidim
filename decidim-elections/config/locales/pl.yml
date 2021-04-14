@@ -94,7 +94,7 @@ pl:
             president: Przewodniczący
             unassigned: Nie przypisano
         search_placeholder:
-          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Przeszukaj %{collection} według nazwy/adresu e-mail/pseudonimu lub stacji wyborczej.
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Przeszukaj %{collection} według nazwy/adresu e-mail/pseudonimu lub lokalu wyborczego.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Szukaj %{collection} według tytułu, adresu lub imienia/adresu e-mail/pseudonimu oficera.
     components:
@@ -537,7 +537,6 @@ pl:
           experience: Jak oceniasz to przeprowadzony proces?
           feedback: Podziel się z nami swoją opinią
           header: Oddanie głosu potwierdzone
-          lead: Twój głos został już wysłany!
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
         failed:
@@ -611,7 +610,7 @@ pl:
             email_intro: Zostałeś wyznaczony na %{role} w lokalu wyborczym %{polling_station_name} w <a href="%{resource_url}">%{resource_title}</a>. Możesz zarządzać lokalami wyborczymi z dedykowanej <a href="%{polling_officer_zone_url}">Strefy Wyborczej</a>.
             email_outro: Otrzymałeś to powiadomienie ponieważ zostałeś wyznaczony na %{role} w %{polling_station_name}.
             email_subject: Posiadasz rolę %{role} w lokalu wyborczym %{polling_station_name}.
-            notification_title: Posiadasz rolę %{role} stacji ankietowej %{polling_station_name} w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
+            notification_title: Posiadasz rolę %{role} lokalu wyborczego %{polling_station_name} w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
@@ -885,6 +884,8 @@ pl:
           no_votings: Brak głosowań spełniających kryteria wyszukiwania.
           only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie przeszłe.
           title: Głosowania
+        login:
+          start_voting: Rozpocznij głosowanie
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo

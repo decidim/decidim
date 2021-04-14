@@ -41,7 +41,7 @@ es-PY:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: El gestor de mesa ya es presidente/gestor del punto de votación
+              president_and_manager: El gestor electoral ya es presidente/gestor del punto de votación
             voting:
               different_organization: La votación debe estar en la misma organización que el usuario
         decidim/votings/polling_station:
@@ -58,6 +58,12 @@ es-PY:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/votings/census/dataset:
+        one: Conjunto de datos
+        other: Conjuntos de datos
+      decidim/votings/census/datum:
+        one: Dato
+        other: Datos
       decidim/votings/polling_officer:
         one: Gestor de mesa
         other: Gestores de mesa
@@ -71,7 +77,7 @@ es-PY:
     admin:
       filters:
         officers_assigned_eq:
-          label: Gestores
+          label: Responsables
           values:
             assigned: Asignado
             unassigned: No asignado
@@ -79,7 +85,7 @@ es-PY:
           label: Rol
           values:
             manager: Gestor
-            president: Presidente
+            president: Presidencia
             unassigned: Sin asignar
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Buscar %{collection} por nombre/email/alias o punto de votación.
@@ -166,6 +172,8 @@ es-PY:
         exports:
           elections: Elecciones
           feedback_form_answers: Feedback de respuestas
+        menu:
+          trustees: Garantes
         models:
           answer:
             name: Respuesta
@@ -531,7 +539,6 @@ es-PY:
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
-          lead: '¡Tu voto ha sido emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         failed:
@@ -798,6 +805,26 @@ es-PY:
           create: "%{user_name} creó la votación %{resource_name}"
           publish: "%{user_name} publicó la votación %{resource_name}"
           unpublish: "%{user_name} despublicó la votación %{resource_name}"
+      census:
+        admin:
+          census:
+            export_access_codes:
+              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirá un correo en %{email}
+            exporting_access_codes:
+              info_message: "<strong>Por favor, espere</strong> que la exportación esté preparada. La recibirá en breve en %{email}"
+            freeze:
+              callout: El censo está cerrado y no se puede modificar.
+            generate_access_codes:
+              button: Generar Códigos de Acceso de la votación
+              callout: Ahora puede generar los códigos de acceso. Tenga en cuenta que después de generarlos ya no podrá modificar más el censo.
+              confirm: Si continúa, ya no podrá modificar el censo.
+              info_message_all: "<strong>Se han importado las filas correctamente</strong> del fichero %{file} (%{raw_count} de %{data_count})."
+              info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
+              launch_error: Ha habido un problema al generar los códigos de acceso
+              launch_success: Se ha iniciado la generación de códigos.
+        export_mailer:
+          access_codes_export:
+            download: Descargar
       content_blocks:
         highlighted_votings:
           name: Votaciones destacadas
@@ -880,6 +907,9 @@ es-PY:
           no_votings: Ninguna votación coincide con tus criterios de búsqueda.
           only_finished: Actualmente no hay votaciones programadas, pero aquí puedes encontrar las votaciones terminadas en la lista.
           title: Votaciones
+        login:
+          start_voting: Empezar a votar
+        no_census_contact_information: Aún no hay información de contacto
         orders:
           label: 'Ordenar votaciones por:'
           random: Aleatorio
@@ -906,6 +936,7 @@ es-PY:
       election_votes_header:
         exit: Salir
       voting_navigation:
+        check_census: Cómo votar
         voting_menu_item: La votación
       votings:
         index:

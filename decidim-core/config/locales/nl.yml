@@ -1234,6 +1234,10 @@ nl:
         title: Selecteer het aantal resultaten per pagina
       share_modal:
         close_window: Sluit venster
+        copy_share_link: Kopieer
+        copy_share_link_clarification: Kopieer link naar klembord
+        copy_share_link_copied: Gekopieerd!
+        copy_share_link_message: Link naar klembord kopiëren is gelukt.
         share: Deel
         share_link: Link delen
     statistics:

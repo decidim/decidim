@@ -38,6 +38,12 @@ describe Decidim::Votings::Census::CheckForm do
     it { is_expected.to be_invalid }
   end
 
+  describe "when day is missing" do
+    let(:day) { nil }
+
+    it { is_expected.to be_invalid }
+  end
+
   describe "when document_type is missing" do
     let(:document_type) { nil }
 

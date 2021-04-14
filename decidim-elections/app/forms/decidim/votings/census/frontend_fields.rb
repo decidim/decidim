@@ -24,6 +24,8 @@ module Decidim
         end
 
         def check_birthdate
+          return unless birthdate
+
           errors.add(:birthdate, :invalid) if Date.civil(year, month, day) > Time.zone.today
         rescue Date::Error
           errors.add(:birthdate, :invalid)

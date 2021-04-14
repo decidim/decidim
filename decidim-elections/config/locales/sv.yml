@@ -330,7 +330,6 @@ sv:
           experience: Hur var din erfarenhet?
           feedback: Ge oss lite feedback
           header: Rösta bekräftad
-          lead: Din röst har redan skickats!
           text: 'Du kan kontrollera att din röst har lagts till i röstsedeln med följande identifierare: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         failed:
           try_again: Försök igen
@@ -501,6 +500,8 @@ sv:
           unfold: Veckla ut
         index:
           title: Omröstningar
+        login:
+          start_voting: Starta omröstningen
         orders:
           random: Slumpmässig
           recent: Senaste
