@@ -543,6 +543,7 @@ pl:
           header: Oddanie głosu nie powiodło się
           lead: Twój głos nie został oddany!
           text: Coś poszło nie tak. Spróbuj ponownie.
+          try_again: Spróbuj ponownie
         header:
           confirm: Potwierdź swój głos
           confirmed: Głosowanie potwierdzone
@@ -624,6 +625,9 @@ pl:
       votings_count: Głosowań
     votings:
       admin:
+        ballot_styles:
+          edit:
+            update: Aktualizuj
         content_blocks:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
@@ -802,6 +806,20 @@ pl:
           create: "%{user_name} utworzył(a) głosowanie %{resource_name}"
           publish: "%{user_name} opublikował(a) głosowanie %{resource_name}"
           unpublish: "%{user_name} cofnął/cofnęła publikację głosowania %{resource_name}"
+      census:
+        admin:
+          census:
+            export_access_codes:
+              file_not_exists: Ten plik nie istnieje
+            new:
+              file_help:
+                message_1: Dozwolone są tylko pliki CSV (.csv).
+              submit: Prześlij csv
+        document_types:
+          passport: Paszport
+        export_mailer:
+          access_codes_export:
+            download: Pobierz
       content_blocks:
         highlighted_votings:
           name: Wyróżnione głosowania
@@ -844,6 +862,16 @@ pl:
                 voting: Głosowanie
               no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
               title: Lokale wyborcze
+        votes:
+          in_person_fields:
+            day: Dzień
+            day_placeholder: DD
+            month: Miesiąc
+            month_placeholder: MM
+            name: Imię
+            select: Wybierz dokument
+            year: Rok
+            year_placeholder: RRRR
       polling_officers:
         actions:
           confirm_destroy: Jesteś pewny?
@@ -862,6 +890,15 @@ pl:
           new: Nowy
           title: Działania
       votings:
+        check_census:
+          check_status: Sprawdź status
+          title: Mogę głosować?
+        check_fields:
+          day_placeholder: DD
+          month: Miesiąc
+          month_placeholder: MM
+          year: Rok
+          year_placeholder: RRRR
         count:
           title:
             one: "%{count} głosowanie"
@@ -885,7 +922,11 @@ pl:
           only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie przeszłe.
           title: Głosowania
         login:
+          access_code: Kod dostępu
+          access_code_placeholder: Kod dostępu
+          dont_have_access_code: Nie masz kodu dostępu?
           start_voting: Rozpocznij głosowanie
+          step: Identyfikacja
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo
@@ -912,6 +953,7 @@ pl:
       election_votes_header:
         exit: Wyjście
       voting_navigation:
+        check_census: Mogę głosować?
         voting_menu_item: Głosowanie
       votings:
         index:
