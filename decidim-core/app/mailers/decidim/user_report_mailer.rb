@@ -10,14 +10,12 @@ module Decidim
       @token = token
       @reason = reason
       @admin = admin
-      with_user(admin) do
-        mail(to: admin.email, subject: I18n.t(
-          "decidim.user_report_mailer.notify.subject",
-          organization_name: @organization.name,
-          reason: @reason,
-          token: @token
+      mail(to: admin.email, subject: I18n.t(
+        "decidim.user_report_mailer.notify.subject",
+        organization_name: @organization.name,
+        reason: @reason,
+        token: @token
         ))
-      end
     end
   end
 end
