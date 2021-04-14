@@ -22,6 +22,12 @@ gl:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/votings/census/dataset:
+        one: Conxunto de datos
+        other: Conxuntos de datos
+      decidim/votings/census/datum:
+        one: Referencias
+        other: Datos
       decidim/votings/voting:
         one: Votación
         other: Votacións
@@ -207,9 +213,43 @@ gl:
       votings_count: Votacións
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Produciuse un erro ao crear este estilo de papeleta
+            success: Estilo de papeleta creado con éxito
+          destroy:
+            invalid: Produciuse un erro ao eliminar este estilo de papeleta
+            success: Estilo de papeleta eliminado con éxito
+          edit:
+            title: Editar estilo da papeleta
+            update: Actualizar
+          form:
+            election: Elección
+            questions: Preguntas para este estilo de papeleta
+          index:
+            actions:
+              confirm_destroy: Estás certo/a?
+              destroy: Eliminar
+              edit: Editar
+              new: Novo
+              title: Accións
+            title: Estilos de papeletas
+          new:
+            create: Crear
+            title: Crear un estilo de papeleta
+          update:
+            invalid: Produciuse un erro ao modificar este estilo de papeleta
+            success: Estilo de papeleta modificado con éxito
         menu:
           votings_submenu:
+            ballot_styles: Estilos de papeletas
+            census: Censo
             components: Compoñentes
+        models:
+          ballot_style:
+            fields:
+              code: Código
+            name: Estilo de papeleta
         votings:
           form:
             select_a_voting_type: Por favor, selecciona un tipo de votación
@@ -217,6 +257,47 @@ gl:
               hybrid: Híbrido
               in_person: En persoa
               online: En liña
+      census:
+        admin:
+          census:
+            creating_data:
+              info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
+            delete:
+              button: Eliminar todos os datos do censo
+              confirm: A eliminación do censo non se pode desfacer. Estas certo/a de querer continuar?
+            destroy:
+              success: Datos do censo eliminados
+            export_access_codes:
+              button: Exportar códigos de acceso da votación
+              file_not_exists: Este ficheiro non existe
+              launch_error: Produciuse un problema ao iniciar a exportación dos códigos de acceso
+              launch_success: Iniciada a exportación dos códigos de acceso. Nun intre recibirás un correo en %{email}
+            exporting_access_codes:
+              info_message: "<strong>Agarda</strong>, a exportación esta a ser preparada, a recibirás nun intre en %{email}"
+            freeze:
+              callout: O censo está conxelado e non pode ser modificado.
+            generate_access_codes:
+              button: Xerar códigos de acceso para a votación
+              confirm: Se continuas, non poderás modificar o censo.
+              info_message_all: "<strong>Todas as filas foron importadas con éxito</strong> dende o ficheiro %{file} (%{raw_count} de %{data_count})."
+              info_message_warn: Por favor, verifica que non se perderan datos, xa que se teñen creado %{data_count} rexistros e o ficheiro subido %{file} ten %{raw_count} filas.
+              launch_success: Xeración dos códigos iniciada.
+            generating_access_codes:
+              info_message: "<strong>Agarda</strong>, os códigos de acceso para votar están a ser xerados..."
+            new:
+              file_help:
+                explanation: 'Instrucións para o ficheiro:'
+                message_1: Só están permitidos os ficheiros CSV (.csv).
+                message_2: O separador entre columnas ten de ser o punto e coma (";").
+              info_message: "<strong>Aínda non hai censo.</strong> Por favor, usa o formulario de abaixo para crear un importando un ficheiro CSV."
+              submit: Enviar csv
+              title: Crear o censo
+            show:
+              heading: Espazo de votación do censo
+        export_mailer:
+          access_codes_export:
+            download: Descargar
+            subject: A exportación dos códigos de acceso á votación de %{voting_title} xa están dispoñibles
       content_blocks:
         landing_page:
           description:
@@ -229,7 +310,20 @@ gl:
             no_polling_stations: Aínda non hai puntos de votación.
           timeline:
             heading: Liña de tempo
+      votings:
+        check_census:
+          error:
+            title: Os datos do censo non son correctos!
+          success:
+            access_link: solicitar un código de acceso
+            info: Se non tes un, %{access_code_link} xa.
+            title: Os datos do censo son correctos!
+          title: Verifica os datos do censo
+        login:
+          start_voting: Comezar votación
+        no_census_contact_information: Aínda non hai ningunha información de contacto
   layouts:
     decidim:
       voting_navigation:
+        check_census: Como votar
         voting_menu_item: A votación
