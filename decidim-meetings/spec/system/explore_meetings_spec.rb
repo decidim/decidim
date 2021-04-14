@@ -8,7 +8,7 @@ describe "Explore meetings", :slow, type: :system do
 
   let(:meetings_count) { 5 }
   let!(:meetings) do
-    create_list(:meeting, meetings_count, :not_official, component: component)
+    create_list(:meeting, meetings_count, :not_official, :published, component: component)
   end
 
   before do

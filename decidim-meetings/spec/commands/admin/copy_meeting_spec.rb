@@ -67,6 +67,7 @@ module Decidim::Meetings
         expect(new_meeting.scope).to eq(old_meeting.scope)
         expect(new_meeting.category).to eq(old_meeting.category)
         expect(new_meeting.component).to eq(old_meeting.component)
+        expect(new_meeting.component).not_to eq(be_published)
 
         new_meeting.services.each_with_index do |service, index|
           expect(service.title).to eq(services[index]["title"])

@@ -276,6 +276,9 @@ en:
           new:
             create: Create
             title: Create meeting
+          publish:
+            invalid: There was a problem publishing this meeting
+            success: Meeting successfully published
           service:
             description: Description
             down: Down
@@ -286,6 +289,9 @@ en:
           services:
             add_service: Add service
             services: Services
+          unpublish:
+            invalid: There was a problem unpublishing this meeting
+            success: Meeting successfully unpublished
           update:
             invalid: There was a problem updating this meeting
             success: Meeting successfully updated

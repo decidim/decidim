@@ -15,6 +15,10 @@ module Decidim
         get "/answer_options", to: "registration_form#answer_options", as: :answer_options_meeting
 
         resources :meetings do
+          member do
+            put :publish
+            put :unpublish
+          end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
           end
