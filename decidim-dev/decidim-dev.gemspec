@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.3.0"
   s.add_dependency "rspec-rails", "~> 4.0"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", "~> 0.91.0"
+  s.add_dependency "rubocop", "~> 0.92.0"
   s.add_dependency "rubocop-rails", "~> 2.8"
   s.add_dependency "rubocop-rspec", "= 1.43.2"
   s.add_dependency "selenium-webdriver", "~> 3.142"
