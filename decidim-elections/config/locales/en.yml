@@ -321,6 +321,7 @@ en:
         election:
           end_vote: "%{user_name} ended the voting period for the %{resource_name} election on the Bulletin Board"
           publish: "%{user_name} published the %{resource_name} election"
+          publish_results: "%{user_name} published the results for the election %{resource_name} on the Bulletin Board"
           setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
           start_key_ceremony: "%{user_name} started the key ceremony for the %{resource_name} election on the Bulletin Board"
           start_tally: "%{user_name} started the tally for the %{resource_name} election on the Bulletin Board"
