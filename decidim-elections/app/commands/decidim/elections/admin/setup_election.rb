@@ -117,7 +117,7 @@ module Decidim
         def ballot_styles_data
           ballot_styles_hash = {}
           ballot_styles.each do |ballot_style|
-            ballot_styles_hash[ballot_style.slug] = questions.to_a.intersection(ballot_style.questions).map(&:slug)
+            ballot_styles_hash[ballot_style.slug] = ballot_style.questions_for(election).map(&:slug)
           end
 
           ballot_styles_hash
