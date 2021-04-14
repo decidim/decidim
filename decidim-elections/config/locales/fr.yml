@@ -463,6 +463,7 @@ fr:
         ballot_decision:
           audit: "(Auditer le bulletin de vote)"
           back: Recommencer le processus de vote
+          ballot_hash: 'L''identifiant de votre bulletin est:'
           cast: Valider votre vote
           description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
         confirm:
@@ -479,6 +480,7 @@ fr:
           experience: Comment a été votre expérience?
           feedback: Donnez-nous votre avis
           header: Vote confirmé
+          lead: Votre vote a été comptabilisé !
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         failed:
           header: Le vote a échoué
@@ -489,6 +491,7 @@ fr:
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
         messages:
+          invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
         modal:
           close: Fermer
@@ -646,6 +649,10 @@ fr:
               title: Créer le recensement
             show:
               heading: Recensement de l'espace de vote
+        document_types:
+          passport: Passeport
+        vote_flow:
+          datum_not_found: Les données données ne correspondent à aucun électeur.
       content_blocks:
         highlighted_votings:
           name: Élections remarquables
@@ -674,6 +681,22 @@ fr:
           new: Nouveau
           title: Actions
       votings:
+        check_census:
+          check_status: Vérifiez le statut
+          form_title: 'Remplissez le formulaire suivant pour vérifier vos données de recensement:'
+        check_fields:
+          date_of_birth: Date de naissance
+          day: Jour
+          day_placeholder: JJ
+          document_number: Numéro de document
+          document_number_placeholder: Numéro de carte d'identité
+          month: Mois
+          month_placeholder: MM
+          postal_code: Code postal
+          postal_code_placeholder: Numéro de code postal
+          select: Sélectionnez le type de document
+          year: Année
+          year_placeholder: AAAA
         count:
           title:
             one: "%{count} élection"
@@ -695,7 +718,13 @@ fr:
           only_finished: À l'heure actuelle, il n'y a pas de votes planifiés, mais vous trouverez ici une liste de tous les votes passées.
           title: Votations
         login:
+          access_code: Code d'accès
+          access_code_placeholder: Code d'accès
+          dont_have_access_code: Vous n'avez pas de code d'accès?
+          form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
+          step: Identification
+          title: Je m'identifie avec mes données de recensement de vote
         orders:
           label: 'Trier les votations par:'
           random: Aléatoire
