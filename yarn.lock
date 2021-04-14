@@ -1059,10 +1059,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@codegram/decidim-bulletin_board@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@codegram/decidim-bulletin_board/-/decidim-bulletin_board-0.16.0.tgz#439f2c6b9fbdf0e72b26de02ee850f9260c39459"
-  integrity sha512-HZ9ev7d/opkI1DOgLTs6dkYiVZw+UfQXHMrwQDJ8Us247YMLJi1sEho8UGOVeJX15qH/L5FFXBOk6X0v9AiUFA==
+"@codegram/decidim-bulletin_board@0.17.1":
+  version "0.17.1"
+  resolved "https://registry.yarnpkg.com/@codegram/decidim-bulletin_board/-/decidim-bulletin_board-0.17.1.tgz#2db340ddb9a0baf1bb161c0afba71ae2e78dca8e"
+  integrity sha512-cs7fc9el6a7PYiDPfolD9n2M1KMPkyxVsXkqRO+eLlvtMDsO0dvnez2dDJIyf1iPCc0NDcNQIZzOz6OwwI0+ow==
   dependencies:
     "@apollo/client" "^3.2.7"
     core-js "^3.8.3"

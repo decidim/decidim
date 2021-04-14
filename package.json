@@ -233,7 +233,7 @@
     "yaml-loader": "^0.5.0"
   },
   "dependencies": {
-    "@codegram/decidim-bulletin_board": "0.16.0",
+    "@codegram/decidim-bulletin_board": "0.17.1",
     "@codegram/voting_schemes-dummy": "0.16.0",
     "@codegram/voting_schemes-electionguard": "0.16.0",
     "@rails/ujs": "^6.1.3",
