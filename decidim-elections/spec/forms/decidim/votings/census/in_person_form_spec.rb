@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Votings::Census::CheckForm do
+describe Decidim::Votings::Census::InPersonForm do
   subject { described_class.from_params(attributes).with_context(context) }
 
   let(:current_participatory_space) { create(:voting) }
@@ -11,7 +11,6 @@ describe Decidim::Votings::Census::CheckForm do
   let(:day) { 14 }
   let(:month) { 8 }
   let(:year) { 1982 }
-  let(:postal_code) { "12345" }
 
   let(:attributes) do
     {
@@ -19,8 +18,7 @@ describe Decidim::Votings::Census::CheckForm do
       document_type: document_type,
       day: day,
       month: month,
-      year: year,
-      postal_code: postal_code
+      year: year
     }
   end
 
@@ -38,20 +36,14 @@ describe Decidim::Votings::Census::CheckForm do
     it { is_expected.to be_invalid }
   end
 
-  describe "when day is missing" do
-    let(:day) { nil }
-
-    it { is_expected.to be_invalid }
-  end
-
   describe "when document_type is missing" do
     let(:document_type) { nil }
 
     it { is_expected.to be_invalid }
   end
 
-  describe "when postal_code is missing" do
-    let(:postal_code) { nil }
+  describe "when day is missing" do
+    let(:day) { nil }
 
     it { is_expected.to be_invalid }
   end
@@ -61,6 +53,6 @@ describe Decidim::Votings::Census::CheckForm do
   end
 
   describe "generate hash for data" do
-    it { expect(subject.hashed_check_data).to eql("81c540096460067c2f795349480c38786a1308a22d1434cd5b9799326676e15d") }
+    it { expect(subject.hashed_in_person_data).to eql("9f7afe479fef6eed220e090b48867aad58a83ba6ff37c641865a652bc39241fe") }
   end
 end
