@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe MeetingMCell, type: :cell do
     controller Decidim::Meetings::MeetingsController
 
-    let!(:meeting) { create(:meeting) }
+    let!(:meeting) { create(:meeting, :published) }
     let(:model) { meeting }
     let(:the_cell) { cell("decidim/meetings/meeting_m", meeting, context: { show_space: show_space }) }
     let(:cell_html) { the_cell.call }

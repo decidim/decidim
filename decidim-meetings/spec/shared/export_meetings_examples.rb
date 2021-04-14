@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "export meetings" do
-  let!(:meetings) { create_list :meeting, 3, component: current_component }
+  let!(:meetings) { create_list :meeting, 3, :published, component: current_component }
 
   it "exports a CSV" do
     find(".exports.dropdown").click

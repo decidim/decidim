@@ -109,6 +109,10 @@ FactoryBot.define do
     trait :upcoming do
       start_time { Faker::Time.between(from: 1.day.from_now, to: 10.days.from_now) }
     end
+
+    factory :published_meeting do
+      published_at { Time.current }
+    end
   end
 
   factory :registration, class: "Decidim::Meetings::Registration" do

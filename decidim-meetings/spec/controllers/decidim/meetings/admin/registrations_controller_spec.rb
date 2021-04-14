@@ -9,7 +9,7 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
-  let(:meeting) { create :meeting, component: meeting_component }
+  let(:meeting) { create(:meeting, :published, component: meeting_component) }
 
   let(:available_slots) { 0 }
   let(:reserved_slots) { 0 }

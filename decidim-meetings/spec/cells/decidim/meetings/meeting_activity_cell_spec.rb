@@ -7,7 +7,7 @@ module Decidim
     describe MeetingActivityCell, type: :cell do
       controller Decidim::LastActivitiesController
 
-      let!(:meeting) { create(:meeting) }
+      let!(:meeting) { create(:meeting, :published) }
       let(:action) { :publish }
       let(:action_log) do
         create(

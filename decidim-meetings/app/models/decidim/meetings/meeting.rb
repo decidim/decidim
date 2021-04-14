@@ -47,7 +47,7 @@ module Decidim
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
 
       scope :visible_meeting_for, lambda { |user|
-        (all.distinct if user&.admin?) ||
+        (all.published.distinct if user&.admin?) ||
           if user.present?
             spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
               {
@@ -87,9 +87,9 @@ module Decidim
               "
             end
 
-            where(query, false, true, user.id, user.id, *user_role_queries.compact.map { user.id }).distinct
+            where(query, false, true, user.id, user.id, *user_role_queries.compact.map { user.id }).published.distinct
           else
-            visible
+            published.visible
           end
       }
 

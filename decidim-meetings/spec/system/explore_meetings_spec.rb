@@ -44,7 +44,7 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when comments have been moderated" do
-      let(:meeting) { create(:meeting, component: component) }
+      let(:meeting) { create(:meeting, :published, component: component) }
       let!(:comments) { create_list(:comment, 3, commentable: meeting) }
       let!(:moderation) { create :moderation, reportable: comments.first, hidden_at: 1.day.ago }
 
@@ -69,8 +69,8 @@ describe "Explore meetings", :slow, type: :system do
                  participatory_space: participatory_process)
         end
 
-        let!(:official_meeting) { create(:meeting, :official, component: component, author: organization) }
-        let!(:user_group_meeting) { create(:meeting, :user_group_author, component: component) }
+        let!(:official_meeting) { create(:meeting, :published, :official, component: component, author: organization) }
+        let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component: component) }
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
@@ -144,7 +144,7 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "allows filtering by date" do
-        past_meeting = create(:meeting, component: component, start_time: 1.day.ago)
+        past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
         visit_component
 
         within ".date_check_boxes_tree_filter" do
@@ -183,7 +183,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "when no upcoming meetings scheduled" do
       let!(:meetings) do
-        create_list(:meeting, 2, component: component, start_time: Time.current - 4.days, end_time: Time.current - 2.days)
+        create_list(:meeting, 2, :published, component: component, start_time: Time.current - 4.days, end_time: Time.current - 2.days)
       end
 
       it "only shows the past meetings" do
@@ -215,7 +215,7 @@ describe "Explore meetings", :slow, type: :system do
         Decidim::Meetings::Meeting.destroy_all
       end
 
-      let!(:collection) { create_list :meeting, collection_size, component: component }
+      let!(:collection) { create_list :meeting, collection_size, :published, component: component }
       let!(:resource_selector) { ".card--meeting" }
 
       it_behaves_like "a paginated resource"
@@ -364,7 +364,7 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when the meeting is closed and had no contributions" do
-      let!(:meeting) { create(:meeting, :closed, contributions_count: 0, component: component) }
+      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 0, component: component) }
 
       it_behaves_like "a closing report page"
 
@@ -376,7 +376,7 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when the meeting is closed and had contributions" do
-      let!(:meeting) { create(:meeting, :closed, contributions_count: 1, component: component) }
+      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 1, component: component) }
 
       it_behaves_like "a closing report page"
 

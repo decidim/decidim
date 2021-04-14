@@ -11,7 +11,7 @@ module Decidim
       field :meetings, Decidim::Meetings::MeetingType.connection_type, null: true, connection: true
 
       def meetings
-        Meeting.visible.where(component: object).includes(:component)
+        Meeting.published.visible.where(component: object).includes(:component)
       end
 
       field :meeting, Decidim::Meetings::MeetingType, null: true do
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def meeting(**args)
-        Meeting.visible.where(component: object).find_by(id: args[:id])
+        Meeting.published.visible.where(component: object).find_by(id: args[:id])
       end
     end
   end

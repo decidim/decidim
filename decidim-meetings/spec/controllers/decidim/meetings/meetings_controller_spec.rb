@@ -8,7 +8,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
-  let(:meeting) { create :meeting, component: meeting_component }
+  let(:meeting) { create :meeting, :published, component: meeting_component }
 
   before do
     request.env["decidim.current_organization"] = organization

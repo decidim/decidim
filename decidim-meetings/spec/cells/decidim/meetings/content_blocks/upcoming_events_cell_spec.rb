@@ -18,7 +18,7 @@ module Decidim
 
         context "with events" do
           let(:organization) { meeting.organization }
-          let(:meeting) { create(:meeting, start_time: 1.week.from_now) }
+          let(:meeting) { create(:meeting, :published, start_time: 1.week.from_now) }
 
           it "renders the events" do
             expect(html).to have_css(".card", count: 1)
@@ -29,10 +29,10 @@ module Decidim
 
             let(:cell) { described_class.new(nil, context: { controller: controller }) }
             let!(:past_meeting) do
-              create(:meeting, start_time: 1.week.ago, component: meeting.component)
+              create(:meeting, :published, start_time: 1.week.ago, component: meeting.component)
             end
             let!(:second_meeting) do
-              create(:meeting, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component)
+              create(:meeting, :published, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component)
             end
 
             it { is_expected.not_to include(past_meeting) }
@@ -47,10 +47,10 @@ module Decidim
 
             context "with upcoming private events" do
               let!(:meeting) do
-                create(:meeting, start_time: 1.week.from_now, private_meeting: true, transparent: false)
+                create(:meeting, :published, start_time: 1.week.from_now, private_meeting: true, transparent: false)
               end
               let!(:second_meeting) do
-                create(:meeting, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
+                create(:meeting, :published, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
               end
 
               it "renders nothing" do
@@ -60,10 +60,10 @@ module Decidim
 
             context "with upcoming private events but invited user" do
               let!(:meeting) do
-                create(:meeting, start_time: 1.week.from_now, private_meeting: true, transparent: false)
+                create(:meeting, :published, start_time: 1.week.from_now, private_meeting: true, transparent: false)
               end
               let!(:second_meeting) do
-                create(:meeting, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
+                create(:meeting, :published, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
               end
               let!(:meeting_registration) do
                 create(:registration, meeting: meeting, user: current_user)

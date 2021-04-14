@@ -64,7 +64,7 @@ shared_examples "manage invites" do
     end
 
     context "when registrations are enabled" do
-      let!(:meeting) { create :meeting, scope: scope, component: current_component, registrations_enabled: true }
+      let!(:meeting) { create :meeting, :published, scope: scope, component: current_component, registrations_enabled: true }
 
       context "when inviting a unregistered user" do
         it "the invited user sign up into the application and joins the meeting" do

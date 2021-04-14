@@ -8,7 +8,7 @@ describe "Meeting registrations", type: :system do
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
-  let!(:meeting) { create :meeting, component: component, questionnaire: questionnaire }
+  let!(:meeting) { create :meeting, :published, component: component, questionnaire: questionnaire }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   let(:registrations_enabled) { true }

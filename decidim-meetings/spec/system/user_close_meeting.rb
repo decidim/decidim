@@ -11,6 +11,7 @@ describe "User edit meeting", type: :system do
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:meeting) do
     create(:meeting,
+           :published,
            :past,
            title: { en: "Meeting title with #hashtag" },
            description: { en: "Meeting description" },

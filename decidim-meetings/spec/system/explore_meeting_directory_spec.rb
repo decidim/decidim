@@ -12,7 +12,7 @@ describe "Explore meeting directory", type: :system do
   end
   let!(:meetings) do
     components.flat_map do |component|
-      create_list(:meeting, 2, component: component)
+      create_list(:meeting, 2, :published, component: component)
     end
   end
 
@@ -29,7 +29,7 @@ describe "Explore meeting directory", type: :system do
 
   context "when there's a past meeting" do
     let!(:past_meeting) do
-      create(:meeting, component: components.last, start_time: 1.week.ago)
+      create(:meeting, :published, component: components.last, start_time: 1.week.ago)
     end
 
     it "allows filtering by past events" do
@@ -49,7 +49,7 @@ describe "Explore meeting directory", type: :system do
       create(:meeting_component, participatory_space: assembly, organization: organization)
     end
     let!(:assembly_meeting) do
-      create(:meeting, component: assembly_component)
+      create(:meeting, :published, component: assembly_component)
     end
 
     before do
