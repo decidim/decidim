@@ -124,15 +124,18 @@ module Decidim
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end
 
+    delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
+    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
+
     # PUBLIC banner image
     #
     # Overrides participatory space's banner image with the banner image defined
     # for the initiative type.
     #
-    # RETURNS string
-    delegate :banner_image, to: :type
-    delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
-    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
+    # RETURNS Decidim::BannerImageUploader
+    def banner_image
+      type.attached_uploader(:banner_image)
+    end
 
     # PUBLIC
     #
