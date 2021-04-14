@@ -34,5 +34,16 @@ describe Decidim::Votings::Permissions do
         it { is_expected.to eq true }
       end
     end
+
+    context "when a Monitorin Committee Member tries to access the admin panel" do
+      let!(:monitoring_committee_member) { create(:monitoring_committee_member, user: user) }
+      let(:action_subject) { :admin_dashboard }
+      let(:action_name) { :read }
+      let(:action) do
+        { scope: :public, action: action_name, subject: action_subject }
+      end
+
+      it { is_expected.to eq true }
+    end
   end
 end

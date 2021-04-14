@@ -13,6 +13,8 @@ module Decidim
         # Delegate the polling_officer_zone permission checks to the polling officer zone permissions class
         return Decidim::Votings::PollingOfficerZone::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :polling_officer_zone
 
+        user_can_read_admin_dashboard? if read_admin_dashboard_action?
+
         permission_action
       end
 
@@ -34,6 +36,20 @@ module Decidim
         when :participatory_space
           allow!
         end
+      end
+
+      def read_admin_dashboard_action?
+        permission_action.action == :read &&
+          permission_action.subject == :admin_dashboard
+      end
+
+      # Monitoring committee members can access the admin dashboard to manage their votings.
+      def user_can_read_admin_dashboard?
+        allow! if user.admin? || user_monitoring_committe?
+      end
+
+      def user_monitoring_committe?
+        Decidim::Votings::MonitoringCommitteeMember.exists?(user: user)
       end
     end
   end
