@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe Admin::UpdateMeeting do
     subject { described_class.new(form, meeting) }
 
-    let(:meeting) { create(:meeting) }
+    let(:meeting) { create(:meeting, :published) }
     let(:organization) { meeting.component.organization }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: meeting.component.participatory_space }
@@ -247,6 +247,28 @@ module Decidim::Meetings
               )
 
             subject.call
+          end
+        end
+
+        context "when the meeting is unpublished" do
+          let(:meeting) { create(:meeting) }
+
+          context "when the start time changes" do
+            let(:start_time) { meeting.start_time - 1.day }
+
+            it "doesn't notify the change" do
+              expect(Decidim::EventsManager)
+                .not_to receive(:publish)
+
+              subject.call
+            end
+
+            it "doesn't schedule the upcoming meeting notification job" do
+              expect(UpcomingMeetingNotificationJob)
+                .not_to receive(:perform_later)
+
+              subject.call
+            end
           end
         end
       end

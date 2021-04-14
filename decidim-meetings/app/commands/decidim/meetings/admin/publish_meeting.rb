@@ -24,6 +24,20 @@ module Decidim
         def call
           return broadcast(:invalid) if meeting.published?
 
+          transaction do
+            publish_meeting
+            send_notification
+            schedule_upcoming_meeting_notification
+          end
+
+          broadcast(:ok, meeting)
+        end
+
+        private
+
+        attr_reader :meeting, :current_user
+
+        def publish_meeting
           @meeting = Decidim.traceability.perform_action!(
             :publish,
             meeting,
@@ -33,12 +47,24 @@ module Decidim
             meeting.publish!
             meeting
           end
-          broadcast(:ok, meeting)
         end
 
-        private
+        def send_notification
+          Decidim::EventsManager.publish(
+            event: "decidim.events.meetings.meeting_created",
+            event_class: Decidim::Meetings::CreateMeetingEvent,
+            resource: meeting,
+            followers: meeting.participatory_space.followers
+          )
+        end
 
-        attr_reader :meeting, :current_user
+        def schedule_upcoming_meeting_notification
+          checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
+
+          Decidim::Meetings::UpcomingMeetingNotificationJob
+            .set(wait_until: meeting.start_time - 2.days)
+            .perform_later(meeting.id, checksum)
+        end
       end
     end
   end
