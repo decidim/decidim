@@ -462,7 +462,6 @@ ro:
         check_census:
           check_status: Verifică starea
           form_title: 'Completează următorul formular pentru a verifica datele recensământului:'
-          title: Verifică datele recensământului
         check_fields:
           date_of_birth: Data naşterii
           day: Zi
@@ -489,5 +488,3 @@ ro:
     decidim:
       election_votes_header:
         exit: Ieșire
-      voting_navigation:
-        check_census: Cum să votați
