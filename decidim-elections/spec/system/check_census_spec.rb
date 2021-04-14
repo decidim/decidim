@@ -12,8 +12,11 @@ describe "Check Census", type: :system do
     create(:datum, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", dataset: dataset)
   end
   let!(:user) { create :user, :confirmed, organization: organization }
+  let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
 
   before do
+    allow(Rails).to receive(:cache).and_return(memory_store)
+    Rails.cache.clear
     switch_to_host(organization.host)
   end
 
