@@ -972,10 +972,7 @@ de:
           form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
           invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
           success:
-            access_link: Zugangscode anfragen
-            info: Wenn Sie keinen haben, können Sie einen %{access_code_link}.
             title: Ihre Erhebungsdaten sind korrekt!
-          title: Überprüfen Sie Ihre Erhebungsdaten
         check_fields:
           date_of_birth: Geburtsdatum
           day: Tag
@@ -1045,7 +1042,6 @@ de:
       election_votes_header:
         exit: Beenden
       voting_navigation:
-        check_census: Wie stimme ich ab
         voting_menu_item: Die Abstimmung
       votings:
         index:
