@@ -72,17 +72,16 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
-      # This test fails because the test validates  ActionDispatch::Http::UploadedFile
-      # but in this case the model receives an ActiveStorage::Attached and if we try
-      # to analyze the blob a ActiveStorage::FileNotFoundError Exception is
-      # raised. The code commented there works but it seem too tricky
-      # https://github.com/rails/rails/issues/36994#issuecomment-523426645
       context "when the file is a malicious image" do
         let(:avatar_path) { Decidim::Dev.asset("malicious.jpg") }
         let(:user_group) do
           build(
             :user_group,
-            avatar: Rack::Test::UploadedFile.new(avatar_path, "image/jpeg")
+            avatar: ActiveStorage::Blob.create_after_upload!(
+              io: File.open(avatar_path),
+              filename: "malicious.jpeg",
+              content_type: "image/jpeg"
+            )
           )
         end
 
