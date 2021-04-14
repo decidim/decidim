@@ -82,9 +82,13 @@ describe "Vote online in an election inside a Voting", type: :system do
           click_button "No, thanks."
         end
 
+        expect(page).not_to have_content("Give us some feedback")
+
         click_link "Back to elections"
 
         expect(page).to have_current_path router.elections_path
+
+        expect(page).not_to have_content("New to Decidim?")
       end
     end
   end
