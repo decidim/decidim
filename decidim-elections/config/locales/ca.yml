@@ -14,7 +14,7 @@ ca:
       question:
         description: Descripció
         max_selections: Número màxim d'opcions
-        min_selections: Cap de les anteriors
+        min_selections: Cap de les opcions anteriors
         title: Títol
     errors:
       models:
@@ -50,7 +50,7 @@ ca:
             announcement: Avís
     elections:
       actions:
-        confirm_destroy: N'estàs segura?
+        confirm_destroy: Estàs segura?
         destroy: Eliminar
         edit: Editar
         edit_answers: Edita les respostes
@@ -67,10 +67,10 @@ ca:
             invalid: Hi ha hagut un problema en crear aquesta resposta
             success: Resposta creada amb èxit
           destroy:
-            invalid: Hi ha hagut un problema en eliminar aquesta resposta
+            invalid: Hi ha hagut un problema en esborrar aquesta resposta
             success: Resposta eliminada amb èxit
           edit:
-            title: Editar les respostes
+            title: Editar resposta
             update: Actualitzar resposta
           index:
             invalid_max_selections: Calen %{missing_answers} respostes més per a arribar al màxim de seleccions
