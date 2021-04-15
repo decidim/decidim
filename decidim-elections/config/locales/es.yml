@@ -79,8 +79,8 @@ es:
             create: Crear respuesta
             title: Nueva respuesta
           update:
-            invalid: Se ha producido un error al crear esta respuesta
-            success: Respuesta actualizada con éxito
+            invalid: Se ha producido un error al actualizar esta respuesta
+            success: Respuesta actualizada correctamente
         elections:
           create:
             invalid: Se ha producido un error al crear esta votación
