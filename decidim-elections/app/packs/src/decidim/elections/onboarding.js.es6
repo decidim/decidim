@@ -1,5 +1,5 @@
 
-$(async () => {
+$(() => {
   const $onboarding = $("#onboarding-modal");
-  $($onboarding).foundation("open");
+  $onboarding.foundation("open");
 });

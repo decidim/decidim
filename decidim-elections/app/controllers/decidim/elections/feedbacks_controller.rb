@@ -21,7 +21,11 @@ module Decidim
       # Overwrites the 'after_answer_path' that gets passed to 'redirect_to'
       # after answering the questionnaire. By default it redirects to the questionnaire_for.
       def after_answer_path
-        election_path(election, onboarding: current_user.nil?)
+        if current_user.nil?
+          election_path(election, onboarding: true)
+        else
+          election_path(election)
+        end
       end
 
       private

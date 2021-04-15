@@ -30,7 +30,7 @@ module Decidim
       end
 
       def onboarding
-        @onboarding ||= params[:onboarding] == "true" || false
+        @onboarding ||= params[:onboarding].present?
       end
 
       # Public: Checks if the component has only one election resource.
