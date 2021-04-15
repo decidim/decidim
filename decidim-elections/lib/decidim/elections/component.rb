@@ -336,24 +336,24 @@ Decidim.register_component(:elections) do |component|
             file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
           )
 
-          Decidim::Elections::Result.create!(
-            votes_count: Faker::Number.number(digits: 3),
-            election: election_with_results,
-            question: result_question,
-            answer: answer,
-            result_type: "valid_answers"
-          )
+          # Decidim::Elections::Result.create!(
+          #   votes_count: Faker::Number.number(digits: 3),
+          #   election: election_with_results,
+          #   question: result_question,
+          #   answer: answer,
+          #   result_type: "valid_answers"
+          # )
         end
 
-        if result_question.nota_option?
-          Decidim::Elections::Result.create!(
-            votes_count: Faker::Number.number(digits: 3),
-            election: election_with_results,
-            question: result_question,
-            answer: nil,
-            result_type: "blank_answers"
-          )
-        end
+        # if result_question.nota_option?
+        #   Decidim::Elections::Result.create!(
+        #     votes_count: Faker::Number.number(digits: 3),
+        #     election: election_with_results,
+        #     question: result_question,
+        #     answer: nil,
+        #     result_type: "blank_answers"
+        #   )
+        # end
 
         questionnaire = Decidim::Forms::Questionnaire.create!(
           title: Decidim::Faker::Localized.paragraph,

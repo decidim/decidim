@@ -39,7 +39,7 @@
                     class: "button small" %>
 
         <%= link_to t("polling_station.count_votes", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
-                    new_polling_officer_result_path(polling_officer, election),
+                    new_polling_officer_election_closure_path(polling_officer, election),
                     class: "button small secondary" %>
       <% end %>
     </div>

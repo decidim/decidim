@@ -14,9 +14,9 @@ module Decidim
                 numericality: true
 
       def map_model(model)
-        self.valid_ballots_count = Decidim::Elections::Result.valid_ballots.find_by(election: model[:election], polling_station: model[:polling_station])&.votes_count.to_i
-        self.blank_ballots_count = Decidim::Elections::Result.blank_ballots.find_by(election: model[:election], polling_station: model[:polling_station])&.votes_count.to_i
-        self.null_ballots_count = Decidim::Elections::Result.null_ballots.find_by(election: model[:election], polling_station: model[:polling_station])&.votes_count.to_i
+        self.valid_ballots_count = model.results.valid_ballots.first&.votes_count.to_i
+        self.blank_ballots_count = model.results.blank_ballots.first&.votes_count.to_i
+        self.null_ballots_count = model.results.null_ballots.first&.votes_count.to_i
       end
     end
   end

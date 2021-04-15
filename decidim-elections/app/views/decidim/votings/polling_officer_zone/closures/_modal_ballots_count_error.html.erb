@@ -1,0 +1,60 @@
+<div id="wrapper-modal-closure-count-error">
+  <div class="reveal" data-reveal id="modal-closure-count-error" data-append-to="div#wrapper-modal-closure-count-error">
+    <div class="reveal__header">
+      <%= content_tag :h3,
+                      t("title", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error"),
+                      class: "reveal__title" %>
+
+      <button class="close-button" data-close aria-label="<%= t("close_modal", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error") %>" type="button">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+
+    <%= content_tag :p,
+                    t("info_text", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error") %>
+
+    <div class="card card--secondary">
+      <div class="card__content">
+        <span>
+          <%= content_tag :strong,
+                          t("total_people", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error") %>
+          <%= @form.election_votes_count %>
+        </span>
+        <br>
+        <span>
+          <%= content_tag :strong,
+                          t("total_ballots", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error") %>
+          <%= content_tag :span,
+                          "--",
+                          id: "modal-total-ballots-value" %>
+
+        </span>
+      </div>
+    </div>
+
+    <%= content_tag :p,
+                    t("info_explanation_text", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error") %>
+
+    <%= content_tag :div,
+                    form.text_area(
+                      :polling_officer_notes,
+                      rows: 5,
+                      label: t("message_for_monitoring_committee", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error"),
+                      placeholder: t("text_area_placeholder", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error")
+                    ) %>
+
+    <div class="row mt-sm">
+      <div class="columns medium-8 medium-offset-2">
+        <button form="new_ballots_result_" id="btn-submit-from-modal" class="button button--sc expanded disabled">
+          <%= t("btn_validate_total", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error") %>
+        </button>
+
+        <div class="text-center">
+          <button type="button" class="link" data-close>
+            <%= t("review_recount", scope: "decidim.votings.polling_officer_zone.closures.new.modal_ballots_count_error") %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

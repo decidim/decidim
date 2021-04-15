@@ -3,6 +3,7 @@
 module Decidim
   module Votings
     class ElectionResultForm < Decidim::Form
+      attribute :id, Integer
       attribute :polling_station_id, Integer
       attribute :election_id, Integer
 
@@ -15,18 +16,19 @@ module Decidim
                 presence: true
 
       def map_model(model)
+        self.id = model.id
         self.polling_station_id = model.polling_station.id
         self.election_id = model.election.id
 
-        self.ballot_results = BallotResultForm.from_model(election: model.election, polling_station: model.polling_station)
+        self.ballot_results = BallotResultForm.from_model(model)
 
         self.question_results = model.election.questions.flat_map do |question|
-          QuestionResultForm.from_model(question: question, polling_station: model.polling_station)
+          QuestionResultForm.from_model(question: question, closure: model)
         end
 
         self.answer_results = model.election.questions.flat_map do |question|
           question.answers.map do |answer|
-            AnswerResultForm.from_model(answer: answer, polling_station: model.polling_station)
+            AnswerResultForm.from_model(answer: answer, closure: model)
           end
         end
       end
