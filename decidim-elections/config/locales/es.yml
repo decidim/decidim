@@ -62,7 +62,7 @@ es:
         one: Conjunto de datos
         other: Conjuntos de datos
       decidim/votings/census/datum:
-        one: Dato
+        one: Referencia
         other: Datos
       decidim/votings/polling_officer:
         one: Gestor de mesa
@@ -142,10 +142,10 @@ es:
           selected: Seleccionada
           unselect:
             invalid: Hubo un problema al deseleccionar esta respuesta
-            success: Respuesta seleccionada con éxito
+            success: Respuesta seleccionada correctamente
           update:
-            invalid: Se ha producido un error al crear esta respuesta
-            success: Respuesta actualizada con éxito
+            invalid: Se ha producido un error al actualizar esta respuesta
+            success: Respuesta actualizada correctamente
         elections:
           create:
             invalid: Se ha producido un error al crear esta votación
