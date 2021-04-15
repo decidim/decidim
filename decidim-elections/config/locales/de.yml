@@ -320,6 +320,7 @@ de:
         election:
           end_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board beendet"
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
+          publish_results: "%{user_name} hat die Resultate für die Wahl %{resource_name} im Bulletin Board veröffentlicht"
           setup: "%{user_name} hat die Wahl %{resource_name} auf dem Bulletin Board erstellt"
           start_key_ceremony: "%{user_name} hat die Schlüssel-Zeremonie für die Wahl %{resource_name} im Bulletin Board eröffnet"
           start_tally: "%{user_name} hat die Stimmenzählung für die Wahl %{resource_name} im Bulletin Board eröffnet"
@@ -617,6 +618,9 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihnen die Rolle %{role} in %{polling_station_name} zugewiesen wurde.
             email_subject: Sie haben die Rolle %{role} im Wahllokal %{polling_station_name}.
             notification_title: Sie haben die Rolle %{role} im Wahllokal %{polling_station_name} der Abstimmung <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Hier ist der Zugangscode, den Sie angefordert haben: %{access_code}. Damit können Sie an %{voting} teilnehmen.'
+          subject: Ihr Zugangscode zur Teilnahme an %{voting}
     help:
       participatory_spaces:
         votings:
@@ -945,6 +949,35 @@ de:
                 voting: Abstimmung
               no_polling_stations: Sie sind noch zu keinem Wahllokal zugewiesen.
               title: Wahllokale
+        votes:
+          create:
+            success: Persönliche Stimme erfolgreich abgegeben
+          in_person_fields:
+            date_of_birth: Geburtsdatum
+            day: Tag
+            day_placeholder: TT
+            document_number: Dokumentennummer
+            document_number_placeholder: ID-Nummer
+            month: Monat
+            month_placeholder: MM
+            name: Name
+            select: Wählen Sie die Art des Dokuments aus
+            voted: Der Teilnehmer hat abgestimmt
+            year: Jahr
+            year_placeholder: JJJJ
+          new:
+            back: Zurück zu den Wahllokalen
+            census_not_present: Dieser Teilnehmer ist nicht in den Erhebungsdaten präsent.
+            census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
+            census_present: Dieser Teilnehmer ist in den Erhebungsdaten aufgeführt.
+            census_verified: Dieser Teilnehmer hat noch nicht abgestimmt.
+            complete_voting: Abstimmung abschliessen
+            form_title: 'Wählen Sie den Dokumententyp und geben Sie die Dokumentennummer des Teilnehmers ein:'
+            questions_title: 'Er/Sie hat das Recht, bei folgenden Anfragen abstimmen:'
+            title: Einen Teilnehmer identifizieren und verifizieren
+            validate_document: Dokument validieren
+            verify_document: Dokument verifizieren
+            verify_title: 'Überprüfen Sie, dass die folgenden Daten korrekt sind:'
       polling_officers:
         actions:
           confirm_destroy: Sind Sie sicher?
@@ -963,6 +996,13 @@ de:
           new: Neu
           title: Aktionen
       votings:
+        access_code_modal:
+          email: Per E-Mail an %{email} senden
+          info: Sie benötigen einen Zugangscode um teilzunehmen. Wenn Sie keinen per Briefpost bekommen haben, können wir Ihnen einen neuen senden.
+          no_email: Keine E-Mail-Adresse verfügbar
+          no_sms: Keine Telefonnummer verfügbar
+          sms: Per SMS an %{sms} senden
+          title: Zugangscode
         check_census:
           check_status: Status überprüfen
           description: Hier haben Sie die Möglichkeit, Ihre Erhebungsdaten zu überprüfen, um herauszufinden ob Sie das Recht haben, an dieser Abstimmung teilzunehmen. Sie sollten bereits einen Zugangscode haben, aber wenn Sie ihn verloren haben können Sie ihn erneut anfragen, sobald Ihre Daten korrekt sind.
@@ -972,10 +1012,10 @@ de:
           form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
           invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
           success:
-            access_link: Zugangscode anfragen
-            info: Wenn Sie keinen haben, können Sie einen %{access_code_link}.
+            access_link: via SMS oder E-Mail.
+            info: Sie sollten Ihren Zugangscode bereits via Briefpost bekommen haben. Falls nicht, können Sie ihn hier anfordern
             title: Ihre Erhebungsdaten sind korrekt!
-          title: Überprüfen Sie Ihre Erhebungsdaten
+          title: Kann ich abstimmen?
         check_fields:
           date_of_birth: Geburtsdatum
           day: Tag
@@ -1023,6 +1063,9 @@ de:
           label: 'Abstimmungen sortieren nach:'
           random: Zufällig
           recent: Neueste zuerst
+        send_access_code:
+          invalid: Beim Versenden des Zugangscodes ist ein Problem aufgetreten
+          success: Ihr Zugangscode wurde erfolgreich versandt
         show:
           dates: Daten
       votings_m:
@@ -1045,7 +1088,7 @@ de:
       election_votes_header:
         exit: Beenden
       voting_navigation:
-        check_census: Wie stimme ich ab
+        check_census: Kann ich abstimmen?
         voting_menu_item: Die Abstimmung
       votings:
         index:

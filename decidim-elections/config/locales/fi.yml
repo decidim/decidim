@@ -994,10 +994,7 @@ fi:
           form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
           invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
           success:
-            access_link: pyytää tunnistuskoodia
-            info: Jos sinulla ei ole sellaista, voit %{access_code_link}.
             title: Tietosi henkilötietorekisterissä ovat oikein!
-          title: Tarkasta tietosi henkilötietorekisterissä
         check_fields:
           date_of_birth: Syntymäaika
           day: Päivä
@@ -1067,7 +1064,6 @@ fi:
       election_votes_header:
         exit: Poistu
       voting_navigation:
-        check_census: Kuinka äänestetään
         voting_menu_item: Äänestys
       votings:
         index:

@@ -336,6 +336,7 @@ cs:
         election:
           end_vote: "%{user_name} ukončil hlasovací období pro volby v %{resource_name} na Vývěsce"
           publish: "%{user_name} zveřejnil volby %{resource_name}"
+          publish_results: "%{user_name} zveřejnil výsledky voleb %{resource_name} na volební vývěsce"
           setup: "%{user_name} vytvořil %{resource_name} volby na Vývěsce"
           start_key_ceremony: "%{user_name} zahájil Úvodní volební ceremoniál na Vývěsce %{resource_name}"
           start_tally: "%{user_name} zahájil Volební přepočítání pro volby v %{resource_name} na Vývěsce"
@@ -653,6 +654,9 @@ cs:
             email_outro: Obdrželi jste toto oznámení, protože jste byli přiřazeni jako %{role} v %{polling_station_name}.
             email_subject: Jste %{role} z volební místnosti %{polling_station_name}.
             notification_title: Jste %{role} z volební místnosti %{polling_station_name} při hlasování <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Zde je váš přístupový kód, o který jste požádali: %{access_code}. S tím se budete moci podílet na %{voting}.'
+          subject: Váš přístupový kód pro účast v %{voting}
     help:
       participatory_spaces:
         votings:
@@ -989,6 +993,35 @@ cs:
                 voting: Hlasování
               no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
               title: Volební místnosti
+        votes:
+          create:
+            success: Úspěšně zahlasováno Osobní volbou
+          in_person_fields:
+            date_of_birth: Datum narození
+            day: Den
+            day_placeholder: DD
+            document_number: Číslo dokumentu
+            document_number_placeholder: Číslo občanského průkazu
+            month: Měsíc
+            month_placeholder: MM
+            name: Název
+            select: Vyberte typ dokumentu
+            voted: Uživatel hlasoval
+            year: Rok
+            year_placeholder: RRRR
+          new:
+            back: Zpět do volební místnosti
+            census_not_present: Tento uživatel není uveden v seznamu osob.
+            census_not_present_description: Musí jít do úřadu spravující seznam osob nebo kontaktovat podporu.
+            census_present: Tento uživatel je uveden v seznamu osob.
+            census_verified: Uživatel ještě nehlasoval.
+            complete_voting: Dokončené hlasování
+            form_title: 'Vyberte typ dokumentu a zadejte číslo dokladu účastníka:'
+            questions_title: 'Má právo hlasovat v těchto otázkách:'
+            title: Identifikovat a ověřit účastníka
+            validate_document: Ověřit platnost dokladu
+            verify_document: Ověřit doklad
+            verify_title: 'Zkontrolujte, zda jsou tyto údaje správné:'
       polling_officers:
         actions:
           confirm_destroy: Jste si jisti?
@@ -1007,6 +1040,13 @@ cs:
           new: Nový
           title: Akce
       votings:
+        access_code_modal:
+          email: Poslat e-mailem na %{email}
+          info: K účasti potřebujete přístupový kód. Pokud jste ho nedostali poštou, můžeme vám poslat nový.
+          no_email: E-mail není k dispozici
+          no_sms: Žádné telefonní číslo není k dispozici
+          sms: Poslat SMS do %{sms}
+          title: Získat přístupový kód
         check_census:
           check_status: Zkontrolovat stav
           description: Zde máte možnost zkontrolovat údaje ze seznamu osob, abyste věděli, zda máte právo účastnit se tohoto hlasování. Měli byste mít přístupový kód již k dispozici, ale pokud ho ztratíte, můžete ho znovu vyžádat, až budou vaše údaje správné.
@@ -1016,10 +1056,10 @@ cs:
           form_title: 'Vyplňte následující formulář pro kontrolu dat ze seznamu osob:'
           invalid: Při kontrole seznamu osob došlo k chybě.
           success:
-            access_link: požádat o přístupový kód
-            info: Pokud ho nemáte, zkuste %{access_code_link}.
+            access_link: prostřednictvím SMS nebo e-mailu.
+            info: Váš přístupový kód jste již měli obdržet poštou. V případě, že ho nemáte k dispozici, můžete o něj požádat zde
             title: Vaše data seznamu osob jsou nesprávná!
-          title: Zkontrolujte si vstupní data seznamu osob
+          title: Mohu hlasovat?
         check_fields:
           date_of_birth: Datum narození
           day: Den
@@ -1069,6 +1109,9 @@ cs:
           label: 'Seřadit hlasy podle:'
           random: Náhodně
           recent: Nejnovější
+        send_access_code:
+          invalid: Při odesílání přístupového kódu došlo k chybě
+          success: Váš přístupový kód byl úspěšně odeslán
         show:
           dates: Data
       votings_m:
@@ -1091,7 +1134,7 @@ cs:
       election_votes_header:
         exit: Ukončit
       voting_navigation:
-        check_census: Jak hlasovat
+        check_census: Mohu hlasovat?
         voting_menu_item: Hlasování
       votings:
         index:

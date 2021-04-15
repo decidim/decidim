@@ -258,6 +258,7 @@ ro:
         election:
           end_vote: "%{user_name} a încheiat perioada de votare pentru %{resource_name} alegerea în Buletin Board"
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
+          publish_results: "%{user_name} a publicat rezultatele pentru alegerea %{resource_name} în Panoul de Buletin"
           setup: "%{user_name} a creat alegerea %{resource_name} în Panoul de Buletin"
           start_key_ceremony: "%{user_name} a început ceremonia cheii pentru alegerile %{resource_name} din Panoul de Buletin"
           start_tally: "%{user_name} a început numărătoarea pentru alegerea %{resource_name} în Panoul de Buletin"
@@ -458,11 +459,40 @@ ro:
           passport: Pașaport
         vote_flow:
           datum_not_found: Datele oferite nu se potrivesc cu nici un alegător.
+      polling_officer_zone:
+        votes:
+          create:
+            success: Votul în persoană a fost scris cu succes
+          in_person_fields:
+            date_of_birth: Data naşterii
+            day: Zi
+            day_placeholder: ZZ
+            document_number: Număr document
+            document_number_placeholder: Număr ID
+            month: Lună
+            month_placeholder: LL
+            name: Nume
+            select: Selectaţi tipul documentului
+            voted: Participantul a votat
+            year: An
+            year_placeholder: AAAA
+          new:
+            back: Înapoi la secţiile de votare
+            census_not_present: Acest participant nu este listat în recensământ.
+            census_not_present_description: Ea trebuie să meargă la biroul de reclamaţii pentru recensământ sau să contacteze asistenţa.
+            census_present: Acest participant este listat în recensământ.
+            census_verified: Participantul nu a votat încă.
+            complete_voting: Finalizează votarea
+            form_title: 'Selectați tipul documentului și introduceți numărul documentului participantului:'
+            questions_title: 'Ea are drept de vot în următoarele întrebări:'
+            title: Identifică și verifică un participant
+            validate_document: Validare document
+            verify_document: Verificare document
+            verify_title: 'Verifică dacă următoarele date sunt corecte:'
       votings:
         check_census:
           check_status: Verifică starea
           form_title: 'Completează următorul formular pentru a verifica datele recensământului:'
-          title: Verifică datele recensământului
         check_fields:
           date_of_birth: Data naşterii
           day: Zi
@@ -489,5 +519,3 @@ ro:
     decidim:
       election_votes_header:
         exit: Ieșire
-      voting_navigation:
-        check_census: Cum să votați

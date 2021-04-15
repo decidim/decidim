@@ -315,15 +315,11 @@ gl:
           error:
             title: Os datos do censo non son correctos!
           success:
-            access_link: solicitar un código de acceso
-            info: Se non tes un, %{access_code_link} xa.
             title: Os datos do censo son correctos!
-          title: Verifica os datos do censo
         login:
           start_voting: Comezar votación
         no_census_contact_information: Aínda non hai ningunha información de contacto
   layouts:
     decidim:
       voting_navigation:
-        check_census: Como votar
         voting_menu_item: A votación
