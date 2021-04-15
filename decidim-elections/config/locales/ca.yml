@@ -17,7 +17,7 @@ ca:
         min_selections: Cap de les opcions anteriors
         title: Títol
       voting:
-        end_time: Finalitza
+        end_time: La votació finalitza
         start_time: La votació comença
     errors:
       models:
@@ -100,11 +100,11 @@ ca:
         confirm_destroy: N'estàs segura?
         destroy: Eliminar
         edit: Editar
-        feedback: Feedback del votant
+        feedback: Retorn de la votant
         import: Importar propostes com a respostes
-        manage_answers: Gestionar respostes
+        manage_answers: Gestionar les respostes
         manage_questions: Administrar preguntes
-        manage_steps: Administrar passos
+        manage_steps: Administrar les fases
         new: Nova %{name}
         preview: Previsualitzar
         publish: Publicar
@@ -141,7 +141,7 @@ ca:
         elections:
           create:
             invalid: S'ha produït un error en crear aquesta votació
-            success: S'ha creat la votació correctament
+            success: La votació s'ha creat correctament
           destroy:
             invalid: S'ha produït un error en eliminar aquesta votació
             success: S'ha eliminat la votació correctament
@@ -160,7 +160,7 @@ ca:
             success: La votació s'ha despublicat correctament.
           update:
             invalid: S'ha produït un error en actualitzar aquesta votació
-            success: S'ha actualitzat la votació correctament
+            success: La votació s'ha actualitzat correctament
         exports:
           elections: Eleccions
           feedback_form_answers: Feedback de les respostes
