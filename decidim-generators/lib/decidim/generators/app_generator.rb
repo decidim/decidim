@@ -65,6 +65,14 @@ module Decidim
                                default: false,
                                desc: "Add the necessary gems to profile the app"
 
+      class_option :skip_webpack_install, type: :boolean,
+                                          default: true,
+                                          desc: "Skip webpack installer"
+
+      class_option :skip_javascript, type: :boolean,
+                                     default: true,
+                                     desc: "Skip webpack"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe CurrentOrganization do
+  describe Middleware::CurrentOrganization do
     let(:app) { ->(env) { [200, env, "app"] } }
     let(:env) { Rack::MockRequest.env_for("https://#{host}/a?foo=bar", {}) }
     let(:host) { "city.domain.org" }

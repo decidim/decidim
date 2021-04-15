@@ -2,6 +2,7 @@
 
 require "rails"
 require "active_support/all"
+require "sprockets/railtie"
 
 require "pg"
 require "redis"
@@ -48,6 +49,8 @@ require "ransack"
 require "searchlight"
 
 require "decidim/api"
+require "decidim/middleware/strip_x_forwarded_host"
+require "decidim/middleware/current_organization"
 
 module Decidim
   module Core
@@ -57,14 +60,16 @@ module Decidim
       engine_name "decidim"
 
       initializer "decidim.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::LayoutHelper if respond_to?(:helper)
+        config.to_prepare do
+          ActiveSupport.on_load :action_controller do
+            helper Decidim::LayoutHelper if respond_to?(:helper)
+          end
         end
       end
 
       initializer "decidim.middleware" do |app|
-        app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
-        app.config.middleware.insert_before Warden::Manager, Decidim::StripXForwardedHost
+        app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
       end
 
@@ -244,8 +249,10 @@ module Decidim
       end
 
       initializer "decidim.notifications" do
-        Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
-          EventPublisherJob.perform_later(event_name, data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
+            EventPublisherJob.perform_later(event_name, data)
+          end
         end
       end
 

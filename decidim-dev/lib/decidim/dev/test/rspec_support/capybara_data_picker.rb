@@ -17,7 +17,7 @@ module Capybara
 
     def data_picker_pick_current
       body = find(:xpath, "//body")
-      expect(body).to have_selector("#data_picker-modal .picker-footer a[data-picker-choose]")
+      expect(body).to have_selector("#data_picker-modal .picker-footer a[data-picker-choose]", wait: 2)
       body.find("#data_picker-modal .picker-footer a[data-picker-choose]").click
     end
 
