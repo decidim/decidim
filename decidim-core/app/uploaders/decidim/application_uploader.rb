@@ -83,6 +83,15 @@ module Decidim
       variant_url(key, **options.merge(only_path: true))
     end
 
+    def remote_url=(url)
+      uri = URI.parse(url)
+      filename = File.basename(uri.path)
+      file = URI.open(url)
+      model.send(mounted_as).attach(io: file, filename: filename)
+    rescue StandardError
+      model.errors.add(mounted_as, :invalid)
+    end
+
     protected
 
     # Checks if the file is an image based on the content type. We need this so
