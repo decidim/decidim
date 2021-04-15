@@ -113,19 +113,19 @@ module Decidim
                         I18n.t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.edit_voting_path(current_participatory_space)),
-                        if: allowed_to?(:update, :voting, voting: current_participatory_space)
+                        if: allowed_to?(:update, :information)
 
           menu.add_item :edit_voting_landing_page,
                         I18n.t("landing_page", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_landing_page_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.voting_landing_page_path(current_participatory_space)),
-                        if: allowed_to?(:update, :voting, voting: current_participatory_space)
+                        if: allowed_to?(:update, :landing_page)
 
           menu.add_item :components,
                         I18n.t("components", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.components_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.components_path(current_participatory_space)),
-                        if: allowed_to?(:read, :component, voting: current_participatory_space),
+                        if: allowed_to?(:read, :components, voting: current_participatory_space),
                         submenu: { target_menu: :admin_votings_components_menu, options: { container_options: { id: "components-list" } } }
 
           menu.add_item :attachments,
@@ -158,7 +158,7 @@ module Decidim
                         I18n.t("ballot_styles", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.voting_ballot_styles_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.voting_ballot_styles_path(current_participatory_space)),
-                        if: allowed_to?(:update, :voting, voting: current_participatory_space)
+                        if: allowed_to?(:read, :ballot_styles)
         end
       end
 

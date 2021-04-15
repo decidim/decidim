@@ -40,8 +40,8 @@ describe Decidim::Votings::Admin::Permissions do
   end
 
   describe "components" do
-    let(:action_subject) { :component }
-    let(:action_name) { :manage }
+    let(:action_subject) { :components }
+    let(:action_name) { :read }
     let(:extra_context) do
       { participatory_space: voting }
     end
@@ -70,6 +70,16 @@ describe Decidim::Votings::Admin::Permissions do
 
     context "when managing a census" do
       let(:action_name) { :manage }
+
+      it { is_expected.to eq true }
+    end
+  end
+
+  describe "monitoring committee" do
+    context "when a Monitorin Committee Member tries to access the admin panel" do
+      let!(:monitoring_committee_member) { create(:monitoring_committee_member, user: user) }
+      let(:action_subject) { :admin_dashboard }
+      let(:action_name) { :read }
 
       it { is_expected.to eq true }
     end

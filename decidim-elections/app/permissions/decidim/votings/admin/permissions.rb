@@ -6,24 +6,17 @@ module Decidim
       class Permissions < Decidim::DefaultPermissions
         def permissions
           return permission_action unless user
+          return user_allowed_to_read_admin_dashboard? if read_admin_dashboard_action?
           return permission_action unless permission_action.scope == :admin
-
           return permission_action if voting && !voting.is_a?(Decidim::Votings::Voting)
 
-          unless user.admin?
+          unless user_can_read_votings_admin_dashboard?
             disallow!
             return permission_action
           end
 
           user_can_enter_space_area?
-
-          if read_admin_dashboard_action?
-            allow!
-            return permission_action
-          end
-
           allowed_read_participatory_space?
-          allowed_action_on_component?
           allowed_voting_action?
 
           permission_action
@@ -51,16 +44,13 @@ module Decidim
           allow!
         end
 
-        def allowed_action_on_component?
-          return unless permission_action.subject == :component
-
-          allow!
-        end
-
         def allowed_voting_action?
           return unless
           [
             :votings, :voting,
+            :information,
+            :landing_page,
+            :components,
             :polling_station, :polling_stations,
             :polling_officer, :polling_officers,
             :monitoring_committee_member, :monitoring_committee_members,
@@ -70,53 +60,86 @@ module Decidim
 
           case permission_action.subject
           when :votings
-            toggle_allow(user.admin?) if permission_action.action == :read
+            toggle_allow(user_can_read_votings_admin_dashboard?) if permission_action.action == :read
           when :voting
             case permission_action.action
-            when :read, :create, :publish, :unpublish
-              allow!
-            when :update, :preview, :manage_landing_page
-              toggle_allow(voting.present?)
+            when :read, :update, :list
+              toggle_allow(user_can_read_voting?)
+            when :create, :publish, :unpublish
+              toggle_allow(user.admin?)
+            when :preview
+              toggle_allow(user_can_read_voting? && voting.present?)
+            when :manage_landing_page
+              toggle_allow(user.admin? && voting.present?)
             end
+          when :information
+            toggle_allow(user.admin?) if permission_action.action == :update
+          when :landing_page
+            toggle_allow(user.admin?) if permission_action.action == :update
+          when :components
+            toggle_allow(user.admin?) if permission_action.action == :read
           when :polling_station
             case permission_action.action
             when :create
-              allow!
+              toggle_allow(user.admin?)
             when :update, :delete
-              toggle_allow(polling_station.present?)
+              toggle_allow(user.admin? && polling_station.present?)
             end
           when :polling_stations
             toggle_allow(user.admin?) if permission_action.action == :read
           when :polling_officer
             case permission_action.action
             when :create
-              allow!
+              toggle_allow(user.admin?)
             when :delete
-              toggle_allow(polling_officer.present?)
+              toggle_allow(user.admin? && polling_officer.present?)
             end
           when :polling_officers
             toggle_allow(user.admin?) if permission_action.action == :read
           when :monitoring_committee_member
             case permission_action.action
             when :create
-              allow!
+              toggle_allow(user.admin?)
             when :delete
-              toggle_allow(monitoring_committee_member.present?)
+              toggle_allow(user.admin? && monitoring_committee_member.present?)
             end
           when :monitoring_committee_members
             toggle_allow(user.admin?) if permission_action.action == :read
           when :census
-            toggle_allow(user.admin?)
+            toggle_allow(user.admin?) if permission_action.action == :manage
           when :ballot_style
             case permission_action.action
             when :create
-              toggle_allow(voting.dataset.blank? || voting.dataset.init_data?)
+              toggle_allow(user.admin? && (voting.dataset.blank? || voting.dataset.init_data?))
             when :update, :delete
-              toggle_allow((voting.dataset.blank? || voting.dataset.init_data?) && ballot_style.present?)
+              toggle_allow(user.admin? && (voting.dataset.blank? || voting.dataset.init_data?) && ballot_style.present?)
             end
           when :ballot_styles
             toggle_allow(user.admin?) if permission_action.action == :read
           end
+        end
+
+        # Monitoring committee members can access the admin dashboard to manage their votings.
+        def user_allowed_to_read_admin_dashboard?
+          toggle_allow(user_can_read_votings_admin_dashboard?)
+
+          permission_action
+        end
+
+        def user_can_read_votings_admin_dashboard?
+          user.admin? || user_monitoring_committee?
+        end
+
+        def user_can_read_voting?
+          user.admin? || user_monitoring_committee_for_voting?
+        end
+
+        def user_monitoring_committee?
+          Decidim::Votings::MonitoringCommitteeMember.exists?(user: user)
+        end
+
+        def user_monitoring_committee_for_voting?
+          Decidim::Votings::MonitoringCommitteeMember.exists?(user: user, voting: voting)
         end
 
         def voting
