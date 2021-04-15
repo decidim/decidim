@@ -7,10 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # polling_officer - A polling_officer.
-      def initialize(form, polling_officer)
+      # closure - A closure object.
+      def initialize(form, closure)
         @form = form
-        @polling_officer = polling_officer
+        @closure = closure
       end
 
       # Executes the command. Broadcasts these events:
@@ -41,12 +41,10 @@ module Decidim
 
       private
 
-      attr_reader :form, :polling_officer
+      attr_reader :form, :closure
 
       def create_ballot_result_for!(ballot_results)
         params = {
-          decidim_votings_polling_station_id: form.polling_station_id,
-          decidim_elections_election_id: form.election_id,
           votes_count: ballot_results.last,
           result_type: ballot_results.first.to_s.remove("_count")
         }
@@ -56,8 +54,6 @@ module Decidim
 
       def create_answer_result_for!(answer_result)
         params = {
-          decidim_votings_polling_station_id: form.polling_station_id,
-          decidim_elections_election_id: form.election_id,
           votes_count: answer_result.votes_count,
           decidim_elections_question_id: answer_result.question_id,
           decidim_elections_answer_id: answer_result.id,
@@ -69,8 +65,6 @@ module Decidim
 
       def create_question_result_for!(question_result)
         params = {
-          decidim_votings_polling_station_id: form.polling_station_id,
-          decidim_elections_election_id: form.election_id,
           votes_count: question_result.votes_count,
           decidim_elections_question_id: question_result.id,
           result_type: "blank_answers"
@@ -80,12 +74,7 @@ module Decidim
       end
 
       def create_result!(params)
-        Decidim.traceability.create!(
-          Decidim::Elections::Result,
-          polling_officer.user,
-          params,
-          visibility: "admin-only"
-        )
+        closure.results.create!(params)
       end
     end
   end

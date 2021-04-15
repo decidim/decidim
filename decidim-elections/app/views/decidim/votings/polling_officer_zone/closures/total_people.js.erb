@@ -1,0 +1,11 @@
+<% if @totals_match %>
+  // total_ballots_count == election_votes_count
+  // submit button is shown
+  $("#submit-verify-votes").removeClass("hide");
+  $("#btn-modal-closure-count-error").addClass("hide");
+<% else %>
+  // Totals don't match
+  // open modal btn is shown
+  $("#submit-verify-votes").addClass("hide");
+  $("#btn-modal-closure-count-error").removeClass("hide");
+<% end %>
