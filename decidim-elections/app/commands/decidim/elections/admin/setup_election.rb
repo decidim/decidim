@@ -45,7 +45,7 @@ module Decidim
         end
 
         def ballot_styles
-          @ballot_styles ||= questions.map(&:ballot_styles).flatten.uniq
+          election.participatory_space.try(:ballot_styles) || []
         end
 
         def trustees
@@ -115,12 +115,10 @@ module Decidim
         end
 
         def ballot_styles_data
-          ballot_styles_hash = {}
-          ballot_styles.each do |ballot_style|
-            ballot_styles_hash[ballot_style.slug] = ballot_style.questions_for(election).map(&:slug)
-          end
-
-          ballot_styles_hash
+          ballot_styles.map do |ballot_style|
+            questions = ballot_style.questions_for(elections)
+            [ballot_style.slug, questions.map(&:slug)] if questions.any?
+          end.compact.to_h
         end
 
         def setup_election
