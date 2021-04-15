@@ -50,7 +50,7 @@ ca:
             announcement: Avís
     elections:
       actions:
-        confirm_destroy: Estàs segura?
+        confirm_destroy: N'estàs segura?
         destroy: Eliminar
         edit: Editar
         edit_answers: Edita les respostes
@@ -80,7 +80,7 @@ ca:
             title: Nova resposta
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta resposta
-            success: Resposta actualitzada amb èxit
+            success: Resposta actualitzada correctament
         elections:
           create:
             invalid: S'ha produït un error en crear aquesta votació
