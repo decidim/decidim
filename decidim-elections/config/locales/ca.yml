@@ -17,7 +17,7 @@ ca:
         min_selections: Cap de les opcions anteriors
         title: Títol
       voting:
-        end_time: La votació finalitza
+        end_time: Finalitza
         start_time: La votació comença
     errors:
       models:
@@ -97,7 +97,7 @@ ca:
             announcement: Avís
     elections:
       actions:
-        confirm_destroy: Estàs segura?
+        confirm_destroy: N'estàs segura?
         destroy: Eliminar
         edit: Editar
         feedback: Feedback del votant
@@ -137,7 +137,7 @@ ca:
             success: Resposta deseleccionada correctament
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta resposta
-            success: Resposta actualitzada amb èxit
+            success: Resposta actualitzada correctament
         elections:
           create:
             invalid: S'ha produït un error en crear aquesta votació
