@@ -84,7 +84,7 @@ ca:
         elections:
           create:
             invalid: S'ha produït un error en crear aquesta votació
-            success: S'ha creat la votació correctament
+            success: La votació s'ha creat correctament
           destroy:
             invalid: S'ha produït un error en eliminar aquesta votació
             success: S'ha eliminat la votació correctament
@@ -103,7 +103,7 @@ ca:
             success: La votació s'ha despublicat correctament.
           update:
             invalid: S'ha produït un error en actualitzar aquesta votació
-            success: S'ha actualitzat la votació correctament
+            success: La votació s'ha actualitzat correctament
         models:
           answer:
             name: Resposta
