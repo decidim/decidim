@@ -12,7 +12,7 @@ module Decidim
   #   end: model.end_time
   # }
   #
-  class DateCell < Decidim::ViewModel
+  class DateRangeCell < Decidim::ViewModel
     include Decidim::IconHelper
 
     def show

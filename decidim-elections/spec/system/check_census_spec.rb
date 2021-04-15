@@ -14,8 +14,11 @@ describe "Check Census", type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:mobile_phone_number) { "123456789" }
   let(:email) { "census_email@example.com" }
+  let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
 
   before do
+    allow(Rails).to receive(:cache).and_return(memory_store)
+    Rails.cache.clear
     switch_to_host(organization.host)
   end
 

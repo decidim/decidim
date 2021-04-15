@@ -16,7 +16,7 @@ module Decidim
 
       it "sends the invitation instructions" do
         command.call
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
 
       it "broadcasts ok" do
@@ -45,7 +45,7 @@ module Decidim
 
       it "sends the invitation instructions" do
         command.call
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
 
       it "broadcasts ok" do
@@ -62,7 +62,7 @@ module Decidim
 
       it "gets the invitation resent" do
         command.call
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers").at_least(:once)
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers").at_least(:once)
       end
     end
 
@@ -76,7 +76,7 @@ module Decidim
 
       it "sends the invitation instructions" do
         command.call
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end
   end

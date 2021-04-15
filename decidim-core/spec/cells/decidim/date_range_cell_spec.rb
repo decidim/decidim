@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe Decidim::DateCell, type: :cell do
+describe Decidim::DateRangeCell, type: :cell do
   subject { my_cell.call }
 
   controller Decidim::Debates::DebatesController
 
-  let(:my_cell) { cell("decidim/date", model) }
+  let(:my_cell) { cell("decidim/date_range", model) }
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
   let(:model) { { start: start_time, end: end_time } }
