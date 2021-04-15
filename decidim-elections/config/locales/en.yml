@@ -581,6 +581,7 @@ en:
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
         onboarding_modal:
+          close: Close modal
           create_account: Create Account
           description: Do you want to create a new account in Decidim? You will be able to participate in the processes and be an active part of the organization.
           no_account: No, thanks.

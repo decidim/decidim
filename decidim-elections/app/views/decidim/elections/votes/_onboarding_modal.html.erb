@@ -1,7 +1,7 @@
 <div class="reveal" data-reveal id="onboarding-modal">
   <div class="reveal__header">
     <h3 class="reveal__title"><%= t("decidim.elections.votes.onboarding_modal.title") %></h3>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
+    <button class="close-button" data-close aria-label=<%= t("decidim.elections.votes.onboarding_modal.close") %>>
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -14,8 +14,10 @@
         <%= t("decidim.elections.votes.onboarding_modal.create_account") %>
       <% end %>
       <div class="text-center">
-        <button class="link" data-close><%= t("decidim.elections.votes.onboarding_modal.no_account") %></button>
+        <button class="link" data-close type="button"><%= t("decidim.elections.votes.onboarding_modal.no_account") %></button>
       </div>
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag("decidim/elections/onboarding") %>

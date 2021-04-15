@@ -14,7 +14,7 @@
       </p>
     </div>
 
-    <% if params[:token] && election.questionnaire.questions.any? %>
+    <% if params[:token] && valid_questionnaire? %>
       <div>
         <p class="text-small">
           <%= t("decidim.elections.votes.confirmed.experience") %>
@@ -25,14 +25,12 @@
       </div>
     <% end %>
 
-    <% if !election.questionnaire.questions.any? && current_user.nil? %>
+    <% if !valid_questionnaire? && current_user.nil? %>
       <%= render partial: "decidim/elections/votes/onboarding_modal" %>
     <% end %>
 
-    <%= link_to :elections, class: election.questionnaire.questions.any? ? "" : "button" do %>
+    <%= link_to :elections, class: valid_questionnaire? ? "" : "button" do %>
       <%= t("decidim.elections.votes.confirmed.back") %>
     <% end %>
   </div>
 </div>
-
-<%= javascript_include_tag("decidim/elections/onboarding") %>
