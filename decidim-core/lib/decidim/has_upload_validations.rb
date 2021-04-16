@@ -27,10 +27,11 @@ module Decidim
         end
       end
 
-      def validates_avatar(attribute = :avatar)
+      def validates_avatar(attribute = :avatar, &block)
         validates_upload(
           attribute,
-          max_size: ->(record) { record.maximum_avatar_size }
+          max_size: ->(record) { record.maximum_avatar_size },
+          &block
         )
       end
 
