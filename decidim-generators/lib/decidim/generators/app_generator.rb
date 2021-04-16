@@ -64,15 +64,6 @@ module Decidim
       class_option :profiling, type: :boolean,
                                default: false,
                                desc: "Add the necessary gems to profile the app"
-
-      class_option :skip_webpack_install, type: :boolean,
-                                          default: true,
-                                          desc: "Skip webpack installer"
-
-      class_option :skip_javascript, type: :boolean,
-                                     default: true,
-                                     desc: "Skip webpack"
-
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -210,6 +201,10 @@ module Decidim
                   "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
       end
 
+      def install_webpacker_initializer
+        copy_file "webpacker_initializer.rb", "config/initializers/webpacker.rb"
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [
@@ -237,7 +232,7 @@ module Decidim
       def branch
         return if options[:path]
 
-        @branch ||= options[:edge] ? "develop" : options[:branch].presence
+        @branch ||= options[:edge] ? "7291-migrate-to-webpacker" : options[:branch].presence
       end
 
       def app_name

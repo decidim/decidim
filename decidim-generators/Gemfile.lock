@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: f1b06c7fd5bc4b7fc7128742d1078466b94af71f
+  specs:
+    webpacker (6.0.0.beta.6)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
+
 PATH
   remote: ..
   specs:
@@ -318,7 +328,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     bindex (0.8.1)
-    bootsnap (1.5.0)
+    bootsnap (1.7.2)
       msgpack (~> 1.0)
     browser (2.7.1)
     builder (3.2.4)
@@ -443,7 +453,7 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (2.14.0)
+    faker (2.16.0)
       i18n (>= 1.6, < 2)
     faraday (1.3.0)
       faraday-net_http (~> 1.0)
@@ -452,7 +462,7 @@ GEM
     faraday-net_http (1.0.1)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
-    ffi (1.13.1)
+    ffi (1.15.0)
     file_validators (2.3.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -549,7 +559,7 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
-    listen (3.2.1)
+    listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.3.1)
@@ -577,13 +587,13 @@ GEM
       tomlrb
     mixlib-shellout (3.2.5)
       chef-utils
-    msgpack (1.3.3)
+    msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     mustache (1.1.1)
     netrc (0.11.0)
-    nio4r (2.5.5)
+    nio4r (2.5.7)
     nobspw (0.6.2)
     nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
@@ -646,7 +656,7 @@ GEM
       eventmachine_httpserver
       http_parser.rb (~> 0.6.0)
       multi_json
-    puma (5.0.4)
+    puma (5.2.2)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -654,6 +664,8 @@ GEM
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.6)
@@ -791,6 +803,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    semantic_range (3.0.0)
     seven_zip_ruby (1.3.0)
     simplecov (0.19.1)
       docile (~> 1.1)
@@ -910,6 +923,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
   web-console (~> 4.0)
+  webpacker!
   wicked_pdf (~> 2.1)
 
 RUBY VERSION

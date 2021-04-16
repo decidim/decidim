@@ -186,7 +186,7 @@ module Decidim
           # autocompletion functionality in the front-end:
           class Builder < Decidim::Map::Autocomplete::Builder
             def javascript_snippets
-              template.javascript_include_tag("decidim/geocoding/provider/your_provider")
+              template.javascript_pack_tag("decidim/geocoding/provider/your_provider")
             end
           end
         end

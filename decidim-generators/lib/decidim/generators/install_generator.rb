@@ -60,13 +60,6 @@ module Decidim
       end
 
       def append_assets
-        create_file "app/assets/javascripts/application.js", <<~FILE
-          //= require rails-ujs
-          //= require activestorage
-          //= require_tree .
-          //= require decidim
-        FILE
-        append_file "app/assets/config/manifest.js", "//= link_directory ../javascripts .js"
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
           "*= require decidim\n "
@@ -114,6 +107,13 @@ module Decidim
       def copy_migrations
         rails "decidim:upgrade"
         recreate_db if options[:recreate_db]
+      end
+
+      def install_webpacker
+        rails "webpacker:install"
+
+        # Remove manually assets
+        system("rm -rf app/assets/javascripts")
       end
 
       def letter_opener_web

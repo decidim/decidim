@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: 7ed1c08e79c17680636fa99e6bb095ec1fbc8008
+  specs:
+    webpacker (6.0.0.beta.6)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
+
+GIT
   remote: https://github.com/sgruhier/foundation_rails_helper.git
   revision: 45709e28f567b2e619a06091eb63d4f050f861d8
   specs:
@@ -590,7 +600,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.5)
     nobspw (0.6.2)
-    nokogiri (1.11.2)
+    nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     oauth (0.5.6)
@@ -659,6 +669,8 @@ GEM
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.6)
@@ -799,6 +811,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    semantic_range (3.0.0)
     seven_zip_ruby (1.3.0)
     simplecov (0.19.1)
       docile (~> 1.1)
@@ -921,6 +934,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
   web-console (= 4.0.4)
+  webpacker!
 
 RUBY VERSION
    ruby 2.7.1p83
