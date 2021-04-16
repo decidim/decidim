@@ -6,6 +6,11 @@
   <div class="card__content">
     <div class="row">
       <%= form.fields_for "[ballot_results]", form.object.ballot_results do |ballot_form| %>
+        <%= content_tag :span,
+                        "",
+                        id: "election_result-total-ballots",
+                        data: { total_ballots: ballot_form.object.total_ballots_count } %>
+
         <%= content_tag :div,
                         ballot_form.number_field(
                           :valid_ballots_count,
@@ -26,7 +31,7 @@
                         ballot_form.number_field(
                           :null_ballots_count,
                           label: t("edit.total_null_ballots", scope: "decidim.votings.polling_officer_zone.closures"),
-                          mn: 0
+                          min: 0
                         ),
                         class: "columns medium-4" %>
       <% end %>

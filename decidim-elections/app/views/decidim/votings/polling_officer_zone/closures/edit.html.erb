@@ -29,5 +29,20 @@
 
   <%= render partial: "question_results_form_fields", locals: { form: form } %>
 
-  <%= form.submit t(".save_recount"), class: "button button--sc mt-sm" %>
+  <%= form.submit t(".save_recount"), id: "submit-ballot-recount", class: "button button--sc mt-sm" %>
+
+  <%= content_tag :button,
+                  t(".save_recount"),
+                  type: "button",
+                  id: "btn-modal-closure-results-count-error",
+                  class: "button button--sc mt-sm hide",
+                  data: { open: "modal-closure-results-count-error" },
+                  aria: {
+                          controls:"modal-closure-results-count-error",
+                          haspopup: "true"
+                        } %>
 <% end %>
+
+<%= render "modal_ballots_results_count_error" %>
+
+<%= javascript_include_tag "decidim/votings/polling_officer_zone/edit-closure" %>
