@@ -3,9 +3,9 @@
 import { VoteComponent } from "@codegram/decidim-bulletin_board";
 
 import * as VotingSchemesDummy from "@codegram/voting_schemes-dummy";
-const DummyVoterWrapperAdapter = VotingSchemesDummy.TrusteeWrapperAdapter;
+const DummyVoterWrapperAdapter = VotingSchemesDummy.VoterWrapperAdapter;
 import * as VotingSchemesElectionGuard from "@codegram/voting_schemes-electionguard";
-const ElectionGuardVoterWrapperAdapter = VotingSchemesElectionGuard.TrusteeWrapperAdapter;
+const ElectionGuardVoterWrapperAdapter = VotingSchemesElectionGuard.VoterWrapperAdapter;
 
 export default function setupVoteComponent($voteWrapper) {
   // Data
