@@ -11,8 +11,7 @@ module Decidim
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
     belongs_to :attached_to, polymorphic: true
 
-    mount_uploader :file, Decidim::AttachmentUploader
-
+    has_one_attached :file
     validates_upload :file do |config|
       config.uploader = Decidim::AttachmentUploader
     end
@@ -48,7 +47,7 @@ module Decidim
     #
     # Returns Boolean.
     def photo?
-      @photo ||= content_type.start_with? "image"
+      @photo ||= file.attached? && file.image?
     end
 
     # Whether this attachment is a document or not.
@@ -62,7 +61,7 @@ module Decidim
     #
     # Returns String.
     def file_type
-      file.url&.split(".")&.last&.downcase
+      url&.split(".")&.last&.downcase
     end
 
     # The URL to download the file.
@@ -70,13 +69,17 @@ module Decidim
     # Returns String.
     delegate :url, to: :file
 
+    def url
+      attached_uploader(:file).path
+    end
+
     # The URL to download the thumbnail of the file. Only works with images.
     #
     # Returns String.
     def thumbnail_url
       return unless photo?
 
-      file.thumbnail.url
+      attached_uploader(:file).path(variant: :thumbnail)
     end
 
     # The URL to download the a big version of the file. Only works with images.
@@ -85,7 +88,7 @@ module Decidim
     def big_url
       return unless photo?
 
-      file.big.url
+      attached_uploader(:file).path(variant: :big)
     end
   end
 end
