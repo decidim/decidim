@@ -92,7 +92,7 @@ module Decidim
             let(:uploaded_files) do
               [
                 Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-                Decidim::Dev.test_file("Exampledocument.pdf", "")
+                Decidim::Dev.test_file("verify_user_groups.csv", "text/csv")
               ]
             end
 
