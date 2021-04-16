@@ -196,21 +196,39 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attachment_collection: attachment_collection,
           attached_to: current_assembly,
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_after_upload!(
+            io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          ) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: current_assembly,
-          file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
+          content_type: "image/jpeg",
+          file: ActiveStorage::Blob.create_after_upload!(
+            io: File.open(File.join(seeds_root, "city.jpeg")),
+            filename: "city.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          ) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: current_assembly,
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_after_upload!(
+            io: File.open(File.join(seeds_root, "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          ) # Keep after attached_to
         )
 
         2.times do
