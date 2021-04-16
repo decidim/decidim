@@ -403,7 +403,9 @@ sv:
         committee_members:
           approve: Godkänn
           confirm_revoke: Är du säker?
+          no_members_yet: Det finns inga medlemmar i projektkommittén
           revoke: Återkalla
+          title: Kommittémedlemmar
         count:
           title:
             one: "%{count} initiativ"
