@@ -4,6 +4,7 @@ sv:
       answer:
         body: Svar
         choices: Val
+        selected_choices: Utvalda val
       question:
         max_choices: Högst antal val
         question_type: Typ

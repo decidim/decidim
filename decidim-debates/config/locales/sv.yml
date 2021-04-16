@@ -81,6 +81,8 @@ sv:
           close: "%{user_name} stängde debatten %{resource_name} i utrymmet %{space_name}"
           create: "%{user_name} skapade debatten %{resource_name} på platsen %{space_name}"
           update: "%{user_name} uppdaterade debatten %{resource_name} på platsen %{space_name}"
+      debate_m:
+        commented_time_ago: Kommenterade för %{time} sedan
       debates:
         close:
           invalid: Det gick inte att stänga debatten.
@@ -162,6 +164,7 @@ sv:
         versions_list:
           back_to_resource: Gå tillbaka till debatten
       last_activity:
+        debate_updated_at_html: "<span>Debatt uppdaterades på %{link}</span>"
         new_debate_at_html: "<span>Ny debatt i %{link}</span>"
       models:
         debate:

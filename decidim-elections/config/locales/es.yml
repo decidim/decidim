@@ -79,15 +79,15 @@ es:
             create: Crear respuesta
             title: Nueva respuesta
           update:
-            invalid: Se ha producido un error al crear esta respuesta
-            success: Respuesta actualizada con éxito
+            invalid: Se ha producido un error al actualizar esta respuesta
+            success: Respuesta actualizada correctamente
         elections:
           create:
             invalid: Se ha producido un error al crear esta votación
             success: La votación se ha creado correctamente
           destroy:
-            invalid: Se ha producido un error al crear esta votación
-            success: Se ha eliminado la votación correctamente
+            invalid: Se ha producido un error al eliminar la elección
+            success: La votación se ha eliminado correctamente
           edit:
             title: Editar la votación
             update: Actualizar la votación
@@ -103,7 +103,7 @@ es:
             success: La votación se ha despublicado correctamente.
           update:
             invalid: Se ha producido un error al actualizar esta votación
-            success: Se ha actualizado la votación correctamente
+            success: La votación se ha actualizado correctamente
         models:
           answer:
             name: Respuesta

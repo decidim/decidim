@@ -678,6 +678,7 @@ sv:
         success: Utkastet till förslag har tagits bort.
       last_activity:
         new_proposal_at_html: "<span>Nytt förslag vid %{link}</span>"
+        proposal_updated_at_html: "<span>Förslag uppdaterades på %{link}</span>"
       models:
         collaborative_draft:
           fields:
