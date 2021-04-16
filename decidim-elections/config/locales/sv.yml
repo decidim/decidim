@@ -17,6 +17,7 @@ sv:
         title: Titel
       voting:
         end_time: Omröstningen avslutas
+        start_time: Omröstningen börjar
     errors:
       models:
         answer:
@@ -27,6 +28,10 @@ sv:
           attributes:
             attachment:
               needs_to_be_reattached: Måste bifogas igen
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: kan inte ändras
   activerecord:
     models:
       decidim/elections/answer:
