@@ -1250,6 +1250,7 @@ sv:
         copy_share_link: Kopiera
         copy_share_link_clarification: Kopiera länk
         copy_share_link_copied: Kopierad!
+        copy_share_link_message: Länken kopierades.
         share: Dela
         share_link: Dela länk
     statistics:
@@ -1522,6 +1523,10 @@ sv:
       too_short: är för kort (under 15 tecken)
   forms:
     correct_errors: Det finns fel på formuläret, vänligen korrigera dem för att fortsätta.
+    length_validator:
+      minimum:
+        one: Minst %{count} tecken
+        other: Minst %{count} tecken
     required: Krävs
     required_explanation: "* Obligatoriska fält är markerade med en asterisk"
   invisible_captcha:
