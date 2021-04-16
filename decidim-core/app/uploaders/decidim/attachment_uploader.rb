@@ -3,7 +3,6 @@
 module Decidim
   # This class deals with uploading attachments to a participatory space.
   class AttachmentUploader < ApplicationUploader
-    process :set_content_type_and_size_in_model
     process :validate_dimensions
     process :strip
 
@@ -58,14 +57,6 @@ module Decidim
       return :participant unless model.respond_to?(:context)
 
       model.context
-    end
-
-    # Copies the content type and file size to the model where this is mounted.
-    #
-    # Returns nothing.
-    def set_content_type_and_size_in_model
-      model.content_type = file.content_type if file.content_type
-      model.file_size = file.size
     end
 
     # A simple check to avoid DoS with maliciously crafted images, or just to

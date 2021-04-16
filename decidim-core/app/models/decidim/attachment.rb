@@ -6,6 +6,7 @@ module Decidim
   class Attachment < ApplicationRecord
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    before_save :set_content_type_and_size, if: :attached?
 
     translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
@@ -16,6 +17,8 @@ module Decidim
       config.uploader = Decidim::AttachmentUploader
     end
     validates :file, :content_type, presence: true
+
+    delegate :attached?, to: :file
 
     default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }
 
@@ -89,6 +92,11 @@ module Decidim
       return unless photo?
 
       attached_uploader(:file).path(variant: :big)
+    end
+
+    def set_content_type_and_size
+      self.content_type = file.content_type
+      self.file_size = file.byte_size
     end
   end
 end
