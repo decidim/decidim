@@ -16,7 +16,7 @@ module Decidim
     validates_upload :file do |config|
       config.uploader = Decidim::AttachmentUploader
     end
-    validates :file, :content_type, presence: true
+    validates :content_type, presence: true
 
     delegate :attached?, to: :file
 

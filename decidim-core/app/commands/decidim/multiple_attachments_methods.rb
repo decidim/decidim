@@ -10,7 +10,8 @@ module Decidim
         @documents << Attachment.new(
           title: { I18n.locale => file.original_filename },
           attached_to: @attached_to || documents_attached_to,
-          file: file
+          file: file,
+          content_type: file.content_type
         )
       end
     end
