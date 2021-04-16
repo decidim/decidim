@@ -21,24 +21,18 @@ module Decidim
           next if attachment_block.last.nil?
 
           folder_name = attachment_block.first.parameterize
-          attachment_block.last.each do |attachment_uploader|
-            next unless attachment_uploader.attached?
+          attachment_block.last.each do |attachment|
+            next unless attachment.attached?
 
-            out.put_next_entry("#{folder_name}/#{attachment_uploader.blob.filename}")
-            attachment_uploader.blob.open do |f|
-              out << f.read
+            blobs = attachment.is_a?(ActiveStorage::Attached::One) ? [attachment.blob] : attachment.blobs
+            blobs.each do |blob|
+              out.put_next_entry("#{folder_name}/#{blob.filename}")
+              blob.open do |f|
+                out << f.read
+              end
             end
-            CarrierWave.clean_cached_files!
           end
         end
-      end
-
-      # Retrieves the file from AWS and stores it into a temporal cache.
-      # Once the file is cached, the uploader returns a local `CarrierWave::SanitizedFile`
-      # instead of a fog file that acts as a proxy to the remote file.
-      def cache_attachment_from_aws(uploader)
-        uploader.cache_stored_file!
-        uploader.retrieve_from_cache!(uploader.cache_name)
       end
     end
   end
