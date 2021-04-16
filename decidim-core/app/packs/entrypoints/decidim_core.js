@@ -1,7 +1,6 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
-
 import $ from "jquery"
 import Quill from "quill"
 
