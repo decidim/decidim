@@ -88,7 +88,7 @@ module Decidim
       filename = File.basename(uri.path)
       file = URI.open(url)
       model.send(mounted_as).attach(io: file, filename: filename)
-    rescue StandardError
+    rescue URI::InvalidURIError
       model.errors.add(mounted_as, :invalid)
     end
 
