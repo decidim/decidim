@@ -39,7 +39,6 @@ module Decidim::Conferences
     end
 
     context "when the form is not valid" do
-
       context "when form is invalid" do
         let(:form_params) { { conference_partner: { name: nil } } }
 
