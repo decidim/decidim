@@ -76,12 +76,44 @@ describe Decidim::Votings::Admin::Permissions do
   end
 
   describe "monitoring committee" do
-    context "when a Monitorin Committee Member tries to access the admin panel" do
-      let!(:monitoring_committee_member) { create(:monitoring_committee_member, user: user) }
+    let(:user) { create :user, organization: organization }
+    let!(:monitoring_committee_member) { create(:monitoring_committee_member, user: user, voting: voting) }
+
+    context "when a Monitorin Committee Member acceses the admin panel" do
       let(:action_subject) { :admin_dashboard }
       let(:action_name) { :read }
 
       it { is_expected.to eq true }
+    end
+
+    context "when a Monitorin Committee Member reads the votings" do
+      let(:action_subject) { :votings }
+      let(:action_name) { :read }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when a Monitorin Committee Member lists their voting" do
+      let(:action_subject) { :voting }
+      let(:action_name) { :list }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when a Monitorin Committee Member lists another voting" do
+      let(:other_voting) { create(:voting, organization: organization) }
+      let!(:monitoring_committee_member) { create(:monitoring_committee_member, user: user, voting: other_voting) }
+      let(:action_subject) { :voting }
+      let(:action_name) { :list }
+
+      it { is_expected.to eq false }
+    end
+
+    context "when a Monitorin Committee Member their voting's polling_officers" do
+      let(:action_subject) { :polling_officers }
+      let(:action_name) { :read }
+
+      it { is_expected.to eq false }
     end
   end
 
