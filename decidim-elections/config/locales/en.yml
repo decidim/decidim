@@ -978,6 +978,10 @@ en:
           edit:
             heading: Vote recount - Answers recount
             info_text: Please introduce the total number of answers for each question.
+            modal_ballots_results_count_error:
+              close_modal: Close
+              info_text: The total number of ballots doesn't match the total number of envelopes. Please review the total of ballots.
+              title: Total of ballots do not add up
             save_recount: Save recount
             total_ballots: Total ballots
             total_blank_ballots: Total blank ballots

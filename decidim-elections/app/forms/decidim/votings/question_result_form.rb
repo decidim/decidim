@@ -18,7 +18,7 @@ module Decidim
         self.id = question.id
         self.title = question.title
         self.nota_option = question.nota_option?
-        self.votes_count = model[:closure].results.blank_answers.find_by(question: question)&.votes_count.to_i
+        # self.votes_count = model[:closure].results.blank_answers.find_by(question: question)&.votes_count.to_i
       end
     end
   end

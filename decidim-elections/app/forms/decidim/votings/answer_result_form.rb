@@ -18,7 +18,7 @@ module Decidim
         self.id = answer.id
         self.title = answer.title
         self.question_id = answer.question.id
-        self.votes_count = model[:closure].results.valid_answers.find_by(answer: answer)&.votes_count.to_i
+        # self.votes_count = model[:closure].results.valid_answers.find_by(answer: answer)&.votes_count.to_i
       end
     end
   end
