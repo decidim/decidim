@@ -4,6 +4,7 @@
   data-authority-public-key="<%= authority_public_key %>"
   data-election-unique-id="<%= election_unique_id %>"
   data-voter-id="<%= voter_id %>"
+  <%= ballot_style_id.present? ? "data-ballot-style-id=\"#{ballot_style_id}\"" : nil %>
   data-scheme-name="<%= scheme_name %>">
 
   <% questions.each_with_index do |step_question, step_index| %>

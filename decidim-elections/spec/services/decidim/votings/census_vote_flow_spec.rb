@@ -6,6 +6,7 @@ module Decidim::Votings
   describe CensusVoteFlow do
     subject(:vote_flow) { described_class.new(election, context) }
 
+    let(:dataset) { create(:dataset, voting: voting) }
     let(:election) { create(:election, component: component, **election_params) }
     let(:component) { create(:elections_component, participatory_space: voting) }
     let(:voting) { create(:voting) }
@@ -30,6 +31,7 @@ module Decidim::Votings
         birthdate: birthdate,
         postal_code: postal_code,
         access_code: access_code,
+        dataset: dataset,
         **datum_params_changes
       }
     end
@@ -175,6 +177,40 @@ module Decidim::Votings
       subject { vote_flow.login_path("a vote path") }
 
       it { expect(subject).to eq("/votings/#{voting.slug}/login?election_id=10000&vote_path=a+vote+path") }
+    end
+
+    describe "#questions_for" do
+      subject { vote_flow.questions_for(election) }
+
+      context "when the election has a ballot_style" do
+        let(:datum_params_changes) { { ballot_style: ballot_style, dataset: dataset } }
+        let(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election: election, voting: voting) }
+
+        it { expect(subject).to match_array(election.questions.first(2)) }
+      end
+
+      context "when the election does NOT have a ballot_style" do
+        let(:datum_params_changes) { { dataset: dataset } }
+
+        it { expect(subject).to match_array(election.questions) }
+      end
+    end
+
+    describe "#ballot_style_id" do
+      subject { vote_flow.ballot_style_id }
+
+      context "when the election has a ballot_style" do
+        let(:datum_params_changes) { { ballot_style: ballot_style, dataset: dataset } }
+        let(:ballot_style) { create(:ballot_style, voting: voting) }
+
+        it { expect(subject).to eq(ballot_style.slug) }
+      end
+
+      context "when the election does NOT have a ballot_style" do
+        let(:datum_params_changes) { { dataset: dataset } }
+
+        it { expect(subject).to be_nil }
+      end
     end
   end
 end

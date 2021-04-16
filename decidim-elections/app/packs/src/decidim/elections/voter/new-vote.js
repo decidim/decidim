@@ -8,6 +8,7 @@ $(async () => {
   // UI Elements
   const $voteWrapper = $(".vote-wrapper");
   const $ballotHash = $voteWrapper.find(".ballot-hash");
+  const ballotStyleId = $voteWrapper.data("ballotStyleId");
 
   // Use the questions component
   const questionsComponent = new VoteQuestionsComponent($voteWrapper);
@@ -35,7 +36,7 @@ $(async () => {
         }, {});
       };
       const formData = getFormData($voteWrapper.find(".answer_input"));
-      validVoteFn(formData);
+      validVoteFn(formData, ballotStyleId);
     },
     castOrAuditBallot({ encryptedData, encryptedDataHash }) {
       $voteWrapper.find("#encrypting").addClass("hide");

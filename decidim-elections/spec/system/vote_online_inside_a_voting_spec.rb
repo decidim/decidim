@@ -7,13 +7,14 @@ describe "Vote online in an election inside a Voting", type: :system do
   let!(:election) { create :election, :bb_test, :vote, component: component }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:datum) do
-    create(:datum, :with_access_code, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", access_code: "1234")
+    create(:datum, :with_access_code, document_type: "DNI", document_number: "12345678X", birthdate: Date.civil(1980, 5, 11), postal_code: "04001", access_code: "1234", dataset: dataset)
   end
   let!(:elections) { create_list(:election, 2, :vote, component: component) } # prevents redirect to single election page
   let(:router) { Decidim::EngineRouter.main_proxy(component).decidim_voting_elections }
 
   include_context "with a component" do
     let(:voting) { create(:voting, :published, organization: organization) }
+    let!(:dataset) { create(:dataset, voting: voting) }
     let(:participatory_space) { voting }
     let(:organization_traits) { [:secure_context] }
   end
