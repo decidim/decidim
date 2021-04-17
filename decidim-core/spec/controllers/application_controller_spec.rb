@@ -16,6 +16,10 @@ module Decidim
       def tos
         render plain: "Terms"
       end
+
+      def unauthorized
+        enforce_permission_to :foo, :bar
+      end
     end
 
     before do
@@ -23,6 +27,7 @@ module Decidim
       routes.draw do
         get "show" => "decidim/application#show"
         get "pages/terms-and-conditions" => "decidim/application#tos"
+        get "unauthorized" => "decidim/application#unauthorized"
       end
     end
 
@@ -189,6 +194,14 @@ module Decidim
             expect(flash[:warning]).to include("Please, login with your account before access")
           end
         end
+      end
+    end
+
+    describe "#unauthorized" do
+      it "redirects the user to the sign in page" do
+        get :unauthorized
+
+        expect(response).to redirect_to("/users/sign_in")
       end
     end
   end
