@@ -320,6 +320,7 @@ fi:
         election:
           end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} sähköisellä ääniuurnalla"
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
+          publish_results: "%{user_name} julkaisi vaalien %{resource_name} tulokset sähköisessä ääniuurnassa"
           setup: "%{user_name} loi vaalin %{resource_name} sähköiselle ääniuurnalle"
           start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} sähköisellä ääniuurnalla"
           start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} sähköisellä ääniuurnalla"
@@ -631,6 +632,9 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu rooli %{role} äänestyspaikalle %{polling_station_name}.
             email_subject: Roolisi äänestyspaikalla %{polling_station_name} on %{role}.
             notification_title: Roolisi äänestyspaikan %{polling_station_name} äänestyksessä <a href="%{resource_path}">%{resource_title}</a> on %{role}.
+        send_access_code:
+          instruction: 'Tässä on tunnistautumiskoodisi, jota pyysit: %{access_code}. Koodin avulla voit osallistua äänestykseen %{voting}.'
+          subject: Tunnistautumiskoodisi osallistuaksesi äänestykseen %{voting}
     help:
       participatory_spaces:
         votings:
@@ -875,9 +879,9 @@ fi:
               error: Henkilötietorekisterin poistaminen epäonnistui, yritä uudestaan myöhemmin.
               success: Henkilötietorekisterin tiedot poistettu
             export_access_codes:
-              button: Vie äänestyksen tunnistuskoodit
-              callout: Voit nyt viedä tunnistuskoodit järjestelmästä. Tämä voidaan tehdä vain kerran. Kun aloitat viennin, sinulle lähetetään tarvittavat ohjeet sähköpostiin <strong>%{email}</strong>
-              confirm: Voit viedä tunnistuskoodit vain kerran. Varmista, että pääset käsiksi sähköpostitiliin <strong>%{email}</strong>.
+              button: Vie äänestyksen tunnistautumiskoodit
+              callout: Voit nyt viedä tunnistautumiskoodit järjestelmästä. Tämä voidaan tehdä vain kerran. Kun aloitat viennin, sinulle lähetetään tarvittavat ohjeet sähköpostiin <strong>%{email}</strong>
+              confirm: Voit viedä tunnistautumiskoodit vain kerran. Varmista, että pääset käsiksi sähköpostitiliin <strong>%{email}</strong>.
               file_not_exists: Tiedostoa ei ole olemassa
               launch_error: Äänestyskoodien viennin aloittaminen epäonnistui
               launch_success: Äänestyskoodien vienti aloitettu. Saat sähköpostia hetken kuluttua sähköpostiosoitteeseen %{email}
@@ -985,6 +989,13 @@ fi:
           new: Uusi
           title: Toiminnot
       votings:
+        access_code_modal:
+          email: Lähetä sähköpostitse osoitteeseen %{email}
+          info: Tarvitset tunnistautumiskoodin osallistuaksesi. Jos et saanut sitä paperipostissa, voimme lähettää sinulle uuden koodin.
+          no_email: Sähköpostiosoitetta ei ole käytettävissä
+          no_sms: Puhelinnumeroa ei ole käytettävissä
+          sms: Lähetä tekstiviestinä numeroon %{sms}
+          title: Hanki tunnistautumiskoodi
         check_census:
           check_status: Tarkista tila
           description: Täällä voit tarkastaa omat henkilötietorekisterin tietosi, selvittääksesi, onko sinulla oikeus osallistua tähän äänestykseen. Sinulla pitäisi jo olla tunnistuskoodi, mutta jos hävitit sen, voit pyytää sitä uudestaan, jos tietosi on syötetty oikein.
@@ -994,6 +1005,7 @@ fi:
           form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
           invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
           success:
+            info: Sinun olisi pitänyt saada tunnistautumiskoodisi paperipostissa. Jos sinulla ei ole koodia, voit pyytää sitä täältä
             title: Tietosi henkilötietorekisterissä ovat oikein!
         check_fields:
           date_of_birth: Syntymäaika
@@ -1042,6 +1054,9 @@ fi:
           label: 'Järjestä äänestykset:'
           random: Satunnainen
           recent: Viimeisimmät
+        send_access_code:
+          invalid: Tunnistautumiskoodin lähetys epäonnistui
+          success: Tunnistautumiskoodisi lähetys onnistui
         show:
           dates: Päivämäärät
       votings_m:
