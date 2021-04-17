@@ -34,7 +34,6 @@ end
 # https://github.com/oesmith/puffing-billy/issues/253#issuecomment-539710620
 module BillyProxyPatch
   def stop
-    return if EM.stopped?
     return unless EM.reactor_running?
 
     super
