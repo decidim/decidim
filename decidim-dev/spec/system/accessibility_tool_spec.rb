@@ -27,7 +27,7 @@ describe "Accessibility tool", type: :system do
           #{stylesheet_link_tag "application"}
           #{javascript_include_tag "application"}
           #{stylesheet_link_tag "decidim/dev"}
-          #{javascript_include_tag "decidim/dev"}
+          #{javascript_pack_tag "decidim_dev"}
         </head>
         <body>
           #{document_inner}
