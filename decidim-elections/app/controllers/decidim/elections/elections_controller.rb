@@ -7,6 +7,7 @@ module Decidim
       include FilterResource
       include Paginable
       include Decidim::Elections::Orderable
+      include HasVoteFlow
 
       helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?
 

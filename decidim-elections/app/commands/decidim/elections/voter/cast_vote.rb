@@ -39,10 +39,6 @@ module Decidim
           end
         end
 
-        def user
-          @user ||= form.current_organization.users.find_by(id: form.current_user)
-        end
-
         def create_vote(message_id)
           @vote = Vote.create!(
             message_id: message_id,
@@ -50,7 +46,8 @@ module Decidim
             voter_id: form.voter_id,
             encrypted_vote_hash: form.encrypted_data_hash,
             status: :pending,
-            user: user
+            user: form.user,
+            email: form.email
           )
         end
       end

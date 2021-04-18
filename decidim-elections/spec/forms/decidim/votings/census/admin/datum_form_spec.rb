@@ -15,6 +15,7 @@ describe Decidim::Votings::Census::Admin::DatumForm do
   let(:postal_code) { "12345" }
   let(:mobile_phone_number) { "123456789" }
   let(:email) { "example@test.org" }
+  let(:ballot_style_code) { "BS1" }
 
   let(:attributes) do
     {
@@ -25,6 +26,7 @@ describe Decidim::Votings::Census::Admin::DatumForm do
       full_address: full_address,
       postal_code: postal_code,
       mobile_phone_number: mobile_phone_number,
+      ballot_style_code: ballot_style_code,
       email: email
     }
   end
@@ -90,5 +92,11 @@ describe Decidim::Votings::Census::Admin::DatumForm do
     let(:document_type) { "invalid type" }
 
     it { is_expected.to be_invalid }
+  end
+
+  describe "when ballot style code is missing" do
+    let(:ballot_style_code) { nil }
+
+    it { is_expected.to be_valid }
   end
 end

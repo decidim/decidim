@@ -3,11 +3,20 @@
 require "spec_helper"
 
 describe "decidim_elections:scheduled_tasks", type: :task do
+  before do
+    VCR.turn_off!
+    Decidim::Elections.bulletin_board.reset_test_database
+  end
+
+  after do
+    VCR.turn_on!
+  end
+
   it "runs gracefully" do
     expect { task.execute }.not_to raise_error
   end
 
-  context "with elections to start", :vcr do
+  context "with elections to start" do
     let!(:election) { create :election, :bb_test, :key_ceremony_ended }
 
     before { task.execute }
@@ -18,7 +27,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
     end
   end
 
-  context "with elections to end", :vcr do
+  context "with elections to end" do
     let!(:election) { create :election, :bb_test, :vote, :finished }
 
     before { task.execute }
@@ -42,7 +51,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
     end
   end
 
-  context "with pending votes", :vcr do
+  context "with pending votes" do
     let!(:vote) { create :vote, message_id: "decidim-test-authority.10004.vote.cast+v.voter-1" }
 
     before { task.execute }

@@ -204,7 +204,7 @@ module Decidim
     describe "devise emails" do
       it "sends them asynchronously" do
         create(:user)
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end
 

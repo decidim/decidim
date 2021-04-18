@@ -32,7 +32,7 @@ cs:
         instagram: Instagram
         internal_organisation: Vnitřní organizace
         is_transparent: Transparentní
-        local_area: Oblast organizace
+        local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         parent_id: Nadřazené shromáždění
         participatory_processes_ids: Související participativní procesy
@@ -375,7 +375,7 @@ cs:
         is_transparent:
           'false': neprůhledný
           'true': transparentní
-        local_area: Oblast organizace
+        local_area: Oblast působnosti organizace
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se o tom rozhoduje
         private_space: Toto je soukromé shromáždění

@@ -24,7 +24,7 @@ shared_context "with frontend map builder" do
     end
   end
   let(:organization) { create(:organization) }
-  let(:template) { template_class.new }
+  let(:template) { template_class.new(ActionView::LookupContext.new(nil)) }
   let(:options) { {} }
   let(:js_options) { options.transform_keys { |k| k.to_s.camelize(:lower) }.to_h }
 
@@ -68,7 +68,7 @@ shared_context "with frontend map elements" do
         <head>
           <title>Map Test</title>
           #{stylesheet_link_tag "application"}
-          #{javascript_include_tag "application"}
+          #{javascript_pack_tag "decidim_core"}
           #{builder.stylesheet_snippets}
           #{builder.javascript_snippets}
           #{head_extra}
@@ -84,9 +84,9 @@ shared_context "with frontend map elements" do
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
             // finished loading.
-            $(document).ready(function() {
+            window.$(document).ready(function() {
               setTimeout(function() {
-                $("body").append('<div id="ready_indicator">Document ready</div>');
+                window.$("body").append('<div id="ready_indicator">Document ready</div>');
               }, 1000);
             });
           </script>

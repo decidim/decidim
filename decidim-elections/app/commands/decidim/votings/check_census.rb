@@ -17,14 +17,15 @@ module Decidim
       def call
         return broadcast(:invalid) unless form.valid?
 
-        check_census!
+        check_census
       end
 
       attr_reader :form, :session
 
-      def check_census!
-        if Decidim::Votings::Census::Datum.exists?(dataset: form.current_participatory_space.dataset, hashed_check_data: form.hashed_check_data)
-          broadcast(:ok)
+      def check_census
+        datum = Decidim::Votings::Census::Datum.find_by(dataset: form.current_participatory_space.dataset, hashed_check_data: form.hashed_check_data)
+        if datum
+          broadcast(:ok, datum)
         else
           broadcast(:not_found)
         end

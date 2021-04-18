@@ -174,9 +174,9 @@ module Decidim
         Decidim::OmniauthProvider.extract_provider_key(key)
       end.compact.uniq
 
-      Hash[tenant_enabled_providers_keys.map do |key|
-        [key, omniauth_provider_settings(key)]
-      end]
+      tenant_enabled_providers_keys.index_with do |key|
+        omniauth_provider_settings(key)
+      end
     end
 
     def omniauth_provider_settings(provider)

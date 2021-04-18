@@ -43,6 +43,7 @@ cs:
         default_locale: Výchozí jazyk
         description: Popis
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
+        enable_participatory_space_filters: Povolit filtry participačního prostoru
         facebook_handler: Facebook handler
         favicon: Ikona
         force_authentication: Vynutit ověření
@@ -356,6 +357,17 @@ cs:
           values:
             'false': Ověřeno
             'true': Neověřeno
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka přijata
+            values:
+              'false': Nepřijato
+              'true': Přijato
+          user_invitation_sent_at_not_null:
+            label: Pozvánka odeslána
+            values:
+              'false': Neodesláno
+              'true': Odesláno
         private_space_eq:
           label: Soukromé
           values:
@@ -373,6 +385,7 @@ cs:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
           title_cont: Hledat %{collection} podle názvu.
+          user_name_or_user_email_cont: Hledat %{collection} podle jména nebo e-mailu.
         state_eq:
           label: Stav
       forms:
@@ -783,7 +796,7 @@ cs:
           success: Typ oblasti působnosti byl úspěšně aktualizován
       scopes:
         create:
-          error: Při vytváření nového oboru došlo k chybě.
+          error: Při vytváření nové oblasti působnosti došlo k chybě.
           success: Oblast působnosti byla úspěšně vytvořena.
         destroy:
           success: Oblast působnosti úspěšně zničena

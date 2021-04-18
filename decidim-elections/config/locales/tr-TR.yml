@@ -309,7 +309,6 @@ tr:
           experience: Şu ana kadarki deneyiminiz nasıl?
           feedback: Bize geri bildirim verin
           header: Oy onaylandı
-          lead: Oyunuz çoktan verildi!
           text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
         header:
           confirm: Oyunu onayla

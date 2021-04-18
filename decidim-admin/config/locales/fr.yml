@@ -352,6 +352,17 @@ fr:
           values:
             'false': Validé
             'true': Non validé
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitation acceptée
+            values:
+              'false': Non acceptée
+              'true': Acceptée
+          user_invitation_sent_at_not_null:
+            label: Invitation envoyée
+            values:
+              'false': Non envoyée
+              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -369,6 +380,7 @@ fr:
           name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
           reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Rechercher %{collection} par titre.
+          user_name_or_user_email_cont: Rechercher %{collection} par nom ou par email.
         state_eq:
           label: État
       forms:

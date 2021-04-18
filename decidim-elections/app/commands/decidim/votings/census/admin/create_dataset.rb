@@ -25,9 +25,14 @@ module Decidim
 
             dataset = create_census_dataset!
 
+            if csv_header_invalid?
+              dataset.destroy!
+              return broadcast(:invalid_csv_header)
+            end
+
             if dataset
-              CSV.foreach(form.file.tempfile.path, col_sep: ";") do |row|
-                CreateDatumJob.perform_later(current_user, dataset, row)
+              CSV.foreach(form.file.tempfile.path, col_sep: ";", headers: true) do |row|
+                CreateDatumJob.perform_later(current_user, dataset, row.fields)
               end
             end
 
@@ -51,12 +56,24 @@ module Decidim
             )
           end
 
+          def csv_header_invalid?
+            CSV.parse_line(File.open(form.file.tempfile.path, &:readline), col_sep: ";").size != expected_header_size
+          end
+
+          def expected_header_size
+            @expected_header_size ||= form.current_participatory_space.has_ballot_styles? ? 9 : 8
+          end
+
           def csv_rows
             @csv_rows ||= CSV.read(form.file.tempfile.path)
           end
 
           def csv_row_count
-            @csv_row_count ||= csv_rows.count
+            @csv_row_count ||= file_lines_count(form.file.tempfile.path) - 1
+          end
+
+          def file_lines_count(file_path)
+            `wc -l "#{file_path}"`.strip.split(" ")[0].to_i
           end
         end
       end

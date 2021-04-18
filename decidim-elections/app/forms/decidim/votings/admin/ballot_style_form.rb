@@ -9,6 +9,10 @@ module Decidim
         attribute :question_ids, Array[Integer]
 
         validates :code, presence: true
+
+        def code
+          @code&.upcase
+        end
       end
     end
   end

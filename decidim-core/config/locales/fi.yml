@@ -1264,6 +1264,10 @@ fi:
         title: Valitse tulosten määrä sivua kohti
       share_modal:
         close_window: Sulje ikkuna
+        copy_share_link: Kopio
+        copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
+        copy_share_link_copied: Kopioitu!
+        copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
         share: Jaa
         share_link: Jaa linkki
     statistics:

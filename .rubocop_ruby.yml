@@ -176,6 +176,15 @@ Layout/ParameterAlignment:
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
+Style/ArrayCoercion:
+  Description: >-
+    Use Array() instead of explicit Array check or [*var], when dealing
+    with a variable you want to treat as an Array, but you're not certain it's an array.
+  StyleGuide: '#array-coercion'
+  Safe: false
+  Enabled: false
+  VersionAdded: '0.88'
+
 Style/AndOr:
   # Whether `and` and `or` are banned only in conditionals (conditionals)
   # or completely (always).
@@ -1221,6 +1230,7 @@ RSpec/DescribeClass:
     - spec/gemfiles_spec.rb
     - spec/js_bundles_spec.rb
     - spec/i18n_spec.rb
+    - spec/yarn_spec.rb
     - "**/*/spec/**/*_badge_spec.rb"
     - decidim-core/spec/lib/global_engines_spec.rb
     - "**/tasks/**/*"

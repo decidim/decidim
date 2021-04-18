@@ -11,7 +11,7 @@ module Decidim
 
       def to_s
         str = wrap_lines(@diff.map { |line| wrap_line(line) })
-        ActionView::Base.new.sanitize(str, tags: TAGS)
+        ActionView::Base.new(ActionView::LookupContext.new(nil), {}, nil).sanitize(str, tags: TAGS)
       end
     end
 

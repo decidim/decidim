@@ -55,9 +55,7 @@
   </div>
 </div>
 <div class="row">
-<div class="text-right">
-  <%= link_to t(".see_all_withdrawn"), proposals_path("filter[state][]" => "withdrawn") %>
+  <div class="text-right">
+    <%= link_to t(".see_all_withdrawn"), proposals_path("filter[state][]" => "withdrawn") %>
+  </div>
 </div>
-</div>
-<%= javascript_include_tag("decidim/filters") %>
-<%= javascript_include_tag "decidim/results_listing" %>

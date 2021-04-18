@@ -17,7 +17,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
 
-      enum voting_type: [:in_person, :online, :hybrid].map { |type| [type, type.to_s] }.to_h, _suffix: :voting
+      enum voting_type: [:in_person, :online, :hybrid].index_with(&:to_s), _suffix: :voting
 
       translatable_fields :title, :description
 
@@ -121,10 +121,6 @@ module Decidim
         true
       end
 
-      def needs_elections?
-        !in_person_voting? && !has_elections?
-      end
-
       def polling_stations_with_missing_officers?
         !online_voting? && polling_stations.any?(&:missing_officers?)
       end
@@ -135,7 +131,9 @@ module Decidim
           .where(managed_polling_station_id: nil)
       end
 
-      private
+      def has_ballot_styles?
+        ballot_styles.exists?
+      end
 
       def has_elections?
         components.where(manifest_name: :elections).any? do |component|
