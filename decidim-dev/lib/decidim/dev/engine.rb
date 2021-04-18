@@ -15,10 +15,6 @@ module Decidim
           ActionController::Base.include Decidim::Dev::NeedsDevelopmentTools
         end
       end
-
-      initializer "decidim_dev.assets" do |app|
-        app.config.assets.precompile += %w(decidim_dev_manifest.js)
-      end
     end
   end
 end

@@ -18,7 +18,7 @@ module Decidim
         return unless respond_to?(:snippets)
 
         snippets.add(:head, helpers.stylesheet_link_tag("decidim/dev"))
-        snippets.add(:head, helpers.javascript_include_tag("decidim/dev"))
+        snippets.add(:head, helpers.javascript_pack_tag("decidim_dev"))
       end
     end
   end
