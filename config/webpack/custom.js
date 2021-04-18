@@ -43,7 +43,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".js", ".jsx", ".gql", ".graphql"]
+    extensions: [".js", ".jsx", ".gql", ".graphql"],
+    fallback: {
+      crypto: false
+    }
   },
   // https://github.com/rails/webpacker/issues/2932
   // As Decidim uses multiple packs, we need to enforce a single runtime, to prevent duplication
