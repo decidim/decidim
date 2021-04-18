@@ -86,7 +86,7 @@ $(() => {
 
     results.violations.forEach((violation) => {
       const $item = $(`
-        <div class="decidim-accessibility-report-item" data-accessibility-violation="${violation.id}">
+        <div class="decidim-accessibility-report-item" data-accessibility-violation-id="${violation.id}">
           <div class="decidim-accessibility-report-item-title">
             ${violation.id} - ${htmlEncode(violation.help)}
           </div>

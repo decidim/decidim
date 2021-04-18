@@ -66,10 +66,10 @@ describe "Accessibility tool", type: :system do
   RSpec::Matchers.define :have_accessibility_violation_node do |violation_id, node_selector|
     match do |container|
       expect(container).to have_selector(
-        ".decidim-accessibility-report-item[data-accessibility-violation='#{violation_id}']"
+        ".decidim-accessibility-report-item[data-accessibility-violation-id='#{violation_id}']"
       )
 
-      within ".decidim-accessibility-report-item[data-accessibility-violation='#{violation_id}']" do
+      within ".decidim-accessibility-report-item[data-accessibility-violation-id='#{violation_id}']" do
         within ".decidim-accessibility-report-item-nodes ul" do
           expect(page).to have_selector("li", text: node_selector)
         end
