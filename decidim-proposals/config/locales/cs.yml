@@ -35,6 +35,7 @@ cs:
         origin_component_id: Komponenta pro kopírování návrhů z
       proposals_import:
         import_proposals: Návrhy na dovoz
+        keep_answers: Zachovat stav a odpovědi
         keep_authors: Uchovávejte původní autory
       valuation_assignment:
         admin_log:
