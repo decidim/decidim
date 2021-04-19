@@ -22,5 +22,15 @@ module Decidim
       expect(Decidim::Gamification.status_for(user1, :followers).score).to eq(0)
       expect(Decidim::Gamification.status_for(user2, :followers).score).to eq(1)
     end
+
+    context "when the user is already following the item" do
+      let!(:follow) { create(:follow, followable: user2, user: user1) }
+
+      it "does not raise a validation error" do
+        expect { described_class.new(form, user1).call }.to broadcast(:ok)
+        expect(user2.reload.followers).to include(user1)
+        expect(user2.follows_count).to eq(1)
+      end
+    end
   end
 end

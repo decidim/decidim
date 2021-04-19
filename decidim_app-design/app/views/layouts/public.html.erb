@@ -6,9 +6,14 @@
     <%= stylesheet_link_tag "public", media: "all", 'data-turbolinks-track': "reload" %>
     <%= javascript_pack_tag "decidim_app_design_public", 'data-turbolinks-track': "reload" %>
     <%= favicon_link_tag "favicon.png" %>
+    <%= snippets.display(:head) %>
   </head>
 
   <body>
     <%= yield %>
+
+    <script>
+    Decidim.config.set(<%== { icons_path: image_path("decidim/icons.svg") }.to_json %>);
+    </script>
   </body>
 </html>

@@ -7,27 +7,42 @@ module Decidim
     module Admin
       describe ImportProposals do
         describe "call" do
-          let!(:proposal) { create(:proposal, :accepted) }
-          let(:keep_authors) { false }
-          let(:current_component) do
+          let!(:organization) { create(:organization) }
+          let!(:proposal) { create(:proposal, :accepted, component: proposal_component) }
+          let!(:proposal_component) do
             create(
               :proposal_component,
-              participatory_space: proposal.component.participatory_space
+              organization: organization
             )
           end
+          let!(:current_component) do
+            create(
+              :proposal_component,
+              participatory_space: proposal_component.participatory_space,
+              organization: organization
+            )
+          end
+
           let(:form) do
             instance_double(
               ProposalsImportForm,
-              origin_component: proposal.component,
+              origin_component: proposal_component,
               current_component: current_component,
-              current_organization: current_component.organization,
+              current_organization: organization,
               keep_authors: keep_authors,
+              keep_answers: keep_answers,
               states: states,
-              current_user: create(:user),
+              scopes: scopes,
+              scope_ids: scope_ids,
+              current_user: create(:user, organization: organization),
               valid?: valid
             )
           end
+          let(:keep_authors) { false }
+          let(:keep_answers) { false }
           let(:states) { ["accepted"] }
+          let(:scopes) { [] }
+          let(:scope_ids) { scopes.map(&:id) }
           let(:command) { described_class.new(form) }
 
           describe "when the form is not valid" do
@@ -58,7 +73,7 @@ module Decidim
             end
 
             context "when a proposal was already imported" do
-              let(:second_proposal) { create(:proposal, :accepted, component: proposal.component) }
+              let(:second_proposal) { create(:proposal, :accepted, component: proposal_component) }
 
               before do
                 command.call
@@ -90,7 +105,7 @@ module Decidim
               new_proposal = Proposal.where(component: current_component).last
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
-              expect(new_proposal.creator_author).to eq(current_component.organization)
+              expect(new_proposal.creator_author).to eq(organization)
               expect(new_proposal.category).to eq(proposal.category)
 
               expect(new_proposal.state).to be_nil
@@ -117,12 +132,26 @@ module Decidim
               end
             end
 
+            describe "when keep_answers is true" do
+              let(:keep_answers) { true }
+
+              it "keeps the proposal state and answers" do
+                command.call
+
+                new_proposal = Proposal.where(component: current_component).last
+                expect(new_proposal.answer).to eq(proposal.answer)
+                expect(new_proposal.answered_at).to be_within(1.second).of(proposal.answered_at)
+                expect(new_proposal.state).to eq(proposal.state)
+                expect(new_proposal.state_published_at).to be_within(1.second).of(proposal.state_published_at)
+              end
+            end
+
             describe "proposal states" do
               let(:states) { %w(not_answered rejected) }
 
               before do
-                create(:proposal, :rejected, component: proposal.component)
-                create(:proposal, component: proposal.component)
+                create(:proposal, :rejected, component: proposal_component)
+                create(:proposal, component: proposal_component)
               end
 
               it "only imports proposals from the selected states" do
@@ -131,6 +160,43 @@ module Decidim
                 end.to change { Proposal.where(component: current_component).count }.by(2)
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
+              end
+            end
+
+            describe "proposal scopes" do
+              let(:states) { ProposalsImportForm::VALID_STATES.dup }
+              let(:scope) { create(:scope, organization: organization) }
+              let(:other_scope) { create(:scope, organization: organization) }
+
+              let(:scopes) { [scope] }
+              let(:scope_ids) { [scope.id] }
+
+              let!(:proposals) do
+                [
+                  create(:proposal, component: proposal_component, scope: scope),
+                  create(:proposal, component: proposal_component, scope: other_scope)
+                ]
+              end
+
+              it "only imports proposals from the selected scope" do
+                expect do
+                  command.call
+                end.to change { Proposal.where(component: current_component).count }.by(1)
+
+                expect(Proposal.where(component: current_component).pluck(:decidim_scope_id)).to eq([scope.id])
+              end
+
+              context "when the global scope is selected" do
+                let(:scope) { nil }
+                let(:scope_ids) { [nil] }
+
+                it "only imports proposals from the global scope" do
+                  expect do
+                    command.call
+                  end.to change { Proposal.where(component: current_component).count }.by(2)
+
+                  expect(Proposal.where(component: current_component).pluck(:decidim_scope_id)).to eq([nil, nil])
+                end
               end
             end
 

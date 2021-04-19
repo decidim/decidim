@@ -107,12 +107,15 @@ module Decidim
 
       private
 
-      # This method will add an error to the `attachment` field only if there's
-      # any error in any other field. This is needed because when the form has
-      # an error, the attachment is lost, so we need a way to inform the user of
+      # This method will add an error to the `add_photos` and/or "add_documents" fields
+      # only if there's any error in any other field. This is needed because when the
+      # form has an error, the attachment is lost, so we need a way to inform the user of
       # this problem.
       def notify_missing_attachment_if_errored
-        errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+        if errors.any?
+          errors.add(:add_photos, :needs_to_be_reattached) if add_photos.present?
+          errors.add(:add_documents, :needs_to_be_reattached) if add_documents.present?
+        end
       end
 
       def ordered_hashtag_list(string)
