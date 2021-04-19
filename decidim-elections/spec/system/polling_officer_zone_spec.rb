@@ -58,21 +58,50 @@ describe "Polling Officer zone", type: :system do
       end
     end
 
-    it "can add results for the polling station" do
-      visit decidim_votings_polling_officer_zone.new_polling_officer_result_path(assigned_polling_officer, election)
-
-      expect(page).to have_content("Vote recount - Answers recount")
-
-      within ".form.new_result" do
-        questions.each do |question|
-          question.answers.each do |answer|
-            fill_in "election_result__answer_results__#{answer.id}_votes_count", with: Faker::Number.number(digits: 1)
-          end
+    describe "creates a closure" do
+      it "can add results for the polling station" do
+        visit decidim_votings_polling_officer_zone.new_polling_officer_election_closure_path(assigned_polling_officer, election)
+        expect(page).to have_content("Vote recount")
+        within ".form.new_closure" do
+          fill_in "ballots_result_total_ballots_count", with: 0
+          find("#ballots_result_total_ballots_count").native.send_keys(:tab)
+          find("*[type=submit]").click
         end
-        find("*[type=submit]").click
+
+        expect(page).to have_content("Closure successfully created")
+      end
+    end
+
+    describe "when adding results to the closure" do
+      before do
+        visit decidim_votings_polling_officer_zone.new_polling_officer_election_closure_path(assigned_polling_officer, election)
+        within ".form.new_closure" do
+          fill_in "ballots_result_total_ballots_count", with: 0
+          find("#ballots_result_total_ballots_count").native.send_keys(:tab)
+          find("*[type=submit]").click
+        end
       end
 
-      expect(page).to have_content("Results successfully created")
+      it "can add results for the polling station" do
+        expect(page).to have_content("Vote recount - Answers recount")
+
+        within ".form.edit_closure" do
+          fill_in "election_result__ballot_results__valid_ballots_count", with: 0
+          fill_in "election_result__ballot_results__blank_ballots_count", with: 0
+          fill_in "election_result__ballot_results__null_ballots_count", with: 0
+          find("#election_result__ballot_results__null_ballots_count").native.send_keys(:tab)
+
+          questions.each do |question|
+            question.answers.each do |answer|
+              fill_in "election_result__answer_results__#{answer.id}_votes_count", with: Faker::Number.number(digits: 1)
+            end
+          end
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Closure results successfully updated")
+      end
     end
   end
 end

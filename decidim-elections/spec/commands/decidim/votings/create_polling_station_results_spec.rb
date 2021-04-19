@@ -4,11 +4,12 @@ require "spec_helper"
 
 module Decidim::Votings
   describe CreatePollingStationResults do
-    subject { described_class.new(form, polling_officer) }
+    subject { described_class.new(form, closure) }
 
     let(:voting) { create(:voting) }
     let(:component) { create(:elections_component, participatory_space: voting) }
     let(:election) { create(:election, questions: questions, component: component) }
+    let(:closure) { create(:closure, election: election) }
     let!(:questions) { create_list(:question, 3, :complete) }
     let(:polling_station) { create(:polling_station, voting: component.participatory_space) }
     let(:polling_officer) { create(:polling_officer, voting: component.participatory_space) }
