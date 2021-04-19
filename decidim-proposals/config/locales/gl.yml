@@ -47,7 +47,9 @@ gl:
               invalid_document_type: 'Tipo de documento non válido. Os formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Necesita ser reenxerado
+            add_photos:
               needs_to_be_reattached: Necesita ser reenxerado
             body:
               cant_be_equal_to_template: non pode ser igual ao modelo
