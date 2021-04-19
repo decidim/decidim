@@ -62,7 +62,7 @@ es-PY:
         one: Conjunto de datos
         other: Conjuntos de datos
       decidim/votings/census/datum:
-        one: Dato
+        one: Referencia
         other: Datos
       decidim/votings/polling_officer:
         one: Gestor de mesa
@@ -90,7 +90,7 @@ es-PY:
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Buscar %{collection} por nombre/email/alias o punto de votación.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
-          : Buscar %{collection} por título, dirección o nombre del gestor/email/alias.
+          : Buscar %{collection} por título, dirección o nombre del responsable/email/alias.
     components:
       elections:
         actions:
@@ -106,11 +106,11 @@ es-PY:
         confirm_destroy: '¿Estás segura?'
         destroy: Destruir
         edit: Editar
-        feedback: Feedback del votante
+        feedback: Retorno de la votante
         import: Importar de propuestas a respuestas
-        manage_answers: Gestionar respuestas
-        manage_questions: Gestionar preguntas
-        manage_steps: Gestionar pasos
+        manage_answers: Gestionar las respuestas
+        manage_questions: Gestionar las preguntas
+        manage_steps: Gestionar las fases
         new: Nueva %{name}
         preview: Previsualizar
         publish: Publicar
@@ -142,7 +142,7 @@ es-PY:
           selected: Seleccionada
           unselect:
             invalid: Hubo un problema al deseleccionar esta respuesta
-            success: Respuesta seleccionada con éxito
+            success: Respuesta seleccionada correctamente
           update:
             invalid: Se ha producido un error al crear esta respuesta
             success: Respuesta actualizada con éxito
@@ -171,9 +171,9 @@ es-PY:
             success: Se ha actualizado la votación correctamente
         exports:
           elections: Elecciones
-          feedback_form_answers: Feedback de respuestas
+          feedback_form_answers: Retorno de las respuestas
         menu:
-          trustees: Garantes
+          trustees: Depositarias
         models:
           answer:
             name: Respuesta
