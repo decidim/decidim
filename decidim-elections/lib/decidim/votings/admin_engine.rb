@@ -25,6 +25,7 @@ module Decidim
           resources :polling_stations
           resources :polling_officers, only: [:new, :create, :destroy, :index]
           resources :monitoring_committee_members, only: [:new, :create, :destroy, :index]
+          resources :monitoring_committee_certificates, only: [:index]
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
           resources :ballot_styles
@@ -107,13 +108,28 @@ module Decidim
         end
       end
 
+      initializer "decidim_votings.decidim_votings_monitoring_committee_menu" do
+        Decidim.menu :decidim_votings_monitoring_committee_menu do |menu|
+          menu.add_item :voting_monitoring_committee_members,
+                        I18n.t("monitoring_committee_members", scope: "decidim.votings.admin.menu.votings_submenu"),
+                        decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space)),
+                        if: allowed_to?(:read, :monitoring_committee_members)
+          menu.add_item :voting_monitoring_committee_certificates,
+                        I18n.t("monitoring_committee_certificates", scope: "decidim.votings.admin.menu.votings_submenu"),
+                        decidim_admin_votings.voting_monitoring_committee_certificates_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_certificates_path(current_participatory_space)),
+                        if: allowed_to?(:read, :monitoring_committee_certificates, voting: current_participatory_space)
+        end
+      end
+
       initializer "decidim_votings.decidim_voting_menu" do
         Decidim.menu :admin_voting_menu do |menu|
           menu.add_item :edit_voting,
                         I18n.t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.edit_voting_path(current_participatory_space)),
-                        if: allowed_to?(:update, :information)
+                        if: allowed_to?(:edit, :voting, voting: current_participatory_space)
 
           menu.add_item :edit_voting_landing_page,
                         I18n.t("landing_page", scope: "decidim.votings.admin.menu.votings_submenu"),
@@ -148,11 +164,12 @@ module Decidim
                         active: is_active_link?(decidim_admin_votings.voting_polling_officers_path(current_participatory_space)),
                         if: !current_participatory_space.online_voting? && allowed_to?(:read, :polling_officers)
 
-          menu.add_item :voting_monitoring_committee_members,
-                        I18n.t("monitoring_committee_members", scope: "decidim.votings.admin.menu.votings_submenu"),
-                        decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space),
+          menu.add_item :voting_monitoring_committee,
+                        I18n.t("monitoring_committee", scope: "decidim.votings.admin.menu.votings_submenu"),
+                        "#",
                         active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space)),
-                        if: !current_participatory_space.online_voting? && allowed_to?(:read, :monitoring_committee_members)
+                        if: !current_participatory_space.online_voting? && allowed_to?(:read, :monitoring_committee_menu, voting: current_participatory_space),
+                        submenu: { target_menu: :decidim_votings_monitoring_committee_menu }
 
           menu.add_item :voting_ballot_styles,
                         I18n.t("ballot_styles", scope: "decidim.votings.admin.menu.votings_submenu"),

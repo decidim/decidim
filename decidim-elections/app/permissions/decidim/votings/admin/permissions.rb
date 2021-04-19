@@ -48,12 +48,11 @@ module Decidim
           return unless
           [
             :votings, :voting,
-            :information,
             :landing_page,
             :components,
             :polling_station, :polling_stations,
             :polling_officer, :polling_officers,
-            :monitoring_committee_member, :monitoring_committee_members,
+            :monitoring_committee_menu, :monitoring_committee_member, :monitoring_committee_members, :monitoring_committee_certificate, :monitoring_committee_certificates,
             :census,
             :ballot_style, :ballot_styles
           ].member? permission_action.subject
@@ -63,17 +62,15 @@ module Decidim
             toggle_allow(user_can_read_votings_admin_dashboard?) if permission_action.action == :read
           when :voting
             case permission_action.action
-            when :read, :update, :list
+            when :read, :list, :edit
               toggle_allow(user_can_read_voting?)
-            when :create, :publish, :unpublish
+            when :create, :publish, :unpublish, :update
               toggle_allow(user.admin?)
             when :preview
               toggle_allow(user_can_read_voting? && voting.present?)
             when :manage_landing_page
               toggle_allow(user.admin? && voting.present?)
             end
-          when :information
-            toggle_allow(user.admin?) if permission_action.action == :update
           when :landing_page
             toggle_allow(user.admin?) if permission_action.action == :update
           when :components
@@ -103,8 +100,14 @@ module Decidim
             when :delete
               toggle_allow(user.admin? && monitoring_committee_member.present?)
             end
+          when :monitoring_committee_menu
+            toggle_allow(user_can_read_voting?) if permission_action.action == :read
           when :monitoring_committee_members
             toggle_allow(user.admin?) if permission_action.action == :read
+          when :monitoring_committee_certificate
+            toggle_allow(user_monitoring_committee_for_voting?) if permission_action.action == :manage
+          when :monitoring_committee_certificates
+            toggle_allow(user_monitoring_committee_for_voting?) if permission_action.action == :read
           when :census
             toggle_allow(user.admin?) if permission_action.action == :manage
           when :ballot_style
