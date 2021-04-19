@@ -44,7 +44,9 @@ ja:
               invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: 再接続が必要
+            add_photos:
               needs_to_be_reattached: 再接続が必要
             body:
               cant_be_equal_to_template: はテンプレートと等しくすることはできません
