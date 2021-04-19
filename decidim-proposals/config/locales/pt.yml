@@ -44,7 +44,9 @@ pt:
               invalid_document_type: 'Tipo de documento inválido. Os formatos aceites são: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Necessita de ser recolocado
+            add_photos:
               needs_to_be_reattached: Necessita de ser recolocado
             body:
               cant_be_equal_to_template: não pode ser igual ao modelo

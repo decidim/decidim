@@ -47,7 +47,9 @@ fr:
               invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+            add_photos:
               needs_to_be_reattached: Doit être téléchargé de nouveau
             body:
               cant_be_equal_to_template: ne peut pas être égal au modèle

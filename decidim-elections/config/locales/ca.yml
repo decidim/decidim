@@ -320,6 +320,7 @@ ca:
         election:
           end_vote: "%{user_name} ha finalittzat el període de votació per l'elecció %{resource_name} al Bulletin Board"
           publish: "%{user_name} ha publicat la votació %{resource_name}"
+          publish_results: "%{user_name} ha publicat els resultats de l'elecció %{resource_name} al Butlletí"
           setup: "%{user_name} ha creat l'elecció %{resource_name} al Bulletin Board"
           start_key_ceremony: "%{user_name} va començar la cerimònia de claus per l'elecció %{resource_name} al Bulletin Board"
           start_tally: "%{user_name} ha iniciat el recompte per a l'elecció %{resource_name} al Bulletin Board"
@@ -524,6 +525,7 @@ ca:
         ballot_decision:
           audit: "( Auditar papereta )"
           back: Començar de nou el procés de votació
+          ballot_hash: 'L''identificador de papereta és:'
           cast: Enviar papereta
           description: Aquí tens les opcions per emetre la teva papereta perquè sigui degudament comptada o, alternativament, pots auditar que la teva papereta hagi estat xifrada correctament. Per raons de seguretat, l'auditoria de la teva papereta l'espatllarà, cosa que significa, que per a emetre el teu vot hauràs de reiniciar el procés de votació.
           header: 'La papereta està xifrada: pots dipositar-la o auditar-la'
@@ -544,6 +546,7 @@ ca:
           experience: Com valores l'experiència?
           feedback: Dona'ns la teva opinió
           header: Vot confirmat
+          lead: El vostre vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
         encrypting:
@@ -562,6 +565,7 @@ ca:
           encrypting: El vot s'està xifrant
           failed: Error en el vot
         messages:
+          invalid_token: La sessió de la cabina de votació no és vàlida. Prova de votar de nou.
           not_allowed: No pots votar en aquesta votació en aquest moment.
         modal:
           close: Tancar
@@ -628,6 +632,9 @@ ca:
             email_outro: Has rebut aquesta notificació perquè t'han assignat com %{role} de %{polling_station_name}.
             email_subject: Ets %{role} del punt de votació %{polling_station_name}.
             notification_title: Ets %{role} del punt de votació %{polling_station_name} a la votació <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Aquí tens el Codi d''Accès que havies demanat: %{access_code}. Amb això ja pots participar en %{voting}.'
+          subject: El teu Codi d'Accès per participar en %{voting}
     help:
       participatory_spaces:
         votings:
@@ -664,6 +671,7 @@ ca:
               new: Nou
               title: Accions
             associated_census_data: Entrades del cens associades
+            explanation_callout: Un estil de papereta especifica quines són les preguntes que llegiran els votants a la cabina. Així, en aquesta elecció pots escollir-ne quines formaran part de la papereta. El codi d'estil de papereta normalment comprova al cens quin és el votant per tal de mostrar una o altra papereta a la cabina. No creïs cap estil de papereta si es mostren sempre les mateixes preguntes a tothom.
             title: Estils de papereta
           new:
             create: Crea
@@ -908,11 +916,17 @@ ca:
               csv_example_without_ballot_style: 'Vet aquí un exemple del fitxer <strong>sense</strong> estils de papereta:'
               csv_header_after: Si no necessites les preguntes condicionals en els estils de papereta, no hi incloguis el darrer camp ("%{ballot_style_code_header}")
               csv_header_before: 'El fitxer del cens ha de ser un fitxer CSV amb la següent capçalera:'
+        document_types:
+          dni: ID
+          nie: Foreigner ID
+          passport: Passaport
         export_mailer:
           access_codes_export:
-            click_button: 'Clica el següent enllaç per baixar les dades dels codis d''accès.<br/>El fitxer estarà disponible fins el %{date}.<br/>Per obrir-lo, cal que disposeu de <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o bé <a href="https://peazip.github.io">PeaZip</a> (per a Linux). Contrasenya: %{password}'
+            click_button: 'Clica el següent enllaç per baixar les dades dels codis d''accés.<br/>El fitxer estarà disponible fins el %{date}.<br/>Per obrir-lo, cal que disposeu de <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o bé <a href="https://peazip.github.io">PeaZip</a> (per a Linux). Contrasenya: %{password}'
             download: Baixa
             subject: Els codis d'accès a la votació de %{voting_title} ja estan exportats
+        vote_flow:
+          datum_not_found: No hi ha cap votant amb aquestes dades.
       content_blocks:
         highlighted_votings:
           name: Votacions destacades
@@ -957,6 +971,35 @@ ca:
                 voting: Votació
               no_polling_stations: Encara no has estat assignat a cap punt de votació.
               title: Punts de votació
+        votes:
+          create:
+            success: S'ha emès correctament el vot en persona
+          in_person_fields:
+            date_of_birth: Data de naixement
+            day: Dia
+            day_placeholder: DD
+            document_number: Número de document
+            document_number_placeholder: Número d'identificació
+            month: Mes
+            month_placeholder: MM
+            name: Nom
+            select: Escull el tipus d'informe
+            voted: Participant ha votat
+            year: Any
+            year_placeholder: AAAA
+          new:
+            back: Torna als punts de votació
+            census_not_present: No hem trobat la participant al cens.
+            census_not_present_description: Ha d'anar a l'oficina del cens per a presentar una reclamació o per rebre assistència.
+            census_present: La participant es troba al cens.
+            census_verified: La participant encara no ha votat.
+            complete_voting: Completa el vot
+            form_title: 'Escull del tipus de document i introdueix el número de document de la participant:'
+            questions_title: 'Li instem a votar les següents preguntes:'
+            title: Identifica i verifica una participant
+            validate_document: Valida el document
+            verify_document: Verifica el document
+            verify_title: 'Comprova que les dades següents són correctes:'
       polling_officers:
         actions:
           confirm_destroy: N'estàs segura?
@@ -975,14 +1018,39 @@ ca:
           new: Nou
           title: Accions
       votings:
+        access_code_modal:
+          email: Envia un correu a %{email}
+          info: Necessites un Codi d'Accés per perticipar-hi. Si no n'has rebut cap per correu postal, podem enviar-te un de nou.
+          no_email: No hi ha cap correu disponible
+          no_sms: No hi ha cap número de telèfon disponible
+          sms: Envia un SMS a %{sms}
+          title: Aconsegueix un Codi d'Accés
         check_census:
+          check_status: Comprova l'estat
           description: Comproveu les dades del cens per saber si teniu dret a participar en la votació. Si les dades són correctes, hauríeu de tenir ja un codi d'accès però podeu demanar-lo de nou si encara no el teniu.
           error:
             info: 'Proveu de nou, si us plau. Si creus que les dades que tenim al sistema no són correctes, podeu avisar-nos a %{census_contact_information}.'
             title: Les dades del cens no són correctes!
+          form_title: 'Emplena el formulari següent per comprovar les dades del cens:'
           invalid: Hi ha hagut un problema en comprovar el cens.
           success:
+            access_link: via SMS o correu electrònic.
+            info: Ja hauries d'haver rebut el Codi d'Accès per correu postal. En cas que no l'hagis rebut, podeu demanar-lo de nou aquí
             title: Les dades del cens són correctes!
+          title: Puc votar?
+        check_fields:
+          date_of_birth: Data de naixement
+          day: Dia
+          day_placeholder: DD
+          document_number: Número de document
+          document_number_placeholder: Número d'identificació
+          month: Mes
+          month_placeholder: MM
+          postal_code: Codi Postal
+          postal_code_placeholder: Número del codi postal
+          select: Escull el tipus d'informe
+          year: Any
+          year_placeholder: AAAA
         count:
           title:
             one: "%{count} votació"
@@ -1004,12 +1072,22 @@ ca:
           only_finished: Actualment no hi ha votacions programades, però podeu trobar les votacions ja finalitzades.
           title: Votacions
         login:
+          access_code: Codi d'accés
+          access_code_placeholder: Codi d'accés
+          ask_for_a_new_one: Sol·licita'n un de nou.
+          dont_have_access_code: No tens un codi d'accès?
+          form_title: 'Emplena el formulari següent per accedir a la votació:'
           start_voting: Començar a votar
+          step: Identificació
+          title: Vull identificar-me amb les dades del cens de la meva votació
         no_census_contact_information: Encara no hi ha cap informació de contacte
         orders:
           label: 'Ordenar votacions per:'
           random: Aleatori
           recent: Més recents
+        send_access_code:
+          invalid: Hi ha hagut un problema en enviar el Codi d'Accés
+          success: El Codi d'Accés s'ha enviat correctament
         show:
           dates: Dates
       votings_m:
@@ -1032,6 +1110,7 @@ ca:
       election_votes_header:
         exit: Sortir
       voting_navigation:
+        check_census: Puc votar?
         voting_menu_item: La votació
       votings:
         index:
