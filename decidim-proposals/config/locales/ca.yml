@@ -47,7 +47,9 @@ ca:
               invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+            add_photos:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
             body:
               cant_be_equal_to_template: No pot ser igual a la plantilla
