@@ -47,7 +47,9 @@ cs:
               invalid_document_type: 'Neplatný typ dokumentu. Přijaté formáty jsou: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Potřebuje být znovu připojen
+            add_photos:
               needs_to_be_reattached: Potřebuje být znovu připojen
             body:
               cant_be_equal_to_template: nelze se rovnat šabloně
