@@ -17,7 +17,7 @@ module Decidim
       validate :ballot_total_count
 
       def ballot_total_count
-        total_ballots_count == (valid_ballots_count + blank_ballots_count + null_ballots_count)
+        total_ballots_count == (valid_ballots_count.to_i + blank_ballots_count.to_i + null_ballots_count.to_i)
       end
 
       def map_model(model)

@@ -14,8 +14,8 @@ module Decidim
                  optional: true
       belongs_to :polling_officer,
                  foreign_key: "decidim_votings_polling_officer_id",
-                 class_name: "Decidim::Votings::PollingOfficer"
-
+                 class_name: "Decidim::Votings::PollingOfficer",
+                 optional: true
       has_many :results,
                foreign_key: "decidim_elections_closure_id",
                class_name: "Decidim::Elections::Result",

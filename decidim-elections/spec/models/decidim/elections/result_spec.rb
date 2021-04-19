@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe Decidim::Elections::Result do
-  subject(:result) { build(:election_result, :with_polling_station) }
+  subject(:result) { build(:election_result) }
 
   it { is_expected.to be_valid }
 
-  it "has an associated election" do
-    expect(result.election).to be_a(Decidim::Elections::Election)
+  it "has an associated closure" do
+    expect(result.closure).to be_a(Decidim::Elections::Closure)
   end
 
   it "has an associated question" do
@@ -17,9 +17,5 @@ describe Decidim::Elections::Result do
 
   it "has an associated answer" do
     expect(result.answer).to be_a(Decidim::Elections::Answer)
-  end
-
-  it "has an associated polling_station" do
-    expect(result.polling_station).to be_a(Decidim::Votings::PollingStation)
   end
 end

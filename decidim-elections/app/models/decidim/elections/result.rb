@@ -8,8 +8,7 @@ module Decidim
 
       belongs_to :closure,
                  foreign_key: "decidim_elections_closure_id",
-                 class_name: "Decidim::Elections::Result",
-                 optional: true,
+                 class_name: "Decidim::Elections::Closure",
                  inverse_of: :results
       belongs_to :question,
                  foreign_key: "decidim_elections_question_id",
