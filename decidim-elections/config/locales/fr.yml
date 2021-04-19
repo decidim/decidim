@@ -274,6 +274,7 @@ fr:
       admin_log:
         election:
           publish: "%{user_name} a publié l'élection %{resource_name}"
+          publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} sur le Tableau d'affichage"
           unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
       election_m:
         badge_name:
@@ -673,6 +674,14 @@ fr:
             active_votings: Votations en cours
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_officer_zone:
+        votes:
+          create:
+            success: Vote en personne émis avec succès
+          in_person_fields:
+            date_of_birth: Date de naissance
+            day: Jour
+            day_placeholder: JJ
       polling_stations:
         actions:
           confirm_destroy: Êtes-vous sûr(e) ?

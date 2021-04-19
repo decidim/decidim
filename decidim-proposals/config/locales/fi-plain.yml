@@ -47,7 +47,9 @@ fi-pl:
               invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Liitettävä uudelleen
+            add_photos:
               needs_to_be_reattached: Liitettävä uudelleen
             body:
               cant_be_equal_to_template: ei voi vastata mallipohjaa
