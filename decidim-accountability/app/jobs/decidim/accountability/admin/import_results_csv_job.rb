@@ -3,11 +3,11 @@
 module Decidim
   module Accountability
     module Admin
-      class ImportResultsCSVJob < ApplicationJob
+      class ImportResultsCsvJob < ApplicationJob
         queue_as :default
 
         def perform(current_user, current_component, csv_file)
-          importer = Decidim::Accountability::ResultsCSVImporter.new(current_component, csv_file, current_user)
+          importer = Decidim::Accountability::ResultsCsvImporter.new(current_component, csv_file, current_user)
 
           errors = importer.import!
 

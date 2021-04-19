@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
+require "paper_trail/frameworks/active_record"
 require "active_support/concern"
-
-require_dependency "paper_trail/frameworks/active_record"
 
 module Decidim
   # A concern that adds traceabilty capability to the given model. Including this

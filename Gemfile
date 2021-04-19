@@ -13,10 +13,13 @@ gem "decidim-templates", path: "."
 
 gem "bootsnap", "~> 1.4"
 
+gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git"
 gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
+
+gem "webpacker", git: "https://github.com/rails/webpacker.git"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
@@ -35,5 +38,5 @@ group :development do
   gem "rubocop-faker"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "~> 3.5"
+  gem "web-console", "4.0.4"
 end

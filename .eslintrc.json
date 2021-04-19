@@ -32,7 +32,8 @@
         "require": false,
         "DecidimAdmin": false,
         "L": false,
-        "decidimBulletinBoard": false
+        "decidimBulletinBoard": false,
+        "Rails": false
     },
     "rules": {
         "accessor-pairs": "error",

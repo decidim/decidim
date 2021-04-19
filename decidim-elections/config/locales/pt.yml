@@ -171,7 +171,6 @@ pt:
           experience: Como foi a sua experiência?
           feedback: Dê-nos algum feedback
           header: Voto confirmado
-          lead: O seu voto já foi transmitido!
           text: 'Pode verificar que o seu voto foi adicionado corretamente à caixa de voto com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         header:
           confirm: Confirmar o seu voto

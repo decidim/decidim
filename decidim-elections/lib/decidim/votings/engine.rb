@@ -15,6 +15,8 @@ module Decidim
         resources :votings, param: :slug, only: [:index, :show, :update] do
           get :check_census, action: :show_check_census
           post :check_census, action: :check_census
+          match :login, via: [:get, :post]
+          post :send_access_code
         end
 
         get "votings/:voting_id", to: redirect { |params, _request|

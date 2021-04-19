@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Assemblies
-  describe Statistic, type: :cell do
+  describe Decidim::Statistic, type: :cell do
     controller Decidim::ApplicationController
 
     subject { cell("decidim/statistic", model).call }

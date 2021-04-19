@@ -64,7 +64,6 @@ module Decidim
       class_option :profiling, type: :boolean,
                                default: false,
                                desc: "Add the necessary gems to profile the app"
-
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -97,18 +96,13 @@ module Decidim
       def gemfile
         return if options[:skip_gemfile]
 
-        copy_file target_gemfile, "Gemfile", force: true
-        copy_file "#{target_gemfile}.lock", "Gemfile.lock", force: true
-
-        gem_modifier = if options[:path]
-                         "path: \"#{options[:path]}\""
-                       elsif options[:edge]
-                         "git: \"https://github.com/decidim/decidim.git\", branch: \"develop\""
-                       elsif options[:branch]
-                         "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
-                       else
-                         "\"#{Decidim::Generators.version}\""
-                       end
+        if branch.present?
+          get target_gemfile, "Gemfile", force: true
+          get "#{target_gemfile}.lock", "Gemfile.lock", force: true
+        else
+          copy_file target_gemfile, "Gemfile", force: true
+          copy_file "#{target_gemfile}.lock", "Gemfile.lock", force: true
+        end
 
         gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
 
@@ -207,6 +201,10 @@ module Decidim
                   "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
       end
 
+      def install_webpacker_initializer
+        copy_file "webpacker_initializer.rb", "config/initializers/webpacker.rb"
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [
@@ -220,6 +218,22 @@ module Decidim
       end
 
       private
+
+      def gem_modifier
+        @gem_modifier ||= if options[:path]
+                            "path: \"#{options[:path]}\""
+                          elsif branch.present?
+                            "git: \"https://github.com/decidim/decidim.git\", branch: \"#{branch}\""
+                          else
+                            "\"#{Decidim::Generators.version}\""
+                          end
+      end
+
+      def branch
+        return if options[:path]
+
+        @branch ||= options[:edge] ? "develop" : options[:branch].presence
+      end
 
       def app_name
         options[:app_name] || super
@@ -242,6 +256,8 @@ module Decidim
       def target_gemfile
         root = if options[:path]
                  expanded_path
+               elsif branch.present?
+                 "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
                else
                  root_path
                end

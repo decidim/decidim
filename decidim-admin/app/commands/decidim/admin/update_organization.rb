@@ -56,7 +56,8 @@ module Decidim
           comments_max_length: form.comments_max_length,
           enable_machine_translations: form.enable_machine_translations,
           admin_terms_of_use_body: form.admin_terms_of_use_body,
-          rich_text_editor_in_public_views: form.rich_text_editor_in_public_views
+          rich_text_editor_in_public_views: form.rich_text_editor_in_public_views,
+          enable_participatory_space_filters: form.enable_participatory_space_filters
         }.merge(welcome_notification_attributes)
           .merge(machine_translation_attributes || {})
       end

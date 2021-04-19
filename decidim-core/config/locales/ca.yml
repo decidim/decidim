@@ -5,6 +5,8 @@ ca:
         delete_reason: Raó per eliminar el teu compte
       common:
         created_at: Creat el
+      conversation:
+        body: Cos
       group:
         about: Quant a
         avatar: Avatar
@@ -13,6 +15,8 @@ ca:
         name: Nom
         nickname: Àlies
         phone: Telèfon
+      message:
+        body: Cos
       report:
         details: Comentaris addicionals
       user:
@@ -1258,6 +1262,10 @@ ca:
         title: Seleccionar el nombre de resultats per pàgina
       share_modal:
         close_window: Tanca la finestra
+        copy_share_link: Copia
+        copy_share_link_clarification: Copia l'enllaç al porta-retalls
+        copy_share_link_copied: Copiat!
+        copy_share_link_message: S'ha copiat l'enllaç al porta-retalls.
         share: Compartir
         share_link: Compartir l'enllaç
     statistics:
@@ -1530,6 +1538,10 @@ ca:
       too_short: És massa curt (menys de 15 caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
+    length_validator:
+      minimum:
+        one: Almenys %{count} caràcter
+        other: Almenys %{count} caràcters
     required: Obligatori
     required_explanation: "* Els camps obligatoris estan marcats amb un asterisc"
   invisible_captcha:
@@ -1550,9 +1562,11 @@ ca:
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
+        main_menu: Menú principal
         navigation: Navegació
         sign_in: Entra
         sign_up: Registra't
+        user_menu: Menú d'usuari
       impersonation_warning:
         close_session: Tanca la sessió
         description_html: Estàs gestionant la participant <b>%{user_name}</b>.
@@ -1581,6 +1595,7 @@ ca:
         profile: El meu compte
         public_profile: El meu perfil públic
         sign_out: Surt
+        title: Enllaços del perfil
       user_profile:
         account: Compte
         authorizations: Autoritzacions

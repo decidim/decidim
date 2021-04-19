@@ -155,6 +155,7 @@ sv:
         officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         show_email: "%{user_name} hämtade e-postadressen för deltagaren %{resource_name}"
+        transfer: "%{user_name} överförde deltagaren %{resource_name}"
         unblock: "%{user_name} avblockerade användaren %{resource_name}"
         unofficialize: "%{user_name} gjorde deltagaren %{resource_name} inofficiell"
       user_group:
@@ -391,6 +392,8 @@ sv:
       cta_settings_form:
         background_image: Bakgrundsbild
         button_text: Uppmaningens text
+        button_url: Uppmaningens URL
+        description: Beskrivning
       footer_sub_hero:
         name: Sidfot sub hero banner
       hero:
@@ -402,6 +405,7 @@ sv:
         name: Banner för uppmärksammat innehåll
       highlighted_elements_settings_form:
         orders:
+          label: 'Sortera element efter:'
           random: Slumpmässig
           recent: Senaste
       how_to_participate:
@@ -428,6 +432,7 @@ sv:
         ready: Klar
       show:
         download_data: Hämta data
+        download_data_description: En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Begär data
     datepicker:
       help_text: 'Förväntat format: %{datepicker_format}'
@@ -437,6 +442,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Komplettera profil
+          nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           sign_up: Var god slutför din profil
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
@@ -445,6 +451,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
+          nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
           sign_in: Logga in
           sign_up: Registrera dig
@@ -461,11 +468,14 @@ sv:
           register: Skapa ett konto
           sign_in_disabled: Du kan få åtkomst via ett externt konto
           sign_up_disabled: Anmälan är avaktiverad, men du kan komma in med ett befintligt konto
+        user:
+          timed_out: Du var inaktiv för länge och du har blivit automatiskt utloggad från tjänsten. Om du vill fortsätta använda tjänsten, vänligen logga in igen.
       shared:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
             close_modal: Stäng modal
+            uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
             Överväg gärna en gång till att markera kryssrutan för nyhetsbrev nedan.<br>
@@ -631,6 +641,11 @@ sv:
           notification_title: '%{user_group_name} användargrupp har uppdaterat sin profil och lämnar den overifierad. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.'
       notification_event:
         notification_title: En händelse inträffade i <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
+          email_outro: Du har fått det här meddelandet eftersom du är en författare till detta innehåll.
+          email_subject: Din %{resource_type} har tagits bort
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just instämt med "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
         email_outro: Du har fått det här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -1175,6 +1190,7 @@ sv:
         view_all: Visa alla (%{count})
     security:
       selfxss_warning:
+        description: Denna webbläsarfunktion är avsedd för utvecklare och du bör inte klistra in något här om du ombads att göra det. Klistra in innehåll i detta fönster kan påverka din integritet och ge hackare tillgång till ditt konto.
         title: OBS!
     shared:
       confirm_modal:
@@ -1231,6 +1247,10 @@ sv:
         title: Välj antal resultat per sida
       share_modal:
         close_window: Stäng fönster
+        copy_share_link: Kopiera
+        copy_share_link_clarification: Kopiera länk
+        copy_share_link_copied: Kopierad!
+        copy_share_link_message: Länken kopierades.
         share: Dela
         share_link: Dela länk
     statistics:
@@ -1503,6 +1523,10 @@ sv:
       too_short: är för kort (under 15 tecken)
   forms:
     correct_errors: Det finns fel på formuläret, vänligen korrigera dem för att fortsätta.
+    length_validator:
+      minimum:
+        one: Minst %{count} tecken
+        other: Minst %{count} tecken
     required: Krävs
     required_explanation: "* Obligatoriska fält är markerade med en asterisk"
   invisible_captcha:

@@ -1,1 +1,0 @@
-//= link decidim/debates/admin/debates.js

@@ -271,7 +271,7 @@ shared_examples "comments" do
         let(:content) { "A unconfirmed user mention: @#{mentioned_user.nickname}" }
 
         it "do not show the tribute container" do
-          expect(page).not_to have_selector(".tribute-container")
+          expect(page).not_to have_selector(".tribute-container", text: mentioned_user.name)
         end
       end
 
