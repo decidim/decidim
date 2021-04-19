@@ -98,7 +98,7 @@ module Decidim
       end
 
       def questions
-        @questions ||= election.questions.includes(:answers).order(weight: :asc, id: :asc)
+        @questions ||= ballot_questions.includes(:answers).order(weight: :asc, id: :asc)
       end
 
       def access_denied?
