@@ -48,6 +48,10 @@ en:
               invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
         proposal:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Needs to be reattached
+            add_photos:
+              needs_to_be_reattached: Needs to be reattached
             attachment:
               needs_to_be_reattached: Needs to be reattached
             body:
