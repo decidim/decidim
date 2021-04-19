@@ -93,7 +93,14 @@ module Decidim
     def filter_scopes_values_from_parent(scope)
       scopes_values = []
       scope.children.each do |child|
-        scopes_values << TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization))
+        unless child.children
+          scopes_values << TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization))
+          next
+        end
+        scopes_values << TreeNode.new(
+          TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
+          scope_children_to_tree(child)
+        )
       end
 
       filter_tree_from(scopes_values)
