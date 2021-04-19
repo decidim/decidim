@@ -129,7 +129,7 @@ module Decidim
                         I18n.t("info", scope: "decidim.votings.admin.menu.votings_submenu"),
                         decidim_admin_votings.edit_voting_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.edit_voting_path(current_participatory_space)),
-                        if: allowed_to?(:update, :information)
+                        if: allowed_to?(:edit, :voting, voting: current_participatory_space)
 
           menu.add_item :edit_voting_landing_page,
                         I18n.t("landing_page", scope: "decidim.votings.admin.menu.votings_submenu"),

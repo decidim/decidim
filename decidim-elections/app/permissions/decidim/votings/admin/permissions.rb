@@ -48,7 +48,6 @@ module Decidim
           return unless
           [
             :votings, :voting,
-            :information,
             :landing_page,
             :components,
             :polling_station, :polling_stations,
@@ -63,17 +62,15 @@ module Decidim
             toggle_allow(user_can_read_votings_admin_dashboard?) if permission_action.action == :read
           when :voting
             case permission_action.action
-            when :read, :update, :list
+            when :read, :list, :edit
               toggle_allow(user_can_read_voting?)
-            when :create, :publish, :unpublish
+            when :create, :publish, :unpublish, :update
               toggle_allow(user.admin?)
             when :preview
               toggle_allow(user_can_read_voting? && voting.present?)
             when :manage_landing_page
               toggle_allow(user.admin? && voting.present?)
             end
-          when :information
-            toggle_allow(user.admin?) if permission_action.action == :update
           when :landing_page
             toggle_allow(user.admin?) if permission_action.action == :update
           when :components
