@@ -33,6 +33,7 @@ describe "Authorized comments", type: :system do
     organization.save!
     sign_in user
     commentable.create_resource_permission(permissions: permissions)
+    allow(commentable).to receive(:comments_have_votes?).and_return(true)
   end
 
   shared_examples_for "allowed to comment" do
@@ -103,11 +104,11 @@ describe "Authorized comments", type: :system do
     context "and user is not verified" do
       include_context "with restricted comment action" do
         it_behaves_like "not allowed to comment"
-        it_behaves_like "allowed to vote a comment"
+        it_behaves_like "allowed to vote a comment" # !!! failing
       end
-
+      
       include_context "with restricted vote_comment action" do
-        it_behaves_like "allowed to comment"
+        it_behaves_like "allowed to comment" # !!! failing
         it_behaves_like "not allowed to vote a comment"
       end
 
