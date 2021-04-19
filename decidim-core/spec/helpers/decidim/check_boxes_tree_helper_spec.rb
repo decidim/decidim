@@ -62,7 +62,6 @@ module Decidim
         let(:participatory_space) { create(:participatory_process, :with_scope, organization: organization) }
         let!(:subscopes) { create_list :subscope, 5, parent: participatory_space.scope }
 
-
         before do
           component.update!(settings: { scopes_enabled: true, scope_id: participatory_space.scope.id })
         end

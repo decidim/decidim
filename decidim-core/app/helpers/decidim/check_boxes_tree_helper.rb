@@ -86,7 +86,7 @@ module Decidim
       return filter_scopes_values_from_parent(current_component.scope) if current_component.scope.present?
 
       main_scopes = current_participatory_space.scopes.top_level
-                                                 .includes(:scope_type, :children)
+                                               .includes(:scope_type, :children)
       filter_scopes_values_from(main_scopes)
     end
 
