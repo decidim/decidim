@@ -29,6 +29,16 @@ module Decidim
       end
     end
 
+    def filter_cache_hash(filter, type = nil)
+      hash = []
+      hash << "decidim/proposals/filters"
+      hash << type.to_s if type.present?
+      hash << I18n.locale.to_s
+      hash << Digest::MD5.hexdigest(filter.to_json)
+
+      hash.join("/")
+    end
+
     private
 
     # Creates a unique namespace for a filter form to prevent dupliacte IDs in

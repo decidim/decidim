@@ -34,6 +34,16 @@ describe Decidim::Traceability, versioning: true do
         .with(:create, user, a_kind_of(klass), kind_of(Integer), kind_of(Hash))
       subject.create(klass, user, params)
     end
+
+    context "when the created record is not valid" do
+      it "does not log the action" do
+        allow(klass).to receive(:create).with(params).and_return(dummy_resource)
+        allow(dummy_resource).to receive(:valid?).and_return(false)
+
+        expect(Decidim::ActionLogger).not_to receive(:log)
+        subject.create(klass, user, params)
+      end
+    end
   end
 
   describe "create!" do
@@ -58,6 +68,16 @@ describe Decidim::Traceability, versioning: true do
         .to receive(:log)
         .with(:create, user, a_kind_of(klass), a_kind_of(Integer), a_kind_of(Hash))
       subject.create!(klass, user, params)
+    end
+
+    context "when the created record is not valid" do
+      it "does not log the action" do
+        allow(klass).to receive(:create!).with(params).and_return(dummy_resource)
+        allow(dummy_resource).to receive(:valid?).and_return(false)
+
+        expect(Decidim::ActionLogger).not_to receive(:log)
+        subject.create!(klass, user, params)
+      end
     end
   end
 

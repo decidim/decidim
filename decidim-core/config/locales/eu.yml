@@ -63,7 +63,6 @@ eu:
         file_no_exists: Fitxategia ez dago
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
-        alert: Ekintza hau ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi.
         confirm:
           close: Itxi leihoa
           ok: Bai, nire kontua ezabatu nahi dut
@@ -207,8 +206,6 @@ eu:
         name: Adibidez baimena
       dummy_authorization_workflow:
         name: Dummy baimena eragiketa
-      errors:
-        duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
       expired_at: '%{timestamp} iraungita dago'
       expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
@@ -306,7 +303,6 @@ eu:
         ready: prest
       show:
         download_data: Deskargatu datuak
-        download_data_description: Kontuarekin lotutako informazio guztia duen fitxategia <strong>%{user_email}</strong>bidaliko da
         request_data: Eskaera datuak
     datepicker:
       help_text: 'Espero den formatua: %{datepicker_format}'
@@ -499,7 +495,6 @@ eu:
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
       data_portability_export:
-        click_button: 'Egin klik hurrengo botoian zure datuak deskargatzeko. <br/> Fitxategia eskuragarri izango duzu %{date}arte.'
         download: Deskarga
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -713,6 +708,7 @@ eu:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         index:
           close: Itxi modal
+          from: Nork
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
         reply:
@@ -809,24 +805,7 @@ eu:
         metrics:
           headline: Zifretan parte hartzea
         statistics:
-          answers_count: Amaitutako inkestak
-          assemblies_count: Batzar
-          comments_count: Iruzkinak
-          conferences_count: Jardunaldiak
-          debates_count: Eztabaidak
-          endorsements_count: Oniritziak
           headline: '%{organization} erakundearen egungo egoera'
-          meetings_count: Bilerak
-          orders_count: Euskarriak
-          pages_count: Orriak
-          processes_count: Prozesuak
-          projects_count: Proiektuak
-          proposals_accepted: Onartutako proposamenak
-          proposals_count: proposamenak
-          results_count: Emaitzak
-          surveys_count: Inkestak
-          users_count: Parte-hartzaileak
-          votes_count: Euskarriak
         sub_hero:
           register: Erregistroa
       index:
@@ -972,10 +951,14 @@ eu:
         close_window: Itxi leihoa
         share: Partekatu
         share_link: Partekatu esteka
+    statistics:
+      comments_count: Iruzkinak
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
     user_conversations:
+      index:
+        from: Nork
       update:
         error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
@@ -1141,7 +1124,7 @@ eu:
     messages:
       already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
       confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
-      content_type_whitelist_error: fitxategiaren mota ez da baliozkoa
+      content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       expired: iraungi egin da, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
@@ -1149,6 +1132,9 @@ eu:
       must_start_with_caps: letra maiuskulaz hasi behar da
       nesting_too_deep: ezin da egon azpikategoria batean
       not_locked: ez zen blokeatuta
+      not_saved:
+        one: 'Errorea gertatu da zure eskaera prozesatzean:'
+        other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
       too_short: laburra da (15 karaktere baino gutxiago)

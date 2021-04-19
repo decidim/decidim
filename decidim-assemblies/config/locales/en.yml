@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Enable organization chart
       assembly:
         area_id: Area
         assembly_type: Assembly type
@@ -51,6 +53,7 @@ en:
         target: Who participates
         title: Title
         twitter: Twitter
+        weight: Order position
         youtube: YouTube
       assembly_member:
         birthday: Birthday
@@ -61,6 +64,7 @@ en:
         full_name: Full name
         gender: Gender
         position: Position
+        user_id: User
       assembly_user_role:
         email: Email
         name: Name
@@ -247,7 +251,7 @@ en:
         update: "%{user_name} updated the assemblies settings"
       assembly_type:
         create: "%{user_name} created the %{resource_name} assembly type"
-        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly type"
+        delete: "%{user_name} removed the %{resource_name} assembly type"
         publish: "%{user_name} published the %{resource_name} assembly type"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly type"
         update: "%{user_name} updated the %{resource_name} assembly type"
@@ -378,23 +382,6 @@ en:
         social_networks: Social Networks
         social_networks_title: Share this assembly on
         target: Who participates
-      statistics:
-        answers_count: Answers
-        assemblies_count: Assemblies
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Supports
-        pages_count: Pages
-        posts_count: Posts
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Supports
     assembly_members:
       assembly_member:
         designated_on: Designated on
@@ -442,7 +429,7 @@ en:
         hero:
           participate_title: Participate to the platform's processes
         sub_hero:
-          register_title: Sign up to create an account on the platform
+          register_title: Sign up to create an account
     participatory_processes:
       pages:
         home:
@@ -450,6 +437,8 @@ en:
             processes_button_title: Link to the Processes page displaying all the processes
       show:
         related_assemblies: Related assemblies
+    statistics:
+      assemblies_count: Assemblies
   errors:
     messages:
       cannot_be_blank: can not be blank

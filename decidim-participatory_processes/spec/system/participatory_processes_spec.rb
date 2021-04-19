@@ -92,6 +92,8 @@ describe "Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_processes_path
       end
 
+      it_behaves_like "accessible page"
+
       context "and accessing from the homepage" do
         it "the menu link is not shown" do
           visit decidim.root_path
@@ -112,6 +114,8 @@ describe "Participatory Processes", type: :system do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
+        it_behaves_like "accessible page"
+
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
             expect(page).to have_content(translated(promoted_process.title, locale: :en))
@@ -128,7 +132,7 @@ describe "Participatory Processes", type: :system do
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(promoted_process.title, locale: :en))
-          expect(page).to have_content(translated(group.name, locale: :en))
+          expect(page).to have_content(translated(group.title, locale: :en))
           expect(page).to have_selector(".card", count: 3)
 
           expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
@@ -226,6 +230,52 @@ describe "Participatory Processes", type: :system do
           end
         end
       end
+
+      context "when there are promoted participatory process groups" do
+        let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
+        let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
+
+        before do
+          visit decidim_participatory_processes.participatory_processes_path
+        end
+
+        it "shows a highligted processes section" do
+          expect(page).to have_content("HIGHLIGHTED PROCESSES")
+        end
+
+        it "lists only promoted groups" do
+          expect(promoted_items_titles).to include(translated(promoted_group.title, locale: :en))
+          expect(promoted_items_titles).not_to include(translated(group.title, locale: :en))
+        end
+
+        context "and promoted group has defined a CTA content block" do
+          let(:cta_settings) do
+            {
+              button_url: "https://example.org/action",
+              button_text_en: "cta text",
+              description_en: "cta description"
+            }
+          end
+
+          before do
+            create(
+              :content_block,
+              organization: organization,
+              scope_name: :participatory_process_group_homepage,
+              scoped_resource_id: promoted_group.id,
+              manifest_name: :cta,
+              settings: cta_settings
+            )
+            visit decidim_participatory_processes.participatory_processes_path
+          end
+
+          it "shows a CTA button inside group card" do
+            within("#highlighted-processes") do
+              expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+            end
+          end
+        end
+      end
     end
   end
 
@@ -275,6 +325,16 @@ describe "Participatory Processes", type: :system do
           let(:collection_for) { participatory_process }
         end
 
+        context "and it belongs to a group" do
+          let!(:group) { create :participatory_process_group, participatory_processes: [participatory_process], organization: organization }
+
+          it "has a link to the group the process belongs to" do
+            visit decidim_participatory_processes.participatory_process_path(participatory_process)
+
+            expect(page).to have_link(translated(group.title, locale: :en), href: decidim_participatory_processes.participatory_process_group_path(group))
+          end
+        end
+
         context "when it has some linked processes" do
           let(:published_process) { create :participatory_process, :published, organization: organization }
           let(:unpublished_process) { create :participatory_process, :unpublished, organization: organization }
@@ -316,6 +376,8 @@ describe "Participatory Processes", type: :system do
               expect(page).to have_css("h3.section-heading", text: "METRICS")
 
               within "#metrics" do
+                expect(page).to have_css("input#metrics-space_type[value='Decidim::ParticipatoryProcess']", visible: :hidden)
+                expect(page).to have_css("input#metrics-space_id[value='#{participatory_process.id}']", visible: :hidden)
                 Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
                   expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
                 end
@@ -338,12 +400,12 @@ describe "Participatory Processes", type: :system do
             let(:show_statistics) { true }
 
             it "the stats for those components are visible" do
-              within "#participatory_process-statistics" do
+              within ".section-statistics" do
                 expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-                expect(page).to have_css(".process-stats__title", text: "PROPOSALS")
-                expect(page).to have_css(".process-stats__number", text: "3")
-                expect(page).to have_no_css(".process-stats__title", text: "MEETINGS")
-                expect(page).to have_no_css(".process-stats__number", text: "0")
+                expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+                expect(page).to have_css(".statistic__number", text: "3")
+                expect(page).to have_no_css(".statistic__title", text: "MEETINGS")
+                expect(page).to have_no_css(".statistic__number", text: "0")
               end
             end
           end
@@ -352,9 +414,9 @@ describe "Participatory Processes", type: :system do
             let(:show_statistics) { false }
 
             it "the stats for those components are not visible" do
-              expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
-              expect(page).to have_no_css(".process-stats__title", text: "PROPOSALS")
-              expect(page).to have_no_css(".process-stats__number", text: "3")
+              expect(page).to have_no_css("h3.section-heading", text: "STATISTICS")
+              expect(page).to have_no_css(".statistic__title", text: "PROPOSALS")
+              expect(page).to have_no_css(".statistic__number", text: "3")
             end
           end
 

@@ -102,10 +102,11 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowej konsultacji.
           success: Konsultacja została pomyślnie utworzona.
+        deprecation_warning: Moduł konsultacji zostanie wycofany w najbliższej przyszłości. Pracujemy nad następną kryptograficznie bezpieczną wersją nazywaną Głosowania.
         edit:
           update: Aktualizuj
         form:
-          slug_help: 'URL slugi służą do generowania adresów URL kierujących do tej konsultacji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+          slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tej konsultacji. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
           title: Informacje ogólne
         index:
           not_published: Nie opublikowano
@@ -127,6 +128,8 @@ pl:
           questions: Pytania
           results: Wyniki
         questions_submenu:
+          attachments: Załączniki
+          categories: Kategorie
           components: Komponenty
           configuration: Konfiguracja
           consultation: Konsultacja
@@ -199,7 +202,7 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowej grupy odpowiedzi.
           success: Grupa odpowiedzi została pomyślnie utworzona.
         destroy:
-          error: Wystąpił problem podczas usuwania grupy odpowiedzi. Sprawdź, czy żadne odpowiedzi nie są od niej zależne.
+          error: Wystąpił błąd podczas usuwania grupy odpowiedzi. Sprawdź, czy żadne odpowiedzi nie są od niej zależne.
           success: Grupa odpowiedzi została pomyślnie usunięta.
         edit:
           update: Aktualizuj
@@ -247,7 +250,7 @@ pl:
         view_results: Zobacz wyniki
       consultations:
         orders:
-          label: 'Porządkuj konsultacje według:'
+          label: 'Sortuj konsultacje według:'
           random: Losowo
           recent: Najnowsze
         show:
@@ -338,13 +341,11 @@ pl:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p><strong>Konsultacje</strong> to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, zaprosić do wzięcia udziału w konsultacjach, zapoczątkować i utworzyć debatę za lub przeciw uzyskanej odpowiedzi. Wraz z datą rozpoczęcia konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
+          page: "<p><strong>Konsultacje</strong> to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, zaprosić do wzięcia udziału w konsultacjach, zapoczątkować i utworzyć debatę za lub przeciw uzyskanej odpowiedzi. Wraz z datą rozpoczęcia konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
           title: Czym są konsultacje?
     menu:
       consultations: Konsultacje
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultacje
     questions:
       next_button: Następne pytanie
       previous_button: Poprzednie pytanie
@@ -366,12 +367,12 @@ pl:
         verification_required: Aby zagłosować, zweryfikuj swoje konto
         vote: Głosuj
       vote_modal:
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         contextual_help: Proszę wybrać opcję.
         title: 'Konsultacja: głos oddany na pytanie'
       vote_modal_confirm:
         change: Zmień
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         confirm: Potwierdź
         contextual_help: Potwierdź wybraną opcję.
         title: 'Konsultacja: potwierdź głos'
@@ -379,12 +380,11 @@ pl:
       consultations:
         actions:
           vote: Głosuj
+    statistics:
+      consultations_count: Konsultacje
+      votes_count: Głosy
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Załączniki
-          categories: Kategorie
       consultation_voting_data:
         start_voting_date: Głosowanie rozpoczyna się
       question_components:

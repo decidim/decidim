@@ -8,9 +8,9 @@ de:
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
         scope_id: Bereich
-        state: Zustand
+        state: Status
         title: Titel
-        user_group_id: Erstellen Sie einen gemeinsamen Entwurf als
+        user_group_id: Kollaborativen Entwurf erstellen als
       proposal:
         address: Adresse
         answer: Antworten
@@ -21,12 +21,15 @@ de:
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
         scope_id: Bereich
-        state: Zustand
+        state: Status
         suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
         user_group_id: Vorschlag erstellen als
       proposal_answer:
         answer: Antworten
+        cost: Kosten
+        cost_report: Kostenbericht
+        execution_period: Ausführungszeitraum
       proposals_copy:
         copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
@@ -45,7 +48,7 @@ de:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Muss wieder angebracht werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
             body:
               cant_be_equal_to_template: kann nicht gleich der Vorlage sein
               identical: UND Titel dürfen nicht identisch sein
@@ -80,10 +83,32 @@ de:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategorie
+          is_emendation_true:
+            label: Art
+            values:
+              'false': Vorschläge
+              'true': Änderungen
+          scope_id_eq:
+            label: Umfang
+          state_eq:
+            label: Zustand
+            values:
+              accepted: Angenommen
+              evaluating: In Bearbeitung
+              published: Veröffentlicht
+              rejected: Abgelehnt
+              validating: Technische Validierung
+              withdrawn: Zurückgezogen
+          state_null:
+            label: Bundesländer
+            values:
+              'true': Unbeantwortet
           valuator_role_ids_has:
             label: Zugewiesen zu dem Schätzer
         search_placeholder:
-          id_string_or_title_cont: Suche in %{collection} nach ID oder Titel.
+          id_string_or_title_cont: In %{collection} nach ID oder Titel suchen.
     components:
       proposals:
         actions:
@@ -102,7 +127,7 @@ de:
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             can_accumulate_supports_beyond_threshold: Kann Unterstützungen über den Schwellenwert hinaus ansammeln
-            collaborative_drafts_enabled: Gemeinsame Entwürfe aktiviert
+            collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             geocoding_enabled: Geocoding aktiviert
@@ -115,6 +140,10 @@ de:
             participatory_texts_enabled_readonly: Die Interaktion mit dieser Einstellung ist nicht möglich, wenn Vorschläge bestehen. Bitte erstellen Sie eine neue „Vorschlagskomponente“, wenn Sie diese Funktion aktivieren möchten, oder verwerfen Sie alle importierten Vorschläge im Menü „Beteiligungstexte“, wenn Sie diese Funktion deaktivieren möchten.
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren innerhalb dieser Zeit bearbeitet werden
+            proposal_edit_time: Vorschläge bearbeiten
+            proposal_edit_time_choices:
+              infinite: Vorschläge können beliebig lang bearbeitet werden
+              limited: Vorschläge können nach einem spezifischen Zeitfenster nicht mehr bearbeitet werden
             proposal_length: Maximale Länge des Haupttextes
             proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
@@ -155,50 +184,50 @@ de:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Jemand hat eine Notiz für Vorschlag „%{resource_title}“ erstellt. Sie können sie über <a href="%{admin_proposal_info_url}">den Admin-Panel</a> anzeigen
+            email_intro: Jemand hat eine Notiz zum Vorschlag "%{resource_title}" hinterlassen. Schauen Sie sich diese im <a href="%{admin_proposal_info_url}">Admin-Panel</a> an
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
-            notification_title: Jemand hat eine Notiz für Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über <a href="%{admin_proposal_info_path}">den Admin-Panel</a> anzeigen
+            notification_title: Jemand hat eine Notiz für den Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über das <a href="%{admin_proposal_info_path}">Admin-Panel</a> anzeigen
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} wurde als Beitrag zum <a href="%{resource_path}">%{resource_title}</a> Verbundentwurf akzeptiert.'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} wurde akzeptiert, um als Mitwirkender der %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurfs angenommen.
+          email_intro: '%{requester_name} wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> akzeptiert.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitwirken.
+          email_subject: "%{requester_name} wurde zur Mitwirkung an %{resource_title} akzeptiert."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>angenommen</strong>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} wurde abgelehnt, um als Mitwirkender des <a href="%{resource_path}">%{resource_title}</a> gemeinsamen Entwurfs zu fungieren.'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} wurde als Beitrag für den Zugriff des abgelehnten %{resource_title} kollaborativen Entwurfs."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>abgelehnt, um als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> kollaborativen Entwurfs einzusehen.
+          email_intro: '%{requester_name} wurde als Mitwirkender des kollaborativen Entwurfs <a href="%{resource_path}">%{resource_title}</a> abgelehnt.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitwirken.
+          email_subject: "%{requester_name} wurde als Mitwirkender des kollaborativen Entwurfs %{resource_title} abgelehnt."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde als Mitwirkender beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} angeforderten Zugriff als Mitwirkender. Sie können <strong>annehmen oder den Antrag ablehnen</strong> vom <a href="%{resource_path}">%{resource_title}</a> kollaborative Entwurfsseite.'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} beantragter Zugang zu %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> beantragten Zugang zum <a href="%{resource_path}">%{resource_title}</a> Verbundentwurf. Bitte <strong>akzeptieren oder den Antrag ablehnen</strong>.
+          email_intro: '%{requester_name} hat um Zugriff auf Ihren kollaborativen Entwurf angefragt. Sie können den Antrag auf der Seite des kollaborativen Entwurfs <a href="%{resource_path}">%{resource_title}</a> <strong>annehmen oder ablehnen</strong>.'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitwirken.
+          email_subject: "%{requester_name} hat um Zugang zur Mitwirkung bei %{resource_title} angefragt."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> hat Zugriff beantragt, um beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitzuwirken. Bitte <strong>den Antrag akzeptieren oder ablehnen</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Sie wurden als Beitrag zum gemeinsamen <a href="%{resource_path}">%{resource_title}</a> -Kollaborationsentwurf akzeptiert.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefordert haben, ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Du wurdest als Mitwirkender von %{resource_title} angenommen.
-          notification_title: Sie haben <strong>als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> kollaborativen Entwurfs akzeptiert.
+          email_intro: Sie wurden zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> akzeptiert.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefragt haben, bei <a href="%{resource_path}">%{resource_title}</a> mitzuwirken.
+          email_subject: Sie wurden als Mitwirkender von %{resource_title} angenommen.
+          notification_title: Sie wurden zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>akzeptiert</strong>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Ihnen wurde der Zugriff auf den <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurf verweigert.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefordert haben, ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Sie wurden als Mitwirkender von %{resource_title}abgelehnt.
-          notification_title: Sie wurden abgelehnt <strong>, um als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurfs zuzugreifen.
+          email_intro: Der Zugriff auf den kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> wurde Ihnen verweigert.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefragt haben, bei <a href="%{resource_path}">%{resource_title}</a> mitzuwirken.
+          email_subject: Sie wurden als Mitwirkender von %{resource_title} abgelehnt.
+          notification_title: Sie wurden als Mitwirkender beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> zog den <a href="%{resource_path}">%{resource_title}</a> gemeinschaftlichen Entwurf zurück.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitarbeiter von <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} zog den %{resource_title} gemeinsamen Entwurf zurück."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>zurückgezogen</strong> der gemeinschaftliche Entwurf <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> zurückgezogen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_path}">%{resource_title}</a> mitwirken.
+          email_subject: "%{author_name} %{author_nickname} hat den kollaborativen Entwurf %{resource_title} zurückgezogen."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>zurückgezogen</strong>.
         creation_enabled:
-          email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title}erstellen! Starten Sie die Teilnahme an dieser Seite:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Vorschläge jetzt in %{participatory_space_title}verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title} erstellen! Beteiligen Sie sich auf dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: In %{participatory_space_title} sind jetzt Vorschläge verfügbar
+          notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> erfassen
         endorsing_enabled:
-          email_intro: 'Sie können Vorschläge in %{participatory_space_title}! Starten Sie die Teilnahme an dieser Seite:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Die Vorschläge für die Förderung haben für %{participatory_space_title}
-          notification_title: Sie können nun beginnen <a href="%{resource_path}">Vorschläge befürworten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Sie können Vorschläge in %{participatory_space_title} unterstützen! Beteiligen Sie sich auf dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: In %{participatory_space_title} ist es jetzt möglich, Vorschläge zu unterstützen
+          notification_title: Sie können nun Vorschläge in <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">unterstützen</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde angenommen. Sie können die Antwort auf dieser Seite lesen:'
@@ -207,35 +236,35 @@ de:
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
-            notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
+            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Ihr Angebot "%{resource_title}" wird derzeit geprüft. Sie können auf dieser Seite nach einer Antwort suchen:'
+            email_intro: 'Ihr Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wird geprüft
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird geprüft.
+            email_subject: Ihr Vorschlag wird evaluiert
+            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
           follower:
-            email_intro: 'Der Vorschlag "%{resource_title}" wird gerade ausgewertet. Sie können auf dieser Seite nach einer Antwort suchen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
+            email_intro: 'Der Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
-            notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
+            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
         proposal_mentioned:
-          email_intro: Ihr Vorschlag „%{mentioned_proposal_title}“ wurde in diesem <a href="%{resource_url}">Bereich</a> in den Kommentaren erwähnt.
+          email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
           email_subject: Ihr Vorschlag "%{mentioned_proposal_title}" wurde erwähnt
-          notification_title: Ihr Vorschlag „%{mentioned_proposal_title}“ erwähnt <a href="%{resource_path}">in diesem Raum</a> in den Kommentaren.
+          notification_title: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_path}">hier</a> in den Kommentaren erwähnt.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, dem Sie folgen, hat einen neuen Vorschlag mit dem Namen "%{resource_title}" veröffentlicht. Überprüfen Sie es und tragen Sie bei:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Neuer Vorschlag "%{resource_title}" um %{author_nickname}
-          notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: '%{author_name} %{author_nickname}, dem Sie folgen, hat einen neuen Vorschlag mit dem Namen "%{resource_title}" veröffentlicht. Sehen Sie es sich an und reden Sie mit:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Neuer Vorschlag "%{resource_title}" von %{author_nickname}
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> veröffentlicht.
         proposal_published_for_space:
-          email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
-          email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title}hinzugefügt
-          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
+          email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+          email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title} hinzugefügt
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt
         proposal_rejected:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
@@ -244,24 +273,24 @@ de:
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
-            notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde abgelehnt.
+            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
         proposal_update_category:
-          email_intro: 'Ein Administrator hat die Kategorie Ihres Angebots "%{resource_title}" aktualisiert, sehen Sie es sich an:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
+          email_intro: 'Ein Administrator hat die Kategorie Ihres Vorschlags "%{resource_title}" aktualisiert, sehen Sie es sich an:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
           email_subject: Die Vorschlagskategorie %{resource_title} wurde aktualisiert
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Vorschlagskategorie wurde von einem Administrator aktualisiert.
+          notification_title: Die Vorschlagskategorie <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
         proposal_update_scope:
-          email_intro: 'Ein Administrator hat den Umfang Ihres Vorschlags „%{resource_title}“ aktualisiert, über folgenden Link können Sie es anzeigen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Angebots sind.
-          email_subject: Der Umfang des Vorschlags %{resource_title} wurde aktualisiert
-          notification_title: Der Umgang des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
+          email_intro: 'Ein Administrator hat den Bereich Ihres Vorschlags „%{resource_title}“ aktualisiert, sehen Sie es sich das auf dieser Seite an:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
+          email_subject: Der Bereich des Vorschlags %{resource_title} wurde aktualisiert
+          notification_title: Der Bereich des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
         voting_enabled:
-          email_intro: 'Sie können Vorschläge in %{participatory_space_title}abstimmen! Starten Sie die Teilnahme an dieser Seite:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Die Abstimmung der Vorschläge hat für %{participatory_space_title}
-          notification_title: Sie können jetzt <a href="%{resource_path}">Abstimmungsvorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+          email_intro: 'Sie können für Vorschläge in %{participatory_space_title} abstimmen! Beteiligen Sie sich auf dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: In %{participatory_space_title} ist es jetzt möglich, für Vorschläge abzustimmen
+          notification_title: Sie können jetzt für Vorschläge in <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">abstimmen</a>
     gamification:
       badges:
         accepted_proposals:
@@ -314,10 +343,6 @@ de:
         description: Anzahl der Unterstützungen zu Vorschlägen
         object: Unterstützer
         title: Unterstützer
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Vorschläge
     participatory_spaces:
       highlighted_proposals:
         see_all: Alle anzeigen (%{count})
@@ -334,7 +359,7 @@ de:
         actions:
           preview: Vorschau
         exports:
-          comments: Kommentare
+          proposal_comments: Kommentare
           proposals: Vorschläge
         models:
           proposal:
@@ -358,7 +383,9 @@ de:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
+            document_legend: 'Fügen Sie ein Dokument hinzu, das kleiner als 2MB ist. Für alle Abschnitte bis 3 Ebenen tief werden Vorschläge erstellt. Unterstützte Formate sind: %{valid_mime_types}'
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
           publish:
@@ -399,6 +426,7 @@ de:
           form:
             attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
+            delete_attachment: Anhang löschen
             select_a_category: Kategorie auswählen
             select_a_meeting: Besprechung auswählen
           index:
@@ -473,6 +501,7 @@ de:
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
             select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
+            title: Vorschläge importieren
         proposals_merges:
           create:
             invalid: Beim Zusammenführen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
@@ -510,7 +539,7 @@ de:
           all: Alle
         filter_origin_values:
           all: Alle
-          citizens: Bürger
+          citizens: Einzelpersonen
           meetings: Meetings
           official: Offiziell
           user_groups: Benutzergruppen
@@ -545,13 +574,6 @@ de:
               ok: Ziehen Sie den gemeinsamen Entwurf zurück
               title: Die folgende Aktion ist irreversibel
             success: Kollaborativer Entwurf erfolgreich zurückgezogen.
-        compare:
-          mine_is_different: Mein gemeinsamer Entwurf ist anders
-          no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
-          title: Ähnliche kollaborative Entwürfe
-        complete:
-          send: Absenden
-          title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
           drafts_count:
             one: "%{count} kollaborativer Entwurf"
@@ -560,7 +582,7 @@ de:
           error: Beim Erstellen dieser kollaborativen Entwürfe ist ein Problem aufgetreten
           success: Collaborative Draft wurde erfolgreich erstellt.
         edit:
-          attachment_legend: "(Optional) Fügen Sie eine Anlage hinzu"
+          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
           select_a_category: Bitte wählen Sie eine Kategorie
           send: Abschicken
@@ -583,14 +605,13 @@ de:
           unfold: Aufklappen
         new:
           send: Fortsetzen
-          title: Gemeinsamen Entwurf erstellen
         new_collaborative_draft_button:
           new_collaborative_draft: Neuer gemeinsamer Entwurf
         orders:
           label: 'Bestellentwürfe von:'
           most_contributed: Am meisten beigetragen
           random: Zufällig
-          recent: Neueste
+          recent: Kürzlich hinzugefügt
         requests:
           accepted_request:
             error: Könnte nicht als Mitarbeiter akzeptiert werden, versuchen Sie es später erneut.
@@ -628,23 +649,14 @@ de:
         update:
           error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
           success: Collaborative Draft wurde erfolgreich aktualisiert.
-          title: gemeinsamen Entwurf bearbeiten
         wizard_aside:
-          back: Zurück
           back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_1: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_2: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_3: Zurück zum Vergleich der gemeinschaftlichen Entwürfe
-          back_from_step_4: Zurück zum Entwurf bearbeiten
           info: Sie erstellen einen <strong>gemeinsamen Entwurf</strong>.
-        wizard_steps:
-          current_step: Aktueller Schritt
-          see_steps: siehe Schritte
-          step_1: Erstellen Sie Ihren gemeinsamen Entwurf
-          step_2: Vergleichen Sie mit gemeinsamen Entwürfen
-          step_3: Vervollständigen Sie Ihren gemeinsamen Entwurf
-          step_of: Schritt %{current_step_num} von %{total_steps}
-          title: Gemeinschaftliche Entwurfsschritte
+        wizard_header:
+          title: Erstellen Sie Ihren gemeinsamen Entwurf
+      content_blocks:
+        highlighted_proposals:
+          proposals: Vorschläge
       create:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
@@ -653,6 +665,7 @@ de:
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
       last_activity:
         new_proposal_at_html: "<span>Neuer Vorschlag bei %{link}</span>"
+        proposal_updated_at_html: "<span>Vorschlag aktualisiert unter %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -697,9 +710,16 @@ de:
           proposals_count:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
+        dynamic_map_instructions:
+          instructions: <h3>Sie können den Punkt auf der Karte verschieben.</h3><p>Vergessen Sie nicht, vor der Veröffentlichung Ihres Vorschlags auf die Schaltfläche "Position aktualisieren" zu klicken.</p>
         edit:
+          add_documents: Dokumente
+          add_images: Datei
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
+          delete_document: Dokument löschen
+          delete_image: Bild löschen
+          gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
           select_a_category: Bitte wählen sie eine Kategorie
           send: Abschicken
           title: Vorschlag bearbeiten
@@ -745,20 +765,25 @@ de:
           most_followed: Am meisten gefolgt
           most_voted: Am meisten unterstützt
           random: Zufällig
-          recent: Kürzlich
+          recent: Kürzlich hinzugefügt
           with_more_authors: Mit mehr Autoren
         participatory_texts:
           index:
             document_index: Dokumentenindex
           view_index:
             see_index: Index anzeigen
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Ihr Vorschlag wurde als Entwurf gespeichert. Er muss veröffentlicht werden, damit er auf der Seite erscheint.
+          announcement_title: Ihr Vorschlag wurde noch nicht veröffentlicht
           modify: Vorschlag ändern
           proposal_edit_before_minutes:
             one: Sie können diesen Vorschlag in der ersten Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
             other: Sie können diesen Vorschlag in den ersten %{count} Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
           publish: Veröffentlichen
           title: Vorschlag veröffentlichen
+          update_position: Position aktualisieren
         proposal:
           creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
@@ -875,3 +900,7 @@ de:
       included_proposals:
         proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
         proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
+    statistics:
+      proposals_accepted: Akzeptierte Vorschläge
+      proposals_count: Vorschläge
+      supports_count: Unterstützungen

@@ -94,6 +94,7 @@ de:
         create:
           error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
           success: Beratung erfolgreich erstellt.
+        deprecation_warning: Das Beratungsmodul wird in naher Zukunft veraltet sein. Wir arbeiten an der nächsten, kryptographisch sicheren Version namens Votings.
         edit:
           update: Aktualisieren
         form:
@@ -119,6 +120,8 @@ de:
           questions: Fragen
           results: Ergebnisse
         questions_submenu:
+          attachments: Anhänge
+          categories: Kategorien
           components: Komponenten
           configuration: Konfiguration
           consultation: Beratung
@@ -235,7 +238,7 @@ de:
         orders:
           label: 'Sortieren Sie die Konsultationen nach:'
           random: Zufällig
-          recent: Neueste
+          recent: Neueste zuerst
         show:
           dates: Daten
       content_blocks:
@@ -305,26 +308,24 @@ de:
         title: Fragen für diese Konsultation
       show:
         badge_name:
-          finished: Fertig
+          finished: Abgeschlossen
           open: Öffnen
           open_votes: Stimmen öffnen
           published_results: Ergebnisse veröffentlicht
         footer_button_text:
           debate: Debatte
-          view: Aussicht
+          view: Anzeigen
           view_results: Ergebnisse anzeigen
-          vote: Abstimmung
+          vote: Abstimmen
         unspecified: Keine Angabe
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p>Eine <strong>Konsultation</strong> ist ein Raum, in dem Sie allen Personen, die eine Organisation bilden, eine klare Frage stellen, anrufen, um an der Konsultation teilzunehmen, die Debatte für oder gegen eine Antwort anzuordnen. Wenn das Konsultationsdatum erreicht ist, können Sie abstimmen und die Abstimmungsergebnisse veröffentlichen.</p> <p>Beispiele: Bei den Konsultationen kann es sich um fast jeden Aspekt handeln, der eine Organisation betrifft: Bei einigen Beispielen wird der Name oder das Logo der Organisation geändert, die verschiedene Alternativen bietet. Sie entscheiden sich für Ja oder Nein, um Teil einer größeren Organisation zu werden, eine neue Strategie zu bestätigen oder abzulehnen Plan oder das Ergebnis einer Arbeitsgruppe oder die Festlegung, ob die Positionen maximal 1, 2 oder 3 Mandate in der Organisation bleiben sollen.</p>\n"
+          page: "<p>Eine <strong>Konsultation</strong> ist ein Raum, in dem Sie allen Personen, die eine Organisation bilden, eine klare Frage stellen, anrufen, um an der Konsultation teilzunehmen, die Debatte für oder gegen eine Antwort anzuordnen. Wenn das Konsultationsdatum erreicht ist, können Sie abstimmen und die Abstimmungsergebnisse veröffentlichen.</p> <p>Beispiele: Bei den Konsultationen kann es sich um fast jeden Aspekt handeln, der eine Organisation betrifft: Bei einigen Beispielen wird der Name oder das Logo der Organisation geändert, die verschiedene Alternativen bietet. Sie entscheiden sich für Ja oder Nein, um Teil einer größeren Organisation zu werden, eine neue Strategie zu bestätigen oder abzulehnen Plan oder das Ergebnis einer Arbeitsgruppe oder die Festlegung, ob die Positionen maximal 1, 2 oder 3 Mandate in der Organisation bleiben sollen.</p>\n"
           title: Was sind Konsultationen?
     menu:
       consultations: Konsultationen
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultationen
     questions:
       next_button: Nächste Frage
       previous_button: Vorherige Frage
@@ -359,12 +360,11 @@ de:
       consultations:
         actions:
           vote: Abstimmung
+    statistics:
+      consultations_count: Beratungen
+      votes_count: Stimmen
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Anlagen
-          categories: Kategorien
       consultation_voting_data:
         start_voting_date: Die Abstimmung beginnt
       question_components:

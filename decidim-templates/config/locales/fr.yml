@@ -2,7 +2,7 @@ fr:
   decidim:
     admin:
       menu:
-        templates: Modèles 
+        templates: Modèles de questionnaire
       templates:
         apply:
           error: Une erreur est survenue lors de l'application de ce modèle.
@@ -54,7 +54,7 @@ fr:
             title: Modèles de questionnaire
           preview:
             current_step: Étape %{step}
-            of_total_steps: de %{total_steps}
-            tos_agreement: En participant, vous acceptez les conditions d'utilisation
+            of_total_steps: sur %{total_steps}
+            tos_agreement: En participant, vous acceptez ces conditions d'utilisation
       template_types:
         questionnaires: Questionnaires

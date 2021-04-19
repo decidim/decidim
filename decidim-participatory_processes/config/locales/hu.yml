@@ -37,7 +37,6 @@ hu:
       participatory_process_group:
         description: Leírás
         hero_image: Kép
-        name: Név
         participatory_process_ids: Kapcsolódó folyamatok
       participatory_process_step:
         cta_path: Hívás cselekvés útjára
@@ -116,8 +115,6 @@ hu:
             title: Cím
           name: Részvételi folyamat
         participatory_process_group:
-          fields:
-            name: Név
           name: Folyamat csoport
         participatory_process_step:
           fields:
@@ -293,10 +290,10 @@ hu:
         object: részvételi folyamatok
         title: Részvételi folyamatok
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Tevékenység
       show:
-        group_participatory_processes:
-          one: '1 folyamat itt: %{group}'
-          other: "%{count} folyamat itt: %{group}"
         title: Részvételi folyamat csoportok
     participatory_process_steps:
       index:
@@ -388,25 +385,6 @@ hu:
         start_date: Kezdő dátum
         target: Ki részt vesz
         unspecified: Nem meghatározott
-      statistics:
-        answers_count: Válaszok
-        comments_count: Hozzászólások
-        debates_count: Viták
-        endorsements_count: Jóváhagyások
-        followers_count: Követők
-        headline: Tevékenység
-        meetings_count: Találkozók
-        no_stats: Nincsenek mutatók még.
-        orders_count: Szavazatok
-        pages_count: Oldalak
-        participants_count: Résztvevők
-        processes_count: Folyamatok
-        projects_count: Projektek
-        proposals_count: Javaslatok
-        results_count: Eredmények
-        supports_count: Szavazatok
-        surveys_count: Felmérések
-        users_count: Résztvevők
   layouts:
     decidim:
       participatory_process_groups:

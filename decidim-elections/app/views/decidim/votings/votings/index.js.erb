@@ -1,0 +1,10 @@
+var $votings = $('#votings');
+var $votingsCount = $('#votings-count');
+var $orderFilterInput = $('.order_filter');
+
+$votings.html('<%= j(render partial: "votings") %>');
+$votingsCount.html('<%= j(render partial: "count", locals: { count: paginated_votings.count }) %>');
+$orderFilterInput.val('<%= order %>');
+
+var $dropdownMenu = $('.dropdown.menu', $votings);
+$dropdownMenu.foundation();

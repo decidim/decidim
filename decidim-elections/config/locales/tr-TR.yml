@@ -1,1 +1,355 @@
 tr:
+  activemodel:
+    attributes:
+      answer:
+        description: Açıklama
+        image: Resim
+        proposals: İlgili teklifler
+        title: Başlık
+      election:
+        description: Açıklama
+        end_time: Oylama bitişi
+        start_time: Oylama başlangıcı
+        title: Başlık
+      question:
+        description: Açıklama
+        max_selections: Maksimum seçim sayısı
+        min_selections: Yukarıdakilerden hiçbiri
+        title: Başlık
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Yeniden bağlanması gerekiyor
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: değiştirilemez
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Cevap
+        other: Cevaplar
+      decidim/elections/election:
+        one: Seçim
+        other: Seçimler
+      decidim/elections/question:
+        one: Soru
+        other: Sorular
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Oy ver
+        name: Seçimler
+        settings:
+          global:
+            announcement: Duyuru
+          step:
+            announcement: Duyuru
+    elections:
+      actions:
+        confirm_destroy: Emin misin?
+        destroy: Yok et
+        edit: Düzenle
+        feedback: Seçmen geri bildirimi
+        import: Teklifleri yanıtlara aktarın
+        manage_answers: Cevapları yönet
+        manage_questions: Soruları yönet
+        new: Yeni %{name}
+        preview: Önizleme
+        publish: Yayınla
+        title: Eylemler
+        unpublish: Yayımdan Kaldır
+      admin:
+        answers:
+          create:
+            invalid: Bu cevabı oluştururken bir sorunla karşılaştım
+            success: Cevap başarıyla oluşturuldu
+          destroy:
+            invalid: Bu cevabı silerken bir sorun oluştu
+            success: Yanıt başarıyla silindi
+          edit:
+            title: Cevabı düzenle
+            update: Cevabı güncelle
+          index:
+            invalid_max_selections: Maksimum seçimi eşleştirmek için %{missing_answers} yanıt(lar)a daha ihtiyacınız var
+            title: Cevaplar
+          new:
+            create: Cevap oluştur
+            title: Yeni cevap
+          select:
+            disable: Cevabın seçimini kaldır
+            enable: Cevabı seçildi olarak işaretle
+            invalid: Bu cevabı seçerken bir sorun oluştu
+            success: Cevap başarıyla seçildi
+          unselect:
+            invalid: Bu cevabın seçimi kaldırılırken bir sorun oluştu
+            success: Cevabın seçimi başarıyla kaldırıldı
+          update:
+            invalid: Bu klasör güncellenirken bir hata oluştu
+            success: Cevap başarıyla güncellendi
+        elections:
+          create:
+            invalid: Bu seçim oluşturulurken bir sorun meydana geldi
+            success: Seçim başarıyla oluşturuldu
+          destroy:
+            invalid: Bu seçim silinirken bir sorun oluştu
+            success: Seçim başarıyla silindi
+          edit:
+            title: Seçimi düzenle
+            update: Seçimi güncelle
+          index:
+            no_bulletin_board: Bu modülü kullanmak için gerekli olan yapılandırılmış bir <a href="https://github.com/decidim/decidim-bulletin-board"> Bulletin Board sunucusu </a> yok. Bu görev Sistem Yöneticisi tarafından yapılmalıdır.
+            title: Seçimler
+          new:
+            create: Seçim oluştur
+            title: Yeni seçim
+          publish:
+            success: Seçim başarıyla yayınlandı.
+          unpublish:
+            success: Seçim başarılı bir şekilde yayınlanmadı.
+          update:
+            invalid: Bu seçim güncellenirken bir sorun oluştu
+            success: Seçim başarıyla güncellendi
+        exports:
+          elections: Seçimler
+          feedback_form_answers: Cevapların geri bildirimi
+        models:
+          answer:
+            name: Cevap
+          election:
+            name: Seçim
+          question:
+            name: Soru
+          trustee:
+            name: Vekil
+        proposals_imports:
+          create:
+            invalid: Teklifleri cevaplara aktarırken bir sorun oluştu
+            success: "%{number} teklif başarıyla yanıtlara aktarıldı"
+          new:
+            create: Teklifleri yanıtlara aktarın
+            no_components: Bu katılımcı alanda, teklifleri yanıtlara aktarmak için başka teklif bileşeni yoktur.
+            select_component: Lütfen modülü bileşeni seçin
+            title: Teklifleri içe aktar
+        questions:
+          create:
+            invalid: Yeni bir soru oluşturulurken bir hata oluştu
+            success: Soru başarıyla oluşturuldu
+          destroy:
+            invalid: Bu soru silinirken bir sorun oluştu
+            success: Soru başarıyla silindi
+          edit:
+            title: Soruyu Düzenle
+            update: Soruyu güncelle
+          index:
+            title: Sorular
+          new:
+            create: Soru Oluştur
+            title: Yeni soru
+          update:
+            invalid: Bu soru güncellenirken bir hata oluştu
+            success: Soru başarıyla güncellendi
+        trustees_participatory_spaces:
+          actions:
+            disable: Devre dışı
+            enable: Dikkate al
+          create:
+            exists: Bu katılımcı alan için vekil var
+            invalid: Vekil oluşturulurken bir sorun meydana geldi
+            success: Vekil başarıyla oluşturuldu
+          delete:
+            invalid: Bu vekili kaldırırken bir sorun oluştu
+            success: Vekil başarıyla kaldırıldı
+          form:
+            select_user: Kullanıcı seçin
+          index:
+            title: Vekiller
+          new:
+            create: Vekil Oluşturun
+            title: Yeni Vekil
+          update:
+            invalid: '%{trustee} vekili güncellenirken bir sorun oluştu'
+            success: Vekil %{trustee} başarıyla güncellendi
+      admin_log:
+        election:
+          publish: "%{user_name}, %{resource_name} seçimini yayınladı"
+          unpublish: "%{user_name}, %{resource_name} seçimini yayından kaldırdı"
+      election_m:
+        badge_name:
+          finished: Bitti
+          ongoing: Aktif
+          upcoming: Yakında
+        end_date: Son
+        footer:
+          view: Görünüm
+          vote: Seçim
+        label:
+          date: Tarihler
+        questions: '%{count} soru'
+        start_date: Başlangıç
+        unspecified: Belirtilmemiş
+      elections:
+        count:
+          elections_count:
+            one: "%{count} seçim"
+            other: "%{count} seçim"
+        filters:
+          active: Aktif
+          all: Tümü
+          finished: Bitti
+          search: Arama
+          state: Statü
+          upcoming: Yakında
+        filters_small_view:
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
+        preview:
+          title: Seçim soruları
+        results:
+          selected: Seçili
+          title: Seçim sonuçları
+          votes:
+            one: "%{count} oy"
+            other: "%{count} oy"
+        show:
+          back: Mevcut seçimler
+          preview: Önizleme
+          voting_period_status:
+            finished: Oylama %{start_time} tarihinde başladı ve %{end_time} tarihinde sona erdi
+            upcoming: Oylama %{start_time} tarihinde başlıyor
+      feedback:
+        answer:
+          invalid: Geri bildiriminizi gönderirken bir sorun oluştu.
+          spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davrandın, tekrar deneyebilir misin?
+          success: Geri bildirim başarıyla gönderildi.
+      models:
+        answer:
+          fields:
+            proposals: Teklifler
+            title: Başlık
+        election:
+          fields:
+            end_time: Bitiyor
+            start_time: Başlıyor
+            title: Başlık
+        question:
+          fields:
+            answers: Cevaplar
+            max_selections: Maks. Alan sayısı seçimler
+            title: Başlık
+        trustees_participatory_space:
+          fields:
+            considered: dikkate al
+            email: E-posta
+            inactive: aktif değil
+            name: Adı
+            notification: Bildirim gönderildi
+            public_key: Herkese açık anahtar
+            status: Statü
+      orders:
+        label: Seçimleri şuna göre sırala
+        older: Daha eski
+        recent: En son
+      trustee_zone:
+        menu:
+          trustee_zone: Vekil bölgesi
+        trustees:
+          show:
+            elections:
+              list:
+                election: Seçim
+                voting_period: Oylama süresi
+              no_elections: Vekil olarak hareket ettiğiniz hiçbir seçim yoktur.
+              title: Seçimler
+            identification_keys:
+              cancel: İptal Et
+              generate: Kimlik anahtarları oluşturun
+              generate_error: Kimlik anahtarları oluşturulurken bir hata meydana geldi.
+              generate_legend: Vekil olarak seçimlere katılmak için bir kimlik anahtarı çifti oluşturmanız gerekir.
+              generate_legend_1: Düğmeye bastıktan sonra, oluşturulan tanımlama anahtarları ile dosyayı indirmelisiniz.
+              generate_legend_2: İndirilen dosyayı temiz bir USB cihazına kopyalayın
+              generate_legend_3: Bilgisayarınızda dosyanın bir kopyası olmadığından emin olun (ör. İndirilenler ve Masaüstü klasörlerini kontrol edin).
+              generate_legend_4: Dosyanın başka bir kopyasını farklı bir harici cihazda oluşturun ve çok güvenli bir yerde saklayın.
+              submit: Gönder
+              submit_legend: Yukarıda açıklanan tüm adımları izledikten sonra, açık kimlik anahtarını Decidim sunucusuna gönderme işlemini tamamlayın.
+              submit_title: Genel kimlik anahtarını gönderin
+              title: Vekil kimlik anahtarları
+              upload: Kimlik anahtarlarınızı yükleyin
+              upload_error:
+                invalid_format: Yüklenen dosya herhangi bir kimlik anahtarı içermiyor.
+                invalid_key: Yüklenen dosyadaki kimlik anahtarları yüklenemez.
+                invalid_public_key: Yüklenen dosyadaki tanımlama anahtarları, Decidim tarafından saklanan genel tanımlama anahtarıyla eşleşmiyor.
+              upload_legend: Decidim'de sizin genel kimlik anahtarlarınız var, ancak tarayıcınızda hala bu anahtarlar yok. Kimlik anahtarlarınızın olduğu dosyayı, oluşturduktan sonra oluşturduğunuz yedekten bilgisayarınıza aktarmanız gerekir.
+            not_supported_browser_description: Vekil olarak hareket etmek için kullanılamayan bir web tarayıcısı kullanıyorsunuz gibi görünüyor. Vekil görevlerinizi tamamlayabilmek için tarayıcınızın en son sürümünü kullandığınızdan emin olun veya en popüler tarayıcılardan herhangi birini kullanmayı deneyin.
+            not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
+            trustee_role_description: Bu platformda kutlanan bazı seçimlerde Vekil olarak görev yapmakla görevlendirildiniz.
+          update:
+            success: Tanımlama genel anahtarınız başarıyla saklandı.
+      votes:
+        confirm:
+          answer: Cevap
+          answer_number: '%{number} cevap'
+          confirm: Onayla
+          edit: düzenle
+          header: Oyunu onayla
+          intro: İşte kullanmak üzere olduğunuz oyların bir özeti. <br> Lütfen oyunuzu onaylayın veya yanıtlarınızı düzenleyin.
+          nota_option: Boş
+          question: '%{count} soru'
+        confirmed:
+          back: Seçimlere dön
+          experience: Şu ana kadarki deneyiminiz nasıl?
+          feedback: Bize geri bildirim verin
+          header: Oy onaylandı
+          text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
+        header:
+          confirm: Oyunu onayla
+          confirmed: Oy onaylandı
+        messages:
+          not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
+        modal:
+          close: Kapat
+          proposal_header: 'Teklifler:'
+        new:
+          answer_choices: En fazla %{choices} cevap seçebilirsiniz
+          more_information: Daha fazla bilgi
+          nota_option: Yukarıdakilerin hiçbiri
+          preview_alert: Bu, oylama kabininin bir önizlemesidir.
+          question_steps: Soru %{current_step}/%{total_steps}
+          selections: "%{selected}/%{max_selections} <br> seçim"
+        voting_step:
+          back: Geri
+          continue: Sonraki
+      warnings:
+        no_elections_warning: Arama kriterlerinize uyan seçim yok veya planlanmış bir seçim yok.
+        no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} seçimi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{resource_title} seçimi artık %{participatory_space_title} için aktif.'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi artık %{participatory_space_title} için aktif.
+        trustees:
+          new_election:
+            email_intro: '%{resource_title} seçimi için vekil olarak eklendiniz.'
+            email_outro: Bu bildirimi, %{resource_title} seçiminde vekil kişi olarak eklendiğiniz için aldınız.
+            email_subject: '%{resource_title} seçimi için vekil olarak eklendiniz..'
+            notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi için bir vekilsiniz.
+          new_trustee:
+            email_intro: Bir yönetici sizi %{resource_name} için güvenilen kişi olarak ekledi. Genel anahtarınızı <a href='%{trustee_zone_url}'> güvenilen bölgenizde </a> oluşturmalısınız
+            email_outro: Bu bildirimi, %{resource_name} için vekil kişi olarak eklendiğiniz için aldınız.
+            email_subject: '%{resource_name} için vekil birisiniz.'
+            notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Çıkış

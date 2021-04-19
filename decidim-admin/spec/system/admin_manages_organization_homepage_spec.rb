@@ -56,4 +56,22 @@ describe "Admin manages organization homepage", type: :system do
       expect(page.html).to include("city2.jpeg")
     end
   end
+
+  context "when loading non-existing content blocks" do
+    let!(:unpublished_block) { create :content_block, organization: organization, scope_name: :homepage, published_at: nil }
+    let!(:published_block) { create :content_block, organization: organization, scope_name: :homepage }
+
+    before do
+      # We do this to simulate content blocks from some modules that have been
+      # uninstalled from the app.
+      unpublished_block.update(manifest_name: :fake_name)
+      published_block.update(manifest_name: :fake_name)
+    end
+
+    it "loads the page as expected" do
+      visit decidim_admin.edit_organization_homepage_path
+
+      expect(page).to have_text("Active content blocks")
+    end
+  end
 end

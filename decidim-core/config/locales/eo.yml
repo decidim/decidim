@@ -61,7 +61,6 @@ eo:
         file_no_exists: Dosiero ne ekzistas
         notice: La malŝarĝo de viaj datumoj nuntempe progresas. Vi ricevos retpoŝton kiam ĝi estos kompleta.
       delete:
-        alert: Ĉi tiu ago ne eblas. Se vi forigas vian konton, vi ne povos ensaluti.
         confirm:
           close: Fermu la fenestron
     amendments:
@@ -73,8 +72,6 @@ eo:
         error: Okazis eraro ŝanĝante ĉi tiun rimedon.
       edit_draft:
         send: Antaŭvido
-    author:
-      avatar: Avataro
     group_admins:
       demote:
         success: Partoprenanto sukcese forigita de administranto

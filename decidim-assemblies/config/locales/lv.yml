@@ -229,7 +229,6 @@ lv:
         update: "%{user_name} atjaunināja asamblejas iestatījumus"
       assembly_type:
         create: "%{user_name} izveidoja %{resource_name} asamblejas veidu"
-        delete: "%{user_name} noņēma dalībnieku %{resource_name} no %{space_name} asamblejas veida"
         publish: "%{user_name} publicēja %{resource_name} asamblejas veidu"
         unpublish: "%{user_name} atcēla %{resource_name} asamblejas veida publicēšanu"
         update: "%{user_name} atjaunināja %{resource_name} asamblejas veidu"
@@ -353,22 +352,6 @@ lv:
         social_networks: Sociālie tīkli
         social_networks_title: Dalīties ar šo asambleju
         target: Kas piedalās
-      statistics:
-        answers_count: Atbildes
-        assemblies_count: Asambleja
-        comments_count: Komentāri
-        endorsements_count: Atbalsts
-        headline: Aktivitāte
-        meetings_count: Sanāksmes
-        orders_count: Atbalsta
-        pages_count: Lapas
-        posts_count: Ziņas
-        projects_count: Projekti
-        proposals_count: Priekšlikumi
-        results_count: Rezultāti
-        surveys_count: Aptaujas
-        users_count: Dalībnieki
-        votes_count: Atbalsta
     assembly_members:
       assembly_member:
         designated_on: Izraudzīts
@@ -415,8 +398,6 @@ lv:
       home:
         hero:
           participate_title: Piedalieties platformā notiekošajos procesos
-        sub_hero:
-          register_title: Reģistrējieties, lai izveidotu kontu platformā
     participatory_processes:
       pages:
         home:

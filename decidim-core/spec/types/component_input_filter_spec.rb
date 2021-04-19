@@ -7,7 +7,7 @@ require "decidim/core/test"
 module Decidim
   module Core
     describe ComponentInputFilter, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:type_class) { Decidim::ParticipatoryProcesses::ParticipatoryProcessType }
 
       let(:model) { create(:participatory_process, organization: current_organization) }

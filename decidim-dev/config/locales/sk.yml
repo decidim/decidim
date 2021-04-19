@@ -31,17 +31,11 @@ sk:
           next_level_in: Vytvorte o %{score} testov viac pre dosiahnutie ďalšej úrovne!
           unearned_another: Tento účastník nevytvoril žiadny test.
           unearned_own: Zatiaľ ste nevytvorili žiadny test.
-    pages:
-      home:
-        statistics:
-          bar: Stĺpec
-          dummies_count_high: Vysoký počet testovacích premenných
-          dummies_count_medium: Stredný počet testovacích premenných
-          foo: Test
-    participatory_processes:
-      statistics:
-        dummies_count_high: Vysoký počet testovacích premenných
-        dummies_count_medium: Stredný počet testovacích premenných
     resource_links:
       test_link:
         dummy_resource_dummy: Súvisiace indikátory
+    statistics:
+      bar: Stĺpec
+      dummies_count_high: Vysoký počet testovacích premenných
+      dummies_count_medium: Stredný počet testovacích premenných
+      foo: Test

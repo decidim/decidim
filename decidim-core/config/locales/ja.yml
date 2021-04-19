@@ -35,7 +35,6 @@ ja:
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
-      decidim/resource_endorsed_event: 承認された
   activerecord:
     attributes:
       decidim/user:
@@ -79,7 +78,6 @@ ja:
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       delete:
-        alert: この操作は元に戻せません。アカウントを削除するとログインできなくなります。
         confirm:
           close: ウィンドウを閉じる
           ok: はい、アカウントを削除します
@@ -242,7 +240,6 @@ ja:
       photos:
         related_photos: 関連画像
     author:
-      avatar: アバター
       comments:
         other: コメント
       endorsements:
@@ -265,8 +262,6 @@ ja:
         name: 許可の例：
       dummy_authorization_workflow:
         name: ダミー認証ワークフロー
-      errors:
-        duplicate_authorization: 同じデータを持つ参加者はすでに承認されています．
       expired_at: '%{timestamp} で期限切れ'
       expires_at: '%{timestamp} で期限切れ'
       foo_authorization:
@@ -392,7 +387,6 @@ ja:
         ready: 準備完了
       show:
         download_data: データをダウンロード
-        download_data_description: アカウントに関連付けられているすべての情報を持つファイルが <strong>%{user_email}</strong>に送信されます
         request_data: データを要求する
     datepicker:
       help_text: '期待されるフォーマット: %{datepicker_format}'
@@ -402,7 +396,6 @@ ja:
           email_already_exists: 別のアカウントは同じメールアドレスを使用しています
         new:
           complete_profile: プロファイルを完了
-          nickname_help: '%{organization} での別名'
           sign_up: プロフィールを完成してください
           subtitle: ユーザ登録を完了するには、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
@@ -411,7 +404,6 @@ ja:
           already_have_an_account?: 既にアカウントをお持ちですか？
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
-          nickname_help: '%{organization} での別名'
           password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
           sign_in: ログイン
           sign_up: 新規登録
@@ -543,14 +535,14 @@ ja:
       gamification:
         badge_earned:
           email_intro: おめでとうございます！ <a href="%{resource_url}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
-          email_outro: 当社のウェブサイトでアクティビティを行ったため、この通知を受け取りました。
+          email_outro: サイトでの活動によって、この通知を受け取りました。
           email_subject: '新しいバッジ： %{badge_name} を獲得しました！'
           notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
         level_up:
-          email_intro: おめでとうございます！ あなたは <a href="%{resource_url}">%{badge_name} バッヂ</a> のレベル %{current_level} に到達しました！
-          email_outro: 当社のウェブサイトでアクティビティを行ったため、この通知を受け取りました。
-          email_subject: '%{current_level} のバッジがレベル %{badge_name} に達しました！'
-          notification_title: おめでとうございます！ あなたは <a href="%{resource_path}">%{badge_name} バッヂ</a> のレベル %{current_level} に到達しました！
+          email_intro: おめでとうございます！ あなたは <a href="%{resource_url}">%{badge_name} バッジ</a> のレベル %{current_level} に到達しました！
+          email_outro: サイトでの活動によって、この通知を受け取りました。
+          email_subject: '%{badge_name} のバッジがレベル %{current_level} に達しました！'
+          notification_title: おめでとうございます！ あなたは <a href="%{resource_path}">%{badge_name} バッジ</a> のレベル %{current_level} に到達しました！
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が、そのグループの管理者権限を削除しました。
@@ -612,7 +604,6 @@ ja:
           notification_title: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_path}">プロフィールページ</a> が更新されました。
     export_mailer:
       data_portability_export:
-        click_button: '次のボタンを押してあなたのデータをダウンロードしてください。 <br/> %{date} までにファイルが利用できるようになります。 <br/> ファイルを開くには<a href=''https://www.7-zip.org/''>7-Zip</a> が必要です。Password: %{password}'
         download: ダウンロード
       export:
         ready: エクスポートのzipバージョンを見つけてください。
@@ -644,7 +635,6 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
-        participatory_space: フォロー済:<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
@@ -661,7 +651,6 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
-          message_2: 画像の場合、風景画像が適しています。システムが画像を切り抜きます。
         image:
           explanation: '画像のガイダンス:'
           message_1: テキストを含まない風景画像が適しています。
@@ -903,7 +892,6 @@ ja:
         show:
           back: すべての会話に戻る
           chat_with: 会話
-          not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
           send: 送信
@@ -1017,24 +1005,7 @@ ja:
         metrics:
           headline: 指標
         statistics:
-          answers_count: 完了した調査
-          assemblies_count: 参加スペース
-          comments_count: コメント
-          conferences_count: カンファレンス
-          debates_count: ディベート
-          endorsements_count: 支持
           headline: '%{organization} の現在の状態'
-          meetings_count: ミーティング
-          orders_count: 投票
-          pages_count: ページ
-          processes_count: 参加型プロセス
-          projects_count: プロジェクト
-          proposals_accepted: 承認された提案
-          proposals_count: 提案
-          results_count: 結果
-          surveys_count: 調査
-          users_count: 参加者
-          votes_count: 投票
         sub_hero:
           register: 登録
       index:
@@ -1211,6 +1182,8 @@ ja:
         close_window: ウィンドウを閉じる
         share: 共有
         share_link: リンクを共有
+    statistics:
+      comments_count: コメント
     tags:
       filter_results_for_category: 'カテゴリの検索結果: %{resource}'
       filter_results_for_scope: 'スコープの検索結果: %{resource}'
@@ -1445,7 +1418,7 @@ ja:
     messages:
       already_confirmed: が確認されました。ログインしてみてください
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
-      content_type_whitelist_error: ファイルの種類が無効です
+      content_type_allowlist_error: ファイルの種類が無効です
       cycle_detected: スコープの親は子孫ではありえません
       expired: 有効期限が切れています。新しいものをリクエストしてください
       file_size_is_less_than_or_equal_to: ファイルサイズは %{count} 以下でなければなりません
@@ -1462,9 +1435,6 @@ ja:
       too_short: 短すぎます（15文字未満）
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
-    length_validator:
-      minimum:
-        other: 少なくとも %{count} 文字
     required: 必須項目
     required_explanation: "* 必須項目にはアスタリスクが付いています"
   invisible_captcha:

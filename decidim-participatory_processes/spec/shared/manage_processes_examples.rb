@@ -6,17 +6,18 @@ shared_examples "manage processes examples" do
     let!(:process_with_group) { create(:participatory_process, organization: organization, participatory_process_group: process_group) }
     let!(:process_without_group) { create(:participatory_process, organization: organization) }
     let(:model_name) { participatory_process.class.model_name }
+    let(:resource_controller) { Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController }
 
-    def filter_by_group(group_name)
+    def filter_by_group(group_title)
       visit current_path
       within(".card-title") do
         click_button("Process Groups")
-        click_link(group_name)
+        click_link(group_title)
       end
     end
 
     it "allows the user to filter processes by process_group" do
-      filter_by_group(translated(process_group.name))
+      filter_by_group(translated(process_group.title))
 
       expect(page).to have_content(translated(process_with_group.title))
       expect(page).not_to have_content(translated(process_without_group.title))
@@ -28,10 +29,10 @@ shared_examples "manage processes examples" do
     end
 
     context "when processes are filtered by process_group" do
-      before { filter_by_group(translated(process_group.name)) }
+      before { filter_by_group(translated(process_group.title)) }
 
       it "allows the user to edit the process_group" do
-        click_link translated(process_group.name)
+        click_link translated(process_group.title)
 
         expect(page).to have_content("Edit process group")
       end

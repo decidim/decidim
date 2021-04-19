@@ -1,0 +1,63 @@
+= How to contribute to Decidim
+
+We're really glad you're reading this, because we need volunteer developers to help this project come to fruition.
+
+If you haven't already, come find us in https://gitter.im/decidim/decidim[Gitter]. We want you working on things you're excited about.
+
+Please note that by making a Pull Request in this repository you're agreeing with https://decidim.org/contract[Decidim's Social Contract].
+
+== Did you find a bug?
+
+* *Do not open up a GitHub issue if the bug is a security vulnerability in Decidim*, and instead send us an email to security [at] decidim.org.
+See https://github.com/decidim/decidim/blob/develop/SECURITY.adoc[full security policy].
+* *Ensure the bug was not already reported* by searching on GitHub under https://github.com/decidim/decidim/issues[Issues] and on https://meta.decidim.org/processes/bug-report/f/210/proposals[Metadecidim].
+* If you're unable to find an open issue addressing the problem, https://github.com/decidim/decidim/issues/new?template=Bug_report.md[open a new one on GitHub].
+Be sure to include a *title and clear description*, as much relevant information as possible, and a *code sample* or an *executable test case* demonstrating the expected behavior that is not occurring.
+
+== Did you write a patch that fixes a bug?
+
+* Open a new GitHub pull request with the patch.
+* Ensure the PR description clearly describes the problem and solution.
+Include the relevant issue number if applicable.
+* Check our https://docs.decidim.org/en/develop/guide/[development_guide].
+* When the PR includes a breaking change or includes something that requires manual intervention when deploying, it's necessary to add it on the changelog upgrade notes.
+See https://docs.decidim.org/en/develop/guide_changelog/[rules for the changelog page in docs].
+
+== Do you intend to add a new feature or change an existing one?
+
+. Suggest your change in https://meta.decidim.barcelona/processes/roadmap[Metadecidim]
+. Wait until Product Team reviews and accept the feature
+Do not open an issue on GitHub until you have collected positive feedback about the change and Product Team has approved it.
+GitHub issues are primarily intended for bug reports, fixes and already discussed features on https://meta.decidim.barcelona/processes/roadmap[Metadecidim Roadmap Process].
+. Make the Pull Request.
+
+If your change doesn't need to make a Pull Request in this repository because is a Module, then you don't need to ask permission for it :D
+
+You can read in detail about this process in https://docs.decidim.org/en/governance/[Governance].
+
+== Do you have questions about the source code?
+
+* Ask any question about how to use Decidim in https://gitter.im/decidim/decidim[Gitter].
+
+== Do you want to contribute to Decidim documentation?
+
+* Watch out the https://github.com/decidim/docs.decidim.org[Decidim Documentation repository] and the https://github.com/decidim/decidim.org[decidim.org] code website.
+
+== Do you want to contribute to Decidim design?
+
+* Go to the https://github.com/decidim/decidim/tree/develop/decidim_app-design[Decidim design folder] and propose the changes that you want.
+
+== Do you want to improve an existing language in Decidim?
+
+* You can do so in https://translate.decidim.org[Decidim Translations].
+See more in https://docs.decidim.org/en/contribute/translations/[Translations].
+
+== Do you want to add a new language to Decidim?
+
+* https://decidim.org/contact[Contact] with us.
+See more in https://docs.decidim.org/en/contribute/translations/[Translations].
+
+Thanks!
+:heart: :heart: :heart:
+
+Decidim Team

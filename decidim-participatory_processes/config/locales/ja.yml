@@ -37,7 +37,6 @@ ja:
       participatory_process_group:
         description: 説明
         hero_image: 画像
-        name: 名前
         participatory_process_ids: 関連する参加型プロセス
       participatory_process_step:
         cta_path: コールからアクションパス
@@ -113,8 +112,6 @@ ja:
             title: タイトル
           name: 参加型プロセス
         participatory_process_group:
-          fields:
-            name: 名前
           name: 参加型プロセスグループ
         participatory_process_step:
           fields:
@@ -298,9 +295,10 @@ ja:
       show:
         related_assemblies: 関連する参加スペース
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: 統計情報
       show:
-        group_participatory_processes:
-          other: "%{group} 内の %{count} の参加型プロセス"
         title: 参加型プロセスグループ
     participatory_process_steps:
       index:
@@ -393,25 +391,6 @@ ja:
         start_date: 開始日
         target: 参加者
         unspecified: 指定されていない
-      statistics:
-        answers_count: 回答
-        comments_count: コメント
-        debates_count: ディベート
-        endorsements_count: 支持
-        followers_count: フォロワー
-        headline: 統計情報
-        meetings_count: ミーティング
-        no_stats: 統計情報はまだありません。
-        orders_count: サポート
-        pages_count: ページ
-        participants_count: 参加者
-        processes_count: 参加型プロセス
-        projects_count: プロジェクト
-        proposals_count: 提案
-        results_count: 結果
-        supports_count: サポート
-        surveys_count: 調査
-        users_count: 参加者
   layouts:
     decidim:
       participatory_process_groups:

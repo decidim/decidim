@@ -15,20 +15,22 @@
               <%= icon "chevron-left", role: "img", aria_label: t(".back") %>
             <% end %>
           </div>
-          <%= link_to decidim.conversations_path do %>
-            <% if participants.count == 1 %>
-              <%= image_tag participants.first.avatar_url, alt: t("decidim.author.avatar") %>
-            <% else %>
-              <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar") %>
+          <% if participants.count == 1 %>
+            <%= link_to profile_path(participants.first.nickname) do %>
+              <%= image_tag participants.first.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(participants.first.name)) %>
             <% end %>
+          <% else %>
+            <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
           <% end %>
 
           <div class="ml-s">
-            <% if participants.count == 1 %>
-              <%= t(".chat_with") %> <strong><%= participants.first.name %></strong><br><span class="muted">@<%= participants.first.nickname %></span>
-            <% else %>
-              <%= t(".title", usernames: username_list(participants)) %>
-            <% end %>
+            <h1>
+              <% if participants.count == 1 %>
+                <%= t(".chat_with") %> <strong><%= participants.first.name %></strong><br><span class="muted">@<%= participants.first.nickname %></span>
+              <% else %>
+                <%= t(".title", usernames: username_list(participants)) %>
+              <% end %>
+            </h1>
           </div>
         </div>
 

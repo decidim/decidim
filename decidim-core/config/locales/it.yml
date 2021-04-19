@@ -35,7 +35,6 @@ it:
       decidim/profile_updated_event: profilo aggiornato
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
       decidim/removed_from_group: Rimosso dal gruppo
-      decidim/resource_endorsed_event: Risorsa approvata
   activerecord:
     attributes:
       decidim/user:
@@ -79,11 +78,12 @@ it:
       logo: "Logo ufficiale di %{organization}"
       skip_button: Vai al contenuto principale
     account:
+      blocked: Questo account è stato bloccato a causa della violazione di Termini e Condizioni
       data_portability_export:
         file_no_exists: Il file non esiste
         notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
-        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
+        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai accedere con le tue credenziali. La cancellazione del tuo account comporterà l'anonimizzazione dei tuoi contributi. Sarai ancora in grado di creare un nuovo account, ma questi contributi non saranno associati ad esso.
         confirm:
           close: Chiudere finestra
           ok: Sì, voglio eliminare il mio account
@@ -113,6 +113,8 @@ it:
         delete: "%{user_name} rimosso il componente %{resource_name} dallo spazio %{space_name}"
         publish: "%{user_name} ha pubblicato il componente %{resource_name} nello spazio %{space_name}"
         unpublish: "%{user_name} non pubblicato il componente %{resource_name} dallo spazio %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} è stato moderato %{resource_name} perché %{reason}"
       moderation:
         hide: "%{user_name} nascosto una risorsa di tipo %{resource_type} nel %{space_name} spazio"
         unreport: "%{user_name} non segnalata una risorsa di tipo %{resource_type} nel %{space_name} spazio"
@@ -129,6 +131,7 @@ it:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
       participatory_space_private_user:
         create: "%{user_name} invitato %{resource_name} a essere un utente privato"
+        create_via_csv: "%{user_name} ha invitato %{resource_name} tramite csv a unirsi come partecipante privato"
         delete: "%{user_name} rimosso l'utente %{resource_name} come utente privato"
       scope:
         create: "%{user_name} ha creato l'ambito %{resource_name}"
@@ -142,15 +145,21 @@ it:
         delete: "%{user_name} cancellato il %{resource_name} pagina statica"
         update: "%{user_name} aggiornato il %{resource_name} pagina statica"
       user:
+        block: "%{user_name} ha bloccato l'utente %{resource_name}"
         invite: "%{user_name} ha invitato l'utente %{resource_name} con ruolo: %{role}"
         officialize: "%{user_name} ha ufficializzato l'utente %{resource_name}"
+        promote: "%{user_name} ha promosso %{resource_name}"
         remove_from_admin: "%{user_name} rimosso l'utente %{resource_name} con ruolo: %{role}"
         show_email: "%{user_name} ha ricevuto l'email del partecipante %{resource_name}"
+        transfer: "%{user_name} ha trasferito l'utente %{resource_name}"
+        unblock: "%{user_name} ha sbloccato l'utente %{resource_name}"
         unofficialize: "%{user_name} utente non ufficiale %{resource_name}"
       user_group:
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
         verify: "%{user_name} verificato il %{resource_name} gruppo di utenti"
         verify_via_csv: "%{user_name} verificato il %{resource_name} gruppo di utenti tramite un file CSV"
+      user_moderation:
+        unreport: "%{user_name} ha de-segnalato un %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>TERMINI DI UTILIZZO DELL' AMMINISTRATORE</h2><p>Ci auguriamo che tu abbia ricevuto la usuale raccomandazione dall'amministratore del sistema locale. Solitamente si riduce a queste tre cose:</p><ol><li>Rispetta la privacy degli altri.</li><li>Pensa prima di cliccare.</li><li>Da grande potenzialità derivano grandi responsabilità.</li></ol>"
     alert:
@@ -247,7 +256,6 @@ it:
       photos:
         related_photos: Immagini relative
     author:
-      avatar: Immagine di profilo
       comments:
         one: commento
         other: Commenti
@@ -273,7 +281,7 @@ it:
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
       errors:
-        duplicate_authorization: Esiste già un utente autorizzato con questi dati.
+        duplicate_authorization: Un utente è già autorizzato con gli stessi dati. Un amministratore ti contatterà per verificare i tuoi dettagli.
       expired_at: Scaduto a %{timestamp}
       expires_at: Scade a %{timestamp}
       foo_authorization:
@@ -319,6 +327,13 @@ it:
           title: conferma la tua email
       show:
         close_modal: Chiudi modalità
+    block_user_mailer:
+      notify:
+        body_1: Il tuo account è stato bloccato.
+        body_2: 'Motivo: %{justification}'
+        greetings: Salve,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Ciao,
+        subject: Il tuo account è stato bloccato da %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: e altri %{count}
@@ -367,6 +382,13 @@ it:
             dummy_step_translatable_text: Testo traducibile Dummy
     contact: Contatto
     content_blocks:
+      cta:
+        name: Immagine, testo e pulsante della chiamata all'azione
+      cta_settings_form:
+        background_image: Immagine di sfondo
+        button_text: Testo di "Invito all'azione"
+        button_url: URL del pulsante "Chiamata all'azione"
+        description: Descrisione
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
       hero:
@@ -376,6 +398,11 @@ it:
         welcome_text: Testo di benvenuto
       highlighted_content_banner:
         name: Banner dei contenuti evidenziati
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Ordina gli elementi per:'
+          random: Casuale
+          recent: Più recente
       how_to_participate:
         name: Come partecipare
       html:
@@ -400,7 +427,6 @@ it:
         ready: Pronto
       show:
         download_data: Scarica i dati
-        download_data_description: Un file con tutte le informazioni associate all'account verrà inviato a <strong>%{user_email}</strong>
         request_data: Richiedi dati
     datepicker:
       help_text: 'Formato previsto: %{datepicker_format}'
@@ -410,7 +436,7 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il nickname che ti identifica su %{organization}
+          nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           sign_up: Completa il tuo profilo
           subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
@@ -419,7 +445,7 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          nickname_help: Il nickname che ti identifica su %{organization}
+          nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
@@ -607,6 +633,14 @@ it:
           notification_title: Il gruppo utenti %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.
+          email_outro: Hai ricevuto questa notifica perché sei tra gli autori di "%{resource_title}".
+          email_subject: Il tuo %{resource_type} è stato rimosso
+          notification_title: |-
+            Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e partecipa:'
         email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. Puoi smettere di ricevere notifiche seguendo il link precedente.
@@ -620,7 +654,6 @@ it:
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
       data_portability_export:
-        click_button: 'Fare clic sul pulsante successivo per scaricare i dati. <br/> Avrai il file disponibile fino al %{date}.'
         download: Scaricare
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
@@ -653,7 +686,6 @@ it:
       create:
         button: Segui
         error: C'è stato un errore seguendo questa risorsa.
-        participatory_space: Stai già seguendo lo spazio partecipativo
       destroy:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
@@ -670,7 +702,7 @@ it:
         file:
           explanation: 'Orientamenti per il file:'
           message_1: Deve essere un'immagine o un documento.
-          message_2: Per le immagini, utilizzare preferibilmente immagini orizzontali, il servizio ritaglia l'immagine.
+          message_2: Per le immagini, usare preferibilmente immagini orizzontali, il servizio ritaglia l'immagine. Per i file CSV, il separatore tra colonne deve essere una virgola (",")
         image:
           explanation: 'Orientamenti per il file:'
           message_1: Preferibilmente un'immagine orizzontale che non ha alcun testo.
@@ -912,7 +944,6 @@ it:
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
-          not_allowed: Questo utente non accetta più messaggi diretti.
           title: Conversazione con %{usernames}
         start:
           send: Invia
@@ -920,6 +951,8 @@ it:
         update:
           error: Messaggio non inviato a causa di un errore
     metrics:
+      download:
+        csv: Scarica i dati (CSV)
       followers:
         description: Numero di utenti che seguono questo spazio di partecipazione
         object: Followers
@@ -1026,24 +1059,7 @@ it:
         metrics:
           headline: Partecipazione in cifre
         statistics:
-          answers_count: Questionari completati
-          assemblies_count: Assemblee
-          comments_count: Commenti
-          conferences_count: conferenze
-          debates_count: Dibattiti
-          endorsements_count: Mi piace
           headline: Statistiche su %{organization}
-          meetings_count: Incontri
-          orders_count: Voti
-          pages_count: Pagine
-          processes_count: Processi
-          projects_count: progetti
-          proposals_accepted: Proposte accettate
-          proposals_count: proposte
-          results_count: risultati
-          surveys_count: Questionari
-          users_count: Partecipanti
-          votes_count: Voti
         sub_hero:
           register: Registrati
       index:
@@ -1078,6 +1094,7 @@ it:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
       deleted: Utente eliminato
+      inaccessible_message: Questo profilo è inaccessibile a causa della violazione di Termini e Condizioni!
       view: vista
     profiles:
       default_officialization_text_for_user_groups: Questo gruppo di utenti è verificato pubblicamente, il suo nome è stato verificato per corrispondere con il suo vero nome
@@ -1091,6 +1108,7 @@ it:
         groups: gruppi
         members: Utenti
         officialized: Partecipante ufficiale
+        send_private_message: Invia messaggio privato
         timeline: Ultime attività
         view_full_profile: Visualizza il profilo completo
       sidebar:
@@ -1118,12 +1136,15 @@ it:
       report:
         authors: Autori
         content: Contenuto segnalato
+        content_original_language: Lingua originale del contenuto
         date: Segnalato il
         details: Dettagli
         hello: Ciao %{name},
+        id: ID
         participatory_space: Spazio partecipativo
         reason: Motivazione
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato segnalato.</p>
+        see_report: Vedi rapporto
         subject: Un contenuto è stato denunciato
     reports:
       create:
@@ -1196,6 +1217,15 @@ it:
         report: Rapporto
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
+      flag_user_modal:
+        already_reported: Questo contenuto è già stato segnalato e sarà esaminato da un amministratore.
+        close: Chiudi
+        description: Che cosa è inappropriato riguardo all'utente?
+        does_not_belong: Contiene attività illegali, istigazione al suicidio, informazioni personali o riservate, o altre cose che tu credi che non sono appropriato per %{organization_name}.
+        offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
+        report: Segnala
+        spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
+        title: Segnala utente inappropriato
       floating_help:
         close: Chiudi l'aiuto
         help: Aiuto
@@ -1221,6 +1251,8 @@ it:
         close_window: Chiudi questa finestra
         share: Condividi
         share_link: Condividi link
+    statistics:
+      comments_count: Commenti
     tags:
       filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
       filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
@@ -1271,6 +1303,13 @@ it:
       update:
         error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
         success: I tuoi interessi sono stati aggiornati con successo.
+    user_report_mailer:
+      notify:
+        body_1: L'utente %{user} è stato segnalato da %{token}
+        body_2: 'Motivo: %{reason}'
+        greetings: Salve,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Ciao %{admin},
+        subject: Un nuovo utente è stato segnalato in %{organization_name}
     version:
       show:
         back_to_resource: Torna indietro
@@ -1456,7 +1495,7 @@ it:
     messages:
       already_confirmed: era già confermato, per favore prova ad accedere
       confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
-      content_type_whitelist_error: il tipo di file non è valido
+      content_type_allowlist_error: il tipo di file non è valido
       cycle_detected: Il genitore di un ambito non può essere uno dei suoi discendenti
       expired: è scaduto, si prega di richiederne uno nuovo
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
@@ -1474,10 +1513,6 @@ it:
       too_short: è troppo corto (meno di 15 caratteri)
   forms:
     correct_errors: Ci sono errori nel modulo, correggerli per continuare.
-    length_validator:
-      minimum:
-        one: almeno %{count} carattere
-        other: almeno %{count} caratteri
     required: Richiesto
     required_explanation: "* I campi obbligatori sono contrassegnati con un asterisco"
   invisible_captcha:

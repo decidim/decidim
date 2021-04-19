@@ -75,7 +75,7 @@ module Decidim
           expect(subject.images_container.errors.full_messages).to eq(
             ["Background image The image is too big"]
           )
-          expect(subject.images).to eq({})
+          expect(subject.images).to eq({ "background_image" => nil })
         end
       end
     end

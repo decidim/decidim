@@ -6,7 +6,7 @@ module Decidim
     class MessageForm < Decidim::Form
       mimic :message
 
-      attribute :body, String
+      attribute :body, Decidim::Attributes::CleanString
 
       validates :body, presence: true
     end

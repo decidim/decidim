@@ -39,7 +39,13 @@ ca:
           user_group_id:
             label: Comentar com a
         opinion:
+          label: La teva opinió sobre aquest tema
+          negative: Negativa
+          negative_selected: La teva opinió sobre aquest tema és negativa
           neutral: Neutral
+          neutral_selected: La teva opinió sobre aquest tema és neutral
+          positive: Positiva
+          positive_selected: La teva opinió sobre aquest tema és positiva
         remaining_characters: "Queden %{count} caràcters"
         remaining_characters_1: "Queda %{count} caràcter"
         title: Deixa el teu comentari
@@ -103,6 +109,16 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}" o la seva autora. Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
           notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: El teu comentari a "%{resource_title}" ha rebut un vot negatiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
+          email_outro: Has rebut aquesta notificació perquè ets autora d'aquest comentari.
+          email_subject: El teu comentari a "%{resource_title}" ha rebut un vot negatiu.
+          notification_title: El teu <a href="%{resource_path}">comentari</a> a "%{resource_title}" ha rebut un vot negatiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
+        comment_upvoted:
+          email_intro: El teu comentari a "%{resource_title}" ha rebut un vot positiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
+          email_outro: Has rebut aquesta notificació perquè ets autora d'aquest comentari.
+          email_subject: El teu comentari a "%{resource_title}" ha rebut un vot positiu.
+          notification_title: El teu <a href="%{resource_path}">comentari</a> a "%{resource_title}" ha rebut un vot positiu. Ara té un total de %{upvotes} vots positius i %{downvotes} vots negatius.
         reply_created:
           email_intro: "%{author_name} ha respost el teu comentari a %{resource_title}. Pots llegir-lo en aquesta pàgina:"
           email_outro: Has rebut aquesta notificació perquè s'ha respost el teu comentari.

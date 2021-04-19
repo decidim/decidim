@@ -38,7 +38,6 @@ FactoryBot.define do
     registration_type { :on_this_platform }
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
-    salt { SecureRandom.hex(32) }
 
     author do
       component.try(:organization)
@@ -46,6 +45,11 @@ FactoryBot.define do
 
     trait :online do
       type_of_meeting { :online }
+      online_meeting_url { "https://decidim.org" }
+    end
+
+    trait :hybrid do
+      type_of_meeting { :hybrid }
       online_meeting_url { "https://decidim.org" }
     end
 

@@ -1,0 +1,23 @@
+<% if has_dates? %>
+  <div class="card__icondata">
+    <ul class="card-data">
+      <li class="card-data__item">
+        <%= icon "datetime", class: "icon--big", role: "img", aria_label: t("decidim.accountability.content_blocks.highlighted_results.dates") %>
+      </li>
+      <li class="card-data__item">
+        <div class="card-data__item--centerblock">
+          <strong><%= t("activemodel.attributes.result.start_date") %></strong>
+          <br>
+          <%= start_date ? l(start_date, format: :decidim_short) : t("decidim.accountability.content_blocks.highlighted_results.unspecified") %>
+        </div>
+      </li>
+      <li class="card-data__item">
+        <div class="card-data__item--centerblock">
+          <strong><%= t("activemodel.attributes.result.end_date") %></strong>
+          <br>
+          <%= end_date ? l(end_date, format: :decidim_short) : t("decidim.accountability.content_blocks.highlighted_results.unspecified") %>
+        </div>
+      </li>
+    </ul>
+  </div>
+<% end %>

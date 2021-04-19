@@ -6,7 +6,7 @@ describe "Admin views proposal details from admin", type: :system do
   include_context "when admin manages proposals"
   include ActionView::Helpers::TextHelper
 
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: participatory_process_scope) }

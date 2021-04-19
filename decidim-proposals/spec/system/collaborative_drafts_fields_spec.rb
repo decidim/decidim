@@ -11,7 +11,7 @@ describe "Collaborative drafts", type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
@@ -50,7 +50,7 @@ describe "Collaborative drafts", type: :system do
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
-            visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+            visit new_collaborative_draft_path
 
             within "form.new_collaborative_draft" do
               expect(page).to have_content(/Scope/i)
@@ -62,7 +62,7 @@ describe "Collaborative drafts", type: :system do
           let(:participatory_process) { scoped_participatory_process }
 
           it "cannot be related to a scope" do
-            visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+            visit new_collaborative_draft_path
 
             within "form.new_collaborative_draft" do
               expect(page).to have_no_content("Scope")
@@ -71,7 +71,7 @@ describe "Collaborative drafts", type: :system do
         end
 
         it "creates a new collaborative draft", :slow do
-          visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+          visit new_collaborative_draft_path
 
           within ".new_collaborative_draft" do
             fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
@@ -108,7 +108,7 @@ describe "Collaborative drafts", type: :system do
           end
 
           it "creates a new collaborative draft", :slow do
-            visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+            visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
               check :collaborative_draft_has_address
@@ -141,7 +141,7 @@ describe "Collaborative drafts", type: :system do
 
             before do
               # Prepare the view for submission (other than the address field)
-              visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+              visit new_collaborative_draft_path
 
               within ".new_collaborative_draft" do
                 check :collaborative_draft_has_address
@@ -175,9 +175,12 @@ describe "Collaborative drafts", type: :system do
           end
 
           it "offers and save extra hashtags", :slow do
-            visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+            visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
+              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
+              fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
+
               check :collaborative_draft_suggested_hashtags_suggestedhashtag1
 
               find("*[type=submit]").click
@@ -199,7 +202,7 @@ describe "Collaborative drafts", type: :system do
           end
 
           it "creates a new collaborative draft as a user group", :slow do
-            visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+            visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
@@ -234,7 +237,7 @@ describe "Collaborative drafts", type: :system do
             end
 
             it "creates a new collaborative draft as a user group", :slow do
-              visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+              visit new_collaborative_draft_path
 
               within ".new_collaborative_draft" do
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
@@ -290,7 +293,7 @@ describe "Collaborative drafts", type: :system do
           end
 
           it "creates a new collaborative draft with attachments" do
-            visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+            visit new_collaborative_draft_path
 
             within ".new_collaborative_draft" do
               fill_in :collaborative_draft_title, with: "Collaborative draft with attachments"
@@ -327,6 +330,7 @@ describe "Collaborative drafts", type: :system do
   end
 end
 
-def complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
-  Decidim::EngineRouter.main_proxy(component).complete_collaborative_drafts_path(collaborative_draft: { title: collaborative_draft_title, body: collaborative_draft_body })
+def new_collaborative_draft_path
+  visit_component
+  "#{current_path}/collaborative_drafts/new"
 end

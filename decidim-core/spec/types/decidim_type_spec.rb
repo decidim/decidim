@@ -6,7 +6,9 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe DecidimType do
-      include_context "with a graphql type"
+      subject { described_class }
+
+      include_context "with a graphql class type"
 
       let(:model) do
         Decidim

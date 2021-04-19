@@ -3,11 +3,17 @@
 module Decidim
   module DummyResources
     class DummyResourceMailer < ApplicationMailer
-      def fake_mail(user, organization)
+      def send_email(user, organization, subject, reply_to)
         @user = user
         @organization = organization
 
-        mail(to: "#{user.name} <#{user.email}>") do |format|
+        hash = { to: "#{user.name} <#{user.email}>" }
+        hash[:subject] = subject if subject
+        hash[:reply_to] = reply_to if reply_to
+
+        mail(
+          hash
+        ) do |format|
           format.text { "This is the test" }
           format.html { "<p>This is a mail </p>" }
         end

@@ -1,4 +1,36 @@
 ro:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Numele aplicației OAuth
+        organization_logo: Sigla organizației (pătrat)
+        organization_name: Organizație
+        organization_url: URL-ul organizației
+        redirect_uri: URI de redirectionare
+      organization:
+        address: SMTP hostname
+        from_email: Adresă de e-mail
+        from_label: Etichetă
+        password: Parolă
+        port: Port
+        user_name: Nume de utilizator
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipuri MIME admin
+          default: Tipuri MIME implicite
+        allowed_file_extensions:
+          admin: Extensii fişiere administrator
+          default: Extensii de fișier implicite
+          image: Extensiile fişierului imagine
+        maximum_file_size:
+          avatar: Dimensiune avatar fişier
+          default: Dimensiunea implicită a fișierului
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URL-ul de redirecționare trebuie să fie un URL SSL
   decidim:
     system:
       actions:
@@ -32,6 +64,7 @@ ro:
       menu:
         admins: Administratori
         dashboard: Panou
+        oauth_applications: Aplicații OAuth
         organizations: Organizații
       models:
         admin:
@@ -41,21 +74,67 @@ ro:
           name: Admin
           validations:
             email_uniqueness: un alt administrator cu același e-mail există deja
+        oauth_application:
+          fields:
+            created_at: Creat la
+            name: Numele aplicației OAuth
+            organization_name: Organizație
+          name: Aplicație OAuth
         organization:
           actions:
             save_and_invite: Creați organizație și invitați administrator
           fields:
             created_at: Creat la
+            file_upload_settings: Setări pentru încărcarea fișierului
             name: Nume
             omniauth_settings: Setări Omniauth
             smtp_settings: Setări SMTP
           name: Organizație
+      oauth_applications:
+        create:
+          error: A apărut o eroare la crearea acestei aplicații.
+          success: Aplicație creată cu succes.
+        destroy:
+          error: A apărut o problemă la eliminarea acestei aplicații.
+          success: Aplicație eliminată cu succes.
+        edit:
+          save: Salveaza
+          title: Editați aplicația
+        form:
+          select_organization: Selectați o organizație
+        index:
+          confirm_delete: Sunteți sigur(ă) că doriți să ștergeți această aplicație?
+          title: Aplicații OAuth
+        new:
+          save: Salveaza
+          title: Adăugați o aplicație nouă
+        update:
+          error: A apărut o eroare la actualizarea acestei aplicații.
+          success: Aplicație actualizată cu succes.
       organizations:
         create:
           error: A apărut o problemă la crearea unei noi organizații.
           success: Organizație creată cu succes.
         edit:
           secondary_hosts_hint: Introduceți fiecare dintre ele într-o linie nouă
+        file_upload_settings:
+          content_types:
+            admin_hint: Aceste tipuri MIME sunt permise pentru secțiunea de administrare încărcare. Utilizatorii administratori ar trebui să fie conștienți de riscurile la încărcarea unor formate de document, astfel încât să vă puteți aștepta ca acestea să fie mai prudente cu încărcările de fișiere.
+            default_hint: Aceste tipuri MIME sunt permise implicit pentru toți utilizatorii.
+            intro_html: Adaugă metacaractere cu caracterul asterisc pentru tipurile MIME, ex. <code>image/*</code>.
+            title: Tipuri MIME permise
+          file_extensions:
+            admin_hint: Aceste extensii de fișiere sunt permise pentru secțiunea de administrare încărcare. Utilizatorii administratori ar trebui să fie conștienți de riscurile la încărcarea unor formate de document, astfel încât să vă puteți aștepta ca acestea să fie mai prudente cu încărcările de fișiere.
+            default_hint: Aceste extensii de fișiere sunt permise implicit pentru toți utilizatorii.
+            image_hint: Aceste extensii de fișiere sunt permise pentru orice fel de încărcare de imagini.
+            title: Extensii de fișiere permise
+          file_sizes:
+            avatar_hint: Megabytes (MB). Această limită de dimensiune a fișierului este utilizată pentru încărcarea imaginii avatarului.
+            default_hint: Megabytes (MB). Această limită de dimensiune a fișierului este cea implicită utilizată pentru toate încărcările fișierelor, cu excepția cazului în care se specifică altfel.
+            title: Mărimea maximă a fișierului
+          intro: |
+            Te rugăm să fii extrem de prudent când iei în considerare schimbarea acestor setări. Cu cât permiți, cu atât mai bine.
+            Permițând anumite extensii de fișiere sau tipuri MIME poate expune utilizatorii de sistem la riscuri de securitate și poate afecta accesibilitatea site-ului.
         index:
           title: Organizații
         new:

@@ -7,7 +7,8 @@
 
 <div class="trustee_zone">
   <%= decidim_form_for(trustee, html: { class: "form edit_trustee" }) do |f| %>
-    <%= f.hidden_field :id %>
+    <%= f.hidden_field :slug %>
+    <%= f.hidden_field :name %>
     <%= f.hidden_field :public_key %>
     <%= f.submit "", id: "submit_identification_public_key", class: "hide" %>
   <% end %>
@@ -34,10 +35,10 @@
             <div class="card__support">
               <div>
                 <button class="card__button button small hollow" type="button">
-                  <%= icon "x", role: "img" %> <%= t(".identification_keys.cancel") %>
+                  <%= icon "x", role: "img", "aria-hidden": true %> <%= t(".identification_keys.cancel") %>
                 </button>
                 <label class="card__button button small" for="submit_identification_public_key">
-                  <%= icon "check", role: "img" %> <%= t(".identification_keys.submit") %>
+                  <%= icon "check", role: "img", "aria-hidden": true %> <%= t(".identification_keys.submit") %>
                 </label>
               </div>
             </div>
@@ -46,7 +47,7 @@
     </div>
     <div id="generate_identification_keys" data-error="<%= t(".identification_keys.generate_error") %>">
       <button class="button">
-        <%= icon "key", role: "img" %> <%= t(".identification_keys.generate") %>
+        <%= icon "key", role: "img", "aria-hidden": true %> <%= t(".identification_keys.generate") %>
       </button>
     </div>
   <% else %>
@@ -55,7 +56,7 @@
       <h2><%= t(".identification_keys.title") %></h2>
       <p><%= t(".identification_keys.upload_legend") %></p>
       <button class="button" type="button">
-        <%= icon "data-transfer-upload", role: "img" %> <%= t(".identification_keys.upload") %>
+        <%= icon "data-transfer-upload", role: "img", "aria-hidden": true %> <%= t(".identification_keys.upload") %>
       </button>
     </div>
 
@@ -66,16 +67,26 @@
         <thead>
           <tr>
             <th><%= t(".elections.list.election") %></th>
-            <th><%= t(".elections.list.status") %></th>
             <th><%= t(".elections.list.voting_period") %></th>
+            <th><%= t(".elections.list.bb_status") %></th>
+            <th><%= t(".elections.list.action_required.name") %></th>
           </tr>
         </thead>
         <tbody>
           <% trustee.elections.each do |election| %>
             <tr>
               <td><%= present(election).title %></td>
-              <td><%= election.voting_period_status %></td>
               <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
+              <td><%= election.bb_status %></td>
+              <td>
+                <% if election.trustee_action_required? %>
+                  <%= link_to trustee_election_elections_path(election) do %>
+                    <%= t(".elections.list.action_required.true") %>
+                  <% end %>
+                <% else %>
+                  <%= t(".elections.list.action_required.false") %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
@@ -88,4 +99,4 @@
   <% end %>
 </div>
 
-<%= javascript_include_tag "decidim/elections/trustee_zone", integrity: true %>
+<%= javascript_pack_tag "decidim_elections_trustee_trustee_zone", integrity: true %>

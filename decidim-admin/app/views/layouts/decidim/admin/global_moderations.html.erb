@@ -1,0 +1,7 @@
+<% content_for :sidebar_menu_nav do %>
+  <%= sidebar_menu(:admin_global_moderation_menu).render(title: t(".title" )) %>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>

@@ -119,6 +119,8 @@ el:
           questions: Ερωτήσεις
           results: Αποτελέσματα
         questions_submenu:
+          attachments: Συνημμένα
+          categories: Κατηγορίες
           components: Στοιχεία
           configuration: Διαμόρφωση
           consultation: Διαβούλευση
@@ -321,10 +323,6 @@ el:
           title: Τι είναι οι διαβουλεύσεις;
     menu:
       consultations: Διαβουλεύσεις
-    pages:
-      home:
-        statistics:
-          consultations_count: Διαβουλεύσεις
     questions:
       next_button: Επόμενη ερώτηση
       previous_button: Προηγούμενη ερώτηση
@@ -361,10 +359,6 @@ el:
           vote: Ψηφοφορία
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Συνημμένα
-          categories: Κατηγορίες
       consultation_voting_data:
         start_voting_date: Η ψηφοφορία αρχίζει
       question_components:

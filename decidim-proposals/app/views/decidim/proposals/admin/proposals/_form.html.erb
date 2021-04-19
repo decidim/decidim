@@ -5,11 +5,11 @@
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.translated :text_field, :title, class: "js-hashtags", value: form_presenter.title(extras: false).strip, hashtaggable: true %>
+      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.translated :editor, :body, hashtaggable: true, value: form_presenter.body(extras: false).strip %>
+      <%= form.translated :editor, :body, hashtaggable: true %>
     </div>
 
     <% if @form.component_automatic_hashtags.any? %>
@@ -84,6 +84,12 @@
 
             <div class="row column">
               <%= form.upload :file, optional: false %>
+              <% if params[:id].present? %>
+                <% if proposal.documents.present? %>
+                  <%= form.hidden_field :id, value: proposal.documents.first.id %>
+                  <%= form.check_box :delete_file, label: t(".delete_attachment"), value: proposal.documents.first.id %>
+                <% end %>
+              <% end %>
             </div>
           <% end %>
         </fieldset>
@@ -92,4 +98,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/proposals/admin/proposals_form" %>
+<%= javascript_pack_tag "decidim_proposals_admin" %>

@@ -34,16 +34,16 @@ de:
             confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
           destroy_nok: Beim Entziehen von Berechtigungen ist ein Fehler aufgetreten.
-          destroy_ok: Alle passenden Berechtigungen wurden erfolgreich entzogen!
+          destroy_ok: Alle übereinstimmenden Berechtigungen wurden erfolgreich entzogen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
           no_data: Keine verifizierten Teilnehmer
-          title: Entziehen von Verifizierungen
-        authorization_workflows: Überprüfungen
+          title: Berechtigungen widerrufen
+        authorization_workflows: Berechtigungen
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} hat die Überprüfungskonfiguration für Identitätsdokumente aktualisiert"
+        update_id_documents_config: "%{user_name} hat die Konfiguration für die Überprüfung von Identitätsdokumenten aktualisiert"
       user:
-        grant_id_documents_offline_verification: "%{user_name} verifiziert %{resource_name} über eine Offline-Verifizierung von Identitätsdokumenten"
+        grant_id_documents_offline_verification: "%{user_name} hat die Identitätsdokumente von %{resource_name} offline überprüft"
     authorization_handlers:
       admin:
         csv_census:
@@ -75,6 +75,10 @@ de:
       postal_letter:
         explanation: Wir senden Ihnen einen Brief mit einem Code, den Sie eingeben müssen, damit wir Ihre Adresse bestätigen können
         name: Code per Post
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten des verwalteten Teilnehmers <a href="%{managed_user_path}">%{managed_user_name}</a> zu verifizieren.
     verifications:
       authorizations:
         authorization_metadata:
@@ -131,6 +135,7 @@ de:
             title: Aktuelle Volkszählungsdaten
           instructions:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
+            title: Sie müssen die CSV Zensus für diese Organisation aktivieren
           new:
             file: "CSV-Datei mit E-Mail-Daten"
             info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte der E-Mail-Adresse:'
@@ -146,6 +151,10 @@ de:
             one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
             other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
           scope: Die Teilnahme ist auf Benutzer mit dem Umgang %{scope_name} begrenzt.
+          user_postal_codes:
+            one: Die Teilnahme ist auf Teilnehmer mit der Postleitzahl %{postal_codes} beschränkt, und Ihre Postleitzahl ist %{user_postal_code}.
+            other: 'Die Teilnahme ist auf Teilnehmer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}. Ihre Postleitzahl ist %{user_postal_code}.'
+          user_scope: Die Teilnahme ist auf Teilnehmer aus dem Bereich %{scope_name} beschränkt, und Ihr Bereich ist %{user_scope_name}.
       id_documents:
         admin:
           config:
@@ -203,7 +212,7 @@ de:
           update:
             error: Beim erneuten Laden Ihres Dokuments ist ein Problem aufgetreten
             success: Das Dokument wurde erfolgreich neu geladen
-        dni: DNI
+        dni: Personalausweis
         nie: NIE
         passport: Reisepass
       postal_letter:

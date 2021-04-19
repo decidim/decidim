@@ -6,6 +6,8 @@ en:
         delete_reason: Reason to delete your account
       common:
         created_at: Created at
+      conversation:
+        body: Body
       group:
         about: About
         avatar: Avatar
@@ -14,6 +16,8 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      message:
+        body: Body
       report:
         details: Additional comments
       user:
@@ -36,7 +40,7 @@ en:
       decidim/profile_updated_event: Profile updated
       decidim/promote_to_admin: Promoted to group admin
       decidim/removed_from_group: Removed from group
-      decidim/resource_endorsed_event: Resurce endorsed
+      decidim/resource_endorsed_event: Resource endorsed
   activerecord:
     attributes:
       decidim/user:
@@ -80,11 +84,12 @@ en:
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
+      blocked: This account has been blocked due to Terms and Conditions violation
       data_portability_export:
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You'll receive an email when it's complete.
       delete:
-        alert: This action cannot be undone. If you delete your account you won't be able to log in.
+        alert: This action cannot be undone. If you delete your account you won't be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
         confirm:
           close: Close window
           ok: Yes, I want to delete my account
@@ -114,6 +119,8 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
+      impersonation_log:
+        manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
@@ -144,10 +151,14 @@ en:
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
       user:
+        block: "%{user_name} blocked user %{resource_name}"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the participant %{resource_name}"
+        promote: "%{user_name} has promoted %{resource_name}"
         remove_from_admin: "%{user_name} removed the participant %{resource_name} with role: %{role}"
         show_email: "%{user_name} retrieved the email of the participant %{resource_name}"
+        transfer: "%{user_name} transfered the participant %{resource_name}"
+        unblock: "%{user_name} unblocked user %{resource_name}"
         unofficialize: "%{user_name} unofficialized the participant %{resource_name}"
       user_group:
         reject: "%{user_name} rejected the %{resource_name} group verification"
@@ -251,7 +262,8 @@ en:
       photos:
         related_photos: Related images
     author:
-      avatar: Avatar
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar for multiple users
       comments:
         one: comment
         other: comments
@@ -277,7 +289,7 @@ en:
       dummy_authorization_workflow:
         name: Dummy authorization workflow
       errors:
-        duplicate_authorization: A participant is already authorized with the same data.
+        duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
       expired_at: Expired at %{timestamp}
       expires_at: Expires at %{timestamp}
       foo_authorization:
@@ -323,6 +335,13 @@ en:
           title: Confirm your email
       show:
         close_modal: Close modal
+    block_user_mailer:
+      notify:
+        body_1: Your account was blocked.
+        body_2: 'Reason: %{justification}'
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello,
+        subject: Your account was blocked by %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: and %{count} more
@@ -371,6 +390,13 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      cta:
+        name: Image, text and Call To Action button
+      cta_settings_form:
+        background_image: Background image
+        button_text: Call To Action text
+        button_url: Call To Action URL
+        description: Description
       footer_sub_hero:
         name: Footer sub hero banner
       hero:
@@ -380,6 +406,11 @@ en:
         welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sort elements by:'
+          random: Random
+          recent: Most recent
       how_to_participate:
         name: How to participate
       html:
@@ -404,7 +435,7 @@ en:
         ready: Ready
       show:
         download_data: Download the data
-        download_data_description: A file with all the information associated with the account will be sent to <strong>%{user_email}</strong>
+        download_data_description: A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>. This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS). If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Request data
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
@@ -414,7 +445,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          nickname_help: Your alias in %{organization}
+          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -423,7 +454,7 @@ en:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias in %{organization}
+          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up
@@ -440,6 +471,8 @@ en:
           register: Create an account
           sign_in_disabled: You can access with an external account
           sign_up_disabled: Sign up is disabled, you can use an existing account to access
+        user:
+          timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
       shared:
         newsletter_modal:
           buttons:
@@ -636,7 +669,7 @@ en:
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       data_portability_export:
-        click_button: 'Click the next button to download your data. <br/> You will have the file available until %{date}. <br/> You will need <a href=''https://www.7-zip.org/''>7-Zip</a> to open it. Password: %{password}'
+        click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
         download: Download
       export:
         ready: Please find attached a zipped version of your export.
@@ -669,7 +702,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
-        participatory_space: Already following <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Following <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.
@@ -686,7 +719,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image.
+          message_2: For images, use preferrably landscape images, the service crops the image. For CSV files, the separator between columns must be a comma (",")
         image:
           explanation: 'Guidance for image:'
           message_1: Preferrably a landscape image that does not have any text.
@@ -928,7 +961,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
-          not_allowed: This user does not accept any more direct messages.
+          not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
           send: Send
@@ -999,8 +1032,10 @@ en:
       no_notifications: No notifications yet.
     notifications_settings:
       show:
+        administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
         direct_messages: Receive direct messages from anyone
+        email_on_moderations: I want to receive an email every time something is reported for moderation.
         email_on_notification: I want to receive an email every time I receive a notification.
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
@@ -1044,24 +1079,7 @@ en:
         metrics:
           headline: Metrics
         statistics:
-          answers_count: Completed Surveys
-          assemblies_count: Assemblies
-          comments_count: Comments
-          conferences_count: Conferences
-          debates_count: Debates
-          endorsements_count: Endorsements
           headline: Current state of %{organization}
-          meetings_count: Meetings
-          orders_count: Votes
-          pages_count: Pages
-          processes_count: Processes
-          projects_count: Projects
-          proposals_accepted: Accepted Proposals
-          proposals_count: Proposals
-          results_count: Results
-          surveys_count: Surveys
-          users_count: Participants
-          votes_count: Votes
         sub_hero:
           register: Register
       index:
@@ -1096,6 +1114,7 @@ en:
       not_allowed: You are not allowed to view this content
     profile:
       deleted: Participant deleted
+      inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!
       view: View
     profiles:
       default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name
@@ -1109,6 +1128,7 @@ en:
         groups: Groups
         members: Members
         officialized: Official participant
+        send_private_message: Send private message
         timeline: Timeline
         view_full_profile: View full profile
       sidebar:
@@ -1214,6 +1234,7 @@ en:
         description: Is this content inappropriate?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        reason: Reason
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
@@ -1249,8 +1270,21 @@ en:
         title: Select number of results per page
       share_modal:
         close_window: Close window
+        copy_share_link: Copy
+        copy_share_link_clarification: Copy share link to clipboard
+        copy_share_link_copied: Copied!
+        copy_share_link_message: The link was successfully copied to clipboard.
         share: Share
         share_link: Share link
+    statistics:
+      comments_count: Comments
+      endorsements_count: Endorsements
+      followers_count: Followers
+      headline: Statistics
+      no_stats: There are no statistics yet.
+      pages_count: Pages
+      participants_count: Participants
+      users_count: Participants
     tags:
       filter_results_for_category: 'Filter results for category: %{resource}'
       filter_results_for_scope: 'Filter results for scope: %{resource}'
@@ -1288,6 +1322,7 @@ en:
         send: Send
         title_reply: Reply
       show:
+        back: Show all conversations
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
@@ -1333,6 +1368,7 @@ en:
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Show all versions
       show:
         version_index: Version %{index}
     welcome_notification:
@@ -1493,7 +1529,7 @@ en:
     messages:
       already_confirmed: was already confirmed, please try signing in
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
-      content_type_whitelist_error: the file type is not valid
+      content_type_allowlist_error: the file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
@@ -1513,8 +1549,8 @@ en:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:
       minimum:
-        one: at least %{count} character
-        other: at least %{count} characters
+        one: At least %{count} character
+        other: At least %{count} characters
     required: Required field
     required_explanation: "* Required fields are marked with an asterisk"
   invisible_captcha:
@@ -1535,9 +1571,11 @@ en:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Close menu
+        main_menu: Main menu
         navigation: Navigation
         sign_in: Sign In
         sign_up: Sign Up
+        user_menu: User menu
       impersonation_warning:
         close_session: Close session
         description_html: You are managing the participant <b>%{user_name}</b>.
@@ -1553,6 +1591,11 @@ en:
         instagram: "%{organization} at Instagram"
         twitter: "%{organization} at Twitter"
         youtube: "%{organization} at YouTube"
+      timeout_modal:
+        body: You have been inactive for %{minutes} minutes. If you continue being inactive, you will be automatically signed out for your own security.
+        continue_session: Continue session
+        sign_out: Sign out
+        title: Would you like to continue your session?
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
@@ -1561,6 +1604,7 @@ en:
         profile: My account
         public_profile: My public profile
         sign_out: Sign out
+        title: Profile links
       user_profile:
         account: Account
         authorizations: Authorizations

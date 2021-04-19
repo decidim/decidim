@@ -27,6 +27,9 @@ ca:
         user_group_id: Crea una proposta com a
       proposal_answer:
         answer: Respondre
+        cost: Cost
+        cost_report: Informe de cost
+        execution_period: Període d'execució
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot desfer.
         origin_component_id: Component des d'on importar les propostes
@@ -136,7 +139,11 @@ ca:
             participatory_texts_enabled: Texts participatius habilitats
             participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             proposal_answering_enabled: Resposta a propostes habilitada
-            proposal_edit_before_minutes: Les propostes poden ser editades per les autorrs abans que passin aquests minuts
+            proposal_edit_before_minutes: Les propostes poden ser editades per les autores abans que passin aquests minuts
+            proposal_edit_time: Edició de propostes
+            proposal_edit_time_choices:
+              infinite: Permet l'edició de propostes durant un període infinit
+              limited: Permet l'edició de propostes durant una finestra temporal específica
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
@@ -336,10 +343,6 @@ ca:
         description: Nombre de suports a les propostes
         object: suports
         title: Suports
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propostes
     participatory_spaces:
       highlighted_proposals:
         see_all: Veure tots (%{count})
@@ -356,7 +359,7 @@ ca:
         actions:
           preview: Previsualitzar
         exports:
-          comments: Comentaris
+          proposal_comments: Comentaris
           proposals: Propostes
         models:
           proposal:
@@ -380,7 +383,9 @@ ca:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
+            document_legend: 'Afegeix un document de menys de 2 Mb, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
             title: AFEGIR DOCUMENT
             upload_document: Puja el document
           publish:
@@ -421,6 +426,7 @@ ca:
           form:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             created_in_meeting: Aquesta proposta prové d'una trobada
+            delete_attachment: Suprimeix l'adjunt
             select_a_category: Selecciona una categoria
             select_a_meeting: Selecciona una trobada
           index:
@@ -430,7 +436,7 @@ ca:
             cancel: Cancel·lar
             change_category: Canvia la categoria
             change_scope: Canviar àmbit
-            merge: Uneix-te a un de nou
+            merge: Fusionar a una nova
             merge_button: Fusionar
             publish: Publica
             publish_answers: Publica respostes
@@ -495,6 +501,7 @@ ca:
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
             select_component: Escull un component
             select_states: Consulta els estats de les propostes a importar
+            title: Importar propostes
         proposals_merges:
           create:
             invalid: S'ha produït un error en fusionar les propostes seleccionades.
@@ -520,7 +527,7 @@ ca:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
         valuation_assignment:
           create: "%{user_name} ha assignat la proposta %{resource_name} a una avaluadora"
-          delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{resource_name}"
+          delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{proposal_title}"
       answers:
         accepted: Acceptades
         evaluating: En avaluació
@@ -567,13 +574,6 @@ ca:
               ok: Retira l'esborrany col·laboratiu
               title: La següent acció és irreversible
             success: L'esborrany col·laboratiu s'ha retirat correctamente.
-        compare:
-          mine_is_different: El meu esborrany col·laboratiu és diferent
-          no_similars_found: Enhorabona! No s'han trobat esborranys col·laboratius similars
-          title: Esborranys col·laboratius similars
-        complete:
-          send: Enviar
-          title: Completa el teu esborrany col·laboratiu
         count:
           drafts_count:
             one: "%{count} esborrany de col·laboració"
@@ -605,7 +605,6 @@ ca:
           unfold: Desplega
         new:
           send: Continua
-          title: Crea el teu esborrany col·laboratiu
         new_collaborative_draft_button:
           new_collaborative_draft: Nou esborrany col·laboratiu
         orders:
@@ -650,23 +649,14 @@ ca:
         update:
           error: S'ha produït un error en desar l'esborrany col·laboratiu.
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
-          title: Editar l'esborrany col·laboratiu
         wizard_aside:
-          back: Torna
           back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
-          back_from_step_1: Tornar a l'esborrany col·laboratiu
-          back_from_step_2: Tornar a l'esborrany col·laboratiu
-          back_from_step_3: Tornar a comparar els esborranys col·laboratius
-          back_from_step_4: Tornar a editar l'esborrany
           info: Estàs creant un <strong>esborrany col·laboratiu</strong>.
-        wizard_steps:
-          current_step: Fase actual
-          see_steps: veure els passos
-          step_1: Crea el teu esborrany col·laboratiu
-          step_2: Compara amb esborranys col·laboratius
-          step_3: Completa el teu esborrany col·laboratiu
-          step_of: Pas %{current_step_num} de %{total_steps}
-          title: Passos per a la creació d'un esborrany col·laboratiu
+        wizard_header:
+          title: Crea el teu esborrany col·laboratiu
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propostes
       create:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
@@ -675,6 +665,7 @@ ca:
         success: L'esborrany de proposta s'ha eliminat correctament.
       last_activity:
         new_proposal_at_html: "<span>Nova proposta a %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta actualitzada el %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -719,6 +710,8 @@ ca:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostes"
+        dynamic_map_instructions:
+          instructions: <h3>Pots moure el punt al mapa. </h3><p>No oblidis fer clic al botó "Actualitzar posició" abans de publicar la teva proposta.</p>
         edit:
           add_documents: Documents
           add_images: Arxiu
@@ -779,13 +772,18 @@ ca:
             document_index: Índex del document
           view_index:
             see_index: Veure índex
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: La teva proposta s'ha guardat com un esborrany. Necessita ser publicada perquè aparegui al lloc.
+          announcement_title: La teva proposta encara no s'ha publicat
           modify: Modifica la proposta
           proposal_edit_before_minutes:
             one: Podràs editar aquesta proposta durant el primer minut després de publicar-la. Un cop passat aquest temps, no podràs editar la proposta.
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
+          update_position: Actualitzar posició
         proposal:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
@@ -902,3 +900,7 @@ ca:
       included_proposals:
         proposal_project: 'Proposta vinculada a aquests projectes:'
         proposal_result: 'Proposta vinculada a aquests resultats:'
+    statistics:
+      proposals_accepted: Propostes acceptades
+      proposals_count: Propostes
+      supports_count: Suports

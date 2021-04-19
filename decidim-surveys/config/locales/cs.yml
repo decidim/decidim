@@ -25,8 +25,12 @@ cs:
           global:
             announcement: Oznámení
             clean_after_publish: Odstranit odpovědi při publikování ankety
+            ends_at: Odpověď přijata do
+            ends_at_help: Ponechte prázdné pro žádné konkrétní datum
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            starts_at: Odpovědi přijaté od
+            starts_at_help: Ponechte prázdné pro žádné konkrétní datum
           step:
             allow_answers: Povolte odpovědi
             allow_unregistered: Umožnit neregistrovaným uživatelům odpovědět na průzkum
@@ -49,10 +53,12 @@ cs:
         description: Počet průzkumů, které uživatelé zodpověděli
         object: odpovědi na průzkumy
         title: Odpovědi na průzkumy
+    statistics:
+      answers_count: Odpovědi
     surveys:
       admin:
         exports:
-          survey_user_answers: Zjištění uživatelských odpovědí
+          survey_user_answers: Odpovědi účastníka na průzkum
         surveys:
           update:
             invalid: Při ukládání průzkumu došlo k chybám.

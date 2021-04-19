@@ -35,7 +35,6 @@ pt:
       decidim/profile_updated_event: Perfil atualizado
       decidim/promote_to_admin: Promovido a administrador do grupo
       decidim/removed_from_group: Removido do grupo
-      decidim/resource_endorsed_event: Recurso endossado
   activerecord:
     attributes:
       decidim/user:
@@ -82,7 +81,6 @@ pt:
         file_no_exists: Ficheiro não existente
         notice: A transferência dos seus dados está atualmente em progresso. Receberá um e-mail quando estiver concluído.
       delete:
-        alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
           ok: Sim, eu quero cancelar a minha conta
@@ -245,7 +243,6 @@ pt:
       photos:
         related_photos: Imagens relacionadas
     author:
-      avatar: Avatar
       comments:
         one: comentário
         other: comentários
@@ -270,8 +267,6 @@ pt:
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
-      errors:
-        duplicate_authorization: Um participante com os mesmos dados já está autorizado.
       expired_at: Expirou em %{timestamp}
       expires_at: Expira em %{timestamp}
       foo_authorization:
@@ -396,7 +391,6 @@ pt:
         ready: Pronto
       show:
         download_data: Transferir os dados
-        download_data_description: Um ficheiro com todas as informações associadas à conta será enviado para <strong>%{user_email}</strong>
         request_data: Solicitar dados
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
@@ -406,7 +400,6 @@ pt:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
           complete_profile: Complete o seu perfil
-          nickname_help: O seu pseudónimo em %{organization}
           sign_up: Por favor, complete o seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -415,7 +408,6 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
-          nickname_help: O seu pseudónimo em %{organization}
           password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
           sign_in: Entrar
           sign_up: Inscreva-se
@@ -615,7 +607,6 @@ pt:
           notification_title: A <a href="%{resource_path}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
     export_mailer:
       data_portability_export:
-        click_button: 'Clique no botão seguinte para transferir os seus dados. <br/> Terá o ficheiro disponível até %{date}. <br/> Irá precisar do <a href=''https://www.7-zip.org/''>7-Zip</a> para abri-lo. Palavra-passe: %{password}'
         download: Transferir
       export:
         ready: Por favor, encontre em anexo uma versão zip da sua exportação.
@@ -648,7 +639,6 @@ pt:
       create:
         button: Seguir
         error: Ocorreu um problema ao seguir este recurso.
-        participatory_space: Já segue o espaço participativo
       destroy:
         button: Parar de seguir
         error: Ocorreu um problema ao seguir este recurso.
@@ -665,7 +655,6 @@ pt:
         file:
           explanation: 'Orientação para o ficheiro:'
           message_1: Tem que ser uma imagem ou um documento.
-          message_2: Para imagens, use de preferência imagens de paisagem, o serviço corta a imagem.
         image:
           explanation: 'Orientação para a imagem:'
           message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
@@ -902,7 +891,6 @@ pt:
         show:
           back: Retroceder a todas as conversas
           chat_with: Conversa com
-          not_allowed: Este utilizador não aceita mais mensagens diretas.
           title: Conversa com %{usernames}
         start:
           send: Enviar
@@ -1014,24 +1002,7 @@ pt:
         metrics:
           headline: Métricas
         statistics:
-          answers_count: Inquéritos Concluídos
-          assemblies_count: Reuniões
-          comments_count: Comentários
-          conferences_count: Conferências
-          debates_count: Debates
-          endorsements_count: Endossos
           headline: Estado atual de %{organization}
-          meetings_count: Reuniões
-          orders_count: Votos
-          pages_count: Páginas
-          processes_count: Processos
-          projects_count: Projetos
-          proposals_accepted: Propostas aceites
-          proposals_count: Propostas
-          results_count: Resultados
-          surveys_count: Inquéritos
-          users_count: Participantes
-          votes_count: Votos
         sub_hero:
           register: Registar
       index:
@@ -1204,6 +1175,8 @@ pt:
         close_window: Fechar janela
         share: Partilhar
         share_link: Partilhar link
+    statistics:
+      comments_count: Comentários
     tags:
       filter_results_for_category: 'Resultados do filtro para a categoria: %{resource}'
       filter_results_for_scope: 'Resultados do filtro para o âmbito: %{resource}'
@@ -1434,7 +1407,7 @@ pt:
     messages:
       already_confirmed: já foi confirmado, por favor tente iniciar sessão
       confirmation_period_expired: necessita de ser confirmado dentro de %{period}, por favor solicite um novo
-      content_type_whitelist_error: o tipo de ficheiro não é válido
+      content_type_allowlist_error: o tipo de ficheiro não é válido
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       expired: expirou, por favor solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do ficheiro deve ser menor ou igual a %{count}
@@ -1452,10 +1425,6 @@ pt:
       too_short: é muito curto (abaixo de 15 caracteres)
   forms:
     correct_errors: Existem erros no formulário, por favor corrija-os para continuar.
-    length_validator:
-      minimum:
-        one: pelo menos %{count} carácter
-        other: pelo menos %{count} caracteres
     required: Requeridos
     required_explanation: "* Campos obrigatórios estão marcados com um asterisco"
   invisible_captcha:

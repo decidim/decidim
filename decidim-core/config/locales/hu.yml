@@ -33,7 +33,6 @@ hu:
       decidim/profile_updated_event: Profil frissítve
       decidim/promote_to_admin: A csoport adminisztrátora
       decidim/removed_from_group: Eltávolítva a csoportból
-      decidim/resource_endorsed_event: Erőforrás jóváhagyva
   activerecord:
     attributes:
       decidim/user:
@@ -79,7 +78,6 @@ hu:
         file_no_exists: Fájl nem létezik
         notice: Az adatok letöltése jelenleg folyamatban van. Ha befejeződött, e-mailt fogsz kapni.
       delete:
-        alert: Ez a művelet nem visszavonható. Ha törlöd a fiókod, akkor nem tudsz bejelentkezni.
         confirm:
           close: Ablak bezárása
           ok: Igen, törölni szeretném a fiókomat
@@ -240,7 +238,6 @@ hu:
       photos:
         related_photos: Kapcsolódó képek
     author:
-      avatar: Profilkép
       comments:
         one: megjegyzés
         other: megjegyzések
@@ -262,8 +259,6 @@ hu:
         name: Példa feljogosításra
       dummy_authorization_workflow:
         name: Dummy feljogosítási folyamat
-      errors:
-        duplicate_authorization: Egy résztvevő ezekkel az adatokkal már engedélyezésre került.
       expired_at: 'Lejárat: %{timestamp}'
       expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:
@@ -383,7 +378,6 @@ hu:
         ready: Kész
       show:
         download_data: Töltsd le az adatokat
-        download_data_description: 'A fiókhoz tartozó összes információt a következő email címre: <strong>%{user_email}</strong>'
         request_data: Adatkérés
     datepicker:
       help_text: 'Várható formátum: %{datepicker_format}'
@@ -393,7 +387,6 @@ hu:
           email_already_exists: Egy másik fiók ugyanezt az email címet használja
         new:
           complete_profile: Profil kiegészítése
-          nickname_help: 'Egyedi azonosítód ehhez: %{organization}'
           sign_up: Töltsd ki a hiányzó adatokat
           subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
@@ -402,7 +395,6 @@ hu:
           already_have_an_account?: Már van egy fiókod?
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
-          nickname_help: 'Egyedi azonosítód ehhez: %{organization}'
           password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
           sign_in: Belépés
           sign_up: Regisztráció
@@ -596,7 +588,6 @@ hu:
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
     export_mailer:
       data_portability_export:
-        click_button: 'Kattints a következő gombra az adataid letöltéséhez. <br/> A fájl eddig lesz elérhető: %{date}.<br/> Szükséged lesz egy Zip fájlt kezelő szoftverre a megnyitásához <a href=''https://www.7-zip.org/''>7-Zip</a> . Jelszó: %{password}'
         download: Letöltés
       export:
         ready: Mellékelve találod az exportálás tömörített változatát.
@@ -626,7 +617,6 @@ hu:
       create:
         button: Követés
         error: Hiba történt az erőforrás követése során.
-        participatory_space: Már követed a részvételi teret
       destroy:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
@@ -832,7 +822,6 @@ hu:
           title: Válasz
         show:
           chat_with: Beszélgetés vele
-          not_allowed: Ez a felhasználó nem fogad el több közvetlen üzenetet.
           title: 'Beszélgetés vele: %{usernames}'
         start:
           send: Küldés
@@ -936,24 +925,7 @@ hu:
         metrics:
           headline: Részvétel számokban
         statistics:
-          answers_count: Befejezett felmérések
-          assemblies_count: Gyűlések
-          comments_count: Hozzászólások
-          conferences_count: Konferenciák
-          debates_count: Viták
-          endorsements_count: Jóváhagyások
           headline: A %{organization} jelenlegi állapota
-          meetings_count: Találkozók
-          orders_count: Szavazatok
-          pages_count: Oldalak
-          processes_count: Folyamatok
-          projects_count: Projektek
-          proposals_accepted: Elfogadott javaslatok
-          proposals_count: Javaslatok
-          results_count: Eredmények
-          surveys_count: Felmérések
-          users_count: Résztvevők
-          votes_count: Szavazatok
         sub_hero:
           register: Regisztráció
       index:
@@ -1102,6 +1074,8 @@ hu:
         close_window: Ablak bezárása
         share: Megosztás
         share_link: Hivatkozás megosztása
+    statistics:
+      comments_count: Hozzászólások
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
@@ -1286,7 +1260,7 @@ hu:
     messages:
       already_confirmed: már megerősítették, kérjük, próbáljon meg bejelentkezni
       confirmation_period_expired: meg kell erősíteni %{period}, kérem, kérjen újat
-      content_type_whitelist_error: érvénytelen fájltípus
+      content_type_allowlist_error: érvénytelen fájltípus
       cycle_detected: a hatáskör parentje nem lehet ahhoz kötőd elem
       expired: lejárt, kérjen újat
       file_size_is_less_than_or_equal_to: 'fájlméret maximum ekkora lehet: %{count}'

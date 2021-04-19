@@ -66,6 +66,10 @@ en:
           edit:
             title: Edit debate
             update: Update debate
+          form:
+            debate_type: Debate type
+            finite: Finite (With start and end times)
+            open: Open (No start or end times)
           index:
             title: Debates
           new:
@@ -74,6 +78,8 @@ en:
           update:
             invalid: There was a problem updating this debate.
             success: Debate successfully updated.
+        exports:
+          comments: Comments
         models:
           debate:
             name: Debate
@@ -153,6 +159,7 @@ en:
           groups_count: Groups
           last_comment_by: Last comment by
           no_comments_yet: No comments yet
+          open: Open debate
           participants_count: Participants
         update:
           invalid: There was a problem updating the debate.
@@ -165,6 +172,7 @@ en:
         versions_list:
           back_to_resource: Go back to debate
       last_activity:
+        debate_updated_at_html: "<span>Debate updated at %{link}</span>"
         new_debate_at_html: "<span>New debate at %{link}</span>"
       models:
         debate:
@@ -228,3 +236,5 @@ en:
         description: Number of debates created
         object: debates
         title: Debates
+    statistics:
+      debates_count: Debates

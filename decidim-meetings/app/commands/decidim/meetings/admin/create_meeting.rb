@@ -55,7 +55,9 @@ module Decidim
             author: form.current_organization,
             registration_terms: form.current_component.settings.default_registration_terms,
             component: form.current_component,
-            questionnaire: Decidim::Forms::Questionnaire.new
+            questionnaire: Decidim::Forms::Questionnaire.new,
+            customize_registration_email: form.customize_registration_email,
+            registration_email_custom_content: form.registration_email_custom_content
           }
 
           @meeting = Decidim.traceability.create!(

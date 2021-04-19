@@ -11,6 +11,7 @@ module Decidim
       translatable_attribute :content, String
       attribute :changed_notably, Boolean
       attribute :show_in_footer, Boolean
+      attribute :allow_public_access, Boolean
       attribute :weight, Integer
       attribute :topic_id, Integer
 
@@ -39,6 +40,10 @@ module Decidim
         @topics ||= StaticPageTopic.where(
           organization: current_organization
         )
+      end
+
+      def control_public_access?
+        current_organization.force_users_to_authenticate_before_access_organization?
       end
 
       private

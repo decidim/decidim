@@ -21,15 +21,15 @@
              locals: { text: t("private_space", scope: "decidim.participatory_processes.show") } %>
 <% end %>
 
-<% if translated_attribute(current_participatory_space.announcement).present? %>
-  <%= render partial: "decidim/shared/announcement",
-             locals: { announcement: current_participatory_space.announcement } %>
-<% end %>
+<%= cell("decidim/announcement", current_participatory_space.announcement) %>
 
 <div class="row column">
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
+        <% if participatory_process_group.present? %>
+          <%= render partial: "participatory_process_group" %>
+        <% end %>
         <div class="lead">
           <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
         </div>
@@ -143,7 +143,7 @@
   </div>
 
   <% if current_participatory_space.show_statistics? %>
-    <%= cell "decidim/participatory_processes/statistics", stats.collection %>
+         <%= cell "decidim/statistics", stats.collection %>
   <% end %>
 
   <% if current_participatory_space.show_metrics? %>

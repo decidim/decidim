@@ -45,14 +45,7 @@ edit_link(
     <% end %>
     <div class="card extra">
       <div class="card__content">
-        <% if debate.start_time.present? && debate.end_time.present? %>
-          <div class="extra__date">
-            <%= l debate.start_time, format: "%d" %> <span class="extra__month"><%= l debate.start_time, format: "%B" %></span>
-          </div>
-          <div class="extra__time">
-            <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
-          </div>
-        <% end %>
+        <%= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
 
         <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
           <div class="row collapse buttons__row">
@@ -110,7 +103,7 @@ edit_link(
       <%= render_debate_description(debate) %>
 
       <% if debate.closed? %>
-        <%= cell("decidim/announcement", { announcement: { title: t(".debate_conclusions_are", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success" }) %>
+        <%= cell("decidim/announcement", { title: t(".debate_conclusions_are", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success") %>
       <% end %>
 
       <% if translated_attribute(debate.instructions).present? %>
@@ -123,11 +116,8 @@ edit_link(
           <%= decidim_sanitize(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)) %>
         </div>
       <% end %>
-      <% if debate.category %>
-        <ul class="tags tags--debate">
-          <li><%= link_to translated_attribute(debate.category.name), debates_path(filter: { category_id: debate.category.id }) %></li>
-        </ul>
-      <% end %>
+
+      <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
 
       <%= cell "decidim/endorsers_list", debate %>
     </div>
@@ -136,13 +126,7 @@ edit_link(
 
 <%= comments_for debate %>
 
-<%=
-  render partial: "decidim/shared/flag_modal", locals: {
-    reportable: debate,
-    form: report_form,
-    url: decidim.report_path(sgid: debate.to_sgid.to_s)
-  }
-%>
+<%= cell("decidim/flag_modal", debate) %>
 <%=
   render partial: "close_debate_modal", locals: {
     debate: debate,

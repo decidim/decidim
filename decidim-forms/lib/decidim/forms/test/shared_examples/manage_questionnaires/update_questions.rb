@@ -15,6 +15,7 @@ shared_examples_for "update questions" do
       within "form.edit_questionnaire" do
         within ".questionnaire-question" do
           fill_in "questionnaire_questions_#{question.id}_body_en", with: "Modified question"
+          fill_in "questionnaire_questions_#{question.id}_max_characters", with: 30
           check "Mandatory"
           select "Long answer", from: "Type"
         end
@@ -29,6 +30,7 @@ shared_examples_for "update questions" do
       expect(page).to have_selector("input[value='Modified question']")
       expect(page).to have_no_selector("input[value='This is the first question']")
       expect(page).to have_selector("input#questionnaire_questions_#{question.id}_mandatory[checked]")
+      expect(page).to have_selector("input#questionnaire_questions_#{question.id}_max_characters[value='30']")
       expect(page).to have_selector("select#questionnaire_questions_#{question.id}_question_type option[value='long_answer'][selected]")
     end
 
@@ -39,6 +41,7 @@ shared_examples_for "update questions" do
         within ".questionnaire-question" do
           expect(page).to have_content("Statement*")
           fill_in "questionnaire_questions_#{question.id}_body_en", with: ""
+          fill_in "questionnaire_questions_#{question.id}_max_characters", with: -3
           check "Mandatory"
           select "Matrix (Multiple option)", from: "Type"
           select "2", from: "Maximum number of choices"
@@ -51,10 +54,12 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("There was a problem saving")
       expect(page).to have_content("can't be blank", count: 5) # emtpy question, 2 empty default answer options, 2 empty default matrix rows
+      expect(page).to have_content("must be greater than or equal to 0", count: 1)
 
       expect(page).to have_selector("input[value='']")
       expect(page).to have_no_selector("input[value='This is the first question']")
       expect(page).to have_selector("input#questionnaire_questions_#{question.id}_mandatory[checked]")
+      expect(page).to have_selector("input#questionnaire_questions_#{question.id}_max_characters[value='-3']")
       expect(page).to have_select("Maximum number of choices", selected: "2")
       expect(page).to have_selector("select#questionnaire_questions_#{question.id}_question_type option[value='matrix_multiple'][selected]")
     end

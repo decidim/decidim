@@ -8,7 +8,7 @@ module Decidim
     belongs_to :admin, foreign_key: "decidim_admin_id", class_name: "Decidim::User"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
-    validate :same_organization, :non_active_impersonation
+    validate :same_organization
 
     scope :active, -> { where(ended_at: nil, expired_at: nil) }
     scope :expired, -> { where(ended_at: nil).where.not(expired_at: nil) }
@@ -21,18 +21,24 @@ module Decidim
       expired_at.present?
     end
 
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ImpersonationLogPresenter
+    end
+
+    def ensure_not_expired!
+      expire! if started_at + SESSION_TIME_IN_MINUTES.minutes < Time.current
+    end
+
+    def expire!
+      update!(expired_at: Time.current)
+    end
+
     private
 
     def same_organization
       return if admin&.organization == user&.organization
 
       errors.add(:admin, :invalid)
-    end
-
-    def non_active_impersonation
-      return if ended? || expired?
-
-      errors.add(:admin, :invalid) if Decidim::ImpersonationLog.where(admin: admin).active.any?
     end
   end
 end

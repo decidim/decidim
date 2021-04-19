@@ -95,6 +95,18 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_invalid }
   end
 
+  context "when the title is the minimum length" do
+    let(:title) do
+      if options[:i18n] == false
+        "Length is right"
+      else
+        { en: "Length is right" }
+      end
+    end
+
+    it { is_expected.to be_valid }
+  end
+
   unless options[:skip_etiquette_validation]
     context "when the body is not etiquette-compliant" do
       let(:body) do
@@ -139,29 +151,77 @@ shared_examples "a proposal form" do |options|
     context "when the has address checkbox is checked" do
       let(:has_address) { true }
 
-      # rubocop:disable RSpec/EmptyExampleGroup
       context "when the address is not present" do
-        if options[:address_optional_with_geocoding]
-          it "does not store the coordinates" do
-            expect(subject).to be_valid
-            expect(subject.address).to be(nil)
-            expect(subject.latitude).to be(nil)
-            expect(subject.longitude).to be(nil)
-          end
-        else
-          it { is_expected.to be_invalid }
+        it "does not store the coordinates" do
+          expect(subject).to be_valid
+          expect(subject.address).to be(nil)
+          expect(subject.latitude).to be(nil)
+          expect(subject.longitude).to be(nil)
         end
       end
-      # rubocop:enable RSpec/EmptyExampleGroup
 
       context "when the address is present" do
-        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:address) { "Some address" }
 
         before do
           stub_geocoding(address, [latitude, longitude])
         end
 
         it "validates the address and store its coordinates" do
+          expect(subject).to be_valid
+          expect(subject.latitude).to eq(latitude)
+          expect(subject.longitude).to eq(longitude)
+        end
+      end
+    end
+
+    context "when latitude and longitude are manually set" do
+      context "when the has address checkbox is unchecked" do
+        let(:has_address) { false }
+
+        it "is valid" do
+          expect(subject).to be_valid
+          expect(subject.latitude).to eq(nil)
+          expect(subject.longitude).to eq(nil)
+        end
+      end
+
+      context "when the proposal is unchanged" do
+        let(:previous_proposal) { create(:proposal, address: address) }
+
+        let(:title) do
+          if options[:skip_etiquette_validation]
+            previous_proposal.title
+          else
+            translated(previous_proposal.title)
+          end
+        end
+
+        let(:body) do
+          if options[:skip_etiquette_validation]
+            previous_proposal.body
+          else
+            translated(previous_proposal.body)
+          end
+        end
+
+        let(:params) do
+          {
+            id: previous_proposal.id,
+            title: title,
+            body: body,
+            author: previous_proposal.authors.first,
+            category_id: previous_proposal.try(:category_id),
+            scope_id: previous_proposal.try(:scope_id),
+            has_address: has_address,
+            address: address,
+            attachment: previous_proposal.try(:attachment_params),
+            latitude: latitude,
+            longitude: longitude
+          }
+        end
+
+        it "is valid" do
           expect(subject).to be_valid
           expect(subject.latitude).to eq(latitude)
           expect(subject.longitude).to eq(longitude)

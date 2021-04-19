@@ -37,7 +37,6 @@ el:
       participatory_process_group:
         description: Περιγραφή
         hero_image: Εικόνα
-        name: Όνομα
         participatory_process_ids: Σχετικές διαδικασίες
       participatory_process_step:
         cta_path: Διαδρομή Call To Action
@@ -116,8 +115,6 @@ el:
             title: Τίτλος
           name: Διαδικασία συμμετοχής
         participatory_process_group:
-          fields:
-            name: Όνομα
           name: Ομάδα διαδικασιών
         participatory_process_step:
           fields:
@@ -301,10 +298,10 @@ el:
       show:
         related_assemblies: Σχετικές συνελεύσεις
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Στατιστικά στοιχεία
       show:
-        group_participatory_processes:
-          one: 1 διαδικασία για την ομάδα %{group}
-          other: "%{count} διαδικασίες για την ομάδα %{group}"
         title: Ομάδες διαδικασιών συμμετοχής
     participatory_process_steps:
       index:
@@ -401,25 +398,6 @@ el:
         start_date: Ημερομηνία έναρξης
         target: Ποιος συμμετέχει
         unspecified: Δεν προσδιορίστηκε
-      statistics:
-        answers_count: Απαντήσεις
-        comments_count: Σχόλια
-        debates_count: Συζητήσεις
-        endorsements_count: Επιδοκιμασίες
-        followers_count: Ακόλουθοι
-        headline: Στατιστικά στοιχεία
-        meetings_count: Συσκέψεις
-        no_stats: Δεν υπάρχουν ακόμη στατιστικά στοιχεία.
-        orders_count: Υποστηρίξεις
-        pages_count: Σελίδες
-        participants_count: Συμμετέχοντες
-        processes_count: Διαδικασίες
-        projects_count: Έργα
-        proposals_count: Προτάσεις
-        results_count: Αποτελέσματα
-        supports_count: Υποστηρίξεις
-        surveys_count: Έρευνες
-        users_count: Συμμετέχοντες
   layouts:
     decidim:
       participatory_process_groups:

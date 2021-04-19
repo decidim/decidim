@@ -29,6 +29,16 @@ module Decidim::Meetings
       it "destroys the registration for the meeting and the user" do
         expect { subject.call }.to change(Registration, :count).by(-1)
       end
+
+      context "when the questionnaire/registration form is missing" do
+        before do
+          meeting.questionnaire.destroy
+        end
+
+        it "allows the user to leave successully" do
+          expect { subject.call }.to broadcast(:ok)
+        end
+      end
     end
 
     context "when the user has not joined the meeting" do

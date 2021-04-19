@@ -10,10 +10,11 @@ module Decidim
       include FilterResource
 
       helper_method :collection,
-                    :promoted_participatory_processes,
+                    :promoted_collection,
                     :participatory_processes,
                     :stats,
                     :metrics,
+                    :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
                     :linked_assemblies
@@ -71,6 +72,14 @@ module Decidim
         @promoted_participatory_processes ||= published_processes | PromotedParticipatoryProcesses.new
       end
 
+      def promoted_participatory_process_groups
+        @promoted_participatory_process_groups ||= PromotedParticipatoryProcessGroups.new
+      end
+
+      def promoted_collection
+        @promoted_collection ||= promoted_participatory_processes.query + promoted_participatory_process_groups.query
+      end
+
       def collection
         @collection ||= participatory_processes + participatory_process_groups
       end
@@ -94,6 +103,10 @@ module Decidim
 
       def metrics
         @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
+      end
+
+      def participatory_process_group
+        @participatory_process_group ||= current_participatory_space.participatory_process_group
       end
 
       def default_date_filter

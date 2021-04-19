@@ -32,6 +32,8 @@ sv:
   decidim:
     accountability:
       actions:
+        attachment_collections: Mappar
+        attachments: Bifogade filer
         confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera
@@ -42,6 +44,7 @@ sv:
         title: Åtgärder
       admin:
         exports:
+          result_comments: Kommentarer
           results: Resultat
         import_results:
           new:
@@ -121,6 +124,11 @@ sv:
         value_types:
           parent_presenter:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datum
+          results: Resultat
+          unspecified: Ej angivet
       import_mailer:
         import:
           errors: Fel
@@ -133,8 +141,12 @@ sv:
       models:
         result:
           fields:
+            category: Kategori
+            created_at: Skapad
             end_date: Slutdatum
+            id: ID
             progress: Behandling
+            scope: Omfång
             start_date: Startdatum
             status: Status
             title: Titel
@@ -148,6 +160,9 @@ sv:
           fields:
             description: Beskrivning
             entry_date: Datum
+      result_m:
+        executed: Utfört
+        view: Visa
       results:
         count:
           results_count:
@@ -178,6 +193,15 @@ sv:
             votes: Stöd
         timeline:
           title: Projektutveckling
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Omfång
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Ansvarsskyldighet
@@ -212,10 +236,6 @@ sv:
         description: Antal genererade resultat
         object: resultat
         title: Resultat
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Resultat
     participatory_spaces:
       highlighted_results:
         see_all: Se alla resultat (%{count})
@@ -224,3 +244,5 @@ sv:
         result_project: Projekt som ingår i detta resultat
       included_proposals:
         result_proposal: Förslag som ingår i detta resultat
+    statistics:
+      results_count: Resultat

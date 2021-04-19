@@ -39,7 +39,13 @@ es-PY:
           user_group_id:
             label: Comentar como
         opinion:
+          label: Tu opinión sobre este tema
+          negative: Negativa
+          negative_selected: Tu opinión sobre este tema es negativa
           neutral: Neutral
+          neutral_selected: Tu opinión sobre este tema es neutral
+          positive: Positiva
+          positive_selected: Tu opinión sobre este tema es positiva
         remaining_characters: "Quedan %{count} caracteres"
         remaining_characters_1: "Queda %{count} carácter"
         title: Deje su comentario
@@ -103,6 +109,16 @@ es-PY:
           email_outro: Has recibido esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
           notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Tu comentario en "%{resource_title}" ha sido votado negativamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
+          email_outro: Has recibido esta notificación porque eres la autora de este comentario.
+          email_subject: Su comentario en "%{resource_title}" ha sido votado negativamente.
+          notification_title: Tu <a href="%{resource_path}">comentario</a> en "%{resource_title}" ha sido votado negativamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
+        comment_upvoted:
+          email_intro: Tu comentario en "%{resource_title}" ha sido votado postivamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
+          email_outro: Has recibido esta notificación porque eres la autora de este comentario.
+          email_subject: Tu comentario en "%{resource_title}" ha sido votado positivamente.
+          notification_title: Tu <a href="%{resource_path}">comentario</a> en "%{resource_title}" ha sido votado positivamente. Ahora tiene un total de %{upvotes} votos positivos y %{downvotes} votos negativos.
         reply_created:
           email_intro: "%{author_name} ha respondido a tu comentario en %{resource_title}. Puedes leerlo en esta página:"
           email_outro: Has recibido esta notificación porque tu comentario fue respondido.

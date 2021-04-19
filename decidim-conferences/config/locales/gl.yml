@@ -10,8 +10,12 @@ gl:
         copy_features: Copiar funcións
         decidim_scope_id: Alcance
         description: Descrición
+        end_date: Data de finalización
         hashtag: Etiqueta
         hero_image: Imaxe na casa
+        location: Localización
+        main_logo: Logotipo principal
+        objectives: Obxectivos
         participatory_processes_ids: Procesos participativos relacionados
         promoted: Promocionado
         published_at: Publicado en
@@ -19,11 +23,42 @@ gl:
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         show_statistics: Amosar estatísticas
+        sign_date: Data de sinatura
+        signature: Sinatura
         slogan: Eslogan
         slug: URL slug
+        start_date: Data de inicio
         title: Título
+      conference_media_link:
+        date: Data
+        link: Ligazón
+        title: Título
+        weight: Peso
+      conference_partner:
+        link: Ligazón
+        logo: Logotipo
+        name: Nome
+        partner_type: Tipo de socio
+        weight: Peso
+      conference_registration_invite:
+        email: Correo electrónico
+        name: Nome
+        registration_type_id: Tipo do rexistro
+        user_id: Usuario
+      conference_registration_type:
+        description: Descrición
+        price: Prezo
+        title: Título
+        weight: Peso
       conference_speaker:
+        affiliation: Afiliación
+        avatar: Avatar
+        conference_meeting_ids: Xuntanzas relacionadas
         full_name: Nome completo
+        personal_url: Url persoal
+        position: Posición
+        short_bio: Pequena biografía
+        user_id: Usuario
       conference_user_role:
         email: Correo electrónico
         name: Nome
@@ -205,7 +240,7 @@ gl:
             price: Prezo
             registrations_count: Contas de rexistro
             title: Título
-            weight: Peso
+            weight: Orde de posición
           name: Tipo de rexistro
       partners:
         create:
@@ -265,10 +300,6 @@ gl:
       conferences:
         conference_registration:
           confirm: "%{user_name} confirmou a inscrición na conferencia en %{resource_name} conferencia"
-        partner:
-          create: "%{user_name} creou %{resource_name} á %{space_name} conferencia"
-          delete: "%{user_name} eliminou o usuario %{resource_name} da %{space_name} conferencia"
-          update: "%{user_name} actualizouse %{resource_name} na %{space_name} conferencia"
         registration_type:
           create: "%{user_name} creou o %{resource_name} tipo de rexistro na %{space_name} conferencia"
           publish: "%{user_name} publicou o %{resource_name} tipo de rexistro na %{space_name} conferencia"
@@ -486,23 +517,6 @@ gl:
         related_assemblies: Asembleas relacionadas
         related_consultations: Consultas relacionadas
         related_participatory_processes: Procesos participativos relacionados
-      statistics:
-        answers_count: Respostas
-        comments_count: Comentarios
-        conference_count: Conferencias
-        debates_count: Debates
-        endorsements_count: Aprobacións
-        headline: Actividade
-        meetings_count: Reunións
-        orders_count: Votos
-        pages_count: Páxinas
-        posts_count: Publicacións
-        projects_count: Proxectos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Enquisas
-        users_count: Participantes
-        votes_count: Votos
     events:
       conferences:
         conference_registration_confirmed:
@@ -539,6 +553,8 @@ gl:
         title: Medios e enlaces
     menu:
       conferences: Conferencias
+    statistics:
+      conferences_count: Conferencias
   devise:
     mailer:
       join_conference:

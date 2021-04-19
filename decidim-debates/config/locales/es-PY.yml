@@ -65,6 +65,10 @@ es-PY:
           edit:
             title: Editar debate
             update: Actualizar debate
+          form:
+            debate_type: Tipo de debate
+            finite: Finito (con hora de inicio y final)
+            open: Abierto (no hay hora de inicio o final)
           index:
             title: Debates
           new:
@@ -73,6 +77,8 @@ es-PY:
           update:
             invalid: Ha habido un problema al actualizar este debate.
             success: Debate actualizado con éxito.
+        exports:
+          comments: Comentarios
         models:
           debate:
             name: Debate
@@ -152,6 +158,7 @@ es-PY:
           groups_count: Grupos
           last_comment_by: Último comentario de
           no_comments_yet: No hay comentarios todavía
+          open: Debate abierto
           participants_count: Participantes
         update:
           invalid: Se ha producido un error al actualizar este debate.
@@ -164,6 +171,7 @@ es-PY:
         versions_list:
           back_to_resource: Volver al debate
       last_activity:
+        debate_updated_at_html: "<span>Debate actualizado a las %{link}</span>"
         new_debate_at_html: "<span>Nuevo debate en %{link}</span>"
       models:
         debate:
@@ -227,3 +235,5 @@ es-PY:
         description: Número de debates creados.
         object: debates
         title: Debates
+    statistics:
+      debates_count: Debates

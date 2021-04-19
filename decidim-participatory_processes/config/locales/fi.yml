@@ -10,10 +10,10 @@ fi:
         copy_steps: Kopioi vaiheet
         decidim_area_id: Alue
         description: Kuvaus
-        developer_group: Kehittäjäryhmä
+        developer_group: Edistäjäryhmä
         domain: Toimintaympäristö
         end_date: Päättymispäivä
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         local_area: Järjestöalue
         meta_scope: Teeman metadata
@@ -34,11 +34,20 @@ fi:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
+        weight: Järjestysnumero
       participatory_process_group:
         description: Kuvaus
+        developer_group: Edistäjäryhmä
+        group_url: Verkkosivusto
+        hashtag: Aihetunniste (hashtag)
         hero_image: Kuva
-        name: Nimi
+        local_area: Organisaation alue
+        meta_scope: Teeman metatiedot
         participatory_process_ids: Liittyvät prosessit
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
+        target: Kuka osallistuu
+        title: Otsikko
       participatory_process_step:
         cta_path: Call to Action -polku
         cta_text: Call to Action -teksti
@@ -94,6 +103,9 @@ fi:
         unpublish: Lopeta julkaisu
       menu:
         participatory_process_groups: Prosessiryhmät
+        participatory_process_groups_submenu:
+          info: Tiedot
+          landing_page: Laskeutumissivu
         participatory_processes: Prosessit
         participatory_processes_submenu:
           attachment_collections: Kansiot
@@ -117,7 +129,7 @@ fi:
           name: Osallistumisprosessi
         participatory_process_group:
           fields:
-            name: Nimi
+            title: Otsikko
           name: Prosessiryhmä
         participatory_process_step:
           fields:
@@ -145,6 +157,13 @@ fi:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi osallistumisprosessi
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Aktiiviset sisältölohkot
+          inactive_content_blocks: Käytöstä poistetut sisältölohkot
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Päivitä
       participatory_process_groups:
         destroy:
           error: Osallistumisprosessien ryhmän poisto epäonnistui.
@@ -301,10 +320,30 @@ fi:
       show:
         related_assemblies: Liittyvät ryhmät
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Ensimmäinen HTML-osio
+        html_2:
+          name: Toinen HTML-osio
+        html_3:
+          name: Kolmas HTML-osio
+        metadata:
+          developer_group: Edistäjäryhmä
+          name: Metatiedot
+          participatory_scope: Mitä päätetään
+          participatory_structure: Miten päätetään
+          target: Kuka osallistuu
+        participatory_processes:
+          name: Osallistumisprosessit
+        stats:
+          name: Tilastot
+        title:
+          meta_scope: Teema
+          name: Otsikko, kuvaus ja aihetunniste (hashtag)
+          participatory_processes:
+            one: 1 prosessi
+            other: "%{count} prosessia"
       show:
-        group_participatory_processes:
-          one: 1 prosessi ryhmälle %{group}
-          other: "%{count} prosessia ryhmälle %{group}"
         title: Osallistumisprosessiryhmät
     participatory_process_steps:
       index:
@@ -321,6 +360,11 @@ fi:
         participatory_process_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metatiedot
+            title: Yleiset tiedot
+            visibility: Näkyvyys
         participatory_process_imports:
           form:
             document_legend: Lisää asiakirja
@@ -392,8 +436,9 @@ fi:
           loading: Ladataan tulokset...
       show:
         area: Alue
+        belongs_to_group: Tämä prosessi kuuluu ryhmään
         dates: Päivämäärät
-        developer_group: Kehittäjäryhmä
+        developer_group: Edistäjäryhmä
         end_date: Päättymispäivä
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
@@ -404,25 +449,8 @@ fi:
         start_date: Alkamispäivä
         target: Kuka osallistuu
         unspecified: Ei määritelty
-      statistics:
-        answers_count: Vastausta
-        comments_count: Kommenttia
-        debates_count: Keskustelua
-        endorsements_count: Suositusta
-        followers_count: Seuraajia
-        headline: Tilastot
-        meetings_count: Tapahtumaa
-        no_stats: Tilastoja ei ole vielä saatavilla.
-        orders_count: Kannatusta
-        pages_count: Sivua
-        participants_count: Osallistujaa
-        processes_count: Prosessia
-        projects_count: Suunnitelmaa
-        proposals_count: Ehdotusta
-        results_count: Tulosta
-        supports_count: Kannatusta
-        surveys_count: Kyselyä
-        users_count: Osallistujaa
+    statistics:
+      processes_count: Prosessia
   layouts:
     decidim:
       participatory_process_groups:
@@ -449,6 +477,8 @@ fi:
           more_info_about: Lisätietoja prosessista %{resource_name}
           take_part: Osallistu
           take_part_in: Osallistu prosessiin %{resource_name}
+        promoted_process_group:
+          more_info: Lisätietoja
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Prosessin vaiheet

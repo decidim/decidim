@@ -23,7 +23,6 @@ lv:
       component:
         name: Nosaukums
         published_at: Publicēts plkst.
-        weight: Svarīgums
       newsletter:
         body: Pamatteksts
         subject: Temats
@@ -88,12 +87,10 @@ lv:
         show_in_footer: Rādīt kājenē
         slug: URL sadaļas adrese (slug)
         title: Nosaukums
-        weight: Svarīgums
       static_page_topic:
         description: Apraksts
         show_in_footer: Rādīt kājenē
         title: Nosaukums
-        weight: Svarīgums
       user_group_csv_verification:
         file: Fails
     errors:
@@ -135,7 +132,6 @@ lv:
           error: Piekrītot administratora lietošanas noteikumiem, radās kļūda.
           success: Lieliski! Jūs esat piekritis administratora lietošanas noteikumiem.
         actions:
-          accept: Es piekrītu šiem administratora noteikumiem
           are_you_sure: Vai tiešām nepiekrītat administratora noteikumiem?
           refuse: Nepiekrist administratora noteikumiem
           title: Piekrist lietošanas noteikumiem

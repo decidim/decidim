@@ -119,6 +119,8 @@ it:
           questions: Quesiti
           results: Risultati
         questions_submenu:
+          attachments: allegati
+          categories: Categorie
           components: Elementi
           configuration: Configurazione
           consultation: Consultazione
@@ -318,13 +320,11 @@ it:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p>Una <strong>consultazione</strong> è uno spazio mediante il quale puoi sottoporre un quesito puntuale a tutti i membri di un'organizzazione, lanciare un invito a partecipare alla consultazione stessa, dare vita a un dibattito pro o contro una determinata risposta e decidere l'ordine della discussione. Alla data della consultazione potrai esprimere il tuo voto e pubblicare i risultati della votazione.</p> <p>Esempi: L'argomento di una consultazione può riguardare pressoché ogni aspetto legato a un'organizzazione: ad esempio, modificarne il logo scegliendo tra diverse possibilità, approvare o respingere la proposta di confluire in un'organizzazione più ampia, convalidare o respingere un nuovo piano strategico o il risultato di un gruppo di lavoro oppure stabilire un limite di 1, 2 o 3 mandati per le diverse funzioni in seno all'organizzazione.</p>\n"
+          page: "<p>Una <strong>consultazione</strong> è uno spazio mediante il quale puoi sottoporre un quesito puntuale a tutti i membri di un'organizzazione, lanciare un invito a partecipare alla consultazione stessa, dare vita a un dibattito pro o contro una determinata risposta e decidere l'ordine della discussione. Alla data della consultazione potrai esprimere il tuo voto e pubblicare i risultati della votazione.</p> <p>Esempi: L'argomento di una consultazione può riguardare pressoché ogni aspetto legato a un'organizzazione: ad esempio, modificarne il logo scegliendo tra diverse possibilità, approvare o respingere la proposta di confluire in un'organizzazione più ampia, convalidare o respingere un nuovo piano strategico o il risultato di un gruppo di lavoro oppure stabilire un limite di 1, 2 o 3 mandati per le diverse funzioni.</p>\n"
           title: Quali sono le consultazioni?
     menu:
       consultations: consultazioni
-    pages:
-      home:
-        statistics:
-          consultations_count: consultazioni
     questions:
       next_button: Quesito successivo
       previous_button: Quesito precedente
@@ -361,10 +361,6 @@ it:
           vote: Vota
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: allegati
-          categories: Categorie
       consultation_voting_data:
         start_voting_date: Inizia la votazione
       question_components:

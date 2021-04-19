@@ -40,8 +40,8 @@ module Decidim
           "activemodel.attributes.initiatives"
         end
 
-        def has_diff?
-          %w(publish unpublish send_to_technical_validation).include?(action) || super
+        def diff_actions
+          super + %w(publish unpublish send_to_technical_validation)
         end
       end
     end

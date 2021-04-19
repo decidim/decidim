@@ -5,30 +5,32 @@ gl:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Publicar
+        one: Publicación
         other: Publicacións
   decidim:
     blogs:
       actions:
-        confirm_destroy: Estás seguro de que queres eliminar esta publicación?
+        confirm_destroy: Tes a certeza de querer eliminar esta publicación?
         destroy: Eliminar
         edit: Editar
         new: Nova publicación
         title: Accións
+        user_group_id: Crear publicación como
       admin:
         models:
           components:
             body: Corpo
           post:
-            name: Publicar
+            name: Publicación
         posts:
           create:
             invalid: Produciuse un problema ao crear esta publicación
-            success: Publicouse a publicación correctamente
+            success: Publicación creada con éxito
           destroy:
-            success: Publicouse correctamente a eliminación
+            success: Publicación eliminada con éxito
           edit:
-            save: Actualización
+            save: Actualizar
+            title: Editar publicación
           index:
             title: Publicacións
           new:
@@ -36,7 +38,7 @@ gl:
             title: Crear unha publicación
           update:
             invalid: Produciuse un erro ao gardar a publicación.
-            success: Publicouse o envío con éxito
+            success: Publicación gardada con éxito
       last_activity:
         new_post_at_html: "<span>Nova publicación en %{link}</span>"
       models:
@@ -44,15 +46,17 @@ gl:
           fields:
             author: Autor
             body: Corpo
-            created_at: Creado en
+            created_at: Creado o
             title: título
       posts:
         show:
+          back: Volver á listaxe
+          comments: Comentarios
           view: Ver
         sidebar_blog:
           comments: comentarios
-          most_commented_posts: A maioría das publicacións comentadas
-      read_more: Le máis
+          most_commented_posts: As publicacións máis comentadas
+      read_more: Ler máis
     components:
       blogs:
         name: Blog
@@ -60,20 +64,18 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            endorsements_blocked: Adhesións bloqueadas
+            endorsements_enabled: Adhesións habilitadas
     events:
       blogs:
         post_created:
           email_intro: A publicación "%{resource_title}" publicouse en "%{participatory_space_title}" que estás seguindo.
-          email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
+          email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir dende a ligazón anterior.
           email_subject: Nova publicación publicada en %{participatory_space_title}
           notification_title: A publicación <a href="%{resource_path}">%{resource_title}</a> publicouse en %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Publicacións
-    participatory_processes:
-      statistics:
-        posts_count: Publicacións
+    statistics:
+      posts_count: Publicacións

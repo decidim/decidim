@@ -339,10 +339,6 @@ fr:
         description: Nombre de votes générés dans les propositions par les utilisateurs
         object: votes
         title: Votes
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propositions
     participatory_spaces:
       highlighted_proposals:
         see_all: Tout voir (%{count})
@@ -359,7 +355,7 @@ fr:
         actions:
           preview: Aperçu
         exports:
-          comments: Commentaires
+          proposal_comments: Commentaires
           proposals: Propositions
         models:
           proposal:
@@ -426,6 +422,7 @@ fr:
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             created_in_meeting: Cette proposition provient d'une réunion
+            delete_attachment: Supprimer la pièce jointe
             select_a_category: Sélectionner une catégorie
             select_a_meeting: Sélectionnez une réunion
           index:
@@ -500,6 +497,7 @@ fr:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
+            title: Importer des propositions
         proposals_merges:
           create:
             invalid: Une erreur s'est produite lors de la fusion des propositions sélectionnées.
@@ -572,13 +570,6 @@ fr:
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
             success: Brouillon collaboratif retiré avec succès.
-        compare:
-          mine_is_different: Mon brouillon collaboratif est différent
-          no_similars_found: Bien joué! Aucun brouillon collaboratif similaire n'a été trouvé
-          title: Brouillons collaboratifs similaires
-        complete:
-          send: Envoyer
-          title: Complétez votre brouillon collaboratif
         count:
           drafts_count:
             one: "%{count} brouillon collaboratif"
@@ -610,7 +601,6 @@ fr:
           unfold: Se dérouler
         new:
           send: Continuer
-          title: Créez votre brouillon collaboratif
         new_collaborative_draft_button:
           new_collaborative_draft: Nouveau brouillon collaboratif
         orders:
@@ -655,23 +645,14 @@ fr:
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
           success: Brouillon collaboratif mis à jour avec succès.
-          title: Modifier le brouillon collaboratif
         wizard_aside:
-          back: Arrière
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
-          back_from_step_1: Retour aux brouillons collaboratifs
-          back_from_step_2: Retour aux brouillons collaboratifs
-          back_from_step_3: Retour à la comparaison des brouillons collaboratifs
-          back_from_step_4: Retour à l'édition du brouillon
           info: Vous créez un <strong>projet collaboratif</strong>.
-        wizard_steps:
-          current_step: Étape actuelle
-          see_steps: voir les étapes
-          step_1: Créez votre projet collaboratif
-          step_2: Comparer avec les projets collaboratifs
-          step_3: Complétez votre projet collaboratif
-          step_of: Etape %{current_step_num} sur %{total_steps}
-          title: Étapes de création du brouillon collaboratif
+        wizard_header:
+          title: Créez votre projet collaboratif
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propositions
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
@@ -680,6 +661,7 @@ fr:
         success: Le brouillon de la proposition a bien été supprimé.
       last_activity:
         new_proposal_at_html: "<span>Nouvelle proposition à %{link}</span>"
+        proposal_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -724,6 +706,8 @@ fr:
           proposals_count:
             one: "%{count} proposition"
             other: "%{count} propositions"
+        dynamic_map_instructions:
+          instructions: <h3>Vous pouvez déplacer le point sur la carte. </h3><p>N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.</p>
         edit:
           add_documents: Documents
           add_images: Fichier
@@ -784,13 +768,18 @@ fr:
             document_index: Index de document
           view_index:
             see_index: Voir index
+        placeholder:
+          address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
+          announcement_body: Votre proposition a été enregistrée en tant que brouillon. Elle doit être publiée pour qu'elle apparaisse sur le site.
+          announcement_title: Votre proposition n'a pas encore été publiée
           modify: Modifier la proposition
           proposal_edit_before_minutes:
             one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publier la proposition
+          update_position: Mettre à jour la position
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition

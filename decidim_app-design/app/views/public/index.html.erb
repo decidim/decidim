@@ -267,8 +267,20 @@
         <div class="design-index__block">
           <h2 class="section-heading">eVote</h2>
           <ul>
+            <li><%= link_to "Single consultation landing page", page_path("evote-consultation-landing") %></li>
+            <li><%= link_to "Multiple consultation landing page", page_path("evote-multiple-consultation-landing") %></li>
+            <li>
+              <%= link_to "Check participating rights", page_path("evote-how-to-participate") %>
+              <ul>
+                <li><%= link_to "Success", page_path("evote-how-to-participate-success") %></li>
+                <li><%= link_to "Error", page_path("evote-how-to-participate-error") %></li>
+                <li><%= link_to "Blocked", page_path("evote-how-to-participate-blocked") %></li>
+              </ul>
+            </li>
+            <li><%= link_to "Election log", page_path("evote-election-log") %></li>
             <li><%= link_to "Available elections (follows current component list models)", page_path("evote-poll-list") %></li>
             <li><%= link_to "Election landing page", page_path("evote-poll-landing") %></li>
+            <li><%= link_to "Identification with access code", page_path("evote-identification") %></li>
             <li><%= link_to "Question model 1", page_path("evote-1") %></li>
             <li><%= link_to "Question model 2 (+ more info)", page_path("evote-2") %></li>
             <li><%= link_to "Question model 3 (+ counter)", page_path("evote-3") %></li>
@@ -276,9 +288,42 @@
              <li><%= link_to "Edit vote", page_path("evote-edit") %></li>
             <li><%= link_to "Vote encrypting", page_path("evote-encrypting") %></li>
             <li><%= link_to "Confirmed vote", page_path("evote-confirmed") %></li>
+            <li><%= link_to "Onboarding after completing the survey", page_path("evote-survey-complete") %></li>
             <li><%= link_to "Verify vote", page_path("evote-verify") %></li>
             <li><%= link_to "Verify vote from landing page", page_path("evote-public-verify") %></li>
             <li><%= link_to "Election results page", page_path("evote-poll-results") %></li>
+            <li>
+              <%= link_to "Polling Officer Zone", page_path("evote-polling-station-officer") %>
+              <ul>
+                <li>
+                  <%= link_to "Identify and verify a person", page_path("evote-polling-station-officer-identify") %>
+                  <ul>
+                    <li><%= link_to "Error", page_path("evote-polling-station-officer-identify-error") %></li>
+                    <li><%= link_to "Success: check data", page_path("evote-polling-station-officer-identify-success") %></li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Questions she has the right to participate in", page_path("evote-polling-station-officer-questions") %>
+                  <ul>
+                    <li><%= link_to "Warning: already voted online", page_path("evote-polling-station-officer-questions-warning") %></li>
+                    <li><%= link_to "Error: already voted in person", page_path("evote-polling-station-officer-questions-error") %></li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Votes recount - Step 1: Count envelopes", page_path("evote-polling-station-officer-count-votes") %>
+                  <ul>
+                    <li><%= link_to "Error", page_path("evote-polling-station-officer-count-votes-error") %></li>
+                  </ul>
+                </li>
+                <li>
+                  <%= link_to "Votes recount - Step 2: Count answers", page_path("evote-polling-station-officer-count-votes-step2") %>
+                  <ul>
+                    <li><%= link_to "Error", page_path("evote-polling-station-officer-count-votes-step2-error") %></li>
+                  </ul>
+                </li>
+                <li><%= link_to "Votes recount - Step 3: Upload certificate", page_path("evote-polling-station-officer-count-votes-step3") %></li>
+              </ul>
+            </li>
          </ul>
         </div>
       </div>

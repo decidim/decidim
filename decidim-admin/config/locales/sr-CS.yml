@@ -23,7 +23,6 @@ sr:
       component:
         name: Ime
         published_at: Objavljeno
-        weight: Težina
       id: ID
       newsletter:
         body: Glavni deo teksta
@@ -90,12 +89,10 @@ sr:
         show_in_footer: Prikaži u podnožju
         slug: Zadnji deo URL-a
         title: Naslov
-        weight: Težina
       static_page_topic:
         description: Opis
         show_in_footer: Prikaži u podnožju
         title: Naslov
-        weight: Težina
       user_group_csv_verification:
         file: Fajl
     errors:
@@ -137,7 +134,6 @@ sr:
           error: Greška u postupku prihvatanja uslova korišćenja za administratore.
           success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
-          accept: Prihvatam uslove korišćenja za administratore
           are_you_sure: Da li ste sigurni da ne prihvatate uslove korišćenja za administratore?
           refuse: Ne prihvatam uslove korišćenja za administratore
           title: Prihvatam propisane načine i uslove korišćenja

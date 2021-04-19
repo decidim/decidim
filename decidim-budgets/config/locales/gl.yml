@@ -1,7 +1,14 @@
 gl:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Ámbito
+        description: Descripción
+        title: Título
+        total_budget: Orzamento total
+        weight: Orde de posición
       project:
+        budget_amount: Importe do orzamento
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
@@ -20,11 +27,34 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar este proxecto?
         destroy: Eliminar
         edit: Editar
+        edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
+        new: Novo %{name}
         preview: Vista previa
         title: Accións
       admin:
+        budgets:
+          create:
+            invalid: Produciuse un problema ao crear este orzamento
+            success: Orzamento creado con éxito
+          destroy:
+            invalid: Produciuse un problema ao eliminar este orzamento
+            success: Orzamento eliminado con éxito
+          edit:
+            title: Editar orzamento
+            update: Actualizar orzamento
+          index:
+            pending_orders: Votos pendentes
+            title: Orzamentos
+            users_with_pending_orders: Usuarios con votos pendentes
+          new:
+            create: Crear orzamento
+            title: Novo orzamento
+        exports:
+          projects: Proxectos
         models:
+          budget:
+            name: Orzamento
           project:
             name: Proxecto
         projects:
@@ -39,6 +69,7 @@ gl:
           index:
             finished_orders: Votos rematados
             pending_orders: Votos pendentes
+            selected: Seleccionado
             title: Proxectos
           new:
             create: Crear
@@ -59,10 +90,31 @@ gl:
           create: "%{user_name} creou o proxecto %{resource_name} no espazo %{space_name}"
           delete: "%{user_name} eliminou o %{resource_name} proxecto no espazo %{space_name}"
           update: "%{user_name} actualizou o proxecto %{resource_name} no espazo %{space_name}"
+      budget_information_modal:
+        close_modal: Pechar modal
+        continue: Continuar
+        more_information: Máis información
+      budget_list_item:
+        voting_finished: Votaches neste orzamento
+        voting_started: Comezaches o voto neste orzamento
+      budgets_list:
+        cancel_order:
+          more_than_one: eliminar o teu voto de %{name} e comezar de novo
+          only_one: eliminar o teu voto e comezar de novo.
+        highlighted_cta: Votar en %{name}
+        my_budgets: Os meus orzamentos
       models:
+        budget:
+          fields:
+            name: Nome
+            projects_count: Número de proxectos
+            total_budget: Orzamento total
         project:
           fields:
             title: Título
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Os proxectos que seleccionaches son:'
       projects:
         budget_confirm:
           cancel: Cancelar
@@ -71,17 +123,18 @@ gl:
           title: Confirmar voto
         budget_excess:
           budget_excess:
-            title: O orzamento máximo excedeu
+            title: Orzamento máximo excedido
           close: Pechar
           ok: Ok
         budget_summary:
-          are_you_sure: '¿Estás seguro de que queres cancelar o teu voto?'
+          are_you_sure: Estás certo de querer cancelar o teu voto?
           assigned: 'Asignado:'
           cancel_order: elimine o seu voto e volva comezar
           checked_out:
             description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
           title: Vostede decide o orzamento
+          total_projects: Votos totais
         count:
           projects_count:
             one: 1 proxecto
@@ -90,6 +143,11 @@ gl:
           category: Categoría
           scope: Alcance
           search: Busca
+          status: Estado
+          status_values:
+            all: Todos
+            not_selected: Non seleccionado
+            selected: Seleccionado
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -103,8 +161,26 @@ gl:
             one: proxecto seleccionado
             other: proxectos seleccionados
           view: Ver
+        orders:
+          label: Ordenar proxectos por
+          most_voted: Máis votado
+          random: Orde ao chou
+          selected: Seleccionado
         project:
+          add: Engadir o proxecto %{resource_name} ao teu voto
+          remove: Eliminar o proxecto %{resource_name} do teu voto
+          selected: Seleccionado
           view: Ver
+          votes:
+            one: voto
+            other: votos
+          you_voted: Votaches isto
+        project_budget_button:
+          add: Engadir ao teu voto
+          add_descriptive: Engadir o proxecto %{resource_name} ao teu voto
+          added: Engadido ao teu voto
+          added_descriptive: O proxecto %{resource_name} engadiuse ao teu voto
+        projects_for: Proxectos para %{name}
         show:
           budget: Orzamento
           view_all_projects: Ver todos os proxectos
@@ -117,15 +193,26 @@ gl:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
+            title: Título
             total_budget: Orzamento total
+            vote_minimum_budget_projects_number: Número mínimo de proxectos a votar
             vote_threshold_percent: Porcentaxe de límite de voto
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            list_heading: Título da listaxe
+            more_information_modal: Modal de "Máis información"
             show_votes: Mostrar votos
+            title: Título
+            votes: Votación
             votes_choices:
+              disabled: Votación deshabilitada
               enabled: Votación habilitada
+              finished: Votación finalizada
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto
@@ -135,6 +222,9 @@ gl:
         success: O teu voto foi cancelado correctamente
     resource_links:
       included_proposals:
-        project_proposal: 'Propostas incluídas neste proxecto:'
+        project_proposal: Propostas incluídas neste proxecto
+    statistics:
+      orders_count: Apoios
+      projects_count: Proxectos
   index:
     confirmed_orders_count: Reconto de votos

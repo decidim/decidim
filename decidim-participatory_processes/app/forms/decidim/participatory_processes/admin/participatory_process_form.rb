@@ -32,6 +32,7 @@ module Decidim
         attribute :scope_id, Integer
         attribute :related_process_ids, Array[Integer]
         attribute :scope_type_max_depth_id, Integer
+        attribute :weight, Integer, default: 0
 
         attribute :private_space, Boolean
         attribute :promoted, Boolean
@@ -57,6 +58,8 @@ module Decidim
 
         validates :banner_image, passthru: { to: Decidim::ParticipatoryProcess }
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
+
+        validates :weight, presence: true
 
         alias organization current_organization
 

@@ -40,11 +40,11 @@ module Decidim
 
       def questionnaire_answers
         questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for_id: @meeting)
-        questionnaire.answers.where(user: @user)
+        questionnaire.answers.where(user: @user) if questionnaire.present?
       end
 
       def destroy_questionnaire_answers
-        questionnaire_answers.destroy_all
+        questionnaire_answers.try(:destroy_all)
       end
 
       def decrement_score

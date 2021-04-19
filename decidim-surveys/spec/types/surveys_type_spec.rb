@@ -8,7 +8,7 @@ require "decidim/core/test/shared_examples/scopable_interface_examples"
 module Decidim
   module Surveys
     describe SurveysType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:surveys_component) }
 
       it_behaves_like "a component query type"

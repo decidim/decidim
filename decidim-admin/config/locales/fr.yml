@@ -24,13 +24,15 @@ fr:
       component:
         name: Titre
         published_at: Publiée à
-        weight: Rang d'affichage
       id: ID
+      import:
+        user_group_id: Créer des imports en tant que
       newsletter:
         body: Corps de texte
         subject: Objet
       organization:
         alert_color: Alerte
+        available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
         comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
         cta_button_path: Chemin du bouton d'action
@@ -41,10 +43,12 @@ fr:
         enable_omnipresent_banner: Montrer une bannière d'actualités
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
+        force_authentication: Forcer l'authentification
+        force_users_to_authenticate_before_access_organization: Forcer les utilisateurs à s'authentifier avant d'accéder à l'organisation
         from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
-        highlight_alternative_color: Surligner, alternative
+        highlight_alternative_color: Surbrillance alternative
         highlight_color: Surbrillance
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
@@ -53,6 +57,7 @@ fr:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Brève description
         highlighted_content_banner_title: Titre
+        host: Host
         instagram_handler: Gestionnaire Instagram
         logo: Logo
         machine_translation_display_priority: Priorité de l'affichage de la traduction automatique
@@ -65,16 +70,21 @@ fr:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
+        organization_admin_email: E-mail de l'administrateur de l'organisation
+        organization_admin_name: Nom de l'administrateur de l'organisation
+        organization_locales: Langues de l'organisation
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
         secondary_color: Secondaire
+        secondary_hosts: Secondary hosts
         send_welcome_notification: Envoyer un mail de bienvenue
         success_color: Succès
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
+        users_registration_mode: Mode d'inscription des utilisateurs
         warning_color: Attention
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
@@ -90,19 +100,20 @@ fr:
         name: Titre
         organization: Organisation
         plural: Pluriel
+      settings:
+        scope_id: Secteur
       static_page:
+        allow_public_access: Autoriser l'accès sans authentification
         changed_notably: Il y a eu des changements notables.
         content: Contenu
         organization: Organisation
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Rang d'affichage
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -113,6 +124,10 @@ fr:
               allowed_file_content_types: Fichier image invalide
             official_img_header:
               allowed_file_content_types: Fichier image invalide
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Type MIME invalide
   activerecord:
     attributes:
       decidim/static_page:
@@ -131,21 +146,34 @@ fr:
     admin:
       actions:
         add: Ajouter
+        attachment:
+          new: Nouvelle pièce jointe
+        attachment_collection:
+          new: Nouveau dossier
         browse: Parcourir
+        category:
+          new: Nouvelle catégorie
         export: Exporter
+        import: Importer
         manage: Gérer
         new: + %{name}
+        newsletter:
+          new: Nouvelle newsletter
+        participatory_space_private_user:
+          new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
         share: Partager
+        user:
+          new: Nouvel utilisateur
         verify: Vérifier
       admin_terms_of_use:
         accept:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte ces conditions d'administration
+          accept: J'accepte les conditions d'utilisation suivantes
           are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
@@ -224,6 +252,12 @@ fr:
       autocomplete:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche
+      block_user:
+        new:
+          action: Bloquer le compte et envoyer la justification
+          description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification et vos directives les conditions de déblocage de l'utilisateur.
+          justification: Justification
+          title: Bloquer l'utilisateur %{name}
       categories:
         create:
           error: Une erreur s'est produite lors de la création de cette catégorie.
@@ -279,6 +313,21 @@ fr:
         update:
           error: Une erreur est survenue lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
+      conflicts:
+        attempts: Tentatives
+        'false': 'Non'
+        managed_user_name: Utilisateur représenté
+        solved: Résolu
+        title: Conflits de vérification
+        transfer:
+          email: Email
+          error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
+          name: Nom
+          reason: Raison
+          success: Le transfert a bien été effectué.
+          title: Transfert
+        'true': 'Oui'
+        user_name: Utilisateur
       dashboard:
         show:
           view_more_logs: Afficher plus
@@ -303,6 +352,17 @@ fr:
           values:
             'false': Validé
             'true': Non validé
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitation acceptée
+            values:
+              'false': Non acceptée
+              'true': Acceptée
+          user_invitation_sent_at_not_null:
+            label: Invitation envoyée
+            values:
+              'false': Non envoyée
+              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -320,8 +380,15 @@ fr:
           name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
           reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Rechercher %{collection} par titre.
+          user_name_or_user_email_cont: Rechercher %{collection} par nom ou par email.
         state_eq:
           label: État
+      forms:
+        file_help:
+          import:
+            explanation: 'Instructions concernant le fichier:'
+            message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
+            message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
@@ -360,6 +427,24 @@ fr:
           impersonate_existing_managed_user: Représenter l'utilisateur "%{name}"
           impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
           impersonate_new_managed_user: Représenter un nouvel utilisateur
+      imports:
+        creators:
+          proposalcreator: Créateur de proposition
+        error: Un problème est survenu lors de l'import
+        help:
+          proposalcreator: Le fichier doit comprendre les colonnes title/fr et body/fr (ou une autre locale de votre choix). Les colonnes scope/id et category/id sont également prises en charge.
+        import_from_file: Importer à partir d'un fichier
+        invalid_lines: Erreur trouvée dans la ressource aux lignes %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Retour
+          file_legend: Ajouter un fichier d'import qui sera analysé.
+          import: Importer
+        notice: "%{number} %{resource_name} importées avec succès"
       logs:
         logs_list:
           no_logs_yet: Il n'y a pas encore de journal d'activité
@@ -383,6 +468,7 @@ fr:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
+        moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
         reported_users: Utilisateurs signalés
@@ -476,17 +562,23 @@ fr:
       moderated_users:
         index:
           actions:
+            block: Bloquer l'utilisateur
             title: Actions
+            unblock: Débloquer l'utilisateur
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
-          reason: Raison
+          reason: Raison du signalement
+          reports: Nombre de signalements
           title: Liste des utilisateurs signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
             offensive: Offensant
             spam: Spam
+        tabs:
+          blocked: Bloqué
+          unblocked: Non bloqué
       moderations:
         index:
           title: Modérations
@@ -502,7 +594,7 @@ fr:
             content_original_language: Langue d'origine du contenu
             participatory_space: Espace participatif
             reported_content: Contenu signalé
-            see_current: Voir en cours
+            see_current: Voir le contenu dans sa langue d'origine
             see_original: Voir l'original
             title: Signalements
           show:
@@ -575,6 +667,9 @@ fr:
           error: Erreur lors de la mise à jour de la newsletter.
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
       officializations:
+        block:
+          error: Une erreur s'est produite lors du blocage du participant
+          success: Participant bloqué avec succès
         create:
           success: Utilisateur validé avec succès
         destroy:
@@ -582,6 +677,7 @@ fr:
         index:
           actions: Actions
           badge: Badge
+          block: Bloquer l'utilisateur
           created_at: Créée le
           name: Nom
           nickname: Pseudonyme
@@ -592,6 +688,7 @@ fr:
           reports: Signalements
           show_email: Montrer les adresses e-mail
           status: Statut
+          unblock: Débloquer l'utilisateur
           unofficialize: Invalider
         new:
           badge: Badge de validation
@@ -605,6 +702,9 @@ fr:
           hidden: masqués
           show: Afficher
           title: Afficher l'adresse e-mail des participants
+        unblock:
+          error: Une erreur s'est produite lors du déblocage du participant
+          success: Participant débloqué avec succès
       organization:
         edit:
           title: Modifier l'organisation
@@ -774,6 +874,7 @@ fr:
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Périmètres d'application
@@ -862,6 +963,7 @@ fr:
           fields:
             created_at: Date de création
             hidden_at: Masqué le
+            participatory_space: Espace participatif
             report_count: Compteur
             reportable_id: ID
             reportable_type: Type
@@ -879,6 +981,8 @@ fr:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Modération globale
         newsletters:
           title: Newsletters
         settings:

@@ -324,10 +324,6 @@ zh-CN:
         description: 支持提议的数量
         object: 支持
         title: 支持
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: 建议
     participatory_spaces:
       highlighted_proposals:
         see_all: 查看所有建议 (%{count})
@@ -344,7 +340,6 @@ zh-CN:
         actions:
           preview: 预览
         exports:
-          comments: 评论
           proposals: 建议
         models:
           proposal:
@@ -553,13 +548,6 @@ zh-CN:
               ok: 撤回协作草稿
               title: 以下操作是不可逆的
             success: 协作草案已成功撤销。
-        compare:
-          mine_is_different: 我的合作草稿是不同的
-          no_similars_found: 干得好！找不到类似的协作草稿
-          title: 类似的合作草稿
-        complete:
-          send: 发送
-          title: 完成您的协作草稿
         count:
           drafts_count:
             other: "%{count} 协作草稿"
@@ -590,7 +578,6 @@ zh-CN:
           unfold: 展开...
         new:
           send: 继续
-          title: 创建您的协作草稿
         new_collaborative_draft_button:
           new_collaborative_draft: 新的协作草稿
         orders:
@@ -634,23 +621,11 @@ zh-CN:
         update:
           error: 保存合作草稿时出现问题。
           success: 协作草稿已成功更新。
-          title: 编辑协作草稿
         wizard_aside:
-          back: 后退
           back_from_collaborative_draft: 返回协作草稿
-          back_from_step_1: 返回协作草稿
-          back_from_step_2: 返回协作草稿
-          back_from_step_3: 返回比较协作草稿
-          back_from_step_4: 返回编辑草稿
           info: 您正在创建一个 <strong>协作草案</strong>。
-        wizard_steps:
-          current_step: 当前步骤
-          see_steps: 查看步骤
-          step_1: 创建您的协作草稿
-          step_2: 与协作草稿比较
-          step_3: 完成您的协作草稿
-          step_of: 步骤 %{current_step_num} / %{total_steps}
-          title: 协作创建步骤草案
+        wizard_header:
+          title: 创建您的协作草稿
       create:
         error: 保存建议时出现问题。
         success: 建议已成功创建为草稿。

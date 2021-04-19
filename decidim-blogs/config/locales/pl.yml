@@ -31,6 +31,7 @@ pl:
             success: Wpis został usunięty
           edit:
             save: Aktualizuj
+            title: Edytuj wpis
           index:
             title: Wpisy
           new:
@@ -77,10 +78,5 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz zrezygnować z obserwowania klikając w poprzedni link.
           email_subject: Opublikowano nowy wpis w %{participatory_space_title}
           notification_title: Wpis <a href="%{resource_path}">%{resource_title}</a> został opublikowany w %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Wpisy
-    participatory_processes:
-      statistics:
-        posts_count: Wpisy
+    statistics:
+      posts_count: Wpisy

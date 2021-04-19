@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage proposals" do
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: participatory_process_scope) }
@@ -140,7 +140,7 @@ shared_examples "manage proposals" do
                 fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
                 fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
                 select category.name["en"], from: :proposal_category_id
-                scope_repick select_data_picker(:proposal_scope_id), scope, child_scope
+                scope_repick :proposal_scope_id, scope, child_scope
                 find("*[type=submit]").click
               end
 

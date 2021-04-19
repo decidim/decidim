@@ -1,6 +1,8 @@
 fi:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Ota organisaatiokaavio käyttöön
       assembly:
         area_id: Alue
         assembly_type: Ryhmän tyyppi
@@ -19,12 +21,12 @@ fi:
         decidim_assemblies_type_id: Ryhmän tyyppi
         decidim_scope_id: Teema
         description: Kuvaus
-        developer_group: Perustajaryhmä
+        developer_group: Edistäjäryhmä
         domain: Toimintaympäristö
         duration: Kesto
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         included_at: Lisäysaika
         instagram: Instagram
@@ -50,6 +52,7 @@ fi:
         target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
+        weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
@@ -60,6 +63,7 @@ fi:
         full_name: Koko nimi
         gender: Sukupuoli
         position: Asema
+        user_id: Käyttäjä
       assembly_user_role:
         email: Sähköposti
         name: Nimi
@@ -236,7 +240,7 @@ fi:
       assembly:
         create: "%{user_name} loi %{resource_name} ryhmän"
         publish: "%{user_name} julkaisi %{resource_name} ryhmän"
-        unpublish: "%{user_name} lopetti %{resource_name} ryhmän julkaisemisen"
+        unpublish: "%{user_name} lopetti ryhmän %{resource_name} julkaisun"
         update: "%{user_name} päivitti %{resource_name} ryhmän"
       assembly_member:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
@@ -246,7 +250,7 @@ fi:
         update: "%{user_name} päivitti ryhmän asetuksia"
       assembly_type:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
+        delete: "%{user_name} poisti ryhmätyypin %{resource_name}"
         publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
         unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
         update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
@@ -357,7 +361,7 @@ fi:
         composition: Kokoonpano
         created_by: Luonut
         creation_date: Luontipäivämäärä
-        developer_group: Perustajaryhmä
+        developer_group: Edistäjäryhmä
         duration: Kesto
         included_at: Lisäysaika
         indefinite_duration: Määrittelemätön
@@ -377,23 +381,6 @@ fi:
         social_networks: Sosiaalinen media
         social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
-      statistics:
-        answers_count: Vastausta
-        assemblies_count: Ryhmää
-        comments_count: Kommenttia
-        debates_count: Keskustelua
-        endorsements_count: Suositusta
-        headline: Tilastot
-        meetings_count: Tapaamista
-        orders_count: Kannatusta
-        pages_count: Sivua
-        posts_count: Artikkeleja
-        projects_count: Suunnitelmaa
-        proposals_count: Ehdotusta
-        results_count: Tulosta
-        surveys_count: Kyselyä
-        users_count: Osallistujaa
-        votes_count: Kannatusta
     assembly_members:
       assembly_member:
         designated_on: Nimetty
@@ -441,7 +428,7 @@ fi:
         hero:
           participate_title: Osallistu palvelun prosesseihin
         sub_hero:
-          register_title: Kirjaudu sisään tai luo tili alustalle
+          register_title: Rekisteröidy luodaksesi itsellesi oman tilin
     participatory_processes:
       pages:
         home:
@@ -449,6 +436,8 @@ fi:
             processes_button_title: Linkki kaikkien prosessien sivulle
       show:
         related_assemblies: Liittyvät ryhmät
+    statistics:
+      assemblies_count: Ryhmää
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

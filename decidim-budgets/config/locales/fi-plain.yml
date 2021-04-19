@@ -6,7 +6,7 @@ fi-pl:
         description: Kuvaus
         title: Otsikko
         total_budget: Kokonaisbudjetti
-        weight: Painoarvo
+        weight: Järjestysnumero
       project:
         budget_amount: Budjetti
         decidim_category_id: Aihepiiri
@@ -45,13 +45,19 @@ fi-pl:
             title: Muokkaa budjettia
             update: Päivitä budjetti
           index:
+            finished_orders: Valmiit äänet
+            pending_orders: Odottavat äänet
             title: Budjetit
+            users_with_finished_orders: Käyttäjien määrä, joilla on valmiita ääniä
+            users_with_pending_orders: Käyttäjien määrä, joilla on odottavia ääniä
           new:
             create: Luo budjetti
             title: Uusi budjetti
           update:
             invalid: Budjetin päivitys epäonnistui
             success: Budjetin päivitys onnistui
+        exports:
+          projects: Suunnitelmat
         models:
           budget:
             name: Budjetti
@@ -85,6 +91,7 @@ fi-pl:
             create: Tuo ehdotuksia suunnitelmiin
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             select_component: Valitse komponentti
+            title: Tuo ehdotuksia
       admin_log:
         budget:
           create: "%{user_name} loi budjetin %{resource_name} osallistumistilassa %{space_name}"
@@ -101,6 +108,9 @@ fi-pl:
         close_modal: Sulje ikkuna
         continue: Jatka
         more_information: Lisätietoa
+      budget_list_item:
+        voting_finished: Olet äänestänyt tästä budjetista
+        voting_started: Olet aloittanut äänestämään tästä budjetista
       budgets_list:
         cancel_order:
           more_than_one: poista äänesi budjetista %{name} ja aloita alusta
@@ -246,8 +256,8 @@ fi-pl:
             vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien projektien vähimmäismäärä'
             vote_rule_selected_projects_enabled: 'Ota sääntö käyttöön: Valittavat suunnitelmat määritettyjen vähimmäis- ja enimmäismäärän mukaisesti'
             vote_rule_threshold_percent_enabled: 'Ota sääntö käyttöön: Kokonaisbudjetin prosentuaalinen vähimmäismäärä'
-            vote_selected_projects_maximum: Valittavien suunnitelmien vähimmäismäärä
-            vote_selected_projects_minimum: Valittavien suunnitelmien enimmäismäärä
+            vote_selected_projects_maximum: Valittavien suunnitelmien enimmäismäärä
+            vote_selected_projects_minimum: Valittavien suunnitelmien vähimmäismäärä
             vote_threshold_percent: Äänestyksen kynnysprosentti
             workflow: Työnkulku
             workflow_choices:
@@ -283,6 +293,9 @@ fi-pl:
         success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:
-        project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
+        project_proposal: Tähän projektiin liittyvät ehdotukset
+    statistics:
+      orders_count: Kannatusta
+      projects_count: Suunnitelmaa
   index:
     confirmed_orders_count: Äänten määrä

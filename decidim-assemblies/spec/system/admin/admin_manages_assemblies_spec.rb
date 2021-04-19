@@ -6,6 +6,7 @@ describe "Admin manages assemblies", type: :system do
   include_context "when admin administrating an assembly"
 
   let(:model_name) { assembly.class.model_name }
+  let(:resource_controller) { Decidim::Assemblies::Admin::AssembliesController }
 
   shared_examples "creating an assembly" do
     let(:image1_filename) { "city.jpeg" }
@@ -51,6 +52,7 @@ describe "Admin manages assemblies", type: :system do
 
         fill_in :assembly_slug, with: "slug"
         fill_in :assembly_hashtag, with: "#hashtag"
+        fill_in :assembly_weight, with: 1
         attach_file :assembly_hero_image, image1_path
         attach_file :assembly_banner_image, image2_path
 

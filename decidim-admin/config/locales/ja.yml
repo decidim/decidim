@@ -24,7 +24,6 @@ ja:
       component:
         name: 名前
         published_at: 公開日時
-        weight: 重量
       id: ID
       newsletter:
         body: 本文
@@ -90,6 +89,8 @@ ja:
         name: 名前
         organization: 組織
         plural: 複数形
+      settings:
+        scope_id: スコープ
       static_page:
         changed_notably: 目立つ変更がありました。
         content: コンテンツ
@@ -97,12 +98,10 @@ ja:
         show_in_footer: フッターに表示
         slug: URL スラグ
         title: タイトル
-        weight: 重量
       static_page_topic:
         description: 説明
         show_in_footer: フッターに表示
         title: タイトル
-        weight: 重量
       user_group_csv_verification:
         file: ファイル
     errors:
@@ -113,6 +112,10 @@ ja:
               allowed_file_content_types: 無効な画像ファイル
             official_img_header:
               allowed_file_content_types: 無効な画像ファイル
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: MIMEタイプが無効です
   activerecord:
     attributes:
       decidim/static_page:
@@ -132,20 +135,29 @@ ja:
       actions:
         add: 追加
         browse: 検索
+        category:
+          new: 新しいカテゴリ
         export: エクスポート
+        import: インポート
         manage: 管理
         new: 新しい %{name}
+        newsletter:
+          new: 新しいニュースレター
+        participatory_space_private_user:
+          new: 新しい参加スペースのプライベートユーザー
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
         share: 共有
+        user:
+          new: 新規ユーザー
         verify: 確認する
       admin_terms_of_use:
         accept:
           error: 管理者の利用規約に同意中にエラーが発生しました。
           success: 素晴らしい！管理者の利用規約に同意しました。
         actions:
-          accept: この管理者規約に同意します
+          accept: 次の規約に同意します
           are_you_sure: 管理者の条件を拒否してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
@@ -224,6 +236,10 @@ ja:
       autocomplete:
         no_results: 結果が見つかりませんでした
         search_prompt: 検索するには少なくとも3文字を入力してください
+      block_user:
+        new:
+          justification: 判定理由
+          title: ユーザー %{name} をブロックする
       categories:
         create:
           error: このカテゴリの作成中に問題が発生しました。
@@ -279,6 +295,8 @@ ja:
         update:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
+      conflicts:
+        'false': 'いいえ'
       dashboard:
         show:
           view_more_logs: もっとログを見る
@@ -356,6 +374,16 @@ ja:
           impersonate_existing_managed_user: 参加者を管理 "%{name}"
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
+      imports:
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: 戻る
+          import: インポート
+        notice: "%{number} %{resource_name} を正常にインポートしました"
       logs:
         logs_list:
           no_logs_yet: ログはまだありません
@@ -379,8 +407,10 @@ ja:
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
+        moderation: グローバルモデレーション
         newsletters: ニュースレター
         participants: 参加者
+        reported_users: 報告済みユーザー
         scope_types: スコープの種類
         scopes: スコープ
         settings: 設定
@@ -468,6 +498,17 @@ ja:
             phone: 電話番号
             state: 都道府県：
             users_count: 参加者数
+      moderated_users:
+        index:
+          actions:
+            title: アクション
+            unreport: 報告解除
+          nickname: ニックネーム
+        report:
+          reasons:
+            spam: スパム
+        tabs:
+          unblocked: 未ブロック
       moderations:
         index:
           title: モデレーション
@@ -476,6 +517,9 @@ ja:
             does_not_belong: 属していません
             offensive: 攻撃
             spam: スパム
+        reports:
+          index:
+            author: 投稿者
       newsletter_templates:
         index:
           preview_template: プレビュー
@@ -807,7 +851,7 @@ ja:
         not_hidden: 非表示にしない
         title: アクション
         unhide: Unhide
-        unreport: 未報告
+        unreport: 報告解除
       admin:
         reportable:
           hide:
@@ -817,7 +861,7 @@ ja:
             invalid: リソースの非表示解除中に問題が発生しました。
             success: リソースの非表示を解除しました。
           unreport:
-            invalid: リソースの未報告中に問題が発生しました。
+            invalid: リソースの報告解除中に問題が発生しました。
             success: リソースの報告を解除しました。
       models:
         moderation:

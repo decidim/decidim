@@ -7,17 +7,17 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         end_date: Datum ukončení
-        progress: Pokrok
+        progress: Průběh
         project_ids: Zahrnuté projekty
         proposals: Zahrnuté návrhy
-        start_date: Počáteční datum
+        start_date: Datum zahájení
         title: Titul
-        updated_at: Aktualizováno na
+        updated_at: Aktualizováno v
       status:
         description: Popis
         key: Klíč
         name: Název
-        progress: Pokrok
+        progress: Průběh
       timeline_entry:
         description: Popis
         entry_date: Datum
@@ -30,20 +30,23 @@ cs:
         one: Výsledek
         few: Výsledek
         many: Výsledek
-        other: Výsledek
+        other: Výsledků
   decidim:
     accountability:
       actions:
+        attachment_collections: Složky
+        attachments: Přílohy
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
         import_csv: Importovat CSV
-        new: Nová %{name}
+        new: Nový %{name}
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
       admin:
         exports:
+          result_comments: Komentáře
           results: Výsledky
         import_results:
           new:
@@ -60,7 +63,7 @@ cs:
           status:
             name: Stav
           timeline_entry:
-            name: Časová položka
+            name: Záznam v harmonogramu
         results:
           create:
             invalid: Při vytváření tohoto výsledku došlo k problému
@@ -110,7 +113,7 @@ cs:
           index:
             title: Položky časové osy projektu
           new:
-            create: Vytvořte položku
+            create: Vytvořit položku
             title: Nová položka
           update:
             invalid: Došlo k problému při aktualizaci této položky
@@ -122,7 +125,12 @@ cs:
           update: "%{user_name} aktualizovaný výsledek %{resource_name} v %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'Rodič nebyl nalezen v databázi (ID: %{id})'
+            not_found: 'Nadřazený nebyl nalezen v databázi (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Data
+          results: Výsledky
+          unspecified: Nespecifikováno
       import_mailer:
         import:
           errors: Chyby
@@ -135,8 +143,12 @@ cs:
       models:
         result:
           fields:
+            category: Kategorie
+            created_at: Vytvořeno
             end_date: Datum ukončení
-            progress: Pokrok
+            id: ID
+            progress: Průběh
+            scope: Oblast působnosti
             start_date: Počáteční datum
             status: Stav
             title: Název
@@ -145,11 +157,14 @@ cs:
             description: Popis
             key: Klíč
             name: Název
-            progress: Pokrok
+            progress: Průběh
         timeline_entry:
           fields:
             description: Popis
             entry_date: Datum
+      result_m:
+        executed: Provedeno
+        view: Zobrazit
       results:
         count:
           results_count:
@@ -166,9 +181,9 @@ cs:
         home_header:
           global_status: Globální stav provedení
         nav_breadcrumb:
-          global: Globální provádění
+          global: Globální provedení
         search:
-          search: Vyhledání akcí
+          search: Hledat akce
         show:
           stats:
             attendees: Účastníci
@@ -176,12 +191,21 @@ cs:
             comments: Komentáře
             contributions: Příspěvky
             last_edited_by: Naposledy upravil
-            last_updated_at: Poslední aktualizace na
+            last_updated_at: Poslední aktualizace v
             meetings: Setkání
             proposals: Návrhy
-            votes: Podporuje
+            votes: Hlasy
         timeline:
           title: Vývoj projektu
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Oblast působnosti
+          status_id_eq:
+            label: Stav
     components:
       accountability:
         name: Odpovědnost
@@ -202,8 +226,8 @@ cs:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Návrh je „%{proposal_title}“ byla zahrnuta do výsledek. Můžete ji vidět z této stránky:'
-          email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{proposal_title}". Po předchozím propojení můžete přestat přijímat oznámení.
+          email_intro: 'Návrh "%{proposal_title}" byl zahrnut do výsledku. Můžete jej vidět z této stránky:'
+          email_outro: Toto oznámení jste obdrželi, protože sledujete "%{proposal_title}". Můžete přestat dostávat oznámení za předchozím odkazem.
           email_subject: Aktualizace na %{proposal_title}
           notification_title: Návrh <a href="%{proposal_path}">%{proposal_title}</a> byl zahrnut do výsledku <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
@@ -216,10 +240,6 @@ cs:
         description: Počet vygenerovaných výsledků
         object: výsledky
         title: Výsledky
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Výsledky
     participatory_spaces:
       highlighted_results:
         see_all: Zobrazit všechny výsledky (%{count})
@@ -228,3 +248,5 @@ cs:
         result_project: Projekty zahrnuté v tomto výsledku
       included_proposals:
         result_proposal: Návrhy zahrnuté v tomto výsledku
+    statistics:
+      results_count: Výsledky

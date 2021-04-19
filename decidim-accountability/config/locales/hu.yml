@@ -209,10 +209,6 @@ hu:
         description: A keletkezett eredmények száma
         object: eredmények
         title: Eredmények
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Eredmények
     participatory_spaces:
       highlighted_results:
         see_all: Eredmények megtekintése (%{count})

@@ -388,7 +388,7 @@ module Decidim
         options.merge(data: data)
       )
       help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
-      template += error_and_help_text(attribute, options.merge(help_text: help_text))
+      template += content_tag(:span, help_text, class: "help-text")
       template.html_safe
     end
 
@@ -405,15 +405,16 @@ module Decidim
     def upload(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
-      alt_text = label_for(attribute)
+      label_text = options[:label] || label_for(attribute)
+      alt_text = label_text
 
       file = object.send attribute
       template = ""
-      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
+      template += label(attribute, label_text + required_for_attribute(attribute))
       template += upload_help(attribute, options)
       template += @template.file_field @object_name, attribute
 
-      template += extension_whitelist_help(options[:extension_whitelist]) if options[:extension_whitelist].present?
+      template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
       template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
       if file_is_image?(file)
@@ -621,7 +622,7 @@ module Decidim
       length_validator = find_validator(attribute, ActiveModel::Validations::LengthValidator)
       return length_validator.options[type] if length_validator
 
-      length_validator = find_validator(attribute, ProposalLengthValidator)
+      length_validator = find_validator(attribute, ProposalLengthValidator) if Object.const_defined?("ProposalLengthValidator")
       if length_validator
         length = length_validator.options[type]
         return length.call(object) if length.respond_to?(:call)
@@ -810,12 +811,12 @@ module Decidim
       name.to_s.parameterize.underscore
     end
 
-    def extension_whitelist_help(extension_whitelist)
+    def extension_allowlist_help(extension_allowlist)
       content_tag :p, class: "extensions-help help-text" do
         safe_join([
-                    content_tag(:span, I18n.t("extension_whitelist", scope: "decidim.forms.files")),
+                    content_tag(:span, I18n.t("extension_allowlist", scope: "decidim.forms.files")),
                     " ",
-                    safe_join(extension_whitelist.map { |ext| content_tag(:b, ext) }, ", ")
+                    safe_join(extension_allowlist.map { |ext| content_tag(:b, ext) }, ", ")
                   ])
       end
     end

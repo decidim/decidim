@@ -10,35 +10,35 @@ module Decidim
       # type - A GraphQL::BaseType to extend.
       #
       # Returns nothing.
-      def self.define(type)
-        type.field :commentable, Decidim::Comments::CommentableMutationType do
+      def self.included(type)
+        type.field :commentable, Decidim::Comments::CommentableMutationType, null: false do
           description "A commentable"
 
-          argument :id, !types.String, "The commentable's ID"
-          argument :type, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
-          argument :locale, !types.String, "The locale for which to get the comments text"
-          argument :toggleTranslations, !types.Boolean, "Whether the user asked to toggle the machine translations or not."
-
-          resolve lambda { |_obj, args, _ctx|
-            I18n.locale = args[:locale].presence
-            RequestStore.store[:toggle_machine_translations] = args[:toggleTranslations]
-            args[:type].constantize.find(args[:id])
-          }
+          argument :id, GraphQL::Types::String, "The commentable's ID", required: true
+          argument :type, GraphQL::Types::String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`", required: true
+          argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: false
+          argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: false
         end
 
-        type.field :comment, Decidim::Comments::CommentMutationType do
+        type.field :comment, Decidim::Comments::CommentMutationType, null: false do
           description "A comment"
 
-          argument :id, !types.ID, "The comment's id"
-          argument :locale, !types.String, "The locale for which to get the comments text"
-          argument :toggleTranslations, !types.Boolean, "Whether the user asked to toggle the machine translations or not."
-
-          resolve lambda { |_obj, args, _ctx|
-            I18n.locale = args[:locale].presence
-            RequestStore.store[:toggle_machine_translations] = args[:toggleTranslations]
-            Comment.find(args["id"])
-          }
+          argument :id, GraphQL::Types::ID, "The comment's id", required: true
+          argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: false
+          argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: false
         end
+      end
+
+      def commentable(id:, type:, locale: Decidim.default_locale, toggle_translations: false)
+        I18n.locale = locale.presence
+        RequestStore.store[:toggle_machine_translations] = toggle_translations
+        type.constantize.find(id)
+      end
+
+      def comment(id:, locale: Decidim.default_locale, toggle_translations: false)
+        I18n.locale = locale.presence
+        RequestStore.store[:toggle_machine_translations] = toggle_translations
+        Comment.find(id)
       end
     end
   end

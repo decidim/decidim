@@ -13,9 +13,7 @@
 <div class="row">
   <div class="columns large-6 medium-centered">
     <div class="card">
-      <% if translated_attribute(component_settings.new_proposal_help_text).present? %>
-        <%= render partial: "decidim/shared/announcement", locals: { announcement: component_settings.new_proposal_help_text } %>
-      <% end %>
+      <%= cell("decidim/announcement", translated_attribute(component_settings.new_proposal_help_text)) %>
 
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
@@ -30,4 +28,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/proposals/add_proposal" %>
+<%= javascript_pack_tag "decidim_proposals" %>

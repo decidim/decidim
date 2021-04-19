@@ -4,14 +4,13 @@ module Decidim
   module Elections
     module TrusteeZone
       # Exposes the trustee zone for trustee users
-      class TrusteesController < ::Decidim::ApplicationController
-        include Decidim::UserProfile
+      class TrusteesController < Decidim::Elections::TrusteeZone::ApplicationController
         include Decidim::FormFactory
-
-        helper_method :trustee
 
         def show
           enforce_permission_to :view, :trustee, trustee: trustee
+
+          trustee.name ||= current_user.name
         end
 
         def update
@@ -30,23 +29,6 @@ module Decidim
           end
 
           redirect_to trustee_path
-        end
-
-        private
-
-        def trustee
-          @trustee ||= Decidim::Elections::Trustee.for(current_user)
-        end
-
-        def permission_scope
-          :trustee_zone
-        end
-
-        def permission_class_chain
-          [
-            Decidim::Elections::Permissions,
-            Decidim::Permissions
-          ]
         end
       end
     end

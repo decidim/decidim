@@ -11,7 +11,7 @@ cs:
         questions: Otázky
         slug: URL slug
         start_voting_date: Hlasování začíná
-        subtitle: Titulky
+        subtitle: Podtitul
         title: Titul
       question:
         banner_image: Obrázek banneru
@@ -31,7 +31,7 @@ cs:
         reference: Odkaz
         scope: Městská oblast
         slug: URL slug
-        subtitle: Titulky
+        subtitle: Podtitul
         vote: Externí hlasovací systém
         what_is_decided: Co se rozhodlo
       response:
@@ -90,18 +90,19 @@ cs:
           success: Konzultace byla zveřejněna úspěšně.
         destroy:
           error: Při této konzultaci došlo k chybě.
-          success: Konzultace byla nepublikována úspěšně.
+          success: Zveřejnění konzultace bylo úspěšně zrušeno.
       consultation_results_publications:
         create:
           error: Při publikování výsledků této konzultace došlo k chybě.
           success: Výsledky konzultací byly úspěšně publikovány.
         destroy:
-          error: Při zobrazování výsledků této konzultace došlo k chybě.
+          error: Při rušení publikování výsledků této konzultace došlo k chybě.
           success: Výsledky konzultací byly nepublikovány úspěšně.
       consultations:
         create:
           error: Při vytváření nové konzultace došlo k chybě.
           success: Konzultace byla úspěšně vytvořena.
+        deprecation_warning: Modul konzultace bude v blízké budoucnosti zastaralý. Pracujeme na další kryptograficky zabezpečené verzi nazvané Hlasování.
         edit:
           update: Aktualizace
         form:
@@ -127,6 +128,8 @@ cs:
           questions: Otázky
           results: Výsledky
         questions_submenu:
+          attachments: Přílohy
+          categories: Kategorie
           components: Komponenty
           configuration: Nastavení
           consultation: Konzultace
@@ -248,7 +251,7 @@ cs:
       consultations:
         orders:
           label: 'Seřadit konzultace podle:'
-          random: Náhodný
+          random: Náhodně
           recent: Nejnovější
         show:
           dates: Data
@@ -263,10 +266,10 @@ cs:
           other: "%{count} konzultací"
       filters:
         active: Aktivní
-        all: Všechno
+        all: Vše
         finished: Dokončeno
         search: Vyhledávání
-        state: Stát
+        state: Stav
         upcoming: Nadcházející
       filters_small_view:
         close_modal: Zavřete okno
@@ -327,11 +330,11 @@ cs:
         badge_name:
           finished: Dokončeno
           open: otevřeno
-          open_votes: Otevřené hlasy
+          open_votes: Hlasování zahájeno
           published_results: Publikované výsledky
         footer_button_text:
           debate: Debata
-          view: Pohled
+          view: Zobrazit
           view_results: Zobrazit výsledky
           vote: Hlasování
         unspecified: Nespecifikováno
@@ -343,10 +346,6 @@ cs:
           title: Co jsou konzultace?
     menu:
       consultations: Konzultace
-    pages:
-      home:
-        statistics:
-          consultations_count: Konzultace
     questions:
       next_button: Další otázka
       previous_button: Předchozí otázka
@@ -381,12 +380,11 @@ cs:
       consultations:
         actions:
           vote: Hlasovat
+    statistics:
+      consultations_count: Konzultace
+      votes_count: Hlasy
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Přílohy
-          categories: Kategorie
       consultation_voting_data:
         start_voting_date: Hlasování začíná
       question_components:

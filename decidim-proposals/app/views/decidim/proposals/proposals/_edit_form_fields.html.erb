@@ -25,7 +25,7 @@
   <div class="field">
     <%= form.label :suggested_hashtags, nil, for: nil %>
     <div class="checkboxes hashtags">
-      <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
+      <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
         option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
       end %>
     </div>
@@ -38,7 +38,7 @@
   </div>
 
   <div class="field" id="address_input">
-    <%= form.geocoding_field :address %>
+    <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
   </div>
 <% end %>
 
@@ -61,12 +61,12 @@
 <% end %>
 
 <% if component_settings.attachments_allowed? && @proposal %>
-  <fieldset>
+  <fieldset class="gallery__container">
     <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
 
     <% if @form.photos.any? %>
       <% @form.photos.each do |photo| %>
-        <div class="callout gallery__item" data-closable>
+        <div class="callout gallery__item" id="attachment_<%= photo.id %>" data-closable>
           <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
           <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
           <button class="close-button"
@@ -85,12 +85,12 @@
     </div>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="gallery__container">
     <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
 
     <% if @form.documents.any? %>
       <% @form.documents.each do |document| %>
-        <div class="callout" data-closable>
+        <div class="callout" id="attachment_<%= document.id %>" data-closable>
           <%= link_to translated_attribute(document.title), document.url %>
           <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
           <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>

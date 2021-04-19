@@ -3,11 +3,11 @@
     <%= t(public_name_key) %>
     <div>
       <% if has_settings? %>
-        <%= link_to decidim_admin.edit_organization_homepage_content_block_path(manifest_name), class: "mr-s text-muted" do %>
-          <%= icon "pencil", role: "img" %>
+        <%= link_to edit_content_block_path, class: "mr-s text-muted" do %>
+          <%= icon "pencil", role: "img", "aria-hidden": true %>
         <% end %>
       <% end %>
-      <%= icon "menu", role: "img" %>
+      <%= icon "menu", role: "img", "aria-hidden": true %>
     </div>
   </div>
 </li>

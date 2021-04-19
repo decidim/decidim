@@ -1,19 +1,29 @@
-<% if translated_attribute(component_settings.new_proposal_help_text).present? && @step != :step_4 %>
-  <%= render partial: "decidim/shared/announcement", locals: { announcement: component_settings.new_proposal_help_text } %>
-<% elsif @step == :step_4 %>
-  <%
-    locals = {
-      callout_class: "warning",
-      announcement: t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
-    }
-  %>
-  <%= render partial: "decidim/shared/announcement", locals: locals %>
+<% if @step == :step_4 %>
+    <% body_messages = [t("decidim.proposals.proposals.preview.announcement_body")]
+    if component_settings.proposal_edit_time == "limited"
+      body_messages << t("decidim.proposals.proposals.preview.proposal_edit_before_minutes", count: component_settings.proposal_edit_before_minutes)
+    end %>
+
+  <%= cell(
+    "decidim/announcement",
+    {
+      title: t("decidim.proposals.proposals.preview.announcement_title"),
+      body: body_messages
+    },
+    callout_class: "warning"
+  ) %>
+<% else %>
+  <%= cell("decidim/announcement", component_settings.new_proposal_help_text) %>
 <% end %>
 
 <% if proposal_wizard_step_help_text?(@step) %>
   <div class="proposal_wizard_help_text">
     <% callout_step_help_text_class ||= nil %>
-    <%= render partial: "decidim/shared/announcement", locals: { announcement: component_settings.try("proposal_wizard_#{@step}_help_text"), callout_class: callout_step_help_text_class } %>
+    <%= cell(
+      "decidim/announcement",
+      component_settings.try("proposal_wizard_#{@step}_help_text"),
+      callout_class: callout_step_help_text_class
+    ) %>
   </div>
 <% end %>
 

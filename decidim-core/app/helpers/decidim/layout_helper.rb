@@ -29,19 +29,33 @@ module Decidim
     #
     # Returns a String.
     def icon(name, options = {})
+      options = options.with_indifferent_access
       html_properties = {}
 
       html_properties["width"] = options[:width]
       html_properties["height"] = options[:height]
-      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"] || options["aria-label"]
+      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
       html_properties["role"] = options[:role] || "img"
-      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"] || options["aria-hidden"]
+      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
 
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
+      title = options["title"] || html_properties["aria-label"]
+      if title.blank? && html_properties["role"] == "img"
+        # This will make the accessibility audit tools happy as with the "img"
+        # role, the alternative text (aria-label) and title are required for the
+        # element. This will also force the SVG to be hidden because otherwise
+        # the screen reader would announce the icon name which can be in
+        # different language (English) than the page language which is not
+        # allowed.
+        title = name
+        html_properties["aria-label"] = title
+        html_properties["aria-hidden"] = true
+      end
+
       content_tag :svg, html_properties do
-        inner = content_tag :title, options["title"] || html_properties["aria-label"]
-        inner += content_tag :use, nil, role: options[:role], "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
+        inner = content_tag :title, title
+        inner += content_tag :use, nil, "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
 
         inner
       end
@@ -85,7 +99,7 @@ module Decidim
       extra_items = items.slice((max_items + 1)..-1) || []
       active_item = items.find { |item| item[:active] }
 
-      render partial: "decidim/shared/extended_navigation_bar", locals: {
+      render partial: "decidim/shared/extended_navigation_bar.html", locals: {
         items: items,
         extra_items: extra_items,
         active_item: active_item,

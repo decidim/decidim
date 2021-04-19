@@ -16,9 +16,13 @@ module Decidim
           model.settings.max_results
         end
 
+        def order
+          model.settings.order
+        end
+
         def highlighted_initiatives
           @highlighted_initiatives ||= OrganizationPrioritizedInitiatives
-                                       .new(current_organization)
+                                       .new(current_organization, order)
                                        .query
                                        .limit(max_results)
         end

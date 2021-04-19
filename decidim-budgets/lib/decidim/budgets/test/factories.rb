@@ -126,6 +126,16 @@ FactoryBot.define do
     trait :selected do
       selected_at { Time.current }
     end
+
+    trait :with_photos do
+      transient do
+        photos_number { 2 }
+      end
+
+      after :create do |project, evaluator|
+        project.attachments = create_list(:attachment, evaluator.photos_number, :with_image, attached_to: project)
+      end
+    end
   end
 
   factory :order, class: "Decidim::Budgets::Order" do

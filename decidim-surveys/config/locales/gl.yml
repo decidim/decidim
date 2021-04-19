@@ -20,8 +20,17 @@ gl:
         settings:
           global:
             announcement: Anuncio
+            clean_after_publish: Eliminar as respostas ao publicar a enquisa
+            ends_at: Respostas aceptadas até
+            ends_at_help: Deixar baleiro de non especificar unha data
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
+            starts_at: Respostas aceptadas de
+            starts_at_help: Deixar baleiro de non especificar unha data
           step:
             allow_answers: Permitir respostas
+            allow_unregistered: Permitir aos usuarios non rexistrados responder a enquisa
+            allow_unregistered_help: Se está activo, non será preciso iniciar sesión para contestar a enquisa. Isto pode comportar que os datos sexan pouco fiábeis e aumentará a vulnerabilidade a ataques automatizados. Empregar con precaución!
             announcement: Anuncio
     events:
       surveys:
@@ -40,6 +49,8 @@ gl:
         description: Número de enquisas respondidas polos usuarios
         object: respostas a enquisas
         title: Respostas a enquisas
+    statistics:
+      answers_count: Respostas
     surveys:
       admin:
         exports:
@@ -53,4 +64,5 @@ gl:
       surveys:
         answer:
           invalid: Houbo erros ao responder a enquisa.
+          spam_detected: Produciuse un problema ao contestar o formulario. É posíbel que o fixeras rápido de máis, podes tentalo de novo?
           success: A enquisa respondeu con éxito.

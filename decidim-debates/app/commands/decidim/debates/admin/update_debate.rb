@@ -42,7 +42,8 @@ module Decidim
             information_updates: form.information_updates,
             instructions: form.instructions,
             end_time: form.end_time,
-            start_time: form.start_time
+            start_time: form.start_time,
+            scope: form.scope
           )
         end
       end

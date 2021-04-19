@@ -37,7 +37,6 @@ it:
       participatory_process_group:
         description: Descrizione
         hero_image: Immagine
-        name: Titolo
         participatory_process_ids: Processi correlati
       participatory_process_step:
         cta_path: Percorso della chiamata all'azione
@@ -116,8 +115,6 @@ it:
             title: Nome
           name: Processo partecipativo
         participatory_process_group:
-          fields:
-            name: Nome
           name: Gruppo di processi
         participatory_process_step:
           fields:
@@ -301,10 +298,10 @@ it:
       show:
         related_assemblies: Assemblee collegate
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Attività
       show:
-        group_participatory_processes:
-          one: 1 processi per %{group}
-          other: "%{count} processi per %{group}"
         title: Gruppi di processi partecipativi
     participatory_process_steps:
       index:
@@ -318,6 +315,9 @@ it:
         participatory_process_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        participatory_process_groups:
+          form:
+            visibility: Visibilità
         participatory_process_imports:
           form:
             document_legend: Aggiungi documento
@@ -401,25 +401,6 @@ it:
         start_date: Data di inizio
         target: Chi partecipa
         unspecified: Non specificato
-      statistics:
-        answers_count: risposte
-        comments_count: Commenti
-        debates_count: Dibattiti
-        endorsements_count: Mi piace
-        followers_count: Followers
-        headline: Attività
-        meetings_count: Eventi
-        no_stats: Non ci sono ancora statistiche.
-        orders_count: Voti
-        pages_count: Pagine
-        participants_count: Partecipanti
-        processes_count: Processi
-        projects_count: Progetti
-        proposals_count: Proposte
-        results_count: Risultati
-        supports_count: Voti
-        surveys_count: indagini
-        users_count: Partecipanti
   layouts:
     decidim:
       participatory_process_groups:
@@ -446,6 +427,8 @@ it:
           more_info_about: Maggiori informazioni sul processo %{resource_name}
           take_part: Partecipa
           take_part_in: Maggiori informazioni sul processo %{resource_name}
+        promoted_process_group:
+          more_info: Ulteriori informazioni
       process_header_steps:
         step: Fase %{current} di %{total}
         view_steps: Visualizza le fasi

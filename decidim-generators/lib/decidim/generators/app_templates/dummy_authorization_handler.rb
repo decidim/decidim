@@ -99,29 +99,43 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
       extra_explanations = []
       if allowed_postal_codes.present?
         # Does not authorize users with different postal codes
-        if status_code == :ok && !allowed_postal_codes.member?(authorization.metadata["postal_code"])
-          status_code = :unauthorized
-          data[:fields] = { "postal_code" => authorization.metadata["postal_code"] }
-        end
+        status_code = :unauthorized if status_code == :ok && disallowed_user_postal_code
 
         # Adds an extra message for inform the user the additional restriction for this authorization
-        extra_explanations << { key: "extra_explanation.postal_codes",
-                                params: { scope: "decidim.verifications.dummy_authorization",
-                                          count: allowed_postal_codes.count,
-                                          postal_codes: allowed_postal_codes.join(", ") } }
+        if disallowed_user_postal_code
+          if user_postal_code
+            i18n_postal_codes_key = "extra_explanation.user_postal_codes"
+            user_postal_code_params = { user_postal_code: user_postal_code }
+          else
+            i18n_postal_codes_key = "extra_explanation.postal_codes"
+            user_postal_code_params = {}
+          end
+
+          extra_explanations << { key: i18n_postal_codes_key,
+                                  params: { scope: "decidim.verifications.dummy_authorization",
+                                            count: allowed_postal_codes.count,
+                                            postal_codes: allowed_postal_codes.join(", ") }.merge(user_postal_code_params) }
+        end
       end
 
       if allowed_scope.present?
         # Does not authorize users with different scope
-        if status_code == :ok && allowed_scope_id != user_scope_id
-          status_code = :unauthorized
-          data[:fields] = { "scope_id" => user_scope.name[I18n.locale.to_s] }
-        end
+        status_code = :unauthorized if status_code == :ok && disallowed_user_user_scope
 
         # Adds an extra message to inform the user about additional restrictions for this authorization
-        extra_explanations << { key: "extra_explanation.scope",
-                                params: { scope: "decidim.verifications.dummy_authorization",
-                                          scope_name: allowed_scope.name[I18n.locale.to_s] } }
+        if disallowed_user_user_scope
+          if user_scope_id
+            i18n_scope_key = "extra_explanation.user_scope"
+            user_scope_params = { user_scope_name: user_scope_name }
+          else
+            i18n_scope_key = "extra_explanation.scope"
+            user_scope_params = {}
+          end
+
+          extra_explanations << { key: i18n_scope_key,
+                                  params: { scope: "decidim.verifications.dummy_authorization",
+                                            scope_name: allowed_scope.name[I18n.locale.to_s] }.merge(user_scope_params) }
+        end
       end
 
       data[:extra_explanation] = extra_explanations if extra_explanations.any?
@@ -131,7 +145,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
 
     # Adds the list of allowed postal codes and scope to the redirect URL, to allow forms to inform about it
     def redirect_params
-      { "postal_codes" => allowed_postal_codes&.join(","), "scope" => allowed_scope_id }
+      { postal_codes: allowed_postal_codes&.join(","), scope: allowed_scope_id }.merge(user_metadata_params)
     end
 
     private
@@ -145,7 +159,42 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     end
 
     def user_scope_id
+      return unless authorization
+
       @user_scope_id ||= authorization.metadata["scope_id"]&.to_i
+    end
+
+    def user_scope_name
+      @user_scope_name ||= user_scope.name[I18n.locale.to_s] if authorization && user_scope
+    end
+
+    def disallowed_user_user_scope
+      return unless user_scope || allowed_scope.present?
+
+      allowed_scope_id != user_scope_id
+    end
+
+    def user_postal_code
+      @user_postal_code ||= authorization.metadata["postal_code"] if authorization && authorization.metadata
+    end
+
+    def disallowed_user_postal_code
+      return unless user_postal_code || allowed_postal_codes.present?
+
+      !allowed_postal_codes.member?(user_postal_code)
+    end
+
+    def user_metadata_params
+      return {} unless authorization
+
+      @user_metadata_params ||= begin
+        user_metadata_params = {}
+        user_metadata_params[:user_scope_name] = user_scope.name[I18n.locale.to_s] if user_scope
+
+        user_metadata_params[:user_postal_code] = authorization.metadata["postal_code"] if authorization.metadata["postal_code"].present?
+
+        user_metadata_params
+      end
     end
   end
 end

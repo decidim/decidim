@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
-require "kaminari"
-require "social-share-button"
-require "ransack"
-require "cells/rails"
-require "cells-erb"
-require "cell/partial"
+require "decidim/core"
 
 module Decidim
   module Proposals
@@ -32,8 +27,6 @@ module Decidim
           resources :versions, only: [:show, :index]
         end
         resources :collaborative_drafts, except: [:destroy] do
-          get :compare, on: :collection
-          get :complete, on: :collection
           member do
             post :request_access, controller: "collaborative_draft_collaborator_requests"
             post :request_accept, controller: "collaborative_draft_collaborator_requests"
@@ -60,43 +53,26 @@ module Decidim
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           view_context.cell("decidim/proposals/highlighted_proposals", view_context.current_participatory_space)
         end
+      end
 
-        if defined? Decidim::ParticipatoryProcesses
-          Decidim::ParticipatoryProcesses.view_hooks.register(:process_group_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-            published_components = Decidim::Component.where(participatory_space: view_context.participatory_processes).published
-            proposals = Decidim::Proposals::Proposal.published.not_hidden.except_withdrawn
-                                                    .where(component: published_components)
-                                                    .order_randomly(rand * 2 - 1)
-                                                    .limit(Decidim::Proposals.config.process_group_highlighted_proposals_limit)
-
-            next unless proposals.any?
-
-            view_context.extend Decidim::ResourceReferenceHelper
-            view_context.extend Decidim::Proposals::ApplicationHelper
-            view_context.render(
-              partial: "decidim/participatory_processes/participatory_process_groups/highlighted_proposals",
-              locals: {
-                proposals: proposals
-              }
+      initializer "decidim_changes" do
+        config.to_prepare do
+          Decidim::SettingsChange.subscribe "surveys" do |changes|
+            Decidim::Proposals::SettingsChangeJob.perform_later(
+              changes[:component_id],
+              changes[:previous_settings],
+              changes[:current_settings]
             )
           end
         end
       end
 
-      initializer "decidim_changes" do
-        Decidim::SettingsChange.subscribe "surveys" do |changes|
-          Decidim::Proposals::SettingsChangeJob.perform_later(
-            changes[:component_id],
-            changes[:previous_settings],
-            changes[:current_settings]
-          )
-        end
-      end
-
       initializer "decidim_proposals.mentions_listener" do
-        Decidim::Comments::CommentCreation.subscribe do |data|
-          proposals = data.dig(:metadatas, :proposal).try(:linked_proposals)
-          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], proposals) if proposals
+        config.to_prepare do
+          Decidim::Comments::CommentCreation.subscribe do |data|
+            proposals = data.dig(:metadatas, :proposal).try(:linked_proposals)
+            Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], proposals) if proposals
+          end
         end
       end
 

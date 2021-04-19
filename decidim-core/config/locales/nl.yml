@@ -5,6 +5,8 @@ nl:
         delete_reason: Reden om uw account te verwijderen
       common:
         created_at: Aangemaakt op
+      conversation:
+        body: Body
       group:
         about: Over
         avatar: Profielafbeelding
@@ -13,6 +15,8 @@ nl:
         name: Naam
         nickname: Roepnaam
         phone: Telefoon
+      message:
+        body: Body
       report:
         details: Aanvullende opmerkingen
       user:
@@ -35,7 +39,7 @@ nl:
       decidim/profile_updated_event: Profiel bijgewerkt
       decidim/promote_to_admin: Gepromoveerd tot groepsbeheerder
       decidim/removed_from_group: Verwijderd uit de groep
-      decidim/resource_endorsed_event: Resurce goedgekeurd
+      decidim/resource_endorsed_event: Bron gesteund
   activerecord:
     attributes:
       decidim/user:
@@ -78,11 +82,12 @@ nl:
       logo: "Logo van %{organization}"
       skip_button: Ga naar de hoofdinhoud
     account:
+      blocked: Dit account is geblokkeerd vanwege schending van de Algemene Voorwaarden
       data_portability_export:
         file_no_exists: Bestand bestaat niet
         notice: Uw gegevens worden momenteel verwerkt. Je ontvangt een e-mail als deze is voltooid.
       delete:
-        alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
+        alert: Deze actie kan niet ongedaan worden gemaakt. Als je je account verwijdert, kan je niet meer inloggen met je inloggegevens. Het verwijderen van je account zal leiden tot het anonimiseren van je bijdragen. Je kunt nog steeds een nieuw account aanmaken, maar eerdere bijdragen worden daar niet aan gekoppeld.
         confirm:
           close: Sluit venster
           ok: Ja, ik wil mijn account verwijderen
@@ -128,6 +133,7 @@ nl:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
         create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
+        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd als privé deelnemer"
         delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
@@ -141,10 +147,12 @@ nl:
         delete: "%{user_name} heeft de statische pagina %{resource_name} verwijderd"
         update: "%{user_name} heeft de statische pagina %{resource_name} bijgewerkt"
       user:
+        block: "%{user_name} geblokkeerde gebruiker %{resource_name}"
         invite: "%{user_name} nodigde de deelnemer %{resource_name} met rol: %{role} uit"
         officialize: "%{user_name} heeft de deelnemer %{resource_name} gevalideerd"
         remove_from_admin: "%{user_name} de deelnemer %{resource_name} met rol: %{role} verwijderd"
         show_email: "%{user_name} heeft het e-mailadres van de gebruiker %{resource_name} opgehaald"
+        unblock: "%{user_name} gedeblokkeerde gebruiker %{resource_name}"
         unofficialize: "%{user_name} heeft de deelnemer %{resource_name} ingetrokken"
       user_group:
         reject: "%{user_name} heeft de %{resource_name} gebruikersgroepverificatie geweigerd"
@@ -246,7 +254,8 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     author:
-      avatar: Profielafbeelding
+      avatar: 'Profiel: %{name}'
+      avatar_multiuser: Profiel voor meerdere gebruikers
       comments:
         one: commentaar
         other: commentaren
@@ -271,8 +280,6 @@ nl:
         name: Voorbeeld autorisatie
       dummy_authorization_workflow:
         name: Dummy autorisatie workflow
-      errors:
-        duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
       expired_at: Verstreken op %{timestamp}
       expires_at: Verloopt op %{timestamp}
       foo_authorization:
@@ -318,6 +325,12 @@ nl:
           title: bevestig je email
       show:
         close_modal: Sluit venster
+    block_user_mailer:
+      notify:
+        body_1: Je account werd geblokkeerd
+        body_2: 'Reden: %{justification}'
+        greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo,
     collapsible_list:
       hidden_elements_count:
         one: en %{count} meer
@@ -330,13 +343,13 @@ nl:
         order:
           all_types: Alle typen
           collaborative_draft: Samenwerkingsconcept
-          comment: Opmerking
+          comment: Reactie
           debate: Debat
           initiative: Initiatief
-          meeting: Afspraak
-          post: Plaatsen
+          meeting: Vergadering
+          post: Blog
           proposal: Voorstel
-          question: Vraag
+          question: Peiling
         title: 'Weergave:'
       dummy:
         actions:
@@ -366,6 +379,13 @@ nl:
             dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
+      cta:
+        name: Afbeelding, tekst en knop “Call to action”
+      cta_settings_form:
+        background_image: Achtergrondafbeelding
+        button_text: Call To Action tekst
+        button_url: Call To Action URL
+        description: Beschrijving
       footer_sub_hero:
         name: Voettekst sub hero banner
       hero:
@@ -375,6 +395,11 @@ nl:
         welcome_text: Welkom tekst
       highlighted_content_banner:
         name: Gemarkeerde inhoudsbanner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sorteer elementen op:'
+          random: Willekeurig
+          recent: Meest recent
       how_to_participate:
         name: Hoe deel te nemen
       html:
@@ -399,7 +424,7 @@ nl:
         ready: Klaar
       show:
         download_data: Download de gegevens
-        download_data_description: Een bestand met alle informatie die aan het account is gekoppeld, wordt naar <strong>%{user_email}</strong>gestuurd
+        download_data_description: Een bestand met alle gegevens van uw account zal worden verzonden naar <strong>%{user_email}</strong>. Deze e-mail bevat een .zip-bestand en een wachtwoord om het te openen.<br/><br/>Om het bestand uit te pakken heeft u <a href="https://www.7-zip.org/">7-Zip</a> (voor Windows) of <a href="https://www.keka.io/">Keka</a> nodig (voor MacOS). Als u Linux gebruikt, zal deze meestal standaard geïnstalleerd worden. Als dit niet het geval is, kan je <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> of <a href="https://peazip.github.io">PeaZip</a> gebruiken).
         request_data: Gegevens aanvragen
     datepicker:
       help_text: 'Verwacht formaat: %{datepicker_format}'
@@ -409,7 +434,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Uw alias in %{organization}
+          nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
@@ -418,7 +443,7 @@ nl:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
-          nickname_help: Jouw bijnaam in %{organization}
+          nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
@@ -619,7 +644,7 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       data_portability_export:
-        click_button: 'Klik op de volgende knop om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href=''https://www.7-zip.org/''>7-Zip</a> nodig om het te openen. Wachtwoord: %{password}'
+        click_button: 'Klik op de volgende link om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
         download: Download
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -652,7 +677,7 @@ nl:
       create:
         button: Volgen
         error: Er is een fout opgetreden na deze bron.
-        participatory_space: volgen
+        participatory_space: <span class="show-for-sr">%{resource_name}</span> aan het volgen
       destroy:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
@@ -667,12 +692,11 @@ nl:
         error: Er is een fout in dit veld.
       file_help:
         file:
-          explanation: 'Begeleiding voor bestand:'
+          explanation: 'Eigenschappen bestand:'
           message_1: Moet een afbeelding of een document zijn.
-          message_2: Voor afbeeldingen, gebruik bij voorkeur liggende beeldschermen, de service gewassen de afbeelding.
         image:
-          explanation: 'Begeleiding voor afbeelding:'
-          message_1: Bij voorkeur een landschap afbeelding die geen tekst bevat.
+          explanation: 'Eigenschappen afbeelding:'
+          message_1: Bij voorkeur een afbeelding in 'landscape' die geen tekst bevat.
           message_2: De service is de afbeelding.
       file_validation:
         allowed_file_extensions: 'Toegestane bestandsextensies: %{extensions}'
@@ -911,7 +935,7 @@ nl:
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
-          not_allowed: Deze gebruiker accepteert geen directe berichten meer.
+          not_allowed: Deze deelnemer aanvaardt geen rechtstreekse berichten.
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
@@ -919,6 +943,8 @@ nl:
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:
+      download:
+        csv: Gegevens downloaden (csv)
       followers:
         description: Aantal deelnemers dat deze participatieruimte volgt
         object: volgers
@@ -980,12 +1006,14 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
-        allow_public_contact: Iedereen mag me een persoonlijk bericht sturen, ook als ik hen niet volg.
+        administrators: Beheerders
+        allow_public_contact: Ledereen kan mij een persoonlijk bericht sturen, ook mensen die ik niet volg.
         direct_messages: Ontvang privéberichten van iedereen
+        email_on_moderations: Ik wil een e-mail ontvangen telkens wanneer iets wordt gerapporteerd voor moderatie.
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
-        newsletters: nieuwsbrieven
+        newsletters: Nieuwsbrieven
         own_activity: Activiteiten gerelateerd aan mijn bijdragen, zoals wanneer iemand opmerkingen maakt in mijn voorstel of mij vermeldt
         receive_notifications_about: Ik wil meldingen ontvangen over
         send_notifications_by_email: Verstuur meldingen per e-mail
@@ -1025,24 +1053,7 @@ nl:
         metrics:
           headline: Deelname in cijfers
         statistics:
-          answers_count: Voltooide enquêtes
-          assemblies_count: Groepen
-          comments_count: Reacties
-          conferences_count: conferenties
-          debates_count: Debatten
-          endorsements_count: Aanbevelingen
           headline: Huidige stand van %{organization}
-          meetings_count: Vergaderingen
-          orders_count: stemmen
-          pages_count: Pages
-          processes_count: Inspraakprocessen
-          projects_count: Projecten
-          proposals_accepted: Aanvaarde voorstellen
-          proposals_count: Voorstellen
-          results_count: Resultaten
-          surveys_count: Enquête
-          users_count: Deelnemers
-          votes_count: Stemmen
         sub_hero:
           register: Registreren
       index:
@@ -1077,6 +1088,7 @@ nl:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
       deleted: Verwijderde gebruiker
+      inaccessible_message: Dit profiel is niet toegankelijk vanwege schending van de Algemene Voorwaarden!
       view: Bekijk
     profiles:
       default_officialization_text_for_user_groups: Deze gebruikersgroep is openbaar geverifieerd, de naam is geverifieerd om overeen te komen met de echte naam
@@ -1195,6 +1207,7 @@ nl:
         description: Is deze inhoud ongepast?
         does_not_belong: Bevat illegale activiteit, dreiging met zelfmoord, persoonlijke gegevens, of iets anders dat u denkt dat niet thuis hoort op %{organization_name}.
         offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen, zelfmoord dreiging of haat zaaien.
+        reason: Reden
         report: Rapporteren
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
@@ -1221,8 +1234,21 @@ nl:
         title: Selecteer het aantal resultaten per pagina
       share_modal:
         close_window: Sluit venster
+        copy_share_link: Kopieer
+        copy_share_link_clarification: Kopieer link naar klembord
+        copy_share_link_copied: Gekopieerd!
+        copy_share_link_message: Link naar klembord kopiëren is gelukt.
         share: Deel
         share_link: Link delen
+    statistics:
+      comments_count: Reacties
+      endorsements_count: Aanbevelingen
+      followers_count: Volgers
+      headline: Statistieken
+      no_stats: Er zijn nog geen statistieken.
+      pages_count: Pagina's
+      participants_count: Deelnemers
+      users_count: Deelnemers
     tags:
       filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
       filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
@@ -1256,6 +1282,7 @@ nl:
         send: Verzenden
         title_reply: Beantwoorden
       show:
+        back: Toon alle gesprekken
         not_allowed: Deze gebruiker accepteert geen directe berichten meer.
         title: Gesprek met %{usernames}
       update:
@@ -1264,7 +1291,7 @@ nl:
       show:
         my_interests: Mijn interesses
         no_scopes: Deze organisatie heeft nog geen bereik!
-        select_your_interests: Selecteer de onderwerpen waarin u geïnteresseerd bent om eraan gerelateerde evenementen te ontvangen op het tabblad Tijdlijn van uw profiel.
+        select_your_interests: Selecteer de onderwerpen waarin je interesse hebt en ontvang meldingen erover in het tabblad 'Tijdlijn' van 'Mijn profiel'.
         update_my_interests: Update mijn interesses
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw interesses.
@@ -1293,6 +1320,7 @@ nl:
         number_of_versions: versies
         title: versies
     versions_list_item:
+      back: Toon alle versies
       show:
         version_index: Versie %{index}
     welcome_notification:
@@ -1453,7 +1481,7 @@ nl:
     messages:
       already_confirmed: was al bevestigd, probeer u aan te melden
       confirmation_period_expired: moet worden bevestigd binnen %{period}, vraag een nieuwe aan
-      content_type_whitelist_error: het bestandstype is niet geldig
+      content_type_allowlist_error: het bestandstype is niet geldig
       cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       expired: is verlopen, vraag een nieuwe aan
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
@@ -1473,8 +1501,8 @@ nl:
     correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
     length_validator:
       minimum:
-        one: ten minste %{count} tekens
-        other: ten minste %{count} tekens
+        one: Ten minste %{count} teken
+        other: Ten minste %{count} tekens
     required: Vereist
     required_explanation: "* Verplichte velden zijn gemarkeerd met een sterretje"
   invisible_captcha:
@@ -1495,9 +1523,11 @@ nl:
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
+        main_menu: Hoofdmenu
         navigation: Navigatie
         sign_in: Aanmelden
         sign_up: Registreren
+        user_menu: Gebruikersmenu
       impersonation_warning:
         close_session: Sluit sessie
         description_html: U beheert de gebruiker <b>%{user_name}</b>.
@@ -1521,6 +1551,7 @@ nl:
         profile: Mijn account
         public_profile: Mijn openbaar profiel
         sign_out: Afmelden
+        title: Profiellinks
       user_profile:
         account: Account
         authorizations: Bevoegdheden

@@ -40,6 +40,9 @@ module Decidim::Meetings
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
     end
+    let(:customize_registration_email) { true }
+    let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
+
     let(:form) do
       double(
         invalid?: invalid,
@@ -64,7 +67,9 @@ module Decidim::Meetings
         available_slots: available_slots,
         registration_url: registration_url,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        customize_registration_email: customize_registration_email,
+        registration_email_custom_content: registration_email_custom_content
       )
     end
 
@@ -122,6 +127,13 @@ module Decidim::Meetings
       it "sets the questionnaire for registrations" do
         subject.call
         expect(meeting.questionnaire).to be_a(Decidim::Forms::Questionnaire)
+      end
+
+      it "sets the registration email related fields" do
+        subject.call
+
+        expect(meeting.customize_registration_email).to be true
+        expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
       end
 
       it "traces the action", versioning: true do

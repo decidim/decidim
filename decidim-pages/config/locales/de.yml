@@ -7,7 +7,7 @@ de:
   decidim:
     admin_log:
       page:
-        update: "%{user_name} aktualisiert die %{resource_name} Seite in %{space_name}"
+        update: "%{user_name} hat die Seite %{resource_name} in %{space_name} aktualisiert"
     components:
       pages:
         name: Seite
@@ -20,7 +20,7 @@ de:
       admin:
         models:
           components:
-            body: Karosserie
+            body: Haupttext
         pages:
           edit:
             save: Aktualisieren

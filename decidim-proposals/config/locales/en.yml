@@ -143,6 +143,10 @@ en:
             participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
+            proposal_edit_time: Proposal editing
+            proposal_edit_time_choices:
+              infinite: Allow editing proposals for an infinite amount of time
+              limited: Allow editing of proposals within a specific timeframe
             proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per participant
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
@@ -342,10 +346,6 @@ en:
         description: Number of supports to proposals
         object: supports
         title: Supports
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Proposals
     participatory_spaces:
       highlighted_proposals:
         see_all: See all proposals (%{count})
@@ -362,7 +362,7 @@ en:
         actions:
           preview: Preview
         exports:
-          comments: Comments
+          proposal_comments: Comments
           proposals: Proposals
         models:
           proposal:
@@ -429,6 +429,7 @@ en:
           form:
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
+            delete_attachment: Delete attachment
             select_a_category: Select a category
             select_a_meeting: Select a meeting
           index:
@@ -576,13 +577,6 @@ en:
               ok: Withdraw the collaborative draft
               title: The following action is irreversible
             success: Collaborative draft withdrawn successfully.
-        compare:
-          mine_is_different: My collaborative draft is different
-          no_similars_found: Well done! No similar collaborative drafts found
-          title: Similar collaborative drafts
-        complete:
-          send: Send
-          title: Complete your collaborative draft
         count:
           drafts_count:
             one: "%{count} collaborative draft"
@@ -614,7 +608,6 @@ en:
           unfold: Unfold
         new:
           send: Continue
-          title: Create Your collaborative draft
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
         orders:
@@ -659,23 +652,14 @@ en:
         update:
           error: There was a problem saving the collaborative draft.
           success: Collaborative draft successfully updated.
-          title: Edit collaborative draft
         wizard_aside:
-          back: Back
           back_from_collaborative_draft: Back to collaborative drafts
-          back_from_step_1: Back to collaborative drafts
-          back_from_step_2: Back to collaborative drafts
-          back_from_step_3: Back to compare collaborative drafts
-          back_from_step_4: Back to edit draft
           info: You are creating a <strong>collaborative draft</strong>.
-        wizard_steps:
-          current_step: Current step
-          see_steps: see steps
-          step_1: Create your collaborative draft
-          step_2: Compare with collaborative drafts
-          step_3: Complete your collaborative draft
-          step_of: Step %{current_step_num} of %{total_steps}
-          title: Collaborative draft creation steps
+        wizard_header:
+          title: Create your collaborative draft
+      content_blocks:
+        highlighted_proposals:
+          proposals: Proposals
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
@@ -684,6 +668,7 @@ en:
         success: Proposal draft was successfully deleted.
       last_activity:
         new_proposal_at_html: "<span>New proposal at %{link}</span>"
+        proposal_updated_at_html: "<span>Proposal updated at %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -728,6 +713,8 @@ en:
           proposals_count:
             one: "%{count} proposal"
             other: "%{count} proposals"
+        dynamic_map_instructions:
+          instructions: <h3>You can move the point on the map. </h3><p>Don't forget to click on the "Update Position" button before publishing your proposal.</p>
         edit:
           add_documents: Documents
           add_images: File
@@ -788,13 +775,18 @@ en:
             document_index: Document index
           view_index:
             see_index: See index
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Your proposal has been saved as a draft. It needs to be published for it to appear on the site.
+          announcement_title: Your proposal has not yet been published
           modify: Modify the proposal
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
           title: Publish your proposal
+          update_position: Update position
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
@@ -911,3 +903,7 @@ en:
       included_proposals:
         proposal_project: 'Proposal appearing in these projects:'
         proposal_result: 'Proposal appearing in these results:'
+    statistics:
+      proposals_accepted: Accepted Proposals
+      proposals_count: Proposals
+      supports_count: Supports

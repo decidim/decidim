@@ -13,6 +13,7 @@ tr:
         attachment_collection_id: Klasör
         description: Açıklama
         file: Dosya
+        title: Ek veya resim adı
       attachment_collection:
         description: Açıklama
         name: isim
@@ -23,7 +24,6 @@ tr:
       component:
         name: isim
         published_at: Yayınlandı
-        weight: Ağırlık
       id: İD
       newsletter:
         body: Vücut
@@ -31,8 +31,10 @@ tr:
       organization:
         alert_color: Alarm
         badges_enabled: Rozetleri etkinleştir
+        comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
         cta_button_text: Harekete Geçirici Mesaj metni
+        customize_welcome_notification: Karşılama bildirimlerini özelleştir
         default_locale: Varsayılan yerel ayar
         description: Açıklama
         enable_omnipresent_banner: Her yerde banner göster
@@ -41,6 +43,8 @@ tr:
         from: Gelen e-posta adresi
         github_handler: GitHub işleyicisi
         header_snippets: Üstbilgi snippet'leri
+        highlight_alternative_color: Vurgu, alternatif
+        highlight_color: Vurgula
         highlighted_content_banner_action_subtitle: Eylem düğmesi altyazısı
         highlighted_content_banner_action_title: Eylem düğmesi başlığı
         highlighted_content_banner_action_url: Eylem düğmesi URL'si
@@ -50,6 +54,9 @@ tr:
         highlighted_content_banner_title: Başlık
         instagram_handler: Instagram işleyicisi
         logo: Logo
+        machine_translation_display_priority: Makine çevirisi görüntüleme önceliği
+        machine_translation_display_priority_original: Önce orijinal metin
+        machine_translation_display_priority_translation: Önce çevrilen metin
         name: isim
         official_img_footer: Resmi logo altbilgisi
         official_img_header: Resmi logo başlığı
@@ -59,12 +66,17 @@ tr:
         omnipresent_banner_url: URL
         primary_color: Birincil
         reference_prefix: Referans öneki
+        rich_text_editor_in_public_views: Katılımcılar için zengin metin düzenleyiciyi etkinleştirin
         secondary_color: İkincil
+        send_welcome_notification: Karşılama bildirimi gönder
         success_color: başarı
+        time_zone: Zaman Dilimi
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
         warning_color: Uyarı
+        welcome_notification_body: Karşılama bildirimi gövdesi
+        welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
       scope:
         code: kod
@@ -77,19 +89,20 @@ tr:
         name: isim
         organization: organizasyon
         plural: Çoğul
+      settings:
+        scope_id: Kapsam
       static_page:
+        allow_public_access: Kimlik doğrulama olmadan erişime izin ver
         changed_notably: Gözle görülür değişiklikler oldu.
         content: içerik
         organization: organizasyon
         show_in_footer: Altbilgiyi göster
         slug: URL sümüklü böcek
         title: Başlık
-        weight: Ağırlık
       static_page_topic:
         description: Açıklama
         show_in_footer: Altbilgiyi göster
         title: Başlık
-        weight: Ağırlık
       user_group_csv_verification:
         file: Dosya
     errors:
@@ -122,9 +135,25 @@ tr:
         export: ihracat
         manage: yönetme
         new: Yeni %{name}
+        per_page: Sayfa başına
         permissions: İzinler
         reject: reddetmek
+        share: Paylaş
         verify: DOĞRULAYIN
+      admin_terms_of_use:
+        accept:
+          error: Yönetici kullanım şartlarını kabul ederken bir hata oluştu.
+          success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
+        actions:
+          accept: Aşağıdaki şartları kabul ediyorum
+          are_you_sure: Yönetici şartlarını reddettiğinizden emin misiniz?
+          refuse: Yönetici şartlarını reddedin
+          title: Kullanım şartlarını ve koşullarını kabul edin
+        required_review:
+          alert: 'Gerekli: Yönetici kullanım şartlarımızı inceleyin'
+          callout: Lütfen Yönetici Kullanım Koşullarını gözden geçirmek için bir dakikanızı ayırın. Aksi takdirde platformu yönetemezsiniz.
+          cta: Şimdi gözden geçirin.
+        title: Yönetici Kullanım Koşulları
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
@@ -195,6 +224,12 @@ tr:
       autocomplete:
         no_results: Sonuç bulunamadı
         search_prompt: Aramak için en az üç karakter girin
+      block_user:
+        new:
+          action: Hesabı engelle ve uyarı mesjı gönder
+          description: Bir kullanıcının engellenmesi, hesabının kullanılamaz hale gelmesine neden olur, gerekçenizde ve kullanıcının engellemesini kaldırmayı düşündüğünüz yollarla ilgili yönergeler sağlayabilirsiniz.
+          justification: Gerekçe
+          title: '%{name} Kullanıcısını Engelle'
       categories:
         create:
           error: Bu kategori oluşturulurken bir hata oluştu.
@@ -216,6 +251,7 @@ tr:
           success: Kategori başarıyla güncellendi.
       component_permissions:
         update:
+          error: Bu bileşenin izinleri güncellenirken bir sorun oluştu.
           success: İzinler başarıyla güncellendi.
       components:
         create:
@@ -236,6 +272,7 @@ tr:
           headers:
             actions: Eylemler
             name: Bileşen Adı
+            scope: Bileşen kapsamı
             type: Bileşen tipi
         new:
           add: Bileşen ekle
@@ -248,22 +285,64 @@ tr:
         update:
           error: Bu bileşeni güncellerken bir hata oluştu.
           success: Bileşen başarıyla güncellendi.
+      conflicts:
+        attempts: Girişimler
+        'false': 'Hayır'
+        managed_user_name: Yönetilen Kullanıcı
+        solved: Çözüldü
+        title: Doğrulamaların çatışmaları
+        transfer:
+          email: E-Posta
+          error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
+          name: İsim
+          reason: Nedeni
+          success: Aktarım başarıyla tamamlandı.
+          title: Aktar
+        'true': 'Evet'
+        user_name: Kullanıcı Adı
       dashboard:
         show:
           view_more_logs: Daha fazla günlükleri görüntüle
           welcome: Decidim Yönetici Paneline hoş geldiniz.
       exports:
         export_as: "%{name} olarak %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: İhracatınız şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       filters:
         category_id_eq:
           label: Kategori
+        filter_label: Filtrele
+        moderations:
+          reportable_type_string_eq:
+            label: Türü
         officialized_at_null:
           label: Belirtmek, bildirmek
           values:
             'false': resmileştirilmiş
             'true': Resmi değil
+        private_space_eq:
+          label: Kişisel
+          values:
+            'false': Herkese Açık
+            'true': Özel
+        published_at_null:
+          label: Yayınlandı
+          values:
+            'false': Yayınlandı
+            'true': Yayından kaldırıldı
+        scope_id_eq:
+          label: Kapsam
         search_label: Arama
+        search_placeholder:
+          name_or_nickname_or_email_cont: '%{collection} e-posta, isim veya takma ad ile arayın.'
+          reported_id_string_or_reported_content_cont: '%{collection} ''ı rapor edilebilir kimlik veya içeriğe göre arayın.'
+          title_cont: Başlığa göre %{collection} ara.
+        state_eq:
+          label: Durum
       help_sections:
         error: Yardım bölümleri güncellenirken bir hata oluştu
         form:
@@ -325,14 +404,19 @@ tr:
         help_sections: Yardım bölümleri
         homepage: Anasayfa
         impersonations: impersonations
+        moderation: Küresel denetimler
         newsletters: Haber bültenleri
         participants: Katılımcılar
+        reported_users: Raporlanan Kullanıcı
         scope_types: Kapsam türleri
         scopes: kapsamları
         settings: Ayarlar
         static_pages: Sayfalar
         user_groups: Kullanıcı Grupları
         users: Kullanıcılar
+      metrics:
+        metrics:
+          see_more_metrics: Daha fazla metrik gör
       models:
         area:
           fields:
@@ -379,6 +463,14 @@ tr:
           fields:
             name: isim
             plural: Çoğul
+        share_token:
+          fields:
+            created_at: Oluşturulma tarihi
+            expires_at: Süre sonu
+            last_used_at: Son kullanıldığı zaman
+            times_used: Kullanım Sayısı
+            token: Jeton
+            user: Oluşturan
         static_page:
           fields:
             created_at: Düzenlendi
@@ -403,6 +495,20 @@ tr:
             phone: Telefon
             state: Belirtmek, bildirmek
             users_count: Kullanıcılar
+      moderated_users:
+        index:
+          actions:
+            title: Eylemler
+            unreport: Bildirilmedi
+          name: Adı
+          nickname: Rumuz
+          reason: Nedeni
+          title: Bildirilen kullanıcılar listesi
+        report:
+          reasons:
+            does_not_belong: Ait değil
+            offensive: Saldırgan
+            spam: İstenmeyen
       moderations:
         index:
           title: Denetimler
@@ -411,9 +517,29 @@ tr:
             does_not_belong: Ait değil
             offensive: saldırgan
             spam: İstenmeyen e
+        reports:
+          index:
+            author: Yazar(lar)
+            callout_html: Bir kullanıcı tarafından (kayıtlı hesabı olan herhangi biri olabilir) öğenin yanındaki %{icon} bayrağına tıklanarak bildirildiğinde, denetim panelinde bir içerik görünür.
+            content_original_language: İçerik orijinal dili
+            participatory_space: Katılımcı süreç
+            reported_content: Şikayet Edilmiş İçerik
+            see_current: Şu ankini gör
+            see_original: Orijinali gör
+            title: Moderatör raporları
+          show:
+            report_details: Nedenin ayrıntıları
+            report_language: Rapor dili
+            report_reason: Nedeni
+            title: Rapor ayrıntıları
       newsletter_templates:
         index:
           preview_template: Ön izleme
+          title: Bülten Şablonu
+          use_template: Bu şablonu kullan
+        show:
+          preview: 'Şablon özizlemesi: %{template_name}'
+          use_template: Bu şablonu kullan
       newsletters:
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
@@ -438,6 +564,7 @@ tr:
           not_sent: Gönderilmedi
           participants: 'katılımcılar '
           segmented_to: '%{subject} bölüme ayrılmış: '
+          subscribed_count: 'Abone Olundu:'
           title: Haber bültenleri
         new:
           save: Kayıt etmek
@@ -450,6 +577,7 @@ tr:
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           none: Hiçbiri
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
           scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
           select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
           select_spaces: Haber bültenini bölmek için alanları seçin
@@ -458,6 +586,7 @@ tr:
           send_to_followers: Takipçilere gönder
           send_to_participants: Katılımcılara gönder
           title: Teslim etmek için alıcıları seçiniz
+          warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         send:
           no_recipients: Bu seçim için hiç alıcı yok
         show:
@@ -468,6 +597,9 @@ tr:
           error: Bu bülteni güncellerken bir hata oluştu.
           success: Bülten başarıyla güncellendi. Lütfen göndermeden önce gözden geçirin.
       officializations:
+        block:
+          error: Katılımcıyı engellerken bir hata oluştu
+          success: Katılımcı başarıyla engellendi
         create:
           success: Kullanıcı başarıyla onaylandı
         destroy:
@@ -475,6 +607,7 @@ tr:
         index:
           actions: Eylemler
           badge: rozet
+          block: Kullanıcıyı Engelle
           created_at: At düzenlendi
           name: isim
           nickname: Takma ad
@@ -482,12 +615,26 @@ tr:
           officialize: ', resmiyete'
           officialized: resmileştirilmiş
           reofficialize: Reofficialize
+          reports: Raporlar
+          show_email: E-posta adresini göster
           status: durum
+          unblock: Kullanıcının Engelini Kaldır
           unofficialize: Unofficialize
         new:
           badge: Resmi görevlendirme rozeti
           officialize: ', resmiyete'
           title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
+        show_email_modal:
+          close_modal: Pencereyi kapat
+          description: Bir katılımcıyla doğrudan iletişime geçmeniz gerekirse, e-posta adresini görmek için Göster düğmesine tıklayabilirsiniz. Bu eylem günlüğe kaydedilecek.
+          email_address: E-posta adresi
+          full_name: Tam adı
+          hidden: saklı
+          show: Göster
+          title: Katılımcı e-posta adresini göster
+        unblock:
+          error: Katılımcıyı engellerken bir hata oluştu
+          success: Katılımcı başarıyla engellendi
       organization:
         edit:
           title: Kuruluş düzenle
@@ -496,9 +643,11 @@ tr:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
-          twitter: heyecan
-          youtube: Youtube
+          twitter: Twitter
+          url: URL
+          youtube: YouTube
         update:
           error: Bu kuruluşu güncellerken bir hata oluştu.
           success: Kuruluş başarıyla güncellendi.
@@ -515,6 +664,7 @@ tr:
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
           images:
             layout_appearance_title: Düzen görünümünü düzenle
+            preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_homepage:
         edit:
@@ -531,16 +681,29 @@ tr:
           error: Bu katılımcı alan için özel bir kullanıcı silinirken bir hata oluştu.
           success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
         index:
+          import_via_csv: CSV'den içe aktar
           title: Katılımcı alan özel kullanıcısı
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: CSV dosyasını okurken bir hata oluştu.
+          success: CSV dosyası başarıyla yüklendi, katılımcılara bir davetiye e-postası gönderiyoruz. Bu biraz zaman alabilir.
+        new:
+          explanation: 'CSV dosyanızı yükleyin. Başlıksız, katılımcı alanına eklemek istediğiniz kullanıcıların dosyanın ilk sütununda e-posta ve dosyanın son sütununda (e-posta, ad) bulunan iki sütunu olmalıdır. Kullanıcı adında "<>?% & ^ * # @ () [] = +:;" {} \ | "gibi geçersiz karakterler kullanmaktan kaçının.'
+          title: CSV dosyası yükle
+          upload: Yükle
       resource_permissions:
         edit:
           submit: Gönder
           title: İzinleri düzenle
         update:
           success: İzinler başarıyla güncellendi.
+      resources:
+        index:
+          headers:
+            scope: Kapsam
       scope_types:
         create:
           error: Yeni kapsam türü oluştururken bir hata oluştu.
@@ -572,6 +735,23 @@ tr:
         update:
           error: Bu kapsamı güncellerken bir hata oluştu.
           success: Kapsam başarıyla güncellendi
+      share_tokens:
+        actions:
+          confirm_destroy: Bu jetonu silmek istediğinizden emin misiniz?
+          destroy: Sil
+          share: Paylaş
+        destroy:
+          error: Bu jetonu yok ederken bir hata oluştu.
+          success: Jeton başarılı bir şekilde yok edildi.
+        share_tokens:
+          empty: Etkin bir jeton yok
+          help: Bu jeton, yayınlanmamış kaynağı herhangi bir kullanıcıyla herkese açık olarak paylaşmak için kullanılır. Kaynak yayınlandığında gizlenecekler. Paylaşılabilir URL'yi ziyaret etmek için jetonun paylaş simgesine tıklayın.
+          title: Jeton paylaş
+      shared:
+        gallery:
+          add_images: Resim ekle
+          delete_image: Resmi sil
+          gallery_legend: Bir resim galerisi ekleyin (İsteğe bağlı)
       static_page_topics:
         create:
           error: Yeni bir konu oluştururken bir hata oluştu.
@@ -620,13 +800,16 @@ tr:
         area_types: Alan türleri
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
-        dashboard: gösterge paneli
+        dashboard: Pano
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
+        metrics: Metrik
+        panel: Yönetici
         participants: Kullanıcılar
         scope_types: Kapsam türleri
         scopes: kapsamları
         static_pages: Sayfalar
+        statistics: Aktivite
         user_groups: Kullanıcı Grupları
         users: Kullanıcılar
       user_group:
@@ -667,14 +850,18 @@ tr:
           success: Kullanıcı artık yönetici değil.
         form:
           email: E-posta
-          name: isim
-          role: rol
+          name: Adı
+          role: Rol
         new:
           create: Davet et
           title: Kullanıcıyı yönetici olarak davet et
       users_statistics:
         users_count:
           admins: Yöneticiler
+          last_day: Son gün
+          last_month: Geçen ay
+          last_week: Geçen hafta
+          no_users_count_statistics_yet: Henüz canlı kullanıcı istatistikleri yok
           participants: Katılımcılar
       view_public_page: Genel sayfayı görüntüle
     forms:
@@ -683,6 +870,7 @@ tr:
           reason: Yönetilmeyen bir kullanıcıyı taklit ederken bir neden belirtmeniz gerekir
     moderations:
       actions:
+        expand: Genişlet
         hidden: Gizli
         hide: Saklamak
         not_hidden: Gizli değil
@@ -703,17 +891,28 @@ tr:
       models:
         moderation:
           fields:
+            created_at: Oluşturulma tarihi
             hidden_at: Gizli
+            participatory_space: Katılımcı alanı
             report_count: saymak
+            reportable_id: Id
+            reportable_type: Türü
             reported_content_url: Raporlanan içerik URL'si
             reports: Raporlar
             visit_url: URL'yi ziyaret et
+        report:
+          fields:
+            details: Nedenin ayrıntıları
+            locale: Dil
+            reason: Nedeni
   errors:
     messages:
       invalid_json: Geçersiz JSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Küresel denetimler
         newsletters:
           title: Haber bültenleri
         settings:

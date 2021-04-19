@@ -10,8 +10,19 @@ module Decidim
           options[:content_block]
         end
 
-        def label
+        def max_results_label
           I18n.t("decidim.initiatives.admin.content_blocks.highlighted_initiatives.max_results")
+        end
+
+        def order_label
+          I18n.t("decidim.initiatives.admin.content_blocks.highlighted_initiatives.order.label")
+        end
+
+        def order_select
+          [
+            [I18n.t("decidim.initiatives.admin.content_blocks.highlighted_initiatives.order.default"), "default"],
+            [I18n.t("decidim.initiatives.admin.content_blocks.highlighted_initiatives.order.most_recent"), "most_recent"]
+          ]
         end
       end
     end

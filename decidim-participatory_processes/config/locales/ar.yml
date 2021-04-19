@@ -36,7 +36,6 @@ ar:
       participatory_process_group:
         description: وصف
         hero_image: صورة
-        name: اسم
         participatory_process_ids: العمليات ذات الصلة
       participatory_process_step:
         cta_path: دعوة إلى مسار العمل
@@ -121,8 +120,6 @@ ar:
             title: عنوان
           name: عملية المشاركة
         participatory_process_group:
-          fields:
-            name: اسم
           name: مجموعة العملية
         participatory_process_step:
           fields:
@@ -287,14 +284,10 @@ ar:
         object: العمليات التشاركية
         title: العمليات التشاركية
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: نشاط
       show:
-        group_participatory_processes:
-          zero: "%{count} عمليات ل %{group}"
-          one: 1 عملية ل %{group}
-          two: "%{count} عمليات ل %{group}"
-          few: "%{count} عمليات ل %{group}"
-          many: "%{count} عمليات ل %{group}"
-          other: "%{count} عمليات ل %{group}"
         title: مجموعات العملية التشاركية
     participatory_process_steps:
       index:
@@ -400,25 +393,6 @@ ar:
         start_date: تاريخ البدء
         target: من يشارك
         unspecified: غير محدد
-      statistics:
-        answers_count: الأجوبة
-        comments_count: تعليقات
-        debates_count: المناقشات
-        endorsements_count: موافقات
-        followers_count: المُتابِعون
-        headline: نشاط
-        meetings_count: اجتماعات
-        no_stats: لا توجد أية احصائيات إلى حد الآن.
-        orders_count: الدعم
-        pages_count: صفحات
-        participants_count: المشاركين
-        processes_count: العمليات
-        projects_count: مشاريع
-        proposals_count: اقتراحات
-        results_count: النتائج
-        supports_count: الدعم
-        surveys_count: الدراسات الاستقصائية
-        users_count: المشاركين
   layouts:
     decidim:
       participatory_process_groups:

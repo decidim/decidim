@@ -311,10 +311,6 @@ sk:
         description: Počete hlasov za návrhy
         object: hlasy
         title: Hlasy
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Návrhy
     participatory_spaces:
       highlighted_proposals:
         see_all: Zobraziť všetky (%{count})
@@ -331,7 +327,6 @@ sk:
         actions:
           preview: Náhľad
         exports:
-          comments: Komentáre
           proposals: Návrhy
         models:
           proposal:
@@ -544,13 +539,6 @@ sk:
               ok: Vyberte návrh spolupráca
               title: Nasledujúci akcia je nevratná
             success: Kolaboratívne návrh bol úspešne zrušený.
-        compare:
-          mine_is_different: Môj návrh spolupráca je iný
-          no_similars_found: Výborne! Žiadny podobný návrh spolupráce nebol nájdený
-          title: Podobné návrhy spolupráce
-        complete:
-          send: Poslať
-          title: Dokončite návrh spolupráca
         count:
           drafts_count:
             one: "%{count} návrh spolupráce"
@@ -584,7 +572,6 @@ sk:
           unfold: Rozbaliť
         new:
           send: Pokračovať
-          title: Vytvorte návrh spolupráca
         new_collaborative_draft_button:
           new_collaborative_draft: Nový návrh spolupráca
         orders:
@@ -632,14 +619,9 @@ sk:
           error: Pri ukladaní schéme spolupráce došlo k chybám.
           success: Protokol o spolupráci bol úspešne aktualizovaný.
         wizard_aside:
-          back: Zadná
           info: Pri vytváraní <strong> spolupráca návrhu </strong>.
-        wizard_steps:
-          see_steps: pozri kroky
-          step_1: Vytvorte návrh spolupráca
-          step_2: Porovnajte s návrhmi spolupráce
-          step_3: Dokončite návrh spolupráca
-          step_of: Krok%{current_step_num} z%{total_steps}
+        wizard_header:
+          title: Vytvorte návrh spolupráca
       create:
         error: Pri ukladaní návrhu došlo k chybám.
         success: Návrh bol úspešne vytvorený. Uložené ako návrh.

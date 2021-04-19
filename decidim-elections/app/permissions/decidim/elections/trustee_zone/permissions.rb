@@ -8,7 +8,7 @@ module Decidim
           return permission_action unless permission_action.scope == :trustee_zone
 
           case permission_action.subject
-          when :trustee
+          when :trustee, :election
             toggle_allow(trustee_for_user?) if [:view, :update].member?(permission_action.action)
           when :user
             allow! if permission_action.action == :update_profile

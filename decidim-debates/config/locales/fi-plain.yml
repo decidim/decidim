@@ -65,6 +65,10 @@ fi-pl:
           edit:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
+          form:
+            debate_type: Keskustelun tyyppi
+            finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
+            open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
           index:
             title: Keskustelut
           new:
@@ -73,6 +77,8 @@ fi-pl:
           update:
             invalid: Keskustelun päivittämisessä tapahtui virhe.
             success: Keskustelu päivitetty onnistuneesti.
+        exports:
+          comments: Kommentit
         models:
           debate:
             name: Keskustelu
@@ -152,6 +158,7 @@ fi-pl:
           groups_count: Ryhmiä
           last_comment_by: Viimeisin kommentti käyttäjältä
           no_comments_yet: Ei vielä kommentteja
+          open: Avoin keskustelu
           participants_count: Osallistujia
         update:
           invalid: Keskustelun päivittäminen epäonnistui.
@@ -164,6 +171,7 @@ fi-pl:
         versions_list:
           back_to_resource: Takaisin keskusteluun
       last_activity:
+        debate_updated_at_html: "<span>Keskustelu päivitetty osoitteessa %{link}</span>"
         new_debate_at_html: "<span>Uusi keskustelu osoitteessa %{link}</span>"
       models:
         debate:
@@ -227,3 +235,5 @@ fi-pl:
         description: Keskustelujen määrä
         object: keskustelut
         title: Keskustelut
+    statistics:
+      debates_count: Keskustelua

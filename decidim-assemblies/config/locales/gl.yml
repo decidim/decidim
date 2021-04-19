@@ -1,6 +1,8 @@
 gl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de montaxe
@@ -14,7 +16,7 @@ gl:
         copy_features: Copiar funcións
         created_by: Creado por
         created_by_other: Creado por outro
-        creation_date: Data creada
+        creation_date: Data de creación
         decidim_area_id: Área
         decidim_assemblies_type_id: Tipo de montaxe
         decidim_scope_id: Alcance
@@ -24,8 +26,8 @@ gl:
         duration: Duración
         facebook: Facebook
         github: GitHub
-        hashtag: Etiqueta
-        hero_image: Imaxe na casa
+        hashtag: Cancelo
+        hero_image: Imaxe da portada
         included_at: Incluído en
         instagram: Instagram
         internal_organisation: Organización interna
@@ -50,6 +52,7 @@ gl:
         target: Quen participa
         title: Título
         twitter: Twitter
+        weight: Orde de posición
         youtube: YouTube
       assembly_member:
         birthday: Aniversario
@@ -60,10 +63,17 @@ gl:
         full_name: Nome completo
         gender: Xénero
         position: Posición
+        user_id: Usuario
       assembly_user_role:
         email: Correo electrónico
         name: Nome
         role: Rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento non válido. Formatos aceptados: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,7 +88,9 @@ gl:
   decidim:
     admin:
       actions:
+        import_assembly: Importar
         new_assembly: Nova montaxe
+        new_assembly_type: Novo tipo de xuntanza
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
@@ -100,14 +112,35 @@ gl:
         create:
           error: Produciuse un erro ao duplicar este conxunto.
           success: Asemblea duplicouse con éxito.
+      assemblies_settings:
+        update:
+          error: Produciuse un problema ao actualizar os axustes.
+          success: Axustes actualizados con éxito.
       assemblies_types:
+        create:
+          error: Produciuse un problema ao crear un novo tipo de xuntanza.
+          success: Tipo de xuntanza creado con éxito.
+        destroy:
+          success: Tipo de xuntanza eliminado con éxito.
         new:
           create: Crear
+          title: Novo tipo de xuntanza
+        update:
+          error: Produciuse un problema ao actualizar este tipo de xuntanza.
+          success: Tipo de xuntanza modificado con éxito.
       assembly_copies:
         new:
           copy: Copiar
           select: Seleccione os datos que desexa duplicar
           title: Conxunto duplicado
+      assembly_imports:
+        create:
+          error: Produciuse un problema ao importar esta xuntanza.
+          success: Xuntanza importada con éxito.
+        new:
+          import: Importar
+          select: Selecciona que tipo de datos desexas importar
+          title: Importar xuntanza
       assembly_members:
         create:
           error: Produciuse un erro ao engadir un membro para este conxunto.
@@ -151,6 +184,7 @@ gl:
           success: O usuario actualizouse con éxito para este conxunto.
       menu:
         assemblies: Asembleas
+        assemblies_settings: Axustes
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
           assembly_members: Membros
@@ -162,6 +196,7 @@ gl:
           info: Información
           moderations: Moderacións
           private_users: Usuarios privados
+        assemblies_types: Tipos de xuntanzas
       models:
         assemblies_types:
           fields:
@@ -197,8 +232,10 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador/a
       titles:
         assemblies: Asembleas
+        assemblies_types: Tipo de xuntanzas
     admin_log:
       assembly:
         create: "%{user_name} creou o conxunto %{resource_name}"
@@ -209,6 +246,14 @@ gl:
         create: "%{user_name} creou o membro %{resource_name} no conxunto %{space_name}"
         delete: "%{user_name} eliminou o %{resource_name} membro do conxunto %{space_name}"
         update: "%{user_name} actualizou o membro %{resource_name} na montaxe %{space_name}"
+      assembly_setting:
+        update: "%{user_name} actualizou os axustes de xuntanzas"
+      assembly_type:
+        create: "%{user_name} creou o tipo de xuntanza %{resource_name}"
+        delete: "%{user_name} eliminou o tipo de xuntanza %{resource_name}"
+        publish: "%{user_name} publicou o tipo de xuntanza %{resource_name}"
+        unpublish: "%{user_name} eliminou o tipo de xuntanza %{resource_name}"
+        update: "%{user_name} actualizou o tipo de xuntanza %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
         delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
@@ -232,12 +277,20 @@ gl:
             social_handlers: Social
             title: Información xeral
             visbility: Visibilidade
+        assemblies_settings:
+          edit:
+            update: Actualizar
+          form:
+            title: Axustes das xuntanzas
         assemblies_types:
           form:
             title: Título
         assembly_copies:
           form:
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Engadir un documento
         assembly_members:
           form:
             existing_user: Usuario existente
@@ -255,6 +308,9 @@ gl:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidade máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membros
@@ -274,6 +330,7 @@ gl:
         others: Outros
         public: Público
       filter:
+        all: Todos os tipos
         commission: Comisión
         consultative_advisory: Consultivo / asesor
         executive: Executivo
@@ -290,6 +347,7 @@ gl:
         home:
           highlighted_assemblies:
             active_assemblies: Asembleas activas
+            assemblies_button_title: Ligazón á páxina de Xuntanzas que amosa todas as xuntanzas
             see_all_assemblies: Ver todos os conxuntos
         user_profile:
           member_of:
@@ -320,68 +378,69 @@ gl:
         related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         social_networks: Redes Sociais
+        social_networks_title: Compartir esta xuntanza en
         target: Quen participa
-      statistics:
-        answers_count: Respostas
-        assemblies_count: Asembleas
-        comments_count: Comentarios
-        debates_count: Debates
-        endorsements_count: Aprobacións
-        headline: Actividade
-        meetings_count: Reunións
-        orders_count: Votos
-        pages_count: Páxinas
-        projects_count: Proxectos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Enquisas
-        users_count: Participantes
-        votes_count: Votos
     assembly_members:
       assembly_member:
         designated_on: Designado en
       index:
         title: Membros
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Un administrador da xuntanza <a href="%{resource_url}">%{resource_name}</a> engadiute coma un dos seus membros.
+          email_outro: Recibiches esta notificación porque fuches convidado a unha xuntanza. Entra na <a href="%{resource_path}">páxina da xuntaza</a> para contribuír!
     help:
       participatory_spaces:
         assemblies:
           contextual: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
           page: "<p>Unha asemblea é un grupo de membros dunha organización que se reúnen periódicamente para tomar decisións sobre unha área ou ámbito específico da organización.</p> <p>Asembleas realizan reunións, algunhas son privadas e algunhas están abertas. Se están abertas, é posible participar nelas (por exemplo: asistir se a capacidade permíteo, engadir puntos á axenda ou comentar as propostas e decisións tomadas por este órgano).</p> <p>Exemplos: Unha asemblea xeral (que se reúne unha vez ao ano para definir as liñas de actuación principais da organización e os seus órganos executivos por voto), un consello asesor de igualdade (que se reúne cada dous meses para facer propostas sobre como mellorar as relacións de xénero na organización), unha comisión de avaliación (que se reúne cada mes para supervisar un proceso) ou un organismo de garantía (que recolle incidentes, abusos ou propostas para mellorar os procesos de toma de decisións) son exemplos de asembleas.</p>\n"
-          title: Que son asembleas?
+          title: Que son as xuntanzas?
     log:
       value_types:
         assembly_presenter:
           not_found: 'A asemblea non se atopou na base de datos (ID: %{id})'
     menu:
-      assemblies: Asembleas
+      assemblies: Xuntanzas
     metrics:
       assemblies:
-        description: Número de conxuntos creados
-        object: asembleas
-        title: Asembleas
+        description: Número de xuntanzas creadas
+        object: xuntanzas
+        title: Xuntanzas
+    participatory_processes:
+      show:
+        related_assemblies: Xuntanzas relacionadas
+    statistics:
+      assemblies_count: Xuntanzas
   errors:
     messages:
-      cannot_be_blank: non pode estar en branco
+      cannot_be_blank: non pode estar baleiro
   layouts:
     decidim:
       assemblies:
         assembly:
           more_info: Máis información
-          take_part: Tomar parte en
+          take_part: Participar
         index:
+          children: 'Xuntanzas: '
           organizational_chart: Organigrama
-          promoted_assemblies: Asembleas destacadas
+          promoted_assemblies: Xuntanzas destacadas
           reset_chart: Restablecer
         order_by_assemblies:
           assemblies:
-            one: "Asemblea %{count}"
-            other: "Asembleas %{count}"
+            one: "%{count} xuntanza"
+            other: "%{count} xuntanzas"
         promoted_assembly:
           more_info: Máis información
-          take_part: Tomar parte en
+          take_part: Participar
       assembly_navigation:
         assembly_member_menu_item: Membros
-        assembly_menu_item: A asemblea
+        assembly_menu_item: A xuntanza
       assembly_widgets:
         show:
-          take_part: Tomar parte en
+          take_part: Participar

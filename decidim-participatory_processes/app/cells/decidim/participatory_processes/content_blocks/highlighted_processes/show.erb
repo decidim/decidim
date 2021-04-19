@@ -4,22 +4,8 @@
     <div class="row collapse">
       <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
         large-up-4 card-grid">
-        <% highlighted_processes.each do |process| %>
-          <div class="column">
-            <%= link_to decidim_participatory_processes.participatory_process_path(process), class: "card card--process card--mini" do %>
-              <div aria-hidden="true" class="card__image-top"
-                style="background-image:url(<%= process.hero_image.url %>)"></div>
-              <div class="card__content">
-                <span class="card__title card__link"><%= translated_attribute process.title %></span>
-                <% if process.active_step %>
-                  <span class="card--process__small">
-                    <%= t("active_step", scope: i18n_scope) %>
-                    <strong><%= translated_attribute process.active_step.title %></strong>
-                  </span>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+        <% highlighted_items.each do |item| %>
+          <%= card_for item, size: :s %>
         <% end %>
       </div>
     </div>

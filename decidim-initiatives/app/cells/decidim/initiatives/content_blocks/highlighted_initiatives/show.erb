@@ -5,16 +5,14 @@
       <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3 large-up-4 card-grid">
         <% highlighted_initiatives.each do |initiative| %>
           <div class="column">
-            <div class="card card--initiative card--mini">
-              <%= link_to decidim_initiatives.initiative_path(initiative), class: "card__link" do %>
-                <span class="show-for-sr"><%= translated_attribute initiative.title %></span>
-              <% end %>
+            <%= link_to decidim_initiatives.initiative_path(initiative), class: "card card--initiative card--mini" do %>
+              <div aria-hidden="true" class="card__image-top"
+                style="background-image:url(<%= initiative.banner_image.url %>)"></div>
+              <span class="show-for-sr"><%= translated_attribute initiative.title %></span>
               <div class="card__content">
-                <%= link_to decidim_initiatives.initiative_path(initiative), class: "card__link" do %>
-                  <span class="card__title"><%= decidim_html_escape(translated_attribute(initiative.title)) %></span>
-                <% end %>
+                <span class="card__title card__link"><%= decidim_html_escape(translated_attribute(initiative.title)) %></span>
               </div>
-            </div>
+            <% end %>
           </div>
         <% end %>
       </div>

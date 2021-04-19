@@ -266,10 +266,6 @@ pt:
         description: Número de votos gerados em propostas de usuários
         object: votos
         title: Votos
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propostas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos (%{count})
@@ -284,7 +280,6 @@ pt:
         actions:
           preview: Previsualização
         exports:
-          comments: Comentários
           proposals: Propostas
         models:
           proposal:
@@ -447,13 +442,6 @@ pt:
               ok: Retirar o rascunho colaborativo
               title: A ação a seguir é irreversível
             success: Esboço colaborativo retirado com sucesso.
-        compare:
-          mine_is_different: Meu rascunho colaborativo é diferente
-          no_similars_found: Bem feito! Nenhum rascunho colaborativo semelhante encontrado
-          title: Rascunhos colaborativos semelhantes
-        complete:
-          send: Enviar
-          title: Complete seu rascunho colaborativo
         count:
           drafts_count:
             one: "%{count} rascunho colaborativo"
@@ -485,7 +473,6 @@ pt:
           unfold: Desdobrar
         new:
           send: Continuar
-          title: Crie seu rascunho colaborativo
         new_collaborative_draft_button:
           new_collaborative_draft: Novo rascunho colaborativo
         orders:
@@ -531,14 +518,9 @@ pt:
           error: Houve erros ao salvar o rascunho colaborativo.
           success: Rascunho colaborativo atualizado com sucesso.
         wizard_aside:
-          back: Costas
           info: Você está criando um <strong>projecto de colaboração</strong>.
-        wizard_steps:
-          see_steps: ver passos
-          step_1: Crie seu rascunho colaborativo
-          step_2: Comparar com rascunhos colaborativos
-          step_3: Complete seu rascunho colaborativo
-          step_of: Etapa %{current_step_num} de %{total_steps}
+        wizard_header:
+          title: Crie seu rascunho colaborativo
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso. Salvo como um rascunho.

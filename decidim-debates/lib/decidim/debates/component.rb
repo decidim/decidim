@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/components/namer"
+require "decidim/components/namer"
 
 Decidim.register_component(:debates) do |component|
   component.engine = Decidim::Debates::Engine
@@ -57,6 +57,16 @@ Decidim.register_component(:debates) do |component|
 
   component.actions = %w(create endorse)
 
+  component.exports :comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Debates::Debate, component_instance
+      )
+    end
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,
@@ -84,7 +94,8 @@ Decidim.register_component(:debates) do |component|
       Decidim::Component.create!(params)
     end
 
-    3.times do
+    5.times do |x|
+      finite = x != 2
       params = {
         component: component,
         category: participatory_space.categories.sample,
@@ -95,8 +106,8 @@ Decidim.register_component(:debates) do |component|
         instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
+        start_time: (3.weeks.from_now if finite),
+        end_time: (3.weeks.from_now + 4.hours if finite),
         author: component.organization
       }
 

@@ -34,6 +34,8 @@ pl:
   decidim:
     accountability:
       actions:
+        attachment_collections: Foldery
+        attachments: Załączniki
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj
@@ -44,6 +46,7 @@ pl:
         title: Działania
       admin:
         exports:
+          result_comments: Komentarze
           results: Wyniki
         import_results:
           new:
@@ -123,6 +126,11 @@ pl:
         value_types:
           parent_presenter:
             not_found: 'Nie znaleziono elementu nadrzędnego w bazie danych (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Daty
+          results: Wyniki
+          unspecified: Nie określono
       import_mailer:
         import:
           errors: Błędy
@@ -135,8 +143,12 @@ pl:
       models:
         result:
           fields:
+            category: Kategoria
+            created_at: Utworzono
             end_date: Data zakończenia
+            id: ID
             progress: Postęp
+            scope: Zakres
             start_date: Data rozpoczęcia
             status: Status
             title: Tytuł
@@ -150,6 +162,9 @@ pl:
           fields:
             description: Opis
             entry_date: Data
+      result_m:
+        executed: Wykonane
+        view: Zobacz
       results:
         count:
           results_count:
@@ -182,6 +197,15 @@ pl:
             votes: Wsparcia
         timeline:
           title: Rozwój projektu
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategoria
+          scope_id_eq:
+            label: Zakres
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Rozliczenie
@@ -202,7 +226,7 @@ pl:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Propozycja "%{proposal_title}" została uwzględniony w wyniku. Możesz go zobaczyć na tej stronie:'
+          email_intro: 'Propozycja "%{proposal_title}" została uwzględniona w wyniku. Możesz go zobaczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}". Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: Aktualizacja w %{proposal_title}
           notification_title: Propozycja <a href="%{proposal_path}">%{proposal_title}</a> została uwzględniona w wyniku <a href="%{resource_path}">%{resource_title}</a>.
@@ -216,10 +240,6 @@ pl:
         description: Liczba wygenerowanych wyników
         object: wyniki
         title: Wyniki
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Wyniki
     participatory_spaces:
       highlighted_results:
         see_all: Zobacz wszystkie wyniki (%{count})
@@ -228,3 +248,5 @@ pl:
         result_project: Projekty uwzględnione w tym wyniku
       included_proposals:
         result_proposal: Propozycje uwzględnione w tym wyniku
+    statistics:
+      results_count: Wyniki

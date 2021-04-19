@@ -24,7 +24,6 @@ hu:
       component:
         name: Név
         published_at: Publikálva
-        weight: Súly
       id: ID
       newsletter:
         body: Szöveg
@@ -97,12 +96,10 @@ hu:
         show_in_footer: Mutassa a láblécben
         slug: URL slug
         title: Cím
-        weight: Súly
       static_page_topic:
         description: Leírás
         show_in_footer: Mutassa a láblécben
         title: Cím
-        weight: Súly
       user_group_csv_verification:
         file: Fájl
     errors:
@@ -144,7 +141,6 @@ hu:
           error: Hiba történt az adminra vonatkozó általános szerződési feltételek elfogadása során.
           success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
-          accept: Elfogadom ezeket az admin feltételeket
           are_you_sure: Biztosan visszautasítod az admin feltételek elfogadását?
           refuse: Admin feltételek elutasítása
           title: Elfogadom a felhasználási feltételeket
@@ -277,6 +273,19 @@ hu:
         update:
           error: Hiba történt az elem frissítése során.
           success: Az elem frissítése sikeres volt.
+      conflicts:
+        attempts: Próbálkozások
+        'false': 'Nincs'
+        managed_user_name: Kezelt felhasználó
+        solved: Megoldva
+        transfer:
+          email: Email
+          error: Hiba történt a jelenlegi résztvevő kezelt résztvevővé transzferálása során.
+          name: Név
+          reason: Ok
+          title: Átvezetés
+        'true': 'Igen'
+        user_name: Felhasználó
       dashboard:
         show:
           view_more_logs: További naplók megtekintése

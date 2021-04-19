@@ -20,9 +20,13 @@ fr:
         settings:
           global:
             announcement: Annonce
-            clean_after_publish: Supprimer les réponses lors de la publication de l'enquête
+            clean_after_publish: 'Supprimer les réponses lors de la publication de l''enquête - ATTENTION : décocher après avoir fini vos tests et avoir publié l''enquête'
+            ends_at: Réponses acceptées jusqu'au
+            ends_at_help: Laisser vide si aucune date spécifique
             scope_id: Secteur
             scopes_enabled: Secteurs activés
+            starts_at: Réponses acceptées du
+            starts_at_help: Laisser vide si aucune date spécifique
           step:
             allow_answers: Autoriser les réponses
             allow_unregistered: Autoriser les utilisateurs non inscrits à répondre à l'enquête

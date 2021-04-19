@@ -26,7 +26,7 @@ module Decidim
             id: public_spaces +
                 private_spaces
                   .joins(:participatory_space_private_users)
-                  .where("decidim_participatory_space_private_users.decidim_user_id = ?", user.id)
+                  .where(decidim_participatory_space_private_users: { decidim_user_id: user.id })
           )
         else
           public_spaces
@@ -37,7 +37,7 @@ module Decidim
         return true unless private_space?
         return false unless user
 
-        users.include?(user)
+        participatory_space_private_users.exists?(decidim_user_id: user.id)
       end
 
       def self.public_spaces

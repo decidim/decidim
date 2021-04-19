@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/zip_stream/zip_stream_writer"
 
 module Decidim
   module ZipStream
-    DummyUploader = Struct.new(:fog_provider, :file)
+    DummyUploader = Struct.new(:provider, :file)
     class ZipStreamWriterWrapper
       include ::Decidim::ZipStream::Writer
     end

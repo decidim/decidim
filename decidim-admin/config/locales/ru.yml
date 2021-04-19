@@ -23,7 +23,6 @@ ru:
       component:
         name: Название
         published_at: 'Обнародовано:'
-        weight: Вес
       id: Псевдоним
       newsletter:
         body: Основной текст
@@ -88,12 +87,10 @@ ru:
         show_in_footer: Показать в подвале
         slug: Сокращенный веб-адрес
         title: Название
-        weight: Вес
       static_page_topic:
         description: Описание
         show_in_footer: Показать в подвале
         title: Заголовок
-        weight: Вес
       user_group_csv_verification:
         file: Файл
     errors:

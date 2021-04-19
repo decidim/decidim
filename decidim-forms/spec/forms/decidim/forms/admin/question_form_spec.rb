@@ -17,6 +17,7 @@ module Decidim
         let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable) }
         let!(:position) { 0 }
         let!(:question_type) { Decidim::Forms::Question::TYPES.first }
+        let!(:max_characters) { 45 }
 
         let(:deleted) { "false" }
         let(:attributes) do
@@ -25,6 +26,7 @@ module Decidim
             body_ca: "Body ca",
             body_es: "Body es",
             question_type: question_type,
+            max_characters: max_characters,
             position: position,
             deleted: deleted
           }
@@ -52,6 +54,12 @@ module Decidim
 
             expect(subject).not_to be_valid
           end
+        end
+
+        context "when the max_characters is less than 0" do
+          let!(:max_characters) { -1 }
+
+          it { is_expected.not_to be_valid }
         end
 
         context "when the question has no matrix rows" do

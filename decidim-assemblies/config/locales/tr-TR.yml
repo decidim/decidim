@@ -1,9 +1,11 @@
 tr:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Organizasyon şemasını etkinleştir
       assembly:
-        area_id: alan
-        assembly_type: Montaj tipi
+        area_id: Alan
+        assembly_type: Kurul türü
         assembly_type_other: Diğer montaj türü
         banner_image: Banner resmi
         closing_date: Kapanış tarihi
@@ -46,128 +48,144 @@ tr:
         show_statistics: İstatistikleri göster
         slug: URL sümüklü böcek
         special_features: Özel özellikler
-        subtitle: Alt yazı
-        target: Kimler katılır
+        subtitle: Alt Başlık
+        target: Katılanlar
         title: Başlık
-        twitter: heyecan
-        youtube: Youtube
+        twitter: Twitter
+        youtube: YouTube
       assembly_member:
         birthday: Doğum günü
-        birthplace: doğum yeri
+        birthplace: DogumYeri
         ceased_date: Bitiş tarihi
         designation_date: Atama tarihi
-        designation_mode: Tanımlama modu
+        designation_mode: Atama modu
         full_name: Ad Soyad
         gender: Cinsiyet
-        position: pozisyon
+        position: Pozisyon
+        user_id: Kullanıcı
       assembly_user_role:
         email: E-posta
-        name: isim
-        role: rol
+        name: Adı
+        role: Rol
     errors:
       models:
         assembly:
           attributes:
             document:
-              invalid_document_type: '%{valid_mime_types}Tanımlanmayan döküman tipi. Kabul edilen formatlar:'
+              invalid_document_type: 'Geçersiz belge türü. Kabul edilen biçimler şunlardır: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
-        one: montaj
-        other: meclisleri
+        one: Kurul
+        other: Kurullar
       decidim/assembly_member:
         one: Montaj üyesi
-        other: Meclis üyeleri
+        other: Kurul üyeleri
       decidim/assembly_user_role:
         one: Montaj kullanıcısı rolü
-        other: Montaj kullanıcı rolleri
+        other: Kurul kullanıcı rolleri
   decidim:
     admin:
       actions:
-        import_assembly: İçe aktarmak.
-        new_assembly: Yeni montaj
+        import_assembly: İçeri aktar
+        new_assembly: Yeni kurul
+        new_assembly_type: Yeni kurul türü
       assemblies:
         create:
-          error: Yeni bir derleme oluştururken bir hata oluştu.
-          success: Montaj başarıyla oluşturuldu.
+          error: Yeni bir kurul oluştururken bir hata oluştu.
+          success: Kurul başarıyla oluşturuldu.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         index:
           not_published: Yayınlanmadı
-          private: Özel
-          public: halka açık
+          private: Kişisel
+          public: Ortak
           published: Yayınlanan
         new:
-          create: yaratmak
-          title: Yeni montaj
+          create: Oluştur
+          title: Yeni kurul
         update:
-          error: Bu derleme güncellenirken bir hata oluştu.
-          success: Montaj başarıyla güncellendi.
+          error: Bu kurul güncellenirken bir hata oluştu.
+          success: Kurul başarıyla güncellendi.
       assemblies_copies:
         create:
-          error: Bu derlemeyi çoğaltırken bir hata oluştu.
-          success: Montaj başarıyla kopyalandı.
+          error: Bu kurul çoğaltırken bir hata oluştu.
+          success: Kurul başarıyla kopyalandı.
+      assemblies_settings:
+        update:
+          error: Ayarı değiştirirken bir hata oluştu.
+          success: Ayarlar başarıyla güncellendi.
       assemblies_types:
+        create:
+          error: Yeni bir kurul türü oluşturulurken bir sorun meydana geldi.
+          success: Kurul türü başarıyla oluşturuldu.
+        destroy:
+          success: Kurul türü başarıyla silindi.
         new:
-          create: yaratmak
+          create: Oluştur
+          title: Yeni kurul türü
+        update:
+          error: Bu kurul türü güncellenirken bir sorun oluştu.
+          success: Kurul türü başarıyla güncellendi.
       assembly_copies:
         new:
-          copy: kopya
+          copy: Kopya
           select: Çoğaltmak istediğiniz verileri seçin
-          title: Duplicate assembly
+          title: Kurulu çoğalt
       assembly_imports:
         create:
-          error: Bu meclis derlenirken, içeri aktarılırken bir hata oluştu.
-          success: Meclis başarıyla içeriye alındı.
+          error: Bu kurul derlenirken, içeri aktarılırken bir hata oluştu.
+          success: Kurul başarıyla içeriye alındı.
         new:
-          import: İçeri aktar
-          select: Gösterilmesini istediğiniz ayrıntıları seçin
-          title: Meclis belirtmek, içe aktarmak veya oluşturmak.
+          import: İçe aktar
+          select: Hangi verileri içe aktarmak istediğinizi seçin
+          title: Kurulu içe aktar
       assembly_members:
         create:
-          error: Bu derleme için üye eklenirken bir hata oluştu.
-          success: Üye bu derleme için başarıyla oluşturuldu.
+          error: Bu kurul için üye eklenirken bir hata oluştu.
+          success: Üye bu kurul için başarıyla oluşturuldu.
         destroy:
-          success: Üye bu derlemede başarıyla silindi.
+          success: Üye bu kuruldan başarıyla silindi.
         edit:
-          title: Montaj üyesini güncelle.
-          update: Güncelleştirme
+          title: Kurul üyesini güncelle.
+          update: Güncelle
         index:
-          assembly_members_title: Meclis üyeleri
+          assembly_members_title: Kurul üyeleri
         new:
-          create: yaratmak
-          title: Yeni montaj üyesi.
+          create: Oluştur
+          title: Yeni kurul üyesi.
         update:
-          error: Bu derleme için üye güncellenirken bir hata oluştu.
-          success: Üye bu derleme için başarıyla güncellendi.
+          error: Bu kurul için üye güncellenirken bir hata oluştu.
+          success: Üye bu kurul için başarıyla güncellendi.
       assembly_publications:
         create:
-          error: Bu derleme yayınlanırken bir hata oluştu.
-          success: Montaj başarıyla yayınlandı.
+          error: Bu kurul yayınlanırken bir hata oluştu.
+          success: Kurul başarıyla yayınlandı.
         destroy:
-          error: Bu derlemenin yayından kaldırılmasıyla ilgili bir hata oluştu.
-          success: Montaj başarıyla yayından kaldırıldı.
+          error: Bu kurulun yayından kaldırılması sırasında bir hata oluştu.
+          success: Kurul başarıyla yayından kaldırıldı.
       assembly_user_roles:
         create:
-          error: Bu derleme için bir kullanıcı eklenirken bir hata oluştu.
-          success: Kullanıcı bu meclise başarıyla eklendi.
+          error: Bu kurul için bir kullanıcı eklenirken hata oluştu.
+          success: Yönetici bu kurula başarıyla eklendi.
         destroy:
-          success: Kullanıcı bu derlemeden başarıyla kaldırıldı.
+          success: Yönetici bu kuruldan başarıyla kaldırıldı.
         edit:
-          title: Montaj kullanıcısını güncelle.
-          update: Güncelleştirme
+          title: Kurul yöneticisini güncelleyin.
+          update: Güncelle
         index:
-          assembly_admins_title: Montaj kullanıcıları
+          assembly_admins_title: Kurul yöneticileri
         new:
-          create: yaratmak
-          title: Yeni montaj kullanıcısı.
+          create: Oluştur
+          title: Yeni kurul yöneticisi.
         update:
-          error: Bu derleme için bir kullanıcı güncellendi bir hata oluştu.
-          success: Kullanıcı bu derleme için başarıyla güncellendi.
+          error: Bu kurul için bir yönetici güncellenirken bir sorun oluştu.
+          success: Yönetici bu kurul için başarıyla güncellendi.
       menu:
-        assemblies: meclisleri
+        assemblies: Kurullar
+        assemblies_settings: Ayarlar
         assemblies_submenu:
-          assembly_admins: Montaj kullanıcıları
+          assembly_admins: Kurul yöneticileri
           assembly_members: Üyeler
           attachment_collections: Klasörler
           attachment_files: Dosyalar
@@ -175,8 +193,9 @@ tr:
           categories: Kategoriler
           components: Bileşenler
           info: Bilgi
-          moderations: Denetimler
+          moderations: Yönetim
           private_users: Özel kullanıcılar
+        assemblies_types: Kurul türü
       models:
         assemblies_types:
           fields:
@@ -189,64 +208,78 @@ tr:
             promoted: Vurgulanan
             published: Yayınlanan
             title: Başlık
-          name: montaj
+          name: Kurul
         assembly_member:
           fields:
             ceased_date: Bitiş tarihi
             designation_date: Atama tarihi
-            full_name: isim
-            position: pozisyon
-          name: üye
+            full_name: Adı
+            position: Pozisyon
+          name: Üye
           positions:
             other: Diğer
-            president: Devlet Başkanı
+            president: Başkan
             secretary: Sekreter
-            vice_president: Başkan Vekili
+            vice_president: Başkan Yardımcısı
         assembly_user_role:
           fields:
             email: E-posta
-            name: isim
-            role: rol
-          name: Montaj Kullanıcı
+            name: Adı
+            role: Rol
+          name: Kurul yöneticisi
           roles:
-            admin: yönetici
-            collaborator: işbirlikçi
-            moderator: arabulucu
+            admin: Yönetici
+            collaborator: İşbirlikçi
+            moderator: Moderatör
+            valuator: Bilirkişi
       titles:
-        assemblies: meclisleri
+        assemblies: Kurullar
+        assemblies_types: Kurul türleri
     admin_log:
       assembly:
-        create: "%{user_name} %{resource_name} meclisi oluşturdu"
-        publish: "%{user_name} %{resource_name} meclisi yayınladı"
-        unpublish: "%{user_name} %{resource_name} montajı yayından kaldırıldı"
-        update: "%{user_name} güncellenmiş %{resource_name} meclis"
+        create: "%{user_name} %{resource_name} kurulu oluşturdu"
+        publish: "%{user_name} %{resource_name} kurulu yayınladı"
+        unpublish: "%{user_name} %{resource_name} kurulu yayından kaldırıldı"
+        update: "%{user_name}, %{resource_name} kurulunu güncelledi"
       assembly_member:
-        create: "%{user_name} , %{space_name} mecliste %{resource_name} üye yarattı"
-        delete: "%{user_name} uzaklaştırıldı %{resource_name} den elemanı %{space_name} montaj"
-        update: "%{user_name} , %{space_name} mecliste %{resource_name} üye güncellendi"
+        create: "%{user_name}, %{space_name} kurulunda %{resource_name} üyesini oluşturdu"
+        delete: "%{user_name}, %{resource_name} üyesini %{space_name} kurulundan kaldırdı"
+        update: "%{user_name}, %{space_name} kurulunda %{resource_name} üyesini güncelledi"
+      assembly_setting:
+        update: "%{user_name}, kurul ayarlarını güncelledi"
+      assembly_type:
+        create: "%{user_name},%{resource_name} kurul türünü oluşturdu"
+        publish: "%{user_name}, %{resource_name} kurul türünü yayınladı"
+        unpublish: "%{user_name}, %{resource_name} kurul türünü yayından kaldırdı"
+        update: "%{user_name}, %{resource_name} kurul türünü güncelledi"
       assembly_user_role:
-        create: "%{user_name} %{space_name} mecraya %{resource_name} davet edildi"
-        delete: "%{user_name} kullanıcı %{resource_name} %{space_name} aksamından çıkardı"
-        update: "%{user_name} , %{space_name} mecliste %{resource_name} rolünü değiştirdi"
+        create: "%{user_name}, %{resource_name} katılımcısını %{space_name} kuruluna davet etti"
+        delete: "%{user_name}, %{resource_name} katılımcısını %{space_name} kurulundan kaldırdı"
+        update: "%{user_name}, %{space_name} kurulunda %{resource_name} rolünü değiştirdi"
     assemblies:
       admin:
         assemblies:
           form:
-            duration: süre
-            duration_help: Bu meclisin süresi sınırlı ise, bitiş tarihini seçin. Aksi halde, belirsiz olarak görünecektir.
+            duration: Süre
+            duration_help: Bu kurulun süresi sınırlıysa, bitiş tarihini seçin. Aksi takdirde belirsiz görünecektir.
             filters: Filtreler
-            images: Görüntüler
-            included_at_help: Bu montajın Decidim'e eklendiği tarihi seçin. Yaratılış tarihi ile aynı olmak zorunda değildir.
+            images: Resimler
+            included_at_help: Bu kurulun Decidim'e eklendiği tarihi seçin. Yaratılış tarihi ile aynı olmak zorunda değildir.
             metadata: Meta veri
             other: Diğer
-            select_a_created_by: Tarafından oluşturulmuş bir seç
+            select_a_created_by: tarafından oluşturulanı seçin
             select_an_area: Bir alan seçin
-            select_an_assembly_type: Bir montaj tipi seçin
-            select_parent_assembly: Ebeveyn grubunu seç
-            slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+            select_an_assembly_type: Bir kurul türü seçin
+            select_parent_assembly: Bağlı olduğu kurulu seçin
+            slug_help: 'URL sümüklü böcekleri, bu kurula işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
             social_handlers: Sosyal
             title: Genel bilgi
             visbility: görünürlük
+        assemblies_settings:
+          edit:
+            update: Güncelle
+          form:
+            title: Kurul ayarları
         assemblies_types:
           form:
             title: Başlık
@@ -256,73 +289,78 @@ tr:
         assembly_imports:
           form:
             document_legend: Bir belge ekle
-            slug_help: '%{url}Uzantı slugsları meclisi gösteren uzantıları oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve tire(-) kabul eder ve mutlaka bir harfler başlamalıdır.'
+            slug_help: 'URL sümüklü böcekleri, bu kurula işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         assembly_members:
           form:
-            existing_user: Mevcut kullanıcı
-            non_user: Kullanıcı yok
+            existing_user: Mevcut katılımcı
+            non_user: Katılımcı olmayan
             select_a_position: Bir pozisyon seç
-            select_user: Bir kullanıcı seç
-            user_type: Kullanıcı tipi
+            select_user: Bir katılımcı seçin
+            user_type: Katılımcı tipi
           index:
             filter:
-              all: Herşey
-              ceased: durdurdu
+              all: Tümü
+              ceased: Durduruldu
               not_ceased: Durdurulmadı
-            filter_by: Tarafından filtre
+            filter_by: Şuna göre filtrele
             search: Arama
         content_blocks:
           highlighted_assemblies:
             max_results: Gösterilecek maksimum öğe miktarı
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Üyeler
       assembly_types:
-        commission: Komisyonu
-        consultative_advisory: Danışma / Danışma
-        executive: yönetici
-        government: hükümet
+        commission: Komisyon
+        consultative_advisory: Danışma/Tavsiye
+        executive: İcra
+        government: Devlet
         others: Diğerleri
-        participatory: katılımcı
+        participatory: Katılımcı
         working_group: Çalışma Grubu
       content_blocks:
         highlighted_assemblies:
-          name: Vurgulanan derlemeler
+          name: Vurgulanan kurullar
       created_by:
-        city_council: Belediye Meclisi
+        city_council: Şehir Meclisi
         others: Diğerleri
-        public: halka açık
+        public: Genel
       filter:
-        commission: komisyon
-        consultative_advisory: Danışma / Danışma
-        executive: yönetici
-        government: hükümet
-        help: 'Göstermek:'
+        all: Bütün Türler
+        commission: Komisyon
+        consultative_advisory: Danışma/Tavsiye
+        executive: İcra
+        government: Devlet
+        help: 'Göster:'
         others: Diğerleri
-        participatory: katılımcı
+        participatory: Katılımcı
         working_group: Çalışma Grubu
       index:
-        title: meclisleri
+        title: Kurullar
       last_activity:
-        new_assembly: Yeni montaj
+        new_assembly: Yeni kurul
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktif meclisler
-            see_all_assemblies: Tüm montajları gör
+            active_assemblies: Aktif kurullar
+            assemblies_button_title: Tüm kurulları görüntüleyen Kurullar sayfasına bağlantı
+            see_all_assemblies: Tüm kurulları gör
         user_profile:
           member_of:
             member_of: Üyesi
       show:
-        area: alan
-        assembly_type: Montaj tipi
-        children: meclisleri
+        area: Alan
+        assembly_type: Kurul türü
+        children: Kurullar
         closing_date: Kapanış tarihi
-        composition: bileştirme, kompozisyon
-        created_by: Tarafından yaratıldı
-        creation_date: Tarih oluşturuldu
+        composition: Komposizyon
+        created_by: Oluşturan
+        creation_date: Oluşturulma tarihi
         developer_group: Tanıtım grubu
-        duration: süre
+        duration: Süre
         included_at: Dahil
         indefinite_duration: Belirsiz
         internal_organisation: İç organizasyon
@@ -332,52 +370,68 @@ tr:
         local_area: Organizasyon alanı
         participatory_scope: Karar nedir
         participatory_structure: Nasıl karar verilir
-        private_space: Bu özel bir meclis
+        private_space: Bu özel bir kurul
         purpose_of_action: Eylem amacı
-        read_less: Az oku
+        read_less: Daha az oku
         read_more: Daha fazla oku
-        related_participatory_processes: İlgili katılımcı süreçler
-        scope: kapsam
+        related_participatory_processes: İlgili katılımcı süreçleri
+        scope: Kapsam
         social_networks: Sosyal ağlar
-        target: Kimler katılır
-      statistics:
-        answers_count: Cevaplar
-        assemblies_count: meclisleri
-        comments_count: Yorumlar
-        debates_count: Tartışmalar
-        endorsements_count: Cirolar
-        headline: Aktivite
-        meetings_count: Toplantılar
-        orders_count: oy
-        pages_count: Sayfalar
-        projects_count: Projeler
-        proposals_count: Teklif
-        results_count: Sonuçlar
-        surveys_count: Anketler
-        users_count: Katılımcılar
-        votes_count: oy
+        social_networks_title: Bu kurulu paylaş
+        target: Katılanlar
     assembly_members:
       assembly_member:
         designated_on: Üzerinde belirlenen
       index:
         title: Üyeler
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Tüm konferansları görüntüleyen Konferanslar sayfasına bağlantı
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: <a href="%{resource_url}">%{resource_name} </a> kurulun bir yöneticisi sizi üyelerinden biri olarak ekledi.
+          email_outro: Bu bildirimi bir toplantıya davet edildiğiniz için aldınız. Katkıda bulunmak için <a href="%{resource_path}"> kurul sayfasını </a> kontrol edin!
+          email_subject: '%{resource_name} kuruluna üye olmak için davet edildiniz!'
+          notification_title: <a href="%{resource_path}">%{resource_name}</a> Kurulu üyesi olarak kaydoldunuz. Katkıda bulunmak için <a href="%{resource_path}">kurul sayfasını</a> kontrol edin!
+      assembly:
+        role_assigned:
+          email_intro: '"%{resource_title}" kurulu için %{role} olarak atandınız.'
+          email_outro: Bu bildirimi, "%{resource_title}" kurululunda %{role} olduğunuz için aldınız.
+          email_subject: '"%{resource_title}" için %{role} olarak atandınız.'
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> kurulu için %{role} olarak atandınız.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>bir düzenek organizasyonun belirli bir alan veya kapsamı hakkında kararlar almak için periyodik olarak bir araya bir örgütün üyelerinin bir gruptur.</p> <p>Toplantılar toplantı yapar, bazıları özeldir ve bazıları açıktır. Açık olmaları halinde, onlara katılmak mümkündür (örneğin: kapasitenin buna izin verip vermediğine katılmak, gündeme puan eklemek veya bu organ tarafından alınan teklif ve kararlara yorum yapmak).</p> <p>Örnekler: Genel bir kurul (kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanır), bir eşitlik danışma konseyi (her iki ayda bir, toplumsal cinsiyet ilişkilerinin nasıl geliştirileceğine dair önerilerde bulunur) kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanır) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, kötüye kullanımları veya teklifleri toplar) meclislere örnektir.</p>\n"
-          page: "<p>bir düzenek organizasyonun belirli bir alan veya kapsamı hakkında kararlar almak için periyodik olarak bir araya bir örgütün üyelerinin bir gruptur.</p> <p>Toplantılar toplantı yapar, bazıları özeldir ve bazıları açıktır. Açık olmaları halinde, onlara katılmak mümkündür (örneğin: kapasitenin buna izin verip vermediğine katılmak, gündeme puan eklemek veya bu organ tarafından alınan teklif ve kararlara yorum yapmak).</p> <p>Örnekler: Genel bir kurul (kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanır), bir eşitlik danışma konseyi (her iki ayda bir, toplumsal cinsiyet ilişkilerinin nasıl geliştirileceğine dair önerilerde bulunur) kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanır) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, kötüye kullanımları veya teklifleri toplar) meclislere örnektir.</p>\n"
-          title: Meclis nedir?
+          contextual: "<p> <strong> Kurul</strong>, kuruluşun belirli bir alanı veya kapsamı hakkında kararlar almak için periyodik olarak toplanan bir kuruluşun üyelerinden oluşan bir gruptur. </p> <p> Kurullar toplantılar yapar, bazıları özeldir ve bazıları açık. Açıklarsa, bunlara katılmak mümkündür (örneğin: kapasite izin verirse katılmak, gündeme noktalar eklemek veya bu organ tarafından alınan teklifler ve kararlar hakkında yorum yapmak). </p> <p> Örnekler: Bir genel kurul (kuruluşun ana hareket hatlarını ve yürütme organlarını oylama ile belirlemek için yılda bir kez toplanır), bir eşitlik danışma konseyi (organizasyonda cinsiyet ilişkilerinin nasıl iyileştirileceğine dair önerilerde bulunmak için iki ayda bir toplanır), bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanan) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, suistimalleri veya teklifleri toplayan) tüm toplantı örnekleridir. </p>\n"
+          page: "<p> <strong> Kurul</strong>, kuruluşun belirli bir alanı veya kapsamı hakkında kararlar almak için periyodik olarak toplanan bir kuruluşun üyelerinden oluşan bir gruptur. </p> <p> Kurullar toplantılar yapar, bazıları özeldir ve bazıları açık. Açıklarsa, bunlara katılmak mümkündür (örneğin: kapasite izin verirse katılmak, gündeme noktalar eklemek veya bu organ tarafından alınan teklifler ve kararlar hakkında yorum yapmak). </p> <p> Örnekler: Bir genel kurul (kuruluşun ana hareket hatlarını ve yürütme organlarını oylama ile belirlemek için yılda bir kez toplanır), bir eşitlik danışma konseyi (organizasyonda cinsiyet ilişkilerinin nasıl iyileştirileceğine dair önerilerde bulunmak için iki ayda bir toplanır), bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanan) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, suistimalleri veya teklifleri toplayan) tüm toplantı örnekleridir. </p>\n"
+          title: Kurul nedir?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Derleme veritabanında bulunamadı (ID: %{id})'
+          not_found: 'Kurul veritabanında bulunamadı (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Kurul türü veritabanında bulunamadı (ID: %{id})'
     menu:
-      assemblies: meclisleri
+      assemblies: Kurullar
     metrics:
       assemblies:
-        description: Oluşturulan derleme sayısı
-        object: düzenekleri
-        title: meclisleri
+        description: Oluşturulan kurul sayısı
+        object: kurullar
+        title: Kurullar
+    pages:
+      home:
+        hero:
+          participate_title: Platformun süreçlerine katılın
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Tüm süreçleri gösteren Süreçler sayfasına bağlantı
+      show:
+        related_assemblies: İlgili kurullar
   errors:
     messages:
       cannot_be_blank: boş bırakılamaz
@@ -388,20 +442,20 @@ tr:
           more_info: Daha fazla bilgi
           take_part: Yer almak
         index:
-          children: 'Meclisler: '
+          children: 'Kurullar: '
           organizational_chart: Organizasyon şeması
-          promoted_assemblies: Vurgulanan derlemeler
-          reset_chart: Reset
+          promoted_assemblies: Vurgulanan kurullar
+          reset_chart: Sıfırla
         order_by_assemblies:
           assemblies:
-            one: "%{count} derleme"
-            other: "%{count} derleme"
+            one: "%{count} kurul"
+            other: "%{count} kurul"
         promoted_assembly:
           more_info: Daha fazla bilgi
           take_part: Yer almak
       assembly_navigation:
         assembly_member_menu_item: Üyeler
-        assembly_menu_item: Meclis
+        assembly_menu_item: Kurul
       assembly_widgets:
         show:
           take_part: Yer almak

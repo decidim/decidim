@@ -7,6 +7,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
 
   let(:debate) { create :debate }
   let(:organization) { debate.component.organization }
+  let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_space: debate.component.participatory_space }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
@@ -19,6 +20,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
+      scope: scope,
       category: category,
       current_organization: organization
     )
@@ -40,6 +42,11 @@ describe Decidim::Debates::Admin::UpdateDebate do
       expect(translated(debate.description)).to eq "description"
       expect(translated(debate.information_updates)).to eq "information_updates"
       expect(translated(debate.instructions)).to eq "instructions"
+    end
+
+    it "sets the scope" do
+      subject.call
+      expect(debate.scope).to eq scope
     end
 
     it "sets the category" do

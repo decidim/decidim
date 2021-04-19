@@ -34,16 +34,16 @@ ro:
             confirm: Anularea autorizărilor înainte de dată nu poate fi anulată. Sigur doriți să continuați?
             confirm_all: Revocați toate autorizațiile nu pot fi anulate. Sigur doriți să continuați?
           destroy_nok: A apărut o problemă în timpul revocării autorizațiilor.
-          destroy_ok: Toate autorizațiile potrivite au fost revocate cu succes!
+          destroy_ok: Toate autorizațiile potrivite au fost revocate.
           info: Există un total de %{count} participanți verificați.
           no_data: Niciun participant verificat
-          title: Anularea verificărilor
-        authorization_workflows: Verificări
+          title: Autorizații revocate
+        authorization_workflows: Autorizații
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} a actualizat configurația de verificare a documentelor de identitate"
+        update_id_documents_config: "%{user_name} a actualizat configurația pentru autorizarea documentelor de identitate"
       user:
-        grant_id_documents_offline_verification: "%{user_name} a verificat %{resource_name} folosind verificarea documentelor de identitate offline"
+        grant_id_documents_offline_verification: "%{user_name} a verificat %{resource_name} folosind o autorizație de identitate offline"
     authorization_handlers:
       admin:
         csv_census:
@@ -75,6 +75,10 @@ ro:
       postal_letter:
         explanation: Îți vom trimite o scrisoare poștală cu un cod pe care va trebui să-l introduci pentru a putea verifica adresa ta
         name: Cod poştal
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Participantul <a href="%{resource_path}">%{resource_title}</a> a încercat să se verifice cu datele participantului <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -131,6 +135,7 @@ ro:
             title: Date recensământ curente
           instructions:
             body: Pentru a face acest lucru, trebuie să introduceţi administrarea sistemului şi să adăugaţi autorizaţiile csv_recensământ în organizaţie
+            title: Trebuie să activați recensământul CSV pentru această organizație
           new:
             file: "fișier .csv cu date de e-mail"
             info: 'Trebuie să fie un fișier în format CSV cu o singură coloană cu adresa de e-mail:'
@@ -147,6 +152,11 @@ ro:
             few: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
             other: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
           scope: Participarea este limitată la participanții cu domeniul de aplicare %{scope_name}.
+          user_postal_codes:
+            one: Participarea este limitată la participanții cu codul poștal %{postal_codes}, iar codul poștal este %{user_postal_code}.
+            few: 'Participarea este limitată la participanții cu codul poștal %{postal_codes}, iar codul poștal este %{user_postal_code}.'
+            other: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}. Codul tău poștal este %{user_postal_code}.'
+          user_scope: Participarea este limitată la participanții cu domeniul de aplicare %{scope_name}, și domeniul dvs. de aplicare este %{user_scope_name}.
       id_documents:
         admin:
           config:

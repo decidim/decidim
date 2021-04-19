@@ -65,6 +65,10 @@ fr:
           edit:
             title: Modifier le débat
             update: Actualiser le débat
+          form:
+            debate_type: Type de débat
+            finite: Limité (Avec les heures de début et de fin)
+            open: Ouvert (pas de date de début et de fin)
           index:
             title: Débats
           new:
@@ -73,6 +77,8 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
+        exports:
+          comments: Commentaires
         models:
           debate:
             name: Débat
@@ -115,7 +121,7 @@ fr:
           my_debates: Mes débats
           official: Officielle
           origin: Origine
-          scope: Périmètre d'application
+          scope: Secteur
           search: Rechercher
           state: Statut
           state_values:
@@ -152,6 +158,7 @@ fr:
           groups_count: Groupes
           last_comment_by: Dernier commentaire par
           no_comments_yet: Pas encore de commentaire
+          open: Ouvrir le débat
           participants_count: Participants
         update:
           invalid: Une erreur s'est produite lors de la mise à jour du débat.
@@ -164,6 +171,7 @@ fr:
         versions_list:
           back_to_resource: Revenir au débat
       last_activity:
+        debate_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
         new_debate_at_html: "<span>Nouveau débat à %{link}</span>"
       models:
         debate:

@@ -60,7 +60,6 @@ id:
         file_no_exists: File tidak ada
         notice: Data Anda sedang dalam proses. Anda akan menerima email setelah selesai.
       delete:
-        alert: Tindakan ini tidak bisa dibatalkan. Jika Anda menghapus akun Anda, Anda tidak akan dapat masuk.
         confirm:
           close: Tutup jendela
           ok: Ya, saya ingin menghapus akun saya
@@ -202,8 +201,6 @@ id:
         name: Contoh otorisasi
       dummy_authorization_workflow:
         name: Alur kerja otorisasi dummy
-      errors:
-        duplicate_authorization: Pengguna sudah diotorisasi dengan data yang sama.
       expired_at: Kedaluwarsa pada %{timestamp}
       expires_at: Kedaluwarsa pada %{timestamp}
       foo_authorization:
@@ -300,7 +297,6 @@ id:
         ready: Siap
       show:
         download_data: Unduh datanya
-        download_data_description: File dengan semua informasi yang terkait dengan akun akan dikirim ke <strong>%{user_email}</strong>
         request_data: Meminta data
     datepicker:
       help_text: 'Format yang diharapkan: %{datepicker_format}'
@@ -497,7 +493,6 @@ id:
           notification_title: Halaman <a href="%{resource_path}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
     export_mailer:
       data_portability_export:
-        click_button: 'Klik tombol berikutnya untuk mengunduh data Anda. <br/> Anda akan memiliki file yang tersedia hingga %{date}.'
         download: Unduh
       export:
         ready: Silakan temukan terlampir versi zip dari ekspor Anda.
@@ -807,24 +802,7 @@ id:
         metrics:
           headline: Partisipasi dalam angka
         statistics:
-          answers_count: Survei yang Selesai
-          assemblies_count: Assemblies
-          comments_count: Komentar
-          conferences_count: Konferensi
-          debates_count: Perdebatan
-          endorsements_count: Endorsemen
           headline: Keadaan saat ini %{organization}
-          meetings_count: Rapat
-          orders_count: Suara
-          pages_count: Halaman
-          processes_count: Proses
-          projects_count: Proyek
-          proposals_accepted: Proposal yang Diterima
-          proposals_count: Proposal
-          results_count: Hasil
-          surveys_count: Survei
-          users_count: Peserta
-          votes_count: Suara
         sub_hero:
           register: Daftar
       index:
@@ -969,6 +947,8 @@ id:
         close_window: Tutup jendela
         share: Bagikan
         share_link: Membagikan tautan
+    statistics:
+      comments_count: Komentar
     user_activity:
       index:
         no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
@@ -1137,7 +1117,7 @@ id:
     messages:
       already_confirmed: sudah dikonfirmasi, silakan coba masuk
       confirmation_period_expired: perlu dikonfirmasi dalam %{period}, silakan minta yang baru
-      content_type_whitelist_error: jenis file tidak valid
+      content_type_allowlist_error: jenis file tidak valid
       cycle_detected: orang tua ruang lingkup tidak bisa menjadi salah satu keturunannya
       expired: telah kedaluwarsa, silakan minta yang baru
       file_size_is_less_than_or_equal_to: ukuran file harus kurang dari atau sama dengan %{count}

@@ -1,22 +1,24 @@
 de:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Organisationsdiagramm aktivieren
       assembly:
         area_id: Bereich
-        assembly_type: Montageart
-        assembly_type_other: Montageart andere
+        assembly_type: Versammlungstyp
+        assembly_type_other: Sonstiger Versammlungstyp
         banner_image: Banner-Bild
         closing_date: Einsendeschluss
-        closing_date_reason: Schlussdatum Grund
+        closing_date_reason: Schlussdatums Grund
         composition: Zusammensetzung
         copy_categories: Kategorien kopieren
-        copy_components: Kopieren Sie Komponenten
+        copy_components: Komponenten kopieren
         copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
         creation_date: Datum erstellt
         decidim_area_id: Bereich
-        decidim_assemblies_type_id: Montageart
+        decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -32,13 +34,13 @@ de:
         is_transparent: Ist transparent
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
-        parent_id: Elternversammlung
+        parent_id: Haupt Versammlung
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
         private_space: Privatsphäre
-        promoted: Gefördert
-        published_at: Veröffentlicht unter
+        promoted: Hervorgehoben
+        published_at: Veröffentlicht am
         purpose_of_action: Zweck der Aktion
         scope_id: Umfang
         scopes_enabled: Bereiche aktiviert
@@ -50,6 +52,7 @@ de:
         target: Wer nimmt teil?
         title: Titel
         twitter: Twitter
+        weight: Bestellposition
         youtube: Youtube
       assembly_member:
         birthday: Geburtstag
@@ -60,6 +63,7 @@ de:
         full_name: Vollständiger Name
         gender: Geschlecht
         position: Position
+        user_id: User
       assembly_user_role:
         email: Email
         name: Name
@@ -73,8 +77,8 @@ de:
   activerecord:
     models:
       decidim/assembly:
-        one: Versammlung
-        other: Baugruppen
+        one: Gre­mi­um
+        other: Gremien
       decidim/assembly_member:
         one: Gremienmitglieder
         other: Mitglieder der Versammlung
@@ -85,7 +89,7 @@ de:
     admin:
       actions:
         import_assembly: Importieren
-        new_assembly: Neue Montage
+        new_assembly: Neues Gremium
         new_assembly_type: Neuer Gremiumtyp
       assemblies:
         create:
@@ -95,12 +99,12 @@ de:
           update: Aktualisieren
         index:
           not_published: Nicht veröffentlicht
-          private: Privatgelände
-          public: Öffentlichkeit
+          private: Privat
+          public: Öffentlich
           published: Veröffentlicht
         new:
           create: Erstellen
-          title: Neue Montage
+          title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich aktualisiert.
@@ -186,7 +190,7 @@ de:
           assembly_members: Mitglieder
           attachment_collections: Ordner
           attachment_files: Dateien
-          attachments: Anlagen
+          attachments: Anhänge
           categories: Kategorien
           components: Komponenten
           info: Info
@@ -201,7 +205,7 @@ de:
         assembly:
           fields:
             created_at: Hergestellt in
-            private: Privatgelände
+            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
@@ -234,26 +238,26 @@ de:
         assemblies_types: Versammlungstypen
     admin_log:
       assembly:
-        create: "%{user_name} erstellt die %{resource_name} Assembly"
-        publish: "%{user_name} veröffentlichte das Gremium %{resource_name}"
-        unpublish: "%{user_name} unveröffentlicht die %{resource_name} Assembly"
-        update: "%{user_name} aktualisierte die %{resource_name} Assembly"
+        create: "%{user_name} hat das Gremium %{resource_name} erstellt"
+        publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
+        unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
       assembly_member:
-        create: "%{user_name} erstellt das %{resource_name} Mitglied in der %{space_name} Assembly"
-        delete: "%{user_name} entfernte das Mitglied %{resource_name} aus dem Gremium %{space_name}"
-        update: "%{user_name} hat das %{resource_name} Mitglied in der %{space_name} Assembly aktualisiert"
+        create: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} erstellt"
+        delete: "%{user_name} hat das Mitglied %{resource_name} aus dem Gremium %{space_name} entfernt"
+        update: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} aktualisiert"
       assembly_setting:
-        update: "%{user_name} aktualisierte die Versammlungseinstellungen"
+        update: "%{user_name} hat die Gremieneinstellungen aktualisiert"
       assembly_type:
-        create: "%{user_name} erstellte den Versammlungstyp %{resource_name}"
-        delete: "%{user_name} entfernte das Mitglied %{resource_name} aus dem Versammlungstyp %{space_name}"
-        publish: "%{user_name} veröffentlichte den Versammlungstyp %{resource_name}"
-        unpublish: "%{user_name} unveröffentlichte den Versammlungstyp %{resource_name}"
-        update: "%{user_name} aktualisierte den Versammlungstyp %{resource_name}"
+        create: "%{user_name} hat den Gremientyp %{resource_name} erstellt"
+        delete: "%{user_name} hat den Gremientyp %{resource_name} entfernt"
+        publish: "%{user_name} hat den Gremientyp %{resource_name} veröffentlicht"
+        unpublish: "%{user_name} hat den Gremientyp %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        update: "%{user_name} hat den Gremientyp %{resource_name} aktualisiert"
       assembly_user_role:
-        create: "%{user_name} lud %{resource_name} zur %{space_name} Versammlung ein"
-        delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Assembly"
-        update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Assembly geändert"
+        create: "%{user_name} hat %{resource_name} zum Gremium %{space_name} eingeladen"
+        delete: "%{user_name} hat %{resource_name} aus dem Gremium %{space_name} entfernt"
+        update: "%{user_name} hat die Rolle von %{resource_name} im Gremium %{space_name} geändert"
     assemblies:
       admin:
         assemblies:
@@ -267,7 +271,7 @@ de:
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
-            select_an_assembly_type: Wählen Sie einen Montagetyp
+            select_an_assembly_type: Wählen Sie einen Gremiumstyp
             select_parent_assembly: Wählen Sie die übergeordnete Baugruppe aus
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
@@ -305,6 +309,9 @@ de:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Mitglieder
@@ -318,38 +325,38 @@ de:
         working_group: Arbeitsgruppe
       content_blocks:
         highlighted_assemblies:
-          name: Hervorgehobene Baugruppen
+          name: Hervorgehobene Gremien
       created_by:
         city_council: Stadtrat
         others: Andere
-        public: Öffentlichkeit
+        public: Öffentlich
       filter:
         all: Alle Typen
         commission: Kommission
         consultative_advisory: Beratung / Beratung
         executive: Executive
         government: Regierung
-        help: 'Show:'
+        help: 'Anzeigen:'
         others: Andere
         participatory: Partizipativ
         working_group: Arbeitsgruppe
       index:
-        title: Baugruppen
+        title: Gremien
       last_activity:
-        new_assembly: Neue Montage
+        new_assembly: Neues Gremium
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktive Baugruppen
+            active_assemblies: Aktive Gremien
             assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
-            see_all_assemblies: Alle Baugruppen anzeigen
+            see_all_assemblies: Alle Gremien anzeigen
         user_profile:
           member_of:
             member_of: Mitglied von
       show:
         area: Bereich
         assembly_type: Montageart
-        children: Baugruppen
+        children: Gremien
         closing_date: Einsendeschluss
         composition: Zusammensetzung
         created_by: Erstellt von
@@ -374,23 +381,6 @@ de:
         social_networks: Soziale Netzwerke
         social_networks_title: Diese Versammlung auf teilen
         target: Wer nimmt teil?
-      statistics:
-        answers_count: Antworten
-        assemblies_count: Baugruppen
-        comments_count: Bemerkungen
-        debates_count: Debatten
-        endorsements_count: Empfehlungen
-        headline: Aktivität
-        meetings_count: Meetings
-        orders_count: Stimmen
-        pages_count: Seiten
-        posts_count: Beiträge
-        projects_count: Projekte
-        proposals_count: Vorschläge
-        results_count: Ergebnisse
-        surveys_count: Umfragen
-        users_count: Teilnehmer
-        votes_count: Stimmen
     assembly_members:
       assembly_member:
         designated_on: Bezeichnet am
@@ -404,15 +394,15 @@ de:
     events:
       assemblies:
         create_assembly_member:
-          email_intro: Ein Administrator der Versammlung <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
+          email_intro: Ein Administrator des Gremiums <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Versammlung eingeladen wurden. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um daran teilzunehmen!
-          email_subject: Sie wurden als Mitglied der Versammlung %{resource_name} eingeladen!
-          notification_title: Sie wurden als Mitglied der Versammlung <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um daran teilzunehmen!
+          email_subject: Sie wurden als Mitglied des Gremiums %{resource_name} eingeladen!
+          notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
       assembly:
         role_assigned:
-          email_intro: Sie wurden als %{role} für die Versammlung „%{resource_title}“ ausgewählt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Versammlung „%{resource_title}“ sind.
-          email_subject: Sie wurden als %{role} für „%{resource_title}“ ausgewählt.
+          email_intro: Sie wurden als %{role} für die Versammlung "%{resource_title}" ausgewählt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Versammlung "%{resource_title}" sind.
+          email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
           notification_title: Sie wurden als %{role} für die Versammlung <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
     help:
       participatory_spaces:
@@ -438,7 +428,7 @@ de:
         hero:
           participate_title: Nehmen Sie an den Prozessen der Plattform teil
         sub_hero:
-          register_title: Registrieren Sie sich, um ein Konto auf der Plattform zu erstellen
+          register_title: Benutzerkonto registrieren
     participatory_processes:
       pages:
         home:
@@ -446,6 +436,8 @@ de:
             processes_button_title: Verknüpfung zu der Prozessseite mit einem Überblick aller Prozesse
       show:
         related_assemblies: Ähnliche Versammlungen
+    statistics:
+      assemblies_count: Gremien
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein
@@ -462,7 +454,7 @@ de:
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
-            one: "%{count} Gremium"
+            one: "%{count} Gremien"
             other: "%{count} Gremien"
         promoted_assembly:
           more_info: Mehr Informationen

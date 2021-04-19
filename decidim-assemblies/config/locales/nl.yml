@@ -1,6 +1,8 @@
 nl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Organigram tonen
       assembly:
         area_id: Onderwerp
         assembly_type: Groepstype
@@ -50,6 +52,7 @@ nl:
         target: Wie neemt deel
         title: Titel
         twitter: Twitter
+        weight: Bestelpositie
         youtube: YouTube
       assembly_member:
         birthday: Geboortedatum
@@ -60,6 +63,7 @@ nl:
         full_name: Volledige naam
         gender: Geslacht
         position: Positie
+        user_id: Gebruiker
       assembly_user_role:
         email: E-mail
         name: Naam
@@ -192,7 +196,7 @@ nl:
           info: Info
           moderations: Moderaties
           private_users: Particuliere gebruikers
-        assemblies_types: Soorten Buurderijen
+        assemblies_types: Soorten groepen
       models:
         assemblies_types:
           fields:
@@ -228,7 +232,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
-            valuator: 'Waarde:'
+            valuator: Beoordelaar
       titles:
         assemblies: Groepen
         assemblies_types: Groepstype
@@ -246,7 +250,7 @@ nl:
         update: "%{user_name} heeft de instellingen van de Buurderijen bijgewerkt"
       assembly_type:
         create: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
-        delete: "%{user_name} verwijderde het %{resource_name} lid uit de %{space_name} groep"
+        delete: "%{user_name} heeft het groepstype %{resource_name} bijgewerkt"
         publish: "%{user_name} heeft de %{resource_name} groep gepubliceerd"
         unpublish: "%{user_name} heeft de publicatie van de groep %{resource_name} ongedaan gemaakt"
         update: "%{user_name} heeft de groep %{resource_name} bijgewerkt"
@@ -305,6 +309,9 @@ nl:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum aantal elementen dat kan worden weergegeven
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Leden
@@ -374,23 +381,6 @@ nl:
         social_networks: Sociale netwerken
         social_networks_title: Deze groep delen op
         target: Wie doet mee
-      statistics:
-        answers_count: Antwoorden
-        assemblies_count: Groepen
-        comments_count: Reacties
-        debates_count: Debatten
-        endorsements_count: Aanbevelingen
-        headline: Activiteit
-        meetings_count: Events
-        orders_count: Ondersteunt
-        pages_count: Pagina's
-        posts_count: Berichten
-        projects_count: Projecten
-        proposals_count: Voorstellen
-        results_count: Resultaten
-        surveys_count: Enquêtes
-        users_count: Deelnemers
-        votes_count: Ondersteunt
     assembly_members:
       assembly_member:
         designated_on: Aangewezen op
@@ -438,7 +428,7 @@ nl:
         hero:
           participate_title: Neem deel aan de processen van het platform
         sub_hero:
-          register_title: Registreer om een account op het platform aan te maken
+          register_title: Meld je aan voor een account
     participatory_processes:
       pages:
         home:
@@ -446,6 +436,8 @@ nl:
             processes_button_title: Link naar de pagina Processen die alle processen weergeeft
       show:
         related_assemblies: Verwante assemblies
+    statistics:
+      assemblies_count: Groepen
   errors:
     messages:
       cannot_be_blank: mag niet leeg zijn

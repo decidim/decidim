@@ -1,0 +1,18 @@
+<div class="filters-controls hide-for-mediumlarge">
+  <button data-open="filter-box" class="filters-controls__trigger">
+    <%= t("filter", scope: "decidim.searches.filters_small_view") %>
+    <%= icon "caret-bottom", class: "icon--small float-right", aria_label: t("unfold", scope: "decidim.searches.filters_small_view"), role: "img" %>
+  </button>
+</div>
+
+<div class="reveal" id="filter-box" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t("filter_by", scope: "decidim.searches.filters_small_view") %>:</h3>
+    <button class="close-button" data-close aria-label="<%= 't("close_modal", scope: "decidim.searches.filters_small_view")' %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="filters">
+    <%= render :filters %>
+  </div>
+</div>

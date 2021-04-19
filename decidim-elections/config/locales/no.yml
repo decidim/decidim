@@ -12,6 +12,8 @@
       actions:
         import: Importer forslag til svar
       admin:
+        exports:
+          elections: Valg
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
@@ -22,10 +24,8 @@
             other: "%{count} valg"
         show:
           preview: Forhåndsvisning
-          vote: Stem
           voting_period_status:
             finished: Stemmegivningen startet %{start_time} og opphørte %{end_time}
-            ongoing: Avstemmingen avsluttes %{end_time}
             upcoming: Avstemming begynner %{start_time}
       votes:
         confirm:
@@ -41,16 +41,10 @@
           experience: Hvordan var opplevelsen din?
           feedback: Gi oss en tilbakemelding
           header: Avstemning bekreftet
-          lead: Din stemme har allerede blitt avgitt!
           text: 'Du kan sjekke at stemmen din har blitt lagt til i stemmeboksen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: For å sjekke dette, kopier identifikatoren og lim den inn på <a href="evote-verify">kontrollsiden</a>
-        encrypting:
-          header: Krypterer stemme...
-          text: Stemmen din krypteres for å sikre at du kan avgi den anonymt.
         header:
           confirm: Bekreft stemmen din
           confirmed: Avstemning bekreftet
-          encrypting: Bekrefter stemme
         messages:
           not_allowed: Du har ikke lov til å stemme på dette valget for øyeblikket.
         modal:

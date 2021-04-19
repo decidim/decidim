@@ -21,19 +21,38 @@ is-IS:
       timeline_entry:
         description: Lýsing
         entry_date: Dagsetning
+    models:
+      decidim/accountability/proposal_linked_event: Tillögur innifalnar í þessari niðurstöðu
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Niðurstaða
+        other: Niðurstöður
   decidim:
     accountability:
       actions:
+        attachment_collections: Mappa
+        attachments: Viðhengi
         confirm_destroy: Ertu viss um að þú viljir eyða þessu %{name}?
         destroy: Eyða
         edit: Breyta
+        import_csv: Flytja inn CSV
         new: Nýtt %{name}
         preview: Preview
         timeline_entries: Verkefnisþróun
         title: Aðgerðir
       admin:
         exports:
+          result_comments: Athugasemdir
           results: Niðurstöður
+        import_results:
+          new:
+            import: Flytja inn
+            link: hlekkur
+            title: Flytja inn niðurstöður frá CSV
+        imports:
+          create:
+            success: Innflutningur skjals er hafinn. Þú munt fá bráðlega fá tölvupóst með niðurstöðunum
         models:
           result:
             name: Niðurstaða
@@ -97,11 +116,24 @@ is-IS:
         value_types:
           parent_presenter:
             not_found: 'Móðirin fannst ekki í gagnagrunninum (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Dagsetningar
+          results: Niðurstöður
+          unspecified: Ekki tilgreint
+      import_mailer:
+        import:
+          errors: Villur
+          row_number: Röð
       models:
         result:
           fields:
+            category: Flokkur
+            created_at: Stofnað
             end_date: Loka dagsetning
+            id: ID
             progress: Framfarir
+            scope: Gildissvið
             start_date: Upphafsdagur
             status: Staða
             title: Titill
@@ -115,6 +147,9 @@ is-IS:
           fields:
             description: Lýsing
             entry_date: Dagsetning
+      result_m:
+        executed: Framkvæmt
+        view: Skoða
       results:
         count:
           results_count:
@@ -145,6 +180,15 @@ is-IS:
             votes: Styður
         timeline:
           title: Verkefnisþróun
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Flokkur
+          scope_id_eq:
+            label: Gildissvið
+          status_id_eq:
+            label: Staða
     components:
       accountability:
         name: Ábyrgð
@@ -156,6 +200,8 @@ is-IS:
             heading_leaf_level_results: Nafn fyrir "Verkefni"
             heading_parent_level_results: Nafn fyrir "Úrslit"
             intro: Intro
+            scope_id: Gildissvið
+            scopes_enabled: Umfang virkt
             subcategories_label: Nafn fyrir "undirflokka"
           step:
             comments_blocked: Athugasemdir læst
@@ -166,10 +212,13 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{proposal_title}". Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Uppfærsla á %{proposal_title}
           notification_title: Tillagan <a href="%{proposal_path}">%{proposal_title}</a> hefur verið innifalinn í <a href="%{resource_path}">%{resource_title}</a> niðurstöðum.
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Niðurstöður
+    metrics:
+      results:
+        object: niðurstöður
+        title: Niðurstöður
+    participatory_spaces:
+      highlighted_results:
+        see_all: Sjá allar niðurstöður (%{count})
     resource_links:
       included_projects:
         result_project: Verkefni í þessari niðurstöðu

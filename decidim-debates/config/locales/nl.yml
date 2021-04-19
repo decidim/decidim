@@ -58,6 +58,10 @@ nl:
           edit:
             title: Bewerk debat
             update: Update debat
+          form:
+            debate_type: Type debat
+            finite: Einde (met begin- en eindtijden)
+            open: Start (geen begin- of eindtijden)
           index:
             title: Debatten
           new:
@@ -66,6 +70,8 @@ nl:
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
+        exports:
+          comments: Reacties
         models:
           debate:
             name: Debat
@@ -129,6 +135,7 @@ nl:
           back: Terug naar het overzicht
           date: 'Datum:'
           edit_debate: Bewerk debat
+          open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
           success: Debat succesvol bijgewerkt.
@@ -140,6 +147,7 @@ nl:
         versions_list:
           back_to_resource: Ga terug naar het debat
       last_activity:
+        debate_updated_at_html: "<span>Debat bijgewerkt op %{link}</span>"
         new_debate_at_html: "<span>Nieuw debat op %{link}</span>"
       models:
         debate:
@@ -191,7 +199,7 @@ nl:
         commented_debates:
           conditions:
             - Kies een open debat om deel te nemen
-          description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw opmerkingen achter te laten.
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw reacties achter te laten.
           description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           description_own: Je hebt deelgenomen aan %{score} debatten.
           name: debatten
@@ -203,3 +211,5 @@ nl:
         description: Aantal debatten gemaakt
         object: debatten
         title: debatten
+    statistics:
+      debates_count: Debatten

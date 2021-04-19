@@ -82,6 +82,8 @@ ja:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       menu:
+        components: コンポーネント
+        information: 情報
         initiatives: イニシアチブ
         initiatives_types: 取り組み種別
       models:
@@ -146,10 +148,7 @@ ja:
             email_subject: 新しいマイルストーンが完了しました！
             notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは署名の %{percentage}%を達成している。
         support_threshold_reached:
-          email_intro: イニシアチブ %{resource_title} がサポートのしきい値に達しました
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-          email_subject: サポートのしきい値に達しました
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブはサポートのしきい値に達しました
     gamification:
       badges:
         initiatives:
@@ -256,7 +255,6 @@ ja:
             update: 更新
           form:
             authorizations: 認証設定
-            child_scope_threshold_enabled_help: 'この設定フラグはオフライン投票をサポートしておらず、サブjaugesを有効にし、スコープをユーザに関連付ける権限ハンドラで動作します。 設置が間違っていないことを確認してください。正しく動作させるためには、スコープを 親1-子N の階層構造で構成する必要があります。 この設定の仕組みについての詳細は、この <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a> を参照してください。'
             only_global_scope_enabled_help: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。 これを有効にすると、取り組み作成ウィザードで取り組みタイプの選択がスキップされます。 この設定の仕組みについての詳細は、この <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a> を参照してください。'
             options: オプション
             title: 一般情報
@@ -315,10 +313,8 @@ ja:
         finish:
           back: 戻る
           back_to_initiatives: イニシアチブに戻る
-          edit_my_initiative: 自分のイニシアチブを編集
           go_to_my_initiatives: 私のイニシアチブに移動
           more_information: "(詳細)"
-          send_my_initiative: 自分のイニシアチブを送信
         previous_form:
           back: 戻る
           continue: 続ける
@@ -427,13 +423,6 @@ ja:
         print:
           city: 市区町村名
         result:
-          answer_title:
-            accepted: 'この提案は受け入れられた理由:'
-            created: この提案は作成されました
-            discarded: この提案は破棄されました
-            published: 'この提案が公開されている理由:'
-            rejected: この提案は拒否されました
-            validating: この提案は評価されています
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
           follow_description: このイニシアチブでニュースがある場合に通知を受け取る
@@ -492,12 +481,6 @@ ja:
           vote: サイン
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: 添付ファイル
-          committee_members: 委員会メンバー
-          components: コンポーネント
-          information: 情報
       initiative_creation_header:
         back: 戻る
         fill_data: 作成

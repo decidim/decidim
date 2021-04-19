@@ -12,7 +12,7 @@ de:
         instructions: Anweisungen zur Teilnahme
         start_time: Startet um
         title: Titel
-        user_group_id: Erstellen Sie eine Debatte als
+        user_group_id: Debatte erstellen als
     models:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
@@ -65,6 +65,10 @@ de:
           edit:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
+          form:
+            debate_type: Debatten-Typ
+            finite: Zeitlich begrenzt (mit Start- und Endzeit)
+            open: Offen (keine Start- und Endzeit)
           index:
             title: Debatten
           new:
@@ -73,16 +77,27 @@ de:
           update:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
+        exports:
+          comments: Kommentare
         models:
           debate:
             name: Debatte
       admin_log:
         debate:
-          create: "%{user_name} erstellt die %{resource_name} Debatte über die %{space_name} Räume"
-          update: "%{user_name} aktualisierte die %{resource_name} Debatte über die %{space_name} Räume"
+          close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
+          create: "%{user_name} hat die Debatte %{resource_name} in %{space_name} erstellt"
+          update: "%{user_name} hat die Debatte %{resource_name} in %{space_name} aktualisiert"
       debate_m:
         commented_time_ago: Vor %{time} kommentiert
       debates:
+        close:
+          invalid: Beim Beenden der Debatte ist ein Problem aufgetreten.
+          success: Debatte erfolgreich beendet.
+        close_debate_modal:
+          close: Schließen
+          description: Wie lautet die Zusammenfassung oder Schlussfolgerung dieser Debatte?
+          send: Debatte schließen
+        closed: Geschlossen
         count:
           debates_count:
             one: "%{count} Debatte"
@@ -91,17 +106,17 @@ de:
           invalid: Es gab ein Problem beim Erstellen der Debatte.
           success: Diskussion erfolgreich erstellt
         debate:
-          participate: Sich beteiligen
+          participate: Mitmachen
         edit:
           back: Zurück
           save: Änderungen speichern
           title: Debatte bearbeiten
         filters:
-          activity: Aktivität
+          activity: Meine Aktivität
           all: Alle
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
-          citizens: Bürger
+          citizens: Einzelpersonen
           commented: Kommentiert
           my_debates: Meine Debatten
           official: Offiziell
@@ -130,12 +145,21 @@ de:
           commented: Am meisten kommentiert
           label: Debatten sortieren nach
           random: Zufällige Reihenfolge
-          recent: Neueste
+          recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
           back: Zurück zur Liste
+          close_debate: Debatte schließen
           date: Datum
+          debate_closed: Geschlossen
+          debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
+          edit_conclusions: Schlussfolgerungen bearbeiten
           edit_debate: Debatte bearbeiten
+          groups_count: Gruppen
+          last_comment_by: Letzter Kommentar von
+          no_comments_yet: Noch keine Kommentare
+          open: Offene Debatte
+          participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
           success: Debatte erfolgreich aktualisiert.
@@ -147,6 +171,7 @@ de:
         versions_list:
           back_to_resource: Zurück zur Debatte
       last_activity:
+        debate_updated_at_html: "<span>Debatte aktualisiert unter %{link}</span>"
         new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:
         debate:
@@ -161,27 +186,38 @@ de:
           space_followers:
             email_intro: |-
               Hallo,
-              Eine neue Debatte "%{resource_title}" wurde auf den %{space_title} Partizipationsräumen erstellt, check it out und trage mit:
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie dem %{space_title} Teilnahmebereich folgen. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-            email_subject: Neue Debatte "%{resource_title}" am %{space_title}
-            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Debatte wurde am <a href="%{space_path}">%{space_title}</a>.
+              Eine neue Debatte "%{resource_title}" wurde in %{space_title} erstellt, sehen Sie es sich an und reden Sie mit:
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Neue Debatte "%{resource_title}" in %{space_title}
+            notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde in <a href="%{space_path}">%{space_title}</a> erstellt.
           user_followers:
             email_intro: |-
               Hallo,
-              %{author_name} %{author_nickname}, dem Sie folgen, hat eine neue Debatte "%{resource_title}" erstellt. Überprüfen Sie es und tragen Sie bei:
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+              %{author_name} %{author_nickname}, dem Sie folgen, hat eine neue Debatte "%{resource_title}" erstellt. Sehen Sie es sich an und reden Sie mit:
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Neue Debatte "%{resource_title}" von %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die <a href="%{resource_path}">%{resource_title}</a> Debatte geschaffen.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die Debatte <a href="%{resource_path}">%{resource_title}</a> erstellt.
         creation_disabled:
-          email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title}nicht mehr aktiv. Sie können weiterhin an offenen Debatten von dieser Seite teilnehmen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Die Erstellung von Debatten wurde in %{participatory_space_title}deaktiviert
-          notification_title: Die Erstellung von Debatten ist jetzt in <a href="%{participatory_space_url}">%{participatory_space_title}</a>deaktiviert
+          email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title} nicht mehr aktiviert. Sie können weiterhin an offenen Debatten teilnehmen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Erstellung von Debatten wurde in %{participatory_space_title} deaktiviert
+          notification_title: Die Erstellung von Debatten ist jetzt in <a href="%{participatory_space_url}">%{participatory_space_title}</a> deaktiviert
         creation_enabled:
-          email_intro: 'Sie können jetzt neue Debatten in %{participatory_space_title}! Starten Sie die Teilnahme an dieser Seite:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Debatten jetzt in %{participatory_space_title}verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+          email_intro: 'Sie können jetzt neue Debatten in %{participatory_space_title} eröffnen! Beteiligen Sie sich auf dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Debatten jetzt in %{participatory_space_title} verfügbar
+          notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> starten
+        debate_closed:
+          affected_user:
+            email_intro: 'Die Debatte "%{resource_title}" wurde beendet. Sie können die Resultate auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Debatte "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Die "%{resource_title}" Debatte wurde beendet
+            notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde beendet.
+          follower:
+            email_intro: 'Die Debatte "%{resource_title}" wurde beendet. Sie können die Resultate auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Debatte "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Die "%{resource_title}" Debatte wurde beendet
+            notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde beendet.
     gamification:
       badges:
         commented_debates:
@@ -191,11 +227,13 @@ de:
           description_another: Dieser Benutzer hat an %{score} Debatten teilgenommen.
           description_own: Sie haben an %{score} Debatten teilgenommen.
           name: Debatten
-          next_level_in: Nimm an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
+          next_level_in: Nehmen Sie an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.
-          unearned_own: Sie haben bereits an Debatten teilgenommen.
+          unearned_own: Sie haben bisher an keiner Debatte teilgenommen.
     metrics:
       debates:
         description: Anzahl der erstellten Debatten
         object: Debatten
         title: Debatten
+    statistics:
+      debates_count: Debatten

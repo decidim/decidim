@@ -33,7 +33,6 @@ sk:
       decidim/profile_updated_event: Profil aktualizovaný
       decidim/promote_to_admin: Povýšený na správcu skupiny
       decidim/removed_from_group: Odstránený zo skupiny
-      decidim/resource_endorsed_event: Zdroj podporený
   activerecord:
     attributes:
       decidim/user:
@@ -87,7 +86,6 @@ sk:
         file_no_exists: Súbor neexistuje
         notice: Sťahovanie Vašich dát momentálne prebieha. Po dokončení dostanete e-mail.
       delete:
-        alert: Táto akcia sa nedá vrátiť späť. Ak odstránite svoj účet, nebudete sa viac môcť prihlásiť.
         confirm:
           close: Zavrieť okno
           ok: Áno, chcem zmazať účet
@@ -248,7 +246,6 @@ sk:
       photos:
         related_photos: Súvisiace fotografie
     author:
-      avatar: Avatar
       comments:
         one: komentár
         few: komentáre
@@ -274,8 +271,6 @@ sk:
         name: Príklad autorizácie
       dummy_authorization_workflow:
         name: Pracovný postup autorizácie
-      errors:
-        duplicate_authorization: Účastník je už autorizovaný s rovnakými dátami.
       expired_at: Platnosť vypršala v %{timestamp}
       expires_at: Platnosť vyprší v %{timestamp}
       foo_authorization:
@@ -398,7 +393,6 @@ sk:
         ready: Pripravený
       show:
         download_data: Stiahnuť dáta
-        download_data_description: Súbor so všetkými informáciami pridruženými k účtu bude odoslaný na <strong>%{user_email} </strong>
         request_data: Vyžiadať dáta
     datepicker:
       help_text: 'Očakávaný formát:%{datepicker_format}'
@@ -408,7 +402,6 @@ sk:
           email_already_exists: Iný účet používa rovnakú e-mailovú adresu
         new:
           complete_profile: Kompletné profil
-          nickname_help: Vaša prezývka v %{organization}
           sign_up: Prosím, vyplňte svoj profil
           subtitle: Pre dokončenie registrácie vyplňte prosím nasledujúci formulár
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu môže byť akékoľvek meno.
@@ -417,7 +410,6 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          nickname_help: Vaša prezývka v %{organization}
           password_help: "%{minimun_characters} minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
           sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
@@ -603,7 +595,6 @@ sk:
           notification_title: <a href="%{resource_path}"> profilová stránka </a> od%{name} (%{nickname}), ktorú sledujete, bola aktualizovaná.
     export_mailer:
       data_portability_export:
-        click_button: 'Kliknite na tlačítko pre stiahnutie Vašich dát. <br/> Súbor bude dostupný do %{date}. <br/> Budete potrebovať <a href=''https://www.7-zip.org/''>7-Zip software</a> na jeho otvorenie a rozbalenie. Heslo: %{password}'
         download: Stiahnutie
       export:
         ready: V prílohe nájdete exportovanú exportovanú verziu.
@@ -633,7 +624,6 @@ sk:
       create:
         button: Sledovať
         error: Pri sledovaní tohto zdroja sa vyskytla chyba.
-        participatory_space: Už sledujete participatívny priestor
       destroy:
         button: Ukončiť sledovanie
         error: Pri sledovaní tohto zdroja sa vyskytla chyba.
@@ -837,7 +827,6 @@ sk:
           title: Odpověď
         show:
           chat_with: Konverzácia s
-          not_allowed: Tento používateľ neprijíma žiadne priame správy.
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
@@ -949,24 +938,7 @@ sk:
         metrics:
           headline: Metrika
         statistics:
-          answers_count: Dokončené prieskumy
-          assemblies_count: Zostavy
-          comments_count: Komentáre
-          conferences_count: Konferencia
-          debates_count: Debaty
-          endorsements_count: Potvrdenie
           headline: Aktuálny stav %{organization}
-          meetings_count: Stretnutie
-          orders_count: Hlasy
-          pages_count: Stránky
-          processes_count: Procesy
-          projects_count: Projekty
-          proposals_accepted: Prijaté návrhy
-          proposals_count: Návrhy
-          results_count: Výsledok
-          surveys_count: Prieskumy
-          users_count: Účastníci
-          votes_count: Hlasy
         sub_hero:
           register: Registrovať
       index:
@@ -1118,6 +1090,8 @@ sk:
         close_window: Zátvor okno
         share: Zdieľať
         share_link: Zdieľať odkaz
+    statistics:
+      comments_count: Komentáre
     user_activity:
       index:
         no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
@@ -1296,7 +1270,7 @@ sk:
     messages:
       already_confirmed: bolo už potvrdené, skúste prosím prihlásiť
       confirmation_period_expired: musí byť potvrdené v rámci %{period}, požiadajte o nový
-      content_type_whitelist_error: typ súboru nie je platný
+      content_type_allowlist_error: typ súboru nie je platný
       cycle_detected: rodič odbore nemôže byť jedným z jeho potomkov
       expired: uplynula, požiadajte o novú
       file_size_is_less_than_or_equal_to: veľkosť súboru musí byť menšia alebo rovná%{count}

@@ -1,9 +1,0 @@
-# Open Data
-
-In order for users to be able to download Open Data files they have to be generated previously, since generating them on the fly would take too much time and resources.
-
-You should schedule this command to be run everyday, using `cron` or `whenever` or your favorite tool:
-
-```ruby
-  bundle exec rake decidim:open_data:export
-```

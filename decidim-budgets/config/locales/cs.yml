@@ -6,7 +6,7 @@ cs:
         description: Popis
         title: Název
         total_budget: Celkový rozpočet
-        weight: Váha
+        weight: Pozice v řazení
       project:
         budget_amount: Částka rozpočtu
         decidim_category_id: Kategorie
@@ -47,13 +47,19 @@ cs:
             title: Upravit rozpočet
             update: Aktualizovat rozpočet
           index:
+            finished_orders: Dokončené hlasy
+            pending_orders: Čekající hlasy
             title: Rozpočty
+            users_with_finished_orders: Uživatelé s dokončenými hlasy
+            users_with_pending_orders: Uživatelé s čekajícími hlasy
           new:
             create: Vytvořit rozpočet
             title: Nový rozpočet
           update:
             invalid: Při aktualizaci tohoto rozpočtu došlo k chybě
             success: Rozpočet byl úspěšně aktualizován
+        exports:
+          projects: Projekty
         models:
           budget:
             name: Rozpočet
@@ -69,7 +75,7 @@ cs:
             title: Upravit projekt
             update: Aktualizace
           index:
-            finished_orders: Hotové hlasy
+            finished_orders: Dokončené hlasy
             pending_orders: Čeká na hlasování
             selected: Vybrané
             title: Projekty
@@ -87,6 +93,7 @@ cs:
             create: Návrhy na projekty
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             select_component: Vyberte součást
+            title: Importovat návrhy
       admin_log:
         budget:
           create: "%{user_name} vytvořil %{resource_name} rozpočet ve skupině %{space_name}"
@@ -103,6 +110,9 @@ cs:
         close_modal: Zavřít okno
         continue: Pokračovat
         more_information: Více informací
+      budget_list_item:
+        voting_finished: Hlasovali jste v tomto rozpočtu
+        voting_started: Začali jste hlasovat v tomto rozpočtu
       budgets_list:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
@@ -244,7 +254,7 @@ cs:
                 budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
-            projects_per_page: Projekty na stránku
+            projects_per_page: Počet projektů na stránku
             resources_permissions_enabled: Oprávnění k akcím lze nastavit pro každý projekt
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
@@ -254,8 +264,8 @@ cs:
             vote_rule_minimum_budget_projects_enabled: 'Povolit pravidlo: Minimální počet projektů, o kterých se má hlasovat'
             vote_rule_selected_projects_enabled: 'Povolit pravidlo: Vybrané projekty s minimálním a maximálním počtem projektů, o kterých se má hlasovat'
             vote_rule_threshold_percent_enabled: 'Povolit pravidlo: minimální procento rozpočtu'
-            vote_selected_projects_maximum: Minimální počty projektů, které mají být vybrány
-            vote_selected_projects_minimum: Maximální počty projektů, které mají být vybrány
+            vote_selected_projects_maximum: Maximální počet projektů, které mají být vybrány
+            vote_selected_projects_minimum: Minimální počet projektů, které mají být vybrány
             vote_threshold_percent: Prahová hodnota pro hlasování v procentech
             workflow: Pracovní postup
             workflow_choices:
@@ -284,13 +294,16 @@ cs:
           notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     orders:
       checkout:
-        error: Při zpracování hlasu došlo k chybě
+        error: Při zpracování vašeho hlasování došlo k potížím
         success: Váš hlas byl úspěšně přijat
       destroy:
         error: Při rušení vašeho hlasování došlo k chybě
         success: Váš hlas byl úspěšně zrušen
     resource_links:
       included_proposals:
-        project_proposal: 'Návrhy zahrnuté do tohoto projektu:'
+        project_proposal: Návrhy zahrnuté do tohoto projektu
+    statistics:
+      orders_count: Podpory
+      projects_count: Projekty
   index:
     confirmed_orders_count: Počet hlasů

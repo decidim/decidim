@@ -61,6 +61,19 @@ module Decidim
         let(:follower) { create(:user, organization: organization) }
         let!(:follow) { create :follow, followable: author, user: follower }
 
+        it "doesn't notify author about committee request" do
+          expect(Decidim::EventsManager)
+            .not_to receive(:publish)
+            .with(
+              event: "decidim.events.initiatives.spawn_committee_request",
+              event_class: Decidim::Initiatives::SpawnCommitteeRequest,
+              resource: Decidim::Initiative.last,
+              followers: [author]
+            )
+
+          subject.call
+        end
+
         it "notifies the creation" do
           expect(Decidim::EventsManager)
             .to receive(:publish)

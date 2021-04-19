@@ -23,6 +23,17 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
 
+      describe "newsletter participants" do
+        subject { Decidim::Proposals::Proposal.newsletter_participant_ids(proposal.component) }
+
+        let!(:component_out_of_newsletter) { create(:proposal_component, organization: organization) }
+        let!(:resource_out_of_newsletter) { create(:proposal, component: component_out_of_newsletter) }
+        let!(:resource_in_newsletter) { create(:proposal, component: proposal.component) }
+        let(:author_ids) { proposal.notifiable_identities.pluck(:id) + resource_in_newsletter.notifiable_identities.pluck(:id) }
+
+        include_examples "counts commentators as newsletter participants"
+      end
+
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)
       end
@@ -183,6 +194,21 @@ module Decidim
           let(:proposal) { build :proposal, updated_at: 10.minutes.ago, component: component, users: [author] }
 
           it { is_expected.not_to be_editable_by(author) }
+        end
+
+        context "when proposal edit time is infinite" do
+          before do
+            component[:settings]["global"] = { proposal_edit_time: "infinite" }
+            component.save!
+          end
+
+          let(:proposal) { build :proposal, updated_at: 10.years.ago, component: component, users: [author] }
+
+          it do
+            proposal.add_coauthor(author)
+            proposal.save!
+            expect(proposal).to be_editable_by(author)
+          end
         end
       end
 

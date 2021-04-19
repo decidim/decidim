@@ -177,6 +177,57 @@ module Decidim::Meetings
 
         it { is_expected.to be_resource_visible }
       end
+
+      context "when Meeting is moderated" do
+        let!(:moderation) { create(:moderation, :hidden, reportable: meeting) }
+
+        before { subject.reload }
+
+        it { is_expected.not_to be_resource_visible }
+      end
+    end
+
+    describe "#salt" do
+      it "salt is empty before saving" do
+        expect(subject.salt).not_to be_present
+      end
+
+      context "when is created" do
+        before do
+          meeting.save!
+        end
+
+        it "has a salt defined" do
+          expect(subject.salt).to be_present
+        end
+      end
+
+      context "when is updated" do
+        let!(:meeting) { create :meeting }
+
+        context "and salt is empty" do
+          before do
+            meeting.start_time = 1.day.from_now
+            meeting.salt = ""
+            meeting.save!
+          end
+
+          it "salt remains empty" do
+            expect(subject.salt).not_to be_present
+          end
+        end
+
+        context "and salt is present" do
+          before do
+            meeting.start_time = 1.day.from_now
+            meeting.save!
+          end
+
+          it "salt remains the same" do
+            expect(subject.salt).to be_present
+          end
+        end
+      end
     end
 
     describe "pad_is_visible?" do
@@ -277,6 +328,74 @@ module Decidim::Meetings
       context "when future meeting" do
         it "returns false" do
           expect(subject.past?).to be false
+        end
+      end
+    end
+
+    describe "#has_contributions?" do
+      context "when the meeting has contributions" do
+        let(:meeting) { build :meeting, contributions_count: 10 }
+
+        it "returns true" do
+          expect(subject.has_contributions?).to be true
+        end
+      end
+
+      context "when the meeting does not have contributions" do
+        let(:meeting) { build :meeting }
+
+        it "returns false" do
+          expect(subject.has_contributions?).to be false
+        end
+      end
+    end
+
+    describe "#has_attendees?" do
+      context "when the meeting has attendees" do
+        let(:meeting) { build :meeting, attendees_count: 10 }
+
+        it "returns true" do
+          expect(subject.has_attendees?).to be true
+        end
+      end
+
+      context "when the meeting does not have attendees" do
+        let(:meeting) { build :meeting }
+
+        it "returns false" do
+          expect(subject.has_attendees?).to be false
+        end
+      end
+    end
+
+    describe "#authored_proposals" do
+      let(:meeting) { create(:meeting, address: address, component: meeting_component) }
+      let(:meeting_component) { create(:meeting_component) }
+      let(:proposal_component) { create(:proposal_component, participatory_space: meeting_component.participatory_space) }
+      let!(:proposals) do
+        proposals = build_list(:proposal, 5, component: proposal_component)
+        proposals.each do |proposal|
+          proposal.coauthorships.clear
+          proposal.coauthorships.build(author: meeting)
+          proposal.save!
+        end
+        proposals
+      end
+      let!(:proposals_outside_meeting) { create_list(:proposal, 5, component: proposal_component) }
+
+      it "returns the proposals authored in the meeting" do
+        expect(subject.authored_proposals.count).to eq(5)
+        expect(subject.authored_proposals.map(&:id)).to match_array(proposals.map(&:id))
+      end
+
+      context "when proposal linking is disabled" do
+        before do
+          allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+        end
+
+        it "returns an empty array and does not call authored_proposals" do
+          expect(Decidim::Proposals::Proposal).not_to receive(:where)
+          expect(subject.authored_proposals).to eq([])
         end
       end
     end

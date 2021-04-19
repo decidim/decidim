@@ -21,7 +21,13 @@ module Decidim
       # them they are not authorized.
       def user_has_no_permission
         flash[:alert] = t("actions.unauthorized", scope: "decidim.core")
-        redirect_to(request.referer || user_has_no_permission_path)
+        redirect_to(user_has_no_permission_referer || user_has_no_permission_path)
+      end
+
+      def user_has_no_permission_referer
+        return if request.referer == request.original_url
+
+        request.referer
       end
 
       def user_has_no_permission_path

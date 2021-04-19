@@ -1,17 +1,72 @@
-<div class="row column">
-  <%= form.translated :text_field, :name, autofocus: true %>
-</div>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".title") %></h2>
+  </div>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
 
-<div class="row column">
-  <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
-</div>
+    <div class="row column">
+      <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
+    </div>
 
-<div class="row column">
-  <% if processes_for_select %>
-    <%= form.select :participatory_process_ids, processes_for_select, {}, { multiple: true, class: "chosen-select" } %>
-  <% end %>
-</div>
+    <div class="row column">
+      <% if processes_for_select %>
+        <%= form.select :participatory_process_ids, processes_for_select, {}, { multiple: true, class: "chosen-select" } %>
+      <% end %>
+    </div>
 
-<div class="row column">
-  <%= form.upload :hero_image %>
+    <div class="row column">
+      <%= form.upload :hero_image %>
+    </div>
+  </div>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".metadata") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.text_field :hashtag %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :group_url %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :developer_group %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :local_area %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :meta_scope %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :target %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :participatory_scope %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :participatory_structure %>
+    </div>
+  </div>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".visibility") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.check_box :promoted %>
+    </div>
+  </div>
 </div>

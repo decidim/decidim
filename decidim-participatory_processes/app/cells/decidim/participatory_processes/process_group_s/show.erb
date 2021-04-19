@@ -1,0 +1,8 @@
+<div class="column" id="<%= dom_id(model) %>">
+  <%= link_to resource_path, class: "card card--process card--stack card--mini" do %>
+    <%= render :image if has_image? %>
+    <div class="card__content">
+      <span class="card__title card__link"><%= title %></span>
+    </div>
+  <% end %>
+</div>

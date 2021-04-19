@@ -16,9 +16,11 @@
       <%= translated_attribute proposal.category.name %>
     <% end %>
   </td>
+
   <%= td_resource_scope_for(proposal.scope) %>
+
   <td>
-    <strong class="<%= proposal_state_css_class proposal.state %>">
+    <strong class="<%= proposal_state_css_class proposal %>">
       <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
       <%= proposal_complete_state proposal %>
     </strong>

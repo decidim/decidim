@@ -23,7 +23,6 @@ sk:
       component:
         name: Meno
         published_at: Publikované na
-        weight: Váha
       id: ID
       newsletter:
         body: Telo textu
@@ -90,12 +89,10 @@ sk:
         show_in_footer: Zobraziť v päte
         slug: URL krátky odkaz
         title: Názov
-        weight: Váha
       static_page_topic:
         description: Popis
         show_in_footer: Zobraziť v päte
         title: Názov
-        weight: Váha
       user_group_csv_verification:
         file: Súbor
     errors:
@@ -137,7 +134,6 @@ sk:
           error: Pri odsúhlasení podmienok použitia nastala chyba.
           success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
         actions:
-          accept: Súhlasím s týmito podmienkami použitia.
           are_you_sure: Ste si istí, že chcete odmietnuť podmienky použitia pre administrátorov?
           refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
           title: Súhasím s podmienkami použitia.

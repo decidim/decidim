@@ -1,0 +1,16 @@
+= Configuring
+
+Decidim is a Ruby on Rails library, and as such we try to follow their conventions. Please read https://guides.rubyonrails.org/configuring.html[Configuring Rails Applications].
+
+Just as a reminder, these files are important:
+
+* config/database.yml
+* config/secrets.yml
+
+Although most of these settings you can change them through xref:configure:environment_variables.adoc[Environment Variables].
+
+You also have more settings in:
+
+* xref:configure:initializer.adoc[Decidim initializer file].
+* System panel.
+

@@ -1,6 +1,8 @@
 fi-pl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Ota organisaatiokaavio käyttöön
       assembly:
         area_id: Alue
         assembly_type: Ryhmän tyyppi
@@ -24,7 +26,7 @@ fi-pl:
         duration: Kesto
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         included_at: Mukana osoitteessa
         instagram: Instagram
@@ -50,6 +52,7 @@ fi-pl:
         target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
+        weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
@@ -60,6 +63,7 @@ fi-pl:
         full_name: Koko nimi
         gender: Sukupuoli
         position: Asema
+        user_id: Käyttäjä
       assembly_user_role:
         email: Sähköposti
         name: Nimi
@@ -246,7 +250,7 @@ fi-pl:
         update: "%{user_name} päivitti ryhmän asetuksia"
       assembly_type:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
-        delete: "%{user_name} poisti käyttäjän %{resource_name} ryhmätyypistä %{space_name}"
+        delete: "%{user_name} poisti ryhmätyypin %{resource_name}"
         publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
         unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
         update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
@@ -377,23 +381,6 @@ fi-pl:
         social_networks: Sosiaalinen media
         social_networks_title: Jaa tämä ryhmä
         target: Kuka osallistuu
-      statistics:
-        answers_count: Vastaukset
-        assemblies_count: Ryhmiä
-        comments_count: Kommentteja
-        debates_count: Keskusteluja
-        endorsements_count: Suosituksia
-        headline: Tilastot
-        meetings_count: Tapaamisia
-        orders_count: Ääniä
-        pages_count: Sivuja
-        posts_count: Artikkeleja
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
-        votes_count: Ääniä
     assembly_members:
       assembly_member:
         designated_on: Nimetty
@@ -441,7 +428,7 @@ fi-pl:
         hero:
           participate_title: Osallistu palvelun prosesseihin
         sub_hero:
-          register_title: Kirjaudu sisään tai luo tili alustalle
+          register_title: Rekisteröidy luodaksesi itsellesi oman tilin
     participatory_processes:
       pages:
         home:
@@ -449,6 +436,8 @@ fi-pl:
             processes_button_title: Linkki kaikkien prosessien sivulle
       show:
         related_assemblies: Liittyvät ryhmät
+    statistics:
+      assemblies_count: Ryhmää
   errors:
     messages:
       cannot_be_blank: ei voi olla tyhjä

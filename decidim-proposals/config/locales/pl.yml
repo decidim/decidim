@@ -148,6 +148,10 @@ pl:
             participatory_texts_enabled_readonly: Nie można korzystać z tego ustawienia, jeśli są już propozycje. Utwórz nowy komponent propozycji, jeśli chcesz włączyć tę funkcję, lub odrzuć wszystkie zaimportowane propozycje w menu „Kolektywna Legislacja”, jeśli chcesz ją wyłączyć.
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tylu minut
+            proposal_edit_time: Edycja propozycji
+            proposal_edit_time_choices:
+              infinite: Zezwalaj na edycję propozycji przez nieograniczony czas
+              limited: Zezwalaj na edycję propozycji przez określony czas
             proposal_length: Maksymalna długość treści propozycji
             proposal_limit: Limit propozycji na użytkownika
             proposal_wizard_step_1_help_text: 'Tekst pomocy Kreatora - krok: "Utwórz"'
@@ -347,10 +351,6 @@ pl:
         description: Liczba uzyskanych wsparć dla propozycji
         object: wsparcia
         title: Wsparcia
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propozycje
     participatory_spaces:
       highlighted_proposals:
         see_all: Zobacz wszystkie propozycje (%{count})
@@ -367,7 +367,7 @@ pl:
         actions:
           preview: Podgląd
         exports:
-          comments: Komentarze
+          proposal_comments: Komentarze
           proposals: Propozycje
         models:
           proposal:
@@ -391,7 +391,9 @@ pl:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
+            document_legend: 'Dodaj dokument mniejszy niż 2MB, każda sekcja, aż do 3 poziomu, zostanie przekowertowana w propozycję. Wspierane formaty to: %{valid_mime_types}'
             title: Dodaj dokument
             upload_document: Prześlij dokument
           publish:
@@ -412,7 +414,7 @@ pl:
             title: Odpowiedź na propozycję %{title}
         proposal_notes:
           create:
-            error: Wystąpił problem podczas tworzenia tej notatki dotyczącej propozycji
+            error: Wystąpił błąd podczas tworzenia tej notatki dotyczącej propozycji
             success: Notatka dotycząca propozycji została utworzona
           form:
             note: Notatka
@@ -432,6 +434,7 @@ pl:
           form:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             created_in_meeting: Ta propozycja pochodzi ze spotkania
+            delete_attachment: Usuń załącznik
             select_a_category: Wybierz kategorię
             select_a_meeting: Wybierz spotkanie
           index:
@@ -508,6 +511,7 @@ pl:
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
             select_component: Wybierz komponent
             select_states: Sprawdź statusy propozycji do zaimportowania
+            title: Importuj propozycje
         proposals_merges:
           create:
             invalid: Podczas łączenia wybranych propozycji wystąpił błąd.
@@ -580,13 +584,6 @@ pl:
               ok: Wycofaj wspólny szkic
               title: Poniższe działanie jest nieodwracalne
             success: Wspólny szkic został wycofany.
-        compare:
-          mine_is_different: Mój wspólny szkic jest inny
-          no_similars_found: Dobra robota! Nie znaleziono podobnych wspólnych szkiców
-          title: Podobne wspólne szkice
-        complete:
-          send: Wyślij
-          title: Uzupełnij swój wspólny szkic
         count:
           drafts_count:
             one: "%{count} wspólny szkic"
@@ -614,13 +611,12 @@ pl:
           state: Status
           withdrawn: Wycofane
         filters_small_view:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
         new:
           send: Dalej
-          title: Utwórz swój wspólny szkic
         new_collaborative_draft_button:
           new_collaborative_draft: Nowy wspólny szkic
         orders:
@@ -667,23 +663,14 @@ pl:
         update:
           error: Wystąpił błąd podczas zapisywania wspólnego szkicu.
           success: Zaktualizowano wspólny szkic.
-          title: Edytuj wspólny szkic
         wizard_aside:
-          back: Wróć
           back_from_collaborative_draft: Powrót do wspólnych szkiców
-          back_from_step_1: Powrót do wspólnych szkiców
-          back_from_step_2: Powrót do wspólnych szkiców
-          back_from_step_3: Powrót do porównania wspólnych szkiców
-          back_from_step_4: Wróć do edycji szkicu
           info: Tworzysz <strong>wspólny szkic</strong>.
-        wizard_steps:
-          current_step: Bieżący krok
-          see_steps: zobacz kroki
-          step_1: Utwórz swój wspólny szkic
-          step_2: Porównaj ze wspólnymi szkicami
-          step_3: Uzupełnij swój wspólny szkic
-          step_of: Krok %{current_step_num} z %{total_steps}
-          title: Kroki tworzenia wspólnego szkicu
+        wizard_header:
+          title: Utwórz swój wspólny szkic
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propozycje
       create:
         error: Podczas zapisywania propozycji wystąpił błąd.
         success: Propozycja została utworzona. Zapisano jako szkic.
@@ -692,6 +679,7 @@ pl:
         success: Szkic propozycji został usunięty.
       last_activity:
         new_proposal_at_html: "<span>Nowa propozycja pod %{link}</span>"
+        proposal_updated_at_html: "<span>Wniosek zaktualizowany o %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -738,9 +726,16 @@ pl:
             few: "%{count} propozycji"
             many: "%{count} propozycji"
             other: "%{count} propozycji"
+        dynamic_map_instructions:
+          instructions: <h3>Możesz przesunąć punkt na mapie. </h3><p>Nie zapomnij kliknąć na przycisk "Aktualizuj pozycję" przed opublikowaniem propozycji.</p>
         edit:
+          add_documents: Dokumenty
+          add_images: Plik
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          delete_document: Usuń dokument
+          delete_image: Usuń obraz
+          gallery_legend: "(Opcjonalnie) Dodaj obraz do karty propozycji"
           select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
@@ -763,7 +758,7 @@ pl:
           type: Typ
           voted: Wsparte
         filters_small_view:
-          close_modal: Zamknij modal
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
@@ -795,7 +790,11 @@ pl:
             document_index: Indeks dokumentu
           view_index:
             see_index: Zobacz indeks
+        placeholder:
+          address: ul. Żeromskiego 31, 81-346 Gdynia
         preview:
+          announcement_body: Twoja propozycja została zapisana jako wersja robocza. Musi zostać opublikowana, aby pojawiła się na stronie.
+          announcement_title: Twoja propozycja nie została jeszcze opublikowana
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
             one: Będziesz mógł edytować tę propozycję w pierwszej minucie po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
@@ -804,6 +803,7 @@ pl:
             other: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
           publish: Publikuj
           title: Opublikuj swoją propozycję
+          update_position: Aktualizuj pozycję
         proposal:
           creation_date: 'Utworzono: %{date}'
           view_proposal: Zobacz propozycję
@@ -924,3 +924,6 @@ pl:
       included_proposals:
         proposal_project: 'Propozycja występująca w tych projektach:'
         proposal_result: 'Propozycja pojawiająca się w tych wynikach:'
+    statistics:
+      proposals_accepted: Przyjęte propozycje
+      proposals_count: Propozycje

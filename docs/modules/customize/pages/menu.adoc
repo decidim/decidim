@@ -1,0 +1,81 @@
+= Menu
+
+The menu also known as Navigation Bar, is the main way of navigation by Decidim.
+
+image::menu.png[Decidim Menu]
+
+After you install Decidim you can see it in several ways, depending on:
+
+. Which modules do you have activated
+. Which contents do you have in your database
+
+If you have the default modules and no contents, then you'll only see Home and Help.
+
+Depending in the kind of space and module, then you can see or not some of the spaces:
+
+- For participatory processes, it appears when there's some published content by an administrator.
+- For assemblies, it appears when there's some published content by an administrator.
+- For consultations, you need to enable the module and it appears when there's some published content by an administrator.
+- For conferences, you need to enable the module and it appears when there's some published content by an administrator.
+- For initiatives, you need to enable the module. Every participant can see it, as anyone can create one. That's because is a bottom-up kind of mechanism.
+
+Starting with 0.25.dev, Decidim Menu Api has been modified, in order to improve developer and administrators experience.
+The changes on the menu has deprecated the previous `menu.item` call, in favour of `menu.add_item` that has the following structure:
+[source,ruby]
+....
+menu.add_item :identifier, # String or symbol to uniquely define the menu
+              link_caption,
+              link_path or url
+              options: {
+                position: # Optional,
+                if: # Optional,
+                active: # Optional,
+                icon_name: # Optional ,
+                submenu: # Optional,
+              }
+....
+
+
+Additionally, the new menu api will allow to interact with the menu in several ways:
+[source,ruby]
+....
+Decidim.menu :user_menu do |menu|
+  menu.remove_item :identifier
+  menu.move :identifier, after: :anchor_identifier
+  menu.move :identifier, before: :anchor_identifier
+end
+....
+
+
+== Example usage:
+Starting from a default menu like:
+
+image::original_user_menu.png[Decidim Menu]
+
+After applying the below initializer, the menu rendering will be modified to:
+[source,ruby]
+....
+# config/initializers/decidim.user_menu.rb
+
+Decidim.menu :user_menu do |menu|
+  menu.remove_item :user_interests
+  menu.move :own_user_groups, after: :account
+  menu.move :authorizations, before: :notifications_settings
+end
+....
+
+image::modified_user_menu.png[Decidim Menu]
+
+== The menu Structure
+Decidim uses internally a number of menus that are being used in various admin sections.
+Those menus are being defined inside the engine or admin_engine file of a decidim module.
+The menus are being defined as `Decidim.menu :identifier`. In order to render those menus, there are a number of methods that can be used:
+
+- main_menu in admin section
+- sidebar_menu will render the secondary admin section
+- simple_menu will render any submenus
+
+There's also a https://github.com/OpenSourcePolitics/decidim-module-navbar_links[NavBar links module] made by the community that you can use to add your custom links.
+
+Finally if you want to dive in the code that handles this, a good starting point is the https://rubydoc.info/github/decidim/decidim/develop/Decidim/Menu[Menu API].
+

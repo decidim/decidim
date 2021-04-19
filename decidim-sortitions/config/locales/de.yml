@@ -27,17 +27,10 @@ de:
     events:
       sortitions:
         sortition_created:
-          email_intro: Die Sortierung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
+          email_intro: Die Auslosung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neue Sortierung wurde zu %{participatory_space_title}hinzugefügt
-          notification_title: Die Sortierung <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortierungen
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortierungen
+          notification_title: Die Auslosung <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt
     sortitions:
       admin:
         actions:
@@ -117,7 +110,7 @@ de:
         orders:
           label: 'Sortieren nach:'
           random: Zufällig
-          recent: Kürzlich
+          recent: Kürzlich hinzugefügt
         results_count:
           count:
             one: ausgewählter Vorschlag
@@ -142,7 +135,7 @@ de:
           selected_proposals:
             one: Vorschlag ausgewählt
             other: Vorschläge ausgewählt
-          view: Aussicht
+          view: Anzeigen
         sortition_author:
           deleted: Gelöschter Benutzer
         sortition_cancel_author:
@@ -151,3 +144,5 @@ de:
           count:
             one: 1 Sortierung
             other: "%{count} Sortierungen"
+    statistics:
+      sortitions_count: Sortierungen

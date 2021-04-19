@@ -23,7 +23,6 @@ ar:
       component:
         name: اسم
         published_at: نشرت في
-        weight: وزن
       id: هوية شخصية
       newsletter:
         body: المحتوى
@@ -90,12 +89,10 @@ ar:
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة العنوان الشبكي
         title: العنوان
-        weight: وزن
       static_page_topic:
         description: وصف
         show_in_footer: تظهر في تذييل الصفحة
         title: العنوان
-        weight: وزن
       user_group_csv_verification:
         file: ملف
     errors:
@@ -136,7 +133,6 @@ ar:
         accept:
           success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
-          accept: أوافق على شروط المدير هذه
           are_you_sure: هل أنت متأكد مِن أنك رافض لشروط المدير؟
           refuse: ارفض شروط المدير
           title: وافق على شروط وأحكام الإستخدام

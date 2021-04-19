@@ -40,7 +40,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
 
     # Active consultation
     active_consultation_params = {
-      slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+      slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
       title: Decidim::Faker::Localized.sentence(word_count: 3),
       subtitle: Decidim::Faker::Localized.sentence(word_count: 3),
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -66,7 +66,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     active_consultation.add_to_index_as_search_resource
 
     finished_consultation_params = {
-      slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+      slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
       title: Decidim::Faker::Localized.sentence(word_count: 3),
       subtitle: Decidim::Faker::Localized.sentence(word_count: 3),
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -93,7 +93,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     finished_consultation.add_to_index_as_search_resource
 
     upcoming_consultation_params = {
-      slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+      slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
       title: Decidim::Faker::Localized.sentence(word_count: 3),
       subtitle: Decidim::Faker::Localized.sentence(word_count: 3),
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -122,7 +122,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       4.times do
         params = {
           consultation: consultation,
-          slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+          slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
           decidim_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id,
           title: Decidim::Faker::Localized.sentence(word_count: 3),
           subtitle: Decidim::Faker::Localized.sentence(word_count: 3),

@@ -40,8 +40,8 @@ module Decidim
         )
       end
 
-      def has_diff?
-        action == "unreport" || super
+      def diff_actions
+        super + %w(unreport)
       end
     end
   end

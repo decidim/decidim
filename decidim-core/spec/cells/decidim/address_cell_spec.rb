@@ -6,43 +6,30 @@ describe Decidim::AddressCell, type: :cell do
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/address", model) }
-  let(:address) { "Carrer del Pare Llaurador, 113" }
-  let(:latitude) { nil }
-  let(:longitude) { nil }
-  let(:location_hints) { nil }
-  let(:model) { create(:dummy_resource, address: address, latitude: latitude, longitude: longitude, location_hints: location_hints) }
+  let(:address_text) { "Foo bar Street, 1" }
+  let(:js_alert) { "<script>alert(1)</script>" }
+  let(:address) { "#{address_text}#{js_alert}" }
+  let(:latitude) { 41.378481 }
+  let(:longitude) { 2.1879618 }
+  let(:model) { create(:dummy_resource, address: address, latitude: latitude, longitude: longitude) }
+  let(:hint_text) { "Lorem ipsum dolor sit amet consectetur" }
+  let(:location_hints) { "#{hint_text}#{js_alert}" }
+  let(:location_text) { "This is my location" }
+  let(:location) { "#{location_text}#{js_alert}" }
 
-  context "when rendering a model with address" do
-    it "renders a resource address" do
-      within ".card__icondata--address" do
-        expect(subject).to have_content(model.address)
-        expect(subject).to have_no_content(model.latitude)
-        expect(subject).to have_no_content(model.langitude)
-      end
-    end
+  let(:icondata_address) { subject.find(".card__icondata--address") }
+
+  before do
+    allow(model).to receive(:location_hints).and_return location_hints
+    allow(model).to receive(:location).and_return location
   end
 
-  context "when rendering a model with latitude and longitude" do
-    let(:latitude) { 40.1234 }
-    let(:longitude) { 2.1234 }
-
-    it "renders a resource latitude and longitude" do
-      within ".card__icondata--address" do
-        expect(subject).to have_content(model.address)
-        expect(subject).to have_content(model.latitude)
-        expect(subject).to have_content(model.longitude)
-      end
-    end
-  end
-
-  context "when rendering a model with location hints" do
-    let(:location_hints) { "Lorem ipsum dolor sit amet consectetur" }
-
-    it "renders a resource location_hints" do
-      within ".card__icondata--address" do
-        expect(subject).to have_content(model.address)
-        expect(subject).to have_content(model.location_hints)
-      end
-    end
+  it "renders a resource address and related fields" do
+    expect(icondata_address).to have_content(address_text)
+    expect(icondata_address).to have_content(hint_text)
+    expect(icondata_address).to have_content(location_text)
+    expect(icondata_address.to_s).not_to match("<script>")
+    expect(icondata_address).to have_no_content(model.latitude)
+    expect(icondata_address).to have_no_content(model.longitude)
   end
 end

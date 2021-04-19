@@ -18,6 +18,9 @@
           <tr>
             <th><%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %></th>
+            <% if !respond_to?(:current_participatory_space) %>
+              <th><%= t("models.moderation.fields.participatory_space", scope: "decidim.moderations") %></th>
+            <% end %>
             <th><%= sort_link(query, :report_count, t("models.moderation.fields.report_count", scope: "decidim.moderations")) %></th>
             <th><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
@@ -30,17 +33,23 @@
         </thead>
         <tbody>
           <% moderations.each do |moderation| %>
+            <% next unless moderation.reportable %>
             <tr data-id="<%= moderation.id %>">
               <td><%= moderation.reportable.id %></td>
               <td>
                 <%= moderation.reportable.class.name.demodulize %>
               </td>
+              <% if !respond_to?(:current_participatory_space) %>
+                <td>
+                  <%= participatory_space_title_for(moderation.reportable) %>
+                </td>
+              <% end %>
               <td>
                 <%= moderation.report_count %>
               </td>
               <td>
                 <%=
-                  link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), moderation.reportable.reported_content_url, data: { tooltip: true }, aria: { haspopup: true }, title: reported_content_excerpt_for(moderation.reportable)
+                  link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), moderation.reportable.reported_content_url, data: { tooltip: true }, aria: { haspopup: true }, title: strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250))
                 %>
               </td>
               <td>
@@ -60,21 +69,21 @@
                                   moderation_reports_path(moderation_id: moderation),
                                   t("actions.expand", scope: "decidim.moderations"),
                                   class: "action-icon--expand" %>
-                <% if !moderation.reportable.hidden? && allowed_to?(:unreport, :moderation) %>
+                <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
                   <%= icon_link_to "action-undo",
                                    unreport_moderation_path(id: moderation),
                                    t("actions.unreport", scope: "decidim.moderations"),
                                    class: "action-icon--unreport",
                                    method: :put %>
                 <% end %>
-                <% if !moderation.reportable.hidden? && allowed_to?(:hide, :moderation) %>
+                <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
                   <%= icon_link_to "eye",
                                    hide_moderation_path(id: moderation),
                                    t("actions.hide", scope: "decidim.moderations"),
                                    class: "action-icon--hide",
                                    method: :put %>
                 <% end %>
-                <% if moderation.reportable.hidden? && allowed_to?(:unhide, :moderation) %>
+                <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
                   <%= icon_link_to "eye",
                                    unhide_moderation_path(id: moderation),
                                    t("actions.unhide", scope: "decidim.moderations"),

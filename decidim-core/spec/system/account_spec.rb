@@ -29,6 +29,8 @@ describe "Account", type: :system do
       visit decidim.account_path
     end
 
+    it_behaves_like "accessible page"
+
     describe "updating personal data" do
       it "updates the user's data" do
         within "form.edit_user" do

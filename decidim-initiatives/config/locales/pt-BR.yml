@@ -53,6 +53,8 @@ pt:
       actions:
         new_initiative_type: Novo tipo de iniciativa
       menu:
+        components: Componentes
+        information: Em formação
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
       models:
@@ -349,13 +351,6 @@ pt:
         print:
           city: Cidade
         result:
-          answer_title:
-            accepted: Esta proposta foi aceita porque
-            created: Esta proposta foi criada
-            discarded: Esta proposta foi descartada porque
-            published: Esta proposta é publicada porque
-            rejected: Esta proposta foi rejeitada porque
-            validating: Esta proposta está sendo avaliada
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
         show:
           follow_description: Receber uma notificação quando houver notícias nesta iniciativa
@@ -405,12 +400,6 @@ pt:
           vote: Voto
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Anexos
-          committee_members: membros do Comitê
-          components: Componentes
-          information: Em formação
       initiative_creation_header:
         back: De volta
         fill_data: Criar

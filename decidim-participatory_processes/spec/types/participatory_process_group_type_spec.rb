@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module ParticipatoryProcesses
     describe ParticipatoryProcessGroupType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:participatory_process_group) }
 
@@ -18,11 +18,11 @@ module Decidim
         end
       end
 
-      describe "name" do
-        let(:query) { '{ name { translation(locale: "en")}}' }
+      describe "title" do
+        let(:query) { '{ title { translation(locale: "en")}}' }
 
         it "returns all the required fields" do
-          expect(response["name"]["translation"]).to eq(model.name["en"])
+          expect(response["title"]["translation"]).to eq(model.title["en"])
         end
       end
 

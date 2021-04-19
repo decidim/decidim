@@ -12,7 +12,7 @@ describe "Proposals", type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
@@ -45,6 +45,13 @@ describe "Proposals", type: :system do
 
     let!(:proposals) { create_list(:proposal, 3, component: component) }
     let!(:proposal) { proposals.first }
+
+    it_behaves_like "accessible page" do
+      before do
+        visit_component
+        click_link proposal_title
+      end
+    end
 
     it "allows viewing a single proposal" do
       visit_component
@@ -361,6 +368,10 @@ describe "Proposals", type: :system do
         expect(page).to have_selector(".card--proposal", text: unlucky_proposal_title)
         expect(page).to have_author(lucky_proposal.creator_author.name)
       end
+    end
+
+    it_behaves_like "accessible page" do
+      before { visit_component }
     end
 
     it "lists all the proposals" do

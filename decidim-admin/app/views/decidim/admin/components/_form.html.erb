@@ -78,11 +78,9 @@
         </fieldset>
       <% end %>
 
-      <% unless component.published? %>
+      <% if component && component.persisted? && !component.published? %>
         <%= render partial: "decidim/admin/share_tokens/share_tokens", locals: { share_tokens: form.object.share_tokens } %>
       <% end %>
     </div>
   </div>
 </div>
-
-<%= javascript_include_tag "decidim/admin/form" %>

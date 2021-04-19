@@ -86,8 +86,13 @@ en:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
       menu:
+        attachments: Attachments
+        committee_members: Committee members
+        components: Components
+        information: Information
         initiatives: Initiatives
         initiatives_types: Initiative types
+        moderations: Moderations
       models:
         initiatives:
           fields:
@@ -155,10 +160,10 @@ en:
             email_subject: New milestone completed!
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has achieved the %{percentage}% of signatures.
         support_threshold_reached:
-          email_intro: The initiative %{resource_title} has reached the support threshold
+          email_intro: The initiative %{resource_title} has reached the signatures threshold
           email_outro: You have received this notification because you are an admin of the platform.
-          email_subject: Support threshold reached
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has reached the support threshold
+          email_subject: Signatures threshold reached
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative has reached the signatures threshold
     gamification:
       badges:
         initiatives:
@@ -203,13 +208,17 @@ en:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum amount of elements to show
+            order:
+              default: Default (Least recent)
+              label: 'Order element by:'
+              most_recent: Most recent
         exports:
           initiatives: Initiatives
         initiatives:
           edit:
             accept: Accept initiative
             confirm: Are you sure?
-            confirm_send_to_technical_validation: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
+            confirm_send_to_technical_validation: Are you sure?
             discard: Discard the initiative
             export_pdf_signatures: Export PDF of signatures
             export_votes: Export signatures
@@ -266,7 +275,7 @@ en:
             update: Update
           form:
             authorizations: Authorization settings
-            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-jauges and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
+            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-scopes and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
             only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
             options: Options
             title: General information
@@ -306,9 +315,13 @@ en:
         filter_type_values:
           all: All
       committee_requests:
+        approve:
+          success: Request has been approved.
         new:
           continue: Continue
           help_text: You are about to request becoming a member of the promoter committee of this initiative
+        revoke:
+          success: Request has been revoked.
         spawn:
           success: Your request has been sent to the initiative author.
       content_blocks:
@@ -328,10 +341,10 @@ en:
           back_to_initiatives: Back to initiatives
           callout_text: Congratulations! Your initiative has been successfully created.
           confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
-          edit_my_initiative: Edit my initiatives
+          edit_my_initiative: Edit my initiative
           go_to_my_initiatives: Go to my initiatives
           more_information: "(More information)"
-          send_my_initiative: Send my initiative
+          send_my_initiative: Send my initiative to technical validation
         finish_help:
           access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
@@ -369,6 +382,11 @@ en:
         title: Edit Initiative
         update: Update
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} accepted your application to be part of the promoter committee for the initiative %{resource_title}."
+          email_outro: 'You received this notification because you applied to this initiative: %{resource_title}'
+          email_subject: "%{author_nickname} accepted your application to the promoter committee"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> accepted your application to be part of the promoter committee for the following initiative <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
@@ -379,6 +397,16 @@ en:
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: Initiative endorsed by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} rejected your application to be part of the promoter committee for the following initiative %{resource_title}."
+          email_outro: 'You received this notification because you applied to this initiative: %{resource_title}.'
+          email_subject: "%{author_nickname} rejected your application to the promoter committee"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> rejected your application to be part of the promoter committee for the following initiative <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} applied for the promoter committee of your initiative %{resource_title}. To accept or reject the application, go to the edit form of your initiative."
+          email_outro: 'You received this notification because you are the author of this initiative: %{resource_title}'
+          email_subject: "%{applicant_nickname} wants to join your initiative"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> applied for the promoter committee of your initiative <a href="%{resource_url}">%{resource_title}</a>. To accept or reject click <a href="%{resource_url}/edit">here</a>.
       form:
         add_attachments: Documents
         attachment_legend: "(Optional) Add Attachments"
@@ -488,13 +516,7 @@ en:
           section: 'If requested by the organization, please print and fill out this form to submit where indicated:'
           signature: Signature
         result:
-          answer_title:
-            accepted: This proposal has been accepted because
-            created: This proposal has been created
-            discarded: This proposal has been discarded because
-            published: This proposal is published because
-            rejected: This proposal has been rejected because
-            validating: This proposal is being evaluated
+          answer_title: This initiative has been answered
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This initiative collects both online and in-person signatures.
@@ -564,12 +586,6 @@ en:
           vote: Sign
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Attachments
-          committee_members: Committee members
-          components: Components
-          information: Information
       initiative_creation_header:
         back: Back
         fill_data: Create

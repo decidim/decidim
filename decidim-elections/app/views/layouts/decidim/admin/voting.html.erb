@@ -1,0 +1,23 @@
+<% content_for :sidebar_menu_nav do %>
+  <%= sidebar_menu(:admin_voting_menu).render do
+    public_page_link decidim_votings.voting_path(current_participatory_space)
+  end %>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="voting-title">
+    <div class="voting-title-content">
+      <%= link_to translated_attribute(current_participatory_space.title), decidim_votings.voting_path(current_participatory_space), target: "_blank" %>
+    </div>
+  </div>
+
+  <div class="voting-content">
+    <% if !current_participatory_space.has_elections? %>
+      <%= cell("decidim/announcement", t("votings.edit.add_election_component", scope: "decidim.votings.admin"), callout_class: "alert") %>
+    <% end %>
+    <% if current_participatory_space.polling_stations_with_missing_officers? %>
+      <%= cell("decidim/announcement", t("votings.edit.assign_missing_officers", scope: "decidim.votings.admin"), callout_class: "alert") %>
+    <% end %>
+    <%= yield %>
+  </div>
+<% end %>

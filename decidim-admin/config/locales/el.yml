@@ -24,13 +24,15 @@ el:
       component:
         name: Όνομα
         published_at: Δημοσιεύτηκε στις
-        weight: Βάρος
       id: Αναγνωριστικό
+      import:
+        user_group_id: Δημιουργία εισαγωγών ως
       newsletter:
         body: Σώμα
         subject: Θέμα
       organization:
         alert_color: Ειδοποίηση
+        available_authorizations: Διαθέσιμες εγκρίσεις
         badges_enabled: Ενεργοποίηση εμβλημάτων
         comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
         cta_button_path: Διαδρομή κουμπιού «Call To Action»
@@ -41,6 +43,8 @@ el:
         enable_omnipresent_banner: Εμφάνιση διαφημιστικού πλαισίου omnipresent
         facebook_handler: Πρόγραμμα χειρισμού Facebook
         favicon: Εικονίδιο
+        force_authentication: Εξαναγκασμός ταυτοποίησης
+        force_users_to_authenticate_before_access_organization: Εξαναγκασμός ελέγχου ταυτότητας των χρηστών πριν από την πρόσβαση στον οργανισμό
         from: Από διεύθυνση email
         github_handler: Πρόγραμμα χειρισμού GitHub
         header_snippets: Τμήματα κεφαλίδας
@@ -53,8 +57,12 @@ el:
         highlighted_content_banner_image: Εικόνα
         highlighted_content_banner_short_description: Σύντομη περιγραφή
         highlighted_content_banner_title: Τίτλος
+        host: Διοργανωτής
         instagram_handler: Πρόγραμμα χειρισμού Instagram
         logo: Λογότυπο
+        machine_translation_display_priority: Προτεραιότητα εμφάνισης μηχανικής μετάφρασης
+        machine_translation_display_priority_original: Αρχικό κείμενο πρώτα
+        machine_translation_display_priority_translation: Μεταφρασμένο κείμενο πρώτα
         name: Όνομα
         official_img_footer: Επίσημο υποσέλιδο λογότυπου
         official_img_header: Επίσημη κεφαλίδα λογότυπου
@@ -62,16 +70,21 @@ el:
         omnipresent_banner_short_description: Σύντομη περιγραφή
         omnipresent_banner_title: Τίτλος
         omnipresent_banner_url: Διεύθυνση URL
+        organization_admin_email: Οργανισμός e-mail διαχειριστή
+        organization_admin_name: Όνομα διαχειριστή οργανισμού
+        organization_locales: Τοπικές ρυθμίσεις οργανισμού
         primary_color: Κύρια
         reference_prefix: Πρόθεμα αναφοράς
         rich_text_editor_in_public_views: Ενεργοποίηση προγράμματος επεξεργασίας εμπλουτισμένου κειμένου για τους συμμετέχοντες
         secondary_color: Δευτερεύουσα
+        secondary_hosts: Δευτερεύοντες διακομιστές
         send_welcome_notification: Αποστολή ειδοποίησης καλωσορίσματος
         success_color: Επιτυχία
         time_zone: Ζώνη ώρας
         tos_version: Έκδοση όρων χρήσης υπηρεσίας
         twitter_handler: Πρόγραμμα χειρισμού Twitter
         user_groups_enabled: Ενεργοποίηση ομάδων
+        users_registration_mode: Λειτουργία εγγραφής χρηστών
         warning_color: Προειδοποίηση
         welcome_notification_body: Σώμα ειδοποίησης καλωσορίσματος
         welcome_notification_subject: Θέμα ειδοποίησης καλωσορίσματος
@@ -87,19 +100,20 @@ el:
         name: Όνομα
         organization: Οργανισμός
         plural: Πληθυντικός
+      settings:
+        scope_id: Πεδίο εφαρμογής
       static_page:
+        allow_public_access: Να επιτρέπεται η πρόσβαση χωρίς έλεγχο ταυτότητας
         changed_notably: Υπήρξαν σημαντικές αλλαγές.
         content: Περιεχόμενο
         organization: Οργανισμός
         show_in_footer: Εμφάνιση στο υποσέλιδο
         slug: Slug διεύθυνσης URL
         title: Τίτλος
-        weight: Βάρος
       static_page_topic:
         description: Περιγραφή
         show_in_footer: Εμφάνιση στο υποσέλιδο
         title: Τίτλος
-        weight: Βάρος
       user_group_csv_verification:
         file: Αρχείο
     errors:
@@ -110,6 +124,10 @@ el:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
             official_img_header:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Μη έγκυρος τύπος mime
   activerecord:
     attributes:
       decidim/static_page:
@@ -128,20 +146,34 @@ el:
     admin:
       actions:
         add: Προσθήκη
+        attachment:
+          new: Νέο συνημμένο
+        attachment_collection:
+          new: Νέα συλλογή συνημμένων
         browse: Αναζήτηση
+        category:
+          new: Νέα κατηγορία
         export: Εξαγωγή
+        import: Εισαγωγή
         manage: Διαχείριση
         new: Νέο όνομα %{name}
+        newsletter:
+          new: Νέο ενημερωτικό δελτίο
+        participatory_space_private_user:
+          new: Νέος ιδιωτικός χρήστης συμμετοχικού χώρου
         per_page: Ανά σελίδα
         permissions: Δικαιώματα
         reject: Απόρριψη
+        share: Κοινοποίηση
+        user:
+          new: Νέος χρήστης
         verify: Επαλήθευση
       admin_terms_of_use:
         accept:
           error: Υπήρξε ένα σφάλμα κατά την αποδοχή των όρων χρήσης διαχειριστή.
           success: Εξαιρετικά! Αποδεχτήκατε τους όρους χρήσης διαχειριστή.
         actions:
-          accept: Συμφωνώ με αυτούς τους όρους διαχειριστή
+          accept: Συμφωνώ με τους ακόλουθους όρους
           are_you_sure: Είστε βέβαιοι ότι θέλετε να απορρίψετε τους όρους διαχειριστή;
           refuse: Απόρριψη των όρων διαχειριστή
           title: Αποδοχή των όρων και των προϋποθέσεων χρήσης
@@ -220,6 +252,12 @@ el:
       autocomplete:
         no_results: Δεν βρέθηκαν αποτελέσματα
         search_prompt: Πληκτρολογήστε τουλάχιστον τρεις χαρακτήρες για αναζήτηση
+      block_user:
+        new:
+          action: Αποκλεισμός λογαριασμού και αποστολή αιτιολόγησης
+          description: Ο αποκλεισμός ενός χρήστη θα καταστήσει τον λογαριασμό του μη χρησιμοποιήσιμο, μπορείτε να παράσχετε στην αιτιολόγηση και τις οδηγίες σας σχετικά με τους τρόπους με τους οποίους θεωρείτε ότι θα θεωρούσατε ότι θα καταργήσετε την φραγή του χρήστη.
+          justification: Αιτιολόγηση
+          title: Αποκλεισμός Χρήστη %{name}
       categories:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της κατηγορίας.
@@ -262,6 +300,7 @@ el:
           headers:
             actions: Ενέργειες
             name: Όνομα στοιχείου
+            scope: Πεδίο εφαρμογής στοιχείου
             type: Τύπος στοιχείου
         new:
           add: Προσθήκη στοιχείου
@@ -274,6 +313,21 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του στοιχείου.
           success: Το στοιχείο ενημερώθηκε με επιτυχία.
+      conflicts:
+        attempts: Προσπάθειες
+        'false': 'Όχι'
+        managed_user_name: Διαχειριζόμενα χρήστης
+        solved: Λύθηκε
+        title: Διενέξεις επαληθεύσεων
+        transfer:
+          email: E-mail
+          error: Υπήρξε ένα πρόβλημα κατά τη μεταφορά του τρέχοντος συμμετέχοντα σε διαχειριζόμενο συμμετέχοντα.
+          name: Όνομα
+          reason: Αιτία
+          success: Η τρέχουσα μεταφορά έχει ολοκληρωθεί με επιτυχία.
+          title: Μεταφορά
+        'true': 'Ναι'
+        user_name: Χρήστης
       dashboard:
         show:
           view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
@@ -290,6 +344,9 @@ el:
         category_id_eq:
           label: Κατηγορία
         filter_label: Φίλτρο
+        moderations:
+          reportable_type_string_eq:
+            label: Τύπος
         officialized_at_null:
           label: Κατάσταση
           values:
@@ -310,6 +367,7 @@ el:
         search_label: Αναζήτηση
         search_placeholder:
           name_or_nickname_or_email_cont: Αναζήτηση συλλογής %{collection} με βάση το email, όνομα ή ψευδώνυμο.
+          reported_id_string_or_reported_content_cont: Αναζήτηση %{collection} με αναγνωριστικό ή περιεχόμενο προς αναφορά.
           title_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο.
         state_eq:
           label: Κατάσταση

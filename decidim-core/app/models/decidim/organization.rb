@@ -122,7 +122,7 @@ module Decidim
     end
 
     def open_data_file
-      @open_data_file ||= OpenDataUploader.new.tap do |uploader|
+      @open_data_file ||= OpenDataUploader.new(self).tap do |uploader|
         uploader.retrieve_from_store! open_data_file_path
         uploader.cache! open_data_file_path
       end
@@ -153,6 +153,10 @@ module Decidim
       Decidim::Debates::OfficialAuthorPresenter.new
     end
 
+    def static_pages_accessible_for(user)
+      static_pages.accessible_for(self, user)
+    end
+
     private
 
     def tenant_disabled_providers_keys
@@ -170,9 +174,9 @@ module Decidim
         Decidim::OmniauthProvider.extract_provider_key(key)
       end.compact.uniq
 
-      Hash[tenant_enabled_providers_keys.map do |key|
-        [key, omniauth_provider_settings(key)]
-      end]
+      tenant_enabled_providers_keys.index_with do |key|
+        omniauth_provider_settings(key)
+      end
     end
 
     def omniauth_provider_settings(provider)

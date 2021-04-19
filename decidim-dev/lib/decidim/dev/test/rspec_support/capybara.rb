@@ -53,7 +53,7 @@ Capybara.register_driver :iphone do |app|
   )
 end
 
-Capybara.server = :puma, { Silent: true }
+Capybara.server = :puma, { Silent: true, Threads: "1:1" }
 
 Capybara.asset_host = "http://localhost:3000"
 
@@ -75,6 +75,10 @@ RSpec.configure do |config|
     using_wait_time(max_wait_time_for_slow_specs) do
       example.run
     end
+  end
+
+  config.after(type: :system) do |example|
+    warn page.driver.browser.manage.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system

@@ -37,7 +37,6 @@ lv:
       participatory_process_group:
         description: Apraksts
         hero_image: Attēls
-        name: Nosaukums
         participatory_process_ids: Saistītie procesi
       participatory_process_step:
         cta_path: Call To Action ceļš
@@ -119,8 +118,6 @@ lv:
             title: Nosaukums
           name: Līdzdalības process
         participatory_process_group:
-          fields:
-            name: Nosaukums
           name: Procesa grupa
         participatory_process_step:
           fields:
@@ -304,11 +301,10 @@ lv:
       show:
         related_assemblies: Saistītās asamblejas
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Statistika
       show:
-        group_participatory_processes:
-          zero: "%{count} procesi %{group}"
-          one: viens process %{group}
-          other: "%{count} procesi %{group}"
         title: Līdzdalības procesa grupas
     participatory_process_steps:
       index:
@@ -400,24 +396,6 @@ lv:
         start_date: Sākuma datums
         target: Kas piedalās
         unspecified: Nav norādīts
-      statistics:
-        answers_count: Atbildes
-        comments_count: Komentāri
-        endorsements_count: Atbalsts
-        followers_count: Sekotāji
-        headline: Statistika
-        meetings_count: Sanāksmes
-        no_stats: Pagaidām nav statistikas.
-        orders_count: Atbalsta
-        pages_count: Lapas
-        participants_count: Dalībnieki
-        processes_count: Procesi
-        projects_count: Projekti
-        proposals_count: Priekšlikumi
-        results_count: Rezultāti
-        supports_count: Atbalsta
-        surveys_count: Aptaujas
-        users_count: Dalībnieki
   layouts:
     decidim:
       participatory_process_groups:

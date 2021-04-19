@@ -17,13 +17,15 @@ module Decidim
 
         it "renders the default main menu" do
           expect(default_main_menu).to \
-            have_selector("li", count: 12) &
+            have_selector("li", count: 14) &
             have_link("Dashboard", href: "/admin/") &
             have_link("Processes", href: "/admin/participatory_processes") &
             have_link("Conferences", href: "/admin/conferences") &
             have_link("Assemblies", href: "/admin/assemblies") &
+            have_link("Votings", href: "/admin/votings") &
             have_link("Consultations", href: "/admin/consultations") &
             have_link("Initiatives", href: "/admin/initiatives") &
+            have_link("Global moderation", href: "/admin/moderations") &
             have_link("Pages", href: "/admin/static_pages") &
             have_link("Participants", href: "/admin/users") &
             have_link("Newsletters", href: "/admin/newsletters") &

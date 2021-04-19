@@ -95,6 +95,7 @@ en:
         create:
           error: There was a problem creating a new consultation.
           success: Consultation successfully created.
+        deprecation_warning: Consultations module will be deprecated in the near future. We’re working on the next cryptographically secure version called Votings.
         edit:
           update: Update
         form:
@@ -120,6 +121,8 @@ en:
           questions: Questions
           results: Results
         questions_submenu:
+          attachments: Attachments
+          categories: Categories
           components: Components
           configuration: Configuration
           consultation: Consultation
@@ -324,10 +327,6 @@ en:
           title: What are consultations?
     menu:
       consultations: Consultations
-    pages:
-      home:
-        statistics:
-          consultations_count: Consultations
     questions:
       next_button: Next question
       previous_button: Previous question
@@ -362,12 +361,11 @@ en:
       consultations:
         actions:
           vote: Vote
+    statistics:
+      consultations_count: Consultations
+      votes_count: Votes
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Attachments
-          categories: Categories
       consultation_voting_data:
         start_voting_date: Voting begins
       question_components:

@@ -74,7 +74,7 @@
             <tr data-id="<%= report.id %>">
               <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
               <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
-              <td><%= report.details %></td>
+              <td><%= report.details&.truncate(250) %></td>
               <td class="actions">
                 <%= icon_link_to "fullscreen-enter",
                                   moderation_report_path(moderation_id: moderation, id: report.id),
@@ -90,13 +90,13 @@
 </div>
 
 <div class="button--double form-general-submit">
-  <% if !moderation.reportable.hidden? && allowed_to?(:unreport, :moderation) %>
+  <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
     <%= link_to t("actions.unreport", scope: "decidim.moderations"), unreport_moderation_path(id: moderation), method: :put, class: "button" %>
   <% end %>
-  <% if !moderation.reportable.hidden? && allowed_to?(:hide, :moderation) %>
+  <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
     <%= link_to t("actions.hide", scope: "decidim.moderations"), hide_moderation_path(id: moderation), method: :put, class: "button alert" %>
   <% end %>
-  <% if moderation.reportable.hidden? && allowed_to?(:unhide, :moderation) %>
+  <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
     <%= link_to t("actions.unhide", scope: "decidim.moderations"), unhide_moderation_path(id: moderation), method: :put, class: "button alert" %>
   <% end %>
 </div>

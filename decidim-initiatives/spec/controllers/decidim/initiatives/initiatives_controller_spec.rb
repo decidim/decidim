@@ -2,135 +2,165 @@
 
 require "spec_helper"
 
-module Decidim
-  module Initiatives
-    describe InitiativesController, type: :controller do
-      routes { Decidim::Initiatives::Engine.routes }
+describe Decidim::Initiatives::InitiativesController, type: :controller do
+  routes { Decidim::Initiatives::Engine.routes }
 
-      let(:organization) { create(:organization) }
-      let!(:initiative) { create(:initiative, organization: organization) }
-      let!(:created_initiative) { create(:initiative, :created, organization: organization) }
+  let(:organization) { create(:organization) }
+  let!(:initiative) { create(:initiative, organization: organization) }
+  let!(:created_initiative) { create(:initiative, :created, organization: organization) }
 
+  before do
+    request.env["decidim.current_organization"] = organization
+  end
+
+  describe "GET index" do
+    it "Only returns published initiatives" do
+      get :index
+      expect(subject.helpers.initiatives).to include(initiative)
+      expect(subject.helpers.initiatives).not_to include(created_initiative)
+    end
+
+    context "when order by most_voted" do
+      let(:voted_initiative) { create(:initiative, organization: organization) }
+      let!(:vote) { create(:initiative_user_vote, initiative: voted_initiative) }
+
+      it "most voted appears first" do
+        get :index, params: { order: "most_voted" }
+
+        expect(subject.helpers.initiatives.first).to eq(voted_initiative)
+      end
+    end
+
+    context "when order by most recent" do
+      let!(:old_initiative) { create(:initiative, organization: organization, created_at: initiative.created_at - 12.months) }
+
+      it "most recent appears first" do
+        get :index, params: { order: "recent" }
+        expect(subject.helpers.initiatives.first).to eq(initiative)
+      end
+    end
+
+    context "when order by most recently published" do
+      let!(:old_initiative) { create(:initiative, organization: organization, published_at: initiative.published_at - 12.months) }
+
+      it "most recent appears first" do
+        get :index, params: { order: "recently_published" }
+        expect(subject.helpers.initiatives.first).to eq(initiative)
+      end
+    end
+
+    context "when order by most commented" do
+      let(:commented_initiative) { create(:initiative, organization: organization) }
+      let!(:comment) { create(:comment, commentable: commented_initiative) }
+
+      it "most commented appears fisrt" do
+        get :index, params: { order: "most_commented" }
+        expect(subject.helpers.initiatives.first).to eq(commented_initiative)
+      end
+    end
+  end
+
+  describe "GET show" do
+    context "and any user" do
+      it "Shows published initiatives" do
+        get :show, params: { slug: initiative.slug }
+        expect(subject.helpers.current_initiative).to eq(initiative)
+      end
+
+      it "Throws exception on non published initiatives" do
+        get :show, params: { slug: created_initiative.slug }
+        expect(flash[:alert]).not_to be_empty
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "and initiative Owner" do
       before do
-        request.env["decidim.current_organization"] = organization
+        sign_in created_initiative.author, scope: :user
       end
 
-      describe "GET index" do
-        it "Only returns published initiatives" do
-          get :index
-          expect(subject.helpers.initiatives).to include(initiative)
-          expect(subject.helpers.initiatives).not_to include(created_initiative)
-        end
+      it "Unpublished initiatives are shown too" do
+        get :show, params: { slug: created_initiative.slug }
+        expect(subject.helpers.current_initiative).to eq(created_initiative)
+      end
+    end
+  end
 
-        context "when order by most_voted" do
-          let(:voted_initiative) { create(:initiative, organization: organization) }
-          let!(:vote) { create(:initiative_user_vote, initiative: voted_initiative) }
+  describe "Edit initiative as promoter" do
+    before do
+      sign_in created_initiative.author, scope: :user
+    end
 
-          it "most voted appears first" do
-            get :index, params: { order: "most_voted" }
+    let(:valid_attributes) do
+      attrs = attributes_for(:initiative, organization: organization)
+      attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
+      attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
+      attrs[:type_id] = created_initiative.type.id
+      attrs
+    end
 
-            expect(subject.helpers.initiatives.first).to eq(voted_initiative)
-          end
-        end
+    it "edit when user is allowed" do
+      get :edit, params: { slug: created_initiative.slug }
+      expect(flash[:alert]).to be_nil
+      expect(response).to have_http_status(:ok)
+    end
 
-        context "when order by most recent" do
-          let!(:old_initiative) { create(:initiative, organization: organization, created_at: initiative.created_at - 12.months) }
+    context "and update an initiative" do
+      it "are allowed" do
+        put :update,
+            params: {
+              slug: created_initiative.to_param,
+              initiative: valid_attributes
+            }
+        expect(flash[:alert]).to be_nil
+        expect(response).to have_http_status(:found)
+      end
+    end
 
-          it "most recent appears first" do
-            get :index, params: { order: "recent" }
-            expect(subject.helpers.initiatives.first).to eq(initiative)
-          end
-        end
+    context "when initiative is invalid" do
+      it "does not update when title is nil" do
+        invalid_attributes = valid_attributes.merge(title: nil)
 
-        context "when order by most recently published" do
-          let!(:old_initiative) { create(:initiative, organization: organization, published_at: initiative.published_at - 12.months) }
+        put :update,
+            params: {
+              slug: created_initiative.to_param,
+              initiative: invalid_attributes
+            }
 
-          it "most recent appears first" do
-            get :index, params: { order: "recently_published" }
-            expect(subject.helpers.initiatives.first).to eq(initiative)
-          end
-        end
-
-        context "when order by most commented" do
-          let(:commented_initiative) { create(:initiative, organization: organization) }
-          let!(:comment) { create(:comment, commentable: commented_initiative) }
-
-          it "most commented appears fisrt" do
-            get :index, params: { order: "most_commented" }
-            expect(subject.helpers.initiatives.first).to eq(commented_initiative)
-          end
-        end
+        expect(flash[:alert]).not_to be_empty
+        expect(response).to have_http_status(:ok)
       end
 
-      describe "GET show" do
-        context "and any user" do
-          it "Shows published initiatives" do
-            get :show, params: { slug: initiative.slug }
-            expect(subject.helpers.current_initiative).to eq(initiative)
+      context "when the existing initiative has attachments and there are other errors on the form" do
+        let!(:created_initiative) do
+          create(
+            :initiative,
+            :created,
+            :with_photos,
+            :with_documents,
+            organization: organization
+          )
+        end
+
+        include_context "with controller rendering the view" do
+          let(:invalid_attributes) do
+            valid_attributes.merge(
+              title: nil,
+              photos: created_initiative.photos.map { |a| a.id.to_s },
+              documents: created_initiative.documents.map { |a| a.id.to_s }
+            )
           end
 
-          it "Throws exception on non published initiatives" do
-            get :show, params: { slug: created_initiative.slug }
-            expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(:found)
-          end
-        end
-
-        context "and initiative Owner" do
-          before do
-            sign_in created_initiative.author, scope: :user
-          end
-
-          it "Unpublished initiatives are shown too" do
-            get :show, params: { slug: created_initiative.slug }
-            expect(subject.helpers.current_initiative).to eq(created_initiative)
-          end
-        end
-      end
-
-      describe "Edit initiative as promoter" do
-        before do
-          sign_in created_initiative.author, scope: :user
-        end
-
-        let(:valid_attributes) do
-          attrs = attributes_for(:initiative, organization: organization)
-          attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
-          attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
-          attrs[:type_id] = created_initiative.type.id
-          attrs
-        end
-
-        it "edit when user is allowed" do
-          get :edit, params: { slug: created_initiative.slug }
-          expect(flash[:alert]).to be_nil
-          expect(response).to have_http_status(:ok)
-        end
-
-        context "and update an initiative" do
-          it "are allowed" do
-            put :update,
-                params: {
-                  slug: created_initiative.to_param,
-                  initiative: valid_attributes
-                }
-            expect(flash[:alert]).to be_nil
-            expect(response).to have_http_status(:found)
-          end
-        end
-
-        context "when initiative is invalid" do
-          it "does not update when title is nil" do
-            invalid_attributes = valid_attributes.merge(title: nil)
-
-            put :update,
-                params: {
-                  slug: created_initiative.to_param,
-                  initiative: invalid_attributes
-                }
+          it "displays the editing form with errors" do
+            put :update, params: {
+              slug: created_initiative.to_param,
+              initiative: invalid_attributes
+            }
 
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:edit)
+            expect(response.body).to include("An error has occurred")
           end
         end
       end

@@ -332,10 +332,6 @@ ja:
         description: 提案へのサポート数
         object: サポート
         title: サポート
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: 提案
     participatory_spaces:
       highlighted_proposals:
         see_all: すべての提案を見る (%{count})
@@ -352,7 +348,6 @@ ja:
         actions:
           preview: プレビュー
         exports:
-          comments: コメント
           proposals: 提案
         models:
           proposal:
@@ -562,13 +557,6 @@ ja:
               ok: 共同作業の下書きを撤回する
               title: 次のアクションは取り消せません
             success: 共同ドラフトは正常に撤回されました。
-        compare:
-          mine_is_different: 私の共同作業の下書きは違います
-          no_similars_found: よくできました！似たような共同作業の下書きが見つかりませんでした
-          title: 似たような共同の下書きです
-        complete:
-          send: 送信
-          title: 共同作業の下書きを完成させましょう
         count:
           drafts_count:
             other: "%{count} 件の共同の下書きです"
@@ -599,7 +587,6 @@ ja:
           unfold: 展開する
         new:
           send: 続ける
-          title: 共同作業の下書きを作成する
         new_collaborative_draft_button:
           new_collaborative_draft: 新しい共同作業の下書きを作成
         orders:
@@ -643,23 +630,11 @@ ja:
         update:
           error: 共同作業のドラフトを保存する際に問題が発生しました。
           success: 共同作業の下書きが正常に更新されました。
-          title: 共同草案の下書きを編集
         wizard_aside:
-          back: 戻る
           back_from_collaborative_draft: 共同草案に戻る
-          back_from_step_1: 共同草案に戻る
-          back_from_step_2: 共同草案に戻る
-          back_from_step_3: 共同草案の比較に戻る
-          back_from_step_4: 下書き編集に戻る
           info: <strong>共同ドラフト</strong>を作成しています。
-        wizard_steps:
-          current_step: 現在のステップ
-          see_steps: 手順を見る
-          step_1: 共同作業の下書きを作成する
-          step_2: 共同作業の下書きと比較
-          step_3: 共同作業の下書きを完成させましょう
-          step_of: '%{current_step_num} / %{total_steps}'
-          title: 共同草稿作成手順
+        wizard_header:
+          title: 共同作業の下書きを作成する
       create:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。ドラフトとして保存されました。

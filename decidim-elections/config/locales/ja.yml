@@ -171,10 +171,8 @@ ja:
           unfold: 展開
         show:
           preview: プレビュー
-          vote: 投票
           voting_period_status:
             finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
-            ongoing: '%{end_time} に投票が終了します'
             upcoming: '%{start_time} に投票が終了します'
       feedback:
         answer:
@@ -215,16 +213,10 @@ ja:
           experience: ご利用いただき、どう思われますか?
           feedback: フィードバックを送る
           header: 投票が確定されました
-          lead: あなたの票は既に投じられました！
           text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: 確認するには、識別子をコピーして <a href="evote-verify">投票検証ページ</a> に貼り付けてください。
-        encrypting:
-          header: 投票の暗号化...
-          text: 投票は暗号化されており、匿名で投票することができます。
         header:
           confirm: 投票を確定
           confirmed: 投票が確定されました
-          encrypting: 投票を確定
         messages:
           not_allowed: 現在、この選挙に投票することはできません。
         modal:
@@ -250,9 +242,6 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{resource_title} の選挙は %{participatory_space_title} のために有効になりました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の選挙が %{participatory_space_title} に有効になりました。
-    participatory_processes:
-      statistics:
-        elections_count: 選挙
   layouts:
     decidim:
       election_votes_header:

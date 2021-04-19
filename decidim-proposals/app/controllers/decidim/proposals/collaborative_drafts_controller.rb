@@ -7,6 +7,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper TooltipHelper
+      helper UserGroupHelper
 
       include Decidim::ApplicationHelper
       include FormFactory
@@ -19,7 +20,7 @@ module Decidim
 
       helper_method :geocoded_collaborative_draft, :collaborative_draft
       before_action :collaborative_drafts_enabled?
-      before_action :authenticate_user!, only: [:new, :create, :complete]
+      before_action :authenticate_user!, only: [:new, :create]
       before_action :retrieve_collaborative_draft, only: [:show, :edit, :update, :withdraw, :publish]
 
       def index
@@ -36,7 +37,6 @@ module Decidim
       def show
         raise ActionController::RoutingError, "Not Found" unless retrieve_collaborative_draft
 
-        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
         @request_access_form = form(RequestAccessToCollaborativeDraftForm).from_params({})
         @accept_request_form = form(AcceptAccessToCollaborativeDraftForm).from_params({})
         @reject_request_form = form(RejectAccessToCollaborativeDraftForm).from_params({})
@@ -44,42 +44,14 @@ module Decidim
 
       def new
         enforce_permission_to :create, :collaborative_draft
-        @step = :step_1
 
         @form = form(CollaborativeDraftForm).from_params(
           attachment: form(AttachmentForm).from_params({})
         )
       end
 
-      def compare
-        @step = :step_2
-        @similar_collaborative_drafts ||= Decidim::Proposals::SimilarCollaborativeDrafts
-                                          .for(current_component, params[:collaborative_draft])
-                                          .all
-        @form = form(CollaborativeDraftForm).from_params(params)
-
-        if @similar_collaborative_drafts.blank?
-          flash[:notice] = I18n.t("proposals.collaborative_drafts.compare.no_similars_found", scope: "decidim")
-          redirect_to complete_collaborative_drafts_path(collaborative_draft: { title: @form.title, body: @form.body })
-        end
-      end
-
-      def complete
-        enforce_permission_to :create, :collaborative_draft
-        @step = :step_3
-        if params[:collaborative_draft].present?
-          params[:collaborative_draft][:attachment] = form(AttachmentForm).from_params({})
-          @form = form(CollaborativeDraftForm).from_params(params)
-        else
-          @form = form(CollaborativeDraftForm).from_params(
-            attachment: form(AttachmentForm).from_params({})
-          )
-        end
-      end
-
       def create
         enforce_permission_to :create, :collaborative_draft
-        @step = :step_3
         @form = form(CollaborativeDraftForm).from_params(params)
 
         CreateCollaborativeDraft.call(@form, current_user) do

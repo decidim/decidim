@@ -12,14 +12,18 @@ module Decidim
         processes = Decidim::ParticipatoryProcess.all
 
         if @current_user
-          return processes if @current_user.admin
+          return groups if @current_user.admin?
 
           processes = processes.visible_for(@current_user.id)
         else
           processes = processes.public_spaces
         end
 
-        Decidim::ParticipatoryProcessGroup.where(id: processes.pluck(:decidim_participatory_process_group_id))
+        groups.where(id: processes.pluck(:decidim_participatory_process_group_id))
+      end
+
+      def groups
+        @groups ||= Decidim::ParticipatoryProcessGroup.all
       end
     end
   end

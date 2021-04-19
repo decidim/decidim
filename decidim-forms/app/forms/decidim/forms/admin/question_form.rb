@@ -14,6 +14,7 @@ module Decidim
         attribute :display_conditions, Array[DisplayConditionForm]
         attribute :matrix_rows, Array[QuestionMatrixRowForm]
         attribute :max_choices, Integer
+        attribute :max_characters, Integer, default: 0
         attribute :deleted, Boolean, default: false
 
         translatable_attribute :body, String
@@ -22,6 +23,7 @@ module Decidim
         validates :position, numericality: { greater_than_or_equal_to: 0 }
         validates :question_type, inclusion: { in: Decidim::Forms::Question::TYPES }
         validates :max_choices, numericality: { only_integer: true, greater_than: 1, less_than_or_equal_to: ->(form) { form.number_of_options } }, allow_blank: true
+        validates :max_characters, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
         validates :body, translatable_presence: true, if: :requires_body?
         validates :matrix_rows, presence: true, if: :matrix?
         validates :answer_options, presence: true, if: :matrix?

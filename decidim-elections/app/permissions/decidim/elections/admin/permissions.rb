@@ -15,11 +15,16 @@ module Decidim
             when :select
               allow_if_results
             end
+          when :steps
+            case permission_action.action
+            when :read, :update
+              allow!
+            end
           when :election
             case permission_action.action
             when :create, :read
               allow!
-            when :delete, :update, :unpublish, :setup
+            when :delete, :update, :unpublish
               allow_if_not_blocked
             when :publish
               allow_if_valid_and_not_blocked

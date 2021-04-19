@@ -6,11 +6,11 @@ de:
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         description: Beschreibung
-        end_date: Endtermin
+        end_date: Enddatum
         progress: Fortschritt
         project_ids: Enthaltene Projekte
         proposals: Enthaltene Vorschläge
-        start_date: Anfangsdatum
+        start_date: Startdatum
         title: Titel
         updated_at: Aktualisiert am
       status:
@@ -32,6 +32,8 @@ de:
   decidim:
     accountability:
       actions:
+        attachment_collections: Ordner
+        attachments: Anhänge
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
@@ -42,6 +44,7 @@ de:
         title: Aktionen
       admin:
         exports:
+          result_comments: Bemerkungen
           results: Ergebnisse
         import_results:
           new:
@@ -115,12 +118,17 @@ de:
             success: Eintrag erfolgreich aktualisiert
       admin_log:
         result:
-          create: "%{user_name} erstellt Ergebnis %{resource_name} in %{space_name}"
-          delete: "%{user_name} löschte das %{resource_name} Ergebnis in %{space_name}"
-          update: "%{user_name} aktualisiert Ergebnis %{resource_name} in %{space_name}"
+          create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} aktualisiert"
         value_types:
           parent_presenter:
-            not_found: 'Der Elternteil wurde nicht in der Datenbank gefunden (ID: %{id})'
+            not_found: 'Das übergeordnete Objekt wurde nicht in der Datenbank gefunden (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Daten
+          results: Ergebnisse
+          unspecified: Keine Angabe
       import_mailer:
         import:
           errors: Fehler
@@ -133,9 +141,13 @@ de:
       models:
         result:
           fields:
-            end_date: Endtermin
+            category: Kategorie
+            created_at: Erstellt am
+            end_date: Enddatum
+            id: ID
             progress: Fortschritt
-            start_date: Anfangsdatum
+            scope: Themenbereich
+            start_date: Startdatum
             status: Status
             title: Titel
         status:
@@ -148,6 +160,9 @@ de:
           fields:
             description: Beschreibung
             entry_date: Datum
+      result_m:
+        executed: Ausgeführt
+        view: Ansicht
       results:
         count:
           results_count:
@@ -160,7 +175,7 @@ de:
           categories_label: Kategorien
           subcategories_label: Unterkategorien
         home_header:
-          global_status: Globaler Ausführungsstatus
+          global_status: Globaler Umsetzungsstatus
         nav_breadcrumb:
           global: Globale Ausführung
         search:
@@ -172,12 +187,21 @@ de:
             comments: Bemerkungen
             contributions: Beiträge
             last_edited_by: Zuletzt bearbeitet von
-            last_updated_at: Zuletzt aktualisiert um
+            last_updated_at: Zuletzt aktualisiert am
             meetings: Meetings
             proposals: Vorschläge
             votes: Unterstützt
         timeline:
           title: Projektentwicklung
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Themenbereich
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Rechenschaftspflicht
@@ -198,24 +222,20 @@ de:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Der Vorschlag "%{proposal_title}" wurde in ein Ergebnis aufgenommen. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
-          email_subject: Ein Update auf %{proposal_title}
-          notification_title: Der Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> wurde in das Ergebnis <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Der Vorschlag "%{proposal_title}" wurde in ein Ergebnis aufgenommen. Sie können das auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Eine Aktualisierung auf %{proposal_title}
+          notification_title: Der Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> wurde im Ergebnis <a href="%{resource_path}">%{resource_title}</a> aufgenommen.
         result_progress_updated:
-          email_intro: 'Das Ergebnis "%{resource_title}", das den Vorschlag "%{proposal_title}" enthält, ist jetzt zu %{progress}% abgeschlossen. Sie können es auf dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen und dieser Vorschlag in das Ergebnis "%{resource_title}" aufgenommen wird. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
-          email_subject: Ein Update auf %{resource_title} Fortschritt
-          notification_title: Das Ergebnis <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}">%{proposal_title}</a>, ist jetzt zu %{progress}% abgeschlossen.
+          email_intro: 'Das Ergebnis "%{resource_title}", das den Vorschlag "%{proposal_title}" enthält, ist jetzt zu %{progress}% abgeschlossen. Sie können das auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen und dieser Vorschlag in das Ergebnis "%{resource_title}" aufgenommen wurde. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Fortschritt von %{resource_title} aktualisiert
+          notification_title: Das Ergebnis <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> enthält, ist jetzt zu %{progress}% abgeschlossen.
     metrics:
       results:
         description: Anzahl der generierten Ergebnisse
         object: Ergebnisse
         title: Ergebnisse
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Ergebnisse
     participatory_spaces:
       highlighted_results:
         see_all: Alle Ergebnisse ansehen (%{count})
@@ -224,3 +244,5 @@ de:
         result_project: Projekte in diesem Ergebnis enthalten
       included_proposals:
         result_proposal: Vorschläge in diesem Ergebnis enthalten
+    statistics:
+      results_count: Ergebnisse

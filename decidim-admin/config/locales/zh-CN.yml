@@ -24,7 +24,6 @@ zh-CN:
       component:
         name: 名称
         published_at: 发布于
-        weight: 权重
       id: ID
       newsletter:
         body: 正文内容
@@ -97,12 +96,10 @@ zh-CN:
         show_in_footer: 在页脚显示
         slug: URL 名称
         title: 标题
-        weight: 权重
       static_page_topic:
         description: 描述
         show_in_footer: 在页脚显示
         title: 标题
-        weight: 权重
       user_group_csv_verification:
         file: 文件
     errors:
@@ -145,7 +142,6 @@ zh-CN:
           error: 接受管理员使用条款时出错。
           success: 太棒了！您已经接受了管理员使用条款。
         actions:
-          accept: 我同意这个管理条款
           are_you_sure: 您确定要拒绝管理员条款吗？
           refuse: 拒绝管理条款
           title: 同意使用条款

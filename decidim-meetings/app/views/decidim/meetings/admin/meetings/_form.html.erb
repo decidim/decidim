@@ -84,9 +84,19 @@
     <div class="row column" id="transparent">
       <%= form.check_box :transparent %>
     </div>
+
+    <div class="row column">
+      <%= form.check_box :customize_registration_email, :"data-toggle" => "customize_registration_email-div" %>
+    </div>
+
+    <div id="customize_registration_email-div" data-toggler=".hide" class="row column <%= @form.customize_registration_email? ? nil : "hide" %>">
+      <%= form.translated :text_area, :registration_email_custom_content %>
+      <p class="help-text"><%= t(".registration_email_help") %></p>
+    </div>
+
   </div>
 </div>
 
 <%= render "services", form: form, id: tabs_id_for_service(blank_service) %>
 
-<%= javascript_include_tag "decidim/meetings/admin/meetings_form" %>
+<%= javascript_pack_tag "decidim_meetings_admin" %>

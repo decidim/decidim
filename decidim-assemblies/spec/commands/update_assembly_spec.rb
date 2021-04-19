@@ -19,6 +19,8 @@ module Decidim::Assemblies
         )
       end
 
+      let(:hero_image) { my_assembly.hero_image }
+      let(:banner_image) { my_assembly.banner_image }
       let(:params) do
         {
           assembly: {
@@ -29,11 +31,12 @@ module Decidim::Assemblies
             subtitle_en: my_assembly.subtitle,
             subtitle_ca: my_assembly.subtitle,
             subtitle_es: my_assembly.subtitle,
+            weight: my_assembly.weight,
             slug: my_assembly.slug,
             hashtag: my_assembly.hashtag,
             meta_scope: my_assembly.meta_scope,
-            hero_image: my_assembly.hero_image,
-            banner_image: my_assembly.banner_image,
+            hero_image: hero_image,
+            banner_image: banner_image,
             promoted: my_assembly.promoted,
             description_en: my_assembly.description,
             description_ca: my_assembly.description,
@@ -95,6 +98,24 @@ module Decidim::Assemblies
           my_assembly.reload
 
           expect(my_assembly.title["en"]).not_to eq("Foo title")
+        end
+      end
+
+      context "when the uploaded hero image has too large dimensions" do
+        let(:hero_image) { Decidim::Dev.test_file("5000x5000.png", "image/png") }
+
+        before do
+          # Enable processing for the test in order to catch validation errors
+          Decidim::HeroImageUploader.enable_processing = true
+        end
+
+        after do
+          Decidim::HeroImageUploader.enable_processing = false
+        end
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+          expect(form.errors.messages[:hero_image]).to contain_exactly(["The image is too big"])
         end
       end
 

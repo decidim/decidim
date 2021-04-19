@@ -1,6 +1,12 @@
 de:
   activemodel:
     attributes:
+      oauth_application:
+        name: Name OAuth-Anwendung
+        organization_logo: Organisationslogo (quadratisch)
+        organization_name: Organisation
+        organization_url: URL der Organisation
+        redirect_uri: Weiterleitungs-URI
       organization:
         address: SMTP Hostname
         from_email: E-Mail-Adresse
@@ -19,6 +25,12 @@ de:
         maximum_file_size:
           avatar: Avatar Dateigröße
           default: Standard-Dateigröße
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
   decidim:
     system:
       actions:
@@ -52,6 +64,7 @@ de:
       menu:
         admins: Admins
         dashboard: Instrumententafel
+        oauth_applications: OAuth-Anwendungen
         organizations: Organisationen
       models:
         admin:
@@ -61,9 +74,15 @@ de:
           name: Administrator
           validations:
             email_uniqueness: ein anderer Administrator mit der gleichen E-Mail existiert bereits
+        oauth_application:
+          fields:
+            created_at: Erstellt am
+            name: Name OAuth-Anwendung
+            organization_name: Organisation
+          name: OAuth-Anwendung
         organization:
           actions:
-            save_and_invite: Organisieren & einladen admin erstellen
+            save_and_invite: Organisation erstellen & den Admin einladen
           fields:
             created_at: Hergestellt in
             file_upload_settings: Datei-Upload Einstellungen
@@ -71,6 +90,27 @@ de:
             omniauth_settings: Omniauth-Einstellungen
             smtp_settings: SMTP-Einstellungen
           name: Organisation
+      oauth_applications:
+        create:
+          error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
+          success: Anwendung erfolgreich erstellt.
+        destroy:
+          error: Beim Löschen dieser Anwendung ist ein Fehler aufgetreten.
+          success: Anwendung erfolgreich gelöscht.
+        edit:
+          save: Speichern
+          title: Anwendung bearbeiten
+        form:
+          select_organization: Organisation wählen
+        index:
+          confirm_delete: Möchten Sie diese Anwendung wirklich löschen?
+          title: OAuth-Anwendungen
+        new:
+          save: Speichern
+          title: Neue Applikation
+        update:
+          error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
+          success: Die Anwendung wurde erfolgreich aktualisiert.
       organizations:
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
@@ -79,16 +119,22 @@ de:
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
         file_upload_settings:
           content_types:
-            admin_hint: Diese MIME-Typen sind für das Hochladen in der Admin-Sektion erlaubt. Administrator-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so können Sie erwarten, dass Administratoren mit den Datei-Uploads vertrauter sind.
+            admin_hint: Diese MIME-Typen sind für das Hochladen im Admin-Panel erlaubt. Admin-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so dass man von ihnen erwarten kann dass sie vorsichtiger mit Datei-Uploads sind.
             default_hint: Diese MIME-Typen sind standardmäßig für alle Benutzer erlaubt.
             intro_html: Sie fügen Platzhalter mit dem Sternzeichen für die MIME-Typen hinzu, z.B. <code>image/*</code>.
             title: Erlaubte MIME-Typen
           file_extensions:
+            admin_hint: Diese Datei-Erweiterungen sind für das Hochladen im Admin-Panel erlaubt. Admin-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so dass man von ihnen erwarten kann dass sie vorsichtiger mit Datei-Uploads sind.
             default_hint: Diese Dateierweiterungen sind standardmäßig für alle Benutzer erlaubt.
             image_hint: Diese Dateierweiterungen sind für alle Arten von Bild-Uploads erlaubt.
             title: Zulässige Dateierweiterungen
           file_sizes:
             avatar_hint: Megabytes (MB). Maximale Dateigröße für das Hochladen des Avatars.
+            default_hint: Megabytes (MB). Diese Dateigröße ist die Standardeinstellung, die für alle Datei-Uploads verwendet wird, sofern nicht anders angegeben.
+            title: Maximale Dateigröße
+          intro: |
+            Bitte seien Sie besonders vorsichtig, wenn Sie überlegen, diese Einstellungen zu ändern. Je weniger Sie erlauben, desto besser.
+            Wenn bestimmte Dateierweiterungen oder MIME-Typen zugelassen werden, können Benutzer Sicherheitsrisiken ausgesetzt werden und es kann auch die Zugänglichkeit der Website beeinträchtigen.
         index:
           title: Organisationen
         new:
@@ -97,8 +143,8 @@ de:
           title: Neue Organisation
         omniauth_settings:
           decidim:
-            client_id: Kunden-ID
-            client_secret: Kundengeheimnis
+            client_id: Client-ID
+            client_secret: Client-Secret
             site_url: Website-URL
           enabled: Aktiviert
           enabled_by_default: Dieser Anbieter ist standardmäßig aktiviert. Er kann bearbeitet aber nicht deaktiviert werden.
@@ -106,8 +152,8 @@ de:
             app_id: App-ID
             app_secret: App-Geheimnis
           google_oauth2:
-            client_id: Kunden-ID
-            client_secret: Kundengeheimnis
+            client_id: Client-ID
+            client_secret: Client-Secret
           icon: Symbol
           icon_path: Icon-Pfad
           twitter:

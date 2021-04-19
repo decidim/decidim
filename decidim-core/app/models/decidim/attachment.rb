@@ -11,9 +11,10 @@ module Decidim
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
     belongs_to :attached_to, polymorphic: true
 
-    validates :file, :content_type, presence: true
-    validates_upload :file
     mount_uploader :file, Decidim::AttachmentUploader
+
+    validates_upload :file
+    validates :file, :content_type, presence: true
 
     default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }
 

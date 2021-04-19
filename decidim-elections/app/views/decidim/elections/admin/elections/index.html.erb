@@ -15,6 +15,7 @@
             <th><%= t("models.election.fields.title", scope: "decidim.elections") %></th>
             <th><%= t("models.election.fields.start_time", scope: "decidim.elections") %></th>
             <th><%= t("models.election.fields.end_time", scope: "decidim.elections") %></th>
+            <th><%= t("models.election.fields.bb_status", scope: "decidim.elections") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.elections") %></th>
           </tr>
         </thead>
@@ -34,40 +35,39 @@
                   <%= l election.end_time, format: :long %>
                 <% end %>
               </td>
+              <td><%= t("steps.#{election.bb_status || "create_election"}.title", scope: "decidim.elections.admin") %></td>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(election).path, t("actions.preview", scope: "decidim.elections"), class: "action-icon--preview", target: :blank %>
 
                 <%= icon_link_to "list", election_questions_path(election), t("actions.manage_questions", scope: "decidim.elections"), class: "action-icon--manage-questions" %>
 
-                <% if allowed_to? :setup, :election, election: election %>
-                  <%= icon_link_to "power-standby", url_for(action: :show, id: election, controller: "setup"), t("actions.setup", scope: "decidim.elections"), class: "action-icon--setup-election" %>
-                <% else %>
-                  <%= icon "power-standby", class: "action-icon action-icon--disabled", role: "img" %>
+                <% if allowed_to? :read, :steps, election: election %>
+                  <%= icon_link_to "project", election_steps_path(election), t("actions.manage_steps", scope: "decidim.elections"), class: "action-icon--manage-steps" %>
                 <% end %>
 
                 <% if allowed_to? :update, :election, election: election %>
                   <%= icon_link_to "pencil", edit_election_path(election), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.elections") %>
                 <% end %>
 
                 <% if allowed_to? :update, :questionnaire, questionnaire: election.questionnaire %>
                   <%= icon_link_to "people", edit_feedback_form_path(election), t("actions.feedback", scope: "decidim.elections"), class: "action-icon--survey" %>
                 <% else %>
-                  <%= icon "people", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "people", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.feedback", scope: "decidim.elections") %>
                 <% end %>
 
                 <% if election.published? %>
                   <% if allowed_to?(:unpublish, :election, election: election) %>
                     <%= icon_link_to "x", url_for(action: :unpublish, id: election, controller: "elections"), t("actions.unpublish", scope: "decidim.elections"), class: "action-icon--unpublish", method: :put %>
                   <% else %>
-                    <%= icon "x", class: "action-icon action-icon--disabled", role: "img" %>
+                    <%= icon "x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.unpublish", scope: "decidim.elections") %>
                   <% end %>
                 <% else %>
                   <% if allowed_to?(:publish, :election, election: election) %>
                     <%= icon_link_to "check", url_for(action: :publish, id: election, controller: "elections"), t("actions.publish", scope: "decidim.elections"), class: "action-icon--publish", method: :put %>
                   <% else %>
-                    <%= icon "check", class: "action-icon action-icon--disabled", role: "img" %>
+                    <%= icon "check", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.publish", scope: "decidim.elections") %>
                   <% end %>
                 <% end %>
 
@@ -76,7 +76,7 @@
                 <% if allowed_to? :delete, :election, election: election %>
                   <%= icon_link_to "circle-x", election_path(election), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
                 <% end %>
               </td>
             </tr>

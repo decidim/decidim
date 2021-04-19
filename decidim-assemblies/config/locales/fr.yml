@@ -1,6 +1,8 @@
 fr:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Activer le schéma d'assemblée
       assembly:
         area_id: Zone d'application
         assembly_type: Type d'assemblée
@@ -60,6 +62,7 @@ fr:
         full_name: Nom et prénom
         gender: Genre
         position: Statut
+        user_id: Utilisateur
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
@@ -246,7 +249,7 @@ fr:
         update: "%{user_name} a mis à jour les paramètres des assemblées"
       assembly_type:
         create: "%{user_name} a créé le type d'assemblée %{resource_name}"
-        delete: "%{user_name} a retiré le membre %{resource_name} du type d'assemblé %{space_name}"
+        delete: "%{user_name} a supprimé le type d'assemblée %{resource_name}"
         publish: "%{user_name} a publié le type d'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié le type d'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour le type d'assemblée %{resource_name}"
@@ -377,23 +380,6 @@ fr:
         social_networks: Réseaux sociaux
         social_networks_title: Partager cette assemblée sur
         target: Participants
-      statistics:
-        answers_count: Réponses
-        assemblies_count: Assemblées
-        comments_count: Commentaires
-        debates_count: Débats
-        endorsements_count: Soutiens
-        headline: Activité
-        meetings_count: Rencontres
-        orders_count: Votes
-        pages_count: Pages
-        posts_count: Publications
-        projects_count: Projets
-        proposals_count: Propositions
-        results_count: Réalisations
-        surveys_count: Enquêtes
-        users_count: Participants
-        votes_count: Votes
     assembly_members:
       assembly_member:
         designated_on: Désigné le
@@ -441,7 +427,7 @@ fr:
         hero:
           participate_title: Participer aux processus de la plateforme
         sub_hero:
-          register_title: Inscrivez-vous pour accéder à la plateforme
+          register_title: Inscrivez-vous pour créer un compte
     participatory_processes:
       pages:
         home:
@@ -472,7 +458,7 @@ fr:
           take_part: Participer
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
+        assembly_menu_item: Présentation
       assembly_widgets:
         show:
           take_part: Participer

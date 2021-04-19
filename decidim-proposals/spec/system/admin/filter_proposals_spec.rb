@@ -9,6 +9,7 @@ describe "Admin filters proposals", type: :system do
   STATES = Decidim::Proposals::Proposal::POSSIBLE_STATES.map(&:to_sym)
 
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
+  let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }
 
   def create_proposal_with_trait(trait)
     create(:proposal, trait, component: component, skip_injection: true)

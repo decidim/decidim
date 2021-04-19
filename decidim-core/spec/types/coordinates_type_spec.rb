@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe CoordinatesType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:latitude) { 41.387015 }
       let(:longitude) { 2.170047 }

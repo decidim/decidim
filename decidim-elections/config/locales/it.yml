@@ -22,6 +22,16 @@ it:
           attributes:
             attachment:
               needs_to_be_reattached: Necessita di essere riallegato
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Necessita di essere riallegato
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: non modificabile
+            public_key:
+              cant_be_changed: non modificabile
   activerecord:
     models:
       decidim/elections/answer:
@@ -33,6 +43,9 @@ it:
       decidim/elections/question:
         one: Domanda
         other: Domande
+      decidim/votings/voting:
+        one: Votazione
+        other: Votazioni
   decidim:
     components:
       elections:
@@ -49,7 +62,11 @@ it:
         confirm_destroy: Sei sicuro?
         destroy: Elimina
         edit: Modifica
+        feedback: Feedback del votante
         import: Importa proposte in risposte
+        manage_answers: Gestisci le risposte
+        manage_questions: Gestisci i quesiti
+        manage_steps: Gestisci passaggi
         new: Nuovo %{name}
         preview: Anteprima
         publish: Pubblica
@@ -67,10 +84,19 @@ it:
             title: Modifica risposta
             update: Aggiorna risposta
           index:
+            invalid_max_selections: Hai bisogno di %{missing_answers} altre risposte per scegliere le selezioni massime
             title: Risposte
           new:
             create: Crea risposta
             title: Nuova risposta
+          select:
+            disable: Deseleziona la risposta
+            enable: Segna la risposta come selezionata
+            invalid: Si è verificato un problema durante la selezione di questa risposta
+            success: Risposta selezionata con successo
+          unselect:
+            invalid: Si è verificato un problema deselezionazionando questa risposta
+            success: Risposta deselezionata con successo
           update:
             invalid: Si è verificato un errore durante l'aggiornamento di questa risposta
             success: Risposta aggiornata con successo
@@ -85,6 +111,7 @@ it:
             title: Modifica elezione
             update: Aggiorna elezione
           index:
+            no_bulletin_board: Non è configurato alcun <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a> che sia necessario per usare questo modulo. Questa attività dovrebbe essere eseguita dall'amministratore di sistema.
             title: Elezioni
           new:
             create: Crea elezione
@@ -96,6 +123,9 @@ it:
           update:
             invalid: Si è verificato un problema durante l'aggiornamento di questa elezione
             success: Elezione aggiornata con successo
+        exports:
+          elections: Elezioni
+          feedback_form_answers: Risposte al modulo di feedback
         models:
           answer:
             name: Risposta
@@ -103,6 +133,8 @@ it:
             name: Elezione
           question:
             name: Quesito
+          trustee:
+            name: Fiduciari
         proposals_imports:
           create:
             invalid: Si è verificato un problema durante l'importazione delle proposte nelle risposte
@@ -111,6 +143,7 @@ it:
             create: Importa proposte a cui rispondere
             no_components: Non vi sono altre componenti di proposte in questo spazio partecipativo per importare le proposte in risposte.
             select_component: Si prega di selezionare un componente
+            title: Importa proposte
         questions:
           create:
             invalid: Si è verificato un errore durante la creazione di questa domanda
@@ -129,6 +162,35 @@ it:
           update:
             invalid: Si è verificato un errore durante l'aggiornamento del quesito
             success: Quesito aggiornato correttamente
+        steps:
+          create_election:
+            errors:
+              max_selections: Le domande non hanno un valore <strong>corretto per la quantità di risposte</strong>
+              minimum_answers: Le domande devono avere <strong>almeno due risposte</strong>.
+              minimum_questions: Le elezioni <strong>devono avere almeno un quesito</strong>.
+              published: L'elezione non è <strong>pubblicata</strong>.
+              time_before: L'ora di inizio è in <strong>meno di 3 ore</strong> prima dell'inizio delle elezioni.
+              trustees_number: Lo spazio partecipativo <strong>deve avere almeno %{number} fiduciari con chiave pubblica</strong>.
+            invalid: Si è verificato un errore durante la creazione di questa elezione
+            no_trustees: Non ci sono Fiduciari configurati per questo spazio partecipativo
+            not_used_trustee: "(non utilizzato)"
+            public_key:
+              'false': non ha una <strong>chiave pubblica</strong>
+              'true': ha una <strong>chiave pubblica</strong>
+            requirements:
+              max_selections: Tutti i quesiti hanno un valore corretto per <strong>massimo di risposte</strong>.
+              minimum_answers: Ogni quesito ha <strong>almeno 2 risposte</strong>.
+              minimum_questions: L'elezione ha <strong>almeno 1 quesito</strong>.
+              published: L'elezione è <strong>pubblicata</strong>.
+              time_before: La configurazione viene eseguita <strong>almeno %{hours} ore</strong> prima dell'inizio delle elezioni.
+              trustees_number: Lo spazio partecipativo ha <strong>almeno %{number} fiduciari con chiave pubblica</strong>.
+            submit: Imposta elezione
+            success: Elezione inviata con successo al Bollettino
+            title: Imposta elezione
+            trustees: Fiduciari Delle Elezioni
+          key_ceremony:
+            title: Cerimonia chiave
+            trustees: Fiduciari
       admin_log:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
@@ -138,13 +200,23 @@ it:
           elections_count:
             one: "%{count} elezione"
             other: "%{count} elezioni"
+        results:
+          selected: Selezionato
+          title: Risultati delle elezioni
+          votes:
+            one: "%{count} voto"
+            other: "%{count} voti"
         show:
+          back: Elezioni disponibili
           preview: Anteprima
-          vote: Vota
           voting_period_status:
             finished: La votazione è iniziata il %{start_time} ed è terminata il %{end_time}
-            ongoing: La votazione termina il %{end_time}
             upcoming: La votazione inizia il %{start_time}
+      feedback:
+        answer:
+          invalid: Si è verificato un errore durante l'invio del tuo feedback.
+          spam_detected: C'è stato un problema nelle risposte ai quesiti. Forse sei stato troppo veloce, puoi riprovare?
+          success: Feedback inviato con successo.
       models:
         answer:
           fields:
@@ -152,6 +224,7 @@ it:
             title: Titolo
         election:
           fields:
+            bb_status: Stato scheda bollettino
             end_time: Finisce il
             start_time: Inizia il
             title: Titolo
@@ -160,6 +233,37 @@ it:
             answers: Risposte
             max_selections: Max. selezioni
             title: Titolo
+        trustees_participatory_space:
+          fields:
+            considered: considerato
+            email: Email
+            inactive: inattivo
+            name: Nome
+            notification: Notifica inviata a
+            public_key: Chiave Pubblica
+            status: Stato
+      orders:
+        label: Ordina le elezioni per
+        older: Meno recente
+        recent: Recenti
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Questa elezione è in corso di creazione nel Bollettino. È molto importante che ogni fiduciario che partecipa crei una copia di backup di queste chiavi e le memorizzi in un luogo sicuro. Dopo di che, il processo continuerà.
+            download_election_keys: Scarica le chiavi
+            download_icon: Icona che indica un'azione di download
+            title: Backup delle chiavi elettorali per %{election}
+          key_ceremony_steps:
+            back: Indietro
+            description: Questa elezione è in fase di creazione nel Bollettino. Per completare questo processo, è necessaria la vostra partecipazione come fiduciario.
+            keys:
+              create_election: Generazione chiavi
+              key_ceremony:
+                joint_election_key: Generazione chiave congiunta
+                step_1: Pubblicazione delle chiavi
+            list:
+              status: Stato
+              task: Attività
       votes:
         confirm:
           answer: Risposta
@@ -175,16 +279,10 @@ it:
           experience: Com'è stata la tua esperienza?
           feedback: Lasciaci un feedback
           header: Voto confermato
-          lead: Il tuo voto è già stato espresso!
           text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Per controllarlo, copia l'identificatore e incollalo nella pagina <a href="evote-verify">di verifica del voto</a>
-        encrypting:
-          header: Codifica del voto...
-          text: Il tuo voto viene crittografato per assicurarti di poterlo lanciare in modo anonimo.
         header:
           confirm: Conferma il tuo voto
           confirmed: Voto confermato
-          encrypting: Conferma del voto
         messages:
           not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
         modal:
@@ -207,9 +305,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: L'elezione di %{resource_title} è ora attiva per %{participatory_space_title}.
           notification_title: L'elezione <a href="%{resource_path}">%{resource_title}</a> è ora attiva per %{participatory_space_title}.
-    participatory_processes:
-      statistics:
-        elections_count: Elezioni
   layouts:
     decidim:
       election_votes_header:

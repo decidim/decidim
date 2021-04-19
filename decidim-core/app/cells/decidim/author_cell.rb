@@ -7,6 +7,7 @@ module Decidim
   class AuthorCell < Decidim::ViewModel
     include LayoutHelper
     include CellsHelper
+    include Decidim::SanitizeHelper
     include ::Devise::Controllers::Helpers
     include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper
@@ -92,7 +93,7 @@ module Decidim
     end
 
     def actionable?
-      return false if options[:has_actions] == false
+      return options[:has_actions] if options.has_key?(:has_actions)
 
       withdrawable? || flaggable?
     end

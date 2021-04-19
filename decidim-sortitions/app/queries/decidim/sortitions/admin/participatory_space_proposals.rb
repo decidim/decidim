@@ -42,7 +42,7 @@ module Decidim
             .not_hidden
             .where(component: sortition.decidim_proposals_component)
             .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
-            .where("decidim_categorizations.decidim_category_id = ?", category.id)
+            .where(decidim_categorizations: { decidim_category_id: category.id })
             .order(id: :asc)
         end
 

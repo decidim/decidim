@@ -19,7 +19,7 @@ module Decidim
     describe "#filter_form_for" do
       before do
         allow(helper).to receive(:url_for)
-        allow(helper).to receive(:javascript_include_tag)
+        allow(helper).to receive(:javascript_pack_tag)
         allow(helper).to receive(:dummies_path)
       end
 
@@ -73,6 +73,48 @@ module Decidim
               id: "#{ns}_filter_test_attribute"
             }
           )
+        end
+      end
+    end
+
+    describe "#filter_cache_hash" do
+      let(:type) { :test }
+
+      it "generate a unique hash" do
+        old_hash = helper.filter_cache_hash(filter, type)
+
+        expect(helper.filter_cache_hash(filter, type)).to eq(old_hash)
+      end
+
+      it "stores filter type" do
+        expect(helper.filter_cache_hash(filter, type)).to start_with("decidim/proposals/filters/test/en")
+      end
+
+      context "when no type is provided" do
+        let(:type) { nil }
+
+        it "doesn't stores filter type" do
+          expect(helper.filter_cache_hash(filter)).to start_with("decidim/proposals/filters/en")
+        end
+      end
+
+      context "when current locale changes" do
+        let(:alt_locale) { :ca }
+
+        it "generate a different hash" do
+          old_hash = helper.filter_cache_hash(filter, type)
+          allow(I18n).to receive(:locale).and_return(alt_locale)
+
+          expect(helper.filter_cache_hash(filter, type)).not_to eq(old_hash)
+        end
+      end
+
+      context "when filter is different" do
+        it "generate a different hash" do
+          old_hash = helper.filter_cache_hash(filter, type)
+          filter.test_attribute = "dummy-filter"
+
+          expect(helper.filter_cache_hash(filter, type)).not_to eq(old_hash)
         end
       end
     end

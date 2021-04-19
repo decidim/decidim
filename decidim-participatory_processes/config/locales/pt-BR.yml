@@ -35,7 +35,6 @@ pt:
       participatory_process_group:
         description: Descrição
         hero_image: Imagem
-        name: Nome
         participatory_process_ids: Processos relacionados
       participatory_process_step:
         cta_path: Caminho de chamada para ação
@@ -107,8 +106,6 @@ pt:
             title: Título
           name: Processo participativo
         participatory_process_group:
-          fields:
-            name: Nome
           name: Grupo de processo
         participatory_process_step:
           fields:
@@ -269,10 +266,10 @@ pt:
         object: processos participativos
         title: Processos participativos
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Atividade
       show:
-        group_participatory_processes:
-          one: 1 processo para %{group}
-          other: "%{count} processos para %{group}"
         title: Grupos de processos participativos
     participatory_process_steps:
       index:
@@ -359,23 +356,6 @@ pt:
         start_date: Data de início
         target: Quem participa
         unspecified: Não especificado
-      statistics:
-        answers_count: Respostas
-        comments_count: Comentários
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Atividade
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        participants_count: Participantes
-        processes_count: Processos
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        supports_count: Votos
-        surveys_count: pesquisas
-        users_count: Participantes
   layouts:
     decidim:
       participatory_process_groups:

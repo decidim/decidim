@@ -13,6 +13,9 @@ module Decidim
         get "/answer_options", to: "feedback_forms#answer_options", as: :answer_options_election_feedback, defaults: { format: "json" }
 
         resources :elections do
+          resources :steps, only: [:index, :update] do
+            get :stats
+          end
           member do
             put :publish
             put :unpublish
@@ -40,7 +43,6 @@ module Decidim
 
         resources :trustees, only: [:index, :new, :edit, :create, :destroy], controller: "trustees_participatory_spaces"
 
-        resources :setup, only: [:show, :update]
         root to: "elections#index"
       end
 
@@ -48,19 +50,24 @@ module Decidim
         [:trustees]
       end
 
-      initializer "decidim_admin_elections.view_hooks" do
-        Decidim::Admin.view_hooks.register(:admin_secondary_nav, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          component = view_context.current_participatory_space.components.find_by(manifest_name: :elections)
-          if component
-            view_context.render(
-              partial: "decidim/elections/admin/shared/trustees_secondary_nav",
-              locals: {
-                current_component: component,
-                engine_router: Decidim::EngineRouter.admin_proxy(component)
-              }
-            )
+      initializer "decidim_admin_elections.menu_entry" do
+        Decidim.participatory_space_registry.manifests.each do |participatory_space|
+          menu_id = :"admin_#{participatory_space.name.to_s.singularize}_menu"
+          Decidim.menu menu_id do |menu|
+            component = current_participatory_space.try(:components)&.find_by(manifest_name: :elections)
+            next unless component
+
+            menu.add_item :trustees,
+                          I18n.t("trustees", scope: "decidim.elections.admin.menu"),
+                          Decidim::EngineRouter.admin_proxy(component).trustees_path,
+                          position: 100,
+                          active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path)
           end
         end
+      end
+
+      initializer "decidim_elections.assets" do |app|
+        app.config.assets.precompile += %w(decidim_elections_manifest.js decidim_elections_manifest.css)
       end
 
       def load_seed

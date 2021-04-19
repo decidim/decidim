@@ -312,10 +312,6 @@ pt:
         description: Número de votos nas propostas
         object: votos
         title: Votos
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propostas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos (%{count})
@@ -332,7 +328,6 @@ pt:
         actions:
           preview: Pré-visualizar
         exports:
-          comments: Comentários
           proposals: Propostas
         models:
           proposal:
@@ -543,13 +538,6 @@ pt:
               ok: Retirar o rascunho colaborativo
               title: A ação seguinte é irreversível
             success: Rascunho colaborativo retirado corretamente.
-        compare:
-          mine_is_different: O meu rascunho colaborativo é diferente
-          no_similars_found: Bem feito! Não foram encontrados rascunhos colaborativos semelhantes
-          title: Rascunhos colaborativos semelhantes
-        complete:
-          send: Enviar
-          title: Concluir o seu rascunho colaborativo
         count:
           drafts_count:
             one: "%{count} rascunho colaborativo"
@@ -581,7 +569,6 @@ pt:
           unfold: Desdobrar
         new:
           send: Continuar
-          title: Criar o Seu rascunho colaborativo
         new_collaborative_draft_button:
           new_collaborative_draft: Novo rascunho colaborativo
         orders:
@@ -626,23 +613,11 @@ pt:
         update:
           error: Ocorreu um problema ao guardar o rascunho colaborativo.
           success: Rascunho colaborativo atualizado corretamente.
-          title: Editar rascunho colaborativo
         wizard_aside:
-          back: Retroceder
           back_from_collaborative_draft: Retroceder para os rascunhos colaborativos
-          back_from_step_1: Retroceder para os rascunhos colaborativos
-          back_from_step_2: Retroceder para os rascunhos colaborativos
-          back_from_step_3: Retroceder para a comparação dos rascunhos colaborativos
-          back_from_step_4: Retroceder para a edição do rascunho
           info: Está a criar um <strong>projeto colaborativo</strong>.
-        wizard_steps:
-          current_step: Passo atual
-          see_steps: ver passos
-          step_1: Criar o seu rascunho colaborativo
-          step_2: Comparar com rascunhos colaborativos
-          step_3: Concluir o seu rascunho colaborativo
-          step_of: Passo %{current_step_num} de %{total_steps}
-          title: Passos para criação de rascunho colaborativo
+        wizard_header:
+          title: Criar o seu rascunho colaborativo
       create:
         error: Ocorreu um problema ao guardar a proposta.
         success: Proposta criada corretamente. Guardado como Rascunho.

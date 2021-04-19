@@ -1,0 +1,27 @@
+<div class="card card--full card--process">
+  <div class="row collapse card--process__row">
+    <div class="columns mediumlarge-8 large-6 card--process__column">
+      <div class="card__content">
+        <%= link_to voting_path(promoted_voting), class: "card__link" do %>
+          <h2 class="card__title"><%= translated_attribute promoted_voting.title %></h2>
+        <% end %>
+        <%= decidim_sanitize html_truncate(translated_attribute(promoted_voting.description), length: 630, separator: "...") %>
+        <%= link_to voting_path(promoted_voting), class: "button small hollow card__button" do %>
+          <%= t("votings.promoted_voting.more_info", scope: "layouts.decidim") %>
+        <% end %>
+      </div>
+    </div>
+    <div class="columns mediumlarge-8 large-6 card--process__column">
+      <div class="card--full__image"
+           style="background-image:url(<%= promoted_voting.banner_image.url %>)">
+        <div class="card__content row collapse">
+          <div class="large-6 large-offset-6 columns">
+            <%= link_to voting_path(promoted_voting), class: "button expanded button--sc" do %>
+              <%= t(promoted_voting.cta_button_text_key, scope: "layouts.decidim.votings.promoted_voting") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

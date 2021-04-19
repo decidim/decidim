@@ -16,7 +16,8 @@
       <% if answer_option.free_text %>
         <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][custom_body]",
         choice.try(:custom_body),
-        disabled: true %>
+        disabled: true,
+        maxlength: maxlength %>
       <% end %>
     </div>
   <% end %>

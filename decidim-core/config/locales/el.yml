@@ -35,7 +35,6 @@ el:
       decidim/profile_updated_event: Το προφίλ ενημερώθηκε
       decidim/promote_to_admin: Αναβάθμιση σε διαχειριστής ομάδας
       decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
-      decidim/resource_endorsed_event: Το στοιχείο επιδοκιμάστηκε
   activerecord:
     attributes:
       decidim/user:
@@ -82,7 +81,6 @@ el:
         file_no_exists: Το αρχείο δεν υπάρχει
         notice: Η λήψη των δεδομένων σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
       delete:
-        alert: Αυτή η ενέργεια δεν μπορεί να αναιρεθεί. Αν διαγράψετε τον λογαριασμό σας δεν θα μπορείτε να συνδεθείτε.
         confirm:
           close: Κλείσιμο παραθύρου
           ok: Ναι, θέλω να διαγράψω τον λογαριασμό μου
@@ -243,7 +241,6 @@ el:
       photos:
         related_photos: Σχετικές εικόνες
     author:
-      avatar: Άβαταρ
       comments:
         one: σχόλιο
         other: σχόλια
@@ -265,8 +262,6 @@ el:
         name: Παράδειγμα εξουσιοδότησης
       dummy_authorization_workflow:
         name: Ροή εργασίας εικονικής εξουσιοδότησης
-      errors:
-        duplicate_authorization: Ένας συμμετέχων έχει ήδη εξουσιοδοτηθεί με τα ίδια δεδομένα.
       expired_at: Έληξε στις %{timestamp}
       expires_at: Λήγει στις %{timestamp}
       foo_authorization:
@@ -390,7 +385,6 @@ el:
         ready: Έτοιμο
       show:
         download_data: Πραγματοποιήστε λήψη των δεδομένων
-        download_data_description: Ένα αρχείο με όλες τις πληροφορίες που σχετίζονται με τον λογαριασμό θα σταλεί στη διεύθυνση <strong>%{user_email}</strong>
         request_data: Αίτηση για δεδομένα
     datepicker:
       help_text: 'Αναμενόμενη μορφή: %{datepicker_format}'
@@ -400,7 +394,6 @@ el:
           email_already_exists: Ένας άλλος λογαριασμός χρησιμοποιεί την ίδια διεύθυνση email
         new:
           complete_profile: Πλήρες προφίλ
-          nickname_help: Το ψευδώνυμό σας στον οργανισμό %{organization}
           sign_up: Συμπληρώστε το προφίλ σας
           subtitle: Συμπληρώστε την παρακάτω φόρμα για να ολοκληρώσετε την εγγραφή
           username_help: Το δημόσιο όνομα που εμφανίζεται στις δημοσιεύσεις σας. Με σκοπό τη διασφάλιση της ανωνυμίας, μπορεί να είναι οποιοδήποτε όνομα.
@@ -409,7 +402,6 @@ el:
           already_have_an_account?: Έχετε ήδη λογαριασμό;
           newsletter: Λάβετε ένα περιστασιακό ενημερωτικό δελτίο με σχετικές πληροφορίες
           newsletter_title: Άδεια επικοινωνίας
-          nickname_help: Το ψευδώνυμό σας στον οργανισμό %{organization}
           password_help: "Τουλάχιστον %{minimun_characters} χαρακτήρες, δεν πρέπει να είναι πολύ συνηθισμένο (π.χ. 123456) και πρέπει να διαφέρει από το ψευδώνυμο και το email σας."
           sign_in: Σύνδεση
           sign_up: Εγγραφή
@@ -613,7 +605,6 @@ el:
           notification_title: Η <a href="%{resource_path}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
     export_mailer:
       data_portability_export:
-        click_button: 'Κάντε κλικ στο επόμενο κουμπί για να πραγματοποιήσετε λήψη των δεδομένων σας. <br/> Θα έχετε το αρχείο διαθέσιμο έως τις %{date}. <br/> Θα χρειαστείτε το <a href=''https://www.7-zip.org/''>7-Zip</a> για να το ανοίξετε. Κωδικός πρόσβασης: %{password}'
         download: Λήψη
       export:
         ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
@@ -646,7 +637,6 @@ el:
       create:
         button: Παρακολούθηση
         error: Υπήρξε ένα πρόβλημα κατά την παρακολούθηση αυτού του πόρου.
-        participatory_space: Ακολουθείτε ήδη το <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Διακοπή παρακολούθησης
         error: Υπήρξε ένα πρόβλημα κατά τη διακοπή παρακολούθησης αυτού του πόρου.
@@ -663,7 +653,6 @@ el:
         file:
           explanation: 'Οδηγίες για αρχείο:'
           message_1: Πρέπει να είναι εικόνα ή έγγραφο.
-          message_2: Για εικόνες, χρησιμοποιήστε κατά προτίμηση οριζόντιας διάταξης, η υπηρεσία περικόπτει την εικόνα.
         image:
           explanation: 'Οδηγίες για εικόνα:'
           message_1: Προτιμώμενη εικόνα οριζόντιας διάταξης που δεν περιέχει κείμενο.
@@ -900,7 +889,6 @@ el:
         show:
           back: Πίσω σε όλες τις συνομιλίες
           chat_with: Συνομιλία με
-          not_allowed: Αυτός ο χρήστης δεν δέχεται πλέον άμεσα μηνύματα.
           title: Συνομιλία με τους χρήστες %{usernames}
         start:
           send: Αποστολή
@@ -1012,24 +1000,7 @@ el:
         metrics:
           headline: Μετρικά
         statistics:
-          answers_count: Ολοκληρωμένες έρευνες
-          assemblies_count: Συνελεύσεις
-          comments_count: Σχόλια
-          conferences_count: Διασκέψεις
-          debates_count: Συζητήσεις
-          endorsements_count: Επιδοκιμασίες
           headline: Τρέχουσα κατάσταση του οργανισμού %{organization}
-          meetings_count: Συσκέψεις
-          orders_count: Ψήφοι
-          pages_count: Σελίδες
-          processes_count: Διαδικασίες
-          projects_count: Έργα
-          proposals_accepted: Αποδεκτές προτάσεις
-          proposals_count: Προτάσεις
-          results_count: Αποτελέσματα
-          surveys_count: Έρευνες
-          users_count: Συμμετέχοντες
-          votes_count: Ψήφοι
         sub_hero:
           register: Εγγραφή
       index:
@@ -1196,6 +1167,8 @@ el:
         close_window: Κλείσιμο παραθύρου
         share: Κοινοποίηση
         share_link: Κοινοποίηση συνδέσμου
+    statistics:
+      comments_count: Σχόλια
     tags:
       filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
       filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'
@@ -1426,7 +1399,7 @@ el:
     messages:
       already_confirmed: έχει ήδη επιβεβαιωθεί, δοκιμάστε να συνδεθείτε
       confirmation_period_expired: πρέπει να επιβεβαιωθεί εντός %{period}, ζητήστε έναν νέο
-      content_type_whitelist_error: ο τύπος αρχείου δεν είναι έγκυρος
+      content_type_allowlist_error: ο τύπος αρχείου δεν είναι έγκυρος
       cycle_detected: το γονικό στοιχείο ενός πεδίου εφαρμογής δεν μπορεί να είναι ένα απογονικό στοιχείο του
       expired: έχει λήξει, ζητήστε έναν νέο
       file_size_is_less_than_or_equal_to: το μέγεθος του αρχείου πρέπει να είναι μικρότερο ή ίσο με %{count}
@@ -1444,10 +1417,6 @@ el:
       too_short: είναι πολύ μικρό (κάτω από 15 χαρακτήρες)
   forms:
     correct_errors: Υπάρχουν λάθη στη φόρμα, παρακαλούμε διορθώστε τα για να συνεχίσετε.
-    length_validator:
-      minimum:
-        one: τουλάχιστον %{count} χαρακτήρας
-        other: τουλάχιστον %{count} χαρακτήρες
     required: Υποχρεωτικό πεδίο
     required_explanation: "* Τα υποχρεωτικά πεδία επισημαίνονται με αστερίσκο"
   invisible_captcha:

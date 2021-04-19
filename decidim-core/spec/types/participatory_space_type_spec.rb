@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe ParticipatorySpaceType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:participatory_process) }
 
@@ -32,7 +32,8 @@ module Decidim
         it "only includes the published components" do
           component_ids = response["components"].map { |c| c["id"].to_i }
 
-          expect(component_ids).to include(*published_components.map(&:id))
+          # Ordered by ID by default.
+          expect(component_ids.sort).to eq(published_components.map(&:id))
           expect(component_ids).not_to include(*unpublished_components.map(&:id))
         end
       end

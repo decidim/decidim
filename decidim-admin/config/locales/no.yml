@@ -24,13 +24,15 @@
       component:
         name: Navn
         published_at: Publisert den
-        weight: Vekt
       id: ID
+      import:
+        user_group_id: Opprett importer som
       newsletter:
         body: Tekst
         subject: Emne
       organization:
         alert_color: Varsel
+        available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
         comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
         cta_button_path: Sti for handlingsknapp
@@ -41,6 +43,7 @@
         enable_omnipresent_banner: Vis overstyrende banner
         facebook_handler: Facebook brukernavn
         favicon: Ikon
+        force_authentication: Tving godkjenning
         from: Fra e-postadresse
         github_handler: GitHub brukernavn
         header_snippets: Utdrag topptekst
@@ -53,6 +56,7 @@
         highlighted_content_banner_image: Bilde
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
+        host: Vert
         instagram_handler: Instagram brukernavn
         logo: Logo
         machine_translation_display_priority: Maskinoversettelse viser prioritet
@@ -69,10 +73,11 @@
         reference_prefix: Referanse prefiks
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
         secondary_color: Sekundær
+        secondary_hosts: Sekundære verter
         send_welcome_notification: Send velkomst varsel
         success_color: Vellykket
         time_zone: Tidssone
-        tos_version: Vilkår for tjenester versjon
+        tos_version: Vilkår for tjenesten
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         warning_color: Advarsel
@@ -97,12 +102,10 @@
         show_in_footer: Vis i bunnteksten
         slug: URL slug
         title: Tittel
-        weight: Vekt
       static_page_topic:
         description: Beskrivelse
         show_in_footer: Vis i bunnteksten
         title: Tittel
-        weight: Vekt
       user_group_csv_verification:
         file: Fil
     errors:
@@ -145,13 +148,12 @@
           error: Det oppstod et problem med å godkjenne administrator vilkårene.
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
-          accept: Jeg er enig med disse administrasjonsvilkårene
           are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for Bruk. Ellers vil du ikke kunne administrere plattformen.
+          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for bruk. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:
@@ -466,6 +468,9 @@
             phone: Telefon
             state: Stat
             users_count: Deltakere teller
+      moderated_users:
+        index:
+          nickname: Kallenavn
       moderations:
         index:
           title: Moderering

@@ -22,13 +22,16 @@ module Decidim
 
     private
 
-    def announcement_args
+    def announcement
       {
-        callout_class: "warning",
-        announcement: {
-          title: t("required_review.title", scope: "decidim.pages.terms_and_conditions"),
-          body: t("required_review.body", scope: "decidim.pages.terms_and_conditions")
-        }
+        title: t("required_review.title", scope: "decidim.pages.terms_and_conditions"),
+        body: t("required_review.body", scope: "decidim.pages.terms_and_conditions")
+      }
+    end
+
+    def announcement_options
+      {
+        callout_class: "warning"
       }
     end
   end

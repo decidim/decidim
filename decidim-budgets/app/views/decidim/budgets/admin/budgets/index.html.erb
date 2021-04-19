@@ -1,9 +1,17 @@
-<div class="card">
+<div class="card with-overflow">
   <div class="card-divider">
-    <h2 class="card-title">
-      <%= t(".title") %>
-
-      <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.budget.name", scope: "decidim.budgets.admin")), new_budget_path, class: "button tiny button--title" if allowed_to? :create, :budget %>
+    <h2 class="card-title flex--sbc">
+      <div>
+        <%= t(".title") %>
+      </div>
+      <div class="flex--cc flex-gap--1">
+        <% if allowed_to? :export, :budget %>
+          <%= export_dropdown %>
+        <% end %>
+        <div id="js-other-actions-wrapper">
+          <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.budget.name", scope: "decidim.budgets.admin")), new_budget_path, class: "button tiny button--title" if allowed_to? :create, :budget %>
+        </div>
+      </div>
     </h2>
   </div>
 
@@ -40,13 +48,13 @@
                 <% if allowed_to? :update, :budget, budget: budget %>
                   <%= icon_link_to "pencil", edit_budget_path(budget), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
                 <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.budgets") %>
                 <% end %>
 
                 <% if allowed_to? :delete, :budget, budget: budget %>
                   <%= icon_link_to "circle-x", budget_path(budget), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.budgets") %>
                 <% end %>
               </td>
             </tr>
@@ -54,5 +62,14 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="card-divider">
+    <strong><%= t ".finished_orders" %>:&nbsp;</strong><span><%= finished_orders.count %></span>
+    <span>&nbsp;|&nbsp;</span>
+    <strong><%= t ".pending_orders" %>:&nbsp;</strong><span><%= pending_orders.count %></span>
+    <span>&nbsp;|&nbsp;</span>
+    <strong><%= t ".users_with_finished_orders" %>:&nbsp;</strong><span><%= users_with_finished_orders.count %></span>
+    <span>&nbsp;|&nbsp;</span>
+    <strong><%= t ".users_with_pending_orders" %>:&nbsp;</strong><span><%= users_with_pending_orders.count %></span>
   </div>
 </div>

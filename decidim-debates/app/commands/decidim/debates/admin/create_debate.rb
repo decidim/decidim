@@ -36,8 +36,9 @@ module Decidim
             description: parsed_description,
             information_updates: form.information_updates,
             instructions: form.instructions,
-            end_time: form.end_time,
-            start_time: form.start_time,
+            end_time: (form.end_time if form.finite),
+            start_time: (form.start_time if form.finite),
+            scope: form.scope,
             component: form.current_component,
             author: form.current_organization
           }

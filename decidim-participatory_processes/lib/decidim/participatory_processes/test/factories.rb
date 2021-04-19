@@ -7,13 +7,14 @@ require "decidim/core/test/factories"
 
 FactoryBot.define do
   sequence(:participatory_process_slug) do |n|
-    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
+    "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
   factory :participatory_process, class: "Decidim::ParticipatoryProcess" do
     title { generate_localized_title }
     slug { generate(:participatory_process_slug) }
     subtitle { generate_localized_title }
+    weight { 1 }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
@@ -85,10 +86,22 @@ FactoryBot.define do
   end
 
   factory :participatory_process_group, class: "Decidim::ParticipatoryProcessGroup" do
-    name { generate_localized_title }
+    title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
+    hashtag { Faker::Internet.slug }
+    group_url { Faker::Internet.url }
+    developer_group { generate_localized_title }
+    local_area { generate_localized_title }
+    meta_scope { Decidim::Faker::Localized.word }
+    target { generate_localized_title }
+    participatory_scope { generate_localized_title }
+    participatory_structure { generate_localized_title }
+
+    trait :promoted do
+      promoted { true }
+    end
 
     trait :with_participatory_processes do
       after(:create) do |participatory_process_group|

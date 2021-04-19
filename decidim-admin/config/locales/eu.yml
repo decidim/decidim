@@ -3,27 +3,26 @@ eu:
     attributes:
       area:
         area_type: Area mota
-        name: izena
+        name: Izena
         organization: Erakundea
       area_type:
-        name: izena
+        name: Izena
         organization: Erakundea
         plural: plural
       attachment:
-        attachment_collection_id: karpeta
+        attachment_collection_id: Karpeta
         description: Descripción
         file: Fitxategia
       attachment_collection:
-        description: deskribapena
-        name: izena
+        description: Deskribapena
+        name: Izena
       category:
         description: Descripción
         name: Izena
         parent_id: Nagusia
       component:
-        name: izena
+        name: Izena
         published_at: Argitaratu at
-        weight: pisu
       id: NAN
       newsletter:
         body: Testua
@@ -34,7 +33,7 @@ eu:
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
         default_locale: Eskualdeko ezarpen lehenetsiak
-        description: deskribapena
+        description: Deskribapena
         enable_omnipresent_banner: Erakutsi omnipresent banner
         facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
@@ -83,12 +82,10 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
-        weight: pisu
       static_page_topic:
-        description: deskribapena
+        description: Deskribapena
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
-        weight: pisu
       user_group_csv_verification:
         file: file
     errors:
@@ -132,7 +129,7 @@ eu:
           success: Area mota behar bezala suntsitu da
         edit:
           title: Editatu eremu mota
-          update: eguneratzearen
+          update: Eguneratzearen
         new:
           create: Sortu eremu mota
           title: Area mota berria
@@ -147,7 +144,7 @@ eu:
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
-          update: eguneratzearen
+          update: Eguneratzearen
         new:
           create: Sortu eremua
           title: Area berria
@@ -163,7 +160,7 @@ eu:
           success: Karpeta ondo suntsitu da.
         edit:
           title: Editatu karpeta
-          update: eguneratzearen
+          update: Eguneratzearen
         index:
           attachment_collection_used: Karpeta hau ezin da ezabatu erabiltzen ari delako.
           attachment_collections_title: Eranskinen karpetak
@@ -224,7 +221,7 @@ eu:
           success: Osagaia zuzen ezabatu da.
         edit:
           title: Editatu osagaia
-          update: eguneratzearen
+          update: Eguneratzearen
         form:
           default_step_settings: Urratsen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -270,17 +267,17 @@ eu:
       impersonatable_users:
         index:
           filter:
-            all: guztiak
+            all: Guztiak
             managed: Kudeatutako
             not_managed: Ez da kudeatzen
           filter_by: Iragazi arabera
           impersonate: Ordeztu
           impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
           managed: Kudeatutako
-          name: izena
+          name: Izena
           needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
           not_managed: Ez da kudeatzen
-          promote: sustatu
+          promote: Sustatu
           search: Search
           status: Egoera
           view_logs: Ikusi erregistroak

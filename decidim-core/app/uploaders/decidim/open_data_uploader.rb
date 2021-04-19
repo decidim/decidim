@@ -14,5 +14,10 @@ module Decidim
 
       default_path
     end
+
+    # Sets the validation that the associated model is always within an organization to true
+    def validate_inside_organization
+      true
+    end
   end
 end

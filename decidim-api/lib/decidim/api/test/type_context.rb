@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_context "with a graphql type" do
+shared_context "with a graphql class type" do
   let!(:current_organization) { create(:organization) }
   let!(:current_user) { create(:user, organization: current_organization) }
   let(:model) { OpenStruct.new({}) }
@@ -10,13 +10,9 @@ shared_context "with a graphql type" do
 
   let(:schema) do
     klass = type_class
-
-    GraphQL::Schema.define do
+    Class.new(Decidim::Api::Schema) do
       query klass
-
       orphan_types(Decidim::Api.orphan_types)
-
-      resolve_type ->(_type, _obj, _ctx) {}
     end
   end
 
@@ -41,8 +37,8 @@ shared_context "with a graphql type" do
   end
 end
 
-shared_context "with a graphql scalar type" do
-  include_context "with a graphql type"
+shared_context "with a graphql scalar class type" do
+  include_context "with a graphql class type"
 
   let(:root_value) do
     OpenStruct.new(value: model)
@@ -51,11 +47,11 @@ shared_context "with a graphql scalar type" do
   let(:type_class) do
     klass = described_class
 
-    GraphQL::ObjectType.define do
-      name "Test#{klass.name}"
+    Class.new(GraphQL::Schema::Object) do
+      graphql_name "ScalarFieldType"
       description "Fake test type"
 
-      field :value, klass
+      field :value, klass, null: false
     end
   end
 

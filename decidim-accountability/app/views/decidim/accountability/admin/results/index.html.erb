@@ -12,13 +12,35 @@
     </h2>
   </div>
 
+  <%= admin_filter_selector(:results) %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.result.fields.title", scope: "decidim.accountability") %></th>
-            <%= th_resource_scope_label %>
+            <th>
+              <%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
+            </th>
+            <th>
+              <%= sort_link(query, :category_name, t("models.result.fields.category", scope: "decidim.accountability") ) %>
+            </th>
+            <% if resource_with_scopes_enabled? %>
+              <th>
+                <%= sort_link(query, :scope_name, t("models.result.fields.scope", scope: "decidim.accountability") ) %>
+              </th>
+            <% end %>
+            <th>
+              <%= sort_link(query, :status_name, t("models.result.fields.status", scope: "decidim.accountability") ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :progress, t("models.result.fields.progress", scope: "decidim.accountability") ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :created_at, t("models.result.fields.created_at", scope: "decidim.accountability") ) %>
+            </th>
             <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
           </tr>
         </thead>
@@ -26,9 +48,29 @@
           <% results.each do |result| %>
             <tr data-id="<%= result.id %>">
               <td>
+                <%= result.id %><br>
+              </td>
+              <td>
                 <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
               </td>
+              <td>
+                <% if result.category %>
+                  <%= translated_attribute result.category.name %>
+                <% end %>
+              </td>
               <%= td_resource_scope_for(result.scope) %>
+              <td>
+                <% if result.status %>
+                  <%= translated_attribute result.status.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= result.progress&.to_i %>
+              </td>
+              <td>
+                <%= l result.created_at, format: :decidim_short %>
+              </td>
+
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>
 
@@ -42,6 +84,14 @@
 
                 <% if allowed_to? :update, :result, result: result %>
                   <%= icon_link_to "pencil", edit_result_path(result), t("actions.edit", scope: "decidim.accountability"), class: "action-icon--edit" %>
+                <% end %>
+
+                <% if allowed_to? :update, :result, result: result %>
+                    <%= icon_link_to "folder", result_attachment_collections_path(result), t("actions.attachment_collections", scope: "decidim.accountability"), class: "action-icon--attachment_collections" %>
+                <% end %>
+
+                <% if allowed_to? :update, :result, result: result %>
+                  <%= icon_link_to "paperclip", result_attachments_path(result), t("actions.attachments", scope: "decidim.accountability"), class: "action-icon--attachments" %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :result, result: result %>

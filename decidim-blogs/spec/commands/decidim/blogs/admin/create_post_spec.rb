@@ -21,7 +21,8 @@ module Decidim
             invalid?: invalid,
             title: { en: title },
             body: { en: body },
-            current_component: current_component
+            current_component: current_component,
+            author: current_user
           )
         end
 
@@ -38,6 +39,10 @@ module Decidim
 
           it "creates the post" do
             expect { subject.call }.to change(Post, :count).by(1)
+          end
+
+          it "creates a searchable resource" do
+            expect { subject.call }.to change(Decidim::SearchableResource, :count).by_at_least(1)
           end
 
           it "sets the title" do

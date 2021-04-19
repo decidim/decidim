@@ -41,7 +41,7 @@ module Decidim
           },
           participatory_process_group: {
             id: participatory_process.participatory_process_group.try(:id),
-            name: participatory_process.participatory_process_group.try(:name) || empty_translatable,
+            title: participatory_process.participatory_process_group.try(:title) || empty_translatable,
             description: participatory_process.participatory_process_group.try(:description) || empty_translatable,
             remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupPresenter.new(participatory_process.participatory_process_group).hero_image_url
           },

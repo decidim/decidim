@@ -32,6 +32,8 @@
   decidim:
     accountability:
       actions:
+        attachment_collections: Mapper
+        attachments: Vedlegg
         confirm_destroy: Er du sikker på at du vil slette dette %{name}?
         destroy: Slett
         edit: Redigere
@@ -42,6 +44,7 @@
         title: Handlinger
       admin:
         exports:
+          result_comments: Kommentarer
           results: Resultater
         import_results:
           new:
@@ -121,6 +124,11 @@
         value_types:
           parent_presenter:
             not_found: 'Overordnede ble ikke funnet i databasen (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datoer
+          results: Resultater
+          unspecified: Ikke spesifisert
       import_mailer:
         import:
           errors: Feil
@@ -133,8 +141,12 @@
       models:
         result:
           fields:
+            category: Kategori
+            created_at: Opprettet
             end_date: Sluttdato
+            id: ID
             progress: Framgang
+            scope: Tema
             start_date: Startdato
             status: Status
             title: Tittel
@@ -148,6 +160,8 @@
           fields:
             description: Beskrivelse
             entry_date: Dato
+      result_m:
+        executed: Utført
       results:
         count:
           results_count:
@@ -178,6 +192,13 @@
             votes: Støtter
         timeline:
           title: Prosjektutvikling
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Ansvarlighet
@@ -211,10 +232,6 @@
         description: Antall genererte resultater
         object: resultater
         title: Resultater
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Resultater
     participatory_spaces:
       highlighted_results:
         see_all: Se alle resultater (%{count})

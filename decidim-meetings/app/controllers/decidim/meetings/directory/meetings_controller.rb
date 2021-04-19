@@ -53,7 +53,7 @@ module Decidim
 
         def default_search_params
           {
-            scope: Meeting.visible_meeting_for(current_user)
+            scope: Meeting.not_hidden.visible_meeting_for(current_user)
           }
         end
 

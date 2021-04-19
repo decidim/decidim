@@ -51,11 +51,20 @@ module Decidim
 
         def attributes
           {
-            name: form.name,
+            title: form.title,
             hero_image: form.hero_image,
             remove_hero_image: form.remove_hero_image,
             description: form.description,
-            participatory_processes: participatory_processes
+            hashtag: form.hashtag,
+            group_url: form.group_url,
+            participatory_processes: participatory_processes,
+            developer_group: form.developer_group,
+            local_area: form.local_area,
+            meta_scope: form.meta_scope,
+            participatory_scope: form.participatory_scope,
+            participatory_structure: form.participatory_structure,
+            target: form.target,
+            promoted: form.promoted
           }
         end
 

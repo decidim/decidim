@@ -5,7 +5,7 @@ module Decidim
     # A form object used to create comments from the graphql api.
     #
     class CommentForm < Form
-      attribute :body, String
+      attribute :body, Decidim::Attributes::CleanString
       attribute :alignment, Integer
       attribute :user_group_id, Integer
       attribute :commentable

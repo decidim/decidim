@@ -69,6 +69,7 @@ module Decidim
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
+      scope :order_by_most_recent, -> { order(created_at: :desc) }
       scope :sort_by_valuation_assignments_count_asc, lambda {
         order("#{sort_by_valuation_assignments_count_nulls_last_query}ASC NULLS FIRST")
       }
@@ -106,7 +107,7 @@ module Decidim
         return unless author.is_a?(Decidim::User)
 
         joins(:coauthorships)
-          .where("decidim_coauthorships.coauthorable_type = ?", name)
+          .where(decidim_coauthorships: { coauthorable_type: name })
           .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
       end
 
@@ -130,7 +131,9 @@ module Decidim
                                                             .where(decidim_author_type: "Decidim::UserBaseEntity")
                                                             .pluck(:decidim_author_id).to_a.compact.uniq
 
-        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids).flatten.compact.uniq
+        commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(proposals)
+
+        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
       end
 
       # Public: Updates the vote count of this proposal.
@@ -334,10 +337,6 @@ module Decidim
         ")
       end
 
-      ransacker :state do
-        Arel.sql("CASE WHEN state = 'withdrawn' THEN 'withdrawn' WHEN state_published_at IS NULL THEN NULL ELSE state END")
-      end
-
       ransacker :title do
         Arel.sql(%{("decidim_proposals_proposals"."title")::text})
       end
@@ -375,6 +374,7 @@ module Decidim
       # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
         return true if draft?
+        return true if component.settings.proposal_edit_time == "infinite"
 
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit

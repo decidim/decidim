@@ -36,23 +36,23 @@ module Decidim
         end
 
         def first_short_answer
-          short = sibilings.where("decidim_forms_questions.question_type in (?)", %w(short_answer))
+          short = sibilings.where(decidim_forms_questions: { question_type: %w(short_answer) })
           short.first
         end
 
         def completion
-          with_body = sibilings.where("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
+          with_body = sibilings.where(decidim_forms_questions: { question_type: %w(short_answer long_answer) })
                                .where.not(body: "").count
           with_choices = sibilings.where.not("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
                                   .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
 
-          (with_body + with_choices).to_f / questionnaire.questions.count * 100
+          (with_body + with_choices).to_f / questionnaire.questions.not_separator.count * 100
         end
 
         private
 
         def sibilings
-          Answer.where(session_token: participant.session_token).joins(:question).order("decidim_forms_questions.position ASC")
+          Answer.not_separator.where(questionnaire: questionnaire, session_token: participant.session_token).joins(:question).order("decidim_forms_questions.position ASC")
         end
       end
     end

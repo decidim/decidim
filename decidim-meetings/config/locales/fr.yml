@@ -14,6 +14,7 @@ fr:
       meeting:
         address: Adresse
         available_slots: Places disponibles pour cette rencontre
+        customize_registration_email: Personnaliser l'email d'inscription
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         decidim_user_group_id: Groupe d'utilisateurs
@@ -21,12 +22,14 @@ fr:
         end_time: Date de fin
         location: Lieu
         location_hints: Indicateurs d’emplacement
-        online_meeting_url: URL de la réunion
+        online_meeting_url: URL de la rencontre
         organizer_gid: Créer en tant que
         organizer_id: Organisateur
         private_meeting: Rencontre privée
+        registration_email_custom_content: Contenu personnalisé de l'e-mail d'inscription
         registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
+        registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
         start_time: Heure de début
         title: Titre
@@ -89,10 +92,11 @@ fr:
             creation_enabled_for_participants: Les participants peuvent créer des rencontres
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
+            registration_code_enabled: Code d'enregistrement activé
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             scope_id: Secteur
             scopes_enabled: Secteurs activés
-            terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les créateurs de réunion
+            terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les auteurs de rencontres
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
@@ -205,6 +209,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
         invite_join_meeting_mailer:
@@ -252,13 +257,19 @@ fr:
                 other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées
             success: La rencontre a été supprimée avec succès
           edit:
+            title: Modifier la rencontre
             update: Mettre à jour
           form:
-            address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [n°] [rue] [code postal] [ville]'
+            address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
+            available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
+            disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
-            online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre réunion'
-            select_a_meeting_type: Veuillez sélectionner un type de réunion
+            online_meeting_url_help: 'Lien : permet aux participants de se connecter directement à votre réunion'
+            registration_email_help: Ce texte apparaîtra au milieu de l'e-mail de confirmation d'inscription, juste après le code d'inscription.
+            registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
+            select_a_meeting_type: Veuillez sélectionner un type de rencontre
+            select_a_registration_type: Veuillez sélectionner un type d'inscription
           index:
             title: Rencontres
           new:
@@ -282,6 +293,7 @@ fr:
             invalid: Un problème est survenu lors de la création de ce compte rendu
             success: Compte rendu créé avec succès
           edit:
+            title: Modifier le compte-rendu
             update: Mettre à jour
           new:
             create: Créer
@@ -352,6 +364,7 @@ fr:
             space_type: Espace participatif
             upcoming: À venir
       last_activity:
+        meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -365,8 +378,8 @@ fr:
       meeting_closes:
         edit:
           back: Retour
-          close: Clôturer la réunion
-          title: Clôturer la réunion
+          close: Clore la rencontre
+          title: Clore la rencontre
       meetings:
         count:
           meetings_count:
@@ -380,12 +393,15 @@ fr:
           title: Modifier votre rencontre
           update: Mettre à jour
         filters:
+          activity: Mon activité
+          all: Tous
           category: Catégorie
           date: Date
           date_values:
             all: Toutes
             past: Passées
             upcoming: À venir
+          my_meetings: Mes rencontres
           origin: Origine
           origin_values:
             all: Toutes
@@ -397,6 +413,7 @@ fr:
           type: Type
           type_values:
             all: Tous
+            hybrid: Hybride
             in_person: En présentiel
             online: En ligne
         filters_small_view:
@@ -405,13 +422,17 @@ fr:
           filter_by: Filtrer par
           unfold: Voir la suite
         form:
-          address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
+          address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
+          available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
           create_as: Créer une rencontre en tant que
+          disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre'
           location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
-          online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre réunion'
+          online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre rencontre'
+          registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
           select_a_category: Veuillez sélectionner une catégorie
-          select_a_meeting_type: Veuillez sélectionner un type de réunion
+          select_a_meeting_type: Veuillez sélectionner un type de rencontre
+          select_a_registration_type: Veuillez sélectionner un type d'inscription
         index:
           new_meeting: Nouvelle rencontre
         meeting_minutes:
@@ -430,7 +451,7 @@ fr:
         show:
           attendees: Nombre de participants
           back: Retour à la liste
-          close_meeting: Clôturer la réunion
+          close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
           edit_meeting: Modifier la rencontre
@@ -477,6 +498,10 @@ fr:
           confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
           details: Vous trouverez les détails de la rencontre dans la pièce jointe.
           registration_code: Votre code d'inscription est %{code}.
+      registration_type:
+        on_different_platform: Sur une plateforme différente
+        on_this_platform: Sur cette plateforme
+        registration_disabled: Inscription désactivée
       registrations:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
@@ -488,6 +513,7 @@ fr:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
       type_of_meeting:
+        hybrid: Hybride
         in_person: En présentiel
         online: En ligne
       types:
@@ -500,11 +526,6 @@ fr:
         description: Nombre de rencontres créées
         object: rencontres
         title: Rencontres
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Rencontres passées
-          upcoming_meetings: Rencontres à venir
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées

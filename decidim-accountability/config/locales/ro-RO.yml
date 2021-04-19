@@ -2,11 +2,11 @@ ro:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Status
+        decidim_accountability_status_id: Stare
         decidim_category_id: Categorie
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de aplicare
         description: Descriere
-        end_date: Data de încheiere
+        end_date: Data de sfârșit
         progress: Progresul
         project_ids: Proiecte incluse
         proposals: Propuneri incluse
@@ -33,6 +33,8 @@ ro:
   decidim:
     accountability:
       actions:
+        attachment_collections: Dosare
+        attachments: Atașamente
         confirm_destroy: Ești sigur că vrei să ștergi acest %{name}?
         destroy: Ștergere
         edit: Editare
@@ -43,10 +45,12 @@ ro:
         title: Acțiuni
       admin:
         exports:
+          result_comments: Comentarii
           results: Rezultate
         import_results:
           new:
             import: Importă
+            info: "<p>Vă recomandăm să urmați aceste etape:</p><ol><li>Creați statutele pentru rezultatele pe care doriți să le adăugați (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Creați manual cel puțin un rezultat prin acest panou de administrare (<a href='%{link_new_result}' target='_blank'>link</a>) înainte de a folosi funcția Importare, pentru a înțelege mai bine formatul și ceea ce trebuie completat.</li><li>Descărcați exportul cu format CVS (%{link_export_csv})</li><li>Efectuați modificările local. Puteți modifica numai următoarele coloane din CSV:</li></ol><ul><li><b>category/id:</b> ID-ul categoriei</li><li><b>scope/id:</b> ID-ul domeniului</li><li><b>parent/id:</b> ID-ul elementului părinte (pentru rezultatele corelate). Opțional</li><li><b>title/I18N:</b> Titlu în limba X </li><li><b>description/I18N:</b> Descriere în limba X</li><li><b>start_date:</b> data la care rezultatul începe executarea (format YYYY-MM-DD)</li><li><b>end_date:</b> data la care rezultatul încheie executarea (format YYYY-MM-DD)</li><li><b>status/id:</b> ID-ul Statutului pentru acest rezultat</li><li><b>progres:</b> Procent (de la 0 la 100) de executare</li><li><b>proposals_ids:</b> ID-ul intern al propunerilor înrudite (separate prin virgulă). Este automat convertit în <span class='attribute-name'>proposal_url</span></li></ul>"
             link: link
             title: Importați rezultate de la CSV
         imports:
@@ -78,7 +82,7 @@ ro:
             success: Rezultatul a fost actualizat
         shared:
           subnav:
-            statuses: Statuses
+            statuses: Status-uri
         statuses:
           create:
             invalid: A apărut o eroare la crearea acestui status
@@ -89,7 +93,7 @@ ro:
             title: Editare stare
             update: Stare actualizare
           index:
-            title: Statuses
+            title: Status-uri
           new:
             create: Creare stare
             title: Stare nouă
@@ -121,6 +125,11 @@ ro:
         value_types:
           parent_presenter:
             not_found: 'Părintele nu a fost găsit în baza de date (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Date
+          results: Rezultatele
+          unspecified: Nespecificat
       import_mailer:
         import:
           errors: Erori
@@ -133,8 +142,12 @@ ro:
       models:
         result:
           fields:
+            category: Categorie
+            created_at: Creat
             end_date: Data de încheiere
+            id: ID
             progress: Progresul
+            scope: Domeniu de aplicare
             start_date: Data de început
             status: Status
             title: Titlu
@@ -148,6 +161,9 @@ ro:
           fields:
             description: Descriere
             entry_date: Data
+      result_m:
+        executed: Execută
+        view: Vizualizare
       results:
         count:
           results_count:
@@ -169,6 +185,7 @@ ro:
         show:
           stats:
             attendees: Participanți
+            back_to_resource: Înapoi la rezultat
             comments: Comentarii
             contributions: Contribuții
             last_edited_by: Ultima editare de
@@ -178,6 +195,15 @@ ro:
             votes: Suportă
         timeline:
           title: Evoluția proiectului
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Domeniul de aplicare
+          status_id_eq:
+            label: Stare
     components:
       accountability:
         name: Responsabilitate
@@ -190,6 +216,8 @@ ro:
             heading_leaf_level_results: Nume pentru "Proiecte"
             heading_parent_level_results: Nume pentru "Rezultate"
             intro: Introducere
+            scope_id: Domeniu de aplicare
+            scopes_enabled: Domenii de aplicare activate
             subcategories_label: Nume pentru "Subcategorii"
           step:
             comments_blocked: Comentarii blocate
@@ -210,10 +238,6 @@ ro:
         description: Număr de rezultate generate
         object: rezultate
         title: Rezultate
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Rezultate
     participatory_spaces:
       highlighted_results:
         see_all: Vezi toate rezultatele (%{count})
@@ -222,3 +246,5 @@ ro:
         result_project: Proiecte incluse în acest rezultat
       included_proposals:
         result_proposal: Propuneri incluse în acest rezultat
+    statistics:
+      results_count: Rezultate

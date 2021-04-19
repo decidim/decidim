@@ -31,6 +31,8 @@ ja:
   decidim:
     accountability:
       actions:
+        attachment_collections: フォルダー
+        attachments: 添付ファイル
         confirm_destroy: この %{name} を削除してもよろしいですか？
         destroy: 削除
         edit: 編集
@@ -41,6 +43,7 @@ ja:
         title: アクション
       admin:
         exports:
+          result_comments: コメント
           results: 結果
         import_results:
           new:
@@ -120,6 +123,11 @@ ja:
         value_types:
           parent_presenter:
             not_found: '親がデータベース上に見つかりませんでした (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: 日付
+          results: 結果
+          unspecified: 指定なし
       import_mailer:
         import:
           errors: エラー
@@ -132,8 +140,12 @@ ja:
       models:
         result:
           fields:
+            category: カテゴリ
+            created_at: 作成日時
             end_date: 終了日
+            id: ID
             progress: 進捗状況
+            scope: スコープ
             start_date: 開始日
             status: ステータス
             title: タイトル
@@ -147,6 +159,9 @@ ja:
           fields:
             description: 説明
             entry_date: 日付
+      result_m:
+        executed: 実行日時
+        view: 表示
       results:
         count:
           results_count:
@@ -176,6 +191,15 @@ ja:
             votes: サポート
         timeline:
           title: プロジェクトの進化
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: カテゴリ
+          scope_id_eq:
+            label: スコープ
+          status_id_eq:
+            label: ステータス
     components:
       accountability:
         name: アカウンタビリティ
@@ -210,10 +234,6 @@ ja:
         description: 生成した結果の数
         object: 結果
         title: 結果
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: 結果
     participatory_spaces:
       highlighted_results:
         see_all: すべての結果を見る (%{count})
@@ -222,3 +242,5 @@ ja:
         result_project: この結果に含まれるプロジェクト
       included_proposals:
         result_proposal: この結果に含まれる提案
+    statistics:
+      results_count: 結果

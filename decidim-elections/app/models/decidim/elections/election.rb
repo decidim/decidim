@@ -16,13 +16,16 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
-      enum bb_status: [:key_ceremony, :ready, :vote, :tally, :results, :results_published].map { |status| [status, status.to_s] }.to_h, _prefix: :bb
+
+      enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally, :tally_ended, :results_published].index_with(&:to_s), _prefix: :bb
 
       component_manifest_name "elections"
 
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
       has_many :elections_trustees, foreign_key: "decidim_elections_election_id", dependent: :destroy
       has_many :trustees, through: :elections_trustees
+      has_many :votes, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Vote", dependent: :restrict_with_exception
+      has_many :actions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Action", dependent: :restrict_with_exception
 
       scope :active, lambda {
         where("start_time <= ?", Time.current)
@@ -64,11 +67,18 @@ module Decidim
         started? && !finished?
       end
 
-      # Public: Checks if the election start_time is minimum 3 hours later than the present time
+      # Public: Checks if the election start_time is minimum some hours later than the present time
       #
       # Returns a boolean.
-      def minimum_three_hours_before_start?
-        start_time > (Time.zone.at(3.hours.from_now))
+      def minimum_hours_before_start?
+        start_time > (Time.zone.at(Decidim::Elections.setup_minimum_hours_before_start.hours.from_now))
+      end
+
+      # Public: Checks if the election start_time is maximum some hours before than the present time
+      #
+      # Returns a boolean.
+      def maximum_hours_before_start?
+        start_time < (Time.zone.at(Decidim::Elections.start_vote_maximum_hours_before_start.hours.from_now))
       end
 
       # Public: Checks if the number of answers are minimum 2 for each question
@@ -85,11 +95,11 @@ module Decidim
         bb_results_published?
       end
 
-      # Public: Checks if the election results present
+      # Public: Checks if the election results are present
       #
       # Returns a boolean.
       def results?
-        bb_results?
+        bb_tally_ended? || results_published?
       end
 
       # Public: Checks if the election questions are valid
@@ -110,6 +120,10 @@ module Decidim
         else
           :upcoming
         end
+      end
+
+      def trustee_action_required?
+        bb_key_ceremony? || bb_tally?
       end
 
       # Public: Checks if the election has a blocked_at value

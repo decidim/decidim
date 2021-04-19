@@ -20,6 +20,7 @@ shared_examples "a paginated resource" do
       click_link "50"
     end
 
+    sleep 2
     expect(page).to have_css(resource_selector, count: collection_size)
     expect(page).to have_no_css(".pagination")
   end

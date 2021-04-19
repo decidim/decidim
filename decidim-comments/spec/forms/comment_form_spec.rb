@@ -48,6 +48,12 @@ module Decidim
         let(:body) { "c" * 1001 }
 
         it { is_expected.not_to be_valid }
+
+        context "with carriage return characters that cause it to exceed" do
+          let(:body) { "#{("c" * 500)}\r\n#{("c" * 499)}" }
+
+          it { is_expected.to be_valid }
+        end
       end
 
       context "when alignment is not present" do

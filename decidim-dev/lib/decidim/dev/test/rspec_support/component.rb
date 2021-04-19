@@ -124,10 +124,13 @@ module Decidim
       end
 
       def self.newsletter_participant_ids(component)
-        Decidim::DummyResources::DummyResource.where(component: component).joins(:component)
-                                              .where(decidim_author_type: Decidim::UserBaseEntity.name)
-                                              .where.not(author: nil)
-                                              .pluck(:decidim_author_id).flatten.compact.uniq
+        authors_ids = Decidim::DummyResources::DummyResource.where(component: component)
+                                                            .where(decidim_author_type: Decidim::UserBaseEntity.name)
+                                                            .where.not(author: nil)
+                                                            .group(:decidim_author_id)
+                                                            .pluck(:decidim_author_id)
+        commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: component))
+        (authors_ids + commentators_ids).flatten.compact.uniq
       end
     end
 
@@ -273,6 +276,7 @@ RSpec.configure do |config|
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
           t.integer :comments_count, null: false, default: 0
+          t.integer :follows_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false

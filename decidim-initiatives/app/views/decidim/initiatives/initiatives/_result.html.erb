@@ -2,7 +2,7 @@
   <br>
   <div class="row column">
     <div class="callout success">
-      <h5><%= t(initiative.state, scope: "decidim.initiatives.initiatives.result.answer_title") %>:</h5>
+      <h5><%= t("decidim.initiatives.initiatives.result.answer_title") %>:</h5>
       <p>
         <% if initiative.answer_url.present? %>
           <a href="<%= initiative.answer_url %>" target="_blank">

@@ -7,7 +7,7 @@ require "decidim/core/test"
 module Decidim
   module Proposals
     describe ProposalsType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:proposal_component) }
 
       it_behaves_like "a component query type"
@@ -21,9 +21,25 @@ module Decidim
 
         it "returns the published proposals" do
           ids = response["proposals"]["edges"].map { |edge| edge["node"]["id"] }
-          expect(ids).to include(*published_proposals.map(&:id).map(&:to_s))
+          # We expect the default order to be ascending by ID, so the array
+          # needs to match exactly the ordered IDs array.
+          expect(ids).to eq(published_proposals.map(&:id).sort.map(&:to_s))
           expect(ids).not_to include(*draft_proposals.map(&:id).map(&:to_s))
           expect(ids).not_to include(*other_proposals.map(&:id).map(&:to_s))
+        end
+
+        context "when querying proposals with categories" do
+          let(:category) { create(:category, participatory_space: model.participatory_space) }
+          let!(:proposal_with_category) { create(:proposal, component: model, category: category) }
+          let(:all_proposals) { published_proposals + [proposal_with_category] }
+
+          let(:query) { "{ proposals { edges { node { id, category { id } } } } }" }
+
+          it "return proposals with and without categories" do
+            ids = response["proposals"]["edges"].map { |edge| edge["node"]["id"] }
+            expect(ids.count).to eq(3)
+            expect(ids).to eq(all_proposals.map(&:id).sort.map(&:to_s))
+          end
         end
       end
 

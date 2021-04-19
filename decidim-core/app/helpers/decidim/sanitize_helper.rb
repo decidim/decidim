@@ -22,6 +22,14 @@ module Decidim
       end
     end
 
+    def decidim_sanitize_newsletter(html, options = {})
+      if options[:strip_tags]
+        strip_tags sanitize(html, scrubber: Decidim::NewsletterScrubber.new)
+      else
+        sanitize(html, scrubber: Decidim::NewsletterScrubber.new)
+      end
+    end
+
     def decidim_html_escape(text)
       ERB::Util.unwrapped_html_escape(text.to_str)
     end

@@ -68,7 +68,7 @@ extra_admin_link(
       <%= cell "decidim/proposals/proposal_tags", @proposal %>
     </div>
 
-    <%= cell("decidim/announcement", proposal_reason_callout_args) if @proposal.answered? && @proposal.published_state? %>
+    <%= cell("decidim/announcement", proposal_reason_callout_announcement, callout_class: proposal_reason_callout_class) if @proposal.answered? && @proposal.published_state? %>
 
     <%= linked_resources_for @proposal, :results, "included_proposals" %>
     <%= linked_resources_for @proposal, :projects, "included_proposals" %>
@@ -138,10 +138,4 @@ extra_admin_link(
 
 <%= comments_for @proposal %>
 
-<%=
-  render partial: "decidim/shared/flag_modal", locals: {
-    reportable: @proposal,
-    form: @report_form,
-    url: decidim.report_path(sgid: @proposal.to_sgid.to_s)
-  }
-%>
+<%= cell("decidim/flag_modal", @proposal) %>

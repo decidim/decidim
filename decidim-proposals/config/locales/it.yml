@@ -312,10 +312,6 @@ it:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
         title: Voti
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: proposte
     participatory_spaces:
       highlighted_proposals:
         see_all: Vedi tutto (%{count})
@@ -332,7 +328,6 @@ it:
         actions:
           preview: Anteprima
         exports:
-          comments: Commenti
           proposals: Proposte
         models:
           proposal:
@@ -543,13 +538,6 @@ it:
               ok: Ritirare la bozza collaborativa
               title: La seguente azione è irreversibile
             success: Bozza collaborativa ritirata con successo.
-        compare:
-          mine_is_different: La mia bozza di collaborazione è diversa
-          no_similars_found: Molto bene! Nessuna bozza collaborativa simile trovata
-          title: Bozze collaborative simili
-        complete:
-          send: Inviare
-          title: Completa la tua bozza collaborativa
         count:
           drafts_count:
             one: "%{count} bozza collaborativa"
@@ -581,7 +569,6 @@ it:
           unfold: spiegare
         new:
           send: Continua
-          title: Crea la tua bozza collaborativa
         new_collaborative_draft_button:
           new_collaborative_draft: Nuova bozza collaborativa
         orders:
@@ -626,23 +613,11 @@ it:
         update:
           error: Si sono verificati errori durante il salvataggio della bozza collaborativa.
           success: Bozza collaborativa aggiornata correttamente.
-          title: Modifica bozza collaborativa
         wizard_aside:
-          back: Indietro
           back_from_collaborative_draft: Torna alle bozze collaborative
-          back_from_step_1: Torna alle bozze collaborative
-          back_from_step_2: Torna alle bozze collaborative
-          back_from_step_3: Torna a confrontare le bozze collaborative
-          back_from_step_4: Torna a modificare la bozza
           info: Stai creando una bozza collaborativa <strong></strong>.
-        wizard_steps:
-          current_step: Fase attuale
-          see_steps: visualizza le fasi
-          step_1: Crea la tua bozza collaborativa
-          step_2: Confronta con bozze collaborative
-          step_3: Completa la tua bozza collaborativa
-          step_of: Passaggio %{current_step_num} di %{total_steps}
-          title: Fasi di creazione bozza collaborativa
+        wizard_header:
+          title: Crea la tua bozza collaborativa
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
@@ -756,6 +731,8 @@ it:
           view_index:
             see_index: Vedi indice
         preview:
+          announcement_body: La tua proposta è stata salvata come bozza. Deve essere pubblicata affinché appaia sul sito.
+          announcement_title: La tua proposta non è stata ancora pubblicata
           modify: Modifica la proposta
           proposal_edit_before_minutes:
             one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.

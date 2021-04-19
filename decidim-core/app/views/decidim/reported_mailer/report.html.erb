@@ -1,6 +1,6 @@
-<p><%= t(".hello", name: @user.name) %></p>
+<p class="email-greeting"><%= t(".hello", name: @user.name) %></p>
 
-<p>
+<p class="email-instructions">
   <%= t(".report_html", { url: reported_content_url }) %>
 </p>
 
@@ -35,7 +35,15 @@
   <% if author_profile_url.present? %>
     <p><%= link_to @author.name, author_profile_url, target: :blank %></p>
   <% else %>
-    <p><%= @author.name %></p>
+    <p>
+      <%=
+        if @author.respond_to?(:name)
+          @author.name
+        elsif @author.respond_to?(:title)
+          translated_attribute(@author.title)
+        end
+      %>
+    </p>
   <% end %>
 <% end %>
 <br>
@@ -46,7 +54,7 @@
       <table>
         <tr>
           <td>
-            <%= link_to t(".see_report"), report_url, class: "button",  target: "_blank" %>
+            <%= link_to t(".see_report"), report_url, class: "button email-button email-button__cta",  target: "_blank" %>
           </td>
         </tr>
       </table>

@@ -1,4 +1,6 @@
-<%= render partial: "decidim/participatory_processes/admin/shared/secondary_nav" %>
+<% content_for :sidebar_menu_nav do %>
+  <%= sidebar_menu(:admin_participatory_processes_menu).render %>
+<% end %>
 
 <div class="process-title">
   <div class="process-title-content">
@@ -18,7 +20,7 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.participatory_process_group.fields.name", scope: "decidim.admin") %></th>
+            <th><%= t("models.participatory_process_group.fields.title", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
         </thead>
@@ -26,10 +28,15 @@
           <% collection.each do |group| %>
             <tr>
               <td>
+                <% if group.promoted? %>
+                  <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.participatory_process.fields.promoted", scope: "decidim.admin") %>">
+                    <%= icon "star" %>
+                  </span>
+                <% end %>
                 <% if allowed_to? :update, :process_group, process_group: group %>
-                  <%= link_to translated_attribute(group.name), ["edit", group] %><br>
+                  <%= link_to translated_attribute(group.title), ["edit", group] %><br>
                 <% else %>
-                  <%= translated_attribute(group.name) %>
+                  <%= translated_attribute(group.title) %>
                 <% end %>
               </td>
               <td class="table-list__actions">

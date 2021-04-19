@@ -53,12 +53,10 @@ module Decidim
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
 
-        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
-
         return if meeting.current_user_can_visit_meeting?(current_user)
 
         flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
-        redirect_to action: "index"
+        redirect_to(ResourceLocatorPresenter.new(meeting).index)
       end
 
       def edit
@@ -92,7 +90,7 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.results.not_hidden)
+        @meetings ||= paginate(search.results.order(start_time: :desc))
       end
 
       def registration
@@ -111,6 +109,7 @@ module Decidim
         {
           search_text: "",
           date: %w(upcoming),
+          activity: "all",
           scope_id: default_filter_scope_params,
           category_id: default_filter_category_params,
           origin: default_filter_origin_params,
@@ -126,12 +125,12 @@ module Decidim
       end
 
       def default_filter_type_params
-        %w(all online in_person)
+        %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING
       end
 
       def default_search_params
         {
-          scope: Meeting.visible_meeting_for(current_user)
+          scope: Meeting.not_hidden.visible_meeting_for(current_user)
         }
       end
     end

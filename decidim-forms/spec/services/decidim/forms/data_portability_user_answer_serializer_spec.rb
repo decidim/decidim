@@ -17,6 +17,55 @@ module Decidim
       describe "#serialize" do
         let(:serialized) { subject.serialize }
 
+        context "when question is files" do
+          let!(:question) { create :questionnaire_question, questionnaire: questionnaire, question_type: :files }
+          let!(:answer) { create :answer, :with_attachments, questionnaire: questionnaire, question: question, user: user }
+
+          it "includes the answer id" do
+            expect(serialized).to include(id: answer.id)
+          end
+
+          it "includes the user" do
+            expect(serialized[:user]).to(
+              include(name: answer.user.name)
+            )
+            expect(serialized[:user]).to(
+              include(email: answer.user.email)
+            )
+          end
+
+          it "includes the questionnaire information" do
+            expect(serialized[:questionnaire]).to(
+              include(id: questionnaire.id)
+            )
+            expect(serialized[:questionnaire]).to(
+              include(title: translated_attribute(questionnaire.title))
+            )
+            expect(serialized[:questionnaire]).to(
+              include(description: translated_attribute(questionnaire.description))
+            )
+            expect(serialized[:questionnaire]).to(
+              include(tos: translated_attribute(questionnaire.tos))
+            )
+          end
+
+          it "includes the question info" do
+            expect(serialized[:question]).to(
+              include(id: question.id)
+            )
+            expect(serialized[:question]).to(
+              include(body: translated_attribute(question.body))
+            )
+            expect(serialized[:question]).to(
+              include(description: translated_attribute(question.description))
+            )
+          end
+
+          it "includes the answer " do
+            expect(serialized).to include(answer: answer.attachments.map(&:url))
+          end
+        end
+
         context "when question is shortanswer" do
           let!(:question) { create :questionnaire_question, questionnaire: questionnaire }
           let!(:answer) { create :answer, questionnaire: questionnaire, question: question, user: user }

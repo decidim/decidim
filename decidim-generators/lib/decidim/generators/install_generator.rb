@@ -60,8 +60,6 @@ module Decidim
       end
 
       def append_assets
-        append_file "app/assets/javascripts/application.js", "//= require decidim"
-        gsub_file "app/assets/javascripts/application.js", %r{//= require turbolinks\n}, ""
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
           "*= require decidim\n "
@@ -109,6 +107,13 @@ module Decidim
       def copy_migrations
         rails "decidim:upgrade"
         recreate_db if options[:recreate_db]
+      end
+
+      def install_webpacker
+        rails "webpacker:install"
+
+        # Remove manually assets
+        system("rm -rf app/assets/javascripts")
       end
 
       def letter_opener_web

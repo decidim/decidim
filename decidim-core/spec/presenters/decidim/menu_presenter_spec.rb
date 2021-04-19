@@ -11,8 +11,8 @@ module Decidim
     context "when using compulsory options" do
       before do
         MenuRegistry.register :custom_menu do |menu|
-          menu.item "Foo", "/foo"
-          menu.item "Bar", "/bar"
+          menu.add_item :foo, "Foo", "/foo"
+          menu.add_item :bar, "Bar", "/bar"
         end
       end
 
@@ -28,8 +28,8 @@ module Decidim
     context "when using position options" do
       before do
         MenuRegistry.register :custom_menu do |menu|
-          menu.item "Foo", "/foo", position: 2
-          menu.item "Bar", "/bar", position: 1
+          menu.add_item :foo, "Foo", "/foo", position: 2
+          menu.add_item :boo, "Bar", "/bar", position: 1
         end
       end
 
@@ -44,8 +44,8 @@ module Decidim
     context "when using visibilty options" do
       before do
         MenuRegistry.register :custom_menu do |menu|
-          menu.item "Foo", "/foo", if: Time.current.year == 2000
-          menu.item "Bar", "/bar"
+          menu.add_item :foo, "Foo", "/foo", if: Time.current.year == 2000
+          menu.add_item :boo, "Bar", "/bar"
         end
       end
 

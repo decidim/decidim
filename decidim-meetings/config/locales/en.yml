@@ -15,6 +15,7 @@ en:
       meeting:
         address: Address
         available_slots: Available slots for this meeting
+        customize_registration_email: Customize registration email
         decidim_category_id: Category
         decidim_scope_id: Scope
         decidim_user_group_id: User group
@@ -26,6 +27,7 @@ en:
         organizer_gid: Create as
         organizer_id: Organizer
         private_meeting: Private meeting
+        registration_email_custom_content: Registration email custom content
         registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registration_url: Registration URL
@@ -208,6 +210,7 @@ en:
             invalid: There was a problem updating this agenda
             success: Agenda successfully updated
         exports:
+          meeting_comments: Comments
           meetings: Meetings
           registrations: Registrations
         invite_join_meeting_mailer:
@@ -264,6 +267,7 @@ en:
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+            registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
@@ -361,6 +365,7 @@ en:
             space_type: Participatory space
             upcoming: Upcoming
       last_activity:
+        meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
         new_meeting_at_html: "<span>New meeting at %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -389,12 +394,15 @@ en:
           title: Edit Your Meeting
           update: Update
         filters:
+          activity: My activity
+          all: All
           category: Category
           date: Date
           date_values:
             all: All
             past: Past
             upcoming: Upcoming
+          my_meetings: My meetings
           origin: Origin
           origin_values:
             all: All
@@ -406,6 +414,7 @@ en:
           type: Type
           type_values:
             all: All
+            hybrid: Both
             in_person: In-person
             online: Online
         filters_small_view:
@@ -505,6 +514,7 @@ en:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
       type_of_meeting:
+        hybrid: Both
         in_person: In person
         online: Online
       types:
@@ -517,11 +527,6 @@ en:
         description: Number of meetings created
         object: meetings
         title: Meetings
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Past meetings
-          upcoming_meetings: Upcoming meetings
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
@@ -536,6 +541,8 @@ en:
       proposals_from_meeting:
         meeting_proposal: 'Related proposals:'
         proposal_meeting: 'Related meetings:'
+    statistics:
+      meetings_count: Meetings
   devise:
     mailer:
       join_meeting:

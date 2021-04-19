@@ -28,6 +28,7 @@ ja:
             success: 投稿を削除しました
           edit:
             save: 更新
+            title: 投稿を編集
           index:
             title: 投稿
           new:
@@ -74,10 +75,3 @@ ja:
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '%{participatory_space_title} に新しい投稿が公開されました'
           notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: 投稿
-    participatory_processes:
-      statistics:
-        posts_count: 投稿

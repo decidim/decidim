@@ -7,7 +7,7 @@ en:
         description: Description
         title: Title
         total_budget: Total budget
-        weight: Weight
+        weight: Order position
       project:
         budget_amount: Budget amount
         decidim_category_id: Category
@@ -46,13 +46,19 @@ en:
             title: Edit budget
             update: Update budget
           index:
+            finished_orders: Finished votes
+            pending_orders: Pending votes
             title: Budgets
+            users_with_finished_orders: Users with finished votes
+            users_with_pending_orders: Users with pending votes
           new:
             create: Create budget
             title: New budget
           update:
             invalid: There was a problem updating this budget
             success: Budget successfully updated
+        exports:
+          projects: Projects
         models:
           budget:
             name: Budget
@@ -103,6 +109,9 @@ en:
         close_modal: Close modal
         continue: Continue
         more_information: More information
+      budget_list_item:
+        voting_finished: You have voted in this budget
+        voting_started: You have started to vote in this budget
       budgets_list:
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
@@ -285,6 +294,9 @@ en:
         success: Your vote has been successfully canceled
     resource_links:
       included_proposals:
-        project_proposal: 'Proposals included in this project:'
+        project_proposal: Proposals included in this project
+    statistics:
+      orders_count: Supports
+      projects_count: Projects
   index:
     confirmed_orders_count: Votes count

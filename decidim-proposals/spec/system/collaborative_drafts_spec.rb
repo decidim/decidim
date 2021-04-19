@@ -116,7 +116,7 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
                  })
         end
         let!(:collaborative_draft) { create(:collaborative_draft, :open, component: component, address: address, category: category, scope: scope, users: [author]) }
-        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
 

@@ -1,6 +1,8 @@
 pl:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Włącz wykres dla organizacji
       assembly:
         area_id: Kategoria
         assembly_type: Typ zespołu
@@ -12,8 +14,8 @@ pl:
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_features: Skopiuj funkcje
-        created_by: Stworzono przez
-        created_by_other: Stworzono przez inne
+        created_by: Utworzony przez
+        created_by_other: Utworzony przez inne
         creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
         decidim_assemblies_type_id: Typ zespołu
@@ -60,6 +62,7 @@ pl:
         full_name: Pełne imię i nazwisko
         gender: Płeć
         position: Pozycja
+        user_id: Użytkownik
       assembly_user_role:
         email: E-mail
         name: Nazwa
@@ -252,7 +255,7 @@ pl:
         update: "%{user_name} zaktualizował(a) ustawienia zespołów"
       assembly_type:
         create: "%{user_name} utworzył(a) typ zespołu %{resource_name}"
-        delete: "%{user_name} usunął/usunęła typ zespołu %{resource_name} z przestrzeni %{space_name}"
+        delete: "%{user_name} usunął/usunęła typ zespołu %{resource_name}"
         publish: "%{user_name} opublikował(a) typ zespołu %{resource_name}"
         unpublish: "%{user_name} anulował(a) publikację typu zespołu %{resource_name}"
         update: "%{user_name} zaktualizował(a) typ zespołu %{resource_name}"
@@ -274,8 +277,8 @@ pl:
             select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz kategorię
             select_an_assembly_type: Wybierz typ zespołu
-            select_parent_assembly: Wybierz zespół macierzysty
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            select_parent_assembly: Wybierz zespół nadrzędny
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visbility: Widoczność
@@ -289,11 +292,11 @@ pl:
             title: Tytuł
         assembly_copies:
           form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można używać: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_imports:
           form:
             document_legend: Dodaj dokument
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego zespołu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
@@ -311,6 +314,9 @@ pl:
         content_blocks:
           highlighted_assemblies:
             max_results: Maksymalna ilość elementów do pokazania
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Członkowie
@@ -380,23 +386,6 @@ pl:
         social_networks: Portale społecznościowe
         social_networks_title: Udostępnij zespół na
         target: Do kogo kierowane
-      statistics:
-        answers_count: Odpowiedzi
-        assemblies_count: Zespoły
-        comments_count: Komentarze
-        debates_count: Debaty
-        endorsements_count: Rekomendacje
-        headline: Działania
-        meetings_count: Spotkania
-        orders_count: Wsparcia
-        pages_count: Strony
-        posts_count: Posty
-        projects_count: Projekty
-        proposals_count: Propozycje
-        results_count: Wyniki
-        surveys_count: Ankiety
-        users_count: Użytkownicy
-        votes_count: Głosy
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na
@@ -444,7 +433,7 @@ pl:
         hero:
           participate_title: Weź udział w procesach udostępnionych na platformie
         sub_hero:
-          register_title: Zarejestruj się, aby utworzyć konto na platformie
+          register_title: Zapisz się by utworzyć konto
     participatory_processes:
       pages:
         home:

@@ -8,8 +8,8 @@ module Decidim
 
     # CarrierWave automatically calls this method and validates the content
     # type fo the temp file to match against any of these options.
-    def content_type_whitelist
-      extension_whitelist.map { |ext| "image/#{ext}" }
+    def content_type_allowlist
+      extension_allowlist.map { |ext| "image/#{ext}" }
     end
 
     # Strips out all embedded information from the image
@@ -38,7 +38,7 @@ module Decidim
 
     # Add a white list of extensions which are allowed to be uploaded.
     # For images you might use something like this:
-    def extension_whitelist
+    def extension_allowlist
       Decidim.organization_settings(model).upload_allowed_file_extensions_image
     end
 

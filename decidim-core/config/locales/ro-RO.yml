@@ -5,6 +5,8 @@ ro:
         delete_reason: Motivul pentru a-ți șterge contul
       common:
         created_at: Creat la
+      conversation:
+        body: Conținut
       group:
         about: Despre
         avatar: Avatar
@@ -13,6 +15,8 @@ ro:
         name: Nume
         nickname: Porecla
         phone: Telefon
+      message:
+        body: Conținut
       report:
         details: Observaţii suplimentare
       user:
@@ -69,6 +73,7 @@ ro:
     errors:
       general: Eroare la procesarea imaginii
       image_too_big: Imaginea este prea mare
+      not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -82,11 +87,12 @@ ro:
       logo: "Sigla oficială a %{organization}"
       skip_button: Salt la conținutul principal
     account:
+      blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
       data_portability_export:
         file_no_exists: Fișierul nu există
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
       delete:
-        alert: Această acțiune nu poate fi anulată. Dacă ștergeți contul dvs. nu veți putea să vă autentificați.
+        alert: Această acțiune nu poate fi anulată. Dacă vă ștergeți contul, nu veți mai putea să vă autentificați cu datele de autentificare. Ștergerea contului dvs. va duce la anonimizarea contribuțiilor dvs. Veți putea crea în continuare un cont nou, dar aceste contribuții nu vor fi asociate cu acesta.
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
@@ -116,6 +122,8 @@ ro:
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
         hide: "%{user_name} a ascuns o resursă de tip %{resource_type} în spațiul %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
@@ -132,6 +140,7 @@ ro:
         update: "%{user_name} a actualizat setările organizației"
       participatory_space_private_user:
         create: "%{user_name} a invitat %{resource_name} să fie un participant privat"
+        create_via_csv: "%{user_name} a invitat %{resource_name} prin CSV să fie un participant privat"
         delete: "%{user_name} a eliminat participantul %{resource_name} ca participant privat"
       scope:
         create: "%{user_name} a creat scopul %{resource_name}"
@@ -145,15 +154,21 @@ ro:
         delete: "%{user_name} a șters pagina statică %{resource_name}"
         update: "%{user_name} a actualizat pagina statică %{resource_name}"
       user:
+        block: "%{user_name} utilizator blocat %{resource_name}"
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
         officialize: "%{user_name} a oficializat participantul %{resource_name}"
+        promote: "%{user_name} a promovat %{resource_name}"
         remove_from_admin: "%{user_name} a eliminat participantul %{resource_name} cu rolul: %{role}"
         show_email: "%{user_name} a recuperat e-mailul participantului %{resource_name}"
+        transfer: "%{user_name} a transferat participantul %{resource_name}"
+        unblock: "%{user_name} utilizator deblocat %{resource_name}"
         unofficialize: "%{user_name} a neoficializat participantul %{resource_name}"
       user_group:
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
         verify: "%{user_name} a verificat grupul %{resource_name}"
         verify_via_csv: "%{user_name} a verificat grupul %{resource_name} printr-un fișier CSV"
+      user_moderation:
+        unreport: "%{user_name} neraportat %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMENI DE UTILIZARE</h2><p>Avem încredere că ați primit prelegerea obișnuită de la Administratorul de Sistem local. De obicei se reduce la aceste trei lucruri:</p><ol><li>Respectă confidențialitatea altora.</li><li>Gândiți-vă înainte de a da click.</li><li>Cu mare putere vine o mare responsabilitate.</li></ol>"
     alert:
@@ -251,7 +266,8 @@ ro:
       photos:
         related_photos: Imagini asemănătoare
     author:
-      avatar: Avatar
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar pentru mai mulți utilizatori
       comments:
         one: comentariu
         few: comentarii
@@ -279,7 +295,7 @@ ro:
       dummy_authorization_workflow:
         name: Flux de lucru autorizare fictiv
       errors:
-        duplicate_authorization: Un participant este deja autorizat cu aceleași date.
+        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:
@@ -325,6 +341,13 @@ ro:
           title: Confirmați e-mailul dvs.
       show:
         close_modal: Închide fereastra
+    block_user_mailer:
+      notify:
+        body_1: Contul tău a fost blocat.
+        body_2: 'Motiv: %{justification}'
+        greetings: Bună ziua, <br/>%{organization_name} <br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Salut,
+        subject: Contul tău a fost blocat de %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: și încă %{count}
@@ -361,6 +384,8 @@ ro:
             dummy_global_translatable_text: Text traductibil Dummy
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Permisiuni resurse activate
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
           step:
             amendment_creation_enabled: Crearea de amendamente activată
             amendment_promotion_enabled: Modificare promoție activată
@@ -372,6 +397,13 @@ ro:
             dummy_step_translatable_text: Text traductibil paşi fichar@@0ier
     contact: Contact
     content_blocks:
+      cta:
+        name: Butonul Imagine, Text și Apel la Acțiune
+      cta_settings_form:
+        background_image: Imagine de fundal
+        button_text: Textul butonului de Apel la acțiune
+        button_url: Adresă URL Acțiune
+        description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
       hero:
@@ -381,6 +413,11 @@ ro:
         welcome_text: Text de întâmpinare
       highlighted_content_banner:
         name: Banner conținut evidențiat
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sortează elementele după:'
+          random: Aleatoriu
+          recent: Cele mai recente
       how_to_participate:
         name: Cum să participați
       html:
@@ -405,7 +442,7 @@ ro:
         ready: Gata
       show:
         download_data: Descarcă datele
-        download_data_description: Un fișier cu toate informațiile asociate contului va fi trimis la <strong>%{user_email}</strong>
+        download_data_description: Un fișier care conține toate informațiile asociate contului dvs. va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicită date
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
@@ -415,7 +452,7 @@ ro:
           email_already_exists: Un alt cont folosește aceeași adresă de e-mail
         new:
           complete_profile: Profil complet
-          nickname_help: Aliasul tău în %{organization}
+          nickname_help: Aliasul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
           sign_up: Vă rugăm să completați profilul
           subtitle: Vă rugăm să completaţi următorul formular pentru a finaliza înregistrarea
           username_help: Numele public care apare pe posturi. Cu scopul de a garanta anonimitatea, poate fi orice nume.
@@ -424,7 +461,7 @@ ro:
           already_have_an_account?: Ai deja un cont?
           newsletter: Primiți un buletin informativ ocazional cu informații relevante
           newsletter_title: Permisiune contact
-          nickname_help: Aliasul tău în %{organization}
+          nickname_help: Aliasul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
           password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
@@ -441,11 +478,14 @@ ro:
           register: Creează un cont
           sign_in_disabled: Puteți accesa un cont extern
           sign_up_disabled: Înregistrarea este dezactivată, puteți utiliza un cont existent pentru a accesa
+        user:
+          timed_out: Ați fost inactiv pentru prea mult timp și ați fost deconectat automat de la serviciu. Dacă doriți să continuați să utilizați serviciul, vă rugăm să vă conectați din nou.
       shared:
         newsletter_modal:
           buttons:
             check: Verificați și continuați
             close_modal: Închide fereastra
+            uncheck: Mențineți nebifat
           notice: |-
             <p>Hei, ești sigur că nu vrei să primești un buletin informativ?<br>
             Te rugăm să bifezi din nou căsuța de selectare a buletinului informativ de mai jos.<br>
@@ -615,6 +655,14 @@ ro:
           notification_title: Grupul de utilizatori %{user_group_name} și-a actualizat profilul, lăsând neverificat. Acum îl puteți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
       notification_event:
         notification_title: A apărut un eveniment pentru <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
+          email_outro: Ați primit această notificare deoarece sunteți un autor al conținutului șters.
+          email_subject: '%{resource_type} tău a fost eliminat'
+          notification_title: |-
+            Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, pe care îl urmărești, tocmai a aprobat „%{resource_title}” și noi credem că ar putea fi interesant pentru tine. Verificați și contribuția:'
         email_outro: Ați primit această notificare deoarece urmăriți %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
@@ -628,7 +676,7 @@ ro:
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
       data_portability_export:
-        click_button: 'Faceți clic pe butonul următor pentru a descărca datele. <br/> Veți avea fișierul disponibil până la %{date}. <br/> Veți avea nevoie de <a href=''https://www.7-zip.org/''>7-Zip</a> pentru a-l deschide. Parola: %{password}'
+        click_button: 'Faceți clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Veţi avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
         download: Descărcare
       export:
         ready: Găsiți atașat o versiune zip a exportului dvs.
@@ -662,7 +710,7 @@ ro:
       create:
         button: Urmărește
         error: A apărut o problemă la urmărirea acestei resurse.
-        participatory_space: Deja în urma spațiului participativ
+        participatory_space: Urmăriți<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Oprește urmărirea
         error: A apărut o problemă la neurmărirea acestei resurse.
@@ -679,7 +727,7 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, folosește de preferință imagini peisaj, serviciul recoltează imaginea.
+          message_2: Pentru imagini, utilizați preferabil imagini de peisaj, serviciul decupează imaginea. Pentru fisierele CSV, separatorul dintre coloane trebuie sa fie o virgula (",")
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: Recomandat o imagine peisaj care nu are nici un text.
@@ -899,6 +947,11 @@ ro:
           show: Arată conversația cu %{sender}
         create:
           error: Conversația nu a început. Încercați din nou mai târziu
+        error_modal:
+          close: Închidere
+          correct_errors: Te rugăm să remediezi erorile și să încerci din nou.
+          intro: 'Au existat următoarele erori cu mesajul tău:'
+          ok: Ok
         index:
           ago: acum
           close: Închide fereastra
@@ -916,12 +969,16 @@ ro:
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
-          not_allowed: Acest utilizator nu mai acceptă mesaje directe.
+          not_allowed: Acest participant nu acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
           send: Trimite
           title: Începe o conversație
+        update:
+          error: Mesajul nu a fost trimis din cauza unei erori
     metrics:
+      download:
+        csv: Descărcare date (CSV)
       followers:
         description: Numărul de participanți care urmăresc acest spațiu de participare
         object: urmăritori
@@ -983,8 +1040,10 @@ ro:
       no_notifications: Nici o notificare încă.
     notifications_settings:
       show:
+        administrators: Administratori
         allow_public_contact: Permiteți oricui să îmi trimită un mesaj direct, chiar dacă nu-l urmăresc.
         direct_messages: Primește mesaje directe de la oricine
+        email_on_moderations: Vreau să primesc un e-mail de fiecare dată când se raportează ceva pentru moderare.
         email_on_notification: Vreau să primesc un e-mail de fiecare dată când primesc o notificare.
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
@@ -1028,24 +1087,7 @@ ro:
         metrics:
           headline: Valori
         statistics:
-          answers_count: Chestionare finalizate
-          assemblies_count: Adunări
-          comments_count: Comentarii
-          conferences_count: Conferințe
-          debates_count: Dezbateri
-          endorsements_count: Susținători
           headline: Starea curentă a %{organization}
-          meetings_count: Întâlniri
-          orders_count: Voturi
-          pages_count: Pagini
-          processes_count: Procese
-          projects_count: Proiecte
-          proposals_accepted: Propuneri acceptate
-          proposals_count: Propuneri
-          results_count: Rezultate
-          surveys_count: Chestionare
-          users_count: Participanți
-          votes_count: Voturi
         sub_hero:
           register: Inregistrare
       index:
@@ -1063,6 +1105,7 @@ ro:
           error: A apărut o problemă la acceptarea termenilor şi a condiţiilor.
           success: Minunat! Ați acceptat termenii și condițiile.
         form:
+          agreement: Sunt de acord cu acești termeni și condiţii
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
           modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
@@ -1079,6 +1122,7 @@ ro:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
       deleted: Participant șters
+      inaccessible_message: Acest profil este inaccesibil din cauza încălcării Termenilor și Condițiilor!
       view: Vizualizare
     profiles:
       default_officialization_text_for_user_groups: Acest grup este verificat public, numele său a fost verificat pentru a corespunde cu numele său real
@@ -1092,6 +1136,7 @@ ro:
         groups: Grupuri
         members: Membri
         officialized: Participant oficial
+        send_private_message: Trimite mesaj privat
         timeline: Cronologie
         view_full_profile: Vezi profilul complet
       sidebar:
@@ -1119,12 +1164,15 @@ ro:
       report:
         authors: Autori
         content: Conținut raportat
+        content_original_language: Limba originală a conținutului
         date: Raportat la
         details: Detalii
         hello: Bună ziua %{name},
+        id: ID
         participatory_space: Spaţiu participativ
         reason: Motiv
         report_html: <p>A fost raportat următorul <a href="%{url}">conținut</a> .</p>
+        see_report: Vezi raportul
         subject: A fost raportată o resursă
     reports:
       create:
@@ -1169,6 +1217,10 @@ ro:
           few: "%{count} rezultate"
           other: "%{count} rezultate"
         view_all: Vezi toate (%{count})
+    security:
+      selfxss_warning:
+        description: Această caracteristică de browser este destinată dezvoltatorilor și nu ar trebui să inserați nimic aici dacă vi s-a cerut să faceți acest lucru. Lipirea conținutului în această fereastră poate compromite intimitatea ta și permite hackerilor să îți acceseze contul.
+        title: Opriți!
     shared:
       confirm_modal:
         cancel: Anulează
@@ -1194,6 +1246,13 @@ ro:
         report: Raport
         spam: Conține clickbait, publicitate, escrocherii sau roboți script.
         title: Raportează o problemă
+      flag_user_modal:
+        already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
+        close: Inchide
+        description: Ce este nepotrivit pentru utilizator?
+        does_not_belong: Conține activitate ilegală, amenințări de sinucidere, informații personale sau altceva care credeți că nu aparțin de %{organization_name}.
+        offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
+        report: Raportează
       floating_help:
         close: Închide Ajutor
         help: Ajutor
@@ -1217,8 +1276,14 @@ ro:
         title: Selectaţi numărul de rezultate pe pagină
       share_modal:
         close_window: Închide fereastra
+        copy_share_link: Copiază
+        copy_share_link_clarification: Copiază link-ul de partajare în clipboard
+        copy_share_link_copied: Copiat!
+        copy_share_link_message: Link-ul a fost copiat cu succes în clipboard.
         share: Distribuie
         share_link: Distribuie link-ul
+    statistics:
+      comments_count: Comentarii
     tags:
       filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
       filter_results_for_scope: 'Filtrează rezultatele pentru scope: %{resource}'
@@ -1252,6 +1317,7 @@ ro:
         send: Trimite
         title_reply: Răspuns
       show:
+        back: Arată toate conversațiile
         not_allowed: Acest utilizator nu mai acceptă mesaje directe.
         title: Conversație cu %{usernames}
       update:
@@ -1286,6 +1352,7 @@ ro:
         number_of_versions: Versiuni
         title: Versiuni
     versions_list_item:
+      back: Arată toate versiunile
       show:
         version_index: Versiunea %{index}
     welcome_notification:
@@ -1446,7 +1513,7 @@ ro:
     messages:
       already_confirmed: a fost deja confirmat, încercați să vă conectați
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
-      content_type_whitelist_error: tipul de fișier nu este valid
+      content_type_allowlist_error: tipul de fișier nu este valid
       cycle_detected: un părinte al unui domeniu nu poate fi unul dintre descendenții săi
       expired: a expirat, vă rugăm să solicitaţi unul nou
       file_size_is_less_than_or_equal_to: dimensiunea fişierului trebuie să fie mai mică sau egală cu %{count}
@@ -1465,11 +1532,6 @@ ro:
       too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
-    length_validator:
-      minimum:
-        one: cel puțin %{count} caracter
-        few: cel puțin %{count} caractere
-        other: cel puțin %{count} caractere
     required: Necesar
     required_explanation: "* Câmpurile obligatorii sunt marcate cu un asterisc"
   invisible_captcha:
@@ -1490,9 +1552,11 @@ ro:
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
       header:
         close_menu: Închide meniul
+        main_menu: Meniul principal
         navigation: Navigation
         sign_in: Conectare în cont
         sign_up: Înscrie-te
+        user_menu: Meniu utilizator
       impersonation_warning:
         close_session: Închide sesiunea
         description_html: Gestionați participantul <b>%{user_name}</b>.
@@ -1516,6 +1580,7 @@ ro:
         profile: Contul meu
         public_profile: Profilul meu public
         sign_out: Deconectare
+        title: Link-uri profil
       user_profile:
         account: Cont
         authorizations: Autorizații

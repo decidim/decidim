@@ -48,9 +48,10 @@ module Decidim::Messaging
     end
 
     shared_examples "a valid conversation" do |num_recipients, num_emails|
+      let(:body) { "<3 from Patagonia" }
       let(:params) do
         {
-          body: "<3 from Patagonia",
+          body: body,
           recipient_id: interlocutor.id
         }
       end
@@ -129,6 +130,18 @@ module Decidim::Messaging
         end
 
         it_behaves_like "a valid conversation", 2, 1
+      end
+    end
+
+    context "when the body has just the right length without carriage returns" do
+      before do
+        allow(Decidim.config).to receive(
+          :maximum_conversation_message_length
+        ).and_return(80)
+      end
+
+      it_behaves_like "a valid conversation", 1, 1 do
+        let(:body) { "This text is just the correct length\r\nwith the carriage return characters removed" }
       end
     end
   end

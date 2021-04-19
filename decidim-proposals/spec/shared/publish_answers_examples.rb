@@ -33,7 +33,6 @@ shared_examples "publish answers" do
       visit current_path
 
       expect(page).to have_content("Accepted", count: 3)
-      expect(page).to have_content("Not answered (Accepted)", count: 1)
     end
 
     it "can't publish answers for non answered proposals" do

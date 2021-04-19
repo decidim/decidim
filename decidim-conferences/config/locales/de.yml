@@ -22,6 +22,12 @@ de:
         slogan: Slogan
         slug: URL-Block
         title: Titel
+      conference_media_link:
+        weight: Gewicht
+      conference_partner:
+        weight: Gewicht
+      conference_registration_type:
+        weight: Gewicht
       conference_speaker:
         full_name: Vollständiger Name
       conference_user_role:
@@ -146,7 +152,7 @@ de:
         conferences_submenu:
           attachment_collections: Ordner
           attachment_files: Dateien
-          attachments: Anlagen
+          attachments: Anhänge
           categories: Kategorien
           components: Komponenten
           conference_admins: Konferenzadministratoren
@@ -206,7 +212,7 @@ de:
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
-            weight: Gewicht
+            weight: Bestellposition
           name: Registrierungstyp
       partners:
         create:
@@ -249,36 +255,36 @@ de:
         conferences: Konferenzen
     admin_log:
       conference:
-        create: "%{user_name} erstellt die %{resource_name} Konferenz"
-        publish: "%{user_name} veröffentlichte die %{resource_name} Konferenz"
-        send_conference_diplomas: "%{user_name} sendeten Teilnahmebescheinigungen an die %{resource_name} Konferenzteilnehmer"
-        unpublish: "%{user_name} unveröffentlichte die %{resource_name} Konferenz"
-        update: "%{user_name} hat die %{resource_name} Konferenz aktualisiert"
-        update_diploma: "%{user_name} hat die Konfiguration der Teilnahmezertifikate für %{resource_name} Konferenz aktualisiert"
+        create: "%{user_name} hat die Konferenz %{resource_name} erstellt"
+        publish: "%{user_name} hat die Konferenz %{resource_name} veröffentlicht"
+        send_conference_diplomas: "%{user_name} hat Teilnahmebescheinigungen an die Teilnehmenden der Konferenz %{resource_name} gesendet"
+        unpublish: "%{user_name} hat die Konferenz %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        update: "%{user_name} hat die Konferenz %{resource_name} aktualisiert"
+        update_diploma: "%{user_name} hat die Konfiguration der Teilnahmebescheinigungen für die Konferenz %{resource_name} aktualisiert"
       conference_speaker:
-        create: "%{user_name} hat den %{resource_name} Sprecher in der %{space_name} Konferenz erstellt"
-        delete: "%{user_name} entfernte den %{resource_name} Sprecher von der %{space_name} Konferenz"
-        update: "%{user_name} aktualisierte den %{resource_name} Sprecher in der %{space_name} Konferenz"
+        create: "%{user_name} hat den Sprecher %{resource_name} in der Konferenz %{space_name} erstellt"
+        delete: "%{user_name} hat den Sprecher %{resource_name} aus der Konferenz %{space_name} entfernt"
+        update: "%{user_name} hat den Sprecher %{resource_name} in der Konferenz %{space_name} aktualisiert"
       conference_user_role:
-        create: "%{user_name} lud %{resource_name} zu der %{space_name} Konferenz ein"
-        delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
-        update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Konferenz geändert"
+        create: "%{user_name} hat %{resource_name} zur Konferenz %{space_name} eingeladen"
+        delete: "%{user_name} hat den Admin %{resource_name} aus der Konferenz %{space_name} entfernt"
+        update: "%{user_name} hat die Rolle von %{resource_name} in der Konferenz %{space_name} geändert"
       conferences:
         conference_registration:
-          confirm: "%{user_name} bestätigte eine Konferenz Anmeldung in %{resource_name} Konferenz"
+          confirm: "%{user_name} hat eine Anmeldung zur Konferenz %{resource_name} bestätigt"
         partner:
-          create: "%{user_name} hat %{resource_name} zur %{space_name} Konferenz erstellt"
-          delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Konferenz"
-          update: "%{user_name} aktualisiert %{resource_name} in der %{space_name} Konferenz"
+          create: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} erstellt"
+          delete: "%{user_name} hat den Partner %{resource_name} aus der Konferenz %{space_name} entfernt"
+          update: "%{user_name} hat den Partner %{resource_name} in der Konferenz %{space_name} aktualisiert"
         registration_type:
-          create: "%{user_name} hat den %{resource_name} Registrierungstyp in der %{space_name} Konferenz erstellt"
-          publish: "%{user_name} hat die %{resource_name} Anmeldeart in der %{space_name} Konferenz veröffentlicht"
-          unpublish: "%{user_name} Anmeldetyp %{resource_name} in der %{space_name} Konferenz nicht veröffentlicht"
-          update: "%{user_name} Eintragstyp %{resource_name} in der %{space_name} Konferenz aktualisiert"
+          create: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} erstellt"
+          publish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} veröffentlicht"
+          unpublish: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} auf \"unveröffentlicht\" gesetzt"
+          update: "%{user_name} hat den Registrierungstyp %{resource_name} in der Konferenz %{space_name} aktualisiert"
       media_link:
-        create: "%{user_name} hat den %{resource_name} Medienlink in der %{space_name} Konferenz erstellt"
-        delete: "%{user_name} den Medienlink %{resource_name} von der %{space_name} Konferenz entfernt"
-        update: "%{user_name} hat den %{resource_name} Medienlink in der %{space_name} Konferenz aktualisiert"
+        create: "%{user_name} hat den Medienlink %{resource_name} in der Konferenz %{space_name} erstellt"
+        delete: "%{user_name} hat den Medienlink %{resource_name} aus der Konferenz %{space_name} entfernt"
+        update: "%{user_name} hat den Medienlink %{resource_name} in der Konferenz %{space_name} aktualisiert"
     conference_program:
       index:
         title: Programm
@@ -351,7 +357,7 @@ de:
             title: Registrierungsarten
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> in den Anlagen.
+            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
           diploma_user:
             attendance_verified_by: Anwesenheit überprüft durch
             certificate_of_attendance: Teilnahmebestätigung
@@ -402,6 +408,7 @@ de:
         personal_website: Persönliche Webseite
         show:
           more_info: Mehr Informationen
+          speaking_at: Sprecher bei
       conference_speaker_cell:
         personal_url:
           personal_website: Persönliche Webseite
@@ -428,7 +435,7 @@ de:
           confirmation:
             subject: Die Registrierung Ihrer Konferenz wurde bestätigt
           pending_validation:
-            subject: Die Anmeldung Ihrer Konferenz steht noch aus
+            subject: Ihre Anmeldung zur Konferenz steht noch aus
         invite_join_conference_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Konferenz
@@ -475,6 +482,7 @@ de:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
           login_as: Sie sind als %{name} <%{email}> angemeldet
+          no_registrations: Keine Registrierungen
           register: Registrieren
           title: Registrierungsarten
       shared:
@@ -487,26 +495,9 @@ de:
         details: Einzelheiten
         introduction: Einführung
         objectives: Ziele
-        related_assemblies: Ähnliche Assemblies
+        related_assemblies: Ähnliche Gremien
         related_consultations: Verwandte Konsultationen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
-      statistics:
-        answers_count: Antworten
-        comments_count: Bemerkungen
-        conference_count: Konferenzen
-        debates_count: Debatten
-        endorsements_count: Empfehlungen
-        headline: Aktivität
-        meetings_count: Meetings
-        orders_count: Stimmen
-        pages_count: Seiten
-        posts_count: Beiträge
-        projects_count: Projekte
-        proposals_count: Vorschläge
-        results_count: Ergebnisse
-        surveys_count: Umfragen
-        users_count: Teilnehmer
-        votes_count: Stimmen
     events:
       conferences:
         conference_registration_confirmed:
@@ -514,30 +505,36 @@ de:
         conference_registration_validation_pending:
           notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> steht noch aus.
         conference_registrations_over_percentage:
-          email_intro: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%.
+          email_intro: Die Slots der Konferenz "%{resource_title}" sind zu über %{percentage}% belegt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Konferenz sind.
-          email_subject: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz belegt Slots sind über %{percentage}%.
+          email_subject: Die Slots in der Konferenz "%{resource_title}" sind zu über %{percentage}% belegt
+          notification_title: Die Slots der Konferenz <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         conference_updated:
-          email_intro: 'Die Konferenz "%{resource_title}" wurde aktualisiert. Sie können die neue Version von ihrer Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
+          email_intro: 'Die Konferenz "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Konferenz-Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Konferenz "%{resource_title}" wurde aktualisiert
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz wurde aktualisiert.
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registrations_enabled:
-          email_intro: 'Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht. Sie können sich auf seiner Seite registrieren:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
-          email_subject: Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht.
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz hat Registrierungen ermöglicht.
+          email_intro: 'Die Konferenz "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Konferenz-Seite registrieren:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Konferenz "%{resource_title}" hat Registrierungen aktiviert.
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
         role_assigned:
-          email_intro: Sie wurden als %{role} für die Konferenz „%{resource_title}“ ausgewählt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Konferenz „%{resource_title}“ sind.
-          email_subject: Sie wurden als %{role} für „%{resource_title}“ ausgewählt.
+          email_intro: Sie wurden als %{role} für die Konferenz "%{resource_title}" ausgewählt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Konferenz "%{resource_title}" sind.
+          email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
           notification_title: Sie wurden als %{role} für die Konferenz <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
         upcoming_conference:
-          email_intro: 'Die "%{resource_title}" -Konferenz findet in 2 Tagen statt. Sie können die Beschreibung von ihrer Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.
-          email_subject: Die "%{resource_title}" -Konferenz kommt!
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz kommt in 2 Tagen.
+          email_intro: 'Die Konferenz "%{resource_title}" findet in 2 Tagen statt. Sie können die Beschreibung auf der Konferenz-Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Konferenz "%{resource_title}" kommt!
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> beginnt in 2 Tagen.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
+          page: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
+          title: Was sind Konferenzen?
     log:
       value_types:
         conference_presenter:
@@ -548,6 +545,8 @@ de:
         title: Medien und Links
     menu:
       conferences: Konferenzen
+    statistics:
+      conferences_count: Konferenzen
   devise:
     mailer:
       join_conference:

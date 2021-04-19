@@ -14,6 +14,10 @@ describe Decidim::Elections::TrusteeZone::Permissions do
   end
   let(:elections_component) { create :elections_component }
   let(:trustee) { create(:trustee, user: user) }
+  let(:election) do
+    create(:election, :ready_for_setup, trustees_participatory_space: trustee_participatory_space)
+  end
+  let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: trustee }
   let(:permission_trustee) { trustee }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
@@ -28,6 +32,15 @@ describe Decidim::Elections::TrusteeZone::Permissions do
   shared_examples "not allowed when the given trustee is not the same than the user trustee" do
     context "when the trustee is not the same than the user trustee" do
       let(:permission_trustee) { create(:trustee) }
+
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  shared_examples "not allowed when election is not attached to trustee" do
+    context "when the election is not an election for the trustee" do
+      let(:permission_trustee) { create(:trustee) }
+      let(:permission_election) { create(:election, :ready_for_setup) }
 
       it { is_expected.to be_falsey }
     end
@@ -75,6 +88,29 @@ describe Decidim::Elections::TrusteeZone::Permissions do
 
     it { is_expected.to eq true }
 
+    it_behaves_like "not allowed when the user is not a trustee"
+    it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
+  end
+
+  describe "view election" do
+    let(:action) do
+      { scope: :trustee_zone, action: :view, subject: :election }
+    end
+
+    it { is_expected.to eq true }
+
+    it_behaves_like "not allowed when the user is not a trustee"
+    it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
+  end
+
+  describe "update election" do
+    let(:action) do
+      { scope: :trustee_zone, action: :update, subject: :election }
+    end
+
+    it { is_expected.to eq true }
+
+    it_behaves_like "not allowed when election is not attached to trustee"
     it_behaves_like "not allowed when the user is not a trustee"
     it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
   end

@@ -129,7 +129,6 @@ sk:
     admin_log:
       assembly_type:
         create: "%{user_name} vytvoril %{resource_name} nový typ zhromaždenia"
-        delete: "%{user_name} odstránil %{resource_name} používateľa z typu zhromaždenia %{space_name}"
         publish: "%{user_name} vytvoril nový typ zhromaždenia %{resource_name}"
         unpublish: "%{user_name} zrušil publikovanie typu zhromaždenia %{resource_name}"
         update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
@@ -144,8 +143,6 @@ sk:
             assemblies_button_title: Odkaz na stránku Zhromaždenia, zobrazujúcu všetky zhromaždenia
       show:
         social_networks_title: Zdieľať toto zhromaždenie na
-      statistics:
-        posts_count: Príspevky
     conferences:
       pages:
         home:
@@ -163,8 +160,6 @@ sk:
       home:
         hero:
           participate_title: Podieľajte sa na procesoch platformy
-        sub_hero:
-          register_title: Vytvorte si účet na platforme
     participatory_processes:
       pages:
         home:

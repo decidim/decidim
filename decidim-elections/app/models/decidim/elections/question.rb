@@ -23,23 +23,12 @@ module Decidim
         max_selections <= answers.count
       end
 
-      def vote_variation
-        if max_selections == 1
-          "one_of_m"
-        else
-          "n_of_m"
-        end
+      def results_total
+        answers.sum(&:results_total)
       end
 
-      def total_votes
-        answers.sum(:votes_count)
-      end
-
-      def votes_percentage(answer_votes)
-        return 0 unless answer_votes.positive?
-
-        result = answer_votes.to_f / total_votes * 100.0
-        result.round
+      def slug
+        "question-#{id}"
       end
     end
   end

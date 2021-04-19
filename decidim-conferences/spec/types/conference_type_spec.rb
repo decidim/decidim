@@ -8,11 +8,12 @@ require "decidim/core/test/shared_examples/attachable_interface_examples"
 module Decidim
   module Conferences
     describe ConferenceType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:conference) }
 
       include_examples "attachable interface"
+      include_examples "categories container interface"
 
       describe "id" do
         let(:query) { "{ id }" }

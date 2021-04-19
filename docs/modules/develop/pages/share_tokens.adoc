@@ -1,0 +1,57 @@
+= Share tokens
+
+Share tokens can be assigned to any model to provide a system to share unpublished resources with expirable and manageable tokens.
+
+A share token is created by a user with an expiration time, and can be added as a query param to access otherwise restricted locations.
+
+== Add share tokens to a model
+
+The model must `include Decidim::ShareableWithToken` and implement `shareable_url(share_token)`, which should return the public url for the resource you want to share, including the token as a query parameter.
+
+[source,ruby]
+----
+# Public: Public URL for your_resource with given share token as query parameter
+def shareable_url(share_token)
+  your_resource_public_path(self, share_token: share_token.token)
+end
+----
+
+== Set permissions
+
+You should change permissions logic for the resource to check if there's a `share_token` query parameter in the request url, and call `Decidim::ShareToken.use!` to both check if the token is valid, and if it is, to _use it_ (which increments `times_used` variable and sets `last_used_at` to current time).
+
+It should do something similar to this:
+
+[source,ruby]
+----
+token = context[:share_token]
+
+return unless token.present?
+
+allow! if Decidim::ShareToken.use!(token_for: your_resource, token: token)
+----
+
+== Manage tokens
+
+Render the partial `decidim-admin/app/views/decidim/admin/share_tokens/_share_tokens.html.erb` inside a view, with:
+
+[source,ruby]
+----
+locals: { share_tokens: your_share_tokens_variable }
+----
+
+to let admins see and manage tokens for that resource.
+
+== Link to url with token
+
+Implement a `share` action (see below) in the resource controller (admin scope), redirecting to a url with a newly generated token, so you can call `share_my_resource_url`.
+
+[source,ruby]
+----
+def share
+  @your_resource = YourResource.find(params[:id]) # or whatever
+  share_token = @your_resource.share_tokens.create!(user: current_user, organization: current_organization)
+
+  redirect_to share_token.url
+end
+----

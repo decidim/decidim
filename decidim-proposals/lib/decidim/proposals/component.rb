@@ -5,6 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
+  component.stylesheet = "decidim/proposals/proposals"
   component.icon = "decidim/proposals/icon.svg"
 
   component.on(:before_destroy) do |instance|
@@ -28,6 +29,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0
     settings.attribute :proposal_limit, type: :integer, default: 0
     settings.attribute :proposal_length, type: :integer, default: 500
+    settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: -> { %w(limited infinite) }
     settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5
     settings.attribute :threshold_per_proposal, type: :integer, default: 0
     settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
@@ -140,14 +142,20 @@ Decidim.register_component(:proposals) do |component|
     exports.serializer Decidim::Proposals::ProposalSerializer
   end
 
-  component.exports :comments do |exports|
+  component.exports :proposal_comments do |exports|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Proposals::Proposal, component_instance
       )
     end
 
+    exports.include_in_open_data = true
+
     exports.serializer Decidim::Comments::CommentSerializer
+  end
+
+  component.imports :proposals do |imports|
+    imports.creator Decidim::Proposals::ProposalCreator
   end
 
   component.seeds do |participatory_space|

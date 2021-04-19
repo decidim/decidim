@@ -51,9 +51,7 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
+        Decidim::Api::QueryType.include Decidim::ParticipatoryProcesses::QueryExtensions
       end
 
       initializer "decidim_participatory_processes.add_cells_view_paths" do
@@ -63,11 +61,12 @@ module Decidim
 
       initializer "decidim_participatory_processes.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.processes", scope: "decidim"),
-                    decidim_participatory_processes.participatory_processes_path,
-                    position: 2,
-                    if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
-                    active: %r{^/process(es|_groups)}
+          menu.add_item :participatory_processes,
+                        I18n.t("menu.processes", scope: "decidim"),
+                        decidim_participatory_processes.participatory_processes_path,
+                        position: 2,
+                        if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
+                        active: %r{^/process(es|_groups)}
         end
       end
 
@@ -81,15 +80,99 @@ module Decidim
             settings.attribute :max_results, type: :integer, default: 4
           end
         end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :title) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/title"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.title.name"
+          content_block.default!
+        end
+
+        (1..3).each do |index|
+          Decidim.content_blocks.register(:participatory_process_group_homepage, :"html_#{index}") do |content_block|
+            content_block.cell = "decidim/participatory_process_groups/content_blocks/html"
+            content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.html_#{index}.name"
+            content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
+
+            content_block.settings do |settings|
+              settings.attribute :html_content, type: :text, translated: true
+            end
+            content_block.default!
+          end
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :metadata) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/metadata"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.metadata.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :cta) do |content_block|
+          content_block.cell = "decidim/content_blocks/cta"
+          content_block.settings_form_cell = "decidim/content_blocks/cta_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.cta.name"
+
+          content_block.images = [
+            {
+              name: :background_image,
+              uploader: "Decidim::HomepageImageUploader"
+            }
+          ]
+
+          content_block.settings do |settings|
+            settings.attribute :button_text, type: :text, translated: true
+            settings.attribute :button_url, type: :string, required: true
+            settings.attribute :description, type: :string, translated: true, editor: true
+          end
+
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_proposals) do |content_block|
+          content_block.cell = "decidim/proposals/content_blocks/highlighted_proposals"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
+          content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.proposals"
+
+          content_block.settings do |settings|
+            settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+          end
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_results) do |content_block|
+          content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
+          content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
+
+          content_block.settings do |settings|
+            settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+          end
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
+          content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_events.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :stats) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/statistics"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.stats.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :participatory_processes) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/highlighted_participatory_processes"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.participatory_processes.name"
+          content_block.default!
+        end
       end
 
       initializer "decidim_participatory_processes.stats" do
-        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
-          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_process)
+        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
+          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_space)
         end
 
-        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
-          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_process)
+        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
+          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
         end
       end
 

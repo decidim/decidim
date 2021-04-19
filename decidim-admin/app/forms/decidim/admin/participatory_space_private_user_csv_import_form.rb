@@ -15,11 +15,10 @@ module Decidim
       validate :validate_csv
 
       def validate_csv
-        if file.present?
-          CSV.foreach(file.path) do |email, user_name|
-            errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
-            errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.exists?(email: email)
-          end
+        return if file.blank?
+
+        CSV.foreach(file.path) do |_email, user_name|
+          errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
         end
       end
     end

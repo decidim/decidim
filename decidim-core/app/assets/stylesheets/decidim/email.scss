@@ -1091,7 +1091,7 @@ a{
 }
 
 a:hover{
-  color: #147dc2;
+  color: var(--secondary);
 }
 
 a:active{
@@ -1246,13 +1246,25 @@ table.button.large table a{
 
 table.button.expand,
 table.button.expanded{
-  width: 100% !important;
+  width: 100%;
+}
+
+// Fix for Outlook to center the button
+table.button.expand > tr > td,
+table.button.expanded > tr > td{
+  text-align: center;
 }
 
 table.button.expand table,
 table.button.expanded table{
   width: 50%;
   margin: auto;
+}
+
+// Fix for Outlook to center the button link text
+table.button.expand table > tr > td,
+table.button.expanded table > tr > td{
+  text-align: center;
 }
 
 table.button.expand table a,

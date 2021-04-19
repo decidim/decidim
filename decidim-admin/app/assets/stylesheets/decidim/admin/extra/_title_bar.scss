@@ -70,6 +70,7 @@
       margin-left: 0;
 
       .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+        border-color: var(--secondary);
         border-width: 3px;
         right: 10px;
         margin-top: 0;

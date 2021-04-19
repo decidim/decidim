@@ -139,10 +139,6 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} почалось голосування щодо пропозицій
           notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">голосувати щодо пропозицій</a>
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Пропозиції
     proposals:
       actions:
         import: Запозичити з іншої складової
@@ -152,7 +148,6 @@ uk:
         actions:
           preview: Попередній перегляд
         exports:
-          comments: Коментарі
           proposals: Пропозиції
         models:
           proposal:

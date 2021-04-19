@@ -325,10 +325,6 @@ hu:
         description: A felhasználók által benyújtott szavazatok száma
         object: szavazatok
         title: Szavazatok
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Javaslatok
     participatory_spaces:
       highlighted_proposals:
         see_all: Összes (%{count})
@@ -345,7 +341,6 @@ hu:
         actions:
           preview: Előnézet
         exports:
-          comments: Hozzászólások
           proposals: Javaslatok
         models:
           proposal:
@@ -556,13 +551,6 @@ hu:
               ok: Közös vázlat visszavonása
               title: A következő művelet visszavonhatatlan
             success: Közös vázlat visszavonása sikeres.
-        compare:
-          mine_is_different: A közös vázlatom eltér ettől
-          no_similars_found: Szép munka! Nincsen hasonló közös vázlat
-          title: Hasonló közös vázlatok
-        complete:
-          send: Küldés
-          title: Fejezd be a közös vázlatot
         count:
           drafts_count:
             one: "%{count} közös vázlat"
@@ -594,7 +582,6 @@ hu:
           unfold: Kibont
         new:
           send: Tovább
-          title: Hozz létre közös vázlatot
         new_collaborative_draft_button:
           new_collaborative_draft: Új közös vázlat
         orders:
@@ -640,14 +627,9 @@ hu:
           error: Hiba történt a közösen szerkesztett vázlat mentése során.
           success: Közös vázlat frissítése sikeres.
         wizard_aside:
-          back: Vissza
           info: Épp egy <strong>közös vázlat</strong> hozol létre.
-        wizard_steps:
-          see_steps: lépések
-          step_1: Hozd létre a közös vázlatod
-          step_2: Összehasonlítás közös vázlatokkal
-          step_3: Fejezd be a közös vázlatodat
-          step_of: '%{current_step_num}. lépés ennyiből: %{total_steps}'
+        wizard_header:
+          title: Hozd létre a közös vázlatod
       create:
         error: Hiba történt a javaslat mentése során.
         success: Javaslat létrehozása sikeres. Vázlatként mentve.

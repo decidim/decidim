@@ -23,7 +23,6 @@ id:
       component:
         name: Nama
         published_at: Diterbitkan di
-        weight: Berat
       id: ID
       newsletter:
         body: Tubuh
@@ -83,12 +82,10 @@ id:
         show_in_footer: Tunjukkan di footer
         slug: Siput URL
         title: Judul
-        weight: Berat
       static_page_topic:
         description: Deskripsi
         show_in_footer: Tunjukkan di footer
         title: Judul
-        weight: Berat
       user_group_csv_verification:
         file: Mengajukan
     errors:

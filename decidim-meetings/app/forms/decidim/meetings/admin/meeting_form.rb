@@ -22,11 +22,13 @@ module Decidim
         attribute :registration_type, String
         attribute :registration_url, String
         attribute :available_slots, Integer, default: 0
+        attribute :customize_registration_email, Boolean
 
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+        translatable_attribute :registration_email_custom_content, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -34,11 +36,11 @@ module Decidim
         validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
         validates :type_of_meeting, presence: true
-        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
+        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
 
         validates :address, presence: true, if: ->(form) { form.needs_address? }
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
-        validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? }
+        validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
@@ -60,11 +62,7 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
-          self.type_of_meeting = if model.online_meeting?
-                                   "online"
-                                 else
-                                   "in_person"
-                                 end
+          self.type_of_meeting = model.type_of_meeting
         end
 
         def services_to_persist
@@ -106,7 +104,7 @@ module Decidim
         end
 
         def needs_address?
-          in_person_meeting?
+          in_person_meeting? || hybrid_meeting?
         end
 
         def geocoded?
@@ -119,6 +117,10 @@ module Decidim
 
         def in_person_meeting?
           type_of_meeting == "in_person"
+        end
+
+        def hybrid_meeting?
+          type_of_meeting == "hybrid"
         end
 
         def clean_type_of_meeting

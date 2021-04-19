@@ -33,7 +33,6 @@ lv:
       decidim/profile_updated_event: Profils ir atjaunināts
       decidim/promote_to_admin: Paaugstināts par grupas administratoru
       decidim/removed_from_group: Noņemts no grupas
-      decidim/resource_endorsed_event: Vienums atbalstīts
   activerecord:
     attributes:
       decidim/user:
@@ -82,7 +81,6 @@ lv:
         file_no_exists: Fails neeksistē
         notice: Pašlaik notiek jūsu datu lejupielāde. Kad tā būs pabeigta, jūs saņemsiet e-pastu.
       delete:
-        alert: Šo darbību nevar atsaukt. Ja dzēsīsiet kontu, nevarēsiet ar to vairs pierakstīties.
         confirm:
           close: Aizvērt logu
           ok: Jā, es gribu dzēst savu kontu
@@ -242,7 +240,6 @@ lv:
       photos:
         related_photos: Saistītie attēli
     author:
-      avatar: Avatārs
       comments:
         zero: komentāri
         one: komentēt
@@ -266,8 +263,6 @@ lv:
         name: Autorizācijas paraugs
       dummy_authorization_workflow:
         name: Viettura autorizācijas darbplūsma
-      errors:
-        duplicate_authorization: Dalībnieks jau ir autorizēts ar tiem pašiem datiem.
       expired_at: Termiņš beidzās plkst. %{timestamp}
       expires_at: Termiņš beigsies plkst. %{timestamp}
       foo_authorization:
@@ -382,7 +377,6 @@ lv:
         ready: Gatavs
       show:
         download_data: Lejupielādēt datus
-        download_data_description: Fails ar visu ar kontu saistīto informāciju tiks nosūtīts uz vietni <strong>%{user_email}</strong>
         request_data: Pieprasīt datus
     datepicker:
       help_text: 'Paredzētais formāts: %{datepicker_format}'
@@ -392,7 +386,6 @@ lv:
           email_already_exists: Citam kontam jau izmantota tā pati e-pasta adrese
         new:
           complete_profile: Pabeigt profila izveidi
-          nickname_help: Jūsu segvārds %{organization}
           sign_up: Lūdzu, pabeidziet aizpildīt savu profilu
           subtitle: Lūdzu, aizpildiet šo anketu, lai pabeigtu reģistrēšanos
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
@@ -401,7 +394,6 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          nickname_help: Jūsu segvārds %{organization}
           password_help: "Vismaz %{minimun_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."
           sign_in: Pieteikties
           sign_up: Reģistrēties
@@ -600,7 +592,6 @@ lv:
           notification_title: '%{name} (%{nickname}) <a href="%{resource_path}">profila lapa</a>, kam jūs sekojat, ir atjaunināta.'
     export_mailer:
       data_portability_export:
-        click_button: 'Noklikšķiniet uz nākamās pogas, lai lejupielādētu savus datus. <br/>. Fails jums būs pieejams līdz %{date}. <br/> Jums būs nepieciešams <a href=''https://www.7-zip.org/''>7-Zip</a>, lai to atvērtu. Parole: %{password}'
         download: Lejupielādēt
       export:
         ready: Lūdzu, jūsu eksportēto datu saspiestā versija.
@@ -860,7 +851,6 @@ lv:
           title: Atbildēt
         show:
           chat_with: Saruna ar
-          not_allowed: Šis lietotājs vairs nepieņem tiešās ziņas.
           title: Saruna ar %{usernames}
         start:
           send: Sūtīt
@@ -970,23 +960,7 @@ lv:
         metrics:
           headline: Rādītāji
         statistics:
-          answers_count: Pabeigtās aptaujas
-          assemblies_count: Asambleja
-          comments_count: Komentāri
-          conferences_count: Konferences
-          endorsements_count: Atbalsts
           headline: '%{organization} pašreizējais stāvoklis'
-          meetings_count: Sanāksmes
-          orders_count: Balsis
-          pages_count: Lapas
-          processes_count: Procesi
-          projects_count: Projekti
-          proposals_accepted: Pieņemtie priekšlikumi
-          proposals_count: Priekšlikumi
-          results_count: Rezultāti
-          surveys_count: Aptaujas
-          users_count: Dalībnieki
-          votes_count: Balsis
         sub_hero:
           register: Reģistrēties
       index:
@@ -1137,6 +1111,8 @@ lv:
         close_window: Aizvērt logu
         share: Kopīgot
         share_link: Kopīgot saiti
+    statistics:
+      comments_count: Komentāri
     user_activity:
       index:
         no_activities_warning: Šis dalībnieks vēl nav veicis nekādas aktivitātes
@@ -1363,7 +1339,7 @@ lv:
     messages:
       already_confirmed: jau tika apstiprināts, lūdzu, mēģiniet pierakstīties
       confirmation_period_expired: jāapstiprina %{period} laikā, lūdzu, pieprasiet jaunu
-      content_type_whitelist_error: faila tips nav derīgs
+      content_type_allowlist_error: faila tips nav derīgs
       cycle_detected: tvēruma saistītais tvērums nevar būt viens no tā atvasinājumiem
       expired: ir beidzies derīguma termiņš, lūdzu, pieprasiet jaunu
       file_size_is_less_than_or_equal_to: Faila izmēram jābūt mazākam vai vienādam ar %{count}.

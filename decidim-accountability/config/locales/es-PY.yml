@@ -32,6 +32,8 @@ es-PY:
   decidim:
     accountability:
       actions:
+        attachment_collections: Carpetas
+        attachments: Archivos adjuntos
         confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
@@ -42,6 +44,7 @@ es-PY:
         title: Acciones
       admin:
         exports:
+          result_comments: Comentarios
           results: Resultados
         import_results:
           new:
@@ -121,6 +124,11 @@ es-PY:
         value_types:
           parent_presenter:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Fechas
+          results: Resultados
+          unspecified: No especificado
       import_mailer:
         import:
           errors: Errores
@@ -133,8 +141,12 @@ es-PY:
       models:
         result:
           fields:
+            category: Categoría
+            created_at: Creado
             end_date: Fin
+            id: ID
             progress: Progreso
+            scope: Ámbito
             start_date: Inicio
             status: Estado
             title: Título
@@ -148,6 +160,9 @@ es-PY:
           fields:
             description: Descripción
             entry_date: Fecha
+      result_m:
+        executed: Ejecutado
+        view: Ver
       results:
         count:
           results_count:
@@ -178,6 +193,15 @@ es-PY:
             votes: Soportes
         timeline:
           title: Evolución del proyecto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Ámbito
+          status_id_eq:
+            label: Estado
     components:
       accountability:
         name: Seguimiento
@@ -212,10 +236,6 @@ es-PY:
         description: Número de resultados generados
         object: resultados
         title: Resultados
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Resultados
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos los resultados (%{count})
@@ -224,3 +244,5 @@ es-PY:
         result_project: Proyectos incluidos en este resultado
       included_proposals:
         result_proposal: Propuestas incluidas en este resultado
+    statistics:
+      results_count: Resultados

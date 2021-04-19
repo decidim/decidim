@@ -98,6 +98,7 @@ gl:
           create: Crear
           title: Novo debate
       last_activity:
+        debate_updated_at_html: "<span>Debate actualizado en %{link}</span>"
         new_debate_at_html: "<span>Novo debate en %{link}</span>"
       models:
         debate:
@@ -133,6 +134,17 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Os debates agora están dispoñibles en %{participatory_space_title}
           notification_title: Agora podes comezar <a href="%{resource_path}">novos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          affected_user:
+            email_intro: 'Pechouse o debate "%{resource_title}". Podes ler as súas conclusións na súa páxina:'
+            email_outro: Recibiches esta notificación porque segues o debate "%{resource_title}". Podes deixar de seguilo dende a ligazón anterior.
+            email_subject: Pechouse o debate "%{resource_title}"
+            notification_title: O debate <a href="%{resource_path}">%{resource_title}</a> foi pechado.
+          follower:
+            email_intro: 'Pechouse o debate "%{resource_title}". Podes ler as súas conclusións na súa páxina:'
+            email_outro: Recibiches esta notificación porque segues o debate "%{resource_title}". Podes deixar de seguilo dende a ligazón anterior.
+            email_subject: Pechouse o debate "%{resource_title}"
+            notification_title: O debate <a href="%{resource_path}">%{resource_title}</a> foi pechado.
     gamification:
       badges:
         commented_debates:
@@ -150,3 +162,5 @@ gl:
         description: Número de debates creados
         object: debates
         title: Debates
+    statistics:
+      debates_count: Debates

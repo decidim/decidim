@@ -17,7 +17,7 @@
     </div>
   <% end %>
 
-  <%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled } %>
+  <%= render partial: "decidim/forms/questionnaires/answers/#{answer.question.question_type}", locals: { answer: answer, answer_form: answer_form, answer_idx: answer_idx, field_id: field_id, disabled: disabled, maxlength: (answer.question.max_characters if answer.question.max_characters.positive?) } %>
 
   <%= answer_form.hidden_field :question_id %>
 

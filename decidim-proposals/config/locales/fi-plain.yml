@@ -140,6 +140,10 @@ fi-pl:
             participatory_texts_enabled_readonly: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
+            proposal_edit_time: Ehdotusten muokkaus
+            proposal_edit_time_choices:
+              infinite: Ehdotusten muokkaus on sallittu ilman aikarajaa
+              limited: Ehdotusten muokkaus on sallittu määritetyn aikarajan sisällä niiden julkaisusta
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
@@ -339,10 +343,6 @@ fi-pl:
         description: Ehdotuksiin kohdistuneiden äänten määrä
         object: äänet
         title: Äänet
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Ehdotukset
     participatory_spaces:
       highlighted_proposals:
         see_all: Näytä kaikki (%{count})
@@ -359,7 +359,7 @@ fi-pl:
         actions:
           preview: Esikatsele
         exports:
-          comments: Kommentit
+          proposal_comments: Kommentit
           proposals: Ehdotukset
         models:
           proposal:
@@ -426,6 +426,7 @@ fi-pl:
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
+            delete_attachment: Poista liite
             select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
@@ -500,6 +501,7 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
+            title: Tuo ehdotuksia
         proposals_merges:
           create:
             invalid: Yhdistettäessä ehdotuksia tapahtui virhe.
@@ -572,13 +574,6 @@ fi-pl:
               ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
             success: Yhteistyöluonnos peruutettiin onnistuneesti.
-        compare:
-          mine_is_different: Yhteistyöehdotukseni on erilainen
-          no_similars_found: Hyvin tehty! Vastaavanlaisia ​​yhteistyöluonnoksia ei löytynyt
-          title: Vastaavia yhteistyöluonnoksia
-        complete:
-          send: Lähetä
-          title: Viimeistele yhteistyöluonnoksesi
         count:
           drafts_count:
             one: "%{count} yhteistyöluonnos"
@@ -610,7 +605,6 @@ fi-pl:
           unfold: Avaa
         new:
           send: Jatka
-          title: Luo yhteistyöluonnoksesi
         new_collaborative_draft_button:
           new_collaborative_draft: Uusi yhteistyöluonnos
         orders:
@@ -655,23 +649,14 @@ fi-pl:
         update:
           error: Yhteistyöluonnoksen tallentamisessa on tapahtunut virheitä.
           success: Yhteistyöluonnos on päivitetty onnistuneesti.
-          title: Muokkaa yhteistyöluonnosta
         wizard_aside:
-          back: Takaisin
           back_from_collaborative_draft: Takaisin yhteistyöluonnoksiin
-          back_from_step_1: Takaisin yhteistyöluonnoksiin
-          back_from_step_2: Takaisin yhteistyöluonnoksiin
-          back_from_step_3: Takaisin yhteistyöluonnoksen vertailuun
-          back_from_step_4: Takaisin yhteistyöluonnoksen muokkaukseen
           info: Olet luomassa <strong>yhteistyöluonnosta</strong>.
-        wizard_steps:
-          current_step: Tämänhetkinen vaihe
-          see_steps: katso vaiheet
-          step_1: Luo yhteistyöluonnoksesi
-          step_2: Vertaa yhteistyöluonnoksiin
-          step_3: Tee yhteistyöluonnoksesi valmiiksi
-          step_of: Vaihe %{current_step_num} / %{total_steps}
-          title: Yhteistyölunnoksen luonnin vaiheet
+        wizard_header:
+          title: Luo yhteistyöluonnoksesi
+      content_blocks:
+        highlighted_proposals:
+          proposals: Ehdotukset
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotiin tallennettu luonnoksena.
@@ -680,6 +665,7 @@ fi-pl:
         success: Ehdotusluonnos poistettiin onnistuneesti.
       last_activity:
         new_proposal_at_html: "<span>Uusi ehdotus osoitteessa %{link}</span>"
+        proposal_updated_at_html: "<span>Ehdotus päivitetty osoitteessa %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -724,6 +710,8 @@ fi-pl:
           proposals_count:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
+        dynamic_map_instructions:
+          instructions: <h3>Voit siirtää karttapistettä</h3><p>Muistathan painaa "Päivitä sijainti" -painiketta ennen kuin julkaiset ehdotuksen.</p>
         edit:
           add_documents: Asiakirjat
           add_images: Tiedosto
@@ -784,13 +772,18 @@ fi-pl:
             document_index: Asiakirjan hakemisto
           view_index:
             see_index: Näytä hakemisto
+        placeholder:
+          address: Mannerheimintie 1 A, 00100 Helsinki
         preview:
+          announcement_body: Ehdotuksesi on tallennettu luonnoksena. Se täytyy julkaista, jotta se tulee näkyviin sivustolle.
+          announcement_title: Ehdotustasi ei ole vielä julkaistu
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
             other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
+          update_position: Päivitä sijainti
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
@@ -907,3 +900,7 @@ fi-pl:
       included_proposals:
         proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
         proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
+    statistics:
+      proposals_accepted: Hyväksyttyä ehdotusta
+      proposals_count: Ehdotusta
+      supports_count: Kannatusta

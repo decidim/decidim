@@ -15,6 +15,7 @@ nl:
         edit: Bewerk
         new: Nieuw bericht
         title: acties
+        user_group_id: Bericht aanmaken als
       admin:
         models:
           components:
@@ -29,6 +30,7 @@ nl:
             success: Post succesvol verwijderd
           edit:
             save: Bijwerken
+            title: Bericht bewerken
           index:
             title: berichten
           new:
@@ -49,7 +51,7 @@ nl:
       posts:
         show:
           back: Terug naar het overzicht
-          comments: Opmerkingen
+          comments: Reacties
           view: Bekijk
         sidebar_blog:
           comments: reacties
@@ -75,10 +77,5 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
           notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: berichten
-    participatory_processes:
-      statistics:
-        posts_count: Berichten
+    statistics:
+      posts_count: Berichten

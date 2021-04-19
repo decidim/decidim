@@ -34,6 +34,16 @@ module Decidim
           expect(page.content["ca"]).not_to be_nil
         end
       end
+
+      it "sets the terms-and-conditions page as allowed for public access" do
+        described_class.new(organization1).call
+
+        expect(
+          organization1.static_pages.find_by(
+            slug: "terms-and-conditions"
+          ).allow_public_access
+        ).to eq(true)
+      end
     end
   end
 end

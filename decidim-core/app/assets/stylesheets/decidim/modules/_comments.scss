@@ -108,12 +108,6 @@ $comment-form-bg: $light-gray;
   float: right;
   margin-top: .5rem;
 
-  button:focus{
-    background-color: $secondary;
-    color: $white;
-    outline: none;
-  }
-
   form.button_to{
     display: inline-block;
   }
@@ -208,12 +202,6 @@ $comment-form-bg: $light-gray;
 
   a:hover{
     text-decoration: underline;
-  }
-
-  a:focus{
-    background-color: $secondary;
-    color: $white;
-    outline: none;
   }
 
   .button{

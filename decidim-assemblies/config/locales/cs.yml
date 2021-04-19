@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Povolit schéma organizace
       assembly:
         area_id: Oblast
         assembly_type: Typ shromáždění
@@ -30,10 +32,10 @@ cs:
         instagram: Instagram
         internal_organisation: Vnitřní organizace
         is_transparent: Transparentní
-        local_area: Oblast organizace
+        local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         parent_id: Nadřazené shromáždění
-        participatory_processes_ids: Související procesy účasti
+        participatory_processes_ids: Související participativní procesy
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Soukromý prostor
@@ -46,10 +48,11 @@ cs:
         show_statistics: Zobrazit statistiky
         slug: URL slug
         special_features: Speciální funkce
-        subtitle: Titulky
+        subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
         twitter: Twitter
+        weight: Pozice v řazení
         youtube: Youtube
       assembly_member:
         birthday: Narozeniny
@@ -60,6 +63,7 @@ cs:
         full_name: Celé jméno
         gender: Rod
         position: Pozice
+        user_id: Uživatel
       assembly_user_role:
         email: E-mail
         name: název
@@ -74,9 +78,9 @@ cs:
     models:
       decidim/assembly:
         one: Shromáždění
-        few: Sestavy
-        many: Sestavy
-        other: Sestavy
+        few: Shromáždění
+        many: Shromáždění
+        other: Shromáždění
       decidim/assembly_member:
         one: Člen shromáždění
         few: Členové shromáždění
@@ -102,7 +106,7 @@ cs:
         index:
           not_published: Není zveřejněno
           private: Soukromé
-          public: Veřejnost
+          public: Veřejné
           published: Publikováno
         new:
           create: Vytvořit
@@ -185,7 +189,7 @@ cs:
           error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
       menu:
-        assemblies: Sestavy
+        assemblies: Shromáždění
         assemblies_settings: Nastavení
         assemblies_submenu:
           assembly_admins: Administrátoři shromáždění
@@ -236,7 +240,7 @@ cs:
             moderator: Moderátor
             valuator: Hodnotitel
       titles:
-        assemblies: Sestavy
+        assemblies: Shromáždění
         assemblies_types: Typy shromáždění
     admin_log:
       assembly:
@@ -252,7 +256,7 @@ cs:
         update: "%{user_name} aktualizoval nastavení Shromáždění"
       assembly_type:
         create: "%{user_name} vytvořil typ shromáždění %{resource_name}"
-        delete: "%{user_name} odstranil člena %{resource_name} z typu shromáždění %{space_name}"
+        delete: "%{user_name} odstranil typ shromáždění %{resource_name}"
         publish: "%{user_name} publikoval typ shromáždění %{resource_name}"
         unpublish: "%{user_name} zneveřejnil typ shromáždění %{resource_name}"
         update: "%{user_name} aktualizoval typ shromáždění %{resource_name}"
@@ -323,15 +327,15 @@ cs:
         executive: Výkonný
         government: Vládní
         others: Ostatní
-        participatory: Účast
+        participatory: Účastnický
         working_group: Pracovní skupina
       content_blocks:
         highlighted_assemblies:
-          name: Zvýrazněné sestavy
+          name: Zvýrazněná shromáždění
       created_by:
         city_council: Městská rada
         others: Ostatní
-        public: Veřejnost
+        public: Veřejné
       filter:
         all: Všechny typy
         commission: Komise
@@ -340,7 +344,7 @@ cs:
         government: Vládní
         help: 'Zobrazit:'
         others: Ostatní
-        participatory: Účastník
+        participatory: Účastnický
         working_group: Pracovní skupina
       index:
         title: Shromáždění
@@ -371,35 +375,18 @@ cs:
         is_transparent:
           'false': neprůhledný
           'true': transparentní
-        local_area: Oblast organizace
+        local_area: Oblast působnosti organizace
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se o tom rozhoduje
         private_space: Toto je soukromé shromáždění
         purpose_of_action: Účel akce
         read_less: Číst méně
         read_more: Číst více
-        related_participatory_processes: Související procesy participace
+        related_participatory_processes: Související participativní procesy
         scope: Oblast působnosti
         social_networks: Sociální sítě
         social_networks_title: Sdílet toto shromáždění na
         target: Kdo se účastní
-      statistics:
-        answers_count: Odpovědi
-        assemblies_count: Shromáždění
-        comments_count: Komentáře
-        debates_count: Debaty
-        endorsements_count: Schválení
-        headline: Aktivita
-        meetings_count: Setkání
-        orders_count: Hlasy
-        pages_count: Stránky
-        posts_count: Příspěvky
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledky
-        surveys_count: Průzkumy
-        users_count: Účastníci
-        votes_count: Hlasy
     assembly_members:
       assembly_member:
         designated_on: Určen pro
@@ -447,7 +434,7 @@ cs:
         hero:
           participate_title: Účast na procesech platformy
         sub_hero:
-          register_title: Přihlaste se k vytvoření účtu na platformě
+          register_title: Zaregistrujte se pro vytvoření účtu
     participatory_processes:
       pages:
         home:
@@ -455,6 +442,8 @@ cs:
             processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
       show:
         related_assemblies: Související shromáždění
+    statistics:
+      assemblies_count: Shromáždění
   errors:
     messages:
       cannot_be_blank: nemůže být prázdný

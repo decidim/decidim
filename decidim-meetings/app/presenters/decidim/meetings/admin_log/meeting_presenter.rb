@@ -50,8 +50,8 @@ module Decidim
           "activemodel.attributes.meeting"
         end
 
-        def has_diff?
-          action == "close" || super
+        def diff_actions
+          super + %w(close)
         end
       end
     end

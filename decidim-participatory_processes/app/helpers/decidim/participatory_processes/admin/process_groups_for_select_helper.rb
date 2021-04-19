@@ -14,7 +14,7 @@ module Decidim
         def process_groups_for_select
           @process_groups_for_select ||=
             OrganizationParticipatoryProcessGroups.new(current_organization).map do |group|
-              [translated_attribute(group.name), group.id]
+              [translated_attribute(group.title), group.id]
             end
         end
       end

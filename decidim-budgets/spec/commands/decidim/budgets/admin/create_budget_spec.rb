@@ -64,6 +64,10 @@ describe Decidim::Budgets::Admin::CreateBudget do
     expect(action_log.version.event).to eq "create"
   end
 
+  it "creates a searchable resource" do
+    expect { subject.call }.to change(Decidim::SearchableResource, :count).by_at_least(1)
+  end
+
   context "when the form is not valid" do
     let(:invalid) { true }
 

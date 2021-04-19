@@ -22,7 +22,7 @@ bundle
 
 ## Users
 
-User authentication is set up with [`Devise`](https://github.com/plataformatec/devise) with its modules, see the [`Decidim::User`](https://github.com/decidim/decidim/blob/master/decidim-core/app/models/decidim/user.rb) model configuration and its setup [initializer](https://github.com/decidim/decidim/blob/master/decidim-core/config/initializers/devise.rb).
+User authentication is set up with [`Devise`](https://github.com/plataformatec/devise) with its modules, see the [`Decidim::User`](https://github.com/decidim/decidim/blob/develop/decidim-core/app/models/decidim/user.rb) model configuration and its setup [initializer](https://github.com/decidim/decidim/blob/develop/decidim-core/config/initializers/devise.rb).
 
 ## Amendments
 
@@ -70,7 +70,7 @@ This can be done in an initializer (like user does), in a participatory_space ma
 
 ## Metrics docs
 
-Core adds an implementation to show APP metrics within some pages. You can see specific documentation at [Metrics](https://github.com/decidim/decidim/tree/master/docs/advanced/metrics.md)
+Core adds an implementation to show APP metrics within some pages. You can see specific documentation at [Metrics](https://github.com/decidim/decidim/tree/develop/docs/advanced/metrics.md)
 
 ## Contributing
 

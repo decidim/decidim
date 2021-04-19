@@ -36,6 +36,7 @@ module Decidim
                 },
                 "position" => "0",
                 "question_type" => "short_answer",
+                "max_characters" => "0",
                 "answer_options" => {}
               },
               "1" => {
@@ -48,6 +49,7 @@ module Decidim
                 "position" => "1",
                 "mandatory" => "1",
                 "question_type" => "long_answer",
+                "max_characters" => "100",
                 "answer_options" => {}
               },
               "2" => {
@@ -58,6 +60,7 @@ module Decidim
                 },
                 "position" => "2",
                 "question_type" => "single_option",
+                "max_characters" => "0",
                 "answer_options" => {
                   "0" => {
                     "body" => {
@@ -235,10 +238,12 @@ module Decidim
             expect(questionnaire.questions[1]).to be_mandatory
             expect(questionnaire.questions[1].description["en"]).to eq(form_params["questions"]["1"]["description"]["en"])
             expect(questionnaire.questions[1].question_type).to eq("long_answer")
+            expect(questionnaire.questions[1].max_characters).to eq(100)
             expect(questionnaire.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
 
             expect(questionnaire.questions[2].question_type).to eq("single_option")
             expect(questionnaire.questions[2].max_choices).to be_nil
+            expect(questionnaire.questions[2].max_characters).to eq(0)
 
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
             expect(questionnaire.questions[2].answer_options[0].free_text).to eq(false)

@@ -50,7 +50,6 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
-  autoload :Messaging, "decidim/messaging"
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
@@ -93,6 +92,8 @@ module Decidim
   autoload :HasUploadValidations, "decidim/has_upload_validations"
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
   autoload :ShareableWithToken, "decidim/shareable_with_token"
+  autoload :RecordEncryptor, "decidim/record_encryptor"
+  autoload :AttachmentAttributes, "decidim/attachment_attributes"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -358,6 +359,11 @@ module Decidim
     "decidim-cc"
   end
 
+  # Defines how often session_timeouter.js checks time between current moment and last request
+  config_accessor :session_timeouter_interval do
+    10_000
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
@@ -557,13 +563,20 @@ module Decidim
     organization = begin
       if model.is_a?(Decidim::Organization)
         model
-      elsif model.respond_to?(:organization)
+      elsif model.respond_to?(:organization) && model.organization.present?
         model.organization
       end
     end
     return Decidim::OrganizationSettings.defaults unless organization
 
     Decidim::OrganizationSettings.for(organization)
+  end
+
+  # Defines the time after which the machine translation job should be enabled.
+  # In some cases, it is required to have a delay, otherwise the ttanslation job will be discarded:
+  #  Discarded Decidim::MachineTranslationResourceJob due to a ActiveJob::DeserializationError.
+  config_accessor :machine_translation_delay do
+    0.seconds
   end
 
   def self.machine_translation_service_klass

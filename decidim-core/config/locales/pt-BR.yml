@@ -63,7 +63,6 @@ pt:
         file_no_exists: O arquivo não existe
         notice: Seus dados estão atualmente em andamento. Você receberá um e-mail quando estiver concluído.
       delete:
-        alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
           ok: Sim, eu quero excluir minha conta
@@ -207,8 +206,6 @@ pt:
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
-      errors:
-        duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
       expired_at: Expirou em %{timestamp}
       expires_at: Expira em %{timestamp}
       foo_authorization:
@@ -306,7 +303,6 @@ pt:
         ready: pronto
       show:
         download_data: Baixe os dados
-        download_data_description: Um arquivo com todas as informações associadas à conta será enviado para <strong>%{user_email}</strong>
         request_data: Solicitar dados
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
@@ -499,7 +495,6 @@ pt:
           notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
       data_portability_export:
-        click_button: 'Clique no botão seguinte para baixar seus dados. <br/> Você terá o arquivo disponível até %{date}.'
         download: Download
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
@@ -809,24 +804,7 @@ pt:
         metrics:
           headline: Participação em números
         statistics:
-          answers_count: Inquéritos concluídos
-          assemblies_count: Assembleias
-          comments_count: Comentários
-          conferences_count: Conferências
-          debates_count: Debates
-          endorsements_count: Avais
           headline: Estado atual de %{organization}
-          meetings_count: Encontros
-          orders_count: Votos
-          pages_count: Páginas
-          processes_count: Processos
-          projects_count: Projetos
-          proposals_accepted: Propostas aceitas
-          proposals_count: Propostas
-          results_count: Resultados
-          surveys_count: pesquisas
-          users_count: Participantes
-          votes_count: Votos
         sub_hero:
           register: Registrar-se
       index:
@@ -971,6 +949,8 @@ pt:
         close_window: Fechar janela
         share: Compartilhar
         share_link: Partilhar link
+    statistics:
+      comments_count: Comentários
     user_activity:
       index:
         no_activities_warning: Este usuário ainda não possui nenhuma atividade.
@@ -1140,7 +1120,7 @@ pt:
     messages:
       already_confirmed: já foi confirmado, por favor, tente entrar
       confirmation_period_expired: precisa ser confirmado dentro de %{period}, solicite um novo
-      content_type_whitelist_error: o tipo de arquivo não é válido
+      content_type_allowlist_error: o tipo de arquivo não é válido
       cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}

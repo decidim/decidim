@@ -4,13 +4,10 @@ module Decidim
   module Proposals
     # Simple helpers to handle markup variations for proposals
     module ProposalsHelper
-      def proposal_reason_callout_args
+      def proposal_reason_callout_announcement
         {
-          announcement: {
-            title: proposal_reason_callout_title,
-            body: decidim_sanitize(translated_attribute(@proposal.answer))
-          },
-          callout_class: proposal_reason_callout_class
+          title: proposal_reason_callout_title,
+          body: decidim_sanitize(translated_attribute(@proposal.answer))
         }
       end
 

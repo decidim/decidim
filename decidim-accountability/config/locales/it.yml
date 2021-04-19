@@ -32,6 +32,8 @@ it:
   decidim:
     accountability:
       actions:
+        attachment_collections: Cartelle
+        attachments: Allegati
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
@@ -42,6 +44,7 @@ it:
         title: Azioni
       admin:
         exports:
+          result_comments: Commenti
           results: Risultati
         import_results:
           new:
@@ -121,6 +124,11 @@ it:
         value_types:
           parent_presenter:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Date
+          results: Risultati
+          unspecified: Non specificato
       import_mailer:
         import:
           errors: Errori
@@ -133,8 +141,12 @@ it:
       models:
         result:
           fields:
+            category: Categoria
+            created_at: Creato
             end_date: Data di fine
+            id: ID
             progress: Avanzamento
+            scope: Ambito
             start_date: Data di inizio
             status: Stato
             title: Titolo
@@ -148,6 +160,9 @@ it:
           fields:
             description: Descrizione
             entry_date: Data
+      result_m:
+        executed: Eseguito
+        view: Visualizza
       results:
         count:
           results_count:
@@ -178,6 +193,15 @@ it:
             votes: Voti
         timeline:
           title: Evoluzione del progetto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Ambito
+          status_id_eq:
+            label: Stato
     components:
       accountability:
         name: Accountability
@@ -212,10 +236,6 @@ it:
         description: Numero di risultati generati
         object: risultati
         title: Risultati
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Risultati
     participatory_spaces:
       highlighted_results:
         see_all: Vedi tutti i risultati (%{count})

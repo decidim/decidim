@@ -22,6 +22,12 @@ fr:
         slogan: Slogan
         slug: Slug URL
         title: Titre
+      conference_media_link:
+        weight: Rang d'affichage
+      conference_partner:
+        weight: Rang d'affichage
+      conference_registration_type:
+        weight: Rang d'affichage
       conference_speaker:
         full_name: Nom complet
       conference_user_role:
@@ -206,7 +212,6 @@ fr:
             price: Prix
             registrations_count: Nombre d'inscriptions
             title: Titre
-            weight: Rang d'affichage
           name: Type d'inscription
       partners:
         create:
@@ -267,9 +272,9 @@ fr:
         conference_registration:
           confirm: "%{user_name} confirmé une inscription à %{resource_name} conférence"
         partner:
-          create: "%{user_name} créé %{resource_name} à la %{space_name} conférence"
-          delete: "%{user_name} retiré l'utilisateur %{resource_name} de la conférence %{space_name}"
-          update: "%{user_name} mis à jour %{resource_name} dans la %{space_name} conférence"
+          create: "%{user_name} a créé le partenaire %{resource_name} dans la conférence %{space_name}"
+          delete: "%{user_name} a retiré le partenaire %{resource_name} de la conférence %{space_name}"
+          update: "%{user_name} a mis à jour le partenaire %{resource_name} dans la conférence %{space_name}"
         registration_type:
           create: "%{user_name} créé le type d'inscription %{resource_name} dans la conférence %{space_name}"
           publish: "%{user_name} publié le %{resource_name} type d'inscription dans la %{space_name} conférence"
@@ -402,6 +407,7 @@ fr:
         personal_website: Site Web personnel
         show:
           more_info: Plus d'informations
+          speaking_at: Intervient dans les rencontres
       conference_speaker_cell:
         personal_url:
           personal_website: Site Web personnel
@@ -491,23 +497,6 @@ fr:
         related_assemblies: Assemblées connexes
         related_consultations: Votations connexes
         related_participatory_processes: Concertations associées
-      statistics:
-        answers_count: Réponses
-        comments_count: Commentaires
-        conference_count: Conférences
-        debates_count: Débats
-        endorsements_count: Soutiens
-        headline: Activité
-        meetings_count: Rencontres
-        orders_count: Votes
-        pages_count: Pages
-        posts_count: Articles
-        projects_count: Projets
-        proposals_count: Propositions
-        results_count: Réalisations
-        surveys_count: Enquêtes
-        users_count: Participants
-        votes_count: Votes
     events:
       conferences:
         conference_registration_confirmed:
@@ -542,8 +531,8 @@ fr:
     help:
       participatory_spaces:
         conferences:
-          contextual: "<p>Une <strong>conférence</strong> est un ensemble de réunions organisées dans un programme, avec un certain nombre de personnes invitées en tant qu'orateurs, et d'autres informations typiques des grands congrès ou événements (inscription, liste des organisations qui soutiennent ou parrainent l'événement, etc.). .</p> <p>Exemples : Une conférence peut être un événement pertinent pour une organisation et ses membres, ou se dérouler dans le cadre d'un processus participatif ou faire suite à une consultation.</p>\n"
-          page: "<p>Une <strong>conférence</strong> est un ensemble de réunions organisées dans un programme, avec un certain nombre de personnes invitées en tant qu'orateurs, et d'autres informations typiques des grands congrès ou événements (inscription, liste des organisations qui soutiennent ou parrainent l'événement, etc.). .</p> <p>Exemples : Une conférence peut être un événement pertinent pour une organisation et ses membres, ou se dérouler dans le cadre d'un processus participatif ou faire suite à une consultation.</p>\n"
+          contextual: "<p>Une <strong>conférence</strong> est un ensemble de rencontres organisées dans un programme, avec un certain nombre de personnes invitées en tant qu'orateurs, et d'autres informations typiques des grands congrès ou événements (inscription, liste des organisations qui soutiennent ou parrainent l'événement, etc.).</p> <p>Exemples : Une conférence peut être un événement pertinent pour une organisation et ses membres, ou se dérouler dans le cadre d'un processus participatif ou faire suite à une consultation.</p>\n"
+          page: "<p>Une <strong>conférence</strong> est un ensemble de rencontres organisées dans un programme, avec un certain nombre de personnes invitées en tant qu'orateurs, et d'autres informations typiques des grands congrès ou événements (inscription, liste des organisations qui soutiennent ou parrainent l'événement, etc.).</p> <p>Exemples : Une conférence peut être un événement pertinent pour une organisation et ses membres, ou se dérouler dans le cadre d'un processus participatif ou faire suite à une consultation.</p>\n"
           title: Que sont les conférences?
     log:
       value_types:

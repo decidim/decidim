@@ -188,25 +188,35 @@ describe "Assemblies", type: :system do
             expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
           end
         end
+      end
 
-        it "shows the stats for those components" do
-          within ".process_stats" do
-            expect(page).to have_content("3 PROPOSALS")
-            expect(page).not_to have_content("0 MEETINGS")
-          end
-        end
+      context "and the process statistics are enabled" do
+        let(:show_statistics) { true }
 
-        context "when the assembly stats are not enabled" do
-          let(:show_statistics) { false }
-
-          it "the stats for those components are not visible" do
-            expect(page).not_to have_content("3 PROPOSALS")
+        it "renders the stats for those components are visible" do
+          within ".section-statistics" do
+            expect(page).to have_css("h3.section-heading", text: "STATISTICS")
+            expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+            expect(page).to have_css(".statistic__number", text: "3")
+            expect(page).to have_no_css(".statistic__title", text: "MEETINGS")
+            expect(page).to have_no_css(".statistic__number", text: "0")
           end
         end
       end
 
+      context "and the process statistics are not enabled" do
+        let(:show_statistics) { false }
+
+        it "doesn't render the stats for those components that are not visible" do
+          expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
+          expect(page).to have_no_css(".statistic__title", text: "PROPOSALS")
+          expect(page).to have_no_css(".statistic__number", text: "3")
+        end
+      end
+
       context "when the assembly has children assemblies" do
-        let!(:child_assembly) { create :assembly, organization: organization, parent: assembly }
+        let!(:child_assembly) { create :assembly, organization: organization, parent: assembly, weight: 0 }
+        let!(:second_child_assembly) { create :assembly, organization: organization, parent: assembly, weight: 1 }
         let!(:unpublished_child_assembly) { create :assembly, :unpublished, organization: organization, parent: assembly }
 
         before do
@@ -218,6 +228,11 @@ describe "Assemblies", type: :system do
             expect(page).to have_link translated(child_assembly.title)
             expect(page).not_to have_link translated(unpublished_child_assembly.title)
           end
+        end
+
+        it "shows the children assemblies by weigth" do
+          expect(page).to have_selector("#assemblies-grid .row .column:first-child", text: child_assembly.title[:en])
+          expect(page).to have_selector("#assemblies-grid .row .column:last-child", text: second_child_assembly.title[:en])
         end
       end
 

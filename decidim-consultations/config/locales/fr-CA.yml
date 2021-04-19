@@ -94,6 +94,7 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle votation.
           success: La votation a été créée avec succès.
+        deprecation_warning: Le module de consultation sera obsolète dans un avenir proche. Nous travaillons sur la prochaine version cryptographique sécurisée appelée Votes.
         edit:
           update: Mettre à jour
         form:
@@ -119,6 +120,8 @@ fr-CA:
           questions: Questions
           results: Résultats
         questions_submenu:
+          attachments: Documents liés
+          categories: Catégories
           components: Fonctionnalités
           configuration: Configuration
           consultation: Votation
@@ -318,15 +321,11 @@ fr-CA:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p><strong>Une consultation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, appeler à participer à la consultation, à faire décoller et à ordonner le débat. Lorsque la date de la consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les consultations peuvent porter sur presque tous les aspects qui affectent une organisation : changer le nom ou le logo de l'organisation en offrant plusieurs alternatives, décider ou non de faire partie d'une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, etc.</p>\n"
+          contextual: "<p><strong>Une votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, appeler à participer à la consultation, à faire décoller et à ordonner le débat. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque tous les aspects qui affectent une organisation : changer le nom ou le logo de l'organisation en offrant plusieurs alternatives, décider ou non de faire partie d'une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, etc.</p>\n"
           page: "<p><strong>Une consultation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, appeler à participer à la consultation, à faire décoller et à ordonner le débat. Lorsque la date de la consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les consultations peuvent porter sur presque tous les aspects qui affectent une organisation : changer le nom ou le logo de l'organisation en offrant plusieurs alternatives, décider ou non de faire partie d'une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, etc.</p>\n"
           title: Que sont les consultations?
     menu:
       consultations: Votations
-    pages:
-      home:
-        statistics:
-          consultations_count: Votations
     questions:
       next_button: Question suivante
       previous_button: Question précédente
@@ -363,10 +362,6 @@ fr-CA:
           vote: Voter
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Documents liés
-          categories: Catégories
       consultation_voting_data:
         start_voting_date: Le vote commence le
       question_components:

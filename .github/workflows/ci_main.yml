@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - develop
-      - master
       - release/*
       - "*-stable"
   pull_request:
@@ -14,28 +13,39 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 2.7.1
-  NODE_VERSION: 12.9.1
+  NODE_VERSION: 14.16.0
 
 jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
-        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+        if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/checkout@v2.0.0
         with:
           fetch-depth: 1
-      - uses: actions/setup-node@master
-        with:
-          node-version: ${{ env.NODE_VERSION }}
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - run: npm ci
-        name: Install JS deps
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)-main"
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - name: Install JS dependencies
+        run: yarn install --frozen-lockfile --cache-folder ${{ steps.yarn-cache-dir-path.outputs.dir }}
       - run: bundle exec rspec
         name: RSpec

@@ -37,6 +37,7 @@ sk:
         confirm_destroy: Naozaj chcete odstrániť toto %{name}?
         destroy: Odstrániť
         edit: Upraviť
+        import_csv: Importovať súbor CSV
         new: Nový %{name}
         preview: Ukážka
         timeline_entries: Vývoj projektu
@@ -44,6 +45,14 @@ sk:
       admin:
         exports:
           results: Výsledky
+        import_results:
+          new:
+            import: Importovať
+            link: odkaz
+            title: Importovať výsledky zo súboru CSV
+        imports:
+          create:
+            success: Začalo sa importovanie súboru. O výsledku importovania dostanete informáciu e-mailom v priebehu niekoľkých minút
         models:
           result:
             name: Výsledok
@@ -113,6 +122,18 @@ sk:
         value_types:
           parent_presenter:
             not_found: 'Nadradený záznam nebol nájdený v databáze(ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Dátumy
+          results: Výsledky
+          unspecified: Nešpecifikované
+      import_mailer:
+        import:
+          errors: Chyby
+          errors_present: Pri importovaní výsledkov sa vyskytol problém
+          row_number: Riadky
+          subject: Import výsledkov bol úspešný
+          success: Import výsledkov bol úspešný. Výsledky je možné skontrolovať v správcovskom rozhraní.
       last_activity:
         new_result_at_html: "<span>Nový výsledok na %{link}</span>"
       models:
@@ -133,6 +154,8 @@ sk:
           fields:
             description: Popis
             entry_date: Dátum
+      result_m:
+        view: Zobraziť
       results:
         count:
           results_count:
@@ -196,10 +219,6 @@ sk:
         description: Počet vytvorených výsledkov
         object: výsledky
         title: Výsledky
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Výsledky
     resource_links:
       included_projects:
         result_project: Projekty, zahrnutý vo výsledku

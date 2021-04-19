@@ -48,6 +48,18 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Meetings::MeetingSerializer
   end
 
+  component.exports :meeting_comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Meetings::Meeting, component_instance
+      )
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   component.actions = %w(join)
 
   component.settings(:global) do |settings|
@@ -99,6 +111,7 @@ Decidim.register_component(:meetings) do |component|
     end
 
     2.times do
+      start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
       params = {
         component: component,
         scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
@@ -109,8 +122,8 @@ Decidim.register_component(:meetings) do |component|
         end,
         location: Decidim::Faker::Localized.sentence,
         location_hints: Decidim::Faker::Localized.sentence,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
+        start_time: start_time,
+        end_time: start_time + rand(1..4).hours,
         address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude,
@@ -121,6 +134,13 @@ Decidim.register_component(:meetings) do |component|
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end
       }
+
+      _hybrid_meeting = Decidim.traceability.create!(
+        Decidim::Meetings::Meeting,
+        admin_user,
+        params.merge(type_of_meeting: :hybrid, online_meeting_url: "http://example.org"),
+        visibility: "all"
+      )
 
       _online_meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
@@ -218,6 +238,7 @@ Decidim.register_component(:meetings) do |component|
         author = user_group.users.sample
       end
 
+      start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
       params = {
         component: component,
         scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
@@ -228,8 +249,8 @@ Decidim.register_component(:meetings) do |component|
         end,
         location: Decidim::Faker::Localized.sentence,
         location_hints: Decidim::Faker::Localized.sentence,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
+        start_time: start_time,
+        end_time: start_time + rand(1..4).hours,
         address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude,

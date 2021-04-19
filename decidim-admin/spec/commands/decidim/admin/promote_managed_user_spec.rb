@@ -36,7 +36,12 @@ module Decidim::Admin
       it "user is invited to the application" do
         subject.call
         expect(user.reload.email).to eq(form.email)
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
+      end
+
+      it "log promoted user" do
+        subject.call
+        expect(Decidim::ActionLog.last.action).to eq("promote")
       end
     end
 

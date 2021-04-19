@@ -22,6 +22,12 @@
         slogan: Slagord
         slug: URL slug
         title: Tittel
+      conference_media_link:
+        weight: Vekt
+      conference_partner:
+        weight: Vekt
+      conference_registration_type:
+        weight: Vekt
       conference_speaker:
         full_name: Fullt navn
       conference_user_role:
@@ -206,7 +212,6 @@
             price: Pris
             registrations_count: Registrerings teller
             title: Tittel
-            weight: Vekt
           name: Registreringstype
       partners:
         create:
@@ -266,10 +271,6 @@
       conferences:
         conference_registration:
           confirm: "%{user_name} bekreftet en konferanseregistrering i %{resource_name} konferanse"
-        partner:
-          create: "%{user_name} opprettet %{resource_name} til %{space_name} konferansen"
-          delete: "%{user_name} fjernet admin %{resource_name} fra %{space_name} konferansen"
-          update: "%{user_name} oppdaterte %{resource_name} i %{space_name} konferansen"
         registration_type:
           create: "%{user_name} opprettet redigeringstypen %{resource_name} i %{space_name} konferansen"
           publish: "%{user_name} publiserte %{resource_name} registreringstypen i %{space_name} konferansen"
@@ -490,23 +491,6 @@
         related_assemblies: Relaterte forsamlinger
         related_consultations: Relaterte konsultasjoner
         related_participatory_processes: Relaterte deltakerprosesser
-      statistics:
-        answers_count: Svar
-        comments_count: Kommentarer
-        conference_count: Konferanser
-        debates_count: Debatter
-        endorsements_count: Påtegnelser
-        headline: Aktivitet
-        meetings_count: Møter
-        orders_count: Støtter
-        pages_count: Sider
-        posts_count: Innlegg
-        projects_count: Prosjekter
-        proposals_count: Forslag
-        results_count: Resultater
-        surveys_count: Undersøkelse
-        users_count: Deltakere
-        votes_count: Støtter
     events:
       conferences:
         conference_registration_confirmed:

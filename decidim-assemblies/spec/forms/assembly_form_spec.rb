@@ -25,6 +25,7 @@ module Decidim
             ca: "Subtítol"
           }
         end
+        let(:weight) { 1 }
         let(:description) do
           {
             en: "Description",
@@ -145,6 +146,7 @@ module Decidim
               "instagram_handler" => instagram_handler,
               "youtube_handler" => youtube_handler,
               "github_handler" => github_handler,
+              "weight" => weight,
               "parent_id" => parent_id
             }
           }
@@ -329,6 +331,7 @@ module Decidim
                 instagram_handler: assembly.instagram_handler,
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
+                weight: assembly.weight,
                 parent_id: child_assembly
               }
             }
@@ -387,6 +390,7 @@ module Decidim
                 instagram_handler: assembly.instagram_handler,
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
+                weight: assembly.weight,
                 parent_id: grandchild_assembly
               }
             }

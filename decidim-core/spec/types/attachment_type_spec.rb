@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe AttachmentType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:url) { "https://foo.bar/baz" }
       let(:file_type) { "image" }

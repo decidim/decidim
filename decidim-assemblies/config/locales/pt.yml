@@ -246,7 +246,6 @@ pt:
         update: "%{user_name} atualizou as definições de reuniões"
       assembly_type:
         create: "%{user_name} criou o tipo de reunião %{resource_name}"
-        delete: "%{user_name} removeu o membro %{resource_name} do tipo de reunião %{space_name}"
         publish: "%{user_name} publicou o tipo de reunião %{resource_name}"
         unpublish: "%{user_name} removeu a publicação do tipo de reunião %{resource_name}"
         update: "%{user_name} atualizou o tipo de reunião %{resource_name}"
@@ -374,23 +373,6 @@ pt:
         social_networks: Redes sociais
         social_networks_title: Partilhar esta reunião em
         target: Quem participa
-      statistics:
-        answers_count: Respostas
-        assemblies_count: Reuniões
-        comments_count: Comentários
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Atividade
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        posts_count: Publicações
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Inquéritos
-        users_count: Participantes
-        votes_count: Votos
     assembly_members:
       assembly_member:
         designated_on: Designado em
@@ -437,8 +419,6 @@ pt:
       home:
         hero:
           participate_title: Participar nos processos da plataforma
-        sub_hero:
-          register_title: Inscreva-se para criar uma conta na plataforma
     participatory_processes:
       pages:
         home:

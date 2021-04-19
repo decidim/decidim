@@ -3,7 +3,7 @@
     <h2 class="card-title"><%= title %></h2>
   </div>
 
-  <div class="card-section">
+  <div class="card-section debate-fields">
      <div class="row column hashtags__container">
       <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
     </div>
@@ -20,7 +20,12 @@
       <%= form.translated :editor, :information_updates %>
     </div>
 
-    <div class="row">
+    <div class="row column">
+      <%= label_tag :debate_type, t(".debate_type") %>
+      <%= form.collection_radio_buttons(:finite, [[t(".finite"), true], [t(".open"), false]], :last, :first) %>
+    </div>
+
+    <div class="row debate-fields--finite">
       <div class="column xlarge-6">
         <%= form.datetime_field :start_time %>
       </div>
@@ -29,8 +34,16 @@
       </div>
     </div>
 
+    <% if current_component.has_subscopes? %>
+      <div class="row column">
+        <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
+      </div>
+    <% end %>
+
     <div class="row column">
       <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag "decidim_debates_admin" %>

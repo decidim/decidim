@@ -7,11 +7,13 @@ module Decidim
       class TrusteeForm < Decidim::Form
         mimic :trustee
 
+        attribute :name, String
         attribute :public_key, String
-        validates :public_key, presence: true
-        validate :dont_change_public_key
+        validates :name, :public_key, presence: true
+        validate :dont_change_data
 
-        def dont_change_public_key
+        def dont_change_data
+          errors.add :name, :cant_be_changed if trustee.name.present?
           errors.add :public_key, :cant_be_changed if trustee.public_key.present?
         end
 

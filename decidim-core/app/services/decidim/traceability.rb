@@ -115,6 +115,9 @@ module Decidim
 
     def log(action, user, resource, extra_log_info = {})
       return unless user.is_a?(Decidim::User)
+      # If the record is not valid, it may not yet have an ID causing an
+      # exception when trying to save the log record.
+      return unless resource.valid?
 
       Decidim::ActionLogger.log(
         action,

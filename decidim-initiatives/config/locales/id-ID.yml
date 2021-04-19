@@ -50,6 +50,8 @@ id:
       actions:
         new_initiative_type: Jenis inisiatif baru
       menu:
+        components: Komponen
+        information: Informasi
         initiatives: Inisiatif
         initiatives_types: Jenis inisiatif
       models:
@@ -343,13 +345,6 @@ id:
         print:
           city: Kota
         result:
-          answer_title:
-            accepted: Proposal ini telah diterima karena
-            created: Proposal ini telah dibuat
-            discarded: Proposal ini telah dibuang karena
-            published: Proposal ini diterbitkan karena
-            rejected: Proposal ini telah ditolak karena
-            validating: Proposal ini sedang dievaluasi
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
         show:
           follow_description: Terima pemberitahuan saat ada berita dalam inisiatif ini
@@ -397,12 +392,6 @@ id:
           vote: Memilih
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Lampiran
-          committee_members: anggota Komite
-          components: Komponen
-          information: Informasi
       initiative_creation_header:
         back: Kembali
         fill_data: Membuat

@@ -20,8 +20,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-comments", Decidim::Debates.version
   s.add_dependency "decidim-core", Decidim::Debates.version
-  s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
-  s.add_dependency "searchlight", "~> 4.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Debates.version
   s.add_development_dependency "decidim-dev", Decidim::Debates.version

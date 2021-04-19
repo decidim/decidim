@@ -23,7 +23,7 @@ module Decidim
       protected
 
       def allow_answers?
-        !current_component.published? || current_settings.allow_answers?
+        !current_component.published? || (current_settings.allow_answers? && survey.open?)
       end
 
       def form_path

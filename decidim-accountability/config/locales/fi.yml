@@ -32,6 +32,8 @@ fi:
   decidim:
     accountability:
       actions:
+        attachment_collections: Kansiot
+        attachments: Liitteet
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
@@ -42,6 +44,7 @@ fi:
         title: Toiminnot
       admin:
         exports:
+          result_comments: Kommentit
           results: Tulokset
         import_results:
           new:
@@ -121,6 +124,11 @@ fi:
         value_types:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Päivämäärät
+          results: Tulokset
+          unspecified: Ei määritelty
       import_mailer:
         import:
           errors: Virheet
@@ -133,8 +141,12 @@ fi:
       models:
         result:
           fields:
+            category: Aihepiiri
+            created_at: Luontiaika
             end_date: Päättymispäivä
+            id: ID
             progress: Edistyminen
+            scope: Teema
             start_date: Alkamispäivä
             status: Tila
             title: Otsikko
@@ -148,6 +160,9 @@ fi:
           fields:
             description: Kuvaus
             entry_date: Päivämäärä
+      result_m:
+        executed: Valmistunut
+        view: Näytä
       results:
         count:
           results_count:
@@ -178,6 +193,15 @@ fi:
             votes: Kannatukset
         timeline:
           title: Projektin kehitys
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Aihepiiri
+          scope_id_eq:
+            label: Teema
+          status_id_eq:
+            label: Tila
     components:
       accountability:
         name: Vastuullisuus
@@ -212,10 +236,6 @@ fi:
         description: Luotujen tulosten lukumäärä
         object: tulokset
         title: Tulokset
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Tulokset
     participatory_spaces:
       highlighted_results:
         see_all: Näytä kaikki (%{count} kpl)
@@ -224,3 +244,5 @@ fi:
         result_project: Tähän tulokseen liittyvät suunnitelmat
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
+    statistics:
+      results_count: Tulosta

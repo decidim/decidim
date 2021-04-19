@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/api/component_interface"
-require "decidim/api/participatory_space_interface"
-
 module Decidim
   # This module's job is to extend the API with custom fields related to
   # decidim-core.
@@ -12,91 +9,115 @@ module Decidim
     # type - A GraphQL::BaseType to extend.
     #
     # Returns nothing.
-    def self.define(type)
-      Decidim.participatory_space_manifests.each do |participatory_space_manifest|
-        type.field participatory_space_manifest.name.to_s.camelize(:lower),
-                   type: type.types[participatory_space_manifest.query_type.constantize],
-                   description: "Lists all #{participatory_space_manifest.name}",
-                   function: participatory_space_manifest.query_list.constantize.new(manifest: participatory_space_manifest)
-
-        type.field participatory_space_manifest.name.to_s.singularize.camelize(:lower),
-                   type: participatory_space_manifest.query_type.constantize,
-                   description: "Finds a #{participatory_space_manifest.name.to_s.singularize}",
-                   function: participatory_space_manifest.query_finder.constantize.new(manifest: participatory_space_manifest)
+    def self.included(type)
+      type.field :participatory_processes,
+                 [Decidim::ParticipatoryProcesses::ParticipatoryProcessType],
+                 null: true,
+                 description: "Lists all participatory_processes" do
+        argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
+        argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
       end
 
-      type.field :component, Decidim::Core::ComponentInterface do
+      type.field :participatory_process,
+                 Decidim::ParticipatoryProcesses::ParticipatoryProcessType,
+                 null: true,
+                 description: "Finds a participatory_process" do
+        argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
+        argument :slug, String, "The slug of the participatory process", required: false
+      end
+
+      type.field :component, Decidim::Core::ComponentInterface, null: true do
         description "Lists the components this space contains."
-        argument :id, !types.ID, "The ID of the component to be found"
-
-        resolve lambda { |_, args, ctx|
-                  component = Decidim::Component.published.find_by(id: args[:id])
-                  component&.organization == ctx[:current_organization] ? component : nil
-                }
+        argument :id, GraphQL::Types::ID, required: true, description: "The ID of the component to be found"
       end
 
-      type.field :session do
-        type Core::SessionType
-        description "Return's information about the logged in user"
+      type.field :session, Core::SessionType, description: "Return's information about the logged in user", null: true
 
-        resolve lambda { |_obj, _args, ctx|
-          ctx[:current_user]
-        }
+      type.field :decidim, Core::DecidimType, "Decidim's framework properties.", null: true
+
+      type.field :organization, Core::OrganizationType, "The current organization", null: true
+
+      type.field :hashtags, [Core::HashtagType], null: true, description: "The hashtags for current organization" do
+        argument :name, GraphQL::Types::String, "The name of the hashtag", required: false
       end
 
-      type.field :decidim, Core::DecidimType, "Decidim's framework properties." do
-        resolve ->(_obj, _args, _ctx) { Decidim }
-      end
-
-      type.field :organization, Core::OrganizationType, "The current organization" do
-        resolve ->(_obj, _args, ctx) { ctx[:current_organization] }
-      end
-
-      type.field :hashtags do
-        type types[Core::HashtagType]
-        description "The hashtags for current organization"
-        argument :name, types.String, "The name of the hashtag"
-
-        resolve lambda { |_obj, args, ctx|
-          Decidim::HashtagsResolver.new(ctx[:current_organization], args[:name]).hashtags
-        }
-      end
-
-      type.field :metrics do
-        type types[Decidim::Core::MetricType]
-        argument :names, types[types.String], "The names of the metrics you want to retrieve"
-        argument :space_type, types.String, "The type of ParticipatorySpace you want to filter with"
-        argument :space_id, types.Int, "The ID of ParticipatorySpace you want to filter with"
-
-        resolve lambda { |_, args, ctx|
-                  manifests = if args[:names].blank?
-                                Decidim.metrics_registry.all
-                              else
-                                Decidim.metrics_registry.all.select do |manifest|
-                                  args[:names].include?(manifest.metric_name.to_s)
-                                end
-                              end
-                  filters = {}
-                  if args[:space_type].present? && args[:space_id].present?
-                    filters[:participatory_space_type] = args[:space_type]
-                    filters[:participatory_space_id] = args[:space_id]
-                  end
-
-                  manifests.map do |manifest|
-                    Decidim::Core::MetricResolver.new(manifest.metric_name, ctx[:current_organization], filters)
-                  end
-                }
+      type.field :metrics, type: [Decidim::Core::MetricType], null: true do
+        argument :names, [GraphQL::Types::String], "The names of the metrics you want to retrieve", camelize: false, required: false
+        argument :space_type, GraphQL::Types::String, "The type of ParticipatorySpace you want to filter with", camelize: false, required: false
+        argument :space_id, GraphQL::Types::Int, "The ID of ParticipatorySpace you want to filter with", camelize: false, required: false
       end
 
       type.field :user,
-                 type: Core::AuthorInterface,
-                 description: "A participant (user or group) in the current organization",
-                 function: Core::UserEntityFinder.new
+                 type: Core::AuthorInterface, null: true,
+                 description: "A participant (user or group) in the current organization" do
+        argument :id, GraphQL::Types::ID, "The ID of the participant", required: false
+        argument :nickname, GraphQL::Types::String, "The @nickname of the participant", required: false
+      end
 
       type.field :users,
-                 type: type.types[Core::AuthorInterface],
-                 description: "The participants (users or groups) for the current organization",
-                 function: Core::UserEntityList.new
+                 type: [Core::AuthorInterface], null: true,
+                 description: "The participants (users or groups) for the current organization" do
+        argument :order, Decidim::Core::UserEntityInputSort, "Provides several methods to order the results", required: false
+        argument :filter, Decidim::Core::UserEntityInputFilter, "Provides several methods to filter the results", required: false
+      end
+    end
+
+    def participatory_processes(filter: {}, order: {})
+      manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
+      Decidim::Core::ParticipatorySpaceListBase.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+    end
+
+    def participatory_process(id: nil, slug: nil)
+      manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
+      Decidim::Core::ParticipatorySpaceFinderBase.new(manifest: manifest).call(object, { id: id, slug: slug }, context)
+    end
+
+    def component(id: {})
+      component = Decidim::Component.published.find_by(id: id)
+      component&.organization == context[:current_organization] ? component : nil
+    end
+
+    def session
+      context[:current_user]
+    end
+
+    def decidim
+      Decidim
+    end
+
+    def organization
+      context[:current_organization]
+    end
+
+    def hashtags(name: nil)
+      Decidim::HashtagsResolver.new(context[:current_organization], name).hashtags
+    end
+
+    def metrics(names: [], space_type: nil, space_id: nil)
+      manifests = if names.blank?
+                    Decidim.metrics_registry.all
+                  else
+                    Decidim.metrics_registry.all.select do |manifest|
+                      names.include?(manifest.metric_name.to_s)
+                    end
+                  end
+      filters = {}
+      if space_type.present? && space_id.present?
+        filters[:participatory_space_type] = space_type
+        filters[:participatory_space_id] = space_id
+      end
+
+      manifests.map do |manifest|
+        Decidim::Core::MetricResolver.new(manifest.metric_name, context[:current_organization], filters)
+      end
+    end
+
+    def user(id: nil, nickname: nil)
+      Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
+    end
+
+    def users(filter: {}, order: {})
+      Core::UserEntityList.new.call(object, { filter: filter, order: order }, context)
     end
   end
 end

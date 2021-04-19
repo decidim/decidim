@@ -6,7 +6,7 @@ module Decidim
     class ConversationForm < Decidim::Form
       mimic :conversation
 
-      attribute :body, String
+      attribute :body, Decidim::Attributes::CleanString
       attribute :recipient_id, Integer
 
       validates :body, :recipient, presence: true

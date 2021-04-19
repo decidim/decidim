@@ -7,21 +7,21 @@ cs:
         offline_explanation: Pokyny pro ověření offline
         online: Online
       id_document_information:
-        document_number: Číslo dokumentu (s písmenem)
+        document_number: Číslo dokladu (s písmeny)
         document_type: Typ dokumentu
       id_document_upload:
-        document_number: Číslo dokumentu (s písmenem)
+        document_number: Číslo dokladu (s písmeny)
         document_type: Typ dokumentu
         user: Uživatel
         verification_attachment: Naskenovaná kopie dokumentu
       offline_confirmation:
         email: Uživatelský e-mail
       postal_letter_address:
-        full_address: Celá adresa
+        full_address: Celá poštovní adresa
       postal_letter_confirmation:
         verification_code: Ověřovací kód
       postal_letter_postage:
-        full_address: Celá adresa
+        full_address: Celá poštovní adresa
         verification_code: Ověřovací kód
   decidim:
     admin:
@@ -34,16 +34,16 @@ cs:
             confirm: Zrušení před datem autorizace nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
             confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
           destroy_nok: Při rušení autorizace došlo k chybě.
-          destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny!
+          destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
           no_data: Žádní ověření účastníci
-          title: Zrušení ověření
-        authorization_workflows: Ověření
+          title: Zrušení autorizace
+        authorization_workflows: Autorizace
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} aktualizovala konfiguraci ověření dokumentů identit"
+        update_id_documents_config: "%{user_name} aktualizoval konfiguraci autorizace dokladů totožnosti"
       user:
-        grant_id_documents_offline_verification: "%{user_name} ověřeno %{resource_name} pomocí ověření dokumentů offline"
+        grant_id_documents_offline_verification: "%{user_name} ověřil %{resource_name} pomocí offline autorizace dokladů totožnosti"
     authorization_handlers:
       admin:
         csv_census:
@@ -52,19 +52,19 @@ cs:
             - Ověřit se mohou pouze účastníci s e-mailem v tomto souboru CSV
         id_documents:
           help:
-            - Uživatelé vyplní informace o své identitě a nahrají kopii dokumentu.
+            - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
             - Vyplníte informace obsažené v nahraném obrázku.
-            - Informace by měly odpovídat uživateli, který vyplnil.
+            - Informace by se měly shodovat s tím, co uživatel vyplní.
             - Pokud nemůžete informace zřetelně vidět nebo ji nelze ověřit, můžete žádost odmítnout a uživatel ji bude moci opravit.
         postal_letter:
           help:
-            - Uživatelé požadují, aby jejich adresa byla odeslána ověřovacímu kódu.
+            - Účastníci požádají o zaslání ověřovacího kódu na jejich poštovní adresu.
             - Na adresu zasíláte dopis s ověřovacím kódem.
-            - Označte písmeno jako odesláno.
-            - Jakmile označíte odeslané písmeno, uživatel bude schopen kód zadat a ověřit.
+            - Označte dopis jako odeslaný.
+            - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
       csv_census:
-        explanation: Získejte ověření pomocí sčítání organizace
-        name: Sčítání organizace
+        explanation: Získejte ověření pomocí členství v organizaci
+        name: Členství organizace
       direct: Přímo
       help: Pomoc
       id_documents:
@@ -74,7 +74,11 @@ cs:
       name: název
       postal_letter:
         explanation: Pošleme vám poštovní dopis s kódem, který budete muset zadat, abychom mohli ověřit vaši adresu
-        name: Kód poštovním dopisem
+        name: Kód v listovní zásilce
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Účastník <a href="%{resource_path}">%{resource_title}</a> se pokusil ověřit údaji spravovaného účastníka <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -90,7 +94,7 @@ cs:
         first_login:
           actions:
             another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
-            csv_census: Ověřte sčítání organizace
+            csv_census: Ověřte prostřednictvím členství v organizaci
             dummy_authorization_handler: Ověřte proti příkladu pověření autorizace
             dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
             id_documents: Získejte ověření odesláním dokladu totožnosti
@@ -118,28 +122,28 @@ cs:
         admin:
           census:
             create:
-              error: Při importu sčítání došlo k chybě.
+              error: Při importu členů organizace došlo k chybě.
               success: Úspěšně importováno %{count} položek (%{errors} chyb)
             destroy_all:
-              success: Všechna data sčítání byly smazány
+              success: Všechna data členů organizace byly smazány
           destroy:
-            confirm: Odstranit veškeré sčítání nelze vrátit zpět. Jste si jistý, že chcete pokračovat?
-            title: Smazat všechna data sčítání
+            confirm: Odstranění veškerých kontaktů členů organizace nelze vrátit zpět. Jste si jistý, že chcete pokračovat?
+            title: Smazat všechna data členství organizace
           index:
-            data: Celkem bylo načteno celkem %{count} záznamů. Poslední nahraje datum %{due_date}
-            empty: Neexistují údaje o sčítání. Pomocí níže uvedeného formuláře jej importujte pomocí souboru CSV.
-            title: Aktuální údaje o sčítání
+            data: Celkem načteno %{count} záznamů. Poslední datum načtení bylo %{due_date}
+            empty: Nejsou data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
+            title: Aktuální údaje o členech organizace
           instructions:
-            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění csv_census organizaci
-            title: Musíte aktivovat CSV sčítání pro tuto organizaci
+            body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
+            title: Musíte aktivovat CSV s kontakty členů organizace
           new:
             file: ".csv soubor s daty e-mailů"
-            info: 'Must být souborem ve formátu CSV s pouze jedním sloupcem s e-mailovou adresou:'
+            info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
             submit: Nahrát soubor
-            title: Nahrajte nové sčítání
+            title: Nahrajte nové členy organizace
         authorizations:
           new:
-            error: Váš účet nebyl ověřen, nebo nejste v sčítání organizace.
+            error: Váš účet nebyl ověřen, nebo nejste členem organizace.
             success: Účet byl úspěšně ověřen.
       dummy_authorization:
         extra_explanation:
@@ -149,6 +153,12 @@ cs:
             many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
             other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
           scope: Účast je omezena na účastníky s rozsahem %{scope_name}.
+          user_postal_codes:
+            one: Účast je omezena na účastníky s poštovním kódem %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.
+            few: 'Účast je omezena na účastníky s poštovním kódem %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
+            many: 'Účast je omezena na účastníky s poštovními kódy %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
+            other: 'Účast je omezena na účastníky s kterýmkoli z následujících poštovních kódů: %{postal_codes}. Vaše poštovní směrovací číslo je %{user_postal_code}.'
+          user_scope: Účast je omezena na účastníky s rozsahem %{scope_name} a váš rozsah je %{user_scope_name}.
       id_documents:
         admin:
           config:
@@ -168,7 +178,7 @@ cs:
               verify: Ověřte
           offline_confirmations:
             create:
-              error: Ověření neodpovídá. Zkuste to znovu nebo řekněte uživateli, že ho změní
+              error: Ověření neodpovídá vloženým údajům. Zkuste to znovu, nebo řekněte uživateli, ať si je změní
               success: Uživatel úspěšně ověřen
             new:
               cancel: zrušení
@@ -176,7 +186,7 @@ cs:
               verify: Ověřte
           pending_authorizations:
             index:
-              config: Config
+              config: Konfigurace
               offline_verification: Ověření offline
               title: Čekající ověření online
               verification_number: 'Ověření #%{n}'
@@ -206,8 +216,8 @@ cs:
           update:
             error: Při načítání dokumentu došlo k problému
             success: Dokument byl úspěšně obnoven
-        dni: DNI
-        nie: NIE
+        dni: Občanský průkaz
+        nie: Daňové identifikační číslo
         passport: Cestovní pas
       postal_letter:
         admin:
@@ -231,7 +241,7 @@ cs:
           edit:
             send: Potvrdit
             title: Zadejte ověřovací kód, který jste obdrželi
-            waiting_for_letter: Na váš adresu vám brzy zašleme váš ověřovací kód
+            waiting_for_letter: Brzy pošleme dopis na Vaši adresu s Vaším ověřovacím kódem
           new:
             send: Pošlete mi dopis
             title: Požádejte o ověřovací kód

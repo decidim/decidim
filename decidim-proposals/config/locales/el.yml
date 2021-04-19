@@ -311,10 +311,6 @@ el:
         description: Αριθμός υποστηρίξεων σε προτάσεις
         object: υποστηρίξεις
         title: Υποστηρίξεις
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Προτάσεις
     participatory_spaces:
       highlighted_proposals:
         see_all: Δείτε όλες τις προτάσεις (%{count})
@@ -331,7 +327,6 @@ el:
         actions:
           preview: Προεπισκόπηση
         exports:
-          comments: Σχόλια
           proposals: Προτάσεις
         models:
           proposal:
@@ -542,13 +537,6 @@ el:
               ok: Απόσυρση του προσχεδίου συνεργασίας
               title: Η ακόλουθη ενέργεια είναι μη αναστρέψιμη
             success: Το προσχέδιο συνεργασίας αποσύρθηκε με επιτυχία.
-        compare:
-          mine_is_different: Το προσχέδιο συνεργασίας μου είναι διαφορετικό
-          no_similars_found: Πολύ καλά! Δεν βρέθηκαν παρόμοια προσχέδια συνεργασίας
-          title: Παρόμοια προσχέδια συνεργασίας
-        complete:
-          send: Αποστολή
-          title: Ολοκληρώστε το προσχέδιο συνεργασίας σας
         count:
           drafts_count:
             one: "%{count} προσχέδιο συνεργασίας"
@@ -580,7 +568,6 @@ el:
           unfold: Αποκάλυψη
         new:
           send: Συνέχεια
-          title: Δημιουργήστε το προσχέδιο συνεργασίας σας
         new_collaborative_draft_button:
           new_collaborative_draft: Νέο προσχέδιο συνεργασίας
         orders:
@@ -625,23 +612,11 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την αποθήκευση του προσχεδίου συνεργασίας.
           success: Το προσχέδιο συνεργασίας ενημερώθηκε με επιτυχία.
-          title: Προσθήκη συνεργατικού προσχεδίου
         wizard_aside:
-          back: Πίσω
           back_from_collaborative_draft: Πίσω στα συνεργατικά προσχέδια
-          back_from_step_1: Πίσω στα συνεργατικά προσχέδια
-          back_from_step_2: Πίσω στα συνεργατικά προσχέδια
-          back_from_step_3: Πίσω στη σύγκριση συνεργατικών προσχεδίων
-          back_from_step_4: Πίσω στην επεξεργασία προσχεδίου
           info: Δημιουργείτε ένα <strong>προσχέδιο συνεργασίας</strong>.
-        wizard_steps:
-          current_step: Τρέχων βήμα
-          see_steps: δείτε τα βήματα
-          step_1: Δημιουργήστε το προσχέδιο συνεργασίας σας
-          step_2: Σύγκριση με προσχέδια συνεργασίας
-          step_3: Ολοκληρώστε το προσχέδιο συνεργασίας σας
-          step_of: Βήμα %{current_step_num} από %{total_steps}
-          title: Βήματα δημιουργίας συνεργατικού προσχεδίου
+        wizard_header:
+          title: Δημιουργήστε το προσχέδιο συνεργασίας σας
       create:
         error: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της πρότασης.
         success: Η πρόταση δημιουργήθηκε με επιτυχία. Αποθηκεύτηκε ως Προσχέδιο.

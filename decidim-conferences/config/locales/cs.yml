@@ -3,6 +3,7 @@ cs:
     attributes:
       conference:
         assemblies_ids: Související shromáždění
+        available_slots: Dostupné sloty
         banner_image: Obrázek banneru
         consultations_ids: Související konzultace
         copy_categories: Kopírovat kategorie
@@ -10,20 +11,59 @@ cs:
         copy_features: Funkce kopírování
         decidim_scope_id: Oblast působnosti
         description: Popis
+        end_date: Datum ukončení
         hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
+        location: Lokalita
+        main_logo: Hlavní logo
+        objectives: Cíle
         participatory_processes_ids: Související procesy účasti
         promoted: Propagováno
         published_at: Publikováno v
+        registration_terms: Podmínky registrace
+        registrations_enabled: Registrace povoleny
         scope_id: Oblast působnosti
         scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_statistics: Zobrazit statistiky
-        slogan: Heslo
+        sign_date: Datum podpisu
+        signature: Podpis
+        signature_name: podpisové jméno
+        slogan: Motto
         slug: URL slug
+        start_date: Datum zahájení
         title: Titul
+      conference_media_link:
+        date: Datum
+        link: Odkaz
+        title: Název
+        weight: Váha
+      conference_partner:
+        link: Odkaz
+        logo: Logo
+        name: Název
+        partner_type: Typ partnera
+        weight: Váha
+      conference_registration_invite:
+        email: E-mail
+        name: Jméno
+        registration_type_id: Typ registrace
+        user_id: Uživatel
+      conference_registration_type:
+        description: Popis
+        price: Cena
+        title: Oslovení
+        weight: Váha
       conference_speaker:
+        affiliation: Příslušnost
+        avatar: Avatar
+        conference_meeting_ids: Související schůzky
         full_name: Celé jméno
+        personal_url: Osobní adresa Url
+        position: Pozice
+        short_bio: Krátký životopis
+        twitter_handle: Twitter účet
+        user_id: Uživatel
       conference_user_role:
         email: E-mail
         name: název
@@ -76,9 +116,9 @@ cs:
       conference_speakers:
         create:
           error: Při přidání řečníka k této konferenci došlo k chybě.
-          success: Přednášející byl úspěšně vytvořen pro tuto konferenci.
+          success: Řečník byl úspěšně vytvořen pro tuto konferenci.
         destroy:
-          success: Reproduktor byl úspěšně smazán pro tuto konferenci.
+          success: Řečník byl úspěšně smazán pro tuto konferenci.
         edit:
           title: Aktualizovat řečníka konference.
           update: Aktualizace
@@ -89,7 +129,7 @@ cs:
           title: Nový řečník konference.
         update:
           error: Při této konferenci došlo k chybě při aktualizaci řečníka.
-          success: Speaker se úspěšně pro tuto konferenci úspěšně aktualizoval.
+          success: Řečník konference byl úspěšně aktualizován.
       conference_user_roles:
         create:
           error: Při přidávání administrátora této konference došlo k chybě.
@@ -143,10 +183,10 @@ cs:
           media_links_title: Odkazy na média
         new:
           create: Vytvořit
-          title: Odkaz na media
+          title: Odkaz na média
         update:
           error: Při aktualizaci tohoto odkazu na média došlo k chybě.
-          success: Media Link byl úspěšně aktualizován.
+          success: Odkaz na média byl úspěšně aktualizován.
       menu:
         conferences: Konference
         conferences_submenu:
@@ -195,7 +235,7 @@ cs:
             date: datum
             link: Odkaz
             title: Název
-          name: Media Link
+          name: Odkaz na média
         partner:
           fields:
             link: Odkaz
@@ -212,7 +252,7 @@ cs:
             price: Cena
             registrations_count: Registrace se počítají
             title: Název
-            weight: Hmotnost
+            weight: Pozice v řazení
           name: Typ registrace
       partners:
         create:
@@ -263,7 +303,7 @@ cs:
         update_diploma: "%{user_name} aktualizovala certifikáty pro účast na %{resource_name} konferenci"
       conference_speaker:
         create: "%{user_name} vytvořil %{resource_name} řečníka na konferenci %{space_name}"
-        delete: "%{user_name} odstranila %{resource_name} reproduktor z %{space_name} konferencí"
+        delete: "%{user_name} odstranil řečníka %{resource_name} z konference %{space_name}"
         update: "%{user_name} aktualizoval %{resource_name} řečníka na konferenci %{space_name}"
       conference_user_role:
         create: "%{user_name} pozval %{resource_name} na konferenci %{space_name}"
@@ -273,18 +313,18 @@ cs:
         conference_registration:
           confirm: "%{user_name} potvrdil registraci konference na konferenci %{resource_name}"
         partner:
-          create: "%{user_name} vytvořil %{resource_name} na konferenci %{space_name}"
-          delete: "%{user_name} odstranil uživatele %{resource_name} z konference %{space_name}"
-          update: "%{user_name} aktualizoval %{resource_name} v konferenci %{space_name}"
+          create: "%{user_name} vytvořil partnera %{resource_name} na konferenci %{space_name}"
+          delete: "%{user_name} odstranil partnera %{resource_name} z konference %{space_name}"
+          update: "%{user_name} aktualizoval partnera %{resource_name} na konferenci %{space_name}"
         registration_type:
           create: "%{user_name} vytvořil typ registrace %{resource_name} na konferenci %{space_name}"
           publish: "%{user_name} publikoval %{resource_name} typ registrace na %{space_name} konferencích"
           unpublish: "%{user_name} nepublikováno %{resource_name} typ registrace na %{space_name} konferencích"
           update: "%{user_name} aktualizoval typ registrace %{resource_name} na konferenci %{space_name}"
       media_link:
-        create: "%{user_name} vytvořilo %{resource_name} mediální odkaz na konferenci %{space_name}"
-        delete: "%{user_name} odstranilo %{resource_name} odkaz na média z %{space_name} konferencí"
-        update: "%{user_name} aktualizovalo %{resource_name} odkaz na média v %{space_name} konferenci"
+        create: "%{user_name} vytvořil %{resource_name} odkaz na média v konferenci %{space_name}"
+        delete: "%{user_name} odstranil %{resource_name} odkaz na média z konference %{space_name}"
+        update: "%{user_name} aktualizoval %{resource_name} odkaz na média v konferenci %{space_name}"
     conference_program:
       index:
         title: Program
@@ -309,7 +349,7 @@ cs:
           index:
             filter:
               accepted: Přijato
-              all: Všechno
+              all: Vše
               rejected: Odmítnuto
               sent: Odesláno
             filter_by: Filtrovat podle
@@ -380,7 +420,7 @@ cs:
         program_meeting:
           content: Obsah
           location: Umístění
-          speakers: Reproduktory
+          speakers: Řečníci
           streaming: Streamování
         show:
           day: Den
@@ -388,11 +428,11 @@ cs:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Vaše registrace pro konferenci <a href="%{url}">%{title}</a> byla potvrzena.
-          details_1: 'Jste přihlášeni do konference s typem %{registration_type}. Má cenu %{price} a můžete se zúčastnit následujících akcí:'
+          details_1: 'Jste přihlášeni do konference s typem %{registration_type}. Stojí %{price} a můžete se zúčastnit následujících akcí:'
           details_2: Podrobnosti o konferenci naleznete v příloze.
         pending_validation:
           confirmation_pending: Potvrzení obdržíte brzy
-          details: 'Zaregistrovali jste se na typ %{registration_type} s cenou %{price} a můžete se zúčastnit následujících událostí:'
+          details: 'Zaregistrovali jste se na typ konference %{registration_type} s cenou %{price} a můžete se zúčastnit následujících událostí:'
           pending_html: Vaše registrace pro konferenci <a href="%{url}">%{title}</a> čeká na potvrzení.
       conference_registrations:
         create:
@@ -410,6 +450,7 @@ cs:
         personal_website: Osobní web
         show:
           more_info: více informací
+          speaking_at: Má projev v
       conference_speaker_cell:
         personal_url:
           personal_website: Osobní web
@@ -417,7 +458,7 @@ cs:
           go_to_twitter: Přejděte na Twitter
       conference_speakers:
         index:
-          speakers: Reproduktory
+          speakers: Řečníci
       conferences:
         partners:
           collaborators: Partneři
@@ -460,7 +501,7 @@ cs:
             email: E-mail
             name: název
             registration_type: Typ registrace
-            state: Stát
+            state: Stav
             states:
               confirmed: Potvrzeno
               pending: čekající
@@ -499,23 +540,6 @@ cs:
         related_assemblies: Související sestavy
         related_consultations: Související konzultace
         related_participatory_processes: Související procesy účasti
-      statistics:
-        answers_count: Odpovědi
-        comments_count: Komentáře
-        conference_count: Konference
-        debates_count: Debaty
-        endorsements_count: Schválení
-        headline: Aktivita
-        meetings_count: Setkání
-        orders_count: Hlasy
-        pages_count: Stránky
-        posts_count: Příspěvky
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledek
-        surveys_count: Průzkumy
-        users_count: Účastníci
-        votes_count: Hlasy
     events:
       conferences:
         conference_registration_confirmed:
@@ -550,8 +574,8 @@ cs:
     help:
       participatory_spaces:
         conferences:
-          contextual: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd..</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
-          page: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd..</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
+          contextual: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd.).</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
+          page: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd.).</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
           title: Co jsou konference?
     log:
       value_types:
@@ -563,6 +587,8 @@ cs:
         title: Média a odkazy
     menu:
       conferences: Konference
+    statistics:
+      conferences_count: Konference
   devise:
     mailer:
       join_conference:
@@ -592,6 +618,6 @@ cs:
       conferences_nav:
         conference_menu_item: Informace
         conference_partners_menu_item: Partneři
-        conference_speaker_menu_item: Reproduktory
+        conference_speaker_menu_item: Řečníci
         media: Média
         venues: Místa

@@ -35,7 +35,6 @@ eu:
       participatory_process_group:
         description: Deskribapena
         hero_image: Irudia
-        name: Izena
         participatory_process_ids: Elkarrekin lotutako prozesuak
       participatory_process_step:
         cta_path: Deitu ekintza bideari
@@ -107,8 +106,6 @@ eu:
             title: Titulua
           name: Prozesu partizipatiboa
         participatory_process_group:
-          fields:
-            name: Izena
           name: Prozesu-multzoak
         participatory_process_step:
           fields:
@@ -269,10 +266,10 @@ eu:
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Jarduera
       show:
-        group_participatory_processes:
-          one: 1 prozesu %{group}
-          other: "%{count} prozesu %{group}"
         title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
       index:
@@ -359,23 +356,6 @@ eu:
         start_date: Hasiera-data
         target: Nork parte hartzen du
         unspecified: Zehaztu gabea
-      statistics:
-        answers_count: Erantzunak
-        comments_count: Iruzkinak
-        debates_count: eztabaidak
-        endorsements_count: Oniritziak
-        headline: Jarduera
-        meetings_count: Topaketak
-        orders_count: Euskarriak
-        pages_count: Orriak
-        participants_count: Parte-hartzaileak
-        processes_count: Prozesuak
-        projects_count: Proiektuak
-        proposals_count: Proposamenak
-        results_count: Emaitzak
-        supports_count: Euskarriak
-        surveys_count: Inkestak
-        users_count: Parte-hartzaileak
   layouts:
     decidim:
       participatory_process_groups:

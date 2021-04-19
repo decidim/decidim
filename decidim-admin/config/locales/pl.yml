@@ -24,13 +24,15 @@ pl:
       component:
         name: Nazwa
         published_at: Opublikowano
-        weight: Waga
       id: ID
+      import:
+        user_group_id: Utwórz import jako
       newsletter:
         body: Treść
         subject: Temat
       organization:
         alert_color: Powiadomienie
+        available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
         comments_max_length: Maksymalna długość komentarza (pozostaw 0 dla wartości domyślnej)
         cta_button_path: Ścieżka przycisku CTA
@@ -41,11 +43,13 @@ pl:
         enable_omnipresent_banner: Pokaż stały banner
         facebook_handler: Handler Facebooka
         favicon: Ikona
+        force_authentication: Wymuś uwierzytelnianie
+        force_users_to_authenticate_before_access_organization: Wymuś uwierzytelnianie użytkowników przed dołączeniem do organizacji
         from: Z adresu e-mail
         github_handler: Handler GitHuba
         header_snippets: Fragmenty nagłówków
-        highlight_alternative_color: Zaznacz, alternatywa
-        highlight_color: Podświetl
+        highlight_alternative_color: Wyróżnij (alternatywny kolor)
+        highlight_color: Wyróżniony kolor
         highlighted_content_banner_action_subtitle: Podtytuł przycisku akcji
         highlighted_content_banner_action_title: Tytuł przycisku akcji
         highlighted_content_banner_action_url: URL przycisku akcji
@@ -53,6 +57,7 @@ pl:
         highlighted_content_banner_image: Obraz
         highlighted_content_banner_short_description: Krótki opis
         highlighted_content_banner_title: Tytuł
+        host: Host
         instagram_handler: Handler Instagrama
         logo: Logo
         machine_translation_display_priority: Priorytet wyświetlania tłumaczeń
@@ -65,16 +70,21 @@ pl:
         omnipresent_banner_short_description: Krótki opis
         omnipresent_banner_title: Tytuł
         omnipresent_banner_url: URL
+        organization_admin_email: Adres e-mail administratora organizacji
+        organization_admin_name: Imię administratora organizacji
+        organization_locales: Lokalizacje organizacji
         primary_color: Podstawowy
         reference_prefix: Prefiks referencyjny
         rich_text_editor_in_public_views: Włącz edytor tekstu sformatowanego dla uczestników
         secondary_color: Drugorzędny
+        secondary_hosts: Dodatkowy host
         send_welcome_notification: Wyślij komunikat powitalny
         success_color: Powodzenie
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z usługi
         twitter_handler: Handler Twittera
         user_groups_enabled: Włącz grupy użytkowników
+        users_registration_mode: Tryb rejestracji użytkowników
         warning_color: Ostrzeżenie
         welcome_notification_body: Treść komunikatu powitalnego
         welcome_notification_subject: Tytuł komunikatu powitalnego
@@ -90,19 +100,20 @@ pl:
         name: Nazwa
         organization: Organizacja
         plural: Liczba mnoga
+      settings:
+        scope_id: Zakres
       static_page:
+        allow_public_access: Zezwalaj na dostęp bez uwierzytelniania
         changed_notably: Nastąpiły zauważalne zmiany.
         content: Zawartość
         organization: Organizacja
         show_in_footer: Pokaż w stopce
         slug: URL slug
         title: Tytuł
-        weight: Waga
       static_page_topic:
         description: Opis
         show_in_footer: Pokaż w stopce
         title: Tytuł
-        weight: Waga
       user_group_csv_verification:
         file: Plik
     errors:
@@ -113,6 +124,10 @@ pl:
               allowed_file_content_types: Nieprawidłowy plik obrazu
             official_img_header:
               allowed_file_content_types: Nieprawidłowy plik obrazu
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Niepoprawny format
   activerecord:
     attributes:
       decidim/static_page:
@@ -131,21 +146,34 @@ pl:
     admin:
       actions:
         add: Dodaj
+        attachment:
+          new: Nowy załącznik
+        attachment_collection:
+          new: Nowa kolekcja załączników
         browse: Przeglądaj
+        category:
+          new: Nowa kategoria
         export: Eksport
+        import: Importuj
         manage: Zarządzanie
         new: 'Nowy: %{name}'
+        newsletter:
+          new: Nowy newsletter
+        participatory_space_private_user:
+          new: Nowy prywatny użytkownik przestrzeni partycypacyjnej
         per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzuć
         share: Udostępnij
+        user:
+          new: Nowy użytkownik
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Akceptuję niniejsze warunki dla administratorów
+          accept: Zgadzam się z warunkami użytkowania
           are_you_sure: Czy na pewno chcesz odrzucić warunki dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
@@ -224,6 +252,12 @@ pl:
       autocomplete:
         no_results: Brak wyników
         search_prompt: Wpisz co najmniej trzy znaki żeby wyszukać
+      block_user:
+        new:
+          action: Zablokuj konto i wyślij uzasadnienie
+          description: Zablokowanie użytkownika spowoduje że jego konto nie będzie mogło być użytkowane, możesz podać w swoim uzasadnieniu i wytycznych opis działań, które pozwolą na odblokowanie użytkownika.
+          justification: Uzasadnienie
+          title: Zablokuj użytkownika %{name}
       categories:
         create:
           error: Podczas tworzenia tej kategorii wystąpił błąd.
@@ -279,6 +313,21 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania tego komponentu.
           success: Komponent został pomyślnie zaktualizowany.
+      conflicts:
+        attempts: Próby
+        'false': 'Nie'
+        managed_user_name: Zarządzany użytkownik
+        solved: Rozwiązane
+        title: Konflikty weryfikacji
+        transfer:
+          email: Adres e-mail
+          error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
+          name: Nazwa
+          reason: Powód
+          success: Bieżący transfer został pomyślnie zakończony.
+          title: Transfer
+        'true': 'Tak'
+        user_name: Użytkownik
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
@@ -295,6 +344,9 @@ pl:
         category_id_eq:
           label: Kategoria
         filter_label: Filtr
+        moderations:
+          reportable_type_string_eq:
+            label: Typ
         officialized_at_null:
           label: Stan
           values:
@@ -315,9 +367,16 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
+          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści raportu.
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
+      forms:
+        file_help:
+          import:
+            explanation: 'Wytyczne dotyczące pliku:'
+            message_1: Pliki CSV, JSON i Excel (.xlsx) są obsługiwane
+            message_2: Dla plików w formacie CSV separatorem kolumn musi być średnik (";")
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy
         form:
@@ -336,7 +395,7 @@ pl:
           name: Nazwa
           needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
           not_managed: Niezamknięte
-          promote: Promuj
+          promote: Awansuj
           search: Szukaj
           status: Status
           view_logs: Wyświetl logi
@@ -356,6 +415,24 @@ pl:
           impersonate_existing_managed_user: Zarządzaj użytkownikiem "%{name}"
           impersonate_existing_user: Zarządzaj użytkownikiem "%{name}"
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
+      imports:
+        creators:
+          proposalcreator: Twórca propozycji
+        error: Podczas importowania wystąpił błąd
+        help:
+          proposalcreator: Plik musi mieć nazwy kolumn title/pl i body/pl (lub inny język, który wybierzesz, np. title/ca i body/ca). Wspierane są również kolumny scope/id i category/id.
+        import_from_file: Importuj z pliku
+        invalid_lines: Znaleziono błąd w numerze zasobu %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Wróć
+          file_legend: Zaimportuj plik, który zostanie przetworzony.
+          import: Importuj
+        notice: "Zaimportowano %{resource_name} %{number}"
       logs:
         logs_list:
           no_logs_yet: Nie ma jeszcze logów
@@ -367,7 +444,7 @@ pl:
           new:
             explanation: Zarządzani użytkownicy mogą być promowani do standardowych użytkowników. Oznacza to, że zostaną zaproszeni do udziału w aplikacji i nie będą mogli podszywać się pod inne osoby. Zaproszony użytkownik otrzyma wiadomość e-mail, aby zaakceptować zaproszenie.
             new_managed_user_promotion: Nowa zarządzana promocja użytkowników
-            promote: Promować
+            promote: Awansuj
       menu:
         admin_log: Logi aktywności administratora
         admins: Administratorzy
@@ -379,8 +456,10 @@ pl:
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
+        moderation: Globalne moderacje
         newsletters: Newslettery
         participants: Użytkownicy
+        reported_users: Zgłoszeni użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         settings: Ustawienia
@@ -468,6 +547,26 @@ pl:
             phone: Telefon
             state: Stan
             users_count: Liczba użytkowników
+      moderated_users:
+        index:
+          actions:
+            block: Zablokuj użytkownika
+            title: Działania
+            unblock: Odblokuj użytkownika
+            unreport: Cofnij zgłoszenie
+          name: Imię
+          nickname: Pseudonim
+          reason: Powód
+          reports: Liczba zgłoszeń
+          title: Lista zgłoszonych użytkowników
+        report:
+          reasons:
+            does_not_belong: Nie należy
+            offensive: Obraźliwy
+            spam: Spam
+        tabs:
+          blocked: Zablokowany
+          unblocked: Niezablokowany
       moderations:
         index:
           title: Moderacje
@@ -476,13 +575,28 @@ pl:
             does_not_belong: Nie należy
             offensive: Ofensywa
             spam: Spam
+        reports:
+          index:
+            author: Autorzy
+            callout_html: Zawartość pojawia się w panelu moderacji, gdy została zasygnalizowana przez użytkownika (może to być każdy, kto zarejestrował konto) poprzez kliknięcie na flagę %{icon} obok elementu.
+            content_original_language: Oryginalny język treści
+            participatory_space: Przestrzeń partycypacyjna
+            reported_content: Zgłoszona zawartość
+            see_current: Zobacz bieżący
+            see_original: Zobacz oryginał
+            title: Raporty moderacyjne
+          show:
+            report_details: Szczegóły przyczyny
+            report_language: Zgłoś język
+            report_reason: Powód
+            title: Szczegóły raportu
       newsletter_templates:
         index:
           preview_template: Podgląd
           title: Szablony newslettera
           use_template: Użyj tego szablonu
         show:
-          preview: 'Podgląd szablonu:%{template_name}'
+          preview: 'Podgląd szablonu: %{template_name}'
           use_template: Użyj tego szablonu
       newsletters:
         create:
@@ -541,6 +655,9 @@ pl:
           error: Podczas aktualizowania tego newslettera wystąpił błąd.
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
+        block:
+          error: Wystąpił błąd blokowania użytkownika
+          success: Użytkownik został zablokowany
         create:
           success: Użytkownik oficjalnie z powodzeniem
         destroy:
@@ -548,6 +665,7 @@ pl:
         index:
           actions: Działania
           badge: Odznaka
+          block: Zablokuj użytkownika
           created_at: Utworzono
           name: Nazwa
           nickname: Pseudonim
@@ -555,21 +673,26 @@ pl:
           officialize: Oficjalizuj
           officialized: Oficjalny
           reofficialize: Reoficjalizuj
+          reports: Raporty
           show_email: Pokaż adres e-mail
           status: Status
+          unblock: Odblokuj użytkownika
           unofficialize: Nieoficjalne
         new:
           badge: Odznaka oficjalności
           officialize: Oficjalizuj
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
-          close_modal: Zamknij modalny
+          close_modal: Zamknij okno
           description: Jeśli chcesz się bezpośrednio skontaktować z użytkownikiem, możesz kliknąć przycisk Pokaż, aby wyświetlić adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
           hidden: ukryty
           show: Pokaż
           title: Pokaż adres e-mail użytkownika
+        unblock:
+          error: Wystąpił błąd podczas odblokowywania użytkownika
+          success: Użytkownik został odblokowany
       organization:
         edit:
           title: Edytuj organizację
@@ -581,6 +704,7 @@ pl:
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
           twitter: Twitter
+          url: Adres URL
           youtube: YouTube
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
@@ -592,7 +716,7 @@ pl:
           colors:
             colors_title: Kolory organizacji
             header_snippets_help: Użyj tego pola, aby dodać elementy do nagłówka kodu HTML. Najczęstszym zastosowaniem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych meta tagów do HTML. Zauważ, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
-          cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Użyj częściowych ścieżek, a nie pełnych adresów URL. Akceptowane są: litery, liczby, myślniki i ukośniki. Ścieżka musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
+          cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr, myślników i ukośników. Musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
           cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           homepage_appearance_title: Edytuj wygląd strony głównej
           homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
@@ -615,6 +739,7 @@ pl:
           error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
           success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
         index:
+          import_via_csv: Importuj z CSV
           title: Prywatny użytkownik przestrzeni partycypacyjnej
         new:
           create: Utwórz
@@ -624,6 +749,7 @@ pl:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
           success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
+          explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, w drugiej kolumnie imiona (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków. Unikaj używania niepoprawnych znaków takich jak `<>?%&^*#@()[]=+:;"{}\|` w imieniu użytkownika.'
           title: Prześlij swój plik CSV
           upload: Prześlij
       resource_permissions:
@@ -713,7 +839,7 @@ pl:
           update: Aktualizuj
         form:
           none: Żadna
-          slug_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptowane są: litery, cyfry, myślniki i ukośniki. Ścieżka musi zaczynać się od litery. Przykład: %{url}'
+          slug_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia istotna zmiana
         new:
@@ -735,7 +861,8 @@ pl:
         dashboard: Panel
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
-        metrics: Wskaźniki
+        metrics: Partycypacja w liczbach
+        panel: Administrator
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
@@ -799,8 +926,19 @@ pl:
       errors:
         impersonate_user:
           reason: Musisz podać powód podszywania się pod niezarządzanego użytkownika
+    metrics:
+      blocked_users:
+        object: zablokowani użytkownicy
+        title: Zablokowani użytkownicy
+      reported_users:
+        object: zgłoszeni użytkownicy
+        title: Zgłoszeni użytkownicy
+      user_reports:
+        object: zgłoszenia użytkownika
+        title: Zgłoszenia użytkownika
     moderations:
       actions:
+        expand: Rozwiń
         hidden: Ukryty
         hide: Ukryj
         not_hidden: Widoczny
@@ -810,28 +948,39 @@ pl:
       admin:
         reportable:
           hide:
-            invalid: Wystąpił problem z ukryciem zasobu.
+            invalid: W trakcie ukrywania zasobu wystąpił błąd.
             success: Zasób został ukryty.
           unhide:
-            invalid: Podczas pokazywania zasobu wystąpił problem.
+            invalid: W trakcie publikowania zasobu wystąpił błąd.
             success: Zasoby zostały pomyślnie pokazane.
           unreport:
-            invalid: Wystąpił problem z niewykorzystaniem zasobów.
+            invalid: W trakcie usuwania zgłoszenia zasobu wystąpił błąd.
             success: Zasób został pomyślnie nieudokumentowany.
       models:
         moderation:
           fields:
+            created_at: Data utworzenia
             hidden_at: Ukryto
+            participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
+            reportable_id: Id
+            reportable_type: Typ
             reported_content_url: Zgłoszony URL treści
             reports: Raporty
             visit_url: Odwiedź adres URL
+        report:
+          fields:
+            details: Szczegóły przyczyny
+            locale: Język
+            reason: Powód
   errors:
     messages:
       invalid_json: Nieprawidłowy JSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globalne moderacje
         newsletters:
           title: Newslettery
         settings:

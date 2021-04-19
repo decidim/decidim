@@ -60,7 +60,8 @@ module Decidim
               },
               position: 1,
               mandatory: true,
-              question_type: "short_answer"
+              question_type: "short_answer",
+              max_characters: 30
             }
           ]
         end

@@ -30,15 +30,11 @@ module Decidim
       end
 
       initializer "decidim_comments.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
+        Decidim::Api::QueryType.include QueryExtensions
       end
 
       initializer "decidim_comments.mutation_extensions" do
-        Decidim::Api::MutationType.define do
-          MutationExtensions.define(self)
-        end
+        Decidim::Api::MutationType.include MutationExtensions
       end
 
       initializer "decidim.stats" do

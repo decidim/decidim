@@ -6,6 +6,8 @@ module Decidim
     # title, description and any other useful information to render a custom result.
     class Result < Accountability::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::ScopableResource
       include Decidim::HasCategory
@@ -29,6 +31,8 @@ module Decidim
 
       has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
                                                              class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
+
+      scope :order_by_most_recent, -> { order(created_at: :desc) }
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
@@ -85,6 +89,15 @@ module Decidim
       # Public: Whether the object can have new comments or not.
       def user_allowed_to_comment?(user)
         can_participate_in_space?(user)
+      end
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_accountability_results"."id" as text)})
+      end
+
+      # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+      ransacker :title do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       end
 
       private

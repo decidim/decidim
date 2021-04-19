@@ -68,8 +68,13 @@ nl:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Zoek %{collection} op titel, beschrijving, ID of auteur naam.
       menu:
-        initiatives: initiatieven
+        attachments: Bijlagen
+        committee_members: Commissieleden
+        components: Onderdelen
+        information: Informatie
+        initiatives: Initiatieven
         initiatives_types: Initiatieftypes
+        moderations: Moderaties
       models:
         initiatives:
           fields:
@@ -78,7 +83,7 @@ nl:
             published_at: Gepubliceerd op
             state: Status
             supports_count: Handtekeningen
-            title: initiatieven
+            title: Initiatieven
         initiatives_type_scope:
           fields:
             scope: Bereik
@@ -104,7 +109,7 @@ nl:
             time_and_date: Tijd en datum
             timestamp: tijdstempel
       titles:
-        initiatives: initiatieven
+        initiatives: Initiatieven
         initiatives_types: Initiatieftypes
     events:
       initiatives:
@@ -131,10 +136,10 @@ nl:
             email_subject: Nieuwe mijlpaal voltooid!
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft %{percentage}% handtekeningen behaald.
         support_threshold_reached:
-          email_intro: Het initiatief %{resource_title} heeft de steundrempel bereikt
+          email_intro: Het initiatief %{resource_title} heeft de drempelwaarde voor handtekeningen bereikt
           email_outro: Je hebt deze melding ontvangen omdat je beheerder bent van het platform.
-          email_subject: Ondersteuningsdrempel bereikt
-          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de support drempel bereikt
+          email_subject: Drempel handtekeningen bereikt
+          notification_title: Het initiatief <a href="%{resource_path}">%{resource_title}</a> heeft de drempel voor handtekeningen bereikt
     gamification:
       badges:
         initiatives:
@@ -166,7 +171,7 @@ nl:
             created_at: Gemaakt bij
             description: Omschrijving
             initiative_votes_count: Aantal stemmen
-            initiatives: initiatieven
+            initiatives: Initiatieven
             state: Status
         committee_requests:
           index:
@@ -179,6 +184,10 @@ nl:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum aantal elementen dat kan worden weergegeven
+            order:
+              default: Default (Minst Recent)
+              label: 'Sorteer volgens:'
+              most_recent: Meest recent
         exports:
           initiatives: Initiatieven
         initiatives:
@@ -240,6 +249,7 @@ nl:
             destroy: Verwijder
             update: Bijwerken
           form:
+            child_scope_threshold_enabled_help: 'Deze configuratie-vlag biedt geen ondersteuning voor offline stemmen, het maakt subscopes mogelijk en werkt met een autorisatieverwerker die een scope associeert met de gebruiker. Zorg ervoor dat je deze machtiging selecteert, onderaan in de autorisatie-instellingen. Om de toepassingsmogelijkheden te kunnen laten werken moet het op hiërarchische wijze worden geconfigureerd: 1 ouder - N kind. Voor meer informatie over hoe deze configuratie werkt, zie deze <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a> .'
             title: Algemene informatie
           initiative_type_scopes:
             title: Scopes voor het initiatieftype
@@ -277,9 +287,13 @@ nl:
         filter_type_values:
           all: Allemaal
       committee_requests:
+        approve:
+          success: Het verzoek is goedgekeurd.
         new:
           continue: Doorgaan met
           help_text: U staat op het punt lid te worden van de promotieraad van dit initiatief
+        revoke:
+          success: Verzoek is ingetrokken.
         spawn:
           success: Je verzoek is verzonden aan de auteur van het initiatief.
       content_blocks:
@@ -297,10 +311,10 @@ nl:
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
-          edit_my_initiative: Bewerk mijn initiatieven
+          edit_my_initiative: Mijn initiatieven bewerken
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
-          send_my_initiative: Stuur mijn initiatief
+          send_my_initiative: Stuur mijn initiatief naar technische validatie
         previous_form:
           back: Terug
           continue: Doorgaan met
@@ -323,6 +337,10 @@ nl:
           continue: Mijn initiatief is anders
           more_information: "(Meer informatie)"
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van het promotiecomité %{resource_title} aanvaard."
+          email_subject: "%{author_nickname} heeft je aanvraag voor de promotiecommissie geaccepteerd"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> heeft je aanvraag om deel uit te maken van de promotiecommissie voor het volgende initiatief <a href="%{resource_url}">%{resource_title}</a> aanvaard.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, die je volgt, heeft een nieuw initiatief gemaakt, bekijk het en draag bij:"
           email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van notificaties door te klikken op de voorgaande link.
@@ -333,8 +351,17 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kunt stoppen met het ontvangen van meldingen via deze link.
           email_subject: Initiatief goedgekeurd door %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief werd goedgekeurd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} heeft je aanvraag om deel uit te maken van de promotiecommissie voor het volgende initiatief %{resource_title} aanvaard."
+          email_subject: "%{author_nickname} heeft je aanvraag voor de promotiecommissie afgewezen"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> heeft je aanvraag om deel uit te maken van de promotiecommissie voor het volgende initiatief <a href="%{resource_url}">%{resource_title}</a> afgewezen.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} wil graag toetreden tot de promotiecommissie van je initiatief %{resource_title}. Om de aanvraag te accepteren of af te wijzen, bewerk je je initiatief."
+          email_outro: 'Je hebt deze melding ontvangen omdat je de auteur bent van het initiatief %{resource_title}'
+          email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
       index:
-        title: initiatieven
+        title: Initiatieven
       initiative_signatures:
         fill_personal_data:
           continue: Doorgaan met
@@ -411,13 +438,7 @@ nl:
         print:
           city: stad
         result:
-          answer_title:
-            accepted: Dit voorstel is geaccepteerd omdat
-            created: Dit voorstel is gemaakt
-            discarded: Dit voorstel is afgewezen omdat
-            published: Dit voorstel is gepubliceerd omdat
-            rejected: Dit voorstel is afgewezen omdat
-            validating: Dit voorstel wordt beoordeeld
+          answer_title: Dit initiatief is beantwoord
           initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
         show:
           follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
@@ -470,7 +491,7 @@ nl:
         shared:
           back_to_resource: Ga terug naar het initiatief
     menu:
-      initiatives: initiatieven
+      initiatives: Initiatieven
     resources:
       initiatives_type:
         actions:
@@ -478,12 +499,6 @@ nl:
           vote: Onderteken
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Bijlagen
-          committee_members: Commissieleden
-          components: Onderdelen
-          information: Informatie
       initiative_creation_header:
         back: Terug
         fill_data: creëren

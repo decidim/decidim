@@ -1,11 +1,11 @@
 <div class="row column">
   <%= content_tag :div, class: "callout announcement mb-sm #{callout_class} cell-announcement" do %>
-    <% if announcement.class == Hash && announcement.key?(:title) %>
-      <span><%= decidim_sanitize translated_attribute announcement[:title] %></span>
+    <% if has_title? %>
+      <p class="heading5"><%= clean_title %></p>
 
-      <p><%= decidim_sanitize translated_attribute announcement[:body] %></p>
+      <%= clean_body %>
     <% else %>
-      <%= decidim_sanitize translated_attribute announcement %>
+      <%= clean_announcement %>
     <% end %>
   <% end %>
 </div>

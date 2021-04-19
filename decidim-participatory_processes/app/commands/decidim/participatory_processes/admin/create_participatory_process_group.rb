@@ -46,10 +46,19 @@ module Decidim
             ) do
               ParticipatoryProcessGroup.create(
                 organization: form.current_organization,
-                name: form.name,
+                title: form.title,
                 description: form.description,
+                hashtag: form.hashtag,
+                group_url: form.group_url,
                 hero_image: form.hero_image, # Keep after organization
-                participatory_processes: participatory_processes
+                participatory_processes: participatory_processes,
+                developer_group: form.developer_group,
+                local_area: form.local_area,
+                meta_scope: form.meta_scope,
+                participatory_scope: form.participatory_scope,
+                participatory_structure: form.participatory_structure,
+                target: form.target,
+                promoted: form.promoted
               )
             end
           end

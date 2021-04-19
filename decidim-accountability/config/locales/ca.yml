@@ -6,11 +6,11 @@ ca:
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
-        end_date: Fi
+        end_date: Data de finalització
         progress: Progrés
         project_ids: Projectes inclosos
         proposals: Propostes incloses
-        start_date: Inici
+        start_date: Data d'inici
         title: Títol
         updated_at: Actualitzat el
       status:
@@ -22,7 +22,7 @@ ca:
         description: Descripció
         entry_date: Data
     models:
-      decidim/accountability/proposal_linked_event: Proposta inclosa en un resultat
+      decidim/accountability/proposal_linked_event: Proposta inclosa a un resultat
       decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
   activerecord:
     models:
@@ -32,7 +32,9 @@ ca:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Estàs segur que vols suprimir aquest %{name}?
+        attachment_collections: Carpetes
+        attachments: Fitxers adjunts
+        confirm_destroy: Segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
         import_csv: Importar CSV
@@ -42,6 +44,7 @@ ca:
         title: Accions
       admin:
         exports:
+          result_comments: Comentaris
           results: Resultats
         import_results:
           new:
@@ -51,23 +54,23 @@ ca:
             title: Importar resultats via CSV
         imports:
           create:
-            success: S'està important el fitxer. Rebràs un email en els propers minuts amb el resultat de la importació
+            success: S'està important el fitxer. Rebràs un correu electrònic en els propers minuts amb el resultat de la importació
         models:
           result:
             name: Resultat
           status:
             name: Estat
           timeline_entry:
-            name: Element
+            name: Entrada de la cronologia
         results:
           create:
             invalid: S'ha produït un error en crear aquest resultat
-            success: El resultat ha estat creat correctament
+            success: Resultat creat correctament
           destroy:
-            success: El resultat ha estat eliminat correctament
+            success: Resultat eliminat correctament
           edit:
             title: Editar resultat
-            update: Actualitza resultat
+            update: Actualitzar resultat
           index:
             title: Resultats
           new:
@@ -75,7 +78,7 @@ ca:
             title: Nou resultat
           update:
             invalid: S'ha produït un error en actualitzar aquest resultat
-            success: El resultat ha estat actualitzat correctament
+            success: Resultat actualitzat correctament
         shared:
           subnav:
             statuses: Estats
@@ -121,6 +124,11 @@ ca:
         value_types:
           parent_presenter:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Dates
+          results: Resultats
+          unspecified: Sense especificar
       import_mailer:
         import:
           errors: Errors
@@ -133,8 +141,12 @@ ca:
       models:
         result:
           fields:
+            category: Categoria
+            created_at: Creat
             end_date: Fi
+            id: ID
             progress: Progrés
+            scope: Àmbit
             start_date: Inici
             status: Estat
             title: Títol
@@ -148,6 +160,9 @@ ca:
           fields:
             description: Descripció
             entry_date: Data
+      result_m:
+        executed: Executat
+        view: Veure
       results:
         count:
           results_count:
@@ -178,6 +193,15 @@ ca:
             votes: Suports
         timeline:
           title: Evolució del projecte
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Àmbit
+          status_id_eq:
+            label: Estat
     components:
       accountability:
         name: Seguiment
@@ -212,10 +236,6 @@ ca:
         description: Nombre de resultats generats
         object: resultats
         title: Resultats
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Resultats
     participatory_spaces:
       highlighted_results:
         see_all: Veure tots els resultats (%{count})
@@ -224,3 +244,5 @@ ca:
         result_project: Projectes inclosos en aquest resultat
       included_proposals:
         result_proposal: Propostes incloses en aquest resultat
+    statistics:
+      results_count: Resultats

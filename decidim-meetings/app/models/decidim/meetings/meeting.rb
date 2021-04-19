@@ -24,7 +24,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
 
-      TYPE_OF_MEETING = %w(in_person online).freeze
+      TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
@@ -45,16 +45,46 @@ module Decidim
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
 
       scope :visible_meeting_for, lambda { |user|
-                                    joins("LEFT JOIN decidim_meetings_registrations ON
-                                    decidim_meetings_registrations.decidim_meeting_id = #{table_name}.id")
-                                      .where("(private_meeting = ? and decidim_meetings_registrations.decidim_user_id = ?)
-                                    or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
-                                  }
+        (all.distinct if user&.admin?) ||
+          if user.present?
+            spaces = %w(assembly participatory_process)
+            spaces << "conference" if defined?(Decidim::Conference)
+            user_role_queries = spaces.map do |participatory_space_name|
+              "SELECT decidim_components.id FROM decidim_components
+              WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+              IN
+              (SELECT CONCAT(decidim_#{participatory_space_name}_user_roles.decidim_#{participatory_space_name}_id, '-Decidim::#{participatory_space_name.classify}')
+              FROM decidim_#{participatory_space_name}_user_roles WHERE decidim_#{participatory_space_name}_user_roles.decidim_user_id = ?)
+              "
+            end
+
+            where("decidim_meetings_meetings.private_meeting = ?
+            OR decidim_meetings_meetings.transparent = ?
+            OR decidim_meetings_meetings.id IN
+              (SELECT decidim_meetings_registrations.decidim_meeting_id FROM decidim_meetings_registrations WHERE decidim_meetings_registrations.decidim_user_id = ?)
+            OR decidim_meetings_meetings.decidim_component_id IN
+              (SELECT decidim_components.id FROM decidim_components
+                WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                IN
+                  (SELECT CONCAT(decidim_participatory_space_private_users.privatable_to_id, '-', decidim_participatory_space_private_users.privatable_to_type)
+                  FROM decidim_participatory_space_private_users WHERE decidim_participatory_space_private_users.decidim_user_id = ?)
+              )
+            OR decidim_meetings_meetings.decidim_component_id IN
+              (
+                #{user_role_queries.compact.join(" UNION ")}
+              )
+            ", false, true, user.id, user.id, *user_role_queries.compact.map { user.id })
+              .distinct
+          else
+            visible
+          end
+      }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
-      scope :online, -> { where(type_of_meeting: :online) }
-      scope :in_person, -> { where(type_of_meeting: :in_person) }
+      TYPE_OF_MEETING.each do |type|
+        scope type.to_sym, -> { where(type_of_meeting: type.to_sym) }
+      end
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -66,7 +96,8 @@ module Decidim
                         index_on_create: ->(meeting) { meeting.visible? },
                         index_on_update: ->(meeting) { meeting.visible? })
 
-      after_initialize :set_default_salt
+      # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
+      before_create :set_default_salt
 
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
@@ -153,9 +184,8 @@ module Decidim
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
       end
 
-      def current_user_can_visit_meeting?(current_user)
-        (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
-          !private_meeting? || (private_meeting? && transparent?)
+      def current_user_can_visit_meeting?(user)
+        Decidim::Meetings::Meeting.visible_meeting_for(user).exists?(id: id)
       end
 
       # Return the duration of the meeting in minutes
@@ -164,6 +194,8 @@ module Decidim
       end
 
       def resource_visible?
+        return false if hidden?
+
         !private_meeting? || transparent?
       end
 
@@ -184,6 +216,8 @@ module Decidim
       end
 
       def authored_proposals
+        return [] unless Decidim::Meetings.enable_proposal_linking
+
         Decidim::Proposals::Proposal
           .joins(:coauthorships)
           .where(
@@ -209,6 +243,10 @@ module Decidim
         [normalized_author.name]
       end
 
+      def hybrid_meeting?
+        type_of_meeting == "hybrid"
+      end
+
       def online_meeting?
         type_of_meeting == "online"
       end
@@ -223,6 +261,14 @@ module Decidim
 
       def on_different_platform?
         registration_type == "on_different_platform"
+      end
+
+      def has_contributions?
+        !!contributions_count && contributions_count.positive?
+      end
+
+      def has_attendees?
+        !!attendees_count && attendees_count.positive?
       end
 
       private

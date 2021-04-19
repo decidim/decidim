@@ -5,9 +5,14 @@
     </div>
     <div class="row">
       <div class="columns small-centered mediumlarge-10 large-8">
-        <div class="home-pam">
-          <%= stats.highlighted %>
-          <%= stats.not_highlighted %>
+        <div class="home-stats">
+          <div class="home-stats__highlight">
+            <%= cell("decidim/statistics", stats.highlighted, heading: false, design: "homepage" ) %>
+          </div>
+
+          <div class="home-stats__lowlight">
+            <%= cell("decidim/statistics", stats.not_highlighted, heading: false, design: "homepage" ) %>
+          </div>
         </div>
       </div>
     </div>

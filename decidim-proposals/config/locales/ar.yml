@@ -283,10 +283,6 @@ ar:
         description: عدد الدعم للمقترحات
         object: الدعم
         title: الدعم
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: اقتراحات
     participatory_spaces:
       highlighted_proposals:
         see_all: شاهد الكل (%{count})
@@ -302,7 +298,6 @@ ar:
         actions:
           preview: معاينة
         exports:
-          comments: تعليقات
           proposals: اقتراحات
         models:
           proposal:
@@ -485,13 +480,6 @@ ar:
               ok: سحب المسودة التعاونية
               title: الإجراء التالي لا رجعة فيه
             success: تم سحب مشروع تعاوني بنجاح.
-        compare:
-          mine_is_different: مسودتي التعاونية مختلفة
-          no_similars_found: أحسنت! لم يتم العثور على مسودات تعاونية مماثلة
-          title: مسودات تعاونية مماثلة
-        complete:
-          send: إرسال
-          title: أكمل مسودتك التعاونية
         count:
           drafts_count:
             zero: "%{count} مسودات تعاونية"
@@ -527,7 +515,6 @@ ar:
           unfold: كشف
         new:
           send: استمر
-          title: إنشاء مسودتك التعاونية
         new_collaborative_draft_button:
           new_collaborative_draft: مشروع تعاوني جديد
         orders:
@@ -577,14 +564,9 @@ ar:
           error: حدثت مشكلة في حفظ المسودة التعاونية.
           success: تم تحديث المسودة التعاونية بنجاح.
         wizard_aside:
-          back: الى الخلف
           info: إنك لعلى خلق <strong>مشروع تعاوني</strong>.
-        wizard_steps:
-          see_steps: عرض الخطوات
-          step_1: إنشاء مسودتك التعاونية
-          step_2: قارن مع المسودات التعاونية
-          step_3: أكمل مسودتك التعاونية
-          step_of: الخطوة %{current_step_num} من %{total_steps}
+        wizard_header:
+          title: إنشاء مسودتك التعاونية
       create:
         error: كانت هناك مشكلة في حفظ الاقتراح.
         success: تم إنشاء الاقتراح بنجاح. تم الحفظ كمسودة.

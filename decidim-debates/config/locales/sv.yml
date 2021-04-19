@@ -35,6 +35,8 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -63,6 +65,10 @@ sv:
           edit:
             title: Redigera debatt
             update: Uppdatera debatt
+          form:
+            debate_type: Typ av debatt
+            finite: Tidsbegränsad (med start- och sluttider)
+            open: Oendlig (inga start- eller slutdatum)
           index:
             title: Debatter
           new:
@@ -71,6 +77,8 @@ sv:
           update:
             invalid: Det gick inte att uppdatera debatten.
             success: Debatten uppdaterades.
+        exports:
+          comments: Kommentarer
         models:
           debate:
             name: Debatt
@@ -79,6 +87,8 @@ sv:
           close: "%{user_name} stängde debatten %{resource_name} i utrymmet %{space_name}"
           create: "%{user_name} skapade debatten %{resource_name} på platsen %{space_name}"
           update: "%{user_name} uppdaterade debatten %{resource_name} på platsen %{space_name}"
+      debate_m:
+        commented_time_ago: Kommenterade för %{time} sedan
       debates:
         close:
           invalid: Det gick inte att stänga debatten.
@@ -102,13 +112,22 @@ sv:
           save: Spara ändringar
           title: Redigera debatt
         filters:
+          activity: Min aktivitet
           all: Alla
           category: Kategori
           category_prompt: Välj en kategori
           citizens: Medborgare
+          commented: Kommenterade
+          my_debates: Mina debatter
           official: Officiell
           origin: Ursprung
+          scope: Omfång
           search: Sök
+          state: Status
+          state_values:
+            closed: Stängda
+            open: Öppna
+          user_groups: Grupper
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -122,6 +141,12 @@ sv:
           back: Tillbaka
           create: Skapa
           title: Ny debatt
+        orders:
+          commented: Mest kommenterade
+          label: Sortera debater efter
+          random: Slumpmässig ordning
+          recent: Senaste
+          updated: Senast uppdaterade
         show:
           back: Tillbaka till listan
           close_debate: Stäng debatt
@@ -133,6 +158,7 @@ sv:
           groups_count: Grupper
           last_comment_by: Senaste kommentar av
           no_comments_yet: Inga kommentarer ännu
+          open: Öppna debatt
           participants_count: Deltagare
         update:
           invalid: Det gick inte att uppdatera debatten.
@@ -145,6 +171,7 @@ sv:
         versions_list:
           back_to_resource: Gå tillbaka till debatten
       last_activity:
+        debate_updated_at_html: "<span>Debatt uppdaterades på %{link}</span>"
         new_debate_at_html: "<span>Ny debatt i %{link}</span>"
       models:
         debate:
@@ -208,3 +235,5 @@ sv:
         description: Antal skapade debatter
         object: debatter
         title: Debatter
+    statistics:
+      debates_count: Debatter

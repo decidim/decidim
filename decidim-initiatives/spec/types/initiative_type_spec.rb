@@ -6,9 +6,9 @@ require "decidim/api/test/type_context"
 module Decidim
   module Initiatives
     describe InitiativeType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
-      let(:model) { create(:initiative) }
+      let(:model) { create(:initiative, online_votes: { "total" => 5 }, offline_votes: { "total" => 3 }) }
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -103,6 +103,51 @@ module Decidim
 
         it "has a scope" do
           expect(response).to include("scope" => { "id" => model.scope.id.to_s })
+        end
+      end
+
+      context "without fields from AuthorInterface" do
+        %w(name nickname avatarUrl profilePath badge organizationName deleted).each do |field|
+          describe field do
+            let(:query) { "{ #{field} }" }
+            let(:msg) { "Field '#{field}' doesn't exist on type 'Initiative'" }
+
+            it "has not have a #{field} field" do
+              expect { response }.to raise_error(an_instance_of(StandardError).and(having_attributes(message: msg)))
+            end
+          end
+        end
+      end
+
+      describe "offlineVotes" do
+        let(:query) { "{ offlineVotes }" }
+
+        it "has a offlineVotes" do
+          expect(response).to include("offlineVotes" => model.offline_votes_count)
+        end
+      end
+
+      describe "onlineVotes" do
+        let(:query) { "{ onlineVotes }" }
+
+        it "has a onlineVotes" do
+          expect(response).to include("onlineVotes" => model.online_votes_count)
+        end
+      end
+
+      describe "initiativeVotesCount" do
+        let(:query) { "{ initiativeVotesCount }" }
+
+        it "has a initiativeVotesCount" do
+          expect(response).to include("initiativeVotesCount" => model.online_votes_count)
+        end
+      end
+
+      describe "initiativeSupportsCount" do
+        let(:query) { "{ initiativeSupportsCount }" }
+
+        it "has a initiativeSupportsCount" do
+          expect(response).to include("initiativeSupportsCount" => model.supports_count)
         end
       end
     end

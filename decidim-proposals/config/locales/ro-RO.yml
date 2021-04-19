@@ -27,6 +27,9 @@ ro:
         user_group_id: Creați propunerea ca
       proposal_answer:
         answer: Răspuns
+        cost: Cost
+        cost_report: Raport de cost
+        execution_period: Perioada de execuție
       proposals_copy:
         copy_proposals: Înţeleg că aceasta va importa toate propunerile din componenta selectată în cea curentă şi că această acţiune nu poate fi inversată.
         origin_component_id: Componentă pentru a copia propunerile de la
@@ -84,6 +87,28 @@ ro:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Categorie
+          is_emendation_true:
+            label: Tipul
+            values:
+              'false': Propuneri
+              'true': Modificări
+          scope_id_eq:
+            label: Domeniu de interes
+          state_eq:
+            label: Stare
+            values:
+              accepted: Acceptat
+              evaluating: Evaluare
+              published: Publicat
+              rejected: Refuzat
+              validating: Validarea tehnică
+              withdrawn: Retras
+          state_null:
+            label: Stare
+            values:
+              'true': Nu s-a răspuns
           valuator_role_ids_has:
             label: Atribuit evaluatorului
         search_placeholder:
@@ -116,8 +141,13 @@ ro:
             new_proposal_help_text: Noua propunere ajută textul
             official_proposals_enabled: Propuneri oficiale activate
             participatory_texts_enabled: Texte participative activate
+            participatory_texts_enabled_readonly: Nu se poate interacționa cu această setare dacă există propuneri existente. Vă rugăm, creați o nouă `Componenta de Propuneri` dacă doriți să activați această caracteristică sau să renunțați la toate propunerile importate din meniul `Textele participative` dacă doriți să o dezactivați.
             proposal_answering_enabled: Propunere de răspuns activată
             proposal_edit_before_minutes: Propunerile pot fi editate de către autori înainte de expirarea acestor mai multe minute
+            proposal_edit_time: Modificare propunere
+            proposal_edit_time_choices:
+              infinite: Permite editarea propunerilor pentru o perioadă infinită de timp
+              limited: Permite editarea propunerilor într-un anumit interval de timp
             proposal_length: Lungimea maximă a corpului propunerii
             proposal_limit: Limita propunerii per participant
             proposal_wizard_step_1_help_text: Asistentul propunerii „Creează” pas ajutând textul
@@ -125,6 +155,8 @@ ro:
             proposal_wizard_step_3_help_text: Asistentul propunerii „Finalizare” ajută textul
             proposal_wizard_step_4_help_text: Asistentul propunerii „Publici” pas ajutător text
             resources_permissions_enabled: Permisiunile de acțiuni pot fi setate pentru fiecare propunere
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
             threshold_per_proposal: Pragul per propunere
             vote_limit: Limită suport per participant
           step:
@@ -315,10 +347,6 @@ ro:
         description: Numărul de suporturi pentru propuneri
         object: suportă
         title: Suportă
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propuneri
     participatory_spaces:
       highlighted_proposals:
         see_all: Vezi toate (%{count})
@@ -335,7 +363,7 @@ ro:
         actions:
           preview: Previzualizare
         exports:
-          comments: Comentarii
+          proposal_comments: Comentarii
           proposals: Propuneri
         models:
           proposal:
@@ -359,7 +387,9 @@ ro:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Veţi putea previzualiza şi sorta secţiunile de document)"
+            document_legend: 'Adaugă un document mai mic de 2MB, fiecare secțiune până când 3 nivele adâncime vor fi analizate în propuneri. Formatele suportate sunt: %{valid_mime_types}'
             title: Adaugă DOCUMENT
             upload_document: Încărcați documentul
           publish:
@@ -400,6 +430,7 @@ ro:
           form:
             attachment_legend: "(Opțional) Adăugați un atașament"
             created_in_meeting: Prezenta propunere provine dintr-o ședință
+            delete_attachment: Ștergere atașament
             select_a_category: Selectați o categorie
             select_a_meeting: Selectați o ședință
           index:
@@ -475,6 +506,7 @@ ro:
             no_components: Nu există alte componente de propunere în acest spațiu participativ din care să se importe propunerile.
             select_component: Vă rugăm să selectaţi o componentă
             select_states: Verificați starea propunerilor de importat
+            title: Importă propuneri
         proposals_merges:
           create:
             invalid: A apărut o problemă la fuzionarea propunerilor selectate.
@@ -547,13 +579,6 @@ ro:
               ok: Retrage schița colaborativă
               title: Următoarea acţiune este ireversibilă
             success: Schiță de colaborare retrasă cu succes.
-        compare:
-          mine_is_different: Schița mea de colaborare este diferită
-          no_similars_found: Bine lucrat! Nu s-au găsit ciorne colaborative similare
-          title: Proiecte de colaborare similare
-        complete:
-          send: Trimite
-          title: Finalizează ciorna ta de colaborare
         count:
           drafts_count:
             one: "%{count} ciornă colaborativă"
@@ -573,6 +598,37 @@ ro:
           amendment: Amendamente
           category: Categorie
           open: Deschideți
+          published: Publicat
+          related_to: Legat de
+          scope: Domeniu de interes
+          search: Caută
+          state: Stare
+          withdrawn: Retras
+        filters_small_view:
+          close_modal: Închidere
+          filter: Filtrare
+          filter_by: Filtrează după
+          unfold: Desfășurat
+        new:
+          send: Continuă
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nouă ciornă de colaborare
+        orders:
+          label: 'Ordonare ciorne după:'
+          most_contributed: Cu cele mai multe contribuții
+          random: Aleatoriu
+          recent: Recente
+        requests:
+          accepted_request:
+            error: Nu a putut fi acceptat ca și colaborator, vă rugăm să încercați din nou mai târziu.
+            success: "@%{user} a fost acceptat ca și colaborator"
+          access_requested:
+            error: Cererea dvs. nu a putut fi completată, vă rugăm să încercați din nou mai târziu.
+            success: Cererea dvs. de colaborare a fost trimisă
+          collaboration_requests:
+            accept_request: Acceptare
+            reject_request: Respingere
+            title: Cereri de colaborare
         show:
           info-message: Acesta este un <strong>proiect de colaborare</strong> pentru o propunere. Aceasta înseamnă că îi poți ajuta pe autorii lor să modeleze propunerea folosind secțiunea de mai jos sau să o îmbunătățească direct prin solicitarea accesului la editare. Odată ce autorii vă acordă accesul, veți putea face modificări la acest proiect.
           publish: Publică
@@ -589,23 +645,11 @@ ro:
         update:
           error: A apărut o problemă la salvarea proiectului colaborativ.
           success: Schiță de colaborare actualizată cu succes.
-          title: Editare ciornă colaborativă
         wizard_aside:
-          back: Înapoi
           back_from_collaborative_draft: Înapoi la ciorne colaborative
-          back_from_step_1: Înapoi la ciorne colaborative
-          back_from_step_2: Înapoi la ciorne colaborative
-          back_from_step_3: Înapoi pentru a compara ciornele colaborative
-          back_from_step_4: Înapoi la editarea schiței
           info: Creezi o <strong>ciornă de colaborare</strong>.
-        wizard_steps:
-          current_step: Pasul curent
-          see_steps: vezi pașii
-          step_1: Creează ciorna ta colaborativă
-          step_2: Compară cu ciornele colaborative
-          step_3: Finalizează ciorna ta de colaborare
-          step_of: Pasul %{current_step_num} din %{total_steps}
-          title: Pașii de creare proiect colaborativ
+        wizard_header:
+          title: Creează ciorna ta colaborativă
       create:
         error: A apărut o problemă la salvarea propunerii.
         success: Propunere creată cu succes. Salvată ca Ciornă.
@@ -614,6 +658,7 @@ ro:
         success: Proiectul propunerii a fost şters cu succes.
       last_activity:
         new_proposal_at_html: "<span>Noua propunere la %{link}</span>"
+        proposal_updated_at_html: "<span>Propunere actualizată la %{link}</span>"
       models:
         collaborative_draft:
           fields:

@@ -290,5 +290,9 @@ describe "Explore results", versioning: true, type: :system do
         end
       end
     end
+
+    it_behaves_like "has attachments" do
+      let(:attached_to) { result }
+    end
   end
 end

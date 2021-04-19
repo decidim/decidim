@@ -46,6 +46,17 @@
       </label>
     </div>
 
+    <% if @notifications_settings.user_is_moderator?(current_user) %>
+      <p><strong><%= t(".administrators") %></strong></p>
+      <div class="switch tiny switch-with-label email_on_moderations">
+        <label>
+          <%= f.check_box :email_on_moderations, label: false, class: "switch-input" %>
+          <span class="switch-paddle"></span>
+          <span class="switch-label"><%= t(".email_on_moderations") %></span>
+        </label>
+      </div>
+    <% end %>
+
     <%= f.submit t(".update_notifications_settings") %>
   <% end %>
 </div>

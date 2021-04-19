@@ -10,7 +10,7 @@
 *Describe the best way to test or validate your PR.*
 
 #### :clipboard: Checklist
-:rotating_light: Please review the [guidelines for contributing](../CONTRIBUTING.md) to this repository.
+:rotating_light: Please review the [guidelines for contributing](https://github.com/decidim/decidim/blob/develop/CONTRIBUTING.adoc) to this repository.
 
 - [ ] :question: **CONSIDER** adding a unit test if your PR resolves an issue.
 - [ ] :heavy_check_mark: **DO** check open PR's to avoid duplicates.

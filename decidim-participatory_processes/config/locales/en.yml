@@ -35,11 +35,20 @@ en:
         subtitle: Subtitle
         target: Who participates
         title: Title
+        weight: Order position
       participatory_process_group:
         description: Description
+        developer_group: Promoter group
+        group_url: Website
+        hashtag: Hashtag
         hero_image: Image
-        name: Name
+        local_area: Organization area
+        meta_scope: Scope metadata
         participatory_process_ids: Related processes
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        target: Who participates
+        title: Title
       participatory_process_step:
         cta_path: Call to Action path
         cta_text: Call to Action text
@@ -95,6 +104,9 @@ en:
         unpublish: Unpublish
       menu:
         participatory_process_groups: Process groups
+        participatory_process_groups_submenu:
+          info: Info
+          landing_page: Landing page
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
@@ -118,7 +130,7 @@ en:
           name: Participatory process
         participatory_process_group:
           fields:
-            name: Name
+            title: Title
           name: Process group
         participatory_process_step:
           fields:
@@ -146,6 +158,13 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate participatory process
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Update
       participatory_process_groups:
         destroy:
           error: There was an error while destroying the Participatory process group.
@@ -302,10 +321,30 @@ en:
       show:
         related_assemblies: Related assemblies
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: First HTML block
+        html_2:
+          name: Second HTML block
+        html_3:
+          name: Third HTML block
+        metadata:
+          developer_group: Promoted by
+          name: Metadata
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
+        participatory_processes:
+          name: Participatory processes
+        stats:
+          name: Statistics
+        title:
+          meta_scope: Scope
+          name: Title, description and hashtag
+          participatory_processes:
+            one: 1 process
+            other: "%{count} processes"
       show:
-        group_participatory_processes:
-          one: 1 process for %{group}
-          other: "%{count} processes for %{group}"
         title: Participatory process groups
     participatory_process_steps:
       index:
@@ -322,6 +361,11 @@ en:
         participatory_process_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadata
+            title: General Information
+            visibility: Visibility
         participatory_process_imports:
           form:
             document_legend: Add a document
@@ -393,6 +437,7 @@ en:
           loading: Loading results...
       show:
         area: Area
+        belongs_to_group: This process belongs to
         dates: Dates
         developer_group: Promoter group
         end_date: End date
@@ -405,25 +450,8 @@ en:
         start_date: Start date
         target: Who participates
         unspecified: Not specified
-      statistics:
-        answers_count: Answers
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        followers_count: Followers
-        headline: Statistics
-        meetings_count: Meetings
-        no_stats: There are no statistics yet.
-        orders_count: Supports
-        pages_count: Pages
-        participants_count: Participants
-        processes_count: Processes
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        supports_count: Supports
-        surveys_count: Surveys
-        users_count: Participants
+    statistics:
+      processes_count: Processes
   layouts:
     decidim:
       participatory_process_groups:
@@ -450,6 +478,8 @@ en:
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
+        promoted_process_group:
+          more_info: More info
       process_header_steps:
         step: Phase %{current} of %{total}
         view_steps: Process phases

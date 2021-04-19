@@ -188,10 +188,7 @@ module Decidim
               expect(response).to be_ok
               expect(response.statuses.count).to eq(1)
               authorizer = response.statuses.first
-              expect(authorizer.data).to include(extra_explanation: [{ key: "extra_explanation.postal_codes",
-                                                                       params: { scope: "decidim.verifications.dummy_authorization",
-                                                                                 count: 2,
-                                                                                 postal_codes: "1234, 4567" } }])
+              expect(authorizer.data).not_to include(extra_explanation: [])
             end
           end
 
@@ -204,11 +201,11 @@ module Decidim
               authorizer = response.statuses.first
               expect(authorizer.code).to eq(:unauthorized)
               expect(authorizer.handler_name).to eq("dummy_authorization_handler")
-              expect(authorizer.data).to include(fields: { "postal_code" => "1234" })
-              expect(authorizer.data).to include(extra_explanation: [{ key: "extra_explanation.postal_codes",
+              expect(authorizer.data).to include(extra_explanation: [{ key: "extra_explanation.user_postal_codes",
                                                                        params: { scope: "decidim.verifications.dummy_authorization",
                                                                                  count: 2,
-                                                                                 postal_codes: "2345, 4567" } }])
+                                                                                 postal_codes: "2345, 4567",
+                                                                                 user_postal_code: "1234" } }])
             end
           end
 

@@ -75,6 +75,24 @@ module Decidim
           end
         end
       end
+
+      context "when the user is signed in but has not agreed to terms of service" do
+        let(:user) { create(:user, :confirmed, accepted_tos_version: nil) }
+
+        before do
+          routes { Decidim::Core::Engine.routes }
+
+          request.env["devise.mapping"] = ::Devise.mappings[:user]
+
+          sign_in user
+        end
+
+        it "displays the error page without a redirection to the terms page" do
+          get :internal_server_error
+
+          expect(response).to have_http_status(:internal_server_error)
+        end
+      end
     end
   end
 end

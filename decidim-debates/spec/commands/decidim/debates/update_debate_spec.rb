@@ -8,6 +8,7 @@ describe Decidim::Debates::UpdateDebate do
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
+  let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_space: participatory_process }
   let(:user) { create :user, organization: organization }
   let!(:debate) { create :debate, author: user, component: current_component }
@@ -15,6 +16,7 @@ describe Decidim::Debates::UpdateDebate do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
       description: "description",
+      scope_id: scope.id,
       category_id: category.id,
       debate: debate
     ).with_context(
@@ -60,6 +62,11 @@ describe Decidim::Debates::UpdateDebate do
   context "when everything is ok" do
     it "updates the debate" do
       expect { subject.call }.to change(debate, :title)
+    end
+
+    it "sets the scope" do
+      subject.call
+      expect(debate.scope).to eq scope
     end
 
     it "sets the category" do

@@ -28,7 +28,15 @@ module Decidim
       private
 
       def normalize_body(answer)
-        answer.body || normalize_choices(answer, answer.choices)
+        answer.body ||
+          normalize_attachments(answer) ||
+          normalize_choices(answer, answer.choices)
+      end
+
+      def normalize_attachments(answer)
+        return if answer.attachments.blank?
+
+        answer.attachments.map(&:url)
       end
 
       def normalize_choices(answer, choices)

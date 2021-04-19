@@ -9,12 +9,13 @@ require "decidim/core/test/shared_examples/participatory_space_resourcable_inter
 module Decidim
   module Assemblies
     describe AssemblyType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:assembly) }
 
       include_examples "attachable interface"
       include_examples "participatory space resourcable interface"
+      include_examples "categories container interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -390,19 +391,6 @@ module Decidim
 
         it "returns the assembly githubHandler field" do
           expect(response["githubHandler"]).to eq(model.github_handler)
-        end
-      end
-
-      describe "categories" do
-        let(:category) { create(:category) }
-        let(:query) { "{ categories { id } }" }
-
-        before do
-          model.categories << category
-        end
-
-        it "returns its categories" do
-          expect(response["categories"].first["id"]).to eq(model.categories.first.id.to_s)
         end
       end
     end

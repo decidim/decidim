@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/blogs/admin"
+require "decidim/blogs/api"
 require "decidim/blogs/engine"
 require "decidim/blogs/admin_engine"
 require "decidim/blogs/component"

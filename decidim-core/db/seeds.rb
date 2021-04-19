@@ -4,6 +4,7 @@ if !Rails.env.production? || ENV["SEED"]
   print "Creating seeds for decidim-core...\n" unless Rails.env.test?
 
   require "decidim/faker/localized"
+  require "decidim/faker/internet"
 
   seeds_root = File.join(__dir__, "seeds")
 
@@ -16,6 +17,9 @@ if !Rails.env.production? || ENV["SEED"]
     table.tr("_", "/").classify.safe_constantize
   end.compact.each(&:reset_column_information)
 
+  smtp_label = ENV["SMTP_FROM_LABEL"] || Faker::Twitter.unique.screen_name
+  smtp_email = ENV["SMTP_FROM_EMAIL"] || Faker::Internet.email
+
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
@@ -24,11 +28,13 @@ if !Rails.env.production? || ENV["SEED"]
     youtube_handler: Faker::Hipster.word,
     github_handler: Faker::Hipster.word,
     smtp_settings: {
-      from: Faker::Internet.email,
-      user_name: Faker::Twitter.unique.screen_name,
-      encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(min_length: 8)),
-      address: ENV["DECIDIM_HOST"] || "localhost",
-      port: ENV["DECIDIM_SMTP_PORT"] || "25"
+      from: "#{smtp_label} <#{smtp_email}>",
+      from_email: smtp_email,
+      from_label: smtp_label,
+      user_name: ENV["SMTP_USERNAME"] || Faker::Twitter.unique.screen_name,
+      encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV["SMTP_PASSWORD"] || Faker::Internet.password(min_length: 8)),
+      address: ENV["SMTP_ADDRESS"] || ENV["DECIDIM_HOST"] || "localhost",
+      port: ENV["SMTP_PORT"] || ENV["DECIDIM_SMTP_PORT"] || "25"
     },
     host: ENV["DECIDIM_HOST"] || "localhost",
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do

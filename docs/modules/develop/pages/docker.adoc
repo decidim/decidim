@@ -1,0 +1,12 @@
+= Decidim on Docker
+
+There's an https://github.com/orgs/decidim/packages/container/package/decidim[image available for a default Decidim app], with core modules. It gets updated with each new version release.
+
+The https://github.com/decidim/docker/blob/master/Dockerfile-deploy[Dockerfile] and https://github.com/decidim/docker/blob/master/docker-compose.yml[a basic docker-compose.yml file] are both available on the https://github.com/decidim/docker[decidim/docker repo], in case you'd like to use them as starting points for your own customized images and deployments.
+
+Note that the usual requirements for Docker and Rails deployments apply here:
+
+. A https://docs.docker.com/storage/[persistent volume] is required for file uploads, logs and any changing, persisted data. Docker images are stateless by design, so they can be easily updated, restarted and replicated.
+. Rails file uploads are handled by https://guides.rubyonrails.org/active_storage_overview.html[Rails' Active Storage]. Their guide will have the ins and outs of configuring file storage on Rails, including delegating it to file storage in the cloud, for example.
+
+For a more elaborate example of docker compose usage, including setting volumes and SSL, among other things, please see https://github.com/AjuntamentDeSabadell/decidim-sabadell/blob/master/docker-compose.yml[the docker-compose.yml for the Decidim instance deployed for the city of Sabadell], in Catalunya.

@@ -16,6 +16,21 @@ module Decidim
           reportable_content.filter(&:present?).join(". ").truncate(options.fetch(:limit, 100))
         end
       end
+
+      # Public: Finds the type and name of the participatory space the given
+      # `reportable` object is associated to.
+      #
+      # Returns a String, or `nil` if the space is not found.
+      def participatory_space_title_for(reportable, options = {})
+        space = reportable.try(:participatory_space)
+        return unless space
+
+        I18n.with_locale(options.fetch(:locale, I18n.locale)) do
+          title = translated_attribute(space.try(:title) || space.try(:name))
+          type = space.class.model_name.human
+          [type, title].compact.join(": ").truncate(options.fetch(:limit, 100))
+        end
+      end
     end
   end
 end

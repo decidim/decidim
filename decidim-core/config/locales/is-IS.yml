@@ -32,7 +32,6 @@ is-IS:
   decidim:
     account:
       delete:
-        alert: Ekki er hægt að afturkalla þessa aðgerð. Ef þú eyðir reikningnum þínum geturðu ekki skráð þig inn.
         confirm:
           close: Loka glugga
           ok: Já, ég vil eyða reikningnum mínum

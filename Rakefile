@@ -3,7 +3,6 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require "decidim/gem_manager"
-require "decidim/git_log_parser"
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -84,19 +83,8 @@ desc "Bundle all Gemfiles"
 task :bundle do
   [".", "decidim-generators", "decidim_app-design"].each do |dir|
     Bundler.with_original_env do
+      puts "Updating #{dir}...\n"
       Dir.chdir(dir) { sh "bundle install" }
     end
   end
-end
-
-desc "Parses git-log output and produces CHANGELOG friendly entries"
-task :parse_git_log, [:log_path] do |_t, args|
-  log_path = args[:log_path]
-  puts "Usage: bin/rake parse_git_log[path_to_log_file]" unless log_path.present? && File.exist?(log_path)
-  puts "Parsing: #{log_path}"
-
-  full_log = File.open(log_path).read.strip
-  parser = Decidim::GitLogParser.new(full_log)
-  parser.parse
-  parser.print_results
 end

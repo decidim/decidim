@@ -6,13 +6,13 @@ es:
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
-        end_date: Fin
+        end_date: Fecha de finalización
         progress: Progreso
         project_ids: Proyectos incluidos
         proposals: Propuestas incluidas
-        start_date: Inicio
+        start_date: Fecha de inicio
         title: Título
-        updated_at: Actualizado en
+        updated_at: Actualizado el
       status:
         description: Descripción
         key: Clave
@@ -32,7 +32,9 @@ es:
   decidim:
     accountability:
       actions:
-        confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
+        attachment_collections: Carpetas
+        attachments: Archivos adjuntos
+        confirm_destroy: '¿Seguro que quieres eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
         import_csv: Importar CSV
@@ -42,6 +44,7 @@ es:
         title: Acciones
       admin:
         exports:
+          result_comments: Comentarios
           results: Resultados
         import_results:
           new:
@@ -51,20 +54,20 @@ es:
             title: Importar resultados vía CSV
         imports:
           create:
-            success: Se está importando el fichero. Recibirás un mail en los próximos minutos con el resultado de la importación
+            success: Se está importando el fichero. Recibirás un correo electrónico en los próximos minutos con el resultado de la importación
         models:
           result:
             name: Resultado
           status:
             name: Estado
           timeline_entry:
-            name: Evolución del proyecto
+            name: Entrada de la cronología
         results:
           create:
             invalid: Se ha producido un error al crear este resultado
-            success: El resultado ha sido creado correctamente
+            success: Resultado creado correctamente
           destroy:
-            success: El resultado se ha eliminado correctamente
+            success: Resultado eliminado correctamente
           edit:
             title: Editar resultado
             update: Actualizar resultado
@@ -75,7 +78,7 @@ es:
             title: Nuevo resultado
           update:
             invalid: Se ha producido un error al actualizar este resultado
-            success: El resultado ha actualizado correctamente
+            success: Resultado actualizado correctamente
         shared:
           subnav:
             statuses: Estados
@@ -121,6 +124,11 @@ es:
         value_types:
           parent_presenter:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Fechas
+          results: Resultados
+          unspecified: No especificado
       import_mailer:
         import:
           errors: Errores
@@ -133,8 +141,12 @@ es:
       models:
         result:
           fields:
+            category: Categoría
+            created_at: Creado
             end_date: Fin
+            id: ID
             progress: Progreso
+            scope: Ámbito
             start_date: Inicio
             status: Estado
             title: Título
@@ -148,6 +160,9 @@ es:
           fields:
             description: Descripción
             entry_date: Fecha
+      result_m:
+        executed: Ejecutado
+        view: Ver
       results:
         count:
           results_count:
@@ -178,6 +193,15 @@ es:
             votes: Soportes
         timeline:
           title: Evolución del proyecto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Ámbito
+          status_id_eq:
+            label: Estado
     components:
       accountability:
         name: Seguimiento
@@ -212,10 +236,6 @@ es:
         description: Número de resultados generados
         object: resultados
         title: Resultados
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Resultados
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos los resultados (%{count})
@@ -224,3 +244,5 @@ es:
         result_project: Proyectos incluidos en este resultado
       included_proposals:
         result_proposal: Propuestas incluidas en este resultado
+    statistics:
+      results_count: Resultados

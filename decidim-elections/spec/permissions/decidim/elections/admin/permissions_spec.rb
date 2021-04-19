@@ -24,9 +24,9 @@ describe Decidim::Elections::Admin::Permissions do
   let(:questionnaire) { election&.questionnaire }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
-  shared_examples "not allowed when election has started" do
-    context "when election has started" do
-      let(:election) { create :election, :started, component: elections_component }
+  shared_examples "not allowed when election was created on the bulletin board" do
+    context "when election was created on the bulletin board" do
+      let(:election) { create :election, :created, component: elections_component }
 
       it { is_expected.to eq false }
     end
@@ -83,14 +83,6 @@ describe Decidim::Elections::Admin::Permissions do
     it { is_expected.to eq true }
   end
 
-  describe "election setup" do
-    let(:action) do
-      { scope: :admin, action: :setup, subject: :election }
-    end
-
-    it { is_expected.to eq true }
-  end
-
   describe "election update" do
     let(:action) do
       { scope: :admin, action: :update, subject: :election }
@@ -98,7 +90,7 @@ describe Decidim::Elections::Admin::Permissions do
 
     it { is_expected.to eq true }
 
-    it_behaves_like "not allowed when election has started"
+    it_behaves_like "not allowed when election was created on the bulletin board"
   end
 
   describe "election publish" do
@@ -109,7 +101,7 @@ describe Decidim::Elections::Admin::Permissions do
 
     it { is_expected.to eq true }
 
-    it_behaves_like "not allowed when election has started"
+    it_behaves_like "not allowed when election was created on the bulletin board"
     it_behaves_like "not allowed when election has invalid questions"
   end
 
@@ -120,7 +112,7 @@ describe Decidim::Elections::Admin::Permissions do
 
     it { is_expected.to eq true }
 
-    it_behaves_like "not allowed when election has started"
+    it_behaves_like "not allowed when election was created on the bulletin board"
   end
 
   describe "election unpublish" do
@@ -130,7 +122,7 @@ describe Decidim::Elections::Admin::Permissions do
 
     it { is_expected.to eq true }
 
-    it_behaves_like "not allowed when election has started"
+    it_behaves_like "not allowed when election was created on the bulletin board"
   end
 
   describe "questions" do
@@ -144,7 +136,7 @@ describe Decidim::Elections::Admin::Permissions do
 
       it { is_expected.to eq true }
 
-      it_behaves_like "not allowed when election has started"
+      it_behaves_like "not allowed when election was created on the bulletin board"
     end
 
     describe "question update" do
@@ -154,7 +146,7 @@ describe Decidim::Elections::Admin::Permissions do
 
       it { is_expected.to eq true }
 
-      it_behaves_like "not allowed when election has started"
+      it_behaves_like "not allowed when election was created on the bulletin board"
     end
 
     describe "question delete" do
@@ -164,7 +156,7 @@ describe Decidim::Elections::Admin::Permissions do
 
       it { is_expected.to eq true }
 
-      it_behaves_like "not allowed when election has started"
+      it_behaves_like "not allowed when election was created on the bulletin board"
     end
   end
 
@@ -180,7 +172,7 @@ describe Decidim::Elections::Admin::Permissions do
 
       it { is_expected.to eq true }
 
-      it_behaves_like "not allowed when election has started"
+      it_behaves_like "not allowed when election was created on the bulletin board"
     end
 
     describe "answer update" do
@@ -190,7 +182,7 @@ describe Decidim::Elections::Admin::Permissions do
 
       it { is_expected.to eq true }
 
-      it_behaves_like "not allowed when election has started"
+      it_behaves_like "not allowed when election was created on the bulletin board"
     end
 
     describe "answer delete" do
@@ -200,11 +192,11 @@ describe Decidim::Elections::Admin::Permissions do
 
       it { is_expected.to eq true }
 
-      it_behaves_like "not allowed when election has started"
+      it_behaves_like "not allowed when election was created on the bulletin board"
     end
 
     describe "select answer" do
-      let(:election) { create :election, :results, component: elections_component }
+      let(:election) { create :election, :tally_ended, component: elections_component }
 
       let(:action) do
         { scope: :admin, action: :select, subject: :answer }
@@ -220,7 +212,7 @@ describe Decidim::Elections::Admin::Permissions do
 
       it { is_expected.to eq true }
 
-      it_behaves_like "not allowed when election has started"
+      it_behaves_like "not allowed when election was created on the bulletin board"
     end
 
     describe "add user as trustee" do
@@ -264,6 +256,22 @@ describe Decidim::Elections::Admin::Permissions do
 
         it { is_expected.to eq false }
       end
+    end
+
+    describe "read election steps" do
+      let(:action) do
+        { scope: :admin, action: :read, subject: :steps }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    describe "update election steps" do
+      let(:action) do
+        { scope: :admin, action: :update, subject: :steps }
+      end
+
+      it { is_expected.to eq true }
     end
   end
 end

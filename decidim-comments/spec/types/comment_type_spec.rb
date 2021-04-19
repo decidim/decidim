@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Comments
     describe CommentType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:comment) }
       let(:sgid) { double("sgid", to_s: "1234") }

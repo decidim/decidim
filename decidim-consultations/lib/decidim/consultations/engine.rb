@@ -4,6 +4,8 @@ require "rails"
 require "active_support/all"
 require "decidim/core"
 
+require "decidim/consultations/query_extensions"
+
 module Decidim
   module Consultations
     # Decidim"s Consultations Rails Engine.
@@ -70,11 +72,12 @@ module Decidim
 
       initializer "decidim_consultations.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.consultations", scope: "decidim"),
-                    decidim_consultations.consultations_path,
-                    position: 2.7,
-                    if: Decidim::Consultation.where(organization: current_organization).published.any?,
-                    active: :inclusive
+          menu.add_item :consultations,
+                        I18n.t("menu.consultations", scope: "decidim"),
+                        decidim_consultations.consultations_path,
+                        position: 2.65,
+                        if: Decidim::Consultation.where(organization: current_organization).published.any?,
+                        active: :inclusive
         end
       end
 
@@ -88,6 +91,10 @@ module Decidim
             settings.attribute :max_results, type: :integer, default: 4
           end
         end
+      end
+
+      initializer "decidim_consultations.query_extensions" do
+        Decidim::Api::QueryType.include Decidim::Consultations::QueryExtensions
       end
     end
   end

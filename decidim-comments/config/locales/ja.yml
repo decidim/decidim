@@ -14,7 +14,11 @@ ja:
         other: 投票
   decidim:
     comments:
+      comments:
+        create:
+          error: コメントの登録に問題がありました。
       comments_count: コメント数
+      comments_title: コメント
       last_activity:
         new_comment_at_html: "<span> %{link}に新しいコメント</span>"
       view: 表示
@@ -23,7 +27,7 @@ ja:
           error: コメントに投票中に問題がありました。
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">アカウント</a> または <a href="%{sign_up_url}">ログイン</a> でコメントを追加します。
+        account_message: <a href="%{sign_in_url}">ログイン</a> または <a href="%{sign_up_url}">新規登録</a> することでコメントできます。
         form:
           body:
             label: コメント
@@ -71,8 +75,10 @@ ja:
         blocked_comments_warning: コメントは現時点で無効になっていますが、以前のコメントを読むことができます。
         comment_details_title: コメントの詳細
         loading: コメントを読み込んでいます...
-        single_comment_warning: コメントの残りはこちら <a href="%{url}"></a>で確認できます。
-        single_comment_warning_title: 単一のコメントが表示されています
+        single_comment_warning: コメントの残りは <a href="%{url}">こちら</a>で確認できます。
+        single_comment_warning_title: コメントを1件のみ表示しています
+        title:
+          other: "%{count} 件のコメント"
       down_vote_button:
         text: このコメントに同意しません
       up_vote_button:
@@ -82,18 +88,18 @@ ja:
         comment_by_followed_user:
           email_intro: "%{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:"
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのユーザーのフォローを解除することができます。'
-          email_subject: '%{author_name} に %{resource_title} による新しいコメントがあります'
+          email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
           email_intro: 'グループ %{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:'
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのグループのフォローを解除できます。'
-          email_subject: '%{author_name} に %{resource_title} による新しいコメントがあります'
+          email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} はコメントされました。このページでコメントを読むことができます："
-          email_outro: '"%{resource_title}" またはその著者をフォローしているため、この通知を受け取りました。前のリンクからフォローを解除することができます。'
-          email_subject: '%{author_name} に %{resource_title} から新しいコメントがあります'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title}に新しいコメントがあります</a>
+          email_outro: '"%{resource_title}" 、またはその参加者をフォローしているためこの通知を受け取りました。前のリンクからフォローを解除することができます。'
+          email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>
         reply_created:
           email_intro: "%{author_name} は %{resource_title}であなたのコメントを返信しました。このページで読むことができます:"
           email_outro: コメントが返信されたため、この通知を受信しました。

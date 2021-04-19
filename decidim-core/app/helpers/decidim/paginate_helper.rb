@@ -9,16 +9,7 @@ module Decidim
     # collection - a collection of elements that need to be paginated
     # paginate_params - a Hash with options to delegate to the pagination helper.
     def decidim_paginate(collection, paginate_params = {})
-      # Kaminari uses url_for to generate the url, but this doesn't play nice with our engine system
-      # and unless we remove these params they are added again as query string :(
-      default_params = {
-        participatory_process_slug: nil,
-        assembly_slug: nil,
-        initiative_slug: nil,
-        component_id: nil
-      }
-
-      paginate collection, theme: "decidim", params: paginate_params.merge(default_params)
+      paginate collection, theme: "decidim", params: paginate_params
     end
   end
 end

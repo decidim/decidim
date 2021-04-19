@@ -2,7 +2,7 @@ tr:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: durum
+        decidim_accountability_status_id: Durum
         decidim_category_id: Kategori
         decidim_scope_id: kapsam
         description: Açıklama
@@ -35,13 +35,24 @@ tr:
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
+        import_csv: CSV'yi içe aktar
         new: Yeni %{name}
         preview: Ön izleme
         timeline_entries: Proje evrimi
         title: Eylemler
       admin:
         exports:
+          result_comments: Yorumlar
           results: Sonuçlar
+        import_results:
+          new:
+            import: İçe aktar
+            info: "<p>Bu adımları izlemenizi tavsiye ederiz:</p><ol><li>Eklemek istediğiniz Sonuçlar için Statüleri oluşturun (<a href='%{link_new_status}' target='_blank'>bağlantı</a>)</li><li>Biçimi ve neleri doldurmanız gerektiğini daha iyi anlamak için İçe Aktar'ı kullanmadan önce bu Yönetici paneli (<a href='%{link_new_result}' target='_blank'>bağlantı</a>) aracılığıyla yeniden en az bir Sonuç oluşturun. </li><li>Dışa aktarımı CSV formatında indirin (%{link_export_csv})</li><li>Değişiklikleri yerel olarak yapın. CSV'nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:</li></ol><ul><li><b>category/id:</b> Kategori ID</li><li><b>scope/id:</b> Kapsam ID </li><li><b>parent/id:</b> Üst ID (ilgili Sonuçlar için). İsteğe bağlı</li><li><b>title/I18N:</b> X dilinde başlık</li><li><b>description/I18N:</b> X dilinde açıklama</li><li><b>start_date:</b> sonucun uygulamaya başladığı tarih (biçim YYYY-AA-GG)</li><li><b>end_date:</b> sonucun yürütmeyi bitirdiği tarih (biçim YYYY-AA-GG)</li><li><b>status/id:</b> Durum ID</li><li><b>progress:</b> Yürütme yüzdesi (0'dan 100'e)</li><li><b>proposals_ids:</b> İlgili tekliflerin ID'leri (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span>'e dönüştürülür</li></ul>"
+            link: bağlantı
+            title: Sonuçları CSV'den içe aktar
+        imports:
+          create:
+            success: Dosya içe aktarılmaya başladı. Önümüzdeki birkaç dakika içinde içe aktarmanın sonucunu içeren bir e-posta alacaksınız
         models:
           result:
             name: Sonuç
@@ -111,13 +122,29 @@ tr:
         value_types:
           parent_presenter:
             not_found: 'Üst veritabanında bulunamadı (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Tarih
+          results: Sonuç
+          unspecified: Belirtilmemiş
+      import_mailer:
+        import:
+          errors: Hatalar
+          errors_present: Sonuçları içe aktarırken bir sorun oluştu
+          row_number: Satır
+          subject: Sonuçların içe aktarılması başarılı
+          success: Sonuçların içe aktarılması başarılı. Sonuçları yönetim arayüzünde inceleyebilirsiniz.
       last_activity:
         new_result_at_html: "<span> %{link}</span>yeni sonuç"
       models:
         result:
           fields:
+            category: Kategori
+            created_at: Oluşturuldu
             end_date: Bitiş tarihi
+            id: ID
             progress: İlerleme
+            scope: Kapsam
             start_date: Başlangıç tarihi
             status: durum
             title: Başlık
@@ -131,6 +158,9 @@ tr:
           fields:
             description: Açıklama
             entry_date: tarih
+      result_m:
+        executed: Yürütüldü
+        view: Görünüm
       results:
         count:
           results_count:
@@ -154,24 +184,36 @@ tr:
             back_to_resource: Sonuca geri dön
             comments: Yorumlar
             contributions: Katılımlar
-            last_edited_by: Tarafından düzenlenmiş Son
-            last_updated_at: 'Son güncelleme tarihi:'
+            last_edited_by: Son düzenleyen
+            last_updated_at: Son güncelleme
             meetings: Toplantılar
-            proposals: Teklif
+            proposals: Teklifler
             votes: Destekler
         timeline:
-          title: Proje evrimi
+          title: Proje gelişimi
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Kapsam
+          status_id_eq:
+            label: Durum
     components:
       accountability:
-        name: Hesap verebilirlik
+        name: Sorumluluk
         settings:
           global:
             categories_label: '"Kategoriler" için isim'
             comments_enabled: Yorumlar etkin
-            display_progress_enabled: Ekran ilerleme
-            heading_leaf_level_results: '"Projelerin" Adı'
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            display_progress_enabled: İlerlemeyi göster
+            heading_leaf_level_results: '"Projeler" için isim'
             heading_parent_level_results: '"Sonuçların" Adı'
-            intro: giriş
+            intro: Tanıtım
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
             subcategories_label: '"Alt kategoriler" için isim'
           step:
             comments_blocked: Yorumlar engellendi
@@ -179,23 +221,22 @@ tr:
       accountability:
         proposal_linked:
           email_intro: '"%{proposal_title}" teklifi bir sonuca dahil edildi. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi aldınız çünkü "%{proposal_title}" u takip ediyorsun. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.
-          email_subject: '%{proposal_title}güncellemesi'
+          email_outro: Bu bildirimi "%{proposal_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
+          email_subject: '%{proposal_title} teklifi için bir güncelleme bulundu'
           notification_title: <a href="%{proposal_path}">%{proposal_title}</a> teklifi <a href="%{resource_path}">%{resource_title}</a> sonucuna dahil edilmiştir.
         result_progress_updated:
           email_intro: '"%{proposal_title}" önerisini içeren "%{resource_title}" sonucu şimdi% %{progress}tamamlandı. Bu sayfadan görebilirsiniz:'
           email_outro: '"%{proposal_title}" izlemekte olduğunuz için bu bildirimi aldınız ve bu teklif "%{resource_title}" sonucuna dahil edildi. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-          email_subject: '%{resource_title} ilerleme için güncelleme'
-          notification_title: <a href="%{proposal_path}">%{proposal_title}</a>önerisini içeren sonuç%{resource_title}<a href="%{resource_path}"></a>, şimdi% %{progress}tamamlandı.
+          email_subject: '%{resource_title} için bir güncelleme'
+          notification_title: '<a href="%{proposal_path}">%{proposal_title}</a> teklifini içeren <a href="%{resource_path}">%{resource_title}</a> sonucu: %{progress} tamamlandı.'
     metrics:
       results:
         description: Üretilen sonuç sayısı
-        object: Sonuçlar
+        object: sonuçlar
         title: Sonuçlar
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Sonuçlar
+    participatory_spaces:
+      highlighted_results:
+        see_all: Tüm sonuçları gör (%{count})
     resource_links:
       included_projects:
         result_project: Bu sonuca dahil edilen projeler

@@ -1,0 +1,31 @@
+= Development with custom seed data
+
+The seed data is not only useful for local development, but also for staging environments to showcase your work to your clients. In this case, you might need to customize some of that seed data to make sure it fits your needs.
+
+== Customizing seed data via the `db/seeds.rb` file
+
+One way to customize the seed data is to use the `db/seeds.rb` file in your application. You'll see a call to generate the Decidim seeds:
+
+[source,ruby]
+----
+Decidim.seed!
+----
+
+This will generate all the needed seed data. But after that you might want to, for example, create some specific scopes, or change the default user password. You can do anything from that file.
+
+== Customizing the seed data via environment variables
+
+Some specific pieces of the seed data can be customized via environment variables. This is specially useful to set the SMTP credentials or the System Admin password.
+
+If you set the variables _before_ creating the seeds data, the values in those variables will be used.
+
+* `SMTP_FROM_LABEL`: The name used to send emails.
+* `SMTP_FROM_EMAIL`: The email where emails will be sent from.
+* `SMTP_USERNAME`: The username required by your email sending system.
+* `SMTP_PASSWORD`: The password required by your email sending system.
+* `SMTP_ADDRESS`: The address where your email sending system lives.
+* `SMTP_PORT`: The port used to connect to your email sending system.
+* `DECIDIM_SYSTEM_USER_PASSWORD`: The password for the System user. Useful to hide access to the System panel, where the SMTP config can be retrieved in plain text.
+
+This is useful, for example, to set up a staging application open to anyone, and use Sendgrid as a mailing system. By changing the default password only you will be able to access the System panel, so nobody will be able to see the credentials used to connect to Sendgrid.
+

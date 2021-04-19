@@ -2,10 +2,9 @@
 
 shared_context "with a component" do
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
-
   let(:user) { create :user, :confirmed, organization: organization }
 
-  let!(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
+  let!(:organization) { create(:organization, *organization_traits, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
 
   let(:participatory_process) do
     create(:participatory_process, :with_steps, organization: organization)
@@ -22,8 +21,14 @@ shared_context "with a component" do
   let!(:category) { create :category, participatory_space: participatory_space }
   let!(:scope) { create :scope, organization: organization }
 
+  let(:organization_traits) { [] }
+
   before do
-    switch_to_host(organization.host)
+    if organization_traits.include?(:secure_context)
+      switch_to_secure_context_host
+    else
+      switch_to_host(organization.host)
+    end
   end
 
   def visit_component
@@ -32,9 +37,12 @@ shared_context "with a component" do
 end
 
 shared_context "when managing a component" do
-  include_context "with a component"
+  include_context "with a component" do
+    let(:organization_traits) { component_organization_traits }
+  end
 
   let(:current_component) { component }
+  let(:component_organization_traits) { [] }
 
   before do
     login_as user, scope: :user
@@ -56,7 +64,11 @@ shared_context "when managing a component" do
 end
 
 shared_context "when managing a component as an admin" do
-  include_context "when managing a component"
+  include_context "when managing a component" do
+    let(:component_organization_traits) { admin_component_organization_traits }
+  end
+
+  let(:admin_component_organization_traits) { [] }
 
   let(:user) do
     create :user,

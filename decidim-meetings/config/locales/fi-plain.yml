@@ -14,6 +14,7 @@ fi-pl:
       meeting:
         address: Osoite
         available_slots: Tämän tapahtuman vapaiden paikkojen määrä
+        customize_registration_email: Muokkaa ilmoittautumisten sähköpostivastausta
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         decidim_user_group_id: Käyttäjäryhmä
@@ -25,6 +26,7 @@ fi-pl:
         organizer_gid: Luo käyttäjänä
         organizer_id: Järjestäjä
         private_meeting: Yksityinen tapahtuma
+        registration_email_custom_content: Ilmoittautumisten sähköpostivastauksen muokattu sisältö
         registration_form_enabled: Ilmoittautumislomake on käytössä
         registration_terms: Ilmoittautumisehdot
         registration_url: Ilmoittautumisosoite (URL)
@@ -207,6 +209,7 @@ fi-pl:
             invalid: Tämän esityslistan päivityksessä esiintyi ongelma
             success: Esityslista päivitettiin onnistuneesti
         exports:
+          meeting_comments: Kommentit
           meetings: Tapahtumat
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
@@ -254,14 +257,16 @@ fi-pl:
                 other: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta
             success: Tapahtuma onnistuneesti luotu
           edit:
+            title: Muokkaa tapaamista
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
             available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
             disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
             location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
-            location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapahtumissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
+            location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
+            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
@@ -288,6 +293,7 @@ fi-pl:
             invalid: Tämän pöytäkirjan luonnissa esiintyi ongelma
             success: Pöytäkirja luotiin onnistuneesti
           edit:
+            title: Muokkaa pöytäkirjaa
             update: Päivitä
           new:
             create: Luo
@@ -358,6 +364,7 @@ fi-pl:
             space_type: Osallisuustila
             upcoming: Tulevat
       last_activity:
+        meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapahtuma osoitteessa %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -371,8 +378,8 @@ fi-pl:
       meeting_closes:
         edit:
           back: Takaisin
-          close: Sulje tapahtuma
-          title: Sulje tapahtuma
+          close: Sulje tapaaminen
+          title: Sulje tapaaminen
       meetings:
         count:
           meetings_count:
@@ -386,12 +393,15 @@ fi-pl:
           title: Muokkaa tapahtumaa
           update: Päivitä
         filters:
+          activity: Oma toiminta
+          all: Kaikki
           category: Aihepiiri
           date: Päivämäärä
           date_values:
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
+          my_meetings: Omat tapaamiseni
           origin: Alkuperä
           origin_values:
             all: Kaikki
@@ -403,6 +413,7 @@ fi-pl:
           type: Tyyppi
           type_values:
             all: Kaikki
+            hybrid: Molemmat
             in_person: Fyysinen
             online: Verkossa
         filters_small_view:
@@ -416,7 +427,7 @@ fi-pl:
           create_as: Luo tapahtuma käyttäjänä
           disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
-          location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapahtumissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
+          location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
           registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
           select_a_category: Valitse aihepiiri
@@ -440,7 +451,7 @@ fi-pl:
         show:
           attendees: Osallistujamäärä
           back: Takaisin listaan
-          close_meeting: Sulje tapahtuma
+          close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
           edit_meeting: Muokkaa tapahtumaa
@@ -502,6 +513,7 @@ fi-pl:
           invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       type_of_meeting:
+        hybrid: Molemmat
         in_person: Fyysinen
         online: Verkossa
       types:
@@ -514,11 +526,6 @@ fi-pl:
         description: Tapahtumien määrä
         object: tapahtumat
         title: Tapahtumat
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Aiemmat tapahtumat
-          upcoming_meetings: Tulevat tapahtumat
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
@@ -533,6 +540,8 @@ fi-pl:
       proposals_from_meeting:
         meeting_proposal: 'Liittyvät ehdotukset:'
         proposal_meeting: 'Liittyvät tapahtumat:'
+    statistics:
+      meetings_count: Tapaamista
   devise:
     mailer:
       join_meeting:

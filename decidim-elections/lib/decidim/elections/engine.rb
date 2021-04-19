@@ -2,7 +2,6 @@
 
 require "rails"
 require "decidim/core"
-require "graphlient"
 
 module Decidim
   module Elections
@@ -16,7 +15,10 @@ module Decidim
             post :answer
           end
 
-          resource :vote
+          resources :votes, only: [:new, :create, :update, :show] do
+            get :verify
+            match "new", action: :new, via: :post, as: :login, on: :collection
+          end
         end
 
         root to: "elections#index"

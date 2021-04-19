@@ -52,6 +52,7 @@
 @import "decidim/modules/versions";
 @import "decidim/modules/sticky";
 @import "decidim/modules/notification";
+@import "decidim/modules/statistics";
 
 //Process elements
 @import "decidim/modules/process-header";
@@ -64,7 +65,6 @@
 @import "decidim/modules/inline-filters";
 @import "decidim/modules/reference";
 @import "decidim/modules/status-labels";
-@import "decidim/modules/process-stats";
 
 //Conference elements
 @import "decidim/modules/conference-nav";

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/components/namer"
+require "decidim/components/namer"
 
 Decidim.register_component(:<%= component_name %>) do |component|
   component.engine = Decidim::<%= component_module_name %>::Engine

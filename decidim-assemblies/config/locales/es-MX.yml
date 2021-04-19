@@ -1,6 +1,8 @@
 es-MX:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar organigrama
       assembly:
         area_id: Área
         assembly_type: Tipo de montaje
@@ -50,6 +52,7 @@ es-MX:
         target: Quién participa
         title: Título
         twitter: Twitter
+        weight: Orden de posición
         youtube: Youtube
       assembly_member:
         birthday: Cumpleaños
@@ -60,6 +63,7 @@ es-MX:
         full_name: Nombre completo
         gender: Género
         position: Posición
+        user_id: Usuaria
       assembly_user_role:
         email: Correo electrónico
         name: Nombre
@@ -246,7 +250,7 @@ es-MX:
         update: "%{user_name} ha actualizado la configuración de las asambleas"
       assembly_type:
         create: "%{user_name} creó el tipo de asamblea %{resource_name}"
-        delete: "%{user_name} eliminó al miembro %{resource_name} del tipo de asamblea %{space_name}"
+        delete: "%{user_name} eliminó el tipo de asamblea %{resource_name}"
         publish: "%{user_name} publicó el tipo de asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó el tipo de asamblea %{resource_name}"
         update: "%{user_name} actualizó el tipo de asamblea %{resource_name}"
@@ -305,6 +309,9 @@ es-MX:
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Miembros
@@ -374,23 +381,6 @@ es-MX:
         social_networks: Redes sociales
         social_networks_title: Compartir esta asamblea en
         target: Quién participa
-      statistics:
-        answers_count: Respuestas
-        assemblies_count: Asambleas
-        comments_count: Comentarios
-        debates_count: Debates
-        endorsements_count: Adhesiones
-        headline: Actividad
-        meetings_count: Encuentros
-        orders_count: Votos
-        pages_count: Páginas
-        posts_count: Publicaciones
-        projects_count: Proyectos
-        proposals_count: Propuestas
-        results_count: Resultados
-        surveys_count: Encuestas
-        users_count: Participantes
-        votes_count: Soportes
     assembly_members:
       assembly_member:
         designated_on: Designado en
@@ -438,7 +428,7 @@ es-MX:
         hero:
           participate_title: Participar en los procesos de la plataforma
         sub_hero:
-          register_title: Regístrate para crear una cuenta en la plataforma
+          register_title: Inicia sesión o crea una cuenta
     participatory_processes:
       pages:
         home:
@@ -446,6 +436,8 @@ es-MX:
             processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
       show:
         related_assemblies: Asambleas relacionadas
+    statistics:
+      assemblies_count: Asambleas
   errors:
     messages:
       cannot_be_blank: no puede estar en blanco

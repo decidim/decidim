@@ -11,16 +11,19 @@ module Decidim
     # @param url [String, Symbol] The URL this item will link to
     # @param options [Hash] The options for the menu item
     #
-    def initialize(label, url, options = {})
+    def initialize(label, url, identifier, options = {})
       @label = label
       @url = url
+      @identifier = identifier
       @position = options[:position] || Float::INFINITY
       @if = options[:if]
       @active = options[:active]
       @icon_name = options[:icon_name]
+      @submenu = options[:submenu]
     end
 
-    attr_reader :label, :url, :position, :active, :icon_name
+    attr_accessor :position
+    attr_reader :label, :url, :active, :icon_name, :submenu, :identifier
 
     def visible?
       return true if @if.nil? || @if

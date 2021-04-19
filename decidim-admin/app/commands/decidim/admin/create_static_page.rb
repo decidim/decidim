@@ -40,7 +40,8 @@ module Decidim
           show_in_footer: form.show_in_footer,
           weight: form.weight,
           topic: form.topic,
-          organization: form.organization
+          organization: form.organization,
+          allow_public_access: form.allow_public_access
         )
       end
 

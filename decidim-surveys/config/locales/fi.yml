@@ -21,8 +21,12 @@ fi:
           global:
             announcement: Ilmoitus
             clean_after_publish: Poista vastaukset julkaistaessa kysely
+            ends_at: Vastausajan loppumisajankohta
+            ends_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            starts_at: Vastausajan alkamisajankohta
+            starts_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
           step:
             allow_answers: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
@@ -45,6 +49,8 @@ fi:
         description: Kyselyvastausten määrä
         object: kyselyvastaukset
         title: Kyselyvastaukset
+    statistics:
+      answers_count: Vastausta
     surveys:
       admin:
         exports:

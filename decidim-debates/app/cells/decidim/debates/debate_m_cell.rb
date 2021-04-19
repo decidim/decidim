@@ -52,7 +52,7 @@ module Decidim
       end
 
       def debate_date
-        return unless start_date && end_date
+        return render(:open_date) unless start_date && end_date
         return render(:multiple_dates) if spans_multiple_dates?
 
         render(:single_date)

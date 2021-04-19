@@ -34,11 +34,20 @@ ca:
         subtitle: Subtítol
         target: Qui hi participa
         title: Títol
+        weight: Ordre de posició
       participatory_process_group:
         description: Descripció
+        developer_group: Grup promotor
+        group_url: Lloc web
+        hashtag: Hashtag
         hero_image: Imatge
-        name: Nom
+        local_area: Àrea d'organització
+        meta_scope: Metadades d'àmbit
         participatory_process_ids: Processos relacionats
+        participatory_scope: Què es decideix
+        participatory_structure: Com es decideix
+        target: Qui participa
+        title: Títol
       participatory_process_step:
         cta_path: Ruta del botó d'acció
         cta_text: Text del botó d'acció
@@ -94,6 +103,9 @@ ca:
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grups de processos
+        participatory_process_groups_submenu:
+          info: Informació
+          landing_page: Pàgina d'inici
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
@@ -117,7 +129,7 @@ ca:
           name: Procés participatiu
         participatory_process_group:
           fields:
-            name: Nom
+            title: Títol
           name: Grup de processos
         participatory_process_step:
           fields:
@@ -145,6 +157,13 @@ ca:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Duplica procés participatiu
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocs de contingut actius
+          inactive_content_blocks: Blocs de contingut inactius
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Actualitzar
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error eliminant aquest grup de processos participatius.
@@ -301,10 +320,30 @@ ca:
       show:
         related_assemblies: Assemblees relacionades
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Primer bloc HTML
+        html_2:
+          name: Segon bloc HTML
+        html_3:
+          name: Tercer bloc HTML
+        metadata:
+          developer_group: Promogut per
+          name: Metadades
+          participatory_scope: Què es decideix
+          participatory_structure: Com es decideix
+          target: Qui participa
+        participatory_processes:
+          name: Processos participatius
+        stats:
+          name: Estadístiques
+        title:
+          meta_scope: Àmbit
+          name: Títol, descripció i hashtag
+          participatory_processes:
+            one: Un procés
+            other: "%{count} processos"
       show:
-        group_participatory_processes:
-          one: Un procés per a %{group}
-          other: "%{count} processos per a %{group}"
         title: Grups de processos participatius
     participatory_process_steps:
       index:
@@ -315,9 +354,17 @@ ca:
         content_blocks:
           highlighted_processes:
             max_results: Quantitat màxima d'elements que es mostraran
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadades
+            title: Informació general
+            visibility: Visibilitat
         participatory_process_imports:
           form:
             document_legend: Afegeix un document
@@ -389,6 +436,7 @@ ca:
           loading: Carregant resultats...
       show:
         area: Àrea
+        belongs_to_group: Aquest procés pertany a
         dates: Dates
         developer_group: Grup promotor
         end_date: Data de finalització
@@ -401,25 +449,8 @@ ca:
         start_date: Data d'inici
         target: Qui participa
         unspecified: Sense especificar
-      statistics:
-        answers_count: Respostes
-        comments_count: Comentaris
-        debates_count: Debats
-        endorsements_count: Adhesions
-        followers_count: Seguidores
-        headline: Estadístiques
-        meetings_count: Trobades presencials
-        no_stats: Encara no hi ha estadístiques.
-        orders_count: Suports
-        pages_count: Pàgines
-        participants_count: Participants
-        processes_count: Processos
-        projects_count: Projectes
-        proposals_count: Propostes
-        results_count: Resultats
-        supports_count: Suports
-        surveys_count: Enquestes
-        users_count: Participants
+    statistics:
+      processes_count: Processos
   layouts:
     decidim:
       participatory_process_groups:
@@ -446,6 +477,8 @@ ca:
           more_info_about: Més informació sobre el procés %{resource_name}
           take_part: Participa
           take_part_in: Participa al procés %{resource_name}
+        promoted_process_group:
+          more_info: Més informació
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Veure les fases

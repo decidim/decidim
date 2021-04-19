@@ -32,7 +32,7 @@ module Decidim
       #
       # step - A symbol of the target step
       def proposal_wizard_step_name(step)
-        t("decidim.proposals.#{type_of}.wizard_steps.#{step}")
+        t("decidim.proposals.proposals.wizard_steps.#{step}")
       end
 
       # Returns the page title of the given step, translated
@@ -48,7 +48,7 @@ module Decidim
                        action_name
                      end
 
-        t("decidim.proposals.#{type_of}.#{step_title}.title")
+        t("decidim.proposals.proposals.#{step_title}.title")
       end
 
       # Returns the list item of the given step, in html
@@ -56,8 +56,6 @@ module Decidim
       # step - A symbol of the target step
       # current_step - A symbol of the current step
       def proposal_wizard_stepper_step(step, current_step)
-        return if step == :step_4 && type_of == :collaborative_drafts
-
         attributes = { class: proposal_wizard_step_classes(step, current_step).to_s }
         step_title = proposal_wizard_step_name(step)
         if step.to_s.split("_").last.to_i == proposal_wizard_step_number(current_step)
@@ -99,7 +97,7 @@ module Decidim
       end
 
       def proposal_wizard_steps_title
-        t("title", scope: "decidim.proposals.#{type_of}.wizard_steps")
+        t("title", scope: "decidim.proposals.proposals.wizard_steps")
       end
 
       # Returns a boolean if the step has a help text defined
@@ -109,42 +107,14 @@ module Decidim
         translated_attribute(component_settings.try("proposal_wizard_#{step}_help_text")).present?
       end
 
-      # Renders a user_group select field in a form.
-      # form - FormBuilder object
-      # name - attribute user_group_id
-      #
-      # Returns nothing.
-      def user_group_select_field(form, name)
-        selected = @form.user_group_id.presence
-        user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
-        form.select(
-          name,
-          user_groups.map { |g| [g.name, g.id] },
-          selected: selected,
-          include_blank: current_user.name
-        )
-      end
-
       private
 
       def total_steps
-        case type_of
-        when :collaborative_drafts
-          3
-        when :proposals
-          4
-        else
-          4
-        end
+        4
       end
 
       def wizard_aside_info_text
-        case type_of
-        when :collaborative_drafts
-          t("info", scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
-        else
-          t("info", scope: "decidim.proposals.proposals.wizard_aside").html_safe
-        end
+        t("info", scope: "decidim.proposals.proposals.wizard_aside").html_safe
       end
 
       # Renders the back link except for step_2: compare
@@ -163,22 +133,7 @@ module Decidim
         key = "back"
         key = "back_from_#{from}" if from
 
-        case type_of
-        when :collaborative_drafts
-          t(key, scope: "decidim.proposals.collaborative_drafts.wizard_aside").html_safe
-        else
-          t(key, scope: "decidim.proposals.proposals.wizard_aside").html_safe
-        end
-      end
-
-      def type_of
-        if ["Decidim::Proposals::CollaborativeDraftForm"].include? @form.class.name
-          :collaborative_drafts
-        elsif @collaborative_draft.present?
-          :collaborative_drafts
-        else
-          :proposals
-        end
+        t(key, scope: "decidim.proposals.proposals.wizard_aside").html_safe
       end
     end
   end

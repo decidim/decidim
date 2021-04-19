@@ -35,7 +35,6 @@ zh-CN:
       decidim/profile_updated_event: 个人资料已更新
       decidim/promote_to_admin: 晋升到组管理员
       decidim/removed_from_group: 已从群组删除
-      decidim/resource_endorsed_event: 批准Resurce
   activerecord:
     attributes:
       decidim/user:
@@ -77,7 +76,6 @@ zh-CN:
         file_no_exists: 文件不存在
         notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       delete:
-        alert: 此操作无法撤销。如果您删除您的帐户，您将无法登录。
         confirm:
           close: 关闭窗口
           ok: 是，我想要删除我的帐户
@@ -231,7 +229,6 @@ zh-CN:
       photos:
         related_photos: 相关图像
     author:
-      avatar: 头像
       comments:
         other: 评论
       endorsements:
@@ -254,8 +251,6 @@ zh-CN:
         name: 示例授权
       dummy_authorization_workflow:
         name: 虚拟授权 Workflow
-      errors:
-        duplicate_authorization: 参与者已经被授权使用相同的数据。
       expired_at: 过期时间为 %{timestamp}
       expires_at: 于 %{timestamp} 过期
       foo_authorization:
@@ -381,7 +376,6 @@ zh-CN:
         ready: 准备好
       show:
         download_data: 下载数据
-        download_data_description: 包含与该帐户相关联的所有信息的文件将被发送到 <strong>%{user_email}</strong>
         request_data: 请求数据
     datepicker:
       help_text: '预期格式: %{datepicker_format}'
@@ -391,7 +385,6 @@ zh-CN:
           email_already_exists: 另一个帐户正在使用相同的电子邮件地址
         new:
           complete_profile: 完整资料
-          nickname_help: 您在 %{organization} 中的别名
           sign_up: 请填写您的个人资料
           subtitle: 请填写以下表单以完成注册
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
@@ -400,7 +393,6 @@ zh-CN:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          nickname_help: 您在 %{organization} 中的别名
           password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
           sign_in: 登录
           sign_up: 注册
@@ -592,7 +584,6 @@ zh-CN:
           notification_title: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_path}">个人资料页面</a> 已经更新。
     export_mailer:
       data_portability_export:
-        click_button: '点击下一个按钮下载您的数据。 <br/> 您将有文件直到 %{date}。 <br/> 您将需要 <a href=''https://www.7-zip.org/''>7-Zip</a> 来打开它。密码： %{password}'
         download: 下载
       export:
         ready: 请找到您导出的压缩版本。
@@ -624,7 +615,6 @@ zh-CN:
       create:
         button: 关注
         error: 关注此资源时出现问题。
-        participatory_space: 已经关注 <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: 停止关注
         error: 出现了一个不关注此资源的问题。
@@ -641,7 +631,6 @@ zh-CN:
         file:
           explanation: '文件指南：'
           message_1: 必须是图像或文档。
-          message_2: 对于图像，使用最好的景观图像，服务将图像作为图像。
         image:
           explanation: '图像指南：'
           message_1: 更喜欢一个没有任何文本的横屏图像。
@@ -883,7 +872,6 @@ zh-CN:
         show:
           back: 回到所有对话
           chat_with: 对话
-          not_allowed: 此用户不接受任何更多的直接消息。
           title: 与 %{usernames} 的对话
         start:
           send: 发送
@@ -997,24 +985,7 @@ zh-CN:
         metrics:
           headline: 指标
         statistics:
-          answers_count: 已完成的调查
-          assemblies_count: 程序集
-          comments_count: 评论
-          conferences_count: 会议
-          debates_count: 辩论
-          endorsements_count: 授权
           headline: 当前状态 %{organization}
-          meetings_count: 会议
-          orders_count: 所得票数
-          pages_count: 页 次
-          processes_count: 进程
-          projects_count: 项目
-          proposals_accepted: 已接受的提议
-          proposals_count: 建议
-          results_count: 成果
-          surveys_count: 调查
-          users_count: 参加者
-          votes_count: 所得票数
         sub_hero:
           register: 注册
       index:
@@ -1191,6 +1162,8 @@ zh-CN:
         close_window: 关闭窗口
         share: 分享
         share_link: 分享链接
+    statistics:
+      comments_count: 评论
     tags:
       filter_results_for_category: '分类筛选结果: %{resource}'
       filter_results_for_scope: '范围筛选结果: %{resource}'
@@ -1425,7 +1398,7 @@ zh-CN:
     messages:
       already_confirmed: 已经确认，请尝试登录
       confirmation_period_expired: 需要在 %{period}内确认, 请申请一个新的
-      content_type_whitelist_error: 文件类型无效
+      content_type_allowlist_error: 文件类型无效
       cycle_detected: 一个 scope 的父目录不能是它的后代之一。
       expired: 已过期，请申请一个新的
       file_size_is_less_than_or_equal_to: 文件大小必须小于或等于 %{count}
@@ -1442,9 +1415,6 @@ zh-CN:
       too_short: 太短(低于15个字符)
   forms:
     correct_errors: 表单上有错误，请更正以继续。
-    length_validator:
-      minimum:
-        other: 至少 %{count} 个字符
     required: 必填字段
     required_explanation: "* 必填字段用星号标记。"
   invisible_captcha:

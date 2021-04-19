@@ -30,6 +30,16 @@ module Decidim
 
     default_scope { order(arel_table[:weight].asc) }
 
+    scope :accessible_for, lambda { |organization, user|
+      collection = where(organization: organization)
+
+      if user.blank? && organization.force_users_to_authenticate_before_access_organization
+        collection.where(allow_public_access: true)
+      else
+        collection
+      end
+    }
+
     # Whether this is slug of a default page or not.
     #
     # slug - The String with the value of the slug.

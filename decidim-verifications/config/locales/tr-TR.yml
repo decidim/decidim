@@ -5,17 +5,17 @@ tr:
         available_methods: Mevcut yöntemler
         offline: Çevrimdışı
         offline_explanation: Çevrimdışı doğrulama için talimatlar
-        online: İnternet üzerinden
+        online: Çevrimiçi
       id_document_information:
         document_number: Belge numarası (harf ile)
         document_type: Belgenin türü
       id_document_upload:
         document_number: Belge numarası (harf ile)
-        document_type: Belgenizin tipi
-        user: kullanıcı
+        document_type: Belgenizin türü
+        user: Katılımcı
         verification_attachment: Belgenizin taranmış kopyası
       offline_confirmation:
-        email: Kullanıcı e-postası
+        email: Katılımcı e-postası
       postal_letter_address:
         full_address: Açık adres
       postal_letter_confirmation:
@@ -26,12 +26,16 @@ tr:
   decidim:
     admin:
       menu:
-        authorization_workflows: Doğrulama
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} Kimlik Belgeleri doğrulama yapılandırmasını güncelledi"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} bir çevrimdışı Kimlik Belgeleri doğrulaması kullanarak %{resource_name} doğrulandı"
+        authorization_revocation:
+          before_date_info: İşlem zaten başladıysa ve önceki işlemin izinlerini iptal etmek istiyorsanız kullanışlıdır.
+          button: Tümünü İptal Et
+          button_before: Tarihten önce iptal et
+          destroy:
+            confirm: Tarihten önce iptal yetkileri geri alınamaz. Devam etmek istediğine emin misin?
+            confirm_all: Tüm yetkilendirmeler geri alınamaz. Devam etmek istediğine emin misin?
+          destroy_nok: Yetkilendirmeler iptal edilirken bir sorun oluştu.
+          info: Toplam %{count} doğrulanmış katılımcı var.
+          no_data: Doğrulanmış katılımcı yok
     authorization_handlers:
       admin:
         csv_census:
@@ -42,7 +46,7 @@ tr:
           help:
             - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
             - Yüklenen görüntüdeki mevcut bilgileri doldurursunuz.
-            - Bilgi, kullanıcının doldurduğu her şeyle eşleşmelidir.
+            - Bilgiler, kullanıcının doldurduğu bilgilerle eşleşmelidir.
             - Bilgileri açıkça göremiyorsanız veya doğrulamıyorsanız, isteği reddedebilirsiniz ve kullanıcı bunu düzeltebilir.
         postal_letter:
           help:
@@ -63,12 +67,22 @@ tr:
       postal_letter:
         explanation: Size adresinizi doğrulayabilmemiz için girmeniz gereken bir kod içeren bir posta mektubu göndereceğiz.
         name: Posta mektubu ile kod
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Katılımcı <a href="%{resource_path}">%{resource_title} </a>, yönetilen katılımcının <a href="%{managed_user_path}">%{managed_user_name} </a> verileriyle kendini doğrulamaya çalıştı
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Bu, mevcut doğrulamanın verileridir:'
+          no_data_stored: Veri depolanmadı.
         create:
-          error: Yetkilendirme oluşturulurken bir hata oluştu.
+          error: Yetkilendirme oluşturulurken bir sorun oluştu.
           success: Başarılı bir şekilde yetkilendirildiniz.
           unconfirmed: Kendinizi yetkilendirmek için e-postanızı onaylamanız gerekiyor.
+        destroy:
+          error: Yetkilendirme silinirken bir sorun oluştu.
+          success: Yetkilendirmeyi başarıyla sildiniz.
         first_login:
           actions:
             another_dummy_authorization_handler: Başka bir yetkilendirme işleyicisi örneğiyle doğrulayın
@@ -77,14 +91,24 @@ tr:
             dummy_authorization_workflow: Örnek yetkilendirme iş akışına karşı doğrulayın
             id_documents: Kimlik belgenizi yükleyerek doğrulanma
             postal_letter: Posta koduyla doğrulama kodu alarak doğrulanma
-          title: Kimliginizi dogrulayin
+            sms: Bir SMS doğrulama kodu alarak doğrulanın
+          title: Kimliğini doğrula
           verify_with_these_options: 'Bunlar kimliğinizi doğrulamak için kullanılabilecek seçenekler:'
+        index:
+          expired_verification: Doğrulamanın süresi doldu
+          pending_verification: Doğrulama beklemede
+          show_renew_info: Doğrulamayı yenilemek için tıklayın
+          unauthorized_verification: Yeni doğrulama
         new:
           authorize: göndermek
-          authorize_with: '%{authorizer}ile doğrulayın'
+          authorize_with: '%{authorizer} ile doğrulayın'
         renew_modal:
-          cancel: İptal etmek
-        skip_verification: Bunu şimdilik ve %{link}için atlayabilirsiniz.
+          cancel: İptal Et
+          close: kapat
+          continue: Devam et
+          info_renew: Verileri güncellemek istiyorsanız, yenilemeye devam edin
+          title: Doğrulamayı yenile
+        skip_verification: Bunu şimdilik %{link} atlayabilirsiniz
         start_exploring: keşfetmeye başla
       csv_census:
         admin:
@@ -93,20 +117,22 @@ tr:
               error: Sayım alınırken bir hata oluştu.
               success: '%{count} öğe başarıyla içe aktarıldı (%{errors} hata)'
             destroy_all:
-              success: Tüm nüfus sayımı verileri silindi
+              success: Tüm sayım verileri silindi
           destroy:
-            confirm: Silinen tüm nüfus sayımı geri alınamaz. Devam etmek istediğine emin misin?
-            title: Tüm nüfus sayımı verilerini sil
+            confirm: Silinen tüm sayımlar geri alınamaz. Devam etmek istediğine emin misin?
+            title: Tüm sayım verilerini sil
           index:
             data: Toplam %{count} kayıt var. Son yükleme tarihi %{due_date}
             empty: Sayım verileri yok. Bir CSV dosyası kullanarak almak için aşağıdaki formu kullanın.
-            title: Mevcut nüfus sayımı verileri
+            title: Geçerli kayıt verisi
           instructions:
             body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
+            title: Bu kuruluş için CSV sayımını etkinleştirmeniz gerekiyor
           new:
             file: "e-posta verileri içeren .csv dosyası"
-            submit: Dosya yükleme
-            title: Yeni bir nüfus sayımı yükleyin
+            info: 'E-posta adresi içeren yalnızca bir sütuna sahip CSV biçiminde bir dosya olmalıdır:'
+            submit: Dosya yükle
+            title: Yeni bir sayım yükleyin
         authorizations:
           new:
             error: Hesabınızı doğrulayamadık veya kuruluşun sayımına girmediniz.
@@ -116,45 +142,46 @@ tr:
           postal_codes:
             one: Katılım, posta kodu %{postal_codes}olan kullanıcılarla sınırlıdır.
             other: 'Katılım, aşağıdaki posta kodlarından herhangi biriyle kullanıcılarla sınırlıdır: %{postal_codes}.'
+          scope: Katılım, %{scope_name} kapsamına sahip katılımcılarla sınırlıdır.
       id_documents:
         admin:
           config:
             edit:
               title: Kimlik belgeleri yapılandırması
-              update: Güncelleştirme
+              update: Güncelle
             update:
               error: Yapılandırma güncellenirken bir hata oluştu.
               success: Yapılandırma başarıyla güncellendi
           confirmations:
             create:
               error: Doğrulama uyuşmuyor. Tekrar deneyebilir veya doğrulamayı reddedebilir, böylece kullanıcı bunu değiştirebilir
-              success: Kullanıcı başarıyla doğrulandı
+              success: Katılımcı başarıyla doğrulandı
             new:
               introduce_user_data: Resimdeki verileri tanıtın
-              reject: reddetmek
-              verify: DOĞRULAYIN
+              reject: Reddet
+              verify: Doğrulama
           offline_confirmations:
             create:
-              error: Doğrulama uyuşmuyor. Tekrar dene veya kullanıcıyı değiştirmesini söyle
-              success: Kullanıcı başarıyla doğrulandı
+              error: Doğrulama eşleşmiyor. Lütfen tekrar deneyin veya katılımcıya düzeltmesini söyleyin
+              success: Katılımcı başarıyla doğrulandı
             new:
-              cancel: İptal etmek
-              introduce_user_data: Kullanıcı e-postasını ve belge verilerini tanıtın
-              verify: DOĞRULAYIN
+              cancel: İptal Et
+              introduce_user_data: Katılımcı e-postasını ve doküman verilerini tanıtın
+              verify: Doğrula
           pending_authorizations:
             index:
-              config: Yapılandırma
+              config: Yapılandır
               offline_verification: Çevrimdışı doğrulama
               title: Bekleyen çevrimiçi doğrulamalar
               verification_number: 'Doğrulama #%{n}'
           rejections:
             create:
-              success: Doğrulama reddedildi. Kullanıcı dokümanlarını değiştirmek için istenecektir
+              success: Doğrulama reddedildi. Katılımcıdan belgelerini değiştirmesi istenir
         authorizations:
           choose:
             choose_a_type: 'Lütfen nasıl doğrulanmak istediğinizi seçin:'
             offline: Çevrimdışı
-            online: İnternet üzerinden
+            online: Çevrimiçi
             title: Kimlik belgenizi kullanarak kendinizi doğrulayın
           create:
             error: Belgenizi yüklerken bir sorun oluştu
@@ -185,7 +212,7 @@ tr:
               mark_as_sent: Gönderildiği gibi işaretle
               not_yet_sent: Henüz gönderilmedi
               title: Devam eden doğrulamalar
-              username: Kullanıcı adı
+              username: Rumuz
               verification_code: Doğrulama kodu
           postages:
             create:
@@ -196,8 +223,8 @@ tr:
             error: İsteğiniz ile ilgili bir sorun vardı
             success: Teşekkürler! Adresinize bir doğrulama kodu göndereceğiz
           edit:
-            send: Onaylamak
-            title: Aldığınız doğrulama kodunu tanıtın
+            send: Onayla
+            title: Lütfen size gönderilen onay kodunu giriniz
             waiting_for_letter: Yakında doğrulama kodunuzla adresinize bir mektup gönderiyoruz
           new:
             send: Bana bir mektup gönder
@@ -216,14 +243,14 @@ tr:
             confirm_destroy: Doğrulama kodunu sıfırlamak istediğinizden emin misiniz?
             destroy: Doğrulama kodunu sıfırla
             resend: Doğrulama kodunu alamadınız mı?
-            send: Onaylamak
-            title: Aldığınız doğrulama kodunu tanıtın
+            send: Onayla
+            title: Lütfen size gönderilen onay kodunu giriniz
           new:
             send: Bana bir SMS gönder
             title: Doğrulama kodunuzu isteyin
           update:
             error: Doğrulama kodunuz bizimkilerle uyuşmuyor. Lütfen size gönderdiğimiz SMS'i tekrar kontrol edin.
-            success: Tebrikler. Başarıyla doğrulandı.
+            success: Tebrikler. Başarıyla doğrulandınız.
   errors:
     messages:
-      uppercase_only_letters_numbers: tüm büyük harf olmalı ve sadece harf ve / veya sayı içermelidir
+      uppercase_only_letters_numbers: tümü büyük harf olmalı ve yalnızca harf ve / veya rakam içermelidir

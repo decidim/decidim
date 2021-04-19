@@ -123,6 +123,8 @@ lv:
           questions: Jautājumi
           results: Rezultāti
         questions_submenu:
+          attachments: Pielikumi
+          categories: Kategorijas
           components: Komponenti
           configuration: Konfigurācija
           consultation: Konsultācija
@@ -329,10 +331,6 @@ lv:
           title: Kas ir konsultācijas?
     menu:
       consultations: Konsultācijas
-    pages:
-      home:
-        statistics:
-          consultations_count: Konsultācijas
     questions:
       next_button: Nākamais jautājums
       previous_button: Iepriekšējais jautājums
@@ -367,10 +365,6 @@ lv:
           vote: Balsot
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Pielikumi
-          categories: Kategorijas
       consultation_voting_data:
         start_voting_date: Balsojums sākas
       question_components:

@@ -1,0 +1,22 @@
+<div class="card__footer">
+  <div class="card__support">
+    <% if progress.present? %>
+      <div id="<%= "accountability-result-#{model.id}-progress" %>" class="progress__bar">
+        <div class="progress__bar__title">
+          <span class="progress__bar__number"><%= progress_text %></span>
+          <span class="progress__bar__text"><%= t("decidim.accountability.result_m.executed") %></span>
+        </div>
+        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuetext="<%= progress %> percent" aria-valuemax="100">
+          <div class="progress-meter progress__bar__bar--complete" style="width: <%= progress %>%"></div>
+          <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= progress %>%);"></div>
+        </div>
+      </div>
+    <% end %>
+
+    <%= link_to(
+      t("decidim.accountability.result_m.view"),
+      resource_path,
+      class: "card__button button button--sc secondary light small"
+    ) %>
+  </div>
+</div>

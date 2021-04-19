@@ -68,8 +68,13 @@ ro:
       actions:
         new_initiative_type: Noul tip de inițiativă
       menu:
+        attachments: Atașamente
+        committee_members: Membrii Comitetului
+        components: Componente
+        information: Informare
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative
+        moderations: Moderări
       models:
         initiatives:
           fields:
@@ -131,10 +136,7 @@ ro:
             email_subject: Piatră nouă finalizată!
             notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a obținut %{percentage}% de semnături.
         support_threshold_reached:
-          email_intro: Inițiativa %{resource_title} a atins pragul de sprijin
           email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
-          email_subject: Pragul de sprijin atins
-          notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a atins pragul de sprijin
     gamification:
       badges:
         initiatives:
@@ -292,10 +294,8 @@ ro:
         finish:
           back: Înapoi
           back_to_initiatives: Înapoi la inițiative
-          edit_my_initiative: Editează inițiativele mele
           go_to_my_initiatives: Mergeți la inițiativele mele
           more_information: "(Informaţii principale)"
-          send_my_initiative: Trimite-mi inițiativa
         previous_form:
           back: Înapoi
           continue: Continuă
@@ -405,15 +405,8 @@ ro:
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
         print:
-          city: Oraș
+          city: Localitate
         result:
-          answer_title:
-            accepted: Această propunere a fost acceptată deoarece
-            created: Această propunere a fost creată
-            discarded: Această propunere a fost respinsă deoarece
-            published: Această propunere este publicată deoarece
-            rejected: Această propunere a fost respinsă deoarece
-            validating: Această propunere este în curs de evaluare
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
         show:
           follow_description: Primiți o notificare atunci când există știri în această inițiativă
@@ -476,12 +469,6 @@ ro:
           vote: Semnare
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Atașamente
-          committee_members: Membrii Comitetului
-          components: Componente
-          information: Informare
       initiative_creation_header:
         back: Înapoi
         fill_data: Crează

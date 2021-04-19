@@ -47,10 +47,53 @@ module Decidim
     end
 
     describe "#show" do
+      shared_examples "handling parameter values for stored location correctly" do
+        context "with short URL parameters" do
+          it "sets the original parameters to the stored location" do
+            get :show, params: { a: "123", b: "456" }
+
+            expect(session[:user_return_to]).to eq("/show?a=123&b=456")
+          end
+        end
+
+        context "with over 3 KB long URL parameters" do
+          it "strips the parameters out of the stored location" do
+            get :show, params: { a: "1" * 3073 }
+
+            expect(session[:user_return_to]).to eq("/show")
+          end
+        end
+
+        context "with non-cookie based session store" do
+          let(:long_parameters) do
+            { a: "1" * 4096, b: "2" * 4096 }
+          end
+          let(:url_params) do
+            long_parameters.map do |key, val|
+              "#{key}=#{val}"
+            end.join("&")
+          end
+
+          before do
+            allow(Rails.application.config).to receive(:session_store).and_return(
+              ActionDispatch::Session::CacheStore
+            )
+          end
+
+          it "sets the original parameters to the stored location" do
+            get :show, params: long_parameters
+
+            expect(session[:user_return_to]).to eq("/show?#{url_params}")
+          end
+        end
+      end
+
       context "when authenticated" do
         before do
           sign_in user
         end
+
+        it_behaves_like "handling parameter values for stored location correctly"
 
         it "sets the appropiate headers" do
           get :show
@@ -88,6 +131,8 @@ module Decidim
       end
 
       context "when not authenticated" do
+        it_behaves_like "handling parameter values for stored location correctly"
+
         it "sets the appropiate headers" do
           get :show
 

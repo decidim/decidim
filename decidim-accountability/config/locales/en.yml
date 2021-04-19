@@ -33,6 +33,8 @@ en:
   decidim:
     accountability:
       actions:
+        attachment_collections: Folders
+        attachments: Attachments
         confirm_destroy: Are you sure you want to delete this %{name}?
         destroy: Delete
         edit: Edit
@@ -43,6 +45,7 @@ en:
         title: Actions
       admin:
         exports:
+          result_comments: Comments
           results: Results
         import_results:
           new:
@@ -122,6 +125,11 @@ en:
         value_types:
           parent_presenter:
             not_found: 'The parent was not found on the database (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Dates
+          results: Results
+          unspecified: Not specified
       import_mailer:
         import:
           errors: Errors
@@ -134,8 +142,12 @@ en:
       models:
         result:
           fields:
+            category: Category
+            created_at: Created
             end_date: End date
+            id: ID
             progress: Progress
+            scope: Scope
             start_date: Start date
             status: Status
             title: Title
@@ -149,6 +161,9 @@ en:
           fields:
             description: Description
             entry_date: Date
+      result_m:
+        executed: Executed
+        view: View
       results:
         count:
           results_count:
@@ -179,6 +194,15 @@ en:
             votes: Supports
         timeline:
           title: Project evolution
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Category
+          scope_id_eq:
+            label: Scope
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Accountability
@@ -213,10 +237,6 @@ en:
         description: Number of results generated
         object: results
         title: Results
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Results
     participatory_spaces:
       highlighted_results:
         see_all: See all results (%{count})
@@ -225,3 +245,5 @@ en:
         result_project: Projects included in this result
       included_proposals:
         result_proposal: Proposals included in this result
+    statistics:
+      results_count: Results

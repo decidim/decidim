@@ -34,11 +34,15 @@ sv:
         subtitle: Underrubrik
         target: Vilka deltar
         title: Titel
+        weight: Vikt
       participatory_process_group:
         description: Beskrivning
+        group_url: Webbplats
+        hashtag: Hashtag
         hero_image: Bild
-        name: Namn
         participatory_process_ids: Relaterade dialoger
+        participatory_scope: Vad som bestäms
+        title: Titel
       participatory_process_step:
         cta_path: Uppmaningens sökväg
         cta_text: Uppmaningens text
@@ -94,6 +98,9 @@ sv:
         unpublish: Avpublicera
       menu:
         participatory_process_groups: Dialoggrupper
+        participatory_process_groups_submenu:
+          info: Info
+          landing_page: Landningssida
         participatory_processes: Dialoger
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -117,7 +124,7 @@ sv:
           name: Dialog
         participatory_process_group:
           fields:
-            name: Namn
+            title: Titel
           name: Dialoggrupp
         participatory_process_step:
           fields:
@@ -145,6 +152,9 @@ sv:
           copy: Kopiera
           select: Välj vilka data som du vill duplicera
           title: Duplicera dialog
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Uppdatera
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera dialoggruppen.
@@ -244,7 +254,7 @@ sv:
           success: Dialoggruppen har skapats.
       titles:
         participatory_process_groups: Dialoggrupper
-        participatory_processes: Dialoggrupper
+        participatory_processes: Dialoger
       users:
         resend_invitation:
           error: Det gick inte att skicka inbjudan igen.
@@ -301,10 +311,30 @@ sv:
       show:
         related_assemblies: Relaterade sammankomster
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Första HTML-block
+        html_2:
+          name: Andra HTML-block
+        html_3:
+          name: Tredje HTML-block
+        metadata:
+          developer_group: Annonserad av
+          name: Metadata
+          participatory_scope: Vad som bestäms
+          participatory_structure: Hur det bestäms
+          target: Vem deltar
+        participatory_processes:
+          name: Dialoger
+        stats:
+          name: Statistik
+        title:
+          meta_scope: Omfång
+          name: Titel, beskrivning och hashtag
+          participatory_processes:
+            one: 1 dialog
+            other: "%{count} dialoger"
       show:
-        group_participatory_processes:
-          one: En dialog för %{group}
-          other: "%{count} dialoger för %{group}"
         title: Dialoggrupper
     participatory_process_steps:
       index:
@@ -321,6 +351,11 @@ sv:
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadata
+            title: Allmän information
+            visibility: Synlighet
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
@@ -358,11 +393,11 @@ sv:
             active_step: Aktivt steg
             more_information: Mer information
             participate: Delta
-            participate_in: Delta i processen %{resource_name}
+            participate_in: Delta i dialogen %{resource_name}
             see_all_processes: Visa alla dialoger
       participatory_process_steps:
         index:
-          back_to_process: Tillbaka till processsidan
+          back_to_process: Tillbaka till dialogsidan
       participatory_processes:
         filters:
           counters:
@@ -392,6 +427,7 @@ sv:
           loading: Läser in resultat...
       show:
         area: Område
+        belongs_to_group: Denna dialog tillhör
         dates: Datum
         developer_group: Kampanjgrupp
         end_date: Slutdatum
@@ -404,25 +440,8 @@ sv:
         start_date: Startdatum
         target: Vilka deltar
         unspecified: Ej angivet
-      statistics:
-        answers_count: Svar
-        comments_count: Kommentarer
-        debates_count: Debatter
-        endorsements_count: Underskrifter
-        followers_count: Följare
-        headline: Statistik
-        meetings_count: Möten
-        no_stats: Det finns ingen statistik ännu.
-        orders_count: Stöd
-        pages_count: Sidor
-        participants_count: Deltagare
-        processes_count: Dialoger
-        projects_count: Projekt
-        proposals_count: Förslag
-        results_count: Resultat
-        supports_count: Stöd
-        surveys_count: Undersökningar
-        users_count: Deltagare
+    statistics:
+      processes_count: Dialoger
   layouts:
     decidim:
       participatory_process_groups:
@@ -442,13 +461,15 @@ sv:
           more_info: Mer information
           more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
-          take_part_in: Delta i processen %{resource_name}
+          take_part_in: Delta i dialogen %{resource_name}
         promoted_process:
           active_step: 'Aktuellt steg:'
           more_info: Mer information
-          more_info_about: Mer information om processen %{resource_name}
+          more_info_about: Mer information om dialogen %{resource_name}
           take_part: Delta
-          take_part_in: Delta i processen %{resource_name}
+          take_part_in: Delta i dialogen %{resource_name}
+        promoted_process_group:
+          more_info: Mer information
       process_header_steps:
         step: Steg %{current} av %{total}
         view_steps: Visa steg

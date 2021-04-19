@@ -428,11 +428,6 @@ sk:
         description: Počet vytvorených stretnutí
         object: stretnutia
         title: Stretnutia
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Minulé schôdze
-          upcoming_meetings: Nadchádzajúce schôdzky
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schôdze

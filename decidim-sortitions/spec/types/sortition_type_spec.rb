@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Sortitions
     describe SortitionType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:sortition) }
 
@@ -96,6 +96,14 @@ module Decidim
 
         it "returns when the sortition was updated" do
           expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        end
+      end
+
+      describe "candidateProposals" do
+        let(:query) { "{ candidateProposals }" }
+
+        it "returns the candidateProposals field" do
+          expect(response["candidateProposals"]).to eq(model.candidate_proposals)
         end
       end
 

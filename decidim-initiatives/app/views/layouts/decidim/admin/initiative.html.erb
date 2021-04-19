@@ -1,54 +1,7 @@
-<% content_for :secondary_nav do %>
-  <div class="secondary-nav secondary-nav--subnav">
-    <ul>
-      <%= public_page_link decidim_initiatives.initiative_path(current_participatory_space) %>
-      <% if allowed_to? :edit, :initiative, initiative: current_participatory_space %>
-        <li <% if is_active_link?(decidim_admin_initiatives.edit_initiative_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t(".information"), decidim_admin_initiatives.edit_initiative_path(current_participatory_space) %>
-        </li>
-      <% end %>
-
-      <% if current_participatory_space.promoting_committee_enabled? && allowed_to?(:manage_membership, :initiative, initiative: current_participatory_space) %>
-        <li <% if is_active_link?(decidim_admin_initiatives.initiative_committee_requests_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t(".committee_members"), decidim_admin_initiatives.initiative_committee_requests_path(current_participatory_space) %>
-        </li>
-      <% end %>
-
-      <% if allowed_to? :read, :component, initiative: current_participatory_space %>
-        <li <% if is_active_link?(decidim_admin_initiatives.components_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t(".components"), decidim_admin_initiatives.components_path(current_participatory_space) %>
-          <ul>
-            <% current_participatory_space.components.each do |component| %>
-              <% if component.manifest.admin_engine %>
-                <li <% if is_active_link?(manage_component_path(component)) %> class="is-active" <% end %>>
-                  <%= link_to manage_component_path(component) do %>
-                    <%= translated_attribute component.name %>
-                    <% if component.primary_stat.present? %>
-                      <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>">
-                        <%= component.primary_stat %>
-                      </span>
-                    <% end %>
-                  <% end %>
-                </li>
-              <% end %>
-            <% end %>
-          </ul>
-        </li>
-      <% end %>
-
-      <% if allowed_to? :read, :attachment, initiative: current_participatory_space %>
-        <li <% if is_active_link?(decidim_admin_initiatives.initiative_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t(".attachments"), decidim_admin_initiatives.initiative_attachments_path(current_participatory_space) %>
-        </li>
-      <% end %>
-
-      <% if allowed_to? :read, :moderation %>
-        <li <% if is_active_link?(decidim_admin_initiatives.moderations_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_initiatives.moderations_path(current_participatory_space) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<% content_for :sidebar_menu_nav do %>
+  <%= sidebar_menu(:admin_initiative_menu).render do
+    public_page_link decidim_initiatives.initiative_path(current_participatory_space)
+  end %>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>

@@ -288,10 +288,6 @@
         description: Antall støtter til forslag
         object: støtter
         title: Støtter
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Forslag
     participatory_spaces:
       highlighted_proposals:
         see_all: Vis alle (%{count})
@@ -307,7 +303,6 @@
         actions:
           preview: Forhåndsvis
         exports:
-          comments: Kommentarer
           proposals: Forslag
         models:
           proposal:
@@ -490,13 +485,6 @@
               ok: Trakk tilbake samarbeids utkastet
               title: Følgende handling kan ikke gjøres om
             success: Samarbeids utkast trukket.
-        compare:
-          mine_is_different: Mitt samarbeids utkast er annerledes
-          no_similars_found: Bra gjort! Ingen lignende samarbeids utkast ble funnet
-          title: Lignende samarbeids utkast
-        complete:
-          send: Send
-          title: Fullfør samarbeids utkastet
         count:
           drafts_count:
             one: "%{count} samarbeids utkast"
@@ -528,7 +516,6 @@
           unfold: Åpne
         new:
           send: Fortsett
-          title: Opprett Ditt samarbeids utkast
         new_collaborative_draft_button:
           new_collaborative_draft: Nytt samarbeids utkast
         orders:
@@ -574,14 +561,9 @@
           error: Det oppstod et problem med å lagre samarbeids utkastet.
           success: Samarbeids utkast oppdatert.
         wizard_aside:
-          back: Tilbake
           info: Du oppretter et <strong>samarbeids utkast</strong>.
-        wizard_steps:
-          see_steps: se trinn
-          step_1: Opprett ditt samarbeids utkast
-          step_2: Sammenlign med samarbeids utkastene
-          step_3: Fullfør samarbeids utkastet
-          step_of: Trinn %{current_step_num} av %{total_steps}
+        wizard_header:
+          title: Opprett ditt samarbeids utkast
       create:
         error: Det oppstod et problem med å lagre forslaget.
         success: Forslag opprettet. Lagret som et utkast.
@@ -661,7 +643,7 @@
           filter_by: Filtrer etter
           unfold: Åpne
         index:
-          collaborative_drafts_list: Tilgang til samarbeids utkaster
+          collaborative_drafts_list: Lag utkast sammen med andre
           new_proposal: Nytt forslag
           see_all_withdrawn: Se alle tilbaketrukne forslag
           view_proposal: Se forslag
@@ -673,7 +655,7 @@
           send: Fortsett
           title: Opprett Ditt forslag
         orders:
-          label: 'Bestill forslag av:'
+          label: 'Sorter forslag:'
           most_commented: Flest kommentarer
           most_endorsed: Mest påtegnet
           most_followed: Mest fulgte

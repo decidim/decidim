@@ -30,6 +30,16 @@ module Decidim
         root to: "questionnaire_templates#index"
       end
 
+      initializer "decidim_participatory_processes.admin_participatory_processes_menu" do
+        Decidim.menu :admin_template_types_menu do |menu|
+          template_types.each_pair do |name, url|
+            menu.add_item name, name, url,
+                          if: allowed_to?(:index, :templates),
+                          active: is_active_link?(url)
+          end
+        end
+      end
+
       initializer "decidim_templates.admin_mount_routes" do
         Decidim::Core::Engine.routes do
           mount Decidim::Templates::AdminEngine, at: "/admin/templates", as: "decidim_admin_templates"
@@ -38,11 +48,12 @@ module Decidim
 
       initializer "decidim_templates.admin_menu" do
         Decidim.menu :admin_menu do |menu|
-          menu.item I18n.t("menu.templates", scope: "decidim.admin", default: "Templates"),
-                    decidim_admin_templates.questionnaire_templates_path,
-                    icon_name: "document",
-                    position: 12,
-                    active: :inclusive
+          menu.add_item :questionnaire_templates,
+                        I18n.t("menu.templates", scope: "decidim.admin", default: "Templates"),
+                        decidim_admin_templates.questionnaire_templates_path,
+                        icon_name: "document",
+                        position: 12,
+                        active: :inclusive
         end
       end
 

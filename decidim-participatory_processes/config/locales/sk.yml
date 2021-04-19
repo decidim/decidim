@@ -37,7 +37,6 @@ sk:
       participatory_process_group:
         description: Popis
         hero_image: obraz
-        name: názov
         participatory_process_ids: Súvisiace procesy
       participatory_process_step:
         cta_path: Cesta k akcii
@@ -122,8 +121,6 @@ sk:
             title: Titul
           name: Participatívne proces
         participatory_process_group:
-          fields:
-            name: názov
           name: Skupina procesov
         participatory_process_step:
           fields:
@@ -299,12 +296,10 @@ sk:
         object: participatívne procesy
         title: Participatívne procesy
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Štatistiky
       show:
-        group_participatory_processes:
-          one: 1 proces pre %{group}
-          few: "%{count} procesy pre %{group}"
-          many: "%{count} procesov pre %{group}"
-          other: "%{count} procesov pre %{group}"
         title: Skupiny participatívnych procesov
     participatory_process_steps:
       index:
@@ -404,25 +399,6 @@ sk:
         start_date: Dátum začatia
         target: Kto sa zúčastňuje
         unspecified: Nešpecifikované
-      statistics:
-        answers_count: Odpovede
-        comments_count: Komentáre
-        debates_count: Debaty
-        endorsements_count: Schválenie
-        followers_count: Sledujúci
-        headline: Štatistiky
-        meetings_count: Stretnutie
-        no_stats: Zatiaľ nie sú žiadne štatistiky.
-        orders_count: Hlasy
-        pages_count: Stránky
-        participants_count: Účastníci
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledok
-        supports_count: Hlasy
-        surveys_count: Prieskumy
-        users_count: Účastníci
   layouts:
     decidim:
       participatory_process_groups:

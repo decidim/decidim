@@ -5,7 +5,7 @@ require "decidim/dev"
 
 FactoryBot.define do
   sequence(:assembly_slug) do |n|
-    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
+    "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
   factory :assemblies_setting, class: "Decidim::AssembliesSetting" do
@@ -53,6 +53,7 @@ FactoryBot.define do
     instagram_handler { "others" }
     youtube_handler { "others" }
     github_handler { "others" }
+    weight { 1 }
 
     trait :with_type do
       assembly_type { create :assemblies_type, organization: organization }

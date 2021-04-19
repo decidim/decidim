@@ -94,6 +94,7 @@ nl:
         create:
           error: Er was een probleem bij het creëren van een nieuwe raadpleging.
           success: Overleg succesvol aangemaakt.
+        deprecation_warning: Consultatiemodule zal in de nabije toekomst niet meer worden ondersteund. We werken aan de volgende veilig versleutelde versie genaamd Votings.
         edit:
           update: Bijwerken
         form:
@@ -113,12 +114,14 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit overleg.
           success: Overleg succesvol bijgewerkt.
       menu:
-        consultations: burgerinspraak
+        consultations: Burgerinspraaken
         consultations_submenu:
           info: Informatie
           questions: vragen
           results: Resultaten
         questions_submenu:
+          attachments: Bijlagen
+          categories: Categorieën
           components: Onderdelen
           configuration: Configuratie
           consultation: Raadpleging
@@ -131,8 +134,8 @@ nl:
             published: Gepubliceerd
             title: Titel
           name:
-            one: Raadpleging
-            other: Raadplegingen
+            one: Burgerinspraak 
+            other: Burgerinspraken
         question:
           fields:
             created_at: Aangemaakt op
@@ -216,7 +219,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
           success: Reactie is bijgewerkt.
       titles:
-        consultations: Burgerinspraak
+        consultations: Burgerinspraaken
         questions: vragen
         response_groups: Responsgroepen
         responses: Antwoorden
@@ -260,7 +263,7 @@ nl:
       highlighted_questions:
         title: Vragen vanaf %{scope_name}
       index:
-        title: Burgerinspraak
+        title: Burgerinspraaken
       last_activity:
         new_consultation: Nieuw overleg
         new_question_at_html: "<span>Nieuwe vraag op %{link}</span>"
@@ -320,11 +323,7 @@ nl:
         consultations:
           title: Wat zijn raadplegingen?
     menu:
-      consultations: Burgerinspraak
-    pages:
-      home:
-        statistics:
-          consultations_count: Raadplegingen
+      consultations: Burgerinspraaken
     questions:
       next_button: Volgende vraag
       previous_button: Vorige vraag
@@ -359,12 +358,11 @@ nl:
       consultations:
         actions:
           vote: Stem
+    statistics:
+      consultations_count: Raadplegingen
+      votes_count: Stemmen
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Bijlagen
-          categories: Categorieën
       consultation_voting_data:
         start_voting_date: Stemmen begint
       question_components:

@@ -30,7 +30,44 @@ shared_examples "import proposals" do
     confirm_current_path
   end
 
+  it "imports proposals from a csv file" do
+    find(".imports.dropdown").click
+    click_link "Import from a file"
+
+    attach_file("import_file", Decidim::Dev.asset("import_proposals.csv"))
+
+    click_button "Import"
+
+    confirm_flash_message
+    confirm_current_path
+  end
+
+  it "imports proposals from a json file" do
+    find(".imports.dropdown").click
+    click_link "Import from a file"
+
+    attach_file("import_file", Decidim::Dev.asset("import_proposals.json"))
+
+    click_button "Import"
+
+    confirm_flash_message
+    confirm_current_path
+  end
+
+  it "imports proposals from a excel file" do
+    find(".imports.dropdown").click
+    click_link "Import from a file"
+
+    attach_file("import_file", Decidim::Dev.asset("import_proposals.xlsx"))
+
+    click_button "Import"
+
+    confirm_flash_message
+    confirm_current_path
+  end
+
   def fill_form(keep_authors: false)
+    find(".imports.dropdown").click
     click_link "Import from another component"
 
     within ".import_proposals" do

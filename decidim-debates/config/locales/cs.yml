@@ -67,6 +67,10 @@ cs:
           edit:
             title: Upravit debatu
             update: Aktualizovat debatu
+          form:
+            debate_type: Typ debaty
+            finite: Konečný (s počátečním a koncovým obdobím)
+            open: Otevřený (žádné počáteční nebo koncové období)
           index:
             title: Debaty
           new:
@@ -75,6 +79,8 @@ cs:
           update:
             invalid: Při aktualizaci této debaty došlo k problému.
             success: Debata byla úspěšně aktualizována.
+        exports:
+          comments: Komentáře
         models:
           debate:
             name: Debata
@@ -156,6 +162,7 @@ cs:
           groups_count: Skupiny
           last_comment_by: Poslední komentář od
           no_comments_yet: Zatím žádné komentáře
+          open: Otevřít diskusi
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.
@@ -168,6 +175,7 @@ cs:
         versions_list:
           back_to_resource: Přejít zpět k debatě
       last_activity:
+        debate_updated_at_html: "<span>Debata byla aktualizována na %{link}</span>"
         new_debate_at_html: "<span>Nová debata na %{link}</span>"
       models:
         debate:
@@ -190,7 +198,7 @@ cs:
             email_intro: |-
               Ahoj,
               %{author_name} %{author_nickname}, kterého sledujete, vytvořil novou debatu "%{resource_title}". Omrkněte ji a přispějte:
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Na předchozím odkazu můžete přestat přijímat oznámení.
+            email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_nickname}. Na předchozím odkazu můžete zrušit přijem oznámení.
             email_subject: Nová debata "%{resource_title}" od %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil <a href="%{resource_path}">%{resource_title}</a> debatu.
         creation_disabled:
@@ -231,3 +239,5 @@ cs:
         description: Počet vytvořených debat
         object: debaty
         title: Debaty
+    statistics:
+      debates_count: Debaty

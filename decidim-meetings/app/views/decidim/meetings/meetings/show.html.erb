@@ -55,26 +55,26 @@ edit_link(
         <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
       </div>
       <% if meeting.closed? %>
+        <% double = meeting.has_contributions? && meeting.has_attendees? %>
         <div class="card card--secondary extra definition-data">
-          <% if meeting.contributions_count && meeting.contributions_count.positive? %>
-            <div class="definition-data__item definition-data__item--double">
-              <span class="definition-data__title"><%= t(".attendees") %></span>
-              <span class="definition-data__number"><%= meeting.attendees_count %></span>
-            </div>
-            <div class="definition-data__item definition-data__item--double">
+          <% if meeting.has_contributions? %>
+            <div class="definition-data__item <%= "definition-data__item--double" if double %>">
               <span class="definition-data__title"><%= t(".contributions") %></span>
               <span class="definition-data__number"><%= meeting.contributions_count %></span>
             </div>
-          <% else %>
-            <div class="definition-data__item">
+          <% end %>
+          <% if meeting.has_attendees? %>
+            <div class="definition-data__item <%= "definition-data__item--double" if double %>">
               <span class="definition-data__title"><%= t(".attendees") %></span>
               <span class="definition-data__number"><%= meeting.attendees_count %></span>
             </div>
           <% end %>
-          <div class="definition-data__item">
-            <span class="definition-data__title"><%= t(".organizations") %></span>
-            <span class="definition-data__text"><%= simple_format(meeting.attending_organizations) %></span>
-          </div>
+          <% if meeting.attending_organizations %>
+            <div class="definition-data__item">
+              <span class="definition-data__title"><%= t(".organizations") %></span>
+              <span class="definition-data__text"><%= simple_format(meeting.attending_organizations) %></span>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -128,6 +128,9 @@ edit_link(
 
       <% if meeting.online_meeting? %>
         <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+      <% elsif meeting.hybrid_meeting? %>
+       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+       <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
       <% else %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <% end %>
@@ -173,10 +176,4 @@ edit_link(
 <%= comments_for meeting %>
 <%= pad_iframe_for meeting %>
 
-<%=
-  render partial: "decidim/shared/flag_modal", locals: {
-    reportable: meeting,
-    form: @report_form,
-    url: decidim.report_path(sgid: meeting.to_sgid.to_s)
-  }
-%>
+<%= cell("decidim/flag_modal", meeting) %>

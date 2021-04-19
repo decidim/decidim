@@ -42,6 +42,7 @@ module Decidim
           description: {
             I18n.locale => parsed_description
           },
+          scope: form.scope,
           component: form.current_component
         }
 

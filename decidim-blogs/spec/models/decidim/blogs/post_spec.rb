@@ -40,6 +40,26 @@ module Decidim::Blogs
       expect(post.component).to be_a(Decidim::Component)
     end
 
+    describe "#visible?" do
+      subject { post.visible? }
+
+      context "when component is not published" do
+        before do
+          allow(post.component).to receive(:published?).and_return(false)
+        end
+
+        it { is_expected.not_to be_truthy }
+      end
+
+      context "when participatory space is visible" do
+        before do
+          allow(post.component.participatory_space).to receive(:visible?).and_return(false)
+        end
+
+        it { is_expected.not_to be_truthy }
+      end
+    end
+
     describe "#endorsed_by?" do
       let(:user) { create(:user, organization: subject.organization) }
 

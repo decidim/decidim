@@ -22,8 +22,12 @@ en:
           global:
             announcement: Announcement
             clean_after_publish: Delete answers when publishing the survey
+            ends_at: Answers accepted until
+            ends_at_help: Leave blank for no specific date
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            starts_at: Answers accepted from
+            starts_at_help: Leave blank for no specific date
           step:
             allow_answers: Allow answers
             allow_unregistered: Allow unregistered users to answer the survey
@@ -46,6 +50,8 @@ en:
         description: Number of surveys answered by participants
         object: answers to surveys
         title: Answers to surveys
+    statistics:
+      answers_count: Answers
     surveys:
       admin:
         exports:

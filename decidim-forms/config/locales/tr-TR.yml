@@ -3,6 +3,8 @@ tr:
     attributes:
       answer:
         body: Cevap
+        choices: Seçenekler
+        selected_choices: Seçilmiş seçenekler
       question:
         max_choices: Maksimum seçenek sayısı
         question_type: tip
@@ -15,6 +17,8 @@ tr:
             choices:
               missing: tamamlanmadı
               too_many: çok fazla
+        questionnaire:
+          request_invalid: İsteği işlerken bir hata oluştu. Lütfen tekrar deneyin
   decidim:
     forms:
       admin:
@@ -23,42 +27,108 @@ tr:
             description: Açıklama
             tos: Kullanım Şartları
         questionnaires:
+          actions:
+            back: Sorulara geri dön
+            show: Yanıtları göster
           answer_option:
             answer_option: Cevap seçeneği
             free_text: Ücretsiz Metin
             remove: Kaldır
             statement: Beyan
+          answers:
+            actions:
+              back: Yanıtlara dön
+              export: Dışa aktar
+              show: Cevapları göster
+            empty: Henüz cevap bulunmuyor
+            export:
+              answer:
+                title: '#%{number} yanıt'
+            export_response:
+              title: survey_user_answers _%{token}
+            index:
+              title: "%{total} toplam yanıt"
+            show:
+              title: '%{number} cevap'
+          display_condition:
+            answer_option: Cevap seçeneği
+            condition_question: Soru
+            condition_type: Durum
+            condition_types:
+              answered: Cevaplanmış
+              equal: Eşittir
+              match: Metin içerir
+              not_answered: Cevaplanmadı
+              not_equal: Eşit değil
+            condition_value: Metin içerir
+            display_condition: Görüntüleme koşulları
+            mandatory: Bu koşul, diğer koşulların durumuna bakılmaksızın her zaman yerine getirilmelidir
+            remove: Kaldır
+            save_warning: Görüntüleme koşullarını yapılandırmadan önce formu kaydetmeyi unutmayın
+            select_answer_option: Cevap seçeneğini seçin
+            select_condition_question: Bir soru seçin
+            select_condition_type: Bir koşul türü seçin
           edit:
             save: Kayıt etmek
+            title: Anketi düzenleyin
           form:
             add_question: Soru ekle
+            add_separator: Ayırıcı ekle
             already_answered_warning: Form, bazı kullanıcılar tarafından zaten yanıtlandı, bu nedenle sorularını değiştiremezsiniz.
+            collapse: Tüm soruları daraltın
+            expand: Tüm soruları genişletin
+            preview: Önizleme
+            title: '%{questionnaire_for} için formu düzenleyin'
+            unpublished_warning: Form yayınlanmadı. Sorularını değiştirebilirsiniz, ancak bunu yapmak mevcut cevapları silecektir.
           matrix_row:
+            matrix_row: Satır
             remove: Kaldır
             statement: Beyan
           question:
             add_answer_option: Cevap seçeneği ekle
+            add_display_condition: Görüntü koşulu ekle
+            add_display_condition_info: Görüntüleme koşullarını yapılandırmak için formu kaydedin
+            add_matrix_row: Satır ekle
             any: herhangi
+            collapse: Daralt
             description: Açıklama
             down: Aşağı
+            expand: Genişlet
             question: Soru
             remove: Kaldır
             statement: Beyan
             up: yukarı
+          separator:
+            down: Aşağı
+            remove: Kaldır
+            separator: Ayraç
+            up: Yukarı
           update:
             invalid: Formu kaydederken bir sorun oluştu.
+            success: Başarıyla kaydedildi.
       errors:
         answer:
           body: Vücut boş olamaz
+      files:
+        extension_allowlist: 'Kabul edilen biçimler:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Bu resim:'
+        processors:
+          resize_and_pad: Yeniden boyutlandırıldı ve dolduruldu
+          resize_to_fit: Sığacak şekilde yeniden boyutlandırıldı
       question_types:
         long_answer: Uzun cevap
+        matrix_multiple: Matris (Çoklu seçenek)
+        matrix_single: Matris (Tek seçenek)
         multiple_option: Çoklu seçenek
         short_answer: Kısa cevap
         single_option: Tek seçenek
-        sorting: sınıflandırma
+        sorting: Sıralama
       questionnaires:
         answer:
           invalid: Formu yanıtlarken bir sorun oluştu.
+          max_choices_alert: Çok fazla seçenek seçilmiş
           success: Form başarıyla cevaplandı.
         question:
           max_choices: 'Maksimum seçenek: %{n}'
@@ -66,6 +136,8 @@ tr:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Formu yanıtlamak için</a> veya <a href="%{sign_up_link}">hesabınızla giriş yapın</a>.
             title: Formu cevapla
+          current_step: '%{step} adım'
+          of_total_steps: '%{total_steps}'
           questionnaire_answered:
             body: Bu formu zaten cevapladınız.
             title: Zaten cevaplandı
@@ -75,11 +147,26 @@ tr:
           questionnaire_for_private_users:
             body: Form yalnızca özel kullanıcılar tarafından kullanılabilir
             title: Form kapatıldı
+          questionnaire_js_disabled:
+            body: Bu formun bazı özellikleri devre dışı bırakılacak. Deneyiminizi iyileştirmek için lütfen tarayıcınızda JavaScript'i etkinleştirin.
+            title: JavaScript devre dışı
+          questionnaire_not_published:
+            body: Bu form henüz yayınlanmadı.
           tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
       step_navigation:
         show:
           are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
+          back: Geri
+          continue: Devam et
           submit: Gönder
       user_answers_serializer:
+        body: Cevap
+        completion: Tamamlanma
         created_at: Yanıtlandı
         id: Cevap kimliği
+        ip_hash: IP Hash
+        question: Soru
+        registered: Kayıtlı
+        session_token: Kullanıcı tanımlayıcı
+        unregistered: Kayıtlı değil
+        user_status: Kullanıcı durumu

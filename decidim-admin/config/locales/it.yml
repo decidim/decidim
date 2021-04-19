@@ -24,7 +24,6 @@ it:
       component:
         name: Nome
         published_at: Pubblicato il
-        weight: Peso
       id: ID
       newsletter:
         body: Testo
@@ -55,6 +54,9 @@ it:
         highlighted_content_banner_title: Titolo
         instagram_handler: Gestore di Instagram
         logo: Logo
+        machine_translation_display_priority: Priorità di visualizzazione della traduzione automatica
+        machine_translation_display_priority_original: Prima il testo originale
+        machine_translation_display_priority_translation: Prima il testo tradotto
         name: Nome
         official_img_footer: Logo ufficiale nel footer
         official_img_header: Intestazione logo ufficiale
@@ -87,19 +89,20 @@ it:
         name: Nome
         organization: Organizzazione
         plural: Plurale
+      settings:
+        scope_id: Obiettivi
       static_page:
+        allow_public_access: Consenti l'accesso senza autenticazione
         changed_notably: Ci sono stati cambiamenti evidenti.
         content: Contenuto
         organization: Organizzazione
         show_in_footer: Mostra nel footer
         slug: URL slug
         title: Titolo
-        weight: Peso
       static_page_topic:
         description: Descrizione
         show_in_footer: Mostra nel footer
         title: Titolo
-        weight: Peso
       user_group_csv_verification:
         file: File
     errors:
@@ -128,20 +131,33 @@ it:
     admin:
       actions:
         add: Aggiungi
+        attachment:
+          new: Nuovo allegato
+        attachment_collection:
+          new: Nuova collezione di allegati
         browse: Naviga
+        category:
+          new: Nuova categoria
         export: Esporta
         manage: Gestisci
         new: Nuovo %{name}
+        newsletter:
+          new: Nuova newsletter
+        participatory_space_private_user:
+          new: Nuovo utente dello spazio partecipativo privato
         per_page: Per pagina
         permissions: Permessi
         reject: Rifiuta
+        share: Condividi
+        user:
+          new: Nuovo utente
         verify: Verifica
       admin_terms_of_use:
         accept:
           error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
           success: Ottimo! Hai accettato i termini d'uso dell'amministratore.
         actions:
-          accept: Accetto i termini di amministrazione
+          accept: Sono d'accordo con i seguenti termini
           are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
           refuse: Rifiuta i termini di amministrazione
           title: Accetta i termini e le condizioni di utilizzo
@@ -220,6 +236,12 @@ it:
       autocomplete:
         no_results: Nessun risultato trovato
         search_prompt: Digitare almeno tre caratteri da cercare
+      block_user:
+        new:
+          action: Blocca account e invia la motivazione
+          description: Bloccare un utente renderà il suo account inutilizzabile, puoi fornire nelle tue motivazioni e linee guida i modi in cui ritieni di prendere in considerazione lo sblocco dell'utente.
+          justification: Motivazione
+          title: Blocca utente %{name}
       categories:
         create:
           error: Si è verificato un errore durante la creazione di questa categoria.
@@ -262,6 +284,7 @@ it:
           headers:
             actions: Azioni
             name: Nome del componente
+            scope: Ambito del componente
             type: Tipo di componente
         new:
           add: Aggiungi componente
@@ -274,6 +297,21 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo componente.
           success: Il componente è stato aggiornato correttamente.
+      conflicts:
+        attempts: Tentativi
+        'false': 'No'
+        managed_user_name: Gestione utente
+        solved: Risolto
+        title: Conflitti delle verifiche
+        transfer:
+          email: Email
+          error: Si è verificato un problema nel trasferimento dell'utente corrente a partecipante gestito.
+          name: Nome
+          reason: Motivazione
+          success: Il trasferimento è stato completato con successo.
+          title: Trasferimento
+        'true': 'Si'
+        user_name: Utente
       dashboard:
         show:
           view_more_logs: Visualizza più registri
@@ -290,6 +328,9 @@ it:
         category_id_eq:
           label: Categorie
         filter_label: Filtro
+        moderations:
+          reportable_type_string_eq:
+            label: Tipo
         officialized_at_null:
           label: Stato
           values:
@@ -310,6 +351,7 @@ it:
         search_label: Ricerca
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
+          reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile.
           title_cont: Cerca %{collection} per titolo.
         state_eq:
           label: Stato
@@ -374,8 +416,10 @@ it:
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
+        moderation: Moderazione globale
         newsletters: Newsletters
         participants: Partecipanti
+        reported_users: Utenti Segnalati
         scope_types: Tipi di ambito
         scopes: Ambito tematico
         settings: Impostazioni
@@ -431,6 +475,14 @@ it:
           fields:
             name: Nome
             plural: Plurale
+        share_token:
+          fields:
+            created_at: Creato il
+            expires_at: Scade il
+            last_used_at: Ultimo utilizzo
+            times_used: Volte usate
+            token: Token
+            user: Creata da
         static_page:
           fields:
             created_at: Creato il
@@ -455,6 +507,20 @@ it:
             phone: Telefono
             state: Stato
             users_count: Conteggio dei partecipanti
+      moderated_users:
+        index:
+          actions:
+            title: Azioni
+            unreport: Non inserire
+          name: Nome
+          nickname: Nickname
+          reason: Motivazione
+          title: Elencando gli utenti segnalati
+        report:
+          reasons:
+            does_not_belong: Non appartiene
+            offensive: Offensivo
+            spam: Spam
       moderations:
         index:
           title: Moderazione
@@ -463,6 +529,10 @@ it:
             does_not_belong: Non appartiene
             offensive: Offensivo
             spam: Spam
+        reports:
+          index:
+            author: Autore(i)
+            callout_html: Un contenuto appare nel pannello di moderazione quando è stato segnalato da un utente (può essere chiunque abbia un account registrato) cliccando sul flag %{icon} accanto all'elemento.
       newsletter_templates:
         index:
           preview_template: Anteprima

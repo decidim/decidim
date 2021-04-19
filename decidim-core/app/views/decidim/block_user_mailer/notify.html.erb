@@ -1,0 +1,7 @@
+<p class="email-greeting"><%= t ".hello" %></p>
+
+<p class="email-instructions"><%= t ".body_1", organization_name: h(@organization.name) %></p>
+
+<p class="email-instructions"><%= t ".body_2", justification: h(@justification) %></p>
+
+<p class="email-closing"><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>

@@ -74,11 +74,11 @@ namespace :decidim do
   task delete_data_portability_files: :environment do
     puts "DELETE DATA PORTABILITY FILES: -------------- START"
     uploader = Decidim::DataPortabilityUploader.new
-    case uploader.fog_provider
-    when "fog" # file system
+    case uploader.provider
+    when "file" # file system
       puts "Deleting files from filesystem..."
       delete_data_portability_files_from_fs(uploader)
-    when "fog/aws"
+    when "aws"
       puts "Deleting files from aws..."
       delete_data_portability_files_from_aws(uploader)
     else

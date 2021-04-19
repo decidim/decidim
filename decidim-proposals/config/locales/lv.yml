@@ -313,10 +313,6 @@ lv:
         description: Atbalstīto priekšlikumu skaits
         object: atbalsta
         title: Atbalsta
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Priekšlikumi
     proposals:
       actions:
         answer_proposal: Atbildes priekšlikums
@@ -330,7 +326,6 @@ lv:
         actions:
           preview: Priekšskatīt
         exports:
-          comments: Komentāri
           proposals: Priekšlikumi
         models:
           proposal:
@@ -540,13 +535,6 @@ lv:
               ok: Atsaukt sadarbības projektu
               title: Šī darbība ir neatgriezeniska
             success: Sadarbības projekts ir veiksmīgi atsaukts.
-        compare:
-          mine_is_different: Mans sadarbības projekts ir atšķirīgs
-          no_similars_found: Labi padarīts! Netika atrasti līdzīgi sadarbības projekti
-          title: Līdzīgie sadarbības projekti
-        complete:
-          send: Sūtīt
-          title: Pabeigt jūsu sadarbības projektu
         count:
           drafts_count:
             zero: "%{count} sadarbības projekti"
@@ -579,7 +567,6 @@ lv:
           unfold: Atritināt
         new:
           send: Turpināt
-          title: Izveidot jūsu sadarbības projektu
         new_collaborative_draft_button:
           new_collaborative_draft: Jauns sadarbības projekts
         orders:
@@ -626,14 +613,9 @@ lv:
           error: Sadarbības projekta saglabāšanas laikā radās problēma.
           success: Sadarbības projekts ir veiksmīgi saglabāts
         wizard_aside:
-          back: Atpakaļ
           info: Jūs veidojat <strong>sadarbības projektu</strong>.
-        wizard_steps:
-          see_steps: skatīt soļus
-          step_1: Izveidot jūsu sadarbības projektu
-          step_2: Salīdzināt ar sadarbības projektiem
-          step_3: Pabeigt jūsu sadarbības projektu
-          step_of: Solis %{current_step_num} no %{total_steps}
+        wizard_header:
+          title: Izveidot jūsu sadarbības projektu
       create:
         error: Saglabājot priekšlikumu, radās problēma.
         success: Priekšlikums ir veiksmīgi izveidots. Saglabāts kā projekts.

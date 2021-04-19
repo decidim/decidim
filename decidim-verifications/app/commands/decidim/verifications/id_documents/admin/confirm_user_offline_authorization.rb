@@ -58,8 +58,8 @@ module Decidim
                                .new(organization: form.current_organization, name: "id_documents", granted: false)
                                .query
                                .where("verification_metadata->'rejected' IS NULL")
-                               .where("verification_metadata->>'verification_type' = 'offline'")
-                               .find_by(user: authorization_user)
+                               .where(user: authorization_user)
+                               .find { |auth| auth.verification_metadata["verification_type"] == "offline" }
           end
 
           def authorization_user

@@ -24,13 +24,17 @@ ca:
       component:
         name: Nom
         published_at: Publicat el
-        weight: Pes
+        weight: Ordre de posició
       id: ID
+      import:
+        user_group_id: Importar com
       newsletter:
         body: Cos
         subject: Assumpte
       organization:
+        admin_terms_of_use_body: Cos del text de condicions d'ús per als administradors
         alert_color: Alerta
+        available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
         comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
         cta_button_path: URL del botó d'acció
@@ -39,8 +43,11 @@ ca:
         default_locale: Idioma per defecte
         description: Descripció
         enable_omnipresent_banner: Mostrar el banner omnipresent
+        enable_participatory_space_filters: Habilitar els filtres a l'espai de participació
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
+        force_authentication: Forçar autenticació
+        force_users_to_authenticate_before_access_organization: Forçar les usuàries a autenticar-se abans d'accedir a l'organització
         from: Adreça des d'on s'enviaran els correus electrònics
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
@@ -53,6 +60,7 @@ ca:
         highlighted_content_banner_image: Imatge
         highlighted_content_banner_short_description: Breu descripció
         highlighted_content_banner_title: Títol
+        host: Host
         instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
         machine_translation_display_priority: Prioritat al mostrar les traduccions automàtiques
@@ -65,16 +73,21 @@ ca:
         omnipresent_banner_short_description: Breu descripció
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
+        organization_admin_email: Correu electrònic de l'administradora de l'organització
+        organization_admin_name: Nom de l'administradora de l'organització
+        organization_locales: Idiomes de l'organització
         primary_color: Primària
         reference_prefix: prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
+        secondary_hosts: Hosts secundaris
         send_welcome_notification: Envia la notificació de benvinguda
         success_color: Èxit
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
         twitter_handler: Nom d'usuària de Twitter
         user_groups_enabled: Habilitar grups
+        users_registration_mode: Mode registre d'usuàries
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
@@ -90,19 +103,22 @@ ca:
         name: Nom
         organization: Organització
         plural: Plural
+      settings:
+        scope_id: Àmbit
       static_page:
+        allow_public_access: Permet l'accés sense autenticació
         changed_notably: S'han produït canvis notables.
         content: Contingut
         organization: Organització
         show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
-        weight: Pes
+        weight: Ordre de posició
       static_page_topic:
         description: Descripció
         show_in_footer: Mostra al peu de pàgina
         title: Títol
-        weight: Pes
+        weight: Ordre de posició
       user_group_csv_verification:
         file: Fitxer
     errors:
@@ -113,6 +129,10 @@ ca:
               allowed_file_content_types: Fitxer d'imatge no vàlid
             official_img_header:
               allowed_file_content_types: Fitxer d'imatge no vàlid
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tipus Mime invàlid
   activerecord:
     attributes:
       decidim/static_page:
@@ -131,21 +151,34 @@ ca:
     admin:
       actions:
         add: Afegir
+        attachment:
+          new: Nou arxiu adjunt
+        attachment_collection:
+          new: Nova col·lecció d'arxius adjunts
         browse: Explorar
+        category:
+          new: Nova categoria
         export: Exporta
+        import: Importar
         manage: Gestionar
         new: Nou %{name}
+        newsletter:
+          new: Nou butlletí
+        participatory_space_private_user:
+          new: Nou usuari privat de l'espai participatiu
         per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
         share: Compartir
+        user:
+          new: Nou usuari
         verify: Verificar
       admin_terms_of_use:
         accept:
           error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
-          accept: Estic d'acord amb aquests termes
+          accept: Estic d'acord amb els termes següents
           are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
@@ -224,6 +257,12 @@ ca:
       autocomplete:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar
+      block_user:
+        new:
+          action: Bloquejar compte i enviar justificació
+          description: El bloqueig d'una usuària deixarà el seu compte inservible, pots facilitar a la teva justificació i directrius les maneres que consideris per tal de desbloquejar a la usuària.
+          justification: Justificació
+          title: Bloquejar a la usuària %{name}
       categories:
         create:
           error: S'ha produït un error en crear aquesta categoria.
@@ -279,6 +318,21 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
+      conflicts:
+        attempts: Intents
+        'false': 'No'
+        managed_user_name: Usuari gestionat
+        solved: Resolt
+        title: Conflictes de verificacions
+        transfer:
+          email: Correu electrònic
+          error: S¡ha produït un error en transferir la participant actual a la participant gestionada.
+          name: Nom
+          reason: Raó
+          success: La transferència s'ha completat correctament.
+          title: Transferir
+        'true': 'Sí'
+        user_name: Usuària
       dashboard:
         show:
           view_more_logs: Veure més registres
@@ -303,6 +357,17 @@ ca:
           values:
             'false': Oficialitzada
             'true': No oficialitzada
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitació acceptada
+            values:
+              'false': No acceptada
+              'true': Acceptada
+          user_invitation_sent_at_not_null:
+            label: S'ha enviat la invitació
+            values:
+              'false': No enviada
+              'true': Enviada
         private_space_eq:
           label: Privat
           values:
@@ -318,9 +383,17 @@ ca:
         search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
+          reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
           title_cont: Buscar %{collection} per títol.
+          user_name_or_user_email_cont: Cerca %{collection} per nom o correu electrònic.
         state_eq:
           label: Estat
+      forms:
+        file_help:
+          import:
+            explanation: 'Instruccions per a l''arxiu:'
+            message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
+            message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
@@ -359,6 +432,24 @@ ca:
           impersonate_existing_managed_user: Gestionar la participant "%{name}"
           impersonate_existing_user: Gestionar la participant "%{name}"
           impersonate_new_managed_user: Gestionar una nova participant
+      imports:
+        creators:
+          proposalcreator: Creador de la proposta
+        error: S'ha produït un error durant la importació
+        help:
+          proposalcreator: L'arxiu ha d'incloure els noms de columna title/en i body/en (o un altre idioma de preferència per exemple, title/ca i body/ca). També s'admeten les columnes scope/id i category/id.
+        import_from_file: Importar d'un arxiu
+        invalid_lines: S'ha trobat un error al recurs número %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Tornar
+          file_legend: Afegir un arxiu d'importació que serà processat.
+          import: Importar
+        notice: "%{number} %{resource_name} importat correctament"
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
@@ -382,8 +473,10 @@ ca:
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
+        moderation: Moderacions globals
         newsletters: Butlletins
         participants: Participants
+        reported_users: Usuàries reportades
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         settings: Configuració
@@ -471,6 +564,26 @@ ca:
             phone: Telèfon
             state: Estat
             users_count: Nombre de participants
+      moderated_users:
+        index:
+          actions:
+            block: Bloquejar usuària
+            title: Accions
+            unblock: Desbloquejar usuària
+            unreport: Desfer denúncia
+          name: Nom
+          nickname: Àlies
+          reason: Raó
+          reports: Número de denúncies
+          title: Llistant usuàries reportades
+        report:
+          reasons:
+            does_not_belong: No pertany
+            offensive: Ofensiu
+            spam: Spam
+        tabs:
+          blocked: Bloquejat
+          unblocked: No bloquejat
       moderations:
         index:
           title: Moderacions
@@ -482,6 +595,18 @@ ca:
         reports:
           index:
             author: Autor(s)
+            callout_html: Un contingut apareix al panell de moderació quan ha estat reportat per una usuària (pot ser qualsevol amb un compte registrat) fent clic en la icona %{icon} al costat de l'element.
+            content_original_language: Idioma original del contingut
+            participatory_space: Espai de participació
+            reported_content: Contingut reportat
+            see_current: Veure actual
+            see_original: Veure original
+            title: Informes de moderació
+          show:
+            report_details: Detalls del motiu
+            report_language: Idioma de l'informe
+            report_reason: Motiu
+            title: Detalls de l'informe
       newsletter_templates:
         index:
           preview_template: Previsualitzar
@@ -547,6 +672,9 @@ ca:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
+        block:
+          error: S'ha produït un error en bloquejar a la participant
+          success: Participant bloqueada correctament
         create:
           success: La participant s'ha oficialitzat correctament
         destroy:
@@ -554,6 +682,7 @@ ca:
         index:
           actions: Accions
           badge: Insígnia
+          block: Bloquejar usuària
           created_at: Creat el
           name: Nom
           nickname: Àlies
@@ -561,8 +690,10 @@ ca:
           officialize: Oficialitza
           officialized: Oficialitzada
           reofficialize: Torna a oficialitzar
+          reports: Informes
           show_email: Mostra l'adreça de correu
           status: Estat
+          unblock: Desbloquejar usuària
           unofficialize: Des-oficialitzar
         new:
           badge: Insígnia d'oficialització
@@ -576,6 +707,9 @@ ca:
           hidden: ocult
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
+        unblock:
+          error: S'ha produït un error al desbloquejar a la participant
+          success: Participant desbloquejada correctament
       organization:
         edit:
           title: Edita organització
@@ -587,6 +721,7 @@ ca:
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
@@ -621,6 +756,7 @@ ca:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         index:
+          import_via_csv: Importar des de CSV
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
@@ -743,6 +879,7 @@ ca:
         impersonatable_users: Participants que es poden gestionar
         impersonations: Gestió de participants
         metrics: Mètriques
+        panel: Administradora
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
@@ -806,8 +943,19 @@ ca:
       errors:
         impersonate_user:
           reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada
+    metrics:
+      blocked_users:
+        object: usuàries bloquejades
+        title: Usuàries bloquejades
+      reported_users:
+        object: usuàries reportades
+        title: Usuàries reportades
+      user_reports:
+        object: informes d'usuari
+        title: Informes d'usuari
     moderations:
       actions:
+        expand: Expandir
         hidden: Ocults
         hide: Amagar
         not_hidden: No ocult
@@ -828,17 +976,28 @@ ca:
       models:
         moderation:
           fields:
+            created_at: Data de creació
             hidden_at: Data d'ocultació
+            participatory_space: Espai de participació
             report_count: Recompte
+            reportable_id: Id
+            reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
             visit_url: Visiteu l'URL
+        report:
+          fields:
+            details: Detalls del motiu
+            locale: Idioma
+            reason: Motiu
   errors:
     messages:
       invalid_json: JSON no vàlid
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderacions globals
         newsletters:
           title: Butlletins
         settings:

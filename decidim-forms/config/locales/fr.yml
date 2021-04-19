@@ -10,10 +10,15 @@ fr:
         question_type: Type
       questionnaire_question:
         mandatory: Obligatoire
+        max_characters: Limite de caractères (laisser à 0 si aucune limite)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+            body:
+              too_long: est trop long
             choices:
               missing: ne sont pas complets
               too_many: sont trop nombreux
@@ -78,7 +83,7 @@ fr:
             collapse: Réduire toutes les questions
             expand: Développer toutes les questions
             preview: Aperçu
-            title: Modifier le formulaire pour %{questionnaire_for}
+            title: Modifier le questionnaire pour %{questionnaire_for}
             unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
           matrix_row:
             matrix_row: Ligne
@@ -105,12 +110,12 @@ fr:
             up: Haut
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
-            success: Le formulaire a bien été sauvegardé.
+            success: Le questionnaire a bien été sauvegardé.
       errors:
         answer:
           body: Le corps ne peut pas être vide
       files:
-        extension_whitelist: 'Formats acceptés :'
+        extension_allowlist: 'Formats acceptés :'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Cette image sera :'
@@ -118,6 +123,7 @@ fr:
           resize_and_pad: Redimensionné et ajustée à
           resize_to_fit: Redimensionnée pour s'adapter
       question_types:
+        files: Fichiers
         long_answer: Longue réponse
         matrix_multiple: Matrice (choix multiples)
         matrix_single: Matrice (choix unique)
@@ -152,7 +158,7 @@ fr:
             title: JavaScript est désactivé
           questionnaire_not_published:
             body: Ce formulaire n'est pas encore publié.
-          tos_agreement: En participant, vous acceptez ses conditions d'utilisation
+          tos_agreement: En participant, vous acceptez ces conditions d'utilisation
       step_navigation:
         show:
           are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?

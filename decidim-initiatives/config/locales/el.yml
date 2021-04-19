@@ -68,6 +68,8 @@ el:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο, την περιγραφή, το αναγνωριστικό ή το όνομα συντάκτη.
       menu:
+        components: Στοιχεία
+        information: Πληροφορίες
         initiatives: Πρωτοβουλίες
         initiatives_types: Τύποι πρωτοβουλίας
       models:
@@ -131,10 +133,7 @@ el:
             email_subject: Επιτεύχθηκε νέο ορόσημο!
             notification_title: Η πρωτοβουλία <a href="%{resource_path}">%{resource_title}</a> έχει συμπληρώσει το %{percentage}% των υπογραφών.
         support_threshold_reached:
-          email_intro: Η πρωτοβουλία %{resource_title} έχει συμπληρώσει το όριο υποστήριξης
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής της πλατφόρμας.
-          email_subject: Το όριο υποστήριξης συμπληρώθηκε
-          notification_title: Η πρωτοβουλία <a href="%{resource_path}">%{resource_title}</a> έχει συμπληρώσει το όριο υποστήριξης
     gamification:
       badges:
         initiatives:
@@ -294,10 +293,8 @@ el:
         finish:
           back: Πίσω
           back_to_initiatives: Επιστροφή στις πρωτοβουλίες
-          edit_my_initiative: Επεξεργασία των πρωτοβουλιών μου
           go_to_my_initiatives: Μετάβαση στις πρωτοβουλίες μου
           more_information: "(Περισσότερες πληροφορίες)"
-          send_my_initiative: Αποστολή της πρωτοβουλίας μου
         previous_form:
           back: Πίσω
           continue: Συνέχεια
@@ -401,13 +398,6 @@ el:
         print:
           city: Πόλη
         result:
-          answer_title:
-            accepted: Αυτή η πρόταση έγινε αποδεκτή επειδή
-            created: Αυτή η πρόταση δημιουργήθηκε
-            discarded: Αυτή η πρόταση απορρίφθηκε επειδή
-            published: Αυτή η πρόταση δημοσιεύτηκε επειδή
-            rejected: Αυτή η πρόταση απορρίφθηκε επειδή
-            validating: Αυτή η πρόταση αξιολογείται
           initiative_rejected_reason: Αυτή η πρωτοβουλία απορρίφθηκε λόγω της έλλειψης υπογραφών.
         show:
           follow_description: Λήψη ειδοποίησης όταν υπάρχουν νέα σε αυτήν την πρωτοβουλία
@@ -468,12 +458,6 @@ el:
           vote: Υπογραφή
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Συνημμένα
-          committee_members: Μέλη επιτροπής
-          components: Στοιχεία
-          information: Πληροφορίες
       initiative_creation_header:
         back: Πίσω
         fill_data: Δημιουργία

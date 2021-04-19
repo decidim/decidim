@@ -32,7 +32,8 @@
                 <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][][custom_body]",
                 choice.try(:custom_body),
                 id: "#{choice_id}_custom_body",
-                disabled: true %>
+                disabled: true,
+                maxlength: maxlength %>
               <% end %>
             </div>
           </td>

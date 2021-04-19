@@ -1,1 +1,325 @@
 gl:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrición
+        image: Imaxe
+        proposals: Propostas relacionadas
+        title: Título
+      election:
+        description: Descrición
+        end_time: A votación remata ás
+        start_time: A votación comeza ás
+        title: Título
+      question:
+        description: Descrición
+        title: Título
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Resposta
+        other: Respostas
+      decidim/elections/question:
+        one: Pregunta
+        other: Preguntas
+      decidim/votings/census/dataset:
+        one: Conxunto de datos
+        other: Conxuntos de datos
+      decidim/votings/census/datum:
+        one: Referencias
+        other: Datos
+      decidim/votings/voting:
+        one: Votación
+        other: Votacións
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Votar
+    elections:
+      actions:
+        confirm_destroy: Estás certo/a?
+        edit: Editar
+        manage_answers: Xestionar respostas
+        manage_questions: Xestionar preguntas
+        manage_steps: Xestionar pasos
+        new: Nova %{name}
+        publish: Publicar
+        title: Accións
+      admin:
+        answers:
+          edit:
+            title: Editar resposta
+            update: Actualizar resposta
+          index:
+            title: Respostas
+          new:
+            create: Crear resposta
+            title: Nova resposta
+          not_selected: Non seleccionada
+          selected: Seleccionada
+        models:
+          answer:
+            name: Resposta
+          question:
+            name: Pregunta
+        questions:
+          edit:
+            title: Editar pregunta
+            update: Actualizar pregunta
+          index:
+            title: Preguntas
+          new:
+            create: Crear pregunta
+            title: Nova pregunta
+        steps:
+          create_election:
+            errors:
+              minimum_answers: As preguntas teñen de ter <strong>polo menos dúas respostas</strong>.
+            not_used_trustee: "(non usada)"
+          results_published:
+            answer: Resposta
+            not_selected: Non seleccionado
+            question: Pregunta
+            result: Resultado
+            selected: Seleccionado
+            submit: Enviar
+          tally_ended:
+            answer: Resposta
+            not_selected: Non seleccionado
+            question: Pregunta
+            result: Resultado
+            selected: Seleccionado
+            success: A solicitude de publicación de resultados foi enviada con éxito ao Bulletin Board
+            title: Resultados calculados
+          vote_ended:
+            text: Rematou a votación. Podes comezar o reconto agora.
+      election_m:
+        badge_name:
+          finished: Finalizada
+          ongoing: Activa
+          upcoming: Vindeiras
+        footer:
+          remaining_time:
+            one: "<strong>%{count} hora %{minutes} minutos</strong> para votar."
+            other: "<strong>%{count} horas %{minutes} minutos</strong> para votar."
+          view: Ver
+          vote: Votar
+        label:
+          date: Datas
+        questions: Preguntas %{count}
+        unspecified: Sen especificar
+      elections:
+        filters:
+          active: Activa
+          all: Todas
+          finished: Finalizada
+          search: Procurar
+          state: Estado
+          upcoming: Vindeiras
+        filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtrar
+          filter_by: Filtrar por
+        preview:
+          available_answers: 'Respostas dispoñibles:'
+          description: 'Estas son as preguntas que atoparás non proceso de votación:'
+        results:
+          description: 'Estes son os resultados da votación, para cada pregunta:'
+          selected: Seleccionado
+        show:
+          action_button:
+            change_vote: Troca o teu voto
+            vote: Comezar votación
+            vote_again: Votar de novo
+          callout:
+            already_voted: Xa votaches nesta elección. Podes trocar o teu voto ou verificalo.
+            vote_rejected: Non foi posíbel verificar o teu voto. Por favor, faino de novo.
+          verify:
+            already_voted: Xa votaches?
+            verify_here: Verifica o teu voto aquí.
+            will_verify: Poderás verificar o teu voto unha vez comece a elección.
+      models:
+        answer:
+          fields:
+            selected: Seleccionado
+            title: Título
+            votes: Votos
+        election:
+          fields:
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            title: Título
+        trustees_participatory_space:
+          fields:
+            inactive: inactivo
+      trustee_zone:
+        elections:
+          key_ceremony_steps:
+            back: Volver
+            list:
+              status: Estado
+              task: Tarefa
+            start: Comezar
+            status:
+              pending: Pendente
+              processing: Procesando
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Non'
+                  name: Acción requirida?
+                bb_status: Estado
+            identification_keys:
+              submit: Enviar
+      votes:
+        ballot_decision:
+          audit: "( Auditar papeleta )"
+          back: Comezar o proceso de voto de novo
+          cast: Enviar papeleta
+          description: Aquí tes as opcións para emitir a túa papeleta e que sexa contada de xeito válido ou, alternativamente, podes auditar o correcto cifrado da túa papeleta. Por razóns de seguranza, a auditoría danará a túa papeleta, o que significa, que terás de reiniciar o proceso de votación para emitir o teu voto.
+        confirmed:
+          experience: Como valoras a túa experiencia?
+          feedback: Dános a túa opinión
+          header: Voto confirmado
+        encrypting:
+          header: Cifrando o voto...
+          text: Cifrando a papeleta para asegurar que o teu voto é segredo.
+        failed:
+          try_again: Tentar de novo
+        header:
+          ballot_decision: Enviar ou auditar o teu voto
+          confirm: Confirma o teu voto
+          confirmed: Voto confirmado
+          encrypting: Cifrando o voto
+        modal:
+          close: Pechar
+        update:
+          error: Produciuse un problema ao actualizar o estado do voto. Por favor, téntao de novo.
+    events:
+      elections:
+        votes:
+          accepted_votes:
+            email_intro: 'O teu voto foi aceptado! Empregando o teu token de votación: %{encrypted_vote_hash}, podes verificar o teu voto <a href="%{verify_url}">aquí</a>.'
+            email_outro: Recibiches esta notificación porque votaches pola elección de %{resource_name}.
+            email_subject: O teu voto por %{resource_name} foi aceptado.
+            notification_title: 'O teu voto foi aceptado, verifícao <a href="%{verify_url}">aquí</a> empregando o teu token de votación: %{encrypted_vote_hash}'
+    statistics:
+      elections_count: Eleccións
+      votings_count: Votacións
+    votings:
+      admin:
+        ballot_styles:
+          create:
+            error: Produciuse un erro ao crear este estilo de papeleta
+            success: Estilo de papeleta creado con éxito
+          destroy:
+            invalid: Produciuse un erro ao eliminar este estilo de papeleta
+            success: Estilo de papeleta eliminado con éxito
+          edit:
+            title: Editar estilo da papeleta
+            update: Actualizar
+          form:
+            election: Elección
+            questions: Preguntas para este estilo de papeleta
+          index:
+            actions:
+              confirm_destroy: Estás certo/a?
+              destroy: Eliminar
+              edit: Editar
+              new: Novo
+              title: Accións
+            title: Estilos de papeletas
+          new:
+            create: Crear
+            title: Crear un estilo de papeleta
+          update:
+            invalid: Produciuse un erro ao modificar este estilo de papeleta
+            success: Estilo de papeleta modificado con éxito
+        menu:
+          votings_submenu:
+            ballot_styles: Estilos de papeletas
+            census: Censo
+            components: Compoñentes
+        models:
+          ballot_style:
+            fields:
+              code: Código
+            name: Estilo de papeleta
+        votings:
+          form:
+            select_a_voting_type: Por favor, selecciona un tipo de votación
+            voting_type:
+              hybrid: Híbrido
+              in_person: En persoa
+              online: En liña
+      census:
+        admin:
+          census:
+            creating_data:
+              info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
+            delete:
+              button: Eliminar todos os datos do censo
+              confirm: A eliminación do censo non se pode desfacer. Estas certo/a de querer continuar?
+            destroy:
+              success: Datos do censo eliminados
+            export_access_codes:
+              button: Exportar códigos de acceso da votación
+              file_not_exists: Este ficheiro non existe
+              launch_error: Produciuse un problema ao iniciar a exportación dos códigos de acceso
+              launch_success: Iniciada a exportación dos códigos de acceso. Nun intre recibirás un correo en %{email}
+            exporting_access_codes:
+              info_message: "<strong>Agarda</strong>, a exportación esta a ser preparada, a recibirás nun intre en %{email}"
+            freeze:
+              callout: O censo está conxelado e non pode ser modificado.
+            generate_access_codes:
+              button: Xerar códigos de acceso para a votación
+              confirm: Se continuas, non poderás modificar o censo.
+              info_message_all: "<strong>Todas as filas foron importadas con éxito</strong> dende o ficheiro %{file} (%{raw_count} de %{data_count})."
+              info_message_warn: Por favor, verifica que non se perderan datos, xa que se teñen creado %{data_count} rexistros e o ficheiro subido %{file} ten %{raw_count} filas.
+              launch_success: Xeración dos códigos iniciada.
+            generating_access_codes:
+              info_message: "<strong>Agarda</strong>, os códigos de acceso para votar están a ser xerados..."
+            new:
+              file_help:
+                explanation: 'Instrucións para o ficheiro:'
+                message_1: Só están permitidos os ficheiros CSV (.csv).
+                message_2: O separador entre columnas ten de ser o punto e coma (";").
+              info_message: "<strong>Aínda non hai censo.</strong> Por favor, usa o formulario de abaixo para crear un importando un ficheiro CSV."
+              submit: Enviar csv
+              title: Crear o censo
+            show:
+              heading: Espazo de votación do censo
+        export_mailer:
+          access_codes_export:
+            download: Descargar
+            subject: A exportación dos códigos de acceso á votación de %{voting_title} xa están dispoñibles
+      content_blocks:
+        landing_page:
+          description:
+            show_less: Ler menos
+            show_more: Ler máis
+          metrics:
+            heading: Métricas
+          polling_stations:
+            heading: Puntos de votación
+            no_polling_stations: Aínda non hai puntos de votación.
+          timeline:
+            heading: Liña de tempo
+      votings:
+        check_census:
+          error:
+            title: Os datos do censo non son correctos!
+          success:
+            title: Os datos do censo son correctos!
+        login:
+          start_voting: Comezar votación
+        no_census_contact_information: Aínda non hai ningunha información de contacto
+  layouts:
+    decidim:
+      voting_navigation:
+        voting_menu_item: A votación

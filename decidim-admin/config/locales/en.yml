@@ -25,13 +25,17 @@ en:
       component:
         name: Name
         published_at: Published at
-        weight: Weight
+        weight: Order position
       id: ID
+      import:
+        user_group_id: Create imports as
       newsletter:
         body: Body
         subject: Subject
       organization:
+        admin_terms_of_use_body: Body for the admin terms of use
         alert_color: Alert
+        available_authorizations: Available authorizations
         badges_enabled: Enable badges
         comments_max_length: Comments max length (Leave 0 for default value)
         cta_button_path: Call To Action button path
@@ -40,8 +44,11 @@ en:
         default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
+        enable_participatory_space_filters: Enable participatory space filters
         facebook_handler: Facebook handler
         favicon: Icon
+        force_authentication: Force authentication
+        force_users_to_authenticate_before_access_organization: Force users to authenticate before access organization
         from: From email address
         github_handler: GitHub handler
         header_snippets: Header snippets
@@ -54,6 +61,7 @@ en:
         highlighted_content_banner_image: Image
         highlighted_content_banner_short_description: Short description
         highlighted_content_banner_title: Title
+        host: Host
         instagram_handler: Instagram handler
         logo: Logo
         machine_translation_display_priority: Machine translation display priority
@@ -66,16 +74,21 @@ en:
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
+        organization_admin_email: Organization admin email
+        organization_admin_name: Organization admin name
+        organization_locales: Organization locales
         primary_color: Primary
         reference_prefix: Reference prefix
         rich_text_editor_in_public_views: Enable rich text editor for participants
         secondary_color: Secondary
+        secondary_hosts: Secondary hosts
         send_welcome_notification: Send welcome notification
         success_color: Success
         time_zone: Time Zone
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable groups
+        users_registration_mode: Users registration mode
         warning_color: Warning
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
@@ -91,19 +104,22 @@ en:
         name: Name
         organization: Organization
         plural: Plural
+      settings:
+        scope_id: Scope
       static_page:
+        allow_public_access: Allow access without authentication
         changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization
         show_in_footer: Show in the footer
         slug: URL slug
         title: Title
-        weight: Weight
+        weight: Order position
       static_page_topic:
         description: Description
         show_in_footer: Show in the footer
         title: Title
-        weight: Weight
+        weight: Order position
       user_group_csv_verification:
         file: File
     errors:
@@ -114,6 +130,10 @@ en:
               allowed_file_content_types: Invalid image file
             official_img_header:
               allowed_file_content_types: Invalid image file
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Invalid mime type
   activerecord:
     attributes:
       decidim/static_page:
@@ -132,21 +152,34 @@ en:
     admin:
       actions:
         add: Add
+        attachment:
+          new: New attachment
+        attachment_collection:
+          new: New attachment collection
         browse: Browse
+        category:
+          new: New category
         export: Export
+        import: Import
         manage: Manage
         new: New %{name}
+        newsletter:
+          new: New newsletter
+        participatory_space_private_user:
+          new: New participatory space private user
         per_page: Per page
         permissions: Permissions
         reject: Reject
         share: Share
+        user:
+          new: New user
         verify: Verify
       admin_terms_of_use:
         accept:
           error: There's been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
-          accept: I agree this admin terms
+          accept: I agree with the following terms
           are_you_sure: Are you sure to refuse the admin terms?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
@@ -225,6 +258,12 @@ en:
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search
+      block_user:
+        new:
+          action: Block account and send justification
+          description: Blocking an user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
+          justification: Justification
+          title: Block User %{name}
       categories:
         create:
           error: There was a problem creating this category.
@@ -280,6 +319,21 @@ en:
         update:
           error: There was a problem updating this component.
           success: The component was updated successfully.
+      conflicts:
+        attempts: Attempts
+        'false': 'No'
+        managed_user_name: Managed User
+        solved: Solved
+        title: Verifications's conflicts
+        transfer:
+          email: Email
+          error: There was a problem transfering the current participant to managed participant.
+          name: Name
+          reason: Reason
+          success: The current transfer has been successfully completed.
+          title: Transfer
+        'true': 'Yes'
+        user_name: User
       dashboard:
         show:
           view_more_logs: View more logs
@@ -304,6 +358,17 @@ en:
           values:
             'false': Officialized
             'true': Not officialized
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitation accepted
+            values:
+              'false': Not accepted
+              'true': Accepted
+          user_invitation_sent_at_not_null:
+            label: Invitation sent
+            values:
+              'false': Not sent
+              'true': Sent
         private_space_eq:
           label: Private
           values:
@@ -321,8 +386,15 @@ en:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
+          user_name_or_user_email_cont: Search %{collection} by name or email.
         state_eq:
           label: State
+      forms:
+        file_help:
+          import:
+            explanation: 'Guidance for file:'
+            message_1: CSV, JSON and Excel (.xlsx) files are supported
+            message_2: For CSV files, the separator between columns must be a semicolon (";")
       help_sections:
         error: There was a problem updating the help sections
         form:
@@ -361,6 +433,24 @@ en:
           impersonate_existing_managed_user: Manage participant "%{name}"
           impersonate_existing_user: Manage participant "%{name}"
           impersonate_new_managed_user: Manage new participant
+      imports:
+        creators:
+          proposalcreator: Proposal creator
+        error: There was a problem during the import
+        help:
+          proposalcreator: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
+        import_from_file: Import from a file
+        invalid_lines: Found error in resource number %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Back
+          file_legend: Add an import file that will be parsed.
+          import: Import
+        notice: "%{number} %{resource_name} successfully imported"
       logs:
         logs_list:
           no_logs_yet: There are no logs yet
@@ -384,6 +474,7 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
+        moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
         reported_users: Reported Users
@@ -477,17 +568,23 @@ en:
       moderated_users:
         index:
           actions:
+            block: Block User
             title: Actions
+            unblock: Unblock User
             unreport: Unreport
           name: Name
           nickname: Nickname
           reason: Reason
+          reports: Reports count
           title: Listing reported users
         report:
           reasons:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+        tabs:
+          blocked: Blocked
+          unblocked: Not Blocked
       moderations:
         index:
           title: Moderations
@@ -576,6 +673,9 @@ en:
           error: There was a problem updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
       officializations:
+        block:
+          error: There was an error blocking the participant
+          success: Participant successfully blocked
         create:
           success: Participant successfully officialized
         destroy:
@@ -583,6 +683,7 @@ en:
         index:
           actions: Actions
           badge: Badge
+          block: Block User
           created_at: Created At
           name: Name
           nickname: Nickname
@@ -593,6 +694,7 @@ en:
           reports: Reports
           show_email: Show email address
           status: Status
+          unblock: Unblock User
           unofficialize: Unofficialize
         new:
           badge: Officialization badge
@@ -606,6 +708,9 @@ en:
           hidden: hidden
           show: Show
           title: Show participant email address
+        unblock:
+          error: There was an error unblocking the participant
+          success: Participant successfully unblocked
       organization:
         edit:
           title: Edit organization
@@ -839,6 +944,16 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non managed participant
+    metrics:
+      blocked_users:
+        object: blocked users
+        title: Blocked users
+      reported_users:
+        object: reported users
+        title: Reported users
+      user_reports:
+        object: user reports
+        title: User reports
     moderations:
       actions:
         expand: Expand
@@ -864,6 +979,7 @@ en:
           fields:
             created_at: Creation date
             hidden_at: Hidden at
+            participatory_space: Participatory space
             report_count: Count
             reportable_id: Id
             reportable_type: Type
@@ -881,6 +997,8 @@ en:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Global moderations
         newsletters:
           title: Newsletters
         settings:

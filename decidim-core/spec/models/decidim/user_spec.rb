@@ -13,6 +13,10 @@ module Decidim
 
     it { is_expected.to be_valid }
 
+    it "has traceability" do
+      expect(subject).to be_a(Decidim::Traceable)
+    end
+
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))
         .to eq Decidim::AdminLog::UserPresenter
@@ -42,6 +46,22 @@ module Decidim
 
         it "returns anonymous" do
           expect(user.name).to eq("Anonymous")
+        end
+      end
+
+      context "when the user is blocked and extended_data has user_name" do
+        let(:user) { build(:user, name: "Blocked user", blocked: true, extended_data: { "user_name": "Test" }) }
+
+        it "returns user name" do
+          expect(user.user_name).to eq("Test")
+        end
+      end
+
+      context "when the user is blocked and extended_data does not have user_name" do
+        let(:user) { build(:user, name: "Blocked user", blocked: true, extended_data: {}) }
+
+        it "returns user name" do
+          expect(user.user_name).to eq("Blocked user")
         end
       end
     end
@@ -184,7 +204,7 @@ module Decidim
     describe "devise emails" do
       it "sends them asynchronously" do
         create(:user)
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end
 

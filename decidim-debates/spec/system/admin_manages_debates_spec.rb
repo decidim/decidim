@@ -14,4 +14,5 @@ describe "Admin manages debates", type: :system do
 
   it_behaves_like "manage debates"
   it_behaves_like "manage announcements"
+  it_behaves_like "export debates comments"
 end

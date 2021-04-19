@@ -11,7 +11,7 @@ module Decidim
       # Public: Initializes the service.
       # component     - A Decidim::Component to get the meetings from.
       # page        - The page number to paginate the results.
-      # per_page    - The number of proposals to return per page.
+      # per_page    - The number of meetings to return per page.
       def initialize(options = {})
         scope = options.fetch(:scope, Meeting.all)
         super(scope, options)
@@ -29,11 +29,20 @@ module Decidim
       end
 
       def search_type
-        case options[:type]
-        when ["online"]
-          query.online
-        when ["in_person"]
-          query.in_person
+        fields = Decidim::Meetings::Meeting::TYPE_OF_MEETING
+        filtered = []
+        options[:type].each do |inquiry|
+          filtered.push(inquiry) if fields.include?(inquiry)
+        end
+        filtered.size.positive? ? query.where(decidim_meetings_meetings: { type_of_meeting: filtered }) : query
+      end
+
+      # Handle the activity filter
+      def search_activity
+        case activity
+        when "my_meetings"
+          query
+            .where(decidim_author_id: user.id)
         else
           query
         end

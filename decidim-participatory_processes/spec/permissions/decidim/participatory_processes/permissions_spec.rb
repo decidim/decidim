@@ -397,6 +397,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it_behaves_like "allows any action on subject", :process
       it_behaves_like "allows any action on subject", :process_step
       it_behaves_like "allows any action on subject", :process_user_role
+      it_behaves_like "allows any action on subject", :space_private_user
     end
 
     context "when user is an org admin" do

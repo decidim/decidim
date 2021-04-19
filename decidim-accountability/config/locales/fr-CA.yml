@@ -32,6 +32,8 @@ fr-CA:
   decidim:
     accountability:
       actions:
+        attachment_collections: Dossiers
+        attachments: Pièces jointes
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         destroy: Supprimer
         edit: Modifier
@@ -42,6 +44,7 @@ fr-CA:
         title: Actions
       admin:
         exports:
+          result_comments: Commentaires
           results: Réalisations
         import_results:
           new:
@@ -121,6 +124,11 @@ fr-CA:
         value_types:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Dates
+          results: Réalisations
+          unspecified: Non précisé
       import_mailer:
         import:
           errors: Erreurs
@@ -133,8 +141,12 @@ fr-CA:
       models:
         result:
           fields:
+            category: Catégorie
+            created_at: Créé le
             end_date: Date de fin
+            id: ID
             progress: Avancement
+            scope: Secteur
             start_date: Date de début
             status: Statut
             title: Titre
@@ -148,6 +160,9 @@ fr-CA:
           fields:
             description: Description
             entry_date: Date
+      result_m:
+        executed: Exécuté
+        view: Voir
       results:
         count:
           results_count:
@@ -178,6 +193,15 @@ fr-CA:
             votes: Votes
         timeline:
           title: Évolution du projet
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Catégorie
+          scope_id_eq:
+            label: Secteur
+          status_id_eq:
+            label: Statut
     components:
       accountability:
         name: Suivi
@@ -212,10 +236,6 @@ fr-CA:
         description: Nombre de résultats générés
         object: résultats
         title: Résultats
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Réalisations
     participatory_spaces:
       highlighted_results:
         see_all: Voir tous les résultats (%{count})

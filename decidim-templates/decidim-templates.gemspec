@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.summary = "A decidim templates module"
   s.description = "This module provides a solution to create templates for different Decidim models, such as Proposals and Questionnaires.."
 
-  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Templates.version
   s.add_dependency "decidim-forms", Decidim::Templates.version

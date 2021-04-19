@@ -25,11 +25,21 @@ describe Decidim::Debates::Admin::Permissions do
   end
 
   context "when subject is not debate" do
-    let(:action) do
-      { scope: :admin, action: :bar, subject: :foo }
+    context "when subject is comments and action is export" do
+      let(:action) do
+        { scope: :admin, action: :export, subject: :comments }
+      end
+
+      it { is_expected.to eq true }
     end
 
-    it_behaves_like "permission is not set"
+    context "when subject is anything else" do
+      let(:action) do
+        { scope: :admin, action: :bar, subject: :foo }
+      end
+
+      it_behaves_like "permission is not set"
+    end
   end
 
   context "when action is a random one" do

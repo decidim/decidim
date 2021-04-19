@@ -21,7 +21,7 @@ module Decidim::Meetings
     let(:short_description) { Faker::Lorem.sentence(word_count: 1) }
     let(:location) { Faker::Lorem.sentence(word_count: 3) }
     let(:location_hints) { Faker::Lorem.sentence(word_count: 3) }
-    let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+    let(:address) { "Some address" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 2.days.from_now }
@@ -58,6 +58,7 @@ module Decidim::Meetings
         registration_type: registration_type,
         available_slots: available_slots,
         registration_terms: registration_terms,
+        registrations_enabled: true,
         registration_url: registration_url
       }
     end

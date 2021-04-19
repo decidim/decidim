@@ -73,6 +73,7 @@ pl:
     errors:
       general: Błąd podczas przetwarzania obrazu
       image_too_big: Obraz jest zbyt duży
+      not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -86,11 +87,12 @@ pl:
       logo: "Oficjalne logo %{organization}"
       skip_button: Przejdź do głównej zawartości
     account:
+      blocked: To konto zostało zablokowane z powodu naruszenia Regulaminu
       data_portability_export:
         file_no_exists: Plik nie istnieje
         notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       delete:
-        alert: Nie można cofnąć tej czynności. Jeśli usuniesz konto, nie będzie można się już na nie logować.
+        alert: Tej czynności nie można cofnąć. Jeśli usuniesz swoje konto, nie będziesz mógł zalogować się za pomocą swoich danych. Usunięcie Twojego konta spowoduje, że cała Twoja aktywność w portalu stanie się anonimowa. Nadal będziesz mógł utworzyć nowe konto, ale Twoje dotychczasowe zasoby nie będą już z nim powiązane.
         confirm:
           close: Zamknij okno
           ok: Tak, chcę usunąć moje konto
@@ -120,6 +122,8 @@ pl:
         delete: "%{user_name} usunął/usunęła komponent %{resource_name} z przestrzeni %{space_name}"
         publish: "%{user_name} opublikował(a) komponent %{resource_name} w przestrzeni %{space_name}"
         unpublish: "%{user_name} cofnął/cofnęła publikację komponentu %{resource_name} w przestrzeni %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} zarządził %{resource_name} ponieważ %{reason}"
       moderation:
         hide: "%{user_name} ukrył(a) zasób typu %{resource_type} w przestrzeni %{space_name}"
         unreport: "%{user_name} cofnął zgłoszenie zasobu typu %{resource_type} w przestrzeni %{space_name}"
@@ -136,6 +140,7 @@ pl:
         update: "%{user_name} zaktualizował(a) ustawienia organizacji"
       participatory_space_private_user:
         create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
+        create_via_csv: "%{user_name} zaprosił(a) %{resource_name} jako prywatnego użytkownika poprzez CSV"
         delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
@@ -149,15 +154,21 @@ pl:
         delete: "%{user_name} usunął/usunęła stronę statyczną %{resource_name}"
         update: "%{user_name} zaktualizował(a) stronę statyczną %{resource_name}"
       user:
+        block: "%{user_name} zablokował(a) użytkownika %{resource_name}"
         invite: "%{user_name} zaprosił(a) użytkownika %{resource_name} z rolą: %{role}"
         officialize: "%{user_name} ustanowił(a) oficjalnym użytkownika %{resource_name}"
+        promote: "%{user_name} awansował(a) %{resource_name}"
         remove_from_admin: "%{user_name} usunął/usunęła użytkownika %{resource_name} z rolą: %{role}"
         show_email: "%{user_name} pobrał(a) e-mail uczestnika %{resource_name}"
+        transfer: "%{user_name} przeniósł/przeniosła użytkownika %{resource_name}"
+        unblock: "%{user_name} odblokował(a) użytkownika %{resource_name}"
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
         verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
         verify_via_csv: "%{user_name} zweryfikował(a) grupę %{resource_name} za pomocą pliku CSV"
+      user_moderation:
+        unreport: "%{user_name} cofnął/cofnęła zgłoszenie %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>WARUNKI UŻYTKOWANIA DLA ADMINISTRATORÓW</h2><p>Mamy nadzieję, że lokalny Administrator systemu poinformował Cię o podstawowych zasadach korzystania z platformy. Zwykle sprowadza się to do trzech rzeczy: </p><ol><li>Szanuj prywatność innych.</li><li>Pomyśl, zanim klikniesz.</li><li>Z wielką mocą wiąże się wielka odpowiedzialność.</li></ol>"
     alert:
@@ -223,7 +234,7 @@ pl:
         error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
         success: Poprawka została odrzucona
       review:
-        back: Powrót
+        back: Wróć
         heading: Przejrzyj poprawkę
         help_text: '%{model_name} - przeglądasz poprawkę'
         send: Akceptuj poprawkę
@@ -254,7 +265,6 @@ pl:
       photos:
         related_photos: Powiązane zdjęcia
     author:
-      avatar: Awatar
       comments:
         one: komentarz
         few: komentarze
@@ -284,7 +294,7 @@ pl:
       dummy_authorization_workflow:
         name: Przykładowy proces autoryzacji
       errors:
-        duplicate_authorization: Użytkownik jest już uprawniony na podstawie tych samych danych.
+        duplicate_authorization: Autoryzowano już użytkownika z takimi samymi danymi. Administrator skontaktuje się z Tobą w celu zweryfikowania Twoich danych.
       expired_at: Wygasł %{timestamp}
       expires_at: Wygasa %{timestamp}
       foo_authorization:
@@ -329,7 +339,14 @@ pl:
           request_confirmation_instructions: Poproś o instrukcje uwierzytelniające
           title: Potwierdź swój adres e-mail
       show:
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
+    block_user_mailer:
+      notify:
+        body_1: Twoje konto zostało zablokowane.
+        body_2: 'Powód: %{justification}'
+        greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Witaj,
+        subject: Twoje konto zostało zablokowane przez %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: i %{count} więcej
@@ -380,6 +397,13 @@ pl:
             dummy_step_translatable_text: Przykładowy tekst etapu do tłumaczenia
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Obraz, tekst i przycisk CTA
+      cta_settings_form:
+        background_image: Obraz tła
+        button_text: Tekst przycisku CTA
+        button_url: Adres url przycisku CTA
+        description: Opis
       footer_sub_hero:
         name: Banner podrzędny stopki
       hero:
@@ -389,6 +413,11 @@ pl:
         welcome_text: Tekst powitalny
       highlighted_content_banner:
         name: Wyróżniony baner tekstowy
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sortuj elementy według:'
+          random: Losowo
+          recent: Najnowsze
       how_to_participate:
         name: Jak uczestniczyć
       html:
@@ -413,7 +442,7 @@ pl:
         ready: Gotowy
       show:
         download_data: Pobierz dane
-        download_data_description: Plik zawierający wszystkie informacje powiązane z kontem zostanie wysłany na <strong>%{user_email}</strong>
+        download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Poproś o dane
     datepicker:
       help_text: 'Oczekiwany format: %{datepicker_format}'
@@ -423,7 +452,7 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Uzupełnij profil
-          nickname_help: Twój pseudonim w %{organization}
+          nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           sign_up: Proszę uzupełnij swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -432,7 +461,7 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          nickname_help: Twój pseudonim w %{organization}
+          nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
@@ -449,11 +478,14 @@ pl:
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego
           sign_up_disabled: Rejestracja jest wyłączona, możesz użyć istniejącego konta, aby uzyskać dostęp
+        user:
+          timed_out: Byłeś długo nieaktywny i zostałeś automatycznie wylogowany z serwisu. Jeśli chcesz kontynuować korzystanie z serwisu zaloguj się ponownie.
       shared:
         newsletter_modal:
           buttons:
             check: Sprawdź i kontynuuj
-            close_modal: Zamknij modalne
+            close_modal: Zamknij okno
+            uncheck: Pozostaw niezaznaczone
           notice: |-
             <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
             Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
@@ -619,6 +651,14 @@ pl:
           notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
       notification_event:
         notification_title: Zdarzenie miało miejsce w <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem usuniętego zasobu.
+          email_subject: '%{resource_type} został usunięty'
+          notification_title: |-
+            Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
         email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
@@ -632,7 +672,7 @@ pl:
           notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       data_portability_export:
-        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''https://www.7-zip.org/''>7-Zip</a> do otwarcia pliku. Hasło: %{password}'
+        click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
@@ -667,7 +707,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Obserwujesz <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -684,7 +724,7 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: W przypadku zdjęć używaj najlepiej krajobrazów, serwis docina obraz.
+          message_2: Jako obrazów używaj najlepiej krajobrazów, serwis docina obraz. Dla plików CSV separatorem kolumn musi być przecinek (",")
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
@@ -808,7 +848,7 @@ pl:
         creator: Twórca
         member: Członek
       update:
-        error: Wystąpił problem podczas aktualizacji grupy
+        error: Wystąpił błąd podczas aktualizacji grupy
         success: Grupa została zaktualizowana
     help:
       main_topic:
@@ -904,9 +944,14 @@ pl:
           show: Pokaż rozmowę z %{sender}
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
+        error_modal:
+          close: Zamknij okno
+          correct_errors: Popraw daty i spróbuj ponownie.
+          intro: 'W wiadomości wystąpiły błędy:'
+          ok: ok
         index:
           ago: temu
-          close: Zamknij modalne
+          close: Zamknij okno
           from: Od
           groups: Moje grupy
           last_message: Ostatnia wiadomość
@@ -921,12 +966,16 @@ pl:
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
-          not_allowed: Ten użytkownik nie przyjmuje więcej prywatnych wiadomości.
+          not_allowed: Ten użytkownik nie przyjmuje wiadomości prywatnych.
           title: Konwersacja z %{usernames}
         start:
           send: Wyślij
           title: Zacznij konwersację
+        update:
+          error: Wiadomość nie została wysłana z powodu błędu
     metrics:
+      download:
+        csv: Pobierz dane (CSV)
       followers:
         description: Liczba użytkowników obserwujących tę przestrzeń partycypacyjną
         object: obserwujący
@@ -988,8 +1037,10 @@ pl:
       no_notifications: Brak powiadomień.
     notifications_settings:
       show:
+        administrators: Administratorzy
         allow_public_contact: Każdy może wysłać mi prywatną wiadomość, nawet jeśli go nie obserwuję.
         direct_messages: Przyjmuj prywatne wiadomości od każdego
+        email_on_moderations: Chcę otrzymywać e-mail za każdym razem, gdy coś jest zgłaszane do moderacji.
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem gdy otrzymuję powiadomienie.
         everything_followed: Dotyczące wszystkiego, co obserwuję
         newsletter_notifications: Chcę otrzymywać newslettery
@@ -1009,7 +1060,7 @@ pl:
         rejected: Odrzucone
         verified: Zweryfikowano
     pad_iframe:
-      disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyrażana jest ich opinia. %{organization} nie może być pociągnięty do odpowiedzialności za jego zawartość.
+      disclaimer: Zawartość tego pada napisana jest przez zarejestrowanych użytkowników i wyraża ich opinie. %{organization} nie może być pociągnięta do odpowiedzialności za jego zawartość.
       explanation: Używaj tej podkładki do wspólnego robienia notatek podczas spotkania, więc łatwiej jest zapisać minutę później.
       pad: Podkładka
     pages:
@@ -1033,24 +1084,7 @@ pl:
         metrics:
           headline: Partycypacja w liczbach
         statistics:
-          answers_count: Ankiety zakończone
-          assemblies_count: Zespoły
-          comments_count: Komentarze
-          conferences_count: Konferencje
-          debates_count: Debaty
-          endorsements_count: Rekomendacje
           headline: Aktualny stan %{organization}
-          meetings_count: Spotkania
-          orders_count: Głosowania
-          pages_count: Strony
-          processes_count: Procesy
-          projects_count: Projekty
-          proposals_accepted: Przyjęte propozycje
-          proposals_count: Propozycje
-          results_count: Wyniki
-          surveys_count: Ankiety
-          users_count: Użytkownicy
-          votes_count: Głosowania
         sub_hero:
           register: Zarejestruj się
       index:
@@ -1068,13 +1102,14 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
+          agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
           modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki
-          modal_close: Zamknij modalne
+          modal_close: Zamknij okno
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
@@ -1084,6 +1119,7 @@ pl:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
+      inaccessible_message: Ten profil jest niedostępny z powodu naruszenia Regulaminu!
       view: Zobacz
     profiles:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
@@ -1097,6 +1133,7 @@ pl:
         groups: Grupy
         members: Członkowie
         officialized: Oficjalny użytkownik
+        send_private_message: Wyślij wiadomość prywatną
         timeline: Oś czasu
         view_full_profile: Zobacz pełny profil
       sidebar:
@@ -1124,12 +1161,15 @@ pl:
       report:
         authors: Autorzy
         content: Zgłoszona zawartość
+        content_original_language: Oryginalny język treści
         date: Zgłoszone dnia
         details: Szczegóły
         hello: Witaj %{name},
+        id: ID
         participatory_space: Przestrzeń partycypacyjna
         reason: Powód
         report_html: <p>Poniższa <a href="%{url}">zawartość</a> została zgłoszona.</p>
+        see_report: Zobacz
         subject: Zasób został zgłoszony
     reports:
       create:
@@ -1164,7 +1204,7 @@ pl:
           future: Przyszły
           past: Przeszły
       filters_small_view:
-        close_modal: Zamknij modalne
+        close_modal: Zamknij okno
         filter: Filtr
         filter_by: Filtruj według
         unfold: Rozwiń
@@ -1182,7 +1222,7 @@ pl:
     shared:
       confirm_modal:
         cancel: Anuluj
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         ok: OK
         title: Potwierdź
       embed_modal:
@@ -1199,18 +1239,27 @@ pl:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Zamknij
         description: Czy ta treść jest nieodpowiednia?
-        does_not_belong: Dotyczy nielegalnej działalności, gróźb samobójczych, zawiera informacje osobiste lub coś innego, co według Ciebie nie dotyczy do %{organization_name}.
-        offensive: Zawiera rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
+        does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
+        offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
         report: Raport
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
+      flag_user_modal:
+        already_reported: Ta treść została już zgłoszona i zostanie sprawdzona przez administratora.
+        close: Zamknij
+        description: Jaki jest powód zgłoszenia użytkownika?
+        does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
+        offensive: Promuje rasizm, seksizm, kłamstwa, ataki osobiste, groźby śmierci, prośby samobójcze lub jakąkolwiek formę mowy nienawiści.
+        report: Zgłoś
+        spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
+        title: Zgłoś użytkownika
       floating_help:
         close: Zamknij pomoc
         help: Pomoc
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
-        close_modal: Zamknij modalny
+        close_modal: Zamknij okno
         please_sign_in: Zaloguj się
         sign_up: Zarejestruj się
       participatory_space_filters:
@@ -1229,6 +1278,15 @@ pl:
         close_window: Zamknij okno
         share: Udostępnij
         share_link: Udostępnij link
+    statistics:
+      comments_count: Komentarze
+      endorsements_count: Rekomendacje
+      followers_count: Obserwujący
+      headline: Statystyki
+      no_stats: Nie ma jeszcze żadnych statystyk.
+      pages_count: Stron
+      participants_count: Użytkowników
+      users_count: Uczestników
     tags:
       filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
       filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
@@ -1279,6 +1337,13 @@ pl:
       update:
         error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
         success: Twoje zainteresowania zostały zaktualizowane.
+    user_report_mailer:
+      notify:
+        body_1: Użytkownik %{user} został zgłoszony przez %{token}
+        body_2: 'Powód: %{reason}'
+        greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Witaj %{admin},
+        subject: Zgłoszono użytkownika w %{organization_name}
     version:
       show:
         back_to_resource: Wróć
@@ -1466,7 +1531,7 @@ pl:
     messages:
       already_confirmed: zostało już potwierdzone, spróbuj się zalogować
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
-      content_type_whitelist_error: typ pliku jest nieprawidłowy
+      content_type_allowlist_error: typ pliku jest nieprawidłowy
       cycle_detected: zakres podrzędny nie może być jednocześnie zakresem nadrzędnym
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: rozmiar pliku musi być mniejszy lub równy %{count}
@@ -1486,12 +1551,6 @@ pl:
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
-    length_validator:
-      minimum:
-        one: co najmniej %{count} znak
-        few: co najmniej %{count} znaków
-        many: co najmniej %{count} znaków
-        other: co najmniej %{count} znaków
     required: Wymagane
     required_explanation: "* Wymagane pola są oznaczone gwiazdką"
   invisible_captcha:
@@ -1530,6 +1589,11 @@ pl:
         instagram: "%{organization} na Instagramie"
         twitter: "%{organization} na Twitterze"
         youtube: "%{organization} na YouTube"
+      timeout_modal:
+        body: Byłeś nieaktywny przez %{minutes} min. Jeśli pozostaniesz nieaktywny, zostaniesz automatycznie wylogowany ze względów bezpieczeństwa.
+        continue_session: Kontynuuj sesję
+        sign_out: Wyloguj się
+        title: Czy chcesz kontynuować sesję?
       user_menu:
         account: 'Konto użytkownika: %{name}'
         admin_dashboard: Panel administracyjny

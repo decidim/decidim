@@ -21,12 +21,14 @@ module Decidim::Conferences
       )
     end
     let(:meeting_ids) { meetings.map(&:id) }
+    let(:avatar) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     let(:form) do
       instance_double(
         Admin::ConferenceSpeakerForm,
         invalid?: invalid,
         full_name: "Full name",
         user: user,
+        errors: ActiveModel::Errors.new(Admin::ConferenceSpeakerForm),
         attributes: {
           full_name: "Full name",
           position: { en: "position" },
@@ -34,7 +36,8 @@ module Decidim::Conferences
           short_bio: Decidim::Faker::Localized.sentence(word_count: 5),
           twitter_handle: "full_name",
           personal_url: Faker::Internet.url,
-          meeting_ids: meeting_ids
+          meeting_ids: meeting_ids,
+          avatar: avatar
         }
       )
     end
@@ -46,6 +49,21 @@ module Decidim::Conferences
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+
+      context "when image is invalid" do
+        let(:invalid) { false }
+
+        let(:avatar) { Decidim::Dev.test_file("invalid.jpeg", "image/jpeg") }
+
+        before do
+          Decidim::AvatarUploader.enable_processing = true
+        end
+
+        it "prevents uploading" do
+          expect { subject.call }.not_to raise_error
+          expect { subject.call }.to broadcast(:invalid)
+        end
       end
     end
 

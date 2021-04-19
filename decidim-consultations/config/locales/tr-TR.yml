@@ -2,7 +2,7 @@ tr:
   activemodel:
     attributes:
       consultation:
-        banner_image: Filama görseli
+        banner_image: Banner resmi
         decidim_highlighted_scope_id: Vurgulanan kapsam
         description: Açıklama
         end_voting_date: Oylama biter
@@ -19,6 +19,9 @@ tr:
         hashtag: Başlık etiketi
         hero_image: Ana resim
         i_frame_url: Harici oylama sistemi URL'si
+        instructions: Oylama için ek talimatlar
+        max_votes: Maksimum oy sayısı
+        min_votes: Maksimum oy sayısı
         origin_scope: kapsam
         origin_title: Menşei
         origin_url: Kökeni URL
@@ -31,11 +34,24 @@ tr:
         subtitle: Alt yazı
         vote: Dış oylama sistemi
         what_is_decided: Karar nedir
+      response:
+        decidim_consultations_response_group_id: Grup
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maksimum oy sayısı minimumdan fazla veya ona eşit olmalıdır.
       vote:
         decidim_consultations_response_id:
           not_found: Yanıt bulunamadı.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Oy sayısı geçersiz
     models:
       decidim/consultation:
         one: konsültasyon
@@ -52,10 +68,13 @@ tr:
   decidim:
     admin:
       actions:
+        back_to_responses: Yanıtlara dön
         new_consultation: Yeni danışma
         new_question: Yeni soru
         new_response: Yeni cevap
+        new_response_group: Yeni grup
         publish_results: Sonuçları yayınla
+        response_groups: Sorumlu grupları yönetin
         unpublish_results: Sonuçları yayından kaldır
       consultation_publications:
         create:
@@ -76,42 +95,46 @@ tr:
           error: Yeni bir danışma oluştururken bir hata oluştu.
           success: Danışmanlık başarıyla oluşturuldu.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         form:
-          slug_help: 'URL sümükleri, bu danışmaya işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+          slug_help: 'URL bağlantı, bu danışmaya işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
           title: Genel bilgi
         index:
           not_published: Yayınlanmadı
           published: Yayınlanan
         new:
-          create: yaratmak
+          create: Oluştur
           title: Yeni danışma
         results:
           not_visible: Danışma kapatıldığında sonuçlar ulaşılabilir olacak
+          participants: "%{count} katılımcı"
           total_votes: 'Toplam: %{count} oy'
         update:
           error: Bu danışma hizmetini güncellerken bir hata oluştu.
           success: Danışma başarıyla güncellendi.
       menu:
-        consultations: istişareler
+        consultations: Danışmalar
         consultations_submenu:
           info: Bilgi
           questions: Sorular
           results: Sonuçlar
         questions_submenu:
+          attachments: Ekler
+          categories: Kategoriler
           components: Bileşenler
-          consultation: konsültasyon
+          configuration: Konfigürasyon
+          consultation: Danışma
           info: Bilgi
-          responses: Tepkiler
+          responses: Yanıtlar
       models:
         consultation:
           fields:
-            created_at: Düzenlendi
+            created_at: Oluşturuldu
             published: Yayınlanan
             title: Başlık
           name:
-            one: konsültasyon
-            other: istişareler
+            one: Danışma
+            other: Danışma
         question:
           fields:
             created_at: Düzenlendi
@@ -122,18 +145,24 @@ tr:
             other: Sorular
         response:
           fields:
-            created_at: Düzenlendi
+            created_at: Oluşturuldu
+            response_group: Grup
             title: Başlık
           name:
-            one: Tepki
+            one: Yanıt
             other: Tepkiler
+      question_configuration:
+        disable_external_voting: Lütfen gelişmiş yapılandırmalar için harici oylamayı devre dışı bırakın
+        form:
+          help: Bir katılımcının seçebileceği maksimum yanıt sayısını artırarak çoktan seçmeli sorular oluşturun. Varsayılan maksimum değer 1'dir, yani yalnızca bir yanıtın oylanabileceği anlamına gelir.
+          title: Gelişmiş yapılandırma
       question_publications:
         create:
           error: Bu soruyu yayınlarken bir hata oluştu.
-          success: Soru başarıyla basıldı.
+          success: Soru başarıyla yayınlandı.
         destroy:
           error: Bu soruyu yayından kaldırmada bir hata oluştu.
-          success: Soru başarıyla basıldı.
+          success: Soru başarıyla yayından kaldırıldı.
       questions:
         create:
           error: Yeni bir soru oluşturulurken bir hata oluştu.
@@ -141,18 +170,36 @@ tr:
         destroy:
           success: Soru başarıyla silindi.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         form:
           title: Genel bilgi
         index:
           not_published: Yayınlanmadı
-          published: Yayınlanan
+          published: Yayınlandı
         new:
-          create: yaratmak
+          create: Oluştur
           title: Yeni soru
         update:
           error: Bu soru güncellenirken bir hata oluştu.
           success: Soru başarıyla güncellendi.
+      response_groups:
+        create:
+          error: Yeni bir sorumlu grup oluştururken bir hata oluştu.
+          success: Sorumlu grubu başarıyla oluşturuldu.
+        destroy:
+          error: Sorumlu grubunu kaldırırken bir sorun oluştu. Hiçbir yanıtın buna bağlı olmadığını kontrol edin.
+          success: Sorumlu grubu başarıyla silindi.
+        edit:
+          update: Güncelle
+        form:
+          title: Genel Bilgi
+        help: Paketlerdeki çoktan seçmeli soruları düzenlemek için grupları kullanın.
+        new:
+          create: Oluştur
+          title: Yeni sorumlu grup
+        update:
+          error: Bu yanıtı güncellerken bir hata oluştu.
+          success: Yanıt başarıyla güncellendi.
       responses:
         create:
           error: Yeni bir yanıt oluştururken bir hata oluştu.
@@ -161,19 +208,20 @@ tr:
           error: Yanıtı kaldırırken bir hata oluştu.
           success: Yanıt başarıyla silindi.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         form:
           title: Genel bilgi
         new:
-          create: yaratmak
-          title: Yeni cevap
+          create: Oluştur
+          title: Yeni yanıt
         update:
           error: Bu yanıtı güncellerken bir hata oluştu.
           success: Yanıt başarıyla güncellendi.
       titles:
-        consultations: istişareler
+        consultations: Danışma
         questions: Sorular
-        responses: Tepkiler
+        response_groups: Sorumlu gruplar
+        responses: Yanıtlar
         results: Sonuçlar
     consultations:
       admin:
@@ -188,31 +236,33 @@ tr:
       consultations:
         orders:
           label: 'Danışmanlıklara göre sırala:'
-          random: rasgele
+          random: Rastgele
           recent: En yeni
+        show:
+          dates: Tarih
       content_blocks:
         highlighted_consultations:
-          name: Vurgulanan istişareler
+          name: Vurgulanan danışma
       count:
         title:
           one: "%{count} danışma"
-          other: "%{count} görüşme"
+          other: "%{count} danışma"
       filters:
         active: Aktif
-        all: Herşey
-        finished: bitirdi
+        all: Tümü
+        finished: Bitti
         search: Arama
-        state: Belirtmek, bildirmek
+        state: Statü
         upcoming: Yaklaşan
       filters_small_view:
         close_modal: Pencereyi kapat
-        filter: filtre
-        filter_by: Tarafından filtre
-        unfold: açılmak
+        filter: Filtrele
+        filter_by: Şuna göre filtrele
+        unfold: Aç
       highlighted_questions:
-        title: '%{scope_name}soru'
+        title: '%{scope_name} soruları'
       index:
-        title: istişareler
+        title: Danışma
       last_activity:
         new_consultation: Yeni danışma
         new_question_at_html: "<span>Yeni soru, %{link}</span>"
@@ -231,33 +281,50 @@ tr:
         votes_out_of:
           one: oy vermek
           other: oy vermemek
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Katılımcılar farklı seçenekler arasında minimum %{votes} oy dağıtabilir.
+          title: Bu soruda uygun olan yerlerde birden fazla seçenek
+          total_participants: Oylamaya toplam %{count} kişi katıldı.
+          vote_limit:
+            description: Katılımcılar %{limit} limitine kadar oy verebilir.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Farklı seçenekler arasında minimum %{votes} oy dağıtmalısınız.
+          title: 'Oylama aşağıdaki kurallara tabidir:'
+          vote_limit:
+            description: En fazla %{limit} teklife oy verebilirsiniz.
+            left: Kalan
+            votes: Oylar
       question_votes:
         create:
           error: Soruya oy verirken hatalar oldu
+          success: Konsültasyonun sonuna kadar değiştirebilirsiniz. Yalnızca son oylama kabul edilecektir.
+          title_error: Hatalı oy!
+          title_success: Oy başarıyla kaydedildi
       regular_questions:
         title: Bu danışma için sorular
       show:
         badge_name:
-          finished: bitirdi
+          finished: Bitti
           open: Açık
           open_votes: Açık oylar
           published_results: Sonuçlar yayınlandı
         footer_button_text:
-          debate: tartışma
+          debate: Tartışma
           view: Görünüm
-          view_results: Sonuçları Görüntüle
+          view_results: Sonuçları görüntüle
           vote: Oy
         unspecified: Belirtilmemiş
     help:
       participatory_spaces:
         consultations:
-          title: Danışmalar nelerdir?
+          contextual: "<p> <strong> Danışma </strong>, bir kuruluş oluşturan tüm insanlara net bir soru sormanıza, danışmaya katılmak için bir çağrı yapmanıza, bir tepki. Danışma tarihi geldiğinde oylayabilir ve oylama sonuçlarını yayınlayabilirsiniz. </p> <p> Örnekler: İstişareler, bir kuruluşu etkileyen hemen hemen her yönle ilgili olabilir: Bazı örnekler, kuruluşun adını veya logosunu değiştiriyor birkaç alternatif önermek, daha büyük bir organizasyonun parçası olmaya Evet veya Hayır karar vermek, yeni bir stratejik planı veya bir çalışma grubunun sonucunu onaylamak veya reddetmek veya pozisyonların maksimum 1, 2 veya 3 görev olarak kalması gerekip gerekmediğini tanımlamak. </p>\n"
+          page: "<p> <strong> Danışma </strong>, bir kuruluş oluşturan tüm insanlara net bir soru sormanıza, danışmaya katılmak için bir çağrı yapmanıza, bir tepki. Danışma tarihi geldiğinde oylayabilir ve oylama sonuçlarını yayınlayabilirsiniz. </p> <p> Örnekler: İstişareler bir kuruluşu etkileyen hemen hemen her yönle ilgili olabilir: Bazı örnekler, kuruluşun adını veya logosunu değiştiriyor Birkaç alternatif önermek, daha büyük bir organizasyonun parçası olmaya Evet veya Hayır karar vermek, yeni bir stratejik planı veya bir çalışma grubunun sonucunu onaylamak veya reddetmek veya pozisyonların organizasyonda maksimum 1, 2 veya 3 görev olarak kalması gerekip gerekmediğini tanımlamak. </p>\n"
+          title: Danışma nedir?
     menu:
-      consultations: istişareler
-    pages:
-      home:
-        statistics:
-          consultations_count: istişareler
+      consultations: İstişareler
     questions:
       next_button: Sonraki soru
       previous_button: Önceki soru
@@ -266,7 +333,7 @@ tr:
       show:
         read_more: Daha fazla oku
       statistics:
-        assistants_count_title: Yardımcıları
+        assistants_count_title: Asistanlar
         comments_count_title: Yorumlar
         meetings_count_title: Toplantılar
         supports_count_title: Destekler
@@ -276,21 +343,24 @@ tr:
         already_voted: Çoktan oy verildi
         already_voted_hover: Desteği iptal et
         starting_from: '%{date}başlayarak'
+        verification_required: Oy vermek için hesabınızı doğrulayın
         vote: Oy
       vote_modal:
+        close_modal: Pencereyi kapat
         contextual_help: Lütfen bir seçenek seçin.
         title: 'Danışma: soru desteği'
       vote_modal_confirm:
         change: Değişiklik
+        close_modal: Pencereyi kapat
         confirm: Onaylamak
         contextual_help: Lütfen seçilen seçeneği onaylayın.
         title: 'Danışma: teyit teyit'
+    resources:
+      consultations:
+        actions:
+          vote: Oy ver
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Ekler
-          categories: Kategoriler
       consultation_voting_data:
         start_voting_date: Oylama başlıyor
       question_components:
@@ -298,3 +368,4 @@ tr:
         unfold: açılmak
       question_header:
         back_to_consultation: Tüm istişarelere bakın
+        back_to_question: Soruya geri dön

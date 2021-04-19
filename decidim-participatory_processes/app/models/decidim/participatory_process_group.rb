@@ -7,7 +7,8 @@ module Decidim
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
 
-    translatable_fields :name, :description
+    translatable_fields :title, :description, :developer_group, :local_area, :meta_scope, :participatory_scope,
+                        :participatory_structure, :target
 
     has_many :participatory_processes,
              foreign_key: "decidim_participatory_process_group_id",
@@ -21,6 +22,13 @@ module Decidim
 
     validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
+
+    # Scope to return only the promoted groups.
+    #
+    # Returns an ActiveRecord::Relation.
+    def self.promoted
+      where(promoted: true)
+    end
 
     def self.log_presenter_class_for(_log)
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessGroupPresenter

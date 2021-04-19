@@ -18,7 +18,9 @@ module Decidim
       end
 
       def category
-        current_participatory_space.categories.find(params[:filter][:category_id]) if params[:filter] && params[:filter][:category_id].present?
+        return if (category_id = params.dig(:filter, :category_id)).blank?
+
+        @category ||= current_participatory_space.categories.find(category_id.is_a?(Array) ? category_id.first : category_id)
       end
     end
   end

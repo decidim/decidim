@@ -33,7 +33,6 @@ ru:
       participatory_process_group:
         description: Описание
         hero_image: Изображение
-        name: Имя
         participatory_process_ids: Подобные движения
       participatory_process_step:
         description: Описание
@@ -106,8 +105,6 @@ ru:
             title: Название
           name: Движение соучастия
         participatory_process_group:
-          fields:
-            name: Имя
           name: Группа движений
         participatory_process_step:
           fields:
@@ -257,12 +254,10 @@ ru:
     menu:
       processes: Движения
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Деятельность
       show:
-        group_participatory_processes:
-          one: 1 движение у %{group}
-          few: "%{count} движения у %{group}"
-          many: "%{count} движений у %{group}"
-          other: "%{count} движений у %{group}"
         title: Группы движений соучастия
     participatory_process_steps:
       index:
@@ -339,23 +334,6 @@ ru:
         start_date: Дата начала
         target: Кто участвует
         unspecified: Не указано
-      statistics:
-        answers_count: Ответов
-        comments_count: Комментариев
-        debates_count: Обсуждений
-        endorsements_count: Выражений поддержки
-        headline: Деятельность
-        meetings_count: Встреч
-        orders_count: Голосов
-        pages_count: Страниц
-        participants_count: Участников
-        processes_count: Движений
-        projects_count: Проектов
-        proposals_count: Предложений
-        results_count: Итогов
-        supports_count: Голосов
-        surveys_count: Опросов
-        users_count: Участников
   layouts:
     decidim:
       participatory_process_groups:

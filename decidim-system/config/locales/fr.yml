@@ -9,8 +9,8 @@ fr:
         redirect_uri: URI de redirection
       organization:
         address: Nom de l'hôte SMTP
-        from_email: Adresse e-mail
-        from_label: Etiquette
+        from_email: Adresse e-mail d'envoi des notifications
+        from_label: Label de l'envoyeur
         password: Mot de passe
         port: Port
         user_name: Nom d'utilisateur
@@ -23,8 +23,8 @@ fr:
           default: Extensions de fichiers par défaut
           image: Formats d'image autorisés
         maximum_file_size:
-          avatar: Taille de l'image Avatar
-          default: Taille du fichier par défaut
+          avatar: Taille du fichier de l'avatar
+          default: Taille de fichier par défaut
     errors:
       models:
         oauth_application:
@@ -121,7 +121,7 @@ fr:
           content_types:
             admin_hint: Ces types MIME sont autorisés pour les téléchargements dans la section admin. Les administrateurs doivent être conscients des risques liés au téléchargement de certains formats de document, il faut donc vous attendre à qu'ils soient plus prudents avec les téléchargements de fichiers.
             default_hint: Ces formats de fichiers sont autorisés par défaut pour tous les utilisateurs.
-            intro_html: Vous ajoutez des jokers avec le caractère astérisque pour les types MIME, par exemple <code>image/*</code>.
+            intro_html: Vous ajoutez des wildcards (jokers) avec le caractère astérisque pour les types MIME, par exemple <code>image/*</code>.
             title: Types MIME acceptés
           file_extensions:
             admin_hint: Ces formats de fichiers sont autorisés pour les téléchargements dans la section admin. Les administrateurs doivent être conscients des risques liés au téléchargement de certains formats de document, il faut donc vous attendre à qu'ils soient plus prudents avec les téléchargements de fichiers.
@@ -133,7 +133,7 @@ fr:
             default_hint: Megabytes (MB). Cette limite de taille de fichier est la valeur par défaut utilisée pour tous les téléchargements de fichiers, sauf indication contraire.
             title: Taille maximum des fichiers
           intro: |
-            Veuillez être extrèmement prudent lorsque vous envisagez de modifier ces paramètres. Moins vous autorisez, mieux c'est.
+            Veuillez être extrêmement prudent lorsque vous envisagez de modifier ces paramètres. Moins vous autorisez, mieux c'est.
             L'autorisation d'extensions de fichiers spécifiques ou de types MIME peut exposer les utilisateurs du système à des risques de sécurité et peut également affecter l'accessibilité du site.
         index:
           title: Organisations
@@ -163,7 +163,7 @@ fr:
           fieldsets:
             sender: Expéditeur
           instructions:
-            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme étiquette'
+            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme label'
           placeholder:
             from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation
