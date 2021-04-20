@@ -50,11 +50,11 @@ image::header-snippet.png[Header snippet]
 
 Notice that you can resize this textarea.
 
-== Asset pipeline
+== Webpacker
 
-You can go to app/assets/stylesheets/application.css.sass on your generated applications. There you can override any class using CSS with SASS.
+You can go to app/packs/stylesheets/decidim/decidim-settings.scss on your generated applications to override any class using CSS with SASS.
 
-In https://github.com/decidim/decidim/blob/develop/decidim-core/app/assets/stylesheets/decidim/_variables.scss[decidim-core/app/assets/stylesheets/decidim/_variables.scss] you can find the `variables` that can be overriden in your `sass`.
+In https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/stylesheets/decidim/_variables.scss[decidim-core/app/packs/stylesheets/decidim/_variables.scss] you can find the `variables` that can be overriden in your `sass`.
 
 We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
 
