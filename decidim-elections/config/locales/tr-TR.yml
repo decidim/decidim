@@ -228,7 +228,6 @@ tr:
             upcoming: Oylama %{start_time} tarihinde başlıyor
       feedback:
         answer:
-          invalid: Geri bildiriminizi gönderirken bir sorun oluştu.
           spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davrandın, tekrar deneyebilir misin?
           success: Geri bildirim başarıyla gönderildi.
       models:
