@@ -8,7 +8,7 @@
       <%= form.fields_for "[ballot_results]", form.object.ballot_results do |ballot_form| %>
         <%= content_tag :span,
                         "",
-                        id: "election_result-total-ballots",
+                        id: "closure_result-total-ballots",
                         data: { total_ballots: ballot_form.object.total_ballots_count } %>
 
         <%= content_tag :div,

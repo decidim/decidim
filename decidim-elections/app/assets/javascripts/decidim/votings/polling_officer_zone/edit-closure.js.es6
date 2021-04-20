@@ -1,10 +1,10 @@
 $(() => {
-  const $validBallotsInput = $("#election_result__ballot_results__valid_ballots_count");
-  const $blankBallotsInput = $("#election_result__ballot_results__blank_ballots_count");
-  const $nullBallotsInput = $("#election_result__ballot_results__null_ballots_count");
+  const $validBallotsInput = $("#closure_result__ballot_results__valid_ballots_count");
+  const $blankBallotsInput = $("#closure_result__ballot_results__blank_ballots_count");
+  const $nullBallotsInput = $("#closure_result__ballot_results__null_ballots_count");
 
   const checkTotals = () => {
-    const totalBallots = $("#election_result-total-ballots").data("total-ballots");
+    const totalBallots = $("#closure_result-total-ballots").data("total-ballots");
     const validBallotsCount = parseInt($validBallotsInput.val(), 10);
     const blankBallotsCount = parseInt($blankBallotsInput.val(), 10);
     const nullBallotsCount = parseInt($nullBallotsInput.val(), 10);

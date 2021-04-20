@@ -34,6 +34,8 @@ module Decidim
           form.question_results.each do |question_result|
             create_question_result_for!(question_result)
           end
+
+          closure.attachment_phase!
         end
 
         broadcast(:ok)

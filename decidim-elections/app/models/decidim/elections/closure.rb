@@ -4,6 +4,8 @@ module Decidim
   module Elections
     # The data store for an Election Closure.
     class Closure < ApplicationRecord
+      enum phase: [:envelopes, :results, :attachment, :confirmed, :freeze], _suffix: true
+
       belongs_to :election,
                  foreign_key: "decidim_elections_election_id",
                  class_name: "Decidim::Elections::Election",

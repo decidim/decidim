@@ -2,7 +2,7 @@
 
 module Decidim
   module Votings
-    class BallotsResultForm < Decidim::Form
+    class EnvelopesResultForm < Decidim::Form
       attribute :polling_station_id, Integer
       attribute :election_id, Integer
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Votings::ElectionResultForm do
+describe Decidim::Votings::ClosureResultForm do
   subject { described_class.from_params(attributes).with_context(polling_officer: polling_officer) }
 
   let(:voting) { create(:voting) }

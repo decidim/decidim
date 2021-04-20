@@ -29,6 +29,10 @@
         <%= content_tag :strong, "polling_officer" %> <%= closure.polling_officer.name %>
       </p>
 
+      <p>
+        <%= content_tag :strong, "closure phase" %> <%= closure.phase %>
+      </p>
+
       <p><strong>Recount summary:</strong></p>
 
       <div class="card--secondary">
@@ -36,7 +40,7 @@
           <div>
             <span>
               <strong>Total ballots:</strong>
-              <%= closure.results.total_ballots.first.votes_count %>
+              <%= closure.results.total_ballots&.first&.votes_count %>
             </span>
             <div class="ml-s">
               <span>
