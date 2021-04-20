@@ -23,7 +23,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          closure.update!(polling_officer_notes: form.polling_officer_notes)
+          closure.update!(phase: :results, polling_officer_notes: form.polling_officer_notes)
 
           create_total_ballot_results!
         end

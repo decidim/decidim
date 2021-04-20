@@ -14,12 +14,12 @@ module Decidim
         def new
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
 
-          @form = form(BallotsResultForm).from_model(closure)
+          @form = form(EnvelopesResultForm).from_model(closure)
         end
 
         def create
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
-          @form = form(BallotsResultForm).from_params(params)
+          @form = form(EnvelopesResultForm).from_params(params)
 
           CreateClosure.call(@form, closure) do
             on(:ok) do
@@ -36,18 +36,18 @@ module Decidim
         end
 
         def total_people
-          @totals_match = (params[:ballots_result][:total_ballots_count].to_i == election.votes&.count.to_i)
+          @totals_match = (params[:envelopes_result][:total_ballots_count].to_i == election.votes&.count.to_i)
         end
 
         def edit
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
 
-          @form = form(ElectionResultForm).from_model(closure)
+          @form = form(ClosureResultForm).from_model(closure)
         end
 
         def update
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
-          @form = form(ElectionResultForm).from_params(params)
+          @form = form(ClosureResultForm).from_params(params)
 
           CreatePollingStationResults.call(@form, closure) do
             on(:ok) do
@@ -78,8 +78,8 @@ module Decidim
 
         def closure
           @closure ||= begin
-            election.closures.find_by(polling_officer: polling_officer) ||
-              Decidim::Elections::Closure.new(election: election, polling_station: polling_station, polling_officer: polling_officer)
+            election.closures.find_by(polling_station: polling_station) ||
+              Decidim::Elections::Closure.new(phase: :envelopes, election: election, polling_station: polling_station, polling_officer: polling_officer)
           end
         end
       end

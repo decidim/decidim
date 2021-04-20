@@ -54,7 +54,7 @@ module Decidim::Votings
       }
     end
 
-    let(:form) { ElectionResultForm.from_params(params).with_context(context) }
+    let(:form) { ClosureResultForm.from_params(params).with_context(context) }
 
     context "when the form is not valid" do
       let(:polling_station_id) {}

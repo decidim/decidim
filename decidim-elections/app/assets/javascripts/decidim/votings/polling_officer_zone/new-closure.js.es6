@@ -1,13 +1,12 @@
 $(() => {
   $("#submit-verify-votes").addClass("disabled");
 
-  $("#ballots_result_total_ballots_count").on("keyup", function() {
-    $("#submit-verify-votes").removeClass("disabled");
-    $("#modal-total-ballots-value").html($("#ballots_result_total_ballots_count").val());
+  $("#envelopes_result_total_ballots_count").on("keyup", function() {
+    $("#modal-total-ballots-value").html($("#envelopes_result_total_ballots_count").val());
   });
 
-  $("#ballots_result_polling_officer_notes").on("keyup", function() {
-    let modalPollingOfficerNotes = $("#ballots_result_polling_officer_notes").val()
+  $("#envelopes_result_polling_officer_notes").on("keyup", function() {
+    let modalPollingOfficerNotes = $("#envelopes_result_polling_officer_notes").val()
 
     if (modalPollingOfficerNotes.length > 0) {
       $("#btn-submit-from-modal").removeClass("disabled");
