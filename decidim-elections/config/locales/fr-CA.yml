@@ -341,6 +341,7 @@ fr-CA:
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
+          invalid: Un problème est survenu lors de l'envoi de votre commentaire.
           spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
           success: Votre avis a bien été envoyé.
       models:
@@ -503,6 +504,12 @@ fr-CA:
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
+        onboarding_modal:
+          close: Fermer la fenêtre de dialogue
+          create_account: Créer un compte
+          description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer à toutes les concertations et prendre une part active dans l'organisation.
+          no_account: Non, merci.
+          title: Nouveau sur Decidim ?
         verify:
           content:
             heading: Vérifiez votre vote
