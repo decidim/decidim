@@ -172,11 +172,6 @@ module Decidim
         system("bin/rails", *args, err: File::NULL)
       end
 
-      def scss_variables
-        variables = File.join(Gem.loaded_specs["decidim-core"].full_gem_path, "app", "packs", "stylesheets", "decidim", "_variables.scss")
-        File.read(variables).split("\n").map { |line| "// #{line}".gsub(" !default", "") }.join("\n")
-      end
-
       def cut(text, strip: true)
         cutted = text.gsub(/^ *\|/, "")
         return cutted unless strip
