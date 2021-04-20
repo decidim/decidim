@@ -35,7 +35,7 @@ ca:
         origin_component_id: Component des d'on importar les propostes
       proposals_import:
         import_proposals: Importar propostes
-        keep_answers: Mantenir declaracions i respostes
+        keep_answers: Manté l'estat i les respostes
         keep_authors: Mantenir l'autoria original
       valuation_assignment:
         admin_log:
