@@ -392,7 +392,6 @@ fi:
             upcoming: Äänestys alkaa %{start_time}
       feedback:
         answer:
-          invalid: Palautteen lähettäminen epäonnistui.
           spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
           success: Palautteen lähettäminen onnistui.
       models:
