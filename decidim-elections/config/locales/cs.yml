@@ -414,7 +414,6 @@ cs:
             upcoming: Hlasování začíná %{start_time}
       feedback:
         answer:
-          invalid: Při odesílání vaší zpětné vazby došlo k chybě.
           spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
           success: Zpětná vazba byla úspěšně odeslána.
       models:
