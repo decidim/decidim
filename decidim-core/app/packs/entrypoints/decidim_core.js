@@ -57,6 +57,9 @@ import "../src/decidim/gallery"
 // CSS
 import "./decidim_core.scss"
 
+// Import from the Rails instance application
+import "src/decidim/decidim_application.js"
+
 // Images
 require.context("../images", true)
 

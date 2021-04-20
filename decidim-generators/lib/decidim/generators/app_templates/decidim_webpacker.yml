@@ -1,3 +1,4 @@
+# File written by Decidim generator
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
@@ -10,7 +11,6 @@ default: &default
   source_path: 'decidim-core/app/packs'
   source_entry_path: entrypoints
   public_output_path: decidim-packs
-  cache_path: tmp/cache/webpacker
   webpack_compile_output: true
   extract_css: true
 
@@ -22,9 +22,9 @@ default: &default
 development:
   <<: *default
   compile: true
-  # Compile test packs to decidim development app
-  public_root_path: development_app/public
-  cache_path: development_app/tmp/cache/webpacker
+  # Compile test packs to decidim decidim-packs folder
+  public_root_path: ''
+  cache_path: tmp/cache/webpacker
 
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:

@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
     "Rakefile",
     "README.md",
     "config/webpack/*",
-    "config/webpacker.yml",
     "package.json"
   ]
 

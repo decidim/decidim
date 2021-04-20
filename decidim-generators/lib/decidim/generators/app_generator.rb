@@ -243,7 +243,7 @@ module Decidim
       def branch
         return if options[:path]
 
-        @branch ||= options[:edge] ? "develop" : options[:branch].presence
+        @branch ||= options[:edge] ? "7291-migrate-to-webpacker-css" : options[:branch].presence
       end
 
       def app_name

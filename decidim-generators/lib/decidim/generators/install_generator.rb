@@ -59,9 +59,8 @@ module Decidim
         remove_file "app/views/layouts/mailer.text.erb"
       end
 
-      def remove_assets
-        # Remove manually assets
-        system("rm -rf app/assets")
+      def remove_old_assets
+        remove_dir("app/assets")
       end
 
       def disable_precompilation_on_demand
@@ -100,8 +99,25 @@ module Decidim
         end
       end
 
-      def install_webpacker
+      def install_decidim_webpacker
+        # Copy decidim webpacker configuration
+        copy_file "decidim_webpacker.yml", "config/decidim_webpacker.yml"
+
+        # Add to additional paths the packs of the instance application, which allows to re-define
+        # CSS variables
+        gsub_file "config/decidim_webpacker.yml", "additional_paths: []", "additional_paths: ['#{destination_root}/app/packs']"
+
+        # Copy CSS variables template file
+        copy_file "decidim-settings.scss", "app/packs/stylesheets/decidim/decidim-settings.scss"
+
+        # Copy JS application file
+        copy_file "decidim_application.js", "app/packs/src/decidim/decidim_application.js"
+
+        empty_directory "app/packs/images"
+
+        # Remove manually assets
         rails "webpacker:install"
+
         rails "assets:precompile"
       end
 
