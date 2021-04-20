@@ -47,7 +47,9 @@ de:
               invalid_document_type: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
+            add_photos:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
             body:
               cant_be_equal_to_template: kann nicht gleich der Vorlage sein

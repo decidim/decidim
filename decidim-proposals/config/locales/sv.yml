@@ -47,7 +47,9 @@ sv:
               invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Måste bifogas igen
+            add_photos:
               needs_to_be_reattached: Måste bifogas igen
             body:
               cant_be_equal_to_template: kan inte vara detsamma som mallen
