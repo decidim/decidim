@@ -115,10 +115,7 @@ module Decidim
 
         empty_directory "app/packs/images"
 
-        # Remove manually assets
         rails "webpacker:install"
-
-        rails "assets:precompile"
       end
 
       def copy_migrations
