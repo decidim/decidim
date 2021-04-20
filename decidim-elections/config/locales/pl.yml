@@ -390,7 +390,6 @@ pl:
             upcoming: Głosowanie rozpoczyna się %{start_time}
       feedback:
         answer:
-          invalid: Wystąpił błąd podczas wysyłania Twojej informacji zwrotnej.
           spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Wiadomość zwrotna została wysłana.
       models:
