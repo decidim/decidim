@@ -341,7 +341,6 @@ fr:
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
-          invalid: Un problème est survenu lors de l'envoi de votre feedback.
           spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
           success: Votre avis a bien été envoyé.
       models:
