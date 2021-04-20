@@ -203,6 +203,18 @@ module Decidim
 
         expect(response).to redirect_to("/users/sign_in")
       end
+
+      context "when authenticated" do
+        before do
+          sign_in user
+        end
+
+        it "redirects the user to root path" do
+          get :unauthorized
+
+          expect(response).to redirect_to("/")
+        end
+      end
     end
   end
 end
