@@ -3,6 +3,7 @@
 class CreateElectionsClosures < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_elections_closures do |t|
+      t.integer :phase, index: true
       t.string :polling_officer_notes, null: true
 
       t.belongs_to :decidim_elections_election,

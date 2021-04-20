@@ -413,7 +413,6 @@ en:
           title: Election questions
         results:
           description: 'These are the results of the voting, for each question:'
-          percentage: "%{count}%"
           selected: Selected
           title: Election results
           votes:
@@ -929,7 +928,6 @@ en:
         admin:
           census:
             create:
-              error: an error occurred uploading the census, please try again later.
               invalid: An error occurred uploading the census, please try again later.
               invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
             creating_data:
@@ -1060,6 +1058,7 @@ en:
           index:
             polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
             polling_station:
+              actions: Actions
               address: Address
               count_votes: Count votes
               election: Election
@@ -1099,7 +1098,6 @@ en:
             validate_document: Validate document
             verify_document: Verify document
             verify_title: 'Check that the following data is correct:'
-              voting: Voting space
       polling_officers:
         actions:
           confirm_destroy: Are you sure?
