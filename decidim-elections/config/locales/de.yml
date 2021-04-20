@@ -391,7 +391,6 @@ de:
             upcoming: Die Abstimmung beginnt am %{start_time}
       feedback:
         answer:
-          invalid: Beim Senden Ihrer Meldung ist ein Fehler aufgetreten.
           spam_detected: Bei der Beantwortung des Fragebogens ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell. Versuchen Sie es vielleicht erneut.
           success: Feedback erfolgreich versand.
       models:
