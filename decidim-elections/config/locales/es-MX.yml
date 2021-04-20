@@ -390,7 +390,6 @@ es-MX:
             upcoming: La votación empieza el %{start_time}
       feedback:
         answer:
-          invalid: Hubo un problema al enviar tu feedback.
           spam_detected: Hubo un problema al responder al formulario. Tal vez hayas sido demasiado rápido, ¿puedes intentarlo de nuevo?
           success: Feedback enviado con éxito.
       models:
