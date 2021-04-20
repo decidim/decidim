@@ -176,7 +176,6 @@ ja:
             upcoming: '%{start_time} に投票が終了します'
       feedback:
         answer:
-          invalid: フィードバックの送信中に問題が発生しました
           spam_detected: フォームに回答する際に問題が発生しました。もう一度お試しください。
           success: フィードバックは正常に送信されました
       models:
