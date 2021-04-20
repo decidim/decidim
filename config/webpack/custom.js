@@ -66,6 +66,7 @@ module.exports = {
     decidim_core: "./decidim-core/app/packs/entrypoints/decidim_core.js",
     decidim_dev: "./decidim-dev/app/packs/entrypoints/decidim_dev.js",
     decidim_debates_admin: "./decidim-debates/app/packs/entrypoints/decidim_debates_admin.js",
+    decidim_elections_onboarding: "./decidim-elections/app/packs/entrypoints/decidim_elections_onboarding.js",
     decidim_elections_admin_pending_action: "./decidim-elections/app/packs/entrypoints/decidim_elections_admin_pending_action.js",
     decidim_elections_admin_vote_statistics: "./decidim-elections/app/packs/entrypoints/decidim_elections_admin_vote_statistics.js",
     decidim_elections_trustee_key_ceremony: "./decidim-elections/app/packs/entrypoints/decidim_elections_trustee_key_ceremony.js",
