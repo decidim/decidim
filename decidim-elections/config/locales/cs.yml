@@ -754,7 +754,7 @@ cs:
             components: Komponenty
             info: Informace
             landing_page: Vstupní stránka
-            monitoring_committee_members: Monitorovací výbor
+            monitoring_committee: Monitorovací výbor
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
