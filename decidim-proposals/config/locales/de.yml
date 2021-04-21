@@ -35,6 +35,7 @@ de:
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
       proposals_import:
         import_proposals: Vorschläge importieren
+        keep_answers: Status und Antworten behalten
         keep_authors: Behalten Sie die ursprünglichen Autoren
       valuation_assignment:
         admin_log:

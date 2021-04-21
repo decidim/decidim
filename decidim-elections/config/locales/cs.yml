@@ -599,6 +599,12 @@ cs:
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
+        onboarding_modal:
+          close: Zavřít okno
+          create_account: Vytvořit účet
+          description: Chcete si vytvořit nový účet v Decidimu? Budete se moci účastnit procesů a být aktivní součástí organizace.
+          no_account: Ne, děkuji.
+          title: Jste v Decidim poprvé?
         update:
           error: Při aktualizaci statusu hlasování se vyskytl problém. Prosím, hlasujte znovu.
         verify:

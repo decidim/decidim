@@ -565,6 +565,12 @@ de:
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
+        onboarding_modal:
+          close: Dialog schließen
+          create_account: Konto erstellen
+          description: Möchten Sie ein neues Konto in Decidim erstellen? Sie können an den Prozessen teilnehmen und aktiv an der Organisation teilnehmen.
+          no_account: Nein, danke.
+          title: Neu bei Decidim?
         verify:
           content:
             heading: Stimme verifizieren

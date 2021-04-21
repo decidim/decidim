@@ -392,7 +392,7 @@ ca:
             upcoming: La votació comença el %{start_time}
       feedback:
         answer:
-          invalid: S'ha produït un error en enviar els teus comentaris.
+          invalid: S'ha produït un error en enviar els comentaris.
           spam_detected: Hi ha hagut un problema contestant el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
           success: Comentaris enviats amb èxit.
       models:
@@ -577,6 +577,12 @@ ca:
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        onboarding_modal:
+          close: Tanca el modal
+          create_account: Crea un compte
+          description: Voleu crear un nou compte al Decidim? Podreu participar als processos i ser una part activa de l'organització.
+          no_account: No, gràcies.
+          title: Sou nou al Decidim?
         update:
           error: Hi ha hagut un error en actualitzar el vot. Proveu de nou.
         verify:

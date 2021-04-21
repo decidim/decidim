@@ -214,7 +214,6 @@ it:
             upcoming: La votazione inizia il %{start_time}
       feedback:
         answer:
-          invalid: Si è verificato un errore durante l'invio del tuo feedback.
           spam_detected: C'è stato un problema nelle risposte ai quesiti. Forse sei stato troppo veloce, puoi riprovare?
           success: Feedback inviato con successo.
       models:
