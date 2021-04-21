@@ -22,6 +22,10 @@ module Decidim
                class_name: "Decidim::Elections::Result",
                dependent: :destroy,
                as: :closurable
+
+      def verified?
+        [true, false].sample
+      end
     end
   end
 end

@@ -49,6 +49,10 @@ module Decidim
         polling_station_president.nil? || polling_station_managers.empty?
       end
 
+      def closure_for(election)
+        closures.find_by(election: election)
+      end
+
       private
 
       # Private: check if the president is in the same voting
