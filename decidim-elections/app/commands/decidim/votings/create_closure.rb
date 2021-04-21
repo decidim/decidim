@@ -38,7 +38,7 @@ module Decidim
 
       def create_total_ballot_results!
         closure.results.create!(
-          votes_count: form.total_ballots_count,
+          value: form.total_ballots_count,
           result_type: "total_ballots"
         )
       end
