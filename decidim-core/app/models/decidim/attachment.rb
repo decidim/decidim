@@ -67,11 +67,6 @@ module Decidim
       url&.split(".")&.last&.downcase
     end
 
-    # The URL to download the file.
-    #
-    # Returns String.
-    delegate :url, to: :file
-
     def url
       attached_uploader(:file).path
     end
