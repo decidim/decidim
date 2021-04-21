@@ -25,7 +25,7 @@ module Decidim
           resources :polling_stations
           resources :polling_officers, only: [:new, :create, :destroy, :index]
           resources :monitoring_committee_members, only: [:new, :create, :destroy, :index]
-          resources :monitoring_committee_certificates, only: [:index]
+          resources :monitoring_committee_polling_station_closures, only: [:index, :edit, :update]
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
           resources :ballot_styles
@@ -115,11 +115,11 @@ module Decidim
                         decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_members_path(current_participatory_space)),
                         if: allowed_to?(:read, :monitoring_committee_members)
-          menu.add_item :voting_monitoring_committee_certificates,
-                        I18n.t("monitoring_committee_certificates", scope: "decidim.votings.admin.menu.votings_submenu"),
-                        decidim_admin_votings.voting_monitoring_committee_certificates_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_certificates_path(current_participatory_space)),
-                        if: allowed_to?(:read, :monitoring_committee_certificates, voting: current_participatory_space)
+          menu.add_item :monitoring_committee_polling_station_closures,
+                        I18n.t("monitoring_committee_polling_station_closures", scope: "decidim.votings.admin.menu.votings_submenu"),
+                        decidim_admin_votings.voting_monitoring_committee_polling_station_closures_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_polling_station_closures_path(current_participatory_space)),
+                        if: allowed_to?(:read, :monitoring_committee_polling_station_closures, voting: current_participatory_space)
         end
       end
 
