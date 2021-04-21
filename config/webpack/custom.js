@@ -80,6 +80,8 @@ module.exports = {
     decidim_votings_admin_monitoring_committee_members_form: "./decidim-elections/app/packs/entrypoints/decidim_votings_admin_monitoring_committee_members_form.js",
     decidim_votings_admin_polling_officers_form: "./decidim-elections/app/packs/entrypoints/decidim_votings_admin_polling_officers_form.js",
     decidim_votings_admin_polling_officers_picker: "./decidim-elections/app/packs/entrypoints/decidim_votings_admin_polling_officers_picker.js",
+    decidim_votings_voting_polling_officer_zone_new_closure: "./decidim-elections/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-new-closure.js",
+    decidim_votings_voting_polling_officer_zone_edit_closure: "./decidim-elections/app/packs/entrypoints/decidim_votings_voting_polling_officer_zone-edit-closure.js",
     decidim_votings_admin_polling_stations_form: "./decidim-elections/app/packs/entrypoints/decidim_votings_admin_polling_stations_form.js",
     decidim_votings_admin_update_census_dataset_status: "./decidim-elections/app/packs/entrypoints/decidim_votings_admin_update_census_dataset_status.js",
     decidim_votings_voting_description_cell: "./decidim-elections/app/packs/entrypoints/decidim_votings_voting-description-cell.js",
