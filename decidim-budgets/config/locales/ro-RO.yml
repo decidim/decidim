@@ -2,7 +2,7 @@ ro:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Domeniu de aplicare
+        decidim_scope_id: Domeniu
         description: Descriere
         title: Titlu
         total_budget: Total budget
