@@ -704,7 +704,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (",")
+          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (","). Pour pouvoir choisir le type de séparateur il recommander d'utiliser le logiciel "Libre Office"
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage qui n'a pas de texte.
