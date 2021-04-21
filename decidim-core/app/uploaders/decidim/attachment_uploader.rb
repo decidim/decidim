@@ -3,9 +3,6 @@
 module Decidim
   # This class deals with uploading attachments to a participatory space.
   class AttachmentUploader < ApplicationUploader
-    process :validate_dimensions
-    process :strip
-
     def validable_dimensions
       true
     end
@@ -44,33 +41,10 @@ module Decidim
     protected
 
     # Strips out all embedded information from the image
-    def strip
-      return unless image?(self)
-
-      manipulate! do |img|
-        img.strip
-        img
-      end
-    end
-
     def upload_context
       return :participant unless model.respond_to?(:context)
 
       model.context
-    end
-
-    # A simple check to avoid DoS with maliciously crafted images, or just to
-    # avoid reckless users that upload gigapixels images.
-    #
-    # See https://hackerone.com/reports/390
-    def validate_dimensions
-      return unless image?(self)
-
-      manipulate! do |image|
-        raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.image_too_big") if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
-
-        image
-      end
     end
   end
 end

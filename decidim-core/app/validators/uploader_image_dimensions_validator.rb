@@ -3,6 +3,8 @@
 # This validator checks when the files to be uploaded are images and the attached uploader's
 # has enabled dimensions validation that the image dimensions are below the
 # limit defined by the uploader
+require "mini_magick"
+
 class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTypeValidator
   def validate_each(record, attribute, value)
     begin
