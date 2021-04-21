@@ -672,7 +672,7 @@ pl:
             components: Komponenty
             info: Informacje
             landing_page: Strona docelowa
-            monitoring_committee_members: Komisja monitorująca
+            monitoring_committee: Komisja monitorująca
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
         models:
