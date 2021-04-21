@@ -276,7 +276,7 @@ FactoryBot.define do
     closure { create :closure }
     question
     answer { create :election_answer, question: question }
-    votes_count { Faker::Number.number(digits: 1) }
+    value { Faker::Number.number(digits: 1) }
     result_type { "valid_answers" }
 
     trait :total_ballots do

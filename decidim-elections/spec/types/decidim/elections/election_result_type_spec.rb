@@ -19,11 +19,11 @@ module Decidim
         end
       end
 
-      describe "votes_count" do
-        let(:query) { "{ votesCount }" }
+      describe "value" do
+        let(:query) { "{ value }" }
 
         it "returns the votes count" do
-          expect(response["votesCount"]).to eq(model.votes_count)
+          expect(response["value"]).to eq(model.value)
         end
       end
 

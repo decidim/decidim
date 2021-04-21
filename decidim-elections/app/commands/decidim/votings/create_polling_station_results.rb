@@ -47,7 +47,7 @@ module Decidim
 
       def create_ballot_result_for!(ballot_results)
         params = {
-          votes_count: ballot_results.last,
+          value: ballot_results.last,
           result_type: ballot_results.first.to_s.remove("_count")
         }
 
@@ -56,7 +56,7 @@ module Decidim
 
       def create_answer_result_for!(answer_result)
         params = {
-          votes_count: answer_result.votes_count,
+          value: answer_result.value,
           decidim_elections_question_id: answer_result.question_id,
           decidim_elections_answer_id: answer_result.id,
           result_type: "valid_answers"
@@ -67,7 +67,7 @@ module Decidim
 
       def create_question_result_for!(question_result)
         params = {
-          votes_count: question_result.votes_count,
+          value: question_result.value,
           decidim_elections_question_id: question_result.id,
           result_type: "blank_answers"
         }

@@ -24,7 +24,7 @@ module Decidim
       def map_model(model)
         self.polling_station_id = model.polling_station.id
         self.election_id = model.election.id
-        self.total_ballots_count = model.results&.total_ballots&.first&.votes_count
+        self.total_ballots_count = model.results&.total_ballots&.first&.value
         self.election_votes_count = model.election.votes&.count
       end
     end

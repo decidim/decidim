@@ -27,7 +27,7 @@ describe Decidim::Votings::ClosureResultForm do
         {
           id: answer.id,
           question_id: question.id,
-          votes_count: Faker::Number.number(digits: 1)
+          value: Faker::Number.number(digits: 1)
         }
       end
     end
@@ -37,7 +37,7 @@ describe Decidim::Votings::ClosureResultForm do
     questions.map do |question|
       {
         id: question.id,
-        votes_count: Faker::Number.number(digits: 1)
+        value: Faker::Number.number(digits: 1)
       }
     end
   end
