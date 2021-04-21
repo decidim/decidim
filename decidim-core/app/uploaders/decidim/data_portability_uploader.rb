@@ -2,11 +2,17 @@
 
 module Decidim
   # This class deals with saving data portability Zip Files to App
-  class DataPortabilityUploader < ApplicationUploader
+  class DataPortabilityUploader < CarrierWave::Uploader::Base
+    def provider
+      fog_credentials.fetch(:provider, "file").downcase
+    end
+
+    def default_path
+      "uploads/data-portability/"
+    end
+
     # Override the directory where uploaded files will be stored.
     def store_dir
-      default_path = "uploads/data-portability/"
-
       return File.join(Decidim.base_uploads_path, default_path) if Decidim.base_uploads_path.present?
 
       default_path
