@@ -668,6 +668,15 @@ es:
             code_help: 'Sugerencia: el código es el vínculo entre el censo y el estilo de papeleta. Al actualizar los datos del censo, a cada entrada se le asigna un estilo de papeleta que coincida con el código'
             election: Elección
             questions: Preguntas para el estilo de votación
+            questions_help: 'Sugerencia: seleccione las preguntas de los componentes electorales, para este estilo de papeleta, que se presentarán a los votantes asignados a este estilo de votación'
+          index:
+            actions:
+              confirm_destroy: '¿Estás segura?'
+              destroy: Elimina
+              edit: Editar
+              new: Nueva
+              title: Acciones
+            associated_census_data: Entradas asociadas al censo
         content_blocks:
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
