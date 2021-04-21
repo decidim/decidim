@@ -7,12 +7,12 @@ describe Decidim::Votings::QuestionResultForm do
 
   let(:question) { create(:question) }
   let(:question_id) { question.id }
-  let(:votes_count) { 123 }
+  let(:value) { 123 }
 
   let(:attributes) do
     {
       id: question_id,
-      votes_count: votes_count
+      value: value
     }
   end
 
@@ -24,14 +24,14 @@ describe Decidim::Votings::QuestionResultForm do
     it { is_expected.to be_invalid }
   end
 
-  describe "when votes_count is missing" do
-    let(:votes_count) { nil }
+  describe "when value is missing" do
+    let(:value) { nil }
 
     it { is_expected.to be_invalid }
   end
 
-  describe "when votes_count not a number" do
-    let(:votes_count) { "abcde" }
+  describe "when value not a number" do
+    let(:value) { "abcde" }
 
     it { is_expected.to be_invalid }
   end

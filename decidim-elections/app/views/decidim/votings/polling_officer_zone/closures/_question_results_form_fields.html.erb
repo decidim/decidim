@@ -11,7 +11,7 @@
         <%= form.fields_for "[question_results][]", question do |question_form| %>
           <%= question_form.hidden_field :id %>
 
-          <%= question_form.number_field(:votes_count,
+          <%= question_form.number_field(:value,
                                    label: t("decidim.elections.votes.new.nota_option"),
                                    min: 0,
                                    class: "medium-3 result_votes_count") %>

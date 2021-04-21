@@ -21,10 +21,7 @@ module Decidim
       end
 
       def map_model(model)
-        # self.valid_ballots_count = model.results.valid_ballots.first&.votes_count.to_i
-        # self.blank_ballots_count = model.results.blank_ballots.first&.votes_count.to_i
-        # self.null_ballots_count = model.results.null_ballots.first&.votes_count.to_i
-        self.total_ballots_count = model.results&.total_ballots&.first&.votes_count.to_i
+        self.total_ballots_count = model.results&.total_ballots&.first&.value || 0
       end
     end
   end

@@ -40,22 +40,22 @@
           <div>
             <span>
               <strong>Total ballots:</strong>
-              <%= closure.results.total_ballots&.first&.votes_count %>
+              <%= closure.results.total_ballots&.first&.value %>
             </span>
             <div class="ml-s">
               <span>
                 <strong>Valid:</strong>
-                <%= closure.results.valid_ballots&.first&.votes_count %>
+                <%= closure.results.valid_ballots&.first&.value %>
               </span>
               <br>
               <span>
                 <strong>Blank:</strong>
-                <%= closure.results.blank_ballots&.first&.votes_count %>
+                <%= closure.results.blank_ballots&.first&.value %>
               </span>
               <br>
               <span>
                 <strong>Invalid:</strong>
-                <%= closure.results.null_ballots&.first&.votes_count %>
+                <%= closure.results.null_ballots&.first&.value %>
               </span>
             </div>
           </div>
@@ -71,7 +71,7 @@
                   <span>
                     <%= content_tag :strong, translated_attribute(answer.title) %>:
 
-                    <%= content_tag :span, answer.results&.valid_answers&.first&.votes_count %>
+                    <%= content_tag :span, answer.results&.valid_answers&.first&.value %>
                   </span>
                   <% unless index == question.answers.count %>
                     <br>
@@ -82,7 +82,7 @@
                   <br>
                   <%= content_tag :strong, "Nota" %>:
 
-                  <%= content_tag :span, question.results.blank_answers&.first&.votes_count %>
+                  <%= content_tag :span, question.results.blank_answers&.first&.value %>
                 <% end %>
               </div>
             </div>

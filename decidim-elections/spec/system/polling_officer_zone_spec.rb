@@ -93,7 +93,7 @@ describe "Polling Officer zone", type: :system do
 
           questions.each do |question|
             question.answers.each do |answer|
-              fill_in "closure_result__answer_results__#{answer.id}_votes_count", with: Faker::Number.number(digits: 1)
+              fill_in "closure_result__answer_results__#{answer.id}_value", with: Faker::Number.number(digits: 1)
             end
           end
 

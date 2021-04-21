@@ -31,7 +31,7 @@ module Decidim
       end
 
       def blank_votes
-        @blank_votes ||= results.blank_answers.sum(:votes_count)
+        @blank_votes ||= results.blank_answers.sum(:value)
       end
 
       def results_total

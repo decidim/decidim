@@ -337,7 +337,7 @@ Decidim.register_component(:elections) do |component|
           )
 
           # Decidim::Elections::Result.create!(
-          #   votes_count: Faker::Number.number(digits: 3),
+          #   value: Faker::Number.number(digits: 3),
           #   election: election_with_results,
           #   question: result_question,
           #   answer: answer,
@@ -347,7 +347,7 @@ Decidim.register_component(:elections) do |component|
 
         # if result_question.nota_option?
         #   Decidim::Elections::Result.create!(
-        #     votes_count: Faker::Number.number(digits: 3),
+        #     value: Faker::Number.number(digits: 3),
         #     election: election_with_results,
         #     question: result_question,
         #     answer: nil,

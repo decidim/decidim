@@ -3,6 +3,7 @@
 class ChangeElectionsResults < ActiveRecord::Migration[5.2]
   def change
     change_table :decidim_elections_results do |t|
+      t.rename :votes_count, :value
       t.remove_belongs_to :decidim_elections_answer
       t.remove_belongs_to :decidim_votings_polling_station
 
