@@ -755,6 +755,8 @@ cs:
             info: Informace
             landing_page: Vstupní stránka
             monitoring_committee: Monitorovací výbor
+            monitoring_committee_certificates: Potvrdit certifikáty
+            monitoring_committee_members: Členové
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
@@ -786,6 +788,9 @@ cs:
               promoted: Zvýrazněno
               published: Publikováno
               title: Název
+        monitoring_committee_certificates:
+          index:
+            title: Volební místnosti
         monitoring_committee_members:
           create:
             invalid: Při vytváření tohoto člena monitorovacího výboru došlo k potížím
