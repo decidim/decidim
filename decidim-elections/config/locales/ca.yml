@@ -392,7 +392,7 @@ ca:
             upcoming: La votació comença el %{start_time}
       feedback:
         answer:
-          invalid: S'ha produït un error en enviar els teus comentaris.
+          invalid: S'ha produït un error en enviar els comentaris.
           spam_detected: Hi ha hagut un problema contestant el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
           success: Comentaris enviats amb èxit.
       models:
