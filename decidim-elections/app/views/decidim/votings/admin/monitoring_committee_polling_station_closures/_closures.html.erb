@@ -7,7 +7,7 @@
     </h2>
   </div>
 
-  <%# <%= admin_filter_selector %>
+  <%= admin_filter_selector %>
 
   <div class="card-section">
     <div class="table-scroll">
@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <% polling_stations.each do |polling_station| %>
+          <% filtered_polling_stations.each do |polling_station| %>
             <%
               closure = polling_station.closure_for(election)
               sign_icon_name, sign_icon_style = closure.present? ? ["check", "polling_station__closure--present"] : ["x", "polling_station__closure--not_present"]

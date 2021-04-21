@@ -6,9 +6,9 @@ module Decidim
       # This controller allows a monitoring committee member to list and validate the polling stations closures.
       class MonitoringCommitteePollingStationClosuresController < Admin::ApplicationController
         include VotingAdmin
-        include Decidim::PollingStations::Admin::Filterable
+        include Decidim::MonitoringCommitteePollingStationClosures::Admin::Filterable
 
-        helper_method :current_voting, :closure, :elections, :election, :polling_stations
+        helper_method :current_voting, :closure, :elections, :election, :filtered_polling_stations
 
         def index
           enforce_permission_to :read, :monitoring_committee_polling_station_closures, voting: current_voting
@@ -36,6 +36,10 @@ module Decidim
 
         def closure
           @closure ||= Decidim::Elections::Closure.find(params[:id])
+        end
+
+        def filtered_polling_stations
+          filtered_collection.distinct
         end
 
         alias collection polling_stations
