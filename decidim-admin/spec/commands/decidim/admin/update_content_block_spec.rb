@@ -40,10 +40,6 @@ module Decidim::Admin
       form_klass.from_params(form_params)
     end
 
-    before do
-      Decidim::AttachmentUploader.enable_processing = true
-    end
-
     context "when the form is not valid" do
       before do
         allow(form).to receive(:invalid?).and_return(true)

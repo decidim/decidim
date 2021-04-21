@@ -41,7 +41,7 @@ module Decidim
       end
     end
 
-    describe "validations", processing_uploads_for: Decidim::AvatarUploader do
+    describe "validations" do
       context "without an email" do
         let(:user_group) { build(:user_group, email: nil) }
 

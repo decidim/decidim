@@ -66,7 +66,7 @@ module Decidim
       end
     end
 
-    describe "validations", processing_uploads_for: Decidim::AvatarUploader do
+    describe "validations" do
       context "when the nickname is empty" do
         before do
           user.nickname = ""

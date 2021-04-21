@@ -138,7 +138,7 @@ module Decidim
             }
           end
 
-          context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+          context "when attachments are allowed" do
             let(:uploaded_files) do
               [
                 Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
@@ -153,7 +153,7 @@ module Decidim
             end
           end
 
-          context "when attachments are allowed and file is invalid", processing_uploads_for: Decidim::AttachmentUploader do
+          context "when attachments are allowed and file is invalid" do
             let(:uploaded_files) do
               [
                 Decidim::Dev.test_file("city.jpeg", "image/jpeg"),

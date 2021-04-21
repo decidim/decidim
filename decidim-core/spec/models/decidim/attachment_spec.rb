@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Attachment, processing_uploads_for: Decidim::AttachmentUploader do
+  describe Attachment do
     subject { build(:attachment) }
 
     let(:organization) { subject.organization }
