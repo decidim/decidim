@@ -563,6 +563,8 @@ fr:
             attachments: Pièces jointes
             census: Recensement
             info: Information
+            monitoring_committee_certificates: Valider les certificats
+            monitoring_committee_members: Membres
             polling_stations: Bureaux de vote
         models:
           polling_station:
@@ -576,6 +578,9 @@ fr:
               promoted: Mise en avant
               published: Publié
               title: Titre
+        monitoring_committee_certificates:
+          index:
+            title: Bureaux de vote
         polling_stations:
           create:
             invalid: Une erreur est survenue lors de la création de ce bureau de vote
