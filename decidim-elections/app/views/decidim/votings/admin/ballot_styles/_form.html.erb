@@ -16,7 +16,7 @@
         <%= "#{t(".election")}: #{translated_attribute(election.title)}" %>
 
         <% election.questions.each do |question| %>
-          <%= form.check_box :question_ids, { multiple: true, label: translated_attribute(question.title) }, question.id, nil %>
+          <%= form.check_box :question_ids, { multiple: true, label: translated_attribute(question.title), label_options: { for: nil } }, question.id, nil %>
         <% end %>
       </div>
     <% end %>
