@@ -14,11 +14,13 @@ module Decidim
       end
 
       def vote_flow
-        @vote_flow ||= if current_participatory_space.is_a? Decidim::Votings::Voting
-                         Decidim::Votings::CensusVoteFlow.new(election, self)
-                       else
-                         Decidim::Elections::CurrentUserVoteFlow.new(election, self)
-                       end
+        @vote_flow ||= election.participatory_space.try(:vote_flow_for, election) || default_vote_flow
+      end
+
+      def default_vote_flow
+        Decidim::Elections::CurrentUserVoteFlow.new(election, current_user) do
+          allowed_to?(:user_vote, :election, election: election)
+        end
       end
 
       def preview_mode?

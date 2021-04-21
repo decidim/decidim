@@ -150,6 +150,10 @@ module Decidim
           [ballot_style.slug, questions.map(&:slug)] if questions.any?
         end.compact.to_h
       end
+
+      def vote_flow_for(election)
+        Decidim::Votings::CensusVoteFlow.new(election)
+      end
     end
   end
 end

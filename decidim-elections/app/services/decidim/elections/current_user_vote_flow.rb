@@ -4,6 +4,13 @@ module Decidim
   module Elections
     # Service that encapsulates the vote flow used for elections for registered users.
     class CurrentUserVoteFlow < VoteFlow
+      def initialize(election, current_user, &can_vote_block)
+        super(election)
+
+        @current_user = current_user
+        @can_vote_block = can_vote_block
+      end
+
       def has_voter?
         current_user.present?
       end
@@ -24,17 +31,18 @@ module Decidim
         }
       end
 
-      def can_vote?
-        return @can_vote if defined?(@can_vote)
-
-        @can_vote = current_user && (received_voter_token || context.allowed_to?(:user_vote, :election, election: election))
+      def can_vote?(*)
+        if current_user && (received_voter_token || can_vote_block.call)
+          true
+        else
+          OpenStruct.new(
+            exit_path: nil,
+            error_message: I18n.t("votes.messages.not_allowed", scope: "decidim.elections")
+          )
+        end
       end
 
-      def no_access_message
-        I18n.t("votes.messages.not_allowed", scope: "decidim.elections")
-      end
-
-      def login_path(vote_path); end
+      def login_path(online_vote_path); end
 
       def questions_for(election)
         election.questions
@@ -44,7 +52,7 @@ module Decidim
 
       private
 
-      delegate :current_user, to: :context
+      attr_accessor :current_user, :can_vote_block
 
       def valid_token_flow_data?
         return @valid_token_flow_data if defined?(@valid_token_flow_data)

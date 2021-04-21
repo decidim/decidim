@@ -15,22 +15,30 @@ module Decidim
       delegate :count, to: :questions, prefix: true
 
       def new
-        return if access_denied?
+        vote_flow.voter_login(params)
+        return unless vote_allowed?
 
         @form = form(Voter::VoteForm).from_params({ voter_token: voter_token, voter_id: voter_id },
                                                   election: election, user: vote_flow.user)
       end
 
       def create
+        vote_flow.voter_from_token(params.require(:vote).permit(:voter_token, :voter_id))
         return unless valid_voter_token?
-        return if access_denied?
+        return unless vote_allowed?
 
-        unless preview_mode?
-          @form = form(Voter::VoteForm).from_params(params, election: election, user: vote_flow.user, email: vote_flow.email)
-          Voter::CastVote.call(@form)
+        return redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash], token: voter.voter_id_token) if preview_mode?
+
+        @form = form(Voter::VoteForm).from_params(params, election: election, user: vote_flow.user, email: vote_flow.email)
+        Voter::CastVote.call(@form) do
+          on(:ok) do |vote|
+            redirect_to election_vote_path(election, id: vote.encrypted_vote_hash, token: voter.voter_id_token)
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("votes.create.error", scope: "decidim.elections")
+            redirect_to exit_path
+          end
         end
-
-        redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash], token: vote_flow.voter_id_token)
       end
 
       def show
@@ -66,7 +74,7 @@ module Decidim
       end
 
       def vote
-        @vote ||= Decidim::Elections::Vote.find_by(encrypted_vote_hash: params[:id]) if params[:id]
+        @vote ||= Decidim::Elections::Vote.find_by(election: election, encrypted_vote_hash: params[:id]) if params[:id]
       end
 
       def exit_path
@@ -101,28 +109,47 @@ module Decidim
         @questions ||= ballot_questions.includes(:answers).order(weight: :asc, id: :asc)
       end
 
-      def access_denied?
+      def vote_allowed?
         if preview_mode?
-          return redirect_to(exit_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless can_preview?
+          return true if can_preview?
 
-          return
+          redirect_to(
+            exit_path,
+            alert: t("votes.messages.not_allowed",
+                     scope: "decidim.elections")
+          )
+          return false
         end
 
-        return redirect_to(vote_flow.login_path(new_election_vote_path) || exit_path, alert: vote_flow.no_access_message, status: :temporary_redirect) unless vote_flow.can_vote?
-        return redirect_to(election_vote_path(election, id: pending_vote.encrypted_vote_hash, token: vote_flow.voter_id_token)) if pending_vote.present?
+        if pending_vote.present?
+          redirect_to(
+            election_vote_path(election,
+                               id: pending_vote.encrypted_vote_hash,
+                               token: vote_flow.voter_id_token)
+          )
+          return false
+        end
+
+        can_vote = vote_flow.can_vote?(online_vote_path: new_election_vote_path)
+        if can_vote != true
+          redirect_to(
+            can_vote.exit_path || exit_path,
+            alert: can_vote.error_message,
+            status: :temporary_redirect
+          )
+
+          return false
+        end
 
         enforce_permission_to :vote, :election, election: election
+
+        true
       end
 
       def valid_voter_token?
-        return unless vote_flow.receive_data(params.require(:vote).permit(:voter_token, :voter_id))
+        return true if preview_mode? || vote_flow.valid_received_data?
 
-        unless preview_mode? || vote_flow.valid_received_data?
-          redirect_to(exit_path, alert: t("votes.messages.invalid_token", scope: "decidim.elections"))
-          return
-        end
-
-        true
+        redirect_to(exit_path, alert: t("votes.messages.invalid_token", scope: "decidim.elections"))
       end
 
       def valid_questionnaire?

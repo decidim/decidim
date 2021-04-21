@@ -4,11 +4,17 @@ module Decidim
   module Votings
     # Service that encapsulates the vote flow used for Votings, using a census instead of users.
     class CensusVoteFlow < Decidim::Elections::VoteFlow
+      def voter_login(params)
+        @login_params = params
+      end
+
+      def voter_in_person(params)
+        @in_person_params = params
+      end
+
       def has_voter?
         datum.present?
       end
-
-      alias can_vote? has_voter?
 
       def voter_name
         datum&.full_name
@@ -30,12 +36,20 @@ module Decidim
         }
       end
 
-      def no_access_message
-        I18n.t("vote_flow.datum_not_found", scope: "decidim.votings.census")
-      end
-
-      def login_path(vote_path)
-        EngineRouter.main_proxy(election.component.participatory_space).voting_login_path(election_id: election.id, vote_path: vote_path)
+      def can_vote?(online_vote_path: nil)
+        if !has_voter?
+          OpenStruct.new(
+            error_message: I18n.t("vote_flow.datum_not_found", scope: "decidim.votings.census"),
+            exit_path: login_path(online_vote_path)
+          )
+        elsif voted_in_person?
+          OpenStruct.new(
+            error_message: I18n.t("vote_flow.already_voted_in_person", scope: "decidim.votings.census"),
+            exit_path: login_path(online_vote_path)
+          )
+        else
+          true
+        end
       end
 
       def questions_for(election)
@@ -50,7 +64,17 @@ module Decidim
         ballot_style&.slug
       end
 
+      def voted_in_person?
+        Decidim::Votings::Votes::InPersonVoteForVoter.for(election, voter_id)
+      end
+
+      def login_path(online_vote_path)
+        EngineRouter.main_proxy(election.component.participatory_space).voting_login_path(election_id: election.id, vote_path: online_vote_path) if online_vote_path
+      end
+
       private
+
+      attr_accessor :login_params, :in_person_params
 
       def ballot_style
         return @ballot_style if defined?(@ballot_style)
@@ -61,19 +85,23 @@ module Decidim
       def datum
         return @datum if defined?(@datum)
 
-        if received_voter_token
-          @datum = Decidim::Votings::Census::Datum.find_by(id: received_voter_token_datum_id) if received_voter_token_datum_id
-        else
-          @datum = Decidim::Votings::Census::Datum.find_by(hashed_online_data: form.hashed_online_data, dataset: election.participatory_space.dataset)
-        end
+        @datum = if received_voter_token
+                   Decidim::Votings::Census::Datum.find_by(id: received_voter_token_datum_id) if received_voter_token_datum_id
+                 elsif login_params || in_person_params
+                   Decidim::Votings::Census::Datum.find_by(dataset: election.participatory_space.dataset, **datum_query)
+                 end
       end
 
       def received_voter_token_datum_id
         @received_voter_token_datum_id ||= received_voter_token_data.dig(:flow, :id)&.to_i
       end
 
-      def form
-        @form ||= Decidim::Votings::Census::LoginForm.from_params(context.params, election: election)
+      def datum_query
+        if login_params
+          { hashed_online_data: Decidim::Votings::Census::LoginForm.from_params(login_params, election: election).hashed_online_data }
+        elsif in_person_params
+          { hashed_in_person_data: Decidim::Votings::Census::InPersonForm.from_params(in_person_params, election: election).hashed_in_person_data }
+        end
       end
 
       def valid_token_flow_data?

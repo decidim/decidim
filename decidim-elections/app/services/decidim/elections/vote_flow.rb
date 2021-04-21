@@ -4,9 +4,15 @@ module Decidim
   module Elections
     # Service that encapsulates the vote flow used for elections
     class VoteFlow
-      def initialize(election, context)
+      def initialize(election)
         @election = election
-        @context = context
+      end
+
+      def voter_from_token(params)
+        @received_voter_token = params[:voter_token]
+        @received_voter_id = params[:voter_id]
+
+        received_voter_token.present? && received_voter_id.present?
       end
 
       def voter_id
@@ -15,13 +21,6 @@ module Decidim
 
       def voter_id_token(a_voter_id = nil)
         @voter_id_token ||= tokenizer.hex_digest(a_voter_id || voter_id)
-      end
-
-      def receive_data(params)
-        @received_voter_token = params[:voter_token]
-        @received_voter_id = params[:voter_id]
-
-        received_voter_token.present? && received_voter_id.present?
       end
 
       def voter_token
