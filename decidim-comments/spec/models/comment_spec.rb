@@ -277,16 +277,6 @@ module Decidim
             expect(ids).to match_array([author.id])
           end
         end
-
-        context "when resource is not commentable" do
-          let(:other_component) { create(:dummy_component) }
-          let!(:non_commentable) { create(:coauthorable_dummy_resource, component: other_component) }
-
-          it "returns nil" do
-            ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::CoauthorableDummyResource.where(component: other_component))
-            expect(ids).to be_nil
-          end
-        end
       end
     end
   end
