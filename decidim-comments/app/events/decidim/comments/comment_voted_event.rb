@@ -21,6 +21,14 @@ module Decidim
       def resource_url_params
         { anchor: "comment_#{comment.id}" }
       end
+
+      def resource
+        target_resource(@resource)
+      end
+
+      def target_resource(t_resource)
+        t_resource.is_a?(Decidim::Comments::Comment) ? target_resource(t_resource.commentable) : t_resource
+      end
     end
   end
 end
