@@ -417,51 +417,6 @@ module Decidim
       template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
       template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
-      if file_is_image?(file)
-        template += if file.present?
-                      @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
-                    else
-                      @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
-                    end
-        template += @template.link_to @template.image_tag(file.url, alt: alt_text), file.url, target: "_blank", rel: "noopener"
-      elsif file_is_present?(file)
-        template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
-        template += @template.link_to file.file.filename, file.url, target: "_blank", rel: "noopener"
-      end
-
-      if file_is_present?(file) && options[:optional]
-        template += content_tag :div, class: "field" do
-          safe_join([
-                      @template.check_box(@object_name, "remove_#{attribute}"),
-                      label("remove_#{attribute}", I18n.t("remove_this_file", scope: "decidim.forms"))
-                    ])
-        end
-      end
-
-      if object.errors[attribute].any?
-        template += content_tag :p, class: "is-invalid-label" do
-          safe_join object.errors[attribute], "<br/>".html_safe
-        end
-      end
-
-      template.html_safe
-    end
-
-    def as_upload(attribute, options = {})
-      self.multipart = true
-      options[:optional] = options[:optional].nil? ? true : options[:optional]
-      label_text = options[:label] || label_for(attribute)
-      alt_text = label_text
-
-      file = object.send attribute
-      template = ""
-      template += label(attribute, label_text + required_for_attribute(attribute))
-      template += upload_help(attribute, options)
-      template += @template.file_field @object_name, attribute
-
-      template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
-      template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
-
       default_image_path = uploader_default_image_path(attribute)
       file_path = file_attachment_path(file)
 
@@ -795,14 +750,6 @@ module Decidim
       label(attribute, (text || "").html_safe, options)
     end
 
-    # Private: Returns whether the file is an image or not.
-    def file_is_image?(file)
-      return unless file && file.respond_to?(:url)
-      return file.content_type.start_with? "image" if file.content_type.present?
-
-      Mime::Type.lookup_by_extension(File.extname(file.url)[1..-1]).to_s.start_with? "image" if file.url.present?
-    end
-
     # Private: Returns default url for attribute when uploader is an
     # image and has defined a default url
     def uploader_default_image_path(attribute)
@@ -811,13 +758,6 @@ module Decidim
       return unless uploader.is_a?(Decidim::ImageUploader)
 
       uploader.try(:default_url)
-    end
-
-    # Private: Returns whether the file exists or not.
-    def file_is_present?(file)
-      return unless file && file.respond_to?(:url)
-
-      file.present?
     end
 
     # Private: Returns blob path when file is attached
