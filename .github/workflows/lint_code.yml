@@ -50,7 +50,7 @@ jobs:
         run: yarn install --frozen-lockfile --cache-folder ${{ steps.yarn-cache-dir-path.outputs.dir }}
       - run: bundle exec rubocop -P
         name: Lint Ruby files
-      - run: npm run lint
+      - run: yarn run lint
         name: Lint JS files
       - run: ./.github/run_erblint.sh
         name: Lint ERB files
