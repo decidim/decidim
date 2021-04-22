@@ -14,7 +14,7 @@ module Decidim
         validates :polling_station, :election, :voted, presence: true
 
         delegate :id, to: :election, prefix: true
-        delegate :id, to: :polling_station, prefix: true
+        delegate :slug, to: :polling_station, prefix: true
 
         # Public: returns the associated election for the in person vote.
         def election

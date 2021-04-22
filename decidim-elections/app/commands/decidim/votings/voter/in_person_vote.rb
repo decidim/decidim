@@ -34,7 +34,7 @@ module Decidim
         delegate :bulletin_board, to: :form
 
         def register_in_person_vote
-          bulletin_board.in_person_vote(form.election_id, form.voter_id, form.polling_station_id) do |message_id|
+          bulletin_board.in_person_vote(form.election_id, form.voter_id, form.polling_station_slug) do |message_id|
             create_in_person_vote(message_id)
           end
         end

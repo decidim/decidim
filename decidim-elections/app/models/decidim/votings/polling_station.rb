@@ -49,6 +49,10 @@ module Decidim
         polling_station_president.nil? || polling_station_managers.empty?
       end
 
+      def slug
+        "polling_station_#{id}"
+      end
+
       private
 
       # Private: check if the president is in the same voting

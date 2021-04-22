@@ -144,7 +144,7 @@ module Decidim
       # Methods for Votings Space <-> Elections Component interaction
 
       def complete_election_data(election, election_data)
-        election_data[:polling_stations] = polling_stations.pluck(:id)
+        election_data[:polling_stations] = polling_stations.map(&:slug)
         election_data[:ballot_styles] = ballot_styles.map do |ballot_style|
           questions = ballot_style.questions_for(election)
           [ballot_style.slug, questions.map(&:slug)] if questions.any?
