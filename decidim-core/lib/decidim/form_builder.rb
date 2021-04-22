@@ -462,18 +462,23 @@ module Decidim
       template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
       template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
-      if file_is_attached?(file)
-        file_path = Rails.application.routes.url_helpers.rails_blob_path(file.blob, only_path: true)
-        if file.attachment.image?
+      default_image_path = uploader_default_image_path(attribute)
+      file_path = file_attachment_path(file)
+
+      if file_path.present? && file.attachment.image? || default_image_path.present?
+        if file_path.present?
           template += @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
           template += @template.link_to @template.image_tag(file_path, alt: alt_text), file_path, target: "_blank", rel: "noopener"
         else
-          template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
-          template += @template.link_to file.filename, file_path, target: "_blank", rel: "noopener"
+          template += @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
+          template += @template.link_to @template.image_tag(default_image_path, alt: alt_text), default_image_path, target: "_blank", rel: "noopener"
         end
+      elsif file_path.present?
+        template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
+        template += @template.link_to file.filename, file_path, target: "_blank", rel: "noopener"
       end
 
-      if file_is_attached?(file) && options[:optional]
+      if file_path.present? && options[:optional]
         template += content_tag :div, class: "field" do
           safe_join([
                       @template.check_box(@object_name, "remove_#{attribute}"),
@@ -798,6 +803,16 @@ module Decidim
       Mime::Type.lookup_by_extension(File.extname(file.url)[1..-1]).to_s.start_with? "image" if file.url.present?
     end
 
+    # Private: Returns default url for attribute when uploader is an
+    # image and has defined a default url
+    def uploader_default_image_path(attribute)
+      uploader = FileValidatorHumanizer.new(object, attribute).uploader
+      return if uploader.blank?
+      return unless uploader.is_a?(Decidim::ImageUploader)
+
+      uploader.try(:default_url)
+    end
+
     # Private: Returns whether the file exists or not.
     def file_is_present?(file)
       return unless file && file.respond_to?(:url)
@@ -805,10 +820,11 @@ module Decidim
       file.present?
     end
 
-    def file_is_attached?(file)
-      return unless file && file.respond_to?(:attached?)
+    # Private: Returns blob path when file is attached
+    def file_attachment_path(file)
+      return unless file && file.try(:attached?)
 
-      file.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(file.blob, only_path: true)
     end
 
     def required_for_attribute(attribute)
