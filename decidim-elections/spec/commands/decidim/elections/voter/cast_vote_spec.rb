@@ -29,7 +29,6 @@ describe Decidim::Elections::Voter::CastVote do
   let(:user) { create :user, :confirmed, organization: organization }
   let(:email) { "an_email@example.org" }
   let(:cast_vote_method) { :cast_vote }
-  let(:cast_vote_message_id_method) { :cast_vote_message_id }
 
   let(:response) { OpenStruct.new(id: 1, status: "enqueued") }
   let(:message_id) { "#{election.id}.vote.cast+v.#{voter_id}" }

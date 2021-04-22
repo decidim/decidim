@@ -48,6 +48,12 @@ describe Decidim::Votings::Census::InPersonForm do
     it { is_expected.to be_invalid }
   end
 
+  describe "when day is a string" do
+    let(:day) { "a" }
+
+    it { is_expected.to be_invalid }
+  end
+
   describe "creates the birthday" do
     it { expect(subject.birthdate).to eql("19820814") }
   end
