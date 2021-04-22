@@ -28,7 +28,7 @@ module Decidim
       end
 
       def target_resource(t_resource)
-        t_resource.is_a?(Decidim::Comments::Comment) ? target_resource(t_resource.commentable) : t_resource
+        t_resource.is_a?(Decidim::Comments::Comment) ? t_resource.root_commentable : t_resource
       end
     end
   end
