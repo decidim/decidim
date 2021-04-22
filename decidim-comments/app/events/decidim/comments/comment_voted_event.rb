@@ -8,6 +8,11 @@ module Decidim
       i18n_attributes :upvotes
       i18n_attributes :downvotes
 
+      def initialize(resource:, event_name:, user:, user_role: nil, extra: nil)
+        resource = target_resource(resource)
+        super
+      end
+
       def upvotes
         extra[:upvotes]
       end
@@ -20,10 +25,6 @@ module Decidim
 
       def resource_url_params
         { anchor: "comment_#{comment.id}" }
-      end
-
-      def resource
-        target_resource(@resource)
       end
 
       def target_resource(t_resource)
