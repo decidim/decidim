@@ -5,7 +5,7 @@ module Decidim
     # examples of use:
     # Decidim::CarrierWaveMigratorService.migrate_attachment!(klass: Decidim::Attachment, attachment_attribute: "file", carrierwave_uploader: Decidim::AttachmentUploader, active_storage_column: "file")
     # Decidim::CarrierWaveMigratorService.migrate_attachment!(klass: Decidim::User, attachment_attribute: "avatar", carrierwave_uploader: Decidim::AvatarUploader, active_storage_column: "avatar")
-    def self.migrate_attachment!(klass:, attachment_attribute:, carrierwave_uploader:, active_storage_column: attachment_attribute)
+    def self.migrate_attachment!(klass:, attachment_attribute:, carrierwave_uploader:, active_storage_column: attachment_attribute, logger:)
       namespace = klass.name.deconstantize
       klass_name = klass.name.demodulize
       old_class_name = [namespace, "Old#{klass_name}"].reject(&:blank?).join("::")
@@ -43,14 +43,25 @@ module Decidim
       old_class = old_class_name.constantize
 
       old_class.items.each do |item|
-        next if item.send(attachment_attribute).blank?
+        begin
+          next if item.send(attachment_attribute).blank?
+          copy = new_class.find(item.id)
+          # Skip record if already been processed
+          if copy.send(active_storage_column).attached?
+            logger.info "[SKIP] Migrated #{klass}##{item.id} from CW attribute #{attachment_attribute} to AS #{active_storage_column} attribute"
+            next
+          end
 
-        attachment = item.send(attachment_attribute)
-        attachment.cache_stored_file!
-        content_type = attachment.content_type
-        filename = item.attributes[attachment_attribute.to_s]
-        copy = new_class.find(item.id)
-        copy.send(active_storage_column).attach(io: File.open(attachment.file.file), content_type: content_type, filename: filename)
+          attachment = item.send(attachment_attribute)
+          attachment.cache_stored_file!
+          content_type = attachment.content_type
+          filename = item.attributes[attachment_attribute.to_s]
+          copy.send(active_storage_column).attach(io: File.open(attachment.file.file), content_type: content_type, filename: filename)
+
+          logger.info "[OK] Migrated #{klass}##{item.id} from CW attribute #{attachment_attribute} to AS #{active_storage_column} attribute"
+        rescue
+          logger.info "[ERROR] Exception migrating #{klass}##{item.id} from CW attribute #{attachment_attribute} to AS #{active_storage_column} attribute #{$!}"
+        end
       end
 
       ActiveStorage::Attachment.where(record_type: new_class_name).update_all(record_type: klass.to_s)
