@@ -5,10 +5,8 @@ import {
   MESSAGE_RECEIVED
 } from "@codegram/decidim-bulletin_board";
 
-import * as VotingSchemesDummy from "@codegram/voting_schemes-dummy";
-const DummyTrusteeWrapperAdapter = VotingSchemesDummy.TrusteeWrapperAdapter;
-import * as VotingSchemesElectionGuard from "@codegram/voting_schemes-electionguard";
-const ElectionGuardTrusteeWrapperAdapter = VotingSchemesElectionGuard.TrusteeWrapperAdapter;
+import { TrusteeWrapperAdapter as DummyTrusteeWrapperAdapter } from "@codegram/voting_schemes-dummy";
+import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@codegram/voting_schemes-electionguard";
 
 $(() => {
   // UI Elements
@@ -20,13 +18,18 @@ $(() => {
   const $restoreModal = $("#show-restore-modal");
   const $restoreButton = $restoreModal.find(".upload-election-keys");
   const $backButton = $tally.find(".back");
+  const TRUSTEE_AUTHORIZATION_EXPIRATION_TIME_IN_HOURS = 2;
 
   // Data
   const bulletinBoardClientParams = {
     apiEndpointUrl: $tally.data("apiEndpointUrl")
   };
-  const electionUniqueId = `${$tally.data("authoritySlug")}.${$tally.data("electionId")}`
-  const authorityPublicKeyJSON = JSON.stringify($tally.data("authorityPublicKey"))
+  const electionUniqueId = `${$tally.data("authoritySlug")}.${$tally.data(
+    "electionId"
+  )}`;
+  const authorityPublicKeyJSON = JSON.stringify(
+    $tally.data("authorityPublicKey")
+  );
   const schemeName = $tally.data("schemeName");
 
   const trusteeContext = {
@@ -57,15 +60,21 @@ $(() => {
 
   // Use the tally component and bind all UI events
   const component = new TallyComponent({
-    bulletinBoardClientParams,
     authorityPublicKeyJSON,
-    electionUniqueId,
     trusteeUniqueId: trusteeContext.uniqueId,
     trusteeIdentificationKeys,
     trusteeWrapperAdapter
   });
 
   const bindComponentEvents = async () => {
+    await component.setupElection({
+      bulletinBoardClientParams,
+      electionUniqueId,
+      authorizationExpirationTimestamp:
+        Math.ceil(Number(new Date()) / 1000) +
+        TRUSTEE_AUTHORIZATION_EXPIRATION_TIME_IN_HOURS * 3600
+    });
+
     await component.bindEvents({
       onEvent(event) {
         let messageIdentifier = MessageIdentifier.parse(

@@ -5,10 +5,8 @@ import {
   MESSAGE_RECEIVED
 } from "@codegram/decidim-bulletin_board";
 
-import * as VotingSchemesDummy from "@codegram/voting_schemes-dummy";
-const DummyTrusteeWrapperAdapter = VotingSchemesDummy.TrusteeWrapperAdapter;
-import * as VotingSchemesElectionGuard from "@codegram/voting_schemes-electionguard";
-const ElectionGuardTrusteeWrapperAdapter = VotingSchemesElectionGuard.TrusteeWrapperAdapter;
+import { TrusteeWrapperAdapter as DummyTrusteeWrapperAdapter } from "@codegram/voting_schemes-dummy";
+import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@codegram/voting_schemes-electionguard";
 
 /**
  * This file is responsible to generate election keys,
@@ -16,7 +14,6 @@ const ElectionGuardTrusteeWrapperAdapter = VotingSchemesElectionGuard.TrusteeWra
  * update the election bulletin board status
  */
 $(() => {
-
   // UI Elements
   const $keyCeremony = $(".trustee-step");
   const $startButton = $keyCeremony.find(".start");
@@ -28,13 +25,18 @@ $(() => {
   const getStepRow = (step) => {
     return $(`#${step.replace(".", "-")}`);
   };
+  const TRUSTEE_AUTHORIZATION_EXPIRATION_TIME_IN_HOURS = 2;
 
   // Data
   const bulletinBoardClientParams = {
     apiEndpointUrl: $keyCeremony.data("apiEndpointUrl")
-  }
-  const electionUniqueId = `${$keyCeremony.data("authoritySlug")}.${$keyCeremony.data("electionId")}`
-  const authorityPublicKeyJSON = JSON.stringify($keyCeremony.data("authorityPublicKey"))
+  };
+  const electionUniqueId = `${$keyCeremony.data(
+    "authoritySlug"
+  )}.${$keyCeremony.data("electionId")}`;
+  const authorityPublicKeyJSON = JSON.stringify(
+    $keyCeremony.data("authorityPublicKey")
+  );
   const schemeName = $keyCeremony.data("schemeName");
 
   const trusteeContext = {
@@ -66,9 +68,7 @@ $(() => {
 
   // Use the key ceremony component and bind all UI events
   const component = new KeyCeremonyComponent({
-    bulletinBoardClientParams,
     authorityPublicKeyJSON,
-    electionUniqueId,
     trusteeUniqueId: trusteeContext.uniqueId,
     trusteeIdentificationKeys,
     trusteeWrapperAdapter
@@ -76,9 +76,21 @@ $(() => {
 
   trusteeIdentificationKeys.present(async (exists) => {
     if (exists) {
+      await component.setupElection({
+        bulletinBoardClientParams,
+        electionUniqueId,
+        authorizationExpirationTimestamp:
+          Math.ceil(Number(new Date()) / 1000) +
+          TRUSTEE_AUTHORIZATION_EXPIRATION_TIME_IN_HOURS * 3600
+      });
+
       await component.bindEvents({
         onBindRestoreButton(onEventTriggered) {
-          $restoreButton.on("change", ".restore-button-input", onEventTriggered);
+          $restoreButton.on(
+            "change",
+            ".restore-button-input",
+            onEventTriggered
+          );
         },
         onBindStartButton(onEventTriggered) {
           $startButton.on("click", onEventTriggered);

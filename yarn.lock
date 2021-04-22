@@ -1097,10 +1097,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@codegram/decidim-bulletin_board@0.17.1":
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/@codegram/decidim-bulletin_board/-/decidim-bulletin_board-0.17.1.tgz#2db340ddb9a0baf1bb161c0afba71ae2e78dca8e"
-  integrity sha512-cs7fc9el6a7PYiDPfolD9n2M1KMPkyxVsXkqRO+eLlvtMDsO0dvnez2dDJIyf1iPCc0NDcNQIZzOz6OwwI0+ow==
+"@codegram/decidim-bulletin_board@0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@codegram/decidim-bulletin_board/-/decidim-bulletin_board-0.20.0.tgz#f0fa6c93c3c4480e4ccfc974269187477d8a9748"
+  integrity sha512-27H55mzDtAH60A6iXAvQb3rxh60J5cdEg3D/FTbWlaCb/cmftRERzc7/1r52kBdiESv7+Fx2MRrIz8spgkkvrA==
   dependencies:
     "@apollo/client" "^3.2.7"
     core-js "^3.8.3"
@@ -1111,15 +1111,15 @@
     webpack "^5.11.0"
     webpack-cli "^4.2.0"
 
-"@codegram/voting_schemes-dummy@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@codegram/voting_schemes-dummy/-/voting_schemes-dummy-0.16.0.tgz#035bbb3a4913d2fd0d36a9e72fca8b537c3583e3"
-  integrity sha512-sqDjMoaW++24olEKfCOTEWRzBtX3oojLQzGQIxMYOwx5CLQA4B0nYGejooJSFByWQQIVMjwN+J6xABttlKvkMQ==
+"@codegram/voting_schemes-dummy@0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@codegram/voting_schemes-dummy/-/voting_schemes-dummy-0.20.0.tgz#cbeef86bccfb9b5a43883dc5d6ff55314f32e679"
+  integrity sha512-oPJ7Xad2P/QxCj5/pct8y9ZQuzIzPKZ8GLxHsvJRx+fCWqppxudI1w0GE7LsKvZhAyQfny1o8vkYi4ABuifSNA==
 
-"@codegram/voting_schemes-electionguard@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@codegram/voting_schemes-electionguard/-/voting_schemes-electionguard-0.16.0.tgz#6bb916e9fe88169cb2a53964090165b316b63753"
-  integrity sha512-gRG9thA59PQrgZM2tJ1HAXFHVan5vPhdjp3lW1Cs36j7soN0b7ZJjRDEeP8lcUyO1KnWmKFJ5jD4BymA5LRmAg==
+"@codegram/voting_schemes-electionguard@0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@codegram/voting_schemes-electionguard/-/voting_schemes-electionguard-0.20.0.tgz#9d97f9036b88bc09a140c3736ba99babd027410f"
+  integrity sha512-jx6zXh+WTsTJEqFMwCcmqnPDJvw7qUR822fTAxBXeUMM7Zf+E2h7LVR4hNDC1QW/ZKxlsAP9FmJ2TvYXvH3Ihw==
 
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.2"
@@ -4138,6 +4138,11 @@ escodegen@^2.0.0:
     optionator "^0.8.1"
   optionalDependencies:
     source-map "~0.6.1"
+
+eslint-config-prettier@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.2.0.tgz#78de77d63bca8e9e59dae75a614b5299925bb7b3"
+  integrity sha512-dWV9EVeSo2qodOPi1iBYU/x6F6diHv8uujxbxr77xExs3zTAlNXvVZKiyLsQGNz7yPV2K49JY5WjPzNIuDc2Bw==
 
 eslint-config-standard@^11.0.0:
   version "11.0.0"
