@@ -23,7 +23,7 @@ module Decidim
               dependent: :nullify
       has_many :closures,
                foreign_key: "decidim_votings_polling_station_id",
-               class_name: "Decidim::Elections::Closure",
+               class_name: "Decidim::Votings::PollingStationClosure",
                inverse_of: :polling_station,
                dependent: :destroy
 
