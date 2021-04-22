@@ -732,7 +732,7 @@ ca:
             components: Components
             info: Informació
             landing_page: Pàgina d'inici
-            monitoring_committee_members: Comitè de seguiment
+            monitoring_committee: Comitè de seguiment
             polling_officers: Gestors de mesa
             polling_stations: Punts de votació
         models:

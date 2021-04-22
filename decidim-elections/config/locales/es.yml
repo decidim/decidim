@@ -722,7 +722,7 @@ es:
             components: Componentes
             info: Información
             landing_page: Página de inicio
-            monitoring_committee_members: Comité de seguimiento
+            monitoring_committee: Comité de seguimiento
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
         models:

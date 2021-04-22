@@ -725,7 +725,7 @@ fi:
             components: Komponentit
             info: Tiedot
             landing_page: Laskeutumissivu
-            monitoring_committee_members: Tarkkailukomitea
+            monitoring_committee: Tarkkailukomitea
             polling_officers: Äänestysvirkailijat
             polling_stations: Äänestyspaikat
         models:
