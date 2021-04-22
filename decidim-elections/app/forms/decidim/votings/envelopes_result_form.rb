@@ -14,18 +14,20 @@ module Decidim
                 :election_id,
                 :total_ballots_count,
                 presence: true
-
       validates :polling_officer_notes, presence: true, if: :totals_differ?
 
       def totals_differ?
+        return unless total_ballots_count
+
         total_ballots_count.to_i != election_votes_count.to_i
       end
 
-      def map_model(model)
-        self.polling_station_id = model.polling_station.id
-        self.election_id = model.election.id
-        self.total_ballots_count = model.results&.total_ballots&.first&.value
-        self.election_votes_count = model.election.votes&.count
+      def election
+        @election ||= Decidim::Elections::Election.find_by(id: election_id)
+      end
+
+      def polling_station
+        @polling_station ||= Decidim::Votings::PollingStation.find_by(id: polling_station_id)
       end
     end
   end

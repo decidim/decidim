@@ -39,11 +39,7 @@
                               form.number_field(
                                 :total_ballots_count,
                                 label: t(".total_ballots_count"),
-                                min: 0,
-                                data: {
-                                  remote: true,
-                                  url: total_people_polling_officer_election_closure_path(polling_officer, election)
-                                }
+                                min: 0
                               ) %>
 
               <%= form.submit t(".submit"),

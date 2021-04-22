@@ -3,14 +3,12 @@
 module Decidim
   module Votings
     # A command with all the business logic when creating a closure for a polling station
-    class CreateClosure < Rectify::Command
+    class CreatePollingStationClosure < Rectify::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # closure - A closure object.
-      def initialize(form, closure)
+      def initialize(form)
         @form = form
-        @closure = closure
       end
 
       # Executes the command. Broadcasts these events:
@@ -23,8 +21,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          closure.update!(phase: :results, polling_officer_notes: form.polling_officer_notes)
-
+          closure.save!
           create_total_ballot_results!
         end
 
@@ -34,7 +31,16 @@ module Decidim
       private
 
       attr_reader :form
-      attr_accessor :closure
+
+      def closure
+        @closure ||= PollingStationClosure.new(
+          phase: :results,
+          election: form.election,
+          polling_station: form.polling_station,
+          polling_officer: form.context.polling_officer,
+          polling_officer_notes: form.polling_officer_notes
+        )
+      end
 
       def create_total_ballot_results!
         closure.results.create!(

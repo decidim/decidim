@@ -6,10 +6,7 @@ module Decidim
     class Result < ApplicationRecord
       enum result_type: [:valid_answers, :blank_answers, :valid_ballots, :blank_ballots, :null_ballots, :total_ballots]
 
-      belongs_to :closure,
-                 foreign_key: "decidim_elections_closure_id",
-                 class_name: "Decidim::Elections::Closure",
-                 inverse_of: :results
+      belongs_to :closurable, polymorphic: true
       belongs_to :question,
                  foreign_key: "decidim_elections_question_id",
                  class_name: "Decidim::Elections::Question",

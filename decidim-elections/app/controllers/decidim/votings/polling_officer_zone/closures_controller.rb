@@ -14,14 +14,18 @@ module Decidim
         def new
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
 
-          @form = form(EnvelopesResultForm).from_model(closure)
+          @form = EnvelopesResultForm.new(
+            polling_station_id: polling_station.id,
+            election_id: election.id,
+            election_votes_count: polling_station_election_votes_count
+          )
         end
 
         def create
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
-          @form = form(EnvelopesResultForm).from_params(params)
+          @form = form(EnvelopesResultForm).from_params(params).with_context(polling_officer: polling_officer)
 
-          CreateClosure.call(@form, closure) do
+          CreatePollingStationClosure.call(@form) do
             on(:ok) do
               flash[:notice] = t(".success")
               redirect_to edit_polling_officer_election_closure_path(polling_officer, election)
@@ -33,10 +37,6 @@ module Decidim
               render :new
             end
           end
-        end
-
-        def total_people
-          @totals_match = (params[:envelopes_result][:total_ballots_count].to_i == election.votes&.count.to_i)
         end
 
         def edit
@@ -77,10 +77,12 @@ module Decidim
         end
 
         def closure
-          @closure ||= begin
-            election.closures.find_by(polling_station: polling_station) ||
-              Decidim::Elections::Closure.new(phase: :envelopes, election: election, polling_station: polling_station, polling_officer: polling_officer)
-          end
+          @closure ||= polling_station.closures.find_by(election: election)
+        end
+
+        def polling_station_election_votes_count
+          # the votes count should/will be scoped to the polling station
+          @polling_station_election_votes_count ||= election.votes&.count
         end
       end
     end

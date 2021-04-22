@@ -8,15 +8,17 @@ class ChangeElectionsResults < ActiveRecord::Migration[5.2]
       t.remove_belongs_to :decidim_votings_polling_station
 
       t.integer :result_type, index: true
-      t.belongs_to :decidim_elections_closure,
+
+      t.belongs_to :closurable,
                    null: false,
-                   index: { name: "index_decidim_elections_results_on_closure_id" }
+                   polymorphic: true,
+                   index: false
       t.belongs_to :decidim_elections_answer,
                    null: true,
-                   index: { name: "index_decidim_elections_results_on_answer_id" }
+                   index: false
       t.belongs_to :decidim_elections_question,
                    null: true,
-                   index: { name: "index_decidim_elections_results_on_question_id" }
+                   index: false
     end
   end
 end
