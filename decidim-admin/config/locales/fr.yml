@@ -929,6 +929,13 @@ fr:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
+    metrics:
+      blocked_users:
+        object: utilisateurs bloqués
+        title: Utilisateurs bloqués
+      reported_users:
+        object: utilisateurs signalés
+        title: Utilisateurs signalés
     moderations:
       actions:
         expand: Agrandir
