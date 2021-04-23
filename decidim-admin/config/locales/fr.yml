@@ -24,6 +24,7 @@ fr:
       component:
         name: Titre
         published_at: Publiée à
+        weight: Rang
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -41,6 +42,7 @@ fr:
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Montrer une bannière d'actualités
+        enable_participatory_space_filters: Activer les filtres d'espace participatif
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
         force_authentication: Forcer l'authentification
@@ -114,6 +116,7 @@ fr:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
+        weight: Rang
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -938,6 +941,13 @@ fr:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
+    metrics:
+      blocked_users:
+        object: utilisateurs bloqués
+        title: Utilisateurs bloqués
+      reported_users:
+        object: utilisateurs signalés
+        title: Utilisateurs signalés
     moderations:
       actions:
         expand: Agrandir
