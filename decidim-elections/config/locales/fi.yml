@@ -392,6 +392,7 @@ fi:
             upcoming: Äänestys alkaa %{start_time}
       feedback:
         answer:
+          invalid: Palautteen lähettäminen epäonnistui.
           spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
           success: Palautteen lähettäminen onnistui.
       models:
@@ -576,6 +577,9 @@ fi:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
+        onboarding_modal:
+          close: Sulje ikkuna
+          create_account: Luo tili
         update:
           error: Äänen tilan päivittäminen epäonnistui valitettavasti. Ole hyvä ja äänestä uudestaan.
         verify:
