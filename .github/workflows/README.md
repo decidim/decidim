@@ -28,7 +28,7 @@ Individual workflows with changes:
     node-version: ${{ env.NODE_VERSION }}
 - run: yarn install --frozen-lockfile
   name: Install JS deps
-- run: npm run test
+- run: yarn run test
   name: Test JS files
 ```
 

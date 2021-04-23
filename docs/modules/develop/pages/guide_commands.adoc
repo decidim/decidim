@@ -42,7 +42,7 @@ To lint and try to fix linting errors, run:
 
 [source,console]
 ----
-npm run lint --fix
+yarn run lint --fix
 ----
 
 == Stylelinter

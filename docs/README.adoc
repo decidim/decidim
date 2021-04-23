@@ -43,10 +43,10 @@ In detail each one of these steps are:
 # 1. Clone the repository
 git clone https://github.com/decidim/documentation
 # 2. Install dependencies
-npm install
+yarn
 # 3. Change the antora-playbook.yml url key in source
 # 4. Build the antora playbook
-npm run build
+yarn run build
 # 5. Open the generated website with your web browser
 xdg-open build/site/index.html
 ----

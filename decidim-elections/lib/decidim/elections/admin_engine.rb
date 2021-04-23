@@ -61,6 +61,7 @@ module Decidim
                           I18n.t("trustees", scope: "decidim.elections.admin.menu"),
                           Decidim::EngineRouter.admin_proxy(component).trustees_path,
                           position: 100,
+                          if: allowed_to?(:manage, :trustees),
                           active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path)
           end
         end

@@ -39,17 +39,20 @@ const lineBreakHandler = (quill, range, context) => {
   const currentLeaf = quill.getLeaf(range.index)[0];
   const nextLeaf = quill.getLeaf(range.index + 1)[0];
   const previousChar = quill.getText(range.index - 1, 1);
+  const formats = quill.getFormat(range.index);
 
   quill.insertEmbed(range.index, "break", true, "user");
-  quill.formatText(range.index + 1, "bold", true)
-  if (nextLeaf === null || (currentLeaf.parent !== nextLeaf.parent)) {
+  if (nextLeaf === null || (currentLeaf.parent !== nextLeaf.parent &&
+      nextLeaf.parent.domNode.tagName !== "A")) {
     quill.insertEmbed(range.index, "break", true, "user");
   } else if (context.offset === 1 && previousChar === "\n") {
     const delta = new Delta().retain(range.index).insert("\n");
     quill.updateContents(delta, Quill.sources.USER);
   }
 
-  quill.format(name, context.format[name], Quill.sources.USER);
+  Object.keys(formats).forEach((format) => {
+    quill.format(format, context.format[format], Quill.sources.USER);
+  });
   quill.setSelection(range.index + 1, Quill.sources.SILENT);
 
   const lineFormats = getLineFormats(context);

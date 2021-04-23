@@ -311,6 +311,9 @@ ro:
           voting_period_status:
             finished: Votarea a început la %{start_time} și s-a încheiat la %{end_time}
             upcoming: Votarea începe la %{start_time}
+      feedback:
+        answer:
+          invalid: A apărut o problemă la trimiterea feedback-ului tău.
       models:
         answer:
           fields:
@@ -422,6 +425,12 @@ ro:
           preview_alert: Aceasta este o previzualizare a cabinei de votare.
           question_steps: Întrebarea %{current_step} din %{total_steps}
           selections: "%{selected} din %{max_selections}<br> selecții"
+        onboarding_modal:
+          close: Închidere
+          create_account: Crează cont
+          description: Vrei să creezi un cont nou în Decidim? Veţi putea participa la procese şi să fiţi o parte activă a organizaţiei.
+          no_account: Nu, mulțumesc.
+          title: Nou în Decidem?
         voting_step:
           back: Înapoi
           continue: Următoarea
@@ -437,6 +446,13 @@ ro:
         ballot_styles:
           index:
             associated_census_data: Intrări asociate recensământului
+        menu:
+          votings_submenu:
+            monitoring_committee_certificates: Validare certificate
+            monitoring_committee_members: Membri
+        monitoring_committee_certificates:
+          index:
+            title: Secţii de votare
       census:
         admin:
           census:

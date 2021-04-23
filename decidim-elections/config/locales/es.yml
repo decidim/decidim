@@ -320,6 +320,7 @@ es:
         election:
           end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} en el Bulletin Board"
           publish: "%{user_name} ha publicado la votación %{resource_name}"
+          publish_results: "%{user_name} publicó los resultados de la elección %{resource_name} en el Tablero de Boletines"
           setup: "%{user_name} creó la elección %{resource_name} en el Bulletin Board"
           start_key_ceremony: "%{user_name} comenzó la ceremonia de claves para las elecciones %{resource_name} en el Bulletin Board"
           start_tally: "%{user_name} comenzó el recuento para la elección %{resource_name} en el Bulletin Board"
@@ -378,6 +379,7 @@ es:
           back: Elecciones disponibles
           callout:
             already_voted: Ya has votado en esta elección. Puedes cambiar tu voto o verificarlo.
+            pending_vote: Se está emitiendo tu voto en el servidor.
             vote_rejected: No ha sido posible verificar tu voto. Por favor, hazlo de nuevo.
           preview: Previsualizar
           verify:
@@ -523,8 +525,13 @@ es:
         ballot_decision:
           audit: "( Auditar papeleta )"
           back: Comenzar de nuevo el proceso de votación
+          ballot_hash: 'El indentificador de la papeleta es:'
           cast: Emitir papeleta
           description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de su papeleta la estropeará, lo que significa, que para emitir tu voto tendrás que reiniciar el proceso de votación.
+          header: 'La papeleta está cifrada: envíala o audítala'
+        casting:
+          header: Se está emitiendo el voto...
+          text: La papeleta se está emitiendo en la urna.
         confirm:
           answer: Respuesta
           answer_number: respuesta %{number}
@@ -539,17 +546,26 @@ es:
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
+          lead: El voto ha sido emitido!
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
+        encrypting:
+          header: Se está cifrando el voto...
+          text: Se está cifrando la papeleta para garantizar el secreto de voto.
         failed:
           header: Voto fallido
           lead: '¡Tu voto no ha sido emitido!'
           text: Algo salió mal, por favor inténtalo de nuevo.
+          try_again: Inténtalo de nuevo
         header:
           ballot_decision: Emitir o auditar tu voto
+          casting: Emitiendo el voto
           confirm: Confirma tu voto
           confirmed: Voto confirmado
+          encrypting: Cifrando el voto
+          failed: Voto fallido
         messages:
+          invalid_token: La sesión del puesto de votación no es válida. Intenta votar de nuevo.
           not_allowed: En este momento no puedes votar en esta votación.
         modal:
           close: Cerrar
@@ -561,6 +577,14 @@ es:
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        onboarding_modal:
+          close: Cerrar modal
+          create_account: Crear Cuenta
+          description: '¿Quieres crear una nueva cuenta en Decidim? Así participarás en los procesos y ser parte activa de la organización.'
+          no_account: No, gracias.
+          title: '¿Es tu primera vez en Decidim?'
+        update:
+          error: Ha habido un problema al actualizar el estado del voto. Vuelve a intentarlo.
         verify:
           content:
             heading: Verifica tu voto
@@ -614,6 +638,9 @@ es:
             email_outro: Has recibido esta notificación porque has sido asignado como %{role} de %{polling_station_name}.
             email_subject: Eres %{role} del punto de votación %{polling_station_name}.
             notification_title: Eres %{role} del punto de votación %{polling_station_name} en la votación <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Ya tienes el código de acceso que has pedido: %{access_code}. Con esto ya podrás participar en %{voting}.'
+          subject: El código de acceso para participar en %{voting}
     help:
       participatory_spaces:
         votings:
@@ -627,6 +654,29 @@ es:
       votings_count: Votaciones
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Ha habido un problema al crear el estilo de papeleta
+            success: Se ha creado correctamente el estilo de papeleta
+          destroy:
+            invalid: Ha habido un problema al suprimir el estilo de papeleta
+            success: Se ha eliminado correctamente el estilo de papeleta
+          edit:
+            title: Edita estilo de papeleta
+            update: Actualizar
+          form:
+            code_help: 'Sugerencia: el código es el vínculo entre el censo y el estilo de papeleta. Al actualizar los datos del censo, a cada entrada se le asigna un estilo de papeleta que coincida con el código'
+            election: Elección
+            questions: Preguntas para el estilo de votación
+            questions_help: 'Sugerencia: seleccione las preguntas de los componentes electorales, para este estilo de papeleta, que se presentarán a los votantes asignados a este estilo de votación'
+          index:
+            actions:
+              confirm_destroy: '¿Estás segura?'
+              destroy: Elimina
+              edit: Editar
+              new: Nueva
+              title: Acciones
+            associated_census_data: Entradas asociadas al censo
         content_blocks:
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
@@ -672,7 +722,7 @@ es:
             components: Componentes
             info: Información
             landing_page: Página de inicio
-            monitoring_committee_members: Comité de seguimiento
+            monitoring_committee: Comité de seguimiento
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
         models:

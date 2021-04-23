@@ -599,6 +599,12 @@ cs:
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
+        onboarding_modal:
+          close: Zavřít okno
+          create_account: Vytvořit účet
+          description: Chcete si vytvořit nový účet v Decidimu? Budete se moci účastnit procesů a být aktivní součástí organizace.
+          no_account: Ne, děkuji.
+          title: Jste v Decidim poprvé?
         update:
           error: Při aktualizaci statusu hlasování se vyskytl problém. Prosím, hlasujte znovu.
         verify:
@@ -748,7 +754,9 @@ cs:
             components: Komponenty
             info: Informace
             landing_page: Vstupní stránka
-            monitoring_committee_members: Monitorovací výbor
+            monitoring_committee: Monitorovací výbor
+            monitoring_committee_certificates: Potvrdit certifikáty
+            monitoring_committee_members: Členové
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
@@ -780,6 +788,9 @@ cs:
               promoted: Zvýrazněno
               published: Publikováno
               title: Název
+        monitoring_committee_certificates:
+          index:
+            title: Volební místnosti
         monitoring_committee_members:
           create:
             invalid: Při vytváření tohoto člena monitorovacího výboru došlo k potížím

@@ -35,6 +35,7 @@ es-PY:
         origin_component_id: Componente para copiar las propuestas de
       proposals_import:
         import_proposals: Propuestas de importación
+        keep_answers: Mantener estado y respuestas
         keep_authors: Mantener autores originales
       valuation_assignment:
         admin_log:

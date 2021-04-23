@@ -390,7 +390,6 @@ pl:
             upcoming: Głosowanie rozpoczyna się %{start_time}
       feedback:
         answer:
-          invalid: Wystąpił błąd podczas wysyłania Twojej informacji zwrotnej.
           spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Wiadomość zwrotna została wysłana.
       models:
@@ -673,7 +672,7 @@ pl:
             components: Komponenty
             info: Informacje
             landing_page: Strona docelowa
-            monitoring_committee_members: Komisja monitorująca
+            monitoring_committee: Komisja monitorująca
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
         models:

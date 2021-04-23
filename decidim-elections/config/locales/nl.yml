@@ -558,7 +558,7 @@ nl:
             components: Onderdelen
             info: Informatie
             landing_page: Landingspagina
-            monitoring_committee_members: Controlecomité
+            monitoring_committee: Controlecomité
             polling_stations: Stembureau
         models:
           monitoring_committee_member:
