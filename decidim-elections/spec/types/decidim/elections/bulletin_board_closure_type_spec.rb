@@ -2,28 +2,19 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/traceable_interface_examples"
 
 module Decidim
   module Elections
-    describe ClosureType, type: :graphql do
+    describe BulletinBoardClosureType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:closure, :with_polling_station_results) }
+      let(:model) { create(:bb_closure) }
 
       describe "id" do
         let(:query) { "{ id }" }
 
-        it "returns all the required fields" do
+        it "returns the closure id" do
           expect(response["id"]).to eq(model.id.to_s)
-        end
-      end
-
-      describe "polling_officer_notes" do
-        let(:query) { "{ pollingOfficerNotes }" }
-
-        it "returns the polling officer notes" do
-          expect(response["pollingOfficerNotes"]).to eq(model.polling_officer_notes)
         end
       end
 
@@ -48,14 +39,6 @@ module Decidim
 
         it "returns the election for this closure" do
           expect(response["election"]["id"]).to eq(model.election.id.to_s)
-        end
-      end
-
-      describe "polling_station" do
-        let(:query) { "{ pollingStation { id } }" }
-
-        it "returns the polling_station for this closure" do
-          expect(response["pollingStation"]["id"]).to eq(model.polling_station.id.to_s)
         end
       end
 

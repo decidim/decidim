@@ -20,7 +20,7 @@ module Decidim
           spaces = polling_officers.flat_map(&:voting)
           component_ids = spaces.flat_map { |space| space.components.where(manifest_name: "elections").published.pluck(:id) }
 
-          Decidim::Elections::Election.where(decidim_component_id: component_ids).finished
+          Decidim::Elections::Election.where(decidim_component_id: component_ids)
         end
       end
     end

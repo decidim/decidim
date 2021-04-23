@@ -19,7 +19,7 @@ module Decidim
       def totals_differ?
         return unless total_ballots_count
 
-        total_ballots_count.to_i != election_votes_count.to_i
+        total_ballots_count != election_votes_count
       end
 
       def election
