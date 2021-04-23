@@ -8,6 +8,6 @@ module Decidim
     autoload :ElectionType, "decidim/api/election_type"
     autoload :ElectionsType, "decidim/api/elections_type"
     autoload :TrusteeType, "decidim/api/trustee_type"
-    autoload :ClosureType, "decidim/api/closure_type"
+    autoload :BulletinBoardClosureType, "decidim/api/bulletin_board_closure_type"
   end
 end

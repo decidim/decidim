@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Closure, type: :model do
-  subject(:closure) { build(:closure, :with_polling_station_results) }
+describe Decidim::Votings::PollingStationClosure, type: :model do
+  subject(:closure) { build(:ps_closure, :with_polling_station) }
 
   it { is_expected.to be_valid }
 
@@ -17,5 +17,16 @@ describe Decidim::Elections::Closure, type: :model do
 
   it "has an associated polling_officer" do
     expect(closure.polling_officer).to be_a(Decidim::Votings::PollingOfficer)
+  end
+
+  context "with results" do
+    before do
+      closure.results << build_list(:election_result, 3, closurable: closure)
+    end
+
+    it "has many associated results" do
+      expect(closure.results.first).to be_a(Decidim::Elections::Result)
+      expect(closure.results.size).to eq(3)
+    end
   end
 end

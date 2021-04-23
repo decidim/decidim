@@ -25,7 +25,7 @@ describe "Polling Officer zone", type: :system do
     expect(page).to have_content("Polling Officer zone")
 
     click_link "Polling Officer zone"
-    click_link "Identify and verify a person"
+    click_link "Identify a person"
   end
 
   it "can identify a person" do

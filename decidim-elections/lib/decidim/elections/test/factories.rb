@@ -262,7 +262,7 @@ FactoryBot.define do
     end
   end
 
-  factory :ps_closure, class: "Decidim::Elections::Closure" do
+  factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do
     election
     polling_officer_notes { Faker::Lorem.paragraph }
 
@@ -283,7 +283,7 @@ FactoryBot.define do
         evaluator.results_number.times do
           closure.results << create(
             :election_result,
-            closure: closure
+            closurable: closure
           )
         end
       end

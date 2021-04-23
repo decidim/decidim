@@ -58,14 +58,6 @@ module Decidim
           expect(response["question"]["id"]).to eq(model.question.id.to_s)
         end
       end
-
-      describe "closure" do
-        let(:query) { "{ closure { id } }" }
-
-        it "returns the closure for this result" do
-          expect(response["closure"]["id"]).to eq(model.closure.id.to_s)
-        end
-      end
     end
   end
 end

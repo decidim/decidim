@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Elections
-    # This type represents a result of an answer to an election question.
-    class ClosureType < Decidim::Api::Types::BaseObject
-      description "An election closure"
+  module Votings
+    # This type represents a Polling Station closure for an election.
+    class PollingStationClosureType < Decidim::Api::Types::BaseObject
+      description "A polling station election closure"
 
       field :id, GraphQL::Types::ID, "The internal ID of this result", null: false
       field :created_at, Decidim::Core::DateTimeType, "When this result was created", null: true

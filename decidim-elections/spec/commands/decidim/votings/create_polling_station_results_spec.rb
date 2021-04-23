@@ -9,7 +9,7 @@ module Decidim::Votings
     let(:voting) { create(:voting) }
     let(:component) { create(:elections_component, participatory_space: voting) }
     let(:election) { create(:election, questions: questions, component: component) }
-    let(:closure) { create(:closure, election: election) }
+    let(:closure) { create(:ps_closure, election: election, polling_station: polling_station, polling_officer: polling_officer) }
     let!(:questions) { create_list(:question, 3, :complete) }
     let(:polling_station) { create(:polling_station, voting: component.participatory_space) }
     let(:polling_officer) { create(:polling_officer, voting: component.participatory_space) }
