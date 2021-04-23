@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 
-import attributeDiff from "./attribute_diff"
+import attributeDiff from "src/decidim/editor/attribute_diff"
 
 const Delta = Quill.import("delta");
 

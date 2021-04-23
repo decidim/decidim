@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 
 import * as L from "leaflet";
-import createMapController from "./factory"
+import createMapController from "src/decidim/map/factory"
 
 /**
  * @deprecated

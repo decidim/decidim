@@ -1,8 +1,8 @@
-import AutoButtonsByPositionComponent from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/auto_buttons_by_position.component"
-import AutoLabelByPositionComponent from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/auto_label_by_position.component"
-import createSortList from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/sort_list.component"
-import createDynamicFields from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/dynamic_fields.component"
-import attachGeocoding from "../../../../../../../decidim-core/app/packs/src/decidim/geocoding/attach_input"
+import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_position.component"
+import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
+import createSortList from "src/decidim/admin/sort_list.component"
+import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
+import attachGeocoding from "src/decidim/geocoding/attach_input"
 
 $(() => {
   const wrapperSelector = ".meeting-services";

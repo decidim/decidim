@@ -1,4 +1,4 @@
-import attachGeocoding from "../../../../../../decidim-core/app/packs/src/decidim/geocoding/attach_input"
+import attachGeocoding from "src/decidim/geocoding/attach_input"
 
 $(() => {
   const $checkbox = $("input:checkbox[name$='[has_address]']");

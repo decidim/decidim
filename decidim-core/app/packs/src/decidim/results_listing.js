@@ -1,4 +1,4 @@
-import { pushState, registerCallback } from "../../../../../decidim-core/app/packs/src/decidim/history"
+import { pushState, registerCallback } from "src/decidim/history"
 
 const initializeListingOptionsMenu = (options) => {
   $(document).on("click", `${options.containerSelector} a`, (event) => {

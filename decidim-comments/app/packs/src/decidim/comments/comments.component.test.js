@@ -16,7 +16,7 @@ window.Quill = Quill
 // Fake timers for testing polling
 jest.useFakeTimers();
 
-import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter";
+import { createCharacterCounter } from "src/decidim/input_character_counter";
 // Component is loaded with require because using import loads it before $ has been mocked
 // so tests aren't able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");

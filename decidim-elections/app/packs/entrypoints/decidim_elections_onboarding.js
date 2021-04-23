@@ -1,1 +1,1 @@
-import "../src/decidim/elections/onboarding";
+import "src/decidim/elections/onboarding";

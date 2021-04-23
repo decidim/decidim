@@ -1,1 +1,1 @@
-import "../src/decidim/accountability/admin"
+import "src/decidim/accountability/admin/index"

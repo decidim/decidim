@@ -105,7 +105,7 @@ module Decidim
 
         # Add to additional paths the packs of the instance application, which allows to re-define
         # CSS variables
-        gsub_file "config/decidim_webpacker.yml", "additional_paths: []", "additional_paths: ['#{destination_root}/app/packs']"
+        gsub_file "config/decidim_webpacker.yml", "source_path: ''", "source_path: '#{destination_root}/app/packs'"
 
         # Copy CSS variables template file
         copy_file "decidim-settings.scss", "app/packs/stylesheets/decidim/decidim-settings.scss"

@@ -1,6 +1,6 @@
-import MapMarkersController from "./controller/markers"
-import MapStaticController from "./controller/static"
-import MapDragMarkerController from "./controller/drag_marker"
+import MapMarkersController from "src/decidim/map/controller/markers"
+import MapStaticController from "src/decidim/map/controller/static"
+import MapDragMarkerController from "src/decidim/map/controller/drag_marker"
 
 /**
  * A factory method that creates a new map controller instance. This method

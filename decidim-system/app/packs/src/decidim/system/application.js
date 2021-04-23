@@ -5,14 +5,14 @@ import $ from "jquery"
 import Quill from "quill"
 import "foundation-sites"
 
-import createQuillEditor from "../../../../../../decidim-core/app/packs/src/decidim/editor"
-import Configuration from "../../../../../../decidim-core/app/packs/src/decidim/configuration"
+import createQuillEditor from "src/decidim/editor"
+import Configuration from "src/decidim/configuration"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
 
-import "../../../../../../decidim-core/app/packs/src/decidim/input_tags"
-import "../../../../../../decidim-core/app/packs/src/decidim/confirm"
+import "src/decidim/input_tags"
+import "src/decidim/confirm"
 
 $(() => {
   $(document).foundation();

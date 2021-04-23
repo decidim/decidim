@@ -1,1 +1,1 @@
-import "../src/decidim/geocoding/provider/here"
+import "src/decidim/geocoding/provider/here"

@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 
-import attributeDiff from "./attribute_diff"
+import attributeDiff from "src/decidim/editor/attribute_diff"
 
 export default function backspaceBindingsRangeAny(quill) {
   quill.keyboard.addBinding({ key: 8, altKey: null, ctrlKey: null, metaKey: null, shiftKey: null, collapsed: true }, (range, context) => {
