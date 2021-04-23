@@ -413,6 +413,7 @@ en:
           title: Election questions
         results:
           description: 'These are the results of the voting, for each question:'
+          percentage: "%{count}%"
           selected: Selected
           title: Election results
           votes:
@@ -1058,7 +1059,6 @@ en:
           index:
             polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
             polling_station:
-              actions: Actions
               address: Address
               count_votes: Count votes
               election: Election
