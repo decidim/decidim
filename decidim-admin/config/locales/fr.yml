@@ -112,6 +112,7 @@ fr:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
+        weight: Rang
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
