@@ -42,16 +42,13 @@ en:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: Polling officer already is a polling station
-                president/manager
+              president_and_manager: Polling officer already is a polling station president/manager
             voting:
-              different_organization: The voting must be in the same organizatoin
-                as the user
+              different_organization: The voting must be in the same organizatoin as the user
         decidim/votings/polling_station:
           attributes:
             polling_station_president:
-              different_voting: The polling officer must be in the same voting as
-                the polling station
+              different_voting: The polling officer must be in the same voting as the polling station
     models:
       decidim/elections/answer:
         one: Answer
@@ -92,8 +89,7 @@ en:
             president: President
             unassigned: Unassigned
         search_placeholder:
-          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Search
-            %{collection} by name/email/nickname or polling station.
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Search %{collection} by name/email/nickname or polling station.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Search %{collection} by title, address or officer name/email/nickname.
         verified_at_null:
@@ -138,8 +134,7 @@ en:
             title: Edit answer
             update: Update answer
           index:
-            invalid_max_selections: You need %{missing_answers} more answer/s to match
-              max selections
+            invalid_max_selections: You need %{missing_answers} more answer/s to match max selections
             title: Answers
           new:
             create: Create answer
@@ -168,9 +163,7 @@ en:
             title: Edit election
             update: Update election
           index:
-            no_bulletin_board: There is no <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin
-              Board server</a> configured, which is needed to use this module. This
-              task should be done by the System Administrator.
+            no_bulletin_board: There is no <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a> configured, which is needed to use this module. This task should be done by the System Administrator.
             title: Elections
           new:
             create: Create election
@@ -202,8 +195,7 @@ en:
             success: "%{number} proposals successfully imported into answers"
           new:
             create: Import proposals to answers
-            no_components: There are no other proposal components in this participatory
-              space to import the proposals into answers.
+            no_components: There are no other proposal components in this participatory space to import the proposals into answers.
             select_component: Please select a component
             title: Import proposals
         questions:
@@ -227,15 +219,12 @@ en:
         steps:
           create_election:
             errors:
-              max_selections: The questions do not have a <strong>correct value for
-                amount of answers</strong>
+              max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
               minimum_answers: Questions must have <strong>at least two answers</strong>.
               minimum_questions: The election <strong>must have at least one question</strong>.
               published: The election is <strong>not published</strong>.
-              time_before: The start time is in <strong>less than 3 hours</strong>
-                before the election starts.
-              trustees_number: The participatory space <strong>must have at least
-                %{number} trustees with public key</strong>.
+              time_before: The start time is in <strong>less than 3 hours</strong> before the election starts.
+              trustees_number: The participatory space <strong>must have at least %{number} trustees with public key</strong>.
             invalid: There was a problem setting up this election
             no_trustees: There are no Trustees configured for this participatory space
             not_used_trustee: "(not used)"
@@ -243,15 +232,12 @@ en:
               'false': does not have a <strong>public key</strong>
               'true': has a <strong>public key</strong>
             requirements:
-              max_selections: All the questions have a correct value for <strong>maximum
-                of answers</strong>.
+              max_selections: All the questions have a correct value for <strong>maximum of answers</strong>.
               minimum_answers: Each question has <strong>at least 2 answers</strong>.
               minimum_questions: The election has <strong>at least 1 question</strong>.
               published: The election is <strong>published</strong>.
-              time_before: The setup is being done <strong>at least %{hours} hours</strong>
-                before the election starts.
-              trustees_number: The participatory space has <strong>at least %{number}
-                trustees with public key</strong>.
+              time_before: The setup is being done <strong>at least %{hours} hours</strong> before the election starts.
+              trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
             submit: Setup election
             success: Election successfully sent to the Bulletin Board
             title: Setup election
@@ -259,8 +245,7 @@ en:
           created:
             invalid: There was a problem starting the key ceremony
             submit: Start the key ceremony
-            success: Start key ceremony request was successfully sent to the Bulletin
-              Board
+            success: Start key ceremony request was successfully sent to the Bulletin Board
             title: Election created
             trustees: Trustees
           key_ceremony:
@@ -268,17 +253,12 @@ en:
             trustees: Trustees
           key_ceremony_ended:
             errors:
-              time_before: The election is ready to start. You have to wait until
-                %{hours} hours before the starting time (%{start_time}) to start the
-                voting period.
+              time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to start the voting period.
             invalid: There was a problem starting the voting period
             requirements:
-              time_before: The election will start soon. You can start the voting
-                period manually, or it will be started automatically before the starting
-                time, at %{start_time}.
+              time_before: The election will start soon. You can start the voting period manually, or it will be started automatically before the starting time, at %{start_time}.
             submit: Start voting period
-            success: Start voting period request was successfully sent to the Bulletin
-              Board
+            success: Start voting period request was successfully sent to the Bulletin Board
             title: Ready to start
           processing: Processing...
           results_published:
@@ -299,20 +279,16 @@ en:
             result: Result
             selected: Selected
             submit: Publish results
-            success: Publish results request was successfully sent to the Bulletin
-              Board
+            success: Publish results request was successfully sent to the Bulletin Board
             title: Calculated results
           vote:
             errors:
-              time_after: The election is still ongoing. You have to wait until the
-                ending time (%{end_time}) to end the voting period.
+              time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to end the voting period.
             invalid: There was a problem ending the voting period
             requirements:
-              time_after: The election has ended. You can end the voting period manually,
-                or it will be ended automatically in a few minutes.
+              time_after: The election has ended. You can end the voting period manually, or it will be ended automatically in a few minutes.
             submit: End voting period
-            success: End voting period request was successfully sent to the Bulletin
-              Board
+            success: End voting period request was successfully sent to the Bulletin Board
             title: Vote period
           vote_ended:
             invalid: There was a problem starting the tally
@@ -348,19 +324,13 @@ en:
             success: Trustee %{trustee} successfully updated
       admin_log:
         election:
-          end_vote: "%{user_name} ended the voting period for the %{resource_name}
-            election on the Bulletin Board"
+          end_vote: "%{user_name} ended the voting period for the %{resource_name} election on the Bulletin Board"
           publish: "%{user_name} published the %{resource_name} election"
-          publish_results: "%{user_name} published the results for the election %{resource_name}
-            on the Bulletin Board"
-          setup: "%{user_name} created the %{resource_name} election on the Bulletin
-            Board"
-          start_key_ceremony: "%{user_name} started the key ceremony for the %{resource_name}
-            election on the Bulletin Board"
-          start_tally: "%{user_name} started the tally for the %{resource_name} election
-            on the Bulletin Board"
-          start_vote: "%{user_name} started the voting period for the %{resource_name}
-            election on the Bulletin Board"
+          publish_results: "%{user_name} published the results for the election %{resource_name} on the Bulletin Board"
+          setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
+          start_key_ceremony: "%{user_name} started the key ceremony for the %{resource_name} election on the Bulletin Board"
+          start_tally: "%{user_name} started the tally for the %{resource_name} election on the Bulletin Board"
+          start_vote: "%{user_name} started the voting period for the %{resource_name} election on the Bulletin Board"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
         badge_name:
@@ -371,8 +341,7 @@ en:
         footer:
           remaining_time:
             one: "<strong>%{count} hour %{minutes} minutes</strong> remaining to vote."
-            other: "<strong>%{count} hours %{minutes} minutes</strong> remaining to
-              vote."
+            other: "<strong>%{count} hours %{minutes} minutes</strong> remaining to vote."
             zero: "<strong>%{minutes} minutes</strong> remaining to vote."
           view: View
           vote: Vote
@@ -418,17 +387,14 @@ en:
             vote_again: Vote again
           back: Available elections
           callout:
-            already_voted: You have already voted in this election. You can change
-              your vote or verify it.
+            already_voted: You have already voted in this election. You can change your vote or verify it.
             pending_vote: Your vote is being casted on the server.
-            vote_rejected: It was not possible to verify your vote. Please cast it
-              again.
+            vote_rejected: It was not possible to verify your vote. Please cast it again.
           preview: Preview
           verify:
             already_voted: Already voted?
             verify_here: Check your vote here.
-            will_verify: You will be able to verify your vote once the election is
-              started.
+            will_verify: You will be able to verify your vote once the election is started.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
             ongoing: 'Active voting until: %{end_time}'
@@ -436,8 +402,7 @@ en:
       feedback:
         answer:
           invalid: There was a problem submitting your feedback.
-          spam_detected: There was a problem answering the form. Maybe you've been
-            too quick, can you try again?
+          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
           success: Feedback successfully sent.
       models:
         answer:
@@ -473,17 +438,13 @@ en:
       trustee_zone:
         elections:
           backup_modal:
-            description: This election is being created in the Bulletin Board. Is
-              is very important that every Trustee participating in it creates a backup
-              copy of these keys and store them in a safe place. After that, the process
-              continues.
+            description: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place. After that, the process continues.
             download_election_keys: Download keys
             download_icon: Icon that indicates a download action
             title: Backup election keys for %{election}
           key_ceremony_steps:
             back: Back
-            description: This election is being created in the Bulletin Board. To
-              complete this process, your participitation as a Trustee is needed.
+            description: This election is being created in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
               create_election: Keys generation
               key_ceremony:
@@ -492,29 +453,22 @@ en:
             list:
               status: Status
               task: Task
-            process_warning: Once the process is started, you should not exit this
-              page until the process ends. It will take several minutes, as all Trustees
-              should be connected to complete it.
+            process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
             start: Start
-            start_icon: Icon that indicates a start button to start the election keys
-              generation
+            start_icon: Icon that indicates a start button to start the election keys generation
             status:
               completed: Completed
               pending: Pending
               processing: Processing
             title: Create election keys for %{election}
           restore_modal:
-            description: The Bulletin Board has information from you as a Trustee
-              on this election. To continue the process, first upload the backup file
-              generated during the previous session.
+            description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
             title: Restore election keys for %{election}
             upload_election_keys: Upload election keys
             upload_icon: Icon that indicates a download action
           tally_steps:
             back: Back
-            description: The results for this election are being computed in the Bulletin
-              Board. To complete this process, your participitation as a Trustee is
-              needed.
+            description: The results for this election are being computed in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
               end_tally: Tally ended
               tally:
@@ -523,12 +477,9 @@ en:
             list:
               status: Status
               task: Task
-            process_warning: Once the process is started, you should not exit this
-              page until the process ends. It will take several minutes, as all Trustees
-              should be connected to complete it.
+            process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
             start: Start
-            start_icon: Icon that indicates a start button to start the election keys
-              generation
+            start_icon: Icon that indicates a start button to start the election keys generation
             status:
               completed: Completed
               pending: Pending
@@ -540,8 +491,7 @@ en:
         menu:
           trustee_zone: Trustee zone
         no_bulletin_board:
-          body: A configured Bulletin Board is required for this section. Contact
-            the Administrator for more details.
+          body: A configured Bulletin Board is required for this section. Contact the Administrator for more details.
           title: Sorry, the Bulletin Board is not configured yet.
         trustees:
           show:
@@ -560,39 +510,24 @@ en:
               cancel: Cancel
               generate: Generate identification keys
               generate_error: There was an error generating the identification keys.
-              generate_legend: You need to generate an identification pair of keys
-                to participate on elections as a Trustee.
-              generate_legend_1: After pressing the button you should download the
-                file with the generated identification keys.
+              generate_legend: You need to generate an identification pair of keys to participate on elections as a Trustee.
+              generate_legend_1: After pressing the button you should download the file with the generated identification keys.
               generate_legend_2: Copy the downloaded file to a clean USB device
-              generate_legend_3: Ensure your computer doesn't have a copy of the file
-                (e.g. check the Downloads and Desktop folders).
-              generate_legend_4: Make another copy of the file on a different external
-                device and store it in a very safe place.
+              generate_legend_3: Ensure your computer doesn't have a copy of the file (e.g. check the Downloads and Desktop folders).
+              generate_legend_4: Make another copy of the file on a different external device and store it in a very safe place.
               submit: Submit
-              submit_legend: After following all the steps explained above, complete
-                the process sending the public identification key to the Decidim server.
+              submit_legend: After following all the steps explained above, complete the process sending the public identification key to the Decidim server.
               submit_title: Submit the public identification key
               title: Trustee identification keys
               upload: Upload your identification keys
               upload_error:
-                invalid_format: The uploaded file doesn't contain any identification
-                  key.
-                invalid_key: The identification keys in the uploaded file can't be
-                  loaded.
-                invalid_public_key: The identification keys in the uploaded file doesn't
-                  match the public identification key stored by Decidim.
-              upload_legend: Decidim has your public identification keys, but your
-                browser still doesn't have it. You need to import the file with your
-                identification keys to your computer from the backup you created after
-                generating them.
-            not_supported_browser_description: It looks like you are using a web browser
-              that can't be used to act as a Trustee. Make sure you're using the most
-              recent version of your browser, or try using any of the most popular
-              browsers to be able to complete your Trustee tasks.
+                invalid_format: The uploaded file doesn't contain any identification key.
+                invalid_key: The identification keys in the uploaded file can't be loaded.
+                invalid_public_key: The identification keys in the uploaded file doesn't match the public identification key stored by Decidim.
+              upload_legend: Decidim has your public identification keys, but your browser still doesn't have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
+            not_supported_browser_description: It looks like you are using a web browser that can't be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
-            trustee_role_description: You have been assigned to act as a Trustee in
-              some of the elections celebrated in this platform.
+            trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
           update:
             success: Your identification public key was successfully stored.
       votes:
@@ -601,11 +536,7 @@ en:
           back: Start voting process again
           ballot_hash: 'Your ballot identifier is:'
           cast: Cast ballot
-          description: Here, you have the options to cast your ballot so that it's
-            properly counted or, alternatively, you can audit that your ballot was
-            correctly encrypted. For security reasons, auditing your ballot will spoil
-            it. That means, to cast your vote, you will need to restart the voting
-            process.
+          description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
           header: 'Ballot is encrypted: cast it or audit it'
         casting:
           header: Casting the vote...
@@ -616,8 +547,7 @@ en:
           confirm: Confirm
           edit: edit
           header: Confirm your vote
-          intro: Here is a summary of the vote you are about to cast. <br> Please
-            confirm your vote or edit your answers.
+          intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
           nota_option: Blank
           question: Question %{count}
         confirmed:
@@ -626,10 +556,8 @@ en:
           feedback: Give us some feedback
           header: Vote confirmed
           lead: Your vote has been cast!
-          text: 'You can check that your vote has been successfully added to the ballot
-            box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote
-            verification page</a>
+          text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote verification page</a>
         encrypting:
           header: Encrypting the vote...
           text: Your ballot is being encrypted to ensure the secret of your vote.
@@ -646,8 +574,7 @@ en:
           encrypting: Encrypting the vote
           failed: Vote failed
         messages:
-          invalid_token: Your session in the voting booth is not valid. Try to vote
-            again.
+          invalid_token: Your session in the voting booth is not valid. Try to vote again.
           not_allowed: You are not allowed to vote on this election at this moment.
         modal:
           close: Close
@@ -662,8 +589,7 @@ en:
         onboarding_modal:
           close: Close modal
           create_account: Create Account
-          description: Do you want to create a new account in Decidim? You will be
-            able to participate in the processes and be an active part of the organization.
+          description: Do you want to create a new account in Decidim? You will be able to participate in the processes and be an active part of the organization.
           no_account: No, thanks.
           title: New to Decidim?
         update:
@@ -671,8 +597,7 @@ en:
         verify:
           content:
             heading: Verify your vote
-            info: This verifier checks that your vote, identified with an encrypted
-              text string, has been cast correctly and is inside the ballot box.
+            info: This verifier checks that your vote, identified with an encrypted text string, has been cast correctly and is inside the ballot box.
           error:
             header: Vote not found!
             info: The vote code was not found in the %{link} ballot box, try again.
@@ -689,85 +614,47 @@ en:
           back: Back
           continue: Next
       warnings:
-        no_elections_warning: No elections match your search criteria or there isn't
-          any election scheduled.
-        no_scheduled_elections_warning: Currently, there are no scheduled elections,
-          but here you can find all the past elections listed.
+        no_elections_warning: No elections match your search criteria or there isn't any election scheduled.
+        no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
     events:
       elections:
         election_published:
-          email_intro: 'The %{resource_title} election is now active for %{participatory_space_title}.
-            You can see it from this page:'
-          email_outro: You have received this notification because you are following
-            %{participatory_space_title}. You can stop receiving notifications following
-            the previous link.
+          email_intro: 'The %{resource_title} election is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            election is now active for %{participatory_space_title}.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
         trustees:
           new_election:
             email_intro: You got added as a trustee for the %{resource_title} election.
-            email_outro: You have received this notification because you've been added
-              as trustee for the %{resource_title} election.
+            email_outro: You have received this notification because you've been added as trustee for the %{resource_title} election.
             email_subject: You are a trustee for the %{resource_title} election..
-            notification_title: You are a trustee for <a href="%{resource_path}">%{resource_title}</a>
-              election.
+            notification_title: You are a trustee for <a href="%{resource_path}">%{resource_title}</a> election.
           new_trustee:
-            email_intro: An admin has added you as trustee for %{resource_name}. You
-              should create your public key <a href='%{trustee_zone_url}'>in your
-              trustee zone</a>
-            email_outro: You have received this notification because you've been added
-              as trustee for %{resource_name}.
+            email_intro: An admin has added you as trustee for %{resource_name}. You should create your public key <a href='%{trustee_zone_url}'>in your trustee zone</a>
+            email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
-            email_intro: 'Your vote was accepted! Using your voting token: %{encrypted_vote_hash},
-              you can verify your vote <a href="%{verify_url}">here</a>.'
-            email_outro: You have received this notification because you've voted
-              for the %{resource_name} election.
+            email_intro: 'Your vote was accepted! Using your voting token: %{encrypted_vote_hash}, you can verify your vote <a href="%{verify_url}">here</a>.'
+            email_outro: You have received this notification because you've voted for the %{resource_name} election.
             email_subject: Your vote for %{resource_name} was accepted.
-            notification_title: 'Your vote was accepted. Verify your vote <a href="%{verify_url}">here</a>
-              using your vote token: %{encrypted_vote_hash}'
+            notification_title: 'Your vote was accepted. Verify your vote <a href="%{verify_url}">here</a> using your vote token: %{encrypted_vote_hash}'
       votings:
         polling_officers:
           polling_station_assigned:
-            email_intro: You have been assigned as %{role} of the Polling Station
-              %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a>.
-              You can manage the Polling Station from the dedicated <a href="%{polling_officer_zone_url}">Polling
-              Officer Zone</a>.
-            email_outro: You have received this notification because you have been
-              assigned as %{role} of %{polling_station_name}.
+            email_intro: You have been assigned as %{role} of the Polling Station %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a>. You can manage the Polling Station from the dedicated <a href="%{polling_officer_zone_url}">Polling Officer Zone</a>.
+            email_outro: You have received this notification because you have been assigned as %{role} of %{polling_station_name}.
             email_subject: You are %{role} of the Polling Station %{polling_station_name}.
-            notification_title: You are %{role} of the Polling Station %{polling_station_name}
-              in the voting <a href="%{resource_path}">%{resource_title}</a>.
+            notification_title: You are %{role} of the Polling Station %{polling_station_name} in the voting <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
-          instruction: 'Here is your Access Code that you asked for: %{access_code}.
-            With this you will be able to participate in %{voting}.'
+          instruction: 'Here is your Access Code that you asked for: %{access_code}. With this you will be able to participate in %{voting}.'
           subject: Your Access Code to participate in %{voting}
     help:
       participatory_spaces:
         votings:
-          contextual: "<p>A <strong>voting</strong> is a space that allows you to
-            ask a clear question to all the people who form an organization, make
-            a call to participate in the voting, spark and order the debate for or
-            against a response. When the voting date arrives, you can vote and publish
-            the results of the votes.</p> <p>Examples: The votings can be about almost
-            any aspect that affects an organization: some examples are changing the
-            name or logo of the organization offering several alternatives, deciding
-            Yes or No to become part of a larger organization, validating or rejecting
-            a new strategic plan or the result of a working group, or defining whether
-            the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
-          page: "<p>A <strong>voting</strong> is a space that allows you to ask a
-            clear question to all the people who form an organization, make a call
-            to participate in the voting, spark and order the debate for or against
-            a response. When the voting date arrives, you can vote and publish the
-            results of the votes.</p> <p>Examples: The votings can be about almost
-            any aspect that affects an organization: some examples are changing the
-            name or logo of the organization offering several alternatives, deciding
-            Yes or No to become part of a larger organization, validating or rejecting
-            a new strategic plan or the result of a working group, or defining whether
-            the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          contextual: "<p>A <strong>voting</strong> is a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the voting, spark and order the debate for or against a response. When the voting date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The votings can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
+          page: "<p>A <strong>voting</strong> is a space that allows you to ask a clear question to all the people who form an organization, make a call to participate in the voting, spark and order the debate for or against a response. When the voting date arrives, you can vote and publish the results of the votes.</p> <p>Examples: The votings can be about almost any aspect that affects an organization: some examples are changing the name or logo of the organization offering several alternatives, deciding Yes or No to become part of a larger organization, validating or rejecting a new strategic plan or the result of a working group, or defining whether the positions should remain a maximum of 1, 2 or 3 mandates.</p>\n"
           title: What are votings?
     menu:
       votings: Votings
@@ -787,13 +674,10 @@ en:
             title: Edit ballot style
             update: Update
           form:
-            code_help: 'Hint: the code is the link between the census and a ballot
-              style. When uploading the census data, every entry will be assigned
-              a ballot style by matching the code'
+            code_help: 'Hint: the code is the link between the census and a ballot style. When uploading the census data, every entry will be assigned a ballot style by matching the code'
             election: Election
             questions: Questions for this ballot style
-            questions_help: 'Hint: select the questions from the election components
-              to be presented to the voters assigned to this ballot style'
+            questions_help: 'Hint: select the questions from the election components to be presented to the voters assigned to this ballot style'
           index:
             actions:
               confirm_destroy: Are you sure?
@@ -802,12 +686,7 @@ en:
               new: New
               title: Actions
             associated_census_data: Associated census entries
-            explanation_callout: A ballot style specifies what questions a voter will
-              be presented in the booth. In a ballot style, you can choose what questions
-              from this voting's election components belong to a ballot. The ballot
-              style code is used to match a voter from the census with the ballot
-              they will be presented in the booth. Don't create any ballot style if
-              you always want to present all the questions.
+            explanation_callout: A ballot style specifies what questions a voter will be presented in the booth. In a ballot style, you can choose what questions from this voting's election components belong to a ballot. The ballot style code is used to match a voter from the census with the ballot they will be presented in the booth. Don't create any ballot style if you always want to present all the questions.
             title: Ballot Styles
           new:
             create: Create
@@ -922,8 +801,7 @@ en:
             title: Polling Stations for the election <i>%{election_title}</i>
             verified: Verified?
           edit:
-            title: Results for the election <i>%{election_title}</i> in the polling
-              station <i>%{polling_station_title}</i>
+            title: Results for the election <i>%{election_title}</i> in the polling station <i>%{polling_station_title}</i>
           elections:
             title: Choose an election you want to validate
         polling_officers:
@@ -948,10 +826,8 @@ en:
           polling_officers_picker:
             choose_polling_officers: Choose polling officers
             close: Close
-            more_polling_officers: There are %{number} more polling officers. Refine
-              your search to locate them.
-            no_polling_officers: No polling officers match your search criteria or
-              there isn't any polling officer.
+            more_polling_officers: There are %{number} more polling officers. Refine your search to locate them.
+            no_polling_officers: No polling officers match your search criteria or there isn't any polling officer.
         polling_stations:
           create:
             invalid: There was a problem creating this polling station
@@ -964,20 +840,11 @@ en:
             update: Update polling station
           form:
             address_help: 'Address: used by Geocoder to find the location'
-            location_help: 'Location: message directed to the voters implying the
-              exact place of the polling station'
-            location_hints_help: 'Location hints: additional info. Example: the floor
-              of the building where the polling station is located.'
-            polling_station_managers_help: 'Polling station managers: the officers
-              that will act as polling station managers. Make sure the officers have
-              already been created in Polling Officers and that they are not already
-              assigned to another polling station'
-            polling_station_president_help: 'Polling station officer: the officer
-              that will act as polling station president. Make sure the officer has
-              already been created in Polling Officers and that (s)he is not already
-              assigned to another polling station'
-            select_president: Select a polling officer as president of the polling
-              station
+            location_help: 'Location: message directed to the voters implying the exact place of the polling station'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
+            polling_station_managers_help: 'Polling station managers: the officers that will act as polling station managers. Make sure the officers have already been created in Polling Officers and that they are not already assigned to another polling station'
+            polling_station_president_help: 'Polling station officer: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station'
+            select_president: Select a polling officer as president of the polling station
           index:
             title: Polling stations
           new:
@@ -999,19 +866,13 @@ en:
             invalid: There was a problem creating this voting
             success: Voting successfully created
           edit:
-            add_election_component: You don't have any election configured for this
-              voting. Please add it in the Components section
-            assign_missing_officers: There are Polling Stations without President
-              and/or Managers. Please assign them from the Polling stations section
+            add_election_component: You don't have any election configured for this voting. Please add it in the Components section
+            assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
-            census_contact_information_help: This contact information is for a participant
-              who wants to report issues with the census. It can be an email address,
-              a contact form on another site, a Decidim survey for visitors, etc.
+            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a Decidim survey for visitors, etc.
             select_a_voting_type: Please select a voting type
-            slug_help: 'URL slugs are used to generate the URLs that point to this
-              voting. Only accepts letters, numbers and dashes, and must start with
-              a letter. Example: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             voting_type:
               hybrid: Hybrid
@@ -1037,94 +898,62 @@ en:
           census:
             create:
               invalid: An error occurred uploading the census, please try again later.
-              invalid_csv_header: The CSV header does not have the correct number
-                of fields - please read the instructions carefully
+              invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
             creating_data:
-              info_message: "<strong>Please wait</strong>, processed %{processed_count}
-                of %{raw_count} rows from %{file} file."
+              info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
               button: Delete all census data
-              confirm: Delete all the census can not be undone. Are you sure you want
-                to continue?
+              confirm: Delete all the census can not be undone. Are you sure you want to continue?
             destroy:
               error: An error occurred deleting the census, please try again later.
               success: Census data deleted
             export_access_codes:
               button: Export voting Access Codes
-              callout: You can now proceed to export the access codes. This can only
-                be done once. Once you launch the exportation, you will receive an
-                email with the instructions to <strong>%{email}</strong>
-              confirm: You can only export the access codes once. Make sure you have
-                access to the email account <strong>%{email}</strong>.
+              callout: You can now proceed to export the access codes. This can only be done once. Once you launch the exportation, you will receive an email with the instructions to <strong>%{email}</strong>
+              confirm: You can only export the access codes once. Make sure you have access to the email account <strong>%{email}</strong>.
               file_not_exists: This file does not exists
               launch_error: Problem launching the access codes export
-              launch_success: Access codes export launched. Shortly you will receive
-                an email to %{email}
+              launch_success: Access codes export launched. Shortly you will receive an email to %{email}
             exporting_access_codes:
-              info_message: "<strong>Please wait</strong>, the export is being prepared,
-                you will receive it shortly to %{email}"
+              info_message: "<strong>Please wait</strong>, the export is being prepared, you will receive it shortly to %{email}"
             freeze:
               callout: The census is frozen and cannot be modified.
             generate_access_codes:
               button: Generate voting Access Codes
-              callout: You can now proceed to generate the access codes. Mind that
-                after generating the access codes you will not be able to modify the
-                census anymore.
+              callout: You can now proceed to generate the access codes. Mind that after generating the access codes you will not be able to modify the census anymore.
               confirm: If you continue, you will not be able to modify the census.
-              info_message_all: "<strong>All rows imported successfully</strong> from
-                %{file} file (%{raw_count} of %{data_count})."
-              info_message_warn: Please check that no data is missing, because %{data_count}
-                records were created and the uploaded file %{file} had %{raw_count}
-                rows.
+              info_message_all: "<strong>All rows imported successfully</strong> from %{file} file (%{raw_count} of %{data_count})."
+              info_message_warn: Please check that no data is missing, because %{data_count} records were created and the uploaded file %{file} had %{raw_count} rows.
               launch_error: Problem launching the access codes generation
               launch_success: Codes generation launched.
             generating_access_codes:
-              info_message: "<strong>Please wait</strong>, the voting access codes
-                are being generated..."
+              info_message: "<strong>Please wait</strong>, the voting access codes are being generated..."
             new:
               file_help:
                 explanation: 'Guidance for file:'
                 message_1: Only CSV (.csv) files are allowed.
                 message_2: The separator between columns must be a semicolon (";").
-              has_ballot_styles_message: You set up Ballot Styles. Please make sure
-                that the "%{ballot_style_code_header}" field in the CSV corresponds
-                to the desired Ballot Style's code.
-              info_message: "<strong>There is no census yet.</strong> Please use the
-                form below to create it importing a CSV file."
-              missing_ballot_styles_message: 'There is no Ballot Style for this voting
-                yet. If you wish to have conditional questions (i.e.: present the
-                voter with different questions depending on, e.g., the district/region
-                of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot
-                Styles</a> <strong>before</strong> importing the census. If you want
-                to present all voters with the same questions, you can proceed with
-                the census import procedure.'
+              has_ballot_styles_message: You set up Ballot Styles. Please make sure that the "%{ballot_style_code_header}" field in the CSV corresponds to the desired Ballot Style's code.
+              info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
+              missing_ballot_styles_message: 'There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to present all voters with the same questions, you can proceed with the census import procedure.'
               submit: Submit csv
               title: Create the census
             show:
               heading: Voting space census
             upload_info:
-              csv_example_with_ballot_style: 'An example of the file <strong>with</strong>
-                ballot styles:'
-              csv_example_without_ballot_style: 'An example of the file <strong>without</strong>
-                ballot styles:'
-              csv_header_after: Do not include the last field ("%{ballot_style_code_header}")
-                if you do not need ballot styles/conditional questions
-              csv_header_before: 'The census file must be a CSV file with the following
-                header:'
+              csv_example_with_ballot_style: 'An example of the file <strong>with</strong> ballot styles:'
+              csv_example_without_ballot_style: 'An example of the file <strong>without</strong> ballot styles:'
+              csv_header_after: Do not include the last field ("%{ballot_style_code_header}") if you do not need ballot styles/conditional questions
+              csv_header_before: 'The census file must be a CSV file with the following header:'
         document_types:
           dni: DNI
           nie: NIE
           passport: Passport
         export_mailer:
           access_codes_export:
-            click_button: 'Click the next link to download the access codes data.<br/>The
-              file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a>
-              (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS)
-              or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open
-              it. Password: %{password}'
+            click_button: 'Click the next link to download the access codes data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
             download: Download
-            subject: The export of the voting access codes for %{voting_title} is
-              available
+            subject: The export of the voting access codes for %{voting_title} is available
         vote_flow:
           datum_not_found: The given data doesn't match any voter.
       content_blocks:
@@ -1164,8 +993,7 @@ en:
             info_text: Please introduce the total number of answers for each question.
             modal_ballots_results_count_error:
               close_modal: Close
-              info_text: The total number of ballots doesn't match the total number
-                of envelopes. Please review the total of ballots.
+              info_text: The total number of ballots doesn't match the total number of envelopes. Please review the total of ballots.
               title: Total of ballots do not add up
             save_recount: Save recount
             total_ballots: Total ballots
@@ -1175,16 +1003,12 @@ en:
           new:
             election: 'Election:'
             heading: Vote recount
-            info_text: 'Please introduce the total number of ballots (envelopes) recounted
-              in this Polling Station:'
+            info_text: 'Please introduce the total number of ballots (envelopes) recounted in this Polling Station:'
             modal_ballots_count_error:
               btn_validate_total: Validate total recount of ballots
               close_modal: Close
-              info_explanation_text: 'Please review the total number of ballots. If
-                the total number is correct, you must provide an explanation for the
-                Monitoring Committee:'
-              info_text: The total number of ballots (envelopes) introduced doesn't
-                match the record of people that has voted in this Polling Station.
+              info_explanation_text: 'Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:'
+              info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
               message_for_monitoring_committee: Message for the Monitoring Committee
               review_recount: Review the recount
               text_area_placeholder: Please type your message
@@ -1195,16 +1019,13 @@ en:
             submit: Verify total number
             total_ballots_count: Number of ballots
           update:
-            error: An error occurred updating the closure results, please try again
-              later.
+            error: An error occurred updating the closure results, please try again later.
             success: Closure results successfully updated.
         menu:
           polling_officer_zone: Polling Officer zone
         polling_officers:
           index:
-            polling_officer_role_description: You have been assigned to act as a Polling
-              Station Officer (President or Manager) in some of the elections celebrated
-              in this platform.
+            polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
             polling_station:
               address: Address
               count_votes: Count votes
@@ -1235,13 +1056,11 @@ en:
           new:
             back: Back to polling stations
             census_not_present: This participant is not listed in the census.
-            census_not_present_description: She must go to the census complaint office
-              or contact support.
+            census_not_present_description: She must go to the census complaint office or contact support.
             census_present: This participant is listed in the census.
             census_verified: The participant has not voted yet.
             complete_voting: Complete voting
-            form_title: 'Select the document type and enter the participant''s document
-              number:'
+            form_title: 'Select the document type and enter the participant''s document number:'
             questions_title: 'She is entitled to vote in the following questions:'
             title: Identify and verify a participant
             validate_document: Validate document
@@ -1267,28 +1086,22 @@ en:
       votings:
         access_code_modal:
           email: Send by email to %{email}
-          info: You need an Access Code to participate. If you didn't get one by postal
-            mail, we can send you a new one.
+          info: You need an Access Code to participate. If you didn't get one by postal mail, we can send you a new one.
           no_email: No email available
           no_sms: No phone number available
           sms: Send by SMS to %{sms}
           title: Get Access Code
         check_census:
           check_status: Check status
-          description: Here, you have the option to check your census data to know
-            if you have the right to participate in this voting. You should have an
-            access code already but if you lost it, you can ask for it again, when
-            your data is correct.
+          description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
           error:
-            info: 'Please try again. If you think the data in the system is incorrect,
-              you can report it here: %{census_contact_information}.'
+            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
             title: Your census data is incorrect!
           form_title: 'Fill the following form to check your census data:'
           invalid: There was a problem checking the census.
           success:
             access_link: via SMS or email.
-            info: You should have received your Access Code by postal mail already.
-              In case, you don't have it, you can request it here
+            info: You should have received your Access Code by postal mail already. In case, you don't have it, you can request it here
             title: Your census data is correct!
           title: Can I vote?
         check_fields:
@@ -1322,8 +1135,7 @@ en:
           unfold: Unfold
         index:
           no_votings: No voting matches your search criteria.
-          only_finished: Currently, there are no scheduled votings, but here you can
-            find the finished votings listed.
+          only_finished: Currently, there are no scheduled votings, but here you can find the finished votings listed.
           title: Votings
         login:
           access_code: Access code
