@@ -28,7 +28,7 @@
               sign_icon_name, sign_icon_style = closure.present? ? ["check", "polling_station__closure--present"] : ["x", "polling_station__closure--not_present"]
               verified_icon_name, verified_icon_style = closure&.verified? ? ["check", "polling_station__closure--verified"] : ["x", "polling_station__closure--not_verified"]
             %>
-            <tr <%= "data-id='#{closure.id}'" if closure.present? %> >
+            <tr <%= "data-id='#{closure.id}'" if closure.present? %>>
               <td>
                 <%= translated_attribute(polling_station.title) %>
               </td>
