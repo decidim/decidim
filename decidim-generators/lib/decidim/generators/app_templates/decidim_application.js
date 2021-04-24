@@ -3,8 +3,3 @@
 
 // Load images
 require.context("../../images", true)
-
-// Load custom CSS
-import "../../stylesheets/decidim/decidim-settings.scss";
-
-

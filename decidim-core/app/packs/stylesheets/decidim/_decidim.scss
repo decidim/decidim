@@ -1,19 +1,19 @@
-@import "variables";
-@import "properties";
+@import "stylesheets/decidim/variables";
+@import "stylesheets/decidim/properties";
 @import "~foundation-sites/scss/foundation";
-@import "decidim-core/app/packs/stylesheets/foundation-overrides/components/button-group";
-@import "utils/settings";
+@import "stylesheets/foundation-overrides/components/button-group";
+@import "stylesheets/decidim/utils/settings";
 
 @include foundation-everything($flex: false);
 @include foundation-prototype-display;
 @include foundation-prototype-spacing;
 
-@import "utils/fontface";
-@import "utils/helpers";
-@import "utils/keyframes";
-@import "utils/mixins";
-@import "utils/toggle-expand";
-@import "modules/modules";
-@import "layouts/layouts";
-@import "extras/extras";
-@import "vizzs/vizzs";
+@import "stylesheets/decidim/utils/fontface";
+@import "stylesheets/decidim/utils/helpers";
+@import "stylesheets/decidim/utils/keyframes";
+@import "stylesheets/decidim/utils/mixins";
+@import "stylesheets/decidim/utils/toggle-expand";
+@import "stylesheets/decidim/modules/modules";
+@import "stylesheets/decidim/layouts/layouts";
+@import "stylesheets/decidim/extras/extras";
+@import "stylesheets/decidim/vizzs/vizzs";

@@ -92,6 +92,7 @@ module.exports = {
     decidim_elections_voter_setup_preview: "./decidim-elections/app/packs/entrypoints/decidim_elections_voter_setup-preview.js",
     decidim_elections_voter_setup_vote: "./decidim-elections/app/packs/entrypoints/decidim_elections_voter_setup-vote.js",
     decidim_elections_voter_verify_vote: "./decidim-elections/app/packs/entrypoints/decidim_elections_voter_verify-vote.js",
+    decidim_email: "./decidim-core/app/packs/entrypoints/decidim_email.js",
     decidim_votings_admin_monitoring_committee_members_form: "./decidim-elections/app/packs/entrypoints/decidim_votings_admin_monitoring_committee_members_form.js",
     decidim_votings_admin_polling_officers_form: "./decidim-elections/app/packs/entrypoints/decidim_votings_admin_polling_officers_form.js",
     decidim_votings_admin_polling_officers_picker: "./decidim-elections/app/packs/entrypoints/decidim_votings_admin_polling_officers_picker.js",
@@ -106,6 +107,7 @@ module.exports = {
     decidim_initiatives_admin: "./decidim-initiatives/app/packs/entrypoints/decidim_initiatives_admin.js",
     decidim_initiatives_print: "./decidim-initiatives/app/packs/entrypoints/decidim_initiatives_print.js",
     decidim_initiatives_initiatives_votes: "./decidim-initiatives/app/packs/entrypoints/decidim_initiatives_initiatives_votes.js",
+    decidim_map: "./decidim-core/app/packs/entrypoints/decidim_map.js",
     decidim_meetings: "./decidim-meetings/app/packs/entrypoints/decidim_meetings.js",
     decidim_meetings_admin: "./decidim-meetings/app/packs/entrypoints/decidim_meetings_admin.js",
     decidim_pages: "./decidim-pages/app/packs/entrypoints/decidim_pages.js",
@@ -124,4 +126,3 @@ module.exports = {
     decidim_app_design_public: "./decidim_app-design/app/packs/entrypoints/public.js"
   }
 }
-

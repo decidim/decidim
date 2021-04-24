@@ -1,1 +1,1 @@
-import "./decidim_questionnaire_answers_pdf.scss"
+import "entrypoints/decidim_questionnaire_answers_pdf.scss"

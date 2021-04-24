@@ -1,2 +1,2 @@
 // CSS
-import "./decidim_conference_diploma.scss"
+import "entrypoints/decidim_conference_diploma.scss"

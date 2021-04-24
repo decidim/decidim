@@ -54,7 +54,7 @@ import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
 
 // CSS
-import "./decidim_core.scss"
+import "entrypoints/decidim_core.scss"
 
 // Import from the Rails instance application
 import "src/decidim/decidim_application"

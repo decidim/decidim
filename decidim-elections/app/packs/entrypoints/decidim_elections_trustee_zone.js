@@ -1,1 +1,1 @@
-import "./decidim_elections_trustee_zone.scss";
+import "entrypoints/decidim_elections_trustee_zone.scss";

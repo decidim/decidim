@@ -37,7 +37,7 @@ import managedUsersForm from "src/decidim/admin/managed_users"
 window.Decidim.managedUsersForm = managedUsersForm
 
 // CSS
-import "./decidim_admin.scss";
+import "entrypoints/decidim_admin.scss";
 
 // This needs to be loaded after confirm dialog to bind properly
 import Rails from "@rails/ujs"

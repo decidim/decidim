@@ -6,15 +6,15 @@ $alert-color: null;
 $-zf-size: null;
 $-zf-bp-value: null;
 
-@import "foundation_and_overrides";
-@import "layout";
-@import "login";
-@import "sidebar";
-@import "tables";
-@import "actions";
-@import "forms";
-@import "decidim-core/app/packs/stylesheets/decidim/editor";
-@import "decidim-core/app/packs/stylesheets/decidim/utils/fontface";
+@import "stylesheets/decidim/system/foundation_and_overrides";
+@import "stylesheets/decidim/system/layout";
+@import "stylesheets/decidim/system/login";
+@import "stylesheets/decidim/system/sidebar";
+@import "stylesheets/decidim/system/tables";
+@import "stylesheets/decidim/system/actions";
+@import "stylesheets/decidim/system/forms";
+@import "stylesheets/decidim/editor";
+@import "stylesheets/decidim/utils/fontface";
 
 body{
   font-family: 'Source Sans Pro', sans-serif;

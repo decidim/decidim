@@ -1,8 +1,8 @@
-@import "variables";
+@import "stylesheets/decidim/variables";
 @import "~foundation-sites/scss/foundation";
-@import "utils/settings";
-@import "utils/helpers";
-@import "utils/mixins";
-@import "modules/margins";
-@import "modules/typography";
-@import "vizzs/vizzs";
+@import "stylesheets/decidim/utils/settings";
+@import "stylesheets/decidim/utils/helpers";
+@import "stylesheets/decidim/utils/mixins";
+@import "stylesheets/decidim/modules/margins";
+@import "stylesheets/decidim/modules/typography";
+@import "stylesheets/decidim/vizzs/vizzs";

@@ -1,1 +1,1 @@
-import "./decidim_initiatives_initiatives_votes.scss"
+import "entrypoints/decidim_initiatives_initiatives_votes.scss"
