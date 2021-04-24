@@ -296,7 +296,8 @@
       "js"
     ],
     "moduleDirectories": [
-      "node_modules"
+      "node_modules",
+      "decidim-core/app/packs"
     ],
     "moduleNameMapper": {
       "\\.(scss|css|less)$": "identity-obj-proxy"

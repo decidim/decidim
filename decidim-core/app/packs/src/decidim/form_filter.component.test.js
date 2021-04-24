@@ -2,8 +2,8 @@
 /* eslint-disable id-length */
 window.$ = $;
 
-import CheckBoxesTree from "src/decidim/check_boxes_tree"
-import DataPicker from "src/decidim/data_picker"
+import CheckBoxesTree from "./check_boxes_tree"
+import DataPicker from "./data_picker"
 
 const FormFilterComponent = require("./form_filter.component_for_testing.js");
 

@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 import * as React from "react";
-import Autocomplete from "src/decidim/admin/autocomplete.component";
+import Autocomplete from "./autocomplete.component";
 
 describe("<Autocomplete />", () => {
   const name = "custom[name]";
