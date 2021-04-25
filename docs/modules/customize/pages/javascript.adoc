@@ -17,7 +17,8 @@ $(function(){
 
 More information in https://guides.rubyonrails.org/webpacker.html[Rails Webpacker documentation].
 
-Notice that in unlike in the old Asset Pipeline, it's not possible to override javascript files. The only way to replace javascript is by programmatically change the behaviour of the replaced file.
+If you want to replace a whole file existin in Decidim you can do it by creating a file in your application with the same name and the same path. I.e: to replace `decidim-core/app/packs/src/decidim/editor.js` you should create in your Rails app a file in
+  `app/packs/src/decidim/editor.js` and it will have more priority over the Decidim file.
 
 == Head extra file
 

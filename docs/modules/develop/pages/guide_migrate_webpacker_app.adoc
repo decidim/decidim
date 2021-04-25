@@ -53,10 +53,10 @@ Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators
 [source,console]
 ----
 # Replace
-additional_paths: []
+APP_PATH
 
 # By the location of the instance Rails app, depending on the environment. For example, for an app called your_decidim_app in /home/ubuntu/your_decidim_app
-additional_paths: ['/home/ubuntu/dev/your_decidim_app/app/packs']
+/home/ubuntu/dev/your_decidim_app/app/packs
 
 # If your application is in production you might need to adapt this change for each environment
 ----
@@ -92,17 +92,15 @@ Copy the existing images from `app/assets/images` to `app/packs/images`. Images 
 
 == Migrate stylesheets
 
-Existing stylesheets should be moved from `app/assets/stylesheets` to `app/packs/stylesheets` and imported with `@import` into `decidim-settings.csss`. Take into account that you might need to adjust a bit the paths of the `@import` to adjust them to the new locations.
+Existing stylesheets should be moved from `app/assets/stylesheets` to `app/packs/stylesheets` and imported with `@import` into `decidim_application.scss`. Take into account that you might need to adjust a bit the paths of the `@import` to adjust them to the new locations.
 
-Also, it's important to understand that with Webpacker files can't be replaced as in Asset pipeline. Now the only way to customize stylesheets is via SCSS vars and overwritting styles.
+If that CSS file is replacing a Decidim file, there's no need to add it to `decidim_application.scss`
 
 == Migrate javascripts
 
 Existing javascripts should be moved from `app/assets/javascsripts` to `app/packs/src` and imported with `import` into `decidim_application.js`. Take into account that you might need to adjust a bit the paths of the `import` to adjust them to the new locations.
 
-Also, it's important to understand that with Webpacker files can't be replaced as in Asset pipeline.
-
-To prevent or replace some JS behaviour from decidim you might need to turn off event handlers `$(selector).off(..)`, or change slightly the markup to prevent events being attached to the HTML.
+If that JS file is replacing a Decidim file, there's no need to add it to `decidim_application.js`
 
 == Update Rails helpers
 
