@@ -3,23 +3,14 @@
 require "spec_helper"
 
 describe "Authorized comments", type: :system do
-  let!(:component) { create(:proposal_component, organization: organization) }
-  let(:authorization_handler_name) { "dummy_authorization_handler" }
-  let(:authorization_handlers) do
-    {
-      authorization_handlers: {
-        authorization_handler_name => { "options" => {} }
-      }
-    }
-  end
-  let(:comment_permission) { { comment: authorization_handlers } }
-  let(:vote_comment_permission) { { vote_comment: authorization_handlers } }
-  let(:permissions) { {} }
-  let!(:author) { create(:user, :confirmed, organization: organization) }
   let!(:commentable) { create(:proposal, component: component, users: [author]) }
-  let!(:organization) { create(:organization) }
+  let!(:author) { create(:user, :confirmed, organization: organization) }
+  let!(:component) { create(:proposal_component, organization: organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:comments) { create_list(:comment, 3, commentable: commentable) }
+  let!(:authorization_handler_name) { "dummy_authorization_handler" }
+  let!(:organization) { create(:organization, available_authorizations: available_authorizations) }
+  let!(:available_authorizations) { [authorization_handler_name] }
 
   let(:resource_path) { resource_locator(commentable).path }
 
@@ -29,11 +20,7 @@ describe "Authorized comments", type: :system do
 
   before do
     switch_to_host(organization.host)
-    organization.available_authorizations = [authorization_handler_name]
-    organization.save!
     sign_in user
-    commentable.create_resource_permission(permissions: permissions)
-    allow(commentable).to receive(:comments_have_votes?).and_return(true)
   end
 
   shared_examples_for "allowed to comment" do
@@ -70,27 +57,6 @@ describe "Authorized comments", type: :system do
     end
   end
 
-  shared_context "with restricted comment action" do
-    let(:permissions) { comment_permission }
-    before do
-      visit resource_path
-    end
-  end
-
-  shared_context "with restricted vote_comment action" do
-    let(:permissions) { vote_comment_permission }
-    before do
-      visit resource_path
-    end
-  end
-
-  shared_context "with restricted comment and vote_comment action" do
-    let(:permissions) { comment_permission.merge(vote_comment_permission) }
-    before do
-      visit resource_path
-    end
-  end
-
   context "when the proposal has no restriction on commenting and voting comments" do
     before do
       visit resource_path
@@ -101,37 +67,67 @@ describe "Authorized comments", type: :system do
   end
 
   context "when the proposal has restrictions on commenting and/or voting comments" do
+    let!(:resource_permission) { commentable.create_resource_permission(permissions: permissions) }
+    let(:comment_permission) do
+      { comment: authorization_handlers }
+    end
+    let(:vote_comment_permission) do
+      { vote_comment: authorization_handlers }
+    end
+    let(:authorization_handlers) do
+      { authorization_handlers: { authorization_handler_name => { "options" => {} } } }
+    end
+
+    before do
+      authorization
+      visit resource_path
+    end
+
     context "and user is not verified" do
-      include_context "with restricted comment action" do
+      let(:authorization) { nil }
+
+      describe "restricted comment action" do
+        let(:permissions) { comment_permission }
+
         it_behaves_like "not allowed to comment"
-        it_behaves_like "allowed to vote a comment" # !!! failing
+        it_behaves_like "allowed to vote a comment"
       end
-      
-      include_context "with restricted vote_comment action" do
-        it_behaves_like "allowed to comment" # !!! failing
+
+      describe "restricted vote_comment action" do
+        let(:permissions) { vote_comment_permission }
+
+        it_behaves_like "allowed to comment"
         it_behaves_like "not allowed to vote a comment"
       end
 
-      include_context "with restricted comment and vote_comment action" do
+      describe "restricted comment and vote_comment action" do
+        let(:permissions) { comment_permission.merge(vote_comment_permission) }
+
         it_behaves_like "not allowed to comment"
         it_behaves_like "not allowed to vote a comment"
       end
     end
 
     context "and user is verified" do
-      let!(:authorization) { create(:authorization, user: user, name: "dummy_authorization_handler") }
+      let(:authorization) { create(:authorization, user: user, name: "dummy_authorization_handler") }
 
-      include_context "with restricted comment action" do
+      describe "restricted comment action" do
+        let(:permissions) { comment_permission }
+
         it_behaves_like "allowed to comment"
         it_behaves_like "allowed to vote a comment"
       end
 
-      include_context "with restricted vote_comment action" do
+      describe "restricted vote_comment action" do
+        let(:permissions) { vote_comment_permission }
+
         it_behaves_like "allowed to comment"
         it_behaves_like "allowed to vote a comment"
       end
 
-      include_context "with restricted comment and vote_comment action" do
+      describe "restricted comment and vote_comment action" do
+        let(:permissions) { comment_permission.merge(vote_comment_permission) }
+
         it_behaves_like "allowed to comment"
         it_behaves_like "allowed to vote a comment"
       end
