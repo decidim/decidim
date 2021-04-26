@@ -1,10 +1,7 @@
 <div class="callout warning">
-  <% if [true, nil].include?(model.try(:user_allowed_to_comment?, current_user)) %>
-    <p><%= t("decidim.components.comments.blocked_comments_for_user_warning") %></p>
+  <% if comment_permissions? %>
+    <p><%= blocked_comments_for_unauthorized_user_warning_link %></p>
   <% else %>
-    <p><%= comment_link_to commentable_path, {} do %>
-      <%= t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning") %>
-      <% end %>
-    </p>
+    <p><%= t("decidim.components.comments.blocked_comments_for_user_warning") %></p>
   <% end %>
 </div>
