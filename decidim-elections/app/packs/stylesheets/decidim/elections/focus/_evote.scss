@@ -228,7 +228,9 @@
     letter-spacing: normal;
   }
 
-  &__encrypting{
+  &__encrypting,
+  &__casting,
+  &__confirming{
     width: 200px;
     height: 40px;
     display: flex;

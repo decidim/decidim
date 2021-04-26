@@ -1,0 +1,57 @@
+<div class="row section">
+  <div class="columns">
+    <% if can_vote? %>
+      <div class="callout success mt-s">
+        <h5><%= t(".census_verified") %></h5>
+      </div>
+      <div class="row mt-sm">
+        <div class="columns large-7">
+          <% if voted_online? %>
+            <p><strong><%= t(".questions_title_voted") %></strong></p>
+          <% else %>
+            <p><strong><%= t(".questions_title") %></strong></p>
+          <% end %>
+          <ul class="accordion js-sortable evote__preview"
+            data-accordion
+            data-multi-expand="true"
+            data-allow-all-closed="true">
+            <% questions.each do |question| %>
+              <li class="accordion-item evote__preview-question" data-accordion-item>
+                <a href="#" class="accordion-title flex--sbc"><%= translated_attribute(question.title) %></a>
+                <div class="accordion-content" data-tab-content>
+                  <strong><%= t(".available_answers") %></strong>
+                  <ul>
+                    <% question.answers.each do |answer| %>
+                      <li><%= translated_attribute(answer.title) %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+          <div class="card__content">
+            <%= decidim_form_for(in_person_vote_form, url: polling_officer_election_in_person_votes_path(polling_officer, election)) do |f| %>
+              <%= f.hidden_field :voter_token %>
+              <%= f.hidden_field :voter_id %>
+              <%= f.check_box :voted, label: t(".voted") %>
+              <%= f.submit t(".complete_voting"), class: "button button--sc expanded mt-sm mb-none" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="callout alert mt-s">
+        <h5><%= cant_vote_reason %></h5>
+      </div>
+      <div class="row mt-sm">
+        <div class="columns large-7">
+          <div class="card__content">
+            <a href="<%= exit_path %>" class="button button--sc expanded mt-sm mb-none">
+              <%= t(".identify_another") %>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

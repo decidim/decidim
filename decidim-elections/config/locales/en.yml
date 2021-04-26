@@ -599,6 +599,8 @@ en:
           lead: Your vote has been cast!
           text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote verification page</a>
+        create:
+          error: There was a problem casting the vote. Please, try again.
         encrypting:
           header: Encrypting the vote...
           text: Your ballot is being encrypted to ensure the secret of your vote.
@@ -987,6 +989,7 @@ en:
             download: Download
             subject: The export of the voting access codes for %{voting_title} is available
         vote_flow:
+          already_voted_in_person: This participant has already voted in person and is not entitled to vote.
           datum_not_found: The given data doesn't match any voter.
       content_blocks:
         highlighted_votings:
@@ -1053,6 +1056,48 @@ en:
           update:
             error: An error occurred updating the closure results, please try again later.
             success: Closure results successfully updated.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Available answers:'
+            census_verified: The participant has not voted yet.
+            complete_voting: Complete voting
+            identify_another: Identify another participant
+            questions_title: 'She is entitled to vote in the following questions:'
+            questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
+            voted: The participant has voted
+          create:
+            error: The vote was not registered. Please try again.
+          in_person_form:
+            census_not_present: This participant is not listed in the census.
+            census_not_present_description: She must go to the census complaint office or contact support.
+            date_of_birth: Date of birth
+            day: Day
+            day_placeholder: DD
+            document_number: Document number
+            document_number_placeholder: ID number
+            month: Month
+            month_placeholder: MM
+            select: Select the type of the document
+            title: 'Select the document type and enter the participant''s document number:'
+            validate_document: Validate document
+            year: Year
+            year_placeholder: YYYY
+          new:
+            back: Back to polling stations
+            title: Identify and verify a participant
+          show:
+            back: Back to polling stations
+            title: Waiting for the in person vote to be registered
+          update:
+            error: There was an error registering the vote. Please, try again.
+            success:
+              accepted: The vote was registered successfully.
+              rejected: The vote was not accepted by the Bulletin Board. Please, contact the system administrator.
+          verify_document:
+            census_present: This participant is listed in the census.
+            name: Name
+            title: 'Check that the following data is correct:'
+            verify_document: Verify document
         menu:
           polling_officer_zone: Polling Officer zone
         polling_officers:
@@ -1069,35 +1114,6 @@ en:
               show_closure: View closure
               title: Polling Stations
               voting: Voting
-        votes:
-          create:
-            success: In person vote casted successfully
-          in_person_fields:
-            date_of_birth: Date of birth
-            day: Day
-            day_placeholder: DD
-            document_number: Document number
-            document_number_placeholder: ID number
-            month: Month
-            month_placeholder: MM
-            name: Name
-            select: Select the type of the document
-            voted: The participant has voted
-            year: Year
-            year_placeholder: YYYY
-          new:
-            back: Back to polling stations
-            census_not_present: This participant is not listed in the census.
-            census_not_present_description: She must go to the census complaint office or contact support.
-            census_present: This participant is listed in the census.
-            census_verified: The participant has not voted yet.
-            complete_voting: Complete voting
-            form_title: 'Select the document type and enter the participant''s document number:'
-            questions_title: 'She is entitled to vote in the following questions:'
-            title: Identify and verify a participant
-            validate_document: Validate document
-            verify_document: Verify document
-            verify_title: 'Check that the following data is correct:'
       polling_officers:
         actions:
           confirm_destroy: Are you sure?

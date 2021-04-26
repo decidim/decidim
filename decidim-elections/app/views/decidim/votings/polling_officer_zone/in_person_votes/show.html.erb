@@ -1,0 +1,25 @@
+<div class="polling_officer_zone">
+  <div>
+    <%= link_to polling_officers_path do %>
+      <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".back") %>
+    <% end %>
+  </div>
+  <h2><%= t(".title") %></h2>
+
+  <div class="in-person-vote-wrapper"
+    data-api-endpoint-url="<%= bulletin_board_server %>"
+    data-message-id="<%= in_person_vote.message_id %>">
+      <div class="evote__confirming" aria-hidden="true">
+      <div class="evote__dot"></div>
+      <div class="evote__dot"></div>
+      <div class="evote__dot"></div>
+      <div class="evote__dot"></div>
+      <div class="evote__dot"></div>
+      <div class="evote__dot"></div>
+      <div class="evote__dot"></div>
+    </div>
+  </div>
+  <%= form_tag polling_officer_election_in_person_vote_path(polling_officer, election, in_person_vote), method: :patch, class: "update_vote_status" %>
+</div>
+
+<%= javascript_pack_tag "decidim_votings_in_person_vote", integrity: true %>

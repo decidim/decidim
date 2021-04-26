@@ -8,10 +8,10 @@ module Decidim
           return permission_action unless permission_action.scope == :polling_officer_zone
 
           case permission_action.subject
-          when :polling_officers, :polling_station
-            toggle_allow(polling_officers_for_user?) if [:view].member?(permission_action.action)
-          when :polling_station_results
-            toggle_allow(polling_officer.present?) if [:manage].member?(permission_action.action)
+          when :polling_officers
+            toggle_allow(polling_officers_for_user?) if permission_action.action == :view
+          when :polling_station_results, :in_person_vote
+            toggle_allow(polling_officer.user == user) if permission_action.action == :manage
           when :user
             allow! if permission_action.action == :update_profile
           end

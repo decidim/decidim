@@ -27,12 +27,12 @@ module Decidim
         return unless valid_voter_token?
         return unless vote_allowed?
 
-        return redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash], token: voter.voter_id_token) if preview_mode?
+        return redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash], token: vote_flow.voter_id_token) if preview_mode?
 
         @form = form(Voter::VoteForm).from_params(params, election: election, user: vote_flow.user, email: vote_flow.email)
         Voter::CastVote.call(@form) do
           on(:ok) do |vote|
-            redirect_to election_vote_path(election, id: vote.encrypted_vote_hash, token: voter.voter_id_token)
+            redirect_to election_vote_path(election, id: vote.encrypted_vote_hash, token: vote_flow.voter_id_token)
           end
           on(:invalid) do
             flash[:alert] = I18n.t("votes.create.error", scope: "decidim.elections")
