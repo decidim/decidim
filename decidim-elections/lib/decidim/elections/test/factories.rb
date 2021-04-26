@@ -248,13 +248,6 @@ FactoryBot.define do
 
   factory :bb_closure, class: "Decidim::Elections::BulletinBoardClosure" do
     election
-  end
-
-  factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do
-    election
-    polling_officer_notes { Faker::Lorem.paragraph }
-    polling_station
-    polling_officer
 
     trait :with_results do
       transient do

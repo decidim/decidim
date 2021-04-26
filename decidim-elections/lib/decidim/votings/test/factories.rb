@@ -192,4 +192,26 @@ FactoryBot.define do
       status { "accepted" }
     end
   end
+
+  factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do
+    election
+    polling_station
+    polling_officer
+    polling_officer_notes { Faker::Lorem.paragraph }
+
+    trait :with_results do
+      transient do
+        results_number { 2 }
+      end
+
+      after :create do |closure, evaluator|
+        evaluator.results_number.times do
+          closure.results << create(
+            :election_result,
+            closurable: closure
+          )
+        end
+      end
+    end
+  end
 end
