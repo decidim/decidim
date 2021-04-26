@@ -4,7 +4,7 @@ cs:
       initiative:
         decidim_user_group_id: Autor
         description: Popis
-        offline_votes: Podpora tváří v tvář
+        offline_votes: Osobní fyzické podpisy
         offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
         signature_end_date: Konec doby sběru podpisu
@@ -219,7 +219,7 @@ cs:
             confirm: Jste si jisti?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
-            export_votes: Podpora exportu
+            export_votes: Exportovat podpisy
             reject: Odmítnout iniciativu
             send_to_technical_validation: Odeslání k technickému ověření
             success: Iniciativa byla odeslána k technickému ověření
@@ -472,9 +472,9 @@ cs:
             validating: Tento návrh se hodnotí
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
-          any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
+          any_vote_method: Tato občanská iniciativa shromažďuje podporu online i osobními fyzickými podpisy.
           follow_description: Dostat upozornění, když jsou v této iniciativě novinky
-          offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
+          offline_method: Tato občanská iniciativa shromažďuje pouze osobní fyzické podpisy.
         signatures_count:
           one: " podpis"
           few: " podpisy"
