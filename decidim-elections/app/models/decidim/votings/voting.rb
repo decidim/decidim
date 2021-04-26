@@ -136,9 +136,7 @@ module Decidim
       end
 
       def has_elections?
-        components.where(manifest_name: :elections).any? do |component|
-          Decidim::Elections::Election.where(component: component).any?
-        end
+        Decidim::Elections::Election.where(component: components).any?
       end
 
       # Methods for Votings Space <-> Elections Component interaction
