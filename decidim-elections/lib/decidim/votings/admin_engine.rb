@@ -26,6 +26,7 @@ module Decidim
           resources :polling_officers, only: [:new, :create, :destroy, :index]
           resources :monitoring_committee_members, only: [:new, :create, :destroy, :index]
           resources :monitoring_committee_polling_station_closures, only: [:index, :edit, :update]
+          resources :monitoring_committee_election_results, only: [:index, :show]
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
           resources :ballot_styles
@@ -120,6 +121,11 @@ module Decidim
                         decidim_admin_votings.voting_monitoring_committee_polling_station_closures_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_polling_station_closures_path(current_participatory_space)),
                         if: allowed_to?(:read, :monitoring_committee_polling_station_closures, voting: current_participatory_space)
+          menu.add_item :monitoring_committee_election_results,
+                        I18n.t("monitoring_committee_election_results", scope: "decidim.votings.admin.menu.votings_submenu"),
+                        decidim_admin_votings.voting_monitoring_committee_election_results_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_votings.voting_monitoring_committee_election_results_path(current_participatory_space)),
+                        if: allowed_to?(:read, :monitoring_committee_election_results, voting: current_participatory_space)
         end
       end
 

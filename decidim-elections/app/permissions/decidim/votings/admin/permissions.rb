@@ -54,6 +54,7 @@ module Decidim
             :polling_officer, :polling_officers,
             :monitoring_committee_menu, :monitoring_committee_member, :monitoring_committee_members,
             :monitoring_committee_polling_station_closure, :monitoring_committee_polling_station_closures,
+            :monitoring_committee_election_result, :monitoring_committee_election_results,
             :census,
             :ballot_style, :ballot_styles
           ].member? permission_action.subject
@@ -108,6 +109,10 @@ module Decidim
           when :monitoring_committee_polling_station_closure
             toggle_allow(user_monitoring_committee_for_voting? && closure.present?) if [:read, :validate].member?(permission_action.action)
           when :monitoring_committee_polling_station_closures
+            toggle_allow(user_monitoring_committee_for_voting?) if permission_action.action == :read
+          when :monitoring_committee_election_result
+            toggle_allow(user_monitoring_committee_for_voting? && election.present?) if [:read, :validate].member?(permission_action.action)
+          when :monitoring_committee_election_results
             toggle_allow(user_monitoring_committee_for_voting?) if permission_action.action == :read
           when :census
             toggle_allow(user.admin?) if permission_action.action == :manage
@@ -168,6 +173,10 @@ module Decidim
 
         def closure
           @closure ||= context.fetch(:closure, nil)
+        end
+
+        def election
+          @election ||= context.fetch(:election, nil)
         end
       end
     end
