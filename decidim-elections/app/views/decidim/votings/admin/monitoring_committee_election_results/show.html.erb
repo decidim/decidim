@@ -1,0 +1,12 @@
+<%= link_to("<< Change election", voting_monitoring_committee_election_results_path(current_voting)) unless elections.one? %>
+
+<div class="card" id="monitoring_committee_polling_station_closures">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title", election_title: translated_attribute(election.title)).html_safe %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+  </div>
+</div>
