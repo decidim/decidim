@@ -24,6 +24,7 @@ describe Decidim::Votings::Voter::UpdateInPersonVoteStatus do
 
   context "when the Bulletin Board has rejected the vote" do
     let(:response) { :rejected }
+
     it "updates the vote status" do
       subject.call
       expect(in_person_vote.status).to eq "rejected"

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Votings
   describe CensusVoteFlow do
-    subject(:vote_flow) { described_class.new(election, context) }
+    subject(:vote_flow) { described_class.new(election) }
 
     let(:dataset) { create(:dataset, voting: voting) }
     let(:election) { create(:election, component: component, **election_params) }
@@ -42,12 +42,7 @@ module Decidim::Votings
     let(:postal_code) { "08001" }
     let(:access_code) { "1234ABCD" }
 
-    let(:context) do
-      double(
-        params: params.merge(params_changes)
-      )
-    end
-    let(:params) do
+    let(:login_params) do
       {
         document_type: document_type,
         document_number: document_number,
@@ -58,7 +53,7 @@ module Decidim::Votings
         year: birthdate.year
       }
     end
-    let(:params_changes) { {} }
+    let(:login_params_changes) { {} }
 
     let(:valid_voter_id) { "a2a7ad82b9c8bf690436a64459265fe8c7fc9a87ec4283fbbd3cd9363e0b3824" }
 
@@ -66,6 +61,8 @@ module Decidim::Votings
 
     describe "#voter_id" do
       subject { vote_flow.voter_id }
+
+      before { vote_flow.voter_login(login_params.merge(login_params_changes)) }
 
       it { is_expected.to eq(valid_voter_id) }
 
@@ -95,6 +92,8 @@ module Decidim::Votings
 
     describe "#voter_id_token" do
       subject { vote_flow.voter_id_token(voter_id) }
+
+      before { vote_flow.voter_login(login_params.merge(login_params_changes)) }
 
       let(:voter_id) { nil }
 
@@ -126,7 +125,7 @@ module Decidim::Votings
       end
 
       context "when a valid voter token was received" do
-        before { vote_flow.receive_data(voter_token: valid_token, voter_id: valid_voter_id) }
+        before { vote_flow.voter_from_token(voter_token: valid_token, voter_id: valid_voter_id) }
 
         it { expect(subject).to have_voter }
         it { expect(subject).to be_valid_received_data }
@@ -142,7 +141,7 @@ module Decidim::Votings
       end
 
       context "when a wrong voter token was received" do
-        before { vote_flow.receive_data(voter_token: invalid_token, voter_id: valid_voter_id) }
+        before { vote_flow.voter_from_token(voter_token: invalid_token, voter_id: valid_voter_id) }
 
         it { expect(subject).not_to have_voter }
         it { expect(subject).not_to be_valid_received_data }
@@ -150,10 +149,11 @@ module Decidim::Votings
       end
 
       describe "datum based attributes and methods" do
+        before { vote_flow.voter_from_token(voter_token: valid_token, voter_id: valid_voter_id) }
+
         it { expect(subject.email).to eq(datum.email) }
         it { expect(subject.voter_name).to eq(datum.full_name) }
         it { expect(subject.voter_data).to eq(id: datum.id, created: datum.created_at.to_i, name: datum.full_name) }
-        it { expect(subject).to be_can_vote }
       end
     end
 
@@ -164,13 +164,32 @@ module Decidim::Votings
       it { expect(subject.email).to be_nil }
       it { expect(subject.voter_name).to be_nil }
       it { expect(subject.voter_data).to be_nil }
-      it { expect(subject).not_to be_can_vote }
     end
 
-    describe "#no_access_message" do
-      subject { vote_flow.no_access_message }
+    describe "#can_vote?" do
+      subject { vote_flow.can_vote? }
 
-      it { expect(subject).to eq("The given data doesn't match any voter.") }
+      before { vote_flow.voter_login(login_params.merge(login_params_changes)) }
+
+      it { expect(subject).to be_truthy }
+
+      context "when the access code is invalid" do
+        let(:login_params_changes) { { access_code: "an invalid code" } }
+
+        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+      end
+
+      context "when the document type is invalid" do
+        let(:login_params_changes) { { document_type: "Passport" } }
+
+        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+      end
+
+      context "when the birthdate is invalid" do
+        let(:login_params_changes) { { day: 15 } }
+
+        it { expect(subject.error_message).to eq("The given data doesn't match any voter.") }
+      end
     end
 
     describe "#login_path" do
@@ -198,6 +217,8 @@ module Decidim::Votings
 
     describe "#ballot_style_id" do
       subject { vote_flow.ballot_style_id }
+
+      before { vote_flow.voter_login(login_params.merge(login_params_changes)) }
 
       context "when the election has a ballot_style" do
         let(:datum_params_changes) { { ballot_style: ballot_style, dataset: dataset } }

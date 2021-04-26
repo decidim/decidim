@@ -11,6 +11,10 @@ module Decidim
         @can_vote_block = can_vote_block
       end
 
+      def voter_login(params)
+        # There is no previous login page for this vote flow
+      end
+
       def has_voter?
         current_user.present?
       end

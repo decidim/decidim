@@ -72,7 +72,8 @@ module Decidim
             start_date: election.start_time,
             end_date: election.end_time,
             questions: questions_data,
-            answers: answers_data
+            answers: answers_data,
+            ballot_styles: {}
           }
         end
 

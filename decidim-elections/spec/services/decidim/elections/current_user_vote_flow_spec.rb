@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Elections
   describe CurrentUserVoteFlow do
-    subject(:vote_flow) { described_class.new(election, context) }
+    subject(:vote_flow) { described_class.new(election, user) { allowed } }
 
     let(:election) { create(:election, **election_params) }
     let(:election_params) do
@@ -26,11 +26,7 @@ module Decidim::Elections
       }
     end
     let(:user_params_changes) { {} }
-    let(:context) do
-      double(
-        current_user: user
-      )
-    end
+    let(:allowed) { false }
     let(:valid_voter_id) { "43e9f7d91e3a075cb651ff0e82ac10ff62a1f406dcf32213e3ffce08d2f2f876" }
 
     describe "#voter_id" do
@@ -95,7 +91,7 @@ module Decidim::Elections
       end
 
       context "when a valid voter token was received" do
-        before { vote_flow.receive_data(voter_token: valid_token, voter_id: valid_voter_id) }
+        before { vote_flow.voter_from_token(voter_token: valid_token, voter_id: valid_voter_id) }
 
         it { expect(subject).to be_valid_received_data }
         it { expect(subject.voter_token).to eq(valid_token) }
@@ -109,7 +105,7 @@ module Decidim::Elections
       end
 
       context "when a wrong voter token was received" do
-        before { vote_flow.receive_data(voter_token: invalid_token, voter_id: valid_voter_id) }
+        before { vote_flow.voter_from_token(voter_token: invalid_token, voter_id: valid_voter_id) }
 
         it { expect(subject).not_to be_valid_received_data }
         it { expect(subject.voter_token).to eq(invalid_token) }
@@ -117,16 +113,11 @@ module Decidim::Elections
     end
 
     describe "user based attributes and methods" do
-      before do
-        allow(context).to receive(:allowed_to?).and_return(true)
-      end
-
       it { expect(subject).to have_voter }
       it { expect(subject.user).to eq(user) }
       it { expect(subject.email).to eq(user.email) }
       it { expect(subject.voter_name).to eq(user.name) }
       it { expect(subject.voter_data).to eq(id: user.id, created: user.created_at.to_i) }
-      it { expect(subject).to be_can_vote }
 
       context "when there is no user" do
         let(:user) { nil }
@@ -136,22 +127,25 @@ module Decidim::Elections
         it { expect(subject.email).to be_nil }
         it { expect(subject.voter_name).to be_nil }
         it { expect(subject.voter_data).to be_nil }
-        it { expect(subject).not_to be_can_vote }
-      end
-
-      context "when the user is not authorized to vote" do
-        before do
-          allow(context).to receive(:allowed_to?).and_return(false)
-        end
-
-        it { expect(subject).not_to be_can_vote }
       end
     end
 
-    describe "#no_access_message" do
-      subject { vote_flow.no_access_message }
+    describe "#can_vote?" do
+      subject { vote_flow.can_vote? }
 
-      it { expect(subject).to eq("You are not allowed to vote on this election at this moment.") }
+      it { expect(subject).to be_truthy }
+
+      context "when there is no user" do
+        let(:user) { nil }
+
+        it { expect(subject.error_message).to eq("You are not allowed to vote on this election at this moment.") }
+      end
+
+      context "when the user is not authorized to vote" do
+        let(:allowed) { false }
+
+        it { expect(subject.error_message).to eq("You are not allowed to vote on this election at this moment.") }
+      end
     end
 
     describe "#login_path" do
