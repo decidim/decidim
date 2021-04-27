@@ -10,7 +10,7 @@ module Decidim
         def show
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
 
-          @form = form(ClosureSignForm).instance if closure.sign_phase?
+          @form = form(ClosureSignForm).instance if closure.signature_phase?
         end
 
         def new

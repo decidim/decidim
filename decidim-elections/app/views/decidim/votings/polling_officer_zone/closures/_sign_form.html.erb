@@ -1,13 +1,24 @@
-<%= decidim_form_for(@form, url: sign_polling_officer_election_closure_path(polling_officer, election),
-                                  html: { class: "form sign_closure" }) do |form| %>
+<%= decidim_form_for(@form,
+                     url: sign_polling_officer_election_closure_path(polling_officer, election),
+                     html: { class: "form sign_closure" }) do |form| %>
   <div class="row column">
     <%= form.check_box :signed, label: t("check_box", scope: "decidim.votings.polling_officer_zone.closures.sign") %>
   </div>
+
   <%= form.submit "", class: "hide" %>
 
-  <button id="btn-modal-closure-sign" class="button button--sc mt-sm mb-none" data-open="modal-closure-sign" aria-controls="modal-closure-sign" aria-haspopup="true" tabindex="0">
-    <%= t("submit", scope: "decidim.votings.polling_officer_zone.closures.sign") %>
-  </button>
+  <%= content_tag :button,
+                  t("submit", scope: "decidim.votings.polling_officer_zone.closures.sign"),
+                  type: "button",
+                  id: "btn-modal-closure-sign",
+                  class: "button button--sc mt-sm mb-none",
+                  data: { open: "modal-closure-sign" },
+                  aria: {
+                    controls: "modal-closure-sign",
+                    haspopup: true
+                  },
+                  disabled: true,
+                  tabindex: "0" %>
 
   <div id="wrapper-modal-closure-sign">
     <div class="reveal" data-reveal id="modal-closure-sign" data-append-to="div#wrapper-modal-closure-sign">

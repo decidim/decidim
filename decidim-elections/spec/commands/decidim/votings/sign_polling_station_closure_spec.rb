@@ -37,10 +37,10 @@ module Decidim::Votings
         expect(closure.signed?).to be true
       end
 
-      it "changes to freezed phase" do
+      it "changes to complete phase" do
         subject.call
 
-        expect(closure.freezed_phase?).to be true
+        expect(closure.complete_phase?).to be true
       end
     end
   end

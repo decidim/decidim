@@ -4,7 +4,7 @@ module Decidim
   module Votings
     # The data store for an Election Closure.
     class PollingStationClosure < ApplicationRecord
-      enum phase: [:envelopes, :results, :attachment, :sign, :freezed], _suffix: true
+      enum phase: [:count, :results, :certificate, :signature, :complete], _suffix: true
 
       belongs_to :election,
                  foreign_key: "decidim_elections_election_id",

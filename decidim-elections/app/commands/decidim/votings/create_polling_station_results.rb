@@ -35,7 +35,7 @@ module Decidim
             create_question_result_for!(question_result)
           end
 
-          closure.sign_phase!
+          closure.signature_phase!
         end
 
         broadcast(:ok)

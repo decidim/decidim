@@ -203,10 +203,10 @@ FactoryBot.define do
     polling_officer
     polling_officer_notes { Faker::Lorem.paragraph }
     signed_at { nil }
-    phase { "envelopes" }
+    phase { :count }
 
     trait :with_results do
-      phase { "sign" }
+      phase { :signature }
       transient do
         results_number { 2 }
       end
