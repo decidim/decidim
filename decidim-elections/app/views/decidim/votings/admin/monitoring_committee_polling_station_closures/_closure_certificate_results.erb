@@ -1,0 +1,9 @@
+<div class="card-section polling_station_closure_certificate_results">
+  <%= image_tag "/uploads/decidim/votings/voting/banner_image/2/city.jpeg", class: "card__image", alt: translated_attribute(closure.polling_station.title) %>
+
+  <div>
+    <%= cell("decidim/votings/polling_station_closure_recount", closure) %>
+  </div>
+</div>
+
+<%= stylesheet_link_tag "decidim/votings/admin/votings", media: "all" %>

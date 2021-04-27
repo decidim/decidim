@@ -20,6 +20,30 @@ module Decidim
           enforce_permission_to :read, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure
         end
 
+        def edit
+          enforce_permission_to :validate, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure
+
+          @form = form(MonitoringCommitteePollingStationClosureForm).from_model(closure)
+        end
+
+        def validate
+          enforce_permission_to :validate, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure
+
+          @form = form(MonitoringCommitteePollingStationClosureForm).from_params(params)
+
+          MonitoringCommitteeValidatePollingStationClosure.call(@form, closure) do
+            on(:ok) do
+              flash[:notice] = t(".success")
+            end
+
+            on(:invalid) do
+              flash[:alert] = t(".error")
+            end
+          end
+
+          redirect_to voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: closure.election.id)
+        end
+
         private
 
         def polling_stations
@@ -31,7 +55,7 @@ module Decidim
         end
 
         def election
-          elections.find { |e| e.id == params[:election_id].to_i }
+          elections.find { |e| e.id == params[:election_id].to_i } if params[:election_id].present?
         end
 
         def closure

@@ -844,15 +844,25 @@ en:
           actions:
             title: Actions
             view: View
+            validate: Validate
           closures:
             change_election: Change election
             signed: Signed?
             title: Polling Stations for the election <i>%{election_title}</i>
-            verified: Verified?
+            validated: Validated?
           edit:
+            change_polling_station: Back to Polling Stations
+            monitoring_committee_notes: Remarks
+            monitoring_committee_notes_placeholder: Report any incidences here
             title: Results for the election <i>%{election_title}</i> in the polling station <i>%{polling_station_title}</i>
           elections:
             title: Choose an election you want to validate
+          show:
+            change_polling_station: Back to Polling Stations
+            monitoring_committee_notes: Remarks from the Monitoring Committee
+          validate:
+            error: There was a problem validating the closure
+            success: The closure has been validated correctly
         polling_officers:
           create:
             invalid: There was a problem creating this polling officer
