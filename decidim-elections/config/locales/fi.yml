@@ -392,6 +392,7 @@ fi:
             upcoming: Äänestys alkaa %{start_time}
       feedback:
         answer:
+          invalid: Palautteen lähettäminen epäonnistui.
           spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
           success: Palautteen lähettäminen onnistui.
       models:
@@ -576,6 +577,12 @@ fi:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
+        onboarding_modal:
+          close: Sulje ikkuna
+          create_account: Luo tili
+          description: Haluatko luoda oman käyttäjätilin alustalle? Sinulla on mahdollisuus osallistua prosesseihin ja olla mukana alustalla esitettyjen asioiden kehittämisessä.
+          no_account: Ei kiitos.
+          title: Oletko uusi käyttäjä tällä alustalla?
         update:
           error: Äänen tilan päivittäminen epäonnistui valitettavasti. Ole hyvä ja äänestä uudestaan.
         verify:
@@ -726,6 +733,8 @@ fi:
             info: Tiedot
             landing_page: Laskeutumissivu
             monitoring_committee: Tarkkailukomitea
+            monitoring_committee_certificates: Tarkasta varmenteet
+            monitoring_committee_members: Jäsenet
             polling_officers: Äänestysvirkailijat
             polling_stations: Äänestyspaikat
         models:
@@ -757,6 +766,9 @@ fi:
               promoted: Korostettu
               published: Julkaistu
               title: Otsikko
+        monitoring_committee_certificates:
+          index:
+            title: Äänestyspaikat
         monitoring_committee_members:
           create:
             invalid: Tarkkailukomitean jäsenen luonti epäonnistui
