@@ -1,4 +1,8 @@
-<%= link_to("<< Change election", voting_monitoring_committee_polling_station_closures_path(current_voting)) unless elections.one? %>
+<% unless elections.one? %>
+  <%= link_to voting_monitoring_committee_polling_station_closures_path(current_voting) do %>
+    <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".change_election") %>
+  <% end %>
+<% end %>
 
 <div class="card" id="monitoring_committee_polling_station_closures">
   <div class="card-divider">

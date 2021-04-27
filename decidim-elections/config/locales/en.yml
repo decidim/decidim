@@ -845,6 +845,7 @@ en:
             title: Actions
             view: View
           closures:
+            change_election: Change election
             signed: Signed?
             title: Polling Stations for the election <i>%{election_title}</i>
             verified: Verified?
