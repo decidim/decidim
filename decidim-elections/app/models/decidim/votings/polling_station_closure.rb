@@ -4,7 +4,7 @@ module Decidim
   module Votings
     # The data store for an Election Closure.
     class PollingStationClosure < ApplicationRecord
-      enum phase: [:envelopes, :results, :attachment, :confirmed, :freeze], _suffix: true
+      enum phase: [:envelopes, :results, :attachment, :sign, :freezed], _suffix: true
 
       belongs_to :election,
                  foreign_key: "decidim_elections_election_id",
@@ -21,6 +21,13 @@ module Decidim
                class_name: "Decidim::Elections::Result",
                dependent: :destroy,
                as: :closurable
+
+      # Public: Checks if the closure has been signed by the polling officer or not.
+      #
+      # Returns Boolean.
+      def signed?
+        signed_at.present?
+      end
     end
   end
 end

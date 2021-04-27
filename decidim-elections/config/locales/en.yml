@@ -1053,6 +1053,19 @@ en:
             polling_station: 'Polling station:'
             submit: Verify total number
             total_ballots_count: Number of ballots
+          show:
+            heading: Vote recount
+          sign:
+            cancel: Cancel
+            check_box: I've reviewed this and is the same as the physical electoral closure certificate
+            close_modal: Close
+            confirm: Ok, continue
+            error: An error occurred, please try again.
+            heading: Vote recount - Sign closure
+            info_text: If you continue you can no longer modify any of the information, this action can't be undone.
+            submit: Sign the closure
+            success: Closure signed successfully.
+            title: Action can't be undone
           update:
             error: An error occurred updating the closure results, please try again later.
             success: Closure results successfully updated.
@@ -1124,6 +1137,16 @@ en:
           manager: Manager
           president: President
           unassigned: Unassigned
+      polling_station_closure_recount:
+        nota_option: Blank/ None of the above
+        polling_officer_notes: 'Polling officer notes:'
+        polling_officer_notes_blank: There are no notes
+        recount_summary: 'Recount summary:'
+        signed: Signed
+        total_ballots: 'Total ballots:'
+        total_blank_ballots: 'Total blank ballots:'
+        total_null_ballots: 'Total null ballots:'
+        total_valid_ballots: 'Total valid ballots:'
       polling_stations:
         actions:
           confirm_destroy: Are you sure?

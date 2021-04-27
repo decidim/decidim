@@ -103,5 +103,25 @@ describe "Polling Officer zone", type: :system do
         expect(page).to have_content("Closure results successfully updated")
       end
     end
+
+    describe "when signing the closure" do
+      let!(:closure) { create(:ps_closure, :with_results, election: election, polling_station: polling_station) }
+
+      before do
+        visit decidim_votings_polling_officer_zone.polling_officer_election_closure_path(assigned_polling_officer, election)
+      end
+
+      it "can sign the closure" do
+        expect(page).to have_content("Vote recount - Sign closure")
+
+        within ".form.sign_closure" do
+          check "I've reviewed this and is the same as the physical electoral closure certificate"
+          click_button "Sign the closure", wait: 2
+          click_button "Ok, continue"
+        end
+
+        expect(page).to have_content("Closure signed successfully")
+      end
+    end
   end
 end

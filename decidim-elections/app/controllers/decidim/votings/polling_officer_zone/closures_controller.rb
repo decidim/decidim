@@ -9,6 +9,8 @@ module Decidim
 
         def show
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
+
+          @form = form(ClosureSignForm).instance if closure.sign_phase?
         end
 
         def new
@@ -50,6 +52,24 @@ module Decidim
           @form = form(ClosureResultForm).from_params(params)
 
           CreatePollingStationResults.call(@form, closure) do
+            on(:ok) do
+              flash[:notice] = t(".success")
+            end
+
+            on(:invalid) do
+              flash[:alert] = t(".error")
+            end
+          end
+
+          redirect_to polling_officer_election_closure_path(polling_officer, election)
+        end
+
+        def sign
+          enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
+
+          @form = form(ClosureSignForm).from_params(params)
+
+          SignPollingStationClosure.call(@form, closure) do
             on(:ok) do
               flash[:notice] = t(".success")
             end

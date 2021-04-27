@@ -202,8 +202,11 @@ FactoryBot.define do
     polling_station
     polling_officer
     polling_officer_notes { Faker::Lorem.paragraph }
+    signed_at { nil }
+    phase { "envelopes" }
 
     trait :with_results do
+      phase { "sign" }
       transient do
         results_number { 2 }
       end

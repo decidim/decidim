@@ -33,4 +33,24 @@ describe Decidim::Votings::PollingStationClosure, type: :model do
       expect(closure.results.first.closurable).to be_a(Decidim::Votings::PollingStationClosure)
     end
   end
+
+  describe "#signed?" do
+    let(:closure) { create(:ps_closure, signed_at: signed_at) }
+
+    context "when signed_at is blank" do
+      let(:signed_at) { nil }
+
+      it "returns false" do
+        expect(closure.signed?).to be false
+      end
+    end
+
+    context "when signed_at is present" do
+      let(:signed_at) { Time.current }
+
+      it "returns true" do
+        expect(closure.signed?).to be true
+      end
+    end
+  end
 end
