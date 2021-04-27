@@ -153,9 +153,9 @@ module Decidim
         Decidim::Votings::CensusVoteFlow.new(election)
       end
 
-      def finished_elections
+      def published_elections
         components.where(manifest_name: :elections).published.flat_map do |component|
-          Decidim::Elections::Election.where(component: component).finished
+          Decidim::Elections::Election.where(component: component).published
         end
       end
     end

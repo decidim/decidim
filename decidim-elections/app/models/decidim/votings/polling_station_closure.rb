@@ -31,6 +31,10 @@ module Decidim
       def signed?
         signed_at.present?
       end
+
+      def verified?
+        verified_at.present?
+      end
     end
   end
 end

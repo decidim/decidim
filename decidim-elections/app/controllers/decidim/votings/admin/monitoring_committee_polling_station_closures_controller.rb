@@ -27,15 +27,15 @@ module Decidim
         end
 
         def elections
-          @elections = current_voting.finished_elections
+          @elections = current_voting.published_elections
         end
 
         def election
-          @election = elections.find(id: params[:election_id]).first if params[:election_id].present?
+          elections.find { |e| e.id == params[:election_id].to_i }
         end
 
         def closure
-          @closure ||= Decidim::Elections::Closure.find(params[:id])
+          @closure ||= Decidim::Votings::PollingStationClosure.find(params[:id])
         end
 
         def filtered_polling_stations

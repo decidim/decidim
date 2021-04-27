@@ -204,6 +204,7 @@ FactoryBot.define do
     polling_officer_notes { Faker::Lorem.paragraph }
     signed_at { nil }
     phase { :count }
+    verified_at { nil }
 
     trait :with_results do
       phase { :signature }
