@@ -191,6 +191,10 @@ FactoryBot.define do
     trait :accepted do
       status { "accepted" }
     end
+
+    trait :rejected do
+      status { "rejected" }
+    end
   end
 
   factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do

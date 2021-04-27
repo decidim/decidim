@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     module Votes
-      # A class used to find the in person vote registered for a voter in an election
+      # A class used to find a non-rejected in person vote registered for a voter in an election
       class InPersonVoteForVoter < Rectify::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
@@ -19,7 +19,7 @@ module Decidim
         end
 
         def query
-          Decidim::Votings::InPersonVote.find_by(election: @election, voter_id: @voter_id)
+          Decidim::Votings::InPersonVote.not_rejected.find_by(election: @election, voter_id: @voter_id)
         end
       end
     end

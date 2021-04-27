@@ -15,8 +15,7 @@ class CreateDecidimVotingsInPersonVotes < ActiveRecord::Migration[6.0]
       t.index [:decidim_elections_election_id, :decidim_votings_polling_station_id],
               name: "decidim_votings_in_person_votes_polling_station_id"
       t.index [:decidim_elections_election_id, :voter_id],
-              name: "decidim_votings_in_person_votes_voter_id",
-              unique: true
+              name: "decidim_votings_in_person_votes_voter_id"
     end
   end
 end
