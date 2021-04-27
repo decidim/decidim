@@ -1,6 +1,6 @@
 <div class="row section">
   <div class="columns">
-    <% if can_vote? %>
+    <% if vote_check.allowed? %>
       <div class="callout success mt-s">
         <h5><%= t(".census_verified") %></h5>
       </div>
@@ -41,7 +41,7 @@
       </div>
     <% else %>
       <div class="callout alert mt-s">
-        <h5><%= cant_vote_reason %></h5>
+        <h5><%= vote_check.error_message %></h5>
       </div>
       <div class="row mt-sm">
         <div class="columns large-7">

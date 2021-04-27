@@ -166,12 +166,12 @@ module Decidim::Votings
       it { expect(subject.voter_data).to be_nil }
     end
 
-    describe "#can_vote?" do
-      subject { vote_flow.can_vote? }
+    describe "#vote_check" do
+      subject { vote_flow.vote_check }
 
       before { vote_flow.voter_login(login_params.merge(login_params_changes)) }
 
-      it { expect(subject).to be_truthy }
+      it { expect(subject).to be_allowed }
 
       context "when the access code is invalid" do
         let(:login_params_changes) { { access_code: "an invalid code" } }

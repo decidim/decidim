@@ -36,20 +36,12 @@ module Decidim
         }
       end
 
-      def can_vote?(online_vote_path: nil)
-        if !has_voter?
-          OpenStruct.new(
-            error_message: I18n.t("vote_flow.datum_not_found", scope: "decidim.votings.census"),
-            exit_path: login_path(online_vote_path)
-          )
-        elsif voted_in_person?
-          OpenStruct.new(
-            error_message: I18n.t("vote_flow.already_voted_in_person", scope: "decidim.votings.census"),
-            exit_path: login_path(online_vote_path)
-          )
-        else
-          true
-        end
+      def vote_check(online_vote_path: nil)
+        VoteCheckResult.new(
+          allowed: has_voter? && !voted_in_person?,
+          error_message: I18n.t("vote_flow.#{voted_in_person? ? "already_voted_in_person" : "datum_not_found"}", scope: "decidim.votings.census"),
+          exit_path: login_path(online_vote_path)
+        )
       end
 
       def questions_for(election)

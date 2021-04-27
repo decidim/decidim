@@ -90,6 +90,20 @@ module Decidim
       def tokenizer
         @tokenizer ||= Decidim::Tokenizer.new(salt: election.salt, length: 10)
       end
+
+      class VoteCheckResult
+        def initialize(allowed:, error_message:, exit_path: nil)
+          @allowed = allowed
+          @error_message = error_message unless allowed
+          @exit_path = exit_path
+        end
+
+        attr_reader :error_message, :exit_path
+
+        def allowed?
+          @allowed
+        end
+      end
     end
   end
 end

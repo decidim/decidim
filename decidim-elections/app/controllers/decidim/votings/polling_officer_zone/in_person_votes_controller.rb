@@ -9,7 +9,7 @@ module Decidim
         include Decidim::Elections::HasVoteFlow
 
         helper_method :polling_officer, :election, :in_person_form, :has_voter?,
-                      :can_vote?, :cant_vote_reason, :questions, :in_person_vote_form, :voted_online?,
+                      :vote_check, :cant_vote_reason, :questions, :in_person_vote_form, :voted_online?,
                       :in_person_vote, :bulletin_board_server, :exit_path
 
         helper Decidim::Admin::IconLinkHelper
@@ -76,17 +76,8 @@ module Decidim
           render :new
         end
 
-        def can_vote?
-          return @can_vote if defined?(@cant_vote)
-
-          @can_vote = vote_flow.can_vote?
-
-          if @can_vote != true
-            @cant_vote_reason = @can_vote.error_message
-            @can_vote = false
-          end
-
-          @can_vote
+        def vote_check
+          @vote_check ||= vote_flow.vote_check
         end
 
         def verified_voter?
@@ -95,8 +86,7 @@ module Decidim
         end
 
         def store_in_person_vote
-          can_vote = vote_flow.can_vote?
-          return redirect_to exit_path, alert: can_vote.error_message if can_vote != true
+          return redirect_to exit_path, alert: vote_check.error_message unless vote_check.allowed?
 
           Decidim::Votings::Voter::InPersonVote.call(in_person_vote_form) do
             on(:ok) do |created_in_person_vote|

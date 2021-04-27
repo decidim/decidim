@@ -44,8 +44,7 @@ module Decidim
         end
 
         def update_vote_status
-          in_person_vote.status = vote_status
-          in_person_vote.save!
+          in_person_vote.update!(status: vote_status)
         end
       end
     end

@@ -26,7 +26,7 @@ module Decidim::Elections
       }
     end
     let(:user_params_changes) { {} }
-    let(:allowed) { false }
+    let(:allowed) { true }
     let(:valid_voter_id) { "43e9f7d91e3a075cb651ff0e82ac10ff62a1f406dcf32213e3ffce08d2f2f876" }
 
     describe "#voter_id" do
@@ -130,10 +130,10 @@ module Decidim::Elections
       end
     end
 
-    describe "#can_vote?" do
-      subject { vote_flow.can_vote? }
+    describe "#vote_check" do
+      subject { vote_flow.vote_check }
 
-      it { expect(subject).to be_truthy }
+      it { expect(subject).to be_allowed }
 
       context "when there is no user" do
         let(:user) { nil }

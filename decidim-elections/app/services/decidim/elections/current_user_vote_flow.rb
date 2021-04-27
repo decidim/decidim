@@ -35,15 +35,11 @@ module Decidim
         }
       end
 
-      def can_vote?(*)
-        if current_user && (received_voter_token || can_vote_block.call)
-          true
-        else
-          OpenStruct.new(
-            exit_path: nil,
-            error_message: I18n.t("votes.messages.not_allowed", scope: "decidim.elections")
-          )
-        end
+      def vote_check(*)
+        VoteCheckResult.new(
+          allowed: current_user && (received_voter_token || can_vote_block.call),
+          error_message: I18n.t("votes.messages.not_allowed", scope: "decidim.elections")
+        )
       end
 
       def login_path(online_vote_path); end

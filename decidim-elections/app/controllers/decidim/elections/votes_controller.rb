@@ -130,11 +130,11 @@ module Decidim
           return false
         end
 
-        can_vote = vote_flow.can_vote?(online_vote_path: new_election_vote_path)
-        if can_vote != true
+        vote_check_result = vote_flow.vote_check(online_vote_path: new_election_vote_path)
+        unless vote_check_result.allowed?
           redirect_to(
-            can_vote.exit_path || exit_path,
-            alert: can_vote.error_message,
+            vote_check_result.exit_path || exit_path,
+            alert: vote_check_result.error_message,
             status: :temporary_redirect
           )
 
