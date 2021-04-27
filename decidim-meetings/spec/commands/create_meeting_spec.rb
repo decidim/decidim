@@ -100,6 +100,12 @@ module Decidim::Meetings
         expect(last_meeting.longitude).to eq(longitude)
       end
 
+      it "is created as published" do
+        subject.call
+
+        expect(meeting).to be_published
+      end
+
       context "when the author is a user_group" do
         let(:user_group) { create :user_group, :verified, users: [current_user], organization: organization }
         let(:user_group_id) { user_group.id }
