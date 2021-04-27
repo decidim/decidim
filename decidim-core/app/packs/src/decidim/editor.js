@@ -29,6 +29,7 @@ export default function createQuillEditor(container) {
 
   const $input = $(container).siblings('input[type="hidden"]');
   container.innerHTML = $input.val() || "";
+  $(container).find("a br").remove();
 
   const quill = new Quill(container, {
     modules: {
