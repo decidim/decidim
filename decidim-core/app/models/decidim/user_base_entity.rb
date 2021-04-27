@@ -19,11 +19,13 @@ module Decidim
 
     # Regex for name & nickname format validations
     REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/.freeze
+    REGEXP_NICKNAME = /\A[\w\-]+\z/.freeze
 
     validates_avatar
     mount_uploader :avatar, Decidim::AvatarUploader
 
-    validates :name, :nickname, format: { with: REGEXP_NAME }
+    validates :name, format: { with: REGEXP_NAME }
+    validates :nickname, format: { with: REGEXP_NICKNAME }
 
     # Public: Returns a collection with all the entities this user is following.
     #
