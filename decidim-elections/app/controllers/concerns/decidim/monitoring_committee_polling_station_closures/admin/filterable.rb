@@ -14,12 +14,17 @@ module Decidim
           private
 
           def base_query
-            collection
+            query =
+              collection
               # Includes the officers (president and managers) and their correspective decidim users when they(=officers) are present
               .joins("LEFT JOIN decidim_votings_polling_officers president ON president.presided_polling_station_id = decidim_votings_polling_stations.id
                       LEFT JOIN decidim_users president_user ON president_user.id = president.decidim_user_id
                       LEFT JOIN decidim_votings_polling_officers managers ON managers.managed_polling_station_id = decidim_votings_polling_stations.id
-                      LEFT JOIN decidim_users manager_user ON manager_user.id = managers.decidim_user_id")
+                      LEFT JOIN decidim_users manager_user ON manager_user.id = managers.decidim_user_id
+                      LEFT JOIN decidim_votings_polling_station_closures closure ON closure.decidim_votings_polling_station_id = decidim_votings_polling_stations.id")
+
+            query = filter_by_validated(query)
+            filter_by_signed(query)
           end
 
           def search_field_predicate
@@ -31,7 +36,29 @@ module Decidim
           end
 
           def filters
-            [:verified_at_null]
+            [:validated_eq, :signed_eq]
+          end
+
+          def filter_by_validated(query)
+            case ransack_params[:validated_eq]
+            when "false"
+              query.where(Arel.sql("closure.validated_at IS NOT NULL"))
+            when "true"
+              query.where(Arel.sql("closure.validated_at IS NULL"))
+            else
+              query
+            end
+          end
+
+          def filter_by_signed(query)
+            case ransack_params[:signed_eq]
+            when "false"
+              query.where(Arel.sql("closure.signed_at IS NOT NULL"))
+            when "true"
+              query.where(Arel.sql("closure.signed_at IS NULL"))
+            else
+              query
+            end
           end
         end
       end

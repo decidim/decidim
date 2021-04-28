@@ -92,11 +92,16 @@ en:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Search %{collection} by name/email/nickname or polling station.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Search %{collection} by title, address or officer name/email/nickname.
-        verified_at_null:
-          label: Verified
+        signed_eq:
+          label: Signed
           values:
-            'false': Verified
-            'true': Not verified
+            'false': Signed
+            'true': Not signed
+        validated_eq:
+          label: Validated
+          values:
+            'false': Validated
+            'true': Not validated
     components:
       elections:
         actions:
