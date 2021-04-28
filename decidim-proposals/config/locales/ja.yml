@@ -108,9 +108,11 @@ ja:
       proposals:
         actions:
           amend: 修正
+          comment: コメント
           create: 作成
           endorse: 支持する
           vote: サポート
+          vote_comment: コメントに投票
           withdraw: 撤回する
         name: 提案
         settings:
