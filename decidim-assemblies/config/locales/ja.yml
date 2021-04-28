@@ -246,6 +246,7 @@ ja:
         update: "%{user_name} が参加スペース設定を更新しました"
       assembly_type:
         create: "%{user_name} が %{resource_name} 参加スペース種別を作成しました"
+        delete: "%{user_name} が %{resource_name} アセンブリ種別を削除しました"
         publish: "%{user_name} が %{resource_name} 参加スペース種別を公開しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペース種別を非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペース種別を更新しました"
@@ -440,6 +441,8 @@ ja:
       home:
         hero:
           participate_title: プラットフォームの参加型プロセスに参加する
+        sub_hero:
+          register_title: サインアップしてアカウントを作成
     participatory_processes:
       pages:
         home:
