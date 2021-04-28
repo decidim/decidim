@@ -46,7 +46,7 @@ describe "Polling Officer zone", type: :system do
 
   context "when the user is a polling officer and an election has finished" do
     let(:component) { create(:elections_component, participatory_space: voting) }
-    let!(:election) { create(:election, :finished, questions: questions, component: component) }
+    let!(:election) { create(:election, :published, :finished, questions: questions, component: component) }
     let(:questions) { [create(:question, :complete)] }
 
     it "can access the new results form for the polling station" do
