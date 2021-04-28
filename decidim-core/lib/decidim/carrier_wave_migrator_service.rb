@@ -95,9 +95,14 @@ module Decidim
             filename: filename
           )
           destination.record.save if destination.record.new_record?
-          logger.info "[OK] Migrated Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
+
+          cw_checksum = Digest::MD5.file(attachment.path).base64digest
+          as_checksum = destination.blob.checksum
+
+          logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
+            " Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
             " from CW attribute #{image_config[:name]} to AS" \
-            " in Decidim::ContentBlockAttachment##{destination.record.id} file attribute"
+            " in Decidim::ContentBlockAttachment##{destination.record.id} file attribute" \
 
           routes_mappings << { instance: "Decidim::ContentBlock##{block.id}",
                                attachment_origin_attribute: image_config[:name],
@@ -130,7 +135,12 @@ module Decidim
         filename = item.attributes[cw_attribute.to_s]
         copy.send(as_attribute).attach(io: File.open(attachment.file.file), content_type: content_type, filename: filename)
 
-        logger.info "[OK] Migrated #{klass}##{item.id} from CW attribute #{cw_attribute} to AS #{as_attribute} attribute"
+        cw_checksum = Digest::MD5.file(attachment.path).base64digest
+        as_checksum = copy.send(as_attribute).blob.checksum
+
+        logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
+          " #{klass}##{item.id} from CW attribute #{cw_attribute} to AS #{as_attribute} attribute"
+
         routes_mappings << {
           instance: "#{klass}##{item.id}",
           attachment_origin_attribute: cw_attribute.to_s,
