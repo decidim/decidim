@@ -37,7 +37,7 @@ import managedUsersForm from "../src/decidim/admin/managed_users"
 
 window.Decidim.managedUsersForm = managedUsersForm
 window.Decidim.config = new Configuration()
-window.Decidim.InputCharacterCounter = InputCharacterCounter;
+window.Decidim.InputCharacterCounter = InputCharacterCounter
 
 // This needs to be loaded after confirm dialog to bind properly
 import Rails from "@rails/ujs"
