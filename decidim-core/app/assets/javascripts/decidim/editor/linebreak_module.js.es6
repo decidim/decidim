@@ -11,7 +11,7 @@
   const Break = Quill.import("blots/break");
   const Embed = Quill.import("blots/embed");
   const { HistoryOverride } = exports.Decidim.Editor
-  Quill.register({"modules/history": HistoryOverride}, true)
+  Quill.register({ "modules/history": HistoryOverride }, true)
   let icons = Quill.import("ui/icons");
   icons.linebreak = "⏎";
 
@@ -70,6 +70,13 @@
       if (text === "\n\n") {
         quill.deleteText(quill.getLength() - 2, 2);
       }
+    });
+
+    quill.clipboard.addMatcher("BR", (node) => {
+      if (node?.parentNode?.tagName === "A") {
+        return new Delta().insert("\n");
+      }
+      return new Delta().insert({ "break": "" });
     });
 
     addEnterBindings(quill);
