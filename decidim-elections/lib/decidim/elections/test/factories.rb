@@ -28,6 +28,7 @@ FactoryBot.define do
     bb_status { nil }
     questionnaire
     component { create(:elections_component, organization: organization) }
+    salt { SecureRandom.hex(32) }
 
     trait :bb_test do
       bb_status { "key_ceremony" }
@@ -116,10 +117,10 @@ FactoryBot.define do
       finished
       bb_status { "vote_ended" }
 
-      after(:build) do |election|
+      after(:create) do |election|
         election.questions.each do |question|
           question.answers.each do |answer|
-            answer.votes_count = Faker::Number.number(digits: 1)
+            create(:election_result, answer: answer)
           end
         end
       end
@@ -219,10 +220,11 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { Faker::Number.number(digits: 1) }
     selected { false }
-    votes_count { 0 }
 
     trait :with_votes do
-      votes_count { Faker::Number.number(digits: 1) }
+      after(:build) do |answer|
+        create(:election_result, answer: answer)
+      end
     end
 
     trait :with_photos do
@@ -242,6 +244,15 @@ FactoryBot.define do
     end
   end
 
+  factory :election_result, class: "Decidim::Elections::Result" do
+    answer { create :election_answer }
+    votes_count { Faker::Number.number(digits: 1) }
+
+    trait :with_polling_station do
+      polling_station
+    end
+  end
+
   factory :action, class: "Decidim::Elections::Action" do
     election
     message_id { "a.message+id" }
@@ -252,11 +263,11 @@ FactoryBot.define do
   factory :trustee, class: "Decidim::Elections::Trustee" do
     transient do
       election { nil }
-      organization { election&.component&.participatory_space&.organization || create(:organization) }
     end
 
     public_key { nil }
     user { build(:user, organization: organization) }
+    organization { create(:organization) }
 
     trait :considered do
       after(:build) do |trustee, evaluator|
@@ -272,7 +283,7 @@ FactoryBot.define do
 
     trait :with_public_key do
       considered
-      name { Faker::Name.name }
+      name { Faker::Name.unique.name }
       public_key { generate(:private_key).export.to_json }
     end
   end
@@ -298,5 +309,6 @@ FactoryBot.define do
     status { "pending" }
     message_id { "decidim-test-authority.2.vote.cast+v.5826de088371d1b15b38f00c8203871caec07041ed0c8fb0c6fb875f0df763b6" }
     user { build(:user) }
+    email { "an_email@example.org" }
   end
 end

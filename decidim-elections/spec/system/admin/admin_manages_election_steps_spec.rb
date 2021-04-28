@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
+describe "Admin manages election steps", :slow, type: :system do
   let(:manifest_name) { "elections" }
 
   include_context "when mocking the bulletin board in the browser"
@@ -12,9 +12,15 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   before do
+    VCR.turn_off!
+    Decidim::Elections.bulletin_board.reset_test_database
     election
     login_as user, scope: :user
     visit_component_admin
+  end
+
+  after do
+    VCR.turn_on!
   end
 
   describe "setup an election" do
@@ -219,7 +225,7 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
         expect(page).to have_content("Calculated results")
         expect(page).to have_content(translated(question.title))
         expect(page).to have_content(translated(answer.title))
-        expect(page).to have_content(answer.votes_count)
+        expect(page).to have_content(answer.results_total)
       end
     end
   end
@@ -242,7 +248,11 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".form.results_published" do
+      within ".form.tally_ended" do
+        expect(page).to have_content("Processing...")
+      end
+
+      within ".content.results_published" do
         expect(page).to have_content("Results published")
       end
     end

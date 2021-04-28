@@ -241,7 +241,6 @@
       photos:
         related_photos: Illustrasjoner
     author:
-      avatar: Profilbilde
       comments:
         one: kommentar
         other: kommentarer
@@ -1401,10 +1400,6 @@
       too_short: er for kort (under 15 tegn)
   forms:
     correct_errors: Det er feil i skjemaet, korriger dem for å fortsette.
-    length_validator:
-      minimum:
-        one: minst %{count} tegn
-        other: minst %{count} tegn
     required: Påkrevd
     required_explanation: "Obligatoriske felt er markert med en stjerne"
   invisible_captcha:

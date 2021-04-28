@@ -460,6 +460,7 @@ Naming/FileName:
     - "**/Gemfile"
     - "**/Rakefile"
     - "**/*.gemspec"
+    - "decidim-dev/lib/decidim-dev.rb"
   # When true, requires that each source file should define a class or module
   # with a name which matches the file name (converted to ... case).
   # It further expects it to be nested inside modules which match the names
@@ -1229,6 +1230,7 @@ RSpec/DescribeClass:
     - spec/gemfiles_spec.rb
     - spec/js_bundles_spec.rb
     - spec/i18n_spec.rb
+    - spec/yarn_spec.rb
     - "**/*/spec/**/*_badge_spec.rb"
     - decidim-core/spec/lib/global_engines_spec.rb
     - "**/tasks/**/*"

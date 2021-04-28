@@ -61,7 +61,7 @@
 
                 <% if allowed_to? :update, :meeting, meeting: meeting %>
                   <% if meeting.registration_disabled? %>
-                    <%= icon "people", class: "action-icon action-icon--disabled", role: "img" %>
+                    <%= icon "people", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.registrations", scope: "decidim.meetings") %>
                   <% else %>
                     <%= icon_link_to "people", meeting.on_this_platform? ? edit_meeting_registrations_path(meeting) : meeting.registration_url, t("actions.registrations", scope: "decidim.meetings"), class: "action-icon--registrations" %>
                   <% end %>
@@ -128,4 +128,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/meetings/admin/destroy_meeting_alert" %>
+<%= javascript_pack_tag "decidim_meetings_admin" %>

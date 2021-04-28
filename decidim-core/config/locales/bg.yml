@@ -238,7 +238,6 @@ bg:
       photos:
         related_photos: Свързани изображения
     author:
-      avatar: Аватар
       comments:
         one: коментар
         other: коментари

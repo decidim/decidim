@@ -51,7 +51,7 @@ module Decidim
       end
 
       def comments_count
-        model.comments.count
+        model.comments_count
       end
 
       def root_depth
@@ -128,6 +128,23 @@ module Decidim
         return false unless user_signed_in?
 
         !model.user_allowed_to_comment?(current_user)
+      end
+
+      def comment_permissions?
+        [model, current_component].any? do |resource|
+          resource.try(:permissions).try(:[], "comment")
+        end
+      end
+
+      # action_authorization_link expects current_component to be available
+      def current_component
+        model.try(:component)
+      end
+
+      def blocked_comments_for_unauthorized_user_warning_link
+        action_authorized_link_to(:comment, commentable_path, { resource: model }) do
+          t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
+        end
       end
     end
   end

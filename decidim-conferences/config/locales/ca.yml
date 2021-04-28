@@ -3,6 +3,7 @@ ca:
     attributes:
       conference:
         assemblies_ids: Assemblees relacionades
+        available_slots: Llocs lliures
         banner_image: Imatge de banner
         consultations_ids: Consultes relacionades
         copy_categories: Copiar categories
@@ -10,20 +11,59 @@ ca:
         copy_features: Copiar funcionalitats
         decidim_scope_id: Àmbit
         description: Descripció
+        end_date: Data de fi
         hashtag: Hashtag
         hero_image: Imatge de la pàgina d'inici
+        location: Situació
+        main_logo: Logo principal
+        objectives: Objectius
         participatory_processes_ids: Processos participatius relacionats
         promoted: Destacada
         published_at: Publicat a
+        registration_terms: Condicions d'inscripció
+        registrations_enabled: Inscripcions habilitades
         scope_id: Àmbit
         scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
         show_statistics: Mostrar estadístiques
+        sign_date: Data de signatura
+        signature: Signatura
+        signature_name: nom de la signatura
         slogan: Eslògan
         slug: URL amigable
+        start_date: Data d'inici
         title: Títol
+      conference_media_link:
+        date: Data
+        link: Enllaç
+        title: Títol
+        weight: Pes
+      conference_partner:
+        link: Enllaç
+        logo: Logo
+        name: Nom
+        partner_type: Tipus de col·laboració
+        weight: Pes
+      conference_registration_invite:
+        email: Correu electrònic
+        name: Nom
+        registration_type_id: Tipus d'inscripció
+        user_id: Usuària
+      conference_registration_type:
+        description: Descripció
+        price: Cost
+        title: Títol
+        weight: Pes
       conference_speaker:
+        affiliation: Membre
+        avatar: Imatge de perfil
+        conference_meeting_ids: Trobades relacionades
         full_name: Nom complet
+        personal_url: URL personal
+        position: Càrrec
+        short_bio: Resum biogràfic
+        twitter_handle: Compte de Twitter
+        user_id: Usuària
       conference_user_role:
         email: Correu electrònic
         name: Nom
@@ -206,6 +246,7 @@ ca:
             price: Preu
             registrations_count: Nombre d'inscripcions
             title: Títol
+            weight: Ordre de posició
           name: Tipus d'inscripció
       partners:
         create:
@@ -538,6 +579,8 @@ ca:
         title: Multimedia i enllaços
     menu:
       conferences: Jornades
+    statistics:
+      conferences_count: Jornades
   devise:
     mailer:
       join_conference:

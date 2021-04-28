@@ -4,7 +4,7 @@
       <a></a>
     <% else %>
       <%= link_to(
-        icon("chevron-left", class: "icon", role: "img") + " " + t("decidim.elections.votes.voting_step.back"),
+        icon("chevron-left", class: "icon", role: "img", "aria-hidden": true) + " " + t("decidim.elections.votes.voting_step.back"),
         "#",
         class: "focus__back",
         data: {

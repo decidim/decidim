@@ -14,6 +14,7 @@ sv:
       meeting:
         address: Adress
         available_slots: Tillgängliga platser för detta möte
+        customize_registration_email: Anpassa e-post för registrering
         decidim_category_id: Kategori
         decidim_scope_id: Omfång
         decidim_user_group_id: Användargrupp
@@ -21,17 +22,22 @@ sv:
         end_time: Sluttid
         location: Plats
         location_hints: Detaljer om platsen
+        online_meeting_url: URL för onlinemötet
         organizer_gid: Skapa som
         organizer_id: Organisatör
         private_meeting: Privat möte
         registration_form_enabled: Registreringsformulär aktiverat
         registration_terms: Registreringsvillkor
+        registration_url: URL för anmälan
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
         title: Titel
         transparent: Transparent
+        type_of_meeting: Typ
       minutes:
+        audio_url: Ljud-URL
         description: Beskrivning
+        video_url: Video-URL
         visible: Är synlig
     errors:
       models:
@@ -87,6 +93,8 @@ sv:
             enable_pads_creation: Aktivera skapande av memo
             registration_code_enabled: Registreringskod aktiverad
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -199,6 +207,7 @@ sv:
             invalid: Det gick inte att uppdatera dagordningen
             success: Dagordning uppdaterad
         exports:
+          meeting_comments: Kommentarer
           meetings: Möten
           registrations: Registreringar
         invite_join_meeting_mailer:
@@ -246,10 +255,14 @@ sv:
                 other: Mötet kan inte raderas eftersom det finns %{count} relaterade förslag
             success: Mötet har tagits bort
           edit:
+            title: Redigera möte
             update: Uppdatera
           form:
             address_help: 'Adress: anger en plats för Geocoder'
+            available_slots_help: Lämna det till 0 om du har obegränsade platser
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
+            select_a_meeting_type: Välj mötestyp
+            select_a_registration_type: Välj en registreringsmetod
           index:
             title: Möten
           new:
@@ -273,6 +286,7 @@ sv:
             invalid: Det gick inte att skapa protokollet
             success: Protokollet skapades
           edit:
+            title: Redigera protokollen
             update: Uppdatering
           new:
             create: Skapa
@@ -371,12 +385,15 @@ sv:
           title: Redigera ditt möte
           update: Uppdatera
         filters:
+          activity: Min aktivitet
+          all: Allt
           category: Kategori
           date: Datum
           date_values:
             all: Alla
             past: Tidigare
             upcoming: Kommande
+          my_meetings: Mina möten
           origin: Ursprung
           origin_values:
             all: Alla
@@ -385,8 +402,12 @@ sv:
             user_groups: Grupper
           scope: Omfattning
           search: Sök
+          type: Typ
           type_values:
+            all: Allt
             hybrid: Båda
+            in_person: Fysiska
+            online: Online
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -394,6 +415,7 @@ sv:
           unfold: Veckla ut
         form:
           address_help: 'Adress: som används av Geocoder för att hitta platsen'
+          available_slots_help: Lämna det till 0 om du har obegränsade platser
           create_as: Skapa möte som
           location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
           select_a_category: Välj en kategori
@@ -462,6 +484,8 @@ sv:
           confirmed_html: Din registrering för mötet <a href="%{url}">%{title}</a> har bekräftats.
           details: Du hittar mötesuppgifterna i bilagan.
           registration_code: Din registreringskod är %{code}.
+      registration_type:
+        on_this_platform: På den plattform
       registrations:
         create:
           invalid: Det gick inte att ansluta till mötet.
@@ -474,6 +498,8 @@ sv:
           success: Du har lämnat mötet.
       type_of_meeting:
         hybrid: Båda
+        in_person: Fysiska
+        online: Online
       types:
         private_meeting: Privat möte
         transparent: Transparent
@@ -498,6 +524,8 @@ sv:
       proposals_from_meeting:
         meeting_proposal: 'Relaterade förslag:'
         proposal_meeting: 'Relaterade möten:'
+    statistics:
+      meetings_count: Möten
   devise:
     mailer:
       join_meeting:

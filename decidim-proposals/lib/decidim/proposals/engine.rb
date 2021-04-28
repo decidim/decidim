@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
-require "kaminari"
-require "social-share-button"
-require "ransack"
-require "cells/rails"
-require "cells-erb"
-require "cell/partial"
+require "decidim/core"
 
 module Decidim
   module Proposals
@@ -61,19 +56,23 @@ module Decidim
       end
 
       initializer "decidim_changes" do
-        Decidim::SettingsChange.subscribe "surveys" do |changes|
-          Decidim::Proposals::SettingsChangeJob.perform_later(
-            changes[:component_id],
-            changes[:previous_settings],
-            changes[:current_settings]
-          )
+        config.to_prepare do
+          Decidim::SettingsChange.subscribe "surveys" do |changes|
+            Decidim::Proposals::SettingsChangeJob.perform_later(
+              changes[:component_id],
+              changes[:previous_settings],
+              changes[:current_settings]
+            )
+          end
         end
       end
 
       initializer "decidim_proposals.mentions_listener" do
-        Decidim::Comments::CommentCreation.subscribe do |data|
-          proposals = data.dig(:metadatas, :proposal).try(:linked_proposals)
-          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], proposals) if proposals
+        config.to_prepare do
+          Decidim::Comments::CommentCreation.subscribe do |data|
+            proposals = data.dig(:metadatas, :proposal).try(:linked_proposals)
+            Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], proposals) if proposals
+          end
         end
       end
 

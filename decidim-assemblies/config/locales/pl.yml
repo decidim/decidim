@@ -14,8 +14,8 @@ pl:
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_features: Skopiuj funkcje
-        created_by: Stworzono przez
-        created_by_other: Stworzono przez inne
+        created_by: Utworzony przez
+        created_by_other: Utworzony przez inne
         creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
         decidim_assemblies_type_id: Typ zespołu
@@ -195,6 +195,7 @@ pl:
           assembly_members: Członkowie
           attachment_collections: Foldery
           attachment_files: Pliki
+          attachments: Załączniki
           categories: Kategorie
           components: Komponenty
           info: Informacje

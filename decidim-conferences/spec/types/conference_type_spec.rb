@@ -13,6 +13,7 @@ module Decidim
       let(:model) { create(:conference) }
 
       include_examples "attachable interface"
+      include_examples "categories container interface"
 
       describe "id" do
         let(:query) { "{ id }" }

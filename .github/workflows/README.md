@@ -26,9 +26,9 @@ Individual workflows with changes:
 - uses: actions/setup-node@master
   with:
     node-version: ${{ env.NODE_VERSION }}
-- run: npm ci
+- run: yarn install --frozen-lockfile
   name: Install JS deps
-- run: npm run test
+- run: yarn run test
   name: Test JS files
 ```
 

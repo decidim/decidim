@@ -32,6 +32,7 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
+        admin_terms_of_use_body: Tělo zprávy správcovských podmínek použití
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
@@ -42,6 +43,7 @@ cs:
         default_locale: Výchozí jazyk
         description: Popis
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
+        enable_participatory_space_filters: Povolit filtry participačního prostoru
         facebook_handler: Facebook handler
         favicon: Ikona
         force_authentication: Vynutit ověření
@@ -355,6 +357,17 @@ cs:
           values:
             'false': Ověřeno
             'true': Neověřeno
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka přijata
+            values:
+              'false': Nepřijato
+              'true': Přijato
+          user_invitation_sent_at_not_null:
+            label: Pozvánka odeslána
+            values:
+              'false': Neodesláno
+              'true': Odesláno
         private_space_eq:
           label: Soukromé
           values:
@@ -372,6 +385,7 @@ cs:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
           title_cont: Hledat %{collection} podle názvu.
+          user_name_or_user_email_cont: Hledat %{collection} podle jména nebo e-mailu.
         state_eq:
           label: Stav
       forms:
@@ -719,8 +733,8 @@ cs:
           colors:
             colors_title: Organizační barvy
             header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
-          cta_button_path_help: 'Můžete přepisovat, kde se na domovské stránce odkazuje tlačítko Volat na akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem. Příklad: %{url}'
-          cta_button_text_help: Přepínání textu tlačítka volání na akci můžete na domovské stránce přepisovat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastavena, bude použita výchozí hodnota. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem.
+          cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
+          cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
           images:
@@ -782,7 +796,7 @@ cs:
           success: Typ oblasti působnosti byl úspěšně aktualizován
       scopes:
         create:
-          error: Při vytváření nového oboru došlo k chybě.
+          error: Při vytváření nové oblasti působnosti došlo k chybě.
           success: Oblast působnosti byla úspěšně vytvořena.
         destroy:
           success: Oblast působnosti úspěšně zničena

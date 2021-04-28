@@ -55,18 +55,18 @@ The frontend code can be found in the folder `app/frontend` instead of `app/asse
 
 ### Developing React components
 
-You need to execute `npm start` in a separate terminal, in the `decidim` root folder while you are developing this module. When you are finished you can build the project for production like this: `npm run build:prod`. We are checking in the bundle into the repository.
+You need to execute `yarn start` in a separate terminal, in the `decidim` root folder while you are developing this module. When you are finished you can build the project for production like this: `yarn run build:prod`. We are checking in the bundle into the repository.
 
 #### Run tests
 
-You can execute `npm test` to run the javascript test suite or you can run `npm run test:watch` to listen for file changes.
+You can execute `yarn test` to run the javascript test suite or you can run `yarn run test:watch` to listen for file changes.
 
 #### GraphQL schema and Typescript
 
 Since we are using Typescript we can generate interfaces and types from our schema using the following command:
 
 ```bash
-npm run graphql:generate_schema_types
+yarn run graphql:generate_schema_types
 ```
 
 This command will create a file called `app/frontend/support/schema.ts` that can be used to strict type checking in our components.
@@ -74,7 +74,7 @@ This command will create a file called `app/frontend/support/schema.ts` that can
 In order for this to work your Rails server must be running at `localhost:3000`, if you're using a different host you can set it with `DECIDIM_HOST`:
 
 ```bash
-DECIDIM_HOST=myhost:3000 npm run graphql:generate_schema_types
+DECIDIM_HOST=myhost:3000 yarn run graphql:generate_schema_types
 ```
 
 ## Contributing

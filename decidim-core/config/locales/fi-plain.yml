@@ -5,6 +5,8 @@ fi-pl:
         delete_reason: Syy tilisi poistoon
       common:
         created_at: Luontiaika
+      conversation:
+        body: Viestin teksti
       group:
         about: Tietoja
         avatar: Avatar
@@ -13,6 +15,8 @@ fi-pl:
         name: Nimi
         nickname: Nimimerkki
         phone: Puhelinnumero
+      message:
+        body: Viestin teksti
       report:
         details: Lisätiedot
       user:
@@ -257,7 +261,8 @@ fi-pl:
       photos:
         related_photos: Liittyvät kuvat
     author:
-      avatar: Avatar
+      avatar: 'Profiilikuva: %{name}'
+      avatar_multiuser: Profiilikuva usealle käyttäjälle
       comments:
         one: kommentti
         other: kommentit
@@ -1223,6 +1228,7 @@ fi-pl:
         description: Onko tämä sisältö epäasiallista?
         does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
         offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
+        reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita ongelmasta
@@ -1258,6 +1264,10 @@ fi-pl:
         title: Valitse tulosten määrä sivua kohti
       share_modal:
         close_window: Sulje ikkuna
+        copy_share_link: Kopio
+        copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
+        copy_share_link_copied: Kopioitu!
+        copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
         share: Jaa
         share_link: Jaa linkki
     statistics:
@@ -1306,6 +1316,7 @@ fi-pl:
         send: Lähetä
         title_reply: Vastaa
       show:
+        back: Näytä kaikki keskustelut
         not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
         title: 'Keskustelu: %{usernames}'
       update:
@@ -1351,6 +1362,7 @@ fi-pl:
         number_of_versions: Versiot
         title: Versiot
     versions_list_item:
+      back: Näytä kaikki versiot
       show:
         version_index: Versio %{index}
     welcome_notification:
@@ -1531,8 +1543,8 @@ fi-pl:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:
       minimum:
-        one: vähintään %{count} kirjain
-        other: vähintään %{count} kirjainta
+        one: Vähintään %{count} kirjain
+        other: Vähintään %{count} kirjainta
     required: Vaadittu
     required_explanation: "* Vaaditut kentät on merkitty tähtimerkillä"
   invisible_captcha:
@@ -1553,9 +1565,11 @@ fi-pl:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
+        main_menu: Päävalikko
         navigation: Navigaatio
         sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
+        user_menu: Käyttäjän valikko
       impersonation_warning:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
@@ -1584,6 +1598,7 @@ fi-pl:
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
         sign_out: Kirjaudu ulos
+        title: Profiilin linkit
       user_profile:
         account: Käyttäjätili
         authorizations: Varmennukset

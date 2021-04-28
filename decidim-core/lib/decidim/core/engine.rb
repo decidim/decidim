@@ -7,6 +7,7 @@ require "sprockets/railtie"
 require "pg"
 require "redis"
 
+require "acts_as_list"
 require "devise"
 require "devise-i18n"
 require "devise_invitable"
@@ -34,6 +35,7 @@ require "geocoder"
 require "paper_trail"
 require "cells/rails"
 require "cells-erb"
+require "cell/partial"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
@@ -42,8 +44,13 @@ require "batch-loader"
 require "etherpad-lite"
 require "diffy"
 require "anchored"
+require "social-share-button"
+require "ransack"
+require "searchlight"
 
 require "decidim/api"
+require "decidim/middleware/strip_x_forwarded_host"
+require "decidim/middleware/current_organization"
 
 require_relative "../../../app/helpers/decidim/layout_helper"
 require_relative "../../../app/middleware/decidim/current_organization"
@@ -75,14 +82,16 @@ The zeitwerk autoloader is not yet compatible with Decidim. Setting fallback to 
       end
 
       initializer "decidim.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::LayoutHelper if respond_to?(:helper)
+        config.to_prepare do
+          ActiveSupport.on_load :action_controller do
+            helper Decidim::LayoutHelper if respond_to?(:helper)
+          end
         end
       end
 
       initializer "decidim.middleware" do |app|
-        app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
-        app.config.middleware.insert_before Warden::Manager, Decidim::StripXForwardedHost
+        app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
       end
 
@@ -262,8 +271,10 @@ The zeitwerk autoloader is not yet compatible with Decidim. Setting fallback to 
       end
 
       initializer "decidim.notifications" do
-        Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
-          EventPublisherJob.perform_later(event_name, data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
+            EventPublisherJob.perform_later(event_name, data)
+          end
         end
       end
 

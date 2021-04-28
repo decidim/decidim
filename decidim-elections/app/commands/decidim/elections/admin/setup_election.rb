@@ -44,6 +44,10 @@ module Decidim
           Decidim::Elections::Answer.where(question: questions)
         end
 
+        def ballot_styles
+          election.participatory_space.try(:ballot_styles) || []
+        end
+
         def trustees
           @trustees ||= Decidim::Elections::Trustee.where(id: form.trustee_ids).order(:id)
         end
@@ -64,7 +68,8 @@ module Decidim
             start_date: election.start_time,
             end_date: election.end_time,
             questions: questions_data,
-            answers: answers_data
+            answers: answers_data,
+            ballot_styles: ballot_styles.empty? ? {} : ballot_styles_data
           }
         end
 
@@ -72,7 +77,7 @@ module Decidim
           trustees.map do |trustee|
             {
               name: trustee.name,
-              slug: trustee.slug,
+              slug: trustee.bulletin_board_slug,
               public_key: JSON.parse(trustee.public_key)
             }
           end
@@ -107,6 +112,13 @@ module Decidim
               title: flatten_translations(answer.title)
             }
           end
+        end
+
+        def ballot_styles_data
+          ballot_styles.map do |ballot_style|
+            questions = ballot_style.questions_for(elections)
+            [ballot_style.slug, questions.map(&:slug)] if questions.any?
+          end.compact.to_h
         end
 
         def setup_election

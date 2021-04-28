@@ -6,6 +6,7 @@ sv:
         description: Beskrivning
         title: Titel
         total_budget: Total budget
+        weight: Vikt
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
@@ -44,13 +45,19 @@ sv:
             title: Redigera budget
             update: Uppdatera budget
           index:
+            finished_orders: Avslutade röster
+            pending_orders: Pågående omröstningar
             title: Budgetar
+            users_with_finished_orders: Användare med avslutade röster
+            users_with_pending_orders: Användare med väntande röster
           new:
             create: Skapa budget
             title: Ny budget
           update:
             invalid: Det gick inte att uppdatera budgeten
             success: Budgeten har uppdaterats
+        exports:
+          projects: Projekt
         models:
           budget:
             name: Budget
@@ -84,6 +91,7 @@ sv:
             create: Importera förslag till projekt
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             select_component: Välj en komponent
+            title: Importera förslag
       admin_log:
         budget:
           create: "%{user_name} skapade budgeten %{resource_name} i utrymmet %{space_name}"
@@ -100,6 +108,9 @@ sv:
         close_modal: Stäng fönster
         continue: Fortsätt
         more_information: Mer information
+      budget_list_item:
+        voting_finished: Du har röstat i denna medborgarbudget
+        voting_started: Du har börjat rösta i denna medborgarbudget
       budgets_list:
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
@@ -156,7 +167,7 @@ sv:
             instruction: "<li>Välj minst %{minimum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
           projects_rule:
             description: Vilka projekt tycker du att vi ska anslå budgetmedel för? Välj minst %{minimum_number} projekt och upp till %{maximum_number} som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.
-            instruction: "<li>Välj minst %{minimum_number} and upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
+            instruction: "<li>Välj minst %{minimum_number} och upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
           projects_rule_maximum_only:
             description: Vilka projekt tycker du att vi ska anslå budgetmedel för? Välj upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.
             instruction: "<li>Välj upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
@@ -245,6 +256,8 @@ sv:
             vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta om'
             vote_rule_selected_projects_enabled: 'Aktivera regel: Valda projekt med min och max antal projekt att välja'
             vote_rule_threshold_percent_enabled: 'Aktivera regel: Lägsta procentandel av budget'
+            vote_selected_projects_maximum: Högsta antal projekt att välja
+            vote_selected_projects_minimum: Minsta antal projekt att välja
             vote_threshold_percent: Tröskel för röster i procent
             workflow: Arbetsflöde
             workflow_choices:
@@ -278,5 +291,11 @@ sv:
       destroy:
         error: Det gick inte att dra tillbaka din röst
         success: Din röst har dragits tillbaka
+    resource_links:
+      included_proposals:
+        project_proposal: Förslag som ingår i detta projekt
+    statistics:
+      orders_count: Stöd
+      projects_count: Projekt
   index:
     confirmed_orders_count: Antal röster

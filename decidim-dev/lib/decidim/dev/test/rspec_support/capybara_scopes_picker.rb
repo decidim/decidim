@@ -11,8 +11,8 @@ module Capybara
         data_picker = scope_picker.data_picker
         scope_name = expected ? translated(expected.name) : t("decidim.scopes.global")
 
-        expect(data_picker).to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: :all, wait: 5)
-        expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]", wait: 5)
+        expect(data_picker).to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: :all)
+        expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
       end
     end
 
@@ -73,6 +73,7 @@ module Capybara
     def scope_picker_browse_scopes(scopes)
       scopes.each do |scope|
         scope_picker_browse_scope(scope)
+        sleep(2)
       end
     end
 

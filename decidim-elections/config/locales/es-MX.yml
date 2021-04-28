@@ -41,7 +41,7 @@ es-MX:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: El gestor de mesa ya es presidente/gestor del punto de votación
+              president_and_manager: El gestor electoral ya es presidente/gestor del punto de votación
             voting:
               different_organization: La votación debe estar en la misma organización que el usuario
         decidim/votings/polling_station:
@@ -58,6 +58,12 @@ es-MX:
       decidim/elections/question:
         one: Pregunta
         other: Preguntas
+      decidim/votings/census/dataset:
+        one: Conjunto de datos
+        other: Conjuntos de datos
+      decidim/votings/census/datum:
+        one: Referencia
+        other: Datos
       decidim/votings/polling_officer:
         one: Gestor de mesa
         other: Gestores de mesa
@@ -71,7 +77,7 @@ es-MX:
     admin:
       filters:
         officers_assigned_eq:
-          label: Gestores
+          label: Responsables
           values:
             assigned: Asignado
             unassigned: No asignado
@@ -79,12 +85,12 @@ es-MX:
           label: Rol
           values:
             manager: Gestor
-            president: Presidente
+            president: Presidencia
             unassigned: Sin asignar
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Buscar %{collection} por nombre/email/alias o punto de votación.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
-          : Buscar %{collection} por título, dirección o nombre del gestor/email/alias.
+          : Buscar %{collection} por título, dirección o nombre del responsable/email/alias.
     components:
       elections:
         actions:
@@ -100,11 +106,11 @@ es-MX:
         confirm_destroy: '¿Seguro que quieres eliminar?'
         destroy: Eliminar
         edit: Modificar
-        feedback: Feedback del votante
+        feedback: Retorno de la votante
         import: Importar de propuestas a respuestas
-        manage_answers: Gestionar respuestas
-        manage_questions: Gestionar preguntas
-        manage_steps: Gestionar pasos
+        manage_answers: Gestionar las respuestas
+        manage_questions: Gestionar las preguntas
+        manage_steps: Gestionar las fases
         new: Nuevo %{name}
         preview: Vista previa
         publish: Publicar
@@ -136,7 +142,7 @@ es-MX:
           selected: Seleccionada
           unselect:
             invalid: Hubo un problema al deseleccionar esta respuesta
-            success: Respuesta seleccionada con éxito
+            success: Respuesta seleccionada correctamente
           update:
             invalid: Se ha producido un error al crear esta respuesta
             success: Respuesta actualizada con éxito
@@ -165,7 +171,9 @@ es-MX:
             success: Se ha actualizado la votación correctamente
         exports:
           elections: Elecciones
-          feedback_form_answers: Feedback de respuestas
+          feedback_form_answers: Retorno de las respuestas
+        menu:
+          trustees: Depositarias
         models:
           answer:
             name: Respuesta
@@ -265,7 +273,7 @@ es-MX:
             result: Resultado
             selected: Seleccionado
             submit: Publicar resultados
-            success: Recuento finalizado con éxito
+            success: La solicitud de publicación de resultados se envió correctamente al Bulletin Board
             title: Resultados calculados
           vote:
             errors:
@@ -312,6 +320,7 @@ es-MX:
         election:
           end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} en el Bulletin Board"
           publish: "%{user_name} ha publicado la votación %{resource_name}"
+          publish_results: "%{user_name} publicó los resultados de la elección %{resource_name} en el Tablero de Boletines"
           setup: "%{user_name} creó la elección %{resource_name} en el Bulletin Board"
           start_key_ceremony: "%{user_name} comenzó la ceremonia de claves para las elecciones %{resource_name} en el Bulletin Board"
           start_tally: "%{user_name} comenzó el recuento para la elección %{resource_name} en el Bulletin Board"
@@ -324,6 +333,9 @@ es-MX:
           upcoming: Próximas
         end_date: Termina
         footer:
+          remaining_time:
+            one: "<strong>%{count} hora %{minutes} minutos</strong> restantes para votar."
+            other: "<strong>%{count} horas %{minutes} minutos</strong> restantes para votar."
           view: Ver
           vote: Votar
         label:
@@ -349,8 +361,11 @@ es-MX:
           filter_by: Filtrar por
           unfold: Desplegar
         preview:
+          available_answers: 'Respuestas disponibles:'
+          description: 'Estas son las preguntas que encontrarás en el proceso de votación:'
           title: Preguntas de la elección
         results:
+          description: 'Estos son los resultados de la votación, para cada pregunta:'
           selected: Seleccionado
           title: Resultados de la elección
           votes:
@@ -364,6 +379,7 @@ es-MX:
           back: Elecciones disponibles
           callout:
             already_voted: Ya has votado en esta elección. Puedes cambiar tu voto o verificarlo.
+            pending_vote: Se está emitiendo tu voto en el servidor.
             vote_rejected: No ha sido posible verificar tu voto. Por favor, hazlo de nuevo.
           preview: Previsualizar
           verify:
@@ -509,9 +525,13 @@ es-MX:
         ballot_decision:
           audit: "( Auditar papeleta )"
           back: Comenzar de nuevo el proceso de votación
+          ballot_hash: 'El indentificador de la papeleta es:'
           cast: Emitir papeleta
           description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de su papeleta la estropeará, lo que significa, que para emitir tu voto tendrás que reiniciar el proceso de votación.
           header: 'La papeleta está cifrada: envíala o audítala'
+        casting:
+          header: Se está emitiendo el voto...
+          text: La papeleta se está emitiendo en la urna.
         confirm:
           answer: Respuesta
           answer_number: respuesta %{number}
@@ -523,26 +543,29 @@ es-MX:
           question: Preguntas %{count}
         confirmed:
           back: Volver a las votaciones
-          error: Lo sentimos, hubo un error al confirmar el voto. Por favor, vota de nuevo.
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
-          lead: '¡Tu voto ha sido emitido!'
+          lead: El voto ha sido emitido!
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         encrypting:
-          header: Codificando voto...
-          text: Tu voto está siendo cifrado para asegurar que se emite de forma anónima.
+          header: Se está cifrando el voto...
+          text: Se está cifrando la papeleta para garantizar el secreto de voto.
         failed:
           header: Voto fallido
           lead: '¡Tu voto no ha sido emitido!'
           text: Algo salió mal, por favor inténtalo de nuevo.
+          try_again: Inténtalo de nuevo
         header:
           ballot_decision: Emitir o auditar tu voto
+          casting: Emitiendo el voto
           confirm: Confirma tu voto
           confirmed: Voto confirmado
-          encrypting: Confirmando voto
+          encrypting: Cifrando el voto
+          failed: Voto fallido
         messages:
+          invalid_token: La sesión del puesto de votación no es válida. Intenta votar de nuevo.
           not_allowed: En este momento no puedes votar en esta votación.
         modal:
           close: Cerrar
@@ -554,9 +577,14 @@ es-MX:
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
           selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        onboarding_modal:
+          close: Cerrar modal
+          create_account: Crear Cuenta
+          description: '¿Quieres crear una nueva cuenta en Decidim? Así participarás en los procesos y ser parte activa de la organización.'
+          no_account: No, gracias.
+          title: '¿Es tu primera vez en Decidim?'
         update:
-          error: Hubo un problema al actualizar el estado del voto
-          success: Estado de voto actualizado correctamente
+          error: Ha habido un problema al actualizar el estado del voto. Vuelve a intentarlo.
         verify:
           content:
             heading: Verifica tu voto
@@ -610,6 +638,9 @@ es-MX:
             email_outro: Has recibido esta notificación porque has sido asignado como %{role} de %{polling_station_name}.
             email_subject: Eres %{role} del punto de votación %{polling_station_name}.
             notification_title: Eres %{role} del punto de votación %{polling_station_name} en la votación <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Ya tienes el código de acceso que has pedido: %{access_code}. Con esto ya podrás participar en %{voting}.'
+          subject: El código de acceso para participar en %{voting}
     help:
       participatory_spaces:
         votings:
@@ -618,8 +649,34 @@ es-MX:
           title: '¿Qué son las votaciones?'
     menu:
       votings: Votaciones
+    statistics:
+      elections_count: Elecciones
+      votings_count: Votaciones
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Ha habido un problema al crear el estilo de papeleta
+            success: Se ha creado correctamente el estilo de papeleta
+          destroy:
+            invalid: Ha habido un problema al suprimir el estilo de papeleta
+            success: Se ha eliminado correctamente el estilo de papeleta
+          edit:
+            title: Edita estilo de papeleta
+            update: Actualizar
+          form:
+            code_help: 'Sugerencia: el código es el vínculo entre el censo y el estilo de papeleta. Al actualizar los datos del censo, a cada entrada se le asigna un estilo de papeleta que coincida con el código'
+            election: Elección
+            questions: Preguntas para el estilo de votación
+            questions_help: 'Sugerencia: seleccione las preguntas de los componentes electorales, para este estilo de papeleta, que se presentarán a los votantes asignados a este estilo de votación'
+          index:
+            actions:
+              confirm_destroy: '¿Estás segura?'
+              destroy: Elimina
+              edit: Editar
+              new: Nueva
+              title: Acciones
+            associated_census_data: Entradas asociadas al censo
         content_blocks:
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
@@ -665,7 +722,7 @@ es-MX:
             components: Componentes
             info: Información
             landing_page: Página de inicio
-            monitoring_committee_members: Comité de seguimiento
+            monitoring_committee: Comité de seguimiento
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
         models:
@@ -798,9 +855,40 @@ es-MX:
           create: "%{user_name} creó la votación %{resource_name}"
           publish: "%{user_name} publicó la votación %{resource_name}"
           unpublish: "%{user_name} despublicó la votación %{resource_name}"
+      census:
+        admin:
+          census:
+            export_access_codes:
+              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirá un correo en %{email}
+            exporting_access_codes:
+              info_message: "<strong>Por favor, espere</strong> que la exportación esté preparada. La recibirá en breve en %{email}"
+            freeze:
+              callout: El censo está cerrado y no se puede modificar.
+            generate_access_codes:
+              button: Generar Códigos de Acceso de la votación
+              callout: Ahora puede generar los códigos de acceso. Tenga en cuenta que después de generarlos ya no podrá modificar más el censo.
+              confirm: Si continúa, ya no podrá modificar el censo.
+              info_message_all: "<strong>Se han importado las filas correctamente</strong> del fichero %{file} (%{raw_count} de %{data_count})."
+              info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
+              launch_error: Ha habido un problema al generar los códigos de acceso
+              launch_success: Se ha iniciado la generación de códigos.
+        export_mailer:
+          access_codes_export:
+            download: Descargar
       content_blocks:
         highlighted_votings:
           name: Votaciones destacadas
+        landing_page:
+          description:
+            show_less: Leer menos
+            show_more: Leer más
+          metrics:
+            heading: Métricas
+          polling_stations:
+            heading: Puntos de votación
+            no_polling_stations: Aún no hay puntos de votación.
+          timeline:
+            heading: Línea de tiempo
       monitoring_committee_members:
         actions:
           confirm_destroy: '¿Estás segura?'
@@ -869,6 +957,9 @@ es-MX:
           no_votings: Ninguna votación coincide con tus criterios de búsqueda.
           only_finished: Actualmente no hay votaciones programadas, pero aquí puedes encontrar las votaciones terminadas en la lista.
           title: Votaciones
+        login:
+          start_voting: Empezar a votar
+        no_census_contact_information: Aún no hay información de contacto
         orders:
           label: 'Ordenar votaciones por:'
           random: Aleatorio
@@ -894,6 +985,8 @@ es-MX:
     decidim:
       election_votes_header:
         exit: Salir
+      voting_navigation:
+        voting_menu_item: La votación
       votings:
         index:
           promoted_votings: Votaciones destacadas

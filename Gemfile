@@ -19,6 +19,8 @@ gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
 
+gem "webpacker", git: "https://github.com/rails/webpacker.git"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 

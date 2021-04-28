@@ -228,7 +228,6 @@ tr:
             upcoming: Oylama %{start_time} tarihinde başlıyor
       feedback:
         answer:
-          invalid: Geri bildiriminizi gönderirken bir sorun oluştu.
           spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davrandın, tekrar deneyebilir misin?
           success: Geri bildirim başarıyla gönderildi.
       models:
@@ -309,15 +308,10 @@ tr:
           experience: Şu ana kadarki deneyiminiz nasıl?
           feedback: Bize geri bildirim verin
           header: Oy onaylandı
-          lead: Oyunuz çoktan verildi!
           text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
-        encrypting:
-          header: Oy kodlanıyor...
-          text: Anonim olarak kullanabilmeniz için oyunuz şifreleniyor.
         header:
           confirm: Oyunu onayla
           confirmed: Oy onaylandı
-          encrypting: Onaylanan oy
         messages:
           not_allowed: Şu anda bu seçim için oy kullanmanıza izin verilmiyor.
         modal:

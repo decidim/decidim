@@ -45,7 +45,9 @@ sk:
               invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú: %{valid_mime_types} '
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Je potrebné priložiť znovu
+            add_photos:
               needs_to_be_reattached: Je potrebné priložiť znovu
             body:
               cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna

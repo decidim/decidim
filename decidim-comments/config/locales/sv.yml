@@ -39,7 +39,13 @@ sv:
           user_group_id:
             label: Kommentera som
         opinion:
+          label: Din åsikt om detta ämne
+          negative: Negativ
+          negative_selected: Din åsikt om detta ämne är negativ
           neutral: Neutral
+          neutral_selected: Din åsikt om detta ämne är neutral
+          positive: Positiv
+          positive_selected: Din åsikt om detta ämne är positiv
         remaining_characters: "%{count} tecken kvar"
         remaining_characters_1: "%{count} tecken kvar"
         title: Lägg till din kommentar
@@ -103,6 +109,16 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan avfölja det från föregående länk.
           email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Din kommentar i "%{resource_title}" har blivit nedröstad. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
+          email_subject: Din kommentar i "%{resource_title}" har nedröstats.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har nedröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+        comment_upvoted:
+          email_intro: Din kommentar i "%{resource_title}" har uppröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
+          email_subject: Din kommentar i "%{resource_title}" har uppröstats.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har uppröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
         reply_created:
           email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.

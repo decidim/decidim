@@ -24,6 +24,7 @@ es-MX:
       component:
         name: Nombre
         published_at: Publicado en
+        weight: Orden de posición
       id: ID
       import:
         user_group_id: Importar como
@@ -31,6 +32,7 @@ es-MX:
         body: Cuerpo
         subject: Asunto
       organization:
+        admin_terms_of_use_body: Cuerpo de las condiciones de uso para administradores
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -41,6 +43,7 @@ es-MX:
         default_locale: Idioma predeterminado
         description: Descripción
         enable_omnipresent_banner: Mostrar banner omnipresente
+        enable_participatory_space_filters: Habilitar los filtros en el espacio de participación
         facebook_handler: Nombre en Facebook
         favicon: Icono
         force_authentication: Forzar autenticación
@@ -110,10 +113,12 @@ es-MX:
         show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        weight: Orden de posición
       static_page_topic:
         description: Descripción
         show_in_footer: Mostrar en el pie de página
         title: Título
+        weight: Orden de posición
       user_group_csv_verification:
         file: Expediente
     errors:
@@ -352,6 +357,17 @@ es-MX:
           values:
             'false': Oficializado
             'true': No oficializado
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitación aceptada
+            values:
+              'false': No aceptada
+              'true': Aceptada
+          user_invitation_sent_at_not_null:
+            label: Invitación enviada
+            values:
+              'false': No enviada
+              'true': Enviada
         private_space_eq:
           label: Privado
           values:
@@ -369,12 +385,14 @@ es-MX:
           name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
           reported_id_string_or_reported_content_cont: Buscar %{collection} por contenido o id reportable.
           title_cont: Buscar %{collection} por título.
+          user_name_or_user_email_cont: Busca %{collection} por nombre o por correo electrónico.
         state_eq:
           label: Estado
       forms:
         file_help:
           import:
             explanation: 'Instrucciones para el archivo:'
+            message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
@@ -426,6 +444,7 @@ es-MX:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Volver
           file_legend: Añadir un archivo de importación que será procesado.

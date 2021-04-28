@@ -14,6 +14,7 @@ fi:
       meeting:
         address: Osoite
         available_slots: Tämän tapaamisen vapaiden paikkojen määrä
+        customize_registration_email: Muokkaa ilmoittautumisten sähköpostivastausta
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         decidim_user_group_id: Käyttäjäryhmä
@@ -25,6 +26,7 @@ fi:
         organizer_gid: Luo käyttäjänä
         organizer_id: Järjestäjä
         private_meeting: Yksityinen tapaaminen
+        registration_email_custom_content: Ilmoittautumisten sähköpostivastauksen muokattu sisältö
         registration_form_enabled: Ilmoittautumislomake on käytössä
         registration_terms: Ilmoittautumisehdot
         registration_url: Ilmoittautumisosoite (URL)
@@ -264,6 +266,7 @@ fi:
             location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
+            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
@@ -309,14 +312,14 @@ fi:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
-            recommendation_message: Yksityisyytesi takia suosittelemme, että poistat tämän kirjoituksen, kun et enää tarvitse sitä. Oletuksena se säilytetään 3 kuukautta tapaamisen päättymisen jälkeen.
+            recommendation_message: Osallistujien yksityisyyden kannalta suosittelemme, että poistat tämän lomakkeen tiedot, kun et enää tarvitse niitä. Oletuksena se säilytetään 3 kuukautta tapaamisen päättymisen jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
               other: Tapahtumaan on %{count} ilmoittautumista.
             reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
-            title: Rekisteröitymiset
+            title: Ilmoittautumiset
           update:
             invalid: Rekisteröitymisasetusten päivitys epäonnistui.
             success: Tapaamisen ilmoittautumisasetusten tallennus onnistui.

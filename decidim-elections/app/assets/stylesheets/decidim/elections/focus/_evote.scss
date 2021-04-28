@@ -22,6 +22,11 @@
     text-align: center;
   }
 
+  &__grid .row{
+    display: block;
+    text-align: left;
+  }
+
   &__content{
     margin: 1rem auto;
 

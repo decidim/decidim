@@ -21,7 +21,7 @@ module Decidim
           order_by: order,
           after: params.fetch(:after, 0).to_i
         )
-        @comments_count = commentable.comments.count
+        @comments_count = commentable.comments_count
 
         respond_to do |format|
           format.js do
@@ -44,7 +44,7 @@ module Decidim
           params.merge(commentable: commentable)
         ).with_context(
           current_organization: current_organization,
-          current_component: commentable.component
+          current_component: commentable.try(:component) || commentable.participatory_space
         )
         Decidim::Comments::CreateComment.call(form, current_user) do
           on(:ok) do |comment|
@@ -80,9 +80,9 @@ module Decidim
         @comments_count = begin
           case commentable
           when Decidim::Comments::Comment
-            commentable.root_commentable.comments.count
+            commentable.root_commentable.comments_count
           else
-            commentable.comments.count
+            commentable.comments_count
           end
         end
       end

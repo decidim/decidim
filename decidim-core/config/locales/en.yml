@@ -6,6 +6,8 @@ en:
         delete_reason: Reason to delete your account
       common:
         created_at: Created at
+      conversation:
+        body: Body
       group:
         about: About
         avatar: Avatar
@@ -14,6 +16,8 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      message:
+        body: Body
       report:
         details: Additional comments
       user:
@@ -259,7 +263,8 @@ en:
       photos:
         related_photos: Related images
     author:
-      avatar: Avatar
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar for multiple users
       comments:
         one: comment
         other: comments
@@ -1235,6 +1240,7 @@ en:
         description: Is this content inappropriate?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        reason: Reason
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
@@ -1270,6 +1276,10 @@ en:
         title: Select number of results per page
       share_modal:
         close_window: Close window
+        copy_share_link: Copy
+        copy_share_link_clarification: Copy share link to clipboard
+        copy_share_link_copied: Copied!
+        copy_share_link_message: The link was successfully copied to clipboard.
         share: Share
         share_link: Share link
     statistics:
@@ -1318,6 +1328,7 @@ en:
         send: Send
         title_reply: Reply
       show:
+        back: Show all conversations
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
@@ -1370,6 +1381,7 @@ en:
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Show all versions
       show:
         version_index: Version %{index}
     welcome_notification:
@@ -1550,8 +1562,8 @@ en:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:
       minimum:
-        one: at least %{count} character
-        other: at least %{count} characters
+        one: At least %{count} character
+        other: At least %{count} characters
     required: Required field
     required_explanation: "* Required fields are marked with an asterisk"
   invisible_captcha:
@@ -1572,9 +1584,11 @@ en:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Close menu
+        main_menu: Main menu
         navigation: Navigation
         sign_in: Sign In
         sign_up: Sign Up
+        user_menu: User menu
       impersonation_warning:
         close_session: Close session
         description_html: You are managing the participant <b>%{user_name}</b>.
@@ -1603,6 +1617,7 @@ en:
         profile: My account
         public_profile: My public profile
         sign_out: Sign out
+        title: Profile links
       user_profile:
         account: Account
         authorizations: Authorizations

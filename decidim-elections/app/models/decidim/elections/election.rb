@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
+
       enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally, :tally_ended, :results_published].index_with(&:to_s), _prefix: :bb
 
       component_manifest_name "elections"

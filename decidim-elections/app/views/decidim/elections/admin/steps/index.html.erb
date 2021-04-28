@@ -19,13 +19,11 @@
 
     <div class="button--double form-general-submit">
       <%= f.hidden_field :current_step %>
-      <% if current_step.to_s != "results_published" %>
-        <%= f.button type: :submit, class: "button", disabled: @form.invalid? do %>
-          <% if @form.pending_action %>
-            <span class='loading-spinner'></span> <%= t("steps.processing", scope: "decidim.elections.admin") %>
-          <% else %>
-            <%= t("steps.#{current_step}.submit", scope: "decidim.elections.admin") %>
-          <% end %>
+      <%= f.button type: :submit, class: "button", disabled: @form.invalid? do %>
+        <% if @form.pending_action %>
+          <span class='loading-spinner'></span> <%= t("steps.processing", scope: "decidim.elections.admin") %>
+        <% else %>
+          <%= t("steps.#{current_step}.submit", scope: "decidim.elections.admin") %>
         <% end %>
       <% end %>
     </div>
@@ -35,7 +33,7 @@
            data-api-endpoint-url="<%= Rails.application.secrets.elections[:bulletin_board_server] %>"
            data-message-id="<%= @form.pending_action.message_id %>"></div>
 
-      <%= javascript_include_tag "decidim/elections/admin/pending_action" %>
+      <%= javascript_pack_tag "decidim_elections_admin_pending_action" %>
     <% end %>
   <% end %>
 <% else %>

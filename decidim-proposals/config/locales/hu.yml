@@ -42,7 +42,9 @@ hu:
               invalid_document_type: 'Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Újra kell csatolni
+            add_photos:
               needs_to_be_reattached: Újra kell csatolni
             body:
               cant_be_equal_to_template: nem lehet egyenlő a sablonnal

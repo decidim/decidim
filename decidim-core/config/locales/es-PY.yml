@@ -5,6 +5,8 @@ es-PY:
         delete_reason: Motivo de eliminar tu cuenta
       common:
         created_at: Creado el
+      conversation:
+        body: Cuerpo
       group:
         about: Acerca de
         avatar: Avatar
@@ -13,6 +15,8 @@ es-PY:
         name: Nombre
         nickname: Alias
         phone: Teléfono
+      message:
+        body: Cuerpo
       report:
         details: Comentarios adicionales
       user:
@@ -257,7 +261,8 @@ es-PY:
       photos:
         related_photos: Fotos relacionadas
     author:
-      avatar: Avatar
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar para varias usuarias
       comments:
         one: comentario
         other: comentarios
@@ -1224,6 +1229,7 @@ es-PY:
         description: Es inapropiado este contenido?
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
+        reason: Motivo
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
@@ -1259,11 +1265,21 @@ es-PY:
         title: Seleccionar el número de resultados por página
       share_modal:
         close_window: Cerrar ventana
+        copy_share_link: Copia
+        copy_share_link_clarification: Copiar al portapapeles el enlace para compartir
+        copy_share_link_copied: '¡Copiado!'
+        copy_share_link_message: Se ha copiado el enlace al portapapeles correctamente.
         share: Compartir
         share_link: Compartir enlace
     statistics:
       comments_count: Comentarios
+      endorsements_count: Adhesiones
+      followers_count: Seguidoras
       headline: Estadísticas
+      no_stats: No hay estadísticas aún.
+      pages_count: Páginas
+      participants_count: Participantes
+      users_count: Participantes
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
@@ -1301,6 +1317,7 @@ es-PY:
         send: Enviar
         title_reply: Responder
       show:
+        back: Ver todas las conversaciones
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:
@@ -1346,6 +1363,7 @@ es-PY:
         number_of_versions: Versiones
         title: Versiones
     versions_list_item:
+      back: Mostrar todas las versiones
       show:
         version_index: Versión %{index}
     welcome_notification:
@@ -1526,8 +1544,8 @@ es-PY:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:
       minimum:
-        one: al menos %{count} carácter
-        other: al menos %{count} caracteres
+        one: Al menos %{count} carácter
+        other: Al menos %{count} caracteres
     required: Obligatorio
     required_explanation: "* Los campos requeridos están marcados con un asterisco"
   invisible_captcha:
@@ -1548,9 +1566,11 @@ es-PY:
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
       header:
         close_menu: Cerrar menú
+        main_menu: Menú principal
         navigation: Navegación
         sign_in: Entra
         sign_up: Regístrate
+        user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar la sesión
         description_html: Te estás haciendo pasar por el usuario <b>%{user_name}</b>.
@@ -1579,6 +1599,7 @@ es-PY:
         profile: Mi cuenta
         public_profile: Mi perfil público
         sign_out: Cerrar sesión
+        title: Enlaces de perfil
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones

@@ -64,7 +64,7 @@
                 <% if allowed_to? :destroy, :project, project: project %>
                   <%= icon_link_to "circle-x", resource_locator([budget, project]).show, t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.budgets") %>
                 <% end %>
               </td>
             </tr>

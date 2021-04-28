@@ -39,7 +39,9 @@
               invalid_document_type: 'Ugyldig dokumenttype. Godkjente formater er: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Må festes på nytt
+            add_photos:
               needs_to_be_reattached: Må festes på nytt
             body:
               cant_be_equal_to_template: kan ikke være lik malen

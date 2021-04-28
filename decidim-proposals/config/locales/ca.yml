@@ -35,6 +35,7 @@ ca:
         origin_component_id: Component des d'on importar les propostes
       proposals_import:
         import_proposals: Importar propostes
+        keep_answers: Manté l'estat i les respostes
         keep_authors: Mantenir l'autoria original
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ ca:
               invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+            add_photos:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
             body:
               cant_be_equal_to_template: No pot ser igual a la plantilla
@@ -665,7 +668,7 @@ ca:
         success: L'esborrany de proposta s'ha eliminat correctament.
       last_activity:
         new_proposal_at_html: "<span>Nova proposta a %{link}</span>"
-        proposal_updated_at_html: "<span>Proposta actualitzada a %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta actualitzada el %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -900,3 +903,7 @@ ca:
       included_proposals:
         proposal_project: 'Proposta vinculada a aquests projectes:'
         proposal_result: 'Proposta vinculada a aquests resultats:'
+    statistics:
+      proposals_accepted: Propostes acceptades
+      proposals_count: Propostes
+      supports_count: Suports

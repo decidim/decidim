@@ -51,29 +51,18 @@ module Decidim
       end
 
       initializer "decidim_admin_elections.menu_entry" do
-        Decidim.menu :admin_participatory_process_menu do |menu|
-          component = current_participatory_space.components.find_by(manifest_name: :elections)
-          if component
-            menu.add_item :trustees,
-                          "Trustees", # I18n.t("info", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                          Decidim::EngineRouter.admin_proxy(component).trustees_path,
-                          active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path),
-                          if: allowed_to?(:update, :process, process: current_participatory_space)
-          end
-        end
-      end
+        Decidim.participatory_space_registry.manifests.each do |participatory_space|
+          menu_id = :"admin_#{participatory_space.name.to_s.singularize}_menu"
+          Decidim.menu menu_id do |menu|
+            component = current_participatory_space.try(:components)&.find_by(manifest_name: :elections)
+            next unless component
 
-      initializer "decidim_admin_elections.view_hooks" do
-        Decidim::Admin.view_hooks.register(:admin_secondary_nav, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          component = view_context.current_participatory_space.components.find_by(manifest_name: :elections)
-          if component
-            view_context.render(
-              partial: "decidim/elections/admin/shared/trustees_secondary_nav",
-              locals: {
-                current_component: component,
-                engine_router: Decidim::EngineRouter.admin_proxy(component)
-              }
-            )
+            menu.add_item :trustees,
+                          I18n.t("trustees", scope: "decidim.elections.admin.menu"),
+                          Decidim::EngineRouter.admin_proxy(component).trustees_path,
+                          position: 100,
+                          if: allowed_to?(:manage, :trustees),
+                          active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path)
           end
         end
       end

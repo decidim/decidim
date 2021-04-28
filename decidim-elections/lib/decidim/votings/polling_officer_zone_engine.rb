@@ -12,7 +12,9 @@ module Decidim
 
       routes do
         resource :polling_officers, path: "/", only: [:show] do
-          resources :polling_stations, only: [:show]
+          resources :polling_stations, only: [:show] do
+            resources :votes, only: [:new, :create, :show]
+          end
         end
       end
 

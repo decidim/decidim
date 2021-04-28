@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_dependency "devise/models/decidim_validatable"
+require "devise/models/decidim_validatable"
 require "valid_email2"
 
 module Decidim
@@ -35,6 +35,10 @@ module Decidim
     def self.with_document_number(organization, number)
       where(decidim_organization_id: organization.id)
         .where("extended_data->>'document_number' = ?", number)
+    end
+
+    def non_deleted_memberships
+      memberships.where(decidim_users: { deleted_at: nil })
     end
 
     # Returns the presenter for this author, to be used in the views.
