@@ -15,7 +15,7 @@ module Decidim
         organization_name: @organization.name,
         reason: @reason,
         token: @token
-        ))
+      ))
     end
   end
 end
