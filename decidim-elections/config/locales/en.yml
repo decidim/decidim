@@ -463,6 +463,8 @@ en:
             end_time: End at
             start_time: Starts at
             title: Title
+            verifiable_results_file_hash: File SHA256 checksum
+            verifiable_results_file_url: Verifiable election file
         question:
           fields:
             answers: Answers
@@ -792,6 +794,7 @@ en:
             monitoring_committee: Monitoring Committee
             monitoring_committee_members: Members
             monitoring_committee_polling_station_closures: Validate Certificates
+            monitoring_committee_verify_elections: Verify Elections
             polling_officers: Polling Officers
             polling_stations: Polling Stations
         models:
@@ -843,8 +846,8 @@ en:
         monitoring_committee_polling_station_closures:
           actions:
             title: Actions
-            view: View
             validate: Validate
+            view: View
           closures:
             change_election: Change election
             signed: Signed?
@@ -853,7 +856,7 @@ en:
           edit:
             change_polling_station: Back to Polling Stations
             monitoring_committee_notes: Remarks
-            monitoring_committee_notes_placeholder: Report any incidences here
+            monitoring_committee_notes_placeholder: Report any incidence here
             title: Results for the election <i>%{election_title}</i> in the polling station <i>%{polling_station_title}</i>
           elections:
             title: Choose an election you want to validate
@@ -863,6 +866,15 @@ en:
           validate:
             error: There was a problem validating the closure
             success: The closure has been validated correctly
+        monitoring_committee_verify_elections:
+          index:
+            download: Download
+            how_to_checksum: 'To make sure the file you downloaded has not been corrupted or tampered with during the download process, run the following command in your console and check that the output matches the checksum reported above:'
+            how_to_download: To verify an election, download its verifiable file from the table above.
+            how_to_run_verifier: 'Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href=''https://github.com/decidim/decidim-bulletin-board''>this repository</a> and, from the root folder, run the following command:'
+            how_to_title: How to verify the validity of an election
+            not_available: Not yet avaliable
+            title: Elections
         polling_officers:
           create:
             invalid: There was a problem creating this polling officer
