@@ -20,6 +20,7 @@
           <tr>
             <th><%= t("models.polling_station.fields.title", scope: "decidim.votings.admin") %></th>
             <th><%= t("models.polling_station.fields.address", scope: "decidim.votings.admin") %></th>
+            <th><%= t("models.polling_station.fields.polling_station_president", scope: "decidim.votings.admin") %></th>
             <th><%= t(".signed") %></th>
             <th><%= t(".validated") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures") %></th>
@@ -38,6 +39,9 @@
               </td>
               <td>
                 <%= polling_station.address %>
+              </td>
+              <td>
+                <%= polling_station.polling_station_president&.name %>
               </td>
               <td>
                 <%= icon sign_icon_name, class: sign_icon_style %>
