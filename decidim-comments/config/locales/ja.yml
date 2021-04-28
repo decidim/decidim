@@ -71,6 +71,7 @@ ja:
       comment_thread:
         title: '%{authorName} との会話'
       comments:
+        blocked_comments_for_unauthorized_user_warning: 現在、コメントできるのは検証済アカウントのみになりますが、以前のコメントを読むことはできます。
         blocked_comments_for_user_warning: 現時点ではコメントできませんが、以前のコメントを読むことができます。
         blocked_comments_warning: コメントは現時点で無効になっていますが、以前のコメントを読むことができます。
         comment_details_title: コメントの詳細
