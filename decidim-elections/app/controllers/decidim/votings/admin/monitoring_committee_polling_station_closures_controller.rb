@@ -13,7 +13,7 @@ module Decidim
         def index
           enforce_permission_to :read, :monitoring_committee_polling_station_closures, voting: current_voting
 
-          redirect_to voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: elections.first.id) if elections.one?
+          redirect_to voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: elections.first.id) if elections.one? && params[:election_id].blank?
         end
 
         def show
