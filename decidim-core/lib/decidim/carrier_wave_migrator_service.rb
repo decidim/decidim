@@ -10,7 +10,6 @@ module Decidim
       [Decidim::UserGroup, "avatar", Decidim::Cw::AvatarUploader, "avatar"],
       [Decidim::OAuthApplication, "organization_logo", Decidim::Cw::OAuthApplicationLogoUploader, "organization_logo"],
       [Decidim::Authorization, "verification_attachment", Decidim::Cw::Verifications::AttachmentUploader, "verification_attachment"],
-      [Decidim::Authorization, "verification_attachment", Decidim::Cw::Verifications::AttachmentUploader, "verification_attachment"],
       [Decidim::Organization, "official_img_header", Decidim::Cw::OfficialImageHeaderUploader, "official_img_header"],
       [Decidim::Organization, "official_img_footer", Decidim::Cw::OfficialImageFooterUploader, "official_img_footer"],
       [Decidim::Organization, "logo", Decidim::Cw::OrganizationLogoUploader, "logo"],
