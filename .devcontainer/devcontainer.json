@@ -2,11 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.140.1/containers/ruby-rails
 {
 	"name": "Ruby on Rails",
-<<<<<<< HEAD
-	"workspaceFolder": "/workspaces/dife-decidim-app",
-=======
 	"workspaceFolder": "/workspace",
->>>>>>> feature/add-suspend-user-functionality
 	"service": "rails",
 	"dockerComposeFile": [
 		"docker-compose.yml"

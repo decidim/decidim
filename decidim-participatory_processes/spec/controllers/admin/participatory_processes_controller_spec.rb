@@ -49,6 +49,7 @@ module Decidim
 
           it "uses the slug param as participatory_process id" do
             expect(ParticipatoryProcessForm).to receive(:from_params).with(hash_including(id: participatory_process.id.to_s)).and_call_original
+
             patch :update, params: { slug: participatory_process.id, participatory_process: participatory_process_params }
 
             expect(response).to redirect_to(edit_participatory_process_path(participatory_process.slug))

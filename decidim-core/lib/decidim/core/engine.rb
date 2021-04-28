@@ -52,34 +52,12 @@ require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/current_organization"
 
-require_relative "../../../app/helpers/decidim/layout_helper"
-require_relative "../../../app/middleware/decidim/current_organization"
-require_relative "../../../app/middleware/decidim/strip_x_forwarded_host"
-require_relative "../../../app/services/decidim/events_manager"
-require_relative "../../../app/services/decidim/settings_change"
 module Decidim
   module Core
     # Decidim's core Rails Engine.
     class Engine < ::Rails::Engine
       isolate_namespace Decidim
       engine_name "decidim"
-
-      # Please note the following initializer that actually disables the zeitwerk from any Decidim installation.
-      # I have taken the decision of not upgrading the zeitwerk, to keep the pull request smaller , and allow smaller iterations on the upcomming changes.
-      # While running the project using the classic autoloader, the following warning is posted by rails, and is different for each one of the classes.
-      # DEPRECATION WARNING: Initialization autoloaded the constants Decidim::LayoutHelper, Decidim::CurrentOrganization and a lot more classes.
-      initializer "Rails 6 autoloader" do
-        Rails.application.configure do
-          if config.autoloader == :zeitwerk
-            ActiveSupport::Deprecation.warn(%(
-
-The zeitwerk autoloader is not yet compatible with Decidim. Setting fallback to classic autoloader
-
-))
-            config.autoloader = :classic
-          end
-        end
-      end
 
       initializer "decidim.action_controller" do |_app|
         config.to_prepare do

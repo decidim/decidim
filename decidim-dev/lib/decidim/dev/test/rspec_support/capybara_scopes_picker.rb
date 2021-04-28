@@ -81,7 +81,7 @@ module Capybara
       body = find(:xpath, "//body")
       where = back ? "header" : "content"
       scope_name = scope ? translated(scope.name) : t("decidim.scopes.global")
-      expect(body).to have_selector("#data_picker-modal .picker-#{where} a", text: scope_name, wait: 2)
+      expect(body).to have_selector("#data_picker-modal .picker-#{where} a", text: scope_name)
       body.find("#data_picker-modal .picker-#{where} a", text: scope_name).click
     end
   end

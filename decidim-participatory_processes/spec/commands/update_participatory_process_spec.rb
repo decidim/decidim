@@ -41,7 +41,6 @@ module Decidim::ParticipatoryProcesses
           }
         }
       end
-
       let(:user) { create :user, :admin, :confirmed, organization: my_process.organization }
       let(:context) do
         {

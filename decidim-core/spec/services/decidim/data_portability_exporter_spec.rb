@@ -46,7 +46,6 @@ module Decidim
           zip_file.each do |entry|
             entry_name = entry.name
             prefix = file_prefixes.find { |start| entry_name.start_with?(start) }
-
             expect(file_prefixes.delete(prefix)).to be_present
           end
         end

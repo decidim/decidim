@@ -18,10 +18,12 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if form.invalid?
+          meeting.with_lock do
+            return broadcast(:invalid) if form.invalid?
 
-          update_meeting_registrations
-          send_notification if should_notify_followers?
+            update_meeting_registrations
+            send_notification if should_notify_followers?
+          end
 
           broadcast(:ok)
         end

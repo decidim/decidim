@@ -268,7 +268,7 @@ describe "Meeting registrations", type: :system do
           component.update!(settings: { registration_code_enabled: false })
         end
 
-        it "shows the registration code" do
+        it "does not show the registration code" do
           visit_meeting
 
           expect(page).to have_no_css(".registration_code")

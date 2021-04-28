@@ -100,6 +100,7 @@ module Decidim::ParticipatoryProcesses
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
+
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "create"
@@ -126,6 +127,7 @@ module Decidim::ParticipatoryProcesses
 
         it "links related processes" do
           subject.call
+
           linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
           expect(linked_processes).to match_array([another_process])
         end

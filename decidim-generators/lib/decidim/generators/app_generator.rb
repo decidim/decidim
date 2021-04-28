@@ -64,7 +64,6 @@ module Decidim
       class_option :profiling, type: :boolean,
                                default: false,
                                desc: "Add the necessary gems to profile the app"
-
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end

@@ -69,6 +69,15 @@ module Decidim::Admin
           expect(action_log.version).to be_present
           expect(action_log.version.event).to eq "update"
         end
+
+        it "updates the organization in the organization" do
+          expect { command.call }.to broadcast(:ok)
+          organization.reload
+
+          expect(organization.name).to eq("My super organization")
+          expect(organization.rich_text_editor_in_public_views).to eq(true)
+          expect(organization.enable_machine_translations).to eq(true)
+        end
       end
     end
   end

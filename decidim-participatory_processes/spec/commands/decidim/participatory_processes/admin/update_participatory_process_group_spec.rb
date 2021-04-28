@@ -38,7 +38,6 @@ module Decidim::ParticipatoryProcesses
         }
       }
     end
-
     let(:context) do
       {
         current_organization: organization,
