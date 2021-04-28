@@ -29,12 +29,15 @@ import "../../../../decidim-core/app/packs/src/decidim/input_mentions"
 import "../../../../decidim-core/app/packs/src/decidim/vizzs"
 import "../../../../decidim-core/app/packs/src/decidim/ajax_modals"
 import "../src/decidim/admin/officializations"
-import "../../../../decidim-core/app/packs/src/decidim/input_character_counter"
+import InputCharacterCounter from "../../../../decidim-core/app/packs/src/decidim/input_character_counter"
 import "../../../../decidim-core/app/packs/src/decidim/session_timeouter"
 import "../../../../decidim-core/app/packs/src/decidim/slug_form"
-import "../../../../decidim-core/app/packs/src/decidim/configuration"
+import Configuration from "../../../../decidim-core/app/packs/src/decidim/configuration"
 import managedUsersForm from "../src/decidim/admin/managed_users"
+
 window.Decidim.managedUsersForm = managedUsersForm
+window.Decidim.config = new Configuration()
+window.Decidim.InputCharacterCounter = InputCharacterCounter
 
 // This needs to be loaded after confirm dialog to bind properly
 import Rails from "@rails/ujs"
