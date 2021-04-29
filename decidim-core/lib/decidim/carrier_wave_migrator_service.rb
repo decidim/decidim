@@ -47,8 +47,9 @@ module Decidim
 
           if destination.attached?
             attachment.cache_stored_file!
+            file = cw_file(attachment)
 
-            cw_checksum = Digest::MD5.file(attachment.path).base64digest
+            cw_checksum = Digest::MD5.file(file).base64digest
             as_checksum = destination.blob.checksum
 
             logger.info "#{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
@@ -87,15 +88,15 @@ module Decidim
           attachment.cache_stored_file!
           content_type = attachment.content_type
           filename = block.images[image_config[:name].to_s]
-
+          file = cw_file(attachment)
           destination.attach(
-            io: File.open(attachment.file.file),
+            io: file,
             content_type: content_type,
             filename: filename
           )
           destination.record.save if destination.record.new_record?
 
-          cw_checksum = Digest::MD5.file(attachment.path).base64digest
+          cw_checksum = Digest::MD5.file(file).base64digest
           as_checksum = destination.blob.checksum
 
           logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
@@ -132,9 +133,14 @@ module Decidim
         attachment.cache_stored_file!
         content_type = attachment.content_type
         filename = item.attributes[cw_attribute.to_s]
-        copy.send(as_attribute).attach(io: File.open(attachment.file.file), content_type: content_type, filename: filename)
+        file = cw_file(attachment)
+        copy.send(as_attribute).attach(
+          io: file,
+          content_type: content_type,
+          filename: filename
+        )
 
-        cw_checksum = Digest::MD5.file(attachment.path).base64digest
+        cw_checksum = Digest::MD5.file(file).base64digest
         as_checksum = copy.send(as_attribute).blob.checksum
 
         logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
@@ -162,8 +168,9 @@ module Decidim
         if copy.send(as_attribute).attached?
           attachment = item.send(cw_attribute)
           attachment.cache_stored_file!
+          file = cw_file(attachment)
 
-          cw_checksum = Digest::MD5.file(attachment.path).base64digest
+          cw_checksum = Digest::MD5.file(file).base64digest
           as_checksum = copy.send(as_attribute).blob.checksum
 
           logger.info "#{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
@@ -233,6 +240,14 @@ module Decidim
       images_container_class.manifest = block.manifest
       images_container_class.manifest_scope = block.scope_name
       images_container_class.new(block)
+    end
+
+    def self.cw_file(attachment)
+      if attachment.file.is_a?(CarrierWave::Storage::Fog::File)
+        URI.open(URI.parse(attachment.url))
+      else
+        attachment.file.file
+      end
     end
   end
 end
