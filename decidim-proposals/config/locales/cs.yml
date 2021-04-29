@@ -124,6 +124,7 @@ cs:
       proposals:
         actions:
           amend: Pozměnit
+          comment: Komentář
           create: Vytvořit
           endorse: Schválit
           vote: Hlasování
