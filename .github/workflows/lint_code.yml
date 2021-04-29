@@ -47,10 +47,10 @@ jobs:
           restore-keys: |
             yarn-
       - name: Install JS dependencies
-        run: yarn install --frozen-lockfile --cache-folder ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        run: npm ci
       - run: bundle exec rubocop -P
         name: Lint Ruby files
-      - run: yarn run lint
+      - run: npm run lint
         name: Lint JS files
       - run: ./.github/run_erblint.sh
         name: Lint ERB files
