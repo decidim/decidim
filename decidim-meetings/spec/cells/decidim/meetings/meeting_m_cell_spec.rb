@@ -19,6 +19,14 @@ module Decidim::Meetings
       it "renders the card" do
         expect(cell_html).to have_css(".card--meeting")
       end
+
+      context "when an image is attached to the meeting" do
+        let!(:attachment) { create(:attachment, attached_to: meeting) }
+
+        it "renders the picture" do
+          expect(cell_html).to have_css(".card__image")
+        end
+      end
     end
 
     context "when title contains special html entities" do
