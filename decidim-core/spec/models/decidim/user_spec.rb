@@ -54,7 +54,7 @@ module Decidim
 
         it "is not valid" do
           expect(user).not_to be_valid
-          expect(user.errors[:nickname].length).to eq(1)
+          expect(user.errors[:nickname]).to include("can't be blank")
         end
 
         it "can't be empty backed by an index" do
