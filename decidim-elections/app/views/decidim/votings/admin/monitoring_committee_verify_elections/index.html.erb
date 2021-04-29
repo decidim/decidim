@@ -23,7 +23,7 @@
               </td>
               <td>
                 <% if election.verifiable_results_file_url.present? %>
-                  <%= link_to election.verifiable_results_file_url, t(".download") %>
+                  <%= link_to t(".download"), election.verifiable_results_file_url %>
                 <% else %>
                   <%= t(".not_available") %>
                 <% end %>
