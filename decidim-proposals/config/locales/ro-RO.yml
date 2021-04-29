@@ -120,9 +120,11 @@ ro:
       proposals:
         actions:
           amend: Modifică
+          comment: Comentariu
           create: Crează
           endorse: Aprobare
           vote: Suport
+          vote_comment: Votează comentariul
           withdraw: Retragere
         name: Propuneri
         settings:
