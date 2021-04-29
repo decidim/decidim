@@ -115,6 +115,7 @@ module Decidim
       end
     end
 
+    # rubocop:disable Metrics/ParameterLists
     def self.migrate_attachment!(klass:, cw_attribute:, cw_uploader:, logger:, as_attribute: cw_attribute, routes_mappings: [])
       old_class = cw_attachments_class(klass, cw_attribute, cw_uploader)
 
@@ -156,6 +157,7 @@ module Decidim
         logger.info "[ERROR] Exception migrating #{klass}##{item.id} from CW attribute #{cw_attribute} to AS #{as_attribute} attribute #{$ERROR_INFO}"
       end
     end
+    # rubocop:enable Metrics/ParameterLists
 
     def self.check_migration(klass:, cw_attribute:, cw_uploader:, logger:, as_attribute: cw_attribute)
       old_class = cw_attachments_class(klass, cw_attribute, cw_uploader)
