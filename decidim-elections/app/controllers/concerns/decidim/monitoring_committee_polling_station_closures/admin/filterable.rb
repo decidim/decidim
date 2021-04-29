@@ -21,10 +21,15 @@ module Decidim
                       LEFT JOIN decidim_users president_user ON president_user.id = president.decidim_user_id
                       LEFT JOIN decidim_votings_polling_officers managers ON managers.managed_polling_station_id = decidim_votings_polling_stations.id
                       LEFT JOIN decidim_users manager_user ON manager_user.id = managers.decidim_user_id
-                      LEFT JOIN decidim_votings_polling_station_closures closure ON closure.decidim_votings_polling_station_id = decidim_votings_polling_stations.id")
+                      LEFT JOIN decidim_votings_polling_station_closures closure ON closure.decidim_votings_polling_station_id = decidim_votings_polling_stations.id
+                        AND closure.decidim_elections_election_id = #{election_id}")
 
             query = filter_by_validated(query)
             filter_by_signed(query)
+          end
+
+          def election_id
+            params[:election_id]
           end
 
           def search_field_predicate
