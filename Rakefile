@@ -76,7 +76,7 @@ task development_app: "decidim:generate_external_development_app"
 
 desc "Build webpack bundle files"
 task :webpack do
-  sh "yarn install && yarn run build:prod"
+  sh "npm install && npm run build:prod"
 end
 
 desc "Bundle all Gemfiles"
