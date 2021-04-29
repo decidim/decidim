@@ -28,7 +28,7 @@
             </span>
           </div>
           <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
             </span>
           </div>
           <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
             </span>
           </div>
           <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@
             </span>
           </div>
           <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
           </div>
         </div>
       </div>
@@ -128,8 +128,51 @@
             </span>
           </div>
           <div class="card__footer--transparent text-small hide">
-            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+            <strong><%= t(".chained_hash") %></strong>: <span class="chained-hash"></span>
           </div>
+        </div>
+      </div>
+
+      <!-- VERIFIABLE RESULTS STEP -->
+      <div class="card" id="verifiable-results-step">
+        <div class="card__content">
+          <div class="card__header">
+            <h5 class="card__title"><%= t(".verifiable_results.title") %></h5>
+          </div>
+          <div class="card__text">
+            <% if election.results_published? %>
+              <span class="card__text--status success"><%= t(".verify") %></span>
+              <%= content_tag :p, sanitize(t(".verifiable_results.description.ready")) %>
+              <pre class="code-block">sha256sum &lt;verifiable_election_file_path&gt;</pre>
+              <%= content_tag :p, sanitize(t(".verifiable_results.how_to_verify")) %>
+              <pre class="code-block">bin/verify &lt;verifiable_election_file_path&gt;</pre>
+            <% else %>
+              <span class="card__text--status text-muted"><%= t(".not_ready") %></span>
+              <%= t(".verifiable_results.description.not_ready") %>
+            <% end %>
+          </div>
+          <% if election.results_published? %>
+            <div class="card__footer">
+              <div class="card__support">
+                <span class="card--process__small"><strong><%= t(".verifiable_results.verifiable_file") %></strong></span>
+                <% if election.verifiable_results_file_url.present? %>
+                  <%= link_to t(".download"), election.verifiable_results_file_url, class: "card__button button small" %>
+                <% else %>
+                  <span class="card--process__small">
+                    <%= t(".not_available") %>
+                  </span>
+                <% end %>
+                <span class="card--process__small"><strong><%= t(".verifiable_results.checksum") %></strong></span>
+                <% if election.verifiable_results_file_hash.present? %>
+                  <%= election.verifiable_results_file_hash %>
+                <% else %>
+                  <span class="card--process__small">
+                    <%= t(".not_available") %>
+                  </span>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

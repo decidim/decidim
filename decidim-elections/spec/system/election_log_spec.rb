@@ -136,4 +136,50 @@ describe "Election log", :slow, type: :system do
       expect(page).to have_content("The chained Hash of this message")
     end
   end
+
+  describe "verify election" do
+    context "when election doesn't have correct bb_status" do
+      let(:election) { create(:election, :bb_test, :tally_ended, component: component) }
+
+      it "does not show instructions to verify election" do
+        expect(page).to have_content("Verify Election results")
+        expect(page).to have_content("The verifiable election file and SHA256 checksum aren't available yet")
+        expect(page).to have_content("NOT READY")
+      end
+    end
+
+    context "when election has correct bb_status but no verifiable file nor checksum" do
+      let(:election) { create(:election, :bb_test, :results_published, component: component, verifiable_results_file_hash: nil, verifiable_results_file_url: nil) }
+
+      it "shows instructions to verify election" do
+        expect(page).to have_content("VERIFY")
+        expect(page).to have_content("Here, you have the option to verify the election.")
+      end
+
+      it "shows that file and checksum are not available" do
+        expect(page).to have_content("Not yet available")
+
+        within ".card__support" do
+          expect(page).not_to have_content("Download")
+        end
+      end
+    end
+
+    context "when election has correct bb_status and verifiable file and checksum" do
+      let(:election) { create(:election, :bb_test, :results_published, component: component) }
+
+      it "shows instructions to verify election" do
+        expect(page).to have_content("VERIFY")
+        expect(page).to have_content("Here, you have the option to verify the election.")
+      end
+
+      it "shows that file and checksum are not available" do
+        expect(page).not_to have_content("Not yet available")
+
+        within ".card__support" do
+          expect(page).to have_content("Download")
+        end
+      end
+    end
+  end
 end
