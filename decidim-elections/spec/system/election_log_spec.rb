@@ -111,18 +111,18 @@ describe "Election log", :slow, type: :system do
     end
   end
 
-  # context "when tally is completed" do
-  #   let(:election) { create(:election, :bb_test, :tally_ended, component: component) }
+  context "when tally is completed" do
+    let(:election) { create(:election, :bb_test, :tally_ended, component: component) }
 
-  #   it "shows that tally has finished" do
-  #     expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
-  #     expect(page).to have_content("The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.")
-  #     expect(page).to have_content("The voting process is finished.")
-  #     expect(page).to have_content("The tally process is finished.")
-  #     expect(page).to have_content("The results are not published yet.")
-  #     expect(page).to have_content("The chained Hash of this message")
-  #   end
-  # end
+    it "shows that tally has finished" do
+      expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+      expect(page).to have_content("The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.")
+      expect(page).to have_content("The voting process is finished.")
+      expect(page).to have_content("The tally process is finished.")
+      expect(page).to have_content("The results are not published yet.")
+      expect(page).to have_content("The chained Hash of this message")
+    end
+  end
 
   context "when results are published" do
     let(:election) { create(:election, :bb_test, :results_published, component: component) }

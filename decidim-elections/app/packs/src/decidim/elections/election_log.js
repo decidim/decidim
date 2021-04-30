@@ -26,9 +26,12 @@ $(async () => {
 
   // adds the `iat` of the message to the UI
   const setMessageTime = async (logEntryStep, uiStep) => {
-    const messageId = logEntryStep.messageId
-    const signedData = logEntryStep.signedData
-    const parsedData = await parser.parse({messageId, signedData})
+    if (!logEntryStep.signedData) {
+      uiStep.find(".time").html("")
+      return
+    }
+
+    const parsedData = await parser.parse(logEntryStep)
     const messageTime = new Date(parsedData.decodedData.iat * 1000)
     const year = messageTime.toDateString()
     const time = messageTime.toLocaleTimeString()
@@ -42,8 +45,13 @@ $(async () => {
     uiStep.find(".chained-hash").html(logEntryStep.chainedHash)
   }
 
+  // finds the logEntry for each step
+  const getLogEntryByMessageId = (step) => {
+    logEntries.find((logEntry) => logEntry.messageId.includes(step))
+  }
+
   // CREATE ELECTION STEP
-  const createElectionLogEntry = logEntries.find((logEntry) => logEntry.messageId.includes("create_election"))
+  const createElectionLogEntry = getLogEntryByMessageId("create_election")
   if (createElectionLogEntry) {
     $createElectionStep.find(".no-election-created").addClass("hide")
     $createElectionStep.find(".election-created").removeClass("hide")
@@ -54,8 +62,8 @@ $(async () => {
   }
 
   // KEY CEREMONY STEP
-  const startKeyCeremonyLogEntry = logEntries.find((logEntry) => logEntry.messageId.includes("start_key_ceremony"))
-  const endKeyCeremonyLogEntry = logEntries.find((logEntry) => logEntry.messageId.includes("end_key_ceremony"))
+  const startKeyCeremonyLogEntry = getLogEntryByMessageId("start_key_ceremony")
+  const endKeyCeremonyLogEntry = getLogEntryByMessageId("end_key_ceremony")
 
   if (startKeyCeremonyLogEntry && !endKeyCeremonyLogEntry) {
     $keyCeremonyStep.find(".key-ceremony-not-started").addClass("hide")
@@ -77,8 +85,8 @@ $(async () => {
   }
 
   // VOTING STEP
-  const startVoteLogEntry = logEntries.find((logEntry) => logEntry.messageId.includes("start_vote"))
-  const endVoteLogEntry = logEntries.find((logEntry) => logEntry.messageId.includes("end_vote"))
+  const startVoteLogEntry = getLogEntryByMessageId("start_vote")
+  const endVoteLogEntry = getLogEntryByMessageId("end_vote")
 
   if (startVoteLogEntry && !endVoteLogEntry) {
     $voteStep.find(".vote-not-started").addClass("hide")
@@ -100,8 +108,8 @@ $(async () => {
   }
 
   // TALLY STEP
-  const startTallyLogEntry = logEntries.find((logEntry) => logEntry.messageId.includes("start_tally"))
-  const endTallyLogEntry = logEntries.find((logEntry) => logEntry.messageId.includes("end_tally"))
+  const startTallyLogEntry = getLogEntryByMessageId("start_tally")
+  const endTallyLogEntry = getLogEntryByMessageId("end_tally")
 
   if (startTallyLogEntry && !endTallyLogEntry) {
     $tallyStep.find(".tally-not-started").addClass("hide")
@@ -123,7 +131,7 @@ $(async () => {
   }
 
   // RESULTS STEP
-  const resultsLogEntry = logEntries.find((logEntry) => logEntry.messageId.includes("publish_results"))
+  const resultsLogEntry = getLogEntryByMessageId("publish_results")
 
   if (resultsLogEntry) {
     $resultStep.find(".results-not-published").addClass("hide")
@@ -133,5 +141,5 @@ $(async () => {
 
     $resultStep.find(".results-published").removeClass("hide")
     addChainedHash(resultsLogEntry, $resultStep)
-  } 
+  }
 });
