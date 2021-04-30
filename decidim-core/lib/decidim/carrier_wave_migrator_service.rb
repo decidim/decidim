@@ -49,7 +49,7 @@ module Decidim
             attachment.cache_stored_file!
             file = cw_file(attachment)
 
-            cw_checksum = Digest::MD5.file(file).base64digest
+            cw_checksum = downloaded_file_checksum(file)
             as_checksum = destination.blob.checksum
 
             logger.info "#{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
@@ -96,7 +96,7 @@ module Decidim
           )
           destination.record.save if destination.record.new_record?
 
-          cw_checksum = Digest::MD5.file(file).base64digest
+          cw_checksum = downloaded_file_checksum(file)
           as_checksum = destination.blob.checksum
 
           logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
@@ -141,7 +141,7 @@ module Decidim
           filename: filename
         )
 
-        cw_checksum = Digest::MD5.file(file).base64digest
+        cw_checksum = downloaded_file_checksum(file)
         as_checksum = copy.send(as_attribute).blob.checksum
 
         logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
@@ -172,7 +172,7 @@ module Decidim
           attachment.cache_stored_file!
           file = cw_file(attachment)
 
-          cw_checksum = Digest::MD5.file(file).base64digest
+          cw_checksum = downloaded_file_checksum(file)
           as_checksum = copy.send(as_attribute).blob.checksum
 
           logger.info "#{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
@@ -242,6 +242,14 @@ module Decidim
       images_container_class.manifest = block.manifest
       images_container_class.manifest_scope = block.scope_name
       images_container_class.new(block)
+    end
+
+    def self.downloaded_file_checksum(file)
+      if file.is_a?(StringIO)
+        Digest::MD5.base64digest(file.read)
+      else
+        Digest::MD5.file(file).base64digest
+      end
     end
 
     def self.cw_file(attachment)
