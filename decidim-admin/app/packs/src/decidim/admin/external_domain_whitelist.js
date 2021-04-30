@@ -1,5 +1,10 @@
-((exports) => {
-  const { AutoButtonsByPositionComponent, AutoLabelByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+import AutoButtonsByPositionComponent from "./auto_buttons_by_position.component"
+import AutoLabelByPositionComponent from "./auto_label_by_position.component"
+import createDynamicFields from "./dynamic_fields.component"
+import createSortList from "./sort_list.component"
+
+$(() => {
+  // const { AutoButtonsByPositionComponent, AutoLabelByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
 
   const dynamicFieldDefinitions = [
     {
