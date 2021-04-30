@@ -55,6 +55,9 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
       - name: Get npm cache directory path
         id: npm-cache-dir-path
         run: echo "::set-output name=dir::$(npm get cache)-${{ env.DECIDIM_MODULE }}"
