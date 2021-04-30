@@ -29,15 +29,8 @@ import "src/decidim/input_mentions"
 import "src/decidim/vizzs"
 import "src/decidim/ajax_modals"
 import "src/decidim/admin/officializations"
-import "src/decidim/input_character_counter"
 import "src/decidim/session_timeouter"
 import "src/decidim/slug_form"
-import "src/decidim/configuration"
-import managedUsersForm from "src/decidim/admin/managed_users"
-
-window.Decidim.managedUsersForm = managedUsersForm
-window.Decidim.config = new Configuration()
-window.Decidim.InputCharacterCounter = InputCharacterCounter
 
 // CSS
 import "entrypoints/decidim_admin.scss";
