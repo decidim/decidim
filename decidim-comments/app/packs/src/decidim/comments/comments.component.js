@@ -11,6 +11,8 @@
 const $ = window.$;
 
 import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter"
+import ExternalLink from "../../../../../../decidim-core/app/packs/src/decidim/external_link"
+import updateExternalDomainLinks from "../../../../../../decidim-core/app/packs/src/decidim/external_domain_warning"
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -150,6 +152,11 @@ export default class CommentsComponent {
     $container.foundation();
     this._initializeComments($container);
     createCharacterCounter($(".add-comment textarea", $container));
+    $container.find('a[target="_blank"]').each((_i, elem) => {
+      const $link = $(elem);
+      $link.data("external-link", new ExternalLink($link));
+    });
+    updateExternalDomainLinks($container)
   }
 
   /**
