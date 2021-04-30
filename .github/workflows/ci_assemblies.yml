@@ -20,7 +20,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 2.7.1
-  NODE_VERSION: 14.16.0
+  NODE_VERSION: 15.14.0
   DECIDIM_MODULE: decidim-assemblies
 
 jobs:
