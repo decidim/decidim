@@ -11,9 +11,9 @@ It's recommended to understand how Webpacker works. More information:
 
 == Overview
 
-The recommended way to import assets from a gem in a Rails app using Webpacker is to publish a package in npmjs.org and include it in the package.json via yarn. Then the assets are available to Webpack via node_modules/ folder
+The recommended way to import assets from a gem in a Rails app using Webpacker is to publish a package in npmjs.org and include it in the package.json via `npm install`. Then the assets are available to Webpack via node_modules/ folder
 
-Once created, you should update the instructions to install the module and add the step to add the assets with yarn.
+Once created, you should update the instructions to install the module and add the step to add the assets with npm.
 
 == Folder migration
 
@@ -43,6 +43,6 @@ In ActiveAdmin:
 
 - assets are defined in the package.json file, in an entry named `files:`
 - assets are precompiled using Rollup (a lightweigth Js compiler and packer)
-- a generator has been included to copy files to the Rails folder, do a yarn add and install the npm package. See https://github.com/activeadmin/activeadmin/blob/master/lib/generators/active_admin/webpacker/webpacker_generator.rb[the generator]
+- a generator has been included to copy files to the Rails folder, do a `npm install` and install the npm package. See https://github.com/activeadmin/activeadmin/blob/master/lib/generators/active_admin/webpacker/webpacker_generator.rb[the generator]
 
 It's a good example to follow and get good practices

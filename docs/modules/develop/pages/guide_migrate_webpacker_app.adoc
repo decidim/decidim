@@ -24,7 +24,7 @@ gem 'webpacker', '~> 6.x'
 
 # OR if you prefer to use master
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
-yarn add https://github.com/rails/webpacker.git
+npm install https://github.com/rails/webpacker.git
 ----
 
 2. Install it
@@ -35,11 +35,11 @@ bundle install
 bundle exec rails webpacker:install
 ----
 
-3. Install yarn dependencies
+3. Install npm dependencies
 
 [source,console]
 ----
-yarn install
+npm install
 ----
 
 == Add Decidim webpacker configuration
@@ -112,7 +112,7 @@ For images, if they are in `app/packs/images` you could use `image_pack_tag`.
 
 Sometimes assets are included in `vendor/assets/` folder or imported from gems. For each specific one you should check:
 
-1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `yarn add`. If it's not available you might want to copy it to `app/packs/src` and import it.
+1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `npm install`. If it's not available you might want to copy it to `app/packs/src` and import it.
 2. if the asset is a stylesheet it should be copied to `app/packs/stylesheets` and imported with `@import...` from `decidim-settings.scss`
 
 == Remove manifest
