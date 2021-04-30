@@ -104,8 +104,28 @@ describe "Polling Officer zone", type: :system do
       end
     end
 
+    describe "when attaching the physical certificate image to the closure", processing_uploads_for: Decidim::AttachmentUploader do
+      let!(:closure) { create(:ps_closure, :with_results, phase: :certificate, election: election, polling_station: polling_station) }
+
+      before do
+        visit decidim_votings_polling_officer_zone.polling_officer_election_closure_path(assigned_polling_officer, election)
+      end
+
+      it "can attach images to the closure" do
+        expect(page).to have_content("Vote recount - Upload certificate")
+
+        within ".form.certify_closure" do
+          attach_file :closure_certify_add_photos, Decidim::Dev.asset("city.jpeg")
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Certificate uploaded successfully.")
+        expect(page.html).to include("city.jpeg")
+      end
+    end
+
     describe "when signing the closure" do
-      let!(:closure) { create(:ps_closure, :with_results, election: election, polling_station: polling_station) }
+      let!(:closure) { create(:ps_closure, :with_results, phase: :signature, election: election, polling_station: polling_station) }
 
       before do
         visit decidim_votings_polling_officer_zone.polling_officer_election_closure_path(assigned_polling_officer, election)

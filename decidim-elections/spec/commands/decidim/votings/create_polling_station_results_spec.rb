@@ -69,10 +69,10 @@ module Decidim::Votings
         expect(subject.call).to broadcast(:ok)
       end
 
-      it "changes to signature phase" do
+      it "changes to certificate phase" do
         subject.call
 
-        expect(closure.signature_phase?).to be true
+        expect(closure.certificate_phase?).to be true
       end
     end
   end
