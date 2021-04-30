@@ -6,6 +6,7 @@ import fixDropdownMenus from "./dropdowns_menus"
 import createQuillEditor from "./editor"
 import Configuration from "./configuration"
 import ExternalLink from "./external_link"
+import updateExternalDomainLinks from "./external_domain_warning"
 import InputCharacterCounter from "./input_character_counter"
 import FormValidator from "./form_validator"
 import CommentsComponent from "../../../../../decidim-comments/app/packs/src/decidim/comments/comments.component"
@@ -59,5 +60,6 @@ $(() => {
 
     formFilter.mountComponent();
   })
-});
 
+  updateExternalDomainLinks($("body"))
+});
