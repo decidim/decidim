@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
     "config/webpack/*",
     "config/webpacker.yml",
     "package.json",
-    "package-lock.lock"
+    "package-lock.json"
   ]
 
   s.require_paths = ["lib"]
