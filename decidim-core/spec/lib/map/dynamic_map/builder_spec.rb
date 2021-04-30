@@ -19,7 +19,7 @@ module Decidim
       describe "#stylesheet_snippets" do
         it "returns the expected stylesheet assets" do
           expect(subject.stylesheet_snippets).to match(
-            %r{<link rel="stylesheet" media="screen" href="/packs-test/css/decidim_map.css" />}
+            %r{<link rel="stylesheet" media="screen" href="/packs-test/css/decidim_map-[^.]*\.css" />}
           )
         end
       end
