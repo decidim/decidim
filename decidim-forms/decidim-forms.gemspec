@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Forms.version
-  s.add_dependency "wicked_pdf", "~> 1.4"
+  s.add_dependency "wicked_pdf", "~> 2.1"
   s.add_dependency "wkhtmltopdf-binary", "~> 0.12"
 
   s.add_development_dependency "decidim-admin", Decidim::Forms.version

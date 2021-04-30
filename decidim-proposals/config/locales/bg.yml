@@ -42,7 +42,9 @@ bg:
               invalid_document_type: 'Невалиден тип документ. Допустимите формати са: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Необходимо е да се прикачи отново
+            add_photos:
               needs_to_be_reattached: Необходимо е да се прикачи отново
             body:
               cant_be_equal_to_template: не може да е еднакво с шаблона

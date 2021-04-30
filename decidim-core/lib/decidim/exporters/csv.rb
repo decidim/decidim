@@ -43,7 +43,7 @@ module Decidim
       def headers
         return [] if processed_collection.empty?
 
-        processed_collection.first.keys
+        processed_collection.inject([]) { |keys, resource| keys | resource.keys }
       end
 
       def processed_collection

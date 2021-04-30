@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_dependency "devise/models/decidim_validatable"
-require_dependency "devise/models/decidim_newsletterable"
+require "devise/models/decidim_validatable"
+require "devise/models/decidim_newsletterable"
 require "valid_email2"
 
 module Decidim
@@ -12,6 +12,8 @@ module Decidim
     include Decidim::ActsAsAuthor
     include Decidim::UserReportable
     include Decidim::Traceable
+
+    REGEXP_NICKNAME = /\A[\w\-]+\z/.freeze
 
     class Roles
       def self.all
@@ -35,7 +37,11 @@ module Decidim
     has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
-    validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
+    validates :nickname,
+              presence: true,
+              format: { with: REGEXP_NICKNAME },
+              length: { maximum: Decidim::User.nickname_max_length },
+              unless: -> { deleted? || managed? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?

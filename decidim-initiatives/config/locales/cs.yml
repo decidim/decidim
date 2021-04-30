@@ -4,7 +4,7 @@ cs:
       initiative:
         decidim_user_group_id: Autor
         description: Popis
-        offline_votes: Podpora tváří v tvář
+        offline_votes: Osobní fyzické podpisy
         offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
         signature_end_date: Konec doby sběru podpisu
@@ -226,7 +226,7 @@ cs:
             confirm_send_to_technical_validation: Jste si jistý?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
-            export_votes: Podpora exportu
+            export_votes: Exportovat podpisy
             reject: Odmítnout iniciativu
             send_to_technical_validation: Odeslání k technickému ověření
             success: Iniciativa byla odeslána k technickému ověření
@@ -252,14 +252,14 @@ cs:
         initiatives_type_scopes:
           create:
             error: Došlo k chybě
-            success: Byla vytvořena nová oblast pro daný typ iniciativy
+            success: Byla vytvořena nová oblast působnosti pro daný typ iniciativy
           destroy:
-            success: Rozsah byl úspěšně odstraněn
+            success: Oblast působnosti byla úspěšně odstraněna
           edit:
             back: Zpět
             confirm_destroy: Jste si jisti?
             destroy: Odstranit
-            title: Upravit rozsah typu iniciativy
+            title: Upravit oblast působnosti typu iniciativy
             update: Aktualizovat
           new:
             back: Zpět
@@ -285,7 +285,7 @@ cs:
             options: Možnosti
             title: Obecná informace
           initiative_type_scopes:
-            title: Rozsahy působnosti pro tento druh iniciativ
+            title: Oblasti působnosti pro tento druh iniciativ
           new:
             create: Vytvořit
             title: Nový typ iniciativy
@@ -533,7 +533,7 @@ cs:
           any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
           confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
           edit: Upravit
-          follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
+          follow_description: Dostat upozornění, když jsou v této iniciativě novinky
           offline_method: Tato iniciativa shromažďuje pouze osobní podpisy.
           print: Tisk iniciativy
           send_to_technical_validation: Poslat na technické ověření
@@ -605,7 +605,7 @@ cs:
         back: Zpět
         fill_data: Vytvořit
         finish: Dokončit
-        previous_form: Start
+        previous_form: Začít
         promotal_committee: Výbor předkladatelů
         select_initiative_type: Vybrat
         show_similar_initiatives: Porovnat

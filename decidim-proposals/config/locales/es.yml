@@ -35,6 +35,7 @@ es:
         origin_component_id: Componente desde dónde importar las propuestas
       proposals_import:
         import_proposals: Importar propuestas
+        keep_answers: Mantener estado y respuestas
         keep_authors: Mantener autoría original
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ es:
               invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+            add_photos:
               needs_to_be_reattached: Es necesario volver a adjuntar el fichero
             body:
               cant_be_equal_to_template: no puede ser igual a la plantilla

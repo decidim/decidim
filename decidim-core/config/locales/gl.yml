@@ -951,6 +951,10 @@ gl:
         label: 'Resultados por páxina:'
       share_modal:
         close_window: Pechar ventá
+        copy_share_link: Copiar
+        copy_share_link_clarification: Copiar ligazón ao portapapeis
+        copy_share_link_copied: Copiado!
+        copy_share_link_message: Ligazón copiada con éxito no portapapeis.
         share: Comparte
         share_link: Compartir a ligazón
     statistics:

@@ -21,7 +21,11 @@ module Decidim
 
           transaction do
             update_election_status!
-            fetch_election_results if election.bb_tally_ended?
+
+            if election.bb_tally_ended?
+              fetch_election_results
+              store_verifiable_results
+            end
           end
 
           broadcast(:ok, election)
@@ -35,9 +39,17 @@ module Decidim
           @results ||= Decidim::Elections.bulletin_board.get_election_results(election.id)
         end
 
+        def election_results
+          results[:election_results]
+        end
+
+        def verifiable_results
+          results[:verifiable_results]
+        end
+
         def fetch_election_results
           answers = []
-          results.values.map do |values|
+          election_results.values.map do |values|
             values.each do |key, value|
               result_key = get_answer_id_from_result(key)
               answers = Decidim::Elections::Answer.where(id: result_key)
@@ -50,6 +62,13 @@ module Decidim
 
         def get_answer_id_from_result(result_key)
           result_key.match(/question-\d+_answer-(\d+)/).captures
+        end
+
+        def store_verifiable_results
+          election.update!(
+            verifiable_results_file_url: verifiable_results[:url],
+            verifiable_results_file_hash: verifiable_results[:hash]
+          )
         end
 
         def update_election_status!

@@ -57,6 +57,12 @@ nl:
       decidim/elections/question:
         one: Vraag
         other: vragen
+      decidim/votings/census/dataset:
+        one: Dataset
+        other: Datasets
+      decidim/votings/census/datum:
+        one: Datum
+        other: Data
       decidim/votings/polling_officer:
         one: Stembeambte
         other: Stembeambtes
@@ -420,7 +426,6 @@ nl:
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
-          lead: Je stem is al verstuurd!
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
         encrypting:
@@ -549,10 +554,11 @@ nl:
             attachment_collections: Mappen
             attachment_files: Bestanden
             attachments: Bijlagen
+            census: Register
             components: Onderdelen
             info: Informatie
             landing_page: Landingspagina
-            monitoring_committee_members: Controlecomité
+            monitoring_committee: Controlecomité
             polling_stations: Stembureau
         models:
           monitoring_committee_member:
@@ -666,6 +672,31 @@ nl:
           create: "%{user_name} heeft de stemronde %{resource_name} aangemaakt"
           publish: "%{user_name} heeft de stemronde %{resource_name} gepubliceerd"
           unpublish: "%{user_name} heeft de publicatie van de stemronde %{resource_name} ongedaan gemaakt"
+      census:
+        admin:
+          census:
+            creating_data:
+              info_message: "<strong>Gelieve te wachten</strong>, %{processed_count} verwerkt van %{raw_count} rijen uit bestand %{file}."
+            delete:
+              button: Verwijder alle registergegevens
+              confirm: Het verwijderen van alle registers kan niet ongedaan worden gemaakt. Weet je zeker dat je wil doorgaan?
+            destroy:
+              success: Registergegevens verwijderd
+            generate_access_codes:
+              button: Genereer stemcodes
+              confirm: Als je doorgaat, kan je het register niet wijzigen.
+              info_message_all: "<strong>Alle rijen zijn met succes</strong> geïmporteerd uit bestand %{file} (%{raw_count} van %{data_count})."
+              info_message_warn: Controleer of er geen gegevens ontbreken, omdat %{data_count} records zijn gemaakt en het geüploade bestand %{file} %{raw_count} rijen had.
+            new:
+              file_help:
+                explanation: 'Instructie bij het bestand:'
+                message_1: Alleen CSV-bestanden (.csv) zijn toegestaan.
+                message_2: Het scheidingsteken tussen kolommen moet een puntkomma (";") zijn.
+              info_message: "<strong>Er is nog geen register.</strong> Gebruik het formulier hieronder om een CSV-bestand te importeren."
+              submit: Dien CSV in
+              title: Stel het register op
+            show:
+              heading: Register van de stemming
       content_blocks:
         highlighted_votings:
           name: Stemrondes in de kijker
@@ -736,6 +767,8 @@ nl:
         index:
           no_votings: Er zijn geen stemrondes die voldoen aan jouw zoekcriteria.
           only_finished: Momenteel zijn er geen geplande stemrondes, maar hier vind je alle afgelopen stemrondes.
+        login:
+          start_voting: Begin met stemmen
       votings_m:
         footer_button_text:
           participate: Deelnemen

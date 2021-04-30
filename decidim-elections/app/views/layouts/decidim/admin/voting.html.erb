@@ -12,7 +12,7 @@
   </div>
 
   <div class="voting-content">
-    <% if current_participatory_space.needs_elections? %>
+    <% if !current_participatory_space.has_elections? %>
       <%= cell("decidim/announcement", t("votings.edit.add_election_component", scope: "decidim.votings.admin"), callout_class: "alert") %>
     <% end %>
     <% if current_participatory_space.polling_stations_with_missing_officers? %>

@@ -6,43 +6,54 @@ module Decidim
     class VotesController < Decidim::Elections::ApplicationController
       layout "decidim/election_votes"
       include FormFactory
+      include HasVoteFlow
 
       helper VotesHelper
-      helper_method :elections, :election, :questions, :questions_count, :preview_mode?, :vote, :bulletin_board_server, :authority_public_key, :scheme_name, :election_unique_id
+      helper_method :bulletin_board_server, :authority_public_key, :scheme_name, :election_unique_id,
+                    :exit_path, :elections, :election, :questions, :questions_count, :vote, :valid_questionnaire?
 
       delegate :count, to: :questions, prefix: true
 
       def new
-        return redirect_to(return_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless vote_mode? || preview_mode?
-        return redirect_to(election_vote_path(election, id: pending_vote.encrypted_vote_hash)) if pending_vote
+        return if access_denied?
 
-        @form = form(Voter::VoteForm).instance(election: election)
+        @form = form(Voter::VoteForm).from_params({ voter_token: voter_token, voter_id: voter_id },
+                                                  election: election, user: vote_flow.user)
       end
 
       def create
-        if vote_mode?
-          @form = form(Voter::VoteForm).from_params(params, election: election)
+        return unless valid_voter_token?
+        return if access_denied?
+
+        unless preview_mode?
+          @form = form(Voter::VoteForm).from_params(params, election: election, user: vote_flow.user, email: vote_flow.email)
           Voter::CastVote.call(@form)
         end
 
-        redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash])
+        redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash], token: vote_flow.voter_id_token)
       end
 
-      def show; end
+      def show
+        enforce_permission_to :view, :election, election: election
+      end
 
       def update
+        enforce_permission_to :view, :election, election: election
+
         Voter::UpdateVoteStatus.call(vote) do
           on(:ok) do
-            redirect_to election_vote_path(election, id: vote.encrypted_vote_hash)
+            redirect_to election_vote_path(election, id: vote.encrypted_vote_hash, token: vote_flow.voter_id_token(vote.voter_id))
           end
           on(:invalid) do
             flash[:alert] = I18n.t("votes.update.error", scope: "decidim.elections")
-            redirect_to election
+            redirect_to exit_path
           end
         end
       end
 
       def verify
+        enforce_permission_to :view, :election, election: election
+
         @form = form(Voter::VerifyVoteForm).instance(election: election)
       end
 
@@ -58,28 +69,16 @@ module Decidim
         @vote ||= Decidim::Elections::Vote.find_by(encrypted_vote_hash: params[:id]) if params[:id]
       end
 
-      def vote_mode?
-        return @vote_mode if defined?(@vote_mode)
-
-        @vote_mode = allowed_to? :vote, :election, election: election
-      end
-
-      def preview_mode?
-        return @preview_mode if defined?(@preview_mode)
-
-        @preview_mode = !vote_mode? && allowed_to?(:preview, :election, election: election)
-      end
-
-      def return_path
-        @return_path ||= if allowed_to? :view, :election, election: election
-                           election_path(election)
-                         else
-                           elections_path
-                         end
+      def exit_path
+        @exit_path ||= if allowed_to? :view, :election, election: election
+                         election_path(election)
+                       else
+                         elections_path
+                       end
       end
 
       def pending_vote
-        @pending_vote ||= Decidim::Elections::Votes::PendingVotes.for.find_by(user: current_user, election: election)
+        @pending_vote ||= Decidim::Elections::Votes::PendingVotes.for.find_by(voter_id: voter_id, election: election)
       end
 
       def bulletin_board_client
@@ -99,7 +98,37 @@ module Decidim
       end
 
       def questions
-        @questions ||= election.questions.includes(:answers).order(weight: :asc, id: :asc)
+        @questions ||= ballot_questions.includes(:answers).order(weight: :asc, id: :asc)
+      end
+
+      def access_denied?
+        if preview_mode?
+          return redirect_to(exit_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless can_preview?
+
+          return
+        end
+
+        return redirect_to(vote_flow.login_path(new_election_vote_path) || exit_path, alert: vote_flow.no_access_message, status: :temporary_redirect) unless vote_flow.can_vote?
+        return redirect_to(election_vote_path(election, id: pending_vote.encrypted_vote_hash, token: vote_flow.voter_id_token)) if pending_vote.present?
+
+        enforce_permission_to :vote, :election, election: election
+      end
+
+      def valid_voter_token?
+        return unless vote_flow.receive_data(params.require(:vote).permit(:voter_token, :voter_id))
+
+        unless preview_mode? || vote_flow.valid_received_data?
+          redirect_to(exit_path, alert: t("votes.messages.invalid_token", scope: "decidim.elections"))
+          return
+        end
+
+        true
+      end
+
+      def valid_questionnaire?
+        return @valid_questionnaire if defined?(@valid_questionnaire)
+
+        @valid_questionnaire = election.questionnaire.questions.any?
       end
     end
   end

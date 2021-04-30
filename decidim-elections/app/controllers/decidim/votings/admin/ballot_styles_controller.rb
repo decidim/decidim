@@ -9,16 +9,16 @@ module Decidim
         helper_method :ballot_styles, :current_voting, :voting_elections, :current_ballot_style
 
         def index
-          enforce_permission_to :read, :ballot_styles
+          enforce_permission_to :read, :ballot_styles, voting: current_voting
         end
 
         def new
-          enforce_permission_to :create, :ballot_style
+          enforce_permission_to :create, :ballot_style, voting: current_voting
           @form = form(BallotStyleForm).instance
         end
 
         def create
-          enforce_permission_to :create, :ballot_style
+          enforce_permission_to :create, :ballot_style, voting: current_voting
 
           @form = form(BallotStyleForm).from_params(params, voting: current_voting)
 
@@ -36,12 +36,12 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :ballot_style, ballot_style: current_ballot_style
+          enforce_permission_to :update, :ballot_style, ballot_style: current_ballot_style, voting: current_voting
           @form = form(BallotStyleForm).from_model(current_ballot_style, voting: current_voting)
         end
 
         def update
-          enforce_permission_to :update, :ballot_style, ballot_style: current_ballot_style
+          enforce_permission_to :update, :ballot_style, ballot_style: current_ballot_style, voting: current_voting
           @form = form(BallotStyleForm).from_params(params, voting: current_voting, ballot_style_id: current_ballot_style.id)
 
           UpdateBallotStyle.call(@form, current_ballot_style) do
@@ -58,7 +58,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to :delete, :ballot_style, ballot_style: current_ballot_style
+          enforce_permission_to :delete, :ballot_style, ballot_style: current_ballot_style, voting: current_voting
 
           DestroyBallotStyle.call(current_ballot_style) do
             on(:ok) do

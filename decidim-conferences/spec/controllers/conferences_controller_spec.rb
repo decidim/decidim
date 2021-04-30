@@ -52,10 +52,24 @@ module Decidim
 
       describe "GET show" do
         context "when the conference is unpublished" do
-          it "redirects to root path" do
+          it "redirects to sign in path" do
             get :show, params: { slug: unpublished_conference.slug }
 
-            expect(response).to redirect_to("/")
+            expect(response).to redirect_to("/users/sign_in")
+          end
+
+          context "with signed in user" do
+            let!(:user) { create(:user, :confirmed, organization: organization) }
+
+            before do
+              sign_in user, scope: :user
+            end
+
+            it "redirects to root path" do
+              get :show, params: { slug: unpublished_conference.slug }
+
+              expect(response).to redirect_to("/")
+            end
           end
         end
       end

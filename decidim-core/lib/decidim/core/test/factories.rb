@@ -109,6 +109,7 @@ FactoryBot.define do
       }
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
+    enable_participatory_space_filters { true }
 
     trait :secure_context do
       host { "localhost" }

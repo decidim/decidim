@@ -44,6 +44,7 @@ en:
         default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
+        enable_participatory_space_filters: Enable participatory space filters
         facebook_handler: Facebook handler
         favicon: Icon
         force_authentication: Force authentication
@@ -363,6 +364,17 @@ en:
           values:
             'false': Officialized
             'true': Not officialized
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitation accepted
+            values:
+              'false': Not accepted
+              'true': Accepted
+          user_invitation_sent_at_not_null:
+            label: Invitation sent
+            values:
+              'false': Not sent
+              'true': Sent
         private_space_eq:
           label: Private
           values:
@@ -380,6 +392,7 @@ en:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
+          user_name_or_user_email_cont: Search %{collection} by name or email.
         state_eq:
           label: State
       forms:

@@ -32,11 +32,24 @@ describe "Voting", type: :system do
 
       before do
         switch_to_host(organization.host)
-        visit decidim_votings.voting_path(voting)
       end
 
-      it "redirects to root path" do
-        expect(page).to have_current_path("/")
+      it "redirects to sign in path" do
+        visit decidim_votings.voting_path(voting)
+        expect(page).to have_current_path("/users/sign_in")
+      end
+
+      context "with signed in user" do
+        let!(:user) { create(:user, :confirmed, organization: organization) }
+
+        before do
+          sign_in user, scope: :user
+        end
+
+        it "redirects to root path" do
+          visit decidim_votings.voting_path(voting)
+          expect(page).to have_current_path("/")
+        end
       end
     end
 
@@ -48,8 +61,8 @@ describe "Voting", type: :system do
         visit decidim_votings.voting_path(voting)
       end
 
-      it "shows 'How to vote' tab" do
-        expect(page).to have_link("How to vote")
+      it "shows 'Can I vote' tab" do
+        expect(page).to have_link("Can I vote?")
       end
     end
 
@@ -59,8 +72,8 @@ describe "Voting", type: :system do
         visit decidim_votings.voting_path(voting)
       end
 
-      it "doesn't has 'How to vote' tab" do
-        expect(page).not_to have_link("How to vote")
+      it "doesn't has 'Can I vote' tab" do
+        expect(page).not_to have_link("Can I vote?")
       end
     end
   end

@@ -250,7 +250,7 @@ cs:
           fields:
             conference_meetings: Setkání konference
             price: Cena
-            registrations_count: Registrace se počítají
+            registrations_count: Počet registrací
             title: Název
             weight: Pozice v řazení
           name: Typ registrace

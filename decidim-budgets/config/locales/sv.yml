@@ -167,7 +167,7 @@ sv:
             instruction: "<li>Välj minst %{minimum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
           projects_rule:
             description: Vilka projekt tycker du att vi ska anslå budgetmedel för? Välj minst %{minimum_number} projekt och upp till %{maximum_number} som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.
-            instruction: "<li>Välj minst %{minimum_number} and upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
+            instruction: "<li>Välj minst %{minimum_number} och upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
           projects_rule_maximum_only:
             description: Vilka projekt tycker du att vi ska anslå budgetmedel för? Välj upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.
             instruction: "<li>Välj upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"

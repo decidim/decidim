@@ -46,6 +46,9 @@ fr-CA:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/census/dataset:
+        one: Jeu de données
+        other: Jeux de données
       decidim/votings/voting:
         one: Vote
         other: Votes
@@ -271,6 +274,7 @@ fr-CA:
       admin_log:
         election:
           publish: "%{user_name} a publié l'élection %{resource_name}"
+          publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} sur le Tableau d'affichage"
           unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
       election_m:
         badge_name:
@@ -337,7 +341,7 @@ fr-CA:
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
-          invalid: Un problème est survenu lors de l'envoi de votre feedback.
+          invalid: Un problème est survenu lors de l'envoi de votre commentaire.
           spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
           success: Votre avis a bien été envoyé.
       models:
@@ -460,6 +464,7 @@ fr-CA:
         ballot_decision:
           audit: "(Auditer le bulletin de vote)"
           back: Recommencer le processus de vote
+          ballot_hash: 'L''identifiant de votre bulletin est:'
           cast: Valider votre vote
           description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
         confirm:
@@ -476,7 +481,7 @@ fr-CA:
           experience: Comment a été votre expérience?
           feedback: Donnez-nous votre avis
           header: Vote confirmé
-          lead: Votre vote a déjà été exprimé!
+          lead: Votre vote a été comptabilisé !
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté à la zone des urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         failed:
           header: Le vote a échoué
@@ -487,6 +492,7 @@ fr-CA:
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
         messages:
+          invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
         modal:
           close: Fermer
@@ -498,6 +504,12 @@ fr-CA:
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
+        onboarding_modal:
+          close: Fermer la fenêtre de dialogue
+          create_account: Créer un compte
+          description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer à toutes les concertations et prendre une part active dans l'organisation.
+          no_account: Non, merci.
+          title: Nouveau sur Decidim ?
         verify:
           content:
             heading: Vérifiez votre vote
@@ -549,7 +561,10 @@ fr-CA:
             attachment_collections: Dossiers
             attachment_files: Fichiers
             attachments: Pièces jointes
+            census: Recensement
             info: Information
+            monitoring_committee_certificates: Valider les certificats
+            monitoring_committee_members: Membres
             polling_stations: Bureaux de vote
         models:
           polling_station:
@@ -563,6 +578,9 @@ fr-CA:
               promoted: Mise en avant
               published: Publié
               title: Titre
+        monitoring_committee_certificates:
+          index:
+            title: Bureaux de vote
         polling_stations:
           create:
             invalid: Une erreur est survenue lors de la création de ce bureau de vote
@@ -618,6 +636,35 @@ fr-CA:
           create: "%{user_name} a créé l'élection %{resource_name}"
           publish: "%{user_name} a publié l'élection %{resource_name}"
           unpublish: "%{user_name} a annulé la publication de l'élection %{resource_name}"
+      census:
+        admin:
+          census:
+            creating_data:
+              info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file}."
+            delete:
+              button: Supprimer toutes les données du recensement
+              confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
+            destroy:
+              success: Données de recensement supprimées
+            generate_access_codes:
+              button: Générer des codes d'accès au vote
+              confirm: Si vous continuez, vous ne pourrez plus modifier le recensement.
+              info_message_all: "<strong>Toutes les lignes ont été importées avec succès</strong> depuis le fichier %{file} (%{raw_count} sur %{data_count})."
+              info_message_warn: Veuillez vérifier qu'aucune donnée n'est manquante, car %{data_count} enregistrements ont été créés et le fichier téléchargé %{file} a %{raw_count} lignes.
+            new:
+              file_help:
+                explanation: 'Instructions concernant le fichier :'
+                message_1: Seuls les fichiers CSV (.csv) sont autorisés.
+                message_2: Le séparateur de colonnes doit être un point-virgule (";").
+              info_message: "<strong>Il n'y a pas encore de recensement.</strong> Veuillez utiliser le formulaire ci-dessous pour le créer en important un fichier CSV."
+              submit: Valider le fichier csv
+              title: Créer le recensement
+            show:
+              heading: Recensement de l'espace de vote
+        document_types:
+          passport: Passeport
+        vote_flow:
+          datum_not_found: Les données données ne correspondent à aucun électeur.
       content_blocks:
         highlighted_votings:
           name: Élections remarquables
@@ -638,6 +685,14 @@ fr-CA:
             active_votings: Votations en cours
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_officer_zone:
+        votes:
+          create:
+            success: Vote en personne émis avec succès
+          in_person_fields:
+            date_of_birth: Date de naissance
+            day: Jour
+            day_placeholder: JJ
       polling_stations:
         actions:
           confirm_destroy: Êtes-vous sûr(e) ?
@@ -646,6 +701,22 @@ fr-CA:
           new: Nouveau
           title: Actions
       votings:
+        check_census:
+          check_status: Vérifiez le statut
+          form_title: 'Remplissez le formulaire suivant pour vérifier vos données de recensement:'
+        check_fields:
+          date_of_birth: Date de naissance
+          day: Jour
+          day_placeholder: JJ
+          document_number: Numéro de document
+          document_number_placeholder: Numéro de carte d'identité
+          month: Mois
+          month_placeholder: MM
+          postal_code: Code postal
+          postal_code_placeholder: Numéro de code postal
+          select: Sélectionnez le type de document
+          year: Année
+          year_placeholder: AAAA
         count:
           title:
             one: "%{count} élection"
@@ -666,6 +737,14 @@ fr-CA:
           no_votings: Aucun vote ne correspond à votre recherche.
           only_finished: À l'heure actuelle, il n'y a pas de votes planifiés, mais vous trouverez ici une liste de tous les votes passées.
           title: Votations
+        login:
+          access_code: Code d'accès
+          access_code_placeholder: Code d'accès
+          dont_have_access_code: Vous n'avez pas de code d'accès?
+          form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
+          start_voting: Commencer à voter
+          step: Identification
+          title: Je m'identifie avec mes données de recensement de vote
         orders:
           label: 'Trier les votations par:'
           random: Aléatoire

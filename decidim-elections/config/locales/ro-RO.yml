@@ -258,6 +258,7 @@ ro:
         election:
           end_vote: "%{user_name} a încheiat perioada de votare pentru %{resource_name} alegerea în Buletin Board"
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
+          publish_results: "%{user_name} a publicat rezultatele pentru alegerea %{resource_name} în Panoul de Buletin"
           setup: "%{user_name} a creat alegerea %{resource_name} în Panoul de Buletin"
           start_key_ceremony: "%{user_name} a început ceremonia cheii pentru alegerile %{resource_name} din Panoul de Buletin"
           start_tally: "%{user_name} a început numărătoarea pentru alegerea %{resource_name} în Panoul de Buletin"
@@ -310,6 +311,9 @@ ro:
           voting_period_status:
             finished: Votarea a început la %{start_time} și s-a încheiat la %{end_time}
             upcoming: Votarea începe la %{start_time}
+      feedback:
+        answer:
+          invalid: A apărut o problemă la trimiterea feedback-ului tău.
       models:
         answer:
           fields:
@@ -385,6 +389,7 @@ ro:
         ballot_decision:
           audit: "(scrutin de audit)"
           back: Începe procesul de votare din nou
+          ballot_hash: 'Identificatorul dvs. de vot este:'
           cast: Transmite votul
           description: Aici, aveţi opţiunea de a vota pentru ca acesta să fie numărat corespunzător sau, ca alternativă, puteţi verifica dacă voturile dumneavoastră au fost corect criptate. Din motive de securitate, auditarea buletinului de vot va duce la spargerea lui. Asta înseamnă că, pentru a-ți exprima votul, va trebui să repornești procesul de votare.
         confirm:
@@ -401,7 +406,7 @@ ro:
           experience: Cum a fost experiența ta?
           feedback: Oferă-ne un feedback
           header: Votare confirmată
-          lead: Votul tău a fost deja exprimat!
+          lead: Votul tău a fost adăugat!
           text: 'Poți verifica dacă votul tău a fost adăugat cu succes în urna de vot cu următorul identificator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Pentru a verifica, copiați identificatorul și lipiți-l pe pagina <a href="%{link}">pentru verificarea votului</a>
         failed:
@@ -410,6 +415,7 @@ ro:
           confirm: Confirmă votul tău
           confirmed: Votare confirmată
         messages:
+          invalid_token: Sesiunea din cabina de vot nu este validă. Încercați să votați din nou.
           not_allowed: Nu aveţi voie să votaţi asupra acestor alegeri în acest moment.
         modal:
           close: Inchide
@@ -419,6 +425,12 @@ ro:
           preview_alert: Aceasta este o previzualizare a cabinei de votare.
           question_steps: Întrebarea %{current_step} din %{total_steps}
           selections: "%{selected} din %{max_selections}<br> selecții"
+        onboarding_modal:
+          close: Închidere
+          create_account: Crează cont
+          description: Vrei să creezi un cont nou în Decidim? Veţi putea participa la procese şi să fiţi o parte activă a organizaţiei.
+          no_account: Nu, mulțumesc.
+          title: Nou în Decidem?
         voting_step:
           back: Înapoi
           continue: Următoarea
@@ -429,6 +441,96 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Alegerea %{resource_title} este acum activă pentru %{participatory_space_title}.
           notification_title: Alegerile <a href="%{resource_path}">%{resource_title}</a> sunt acum active pentru %{participatory_space_title}.
+    votings:
+      admin:
+        ballot_styles:
+          index:
+            associated_census_data: Intrări asociate recensământului
+        menu:
+          votings_submenu:
+            monitoring_committee_certificates: Validare certificate
+            monitoring_committee_members: Membri
+        monitoring_committee_certificates:
+          index:
+            title: Secţii de votare
+      census:
+        admin:
+          census:
+            create:
+              invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
+              invalid_csv_header: Antetul CSV nu are numărul corect de câmpuri - vă rugăm să citiţi instrucţiunile cu atenţie
+            destroy:
+              error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
+            new:
+              has_ballot_styles_message: Ai configurat Ballot Stiluri. Te rugăm să te asiguri că câmpul "%{ballot_style_code_header}" din CSV corespunde codului dorit al Stilului Balt.
+              missing_ballot_styles_message: 'Încă nu există un stil de votare pentru acest vot. Dacă doriți să aveți întrebări condiționate (i..: prezintă alegătorului întrebări diferite, în funcţie de exemplu: districtul/regiunea de reședință), trebuie să setezi <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>înainte de</strong> importul recensământului. Dacă doriţi să le adresaţi tuturor alegătorilor aceleaşi întrebări, puteţi continua cu procedura de import de recensământ.'
+            upload_info:
+              csv_example_with_ballot_style: 'Un exemplu de fișier <strong>cu</strong> stiluri de vot:'
+              csv_example_without_ballot_style: 'Un exemplu de fișier <strong>fără</strong> stiluri de vot:'
+              csv_header_after: Nu include ultimul câmp ("%{ballot_style_code_header}") dacă nu aveţi nevoie de stiluri de vot/întrebări condiţionale
+              csv_header_before: 'Fișierul de recensământ trebuie să fie un fișier CSV cu următorul antet:'
+        document_types:
+          dni: CI
+          nie: BI
+          passport: Pașaport
+        vote_flow:
+          datum_not_found: Datele oferite nu se potrivesc cu nici un alegător.
+      polling_officer_zone:
+        votes:
+          create:
+            success: Votul în persoană a fost scris cu succes
+          in_person_fields:
+            date_of_birth: Data naşterii
+            day: Zi
+            day_placeholder: ZZ
+            document_number: Număr document
+            document_number_placeholder: Număr ID
+            month: Lună
+            month_placeholder: LL
+            name: Nume
+            select: Selectaţi tipul documentului
+            voted: Participantul a votat
+            year: An
+            year_placeholder: AAAA
+          new:
+            back: Înapoi la secţiile de votare
+            census_not_present: Acest participant nu este listat în recensământ.
+            census_not_present_description: Ea trebuie să meargă la biroul de reclamaţii pentru recensământ sau să contacteze asistenţa.
+            census_present: Acest participant este listat în recensământ.
+            census_verified: Participantul nu a votat încă.
+            complete_voting: Finalizează votarea
+            form_title: 'Selectați tipul documentului și introduceți numărul documentului participantului:'
+            questions_title: 'Ea are drept de vot în următoarele întrebări:'
+            title: Identifică și verifică un participant
+            validate_document: Validare document
+            verify_document: Verificare document
+            verify_title: 'Verifică dacă următoarele date sunt corecte:'
+      votings:
+        check_census:
+          check_status: Verifică starea
+          form_title: 'Completează următorul formular pentru a verifica datele recensământului:'
+        check_fields:
+          date_of_birth: Data naşterii
+          day: Zi
+          day_placeholder: ZZ
+          document_number: Numărul documentului
+          document_number_placeholder: Număr ID
+          month: Lună
+          month_placeholder: LL
+          postal_code: Cod poştal
+          postal_code_placeholder: Cod poștal
+          select: Selectaţi tipul documentului
+          year: Anul
+          year_placeholder: AAAA
+        login:
+          access_code: Cod de acces
+          access_code_placeholder: Cod de acces
+          ask_for_a_new_one: Cere unul nou.
+          dont_have_access_code: Nu ai un cod de acces?
+          form_title: 'Completați următorul formular pentru a accesa votul:'
+          step: Identificare
+          title: Mă identifică cu datele mele de recensământ de vot
+        no_census_contact_information: Nu există încă informații de contact
   layouts:
     decidim:
       election_votes_header:

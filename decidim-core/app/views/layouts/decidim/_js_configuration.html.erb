@@ -32,4 +32,12 @@ validator_messages = {
   Decidim.InputCharacterCounter.configureMessages(<%== character_messages.to_json %>);
   Decidim.ExternalLink.configureMessages(<%== external_link_messages.to_json %>);
   Decidim.FormValidator.configureMessages(<%== validator_messages.to_json %>);
+  DecidimComments = {
+    assets: {
+      'icons.svg': "<%= asset_path "decidim/icons.svg" %>"
+    }
+  }
+  Decidim.assets = {
+    'icons.svg': "<%= asset_path "decidim/icons.svg" %>"
+  }
 </script>

@@ -34,5 +34,7 @@
 </div>
 
 <% if other_available_authorizations.any? %>
-  <%= javascript_include_tag "decidim/admin/managed_users" %>
+  <script>
+    window.Decidim.managedUsersForm()
+  </script>
 <% end %>

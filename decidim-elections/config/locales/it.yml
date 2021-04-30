@@ -214,7 +214,6 @@ it:
             upcoming: La votazione inizia il %{start_time}
       feedback:
         answer:
-          invalid: Si è verificato un errore durante l'invio del tuo feedback.
           spam_detected: C'è stato un problema nelle risposte ai quesiti. Forse sei stato troppo veloce, puoi riprovare?
           success: Feedback inviato con successo.
       models:
@@ -279,7 +278,6 @@ it:
           experience: Com'è stata la tua esperienza?
           feedback: Lasciaci un feedback
           header: Voto confermato
-          lead: Il tuo voto è già stato espresso!
           text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         header:
           confirm: Conferma il tuo voto

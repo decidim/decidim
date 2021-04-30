@@ -160,6 +160,27 @@ describe "Meeting registrations", type: :system do
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
           end
+
+          it "they can join the meeting if they are already following it" do
+            create(:follow, followable: meeting, user: user)
+
+            visit_meeting
+
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
+
+            within "#meeting-registration-confirm-#{meeting.id}" do
+              expect(page).to have_content "A legal text"
+              page.find(".button.expanded").click
+            end
+
+            expect(page).to have_content("successfully")
+
+            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("19 slots remaining")
+            expect(page).to have_text("Stop following")
+          end
         end
 
         context "and they ARE part of a verified user group" do
@@ -195,6 +216,12 @@ describe "Meeting registrations", type: :system do
       let(:registration_form_enabled) { true }
 
       it_behaves_like "has questionnaire"
+
+      context "when the user is following the meeting" do
+        let!(:follow) { create(:follow, followable: meeting, user: user) }
+
+        it_behaves_like "has questionnaire"
+      end
 
       context "when the registration form has no questions" do
         before do
