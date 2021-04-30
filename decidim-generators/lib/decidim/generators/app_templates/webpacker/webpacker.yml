@@ -2,39 +2,41 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  source_path: 'APP_PATH'
+  source_path: RAILS_APP_PATH/app/packs
   source_entry_path: entrypoints
   public_output_path: decidim-packs
+  public_root_path: public
   webpack_compile_output: true
+  cache_path: tmp/webpacker-cache
   extract_css: true
 
   additional_paths:
-    - APP_PATH
-    - decidim-accountability/app/packs
-    - decidim-admin/app/packs
-    - decidim-api/app/packs
-    - decidim-assemblies/app/packs
-    - decidim-blogs/app/packs
-    - decidim-budgets/app/packs
-    - decidim-comments/app/packs
-    - decidim-conferences/app/packs
-    - decidim-consultations/app/packs
-    - decidim-core/app/packs
-    - decidim-debates/app/packs
-    - decidim-dev/app/packs
-    - decidim-elections/app/packs
-    - decidim-forms/app/packs
-    - decidim-generators/app/packs
-    - decidim-initiatives/app/packs
-    - decidim-meetings/app/packs
-    - decidim-pages/app/packs
-    - decidim-participatory_processes/app/packs
-    - decidim-proposals/app/packs
-    - decidim-sortitions/app/packs
-    - decidim-surveys/app/packs
-    - decidim-system/app/packs
-    - decidim-templates/app/packs
-    - decidim-verifications/app/packs
+    - RAILS_APP_PATH/app/packs
+    - DECIDIM_PATH/decidim-accountability/app/packs
+    - DECIDIM_PATH/decidim-admin/app/packs
+    - DECIDIM_PATH/decidim-api/app/packs
+    - DECIDIM_PATH/decidim-assemblies/app/packs
+    - DECIDIM_PATH/decidim-blogs/app/packs
+    - DECIDIM_PATH/decidim-budgets/app/packs
+    - DECIDIM_PATH/decidim-comments/app/packs
+    - DECIDIM_PATH/decidim-conferences/app/packs
+    - DECIDIM_PATH/decidim-consultations/app/packs
+    - DECIDIM_PATH/decidim-core/app/packs
+    - DECIDIM_PATH/decidim-debates/app/packs
+    - DECIDIM_PATH/decidim-dev/app/packs
+    - DECIDIM_PATH/decidim-elections/app/packs
+    - DECIDIM_PATH/decidim-forms/app/packs
+    - DECIDIM_PATH/decidim-generators/app/packs
+    - DECIDIM_PATH/decidim-initiatives/app/packs
+    - DECIDIM_PATH/decidim-meetings/app/packs
+    - DECIDIM_PATH/decidim-pages/app/packs
+    - DECIDIM_PATH/decidim-participatory_processes/app/packs
+    - DECIDIM_PATH/decidim-proposals/app/packs
+    - DECIDIM_PATH/decidim-sortitions/app/packs
+    - DECIDIM_PATH/decidim-surveys/app/packs
+    - DECIDIM_PATH/decidim-system/app/packs
+    - DECIDIM_PATH/decidim-templates/app/packs
+    - DECIDIM_PATH/decidim-verifications/app/packs
 
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
@@ -43,8 +45,6 @@ development:
   <<: *default
   compile: true
   # Compile test packs to decidim decidim-packs folder
-  public_root_path: ''
-  cache_path: tmp/cache/webpacker
 
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
@@ -80,11 +80,7 @@ development:
 test:
   <<: *default
   compile: true
-
-  # Compile test packs to decidim dummy app
-  public_root_path: spec/decidim_dummy_app/public
   public_output_path: packs-test
-  cache_path: spec/decidim_dummy_app/tmp/cache/webpacker
 
 production:
   <<: *default

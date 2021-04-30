@@ -23,8 +23,6 @@ Gem::Specification.new do |s|
     "LICENSE-AGPLv3.txt",
     "Rakefile",
     "README.md",
-    "config/webpack/*",
-    "config/webpacker.yml",
     "package.json",
     "package-lock.json"
   ]

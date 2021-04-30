@@ -61,6 +61,7 @@ module Decidim
 
       def remove_old_assets
         remove_dir("app/assets")
+        remove_dir("app/javascripts")
       end
 
       def disable_precompilation_on_demand
@@ -100,22 +101,20 @@ module Decidim
       end
 
       def install_decidim_webpacker
-        # Copy decidim webpacker configuration
-        copy_file "decidim_webpacker.yml", "config/decidim_webpacker.yml"
-
-        # Add to additional paths the packs of the instance application, which allows to re-define
-        # CSS variables
-        gsub_file "config/decidim_webpacker.yml", "APP_PATH", "#{destination_root}/app/packs"
-
         # Copy CSS variables template file
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
 
         # Copy JS application file
         copy_file "decidim_application.js", "app/packs/src/decidim/decidim_application.js"
 
+        # Create empty directory for images
         empty_directory "app/packs/images"
 
+        # Run webpacker installation
         rails "webpacker:install"
+
+        # Run Decidim custom webpacker installation
+        rails "decidim:webpacker:install"
       end
 
       def copy_migrations
