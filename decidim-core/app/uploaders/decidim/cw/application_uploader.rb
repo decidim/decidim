@@ -50,7 +50,6 @@ module Decidim::Cw
       end
     end
 
-
     protected
 
     # Checks if the file is an image based on the content type. We need this so
