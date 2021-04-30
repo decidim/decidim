@@ -97,4 +97,4 @@ $(() => {
     autoLabelByPosition.run();
     autoButtonsByPosition.run();
   });
-})(window);
+});
