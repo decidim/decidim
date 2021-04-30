@@ -69,6 +69,13 @@ Quill.register("modules/linebreak", (quill) => {
     }
   });
 
+  quill.clipboard.addMatcher("BR", (node) => {
+    if (node?.parentNode?.tagName === "A") {
+      return new Delta().insert("\n");
+    }
+    return new Delta().insert({"break": ""});
+  });
+
   addEnterBindings(quill);
   backspaceBindingsRangeAny(quill);
   backspaceBindings(quill);

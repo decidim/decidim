@@ -52,6 +52,7 @@ ja:
         target: 参加者
         title: タイトル
         twitter: Twitter
+        weight: 順番の位置
         youtube: YouTube
       assembly_member:
         birthday: 誕生日
@@ -246,6 +247,7 @@ ja:
         update: "%{user_name} が参加スペース設定を更新しました"
       assembly_type:
         create: "%{user_name} が %{resource_name} 参加スペース種別を作成しました"
+        delete: "%{user_name} が %{resource_name} アセンブリ種別を削除しました"
         publish: "%{user_name} が %{resource_name} 参加スペース種別を公開しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペース種別を非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペース種別を更新しました"
@@ -422,6 +424,8 @@ ja:
       home:
         hero:
           participate_title: プラットフォームの参加型プロセスに参加する
+        sub_hero:
+          register_title: サインアップしてアカウントを作成
     participatory_processes:
       pages:
         home:
@@ -429,6 +433,8 @@ ja:
             processes_button_title: すべての参加型プロセスを表示するページへのリンク
       show:
         related_assemblies: 関連する参加スペース
+    statistics:
+      assemblies_count: アセンブリ
   errors:
     messages:
       cannot_be_blank: 空白にできません

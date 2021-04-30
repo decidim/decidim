@@ -41,9 +41,14 @@ const lineBreakHandler = (quill, range, context) => {
   const previousChar = quill.getText(range.index - 1, 1);
   const formats = quill.getFormat(range.index);
 
-  quill.insertEmbed(range.index, "break", true, "user");
-  if (nextLeaf === null || (currentLeaf.parent !== nextLeaf.parent &&
-      nextLeaf.parent.domNode.tagName !== "A")) {
+  if (currentLeaf?.next?.domNode?.tagName === "A" || nextLeaf?.parent?.domNode?.tagName === "A") {
+    quill.insertEmbed(range.index, "break", true, "user");
+    quill.removeFormat(range.index, 1, Quill.sources.SILENT)
+  } else {
+    quill.insertEmbed(range.index, "break", true, "user");
+  }
+
+  if (nextLeaf === null) {
     quill.insertEmbed(range.index, "break", true, "user");
   } else if (context.offset === 1 && previousChar === "\n") {
     const delta = new Delta().retain(range.index).insert("\n");
@@ -60,12 +65,6 @@ const lineBreakHandler = (quill, range, context) => {
 };
 
 export default function addEnterBindings(quill) {
-  quill.clipboard.addMatcher("BR", () => {
-    let newDelta = new Delta();
-    newDelta.insert({"break": ""});
-    return newDelta;
-  });
-
   quill.keyboard.addBinding({
     key: 13,
     shiftKey: true

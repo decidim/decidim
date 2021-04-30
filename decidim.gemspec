@@ -24,7 +24,9 @@ Gem::Specification.new do |s|
     "Rakefile",
     "README.md",
     "config/webpack/*",
-    "package.json"
+    "config/webpacker.yml",
+    "package.json",
+    "package-lock.lock"
   ]
 
   s.require_paths = ["lib"]
