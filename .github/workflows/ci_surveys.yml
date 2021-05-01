@@ -80,8 +80,6 @@ jobs:
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
-      - run: "cp spec/decidim_dummy_app/config/decidim_webpacker.yml config/webpacker.yml"
-        name: Patch decidim webpacker config
       - run: bundle exec rails assets:precompile
         name: Precompile assets
         working-directory: ./spec/decidim_dummy_app/
