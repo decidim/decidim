@@ -4,6 +4,9 @@
  * Note that this needs to be loaded before the application JS in order for
  * it to gain control over the confirm events BEFORE rails-ujs is loaded.
  */
+
+import Rails from "@rails/ujs"
+
 let TEMPLATE_HTML = null;
 
 class ConfirmDialog {

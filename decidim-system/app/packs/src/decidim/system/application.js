@@ -3,6 +3,7 @@
 
 import $ from "jquery"
 import Quill from "quill"
+import Rails from "@rails/ujs"
 import "foundation-sites"
 
 import createQuillEditor from "src/decidim/editor"
@@ -23,5 +24,4 @@ $(() => {
 });
 
 // This needs to be loaded after confirm dialog to bind properly
-import Rails from "@rails/ujs"
 Rails.start()

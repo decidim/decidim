@@ -3,6 +3,7 @@
 
 import $ from "jquery"
 import Quill from "quill"
+import Rails from "@rails/ujs"
 
 import "foundation-sites"
 import "src/decidim/vendor/foundation-datepicker"
@@ -36,5 +37,4 @@ import "src/decidim/slug_form"
 import "entrypoints/decidim_admin.scss";
 
 // This needs to be loaded after confirm dialog to bind properly
-import Rails from "@rails/ujs"
 Rails.start()

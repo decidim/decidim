@@ -3,6 +3,7 @@
 
 import $ from "jquery"
 import Quill from "quill"
+import Rails from "@rails/ujs"
 
 import "core-js/stable";
 import morphdom from "morphdom"
@@ -63,7 +64,5 @@ import "src/decidim/decidim_application"
 require.context("../images", true)
 
 // This needs to be loaded after confirm dialog to bind properly
-import Rails from "@rails/ujs"
 Rails.start()
-
 
