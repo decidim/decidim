@@ -20,9 +20,7 @@ namespace :decidim do
     end
 
     def decidim_path
-      @decidim_path ||= if Gem.loaded_specs.has_key?("decidim")
-                          Pathname.new(Gem.loaded_specs["decidim"].full_gem_path)
-                        end
+      @decidim_path ||= Pathname.new(Gem.loaded_specs["decidim"].full_gem_path) if Gem.loaded_specs.has_key?("decidim")
     end
 
     def rails_app_path
