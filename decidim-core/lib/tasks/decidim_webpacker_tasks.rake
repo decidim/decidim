@@ -6,17 +6,25 @@ namespace :decidim do
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
+      # Remove yarn.lock (because bin/rails webpacker:install has been executed)
       remove_file_from_application "yarn.lock"
+      # Removing bin/yarn makes assets:precompile task to don't execute `yarn install`
+      remove_file_from_application "bin/yarn"
+      # Babel config
       copy_file_to_application "babel.config.json"
+      # Npm packagesj
       copy_file_to_application "package.json"
       copy_file_to_application "package-lock.json"
+      # PostCSS configuration
       copy_file_to_application "decidim-generators/lib/decidim/generators/app_templates/webpacker/postcss.config.js", "postcss.config.js"
+      # Webpacker configuration
       copy_file_to_application "decidim-generators/lib/decidim/generators/app_templates/webpacker/webpacker.yml", "config/webpacker.yml"
+      # Webpack JS config files
       copy_folder_to_application "decidim-generators/lib/decidim/generators/app_templates/webpacker/webpack", "config"
 
+      # Replace DECIDIM_PATH by the path to the gem
       gsub_file rails_app_path.join("config/webpack/custom.js"), /DECIDIM_PATH/, decidim_path.to_s
       gsub_file rails_app_path.join("config/webpacker.yml"), /DECIDIM_PATH/, decidim_path.to_s
-      gsub_file rails_app_path.join("config/webpacker.yml"), /RAILS_APP_PATH/, rails_app_path.to_s
     end
 
     def decidim_path
@@ -41,7 +49,7 @@ namespace :decidim do
     end
 
     def remove_file_from_application(path)
-      FileUtils.rm(path)
+      FileUtils.rm(path, force: true)
     end
   end
 end

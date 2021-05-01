@@ -2,7 +2,7 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  source_path: RAILS_APP_PATH/app/packs
+  source_path: app/packs
   source_entry_path: entrypoints
   public_output_path: decidim-packs
   public_root_path: public
@@ -11,7 +11,7 @@ default: &default
   extract_css: true
 
   additional_paths:
-    - RAILS_APP_PATH/app/packs
+    - app/packs
     - DECIDIM_PATH/decidim-accountability/app/packs
     - DECIDIM_PATH/decidim-admin/app/packs
     - DECIDIM_PATH/decidim-api/app/packs

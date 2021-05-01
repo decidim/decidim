@@ -207,7 +207,7 @@
     "babel-eslint": "^8.2.2",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.0.4",
-    "babel-plugin-__coverage__": "~11.0.0",
+    "babel-plugin-__coverage__": "^1.11.111",
     "babel-preset-airbnb": "^5.0.0",
     "bootstrap-tagsinput": "^0.7.1",
     "classnames": "^2.2.5",
