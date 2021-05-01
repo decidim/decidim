@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const { webpackConfig, merge } = require("@rails/webpacker")
 const customConfig = require("./custom")
 
