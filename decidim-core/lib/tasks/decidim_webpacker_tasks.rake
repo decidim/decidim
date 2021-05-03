@@ -25,6 +25,9 @@ namespace :decidim do
       # Replace DECIDIM_PATH by the path to the gem
       gsub_file rails_app_path.join("config/webpack/custom.js"), /DECIDIM_PATH/, decidim_path.to_s
       gsub_file rails_app_path.join("config/webpacker.yml"), /DECIDIM_PATH/, decidim_path.to_s
+
+      # Install JS dependencies
+      system! "npm ci"
     end
 
     def decidim_path
@@ -50,6 +53,10 @@ namespace :decidim do
 
     def remove_file_from_application(path)
       FileUtils.rm(path, force: true)
+    end
+
+    def system!(*args)
+      system(*args) || abort("\n== Command #{args} failed ==")
     end
   end
 end
