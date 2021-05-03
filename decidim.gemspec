@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
     "README.md",
     "package.json",
     "package-lock.json",
-    "babel.config.json"
+    "babel.config.json",
+    "decidim-core/lib/decidim/webpacker/**/*"
   ]
 
   s.require_paths = ["lib"]
