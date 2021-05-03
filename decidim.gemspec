@@ -24,7 +24,8 @@ Gem::Specification.new do |s|
     "Rakefile",
     "README.md",
     "package.json",
-    "package-lock.json"
+    "package-lock.json",
+    "babel.config.json"
   ]
 
   s.require_paths = ["lib"]
