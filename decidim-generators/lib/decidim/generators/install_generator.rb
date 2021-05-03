@@ -59,11 +59,6 @@ module Decidim
         remove_file "app/views/layouts/mailer.text.erb"
       end
 
-      def remove_old_assets
-        remove_dir("app/assets")
-        remove_dir("app/javascripts")
-      end
-
       def disable_precompilation_on_demand
         %w(development test).each do |environment|
           inject_into_file "config/environments/#{environment}.rb",
@@ -115,6 +110,11 @@ module Decidim
 
         # Run Decidim custom webpacker installation
         rails "decidim:webpacker:install"
+      end
+
+      def remove_old_assets
+        remove_dir("app/assets")
+        remove_dir("app/javascript")
       end
 
       def copy_migrations
