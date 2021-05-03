@@ -1,5 +1,6 @@
 import $ from "jquery"
 import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 import '../src/evote_check_nota'
 import '../src/vizzs/datacharts'

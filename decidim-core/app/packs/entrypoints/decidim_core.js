@@ -6,6 +6,7 @@ import Quill from "quill"
 import Rails from "@rails/ujs"
 
 import "core-js/stable";
+import "regenerator-runtime/runtime";
 import morphdom from "morphdom"
 // Export variable to make it available in .js.erb templates
 window.morphdom = morphdom
