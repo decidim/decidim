@@ -71,8 +71,6 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
-      - name: Install JS dependencies
-        run: npm ci
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
