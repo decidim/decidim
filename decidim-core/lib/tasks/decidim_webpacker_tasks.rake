@@ -16,11 +16,11 @@ namespace :decidim do
       copy_file_to_application "package.json"
       copy_file_to_application "package-lock.json"
       # PostCSS configuration
-      copy_file_to_application "decidim-generators/lib/decidim/generators/app_templates/webpacker/postcss.config.js", "postcss.config.js"
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
       # Webpacker configuration
-      copy_file_to_application "decidim-generators/lib/decidim/generators/app_templates/webpacker/webpacker.yml", "config/webpacker.yml"
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/webpacker.yml"
       # Webpack JS config files
-      copy_folder_to_application "decidim-generators/lib/decidim/generators/app_templates/webpacker/webpack", "config"
+      copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
 
       # Replace DECIDIM_PATH by the path to the gem
       gsub_file rails_app_path.join("config/webpack/custom.js"), /DECIDIM_PATH/, decidim_path.to_s
