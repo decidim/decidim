@@ -52,6 +52,32 @@ module.exports = {
         generator: {
           filename: 'media/documents/[hash][ext][query]'
         }
+      },
+      // Overwrite webpacker files rule to amend the filename output
+      // and include the name of the file, otherwise some SVGs
+      // are not generated because the hash is the same between them
+      {
+        test: [
+          /\.bmp$/,
+          /\.gif$/,
+          /\.jpe?g$/,
+          /\.png$/,
+          /\.tiff$/,
+          /\.ico$/,
+          /\.avif$/,
+          /\.webp$/,
+          /\.eot$/,
+          /\.otf$/,
+          /\.ttf$/,
+          /\.woff$/,
+          /\.woff2$/,
+          /\.svg$/
+        ],
+        exclude: [/\.(js|mjs|jsx|ts|tsx)$/],
+        type: 'asset/resource',
+        generator: {
+          filename: 'media/images/[name]-[hash][ext][query]'
+        }
       }
     ]
   },

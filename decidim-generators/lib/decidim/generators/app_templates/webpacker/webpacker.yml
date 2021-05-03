@@ -11,6 +11,7 @@ default: &default
   extract_css: true
 
   additional_paths:
+    - node_modules
     - app/packs
     - DECIDIM_PATH/decidim-accountability/app/packs
     - DECIDIM_PATH/decidim-admin/app/packs
