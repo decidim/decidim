@@ -17,6 +17,7 @@ window.Quill = Quill
 jest.useFakeTimers();
 
 import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter";
+import Configuration from "../../../../../../decidim-core/app/packs/src/decidim/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
 // so tests aren't able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
@@ -24,6 +25,10 @@ const CommentsComponent = require("./comments.component_for_testing.js");
 
 // Create a dummy foundation jQuery method for the comments component to call
 $.fn.foundation = () => {};
+
+// Create the configuration object to make the configurations available for the tests
+window.Decidim = {}
+window.Decidim.config = new Configuration()
 
 describe("CommentsComponent", () => {
   const selector = "#comments-for-Dummy-123";
