@@ -116,9 +116,11 @@ ca:
       proposals:
         actions:
           amend: Esmena
+          comment: Comenta
           create: Crear
           endorse: Adherir-se
           vote: Donar suport
+          vote_comment: Vota el comentari
           withdraw: Retirar
         name: Propostes
         settings:
