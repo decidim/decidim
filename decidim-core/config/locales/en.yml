@@ -1260,6 +1260,8 @@ en:
         filters:
           areas: Areas
           select_an_area: Select an area
+      public_participation:
+        public_participation: Show my attendance publicly
       reference:
         reference: 'Reference: %{reference}'
       represent_user_group:
