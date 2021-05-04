@@ -2,6 +2,17 @@
   <div class="card-divider">
     <h2 class="card-title"><%= t ".colors_title" %></h2>
   </div>
+  <div class="callout warning" data-closable>
+    <svg role="img" class="icon--warning icon">
+      <title></title>
+      <use href="/assets/decidim/icons-12032a129d2a2668259128b86df2c8829ea6cdaa07beb8538a61c4872aa66328.svg#icon-warning">
+      </use>
+    </svg>
+    <p><%= t ("from.colors.warning_colors").html_safe %></p>
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="card-section">
     <div class="organization-colors">
       <%= form.color_field :primary_color, value: current_organization.colors["primary"] %>
