@@ -36,21 +36,21 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)-lint"
+      - name: Get npm cache directory path
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm get cache)-lint"
       - uses: actions/cache@v2
-        id: yarn-cache
+        id: npm-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            yarn-
+            npm-
       - name: Install JS dependencies
-        run: yarn install --frozen-lockfile --cache-folder ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        run: npm ci
       - run: bundle exec rubocop -P
         name: Lint Ruby files
-      - run: yarn run lint
+      - run: npm run lint
         name: Lint JS files
       - run: ./.github/run_erblint.sh
         name: Lint ERB files
