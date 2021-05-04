@@ -41,7 +41,7 @@ ca:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: El gestor electoral ja és president/gestor del punt de votació
+              president_and_manager: El gestor electoral ja és president o gestor del punt de votació
             voting:
               different_organization: La votació ha d'estar a la mateixa organització que la usuària
         decidim/votings/polling_station:
@@ -733,6 +733,8 @@ ca:
             info: Informació
             landing_page: Pàgina d'inici
             monitoring_committee: Comitè de seguiment
+            monitoring_committee_certificates: Valida certificats
+            monitoring_committee_members: Membres
             polling_officers: Gestors de mesa
             polling_stations: Punts de votació
         models:
@@ -764,6 +766,9 @@ ca:
               promoted: Destacada
               published: Publicada
               title: Títol
+        monitoring_committee_certificates:
+          index:
+            title: Punts de votació
         monitoring_committee_members:
           create:
             invalid: Hi ha hagut un problema en crear aquest membre del comitè de seguiment
