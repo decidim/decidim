@@ -64,6 +64,10 @@ module Decidim
       def show_footer_actions?
         options[:show_footer_actions]
       end
+
+      def statuses
+        [:follow, :comments_count]
+      end
     end
   end
 end
