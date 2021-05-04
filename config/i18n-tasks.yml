@@ -303,6 +303,7 @@ ignore_unused:
   - decidim.admin.forms.file_help.import.*
   - decidim.admin.menu.questions_submenu.attachments
   - decidim.admin.menu.questions_submenu.categories
+  - decidim.meetings.public_participants_list.hidden_participants_count.*
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
