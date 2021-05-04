@@ -88,9 +88,9 @@ ca:
             president: Presidència
             unassigned: Sense assignar
         search_placeholder:
-          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o punt de votació.
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom, correu electrònic o àlies, o bé per punt de votació.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
-          : Cercar %{collection} per títol, adreça o nom del responsable/email/àlies.
+          : Cerca %{collection} per títol, adreça o bé per responsable, amb el seu nom, correu electrònic o àlies.
     components:
       elections:
         actions:
@@ -104,7 +104,7 @@ ca:
     elections:
       actions:
         confirm_destroy: N'estàs segura?
-        destroy: Eliminar
+        destroy: Destruir
         edit: Editar
         feedback: Retorn de la votant
         import: Importar propostes com a respostes
@@ -128,34 +128,34 @@ ca:
             title: Editar resposta
             update: Actualitzar resposta
           index:
-            invalid_max_selections: Calen %{missing_answers} respostes més per a arribar al màxim de seleccions
+            invalid_max_selections: Cal %{missing_answers} respostes més per a arribar al màxim de seleccions
             title: Respostes
           new:
-            create: Crear resposta
+            create: Crea resposta
             title: Nova resposta
           not_selected: No seleccionada
           select:
-            disable: Deseleccionar resposta
-            enable: Marcar resposta com seleccionada
-            invalid: S'ha produït un error en seleccionar aquesta resposta
+            disable: Deselecciona resposta
+            enable: Marca resposta com seleccionada
+            invalid: S'ha produït un error en seleccionar la resposta
             success: Resposta seleccionada correctament
           selected: Seleccionada
           unselect:
-            invalid: Hi ha hagut un problema en deseleccionar aquesta resposta
+            invalid: Hi ha hagut un problema en deseleccionar la resposta
             success: Resposta deseleccionada correctament
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta resposta
+            invalid: Hi ha hagut un problema en actualitzar la resposta
             success: Resposta actualitzada correctament
         elections:
           create:
-            invalid: S'ha produït un error en crear aquesta votació
+            invalid: S'ha produït un error en crear la votació
             success: La votació s'ha creat correctament
           destroy:
-            invalid: S'ha produït un error en eliminar aquesta votació
+            invalid: S'ha produït un error en eliminar la votació
             success: S'ha eliminat la votació correctament
           edit:
-            title: Editar la votació
-            update: Actualitzar la votació
+            title: Edita la votació
+            update: Actualitza la votació
           index:
             no_bulletin_board: No hi ha cap <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurat, el qual és necessari per utilitzar aquest mòdul. Aquesta tasca ha de ser realitzada per la persona administradora del sistema.
             title: Votacions
@@ -173,7 +173,7 @@ ca:
           elections: Eleccions
           feedback_form_answers: Feedback de les respostes
         menu:
-          trustees: Depositàires
+          trustees: Depositàries
         models:
           answer:
             name: Resposta
@@ -639,8 +639,8 @@ ca:
             email_subject: Ets %{role} del punt de votació %{polling_station_name}.
             notification_title: Ets %{role} del punt de votació %{polling_station_name} a la votació <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
-          instruction: 'Aquí tens el Codi d''Accès que havies demanat: %{access_code}. Amb això ja pots participar en %{voting}.'
-          subject: El teu Codi d'Accès per participar en %{voting}
+          instruction: 'Aquí tens el Codi d''Accés que havies demanat: %{access_code}. Amb això ja pots participar en %{voting}.'
+          subject: El teu Codi d'Accés per participar en %{voting}
     help:
       participatory_spaces:
         votings:
@@ -665,7 +665,7 @@ ca:
             title: Modifica estil de papereta
             update: Actualitza
           form:
-            code_help: 'Pinsta: El codi és l''enllaç entre el cens i l''estil de papereta. Quan puges les dades del cens, a cada entrada s''assigna un estil de papereta segons el seu codi'
+            code_help: 'Pista: El codi és l''enllaç entre el cens i l''estil de papereta. Quan puges les dades del cens, a cada entrada s''assigna un estil de papereta segons el seu codi'
             election: Elecció
             questions: Preguntes per a l'estil de papereta
             questions_help: 'Pista: Escull les preguntes assignades a aquest estil de papereta en el component d''elecció per presentar-les a votants'
@@ -884,7 +884,7 @@ ca:
             creating_data:
               info_message: "<strong>Espera</strong>, estem procedint amb %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:
-              button: Eliminar totes les dades del cens
+              button: Elimina totes les dades del cens
               confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
             destroy:
               error: Hi ha hagut un error en esborrar el cens, prova-ho de nou més tard.
@@ -897,12 +897,12 @@ ca:
               launch_error: Hi ha hagut un error en exportar els codis d'accés
               launch_success: Hem iniciat l'exportació dels codis d'accés. En breu rebràs un correu a %{email}
             exporting_access_codes:
-              info_message: "<strong>Espera</strong>, estem preparant per a l'exportació. En breu rebràs un correu en %{email}"
+              info_message: "<strong>Espera</strong>, estem preparant l'exportació. En breu rebràs un correu en %{email}"
             freeze:
               callout: El cens està blocat i no es pot modificar-lo.
             generate_access_codes:
-              button: Genera Codis d'Accès per a la votació
-              callout: Ara ja pots generar els codis d'accès. Adona-te'n que una vegada que els hagis generat ja no podràs modificar més el cens.
+              button: Genera Codis d'Accés per a la votació
+              callout: Ara ja pots generar els codis d'accés. Adona-te'n que, una vegada que els hagis genera, ja no podràs modificar més el cens.
               confirm: Si continues, ja no podràs modificar més el cens.
               info_message_all: "<strong>S'han exportat correctament les fileres</strong> del fitxer %{file} (%{raw_count} de %{data_count})."
               info_message_warn: Si us plau, comproveu que no s'hagi perdut cap dada, ja que hem creat %{data_count} registres i el fitxer pujat %{file} té %{raw_count} fileres.
@@ -1097,8 +1097,8 @@ ca:
           random: Aleatori
           recent: Més recents
         send_access_code:
-          invalid: Hi ha hagut un problema en enviar el Codi d'Accés
-          success: El Codi d'Accés s'ha enviat correctament
+          invalid: Hi ha hagut un problema en enviar el Codi d'Accès
+          success: El Codi d'Accès s'ha enviat correctament
         show:
           dates: Dates
       votings_m:
