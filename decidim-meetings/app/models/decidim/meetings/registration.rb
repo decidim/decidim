@@ -16,6 +16,8 @@ module Decidim
 
       before_validation :generate_code, on: :create
 
+      scope :public_participant, -> { where(decidim_user_group_id: nil, public_participation: true) }
+
       def self.user_collection(user)
         where(decidim_user_id: user.id)
       end

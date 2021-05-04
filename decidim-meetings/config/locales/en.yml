@@ -493,6 +493,11 @@ en:
             official_meeting: Official meeting
             start_time: Start date
             title: Title
+      public_participants_list:
+        attending_participants: Attending participants
+        hidden_participants_count:
+          one: and %{count} more person
+          other: and %{count} more people
       read_more: "(read more)"
       registration_mailer:
         confirmation:
