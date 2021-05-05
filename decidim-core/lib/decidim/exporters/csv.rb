@@ -48,7 +48,7 @@ module Decidim
 
       def processed_collection
         @processed_collection ||= collection.map do |resource|
-          flatten(@serializer.new(resource).serialize)
+          flatten(@serializer.new(resource).run)
         end
       end
 

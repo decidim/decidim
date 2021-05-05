@@ -79,6 +79,7 @@ module Decidim
       private
 
       attr_reader :assembly
+      alias resource assembly
 
       def serialize_categories
         return unless assembly.categories.first_class.any?
@@ -141,7 +142,7 @@ module Decidim
 
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@assembly)
-        serializer.serialize
+        serializer.run
       end
     end
   end
