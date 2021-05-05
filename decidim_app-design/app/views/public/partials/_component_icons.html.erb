@@ -1,5 +1,5 @@
 <%
-file = Rails.root.join("app/assets/images/icons.svg")
+file = Rails.root.join("app/packs/images/icons.svg")
 doc = File.open(file) { |f| Nokogiri::XML(f) }
 titles = doc.css("title").map(&:text)
 %>
