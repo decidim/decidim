@@ -82,7 +82,7 @@ ca:
             president: Presidència
             unassigned: Sense assignar
         search_placeholder:
-          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom/adreça electrònica/àlies o punt de votació.
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom, correu electrònic o àlies, o bé per punt de votació.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Cercar %{collection} per títol, adreça o nom del gestor/email/àlies.
     components:
@@ -98,7 +98,7 @@ ca:
     elections:
       actions:
         confirm_destroy: N'estàs segura?
-        destroy: Eliminar
+        destroy: Destruir
         edit: Editar
         feedback: Retorn de la votant
         import: Importar propostes com a respostes
@@ -122,32 +122,32 @@ ca:
             title: Editar resposta
             update: Actualitzar resposta
           index:
-            invalid_max_selections: Calen %{missing_answers} respostes més per a arribar al màxim de seleccions
+            invalid_max_selections: Cal %{missing_answers} respostes més per a arribar al màxim de seleccions
             title: Respostes
           new:
-            create: Crear resposta
+            create: Crea resposta
             title: Nova resposta
           select:
-            disable: Deseleccionar resposta
-            enable: Marcar resposta com seleccionada
-            invalid: S'ha produït un error en seleccionar aquesta resposta
+            disable: Deselecciona resposta
+            enable: Marca resposta com seleccionada
+            invalid: S'ha produït un error en seleccionar la resposta
             success: Resposta seleccionada correctament
           unselect:
-            invalid: Hi ha hagut un problema en deseleccionar aquesta resposta
+            invalid: Hi ha hagut un problema en deseleccionar la resposta
             success: Resposta deseleccionada correctament
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta resposta
+            invalid: Hi ha hagut un problema en actualitzar la resposta
             success: Resposta actualitzada correctament
         elections:
           create:
-            invalid: S'ha produït un error en crear aquesta votació
+            invalid: S'ha produït un error en crear la votació
             success: La votació s'ha creat correctament
           destroy:
-            invalid: S'ha produït un error en eliminar aquesta votació
+            invalid: S'ha produït un error en eliminar la votació
             success: S'ha eliminat la votació correctament
           edit:
-            title: Editar la votació
-            update: Actualitzar la votació
+            title: Edita la votació
+            update: Actualitza la votació
           index:
             no_bulletin_board: No hi ha cap <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurat, el qual és necessari per utilitzar aquest mòdul. Aquesta tasca ha de ser realitzada per la persona administradora del sistema.
             title: Votacions
