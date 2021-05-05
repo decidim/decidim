@@ -3,7 +3,6 @@
 require "graphql"
 require "graphiql/rails"
 require "rack/cors"
-require "sprockets/es6"
 
 require "decidim/core"
 

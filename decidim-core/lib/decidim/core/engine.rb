@@ -2,7 +2,6 @@
 
 require "rails"
 require "active_support/all"
-require "sprockets/railtie"
 
 require "pg"
 require "redis"
@@ -21,7 +20,6 @@ require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
-require "sprockets/es6"
 require "truncato"
 require "file_validators"
 require "omniauth"
