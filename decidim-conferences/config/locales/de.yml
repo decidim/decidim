@@ -467,6 +467,7 @@ de:
         home:
           highlighted_conferences:
             active_conferences: Aktive Konferenzen
+            conferences_button_title: Link zur Konferenz-Seite die alle Konferenzen anzeigt
             see_all_conferences: Alle Konferenzen anzeigen
       photo:
         image:
