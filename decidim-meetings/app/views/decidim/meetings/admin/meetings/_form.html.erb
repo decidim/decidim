@@ -90,7 +90,7 @@
     </div>
 
     <div id="customize_registration_email-div" data-toggler=".hide" class="row column <%= @form.customize_registration_email? ? nil : "hide" %>">
-      <%= form.translated :text_area, :registration_email_custom_content %>
+      <%= form.translated :editor, :registration_email_custom_content, lines: 10 %>
       <p class="help-text"><%= t(".registration_email_help") %></p>
     </div>
 
