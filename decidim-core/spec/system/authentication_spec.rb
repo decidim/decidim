@@ -297,6 +297,17 @@ describe "Authentication", type: :system do
         expect(page).to have_content("Signed in successfully")
         expect(page).to have_content(user.name)
       end
+
+      it "caches the omniauth buttons correctly with different languages", :caching do
+        find(".sign-in-link").click
+        expect(page).to have_content("Sign in with Facebook")
+
+        within_language_menu do
+          click_link "Català"
+        end
+
+        expect(page).to have_content("Inicia sessió amb Facebook")
+      end
     end
 
     describe "Forgot password" do

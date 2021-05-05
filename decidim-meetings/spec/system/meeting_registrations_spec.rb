@@ -116,6 +116,33 @@ describe "Meeting registrations", type: :system do
           expect(page).to have_css("#loginModal", visible: :visible)
         end
 
+        context "and caching is enabled", :caching do
+          it "they have the option to sign in with different languages" do
+            visit_meeting
+
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
+
+            within "#loginModal" do
+              expect(page).to have_content("Sign in with Facebook")
+              find(".close-button").click
+            end
+
+            within_language_menu do
+              click_link "Català"
+            end
+
+            within ".card.extra" do
+              click_button "Inscriu-te a la trobada"
+            end
+
+            within "#loginModal" do
+              expect(page).to have_content("Inicia sessió amb Facebook")
+            end
+          end
+        end
+
         context "and registration form is enabled" do
           let(:registration_form_enabled) { true }
 
