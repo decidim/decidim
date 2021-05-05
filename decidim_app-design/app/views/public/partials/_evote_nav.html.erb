@@ -42,32 +42,32 @@
     <div class="row column process-nav__content" id="process-nav-content" data-toggler=".is-active">
       <ul>
         <li class="<% if @activepage == "info" %>is-active<% end %>">
-          <%= link_to page_path("evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'info'}" do %>
+          <%= link_to page_path("evote/evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'info'}" do %>
           <span>About</span>
           <% end %>
         </li>
         <li class="<% if @activepage == "how-to" %>is-active<% end %>">
-          <%= link_to page_path("evote-how-to-participate"), class: "process-nav__link #{'is-active' if @activepage == 'meetings'}" do %>
+          <%= link_to page_path("evote/evote-how-to-participate"), class: "process-nav__link #{'is-active' if @activepage == 'meetings'}" do %>
           <span>How to vote</span>
           <% end %>
         </li>
         <li class="<% if @activepage == "questions" %>is-active<% end %>">
-          <%= link_to page_path("evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'proposals'}" do %>
+          <%= link_to page_path("evote/evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'proposals'}" do %>
           <span>Questions</span>
           <% end %>
         </li>
         <li class="<% if @activepage == "participate" %>is-active<% end %>">
-          <%= link_to page_path("evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'initiatives'}" do %>
+          <%= link_to page_path("evote/evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'initiatives'}" do %>
           <span>Participate</span>
           <% end %>
         </li>
         <li class="<% if @activepage == "faqs" %>is-active<% end %>">
-          <%= link_to page_path("evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
+          <%= link_to page_path("evote/evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
           <span>FAQS</span>
           <% end %>
         </li>
         <li class="<% if @activepage == "log" %>is-active<% end %>">
-          <%= link_to page_path("evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
+          <%= link_to page_path("evote/evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
           <span>Log</span>
           <% end %>
         </li>

@@ -104,18 +104,18 @@
         <div class="design-index__block">
           <h2 class="section-heading">Presupuestos participativos</h2>
           <ul>
-            <li><%= link_to "Presupuestos - Inicio", page_path("projects-budget-welcome") %></li>
-            <li><%= link_to "Presupuestos - Votación en distrito", page_path("projects-budget") %></li>
-            <li><%= link_to "Presupuestos - Vista de proyecto", page_path("project-budget-view") %></li>
-            <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
-            <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
-            <li><%= link_to "Presupuestos - Voto confirmado (elegir otro distrito)", page_path("projects-budget-next") %></li>
-            <li><%= link_to "Presupuestos - Voto confirmado (sin más distritos)", page_path("projects-budget-two-districts") %></li>
-            <li><%= link_to "Presupuestos - Landing con un distrito votado", page_path("projects-budget-one-voted") %></li>
-            <li><%= link_to "Presupuestos - Landing con dos distritos votados", page_path("projects-budget-already-voted") %></li>
-            <li><%= link_to "Presupuestos - Consulta de votación", page_path("projects-budget-finish") %></li>
-            <li><%= link_to "Presupuestos - Consulta de de la lista de proyectos cuando el usuario ya ha votado", page_path("projects-budget-finish") %></li>
-            <li><%= link_to "Presupuestos - Consulta proyectos seleccionados (votación finalizada)", page_path("projects-budget-selected") %></li>
+            <li><%= link_to "Presupuestos - Inicio", page_path("projects-budgets/projects-budget-welcome") %></li>
+            <li><%= link_to "Presupuestos - Votación en distrito", page_path("projects-budgets/projects-budget") %></li>
+            <li><%= link_to "Presupuestos - Vista de proyecto", page_path("projects-budgets/project-budget-view") %></li>
+            <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budgets/projects-budget-excess") %></li>
+            <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budgets/projects-budget-confirm") %></li>
+            <li><%= link_to "Presupuestos - Voto confirmado (elegir otro distrito)", page_path("projects-budgets/projects-budget-next") %></li>
+            <li><%= link_to "Presupuestos - Voto confirmado (sin más distritos)", page_path("projects-budgets/projects-budget-two-districts") %></li>
+            <li><%= link_to "Presupuestos - Landing con un distrito votado", page_path("projects-budgets/projects-budget-one-voted") %></li>
+            <li><%= link_to "Presupuestos - Landing con dos distritos votados", page_path("projects-budgets/projects-budget-already-voted") %></li>
+            <li><%= link_to "Presupuestos - Consulta de votación", page_path("projects-budgets/projects-budget-finish") %></li>
+            <li><%= link_to "Presupuestos - Consulta de de la lista de proyectos cuando el usuario ya ha votado", page_path("projects-budgets/projects-budget-finish") %></li>
+            <li><%= link_to "Presupuestos - Consulta proyectos seleccionados (votación finalizada)", page_path("projects-budgets/projects-budget-selected") %></li>
           </ul>
         </div>
         <div class="design-index__block">
@@ -168,7 +168,7 @@
         <div class="design-index__block">
           <h2 class="section-heading">Debates</h2>
           <ul>
-            <li><%= link_to "Debates - Lista", page_path("debates") %></li>
+            <li><%= link_to "Debates - Lista", page_path("debates/debates") %></li>
           </ul>
         </div>
         <div class="design-index__block">
@@ -273,61 +273,61 @@
         <div class="design-index__block">
           <h2 class="section-heading">eVote</h2>
           <ul>
-            <li><%= link_to "Single consultation landing page", page_path("evote-consultation-landing") %></li>
-            <li><%= link_to "Multiple consultation landing page", page_path("evote-multiple-consultation-landing") %></li>
+            <li><%= link_to "Single consultation landing page", page_path("evote/evote-consultation-landing") %></li>
+            <li><%= link_to "Multiple consultation landing page", page_path("evote/evote-multiple-consultation-landing") %></li>
             <li>
-              <%= link_to "Check participating rights", page_path("evote-how-to-participate") %>
+              <%= link_to "Check participating rights", page_path("evote/evote-how-to-participate") %>
               <ul>
-                <li><%= link_to "Success", page_path("evote-how-to-participate-success") %></li>
-                <li><%= link_to "Error", page_path("evote-how-to-participate-error") %></li>
-                <li><%= link_to "Blocked", page_path("evote-how-to-participate-blocked") %></li>
+                <li><%= link_to "Success", page_path("evote/evote-how-to-participate-success") %></li>
+                <li><%= link_to "Error", page_path("evote/evote-how-to-participate-error") %></li>
+                <li><%= link_to "Blocked", page_path("evote/evote-how-to-participate-blocked") %></li>
               </ul>
             </li>
-            <li><%= link_to "Election log", page_path("evote-election-log") %></li>
-            <li><%= link_to "Available elections (follows current component list models)", page_path("evote-poll-list") %></li>
-            <li><%= link_to "Election landing page", page_path("evote-poll-landing") %></li>
-            <li><%= link_to "Identification with access code", page_path("evote-identification") %></li>
-            <li><%= link_to "Question model 1", page_path("evote-1") %></li>
-            <li><%= link_to "Question model 2 (+ more info)", page_path("evote-2") %></li>
-            <li><%= link_to "Question model 3 (+ counter)", page_path("evote-3") %></li>
-             <li><%= link_to "Vote confirm", page_path("evote-confirm") %></li>
-             <li><%= link_to "Edit vote", page_path("evote-edit") %></li>
-            <li><%= link_to "Vote encrypting", page_path("evote-encrypting") %></li>
-            <li><%= link_to "Confirmed vote", page_path("evote-confirmed") %></li>
-            <li><%= link_to "Onboarding after completing the survey", page_path("evote-survey-complete") %></li>
-            <li><%= link_to "Verify vote", page_path("evote-verify") %></li>
-            <li><%= link_to "Verify vote from landing page", page_path("evote-public-verify") %></li>
-            <li><%= link_to "Election results page", page_path("evote-poll-results") %></li>
+            <li><%= link_to "Election log", page_path("evote/evote-election-log") %></li>
+            <li><%= link_to "Available elections (follows current component list models)", page_path("evote/evote-poll-list") %></li>
+            <li><%= link_to "Election landing page", page_path("evote/evote-poll-landing") %></li>
+            <li><%= link_to "Identification with access code", page_path("evote/evote-identification") %></li>
+            <li><%= link_to "Question model 1", page_path("evote/evote-1") %></li>
+            <li><%= link_to "Question model 2 (+ more info)", page_path("evote/evote-2") %></li>
+            <li><%= link_to "Question model 3 (+ counter)", page_path("evote/evote-3") %></li>
+             <li><%= link_to "Vote confirm", page_path("evote/evote-confirm") %></li>
+             <li><%= link_to "Edit vote", page_path("evote/evote-edit") %></li>
+            <li><%= link_to "Vote encrypting", page_path("evote/evote-encrypting") %></li>
+            <li><%= link_to "Confirmed vote", page_path("evote/evote-confirmed") %></li>
+            <li><%= link_to "Onboarding after completing the survey", page_path("evote/evote-survey-complete") %></li>
+            <li><%= link_to "Verify vote", page_path("evote/evote-verify") %></li>
+            <li><%= link_to "Verify vote from landing page", page_path("evote/evote-public-verify") %></li>
+            <li><%= link_to "Election results page", page_path("evote/evote-poll-results") %></li>
             <li>
-              <%= link_to "Polling Officer Zone", page_path("evote-polling-station-officer") %>
+              <%= link_to "Polling Officer Zone", page_path("evote/evote-polling-station-officer") %>
               <ul>
                 <li>
-                  <%= link_to "Identify and verify a person", page_path("evote-polling-station-officer-identify") %>
+                  <%= link_to "Identify and verify a person", page_path("evote/evote-polling-station-officer-identify") %>
                   <ul>
-                    <li><%= link_to "Error", page_path("evote-polling-station-officer-identify-error") %></li>
-                    <li><%= link_to "Success: check data", page_path("evote-polling-station-officer-identify-success") %></li>
+                    <li><%= link_to "Error", page_path("evote/evote-polling-station-officer-identify-error") %></li>
+                    <li><%= link_to "Success: check data", page_path("evote/evote-polling-station-officer-identify-success") %></li>
                   </ul>
                 </li>
                 <li>
-                  <%= link_to "Questions she has the right to participate in", page_path("evote-polling-station-officer-questions") %>
+                  <%= link_to "Questions she has the right to participate in", page_path("evote/evote-polling-station-officer-questions") %>
                   <ul>
-                    <li><%= link_to "Warning: already voted online", page_path("evote-polling-station-officer-questions-warning") %></li>
-                    <li><%= link_to "Error: already voted in person", page_path("evote-polling-station-officer-questions-error") %></li>
+                    <li><%= link_to "Warning: already voted online", page_path("evote/evote-polling-station-officer-questions-warning") %></li>
+                    <li><%= link_to "Error: already voted in person", page_path("evote/evote-polling-station-officer-questions-error") %></li>
                   </ul>
                 </li>
                 <li>
-                  <%= link_to "Votes recount - Step 1: Count envelopes", page_path("evote-polling-station-officer-count-votes") %>
+                  <%= link_to "Votes recount - Step 1: Count envelopes", page_path("evote/evote-polling-station-officer-count-votes") %>
                   <ul>
-                    <li><%= link_to "Error", page_path("evote-polling-station-officer-count-votes-error") %></li>
+                    <li><%= link_to "Error", page_path("evote/evote-polling-station-officer-count-votes-error") %></li>
                   </ul>
                 </li>
                 <li>
-                  <%= link_to "Votes recount - Step 2: Count answers", page_path("evote-polling-station-officer-count-votes-step2") %>
+                  <%= link_to "Votes recount - Step 2: Count answers", page_path("evote/evote-polling-station-officer-count-votes-step2") %>
                   <ul>
-                    <li><%= link_to "Error", page_path("evote-polling-station-officer-count-votes-step2-error") %></li>
+                    <li><%= link_to "Error", page_path("evote/evote-polling-station-officer-count-votes-step2-error") %></li>
                   </ul>
                 </li>
-                <li><%= link_to "Votes recount - Step 3: Upload certificate", page_path("evote-polling-station-officer-count-votes-step3") %></li>
+                <li><%= link_to "Votes recount - Step 3: Upload certificate", page_path("evote/evote-polling-station-officer-count-votes-step3") %></li>
               </ul>
             </li>
          </ul>
@@ -370,21 +370,21 @@
         <h2 class="section-heading">Vistas de componente</h2>
         <ul>
           <li>
-            <%= link_to "Debate", page_path("debate-view") %>
+            <%= link_to "Debate", page_path("debate/debate-view") %>
             <ul>
-              <li><%= link_to "Debate: log in para comentar", page_path("debate-view-login") %></li>
-              <li><%= link_to "Debate con concejal", page_path("debate-view-AMA") %></li>
+              <li><%= link_to "Debate: log in para comentar", page_path("debate/debate-view-login") %></li>
+              <li><%= link_to "Debate con concejal", page_path("debate/debate-view-AMA") %></li>
             </ul>
           </li>
           <li><%= link_to "Resultado", page_path("action-view") %></li>
         </ul>
         <h2 class="section-heading">Presupuestos participativos</h2>
         <ul>
-          <li><%= link_to "Presupuestos - Lista de proyectos", page_path("projects-budget") %></li>
-          <li><%= link_to "Presupuestos - Ver proyecto", page_path("project-budget-view") %></li>
-          <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budget-confirm") %></li>
-          <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
-          <li><%= link_to "Presupuestos - Votación finalizada", page_path("projects-budget-finish") %></li>
+          <li><%= link_to "Presupuestos - Lista de proyectos", page_path("projects-budgets/projects-budget") %></li>
+          <li><%= link_to "Presupuestos - Ver proyecto", page_path("projects-budgets/project-budget-view") %></li>
+          <li><%= link_to "Presupuestos - Confirmar voto", page_path("projects-budgets/projects-budget-confirm") %></li>
+          <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budgets/projects-budget-excess") %></li>
+          <li><%= link_to "Presupuestos - Votación finalizada", page_path("projects-budgets/projects-budget-finish") %></li>
         </ul>
         <h2 class="section-heading">User</h2>
         <ul>
@@ -398,16 +398,16 @@
         <h2 class="section-heading">Multiconsulta</h2>
         <ul>
           <li><%= link_to "Home - banners para anunciar Multiconsulta", page_path("home-with-consultation-banners") %></li>
-          <li><%= link_to "Home de Multiconsulta (y botón para ver el histórico, cuando lo haya)", page_path("consultations") %></li>
-          <li><%= link_to "Desambiguador de Multiconsulta (para elegir en el histórico)", page_path("consultations-choose") %></li>
-          <li><%= link_to "Pregunta: home", page_path("consultations-info") %></li>
-          <li><%= link_to "Pregunta: página de más información (datos de contexto, transparencia)", page_path("consultations-moreinfo") %></li>
-          <li><%= link_to "Pregunta: encuentros", page_path("consultations-meetings") %></li>
-          <li><%= link_to "Pregunta: entidades interesadas", page_path("consultations-entities") %></li>
-          <li><%= link_to "Pregunta: detalle de entidad interesada", page_path("consultations-entities-view") %></li>
-          <li><%= link_to "Pregunta: dónde votar", page_path("consultations-voting-places") %></li>
-          <li><%= link_to "Pregunta: votación en modal", page_path("consultations-vote") %></li>
-          <li><%= link_to "Pregunta: votación en modal - confirmar", page_path("consultations-vote-confirm") %></li>
+          <li><%= link_to "Home de Multiconsulta (y botón para ver el histórico, cuando lo haya)", page_path("consultations/consultations") %></li>
+          <li><%= link_to "Desambiguador de Multiconsulta (para elegir en el histórico)", page_path("consultations/consultations-choose") %></li>
+          <li><%= link_to "Pregunta: home", page_path("consultations/consultations-info") %></li>
+          <li><%= link_to "Pregunta: página de más información (datos de contexto, transparencia)", page_path("consultations/consultations-moreinfo") %></li>
+          <li><%= link_to "Pregunta: encuentros", page_path("consultations/consultations-meetings") %></li>
+          <li><%= link_to "Pregunta: entidades interesadas", page_path("consultations/consultations-entities") %></li>
+          <li><%= link_to "Pregunta: detalle de entidad interesada", page_path("consultations/consultations-entities-view") %></li>
+          <li><%= link_to "Pregunta: dónde votar", page_path("consultations/consultations-voting-places") %></li>
+          <li><%= link_to "Pregunta: votación en modal", page_path("consultations/consultations-vote") %></li>
+          <li><%= link_to "Pregunta: votación en modal - confirmar", page_path("consultations/consultations-vote-confirm") %></li>
          </ul>
         <h2 class="section-heading">Legal y sistema</h2>
         <ul>

@@ -80,7 +80,7 @@
           <% end %>
         </li>
         <li class="<% if @activepage == "debates" %>is-active<% end %>">
-          <%= link_to page_path("debates"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
+          <%= link_to page_path("debate/debates"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
           <span>Debates</span>
           <% end %>
         </li>
