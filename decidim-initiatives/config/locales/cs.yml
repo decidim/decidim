@@ -4,7 +4,7 @@ cs:
       initiative:
         decidim_user_group_id: Autor
         description: Popis
-        offline_votes: Podpora tváří v tvář
+        offline_votes: Osobní fyzické podpisy
         offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
         signature_end_date: Konec doby sběru podpisu
@@ -221,7 +221,7 @@ cs:
             confirm_send_to_technical_validation: Jste si jistý?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
-            export_votes: Podpora exportu
+            export_votes: Exportovat podpisy
             reject: Odmítnout iniciativu
             send_to_technical_validation: Odeslání k technickému ověření
             success: Iniciativa byla odeslána k technickému ověření
