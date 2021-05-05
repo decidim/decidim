@@ -386,11 +386,6 @@ ca:
         designated_on: Designat a
       index:
         title: Membres
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Enllaç a la pàgina de Jornades mostrant totes les jornades
     events:
       assemblies:
         create_assembly_member:
@@ -423,17 +418,7 @@ ca:
         description: Nombre d'assemblees creades
         object: assemblees
         title: Assemblees
-    pages:
-      home:
-        hero:
-          participate_title: Participa als processos de la plataforma
-        sub_hero:
-          register_title: Registra't
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
       show:
         related_assemblies: Assemblees relacionades
     statistics:
