@@ -35,12 +35,23 @@ bundle install
 bundle exec rails webpacker:install
 ----
 
-3. Install npm dependencies
+3. Install Decidim webpacker custom code
 
 [source,console]
 ----
-npm install
+bundle exec rails decidim:webpacker:install
 ----
+
+This task do a few steps to allow the Rails instance to have a webpacker instance sharing the code between itself and Decidim gem.
+
+Steps it does:
+
+- copies babel and postcss configuration to instance application
+- copies config/webpacker.yml configuration to instance application
+- copies config/webpack/* configuration to instance application
+- copies package.json and package-lock.json to instance app
+
+This task should be performed everytime decidim has been updated, to get the latest assets dependencies and Webpack configuration.
 
 == Add Decidim webpacker configuration
 
@@ -118,3 +129,4 @@ Sometimes assets are included in `vendor/assets/` folder or imported from gems. 
 == Remove manifest
 
 The manifest at `app/assets/config` is not necessary anymore and should be removed. Then the whole `app/assets` folder can be removed.
+
