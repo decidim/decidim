@@ -1,1 +1,1 @@
-import "../src/decidim/votings/voting-description-cell";
+import "src/decidim/votings/voting-description-cell";

@@ -1,1 +1,1 @@
-import "./comments.component"
+import "src/decidim/comments/comments.component"

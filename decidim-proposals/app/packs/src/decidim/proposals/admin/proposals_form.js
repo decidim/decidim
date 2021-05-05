@@ -1,4 +1,4 @@
-import attachGeocoding from "../../../../../../../decidim-core/app/packs/src/decidim/geocoding/attach_input"
+import attachGeocoding from "src/decidim/geocoding/attach_input"
 
 $(() => {
   const $form = $(".proposal_form_admin");

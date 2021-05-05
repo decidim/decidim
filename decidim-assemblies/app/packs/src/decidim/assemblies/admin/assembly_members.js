@@ -1,4 +1,4 @@
-import createFieldDependentInputs from "../../../../../../../decidim-admin/app/packs/src/decidim/admin/field_dependent_inputs.component.js"
+import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 
 $(() => {
   const $assemblyMemberType = $("#assembly_member_existing_user");

@@ -1,1 +1,1 @@
-import "../src/decidim/geocoding/provider/photon"
+import "src/decidim/geocoding/provider/photon"

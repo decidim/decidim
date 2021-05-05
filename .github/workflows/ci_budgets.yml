@@ -22,7 +22,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 2.7.1
-  NODE_VERSION: 14.16.0
+  NODE_VERSION: 15.14.0
   DECIDIM_MODULE: decidim-budgets
 
 jobs:
@@ -72,14 +72,12 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
-      - name: Install JS dependencies
-        run: npm ci
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
       - uses: nanasess/setup-chromedriver@v1.0.1
-      - run: bundle exec rails assets:precompile
+      - run: RAILS_ENV=test bundle exec rails assets:precompile
         name: Precompile assets
         working-directory: ./spec/decidim_dummy_app/
       - run: bundle exec rspec

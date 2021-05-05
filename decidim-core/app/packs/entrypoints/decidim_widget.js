@@ -1,1 +1,1 @@
-import "../src/decidim/widget"
+import "src/decidim/widget"

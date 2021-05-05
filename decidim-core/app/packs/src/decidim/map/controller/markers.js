@@ -1,6 +1,6 @@
-import "../../vendor/jquery-tmpl"
+import "src/decidim/vendor/jquery-tmpl"
 import * as L from "leaflet";
-import MapController from "../controller"
+import MapController from "src/decidim/map/controller"
 import "leaflet.markercluster";
 
 export default class MapMarkersController extends MapController {

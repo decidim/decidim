@@ -1,1 +1,1 @@
-import "../src/decidim/votings/admin/update_census_dataset_status";
+import "src/decidim/votings/admin/update_census_dataset_status";

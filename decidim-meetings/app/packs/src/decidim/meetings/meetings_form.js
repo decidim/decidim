@@ -1,4 +1,4 @@
-import attachGeocoding from "../../../../../../decidim-core/app/packs/src/decidim/geocoding/attach_input"
+import attachGeocoding from "src/decidim/geocoding/attach_input"
 
 $(() => {
   // Adds the latitude/longitude inputs after the geocoding is done

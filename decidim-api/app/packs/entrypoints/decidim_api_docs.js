@@ -3,6 +3,7 @@
 import jQuery from "jquery"
 import { render } from "react-dom"
 import { GraphQLDocs } from "graphql-docs"
+import "stylesheets/decidim/api/docs.scss"
 
 const fetcherFactory = (path) => {
   return (query) => {

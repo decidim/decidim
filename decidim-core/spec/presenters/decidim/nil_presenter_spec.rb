@@ -16,7 +16,7 @@ module Decidim
       let(:method) { :avatar_url }
 
       it "returns the default avatar url" do
-        expect(subject.starts_with?("/assets/decidim/default-avatar-")).to be true
+        expect(subject).to eq(Webpacker.instance.manifest.lookup("media/images/default-avatar.svg"))
         expect(subject.ends_with?(".svg")).to be true
       end
     end

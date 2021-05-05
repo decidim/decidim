@@ -1,2 +1,2 @@
-import "../src/decidim/map/provider/here"
-import "../src/decidim/map"
+import "src/decidim/map/provider/here"
+import "src/decidim/map"

@@ -19,16 +19,7 @@ module Decidim
       describe "#stylesheet_snippets" do
         it "returns the expected stylesheet assets" do
           expect(subject.stylesheet_snippets).to match(
-            %r{<link rel="stylesheet" media="screen" href="/assets/leaflet\.self-[^.]*\.css\?body=1" />}
-          )
-          expect(subject.stylesheet_snippets).to match(
-            %r{<link rel="stylesheet" media="screen" href="/assets/MarkerCluster\.self-[^.]*\.css\?body=1" />}
-          )
-          expect(subject.stylesheet_snippets).to match(
-            %r{<link rel="stylesheet" media="screen" href="/assets/MarkerCluster\.Default\.self-[^.]*\.css\?body=1" />}
-          )
-          expect(subject.stylesheet_snippets).to match(
-            %r{<link rel="stylesheet" media="screen" href="/assets/decidim/map\.self-[^.]*\.css\?body=1" />}
+            %r{<link rel="stylesheet" media="screen" href="/packs-test/css/decidim_map-[^.]*\.css" />}
           )
         end
       end

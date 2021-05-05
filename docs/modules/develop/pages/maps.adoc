@@ -196,7 +196,7 @@ module Decidim
 end
 ----
 
-To see an example of the front-end JavaScript code that handles the geocoding requests, you can take a look at the link:/decidim-core/app/assets/javascripts/decidim/geocoding/provider/here.js.es6[HERE Maps example].
+To see an example of the front-end JavaScript code that handles the geocoding requests, you can take a look at the link:/decidim-core/app/packs/src/decidim/geocoding/provider/here.js.es6[HERE Maps example].
 You will have to listen to the `geocoder-suggest.decidim` JavaScript event on all elements that have the `data-decidim-geocoding` attribute defined which contains all the configurations returned by the builder's `builder_options` method as mentioned above.
 For example, if you passed the following configuration from that method:
 

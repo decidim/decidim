@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:assemblies) do |participatory_space|
-  participatory_space.icon = "decidim/assemblies/assembly.svg"
+  participatory_space.icon = "media/images/decidim_assemblies.svg"
   participatory_space.model_class_name = "Decidim::Assembly"
 
   participatory_space.participatory_spaces do |organization|

@@ -1,9 +1,9 @@
 /* eslint-disable require-jsdoc */
 
-import createOptionAttachedInputs from "./option_attached_inputs.component"
-import createAutosortableCheckboxes from "./autosortable_checkboxes.component"
-import createDisplayConditions from "./display_conditions.component"
-import createMaxChoicesAlertComponent from "./max_choices_alert.component"
+import createOptionAttachedInputs from "src/decidim/forms/option_attached_inputs.component"
+import createAutosortableCheckboxes from "src/decidim/forms/autosortable_checkboxes.component"
+import createDisplayConditions from "src/decidim/forms/display_conditions.component"
+import createMaxChoicesAlertComponent from "src/decidim/forms/max_choices_alert.component"
 
 $(() => {
   $(".radio-button-collection, .check-box-collection").each((idx, el) => {

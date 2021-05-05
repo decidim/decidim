@@ -5,7 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:elections) do |component|
   component.engine = Decidim::Elections::Engine
   component.admin_engine = Decidim::Elections::AdminEngine
-  component.icon = "decidim/elections/icon.svg"
+  component.icon = "media/images/decidim_elections.svg"
   component.stylesheet = "decidim/elections/elections"
   component.permissions_class_name = "Decidim::Elections::Permissions"
   component.query_type = "Decidim::Elections::ElectionsType"

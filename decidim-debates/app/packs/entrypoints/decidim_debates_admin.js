@@ -1,1 +1,4 @@
-import "../src/decidim/debates/admin/debates"
+import "src/decidim/debates/admin/debates"
+
+// Images
+require.context("../images", true)
