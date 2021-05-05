@@ -411,6 +411,7 @@ cs:
             more_information: Více informací
             participate: Účastnit se
             participate_in: Zapojte se do procesu %{resource_name}
+            processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
             see_all_processes: Zobrazit všechny procesy
       participatory_process_steps:
         index:
