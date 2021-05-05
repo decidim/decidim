@@ -1,0 +1,21 @@
+$primary-color: null;
+$secondary-color: null;
+$success-color: null;
+$warning-color: null;
+$alert-color: null;
+$-zf-size: null;
+$-zf-bp-value: null;
+
+@import "stylesheets/decidim/system/foundation_and_overrides";
+@import "stylesheets/decidim/system/layout";
+@import "stylesheets/decidim/system/login";
+@import "stylesheets/decidim/system/sidebar";
+@import "stylesheets/decidim/system/tables";
+@import "stylesheets/decidim/system/actions";
+@import "stylesheets/decidim/system/forms";
+@import "stylesheets/decidim/editor";
+@import "stylesheets/decidim/utils/fontface";
+
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+}

@@ -1,1 +1,1 @@
-import "./vizzs/metrics"
+import "src/decidim/vizzs/metrics"

@@ -1,1 +1,1 @@
-import "../src/decidim/elections/admin/vote_statistics";
+import "src/decidim/elections/admin/vote_statistics";

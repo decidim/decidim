@@ -1,0 +1,114 @@
+.linechart{
+  //common
+  svg{
+    overflow: visible;
+  }
+
+  .background{
+    fill: darken($body-background, 2.5);
+  }
+
+  .title{
+    fill: $muted;
+    font-weight: 600;
+    font-size: rem-calc(24);
+  }
+
+  .subtitle{
+    fill: $muted;
+    font-size: rem-calc(14);
+  }
+
+  .tick{
+    opacity: .5;
+
+    .dashed{
+      stroke-dasharray: 3;
+    }
+  }
+
+  .line{
+    fill: none;
+    stroke-width: 3px;
+  }
+
+  // helper to colors
+  @mixin loop-colors-types($color, $max: 12){
+    @for $i from 0 through ($max - 1){
+      $interval: ($i % 4) * 24 + 1;
+      $tints: tint($color, $interval);
+      $shades: shade($color, $interval);
+      $adjusts: adjust-color($color, $lightness: $interval * 1%, $hue: -$interval);
+
+      .type-#{$i}:not(.legend){
+        @if $i < 4{
+          stroke: $tints;
+
+          &:hover{
+            cursor: pointer;
+            stroke: complement($tints);
+          }
+        }
+
+        @else if $i >= 4 and $i < 8{
+          stroke: $shades;
+
+          &:hover{
+            cursor: pointer;
+            stroke: complement($shades);
+          }
+        }
+
+        @else{
+          stroke: $adjusts;
+
+          &:hover{
+            cursor: pointer;
+            stroke: complement($adjusts);
+          }
+        }
+      }
+
+      .type-#{$i}:not(.line){
+        @if $i < 4{
+          fill: $tints;
+
+          &:hover{
+            cursor: pointer;
+            fill: complement($tints);
+          }
+        }
+
+        @else if $i >= 4 and $i < 8{
+          fill: $shades;
+
+          &:hover{
+            cursor: pointer;
+            fill: complement($shades);
+          }
+        }
+
+        @else{
+          fill: $adjusts;
+
+          &:hover{
+            cursor: pointer;
+            fill: complement($adjusts);
+          }
+        }
+      }
+    }
+  }
+
+  // default color
+  @include loop-colors-types($proposals);
+
+  // colors modifiers
+  $map: $foundation-palette;
+
+  @each $key, $value in $map{
+    &.#{$key}{
+      @include loop-colors-types($value);
+    }
+  }
+}

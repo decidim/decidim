@@ -30,3 +30,5 @@ schema.json
 public/decidim-packs
 # tmp folder (used by webpack to deal with cache)
 tmp
+# webpack packs output
+decidim-packs

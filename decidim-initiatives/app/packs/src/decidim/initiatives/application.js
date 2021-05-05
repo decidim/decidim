@@ -1,3 +1,3 @@
-import "../../../../../../decidim-core/app/packs/src/decidim/editor"
-import "./scoped_type"
-import "./identity_selector_dialog"
+import "src/decidim/editor"
+import "src/decidim/initiatives/scoped_type"
+import "src/decidim/initiatives/identity_selector_dialog"

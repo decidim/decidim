@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import createSortList from "./sort_list.component"
+import createSortList from "src/decidim/admin/sort_list.component"
 
 export default function createSortableList(lists) {
   createSortList(lists, {

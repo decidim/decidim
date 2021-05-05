@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 
-import lineBreakButtonHandler from "./editor/linebreak_module"
+import lineBreakButtonHandler from "src/decidim/editor/linebreak_module"
 
 const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
 

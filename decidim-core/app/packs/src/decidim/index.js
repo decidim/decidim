@@ -1,16 +1,16 @@
 /* eslint-disable no-invalid-this */
 
 import svg4everybody from "svg4everybody"
-import formDatePicker from "./form_datepicker"
-import fixDropdownMenus from "./dropdowns_menus"
-import createQuillEditor from "./editor"
-import Configuration from "./configuration"
-import ExternalLink from "./external_link"
-import InputCharacterCounter from "./input_character_counter"
-import FormValidator from "./form_validator"
-import CommentsComponent from "../../../../../decidim-comments/app/packs/src/decidim/comments/comments.component"
-import DataPicker from "./data_picker"
-import FormFilterComponent from "./form_filter"
+import formDatePicker from "src/decidim/form_datepicker"
+import fixDropdownMenus from "src/decidim/dropdowns_menus"
+import createQuillEditor from "src/decidim/editor"
+import Configuration from "src/decidim/configuration"
+import ExternalLink from "src/decidim/external_link"
+import InputCharacterCounter from "src/decidim/input_character_counter"
+import FormValidator from "src/decidim/form_validator"
+import CommentsComponent from "src/decidim/comments/comments.component"
+import DataPicker from "src/decidim/data_picker"
+import FormFilterComponent from "src/decidim/form_filter"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()

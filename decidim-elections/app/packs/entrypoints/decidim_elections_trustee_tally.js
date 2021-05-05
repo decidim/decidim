@@ -1,1 +1,1 @@
-import "../src/decidim/elections/trustee/tally";
+import "src/decidim/elections/trustee/tally";

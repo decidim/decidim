@@ -67,7 +67,7 @@ shared_context "with frontend map elements" do
         <html lang="en">
         <head>
           <title>Map Test</title>
-          #{stylesheet_link_tag "application"}
+          #{stylesheet_pack_tag "decidim_core"}
           #{javascript_pack_tag "decidim_core"}
           #{builder.stylesheet_snippets}
           #{builder.javascript_snippets}

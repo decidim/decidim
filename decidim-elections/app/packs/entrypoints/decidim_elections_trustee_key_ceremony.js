@@ -1,1 +1,1 @@
-import "../src/decidim/elections/trustee/key_ceremony";
+import "src/decidim/elections/trustee/key_ceremony";

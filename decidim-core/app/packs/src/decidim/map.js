@@ -1,4 +1,4 @@
-import createMapController from "./map/factory"
+import createMapController from "src/decidim/map/factory"
 
 $(() => {
   // Load the map controller factory method in the document.ready handler to

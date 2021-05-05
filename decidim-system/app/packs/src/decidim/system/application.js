@@ -1,18 +1,21 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import $ from "jquery"
 import Quill from "quill"
+import Rails from "@rails/ujs"
 import "foundation-sites"
 
-import createQuillEditor from "../../../../../../decidim-core/app/packs/src/decidim/editor"
-import Configuration from "../../../../../../decidim-core/app/packs/src/decidim/configuration"
+import createQuillEditor from "src/decidim/editor"
+import Configuration from "src/decidim/configuration"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
 
-import "../../../../../../decidim-core/app/packs/src/decidim/input_tags"
-import "../../../../../../decidim-core/app/packs/src/decidim/confirm"
+import "src/decidim/input_tags"
+import "src/decidim/confirm"
 
 $(() => {
   $(document).foundation();
@@ -23,5 +26,4 @@ $(() => {
 });
 
 // This needs to be loaded after confirm dialog to bind properly
-import Rails from "@rails/ujs"
 Rails.start()

@@ -2,15 +2,21 @@
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import toggleNav from "./toggle_nav"
-import createSortList from "./sort_list.component"
-import createQuillEditor from "../../../../../../decidim-core/app/packs/src/decidim/editor"
-import formDatePicker from "../../../../../../decidim-core/app/packs/src/decidim/form_datepicker"
-import DataPicker from "../../../../../../decidim-core/app/packs/src/decidim/data_picker"
-import Autocomplete from "./autocomplete.component";
-import FormFilterComponent from "../../../../../../decidim-core/app/packs/src/decidim/form_filter"
+import toggleNav from "src/decidim/admin/toggle_nav"
+import createSortList from "src/decidim/admin/sort_list.component"
+import createQuillEditor from "src/decidim/editor"
+import formDatePicker from "src/decidim/form_datepicker"
+import DataPicker from "src/decidim/data_picker"
+import Autocomplete from "src/decidim/admin/autocomplete.component";
+import FormFilterComponent from "src/decidim/form_filter"
+import Configuration from "src/decidim/configuration"
+import InputCharacterCounter from "src/decidim/input_character_counter"
+import managedUsersForm from "src/decidim/admin/managed_users"
 
 window.Decidim = window.Decidim || {};
+window.Decidim.managedUsersForm = managedUsersForm
+window.Decidim.config = new Configuration()
+window.Decidim.InputCharacterCounter = InputCharacterCounter;
 
 const renderAutocompleteSelects = (nodeSelector) => {
   window.$(nodeSelector).each((index, node) => {

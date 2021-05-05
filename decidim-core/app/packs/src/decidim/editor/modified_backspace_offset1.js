@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 
-import attributeDiff from "./attribute_diff"
+import attributeDiff from "src/decidim/editor/attribute_diff"
 
 const Delta = Quill.import("delta");
 
@@ -37,7 +37,7 @@ const moveSelectionToPreviousLine = (quill, range) => {
 export default function backspaceBindings(quill) {
   quill.keyboard.addBinding({ key: 8, offset: 1, collapsed: true }, (range, context) => {
     let length = 1
-    if (/[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix)) {
+    if ((/[\uD800-\uDBFF][\uDC00-\uDFFF]$/).test(context.prefix)) {
       length = 2;
     }
 
