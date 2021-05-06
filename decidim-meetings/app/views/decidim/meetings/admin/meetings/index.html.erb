@@ -18,7 +18,7 @@
             <th><%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %></th>
             <th><%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %></th>
             <th><%= t("models.meeting.fields.closed", scope: "decidim.meetings") %></th>
-            <% if Decidim::Map.available?(:static, :geocoding) %>
+            <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
               <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
             <% end %>
             <%= th_resource_scope_label %>
@@ -44,7 +44,7 @@
               <td>
                 <%= humanize_boolean meeting.closed? %>
               </td>
-              <% if Decidim::Map.available?(:static, :geocoding) %>
+              <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
                 <td>
                   <%= static_map_link(meeting) %>
                 </td>
