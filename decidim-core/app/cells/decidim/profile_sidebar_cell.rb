@@ -73,5 +73,30 @@ module Decidim
 
       !model.confirmed?
     end
+
+    def tiers
+      users = Decidim::User.where(organization: model.organization)
+      users_level = users.map { |user| get_level(user) }
+      rankings = users_level.uniq.map do |level|
+        [
+            level,
+            ((users_level.count(level).to_f / users.count.to_f) * 100.0).round(2)
+        ]
+      end.to_h
+
+      rankings[get_level(model)]
+    end
+
+    def get_level(user)
+      Rails.cache.fetch(
+          "user/#{user.id}/level",
+          expires_in: 10.minutes
+      ) do
+        Decidim::Gamification.badges.select { |badge| badge.valid_for?(user) }.map do |badge|
+          status = Decidim::Gamification.status_for(user, badge.name)
+          status.level.positive? ? status : nil
+        end.compact.map(&:level).sum
+      end
+    end
   end
 end

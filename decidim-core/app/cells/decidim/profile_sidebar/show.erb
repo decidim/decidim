@@ -1,8 +1,10 @@
 <div class="card profile--sidebar">
   <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger", alt: "avatar #{profile_user.name}" %>
+  <% if current_organization.badges_enabled? && badge_statuses.any? %>
   <span class="profile--sidebar--rank profile--sidebar--rank__<%= profile_user.rank_class %>">
     <%= profile_user.level %>
   </span>
+  <% end %>
   <div class="card__content">
     <h1 class="profile--sidebar--title">
       <strong><%= profile_user.name %></strong>
@@ -12,7 +14,7 @@
       </span>
       <% if user_flaggable? %>
         <span class="user-report_link">
-          <%== cell("decidim/author", profile_user, from:profile_user).flag_user %>
+          <%== cell("decidim/author", profile_user, from: profile_user).flag_user %>
         </span>
         &nbsp;
       <% end %>
@@ -84,7 +86,10 @@
           </div>
         </div>
         <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
-          <%= t("decidim.profiles.sidebar.level.rank", rank: profile_user.level) %>
+          <strong><%= t("decidim.profiles.sidebar.level.rank", rank: profile_user.level) %></strong>
+        </div>
+        <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
+          <%= t("decidim.profiles.sidebar.level.tiers", tiers: tiers) %>
         </div>
       </div>
     </div>
