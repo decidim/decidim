@@ -263,8 +263,6 @@ bg:
         name: Примерна идентификация
       dummy_authorization_workflow:
         name: Макет на процедура за идентификация
-      errors:
-        duplicate_authorization: Участника вече е идентифициран с тези данни.
       expired_at: Изтече на %{timestamp}
       expires_at: Изтича на %{timestamp}
       foo_authorization:
