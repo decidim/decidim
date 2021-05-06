@@ -156,6 +156,10 @@ module Decidim
         registrations.where(user: user).any?
       end
 
+      def maps_enabled?
+        component.settings.maps_enabled?
+      end
+
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         component.settings.comments_enabled?
@@ -254,12 +258,10 @@ module Decidim
         [normalized_author.name]
       end
 
-      def hybrid_meeting?
-        type_of_meeting == "hybrid"
-      end
-
-      def online_meeting?
-        type_of_meeting == "online"
+      TYPE_OF_MEETING.each do |type|
+        define_method("#{type}_meeting?") do
+          type_of_meeting == type
+        end
       end
 
       def registration_disabled?
