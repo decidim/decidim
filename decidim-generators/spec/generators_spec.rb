@@ -77,15 +77,9 @@ module Decidim
         it_behaves_like "a new production application"
       end
 
-      if ENV["CIRCLE_BRANCH"] == "master"
-        context "with --edge flag" do
-          let(:command) { "decidim --edge #{test_app}" }
-
-          it_behaves_like "a new production application"
-        end
-
-        context "with --branch flag" do
-          let(:command) { "decidim --branch master #{test_app}" }
+      context "with --branch flag" do
+        let(:default_branch) { "release/0.23-stable" }
+        let(:command) { "decidim --branch #{default_branch} #{test_app}" }
 
           it_behaves_like "a new production application"
         end
