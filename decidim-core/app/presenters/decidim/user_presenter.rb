@@ -62,5 +62,12 @@ module Decidim
     def has_tooltip?
       true
     end
+
+    def level
+      Decidim::Gamification.badges.select { |badge| badge.valid_for?(__getobj__) }.map do |badge|
+        status = Decidim::Gamification.status_for(__getobj__, badge.name)
+        status.level.positive? ? status : nil
+      end.compact.map(&:level).sum
+    end
   end
 end
