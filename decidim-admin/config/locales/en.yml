@@ -283,6 +283,21 @@ en:
         update:
           error: There was a problem updating this component.
           success: The component was updated successfully.
+      conflicts:
+        attempts: Attempts
+        'false': 'No'
+        managed_user_name: Managed User
+        solved: Solved
+        title: Verifications's conflicts
+        transfer:
+          email: Email
+          error: There was a problem transfering the current participant to managed participant.
+          name: Name
+          reason: Reason
+          success: The current transfer has been successfully completed.
+          title: Transfer
+        'true': 'Yes'
+        user_name: User
       dashboard:
         show:
           view_more_logs: View more logs

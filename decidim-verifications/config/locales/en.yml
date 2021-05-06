@@ -76,6 +76,10 @@ en:
       postal_letter:
         explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
         name: Code by postal letter
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: The participant <a href="%{resource_path}">%{resource_title}</a> has tried to verify herself with the data of the managed participant <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:

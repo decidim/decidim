@@ -22,6 +22,12 @@
       <% if allowed_to? :index, :impersonatable_user %>
         <li <% if is_active_link?(decidim_admin.impersonatable_users_path) %> class="is-active" <% end %>>
           <%= link_to t("menu.impersonations", scope: "decidim.admin"), decidim_admin.impersonatable_users_path %>
+          <ul>
+            <li <% if is_active_link?(decidim_admin.conflicts_path) %> class="is-active" <% end %>>
+              <%= %>
+              <%= link_to link_to t("title", scope: "decidim.admin.conflicts"), decidim_admin.conflicts_path %>
+            </li>
+          </ul>
         </li>
       <% end %>
       <li <% if is_active_link?(decidim_admin.authorization_workflows_path) %> class="is-active" <% end %>>
