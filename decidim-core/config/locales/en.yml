@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -79,6 +80,8 @@ en:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    profile_sidebar:
+      level: Level %{level}
     accessibility:
       external_link: External link
       logo: "%{organization}'s official logo"
@@ -729,8 +732,28 @@ en:
         max_file_size: 'Maximum file size: %{megabytes}MB'
       remove_this_file: Remove this file
     gamification:
+      level: Your level is %{level}
       all_badges_link: See all available badges.
       badges:
+        order_budgets:
+          unearned_own: You have not voted on a budget.
+          name: Order budgets
+          next_level_in: Next level in %{score}
+        create_comments:
+          name: Create comments
+          unearned_own: You have not created any comments.
+          description_own: You have created %{score} comments.
+          next_level_in: Next level in %{score}
+        signs_in:
+          name: Signs in
+          description_another: This participant has signed in for %{score} consecutives days.
+          description_own: You have signed in for %{score} consecutives days.
+          next_level_in: Next level in %{score}
+        follows:
+          name: Follows
+          description_another: This participant has %{score} follows.
+          description_own: "You follow %{score} people."
+          next_level_in: Next level in %{score}
         followers:
           conditions:
           - Being active and following other people will surely make other people follow you.
@@ -759,7 +782,7 @@ en:
           unearned_another: This participant has not yet invited anyone.
           unearned_own: You haven't invited anyone yet.
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
-      level: Level %{level}
+
       reached_top: You've reached the top level for this badge.
     group_admins:
       actions:
@@ -1132,6 +1155,11 @@ en:
         timeline: Timeline
         view_full_profile: View full profile
       sidebar:
+        level:
+          title: Level
+          info: Levels are obtained by winning badges and makes you appear in the most implicated users ranking.
+          rank: "<strong>Your level is %{rank} on %{max_rank}</strong>,<br/>Why don't you take advantage of this experience to help other users?"
+          tiers: The level of activity is similar to %{tiers}% of other users
         badges:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges

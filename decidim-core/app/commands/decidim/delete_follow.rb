@@ -40,6 +40,7 @@ module Decidim
       return unless followable.is_a? Decidim::User
 
       Decidim::Gamification.decrement_score(followable, :followers)
+      Decidim::Gamification.decrement_score(current_user, :follows)
     end
   end
 end

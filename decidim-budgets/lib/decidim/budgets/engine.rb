@@ -42,6 +42,14 @@ module Decidim
           metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
         end
       end
+
+
+      initializer "decidim.comments.add_badges" do
+        Decidim::Gamification.register_badge(:order_budgets) do |badge|
+          badge.levels = [1, 2, 3, 4, 5]
+          badge.reset = ->(user) { Decidim::Budgets::Order.where(user: user).count }
+        end
+      end
     end
   end
 end

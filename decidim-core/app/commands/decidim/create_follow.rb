@@ -45,6 +45,7 @@ module Decidim
       return unless form.followable.is_a? Decidim::User
 
       Decidim::Gamification.increment_score(form.followable, :followers)
+      Decidim::Gamification.increment_score(current_user, :follows)
     end
   end
 end

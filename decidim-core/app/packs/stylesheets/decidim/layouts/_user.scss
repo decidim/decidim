@@ -64,22 +64,23 @@
   width: 3em;
   height: 3em;
   position: relative;
-  bottom: 60px;
-  left: 70%;
-  color: $body-background;
+  bottom: 80px;
+  left: 60%;
+  color: #fafafa;
   font-weight: bold;
+  padding: 2rem;
+  text-align: center;
 
   &__top{
     background-color: $primary;
   }
-
 
   &__middle{
     background-color: $secondary;
   }
 
   &__low{
-    border-color: $warning;
+    background-color: $warning;
   }
 
   &__none{

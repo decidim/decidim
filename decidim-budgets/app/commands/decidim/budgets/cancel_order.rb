@@ -21,6 +21,7 @@ module Decidim
         return broadcast(:invalid) if invalid_order?
 
         cancel_order!
+        decrement_score
         broadcast(:ok, @order)
       end
 
@@ -32,6 +33,10 @@ module Decidim
 
       def cancel_order!
         @order.destroy!
+      end
+
+      def decrement_score
+        Decidim::Gamification.decrement_score(@order.user, :order_budgets)
       end
     end
   end

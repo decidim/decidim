@@ -84,12 +84,6 @@ en:
         one: Support
         other: Supports
   decidim:
-    profiles:
-      sidebar:
-        level:
-          title: Level
-          info: Levels are obtained by winning badges and makes you appear in the most implicated users ranking.
-          rank: Level %{rank}
     admin:
       filters:
         proposals:

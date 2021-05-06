@@ -2,7 +2,7 @@
   <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger", alt: "avatar #{profile_user.name}" %>
   <% if current_organization.badges_enabled? && badge_statuses.any? %>
   <span class="profile--sidebar--rank profile--sidebar--rank__<%= profile_user.rank_class %>">
-    <%= profile_user.level %>
+    <%= t(".level", level: profile_user.level) %>
   </span>
   <% end %>
   <div class="card__content">
@@ -85,8 +85,8 @@
             </div>
           </div>
         </div>
-        <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
-          <strong><%= t("decidim.profiles.sidebar.level.rank", rank: profile_user.level) %></strong>
+        <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse mb-s">
+          <%== t("decidim.profiles.sidebar.level.rank", rank: profile_user.level, max_rank: max_rank) %>
         </div>
         <div class="collapsible-list is-filtered row small-up-2 medium-up-4 collapse">
           <%= t("decidim.profiles.sidebar.level.tiers", tiers: tiers) %>

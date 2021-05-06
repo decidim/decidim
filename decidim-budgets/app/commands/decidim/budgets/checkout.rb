@@ -20,6 +20,8 @@ module Decidim
       def call
         return broadcast(:invalid, order) unless checkout!
 
+        increment_score
+
         broadcast(:ok, order)
       end
 
@@ -35,6 +37,10 @@ module Decidim
           @order.checked_out_at = Time.current
           @order.save
         end
+      end
+
+      def increment_score
+        Decidim::Gamification.increment_score(@order.user, :order_budgets)
       end
     end
   end

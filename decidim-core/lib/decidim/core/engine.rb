@@ -137,39 +137,39 @@ module Decidim
         next if Decidim.geocoder.blank?
 
         legacy_api_key ||= begin
-          if Decidim.geocoder[:here_api_key].present?
-            Decidim.geocoder.fetch(:here_api_key)
-          elsif Decidim.geocoder[:here_app_id].present?
-            [
-              Decidim.geocoder.fetch(:here_app_id),
-              Decidim.geocoder.fetch(:here_app_code)
-            ]
-          end
-        end
+                             if Decidim.geocoder[:here_api_key].present?
+                               Decidim.geocoder.fetch(:here_api_key)
+                             elsif Decidim.geocoder[:here_app_id].present?
+                               [
+                                   Decidim.geocoder.fetch(:here_app_id),
+                                   Decidim.geocoder.fetch(:here_app_code)
+                               ]
+                             end
+                           end
         next unless legacy_api_key
 
         ActiveSupport::Deprecation.warn(
-          <<~DEPRECATION.strip
-            Configuring maps functionality has changed.
+            <<~DEPRECATION.strip
+              Configuring maps functionality has changed.
 
-            Please update your current Decidim.geocoder configurations to the following format:
+              Please update your current Decidim.geocoder configurations to the following format:
 
-              Decidim.configure do |config|
-                config.maps = {
-                  provider: :here,
-                  api_key: Rails.application.secrets.maps[:api_key],
-                  static: { url: "#{Decidim.geocoder.fetch(:static_map_url)}" }
-                }
-              end
-          DEPRECATION
+                Decidim.configure do |config|
+                  config.maps = {
+                    provider: :here,
+                    api_key: Rails.application.secrets.maps[:api_key],
+                    static: { url: "#{Decidim.geocoder.fetch(:static_map_url)}" }
+                  }
+                end
+        DEPRECATION
         )
         Decidim.configure do |config|
           config.maps = {
-            provider: :here,
-            api_key: legacy_api_key,
-            static: {
-              url: Decidim.geocoder.fetch(:static_map_url)
-            }
+              provider: :here,
+              api_key: legacy_api_key,
+              static: {
+                  url: Decidim.geocoder.fetch(:static_map_url)
+              }
           }
         end
       end
@@ -415,10 +415,10 @@ module Decidim
           content_block.public_name_key = "decidim.content_blocks.hero.name"
 
           content_block.images = [
-            {
-              name: :background_image,
-              uploader: "Decidim::HomepageImageUploader"
-            }
+              {
+                  name: :background_image,
+                  uploader: "Decidim::HomepageImageUploader"
+              }
           ]
 
           content_block.settings do |settings|
@@ -488,10 +488,10 @@ module Decidim
 
           content_block.settings do |settings|
             settings.attribute(
-              :body,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.basic_only_text.body_preview") }
+                :body,
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.basic_only_text.body_preview") }
             )
           end
 
@@ -504,37 +504,37 @@ module Decidim
           content_block.public_name_key = "decidim.newsletter_templates.image_text_cta.name"
 
           content_block.images = [
-            {
-              name: :main_image,
-              uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
-            }
+              {
+                  name: :main_image,
+                  uploader: "Decidim::NewsletterTemplateImageUploader",
+                  preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
+              }
           ]
 
           content_block.settings do |settings|
             settings.attribute(
-              :introduction,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.introduction_preview") }
+                :introduction,
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.introduction_preview") }
             )
             settings.attribute(
-              :body,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.body_preview") }
+                :body,
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.body_preview") }
             )
             settings.attribute(
-              :cta_text,
-              type: :text,
-              translated: true,
-              preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.cta_text_preview") }
+                :cta_text,
+                type: :text,
+                translated: true,
+                preview: -> { I18n.t("decidim.newsletter_templates.image_text_cta.cta_text_preview") }
             )
             settings.attribute(
-              :cta_url,
-              type: :text,
-              translated: true,
-              preview: -> { "http://decidim.org" }
+                :cta_url,
+                type: :text,
+                translated: true,
+                preview: -> { "http://decidim.org" }
             )
           end
 
@@ -551,6 +551,16 @@ module Decidim
         Decidim::Gamification.register_badge(:followers) do |badge|
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }
+        end
+
+        Decidim::Gamification.register_badge(:follows) do |badge|
+          badge.levels = [1, 15, 30, 60, 100]
+          badge.reset = ->(user) { user.follows.count }
+        end
+
+        Decidim::Gamification.register_badge(:signs_in) do |badge|
+          badge.levels = [1, 2, 3, 5, 10, 20, 40, 60, 80, 100]
+          badge.reset = ->(user) { user.sign_in_count }
         end
       end
 

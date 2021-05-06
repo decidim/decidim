@@ -22,6 +22,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_comment
+        increment_score
 
         broadcast(:ok, comment)
       end
@@ -63,6 +64,10 @@ module Decidim
         return commentable.root_commentable if commentable.is_a? Decidim::Comments::Comment
 
         commentable
+      end
+
+      def increment_score
+        Decidim::Gamification.increment_score(@author, :create_comments)
       end
     end
   end

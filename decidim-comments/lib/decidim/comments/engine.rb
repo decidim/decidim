@@ -74,6 +74,13 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/views") # for partials
       end
+
+      initializer "decidim.comments.add_badges" do
+        Decidim::Gamification.register_badge(:create_comments) do |badge|
+          badge.levels = [1, 5, 10, 30, 50, 100, 200, 500, 1000]
+          badge.reset = ->(user) { Decidim::Comments::Comment.where(author: user).count }
+        end
+      end
     end
   end
 end

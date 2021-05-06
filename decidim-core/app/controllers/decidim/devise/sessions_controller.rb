@@ -9,6 +9,7 @@ module Decidim
       # rubocop: disable Rails/LexicallyScopedActionFilter
       before_action :check_sign_in_enabled, only: :create
       # rubocop: enable Rails/LexicallyScopedActionFilter
+      after_action :increment_score, only: [:create]
 
       def destroy
         current_user.invalidate_all_sessions!
@@ -46,6 +47,12 @@ module Decidim
       end
 
       private
+
+      def increment_score
+        return if Time.current - 24.hours >= current_user.last_sign_in_at
+
+        Decidim::Gamification.increment_score(current_user, :signs_in)
+      end
 
       def check_sign_in_enabled
         redirect_to new_user_session_path unless current_organization.sign_in_enabled?
