@@ -267,8 +267,6 @@ lv:
         name: Autorizācijas paraugs
       dummy_authorization_workflow:
         name: Viettura autorizācijas darbplūsma
-      errors:
-        duplicate_authorization: Dalībnieks jau ir autorizēts ar tiem pašiem datiem.
       expired_at: Termiņš beidzās plkst. %{timestamp}
       expires_at: Termiņš beigsies plkst. %{timestamp}
       foo_authorization:
