@@ -79,8 +79,7 @@ module Decidim
         let(:default_branch) { "release/0.23-stable" }
         let(:command) { "decidim --branch #{default_branch} #{test_app}" }
 
-          it_behaves_like "a new production application"
-        end
+        it_behaves_like "a new production application"
       end
 
       context "with --path flag" do
