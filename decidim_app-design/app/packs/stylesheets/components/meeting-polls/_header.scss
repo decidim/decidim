@@ -1,0 +1,43 @@
+.meeting-polls{
+  &__header{
+    @extend .padding-1;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    border: 1px solid #E8E8E8;
+  }
+  
+  &__button{
+    @extend .button;
+    @extend .button--nomargin;
+    @extend .hollow;
+    @extend .tiny;
+
+    background-color: $white;
+
+    &.is-open {
+      background-color: var(--primary);
+      color: $white;
+    }
+
+    & + & {
+      margin-left: $global-margin / 4;
+    }
+  }
+  
+  &__close{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: $global-margin;
+    cursor: pointer;
+
+    span{
+      font-size: 2em;
+      margin-left: $global-margin / 2;
+      line-height: 0.5;
+    }
+  }
+}

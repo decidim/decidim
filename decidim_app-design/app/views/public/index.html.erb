@@ -189,9 +189,14 @@
               </ul>
             </li>
             <li>
-              <%= link_to "Meetings - Polls", page_path("meetings/meeting-polls-cta") %>
+              <%= link_to "Encuentros - Polls (CTA)", page_path("meetings/meeting-polls-cta") %>
+            </li>
+            <li>
+              <%= link_to "Encuentros - Polls (estado inicial)", page_path("meetings/meeting-polls-initial") %>
               <ul>
-                <li></li>
+                <li><%= link_to "Cerrado con preguntas", page_path("meetings/meeting-polls-with-questions") %></li>
+                <li><%= link_to "Abierto sin preguntas", page_path("meetings/meeting-polls-open-initial") %></li>
+                <li><%= link_to "Abierto con preguntas", page_path("meetings/meeting-polls-open-with-questions") %></li>
               </ul>
             </li>
           </ul>

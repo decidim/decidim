@@ -1,0 +1,44 @@
+.meeting-polls{
+  &__main{
+    flex: 1;
+    display: flex;
+  }
+
+  &__iframe{
+    @extend .bg-muted;
+  }
+
+  &__aside{
+    flex: 0;
+
+    & + div {
+      flex: 1;
+    }
+
+    &.is-open {
+      flex: 0 0 25%;
+
+      & + div {
+        flex: 0 0 75%;
+      }
+    }
+  }
+
+  &__question {
+    @extend .padding-1;
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--secondary);
+    }
+
+    summary + * {
+      margin-top: $global-margin / 2;
+    }
+
+    & + & {
+      border-top: 1px solid #E8E8E8;
+    }
+  }
+}

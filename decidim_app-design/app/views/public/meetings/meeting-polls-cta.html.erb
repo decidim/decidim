@@ -57,7 +57,9 @@
                 <strong class="heading5">Esté evento está sucediendo ahora</strong>
               </div>
               <div class="margin-top-3">
-                <button class="button button--sc">Entra al encuentro</button>
+                <%= link_to page_path("meetings/meeting-polls-initial"), class: "button button--sc" do %>
+                Entra al encuentro
+                <% end %>
               </div>
             </div>
           </div>
