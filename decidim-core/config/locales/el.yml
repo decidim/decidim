@@ -266,8 +266,6 @@ el:
         name: Παράδειγμα εξουσιοδότησης
       dummy_authorization_workflow:
         name: Ροή εργασίας εικονικής εξουσιοδότησης
-      errors:
-        duplicate_authorization: Ένας συμμετέχων έχει ήδη εξουσιοδοτηθεί με τα ίδια δεδομένα.
       expired_at: Έληξε στις %{timestamp}
       expires_at: Λήγει στις %{timestamp}
       foo_authorization:
