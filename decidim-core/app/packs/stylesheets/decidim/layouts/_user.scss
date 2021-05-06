@@ -54,3 +54,35 @@
 .profile--sidebar--title{
   font-size: 1.25rem;
 }
+
+
+.profile--sidebar--rank{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  position: relative;
+  bottom: 60px;
+  left: 70%;
+  color: $body-background;
+  font-weight: bold;
+
+  &__top{
+    background-color: $primary;
+  }
+
+
+  &__middle{
+    background-color: $secondary;
+  }
+
+  &__low{
+    border-color: $warning;
+  }
+
+  &__none{
+    background-color: $dark-gray;
+  }
+}

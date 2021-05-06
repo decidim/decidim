@@ -1,5 +1,8 @@
 <div class="card profile--sidebar">
   <%= image_tag profile_user.avatar_url(:profile), class: "card__image card__image--larger", alt: "avatar #{profile_user.name}" %>
+  <span class="profile--sidebar--rank profile--sidebar--rank__<%= profile_user.rank_class %>">
+    <%= profile_user.level %>
+  </span>
   <div class="card__content">
     <h1 class="profile--sidebar--title">
       <strong><%= profile_user.name %></strong>

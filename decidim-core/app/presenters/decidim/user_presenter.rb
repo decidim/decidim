@@ -36,6 +36,21 @@ module Decidim
       decidim.profile_path(__getobj__.nickname)
     end
 
+    def rank_class
+      level_max = Decidim::Gamification.badges.map { |badge| badge.levels.length }.sum
+
+      completion = (level.to_f / level_max.to_f) * 100
+      if (75..100).include? completion
+        "top"
+      elsif (50..75).include? completion
+        "middle"
+      elsif (25..50).include? completion
+        "low"
+      else
+        "none"
+      end
+    end
+
     def direct_messages_enabled?(context)
       return false unless __getobj__.respond_to?(:accepts_conversation?)
 
@@ -52,7 +67,7 @@ module Decidim
 
     def officialization_text
       translated_attribute(officialized_as).presence ||
-        I18n.t("decidim.profiles.default_officialization_text_for_users")
+          I18n.t("decidim.profiles.default_officialization_text_for_users")
     end
 
     def can_follow?
