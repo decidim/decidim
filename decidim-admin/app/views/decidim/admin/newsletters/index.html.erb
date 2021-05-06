@@ -8,7 +8,7 @@
         <strong class="subscribed_title"><%= t("newsletters.index.subscribed_count", scope: "decidim.admin") %></strong>
         <span class="subscribed_count"><%= recipients_count_query %></span>
         <% if allowed_to? :create, :newsletter %>
-          <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.newsletter.name", scope: "decidim.admin").downcase), ["newsletter_templates"], class: "button tiny button--title new" %>
+          <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.newsletter.name", scope: "decidim.admin").downcase), [:newsletter_templates], class: "button tiny button--title new" %>
         <% end %>
       </div>
     </div>

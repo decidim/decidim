@@ -7,7 +7,7 @@
 
       <% if allowed_to? :create, :process %>
         <%= link_to t("actions.new_process", scope: "decidim.admin"),
-                    ["new", "participatory_process"],
+                    [:new, :participatory_process],
                     class: "button tiny button--title" %>
       <% end %>
 
