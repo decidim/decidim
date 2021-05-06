@@ -255,8 +255,6 @@ zh-CN:
         name: 示例授权
       dummy_authorization_workflow:
         name: 虚拟授权 Workflow
-      errors:
-        duplicate_authorization: 参与者已经被授权使用相同的数据。
       expired_at: 过期时间为 %{timestamp}
       expires_at: 于 %{timestamp} 过期
       foo_authorization:
