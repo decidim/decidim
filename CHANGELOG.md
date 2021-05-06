@@ -1,5 +1,32 @@
 # Change Log
 
+## [v0.24.2](https://github.com/decidim/decidim/releases/tag/v0.24.2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**: CSV exporter should take into account locales from all resources [\#7860](https://github.com/decidim/decidim/pull/7860)
+- **decidim-comments**: Fix TypeError in newsletters [\#7876](https://github.com/decidim/decidim/pull/7876)
+- **decidim-core**: Open attachments in new tab [\#7918](https://github.com/decidim/decidim/pull/7918)
+- **decidim-core**: Validate nickname using correct regexp [\#7921](https://github.com/decidim/decidim/pull/7921)
+- **decidim-proposals**: Cast proposal and collaborative drafts titles to text [\#7928](https://github.com/decidim/decidim/pull/7928)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Do not change the global test app configs during specs [\#7816](https://github.com/decidim/decidim/pull/7816)
+- Update to Rails 5.2.6 [\#7949](https://github.com/decidim/decidim/pull/7949)
+
 ## [v0.24.1](https://github.com/decidim/decidim/releases/tag/v0.24.1)
 
 ### Added
