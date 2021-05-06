@@ -1678,4 +1678,4 @@ en:
       truncate: "&hellip;"
   from:
     colors:
-      warning_colors: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> or other similar tools.
+      warning_colors: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with WebAIM Contrast Checker or other similar tools.
