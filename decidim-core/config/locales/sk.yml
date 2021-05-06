@@ -275,8 +275,6 @@ sk:
         name: Príklad autorizácie
       dummy_authorization_workflow:
         name: Pracovný postup autorizácie
-      errors:
-        duplicate_authorization: Účastník je už autorizovaný s rovnakými dátami.
       expired_at: Platnosť vypršala v %{timestamp}
       expires_at: Platnosť vyprší v %{timestamp}
       foo_authorization:
