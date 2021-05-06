@@ -22,7 +22,7 @@ module Decidim
       end
 
       def default_i18n_options
-        super.merge({ managed_user_path: managed_user.profile_path, managed_user_name: managed_user.name })
+        super.merge(managed_user_path: managed_user.profile_path, managed_user_name: managed_user.name)
       end
 
       private
