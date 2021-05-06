@@ -93,6 +93,7 @@ en:
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
+            maps_enabled: Maps enabled
             registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
