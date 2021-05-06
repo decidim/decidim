@@ -36,7 +36,6 @@ module Decidim
       Bundler.with_original_env { GemManager.capture(command, env: env) }
     end
 
-    # rubocop:disable RSpec/BeforeAfterAll
     before(:all) do
       Decidim::GemManager.install_all(out: File::NULL)
     end
@@ -44,7 +43,6 @@ module Decidim
     after(:all) do
       Decidim::GemManager.uninstall_all(out: File::NULL)
     end
-    # rubocop:enable RSpec/BeforeAfterAll
 
     context "with an application" do
       let(:test_app) { "spec/generator_test_app" }
