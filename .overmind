@@ -1,2 +1,2 @@
-web: development_app/bin/rails server
+web: development_app/bin/rails server -p 3000
 webpack: development_app/bin/webpack-dev-server
