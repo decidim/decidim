@@ -1,5 +1,7 @@
 <% open = true unless local_assigns.has_key?(:open) %>
-<details class="meeting-polls__question" <%= 'open' if open %>>
+<% sent ||= false %>
+<% new ||= false %>
+<details class="meeting-polls__question text-medium<%= ' is-new' if new %>" <%= 'open' if open %>>
   <summary>
     Pregunta
   </summary>
@@ -11,16 +13,20 @@
     <!-- multi-selection -->
     <label for="answer-1"><input type="checkbox" name="answer-1" id="answer-1"> Magni laborum obcaecati voluptate, et exercitationem maxime!</label>
     <label for="answer-2"><input type="checkbox" name="answer-2" id="answer-2"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</label>
-    <label for="answer-3"><input type="checkbox" name="answer-3" id="answer-3"> Eos quaerat eius eligendi quisquam excepturi laborum.</label>
 
     <!-- unique selection -->
     <label for="radio-1"><input type="radio" name="radio" id="radio-1"> Facere, dolores doloribus! Quisquam iste sequi voluptas eum quasi esse adipisci quos ullam eius omnis?</label>
     <label for="radio-2"><input type="radio" name="radio" id="radio-2"> Maiores et veniam placeat reiciendis architecto impedit voluptate quidem similique!</label>
-    <label for="radio-3"><input type="radio" name="radio" id="radio-3"> Temporibus voluptas nam consequuntur minima, modi unde libero natus perspiciatis repudiandae amet, sapiente ad, eaque suscipit quia explicabo</label>
     <!-- end dynamic content -->
 
-    <div class="text-right">
-      <button class="button button--nomargin primary small margin-top-1">Enviar respuesta</button>
-    </div>
+    <% if sent %>
+      <div class="callout success margin-top-1">
+        Contestación enviada
+      </div>
+    <% else %>
+      <div class="text-right">
+        <button class="button button--nomargin primary small margin-top-1">Enviar respuesta</button>
+      </div>
+    <% end %>
   </div>
 </details>

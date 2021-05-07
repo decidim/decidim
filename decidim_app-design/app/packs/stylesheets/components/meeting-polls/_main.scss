@@ -32,9 +32,8 @@
   }
 
   &__question{
-    & + &{
-      border-top: 1px solid #E8E8E8;
-    }
+    background-color: $white;
+    border-bottom: 1px solid #E8E8E8;
 
     summary{
       @extend .padding-1;
@@ -75,7 +74,15 @@
       animation: animateDown .2s linear forwards;
     }
 
-    @keyframes animateDown {
+    &[open] .meeting-polls__answer--bar > *{
+      animation: animateRight .4s ease-in-out .2s forwards;
+    }
+
+    &.is-new{
+      animation: animateHighlight 5s ease-in-out forwards;
+    }
+
+    @keyframes animateDown{
       0%{
         opacity: 0;
         transform: translateY(-25%);
@@ -84,5 +91,50 @@
         opacity: 0;
       }
     }
+
+    @keyframes animateRight{
+      from{
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      to{
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes animateHighlight{
+      0%,
+      80%{
+        background-color: rgba(var(--warning-rgb), .1);
+      }
+    }
+  }
+
+  &__answer{
+    display: flex;
+    align-items: center;
+    
+    &--value{
+      flex: 0 0 15%;
+      font-weight: bold;
+    }
+    
+    &--bar{
+      flex: 0 0 85%;
+      height: 10px;
+      overflow: hidden;
+
+      > *{
+        background-color: var(--primary);
+        height: 100%;
+        opacity: 0;
+      }
+    }
+  }
+
+  // vertical flow
+  label + &__answer + label{
+    margin-top: 1.5 * $global_margin;
   }
 }

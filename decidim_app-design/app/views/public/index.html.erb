@@ -194,10 +194,16 @@
             <li>
               <%= link_to "Encuentros - Polls (estado inicial)", page_path("meetings/meeting-polls-initial") %>
               <ul>
-                <li><%= link_to "Cerrado con preguntas", page_path("meetings/meeting-polls-with-questions") %></li>
-                <li><%= link_to "Abierto sin preguntas", page_path("meetings/meeting-polls-open-initial") %></li>
-                <li><%= link_to "Abierto con preguntas", page_path("meetings/meeting-polls-open-with-questions") %></li>
+                <li><%= link_to "Lateral cerrado con preguntas", page_path("meetings/meeting-polls-with-questions") %></li>
+                <li><%= link_to "Lateral abierto sin preguntas", page_path("meetings/meeting-polls-open-initial") %></li>
+                <li><%= link_to "Lateral abierto con preguntas", page_path("meetings/meeting-polls-open-with-questions") %></li>
+                <li><%= link_to "Respuesta enviada", page_path("meetings/meeting-polls-answer-sent") %></li>
+                <li><%= link_to "Resultados pregunta", page_path("meetings/meeting-polls-questions-results") %></li>
+                <li><%= link_to "Llega nueva pregunta", page_path("meetings/meeting-polls-new-question-arrival") %></li>
               </ul>
+            </li>
+            <li>
+              <%= link_to "Encuentros - Polls (estado inicial admin)", page_path("meetings/meeting-polls-initial-admin") %>
             </li>
           </ul>
         </div>

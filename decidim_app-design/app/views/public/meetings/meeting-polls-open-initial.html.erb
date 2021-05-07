@@ -4,21 +4,7 @@
 @activepage = "meetings"
 %>
 
-<header class="meeting-polls__header">
-  <div>
-    <button class="meeting-polls__button is-open">Preguntas</button>
-    <button class="meeting-polls__button">Administrar</button>
-  </div>
-
-  <div>
-    <strong class="text-secondary">Decidim Barcelona</strong> / <strong>Consejo de Barrio de Les Roquetes - Octubre 2020</strong>
-  </div>
-
-  <div class="flex--cc">
-    <span>Bill Murray</span>
-    <span class="meeting-polls__close">cerrar <span aria-hidden="true">&times;</span></span>
-  </div>
-</header>
+<%= render partial: page_path("meetings/meeting-polls-header"), locals: { open: true } %>
 
 <main class="meeting-polls__main">
   <aside class="meeting-polls__aside is-open">

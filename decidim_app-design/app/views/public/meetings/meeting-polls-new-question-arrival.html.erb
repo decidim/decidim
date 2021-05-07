@@ -8,7 +8,8 @@
 
 <main class="meeting-polls__main">
   <aside class="meeting-polls__aside is-open">
-    <%= render partial: page_path("meetings/meeting-polls-question") %>
+    <%= render partial: page_path("meetings/meeting-polls-results"), locals: { open: false } %>
+    <%= render partial: page_path("meetings/meeting-polls-question"), locals: { new: true }%>
   </aside>
   <div class="meeting-polls__iframe"><!-- iframe --></div>
 </main>

@@ -4,7 +4,7 @@
 @activepage = "meetings"
 %>
 
-<%= render partial: page_path("meetings/meeting-polls-header") %>
+<%= render partial: page_path("meetings/meeting-polls-header"), locals: { admin: true } %>
 
 <main class="meeting-polls__main">
   <aside class="meeting-polls__aside"><!-- empty content --></aside>

@@ -1,0 +1,22 @@
+<% open = true unless local_assigns.has_key?(:open) %>
+<details class="meeting-polls__question text-medium" <%= 'open' if open %>>
+  <summary>
+    Resultados de la pregunta
+  </summary>
+
+  <div>
+    <p>Recusandae repellat repudiandae iure consequuntur, veritatis, ratione minus omnis qui possimus odio maxime odit magni nulla cum ullam modi voluptatum autem doloribus facere culpa sit deserunt?</p>
+
+    <label for="answer-1">Magni laborum obcaecati voluptate, et exercitationem maxime!</label>
+    <div class="meeting-polls__answer">
+      <div class="meeting-polls__answer--value">35%</div>
+      <div class="meeting-polls__answer--bar"><div style="width: 35%"></div></div>
+    </div>
+
+    <label for="answer-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</label>
+    <div class="meeting-polls__answer">
+      <div class="meeting-polls__answer--value">65%</div>
+      <div class="meeting-polls__answer--bar"><div style="width: 65%"></div></div>
+    </div>
+  </div>
+</details>
