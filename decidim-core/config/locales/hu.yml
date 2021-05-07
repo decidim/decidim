@@ -263,8 +263,6 @@ hu:
         name: Példa feljogosításra
       dummy_authorization_workflow:
         name: Dummy feljogosítási folyamat
-      errors:
-        duplicate_authorization: Egy résztvevő ezekkel az adatokkal már engedélyezésre került.
       expired_at: 'Lejárat: %{timestamp}'
       expires_at: 'Lejárat: %{timestamp}'
       foo_authorization:

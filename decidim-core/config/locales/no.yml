@@ -269,8 +269,6 @@
         name: Eksempel autorisering
       dummy_authorization_workflow:
         name: Dummy autoriserings arbeidskraft
-      errors:
-        duplicate_authorization: En deltaker har allerede autorisert med den samme informasjonen.
       expired_at: Utgått på %{timestamp}
       expires_at: Går ut %{timestamp}
       foo_authorization:

@@ -255,8 +255,6 @@ ar:
         name: مثال إذن
       dummy_authorization_workflow:
         name: سير العمل التخويل وهمية
-      errors:
-        duplicate_authorization: مشارك مفوض بالفعل مع نفس البيانات.
       expired_at: انتهت في %{timestamp}
       expires_at: تنتهي في %{timestamp}
       foo_authorization:

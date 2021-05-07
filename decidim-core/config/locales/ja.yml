@@ -266,8 +266,6 @@ ja:
         name: 許可の例：
       dummy_authorization_workflow:
         name: ダミー認証ワークフロー
-      errors:
-        duplicate_authorization: 同じデータを持つ参加者はすでに承認されています．
       expired_at: '%{timestamp} で期限切れ'
       expires_at: '%{timestamp} で期限切れ'
       foo_authorization:

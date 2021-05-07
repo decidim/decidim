@@ -194,8 +194,6 @@ ru:
         name: Пример подтверждения личности
       dummy_authorization_workflow:
         name: Пример пути подтверждения личности
-      errors:
-        duplicate_authorization: С теми же данными уже подтвердил свою личность другой участник.
       expired_at: Срок действия истек %{timestamp}
       expires_at: Срок действия истекает в %{timestamp}
       foo_authorization:

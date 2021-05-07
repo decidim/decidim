@@ -209,8 +209,6 @@ gl:
         name: Autorización de exemplo
       dummy_authorization_workflow:
         name: Fluxo de traballo de autorización dummy
-      errors:
-        duplicate_authorization: Un usuario xa está autorizado cos mesmos datos.
       expired_at: Caducou en %{timestamp}
       expires_at: Caduca no %{timestamp}
       foo_authorization:
