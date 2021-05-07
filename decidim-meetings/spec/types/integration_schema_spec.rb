@@ -9,10 +9,10 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Meetings" }
 
   let!(:current_component) { create :meeting_component, participatory_space: participatory_process }
-  let!(:meeting) { create(:meeting, :published, :not_official, :with_services, :closed, component: current_component, category: category) }
+  let!(:meeting) { create(:meeting, :published, :not_official, :with_services, :closed_with_minutes, minutes_visible: minutes_visible, component: current_component, category: category) }
   let!(:agenda) { create(:agenda, :with_agenda_items, meeting: meeting) }
   let!(:invite) { create(:invite, :accepted, meeting: meeting) }
-  let!(:minutes) { create(:minutes, meeting: meeting) }
+  let(:minutes_visible) { true }
 
   let(:meeting_single_result) do
     meeting.reload
@@ -26,6 +26,9 @@ describe "Decidim::Api::QueryType" do
       "category" => { "id" => meeting.category.id.to_s },
       "closed" => true,
       "closingReport" => { "translation" => meeting.closing_report[locale] },
+      "minutesDescription" => minutes_visible ? { "translation" => meeting.minutes_description[locale] } : nil,
+      "videoUrl" => minutes_visible ? meeting.video_url : nil,
+      "audioUrl" => minutes_visible ? meeting.audio_url : nil,
       "comments" => [],
       "commentsHaveAlignment" => meeting.comments_have_alignment?,
       "commentsHaveVotes" => meeting.comments_have_votes?,
@@ -41,7 +44,6 @@ describe "Decidim::Api::QueryType" do
       "id" => meeting.id.to_s,
       "location" => { "translation" => meeting.location[locale] },
       "locationHints" => { "translation" => meeting.location_hints[locale] },
-      "minutes" => { "id" => meeting.minutes.id.to_s },
       "privateMeeting" => false,
       "proposalsFromMeeting" => [],
       "reference" => meeting.reference,
@@ -106,6 +108,11 @@ describe "Decidim::Api::QueryType" do
               closingReport {
                 translation(locale: "#{locale}")
               }
+              minutesDescription {
+                translation(locale: "#{locale}")
+              }
+              videoUrl
+              audioUrl
               comments {
                 id
               }
@@ -128,9 +135,6 @@ describe "Decidim::Api::QueryType" do
               }
               locationHints {
                 translation(locale: "#{locale}")
-              }
-              minutes {
-                id
               }
               privateMeeting
               proposalsFromMeeting {
@@ -202,6 +206,11 @@ describe "Decidim::Api::QueryType" do
           closingReport {
             translation(locale: "#{locale}")
           }
+          minutesDescription {
+            translation(locale: "#{locale}")
+          }
+          videoUrl
+          audioUrl
           comments {
             id
           }
@@ -224,9 +233,6 @@ describe "Decidim::Api::QueryType" do
           }
           locationHints {
             translation(locale: "#{locale}")
-          }
-          minutes {
-            id
           }
           privateMeeting
           proposalsFromMeeting {
@@ -272,5 +278,15 @@ describe "Decidim::Api::QueryType" do
     end
 
     it { expect(response["participatoryProcess"]["components"].first["meeting"]).to eq(meeting_single_result) }
+
+    context "when minutes is not visible" do
+      let(:minutes_visible) { false }
+
+      it "executes sucessfully" do
+        expect { response }.not_to raise_error
+      end
+
+      it { expect(response["participatoryProcess"]["components"].first["meeting"]).to eq(meeting_single_result) }
+    end
   end
 end
