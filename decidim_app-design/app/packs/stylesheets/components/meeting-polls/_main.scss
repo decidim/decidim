@@ -6,9 +6,10 @@
 
   &__iframe{
     @extend .bg-muted;
+
     display: flex;
 
-    > * {
+    > *{
       flex: 1;
       border: 0;
     }
@@ -33,7 +34,7 @@
 
   &__question{
     background-color: $white;
-    border-bottom: 1px solid #E8E8E8;
+    border-bottom: 1px solid #e8e8e8;
 
     summary{
       @extend .padding-1;
@@ -47,7 +48,7 @@
         background-color: #f4f4f4;
       }
 
-      &::after {
+      &::after{
         counter-increment: question;
         content: "#" counter(question);
       }
@@ -60,7 +61,7 @@
         :first-child{
           font-weight: 600;
         }
-        
+
         label{
           display: flex;
           align-items: baseline;
@@ -87,6 +88,7 @@
         opacity: 0;
         transform: translateY(-25%);
       }
+
       75%{
         opacity: 0;
       }
@@ -97,6 +99,7 @@
         opacity: 0;
         transform: translateX(-100%);
       }
+
       to{
         opacity: 1;
         transform: translateX(0);
@@ -114,12 +117,12 @@
   &__answer{
     display: flex;
     align-items: center;
-    
+
     &--value{
       flex: 0 0 15%;
       font-weight: bold;
     }
-    
+
     &--bar{
       flex: 0 0 85%;
       height: 10px;
