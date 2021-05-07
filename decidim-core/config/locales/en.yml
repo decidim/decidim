@@ -740,6 +740,7 @@ en:
           name: Order budgets
           next_level_in: Next level in %{score}
         create_comments:
+          description_another: This participant has created %{score} comments.
           name: Create comments
           unearned_own: You have not created any comments.
           description_own: You have created %{score} comments.
