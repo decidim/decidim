@@ -142,7 +142,7 @@ edit_link(
       <%= render "meeting_agenda" %>
     <% end %>
 
-    <% if meeting.minutes.present? && meeting.minutes.visible? %>
+    <% if meeting.minutes_visible? && meeting.minutes_data? %>
       <%= render "meeting_minutes" %>
     <% end %>
 

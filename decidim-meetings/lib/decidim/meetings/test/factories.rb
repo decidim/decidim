@@ -94,6 +94,14 @@ FactoryBot.define do
       closed_at { Time.current }
     end
 
+    trait :closed_with_minutes do
+      closed
+      minutes_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+      video_url { Faker::Internet.url }
+      audio_url { Faker::Internet.url }
+      minutes_visible { true }
+    end
+
     trait :with_registrations_enabled do
       registrations_enabled { true }
       available_slots { 10 }
