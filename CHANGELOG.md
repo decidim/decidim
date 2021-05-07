@@ -17,6 +17,8 @@ Nothing.
 - **decidim-core**: Open attachments in new tab [\#7918](https://github.com/decidim/decidim/pull/7918)
 - **decidim-core**: Validate nickname using correct regexp [\#7921](https://github.com/decidim/decidim/pull/7921)
 - **decidim-proposals**: Cast proposal and collaborative drafts titles to text [\#7928](https://github.com/decidim/decidim/pull/7928)
+- **decidim-core**: Fix editor: remove br tags from inside a tags [\#7957](https://github.com/decidim/decidim/pull/7957)
+- **decidim-core**: Fix fragment caching with multiple locales [\#7960](https://github.com/decidim/decidim/pull/7960)
 
 ### Removed
 
@@ -43,7 +45,6 @@ Nothing.
 - **decidim-initiatives**: Fix permission for initiative edit and update [\#7654](https://github.com/decidim/decidim/pull/7654)
 - **decidim-conferences**:  Fix validations for registration related fields in Conference form [\#7734](https://github.com/decidim/decidim/pull/7734)
 - **decidim-admin**, **decidim-conferences**: Add Conferences and Admin missing translations (#7653) [\#7765](https://github.com/decidim/decidim/pull/7765)
-- **decidim-core**: Fix editor: remove br tags from inside a tags [\#7957](https://github.com/decidim/decidim/pull/7957)
 
 ### Removed
 
