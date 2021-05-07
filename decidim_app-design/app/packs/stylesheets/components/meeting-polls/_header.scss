@@ -18,12 +18,12 @@
     background-color: $white;
     font-weight: 600;
 
-    &.is-open {
+    &.is-open{
       background-color: var(--primary);
       color: $white;
     }
 
-    & + & {
+    & + &{
       margin-left: $global-margin / 4;
     }
   }
