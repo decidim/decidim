@@ -33,6 +33,76 @@ describe "Meeting", type: :system do
     it_behaves_like "an uncommentable component"
   end
 
+  context "when component has maps enabled" do
+    let!(:component) do
+      create(:component,
+             manifest: manifest,
+             participatory_space: participatory_space)
+    end
+
+    context "and meeting is online" do
+      let(:meeting) { create :meeting, :with_services, :online, component: component }
+
+      it "hides the map section" do
+        visit_meeting
+
+        expect(page).to have_no_css("div.address__map")
+      end
+    end
+
+    context "and meeting is in_person" do
+      let(:meeting) { create :meeting, :with_services, component: component }
+
+      it "shows the map section" do
+        visit_meeting
+
+        expect(page).to have_css("div.address__map")
+      end
+    end
+
+    context "and meeting is hybrid" do
+      let(:meeting) { create :meeting, :with_services, :hybrid, component: component }
+
+      it "shows the map section" do
+        visit_meeting
+
+        expect(page).to have_css("div.address__map")
+      end
+    end
+  end
+
+  context "when component has maps disabled" do
+    let!(:component) do
+      create(:component,
+             manifest: manifest,
+             participatory_space: participatory_space)
+    end
+
+    before do
+      component.update!(settings: { maps_enabled: false })
+    end
+
+    context "and meeting is in_person" do
+      let(:meeting) { create :meeting, :with_services, component: component }
+
+      it "hides the map section" do
+        visit_meeting
+
+        expect(page).to have_no_css("div.address__map")
+      end
+    end
+
+    context "and meeting is hybrid" do
+      let(:meeting) { create :meeting, :with_services, :hybrid, component: component }
+
+      it "hides the map section" do
+        visit_meeting
+
+        expect(page).to have_no_css("div.address__map")
+      end
+    end
+  end
+
   context "when the meeting is the same as the current year" do
     let(:meeting) { create(:meeting, component: component, start_time: Time.current) }
 
