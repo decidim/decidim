@@ -18,14 +18,8 @@
 
 .byebug_history
 
+.nvmrc
+/public/decidim-packs
 /public/packs
 /public/packs-test
 /node_modules
-
-# Webpacker
-config/webpacker.yml
-config/webpack/
-package.json
-package-lock.json
-postcss.config.js
-babel.config.json
