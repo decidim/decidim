@@ -72,6 +72,13 @@
       }
     });
 
+    quill.clipboard.addMatcher("BR", (node) => {
+      if (node && node.parentNode && node.parentNode.tagName && node.parentNode.tagName === "A") {
+        return new Delta().insert("\n");
+      }
+      return new Delta().insert({"break": ""});
+    });
+
     addEnterBindings(quill);
     backspaceBindingsRangeAny(quill);
     backspaceBindings(quill);

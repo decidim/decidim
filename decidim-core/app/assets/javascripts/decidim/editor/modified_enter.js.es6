@@ -40,17 +40,28 @@
     const currentLeaf = quill.getLeaf(range.index)[0];
     const nextLeaf = quill.getLeaf(range.index + 1)[0];
     const previousChar = quill.getText(range.index - 1, 1);
+    const formats = quill.getFormat(range.index);
 
-    quill.insertEmbed(range.index, "break", true, "user");
-    quill.formatText(range.index + 1, "bold", true)
-    if (nextLeaf === null || (currentLeaf.parent !== nextLeaf.parent)) {
+    if ((currentLeaf && currentLeaf.next && currentLeaf.next.domNode &&
+      currentLeaf.next.domNode.tagName && currentLeaf.next.domNode.tagName === "A") ||
+      (nextLeaf && nextLeaf.parent && nextLeaf.parent.domNode && nextLeaf.parent.domNode.tagName &&
+        nextLeaf.parent.domNode.tagName === "A")) {
+      quill.insertEmbed(range.index, "break", true, "user");
+      quill.removeFormat(range.index, 1, Quill.sources.SILENT)
+    } else {
+      quill.insertEmbed(range.index, "break", true, "user");
+    }
+
+    if (nextLeaf === null) {
       quill.insertEmbed(range.index, "break", true, "user");
     } else if (context.offset === 1 && previousChar === "\n") {
       const delta = new Delta().retain(range.index).insert("\n");
       quill.updateContents(delta, Quill.sources.USER);
     }
 
-    quill.format(name, context.format[name], Quill.sources.USER);
+    Object.keys(formats).forEach((format) => {
+      quill.format(format, context.format[format], Quill.sources.USER);
+    });
     quill.setSelection(range.index + 1, Quill.sources.SILENT);
 
     const lineFormats = getLineFormats(context);
@@ -58,12 +69,6 @@
   };
 
   const addEnterBindings = (quill) => {
-    quill.clipboard.addMatcher("BR", () => {
-      let newDelta = new Delta();
-      newDelta.insert({"break": ""});
-      return newDelta;
-    });
-
     quill.keyboard.addBinding({
       key: 13,
       shiftKey: true
