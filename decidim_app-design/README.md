@@ -22,8 +22,8 @@ This approach has several benefits:
 $ bundle install
 [Installs all dependencies]
 Bundle complete!
-$ bundle exec rails decidim:webpacker:install
-[Installs webpacker dependencies]
+$ npm install
+[Installs javascript dependencies]
 $ bundle exec rails s
 => Booting Puma
 => Rails 5.1.4 application starting in development
