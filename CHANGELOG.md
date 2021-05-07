@@ -43,6 +43,7 @@ Nothing.
 - **decidim-initiatives**: Fix permission for initiative edit and update [\#7654](https://github.com/decidim/decidim/pull/7654)
 - **decidim-conferences**:  Fix validations for registration related fields in Conference form [\#7734](https://github.com/decidim/decidim/pull/7734)
 - **decidim-admin**, **decidim-conferences**: Add Conferences and Admin missing translations (#7653) [\#7765](https://github.com/decidim/decidim/pull/7765)
+- **decidim-core**: Fix editor: remove br tags from inside a tags [\#7957](https://github.com/decidim/decidim/pull/7957)
 
 ### Removed
 
