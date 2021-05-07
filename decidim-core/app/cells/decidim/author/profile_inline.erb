@@ -2,6 +2,12 @@
   <%= image_tag model.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
 </span>
 
+<% if current_organization.badges_enabled? && badge_statuses.any? %>
+  <span class="author--inline--rank author--inline--rank__<%= rank_class %>">
+    <%= t(".level", level: level) %>
+  </span>
+<% end %>
+
 <% if model.deleted? %>
   <span class="label label--small label--basic">
     <%= t("decidim.profile.deleted") %>

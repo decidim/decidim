@@ -111,5 +111,34 @@ module Decidim
     def raw_model
       model.try(:__getobj__) || model
     end
+
+    def badge_statuses
+      Decidim::Gamification.badges.select { |badge| badge.valid_for?(model.try(:__getobj__)) }.map do |badge|
+        status = Decidim::Gamification.status_for(model.try(:__getobj__), badge.name)
+        status.level.positive? ? status : nil
+      end.compact
+    end
+
+    def level
+      Decidim::Gamification.badges.select { |badge| badge.valid_for?(raw_model) }.map do |badge|
+        status = Decidim::Gamification.status_for(raw_model, badge.name)
+        status.level.positive? ? status : nil
+      end.compact.map(&:level).sum
+    end
+
+    def rank_class
+      level_max = Decidim::Gamification.badges.map { |badge| badge.levels.length }.sum
+
+      completion = (level.to_f / level_max.to_f) * 100
+      if (75..100).include? completion
+        "top"
+      elsif (50..75).include? completion
+        "middle"
+      elsif (25..50).include? completion
+        "low"
+      else
+        "none"
+      end
+    end
   end
 end

@@ -265,6 +265,7 @@ en:
       photos:
         related_photos: Related images
     author:
+      level: '%{level}'
       avatar: 'Avatar: %{name}'
       avatar_multiuser: Avatar for multiple users
       comments:

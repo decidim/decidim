@@ -110,6 +110,33 @@ $author-data-color: $muted;
   span{
     padding-right: 5px;
   }
+
+  &--rank{
+    display: inline-block;
+    padding-right: 0 !important;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    color: #fafafa;
+    font-weight: bold;
+    text-align: center;
+
+    &__top{
+      background-color: $primary;
+    }
+
+    &__middle{
+      background-color: $secondary;
+    }
+
+    &__low{
+      background-color: $warning;
+    }
+
+    &__none{
+      background-color: $dark-gray;
+    }
+  }
 }
 
 .author__name{
