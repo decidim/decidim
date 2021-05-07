@@ -6,6 +6,12 @@
 
   &__iframe{
     @extend .bg-muted;
+    display: flex;
+
+    > * {
+      flex: 1;
+      border: 0;
+    }
   }
 
   &__aside{

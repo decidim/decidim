@@ -16,6 +16,7 @@
     @extend .tiny;
 
     background-color: $white;
+    font-weight: 600;
 
     &.is-open {
       background-color: var(--primary);
