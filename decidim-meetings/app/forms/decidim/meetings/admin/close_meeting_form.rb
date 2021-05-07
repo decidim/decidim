@@ -8,6 +8,10 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :closing_report, String
+        translatable_attribute :minutes_description, String
+        attribute :video_url, String
+        attribute :audio_url, String
+        attribute :minutes_visible, Boolean
         attribute :attendees_count, Integer, default: 0
         attribute :contributions_count, Integer, default: 0
         attribute :attending_organizations, String

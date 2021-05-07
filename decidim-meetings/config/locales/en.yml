@@ -9,9 +9,13 @@ en:
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
+        audio_url: Audio URL
         closing_report: Report
         contributions_count: Number of contributions
+        minutes_description: Description
+        minutes_visible: Is visible
         proposal_ids: Proposals created in the meeting
+        video_url: Video URL
       meeting:
         address: Address
         available_slots: Available slots for this meeting
@@ -243,6 +247,7 @@ en:
         meeting_closes:
           edit:
             close: Close
+            secondary_title: Minutes
             title: Close meeting
         meetings:
           close:
