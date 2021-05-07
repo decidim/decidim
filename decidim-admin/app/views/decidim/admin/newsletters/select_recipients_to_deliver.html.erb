@@ -65,7 +65,7 @@
 
       <div class="button--double form-general-submit">
         <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
-          <%= link_to t("actions.edit", scope: "decidim.admin"), ["edit", @newsletter], class: "button" %>
+          <%= link_to t("actions.edit", scope: "decidim.admin"), [:edit, @newsletter], class: "button" %>
         <% end %>
         <% unless @newsletter.sent? %>
         <%= f.submit t(".deliver"),  class: "button alert", data: { confirm: t(".confirm_deliver") } %>

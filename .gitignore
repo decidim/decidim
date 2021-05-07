@@ -32,3 +32,5 @@ public/decidim-packs
 tmp
 # webpack packs output
 decidim-packs
+
+temporary_changelog.md

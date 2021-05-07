@@ -11,6 +11,26 @@ describe "Filter Proposals", :slow, type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
+  context "when caching is enabled", :caching do
+    before do
+      visit_component
+    end
+
+    it "displays the filter labels in correct locales" do
+      within "form.new_filter" do
+        expect(page).to have_content(/Status/i)
+      end
+
+      within_language_menu do
+        click_link "Català"
+      end
+
+      within "form.new_filter" do
+        expect(page).to have_content(/Estat/i)
+      end
+    end
+  end
+
   context "when filtering proposals by ORIGIN" do
     context "when official_proposals setting is enabled" do
       before do
