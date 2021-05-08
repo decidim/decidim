@@ -184,6 +184,10 @@ class DummySerializer
     @id = id
   end
 
+  def run
+    serialize
+  end
+
   def serialize
     {
       id: @id

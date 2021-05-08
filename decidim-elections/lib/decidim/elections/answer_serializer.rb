@@ -35,6 +35,7 @@ module Decidim
       private
 
       attr_reader :answer
+      alias resource answer
 
       def election
         answer.question.election

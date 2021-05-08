@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t "decidim.admin.titles.users" %>
       <% if allowed_to? :create, :admin_user %>
-        <%= link_to t("actions.user.new", scope: "decidim.admin"), ["new", "user"], class: "button tiny button--title" %>
+        <%= link_to t("actions.user.new", scope: "decidim.admin"), [:new, :user], class: "button tiny button--title" %>
       <% end %>
     </h2>
   </div>
@@ -46,7 +46,7 @@
               <td><%= l user.created_at, format: :short %></td>
               <td class="table-list__actions">
                 <% if allowed_to?(:invite, :admin_user, user: user) && user.invited_to_sign_up? %>
-                  <%= icon_link_to "reload", ["resend_invitation", user], t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
+                  <%= icon_link_to "reload", [:resend_invitation, user], t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :admin_user, user: user %>

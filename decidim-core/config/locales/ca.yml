@@ -1262,7 +1262,7 @@ ca:
         title: Seleccionar el nombre de resultats per pàgina
       share_modal:
         close_window: Tanca la finestra
-        copy_share_link: Copia
+        copy_share_link: Còpia
         copy_share_link_clarification: Copia l'enllaç al porta-retalls
         copy_share_link_copied: Copiat!
         copy_share_link_message: S'ha copiat l'enllaç al porta-retalls.

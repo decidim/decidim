@@ -36,6 +36,7 @@ module Decidim
       private
 
       attr_reader :voting
+      alias resource voting
 
       def translated_voting_type
         translation_hash = {}
