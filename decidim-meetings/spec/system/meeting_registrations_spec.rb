@@ -181,8 +181,11 @@ describe "Meeting registrations", type: :system do
               page.find(".button.expanded").click
             end
 
-            expect(page).to have_content("successfully")
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
 
+            expect(page).to have_text("You have signed up for this meeting")
             expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
@@ -202,8 +205,11 @@ describe "Meeting registrations", type: :system do
               page.find(".button.expanded").click
             end
 
-            expect(page).to have_content("successfully")
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
 
+            expect(page).to have_text("You have signed up for this meeting")
             expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
@@ -227,8 +233,11 @@ describe "Meeting registrations", type: :system do
               page.find(".button.expanded").click
             end
 
-            expect(page).to have_content("successfully")
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
 
+            expect(page).to have_text("You have signed up for this meeting")
             expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
             expect(page).to have_text("19 slots remaining")
 
@@ -279,6 +288,7 @@ describe "Meeting registrations", type: :system do
 
       it "shows the confirmation modal when leaving the meeting" do
         visit_meeting
+
         click_button "Cancel your registration"
 
         within ".confirm-modal-content" do
@@ -289,12 +299,11 @@ describe "Meeting registrations", type: :system do
       it "they can leave the meeting" do
         visit_meeting
 
-        expect(page).to have_text("You have signed up for this meeting")
-
         accept_confirm { click_button "Cancel your registration" }
 
-        expect(page).to have_content("successfully")
-        expect(questionnaire.answers.where(user: user).empty?).to be(true)
+        within_flash_messages do
+          expect(page).to have_content("successfully")
+        end
 
         expect(page).to have_css(".button", text: "JOIN MEETING")
         expect(page).to have_text("20 slots remaining")
