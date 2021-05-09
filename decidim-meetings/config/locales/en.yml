@@ -70,6 +70,34 @@ en:
         other: Registrations
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Category
+          closed_at_present:
+            label: State
+            values:
+              'false': Open
+              'true': Closed
+          is_upcomming_true:
+            label: Date
+            values:
+              'false': Past
+              'true': Upcomming
+          origin_eq:
+            label: Origin
+            values:
+              citizen: Citizen
+              official: Official
+              user_group: User Groups
+          scope_id_eq:
+            label: Scope
+          type_eq:
+            label: Type of meeting
+            values:
+              hybrid: Both
+              in_person: In Person
+              online: Online
       meeting_copies:
         create:
           error: There was a problem duplicating this meeting.
