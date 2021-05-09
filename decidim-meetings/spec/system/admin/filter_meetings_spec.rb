@@ -1,0 +1,92 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+describe "Admin filters meetings", type: :system do
+  include_context "with filterable context"
+
+  let(:manifest_name) { "meetings" }
+  let(:model_name) { Decidim::Meetings::Meeting.model_name }
+  let(:resource_controller) { Decidim::Meetings::Admin::MeetingsController }
+  let!(:meeting) { create :meeting, scope: scope, component: current_component }
+
+  include_context "when managing a component as an admin"
+
+  TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map(&:to_sym)
+
+  def create_meeting_with_trait(trait)
+    create(:meeting, trait, component: component)
+  end
+
+  def meeting_with_type(type)
+    Decidim::Meetings::Meeting.where(component: component).find_by(type_of_meeting: type)
+  end
+
+  def meeting_without_type(type)
+    Decidim::Meetings::Meeting.where(component: component).where.not(type_of_meeting: type).sample
+  end
+
+  context "when filtering by type" do
+    let!(:meetings) do
+      TYPES.map { |state| create_meeting_with_trait(state) }
+    end
+
+    before { visit_component_admin }
+
+    TYPES.each do |state|
+      i18n_state = I18n.t(state, scope: "decidim.admin.filters.meetings.type_eq.values")
+
+      context "filtering meetings by type: #{i18n_state}" do
+        it_behaves_like "a filtered collection", options: "Type", filter: i18n_state do
+          let(:in_filter) { translated(meeting_with_type(state).title) }
+          let(:not_in_filter) { translated(meeting_without_type(state).title) }
+        end
+      end
+    end
+  end
+
+  context "when filtering by scope" do
+    let!(:scope1) { create(:scope, organization: organization, name: { "en" => "Scope1" }) }
+    let!(:scope2) { create(:scope, organization: organization, name: { "en" => "Scope2" }) }
+    let!(:meeting_with_scope1) { create(:meeting, component: component, scope: scope1) }
+    let(:meeting_with_scope1_title) { translated(meeting_with_scope1.title) }
+    let!(:meeting_with_scope2) { create(:meeting, component: component, scope: scope2) }
+    let(:meeting_with_scope2_title) { translated(meeting_with_scope2.title) }
+
+    before { visit_component_admin }
+
+    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
+      let(:in_filter) { meeting_with_scope1_title }
+      let(:not_in_filter) { meeting_with_scope2_title }
+    end
+
+    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope2" do
+      let(:in_filter) { meeting_with_scope2_title }
+      let(:not_in_filter) { meeting_with_scope1_title }
+    end
+  end
+
+  context "when searching by ID or title" do
+    let!(:meeting1) { create(:meeting, component: component) }
+    let!(:meeting2) { create(:meeting, component: component) }
+    let!(:meeting1_title) { translated(meeting1.title) }
+    let!(:meeting2_title) { translated(meeting2.title) }
+
+    before { visit_component_admin }
+
+    it "can be searched by ID" do
+      search_by_text(meeting1.id)
+
+      expect(page).to have_content(meeting1_title)
+    end
+
+    it "can be searched by title" do
+      search_by_text(meeting2_title)
+
+      expect(page).to have_content(meeting2_title)
+    end
+  end
+
+  it_behaves_like "paginating a collection" do
+    let!(:collection) { create_list(:meeting, 50, component: component) }
+  end
+end
