@@ -19,6 +19,12 @@ module Decidim
         invite_user
       end
 
+      user.reload
+      user.invite!(
+        form.invited_by,
+        invitation_instructions: form.invitation_instructions
+      )
+
       broadcast(:ok, user)
     end
 
@@ -47,10 +53,6 @@ module Decidim
         organization: form.organization,
         admin: form.role == "admin",
         roles: form.role == "admin" ? [] : [form.role].compact
-      )
-      @user.invite!(
-        form.invited_by,
-        invitation_instructions: form.invitation_instructions
       )
     end
   end
