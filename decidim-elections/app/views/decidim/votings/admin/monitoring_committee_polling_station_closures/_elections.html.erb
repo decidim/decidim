@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <% elections.each do |election| %>
+          <% elections.finished.each do |election| %>
             <tr data-id="<%= election.id %>">
               <td>
                 <%= link_to translated_attribute(election.title), voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: election.id) %>

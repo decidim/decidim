@@ -29,7 +29,7 @@ module Decidim
             post :validate, on: :member
           end
           resources :monitoring_committee_verify_elections, only: [:index]
-          resources :monitoring_committee_election_results, only: [:index, :show]
+          resources :monitoring_committee_election_results, only: [:index, :show, :update]
           resources :attachments, controller: "voting_attachments"
           resources :attachment_collections, controller: "voting_attachment_collections"
           resources :ballot_styles

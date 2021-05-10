@@ -15,13 +15,13 @@
           </tr>
         </thead>
         <tbody>
-          <% elections.each do |election| %>
+          <% elections.finished.each do |election| %>
             <tr data-id="<%= election.id %>">
               <td>
                 <%= link_to translated_attribute(election.title), voting_monitoring_committee_election_result_path(current_voting, election) %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "eye", voting_monitoring_committee_election_result_path(current_voting, election), t("actions.view", scope: "decidim.votings.admin.monitoring_committee_election_results"), class: "action-icon--edit" %>
+                <%= icon_link_to "eye", voting_monitoring_committee_election_result_path(current_voting, election), t("actions.view", scope: "decidim.votings.admin.monitoring_committee_election_results"), class: "action-icon--view" %>
               </td>
             </tr>
           <% end %>

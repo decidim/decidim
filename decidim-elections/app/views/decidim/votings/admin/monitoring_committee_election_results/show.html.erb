@@ -1,12 +1,26 @@
-<%= link_to("<< Change election", voting_monitoring_committee_election_results_path(current_voting)) unless elections.one? %>
+<% unless elections.one? %>
+  <%= link_to voting_monitoring_committee_election_results_path(current_voting) do %>
+    <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".change_election") %>
+  <% end %>
+<% end %>
 
-<div class="card" id="monitoring_committee_polling_station_closures">
-  <div class="card-divider">
-    <h2 class="card-title">
-      <%= t(".title", election_title: translated_attribute(election.title)).html_safe %>
-    </h2>
-  </div>
 
-  <div class="card-section">
-  </div>
-</div>
+<%= render partial: "results", locals: { groups: publish_results_form.groups } %>
+
+<%= decidim_form_for publish_results_form, url: voting_monitoring_committee_election_result_path(current_voting, election), method: :put, html: { class: "form step" } do |f| %>
+  <% if publish_results_form.pending_action %>
+    <div id="pending_action"
+          data-api-endpoint-url="<%= bulletin_board_server %>"
+          data-message-id="<%= publish_results_form.pending_action.message_id %>"></div>
+
+    <%= javascript_pack_tag "decidim_elections_admin_pending_action" %>
+    <span class='loading-spinner'></span> <%= t(".publishing") %></div>
+  <% else %>
+    <div class="button--double form-general-submit">
+      <%= f.submit t(".publish_results") %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<%= stylesheet_link_tag "decidim/votings/admin/votings", media: "all" %>

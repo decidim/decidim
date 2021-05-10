@@ -80,6 +80,19 @@
     margin: 0 auto;
     width: 48px;
   }
+
+  // tbodys separation
+  tbody + tbody::before {
+    content: "-";
+    display: block;
+    line-height: 2em;
+    color: transparent;
+  }
+
+  tbody th {
+    color: $muted;
+    font-weight: 600;
+  }
 }
 
 .table-list__actions{
