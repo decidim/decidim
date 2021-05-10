@@ -1,1 +1,1 @@
-import "../src/decidim/elections/election_log";
+import "src/decidim/elections/election_log";
