@@ -455,7 +455,6 @@ fi:
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
           edit_meeting: Muokkaa tapaamista
-          going: Ilmoittautunut
           join: Ilmoittaudu tapaamiseen
           meeting_report: Tapaamisen raportti
           no_slots_available: Ei paikkoja vapaana
