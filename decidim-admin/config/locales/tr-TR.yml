@@ -282,21 +282,6 @@ tr:
         update:
           error: Bu bileşeni güncellerken bir hata oluştu.
           success: Bileşen başarıyla güncellendi.
-      conflicts:
-        attempts: Girişimler
-        'false': 'Hayır'
-        managed_user_name: Yönetilen Kullanıcı
-        solved: Çözüldü
-        title: Doğrulamaların çatışmaları
-        transfer:
-          email: E-Posta
-          error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
-          name: İsim
-          reason: Nedeni
-          success: Aktarım başarıyla tamamlandı.
-          title: Aktar
-        'true': 'Evet'
-        user_name: Kullanıcı Adı
       dashboard:
         show:
           view_more_logs: Daha fazla günlükleri görüntüle
