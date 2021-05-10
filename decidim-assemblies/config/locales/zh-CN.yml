@@ -375,11 +375,6 @@ zh-CN:
         designated_on: 指定于
       index:
         title: 成员
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: 链接到显示所有会议的会议页面
     events:
       assemblies:
         create_assembly_member:
@@ -412,15 +407,7 @@ zh-CN:
         description: 创建的集合数
         object: 程序集
         title: 程序集
-    pages:
-      home:
-        hero:
-          participate_title: 参与平台进程
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: 链接到显示所有进程的进程页面
       show:
         related_assemblies: 相关的会议
   errors:
