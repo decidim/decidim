@@ -384,11 +384,6 @@ it:
         designated_on: Designato su
       index:
         title: Utenti
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link alla pagina delle Conferenze mostrata in tutte le conferenze
     events:
       assemblies:
         create_assembly_member:
@@ -421,15 +416,7 @@ it:
         description: Numero di assemblee create
         object: assemblee
         title: Assemblee
-    pages:
-      home:
-        hero:
-          participate_title: Partecipa ai processi della piattaforma
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link alla pagina dei Processi mostrata in tutti i processi
       show:
         related_assemblies: Assemblee collegate
   errors:

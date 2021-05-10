@@ -116,9 +116,11 @@ fr-CA:
       proposals:
         actions:
           amend: Amender
+          comment: Commentaire
           create: Créer
           endorse: Soutenir
           vote: Voter
+          vote_comment: Vote sur le commentaire
           withdraw: Retirer
         name: Propositions
         settings:

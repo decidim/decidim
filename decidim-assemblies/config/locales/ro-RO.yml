@@ -389,11 +389,6 @@ ro:
         designated_on: Desemnat la
       index:
         title: Membri
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link către pagina de conferințe care afișează toate conferințele
     events:
       assemblies:
         create_assembly_member:
@@ -426,17 +421,7 @@ ro:
         description: Numărul de organizații create
         object: organizații
         title: Organizații
-    pages:
-      home:
-        hero:
-          participate_title: Participă la procesele platformei
-        sub_hero:
-          register_title: Înregistrează-te pentru a crea un cont
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link către pagina Proceselor care afișează toate procesele
       show:
         related_assemblies: Organizații asemănătoare
     statistics:

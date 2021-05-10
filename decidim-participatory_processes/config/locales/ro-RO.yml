@@ -407,6 +407,7 @@ ro:
             more_information: Mai multe informații
             participate: Participă
             participate_in: Participă în procesul %{resource_name}
+            processes_button_title: Link către pagina Proceselor care afișează toate procesele
             see_all_processes: Vezi toate procesele
       participatory_process_steps:
         index:

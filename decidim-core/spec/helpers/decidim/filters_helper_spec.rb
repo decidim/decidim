@@ -87,25 +87,14 @@ module Decidim
       end
 
       it "stores filter type" do
-        expect(helper.filter_cache_hash(filter, type)).to start_with("decidim/proposals/filters/test/en")
+        expect(helper.filter_cache_hash(filter, type)).to start_with("decidim/proposals/filters/test")
       end
 
       context "when no type is provided" do
         let(:type) { nil }
 
         it "doesn't stores filter type" do
-          expect(helper.filter_cache_hash(filter)).to start_with("decidim/proposals/filters/en")
-        end
-      end
-
-      context "when current locale changes" do
-        let(:alt_locale) { :ca }
-
-        it "generate a different hash" do
-          old_hash = helper.filter_cache_hash(filter, type)
-          allow(I18n).to receive(:locale).and_return(alt_locale)
-
-          expect(helper.filter_cache_hash(filter, type)).not_to eq(old_hash)
+          expect(helper.filter_cache_hash(filter)).to start_with("decidim/proposals/filters")
         end
       end
 

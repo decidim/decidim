@@ -28,3 +28,8 @@ fi:
           update:
             invalid: Sivun tallennus epäonnistui.
             success: Sivun tallentaminen onnistui.
+      home:
+        hero:
+          participate_title: Osallistu prosesseihin alustalla
+        sub_hero:
+          register_title: Luo oma tili alustalle

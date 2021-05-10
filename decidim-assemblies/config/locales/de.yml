@@ -386,11 +386,6 @@ de:
         designated_on: Bezeichnet am
       index:
         title: Mitglieder
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Verknüpfung zu der Konferenzseite mit einem Überblick aller Konferenzen
     events:
       assemblies:
         create_assembly_member:
@@ -423,17 +418,7 @@ de:
         description: Anzahl der erstellten Gremien
         object: Gremien
         title: Gremien
-    pages:
-      home:
-        hero:
-          participate_title: Nehmen Sie an den Prozessen der Plattform teil
-        sub_hero:
-          register_title: Benutzerkonto registrieren
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Verknüpfung zu der Prozessseite mit einem Überblick aller Prozesse
       show:
         related_assemblies: Ähnliche Versammlungen
     statistics:
