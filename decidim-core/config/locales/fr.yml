@@ -113,8 +113,6 @@ fr:
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
-      impersonation_log:
-        manage: "%{user_name} a représenté %{resource_name} parce que %{reason}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace %{space_name}"
         unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
@@ -147,10 +145,8 @@ fr:
       user:
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
         officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
-        promote: "%{user_name} a promu %{resource_name}"
         remove_from_admin: "%{user_name} a retiré le rôle : %{role} de l'utilisateur %{resource_name}"
         show_email: "%{user_name} est allé chercher l'email de l'utilisateur %{resource_name}"
-        transfer: "%{user_name} a transféré l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
@@ -278,7 +274,7 @@ fr:
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
       errors:
-        duplicate_authorization: Un participant est déjà autorisé avec ces mêmes données. Un administrateur vous contactera pour vérifier vos informations.
+        duplicate_authorization: Un participant est déjà autorisé avec ces mêmes données.
       expired_at: Expiré à %{timestamp}
       expires_at: Expire à %{timestamp}
       foo_authorization:

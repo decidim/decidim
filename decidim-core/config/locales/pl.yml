@@ -121,8 +121,6 @@ pl:
         delete: "%{user_name} usunął/usunęła komponent %{resource_name} z przestrzeni %{space_name}"
         publish: "%{user_name} opublikował(a) komponent %{resource_name} w przestrzeni %{space_name}"
         unpublish: "%{user_name} cofnął/cofnęła publikację komponentu %{resource_name} w przestrzeni %{space_name}"
-      impersonation_log:
-        manage: "%{user_name} zarządził %{resource_name} ponieważ %{reason}"
       moderation:
         hide: "%{user_name} ukrył(a) zasób typu %{resource_type} w przestrzeni %{space_name}"
         unreport: "%{user_name} cofnął zgłoszenie zasobu typu %{resource_type} w przestrzeni %{space_name}"
@@ -155,10 +153,8 @@ pl:
       user:
         invite: "%{user_name} zaprosił(a) użytkownika %{resource_name} z rolą: %{role}"
         officialize: "%{user_name} ustanowił(a) oficjalnym użytkownika %{resource_name}"
-        promote: "%{user_name} awansował(a) %{resource_name}"
         remove_from_admin: "%{user_name} usunął/usunęła użytkownika %{resource_name} z rolą: %{role}"
         show_email: "%{user_name} pobrał(a) e-mail uczestnika %{resource_name}"
-        transfer: "%{user_name} przeniósł/przeniosła użytkownika %{resource_name}"
         unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
         reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
@@ -289,8 +285,6 @@ pl:
         name: Przykładowa autoryzacja
       dummy_authorization_workflow:
         name: Przykładowy proces autoryzacji
-      errors:
-        duplicate_authorization: Autoryzowano już użytkownika z takimi samymi danymi. Administrator skontaktuje się z Tobą w celu zweryfikowania Twoich danych.
       expired_at: Wygasł %{timestamp}
       expires_at: Wygasa %{timestamp}
       foo_authorization:

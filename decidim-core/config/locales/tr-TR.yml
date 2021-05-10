@@ -113,8 +113,6 @@ tr:
         delete: "%{user_name}, %{resource_name} bileşenini %{space_name} alanından kaldırdı"
         publish: "%{user_name}, %{resource_name} bileşenini %{space_name} alanında yayınladı"
         unpublish: "%{user_name}, %{resource_name} bileşenini %{space_name} alanındaki yayından kaldırdı"
-      impersonation_log:
-        manage: "%{user_name}, %{resource_name} adlı kaynağı yönetti çünkü %{reason}"
       moderation:
         hide: "%{user_name}, %{space_name} alanında %{resource_type} türünde bir kaynak sakladı"
         unreport: "%{user_name}, %{space_name} alanında %{resource_type} türünde bir kaynağı bildirmedi"
@@ -147,10 +145,8 @@ tr:
       user:
         invite: "%{user_name} katılımcıyı %{resource_name} rolüyle davet etti: %{role}"
         officialize: "%{user_name}, katılımcıyı %{resource_name} resmileştirdi"
-        promote: "%{user_name}, %{resource_name} için terfi etti"
         remove_from_admin: "%{user_name}, kullanıcıyı %{resource_name} rolüyle kaldırıldı: %{role}"
         show_email: "%{user_name}, %{resource_name} katılımcının e-postasını aldı"
-        transfer: "%{user_name}, katılımcıyı %{resource_name} aktardı"
         unofficialize: "%{user_name}, katılımcının %{resource_name} resmiyetini kaldırdı"
       user_group:
         reject: "%{user_name}, %{resource_name} kullanıcı grubu doğrulamasını reddetti"
@@ -275,8 +271,6 @@ tr:
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
         name: Sahte yetkilendirme iş akışı
-      errors:
-        duplicate_authorization: Bir katılımcı zaten aynı verilerle yetkilendirildi. Bir yönetici, bilgilerinizi doğrulamak için sizinle iletişime geçecektir.
       expired_at: '%{timestamp} bitti'
       expires_at: '%{timestamp} sona eriyor'
       foo_authorization:

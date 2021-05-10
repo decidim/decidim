@@ -282,21 +282,6 @@ cs:
         update:
           error: Při aktualizaci této komponenty došlo k chybě.
           success: Komponenta byla úspěšně aktualizována.
-      conflicts:
-        attempts: Pokusy
-        'false': 'Ne'
-        managed_user_name: Spravovaný uživatel
-        solved: Vyřešeno
-        title: Konflikty ověření
-        transfer:
-          email: E-mail
-          error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
-          name: Jméno
-          reason: Důvod
-          success: Aktuální převod byl úspěšně dokončen.
-          title: Převod
-        'true': 'Ano'
-        user_name: Uživatel
       dashboard:
         show:
           view_more_logs: Zobrazit další protokoly

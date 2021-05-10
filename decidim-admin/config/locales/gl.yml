@@ -282,19 +282,6 @@ gl:
         update:
           error: Houbo un erro ao actualizar este compoñente.
           success: O compoñente foi actualizado correctamente.
-      conflicts:
-        'false': 'Non'
-        managed_user_name: Usuario xestionado
-        solved: Resolto
-        title: Conflitos de verificación
-        transfer:
-          email: Correo electrónico
-          name: Nome
-          reason: Motivo
-          success: A transferencia actual completouse con éxito.
-          title: Transferir
-        'true': 'Si'
-        user_name: Usuario
       dashboard:
         show:
           view_more_logs: Ver máis rexistros

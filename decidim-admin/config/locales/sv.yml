@@ -282,21 +282,6 @@ sv:
         update:
           error: Det gick inte att uppdatera komponenten.
           success: Komponenten har uppdaterats.
-      conflicts:
-        attempts: Försök
-        'false': 'Nej'
-        managed_user_name: Hanterad användare
-        solved: Löst
-        title: Verifieringskonflikter
-        transfer:
-          email: E-post
-          error: Det gick inte att konvertera användaren till hanterad användare.
-          name: Namn
-          reason: Anledning
-          success: Flytten slutfördes problemfritt.
-          title: Överföring
-        'true': 'Ja'
-        user_name: Användare
       dashboard:
         show:
           view_more_logs: Visa fler loggar

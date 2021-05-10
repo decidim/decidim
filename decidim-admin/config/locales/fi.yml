@@ -282,21 +282,6 @@ fi:
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
-      conflicts:
-        attempts: Yritykset
-        'false': 'Ei'
-        managed_user_name: Hallittu käyttäjä
-        solved: Ratkaistu
-        title: Tarkistusten ristiriidat
-        transfer:
-          email: Sähköposti
-          error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
-          name: Nimi
-          reason: Syy
-          success: Siirto onnistui.
-          title: Siirrä
-        'true': 'Kyllä'
-        user_name: Käyttäjä
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja

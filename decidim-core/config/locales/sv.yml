@@ -113,8 +113,6 @@ sv:
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
         unpublish: "%{user_name} avpublicerade komponenten %{resource_name} från utrymmet %{space_name}"
-      impersonation_log:
-        manage: "%{user_name} har hanterat %{resource_name} eftersom %{reason}"
       moderation:
         hide: "%{user_name} gömde en resurs av typen %{resource_type} i utrymmet %{space_name}"
         unreport: "%{user_name} drog tillbaka en resurs av typen %{resource_type} i utrymmet %{space_name}"
@@ -149,7 +147,6 @@ sv:
         officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         show_email: "%{user_name} hämtade e-postadressen för deltagaren %{resource_name}"
-        transfer: "%{user_name} överförde deltagaren %{resource_name}"
         unofficialize: "%{user_name} gjorde deltagaren %{resource_name} inofficiell"
       user_group:
         reject: "%{user_name} avvisade gruppverifieringen för %{resource_name}"
@@ -275,8 +272,6 @@ sv:
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
-      errors:
-        duplicate_authorization: En deltagare är redan behörig med samma data.
       expired_at: Förföll vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:

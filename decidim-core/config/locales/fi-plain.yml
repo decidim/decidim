@@ -113,8 +113,6 @@ fi-pl:
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
         unpublish: "%{user_name} lopetti %{resource_name} -komponentin julkaisemisen %{space_name} -tilassa"
-      impersonation_log:
-        manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
       moderation:
         hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin %{space_name} -tilaan"
         unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen %{space_name} tilassa"
@@ -147,10 +145,8 @@ fi-pl:
       user:
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
         officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
-        promote: "%{user_name} on korottanut käyttäjän %{resource_name} oikeudet"
         remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
         show_email: "%{user_name} tarkasteli osallistujan %{resource_name} sähköpostiosoitetta"
-        transfer: "%{user_name} siirsi osallistujan %{resource_name}"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
@@ -278,7 +274,7 @@ fi-pl:
       dummy_authorization_workflow:
         name: Dummy-varmennuksen työnkulku
       errors:
-        duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
+        duplicate_authorization: Toinen käyttäjätili on jo vahvistettu samoilla tiedoilla.
       expired_at: Umpeutuu %{timestamp}
       expires_at: Umpeutuu %{timestamp}
       foo_authorization:

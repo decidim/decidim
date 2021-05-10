@@ -282,8 +282,6 @@ ja:
         update:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
-      conflicts:
-        'false': 'いいえ'
       dashboard:
         show:
           view_more_logs: もっとログを見る

@@ -113,8 +113,6 @@ de:
         delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
         publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
         unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
-      impersonation_log:
-        manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
       moderation:
         hide: "%{user_name} hat eine Ressource vom Typ %{resource_type} in %{space_name} versteckt"
         unreport: "%{user_name} hat die Meldung einer Ressource vom Typ %{resource_type} in %{space_name} aufgehoben"
@@ -147,10 +145,8 @@ de:
       user:
         invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
         officialize: "%{user_name} den Benutzer %{resource_name} offiziell anerkannt"
-        promote: "%{user_name} hat %{resource_name} befördert"
         remove_from_admin: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} entfernt"
         show_email: "%{user_name} hat die E-Mail des Teilnehmers %{resource_name} abgerufen"
-        transfer: "%{user_name} hat den Teilnehmer %{resource_name} verschoben"
         unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
       user_group:
         reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
@@ -278,7 +274,7 @@ de:
       dummy_authorization_workflow:
         name: Arbeitsablauf Dummy Berechtigung
       errors:
-        duplicate_authorization: Ein Teilnehmer mit den gleichen Daten ist bereits autorisiert. Ein Administrator wird Sie kontaktieren, um Ihre Daten zu überprüfen.
+        duplicate_authorization: Ein Teilnehmer ist bereits mit den gleichen Daten autorisiert.
       expired_at: Abgelaufen am %{timestamp}
       expires_at: Läuft am %{timestamp} ab
       foo_authorization:

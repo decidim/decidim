@@ -282,21 +282,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestei componente.
           success: Componenta a fost actualizată cu succes.
-      conflicts:
-        attempts: Încercări
-        'false': 'Nu'
-        managed_user_name: Gestionare utilizatori
-        solved: Rezolvat
-        title: Verificare conflicte
-        transfer:
-          email: E-mail
-          error: A apărut o problemă la transferul participantului curent către participantul gestionat.
-          name: Nume
-          reason: Motiv
-          success: Transferul a fost finalizat cu succes.
-          title: Transfer
-        'true': 'Da'
-        user_name: Utilizator
       dashboard:
         show:
           view_more_logs: Afișați mai multe jurnale
