@@ -282,21 +282,6 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
-      conflicts:
-        attempts: Intents
-        'false': 'No'
-        managed_user_name: Usuari gestionat
-        solved: Resolt
-        title: Conflictes de verificacions
-        transfer:
-          email: Correu electrònic
-          error: S¡ha produït un error en transferir la participant actual a la participant gestionada.
-          name: Nom
-          reason: Raó
-          success: La transferència s'ha completat correctament.
-          title: Transferir
-        'true': 'Sí'
-        user_name: Usuària
       dashboard:
         show:
           view_more_logs: Veure més registres
