@@ -116,9 +116,11 @@ fi:
       proposals:
         actions:
           amend: Muokkaa
+          comment: Kommentoi
           create: Luo
           endorse: Suosittele
           vote: Kannata
+          vote_comment: Äänestä kommenttia
           withdraw: Peru
         name: Ehdotukset
         settings:
