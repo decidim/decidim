@@ -30,10 +30,15 @@ module Decidim
       end
 
       def users
+        user_entities(current_organization.users)
+      end
+
+      def user_entities(relation = nil)
+        relation ||= current_organization.user_entities
         respond_to do |format|
           format.json do
             if (term = params[:term].to_s).present?
-              query = current_organization.users.order(name: :asc)
+              query = relation.order(name: :asc)
               query = if term.start_with?("@")
                         query.where("nickname ILIKE ?", "#{term.delete("@")}%")
                       else

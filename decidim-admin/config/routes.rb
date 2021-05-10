@@ -10,6 +10,7 @@ Decidim::Admin::Engine.routes.draw do
 
       member do
         get :users
+        get :user_entities
       end
     end
 
