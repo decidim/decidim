@@ -386,11 +386,6 @@ sv:
         designated_on: Utsedd den
       index:
         title: Medlemmar
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
     events:
       assemblies:
         create_assembly_member:
@@ -423,17 +418,7 @@ sv:
         description: Antal skapade grupper
         object: grupper
         title: Grupper
-    pages:
-      home:
-        hero:
-          participate_title: Delta i plattformens dialoger
-        sub_hero:
-          register_title: Skapa ett konto
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Länk till sidan som visar alla dialoger
       show:
         related_assemblies: Relaterade grupper
     statistics:

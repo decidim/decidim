@@ -377,11 +377,6 @@ hu:
         designated_on: Kijelölt
       index:
         title: Tagok
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link a Konferenciák oldalra, ahol az összes konferencia látható
     help:
       participatory_spaces:
         assemblies:
@@ -401,15 +396,7 @@ hu:
         description: A létrehozott gyűlések száma
         object: gyűlések
         title: Gyűlések
-    pages:
-      home:
-        hero:
-          participate_title: Részvétel a platform folyamataiban
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link a folyamatok oldalra, ahol az összes folyamat látható
       show:
         related_assemblies: Kapcsolódó gyűlések
   errors:

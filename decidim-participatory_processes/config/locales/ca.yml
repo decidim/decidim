@@ -403,6 +403,7 @@ ca:
             more_information: Més informació
             participate: Participa
             participate_in: Participa al procés %{resource_name}
+            processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
             see_all_processes: Veure tots els processos
       participatory_process_steps:
         index:
