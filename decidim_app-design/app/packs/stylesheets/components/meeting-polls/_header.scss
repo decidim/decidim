@@ -31,7 +31,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: $global-margin;
+    margin-left: 2 * $global-margin;
     cursor: pointer;
 
     span{
