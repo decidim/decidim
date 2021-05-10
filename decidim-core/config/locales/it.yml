@@ -113,8 +113,6 @@ it:
         delete: "%{user_name} rimosso il componente %{resource_name} dallo spazio %{space_name}"
         publish: "%{user_name} ha pubblicato il componente %{resource_name} nello spazio %{space_name}"
         unpublish: "%{user_name} non pubblicato il componente %{resource_name} dallo spazio %{space_name}"
-      impersonation_log:
-        manage: "%{user_name} è stato moderato %{resource_name} perché %{reason}"
       moderation:
         hide: "%{user_name} nascosto una risorsa di tipo %{resource_type} nel %{space_name} spazio"
         unreport: "%{user_name} non segnalata una risorsa di tipo %{resource_type} nel %{space_name} spazio"
@@ -147,10 +145,8 @@ it:
       user:
         invite: "%{user_name} ha invitato l'utente %{resource_name} con ruolo: %{role}"
         officialize: "%{user_name} ha ufficializzato l'utente %{resource_name}"
-        promote: "%{user_name} ha promosso %{resource_name}"
         remove_from_admin: "%{user_name} rimosso l'utente %{resource_name} con ruolo: %{role}"
         show_email: "%{user_name} ha ricevuto l'email del partecipante %{resource_name}"
-        transfer: "%{user_name} ha trasferito l'utente %{resource_name}"
         unofficialize: "%{user_name} utente non ufficiale %{resource_name}"
       user_group:
         reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
@@ -277,8 +273,6 @@ it:
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
-      errors:
-        duplicate_authorization: Un utente è già autorizzato con gli stessi dati. Un amministratore ti contatterà per verificare i tuoi dettagli.
       expired_at: Scaduto a %{timestamp}
       expires_at: Scade a %{timestamp}
       foo_authorization:
