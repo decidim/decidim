@@ -282,21 +282,6 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar este componente.
           success: El componente se actualizó con éxito.
-      conflicts:
-        attempts: Intentos
-        'false': 'No'
-        managed_user_name: Usuario gestionado
-        solved: Resuelto
-        title: Conflictos de verificaciones
-        transfer:
-          email: Correo electrónico
-          error: Hubo un problema al transferir el participante actual a un participante gestionado.
-          name: Nombre
-          reason: Motivo
-          success: La transferencia actual se ha completado correctamente.
-          title: Transferir
-        'true': 'Sí'
-        user_name: Usuaria
       dashboard:
         show:
           view_more_logs: Ver más registros
