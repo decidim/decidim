@@ -8,11 +8,4 @@ FactoryBot.define do
     email { generate(:email) }
     organization
   end
-
-  factory :conflict, class: "Decidim::Verifications::Conflict" do
-    current_user { create(:user) }
-    managed_user { create(:user, managed: true) }
-    unique_id { "12345678X" }
-    times { 1 }
-  end
 end

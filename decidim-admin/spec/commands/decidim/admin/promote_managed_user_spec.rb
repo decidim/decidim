@@ -38,11 +38,6 @@ module Decidim::Admin
         expect(user.reload.email).to eq(form.email)
         expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
-
-      it "log promoted user" do
-        subject.call
-        expect(Decidim::ActionLog.last.action).to eq("promote")
-      end
     end
 
     context "when the form is not valid" do

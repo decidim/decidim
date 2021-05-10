@@ -30,7 +30,6 @@ module Decidim
 
         promote_user
         invite_user
-        create_action_log
 
         broadcast(:ok)
       end
@@ -51,15 +50,6 @@ module Decidim
 
       def email_already_exists?
         Decidim::User.where(email: form.email.downcase).any?
-      end
-
-      def create_action_log
-        Decidim.traceability.perform_action!(
-          "promote",
-          user,
-          form.current_user,
-          visibility: "admin-only"
-        )
       end
     end
   end

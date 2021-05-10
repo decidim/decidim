@@ -16,7 +16,7 @@ module Decidim
 
       def action_string
         case action
-        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "promote", "transfer"
+        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize"
           "decidim.admin_log.user.#{action}"
         else
           super
