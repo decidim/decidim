@@ -97,6 +97,13 @@ module Decidim
         let(:instagram_handler) { "lorem" }
         let(:youtube_handler) { "lorem" }
         let(:github_handler) { "lorem" }
+        let(:announcement) do
+          {
+            en: "Announcement",
+            es: "Anuncio",
+            ca: "Anunci"
+          }
+        end
         let(:parent_id) { nil }
         let(:assembly_id) { nil }
         let(:attributes) do
@@ -147,7 +154,10 @@ module Decidim
               "youtube_handler" => youtube_handler,
               "github_handler" => github_handler,
               "weight" => weight,
-              "parent_id" => parent_id
+              "parent_id" => parent_id,
+              "announcement_en" => announcement[:en],
+              "announcement_es" => announcement[:es],
+              "announcement_ca" => announcement[:ca]
             }
           }
         end
@@ -332,7 +342,8 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: child_assembly
+                parent_id: child_assembly,
+                announcement: assembly.announcement
               }
             }
           end
@@ -391,7 +402,8 @@ module Decidim
                 youtube_handler: assembly.youtube_handler,
                 github_handler: assembly.github_handler,
                 weight: assembly.weight,
-                parent_id: grandchild_assembly
+                parent_id: grandchild_assembly,
+                announcement: assembly.announcement
               }
             }
           end

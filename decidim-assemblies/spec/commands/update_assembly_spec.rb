@@ -68,7 +68,8 @@ module Decidim::Assemblies
             facebook_handler: my_assembly.facebook_handler,
             instagram_handler: my_assembly.instagram_handler,
             youtube_handler: my_assembly.youtube_handler,
-            github_handler: my_assembly.github_handler
+            github_handler: my_assembly.github_handler,
+            announcement: my_assembly.announcement
           }
         }
       end
