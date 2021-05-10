@@ -1,0 +1,139 @@
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<div class="row section election-log"
+  data-election-id="<%= election.id %>"
+  data-api-endpoint-url="<%= bulletin_board_server %>"
+  data-authority-slug="<%= authority_slug %>"
+  data-authority-public-key="<%= authority_public_key %>">
+  <div class="columns large-8">
+    <h1 class="heading3"><%= t(".title") %></h1>
+    <p><%= t(".description") %></p>
+    <div class="mt-sm">
+      <!-- CREATE ELECTION STEP -->
+      <div class="card" id="create-election-step">
+        <div class="card__content">
+          <div class="card__header">
+            <span class="text-small time"></span>
+            <h5 class="card__title"><%= t(".creation_title") %></h5>
+          </div>
+          <div class="card__text">
+            <span class="no-election-created">
+              <span class="card__text--status text-muted"><%= t(".not_created") %></span>
+              <%= t(".creation_description.not_created") %>
+            </span>
+            <span>
+            <span class="election-created hide">
+              <span class="card__text--status success"><%= t(".complete") %></span>
+              <%= t(".creation_description.complete") %>
+            </span>
+          </div>
+          <div class="card__footer--transparent text-small hide">
+            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+          </div>
+        </div>
+      </div>
+      <!-- KEY CEREMONY STEP -->
+      <div class="card" id="key-ceremony-step">
+        <div class="card__content">
+          <div class="card__header">
+            <span class="text-small time"></span>
+            <h5 class="card__title"><%= t(".key_ceremony_title") %></h5>
+          </div>
+          <div class="card__text">
+            <span class="key-ceremony-not-started">
+              <span class="card__text--status text-muted"><%= t(".not_started") %></span>
+              <%= t(".key_ceremony_description.not_started") %>
+            </span>
+            <span class="key-ceremony-started hide">
+              <span class="card__text--status warning"><%= t(".started") %></span>
+              <%= t(".key_ceremony_description.started") %>
+            </span>
+            <span class="key-ceremony-completed hide">
+              <span class="card__text--status success"><%= t(".complete") %></span>
+              <%= t(".key_ceremony_description.complete") %>
+            </span>
+          </div>
+          <div class="card__footer--transparent text-small hide">
+            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+          </div>
+        </div>
+      </div>
+      <!-- VOTE STEP -->
+      <div class="card" id="vote-step">
+        <div class="card__content">
+          <div class="card__header">
+            <span class="text-small time"></span>
+            <h5 class="card__title"><%= t(".vote_title") %></h5>
+          </div>
+          <div class="card__text">
+            <span class="vote-not-started">
+              <span class="card__text--status text-muted"><%= t(".not_started") %></span>
+              <%= t(".vote_description.not_started") %>
+            </span>
+            <span class="vote-started hide">
+              <span class="card__text--status success"><%= t(".started") %></span>
+              <%= t(".vote_description.started") %>
+            </span>
+            <span class="vote-completed hide">
+              <span class="card__text--status success"><%= t(".complete") %></span>
+              <%= t(".vote_description.finished") %>
+            </span>
+          </div>
+          <div class="card__footer--transparent text-small hide">
+            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+          </div>
+        </div>
+      </div>
+      <!-- TALLY STEP -->
+      <div class="card" id="tally-step">
+        <div class="card__content">
+          <div class="card__header">
+            <span class="text-small time"></span>
+            <h5 class="card__title"><%= t(".tally_title") %></h5>
+          </div>
+          <div class="card__text">
+            <span class="tally-not-started">
+              <span class="card__text--status text-muted"><%= t(".not_started") %></span>
+              <%= t(".tally_description.not_started") %>
+            </span>
+            <span class="tally-started hide">
+              <span class="card__text--status success"><%= t(".started") %></span>
+              <%= t(".tally_description.started") %>
+            </span>
+            <span class="tally-completed hide">
+              <span class="card__text--status success"><%= t(".complete") %></span>
+              <%= t(".tally_description.finished") %>
+            </span>
+          </div>
+          <div class="card__footer--transparent text-small hide">
+            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+          </div>
+        </div>
+      </div>
+      <!-- PUBLISHED RESULTS STEP -->
+      <div class="card" id="results-step">
+        <div class="card__content">
+          <div class="card__header">
+            <span class="text-small time"></span>
+            <h5 class="card__title"><%= t(".results_title") %></h5>
+          </div>
+          <div class="card__text">
+            <span class="results-not-published">
+              <span class="card__text--status text-muted"><%= t(".not_published") %></span>
+              <%= t(".results_description.not_published") %>
+            </span>
+            <span class="results-published hide">
+              <span class="card__text--status success"><%= t(".published") %></span>
+              <%= t(".results_description.published") %>
+            </span>
+          </div>
+          <div class="card__footer--transparent text-small hide">
+            <strong><%= t(".chained-hash") %></strong>: <span class="chained-hash"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag "decidim_elections_election_log", integrity: true %>

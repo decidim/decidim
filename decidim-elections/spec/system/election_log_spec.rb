@@ -1,0 +1,139 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+describe "Election log", :slow, type: :system do
+  include_context "with a component"
+
+  let(:manifest_name) { "elections" }
+
+  before do
+    VCR.turn_off!
+    Decidim::Elections.bulletin_board.reset_test_database
+    election
+    visit resource_locator(election).path
+    click_link "Election log"
+  end
+
+  after do
+    VCR.turn_on!
+  end
+
+  context "when election is not set up" do
+    let(:election) { create(:election, :complete, :published, :ready_for_setup, component: component) }
+
+    it "shows not started entries" do
+      expect(page).to have_content("Election created")
+      expect(page).to have_content("The election is not created yet.")
+      expect(page).to have_content("The key ceremony has not started yet.")
+      expect(page).to have_content("The voting process has not started yet.")
+      expect(page).to have_content("The tally process has not started yet.")
+      expect(page).to have_content("The results are not published yet.")
+      expect(page).not_to have_content("The chained Hash of this message")
+    end
+  end
+
+  context "when election is created" do
+    let(:election) { create(:election, :bb_test, :created, component: component) }
+
+    it "shows that election is created" do
+      expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+      expect(page).to have_content("The key ceremony has not started yet.")
+      expect(page).to have_content("The voting process has not started yet.")
+      expect(page).to have_content("The tally process has not started yet.")
+      expect(page).to have_content("The results are not published yet.")
+      expect(page).to have_content("The chained Hash of this message")
+    end
+  end
+
+  context "when the key ceremony started but is not ended" do
+    let(:election) { create(:election, :bb_test, :key_ceremony, component: component) }
+
+    it "shows that key ceremony has started" do
+      expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+      expect(page).to have_content("The key ceremony has started but is not completed yet.")
+      expect(page).to have_content("The voting process has not started yet.")
+      expect(page).to have_content("The tally process has not started yet.")
+      expect(page).to have_content("The results are not published yet.")
+      expect(page).to have_content("The chained Hash of this message")
+    end
+  end
+
+  context "when the key ceremony is finished" do
+    let(:election) { create(:election, :bb_test, :key_ceremony_ended, component: component) }
+
+    it "shows that key ceremony is ended" do
+      expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+      expect(page).to have_content("The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.")
+      expect(page).to have_content("The voting process has not started yet.")
+      expect(page).to have_content("The tally process has not started yet.")
+      expect(page).to have_content("The results are not published yet.")
+      expect(page).to have_content("The chained Hash of this message")
+    end
+  end
+
+  context "when voting has started" do
+    let(:election) { create(:election, :bb_test, :vote, component: component) }
+
+    it "shows that vote has started" do
+      expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+      expect(page).to have_content("The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.")
+      expect(page).to have_content("The voting process has started.")
+      expect(page).to have_content("The tally process has not started yet.")
+      expect(page).to have_content("The results are not published yet.")
+      expect(page).to have_content("The chained Hash of this message")
+    end
+  end
+
+  context "when voting has ended" do
+    let(:election) { create(:election, :bb_test, :vote_ended, component: component) }
+
+    it "shows that voting process has ended" do
+      expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+      expect(page).to have_content("The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.")
+      expect(page).to have_content("The voting process is finished.")
+      expect(page).to have_content("The tally process has not started yet.")
+      expect(page).to have_content("The results are not published yet.")
+      expect(page).to have_content("The chained Hash of this message")
+    end
+  end
+
+  context "when tally has started" do
+    let(:election) { create(:election, :bb_test, :tally, component: component) }
+
+    it "shows that tally has started" do
+      expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+      expect(page).to have_content("The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.")
+      expect(page).to have_content("The voting process is finished.")
+      expect(page).to have_content("The tally process has started.")
+      expect(page).to have_content("The results are not published yet.")
+      expect(page).to have_content("The chained Hash of this message")
+    end
+  end
+
+  # context "when tally is completed" do
+  #   let(:election) { create(:election, :bb_test, :tally_ended, component: component) }
+
+  #   it "shows that tally has finished" do
+  #     expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+  #     expect(page).to have_content("The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.")
+  #     expect(page).to have_content("The voting process is finished.")
+  #     expect(page).to have_content("The tally process is finished.")
+  #     expect(page).to have_content("The results are not published yet.")
+  #     expect(page).to have_content("The chained Hash of this message")
+  #   end
+  # end
+
+  context "when results are published" do
+    let(:election) { create(:election, :bb_test, :results_published, component: component) }
+
+    it "shows that results are published" do
+      expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
+      expect(page).to have_content("The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.")
+      expect(page).to have_content("The voting process is finished.")
+      expect(page).to have_content("The tally process is finished.")
+      expect(page).to have_content("The results are published.")
+      expect(page).to have_content("The chained Hash of this message")
+    end
+  end
+end

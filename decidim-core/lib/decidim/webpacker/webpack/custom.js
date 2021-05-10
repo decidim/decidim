@@ -108,6 +108,7 @@ module.exports = {
     decidim_debates_admin: "DECIDIM_PATH/decidim-debates/app/packs/entrypoints/decidim_debates_admin.js",
     decidim_dev: "DECIDIM_PATH/decidim-dev/app/packs/entrypoints/decidim_dev.js",
     decidim_elections: "DECIDIM_PATH/decidim-elections/app/packs/entrypoints/decidim_elections.js",
+    decidim_elections_election_log: "DECIDIM_PATH/decidim-elections/app/packs/entrypoints/decidim_elections_election_log.js",
     decidim_elections_onboarding: "DECIDIM_PATH/decidim-elections/app/packs/entrypoints/decidim_elections_onboarding.js",
     decidim_elections_admin_pending_action: "DECIDIM_PATH/decidim-elections/app/packs/entrypoints/decidim_elections_admin_pending_action.js",
     decidim_elections_admin_vote_statistics: "DECIDIM_PATH/decidim-elections/app/packs/entrypoints/decidim_elections_admin_vote_statistics.js",
