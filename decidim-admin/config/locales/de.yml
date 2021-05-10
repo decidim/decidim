@@ -282,21 +282,6 @@ de:
         update:
           error: Beim Aktualisieren dieser Komponente ist ein Fehler aufgetreten.
           success: Die Komponente wurde erfolgreich aktualisiert.
-      conflicts:
-        attempts: Versuche
-        'false': 'Nein'
-        managed_user_name: Verwalteter Benutzer
-        solved: Gelöst
-        title: Konflikte von Überprüfungen
-        transfer:
-          email: E-Mail
-          error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
-          name: Name
-          reason: Grund
-          success: Übertragung erfolgreich.
-          title: Übertragung
-        'true': 'Ja'
-        user_name: Nutzer
       dashboard:
         show:
           view_more_logs: Weitere Protokolle anzeigen
