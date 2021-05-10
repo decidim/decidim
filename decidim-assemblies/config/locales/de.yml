@@ -262,6 +262,7 @@ de:
       admin:
         assemblies:
           form:
+            announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Gremien-Informationen angezeigt.
             duration: Dauer
             duration_help: Wenn die Dauer dieser Assembly begrenzt ist, wählen Sie das Enddatum aus. Andernfalls wird es als unbestimmt angezeigt.
             filters: Filter

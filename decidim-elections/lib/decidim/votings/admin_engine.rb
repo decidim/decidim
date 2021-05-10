@@ -178,10 +178,6 @@ module Decidim
                         if: allowed_to?(:read, :ballot_styles)
         end
       end
-
-      initializer "decidim_votings.admin_assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_votings_manifest.js admin/decidim_votings_manifest.css)
-      end
     end
   end
 end

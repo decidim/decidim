@@ -262,6 +262,7 @@ es-PY:
       admin:
         assemblies:
           form:
+            announcement_help: El texto que introduzcas aquí se mostrará a la participante justo debajo de la información de la asamblea.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
             filters: Filtros

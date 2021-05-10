@@ -67,10 +67,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_elections.assets" do |app|
-        app.config.assets.precompile += %w(decidim_elections_manifest.js decidim_elections_manifest.css)
-      end
-
       def load_seed
         nil
       end

@@ -100,10 +100,6 @@ module Decidim
           metric_operation.manager_class = "Decidim::Meetings::Metrics::MeetingFollowersMetricMeasure"
         end
       end
-
-      initializer "decidim_meetings.assets" do |app|
-        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
-      end
     end
   end
 end

@@ -108,7 +108,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).not_hidden
-    Decidim::Endorsement.where(resource_id: proposals.pluck(:id), resource_type: Decidim::Proposals::Proposal.name).count
+    proposals.sum(:endorsements_count)
   end
 
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|

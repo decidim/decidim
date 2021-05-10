@@ -403,6 +403,7 @@ es-PY:
             more_information: Más información
             participate: Participar
             participate_in: Participa en el proceso %{resource_name}
+            processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
             see_all_processes: Ver todos los procesos
       participatory_process_steps:
         index:

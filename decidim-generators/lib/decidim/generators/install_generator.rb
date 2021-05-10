@@ -59,23 +59,6 @@ module Decidim
         remove_file "app/views/layouts/mailer.text.erb"
       end
 
-      def disable_precompilation_on_demand
-        %w(development test).each do |environment|
-          inject_into_file "config/environments/#{environment}.rb",
-                           before: /^end$/ do
-            cut <<~RUBY, strip: false
-              |
-              |  # No precompilation on demand on first request
-              |  config.assets.check_precompiled_asset = false
-            RUBY
-          end
-        end
-      end
-
-      def configure_js_compressor
-        gsub_file "config/environments/production.rb", "config.assets.js_compressor = :uglifier", "config.assets.js_compressor = Uglifier.new(:harmony => true)"
-      end
-
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
@@ -113,8 +96,32 @@ module Decidim
       end
 
       def remove_old_assets
+        remove_file "config/initializers/assets.rb"
         remove_dir("app/assets")
         remove_dir("app/javascript")
+      end
+
+      def remove_sprockets_requirement
+        gsub_file "config/application.rb", %r{require 'rails/all'}, <<~RUBY
+          require "rails"
+          # Pick the frameworks you want:
+          require "active_model/railtie"
+          require "active_job/railtie"
+          require "active_record/railtie"
+          require "active_storage/engine"
+          require "action_controller/railtie"
+          require "action_mailer/railtie"
+          require "action_mailbox/engine"
+          require "action_text/engine"
+          require "action_view/railtie"
+          require "action_cable/engine"
+          # require "sprockets/railtie"
+          require "rails/test_unit/railtie"
+        RUBY
+
+        gsub_file "config/environments/development.rb", /config\.assets.*$/, ""
+        gsub_file "config/environments/test.rb", /config\.assets.*$/, ""
+        gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
       def copy_migrations

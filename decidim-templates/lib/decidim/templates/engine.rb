@@ -14,10 +14,6 @@ module Decidim
         resources :templates
         # root to: "templates#index"
       end
-
-      initializer "decidim_templates.assets" do |app|
-        app.config.assets.precompile += %w(decidim_templates_manifest.js decidim_templates_manifest.css)
-      end
     end
   end
 end

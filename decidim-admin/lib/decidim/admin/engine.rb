@@ -7,8 +7,6 @@ require "devise"
 require "devise-i18n"
 require "decidim/core"
 require "jquery-rails"
-require "sassc-rails"
-require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "rectify"
@@ -26,10 +24,6 @@ module Decidim
         Decidim::Core::Engine.routes do
           mount Decidim::Admin::Engine => "/admin"
         end
-      end
-
-      initializer "decidim_admin.assets" do |app|
-        app.config.assets.precompile += %w(decidim_admin_manifest.js)
       end
 
       initializer "decidim_admin.global_moderation_menu" do

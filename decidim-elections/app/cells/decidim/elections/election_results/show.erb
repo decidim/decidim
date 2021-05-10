@@ -25,23 +25,12 @@
                   <% end %>
                 </h3>
 
-                <div class="progress__bar">
-                  <div class="evote__preview-bar">
-                    <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= answer.results_percentage %>%" aria-valuemin="0" aria-valuetext="<%= answer.results_percentage %>% percent" aria-valuemax="100">
-                      <div class="progress-meter progress__bar__bar--complete" style="width: <%= answer.results_percentage %>%"></div>
-                      <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= answer.results_percentage %>%);"></div>
-                    </div>
-
-                    <div class="evote__preview-perc">
-                      <%= answer.results_percentage %>%
-                    </div>
-                  </div>
-
-                  <div class="evote__preview-label">
-                    <%= t("decidim.elections.elections.results.votes", count: answer.results_total) %>
-                  </div>
-                </div>
+                <%= render view: :progress_bar, locals: { results_percentage: answer.results_percentage, results_total: answer.results_total } %>
               </div>
+            <% end %>
+
+            <% if question.results.blank_answers.any? %>
+              <%= render view: :blank_votes, locals: { question: question } %>
             <% end %>
           </div>
         </li>

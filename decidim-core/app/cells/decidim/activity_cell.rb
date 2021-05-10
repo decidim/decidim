@@ -90,6 +90,14 @@ module Decidim
       "action-#{model.id}"
     end
 
+    def cache_hash
+      hash = []
+      hash << model.class.name.underscore
+      hash << model.cache_key_with_version
+
+      hash.join("/")
+    end
+
     private
 
     def published?

@@ -17,10 +17,6 @@ module Decidim
         root to: "results#home"
       end
 
-      initializer "decidim_accountability.assets" do |app|
-        app.config.assets.precompile += %w(decidim_accountability_manifest.js)
-      end
-
       initializer "decidim_accountability.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
           view_context.cell("decidim/accountability/highlighted_results", view_context.current_participatory_space)

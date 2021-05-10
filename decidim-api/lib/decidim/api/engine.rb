@@ -3,7 +3,6 @@
 require "graphql"
 require "graphiql/rails"
 require "rack/cors"
-require "sprockets/es6"
 
 require "decidim/core"
 
@@ -12,10 +11,6 @@ module Decidim
     # Mountable engine that exposes a side-wide API for Decidim.
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Api
-
-      initializer "decidim_api.assets" do |app|
-        app.config.assets.precompile += %w(decidim_api_manifest.js decidim_api_manifest.css)
-      end
 
       initializer "decidim-api.middleware" do |app|
         app.config.middleware.insert_before 0, Rack::Cors do

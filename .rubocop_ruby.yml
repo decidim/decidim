@@ -1259,6 +1259,8 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 35
+  Exclude:
+    - decidim-assemblies/spec/forms/assembly_form_spec.rb
 
 RSpec/NestedGroups:
   Max: 7

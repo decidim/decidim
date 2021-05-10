@@ -455,8 +455,10 @@ de:
           contributions: Beiträge zählen
           date: Datum
           edit_meeting: Besprechung bearbeiten
-          going: Gehen
+          going: Sie haben sich für diese Sitzung angemeldet
           join: Tritt dem Treffen bei
+          leave: Registrierung stornieren
+          leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
           meeting_report: Gesprächsprotokoll
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen

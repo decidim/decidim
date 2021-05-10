@@ -7,8 +7,6 @@ require "devise"
 require "devise-i18n"
 require "decidim/core"
 require "jquery-rails"
-require "sassc-rails"
-require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "rectify"
@@ -23,10 +21,6 @@ module Decidim
         Decidim::Core::Engine.routes do
           mount Decidim::System::Engine => "/system"
         end
-      end
-
-      initializer "decidim_system.assets" do |app|
-        app.config.assets.precompile += %w(decidim_system_manifest.js)
       end
 
       initializer "decidim_system.menu" do

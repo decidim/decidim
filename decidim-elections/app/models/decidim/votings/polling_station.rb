@@ -21,6 +21,11 @@ module Decidim
               class_name: "Decidim::Votings::PollingOfficer",
               inverse_of: :presided_polling_station,
               dependent: :nullify
+      has_many :closures,
+               foreign_key: "decidim_votings_polling_station_id",
+               class_name: "Decidim::Votings::PollingStationClosure",
+               inverse_of: :polling_station,
+               dependent: :destroy
 
       validate :polling_station_managers_same_voting
       validate :polling_station_president_same_voting

@@ -17,6 +17,7 @@ module Decidim
           post :check_census, action: :check_census
           match :login, via: [:get, :post]
           post :send_access_code
+          get :elections_log
         end
 
         get "votings/:voting_id", to: redirect { |params, _request|
@@ -38,12 +39,6 @@ module Decidim
             end
           end
         end
-      end
-
-      initializer "decidim_votings.assets" do |app|
-        app.config.assets.precompile += %w(
-          decidim_votings_manifest.js
-        )
       end
 
       initializer "decidim.stats" do

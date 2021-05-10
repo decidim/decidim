@@ -52,13 +52,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_consultations.assets" do |app|
-        app.config.assets.precompile += %w(
-          decidim_consultations_manifest.js
-          decidim_consultations_manifest.css
-        )
-      end
-
       initializer "decidim.stats" do
         Decidim.stats.register :consultations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Consultation.where(organization: organization).published.count

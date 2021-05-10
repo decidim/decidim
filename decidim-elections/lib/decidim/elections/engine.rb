@@ -19,6 +19,8 @@ module Decidim
             get :verify
             match "new", action: :new, via: :post, as: :login, on: :collection
           end
+
+          get :election_log, on: :member
         end
 
         root to: "elections#index"
@@ -27,10 +29,6 @@ module Decidim
       initializer "decidim_elections.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials
-      end
-
-      initializer "decidim_elections.assets" do |app|
-        app.config.assets.precompile += %w(decidim_elections_manifest.js decidim_elections_manifest.css)
       end
     end
   end
