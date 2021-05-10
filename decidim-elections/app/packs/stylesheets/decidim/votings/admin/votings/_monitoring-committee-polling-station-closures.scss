@@ -1,9 +1,9 @@
 .polling_station_closure_certificate_results {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
 
   @media only screen and (max-width: 900px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
