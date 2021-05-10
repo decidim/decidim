@@ -295,13 +295,8 @@ Decidim.register_component(:elections) do |component|
         visibility: "all"
       )
 
-      bb_closure = Decidim.traceability.create!(
-        Decidim::Elections::BulletinBoardClosure,
-        admin_user,
-        {
-          election: election_with_results,
-        },
-        visibility: "all"
+      bb_closure = Decidim::Elections::BulletinBoardClosure.create!(
+        election: election_with_results,
       )
 
       valid_ballots = Faker::Number.number(digits: 3)

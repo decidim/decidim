@@ -145,17 +145,12 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
       unless voting.online_voting?
         voting.reload.published_elections.finished.each do |election|
           polling_officer = voting.polling_officers.sample
-          ps_closure = Decidim.traceability.create!(
-            Decidim::Votings::PollingStationClosure,
-            organization.users.first,
-            {
-              election: election,
-              polling_officer: polling_officer,
-              polling_station: polling_officer.polling_station,
-              signed_at: Time.current,
-              phase: :complete
-            },
-            visibility: "all"
+          ps_closure = Decidim::Votings::PollingStationClosure.create!(
+            election: election,
+            polling_officer: polling_officer,
+            polling_station: polling_officer.polling_station,
+            signed_at: Time.current,
+            phase: :complete
           )
 
           valid_ballots = Faker::Number.number(digits: 3)
@@ -216,6 +211,15 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
                 result_type: :blank_answers
               )
             end
+          end
+        end
+      end
+
+      (1..2).each do |i|
+        ballot_style = voting.ballot_styles.create!(code: "DISTRICT#{i}")
+        voting.elections.each do |election|
+          election.questions.sample(1 + rand(election.questions.count)).each do |question|
+            ballot_style.ballot_style_questions.create!(question: question)
           end
         end
       end
