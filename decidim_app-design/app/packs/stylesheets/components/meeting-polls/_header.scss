@@ -1,10 +1,9 @@
 .meeting-polls{
   &__header{
-    @extend .padding-1;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
     background-color: #f4f4f4;
     border: 1px solid #e8e8e8;
   }
@@ -13,7 +12,7 @@
     @extend .button;
     @extend .button--nomargin;
     @extend .hollow;
-    @extend .tiny;
+    @extend .small;
 
     background-color: $white;
     font-weight: 600;

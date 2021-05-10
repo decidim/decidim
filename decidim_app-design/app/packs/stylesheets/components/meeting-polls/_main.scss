@@ -66,6 +66,11 @@
           display: flex;
           align-items: baseline;
           cursor: pointer;
+          line-height: 1.25;
+        }
+
+        label + label {
+          margin-top: $global_margin;
         }
         // end dynamic content
       }
