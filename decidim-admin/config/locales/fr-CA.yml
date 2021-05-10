@@ -282,21 +282,6 @@ fr-CA:
         update:
           error: Une erreur est survenue lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
-      conflicts:
-        attempts: Tentatives
-        'false': 'Non'
-        managed_user_name: Utilisateur représenté
-        solved: Résolu
-        title: Conflits de vérification
-        transfer:
-          email: Email
-          error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
-          name: Nom
-          reason: Raison
-          success: Le transfert a bien été effectué.
-          title: Transfert
-        'true': 'Oui'
-        user_name: Utilisateur
       dashboard:
         show:
           view_more_logs: Afficher plus
