@@ -282,21 +282,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo componente.
           success: Il componente è stato aggiornato correttamente.
-      conflicts:
-        attempts: Tentativi
-        'false': 'No'
-        managed_user_name: Gestione utente
-        solved: Risolto
-        title: Conflitti delle verifiche
-        transfer:
-          email: Email
-          error: Si è verificato un problema nel trasferimento dell'utente corrente a partecipante gestito.
-          name: Nome
-          reason: Motivazione
-          success: Il trasferimento è stato completato con successo.
-          title: Trasferimento
-        'true': 'Si'
-        user_name: Utente
       dashboard:
         show:
           view_more_logs: Visualizza più registri
