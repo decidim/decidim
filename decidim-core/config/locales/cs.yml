@@ -121,8 +121,6 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
-      impersonation_log:
-        manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
         hide: "%{user_name} skryje zdroj typu %{resource_type} v prostoru %{space_name}"
         unreport: "%{user_name} unreported zdroj typu %{resource_type} ve %{space_name} prostoru"
@@ -155,10 +153,8 @@ cs:
       user:
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
         officialize: "%{user_name} oficializoval uživatele %{resource_name}"
-        promote: "%{user_name} vytvořil %{resource_name}"
         remove_from_admin: "%{user_name} odstranil uživatele %{resource_name} s rolí: %{role}"
         show_email: "%{user_name} získal e-mail uživatele %{resource_name}"
-        transfer: "%{user_name} převedl uživatele %{resource_name}"
         unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
@@ -292,7 +288,7 @@ cs:
       dummy_authorization_workflow:
         name: Pracovní postup autorizace
       errors:
-        duplicate_authorization: Uživatel má již oprávnění se stejnými daty. Administrátor vás bude kontaktovat k ověření vašich údajů.
+        duplicate_authorization: Účastník je již autorizován se stejnými daty.
       expired_at: Platnost vypršela v %{timestamp}
       expires_at: Platnost vyprší v %{timestamp}
       foo_authorization:
@@ -438,7 +434,7 @@ cs:
       registrations:
         new:
           already_have_an_account?: Máte již účet?
-          newsletter: Dostávejte příležitostný zpravodaj s relevantními informacemi
+          newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
           nickname_help: Vaše přezdívka v %{organization}
           password_help: "%{minimun_characters} minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
