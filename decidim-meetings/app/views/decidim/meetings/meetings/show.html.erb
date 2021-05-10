@@ -69,7 +69,7 @@ edit_link(
               <span class="definition-data__number"><%= meeting.attendees_count %></span>
             </div>
           <% end %>
-          <% if meeting.attending_organizations %>
+          <% if meeting.attending_organizations.present? %>
             <div class="definition-data__item">
               <span class="definition-data__title"><%= t(".organizations") %></span>
               <span class="definition-data__text"><%= simple_format(meeting.attending_organizations) %></span>
