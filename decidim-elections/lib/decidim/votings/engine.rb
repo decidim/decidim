@@ -40,12 +40,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings.assets" do |app|
-        app.config.assets.precompile += %w(
-          decidim_votings_manifest.js
-        )
-      end
-
       initializer "decidim.stats" do
         Decidim.stats.register :votings_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Votings::Voting.where(organization: organization).published.count

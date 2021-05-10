@@ -39,10 +39,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.assets" do |app|
-        app.config.assets.precompile += %w(decidim_assemblies_manifest.js)
-      end
-
       initializer "decidim_assemblies.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/views") # for partials

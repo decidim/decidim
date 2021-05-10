@@ -11,8 +11,6 @@ require "devise"
 require "devise-i18n"
 require "devise_invitable"
 require "jquery-rails"
-require "sassc-rails"
-require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "active_link_to"
@@ -69,18 +67,6 @@ module Decidim
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
-      end
-
-      initializer "decidim.assets" do |app|
-        app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
-        app.config.assets.precompile += %w(decidim_core_manifest.js
-                                           decidim/identity_selector_dialog)
-
-        Decidim.component_manifests.each do |component|
-          app.config.assets.precompile += [component.icon]
-        end
-
-        app.config.assets.debug = true if Rails.env.test?
       end
 
       initializer "decidim.default_form_builder" do |_app|

@@ -39,10 +39,6 @@ module Decidim
         root to: "proposals#index"
       end
 
-      initializer "decidim_proposals.assets" do |app|
-        app.config.assets.precompile += %w(decidim_proposals_manifest.js)
-      end
-
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:proposal]

@@ -14,10 +14,6 @@ module Decidim
         # resources :<%= component_name %>
         # root to: "<%= component_name %>#index"
       end
-
-      initializer "decidim_<%= component_name %>.assets" do |app|
-        app.config.assets.precompile += %w[decidim_<%= component_name %>_manifest.js decidim_<%= component_name %>_manifest.css]
-      end
     end
   end
 end

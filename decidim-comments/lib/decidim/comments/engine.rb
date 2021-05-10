@@ -5,8 +5,6 @@ require "active_support/all"
 
 require "decidim/core"
 require "jquery-rails"
-require "sassc-rails"
-require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 
@@ -23,10 +21,6 @@ module Decidim
         resources :comments, only: [:index, :create] do
           resources :votes, only: [:create]
         end
-      end
-
-      initializer "decidim_comments.assets" do |app|
-        app.config.assets.precompile += %w(decidim_comments_manifest.js)
       end
 
       initializer "decidim_comments.query_extensions" do
