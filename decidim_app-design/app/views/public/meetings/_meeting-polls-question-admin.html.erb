@@ -1,0 +1,47 @@
+<% open = true unless local_assigns.has_key?(:open) %>
+<% status ||= 0 %>
+<details class="meeting-polls__question--admin text-medium" <%= 'open' if open %>>
+  <summary>
+    Pregunta
+  </summary>
+
+  <div>
+    <!-- dynamic content -->
+    <p>Recusandae repellat repudiandae iure consequuntur, veritatis, ratione minus omnis qui possimus odio maxime odit magni nulla cum ullam modi voluptatum autem doloribus facere culpa sit deserunt?</p>
+    <!-- end dynamic content -->
+
+    <a href="#" target="_blank" rel="noopener noreferrer">Edita en el admin</a>
+
+    <% if status == 0 %>
+    <!-- initial status -->
+    <div class="meeting-polls__admin-action">
+      <div>Pregunta</div>
+      <div><button class="button button--nomargin primary small">Enviar</button></div>
+    </div>
+    <div class="meeting-polls__admin-action">
+      <div>Resultados</div>
+      <div><button class="button button--nomargin primary small" disabled>Enviar</button></div>
+    </div>
+    <% elsif status == 1 %>
+    <!-- question sent -->
+    <div class="meeting-polls__admin-action">
+      <div>Pregunta</div>
+      <div><div><strong>Enviada</strong></div><div>15 respuestas recibidas</div></div>
+    </div>
+    <div class="meeting-polls__admin-action">
+      <div>Resultados</div>
+      <div><button class="button button--nomargin primary small">Enviar</button></div>
+    </div>
+    <% elsif status == 2 %>
+    <!-- question and results sent -->
+    <div class="meeting-polls__admin-action">
+      <div>Pregunta</div>
+      <div><div><strong>Enviada</strong></div><div>15 respuestas recibidas</div></div>
+    </div>
+    <div class="meeting-polls__admin-action">
+      <div>Resultados</div>
+      <div><strong>Enviados</strong></div>
+    </div>
+    <% end %>
+  </div>
+</details>

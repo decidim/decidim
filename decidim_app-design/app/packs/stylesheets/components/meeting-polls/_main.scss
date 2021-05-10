@@ -24,10 +24,19 @@
     }
 
     &.is-open{
-      flex: 0 0 25%;
+      flex: 0 0 20%;
 
       & + div{
-        flex: 0 0 75%;
+        flex: 0 0 80%;
+      }
+
+      // shrink iframe when there's two panels
+      & + & + div{
+        flex: 0 0 60%;
+      }
+
+      & + &{
+        border-left: 1px solid #e8e8e8;
       }
     }
   }
@@ -54,11 +63,10 @@
       }
 
       & ~ *{
-        @extend .padding-horizontal-1;
-        @extend .padding-bottom-1;
+        padding: 0 1rem 1rem;
 
         // dynamic content
-        :first-child{
+        > :first-child{
           font-weight: 600;
         }
 
@@ -119,6 +127,26 @@
     }
   }
 
+  &__question--admin{
+    @extend .meeting-polls__question;
+
+    summary ~ *{
+      border-top: 1px solid #e8e8e8;
+      background-color: #f6f6f6;
+      padding: 1rem;
+
+      a{
+        text-decoration: underline;
+        margin-bottom: $global_margin;
+        display: block;
+      }
+
+      > :first-child{
+        font-weight: normal;
+      }
+    }
+  }
+
   &__answer{
     display: flex;
     align-items: center;
@@ -144,5 +172,32 @@
   // vertical flow
   label + &__answer + label{
     margin-top: 1.5 * $global_margin;
+  }
+
+  &__admin-label{
+    background-color: #9675ce;
+    color: $white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 1rem;
+  }
+
+  &__admin-action{
+    border-top: 1px solid #e8e8e8;
+    padding: .5rem 0;
+    display: flex;
+    align-items: center;
+
+    &:last-child{
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    :first-child{
+      flex: 0 0 40%;
+    }
+
+    :last-child{
+      flex: 0 0 60%;
+    }
   }
 }

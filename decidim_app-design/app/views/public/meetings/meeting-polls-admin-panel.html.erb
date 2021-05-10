@@ -1,0 +1,21 @@
+<%
+@title = "Meetings -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "meetings"
+%>
+
+<%= render partial: page_path("meetings/meeting-polls-header"), locals: { open: true } %>
+
+<main class="meeting-polls__main">
+  <aside class="meeting-polls__aside is-open">
+    <div class="meeting-polls__admin-label">Panel de administrador</div>
+    <%= render partial: page_path("meetings/meeting-polls-question-admin"), locals: { status: 0 } %>
+    <%= render partial: page_path("meetings/meeting-polls-question-admin"), locals: { status: 1 } %>
+    <%= render partial: page_path("meetings/meeting-polls-question-admin"), locals: { status: 2 } %>
+  </aside>
+  <aside class="meeting-polls__aside is-open">
+    <%= render partial: page_path("meetings/meeting-polls-results"), locals: { open: false } %>
+    <%= render partial: page_path("meetings/meeting-polls-question"), locals: { new: true }%>
+  </aside>
+  <div class="meeting-polls__iframe"><!-- iframe --></div>
+</main>
