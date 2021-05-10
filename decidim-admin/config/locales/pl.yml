@@ -282,21 +282,6 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania tego komponentu.
           success: Komponent został pomyślnie zaktualizowany.
-      conflicts:
-        attempts: Próby
-        'false': 'Nie'
-        managed_user_name: Zarządzany użytkownik
-        solved: Rozwiązane
-        title: Konflikty weryfikacji
-        transfer:
-          email: Adres e-mail
-          error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
-          name: Nazwa
-          reason: Powód
-          success: Bieżący transfer został pomyślnie zakończony.
-          title: Transfer
-        'true': 'Tak'
-        user_name: Użytkownik
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
