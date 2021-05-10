@@ -3,7 +3,7 @@
 <% questions ||= false %>
 <header class="meeting-polls__header">
   <div class="flex--cc">
-    <button class="meeting-polls__button<%= ' is-open' if open %>">Preguntas<% if questions %> (<%= questions %>)<% end %></button>
+    <button class="meeting-polls__button<%= " is-open" if open %>">Preguntas<% if questions %> (<%= questions %>)<% end %></button>
     <% if admin %><button class="meeting-polls__button">Administrar</button><% end %>
   </div>
 
