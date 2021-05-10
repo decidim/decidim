@@ -4,7 +4,7 @@
 
 **Added**:
 
-- **decidim-admin**: Improve management of managed user [\#7952](https://github.com/decidim/decidim/pull/7952)
+Nothing.
 
 **Changed**:
 
