@@ -64,6 +64,33 @@ shared_examples "manage assembly members examples" do
     end
   end
 
+  context "with existing user group" do
+    let!(:member_organization) { create :user_group, :verified, organization: assembly.organization }
+
+    it "creates a new assembly member" do
+      find(".card-title a.new").click
+
+      execute_script("$('#assembly_member_designation_date').focus()")
+      find(".datepicker-days .active").click
+
+      within ".new_assembly_member" do
+        select "Existing participant", from: :assembly_member_existing_user
+        autocomplete_select "#{member_organization.name} (@#{member_organization.nickname})", from: :user_id
+
+        select "President", from: :assembly_member_position
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_current_path decidim_admin_assemblies.assembly_members_path(assembly)
+
+      within "#assembly_members table" do
+        expect(page).to have_content("#{member_organization.name} (@#{member_organization.nickname})")
+      end
+    end
+  end
+
   describe "when managing other assembly members" do
     let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
 

@@ -9,7 +9,7 @@ module Decidim
 
     POSITIONS = %w(president vice_president secretary other).freeze
 
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
+    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::UserBaseEntity", optional: true
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly"
     alias participatory_space assembly
 
