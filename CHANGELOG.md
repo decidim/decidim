@@ -1,5 +1,34 @@
 # Change Log
 
+## [0.23.6](https://github.com/decidim/decidim/tree/v0.23.6)
+
+**Added**:
+
+Nothing.
+
+**Changed**:
+
+Nothing.
+
+**Fixed**:
+
+- **decidim-core**: Fix report mailers when author is a meeting [\#7874](https://github.com/decidim/decidim/pull/7874)
+- **decidim-comments**: Fix TypeError in newsletters  [\#7875](https://github.com/decidim/decidim/pull/7875)
+- **decidim-core**: Open attachments in new tab [\#7917](https://github.com/decidim/decidim/pull/7917)
+- **decidim-core**: Validate nickname using correct regexp [\#7920](https://github.com/decidim/decidim/pull/7920)
+- **decidim-proposals**: Cast proposal and collaborative drafts titles to text [\#7927](https://github.com/decidim/decidim/pull/7927)
+- **decidim-core**: Don't show deleted users on user group members page [\#7926](https://github.com/decidim/decidim/pull/7926)
+- **decidim-admin**: Disable select inputs with the subform toggler as well [\#7958](https://github.com/decidim/decidim/pull/7958)
+- **decidim-core**: Fix fragment caching with multiple locales [\#7959](https://github.com/decidim/decidim/pull/7959)
+
+**Removed**:
+
+Nothing.
+
+**Developer improvements**:
+
+- Update to Rails 5.2.6 [\#7950](https://github.com/decidim/decidim/pull/7950)
+
 ## [0.23.5](https://github.com/decidim/decidim/tree/v0.23.5)
 
 **Added**:
