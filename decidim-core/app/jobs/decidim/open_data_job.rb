@@ -2,7 +2,7 @@
 
 module Decidim
   class OpenDataJob < ApplicationJob
-    queue_as :default
+    queue_as :exports
 
     def perform(organization)
       path = Rails.root.join("tmp/#{organization.open_data_file_path}")
