@@ -250,7 +250,7 @@ en:
             success: Meeting successfully closed
           create:
             invalid: There was a problem creating this meeting
-            success: Meeting successfully created
+            success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
           destroy:
             invalid:
               proposals_count:
