@@ -135,8 +135,12 @@ module Decidim
         ballot_styles.exists?
       end
 
-      def has_elections?
-        Decidim::Elections::Election.where(component: components).any?
+      def elections
+        Decidim::Elections::Election.where(component: components)
+      end
+
+      def published_elections
+        Decidim::Elections::Election.where(component: components.published).published
       end
 
       # Methods for Votings Space <-> Elections Component interaction
@@ -151,12 +155,6 @@ module Decidim
 
       def vote_flow_for(election)
         Decidim::Votings::CensusVoteFlow.new(election)
-      end
-
-      def published_elections
-        components.where(manifest_name: :elections).published.flat_map do |component|
-          Decidim::Elections::Election.where(component: component).published
-        end
       end
     end
   end

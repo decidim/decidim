@@ -2,7 +2,7 @@
 
 module Decidim
   module Votings
-    # The data store for an Election Closure.
+    # The data store for a Polling Station Closure.
     class PollingStationClosure < ApplicationRecord
       include Decidim::HasAttachments
       enum phase: [:count, :results, :certificate, :signature, :complete], _suffix: true
