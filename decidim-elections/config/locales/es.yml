@@ -62,7 +62,7 @@ es:
         one: Conjunto de datos
         other: Conjuntos de datos
       decidim/votings/census/datum:
-        one: Referencia
+        one: Dato
         other: Datos
       decidim/votings/polling_officer:
         one: Gestor de mesa
@@ -104,7 +104,7 @@ es:
     elections:
       actions:
         confirm_destroy: '¿Estás segura?'
-        destroy: Destruir
+        destroy: Eliminar
         edit: Editar
         feedback: Retorno de la votante
         import: Importar propuestas como respuestas
@@ -148,20 +148,20 @@ es:
             success: Respuesta actualizada correctamente
         elections:
           create:
-            invalid: Se ha producido un error al crear esta votación
-            success: La votación se ha creado correctamente
+            invalid: Se ha producido un error al crear esta elección
+            success: La elección se ha creado correctamente
           destroy:
             invalid: Se ha producido un error al eliminar la elección
-            success: La votación se ha eliminado correctamente
+            success: La elección se ha eliminado correctamente
           edit:
-            title: Editar la votación
-            update: Actualizar la votación
+            title: Editar la elección
+            update: Actualizar la elección
           index:
             no_bulletin_board: No hay ningún <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurado, el cual es necesario para utilizar este módulo. Esta tarea debe ser realizada por la persona administradora del sistema.
-            title: Votaciones
+            title: Elecciones
           new:
-            create: Crear una votación
-            title: Nueva votación
+            create: Crear elección
+            title: Nueva elección
           publish:
             success: La votación se ha publicado correctamente.
           unpublish:
@@ -173,7 +173,7 @@ es:
           elections: Elecciones
           feedback_form_answers: Retorno de las respuestas
         menu:
-          trustees: Depositarias
+          trustees: Garantes
         models:
           answer:
             name: Respuesta
@@ -320,7 +320,7 @@ es:
         election:
           end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} en el Bulletin Board"
           publish: "%{user_name} ha publicado la votación %{resource_name}"
-          publish_results: "%{user_name} publicó los resultados de la elección %{resource_name} en el Tablero de Boletines"
+          publish_results: "%{user_name} publicó los resultados de la elección %{resource_name} en el Bulletin Board"
           setup: "%{user_name} creó la elección %{resource_name} en el Bulletin Board"
           start_key_ceremony: "%{user_name} comenzó la ceremonia de claves para las elecciones %{resource_name} en el Bulletin Board"
           start_tally: "%{user_name} comenzó el recuento para la elección %{resource_name} en el Bulletin Board"
@@ -640,7 +640,7 @@ es:
             notification_title: Eres %{role} del punto de votación %{polling_station_name} en la votación <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
           instruction: 'Ya tienes el código de acceso que has pedido: %{access_code}. Con esto ya podrás participar en %{voting}.'
-          subject: El código de acceso para participar en %{voting}
+          subject: Tu código de acceso para participar en %{voting}
     help:
       participatory_spaces:
         votings:
@@ -662,17 +662,17 @@ es:
             invalid: Ha habido un problema al suprimir el estilo de papeleta
             success: Se ha eliminado correctamente el estilo de papeleta
           edit:
-            title: Edita estilo de papeleta
+            title: Editar el estilo de papeleta
             update: Actualizar
           form:
-            code_help: 'Sugerencia: el código es el vínculo entre el censo y el estilo de papeleta. Al actualizar los datos del censo, a cada entrada se le asigna un estilo de papeleta que coincida con el código'
+            code_help: 'Pista: el código es el vínculo entre el censo y el estilo de papeleta. Al actualizar los datos del censo, a cada entrada se le asigna un estilo de papeleta que coincida con el código'
             election: Elección
-            questions: Preguntas para el estilo de votación
-            questions_help: 'Sugerencia: seleccione las preguntas de los componentes electorales, para este estilo de papeleta, que se presentarán a los votantes asignados a este estilo de votación'
+            questions: Preguntas para el estilo de papeleta
+            questions_help: 'Pista: selecciona las preguntas del compoente de Elecciones para este estilo de papeleta, que se presentará a los votantes asignados a esta'
           index:
             actions:
               confirm_destroy: '¿Estás segura?'
-              destroy: Elimina
+              destroy: Eliminar
               edit: Editar
               new: Nueva
               title: Acciones
@@ -859,15 +859,15 @@ es:
         admin:
           census:
             export_access_codes:
-              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirá un correo en %{email}
+              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
             exporting_access_codes:
-              info_message: "<strong>Por favor, espere</strong> que la exportación esté preparada. La recibirá en breve en %{email}"
+              info_message: "<strong>Por favor, espera</strong>, se está preparando la exportación. La recibirás en breve en %{email}"
             freeze:
               callout: El censo está cerrado y no se puede modificar.
             generate_access_codes:
-              button: Generar Códigos de Acceso de la votación
-              callout: Ahora puede generar los códigos de acceso. Tenga en cuenta que después de generarlos ya no podrá modificar más el censo.
-              confirm: Si continúa, ya no podrá modificar el censo.
+              button: Generar códigos de acceso de la votación
+              callout: Ahora puedes generar los códigos de acceso. Ten en cuenta que después de generarlos ya no podrás modificar más el censo.
+              confirm: Si continúas, ya no podrás modificar el censo.
               info_message_all: "<strong>Se han importado las filas correctamente</strong> del fichero %{file} (%{raw_count} de %{data_count})."
               info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
               launch_error: Ha habido un problema al generar los códigos de acceso
