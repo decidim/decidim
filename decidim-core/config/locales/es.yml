@@ -113,8 +113,6 @@ es:
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
-      impersonation_log:
-        manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
         hide: "%{user_name} ocultó un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} deshizo la denuncia de un recurso de tipo %{resource_type} en el espacio %{space_name}"
@@ -147,10 +145,8 @@ es:
       user:
         invite: "%{user_name} invitó a la participante %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó a la participante %{resource_name}"
-        promote: "%{user_name} ha promocionado a %{resource_name}"
         remove_from_admin: "%{user_name} eliminó a la participante %{resource_name} con el rol: %{role}"
         show_email: "%{user_name} ha recuperado el correo electrónico de la participante %{resource_name}"
-        transfer: "%{user_name} ha transferido a la participante %{resource_name}"
         unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
@@ -274,8 +270,6 @@ es:
         name: Autorización de ejemplo
       dummy_authorization_workflow:
         name: Flujo de trabajo de autorización de ejemplo
-      errors:
-        duplicate_authorization: Ya hay una participante autorizada con los mismos datos. Una administradora se pondrá en contacto contigo para verificar tus datos.
       expired_at: Caducado el %{timestamp}
       expires_at: Caduca el %{timestamp}
       foo_authorization:
