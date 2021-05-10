@@ -198,9 +198,13 @@ FactoryBot.define do
   end
 
   factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do
-    election
-    polling_station
-    polling_officer
+    transient do
+      number_of_votes { Faker::Number.number(digits: 2) }
+    end
+
+    election { create(:election, :complete) }
+    polling_station { polling_officer.polling_station }
+    polling_officer { create(:polling_officer, :president, voting: election.participatory_space) }
     polling_officer_notes { Faker::Lorem.paragraph }
     monitoring_committee_notes { nil }
     signed_at { nil }
@@ -209,17 +213,24 @@ FactoryBot.define do
 
     trait :with_results do
       phase { :signature }
-      transient do
-        results_number { 2 }
-      end
 
       after :create do |closure, evaluator|
-        evaluator.results_number.times do
-          closure.results << create(
-            :election_result,
-            closurable: closure
-          )
+        total_votes = evaluator.number_of_votes
+        create_list(:in_person_vote, evaluator.number_of_votes, :accepted, voting: closure.election.participatory_space, election: closure.election)
+
+        closure.election.questions.each do |question|
+          max = total_votes
+          question.answers.each do |answer|
+            value = Faker::Number.between(from: 0, to: max)
+            closure.results << create(:election_result, closurable: closure, election: closure.election, question: question, answer: answer, value: value)
+            max -= value
+          end
+          value = Faker::Number.between(from: 0, to: max)
+          closure.results << create(:election_result, :null_ballots, election: closure.election, question: question, value: value)
+          max -= value
+          closure.results << create(:election_result, :blank_ballots, election: closure.election, question: question, value: max)
         end
+        closure.results << create(:election_result, :total_ballots, closurable: closure, election: closure.election, value: total_votes)
       end
     end
   end
