@@ -113,8 +113,6 @@ ca:
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
         unpublish: "%{user_name} ha despublicat el component %{resource_name} de l'espai %{space_name}"
-      impersonation_log:
-        manage: "%{user_name} ha gestionat a %{resource_name} perquè %{reason}"
       moderation:
         hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
         unreport: "%{user_name} ha desfet la denuncia d'un recurs del tipus %{resource_type} a l'espai %{space_name}"
@@ -147,10 +145,8 @@ ca:
       user:
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
         officialize: "%{user_name} ha oficialitzat la participant %{resource_name}"
-        promote: "%{user_name} ha promocionat a %{resource_name}"
         remove_from_admin: "%{user_name} ha eliminat a la participant %{resource_name} amb el rol: %{role}"
         show_email: "%{user_name} ha recuperat el correu de la participant %{resource_name}"
-        transfer: "%{user_name} ha transferit a la participant %{resource_name}"
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
@@ -274,8 +270,6 @@ ca:
         name: Autorització d'exemple
       dummy_authorization_workflow:
         name: Flux de treball d'autorització d'exemple
-      errors:
-        duplicate_authorization: Ja hi ha una participant autoritzada amb les mateixes dades. Una administradora es posarà en contacte amb tu per verificar les teves dades.
       expired_at: Vençut el %{timestamp}
       expires_at: Venç en %{timestamp}
       foo_authorization:
