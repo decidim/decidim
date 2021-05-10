@@ -117,8 +117,6 @@ ro:
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
-      impersonation_log:
-        manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
         hide: "%{user_name} a ascuns o resursă de tip %{resource_type} în spațiul %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
@@ -151,10 +149,8 @@ ro:
       user:
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
         officialize: "%{user_name} a oficializat participantul %{resource_name}"
-        promote: "%{user_name} a promovat %{resource_name}"
         remove_from_admin: "%{user_name} a eliminat participantul %{resource_name} cu rolul: %{role}"
         show_email: "%{user_name} a recuperat e-mailul participantului %{resource_name}"
-        transfer: "%{user_name} a transferat participantul %{resource_name}"
         unofficialize: "%{user_name} a neoficializat participantul %{resource_name}"
       user_group:
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
@@ -284,8 +280,6 @@ ro:
         name: Exemplu de autorizare
       dummy_authorization_workflow:
         name: Flux de lucru autorizare fictiv
-      errors:
-        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:
