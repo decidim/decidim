@@ -15,7 +15,7 @@ cs:
         title: Titul
       question:
         banner_image: Obrázek banneru
-        decidim_scope_id: Městská oblast
+        decidim_scope_id: Samosprávní oblast
         hashtag: Hashtag
         hero_image: Domácí obrázek
         i_frame_url: Adresa URL externího hlasování
@@ -29,7 +29,7 @@ cs:
         promoter_group: Skupina promotérů
         question_context: Kontext
         reference: Odkaz
-        scope: Městská oblast
+        scope: Samosprávní oblast
         slug: URL slug
         subtitle: Podtitul
         vote: Externí hlasovací systém
