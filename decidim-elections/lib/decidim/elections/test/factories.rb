@@ -226,7 +226,7 @@ FactoryBot.define do
 
     trait :with_votes do
       after(:build) do |answer|
-        create(:election_result, election: election, answer: answer)
+        create(:election_result, election: answer.question.election, question: answer.question, answer: answer)
       end
     end
 

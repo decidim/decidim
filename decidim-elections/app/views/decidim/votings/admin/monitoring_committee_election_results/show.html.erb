@@ -4,7 +4,6 @@
   <% end %>
 <% end %>
 
-
 <%= render partial: "results", locals: { groups: publish_results_form.groups } %>
 
 <%= decidim_form_for publish_results_form, url: voting_monitoring_committee_election_result_path(current_voting, election), method: :put, html: { class: "form step" } do |f| %>
@@ -21,6 +20,5 @@
     </div>
   <% end %>
 <% end %>
-
 
 <%= stylesheet_link_tag "decidim/votings/admin/votings", media: "all" %>

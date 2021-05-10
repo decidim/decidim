@@ -32,7 +32,7 @@
                   <% if result[:answer].present? %>
                     <%= translated_attribute(result[:answer].title) %>
                   <% else %>
-                    <%= t(".result_types." + result[:result_type]) %>
+                    <%= t(".result_types.#{result[:result_type]}") %>
                   <% end %>
                 </td>
                 <td><%= result[:polling_station] %></td>

@@ -70,6 +70,14 @@ FactoryBot.define do
     end
   end
 
+  factory :voting_election, parent: :election do
+    transient do
+      voting { create(:voting) }
+    end
+
+    component { create(:elections_component, organization: organization, participatory_space: voting) }
+  end
+
   factory :polling_station, class: "Decidim::Votings::PollingStation" do
     title { generate_localized_title }
     location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -202,7 +210,7 @@ FactoryBot.define do
       number_of_votes { Faker::Number.number(digits: 2) }
     end
 
-    election { create(:election, :complete) }
+    election { create(:voting_election, :complete) }
     polling_station { polling_officer.polling_station }
     polling_officer { create(:polling_officer, :president, voting: election.participatory_space) }
     polling_officer_notes { Faker::Lorem.paragraph }

@@ -35,7 +35,7 @@ module Decidim
           end
 
           Decidim::Elections::Admin::PublishResults.call(publish_results_form) do
-            on(:invalid) do |message|
+            on(:invalid) do
               flash.now[:alert] = I18n.t("monitoring_committee_election_results.update.invalid", scope: "decidim.votings.admin")
             end
             on(:ok) do

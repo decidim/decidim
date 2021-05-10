@@ -5,7 +5,7 @@ module Decidim
     module Admin
       class PublishResultsForm < Decidim::Elections::Admin::ActionForm
         def groups
-          @groups ||= [nil, *election.questions].map {|question| groups_for(question)}
+          @groups ||= [nil, *election.questions].map { |question| groups_for(question) }
         end
 
         private
@@ -19,7 +19,7 @@ module Decidim
           groups = {}
 
           aggregate_results_for(question).each do |key, total|
-            update_group(groups, key[1,2].join("."), *key, total)
+            update_group(groups, key[1, 2].join("."), key, total)
           end
 
           {
@@ -34,7 +34,8 @@ module Decidim
                                     .sum(:value)
         end
 
-        def update_group(groups, group_id, closurable_type, result_type, answer_id, total)
+        def update_group(groups, group_id, key, total)
+          closurable_type, result_type, answer_id = key
           groups[group_id] ||= {
             result_type: result_type,
             answer: all_answers[answer_id],
@@ -55,9 +56,7 @@ module Decidim
         end
 
         def all_answers
-          @all_answers ||= Decidim::Elections::Answer.where(question: election.questions).map do |answer|
-            [answer.id, answer]
-          end.to_h
+          @all_answers ||= Decidim::Elections::Answer.where(question: election.questions).index_by(&:id)
         end
       end
     end

@@ -843,11 +843,11 @@ en:
             election_totals: Election totals
             polling_stations: Polling stations
             result_types:
+              blank_answers: Blank answers
               blank_ballots: Blank ballots
               null_ballots: Null ballots
               total_ballots: Total ballots
               valid_ballots: Valid ballots
-              blank_answers: Blank answers
             selected: Selected
             title: Results for the election <i>%{election_title}</i>
             totals: Totals
@@ -855,7 +855,6 @@ en:
             change_election: Change election
             publish_results: Publish results
             publishing: Publishing results...
-            verified: Verified
           update:
             invalid: There was a problem publishing the results
             rejected: The publication of the results was rejected by the Bulletin Board. Try again or contact the system administrator.

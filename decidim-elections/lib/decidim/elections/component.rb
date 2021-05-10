@@ -296,7 +296,7 @@ Decidim.register_component(:elections) do |component|
       )
 
       bb_closure = Decidim::Elections::BulletinBoardClosure.create!(
-        election: election_with_results,
+        election: election_with_results
       )
 
       valid_ballots = Faker::Number.number(digits: 3)

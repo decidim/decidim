@@ -202,15 +202,15 @@ Decidim.register_participatory_space(:votings) do |participatory_space|
               question_pending -= answer_value
             end
 
-            if question.nota_option?
-              Decidim::Elections::Result.create!(
-                value: question_pending,
-                closurable: ps_closure,
-                question: question,
-                answer: nil,
-                result_type: :blank_answers
-              )
-            end
+            next unless question.nota_option?
+
+            Decidim::Elections::Result.create!(
+              value: question_pending,
+              closurable: ps_closure,
+              question: question,
+              answer: nil,
+              result_type: :blank_answers
+            )
           end
         end
       end
