@@ -93,7 +93,6 @@ module Decidim
     def cache_hash
       hash = []
       hash << model.class.name.underscore
-      hash << I18n.locale.to_s
       hash << model.cache_key_with_version
 
       hash.join("/")
