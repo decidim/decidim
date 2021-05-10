@@ -1,6 +1,6 @@
 <% open = true unless local_assigns.has_key?(:open) %>
 <% status ||= 0 %>
-<details class="meeting-polls__question--admin text-medium" <%= 'open' if open %>>
+<details class="meeting-polls__question--admin text-medium" <%= "open" if open %>>
   <summary>
     Pregunta
   </summary>
