@@ -82,13 +82,14 @@ Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators
 
 `webpacker:install` task should have created to you the following dirs structure:
 
-```
+[source,console]
+----
 app/packs:
   ├── entrypoints
   └── src
   └── stylesheets
   └── images
-```
+----
 
 If it's not the case you must create it. Then, copy Decidim customizable assets
 
@@ -126,7 +127,68 @@ Sometimes assets are included in `vendor/assets/` folder or imported from gems. 
 1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `npm install`. If it's not available you might want to copy it to `app/packs/src` and import it.
 2. if the asset is a stylesheet it should be copied to `app/packs/stylesheets` and imported with `@import...` from `decidim-settings.scss`
 
-== Remove manifest
+== Remove Sprockets references
 
-The manifest at `app/assets/config` is not necessary anymore and should be removed. Then the whole `app/assets` folder can be removed.
+The completely remove Sprockets references from your application:
 
+1. Review your Gemfile and remove any reference to `sprockets` and `sassc-rails`
+2. Remove `config/initializers/assets.rb`
+3. Remove `app/assets` folder
+4. In `config/application.rb` replace:
+
+[source,console]
+----
+require 'rails/all'
+----
+
+with:
+
+[source,console]
+----
+require "rails"
+# Pick the frameworks you want:
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
+require "active_storage/engine"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_mailbox/engine"
+require "action_text/engine"
+require "action_view/railtie"
+require "action_cable/engine"
+# require "sprockets/railtie"
+require "rails/test_unit/railtie"
+----
+
+5. In `config/environments/*.rb` remove any line containing `config.assets.*` (i.e `config.assets.debug = true`)
+
+== Deployment
+
+The deployment needs to be updated to manually run `npm install` before assets are precompiled.
+
+In the case of Capistrano this can be done with a before hook:
+
+[source,console]
+----
+namespace :deploy do
+  desc "Decidim webpacker configuration"
+  task :decidim_webpacker_install do
+    on roles(:all) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute "npm ci"
+        end
+      end
+    end
+  end
+
+  before "deploy:assets:precompile", "deploy:decidim_webpacker_install"
+end
+----
+
+Also, in the case of Capistrano it's interesting to add to the shared_paths the following folders:
+
+- `tmp/webpacker-cache`
+- `node_modules`
+- `public/decidim-packs`
