@@ -411,6 +411,7 @@ ca:
           title: Preguntes de l'elecció
         results:
           description: 'Aquests són els resultats de la votació, per a cada pregunta:'
+          percentage: "%{count}%"
           selected: Seleccionat
           title: Resultats de l'elecció
           votes:
@@ -1011,23 +1012,60 @@ ca:
             see_all_votings: Veure totes les votacions
             votings_button_title: Enllaç a la pàgina de Votacions que les mostra totes
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Tornar als punts de votació
+          create:
+            error: S'ha produït un error en crear el tancament. Si us plau, intenta-ho més tard.
+            success: Tancament creat correctament.
+          edit:
+            heading: Recompte de vots - recompte de respostes
+            info_text: Si us plau, introdueix el nombre total de respostes per a cada pregunta.
+            modal_ballots_results_count_error:
+              close_modal: Tancar
+              info_text: El nombre total de paperetes no coincideix amb el nombre total de sobres. Si us plau, revisa el total de paperetes.
+              title: El total de paperetes no coincideix
+            save_recount: Desar recompte
+            total_ballots: Total de paperetes
+            total_blank_ballots: Total de paperetes en blanc
+            total_null_ballots: Total de paperetes nul·les
+            total_valid_ballots: Total de paperetes vàlides
+          new:
+            election: 'Elecció:'
+            heading: Recompte de vots
+            info_text: 'Si us plau, introdueix el nombre total de paperetes (sobres) recomptades en aquest punt de votació:'
+            modal_ballots_count_error:
+              btn_validate_total: Validar recompte total de paperetes
+              close_modal: Tancar
+              info_explanation_text: 'Si us plau, revisa el nombre total de paperetes. Si el número total és correcte, has de proporcionar una explicació per al Comitè de Seguiment:'
+              info_text: El nombre total de paperetes (sobres) introduïdes no coincideix amb el registre de persones que han votat en aquest punt de votació.
+              message_for_monitoring_committee: Missatge per al Comitè de Seguiment
+              review_recount: Revisar el recompte
+              text_area_placeholder: Si us plau, escriu el teu missatge
+              title: El total de registres no coincideix
+              total_ballots: 'Total de paperetes:'
+              total_people: 'Total de persones:'
+            polling_station: 'Punt de votació:'
+            submit: Verificar nombre total
+            total_ballots_count: Nombre de paperetes
+          update:
+            error: S'ha produït un error en actualitzar els resultats del tancament. Intenta-ho de nou més tard.
+            success: Resultats de tancament actualitzats correctament.
         menu:
           polling_officer_zone: Zona del gestor de mesa
         polling_officers:
-          show:
-            actions:
-              count_votes: Comptar els vots a les urnes
-              identify_person: Identificar i verificar una persona
+          index:
             polling_officer_role_description: Has estat assignat per a actuar com a gestor de mesa (President o Administrador) en algunes de les eleccions celebrades en aquesta plataforma.
-            polling_stations:
-              list:
-                actions: Accions
-                address: Adreça
-                name: Nom
-                role: El teu rol
-                voting: Votació
+            polling_station:
+              address: Adreça
+              count_votes: Comptar vots
+              election: Elecció
+              identify_person: Identificar una persona
+              name: Nom
               no_polling_stations: Encara no has estat assignat a cap punt de votació.
+              role: El teu rol
+              show_closure: Veure tancament
               title: Punts de votació
+              voting: Votacions
         votes:
           create:
             success: S'ha emès correctament el vot presencial
