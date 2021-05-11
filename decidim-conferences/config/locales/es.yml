@@ -501,6 +501,7 @@ es:
         home:
           highlighted_conferences:
             active_conferences: Jornadas activas
+            conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
             see_all_conferences: Ver todas las jornadas
       photo:
         image:
