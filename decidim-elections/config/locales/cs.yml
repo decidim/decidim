@@ -830,11 +830,11 @@ cs:
               list:
                 actions: Akce
                 address: Adresa
-                name: Název
+                name: Jméno
                 role: Vaše role
                 voting: Hlasování
               no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
-              title: Volební místnosti
+              title: Volební místnost
       polling_officers:
         actions:
           confirm_destroy: Jste si jisti?
