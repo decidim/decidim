@@ -361,6 +361,14 @@ tr:
     participatory_processes:
       statistics:
         elections_count: Seçimler
+    votings:
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Eylemler
+                name: Adı
   layouts:
     decidim:
       election_votes_header:
