@@ -246,35 +246,15 @@ FactoryBot.define do
 
   factory :bb_closure, class: "Decidim::Elections::BulletinBoardClosure" do
     election
-    trait :with_bb_results do
-      transient do
-        results_number { 2 }
-      end
-
-      after :create do |closure, evaluator|
-        evaluator.results_number.times do
-          closure.results << create(
-            :election_result,
-            closure: closure
-          )
-        end
-      end
-    end
   end
 
   factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do
     election
     polling_officer_notes { Faker::Lorem.paragraph }
+    polling_station
+    polling_officer
 
-    trait :with_polling_station do
-      polling_station
-      polling_officer
-    end
-
-    trait :with_polling_station_results do
-      polling_station
-      polling_officer
-
+    trait :with_results do
       transient do
         results_number { 2 }
       end

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Votings::PollingStationClosure, type: :model do
-  subject(:closure) { build(:ps_closure, :with_polling_station) }
+  subject(:closure) { build(:ps_closure) }
 
   it { is_expected.to be_valid }
 

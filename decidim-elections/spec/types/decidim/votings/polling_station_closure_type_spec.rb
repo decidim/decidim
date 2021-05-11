@@ -8,7 +8,7 @@ module Decidim
     describe PollingStationClosureType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:ps_closure, :with_polling_station_results) }
+      let(:model) { create(:ps_closure, :with_results) }
 
       describe "id" do
         let(:query) { "{ id }" }
