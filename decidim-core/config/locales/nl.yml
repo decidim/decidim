@@ -272,6 +272,8 @@ nl:
         name: Voorbeeld autorisatie
       dummy_authorization_workflow:
         name: Dummy autorisatie workflow
+      errors:
+        duplicate_authorization: Er is al een deelnemer geautoriseerd met dezelfde gegevens.
       expired_at: Verstreken op %{timestamp}
       expires_at: Verloopt op %{timestamp}
       foo_authorization:
