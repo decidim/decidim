@@ -368,6 +368,20 @@ cs:
             few: "%{count} zvolení"
             many: "%{count} zvolení"
             other: "%{count} voleb"
+        election_log:
+          chained_hash: Získaný hash této zprávy
+          complete: Dokončeno
+          creation_description:
+            complete: Volby jsou vytvořené a úspěšně nastavené na Vývěsku.
+            not_created: Volby ještě nejsou vytvořeny.
+          creation_title: Volby vytvořeny
+          description: Toto je volební deník, kde můžete zkontrolovat stav každého kroku, např. když se volby vytvořily, pokud bude dokončen proces spojenectví a až budou ukončeny volby.
+          download: Stáhnout
+          key_ceremony_description:
+            complete: Úvodní ceremoniál je dokončen. Každý správce má platné klíče a stáhl potřebné záložní klíče.
+            not_started: Úvodní ceremoniál ještě nezačal.
+            started: Úvodní ceremoniál byl zahájen, ale ještě není dokončen.
+          key_ceremony_title: Úvodní ceremoniál
         filters:
           active: Aktivní
           all: Vše
