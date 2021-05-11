@@ -1,0 +1,103 @@
+<div class="m-bottom">
+  <%= link_to polling_officers_path, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small", role: "presentation", "aria-hidden": true %>
+    <%= t("back_to_polling_stations", scope: "decidim.votings.polling_officer_zone.closures") %>
+  <% end %>
+</div>
+
+<%= content_tag :h2, "Vote recount" %>
+
+<div class="row mt-sm">
+    <div class="columns">
+      <p>
+        <%= content_tag :strong, "voting" %> <%= present(closure.election.participatory_space).title %>
+      </p>
+
+      <p>
+        <%= content_tag :strong, "election" %> <%= present(closure.election).title %>
+      </p>
+
+      <p>
+        <%= content_tag :strong, "polling_station" %>
+        <br>
+        <%= present(closure.polling_station).title %>
+        <br>
+        <%= present(closure.polling_station).address %>
+      </p>
+
+      <p>
+        <%= content_tag :strong, "polling_officer" %> <%= closure.polling_officer.name %>
+      </p>
+
+      <p>
+        <%= content_tag :strong, "closure phase" %> <%= closure.phase %>
+      </p>
+
+      <p><strong>Recount summary:</strong></p>
+
+      <div class="card--secondary">
+        <div class="card__content">
+          <div>
+            <span>
+              <strong>Total ballots:</strong>
+              <%= closure.results.total_ballots&.first&.value %>
+            </span>
+            <div class="ml-s">
+              <span>
+                <strong>Valid:</strong>
+                <%= closure.results.valid_ballots&.first&.value %>
+              </span>
+              <br>
+              <span>
+                <strong>Blank:</strong>
+                <%= closure.results.blank_ballots&.first&.value %>
+              </span>
+              <br>
+              <span>
+                <strong>Invalid:</strong>
+                <%= closure.results.null_ballots&.first&.value %>
+              </span>
+            </div>
+          </div>
+
+          <% closure.election.questions.each do |question| %>
+            <div class="mt-s">
+              <span>
+                <%= content_tag :strong, translated_attribute(question.title) %>
+              </span>
+
+              <div class="ml-s">
+                <% question.answers.each.with_index(1) do |answer, index| %>
+                  <span>
+                    <%= content_tag :strong, translated_attribute(answer.title) %>:
+
+                    <%= content_tag :span, answer.results&.valid_answers&.first&.value %>
+                  </span>
+                  <% unless index == question.answers.count %>
+                    <br>
+                  <% end %>
+                <% end %>
+
+                <% if question.nota_option? %>
+                  <br>
+                  <%= content_tag :strong, "Nota" %>:
+
+                  <%= content_tag :span, question.results.blank_answers&.first&.value %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <p>
+        <%= content_tag :strong, "polling officer notes" %>
+        <br>
+        <%= closure.polling_officer_notes %>
+      </p>
+
+      <p>
+        <%= content_tag :strong, "polling station total votes" %> <%= election.votes&.count.to_i %>
+      </p>
+    </div>
+  </div>

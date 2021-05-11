@@ -413,6 +413,7 @@ en:
           title: Election questions
         results:
           description: 'These are the results of the voting, for each question:'
+          percentage: "%{count}%"
           selected: Selected
           title: Election results
           votes:
@@ -1014,23 +1015,60 @@ en:
             see_all_votings: See all votings
             votings_button_title: Link to the Votings page displaying all the votings
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Back to polling stations
+          create:
+            error: An error occurred creating the closure, please try again later.
+            success: Closure successfully created.
+          edit:
+            heading: Vote recount - Answers recount
+            info_text: Please introduce the total number of answers for each question.
+            modal_ballots_results_count_error:
+              close_modal: Close
+              info_text: The total number of ballots doesn't match the total number of envelopes. Please review the total of ballots.
+              title: Total of ballots do not add up
+            save_recount: Save recount
+            total_ballots: Total ballots
+            total_blank_ballots: Total blank ballots
+            total_null_ballots: Total null ballots
+            total_valid_ballots: Total valid ballots
+          new:
+            election: 'Election:'
+            heading: Vote recount
+            info_text: 'Please introduce the total number of ballots (envelopes) recounted in this Polling Station:'
+            modal_ballots_count_error:
+              btn_validate_total: Validate total recount of ballots
+              close_modal: Close
+              info_explanation_text: 'Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:'
+              info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
+              message_for_monitoring_committee: Message for the Monitoring Committee
+              review_recount: Review the recount
+              text_area_placeholder: Please type your message
+              title: Total records do not add up
+              total_ballots: 'Total of ballots:'
+              total_people: 'Total people:'
+            polling_station: 'Polling station:'
+            submit: Verify total number
+            total_ballots_count: Number of ballots
+          update:
+            error: An error occurred updating the closure results, please try again later.
+            success: Closure results successfully updated.
         menu:
           polling_officer_zone: Polling Officer zone
         polling_officers:
-          show:
-            actions:
-              count_votes: Count the votes in the ballot box
-              identify_person: Identify and verify a person
+          index:
             polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
-            polling_stations:
-              list:
-                actions: Actions
-                address: Address
-                name: Name
-                role: Your role
-                voting: Voting
+            polling_station:
+              address: Address
+              count_votes: Count votes
+              election: Election
+              identify_person: Identify a person
+              name: Name
               no_polling_stations: You are not assigned to any Polling Station yet.
+              role: Your role
+              show_closure: View closure
               title: Polling Stations
+              voting: Voting
         votes:
           create:
             success: In person vote casted successfully

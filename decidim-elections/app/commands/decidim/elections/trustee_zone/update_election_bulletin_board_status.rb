@@ -20,6 +20,7 @@ module Decidim
           return broadcast(:ok, election) if election.bb_status.to_sym != required_status.to_sym
 
           transaction do
+            election.create_bb_closure!
             update_election_status!
 
             if election.bb_tally_ended?
@@ -54,10 +55,21 @@ module Decidim
               result_key = get_answer_id_from_result(key)
               answers = Decidim::Elections::Answer.where(id: result_key)
               answers.each do |answer|
-                answer.results.create!(votes_count: value)
+                create_answer_result_for!(answer, value)
               end
             end
           end
+        end
+
+        def create_answer_result_for!(answer, value)
+          params = {
+            value: value,
+            question: answer.question,
+            answer: answer,
+            result_type: "valid_answers"
+          }
+
+          election.bb_closure.results.create!(params)
         end
 
         def get_answer_id_from_result(result_key)
