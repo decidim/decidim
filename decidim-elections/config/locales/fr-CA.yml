@@ -618,6 +618,15 @@ fr-CA:
             active_votings: Votations en cours
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Actions
+                address: Adresse
+                name: Nom
+              title: Bureaux de vote
       polling_stations:
         actions:
           confirm_destroy: Êtes-vous sûr(e) ?

@@ -254,6 +254,13 @@ ja:
     participatory_processes:
       statistics:
         elections_count: 選挙
+    votings:
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: アクション
   layouts:
     decidim:
       election_votes_header:

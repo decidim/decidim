@@ -190,3 +190,9 @@ gl:
               hybrid: Híbrido
               in_person: En persoa
               online: En liña
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Accións
