@@ -382,6 +382,37 @@ cs:
             not_started: Úvodní ceremoniál ještě nezačal.
             started: Úvodní ceremoniál byl zahájen, ale ještě není dokončen.
           key_ceremony_title: Úvodní ceremoniál
+          not_available: Ještě není k dispozici
+          not_created: Nevytvořeno
+          not_published: Nezveřejněno
+          not_ready: Není připraveno
+          not_started: Nezahájeno
+          published: Publikováno
+          results_description:
+            not_published: Výsledky ještě nejsou publikovány.
+            published: Výsledky jsou publikovány.
+          results_title: Výsledky
+          started: Spuštěno
+          tally_description:
+            finished: Proces je dokončen.
+            not_started: Proces ještě nezačal.
+            started: Proces byl zahájen.
+          tally_title: Proces volebního přepočítání
+          title: Volební protokol
+          verifiable_results:
+            checksum: 'Kontrolní součet SHA256 souboru:'
+            description:
+              not_ready: Ověřitelný volební soubor a kontrolní součet SHA256 ještě nejsou k dispozici. Jakmile budou výsledky zveřejněny, budete moci tuto volbu ověřit.
+              ready: 'Zde máte možnost ověřit volby. Nejprve musíte stáhnout soubor a ujistěte se, že nebyl poškozen. Chcete-li tak učinit, spusťte následující příkaz a zkontrolujte, zda se výstup shoduje s kontrolním součtem:'
+            how_to_verify: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
+            title: Ověřit výsledky voleb
+            verifiable_file: 'Ověřitelný volební soubor:'
+          verify: Ověřit volby
+          vote_description:
+            finished: Proces hlasování je ukončen.
+            not_started: Proces hlasování ještě nezačal.
+            started: Proces hlasování byl zahájen.
+          vote_title: Proces hlasování
         filters:
           active: Aktivní
           all: Vše
@@ -400,6 +431,7 @@ cs:
           title: Volební otázky
         results:
           description: 'To jsou výsledky hlasování pro každou otázku:'
+          percentage: "%{count}%"
           selected: Vybrané
           title: Výsledky voleb
           votes:
@@ -417,6 +449,7 @@ cs:
             already_voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
             pending_vote: Váš hlas se odehrává na serveru.
             vote_rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
+          election_log: Volební protokol
           preview: Náhled
           verify:
             already_voted: Již jste hlasovali?
@@ -1001,6 +1034,10 @@ cs:
             see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Zpět do volební místnosti
+          create:
+            error: Při vytváření uzavření došlo k chybě, opakujte akci později.
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
