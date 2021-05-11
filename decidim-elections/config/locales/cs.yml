@@ -1047,6 +1047,7 @@ cs:
             modal_ballots_count_error:
               close_modal: Zavřít
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
+              text_area_placeholder: Zadejte prosím vaši zprávu
               total_people: 'Celkem lidí:'
             polling_station: 'Volební místnost:'
             submit: Ověřit celkové číslo
