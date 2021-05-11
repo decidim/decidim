@@ -270,6 +270,8 @@ es:
         name: Autorización de ejemplo
       dummy_authorization_workflow:
         name: Flujo de trabajo de autorización de ejemplo
+      errors:
+        duplicate_authorization: Ya se ha autorizado a una participante con los mismos datos.
       expired_at: Caducado el %{timestamp}
       expires_at: Caduca el %{timestamp}
       foo_authorization:

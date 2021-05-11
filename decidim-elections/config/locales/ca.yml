@@ -76,21 +76,21 @@ ca:
             invalid_max_selections: Cal %{missing_answers} respostes més per a arribar al màxim de seleccions
             title: Respostes
           new:
-            create: Crea resposta
+            create: Crear resposta
             title: Nova resposta
           update:
             invalid: Hi ha hagut un problema en actualitzar la resposta
             success: Resposta actualitzada correctament
         elections:
           create:
-            invalid: S'ha produït un error en crear la votació
-            success: La votació s'ha creat correctament
+            invalid: S'ha produït un error en crear l'elecció
+            success: L'elecció s'ha creat correctament
           destroy:
-            invalid: S'ha produït un error en eliminar la votació
-            success: S'ha eliminat la votació correctament
+            invalid: S'ha produït un error en eliminar l'elecció
+            success: S'ha eliminat l'elecció correctament
           edit:
-            title: Edita la votació
-            update: Actualitza la votació
+            title: Editar la votació
+            update: Actualitzar la votació
           index:
             no_bulletin_board: No hi ha cap <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurat, el qual és necessari per utilitzar aquest mòdul. Aquesta tasca ha de ser realitzada per la persona administradora del sistema.
             title: Votacions
