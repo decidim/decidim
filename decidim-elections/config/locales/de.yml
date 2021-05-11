@@ -946,20 +946,12 @@ de:
         menu:
           polling_officer_zone: Wahllokal-Mitarbeiter-Bereich
         polling_officers:
-          show:
-            actions:
-              count_votes: Stimmen in der Wahlurne zählen
-              identify_person: Eine Person identifizieren und verifizieren
+          index:
             polling_officer_role_description: Ihnen wurde eine Rolle als Wahlhelfer (Präsident oder Manager) in Wahlen dieser Plattform zugewiesen.
-            polling_stations:
-              list:
-                actions: Aktionen
-                address: Adresse
-                name: Name
-                role: Ihre Rolle
-                voting: Abstimmung
+            polling_station:
               no_polling_stations: Sie sind noch zu keinem Wahllokal zugewiesen.
-              title: Wahllokale
+              role: Ihre Rolle
+              voting: Abstimmung
         votes:
           create:
             success: Persönliche Stimme erfolgreich abgegeben
