@@ -1038,14 +1038,32 @@ cs:
           back_to_polling_stations: Zpět do volební místnosti
           create:
             error: Při vytváření uzavření došlo k chybě, opakujte akci později.
+          edit:
+            info_text: Uveďte celkový počet odpovědí na každou otázku.
+            modal_ballots_results_count_error:
+              close_modal: Zavřít
+          new:
+            election: 'Volby:'
+            modal_ballots_count_error:
+              close_modal: Zavřít
+              message_for_monitoring_committee: Zpráva pro monitorovací výbor
+              total_people: 'Celkem lidí:'
+            polling_station: 'Volební místnost:'
+            submit: Ověřit celkové číslo
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
           index:
             polling_officer_role_description: V některých volbách, které se na této platformě provádí, vám byly přiděleny funkce úředníka volební místnosti (předsedy nebo ředitele).
             polling_station:
+              address: Adresa
+              count_votes: Počítat hlasy
+              election: Volby
+              identify_person: Identifikovat osobu
+              name: Jméno
               no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
               role: Vaše role
+              title: Volební místnosti
               voting: Hlasování
         votes:
           create:
@@ -1133,6 +1151,10 @@ cs:
             few: "%{count} hlasování"
             many: "%{count} hlasování"
             other: "%{count} hlasů"
+        elections_log:
+          bb_status: Stav voleb
+          election_log: Volební protokol
+          title: Volební protokol
         filters:
           active: Aktivní
           all: Vše
@@ -1189,6 +1211,7 @@ cs:
         exit: Ukončit
       voting_navigation:
         check_census: Mohu hlasovat?
+        election_log: Volební protokol
         voting_menu_item: Hlasování
       votings:
         index:
