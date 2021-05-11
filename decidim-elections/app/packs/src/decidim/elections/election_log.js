@@ -47,7 +47,7 @@ $(async () => {
 
   // finds the logEntry for each step
   const getLogEntryByMessageId = (step) => {
-    logEntries.find((logEntry) => logEntry.messageId.includes(step))
+    return logEntries.find((logEntry) => logEntry.messageId.includes(step))
   }
 
   // CREATE ELECTION STEP
