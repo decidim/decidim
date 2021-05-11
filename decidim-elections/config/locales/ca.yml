@@ -351,6 +351,48 @@ ca:
         election_log:
           chained_hash: El Hash encadenat d'aquest missatge
           complete: Completar
+          creation_description:
+            complete: L'elecció s'ha creat i s'ha configurat amb èxit al Bulletin Board.
+            not_created: L'elecció no s'ha creat encara.
+          creation_title: Elecció creada
+          description: Aquest és el registre de l'elecció on pots comprovar l'estat de cada pas, per exemple, quan es va crear l'elecció, si el procés de recompte s'ha completat i quan s'ha tancat l'elecció.
+          download: Descarregar
+          key_ceremony_description:
+            complete: La cerimònia de claus s'ha completat. Tots els garants tenen claus vàlides i han descarregat les claus de seguretat necessàries.
+            not_started: La cerimònia de claus no ha començat encara.
+            started: La cerimònia de claus ha començat però no s'ha completat encara.
+          key_ceremony_title: Cerimònia de claus
+          not_available: Encara no està disponible
+          not_created: No s'ha creat
+          not_published: No publicat
+          not_ready: No preparat
+          not_started: No s'ha iniciat
+          published: Publicat
+          results_description:
+            not_published: Els resultats no s'han publicat encara.
+            published: Els resultats s'han publicat.
+          results_title: Resultats
+          started: Iniciat
+          tally_description:
+            finished: El procés de recompte ha finalitzat.
+            not_started: El procés de recompte no ha començat encara.
+            started: El procés de recompte ha començat.
+          tally_title: Procés de recompte
+          title: Registre de l'elecció
+          verifiable_results:
+            checksum: 'Suma de comprovació SHA256 de l''arxiu:'
+            description:
+              not_ready: L'arxiu verificable de l'elecció i la suma de comprovació SHA256 encara no estan disponibles. Quan es publiquin els resultats, podràs verificar aquesta elecció.
+              ready: 'Aquí tens l''opció de verificar l''elecció. En primer lloc, has de descarregar l''arxiu i assegurar-te que no s''ha corromput. Per a això, executa el següent comando i comprova que la sortida coincideix amb la suma de comprovació:'
+            how_to_verify: 'Una vegada que hagis descarregat l''arxiu i t''hagis assegurat que està bé, pots procedir a executar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>aquest repositori</a> i, des de la carpeta arrel, executa el següent comando:'
+            title: Verificar resultats de l'elecció
+            verifiable_file: 'Arxiu verificable de l''elecció:'
+          verify: Verificar elecció
+          vote_description:
+            finished: El procés de votació ha finalitzat.
+            not_started: El procés de votació no ha començat encara.
+            started: El procés de votació ha començat.
+          vote_title: Procés de votació
         filters:
           active: Activa
           all: Totes
@@ -384,6 +426,7 @@ ca:
             already_voted: Ja has votat en aquesta elecció. Pots canviar el teu vot o verificar-lo.
             pending_vote: S'està dipositant el vot al servidor.
             vote_rejected: No ha estat possible verificar el teu vot. Si us plau, fes-ho de nou.
+          election_log: Registre de l'elecció
           preview: Previsualitzar
           verify:
             already_voted: Ja has votat?
@@ -1069,6 +1112,11 @@ ca:
           title:
             one: "%{count} votació"
             other: "%{count} votacions"
+        elections_log:
+          bb_status: Estat de l'elecció
+          description: El registre de l'elecció et mostrarà tota la informació rellevant sobre cada votació. Per exemple, l'estat de la cerimònia de claus o el recompte o si els resultats ja estan publicats. Fes clic en l'elecció sobre la qual vols la informació del registre.
+          election_log: Registre de l'elecció
+          title: Registre de l'elecció
         filters:
           active: Actives
           all: Totes
@@ -1125,6 +1173,7 @@ ca:
         exit: Sortir
       voting_navigation:
         check_census: Puc votar?
+        election_log: Registre de l'elecció
         voting_menu_item: La votació
       votings:
         index:
