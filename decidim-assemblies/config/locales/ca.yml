@@ -262,7 +262,7 @@ ca:
       admin:
         assemblies:
           form:
-            announcement_help: El text que introduïu aquí es mostrarà a la participant just a sota de la informació de l'assemblea.
+            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació de l'assemblea.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
             filters: Filtres

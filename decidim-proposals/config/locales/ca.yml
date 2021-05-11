@@ -120,7 +120,7 @@ ca:
           create: Crear
           endorse: Adherir-se
           vote: Donar suport
-          vote_comment: Vota el comentari
+          vote_comment: Votar el comentari
           withdraw: Retirar
         name: Propostes
         settings:
