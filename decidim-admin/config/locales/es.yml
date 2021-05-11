@@ -32,7 +32,7 @@ es:
         body: Cuerpo
         subject: Asunto
       organization:
-        admin_terms_of_use_body: Cuerpo de las condiciones de uso para administradores
+        admin_terms_of_use_body: Cuerpo para los términos de uso del administrador
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
