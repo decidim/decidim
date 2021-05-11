@@ -207,6 +207,13 @@ pt:
     participatory_processes:
       statistics:
         elections_count: Eleições
+    votings:
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Ações
   layouts:
     decidim:
       election_votes_header:
