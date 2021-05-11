@@ -350,6 +350,51 @@ en:
           elections_count:
             one: "%{count} election"
             other: "%{count} elections"
+        election_log:
+          chained_hash: The chained Hash of this message
+          complete: Complete
+          creation_description:
+            complete: The election got created and is successfully set up on the Bulletin Board.
+            not_created: The election is not created yet.
+          creation_title: Election created
+          description: This is the election log where you can check the status of each step, e.g. when the election got created, if the tally process is completed, and when the election is closed.
+          download: Download
+          key_ceremony_description:
+            complete: The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.
+            not_started: The key ceremony has not started yet.
+            started: The key ceremony has started but is not completed yet.
+          key_ceremony_title: Key Ceremony
+          not_available: Not yet available
+          not_created: Not created
+          not_published: Not published
+          not_ready: Not ready
+          not_started: Not started
+          published: Published
+          results_description:
+            not_published: The results are not published yet.
+            published: The results are published.
+          results_title: Results
+          started: Started
+          tally_description:
+            finished: The tally process is finished.
+            not_started: The tally process has not started yet.
+            started: The tally process has started.
+          tally_title: Tally process
+          title: Election Log
+          verifiable_results:
+            checksum: 'File SHA256 checksum:'
+            description:
+              not_ready: The verifiable election file and SHA256 checksum aren't available yet. As soon as the results are published, you'll be able to verify this election.
+              ready: 'Here, you have the option to verify the election. First, you have to download the file and make sure it has not been corrupted. To do so, run the following command and check that the ouput matches the checksum:'
+            how_to_verify: 'Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href=''https://github.com/decidim/decidim-bulletin-board''>this repository</a> and, from the root folder, run the following command:'
+            title: Verify Election results
+            verifiable_file: 'Verifiable election file:'
+          verify: Verify election
+          vote_description:
+            finished: The voting process is finished.
+            not_started: The voting process has not started yet.
+            started: The voting process has started.
+          vote_title: Voting process
         filters:
           active: Active
           all: All
@@ -384,6 +429,7 @@ en:
             already_voted: You have already voted in this election. You can change your vote or verify it.
             pending_vote: Your vote is being casted on the server.
             vote_rejected: It was not possible to verify your vote. Please cast it again.
+          election_log: Election log
           preview: Preview
           verify:
             already_voted: Already voted?
@@ -1069,6 +1115,11 @@ en:
           title:
             one: "%{count} voting"
             other: "%{count} votings"
+        elections_log:
+          bb_status: Election status
+          description: The election log will show you all relevant information about each voting. For example, the status of the key ceremony or tally or if results are published already. Click on the election you want the log information about.
+          election_log: Election Log
+          title: Election log
         filters:
           active: Active
           all: All
@@ -1125,6 +1176,7 @@ en:
         exit: Exit
       voting_navigation:
         check_census: Can I vote?
+        election_log: Election log
         voting_menu_item: The voting
       votings:
         index:

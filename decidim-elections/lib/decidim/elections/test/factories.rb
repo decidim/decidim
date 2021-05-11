@@ -134,6 +134,8 @@ FactoryBot.define do
     trait :tally_ended do
       tally
       bb_status { "tally_ended" }
+      verifiable_results_file_hash { SecureRandom.hex(32) }
+      verifiable_results_file_url { Faker::Internet.url }
     end
 
     trait :results_published do
