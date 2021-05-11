@@ -81,6 +81,7 @@ class ScrollOvderride extends Scroll {
       if (!blot.domNode.__blot) {
         return;
       }
+
       if (blot instanceof Parchment.Container) {
         blot.children.forEach(optimize);
       }
