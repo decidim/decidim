@@ -270,6 +270,8 @@ ca:
         name: Autorització d'exemple
       dummy_authorization_workflow:
         name: Flux de treball d'autorització d'exemple
+      errors:
+        duplicate_authorization: Ja s'ha autoritzat a una participant amb les mateixes dades.
       expired_at: Vençut el %{timestamp}
       expires_at: Venç en %{timestamp}
       foo_authorization:
