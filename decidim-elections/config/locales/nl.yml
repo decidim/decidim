@@ -727,20 +727,12 @@ nl:
         menu:
           polling_officer_zone: Zone Stembeambte
         polling_officers:
-          show:
-            actions:
-              count_votes: Tel de stemmen in de stembus
-              identify_person: Identificeer en verifieer een persoon
+          index:
             polling_officer_role_description: Je bent aangewezen als Stembureau beambte (Voorzitter of manager) bij enkele van de verkiezingen die op dit platform worden gehouden.
-            polling_stations:
-              list:
-                actions: Acties
-                address: Adres
-                name: Naam
-                role: Jouw rol
-                voting: Stemronde
+            polling_station:
               no_polling_stations: Je bent nog niet toegewezen aan een Stembureau.
-              title: Stembureaus
+              role: Jouw rol
+              voting: Stemronde
       polling_officers:
         roles:
           manager: Manager
