@@ -268,6 +268,7 @@ cs:
       admin:
         assemblies:
           form:
+            announcement_help: Text, který sem vložíte, se uživateli zobrazí přímo pod informacemi o procesu.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
@@ -392,11 +393,6 @@ cs:
         designated_on: Určen pro
       index:
         title: Členové
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
     events:
       assemblies:
         create_assembly_member:
@@ -429,17 +425,7 @@ cs:
         description: Počet vytvořených shromáždění
         object: shromáždění
         title: Shromáždění
-    pages:
-      home:
-        hero:
-          participate_title: Účast na procesech platformy
-        sub_hero:
-          register_title: Zaregistrujte se pro vytvoření účtu
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
       show:
         related_assemblies: Související shromáždění
     statistics:

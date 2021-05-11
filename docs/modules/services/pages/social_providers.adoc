@@ -82,7 +82,7 @@ Instructions in how to configure the client applications can be found in the mod
 * Or you can create a new strategy, as the https://github.com/decidim/omniauth-decidim[Decidim OmniAuth Strategy]. This strategy allow users from a Decidim instance to login in other Decidim instance. For example, this strategy is used to allow https://decidim.barcelona[decidim.barcelona] users to log into https://meta.decidim.barcelona[meta.decidim.barcelona].
 * Once you have defined your strategy, you can configure it in the `config/secrets.yml` or in the organization configuration, as it is done for the built-in providers.
 * By default, Decidim will search in its icons library for an icon named as the provider. You can change this adding an `icon` or `icon_path` attribute to the provider configuration. The `icon` attribute sets the icon name to look for in the Decidim's icons library. The `icon_path` attribute sets the route to the image that should be used.
-* Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/assets/images` folder:
+* Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/packs/images` folder:
 
 [source,yaml]
 ----

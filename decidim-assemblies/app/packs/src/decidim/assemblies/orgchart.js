@@ -5,7 +5,7 @@
 /* global d3 */
 
 import * as d3 from "d3"
-import renderChart from "../../../../../../decidim-core/app/packs/src/decidim/vizzs/renders"
+import renderChart from "src/decidim/vizzs/renders"
 
 // lib
 const renderOrgCharts = () => {

@@ -64,6 +64,11 @@ module Decidim
       class_option :profiling, type: :boolean,
                                default: false,
                                desc: "Add the necessary gems to profile the app"
+
+      class_option :force_ssl, type: :string,
+                               default: "true",
+                               desc: "Doesn't force to use ssl"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -150,6 +155,12 @@ module Decidim
 
       def decidim_initializer
         copy_file "initializer.rb", "config/initializers/decidim.rb"
+
+        if options[:force_ssl] == "false"
+          gsub_file "config/initializers/decidim.rb",
+                    /# config.force_ssl = true/,
+                    "config.force_ssl = false"
+        end
       end
 
       def authorization_handler
@@ -199,10 +210,6 @@ module Decidim
         gsub_file "config/initializers/decidim.rb",
                   /# config.machine_translation_service = "MyTranslationService"/,
                   "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
-      end
-
-      def install_webpacker_initializer
-        copy_file "webpacker_initializer.rb", "config/initializers/webpacker.rb"
       end
 
       def install

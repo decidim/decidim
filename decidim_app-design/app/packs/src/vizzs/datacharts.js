@@ -1,6 +1,10 @@
 /* eslint-disable max-lines */
 /* global areachart, renderLineCharts, renderRowCharts */
 
+import renderLineCharts from 'src/decidim/vizzs/linechart';
+import areachart from 'src/decidim/vizzs/areachart';
+import renderRowCharts from 'src/decidim/vizzs/rowchart';
+
 // NOTE: This file purpose is only to populate data for charts
 let DATACHARTS = {}
 $(() => {

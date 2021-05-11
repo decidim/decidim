@@ -1,1 +1,1 @@
-import "../src/decidim/elections/voter/verify-vote";
+import "src/decidim/elections/voter/verify-vote";

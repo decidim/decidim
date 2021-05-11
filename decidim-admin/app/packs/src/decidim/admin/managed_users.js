@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 
-import SubformTogglerComponent from "./subform_toggler.component"
+import SubformTogglerComponent from "src/decidim/admin/subform_toggler.component"
 
 export default function managedUsersForm() {
   const subformToggler = new SubformTogglerComponent({

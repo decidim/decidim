@@ -18,6 +18,8 @@
 
 .byebug_history
 
+.nvmrc
+/public/decidim-packs
 /public/packs
 /public/packs-test
 /node_modules

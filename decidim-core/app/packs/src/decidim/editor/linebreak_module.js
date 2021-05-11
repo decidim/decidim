@@ -1,9 +1,9 @@
 /* eslint-disable require-jsdoc */
 
-import addEnterBindings from "./modified_enter"
-import backspaceBindingsRangeAny from "./modified_backspace_offset_any"
-import backspaceBindings from "./modified_backspace_offset1"
-import HistoryOverride from "./history_override"
+import addEnterBindings from "src/decidim/editor/modified_enter"
+import backspaceBindingsRangeAny from "src/decidim/editor/modified_backspace_offset_any"
+import backspaceBindings from "src/decidim/editor/modified_backspace_offset1"
+import HistoryOverride from "src/decidim/editor/history_override"
 
 // Disable warning messages from overwritting modules
 Quill.debug("error");

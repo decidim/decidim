@@ -6,7 +6,7 @@ Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
   component.stylesheet = "decidim/proposals/proposals"
-  component.icon = "decidim/proposals/icon.svg"
+  component.icon = "media/images/decidim_proposals.svg"
 
   component.on(:before_destroy) do |instance|
     raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
@@ -108,7 +108,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).not_hidden
-    Decidim::Endorsement.where(resource_id: proposals.pluck(:id), resource_type: Decidim::Proposals::Proposal.name).count
+    proposals.sum(:endorsements_count)
   end
 
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|

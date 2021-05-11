@@ -2,7 +2,9 @@
 
 <div class="wrapper">
   <div class="row">
-    <h1 class="section-heading"><%= t(".meetings") %></h1>
+    <h1 class="section-heading" id="meetings-count">
+      <%= render partial: "decidim/meetings/meetings/count" %>
+    </h1>
 
     <%= cell "decidim/meetings/meetings_map", search.results %>
 

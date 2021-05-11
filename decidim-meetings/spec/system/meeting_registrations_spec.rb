@@ -116,6 +116,33 @@ describe "Meeting registrations", type: :system do
           expect(page).to have_css("#loginModal", visible: :visible)
         end
 
+        context "and caching is enabled", :caching do
+          it "they have the option to sign in with different languages" do
+            visit_meeting
+
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
+
+            within "#loginModal" do
+              expect(page).to have_content("Sign in with Facebook")
+              find(".close-button").click
+            end
+
+            within_language_menu do
+              click_link "Català"
+            end
+
+            within ".card.extra" do
+              click_button "Inscriu-te a la trobada"
+            end
+
+            within "#loginModal" do
+              expect(page).to have_content("Inicia sessió amb Facebook")
+            end
+          end
+        end
+
         context "and registration form is enabled" do
           let(:registration_form_enabled) { true }
 
@@ -154,9 +181,12 @@ describe "Meeting registrations", type: :system do
               page.find(".button.expanded").click
             end
 
-            expect(page).to have_content("successfully")
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
 
-            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("You have signed up for this meeting")
+            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
           end
@@ -175,9 +205,12 @@ describe "Meeting registrations", type: :system do
               page.find(".button.expanded").click
             end
 
-            expect(page).to have_content("successfully")
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
 
-            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("You have signed up for this meeting")
+            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
           end
@@ -200,9 +233,12 @@ describe "Meeting registrations", type: :system do
               page.find(".button.expanded").click
             end
 
-            expect(page).to have_content("successfully")
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
 
-            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("You have signed up for this meeting")
+            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
             expect(page).to have_text("19 slots remaining")
 
             expect(page).to have_text("ATTENDING ORGANIZATIONS")
@@ -248,6 +284,29 @@ describe "Meeting registrations", type: :system do
 
       before do
         login_as user, scope: :user
+      end
+
+      it "shows the confirmation modal when leaving the meeting" do
+        visit_meeting
+
+        click_button "Cancel your registration"
+
+        within ".confirm-modal-content" do
+          expect(page).to have_content("Are you sure you want to cancel your registration for this meeting?")
+        end
+      end
+
+      it "they can leave the meeting" do
+        visit_meeting
+
+        accept_confirm { click_button "Cancel your registration" }
+
+        within_flash_messages do
+          expect(page).to have_content("successfully")
+        end
+
+        expect(page).to have_css(".button", text: "JOIN MEETING")
+        expect(page).to have_text("20 slots remaining")
       end
 
       context "when registration code is enabled" do
@@ -328,17 +387,6 @@ describe "Meeting registrations", type: :system do
           expect(registration.validated_at).not_to be(nil)
           expect(page).to have_no_content("VALIDATED")
         end
-      end
-
-      it "they can leave the meeting" do
-        visit_meeting
-        click_button "Going"
-
-        expect(page).to have_content("successfully")
-        expect(questionnaire.answers.where(user: user).empty?).to be(true)
-
-        expect(page).to have_css(".button", text: "JOIN MEETING")
-        expect(page).to have_text("20 slots remaining")
       end
 
       context "and registration form is enabled" do

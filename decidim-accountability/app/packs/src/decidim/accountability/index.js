@@ -1,5 +1,5 @@
 import "diff"
-import "./version_diff"
+import "src/decidim/accountability/version_diff"
 
 $(() => {
   // Show category list on click when we are on a small scren

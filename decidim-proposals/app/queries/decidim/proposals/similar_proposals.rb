@@ -28,6 +28,7 @@ module Decidim
         Decidim::Proposals::Proposal
           .where(component: @components)
           .published
+          .not_hidden
           .where(
             "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",
             translated_attribute(@proposal.title),

@@ -59,15 +59,6 @@ module Decidim
         remove_file "app/views/layouts/mailer.text.erb"
       end
 
-      def append_assets
-        inject_into_file "app/assets/stylesheets/application.css",
-                         before: "*= require_tree ." do
-          "*= require decidim\n "
-        end
-
-        template "decidim.scss.erb", "app/assets/stylesheets/decidim.scss", force: true
-      end
-
       def disable_precompilation_on_demand
         %w(development test).each do |environment|
           inject_into_file "config/environments/#{environment}.rb",
@@ -104,16 +95,31 @@ module Decidim
         end
       end
 
+      def install_decidim_webpacker
+        # Copy CSS variables template file
+        copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
+
+        # Copy JS application file
+        copy_file "decidim_application.js", "app/packs/src/decidim/decidim_application.js"
+
+        # Create empty directory for images
+        empty_directory "app/packs/images"
+
+        # Run webpacker installation
+        rails "webpacker:install"
+
+        # Run Decidim custom webpacker installation
+        rails "decidim:webpacker:install"
+      end
+
+      def remove_old_assets
+        remove_dir("app/assets")
+        remove_dir("app/javascript")
+      end
+
       def copy_migrations
         rails "decidim:upgrade"
         recreate_db if options[:recreate_db]
-      end
-
-      def install_webpacker
-        rails "webpacker:install"
-
-        # Remove manually assets
-        system("rm -rf app/assets/javascripts")
       end
 
       def letter_opener_web
@@ -176,11 +182,6 @@ module Decidim
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*args)
         system("bin/rails", *args, err: File::NULL)
-      end
-
-      def scss_variables
-        variables = File.join(Gem.loaded_specs["decidim-core"].full_gem_path, "app", "assets", "stylesheets", "decidim", "_variables.scss")
-        File.read(variables).split("\n").map { |line| "// #{line}".gsub(" !default", "") }.join("\n")
       end
 
       def cut(text, strip: true)

@@ -10,9 +10,9 @@
 // This is necessary for testing purposes
 const $ = window.$;
 
-import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter"
-import ExternalLink from "../../../../../../decidim-core/app/packs/src/decidim/external_link"
-import updateExternalDomainLinks from "../../../../../../decidim-core/app/packs/src/decidim/external_domain_warning"
+import { createCharacterCounter } from "src/decidim/input_character_counter"
+import ExternalLink from "src/decidim/external_link"
+import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 
 export default class CommentsComponent {
   constructor($element, config) {

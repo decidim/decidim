@@ -403,6 +403,7 @@ fi:
             more_information: Lisätietoja
             participate: Osallistu
             participate_in: Osallistu prosessiin %{resource_name}
+            processes_button_title: Linkki Prosessit-sivulle, jossa näkyvät kaikki prosessit
             see_all_processes: Näytä kaikki prosessit
       participatory_process_steps:
         index:

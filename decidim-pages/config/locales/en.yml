@@ -29,3 +29,8 @@ en:
           update:
             invalid: There was a problem saving the page.
             success: Page successfully saved.
+      home:
+        hero:
+          participate_title: Participate to the platform's processes
+        sub_hero:
+          register_title: Sign up to create an account

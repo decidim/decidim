@@ -30,6 +30,7 @@ module Decidim
       helper Decidim::LayoutHelper
       helper Decidim::MenuHelper
       helper Decidim::OmniauthHelper
+      helper Decidim::CacheHelper
 
       layout "layouts/decidim/application"
 

@@ -1,1 +1,1 @@
-import "../src/decidim/elections/admin/pending_action";
+import "src/decidim/elections/admin/pending_action";

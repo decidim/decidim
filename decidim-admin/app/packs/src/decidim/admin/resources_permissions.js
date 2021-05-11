@@ -1,4 +1,4 @@
-import SubformMultiTogglerComponent from "./subform_multi_toggler.component"
+import SubformMultiTogglerComponent from "src/decidim/admin/subform_multi_toggler.component"
 
 $(() => {
   const subformMultiToggler = new SubformMultiTogglerComponent({

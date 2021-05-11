@@ -1,1 +1,4 @@
-import "../src/decidim/accountability"
+import "src/decidim/accountability/index"
+
+// Images
+require.context("../images", true)

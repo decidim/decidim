@@ -1,4 +1,4 @@
-import icon from "./icon"
+import icon from "src/decidim/icon"
 
 const EXCLUDE_CLASSES = [
   "card--list__data__icon",

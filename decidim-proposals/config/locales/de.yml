@@ -116,9 +116,11 @@ de:
       proposals:
         actions:
           amend: Änderungsvorschlag
+          comment: Kommentieren
           create: Erstellen
           endorse: Unterstützung
           vote: Abstimmung
+          vote_comment: Kommentar bewerten
           withdraw: Zurückziehen
         name: Vorschläge
         settings:

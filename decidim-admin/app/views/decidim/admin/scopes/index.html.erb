@@ -32,7 +32,7 @@
                 <%= icon_link_to "zoom-in", scope_scopes_path(scope), t("actions.browse", scope: "decidim.admin"), class: "action-icon--browse", method: :get, data: {} %>
 
                 <% if allowed_to? :update, :scope, scope: scope %>
-                  <%= icon_link_to "pencil", ["edit", scope], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+                  <%= icon_link_to "pencil", [:edit, scope], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :scope, scope: scope %>

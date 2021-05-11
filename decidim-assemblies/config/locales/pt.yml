@@ -378,11 +378,6 @@ pt:
         designated_on: Designado em
       index:
         title: Membros
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Ligação para a página de Conferências que apresenta todas as conferências
     events:
       assemblies:
         create_assembly_member:
@@ -415,15 +410,7 @@ pt:
         description: Número de reuniões criadas
         object: reuniões
         title: Reuniões
-    pages:
-      home:
-        hero:
-          participate_title: Participar nos processos da plataforma
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Hiperligação para a página de Processos que apresenta todos os processos
       show:
         related_assemblies: Reuniões relacionadas
   errors:

@@ -15,6 +15,7 @@ AllCops:
   Exclude:
     - "**/vendor/**/*"
     - "development_app/**/*"
+    - "decidim_app-design/node_modules/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
   # Default formatter will be used if no -f/--format option is given.
@@ -1228,7 +1229,7 @@ RSpec/ContextWording:
 RSpec/DescribeClass:
   Exclude:
     - spec/gemfiles_spec.rb
-    - spec/js_bundles_spec.rb
+    - spec/webpacker_spec.rb
     - spec/i18n_spec.rb
     - "**/*/spec/**/*_badge_spec.rb"
     - decidim-core/spec/lib/global_engines_spec.rb
@@ -1258,6 +1259,8 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 35
+  Exclude:
+    - decidim-assemblies/spec/forms/assembly_form_spec.rb
 
 RSpec/NestedGroups:
   Max: 7

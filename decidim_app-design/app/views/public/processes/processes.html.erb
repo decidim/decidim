@@ -36,7 +36,7 @@
         </div>
         <div class="columns mediumlarge-8 large-6 card--process__column">
           <div class="card--full__image"
-            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)">
+            style="background-image:url(<%= asset_pack_path "media/images/demo-info-page.jpg" %>)">
             <div class="card__content row collapse">
               <div class="large-6 large-offset-6 columns">
                 <%= link_to page_path("info"), class: "button expanded button--sc" do %>
@@ -77,7 +77,7 @@
         </div>
         <div class="column large-6 card--process__column">
           <div class="card--full__image"
-            style="background-image:url(<%= image_path "process-empty-image.jpg" %>)">
+            style="background-image:url(<%= asset_pack_path "media/images/process-empty-image.jpg" %>)">
             <div class="card__content row collapse">
               <div class="large-6 large-offset-6 columns">
                 <%= link_to page_path("info"), class: "button expanded button--sc" do %>
@@ -100,7 +100,7 @@
       <div class="column">
         <article class="card card--process">
           <a href="">
-            <%= image_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg", class: "card__image" %>
+            <%= image_pack_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg", class: "card__image" %>
           </a>
           <div class="card__content">
             <div class="card__header">

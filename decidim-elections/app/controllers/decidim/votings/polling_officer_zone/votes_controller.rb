@@ -9,7 +9,7 @@ module Decidim
 
         helper_method :polling_station, :in_person_form, :datum,
                       :form_title, :button_text,
-                      :questions
+                      :questions, :polling_officer, :election
         helper Decidim::Admin::IconLinkHelper
 
         def new; end
@@ -17,7 +17,7 @@ module Decidim
         def create
           if in_person_form.voted?
             flash[:notice] = I18n.t("votes.create.success", scope: "decidim.votings.polling_officer_zone")
-            return redirect_to new_polling_officers_polling_station_vote_path(polling_station)
+            return redirect_to new_polling_officer_election_vote_path(polling_officer, election)
           end
           render :new
         end
@@ -29,7 +29,15 @@ module Decidim
         private
 
         def polling_station
-          @polling_station ||= Decidim::Votings::PollingStation.find(params[:polling_station_id])
+          @polling_station ||= polling_officer.polling_station
+        end
+
+        def election
+          @election ||= Decidim::Elections::Election.find(params[:election_id])
+        end
+
+        def polling_officer
+          @polling_officer ||= Decidim::Votings::PollingOfficer.find(params[:polling_officer_id])
         end
 
         def in_person_form
@@ -63,10 +71,7 @@ module Decidim
         end
 
         def questions
-          # TO-DO: use selected election after refactoring this controller
-          @questions ||= Decidim::Elections::Election.where(
-            decidim_component_id: polling_station.voting.components.where(manifest_name: :elections).pluck(:id)
-          ).last.questions
+          @questions ||= election.questions
         end
       end
     end

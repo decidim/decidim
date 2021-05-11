@@ -1,0 +1,60 @@
+<div class="card card--secondary card__polling_station">
+  <div class="card__content">
+    <div class="card__header">
+      <h5 class="card__title">
+        <%= link_to resource_locator(election).path do %>
+          <%= content_tag :span,
+                          present(election).title,
+                          title: t("polling_station.election", scope: "decidim.votings.polling_officer_zone.polling_officers.index") %>
+          <%= content_tag :small,
+                          present(polling_officer.voting).title,
+                          title: t("polling_station.voting", scope: "decidim.votings.polling_officer_zone.polling_officers.index") %>
+        <% end %>
+      </h5>
+    </div>
+
+    <div>
+      <%= content_tag :span,
+                      t(polling_officer.role, scope: "decidim.votings.polling_officers.roles"),
+                      title: t("polling_station.role", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
+                      class: "label label--small #{polling_officer.role == :president ? "label--highlight" : "label--basic"}" %>
+    </div>
+
+    <p>
+      <%= content_tag :strong,
+                      present(polling_officer.polling_station).title,
+                      title: t("polling_station.name", scope: "decidim.votings.polling_officer_zone.polling_officers.index") %>
+
+      <br>
+
+      <%= content_tag :span,
+                      present(polling_officer.polling_station).address,
+                      title: t("polling_station.address", scope: "decidim.votings.polling_officer_zone.polling_officers.index") %>
+    </p>
+
+    <div>
+      <% if polling_officer.polling_station %>
+        <%= link_to t("polling_station.identify_person", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
+                  new_polling_officer_election_vote_path(polling_officer, election),
+                  class: "button small" %>
+
+        <% closure = polling_officer.polling_station.closures.find_by(election: election) %>
+        <% if closure %>
+          <% if closure.results_phase? %>
+            <%= link_to t("polling_station.count_votes", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
+                      edit_polling_officer_election_closure_path(polling_officer, election),
+                      class: "button small" %>
+          <% else %>
+            <%= link_to t("polling_station.show_closure", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
+                      polling_officer_election_closure_path(polling_officer, election),
+                      class: "button small secondary" %>
+          <% end %>
+        <% else %>
+          <%= link_to t("polling_station.count_votes", scope: "decidim.votings.polling_officer_zone.polling_officers.index"),
+                    new_polling_officer_election_closure_path(polling_officer, election),
+                    class: "button small secondary" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
