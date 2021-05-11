@@ -11,23 +11,26 @@ It's recommended to understand how Webpacker works. More information:
 * https://github.com/rails/webpacker#usage
 * https://edgeguides.rubyonrails.org/webpacker.html
 
+== Requirements
+
+Before starting the migration, please check you have the following dependencies installed:
+
+- Node.js version 15.14.0 (this version is mandatory)
+- Npm version 7.7.0 (it works with other versions, but this is the recommended)
+
 == Add Webpacker to the application
 
 Follow the steps descibed https://github.com/rails/webpacker#installation[here]
 
-1. Add it to your Gemfile
+* Add it to your Gemfile
 
 [source, console]
 ----
 # Gemfile
-gem 'webpacker', '~> 6.x'
-
-# OR if you prefer to use master
-gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
-npm install https://github.com/rails/webpacker.git
+gem "webpacker", "6.0.0.beta.7"
 ----
 
-2. Install it
+- Install it
 
 [source,console]
 ----
@@ -35,7 +38,7 @@ bundle install
 bundle exec rails webpacker:install
 ----
 
-3. Install Decidim webpacker custom code
+* Install Decidim webpacker custom code
 
 [source,console]
 ----
@@ -46,10 +49,10 @@ This task do a few steps to allow the Rails instance to have a webpacker instanc
 
 Steps it does:
 
-- copies babel and postcss configuration to instance application
-- copies config/webpacker.yml configuration to instance application
-- copies config/webpack/* configuration to instance application
-- copies package.json and package-lock.json to instance app
+* copies babel and postcss configuration to instance application
+* copies config/webpacker.yml configuration to instance application
+* copies config/webpack/* configuration to instance application
+* copies package.json and package-lock.json to instance app
 
 This task should be performed everytime decidim has been updated, to get the latest assets dependencies and Webpack configuration.
 
@@ -131,10 +134,10 @@ Sometimes assets are included in `vendor/assets/` folder or imported from gems. 
 
 The completely remove Sprockets references from your application:
 
-1. Review your Gemfile and remove any reference to `sprockets` and `sassc-rails`
-2. Remove `config/initializers/assets.rb`
-3. Remove `app/assets` folder
-4. In `config/application.rb` replace:
+* Review your Gemfile and remove any reference to `sprockets` and `sassc-rails`
+* Remove `config/initializers/assets.rb`
+* Remove `app/assets` folder
+* In `config/application.rb` replace:
 
 [source,console]
 ----
@@ -161,7 +164,7 @@ require "action_cable/engine"
 require "rails/test_unit/railtie"
 ----
 
-5. In `config/environments/*.rb` remove any line containing `config.assets.*` (i.e `config.assets.debug = true`)
+* In `config/environments/*.rb` remove any line containing `config.assets.*` (i.e `config.assets.debug = true`)
 
 == Deployment
 
@@ -189,6 +192,6 @@ end
 
 Also, in the case of Capistrano it's interesting to add to the shared_paths the following folders:
 
-- `tmp/webpacker-cache`
-- `node_modules`
-- `public/decidim-packs`
+* `tmp/webpacker-cache`
+* `node_modules`
+* `public/decidim-packs`
