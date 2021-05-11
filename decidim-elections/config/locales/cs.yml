@@ -990,20 +990,12 @@ cs:
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
-          show:
-            actions:
-              count_votes: Spočítat hlasy ve volební urně
-              identify_person: Identifikovat a ověřit osobu
+          index:
             polling_officer_role_description: V některých volbách, které se na této platformě provádí, vám byly přiděleny funkce úředníka volební místnosti (předsedy nebo ředitele).
-            polling_stations:
-              list:
-                actions: Akce
-                address: Adresa
-                name: Název
-                role: Vaše role
-                voting: Hlasování
+            polling_station:
               no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
-              title: Volební místnosti
+              role: Vaše role
+              voting: Hlasování
         votes:
           create:
             success: Úspěšně zahlasováno Osobní volbou
