@@ -34,6 +34,7 @@ class SmartBreak extends Break {
 }
 Quill.register(SmartBreak);
 
+// Override quill/blots/scroll.js
 class ScrollOvderride extends Scroll {
   optimize(mutations = [], context = {}) {
     if (this.batch === true) {
@@ -43,10 +44,12 @@ class ScrollOvderride extends Scroll {
     this.parchmentOptimize(mutations, context);
 
     if (mutations.length > 0) {
+      // quill/core/emitter.js, Emitter.events.SCROLL_OPTIMIZE = "scroll-optimize"
       this.emitter.emit("scroll-optimize", mutations, context);
     }
   }
 
+  // Override parchment/src/blot/scroll.ts
   parchmentOptimize(mutations = [], context = {}) {
     // super.optimize(context);
     Reflect.apply(Parchment.Container.prototype.optimize, this, [context]);
@@ -75,10 +78,7 @@ class ScrollOvderride extends Scroll {
     };
     let optimize = (blot) => {
       // Post-order traversal
-      if (
-        blot.domNode.__blot === null &&
-        blot.domNode.__blot.mutations === null
-      ) {
+      if (!blot.domNode.__blot) {
         return;
       }
       if (blot instanceof Parchment.Container) {
