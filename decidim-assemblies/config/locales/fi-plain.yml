@@ -262,6 +262,7 @@ fi-pl:
       admin:
         assemblies:
           form:
+            announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti ryhmän tietojen alapuolella.
             duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
             filters: Suodattimet

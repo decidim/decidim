@@ -16,7 +16,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_paper_trail
+      has_paper_trail on: [:create, :destroy, :update]
 
       delegate :count, to: :versions, prefix: true
 

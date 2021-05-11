@@ -132,6 +132,7 @@ module Decidim
         hash << model.cache_key_with_version
         hash << model.proposal_votes_count
         hash << model.endorsements_count
+        hash << model.comments_count
         hash << Digest::MD5.hexdigest(model.component.cache_key_with_version)
         hash << Digest::MD5.hexdigest(resource_image_path) if resource_image_path
         hash << render_space? ? 1 : 0

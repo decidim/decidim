@@ -161,7 +161,7 @@ module Decidim
           translated_attribute.deep_symbolize_keys!
           machine_translations = translated_attribute.delete(:machine_translations) || {}
 
-          machine_translations.merge(translated_attribute)
+          machine_translations.merge(translated_attribute).reject { |_k, v| v.empty? }
         end
       end
     end

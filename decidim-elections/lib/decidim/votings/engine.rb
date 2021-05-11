@@ -17,6 +17,7 @@ module Decidim
           post :check_census, action: :check_census
           match :login, via: [:get, :post]
           post :send_access_code
+          get :elections_log
         end
 
         get "votings/:voting_id", to: redirect { |params, _request|

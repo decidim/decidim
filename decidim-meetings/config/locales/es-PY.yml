@@ -455,8 +455,10 @@ es-PY:
           contributions: Número de contribuciones
           date: Fecha
           edit_meeting: Editar el encuentro
-          going: Yendo
+          going: Te has inscrito en este encuentro
           join: Inscribirse al encuentro
+          leave: Cancela tu inscripción
+          leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
           meeting_report: Informe del encuentro
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido

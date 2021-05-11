@@ -3,7 +3,7 @@ es-PY:
     attributes:
       conference:
         assemblies_ids: Asambleas relacionadas
-        available_slots: Aforo disponible
+        available_slots: Plazas disponibles
         banner_image: Imagen de banner
         consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorías
@@ -20,7 +20,7 @@ es-PY:
         participatory_processes_ids: Procesos participativos relacionados
         promoted: Promovido
         published_at: Publicado en
-        registration_terms: Condiciones de la inscripción
+        registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Habilitar inscripciones
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
@@ -48,7 +48,7 @@ es-PY:
         email: Correo electrónico
         name: Nombre
         registration_type_id: Tipo de inscripción
-        user_id: Usuario
+        user_id: Usuaria
       conference_registration_type:
         description: Descripción
         price: Coste
@@ -63,7 +63,7 @@ es-PY:
         position: Cargo
         short_bio: Breve Biografía
         twitter_handle: Cuenta de Twitter
-        user_id: Usuario
+        user_id: Usuaria
       conference_user_role:
         email: Correo electrónico
         name: Nombre
@@ -501,6 +501,7 @@ es-PY:
         home:
           highlighted_conferences:
             active_conferences: Conferencias activas
+            conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
             see_all_conferences: Ver todas las conferencias
       photo:
         image:
