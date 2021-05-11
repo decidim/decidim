@@ -41,13 +41,13 @@ ca:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: El gestor electoral ja és president o gestor del punt de votació
+              president_and_manager: El gestor de mesa ja es president/gestor del punt de votació
             voting:
               different_organization: La votació ha d'estar a la mateixa organització que la usuària
         decidim/votings/polling_station:
           attributes:
             polling_station_president:
-              different_voting: El gestor electoral ha d'estar a la mateixa votació que el punt de votació
+              different_voting: El gestor de mesa ha d'estar a la mateixa votació que el punt de votació
     models:
       decidim/elections/answer:
         one: Resposta
@@ -62,7 +62,7 @@ ca:
         one: Conjunt de dades
         other: Conjunts de dades
       decidim/votings/census/datum:
-        one: Referències
+        one: Dada
         other: Dades
       decidim/votings/polling_officer:
         one: Gestor de mesa
@@ -525,7 +525,7 @@ ca:
         ballot_decision:
           audit: "( Auditar papereta )"
           back: Començar de nou el procés de votació
-          ballot_hash: 'L''identificador de papereta és:'
+          ballot_hash: 'L''identificador de la teva papereta és:'
           cast: Enviar papereta
           description: Aquí tens les opcions per emetre la teva papereta perquè sigui degudament comptada o, alternativament, pots auditar que la teva papereta hagi estat xifrada correctament. Per raons de seguretat, l'auditoria de la teva papereta l'espatllarà, cosa que significa, que per a emetre el teu vot hauràs de reiniciar el procés de votació.
           header: 'La papereta està xifrada: pots dipositar-la o auditar-la'
@@ -546,12 +546,12 @@ ca:
           experience: Com valores l'experiència?
           feedback: Dona'ns la teva opinió
           header: Vot confirmat
-          lead: El vostre vot ha estat emès!
+          lead: El teu vot ha estat emès!
           text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="%{link}">pàgina de verificació de vot</a>
         encrypting:
           header: El vot s'està xifrant...
-          text: La papereta s'està xifrant per a garantir el secret de vot.
+          text: La teva papereta s'està xifrant per a garantir el secret de vot.
         failed:
           header: Vot fallit
           lead: El teu vot no s'ha enviat!
@@ -580,11 +580,11 @@ ca:
         onboarding_modal:
           close: Tanca el modal
           create_account: Crea un compte
-          description: Voleu crear un nou compte al Decidim? Podreu participar als processos i ser una part activa de l'organització.
+          description: Vols crear un nou compte al Decidim? Podràs participar als processos i ser una part activa de l'organització.
           no_account: No, gràcies.
-          title: Sou nou al Decidim?
+          title: Primer cop a Decidim?
         update:
-          error: Hi ha hagut un error en actualitzar el vot. Proveu de nou.
+          error: Hi ha hagut un error en actualitzar el vot. Prova-ho de nou.
         verify:
           content:
             heading: Verifica el teu vot
@@ -639,8 +639,8 @@ ca:
             email_subject: Ets %{role} del punt de votació %{polling_station_name}.
             notification_title: Ets %{role} del punt de votació %{polling_station_name} a la votació <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
-          instruction: 'Aquí tens el Codi d''Accés que havies demanat: %{access_code}. Amb això ja pots participar en %{voting}.'
-          subject: El teu Codi d'Accés per participar en %{voting}
+          instruction: 'Aquí tens el codi d''accés que havies demanat: %{access_code}. Amb això ja pots participar a %{voting}.'
+          subject: El teu codi d'accés per participar a %{voting}
     help:
       participatory_spaces:
         votings:
@@ -662,8 +662,8 @@ ca:
             invalid: Hi ha hagut un error en esborrar l'estil de papereta
             success: S'ha esborrat l'estil de papereta correctament
           edit:
-            title: Modifica estil de papereta
-            update: Actualitza
+            title: Editar estil de papereta
+            update: Actualitzar
           form:
             code_help: 'Pista: El codi és l''enllaç entre el cens i l''estil de papereta. Quan puges les dades del cens, a cada entrada s''assigna un estil de papereta segons el seu codi'
             election: Elecció
@@ -671,17 +671,17 @@ ca:
             questions_help: 'Pista: Escull les preguntes assignades a aquest estil de papereta en el component d''elecció per presentar-les a votants'
           index:
             actions:
-              confirm_destroy: Va debò?
-              destroy: Esborra
-              edit: Modifica
+              confirm_destroy: N'estàs segura?
+              destroy: Esborrar
+              edit: Editar
               new: Nou
               title: Accions
             associated_census_data: Entrades del cens associades
-            explanation_callout: Un estil de papereta especifica quines són les preguntes que llegiran els votants a la cabina. Així, en aquesta elecció pots escollir-ne quines formaran part de la papereta. El codi d'estil de papereta normalment comprova al cens quin és el votant per tal de mostrar una o altra papereta a la cabina. No creïs cap estil de papereta si es mostren sempre les mateixes preguntes a tothom.
+            explanation_callout: Un estil de papereta especifica quines són les preguntes que veuran els votants a la cabina. Així, en aquesta elecció pots escollir-ne quines formaran part de la papereta. El codi d'estil de papereta normalment comprova al cens quin és el votant per tal de mostrar una o altra papereta a la cabina. No creïs cap estil de papereta si es mostren sempre les mateixes preguntes a tothom.
             title: Estils de papereta
           new:
-            create: Crea
-            title: Crea un estil de papereta
+            create: Crear
+            title: Crear un estil de papereta
           update:
             invalid: Hi ha hagut un error en actualitzar l'estil de papereta
             success: L'estil de papereta s'ha actualitzat correctament
@@ -733,7 +733,7 @@ ca:
             info: Informació
             landing_page: Pàgina d'inici
             monitoring_committee: Comitè de seguiment
-            monitoring_committee_certificates: Valida certificats
+            monitoring_committee_certificates: Validar certificats
             monitoring_committee_members: Membres
             polling_officers: Gestors de mesa
             polling_stations: Punts de votació
@@ -994,22 +994,22 @@ ca:
             month: Mes
             month_placeholder: MM
             name: Nom
-            select: Escull el tipus d'informe
-            voted: Participant ha votat
+            select: Escull el tipus de document
+            voted: La participant ha votat
             year: Any
             year_placeholder: AAAA
           new:
-            back: Torna als punts de votació
-            census_not_present: No hem trobat la participant al cens.
+            back: Tornar als punts de votació
+            census_not_present: No s'ha trobat la participant al cens.
             census_not_present_description: Ha d'anar a l'oficina del cens per a presentar una reclamació o per rebre assistència.
             census_present: La participant es troba al cens.
             census_verified: La participant encara no ha votat.
-            complete_voting: Completa el vot
-            form_title: 'Escull del tipus de document i introdueix el número de document de la participant:'
-            questions_title: 'Li instem a votar les següents preguntes:'
-            title: Identifica i verifica una participant
-            validate_document: Valida el document
-            verify_document: Verifica el document
+            complete_voting: Completar el vot
+            form_title: 'Selecciona el tipus de document i introdueix el número de document de la participant:'
+            questions_title: 'Té dret a votar les següents preguntes:'
+            title: Identificar i verificar una participant
+            validate_document: Validar el document
+            verify_document: Verificar el document
             verify_title: 'Comprova que les dades següents són correctes:'
       polling_officers:
         actions:
@@ -1031,35 +1031,35 @@ ca:
       votings:
         access_code_modal:
           email: Envia un correu a %{email}
-          info: Necessites un Codi d'Accés per perticipar-hi. Si no n'has rebut cap per correu postal, podem enviar-te un de nou.
+          info: Necessites un codi d'accés per perticipar-hi. Si no n'has rebut cap per correu postal, podem enviar-te un de nou.
           no_email: No hi ha cap correu disponible
           no_sms: No hi ha cap número de telèfon disponible
           sms: Envia un SMS a %{sms}
-          title: Aconsegueix un Codi d'Accés
+          title: Obtenir un codi d'accés
         check_census:
-          check_status: Comprova l'estat
-          description: Comproveu les dades del cens per saber si teniu dret a participar en la votació. Si les dades són correctes, hauríeu de tenir ja un codi d'accès però podeu demanar-lo de nou si encara no el teniu.
+          check_status: Comprovar l'estat
+          description: Comprova les dades del cens per saber si tens dret a participar en la votació. Si les dades són correctes, hauries de tenir ja un codi d'accés, però si l'has perdut pots demanar-lo de nou si les teves dades són correctes.
           error:
-            info: 'Proveu de nou, si us plau. Si creus que les dades que tenim al sistema no són correctes, podeu avisar-nos a %{census_contact_information}.'
-            title: Les dades del cens no són correctes!
+            info: 'Prova de nou, si us plau. Si creus que les dades que tenim al sistema no són correctes, pots avisar-nos a %{census_contact_information}.'
+            title: Les teves dades del cens no són correctes!
           form_title: 'Emplena el formulari següent per comprovar les dades del cens:'
           invalid: Hi ha hagut un problema en comprovar el cens.
           success:
             access_link: via SMS o correu electrònic.
-            info: Ja hauries d'haver rebut el Codi d'Accès per correu postal. En cas que no l'hagis rebut, podeu demanar-lo de nou aquí
-            title: Les dades del cens són correctes!
+            info: Ja hauries d'haver rebut el codi d'accés per correu postal. En cas que no l'hagis rebut, pots demanar-lo de nou aquí
+            title: Les teves dades del cens són correctes!
           title: Puc votar?
         check_fields:
           date_of_birth: Data de naixement
           day: Dia
           day_placeholder: DD
           document_number: Número de document
-          document_number_placeholder: Número d'identificació
+          document_number_placeholder: Número d'ID
           month: Mes
           month_placeholder: MM
-          postal_code: Codi Postal
+          postal_code: Codi postal
           postal_code_placeholder: Número del codi postal
-          select: Escull el tipus d'informe
+          select: Selecciona el tipus de document
           year: Any
           year_placeholder: AAAA
         count:
