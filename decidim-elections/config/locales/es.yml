@@ -677,6 +677,14 @@ es:
               new: Nueva
               title: Acciones
             associated_census_data: Entradas asociadas al censo
+            explanation_callout: Un estilo de papeleta especifica qué preguntas se presentarán al votante en la cabina. En un estilo de papeleta, puedes elegir qué preguntas del componente de elecciones pertenecen a esa papeleta. El código de estilo de la papeleta se utiliza para hacer coincidir a un votante del censo con la papeleta que se presentará en la cabina. No crees ningún estilo de papeleta si quieres mostrar siempre todas las preguntas.
+            title: Estilos de papeleta
+          new:
+            create: Crear
+            title: Crear estilo de papeleta
+          update:
+            invalid: Ha habido un problema al crear el estilo de papeleta
+            success: Se ha creado correctamente el estilo de papeleta
         content_blocks:
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
@@ -719,13 +727,21 @@ es:
             attachment_collections: Carpetas
             attachment_files: Archivos
             attachments: Archivos adjuntos
+            ballot_styles: Estilos de papeleta
+            census: Censo
             components: Componentes
             info: Información
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
+            monitoring_committee_certificates: Validar certificados
+            monitoring_committee_members: Miembros
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
         models:
+          ballot_style:
+            fields:
+              code: Código
+            name: Estilo de papeleta
           monitoring_committee_member:
             fields:
               email: Correo electrónico
@@ -750,6 +766,9 @@ es:
               promoted: Destacada
               published: Publicada
               title: Título
+        monitoring_committee_certificates:
+          index:
+            title: Puntos de votación
         monitoring_committee_members:
           create:
             invalid: Hubo un problema al crear este miembro del comité de seguimiento
@@ -833,6 +852,7 @@ es:
             assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
             update: Actualizar
           form:
+            census_contact_information_help: Esta información de contacto es para una participante que quiere reportar problemas con el censo. Puede ser una dirección de correo electrónico, un formulario de contacto en otro sitio, una encuesta de Decidim para visitantes, etc.
             select_a_voting_type: Por favor, selecciona un tipo de votación
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
@@ -858,7 +878,23 @@ es:
       census:
         admin:
           census:
+            create:
+              invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
+              invalid_csv_header: La cabecera CSV no tiene el número correcto de campos - por favor lee las instrucciones cuidadosamente
+            creating_data:
+              info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
+            delete:
+              button: Borrar todos los datos del censo
+              confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
+            destroy:
+              error: Se ha producido un error al eliminar el censo, por favor inténtalo de nuevo más tarde.
+              success: Datos del censo eliminados
             export_access_codes:
+              button: Exportar códigos de acceso de la votación
+              callout: Ahora puedes exportar los códigos de acceso. Esto sólo se puede hacer una vez. Una vez que inicies la exportación, recibirás un correo electrónico con las instrucciones en <strong>%{email}</strong>
+              confirm: Solo puedes exportar los códigos de acceso una vez. Asegúrate de tener acceso a la cuenta de correo electrónico <strong>%{email}</strong>.
+              file_not_exists: Este archivo no existe
+              launch_error: Problema al iniciar la exportación de códigos de acceso
               launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
             exporting_access_codes:
               info_message: "<strong>Por favor, espera</strong>, se está preparando la exportación. La recibirás en breve en %{email}"
@@ -872,6 +908,15 @@ es:
               info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
               launch_error: Ha habido un problema al generar los códigos de acceso
               launch_success: Se ha iniciado la generación de códigos.
+            generating_access_codes:
+              info_message: "<strong>Por favor espera</strong>, se están generando los códigos de acceso a la votación..."
+            new:
+              file_help:
+                explanation: 'Instrucciones para el archivo:'
+                message_1: Sólo se permiten archivos CSV (.csv).
+                message_2: El separador entre columnas debe ser un punto y coma (";").
+              has_ballot_styles_message: Has configurado los estilos de papeleta. Por favor, asegúrate de que el campo "%{ballot_style_code_header}" en el CSV corresponde al código de estilo de papeleta deseado.
+              info_message: "<strong>Aún no hay ningún censo.</strong> Por favor, utiliza el siguiente formulario para crearlo importando un archivo CSV."
         export_mailer:
           access_codes_export:
             download: Descargar
