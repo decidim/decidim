@@ -666,13 +666,13 @@ nl:
             polling_officer_role_description: Je bent aangewezen als Stembureau beambte (Voorzitter of manager) bij enkele van de verkiezingen die op dit platform worden gehouden.
             polling_stations:
               list:
-                actions: Acties
+                actions: acties
                 address: Adres
                 name: Naam
                 role: Jouw rol
                 voting: Stemronde
               no_polling_stations: Je bent nog niet toegewezen aan een Stembureau.
-              title: Stembureaus
+              title: Stembureau
       polling_officers:
         roles:
           manager: Manager
