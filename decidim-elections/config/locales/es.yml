@@ -51,7 +51,7 @@ es:
     elections:
       actions:
         confirm_destroy: '¿Estás segura?'
-        destroy: Destruir
+        destroy: Eliminar
         edit: Editar
         edit_answers: Editar las respuestas
         edit_questions: Editar las preguntas
@@ -83,20 +83,20 @@ es:
             success: Respuesta actualizada correctamente
         elections:
           create:
-            invalid: Se ha producido un error al crear esta votación
-            success: La votación se ha creado correctamente
+            invalid: Se ha producido un error al crear esta elección
+            success: La elección se ha creado correctamente
           destroy:
             invalid: Se ha producido un error al eliminar la elección
-            success: La votación se ha eliminado correctamente
+            success: La elección se ha eliminado correctamente
           edit:
-            title: Editar la votación
-            update: Actualizar la votación
+            title: Editar la elección
+            update: Actualizar la elección
           index:
             no_bulletin_board: No hay ningún <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurado, el cual es necesario para utilizar este módulo. Esta tarea debe ser realizada por la persona administradora del sistema.
-            title: Votaciones
+            title: Elecciones
           new:
-            create: Crear una votación
-            title: Nueva votación
+            create: Crear elección
+            title: Nueva elección
           publish:
             success: La votación se ha publicado correctamente.
           unpublish:
