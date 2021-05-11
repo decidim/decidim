@@ -560,6 +560,8 @@ nl:
             info: Informatie
             landing_page: Landingspagina
             monitoring_committee: Controlecomité
+            monitoring_committee_certificates: Valideren certificaat
+            monitoring_committee_members: Leden
             polling_stations: Stembureau
         models:
           monitoring_committee_member:
@@ -583,6 +585,9 @@ nl:
               promoted: In de kijker
               published: Gepubliceerd
               title: Titel
+        monitoring_committee_certificates:
+          index:
+            title: Stembureaus
         monitoring_committee_members:
           create:
             invalid: Er is een fout opgetreden bij het aanmaken van dit lid van het controlecomité
