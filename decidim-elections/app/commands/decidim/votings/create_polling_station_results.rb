@@ -38,11 +38,6 @@ module Decidim
           closure.attachment_phase!
         end
 
-          form.question_results.each do |question_result|
-            create_question_result_for!(question_result)
-          end
-        end
-
         broadcast(:ok)
       end
 
@@ -53,15 +48,6 @@ module Decidim
       def create_ballot_result_for!(ballot_results)
         params = {
           value: ballot_results.last,
-          result_type: ballot_results.first.to_s.remove("_count")
-        }
-
-        create_result!(params)
-      end
-
-      def create_ballot_result_for!(ballot_results)
-        params = {
-          votes_count: ballot_results.last,
           result_type: ballot_results.first.to_s.remove("_count")
         }
 
