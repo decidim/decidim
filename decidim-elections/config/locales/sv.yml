@@ -468,14 +468,10 @@ sv:
             see_all_votings: Se alla omröstningar
       polling_officer_zone:
         polling_officers:
-          show:
-            polling_stations:
-              list:
-                actions: Åtgärder
-                address: Adress
-                name: Namn
-                role: Din roll
-                voting: Omröstning
+          index:
+            polling_station:
+              role: Din roll
+              voting: Omröstning
       polling_officers:
         actions:
           destroy: Radera
