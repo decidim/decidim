@@ -830,7 +830,7 @@ pl:
               list:
                 actions: Działania
                 address: Adres
-                name: Nazwa
+                name: Imię
                 role: Twoja rola
                 voting: Głosowanie
               no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
