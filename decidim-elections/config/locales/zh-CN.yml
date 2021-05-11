@@ -246,6 +246,13 @@ zh-CN:
     participatory_processes:
       statistics:
         elections_count: 选举
+    votings:
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: 行动
   layouts:
     decidim:
       election_votes_header:
