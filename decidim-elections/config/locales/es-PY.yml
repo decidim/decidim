@@ -528,10 +528,10 @@ es-PY:
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Emitir papeleta
           description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de su papeleta la estropeará, lo que significa, que para emitir tu voto tendrás que reiniciar el proceso de votación.
-          header: 'La papeleta está cifrada: envíala o audítala'
+          header: 'La papeleta se ha cifrado: envíala o audítala'
         casting:
           header: Se está emitiendo el voto...
-          text: La papeleta se está emitiendo en la urna.
+          text: Tu papeleta se está depositando en la urna.
         confirm:
           answer: Respuesta
           answer_number: respuesta %{number}
@@ -546,12 +546,12 @@ es-PY:
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
-          lead: El voto ha sido emitido!
+          lead: '¡Tu voto se ha emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         encrypting:
           header: Se está cifrando el voto...
-          text: Se está cifrando la papeleta para garantizar el secreto de voto.
+          text: Se está cifrando tu papeleta para garantizar el secreto de voto.
         failed:
           header: Voto fallido
           lead: '¡Tu voto no ha sido emitido!'
@@ -565,7 +565,7 @@ es-PY:
           encrypting: Cifrando el voto
           failed: Voto fallido
         messages:
-          invalid_token: La sesión del puesto de votación no es válida. Intenta votar de nuevo.
+          invalid_token: Tu sesión en la cabina de votación no es válida. Intenta votar de nuevo.
           not_allowed: En este momento no puedes votar en esta votación.
         modal:
           close: Cerrar

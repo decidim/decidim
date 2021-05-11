@@ -455,8 +455,10 @@ fi:
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
           edit_meeting: Muokkaa tapaamista
-          going: Ilmoittautunut
+          going: Olet ilmoittautunut tähän tapaamiseen
           join: Ilmoittaudu tapaamiseen
+          leave: Peruuta ilmoittautumisesi
+          leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
           meeting_report: Tapaamisen raportti
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt

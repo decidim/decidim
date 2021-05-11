@@ -116,7 +116,7 @@ ca:
       proposals:
         actions:
           amend: Esmena
-          comment: Comenta
+          comment: Comentar
           create: Crear
           endorse: Adherir-se
           vote: Donar suport
