@@ -367,6 +367,32 @@ de:
           not_published: Nicht veröffentlicht
           not_ready: Nicht bereit
           not_started: Nicht begonnen
+          published: Veröffentlicht
+          results_description:
+            not_published: Die Resultate wurden noch nicht veröffentlicht.
+            published: Die Resultate wurden veröffentlicht.
+          results_title: Resultate
+          started: Begonnen
+          tally_description:
+            finished: Die Stimmenzählung wurde abgeschlossen.
+            not_started: Die Stimmenzählung hat noch nicht begonnen.
+            started: Die Stimmenzählung hat begonnen.
+          tally_title: Stimmenzählung
+          title: Wahl-Protokoll
+          verifiable_results:
+            checksum: 'SHA256-Prüfsumme der Datei:'
+            description:
+              not_ready: Die überprüfbare Wahl-Datei und ihre SHA-256-Prüfsumme sind noch nicht verfügbar. Sobald die Resultate veröffentlicht sind, werden Sie diese Wahl verifizieren können.
+              ready: 'Hier können Sie die Wahl verifizieren. Zuerst müssen Sie die Datei herunterladen und sicherstellen, dass sie nicht beschädigt wurde. Führen Sie dazu den folgenden Befehl aus und überprüfen Sie dass die Ausgabe mit der Prüfsumme übereinstimmt:'
+            how_to_verify: 'Wenn Sie die Datei heruntergeladen haben und sicher gestellt haben, dass sie in Ordnung ist, können Sie den universellen Überprüfer ausführen. Klonen Sie <a href=''https://github.com/decidim/decidim-bulletin-board''>dieses Repository</a> und führen Sie den folgenden Befehl im Root-Verzeichnis aus:'
+            title: Wahlergebnisse überprüfen
+            verifiable_file: 'Überprüfbare Wahldatei:'
+          verify: Wahl überprüfen
+          vote_description:
+            finished: Der Abstimmungsprozess wurde abgeschlossen.
+            not_started: Der Abstimmungsprozess hat noch nicht begonnen.
+            started: Der Abstimmungsprozess hat begonnen.
+          vote_title: Abstimmungsprozess
         filters:
           active: Aktiv
           all: Alle
@@ -385,6 +411,7 @@ de:
           title: Wahlfragen
         results:
           description: 'Dies sind die Abstimmungsergebnisse für jede Frage:'
+          percentage: "%{count}%"
           selected: Ausgewählt
           title: Wahlergebnisse
           votes:
@@ -399,6 +426,7 @@ de:
           callout:
             already_voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
             vote_rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
+          election_log: Wahl-Protokoll
           preview: Vorschau
           verify:
             already_voted: Bereits abgestimmt?
@@ -962,14 +990,59 @@ de:
             see_all_votings: Alle Abstimmungen ansehen
             votings_button_title: Link zur Seite die alle Abstimmungen anzeigt
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Zurück zu den Wahllokalen
+          create:
+            error: Beim Abschliessen ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
+            success: Erfolgreich abgeschlossen.
+          edit:
+            heading: Nachzählung der Stimmen - Nachzählung der Antworten
+            info_text: Bitte geben Sie die Gesamtzahl der Antworten für jede Frage ein.
+            modal_ballots_results_count_error:
+              close_modal: Schließen
+              info_text: Die Gesamtzahl der Stimmzettel stimmt nicht mit der Gesamtzahl der Umschläge überein. Bitte überprüfen Sie die Anzahl der Stimmzettel.
+              title: Gesamtzahl der Stimmzettel stimmt nicht
+            save_recount: Neuzählung speichern
+            total_ballots: Gesamtzahl der Stimmen
+            total_blank_ballots: Anzahl leere Stimmzettel
+            total_null_ballots: Anzahl ungültige Stimmzettel
+            total_valid_ballots: Anzahl gültige Stimmzettel
+          new:
+            election: 'Wahl:'
+            heading: Neuzählung
+            info_text: 'Bitte geben Sie die Gesamtzahl der Umschläge ein, die in diesem Wahllokal neu gezählt wurden:'
+            modal_ballots_count_error:
+              btn_validate_total: Neue Gesamtzahl der Stimmen überprüfen
+              close_modal: Schließen
+              info_explanation_text: 'Bitte überprüfen Sie die Gesamtzahl der Stimmzettel. Falls die Gesamtzahl korrekt ist, müssen Sie eine Erklärung für den Überwachungsausschuss geben:'
+              info_text: Die eingegebene Gesamtzahl der Umschläge stimmt nicht mit der Liste der Personen überein, welche in diesem Wahllokal abgestimmt haben.
+              message_for_monitoring_committee: Nachricht für den Überwachungsausschuss
+              review_recount: Neuzählung überprüfen
+              text_area_placeholder: Bitte geben Sie Ihre Nachricht ein
+              title: Gesamtzahl stimmt nicht überein
+              total_ballots: 'Gesamtzahl der Stimmen:'
+              total_people: 'Gesamtzahl Personen:'
+            polling_station: 'Wahllokal:'
+            submit: Gesamtzahl überprüfen
+            total_ballots_count: Anzahl Stimmen
+          update:
+            error: Beim Aktualisieren der Abschluss-Resultate ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
+            success: Abschluss-Resultate erfolgreich aktualisiert.
         menu:
           polling_officer_zone: Wahllokal-Mitarbeiter-Bereich
         polling_officers:
           index:
             polling_officer_role_description: Ihnen wurde eine Rolle als Wahlhelfer (Präsident oder Manager) in Wahlen dieser Plattform zugewiesen.
             polling_station:
+              address: Adresse
+              count_votes: Stimmen zählen
+              election: Wahl
+              identify_person: Eine Person identifizieren
+              name: Name
               no_polling_stations: Sie sind noch zu keinem Wahllokal zugewiesen.
               role: Ihre Rolle
+              show_closure: Abschluss ansehen
+              title: Wahllokale
               voting: Abstimmung
         votes:
           create:
@@ -1055,6 +1128,11 @@ de:
           title:
             one: "%{count} Abstimmung"
             other: "%{count} Abstimmungen"
+        elections_log:
+          bb_status: Wahlstatus
+          description: Das Wahlprotokoll zeigt Ihnen alle relevanten Informationen über jede Abstimmung. Zum Beispiel den Status der Schlüsselzeremonie oder der Zählung, oder ob die Ergebnisse bereits veröffentlicht wurden. Klicken Sie auf die Wahl, deren Protokoll-Informationen Sie einsehen möchten.
+          election_log: Wahl-Protokoll
+          title: Wahl-Protokoll
         filters:
           active: Aktiv
           all: Alle
@@ -1111,6 +1189,7 @@ de:
         exit: Beenden
       voting_navigation:
         check_census: Kann ich abstimmen?
+        election_log: Wahl-Protokoll
         voting_menu_item: Die Abstimmung
       votings:
         index:
