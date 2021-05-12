@@ -94,7 +94,9 @@ Copy the existing images from `app/assets/images` to `app/packs/images`. Images 
 
 Existing stylesheets should be moved from `app/assets/stylesheets` to `app/packs/stylesheets` and imported with `@import` into `decidim_application.scss`. Take into account that you might need to adjust a bit the paths of the `@import` to adjust them to the new locations.
 
-If that CSS file is replacing a Decidim file, there's no need to add it to `decidim_application.scss`
+If that CSS file is replacing a Decidim file, there's no need to add it to `decidim_application.scss`.
+
+If any of the CSS is re-defining CSS vars should be renamed to `_decidim-settings.scss`.
 
 == Migrate javascripts
 
@@ -104,7 +106,7 @@ If that JS file is replacing a Decidim file, there's no need to add it to `decid
 
 == Update Rails helpers
 
-`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`
+`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`.
 
 For images, if they are in `app/packs/images` you could use `image_pack_tag`.
 
