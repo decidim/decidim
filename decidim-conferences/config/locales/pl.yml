@@ -29,6 +29,7 @@ pl:
       conference_registration_type:
         weight: Kolejność na stronie
       conference_speaker:
+        avatar: Awatar
         full_name: Pełne imię i nazwisko
       conference_user_role:
         email: E-mail
