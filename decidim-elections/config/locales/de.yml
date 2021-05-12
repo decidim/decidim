@@ -348,6 +348,25 @@ de:
           elections_count:
             one: "%{count} Wahlen"
             other: "%{count} Wahlen"
+        election_log:
+          chained_hash: Die verkettete Prüfsumme dieser Nachricht
+          complete: Abgeschlossen
+          creation_description:
+            complete: Die Wahl wurde erstellt und erfolgreich im Bulletin Board eingerichtet.
+            not_created: Die Wahl wurde noch nicht erstellt.
+          creation_title: Wahl erstellt
+          description: Dies ist das Wahl-Protokoll, in dem Sie den Status jedes Schritts überprüfen können, z.B. wann die Wahl erstellt wurde, ob die Stimmenzählung abgeschlossen ist und wann die Wahl geschlossen wird.
+          download: Herunterladen
+          key_ceremony_description:
+            complete: Die Schlüsselzeremonie wurde abgeschlossen. Alle Wahlhelfer haben gültige Schlüssel und haben die nötigen Backup-Schlüssel heruntergeladen.
+            not_started: Die Schlüsselzeremonie hat noch nicht begonnen.
+            started: Die Schlüsselzeremonie hat begonnen aber ist noch nicht abgeschlossen.
+          key_ceremony_title: Schlüsselzeremonie
+          not_available: Noch nicht verfügbar
+          not_created: Nicht erstellt
+          not_published: Nicht veröffentlicht
+          not_ready: Nicht bereit
+          not_started: Nicht begonnen
         filters:
           active: Aktiv
           all: Alle
