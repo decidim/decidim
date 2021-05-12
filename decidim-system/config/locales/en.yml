@@ -58,6 +58,9 @@ en:
         update:
           error: There was a problem updating this admin.
           success: Admin successfully updated
+      dashboard:
+        show:
+          current_organizations: Current organizations
       default_pages:
         placeholders:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.

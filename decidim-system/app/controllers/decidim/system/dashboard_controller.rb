@@ -5,6 +5,10 @@ module Decidim
     class DashboardController < Decidim::System::ApplicationController
       before_action :check_organizations_presence
 
+      def show
+        @organizations = Organization.all
+      end
+
       def check_organizations_presence
         return if Organization.exists?
 
