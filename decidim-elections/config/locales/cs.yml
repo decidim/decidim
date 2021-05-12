@@ -1039,14 +1039,18 @@ cs:
           create:
             error: Při vytváření uzavření došlo k chybě, opakujte akci později.
           edit:
+            heading: Přepočet hlasů - přepočet odpovědí
             info_text: Uveďte celkový počet odpovědí na každou otázku.
             modal_ballots_results_count_error:
               close_modal: Zavřít
+            save_recount: Uložit přepočet
           new:
             election: 'Volby:'
+            heading: Přepočet hlasů
             modal_ballots_count_error:
               close_modal: Zavřít
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
+              review_recount: Zkontrolovat přepočet
               text_area_placeholder: Zadejte prosím vaši zprávu
               total_people: 'Celkem lidí:'
             polling_station: 'Volební místnost:'
@@ -1064,6 +1068,7 @@ cs:
               name: Jméno
               no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
               role: Vaše role
+              show_closure: Zobrazit uzavření
               title: Volební místnosti
               voting: Hlasování
         votes:
@@ -1154,6 +1159,7 @@ cs:
             other: "%{count} hlasů"
         elections_log:
           bb_status: Stav voleb
+          description: Volební protokol vám zobrazí všechny příslušné informace o každém hlasování. Například status úvodního ceremoniálu nebo tally nebo pokud jsou výsledky již zveřejněny. Klikněte na volby, o kterých chcete protokolem informovat.
           election_log: Volební protokol
           title: Volební protokol
         filters:
