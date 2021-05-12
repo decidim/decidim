@@ -43,9 +43,11 @@ end
 #### New Job queues
 #### Meetings merge minutes and close actions
 
-With changes introduced in [#7968](https://github.com/decidim/decidim/pull/7968) the `Decidim::Meetings::Minutes` model and related table are removed and the attributes of the previously existing minutes are migrated to `Decidim::Meetings::Meeting` model in the `minutes_description`, `video_url`, `audio_url` and `minutes_visible` columns.
+With changes introduced in [\#7968](https://github.com/decidim/decidim/pull/7968) the `Decidim::Meetings::Minutes` model and related table are removed and the attributes of the previously existing minutes are migrated to `Decidim::Meetings::Meeting` model in the `minutes_description`, `video_url`, `audio_url` and `minutes_visible` columns.
 
 If there is previous activity of creation or edition of minutes, `Decidim::ActionLog` instances and an associated `PaperTrail::Version` instance for each one will have been created pointing to these elements in their polymorphic associations. To avoid errors, the migration includes changing those associations to point to the meeting and changing the action to `close` in the action log items. This change is not reversible (the removal of meetings does, the minutes table is recreated and the instances are generated when there is data in the `down` method)
+
+#### New Job queues
 
 PR [\#7986](https://github.com/decidim/decidim/pull/7986) splits some jobs from the `:default` queue to two new queues:
 
@@ -58,7 +60,7 @@ If your application uses Sidekiq and you set a manual configuration file, you'll
 
 ### Changed
 
-* Meetings merge minutes and close actions - [#7968](https://github.com/decidim/decidim/pull/7968)
+* Meetings merge minutes and close actions - [\#7968](https://github.com/decidim/decidim/pull/7968)
 
 ### Fixed
 
