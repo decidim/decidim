@@ -158,14 +158,6 @@ FactoryBot.define do
     end
   end
 
-  factory :minutes, class: "Decidim::Meetings::Minutes" do
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    video_url { Faker::Internet.url }
-    audio_url { Faker::Internet.url }
-    visible { true }
-    meeting
-  end
-
   factory :invite, class: "Decidim::Meetings::Invite" do
     meeting
     user

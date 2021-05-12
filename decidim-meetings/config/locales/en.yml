@@ -333,9 +333,6 @@ en:
           value_types:
             organizer_presenter:
               not_found: 'The organizer was not found on the database (ID: %{id})'
-        minutes:
-          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
-          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
       calendar_modal:
         calendar_url: Calendar URL
         close_window: Close window
