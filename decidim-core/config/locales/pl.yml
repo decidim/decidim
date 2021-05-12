@@ -265,6 +265,8 @@ pl:
       photos:
         related_photos: Powiązane zdjęcia
     author:
+      avatar: 'Awatar: %{name}'
+      avatar_multiuser: Awatar dla wielu użytkowników
       comments:
         one: komentarz
         few: komentarze
