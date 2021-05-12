@@ -1,3 +1,7 @@
-// This file allows to overwrite files and CSS vars
-// To overwrite a file it's necessary to manually import it here, for webpack-dev-server to detect
-// the change and recompile the assets (it improves the development experience)
+// This is a file that can be overridden by the application in order to override styles
+// Notice that this file is included at the very end of the stylesheets packs to have
+// more priority
+//
+// To override CSS variables or Foundation settings use _decidim-settings.scss
+//
+// By default this is empty.

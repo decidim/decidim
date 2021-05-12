@@ -1,4 +1,7 @@
-// This file allows to re-define Decidim CSSs in two ways:
-//   - to re-define CSS vars, just write them down
-//   - to re-define whole CSS files, just drop them in app/packs/stylesheets/decidim/...
-//     (copying the same path they have in Decidim)
+// This is a file that can be overridden by the application in order to override styles
+// Notice that this file is included at the very end of the stylesheets packs to have
+// more priority
+//
+// To override CSS variables or Foundation settings use _decidim-settings.scss
+//
+// By default this is empty.
