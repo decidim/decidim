@@ -262,6 +262,7 @@ nl:
       admin:
         assemblies:
           form:
+            announcement_help: De tekst die je hier invoert, wordt direct onder de groepsinformatie aan de gebruiker getoond.
             duration: Duur
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             filters: Filters

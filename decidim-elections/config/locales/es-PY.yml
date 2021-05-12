@@ -348,6 +348,51 @@ es-PY:
           elections_count:
             one: "%{count} votación"
             other: "%{count} votaciones"
+        election_log:
+          chained_hash: El Hash encadenado de este mensaje
+          complete: Completar
+          creation_description:
+            complete: La elección se creó y se configuró con éxito en el Bulletin Board.
+            not_created: La elección no se ha creado todavía.
+          creation_title: Elección creada
+          description: Este es el registro de la elección, donde puedes comprobar el estado de cada paso, por ejemplo, cuándo se ha creado, si se ha completado el proceso de recuento y cuándo se ha cerrado la elección.
+          download: Descargar
+          key_ceremony_description:
+            complete: La ceremonia de claves se ha completado. Cada garante tiene claves válidas y ha descargado las claves de copia de seguridad necesarias.
+            not_started: La ceremonia de claves aún no ha comenzado.
+            started: La ceremonia de claves ha comenzado, pero aún no ha terminado.
+          key_ceremony_title: Ceremonia de claves
+          not_available: No disponible todavía
+          not_created: No creado
+          not_published: No publicado
+          not_ready: No está listo
+          not_started: No iniciado
+          published: Publicado
+          results_description:
+            not_published: Los resultados aún no se han publicado.
+            published: Los resultados se han publicado.
+          results_title: Resultados
+          started: Iniciado
+          tally_description:
+            finished: El proceso de recuento ha terminado.
+            not_started: El proceso de recuento aún no ha comenzado.
+            started: El proceso de recuento ha comenzado.
+          tally_title: Proceso de recuento
+          title: Registro de la elección
+          verifiable_results:
+            checksum: 'Suma de comprobación SHA256 del archivo:'
+            description:
+              not_ready: El archivo verificable de la elección y la suma de comprobación SHA256 aún no están disponibles. En cuanto se publiquen los resultados, podrás verificar esta elección.
+              ready: 'Aquí tienes la opción de verificar la elección. En primer lugar, tienes que descargar el archivo y asegurarte de que no se ha corrompido. Para ello, ejecuta el siguiente comando y comprueba que la salida coincide con la suma de comprobación:'
+            how_to_verify: 'Una vez que hayas descargado el archivo y te hayas asegurado de que está bien, puedes proceder a ejecutar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> y, desde la carpeta raíz, ejecuta el siguiente comando:'
+            title: Verificar resultados de la elección
+            verifiable_file: 'Archivo verificacle de la elección:'
+          verify: Verificar elección
+          vote_description:
+            finished: El proceso de votación ha concluido.
+            not_started: El proceso de votación aún no ha comenzado.
+            started: El proceso de votación ha comenzado.
+          vote_title: Proceso de votación
         filters:
           active: Activas
           all: Todas
@@ -366,6 +411,7 @@ es-PY:
           title: Preguntas de la elección
         results:
           description: 'Estos son los resultados de la votación, para cada pregunta:'
+          percentage: "%{count}%"
           selected: Seleccionado
           title: Resultados de la elección
           votes:
@@ -381,6 +427,7 @@ es-PY:
             already_voted: Ya has votado en esta elección. Puedes cambiar tu voto o verificarlo.
             pending_vote: Se está emitiendo tu voto en el servidor.
             vote_rejected: No ha sido posible verificar tu voto. Por favor, hazlo de nuevo.
+          election_log: Registro de la elección
           preview: Previsualizar
           verify:
             already_voted: '¿Ya has votado?'
@@ -965,23 +1012,60 @@ es-PY:
             see_all_votings: Ver todas las votaciones
             votings_button_title: Enlace a la página de Votaciones que las muestra todas
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Volver a los puntos de votación
+          create:
+            error: Se ha producido un error al crear el cierre, por favor inténtalo de nuevo más tarde.
+            success: Cierre creado correctamente.
+          edit:
+            heading: Recuento de votos - recuento de respuestas
+            info_text: Por favor, introduce el número total de respuestas para cada pregunta.
+            modal_ballots_results_count_error:
+              close_modal: Cerrar
+              info_text: El número total de papeletas no coincide con el número total de sobres. Por favor, revisa el total de papeletas.
+              title: El total de papeletas no coincide
+            save_recount: Guardar recuento
+            total_ballots: Total de papeletas
+            total_blank_ballots: Total de papeletas en blanco
+            total_null_ballots: Total de papeletas nulas
+            total_valid_ballots: Total de papeletas válidas
+          new:
+            election: 'Elección:'
+            heading: Recuento de votos
+            info_text: 'Por favor, introduce el número total de papeletas (sobres) recontadas en este punto de votación:'
+            modal_ballots_count_error:
+              btn_validate_total: Validar recuento total de papeletas
+              close_modal: Cerrar
+              info_explanation_text: 'Por favor, revisa el número total de papeletas. Si el número total es correcto, debes proporcionar una explicación para el Comité de Seguimiento:'
+              info_text: El número total de papeletas (sobres) introducidas no coincide con el registro de personas que han votado en este punto de votación.
+              message_for_monitoring_committee: Mensaje para el Comité de Seguimiento
+              review_recount: Revisar el recuento
+              text_area_placeholder: Por favor, escribe tu mensaje
+              title: El total de registros no coincide
+              total_ballots: 'Total de papeletas:'
+              total_people: 'Total de personas:'
+            polling_station: 'Punto de votación:'
+            submit: Verificar número total
+            total_ballots_count: Número de papeletas
+          update:
+            error: Se ha producido un error al actualizar los resultados del cierre. Inténtalo de nuevo más tarde.
+            success: Resultados de cierre actualizados correctamente.
         menu:
           polling_officer_zone: Zona del gestor de mesa
         polling_officers:
-          show:
-            actions:
-              count_votes: Contar los votos en las urnas
-              identify_person: Identificar y verificar a una persona
+          index:
             polling_officer_role_description: Has sido asignado para actuar como gestor de mesa (Presidente o Administrador) en algunas de las elecciones celebradas en esta plataforma.
-            polling_stations:
-              list:
-                actions: Acciones
-                address: Dirección
-                name: Nombre
-                role: Tu rol
-                voting: Votación
+            polling_station:
+              address: Dirección
+              count_votes: Contar votos
+              election: Elección
+              identify_person: Identificar a una persona
+              name: Nombre
               no_polling_stations: Todavía no estás asignado a ningún punto de votación.
+              role: Tu rol
+              show_closure: Ver cierre
               title: Puntos de votación
+              voting: Votación
         votes:
           create:
             success: Voto presencial emitido con éxito
@@ -1066,6 +1150,11 @@ es-PY:
           title:
             one: "%{count} votación"
             other: "%{count} votaciones"
+        elections_log:
+          bb_status: Estado de la elección
+          description: El registro de la elección te mostrará toda la información relevante sobre cada votación. Por ejemplo, el estado de la ceremonia de claves o el recuento o si los resultados ya están publicados. Haz clic en la elección sobre la cual quieres la información del registro.
+          election_log: Registro de la elección
+          title: Registro de la elección
         filters:
           active: Activas
           all: Todas
@@ -1122,6 +1211,7 @@ es-PY:
         exit: Salir
       voting_navigation:
         check_census: '¿Puedo votar?'
+        election_log: Registro de la elección
         voting_menu_item: La votación
       votings:
         index:
