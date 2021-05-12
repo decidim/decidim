@@ -1,7 +1,7 @@
-import AutoButtonsByPositionComponent from "./auto_buttons_by_position.component"
-import AutoLabelByPositionComponent from "./auto_label_by_position.component"
-import createDynamicFields from "./dynamic_fields.component"
-import createSortList from "./sort_list.component"
+import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_position.component"
+import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
+import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
+import createSortList from "src/decidim/admin/sort_list.component"
 
 $(() => {
   const dynamicFieldDefinitions = [
