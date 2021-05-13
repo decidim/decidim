@@ -79,6 +79,7 @@ es:
       comment_thread:
         title: Conversación con %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Necesitas estar verificada para comentar en este momento, pero puedes leer los comentarios anteriores.
         blocked_comments_for_user_warning: No puedes hacer comentarios en este momento, pero puedes leer los anteriores.
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         comment_details_title: Detalles del comentario

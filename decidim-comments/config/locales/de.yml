@@ -79,6 +79,7 @@ de:
       comment_thread:
         title: Konversation mit %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Sie müssen aktuell verifiziert sein um zu kommentieren, aber Sie können die bisherigen Kommentare lesen.
         blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.
         blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
         comment_details_title: Kommentarinformationen

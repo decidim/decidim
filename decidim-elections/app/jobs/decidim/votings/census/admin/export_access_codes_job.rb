@@ -5,7 +5,7 @@ module Decidim
     module Census
       module Admin
         class ExportAccessCodesJob < ApplicationJob
-          queue_as :default
+          queue_as :exports
 
           def perform(dataset, user)
             filename = "#{SecureRandom.urlsafe_base64}.zip"

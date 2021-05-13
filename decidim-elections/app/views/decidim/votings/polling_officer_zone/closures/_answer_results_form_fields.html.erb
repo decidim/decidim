@@ -1,0 +1,10 @@
+<% form.object.answer_results.each do |answer| %>
+  <%= form.fields_for "[answer_results][]", answer do |answer_form| %>
+      <%= answer_form.hidden_field :question_id %>
+      <%= answer_form.hidden_field :id %>
+      <%= answer_form.number_field(:value,
+                                   label: translated_attribute(answer.title),
+                                   min: 0,
+                                   class: "medium-3") %>
+  <% end %>
+<% end %>

@@ -383,11 +383,6 @@ ja:
         designated_on: 指定日時：
       index:
         title: メンバー
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: すべてのカンファレンスを表示するカンファレンスページへのリンク
     events:
       assemblies:
         create_assembly_member:
@@ -420,17 +415,7 @@ ja:
         description: 作成された参加スペース数
         object: assemblies
         title: 参加スペース
-    pages:
-      home:
-        hero:
-          participate_title: プラットフォームの参加型プロセスに参加する
-        sub_hero:
-          register_title: サインアップしてアカウントを作成
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: すべての参加型プロセスを表示するページへのリンク
       show:
         related_assemblies: 関連する参加スペース
     statistics:
