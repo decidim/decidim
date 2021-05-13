@@ -93,9 +93,11 @@ nl:
       proposals:
         actions:
           amend: Pas aan
+          comment: Reactie
           create: creëren
           endorse: Aanbevelen
           vote: Stem
+          vote_comment: Stem op de reactie
           withdraw: Intrekken
         name: Voorstellen
         settings:

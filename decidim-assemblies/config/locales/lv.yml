@@ -357,11 +357,6 @@ lv:
         designated_on: Izraudzīts
       index:
         title: Dalībnieki
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Saite uz lapu Konferences, kurā norādītas visas konferences
     events:
       assemblies:
         create_assembly_member:
@@ -394,15 +389,7 @@ lv:
         description: Izveidoto asambleju skaits
         object: asambleja
         title: Asambleja
-    pages:
-      home:
-        hero:
-          participate_title: Piedalieties platformā notiekošajos procesos
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Saite uz lapu Procesi, kurā norādīti visi procesi
       show:
         related_assemblies: Saistītās asamblejas
   errors:

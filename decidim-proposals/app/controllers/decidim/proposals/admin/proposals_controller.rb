@@ -147,7 +147,7 @@ module Decidim
         private
 
         def collection
-          @collection ||= Proposal.where(component: current_component).published
+          @collection ||= Proposal.where(component: current_component).not_hidden.published
         end
 
         def proposals

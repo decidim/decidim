@@ -280,6 +280,7 @@ nl:
           description: 'Dit zijn de vragen die je tijdens het stemproces tegenkomt:'
         results:
           description: 'Dit zijn de resultaten van de stemronde, voor elke vraag:'
+          percentage: "%{count}%"
         show:
           action_button:
             change_vote: Wijzig je stem
@@ -559,6 +560,8 @@ nl:
             info: Informatie
             landing_page: Landingspagina
             monitoring_committee: Controlecomité
+            monitoring_committee_certificates: Valideren certificaat
+            monitoring_committee_members: Leden
             polling_stations: Stembureau
         models:
           monitoring_committee_member:
@@ -582,6 +585,9 @@ nl:
               promoted: In de kijker
               published: Gepubliceerd
               title: Titel
+        monitoring_committee_certificates:
+          index:
+            title: Stembureaus
         monitoring_committee_members:
           create:
             invalid: Er is een fout opgetreden bij het aanmaken van dit lid van het controlecomité
@@ -724,23 +730,60 @@ nl:
             see_all_votings: Bekijk alle stemrondes
             votings_button_title: Link naar de pagina Votings waarop alle stemrondes worden weergegeven
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Terug naar stembureaus
+          create:
+            error: Er is een fout opgetreden bij de sluiting, probeer het later opnieuw.
+            success: Sluiting succesvol aangemaakt.
+          edit:
+            heading: Stem hertelling - Hertelling van antwoorden
+            info_text: Voer voor elke vraag het totale aantal antwoorden in.
+            modal_ballots_results_count_error:
+              close_modal: Sluit
+              info_text: Het totale aantal stemmen komt niet overeen met het totaal aantal enveloppen. Controleer alstublieft het totaal aantal stemmen.
+              title: Totaal stemmen stemt niet overeen
+            save_recount: Bewaar hertelling
+            total_ballots: Totaal aantal stemmen
+            total_blank_ballots: Totaal blanco stemmen
+            total_null_ballots: Totaal ongeldige stemmen
+            total_valid_ballots: Totaal geldige stemmen
+          new:
+            election: 'Verkiezing:'
+            heading: Hertelling van de stemmen
+            info_text: 'Voer het totale aantal stemmen (enveloppen) in dat in dit stembureau werden herteld:'
+            modal_ballots_count_error:
+              btn_validate_total: Bevestig de totale hertelling van de stemmen
+              close_modal: Sluit
+              info_explanation_text: 'Gelieve het totale aantal stemmen na te kijken. Als het totale aantal correct is, zal je een verklaring moeten geven voor het toezichtcomité:'
+              info_text: Het totale aantal ingevoerde stemmen (enveloppen) komt niet overeen met de lijst van mensen die in dit stembureau hebben gestemd.
+              message_for_monitoring_committee: Bericht aan het Comité van toezicht
+              review_recount: Controleer de hertelling
+              text_area_placeholder: Schrijf je bericht
+              title: Totaal stemmen stemt niet overeen
+              total_ballots: 'Totaal aantal stemmen:'
+              total_people: 'Totaal aantal mensen:'
+            polling_station: 'Stembureau:'
+            submit: Controleer het totale aantal
+            total_ballots_count: Aantal stemmen
+          update:
+            error: Er is een fout opgetreden bij het bijwerken van de resultaten van de sluiting, probeer het later opnieuw.
+            success: Sluiting resultaten succesvol bijgewerkt.
         menu:
           polling_officer_zone: Zone Stembeambte
         polling_officers:
-          show:
-            actions:
-              count_votes: Tel de stemmen in de stembus
-              identify_person: Identificeer en verifieer een persoon
+          index:
             polling_officer_role_description: Je bent aangewezen als Stembureau beambte (Voorzitter of manager) bij enkele van de verkiezingen die op dit platform worden gehouden.
-            polling_stations:
-              list:
-                actions: Acties
-                address: Adres
-                name: Naam
-                role: Jouw rol
-                voting: Stemronde
+            polling_station:
+              address: Adres
+              count_votes: Stemmen tellen
+              election: Verkiezing
+              identify_person: Identificeer een persoon
+              name: Naam
               no_polling_stations: Je bent nog niet toegewezen aan een Stembureau.
+              role: Jouw rol
+              show_closure: Bekijk sluiting
               title: Stembureaus
+              voting: Stemronde
       polling_officers:
         roles:
           manager: Manager
@@ -754,6 +797,9 @@ nl:
           new: Nieuw
           title: Acties
       votings:
+        elections_log:
+          election_log: Verkiezingslogboek
+          title: Verkiezingslogboek
         filters:
           active: Actief
           all: Alle
@@ -783,6 +829,7 @@ nl:
       election_votes_header:
         exit: Afsluiten
       voting_navigation:
+        election_log: Verkiezingslogboek
         voting_menu_item: De stemronde
       votings:
         index:

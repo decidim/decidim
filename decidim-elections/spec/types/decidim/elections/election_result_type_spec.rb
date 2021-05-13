@@ -9,8 +9,7 @@ module Decidim
     describe ElectionResultType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:polling_station) { create(:polling_station) }
-      let(:model) { create(:election_result, polling_station: polling_station) }
+      let(:model) { create(:election_result) }
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -20,11 +19,11 @@ module Decidim
         end
       end
 
-      describe "votes_count" do
-        let(:query) { "{ votesCount }" }
+      describe "value" do
+        let(:query) { "{ value }" }
 
         it "returns the votes count" do
-          expect(response["votesCount"]).to eq(model.votes_count)
+          expect(response["value"]).to eq(model.value)
         end
       end
 
@@ -52,11 +51,11 @@ module Decidim
         end
       end
 
-      describe "polling station" do
-        let(:query) { "{ pollingStation { id } }" }
+      describe "question" do
+        let(:query) { "{ question { id } }" }
 
-        it "returns the polling station for this result" do
-          expect(response["pollingStation"]["id"]).to eq(model.polling_station.id.to_s)
+        it "returns the question for this result" do
+          expect(response["question"]["id"]).to eq(model.question.id.to_s)
         end
       end
     end

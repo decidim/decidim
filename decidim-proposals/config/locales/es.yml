@@ -116,9 +116,11 @@ es:
       proposals:
         actions:
           amend: Enmendar
+          comment: Comentar
           create: Crear
           endorse: Adherirse
           vote: Dar apoyo
+          vote_comment: Votar comentario
           withdraw: Retirar
         name: Propuestas
         settings:

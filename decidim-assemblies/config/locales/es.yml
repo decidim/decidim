@@ -262,6 +262,7 @@ es:
       admin:
         assemblies:
           form:
+            announcement_help: El texto que introduzcas aquí se mostrará a la participante justo debajo de la información de la asamblea.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
             filters: Filtros
@@ -386,11 +387,6 @@ es:
         designated_on: Designado en
       index:
         title: Miembros
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
     events:
       assemblies:
         create_assembly_member:
@@ -423,17 +419,7 @@ es:
         description: Número de asambleas creadas
         object: asambleas
         title: Asambleas
-    pages:
-      home:
-        hero:
-          participate_title: Participar en los procesos de la plataforma
-        sub_hero:
-          register_title: Inicia sesión o crea una cuenta
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
       show:
         related_assemblies: Asambleas relacionadas
     statistics:

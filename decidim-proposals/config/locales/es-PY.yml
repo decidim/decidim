@@ -116,9 +116,11 @@ es-PY:
       proposals:
         actions:
           amend: Enmendar
+          comment: Comentar
           create: Crear
           endorse: Adherirse
           vote: Apoyar
+          vote_comment: Votar comentario
           withdraw: Retirar
         name: Propuestas
         settings:

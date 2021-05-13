@@ -263,6 +263,7 @@ en:
       admin:
         assemblies:
           form:
+            announcement_help: The text you enter here will be shown to the user right below the assembly information.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
             filters: Filters

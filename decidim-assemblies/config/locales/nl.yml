@@ -262,6 +262,7 @@ nl:
       admin:
         assemblies:
           form:
+            announcement_help: De tekst die je hier invoert, wordt direct onder de groepsinformatie aan de gebruiker getoond.
             duration: Duur
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             filters: Filters
@@ -386,11 +387,6 @@ nl:
         designated_on: Aangewezen op
       index:
         title: Leden
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link naar de conferentiepagina die alle conferenties weergeeft.
     events:
       assemblies:
         create_assembly_member:
@@ -423,17 +419,7 @@ nl:
         description: Aantal aangemaakte groepen
         object: groepen
         title: Groepen
-    pages:
-      home:
-        hero:
-          participate_title: Neem deel aan de processen van het platform
-        sub_hero:
-          register_title: Meld je aan voor een account
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link naar de pagina Processen die alle processen weergeeft
       show:
         related_assemblies: Verwante assemblies
     statistics:

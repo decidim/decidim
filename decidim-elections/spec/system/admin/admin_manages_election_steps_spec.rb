@@ -24,7 +24,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "setup an election" do
-    let!(:election) { create :election, :ready_for_setup, component: current_component }
+    let!(:election) { create :election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" } }
 
     it "performs the action successfully" do
       within find("tr", text: translated(election.title)) do

@@ -45,6 +45,8 @@ edit_link(
       <p><%= decidim_sanitize(simple_format(translated_attribute(election.description)), strip_tags: true) %></p>
 
       <%= cell("decidim/elections/election_vote_cta", election) %>
+
+      <%= link_to(t(".election_log"), election_log_election_path(election), class:"text-sm") %>
     </div>
   </div>
 </div>

@@ -350,6 +350,51 @@ en:
           elections_count:
             one: "%{count} election"
             other: "%{count} elections"
+        election_log:
+          chained_hash: The chained Hash of this message
+          complete: Complete
+          creation_description:
+            complete: The election got created and is successfully set up on the Bulletin Board.
+            not_created: The election is not created yet.
+          creation_title: Election created
+          description: This is the election log where you can check the status of each step, e.g. when the election got created, if the tally process is completed, and when the election is closed.
+          download: Download
+          key_ceremony_description:
+            complete: The key ceremony is completed. Every trustee has valid keys and has downloaded the necessary backup keys.
+            not_started: The key ceremony has not started yet.
+            started: The key ceremony has started but is not completed yet.
+          key_ceremony_title: Key Ceremony
+          not_available: Not yet available
+          not_created: Not created
+          not_published: Not published
+          not_ready: Not ready
+          not_started: Not started
+          published: Published
+          results_description:
+            not_published: The results are not published yet.
+            published: The results are published.
+          results_title: Results
+          started: Started
+          tally_description:
+            finished: The tally process is finished.
+            not_started: The tally process has not started yet.
+            started: The tally process has started.
+          tally_title: Tally process
+          title: Election Log
+          verifiable_results:
+            checksum: 'File SHA256 checksum:'
+            description:
+              not_ready: The verifiable election file and SHA256 checksum aren't available yet. As soon as the results are published, you'll be able to verify this election.
+              ready: 'Here, you have the option to verify the election. First, you have to download the file and make sure it has not been corrupted. To do so, run the following command and check that the ouput matches the checksum:'
+            how_to_verify: 'Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href=''https://github.com/decidim/decidim-bulletin-board''>this repository</a> and, from the root folder, run the following command:'
+            title: Verify Election results
+            verifiable_file: 'Verifiable election file:'
+          verify: Verify election
+          vote_description:
+            finished: The voting process is finished.
+            not_started: The voting process has not started yet.
+            started: The voting process has started.
+          vote_title: Voting process
         filters:
           active: Active
           all: All
@@ -368,6 +413,7 @@ en:
           title: Election questions
         results:
           description: 'These are the results of the voting, for each question:'
+          percentage: "%{count}%"
           selected: Selected
           title: Election results
           votes:
@@ -384,6 +430,7 @@ en:
             already_voted: You have already voted in this election. You can change your vote or verify it.
             pending_vote: Your vote is being casted on the server.
             vote_rejected: It was not possible to verify your vote. Please cast it again.
+          election_log: Election log
           preview: Preview
           verify:
             already_voted: Already voted?
@@ -968,23 +1015,60 @@ en:
             see_all_votings: See all votings
             votings_button_title: Link to the Votings page displaying all the votings
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Back to polling stations
+          create:
+            error: An error occurred creating the closure, please try again later.
+            success: Closure successfully created.
+          edit:
+            heading: Vote recount - Answers recount
+            info_text: Please introduce the total number of answers for each question.
+            modal_ballots_results_count_error:
+              close_modal: Close
+              info_text: The total number of ballots doesn't match the total number of envelopes. Please review the total of ballots.
+              title: Total of ballots do not add up
+            save_recount: Save recount
+            total_ballots: Total ballots
+            total_blank_ballots: Total blank ballots
+            total_null_ballots: Total null ballots
+            total_valid_ballots: Total valid ballots
+          new:
+            election: 'Election:'
+            heading: Vote recount
+            info_text: 'Please introduce the total number of ballots (envelopes) recounted in this Polling Station:'
+            modal_ballots_count_error:
+              btn_validate_total: Validate total recount of ballots
+              close_modal: Close
+              info_explanation_text: 'Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:'
+              info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
+              message_for_monitoring_committee: Message for the Monitoring Committee
+              review_recount: Review the recount
+              text_area_placeholder: Please type your message
+              title: Total records do not add up
+              total_ballots: 'Total of ballots:'
+              total_people: 'Total people:'
+            polling_station: 'Polling station:'
+            submit: Verify total number
+            total_ballots_count: Number of ballots
+          update:
+            error: An error occurred updating the closure results, please try again later.
+            success: Closure results successfully updated.
         menu:
           polling_officer_zone: Polling Officer zone
         polling_officers:
-          show:
-            actions:
-              count_votes: Count the votes in the ballot box
-              identify_person: Identify and verify a person
+          index:
             polling_officer_role_description: You have been assigned to act as a Polling Station Officer (President or Manager) in some of the elections celebrated in this platform.
-            polling_stations:
-              list:
-                actions: Actions
-                address: Address
-                name: Name
-                role: Your role
-                voting: Voting
+            polling_station:
+              address: Address
+              count_votes: Count votes
+              election: Election
+              identify_person: Identify a person
+              name: Name
               no_polling_stations: You are not assigned to any Polling Station yet.
+              role: Your role
+              show_closure: View closure
               title: Polling Stations
+              voting: Voting
         votes:
           create:
             success: In person vote casted successfully
@@ -1069,6 +1153,11 @@ en:
           title:
             one: "%{count} voting"
             other: "%{count} votings"
+        elections_log:
+          bb_status: Election status
+          description: The election log will show you all relevant information about each voting. For example, the status of the key ceremony or tally or if results are published already. Click on the election you want the log information about.
+          election_log: Election Log
+          title: Election log
         filters:
           active: Active
           all: All
@@ -1125,6 +1214,7 @@ en:
         exit: Exit
       voting_navigation:
         check_census: Can I vote?
+        election_log: Election log
         voting_menu_item: The voting
       votings:
         index:

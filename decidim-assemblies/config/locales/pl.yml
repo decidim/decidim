@@ -391,11 +391,6 @@ pl:
         designated_on: Wyznaczony na
       index:
         title: Członkowie
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link do strony Konferencji wyświetlającej wszystkie konferencje
     events:
       assemblies:
         create_assembly_member:
@@ -428,17 +423,7 @@ pl:
         description: Liczba utworzonych zespołów
         object: zespoły
         title: Zespoły
-    pages:
-      home:
-        hero:
-          participate_title: Weź udział w procesach udostępnionych na platformie
-        sub_hero:
-          register_title: Zapisz się by utworzyć konto
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link do strony Procesy wyświetlającej wszystkie procesy
       show:
         related_assemblies: Powiązane zespoły
   errors:
