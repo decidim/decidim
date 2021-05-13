@@ -1038,23 +1038,40 @@ cs:
           back_to_polling_stations: Zpět do volební místnosti
           create:
             error: Při vytváření uzavření došlo k chybě, opakujte akci později.
+            success: Uzavření bylo úspěšně vytvořeno.
           edit:
             heading: Přepočet hlasů - přepočet odpovědí
             info_text: Uveďte celkový počet odpovědí na každou otázku.
             modal_ballots_results_count_error:
               close_modal: Zavřít
+              info_text: Celkový počet hlasovacích lístků neodpovídá celkovému počtu obálek. Zkontrolujte prosím celkový počet hlasovacích lístků.
+              title: Součet hlasovacích lístků se nesčítá
             save_recount: Uložit přepočet
+            total_ballots: Celkový počet hlasovacích lístků
+            total_blank_ballots: Celkový počet prázdných hlasovacích lístků
+            total_null_ballots: Celkový počet prázdných hlasovacích lístků
+            total_valid_ballots: Celkový počet platných hlasovacích lístků
           new:
             election: 'Volby:'
             heading: Přepočet hlasů
+            info_text: 'Uveďte celkový počet hlasovacích lístků (obálek) přepočtených v této volební místnosti:'
             modal_ballots_count_error:
+              btn_validate_total: Ověření celkového přepočtu hlasovacích lístků
               close_modal: Zavřít
+              info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkový počet správný, musíte monitorovacímu výboru poskytnout vysvětlení:'
+              info_text: Celkový počet vložených hlasovacích lístků (obálek) neodpovídá počtu osob, které v této volební místnosti hlasovaly.
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
               review_recount: Zkontrolovat přepočet
               text_area_placeholder: Zadejte prosím vaši zprávu
+              title: Celkový počet záznamů se nesčítá
+              total_ballots: 'Celkový počet hlasovacích lístků:'
               total_people: 'Celkem lidí:'
             polling_station: 'Volební místnost:'
             submit: Ověřit celkové číslo
+            total_ballots_count: Počet hlasovacích lístků
+          update:
+            error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
+            success: Výsledky uzávěrky byly úspěšně aktualizovány.
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
