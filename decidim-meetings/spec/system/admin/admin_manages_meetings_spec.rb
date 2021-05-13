@@ -246,7 +246,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     # make the field visible
     find("#meeting_customize_registration_email").click
     expect(help_text_for("div[data-tabs-content*='meeting-registration_email_custom_content-tab']")).to be_present
-    fill_in_i18n(:meeting_registration_email_custom_content, "#meeting-registration_email_custom_content-tabs", { "en" => "We're very happy you registered for this event!" })
+    fill_in_i18n_editor(
+      :meeting_registration_email_custom_content,
+      "#meeting-registration_email_custom_content-tabs",
+      en: "We're very happy you registered for this event!"
+    )
 
     within ".new_meeting" do
       find("*[type=submit]").click

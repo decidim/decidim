@@ -371,7 +371,6 @@ ar:
         show:
           attendees: الحضور الحضور
           contributions: عدد المساهمات
-          going: ذاهب
           join: أنضم إلى الأجتماع
           meeting_report: تقرير الاجتماع
           no_slots_available: لا فتحات المتاحة

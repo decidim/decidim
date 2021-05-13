@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc */
 
-import attributeDiff from "./attribute_diff"
+import attributeDiff from "src/decidim/editor/attribute_diff"
 
 export default function backspaceBindingsRangeAny(quill) {
   quill.keyboard.addBinding({ key: 8, altKey: null, ctrlKey: null, metaKey: null, shiftKey: null, collapsed: true }, (range, context) => {
@@ -29,7 +29,7 @@ export default function backspaceBindingsRangeAny(quill) {
       }
     }
 
-    if (/[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix)) {
+    if ((/[\uD800-\uDBFF][\uDC00-\uDFFF]$/).test(context.prefix)) {
       length += 1;
     }
     quill.deleteText(range.index - length, length, Quill.sources.USER);

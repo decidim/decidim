@@ -21,6 +21,8 @@ edit_link(
              locals: { text: t("private_space", scope: "decidim.assemblies.show") } %>
 <% end %>
 
+<%= cell("decidim/announcement", current_participatory_space.announcement) %>
+
 <div class="row column">
   <% if current_participatory_space.parent.present? %>
     <div class="row">

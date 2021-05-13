@@ -455,8 +455,10 @@ ca:
           contributions: Nombre d'aportacions
           date: Data
           edit_meeting: Editar la trobada
-          going: Inscrit
+          going: T'has inscrit en aquesta trobada
           join: Inscriu-te a la trobada
+          leave: Cancel·la la teva inscripció
+          leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
           meeting_report: Informe de la trobada
           no_slots_available: No hi ha places disponible
           organizations: Organitzacions que han assistit

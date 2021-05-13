@@ -23,10 +23,10 @@ Gem::Specification.new do |s|
     "LICENSE-AGPLv3.txt",
     "Rakefile",
     "README.md",
-    "config/webpack/*",
-    "config/webpacker.yml",
     "package.json",
-    "package-lock.lock"
+    "package-lock.json",
+    "babel.config.json",
+    "decidim-core/lib/decidim/webpacker/**/*"
   ]
 
   s.require_paths = ["lib"]

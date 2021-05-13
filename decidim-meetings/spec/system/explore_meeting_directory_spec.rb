@@ -25,6 +25,8 @@ describe "Explore meeting directory", type: :system do
     within "#meetings" do
       expect(page).to have_css(".card--meeting", count: 6)
     end
+
+    expect(page).to have_css("#meetings-count", text: "6 MEETINGS")
   end
 
   context "when there's a past meeting" do
@@ -38,6 +40,7 @@ describe "Explore meeting directory", type: :system do
       end
 
       expect(page).to have_content(past_meeting.title["en"])
+      expect(page).to have_css("#meetings-count", text: "1 MEETING")
     end
   end
 
@@ -76,6 +79,7 @@ describe "Explore meeting directory", type: :system do
 
       expect(page).to have_content(assembly_meeting.title["en"])
       expect(page).to have_css(".card--meeting", count: 1)
+      expect(page).to have_css("#meetings-count", text: "1 MEETING")
     end
   end
 end

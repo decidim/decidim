@@ -355,7 +355,6 @@ pt:
         show:
           attendees: Contagem de participantes
           contributions: Contagem de Contribuições
-          going: Indo
           join: Participe da reunião
           meeting_report: Relatório de reunião
           no_slots_available: Não há slots disponíveis

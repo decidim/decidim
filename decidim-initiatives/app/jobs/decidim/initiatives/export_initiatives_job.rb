@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     class ExportInitiativesJob < ApplicationJob
-      queue_as :default
+      queue_as :exports
 
       def perform(user, format)
         export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export

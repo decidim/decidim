@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/engine"
 require "decidim/core"
 require "decidim/system"
 require "decidim/admin"
@@ -24,18 +23,3 @@ require "decidim/accountability"
 require "decidim/debates"
 require "decidim/sortitions"
 require "decidim/blogs"
-
-# Module declaration.
-module Decidim
-  # Declare a Webpacker instance for Decidim
-  ROOT_PATH = Pathname.new(File.join(__dir__, ".."))
-
-  class << self
-    def webpacker
-      @webpacker ||= ::Webpacker::Instance.new(
-        root_path: ROOT_PATH,
-        config_path: ROOT_PATH.join("config/webpacker.yml")
-      )
-    end
-  end
-end

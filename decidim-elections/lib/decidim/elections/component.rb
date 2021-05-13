@@ -5,7 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:elections) do |component|
   component.engine = Decidim::Elections::Engine
   component.admin_engine = Decidim::Elections::AdminEngine
-  component.icon = "decidim/elections/icon.svg"
+  component.icon = "media/images/decidim_elections.svg"
   component.stylesheet = "decidim/elections/elections"
   component.permissions_class_name = "Decidim::Elections::Permissions"
   component.query_type = "Decidim::Elections::ElectionsType"
@@ -336,11 +336,24 @@ Decidim.register_component(:elections) do |component|
             file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
           )
 
-          Decidim::Elections::Result.create!(
-            votes_count: Faker::Number.number(digits: 3),
-            answer: answer
-          )
+          # Decidim::Elections::Result.create!(
+          #   value: Faker::Number.number(digits: 3),
+          #   election: election_with_results,
+          #   question: result_question,
+          #   answer: answer,
+          #   result_type: "valid_answers"
+          # )
         end
+
+        # if result_question.nota_option?
+        #   Decidim::Elections::Result.create!(
+        #     value: Faker::Number.number(digits: 3),
+        #     election: election_with_results,
+        #     question: result_question,
+        #     answer: nil,
+        #     result_type: "blank_answers"
+        #   )
+        # end
 
         questionnaire = Decidim::Forms::Questionnaire.create!(
           title: Decidim::Faker::Localized.paragraph,

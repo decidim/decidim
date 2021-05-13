@@ -462,8 +462,10 @@ en:
           contributions: Contributions count
           date: Date
           edit_meeting: Edit meeting
-          going: Going
+          going: You have signed up for this meeting
           join: Join meeting
+          leave: Cancel your registration
+          leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations

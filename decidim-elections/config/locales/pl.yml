@@ -847,20 +847,12 @@ pl:
         menu:
           polling_officer_zone: Strefa oficera wyborczego
         polling_officers:
-          show:
-            actions:
-              count_votes: Policz głosy w urnie wyborczej
-              identify_person: Identyfikacja i weryfikacja osoby
+          index:
             polling_officer_role_description: Zostałeś powołany do pełnienia funkcji oficera lokalu wyborczego (przewodniczącego lub kierownika) w niektórych wyborach prowadzonych na tej platformie.
-            polling_stations:
-              list:
-                actions: Działania
-                address: Adres
-                name: Nazwa
-                role: Twoja rola
-                voting: Głosowanie
+            polling_station:
               no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
-              title: Lokale wyborcze
+              role: Twoja rola
+              voting: Głosowanie
         votes:
           in_person_fields:
             day: Dzień

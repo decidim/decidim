@@ -1,19 +1,303 @@
 {
-  "name": "decidim_app-design",
-  "private": true,
-  "dependencies": {
-    "@rails/webpacker": "^6.0.0-beta.5",
-    "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0"
+  "name": "decidim",
+  "description": "The participatory democracy framework",
+  "version": "0.25.0-dev",
+  "repository": {
+    "url": "git@github.com:decidim/decidim.git",
+    "type": "git"
   },
-  "devDependencies": {
-    "@webpack-cli/serve": "^1.3.0",
-    "webpack-dev-server": "^3.11.2"
-  },
-  "babel": {
-    "presets": ["./node_modules/@rails/webpacker/package/babel/preset.js"]
+  "author": "Marc Riera <mrc2407@gmail.com>",
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": "^15.14.0",
+    "npm": "^7.7.2"
   },
   "browserslist": [
-    "defaults"
-  ]
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "IE 11",
+    "not dead"
+  ],
+  "scripts": {
+    "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ext .js,.jsx decidim-*",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "test:ci": "npm run lint && npm run test"
+  },
+  "stylelint": {
+    "rules": {
+      "at-rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "blockless-after-same-name-blockless",
+            "first-nested"
+          ],
+          "ignore": [
+            "after-comment"
+          ],
+          "ignoreAtRules": [
+            "else"
+          ]
+        }
+      ],
+      "at-rule-name-case": "lower",
+      "at-rule-semicolon-newline-after": "always",
+      "block-closing-brace-empty-line-before": "never",
+      "block-closing-brace-newline-after": "always",
+      "block-closing-brace-newline-before": "always-multi-line",
+      "block-closing-brace-space-before": "always-single-line",
+      "block-no-empty": true,
+      "block-opening-brace-newline-after": "always-multi-line",
+      "block-opening-brace-space-after": "always-single-line",
+      "block-opening-brace-space-before": "never",
+      "color-hex-case": "lower",
+      "color-hex-length": "short",
+      "color-no-invalid-hex": true,
+      "comment-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "first-nested"
+          ],
+          "ignore": [
+            "stylelint-commands"
+          ]
+        }
+      ],
+      "comment-no-empty": true,
+      "comment-whitespace-inside": "always",
+      "custom-property-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "after-custom-property",
+            "first-nested"
+          ],
+          "ignore": [
+            "after-comment",
+            "inside-single-line-block"
+          ]
+        }
+      ],
+      "declaration-bang-space-after": "never",
+      "declaration-bang-space-before": "always",
+      "declaration-block-no-duplicate-properties": [
+        true,
+        {
+          "ignore": [
+            "consecutive-duplicates-with-different-values"
+          ]
+        }
+      ],
+      "declaration-block-no-redundant-longhand-properties": true,
+      "declaration-block-no-shorthand-property-overrides": true,
+      "declaration-block-semicolon-newline-after": "always-multi-line",
+      "declaration-block-semicolon-space-after": "always-single-line",
+      "declaration-block-semicolon-space-before": "never",
+      "declaration-block-single-line-max-declarations": 1,
+      "declaration-block-trailing-semicolon": "always",
+      "declaration-colon-newline-after": "always-multi-line",
+      "declaration-colon-space-after": "always-single-line",
+      "declaration-colon-space-before": "never",
+      "declaration-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "after-declaration",
+            "first-nested"
+          ],
+          "ignore": [
+            "after-comment",
+            "inside-single-line-block"
+          ]
+        }
+      ],
+      "function-calc-no-unspaced-operator": true,
+      "function-comma-newline-after": "always-multi-line",
+      "function-comma-space-after": "always-single-line",
+      "function-comma-space-before": "never",
+      "function-linear-gradient-no-nonstandard-direction": true,
+      "function-max-empty-lines": 0,
+      "function-name-case": "lower",
+      "function-parentheses-newline-inside": "always-multi-line",
+      "function-parentheses-space-inside": "never-single-line",
+      "function-whitespace-after": "always",
+      "indentation": 2,
+      "keyframe-declaration-no-important": true,
+      "length-zero-no-unit": true,
+      "max-empty-lines": 1,
+      "media-feature-colon-space-after": "always",
+      "media-feature-colon-space-before": "never",
+      "media-feature-name-case": "lower",
+      "media-feature-name-no-unknown": true,
+      "media-feature-parentheses-space-inside": "never",
+      "media-feature-range-operator-space-after": "always",
+      "media-feature-range-operator-space-before": "always",
+      "media-query-list-comma-newline-after": "always-multi-line",
+      "media-query-list-comma-space-after": "always-single-line",
+      "media-query-list-comma-space-before": "never",
+      "no-empty-source": true,
+      "no-eol-whitespace": true,
+      "no-extra-semicolons": true,
+      "no-invalid-double-slash-comments": true,
+      "no-missing-end-of-source-newline": true,
+      "number-leading-zero": "never",
+      "number-no-trailing-zeros": true,
+      "property-case": "lower",
+      "property-no-unknown": true,
+      "rule-empty-line-before": [
+        "always-multi-line",
+        {
+          "except": [
+            "first-nested"
+          ],
+          "ignore": [
+            "after-comment"
+          ]
+        }
+      ],
+      "selector-attribute-brackets-space-inside": "never",
+      "selector-attribute-operator-space-after": "never",
+      "selector-attribute-operator-space-before": "never",
+      "selector-combinator-space-after": "always",
+      "selector-combinator-space-before": "always",
+      "selector-descendant-combinator-no-non-space": true,
+      "selector-list-comma-newline-after": "always",
+      "selector-list-comma-space-before": "never",
+      "selector-max-empty-lines": 0,
+      "selector-pseudo-class-case": "lower",
+      "selector-pseudo-class-no-unknown": true,
+      "selector-pseudo-class-parentheses-space-inside": "never",
+      "selector-pseudo-element-case": "lower",
+      "selector-pseudo-element-colon-notation": "double",
+      "selector-pseudo-element-no-unknown": true,
+      "selector-type-case": "lower",
+      "selector-type-no-unknown": true,
+      "shorthand-property-no-redundant-values": true,
+      "string-no-newline": true,
+      "unit-case": "lower",
+      "unit-no-unknown": true,
+      "value-list-comma-newline-after": "always-multi-line",
+      "value-list-comma-space-after": "always-single-line",
+      "value-list-comma-space-before": "never",
+      "value-list-max-empty-lines": 0
+    }
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.13",
+    "@babel/eslint-parser": "^7.13.14",
+    "@babel/plugin-transform-classes": "^7.13.0",
+    "@babel/plugin-transform-regenerator": "^7.13.15",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.5",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/types": "^7.0.0-beta.40",
+    "@codegram/decidim-bulletin_board": "0.21.1",
+    "@codegram/voting_schemes-dummy": "0.21.1",
+    "@codegram/voting_schemes-electionguard": "0.21.1",
+    "@rails/ujs": "^6.1.3",
+    "@rails/webpacker": "6.0.0-beta.7",
+    "@webpack-cli/serve": "^1.3.1",
+    "@zeitiger/appendaround": "^1.0.0",
+    "autoprefixer": "^10.2.5",
+    "axe-core": "^4.1.4",
+    "axios": "^0.21.1",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-__coverage__": "^1.11.111",
+    "babel-preset-airbnb": "^5.0.0",
+    "bootstrap-tagsinput": "^0.7.1",
+    "classnames": "^2.2.5",
+    "core-js": "^3.9.1",
+    "css-loader": "^5.2.0",
+    "css-minimizer-webpack-plugin": "^1.3.0",
+    "d3": "5.4.0",
+    "diff": "^5.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-standard": "^3.1.0",
+    "expose-loader": "^2.0.0",
+    "faker": "^4.1.0",
+    "foundation-datepicker": "1.5.6",
+    "foundation-sites": "^6.6.3",
+    "graphql-docs": "https://github.com/Platoniq/graphql-docs.git",
+    "html5sortable": "0.10.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "jest-localstorage-mock": "^2.4.3",
+    "jquery": "^3.2.1",
+    "jquery-serializejson": "2.9.0",
+    "jquery.autocomplete": "1.2.0",
+    "leaflet": "1.3.1",
+    "leaflet-svgicon": "^0.0.2",
+    "leaflet-tilelayer-here": "1.0.2",
+    "leaflet.markercluster": "1.4.1",
+    "mini-css-extract-plugin": "^1.4.0",
+    "moment": "2.29.1",
+    "morphdom": "2.6.1",
+    "node-sass": "^5.0.0",
+    "postcss": "^8.2.9",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.0.1",
+    "postcss-loader": "^5.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-scss": "^3.0.5",
+    "prop-types": "^15.7.2",
+    "quill": "1.3.7",
+    "raf": "^3.4.1",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-i18nify": "^1.8.8",
+    "react-select": "^1.2.1",
+    "react-test-renderer": "^16.0.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "select": "^1.1.2",
+    "social-share-button": "2.2.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^2.0.0",
+    "stylelint": "13.11.0",
+    "svg4everybody": "2.1.9",
+    "tributejs": "5.1.3",
+    "unfetch": "^3.0.0",
+    "uuid": "^3.2.1",
+    "webpack": "^5.11.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-config-utils": "^2.3.1",
+    "webpack-dev-server": "^3.11.2",
+    "yaml-jest": "^1.0.5"
+  },
+  "jest": {
+    "testURL": "https://decidim.dev/",
+    "setupFiles": [
+      "<rootDir>/decidim-core/spec/js/entry_test.js",
+      "raf/polyfill"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "decidim-core/app/packs"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss|css|less)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "\\.yml$": "yaml-jest",
+      "\\.js$": "babel-jest"
+    },
+    "testRegex": "\\.(test|spec)\\.js$"
+  }
 }

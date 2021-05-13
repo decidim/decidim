@@ -35,11 +35,6 @@ sr:
             assemblies_button_title: Veza ka strani Veća koja prikazuje sva veća
       show:
         social_networks_title: Podelite ovo veće na
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Veza ka strani Konferencije koja prikazuje sve konferencije
     events:
       assemblies:
         create_assembly_member:
@@ -57,12 +52,3 @@ sr:
       value_types:
         assembly_type_presenter:
           not_found: 'Ovaj tip veća nije pronađen u bazi podataka (ID: %{id})'
-    pages:
-      home:
-        hero:
-          participate_title: Učestvujte u procesima platforme
-    participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Veza ka strani Procesi koja prikazuje sve procese

@@ -83,7 +83,7 @@ shared_examples "manage invites" do
           end
 
           expect(page).to have_content "successfully"
-          expect(page).to have_css(".button", text: "GOING")
+          expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
         end
 
         it "the invited user sign up into the application and declines the invitation" do
@@ -116,7 +116,7 @@ shared_examples "manage invites" do
 
           visit last_email_link
 
-          expect(page).to have_css(".button", text: "GOING")
+          expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
         end
 
         it "the invited user declines the invitation" do
@@ -140,7 +140,7 @@ shared_examples "manage invites" do
 
           visit last_email_link
 
-          expect(page).to have_css(".button", text: "GOING")
+          expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
         end
 
         it "the invited user declines the invitation" do

@@ -368,6 +368,51 @@ cs:
             few: "%{count} zvolení"
             many: "%{count} zvolení"
             other: "%{count} voleb"
+        election_log:
+          chained_hash: Získaný hash této zprávy
+          complete: Dokončeno
+          creation_description:
+            complete: Volby jsou vytvořené a úspěšně nastavené na Vývěsku.
+            not_created: Volby ještě nejsou vytvořeny.
+          creation_title: Volby vytvořeny
+          description: Toto je volební deník, kde můžete zkontrolovat stav každého kroku, např. když se volby vytvořily, pokud bude dokončen proces spojenectví a až budou ukončeny volby.
+          download: Stáhnout
+          key_ceremony_description:
+            complete: Úvodní ceremoniál je dokončen. Každý správce má platné klíče a stáhl potřebné záložní klíče.
+            not_started: Úvodní ceremoniál ještě nezačal.
+            started: Úvodní ceremoniál byl zahájen, ale ještě není dokončen.
+          key_ceremony_title: Úvodní ceremoniál
+          not_available: Ještě není k dispozici
+          not_created: Nevytvořeno
+          not_published: Nezveřejněno
+          not_ready: Není připraveno
+          not_started: Nezahájeno
+          published: Publikováno
+          results_description:
+            not_published: Výsledky ještě nejsou publikovány.
+            published: Výsledky jsou publikovány.
+          results_title: Výsledky
+          started: Spuštěno
+          tally_description:
+            finished: Proces je dokončen.
+            not_started: Proces ještě nezačal.
+            started: Proces byl zahájen.
+          tally_title: Proces volebního přepočítání
+          title: Volební protokol
+          verifiable_results:
+            checksum: 'Kontrolní součet SHA256 souboru:'
+            description:
+              not_ready: Ověřitelný volební soubor a kontrolní součet SHA256 ještě nejsou k dispozici. Jakmile budou výsledky zveřejněny, budete moci tuto volbu ověřit.
+              ready: 'Zde máte možnost ověřit volby. Nejprve musíte stáhnout soubor a ujistěte se, že nebyl poškozen. Chcete-li tak učinit, spusťte následující příkaz a zkontrolujte, zda se výstup shoduje s kontrolním součtem:'
+            how_to_verify: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
+            title: Ověřit výsledky voleb
+            verifiable_file: 'Ověřitelný volební soubor:'
+          verify: Ověřit volby
+          vote_description:
+            finished: Proces hlasování je ukončen.
+            not_started: Proces hlasování ještě nezačal.
+            started: Proces hlasování byl zahájen.
+          vote_title: Proces hlasování
         filters:
           active: Aktivní
           all: Vše
@@ -386,6 +431,7 @@ cs:
           title: Volební otázky
         results:
           description: 'To jsou výsledky hlasování pro každou otázku:'
+          percentage: "%{count}%"
           selected: Vybrané
           title: Výsledky voleb
           votes:
@@ -403,6 +449,7 @@ cs:
             already_voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
             pending_vote: Váš hlas se odehrává na serveru.
             vote_rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
+          election_log: Volební protokol
           preview: Náhled
           verify:
             already_voted: Již jste hlasovali?
@@ -987,23 +1034,38 @@ cs:
             see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Zpět do volební místnosti
+          create:
+            error: Při vytváření uzavření došlo k chybě, opakujte akci později.
+          edit:
+            info_text: Uveďte celkový počet odpovědí na každou otázku.
+            modal_ballots_results_count_error:
+              close_modal: Zavřít
+          new:
+            election: 'Volby:'
+            modal_ballots_count_error:
+              close_modal: Zavřít
+              message_for_monitoring_committee: Zpráva pro monitorovací výbor
+              text_area_placeholder: Zadejte prosím vaši zprávu
+              total_people: 'Celkem lidí:'
+            polling_station: 'Volební místnost:'
+            submit: Ověřit celkové číslo
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
-          show:
-            actions:
-              count_votes: Spočítat hlasy ve volební urně
-              identify_person: Identifikovat a ověřit osobu
+          index:
             polling_officer_role_description: V některých volbách, které se na této platformě provádí, vám byly přiděleny funkce úředníka volební místnosti (předsedy nebo ředitele).
-            polling_stations:
-              list:
-                actions: Akce
-                address: Adresa
-                name: Název
-                role: Vaše role
-                voting: Hlasování
+            polling_station:
+              address: Adresa
+              count_votes: Počítat hlasy
+              election: Volby
+              identify_person: Identifikovat osobu
+              name: Jméno
               no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
+              role: Vaše role
               title: Volební místnosti
+              voting: Hlasování
         votes:
           create:
             success: Úspěšně zahlasováno Osobní volbou
@@ -1090,6 +1152,10 @@ cs:
             few: "%{count} hlasování"
             many: "%{count} hlasování"
             other: "%{count} hlasů"
+        elections_log:
+          bb_status: Stav voleb
+          election_log: Volební protokol
+          title: Volební protokol
         filters:
           active: Aktivní
           all: Vše
@@ -1146,6 +1212,7 @@ cs:
         exit: Ukončit
       voting_navigation:
         check_census: Mohu hlasovat?
+        election_log: Volební protokol
         voting_menu_item: Hlasování
       votings:
         index:

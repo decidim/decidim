@@ -1,5 +1,5 @@
 /* eslint no-unused-vars: 0 */
-import Tribute from "./vendor/tribute"
+import Tribute from "src/decidim/vendor/tribute"
 
 $(() => {
   const $multipleMentionContainer = $(".js-multiple-mentions");

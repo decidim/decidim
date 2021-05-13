@@ -455,8 +455,10 @@ es:
           contributions: Número de aportaciones
           date: Fecha
           edit_meeting: Editar el encuentro
-          going: Inscrito
+          going: Te has inscrito en este encuentro
           join: Inscríbete al encuentro
+          leave: Cancela tu inscripción
+          leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
           meeting_report: Informe del encuentro
           no_slots_available: No hay plazas disponibles
           organizations: Organizaciones que han asistido

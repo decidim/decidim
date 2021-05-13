@@ -1,5 +1,5 @@
-import "../../geocoding"
-import formatAddress from "../../geocoding/format_address"
+import "src/decidim/geocoding"
+import formatAddress from "src/decidim/geocoding/format_address"
 
 /**
  * For the available address format keys, refer to:

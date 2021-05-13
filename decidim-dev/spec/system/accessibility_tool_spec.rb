@@ -17,16 +17,16 @@ describe "Accessibility tool", type: :system do
   let(:html_document) do
     document_inner = html_body
     template.instance_eval do
-      js_config = { icons_path: image_path("decidim/icons.svg") }
+      js_config = { icons_path: asset_pack_path("media/images/icons.svg") }
 
       <<~HTML.strip
         <!doctype html>
         <html lang="en">
         <head>
           <title>Accessibility Test</title>
-          #{stylesheet_link_tag "application"}
+          #{stylesheet_pack_tag "decidim_core"}
           #{javascript_pack_tag "decidim_core"}
-          #{stylesheet_link_tag "decidim/dev"}
+          #{stylesheet_pack_tag "decidim_dev"}
           #{javascript_pack_tag "decidim_dev"}
         </head>
         <body>

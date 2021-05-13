@@ -62,7 +62,7 @@ es:
         one: Conjunto de datos
         other: Conjuntos de datos
       decidim/votings/census/datum:
-        one: Referencia
+        one: Dato
         other: Datos
       decidim/votings/polling_officer:
         one: Gestor de mesa
@@ -104,7 +104,7 @@ es:
     elections:
       actions:
         confirm_destroy: '¿Estás segura?'
-        destroy: Destruir
+        destroy: Eliminar
         edit: Editar
         feedback: Retorno de la votante
         import: Importar propuestas como respuestas
@@ -148,20 +148,20 @@ es:
             success: Respuesta actualizada correctamente
         elections:
           create:
-            invalid: Se ha producido un error al crear esta votación
-            success: La votación se ha creado correctamente
+            invalid: Se ha producido un error al crear esta elección
+            success: La elección se ha creado correctamente
           destroy:
             invalid: Se ha producido un error al eliminar la elección
-            success: La votación se ha eliminado correctamente
+            success: La elección se ha eliminado correctamente
           edit:
-            title: Editar la votación
-            update: Actualizar la votación
+            title: Editar la elección
+            update: Actualizar la elección
           index:
             no_bulletin_board: No hay ningún <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurado, el cual es necesario para utilizar este módulo. Esta tarea debe ser realizada por la persona administradora del sistema.
-            title: Votaciones
+            title: Elecciones
           new:
-            create: Crear una votación
-            title: Nueva votación
+            create: Crear elección
+            title: Nueva elección
           publish:
             success: La votación se ha publicado correctamente.
           unpublish:
@@ -173,7 +173,7 @@ es:
           elections: Elecciones
           feedback_form_answers: Retorno de las respuestas
         menu:
-          trustees: Depositarias
+          trustees: Garantes
         models:
           answer:
             name: Respuesta
@@ -320,7 +320,7 @@ es:
         election:
           end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} en el Bulletin Board"
           publish: "%{user_name} ha publicado la votación %{resource_name}"
-          publish_results: "%{user_name} publicó los resultados de la elección %{resource_name} en el Tablero de Boletines"
+          publish_results: "%{user_name} publicó los resultados de la elección %{resource_name} en el Bulletin Board"
           setup: "%{user_name} creó la elección %{resource_name} en el Bulletin Board"
           start_key_ceremony: "%{user_name} comenzó la ceremonia de claves para las elecciones %{resource_name} en el Bulletin Board"
           start_tally: "%{user_name} comenzó el recuento para la elección %{resource_name} en el Bulletin Board"
@@ -348,6 +348,51 @@ es:
           elections_count:
             one: "%{count} votación"
             other: "%{count} votaciones"
+        election_log:
+          chained_hash: El Hash encadenado de este mensaje
+          complete: Completar
+          creation_description:
+            complete: La elección se creó y se configuró con éxito en el Bulletin Board.
+            not_created: La elección no se ha creado todavía.
+          creation_title: Elección creada
+          description: Este es el registro de la elección, donde puedes comprobar el estado de cada paso, por ejemplo, cuándo se ha creado, si se ha completado el proceso de recuento y cuándo se ha cerrado la elección.
+          download: Descargar
+          key_ceremony_description:
+            complete: La ceremonia de claves se ha completado. Cada garante tiene claves válidas y ha descargado las claves de copia de seguridad necesarias.
+            not_started: La ceremonia de claves aún no ha comenzado.
+            started: La ceremonia de claves ha comenzado, pero aún no ha terminado.
+          key_ceremony_title: Ceremonia de claves
+          not_available: No disponible todavía
+          not_created: No creado
+          not_published: No publicado
+          not_ready: No está listo
+          not_started: No iniciado
+          published: Publicado
+          results_description:
+            not_published: Los resultados aún no se han publicado.
+            published: Los resultados se han publicado.
+          results_title: Resultados
+          started: Iniciado
+          tally_description:
+            finished: El proceso de recuento ha terminado.
+            not_started: El proceso de recuento aún no ha comenzado.
+            started: El proceso de recuento ha comenzado.
+          tally_title: Proceso de recuento
+          title: Registro de la elección
+          verifiable_results:
+            checksum: 'Suma de comprobación SHA256 del archivo:'
+            description:
+              not_ready: El archivo verificable de la elección y la suma de comprobación SHA256 aún no están disponibles. En cuanto se publiquen los resultados, podrás verificar esta elección.
+              ready: 'Aquí tienes la opción de verificar la elección. En primer lugar, tienes que descargar el archivo y asegurarte de que no se ha corrompido. Para ello, ejecuta el siguiente comando y comprueba que la salida coincide con la suma de comprobación:'
+            how_to_verify: 'Una vez que hayas descargado el archivo y te hayas asegurado de que está bien, puedes proceder a ejecutar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> y, desde la carpeta raíz, ejecuta el siguiente comando:'
+            title: Verificar resultados de la elección
+            verifiable_file: 'Archivo verificacle de la elección:'
+          verify: Verificar elección
+          vote_description:
+            finished: El proceso de votación ha concluido.
+            not_started: El proceso de votación aún no ha comenzado.
+            started: El proceso de votación ha comenzado.
+          vote_title: Proceso de votación
         filters:
           active: Activas
           all: Todas
@@ -366,6 +411,7 @@ es:
           title: Preguntas de la elección
         results:
           description: 'Estos son los resultados de la votación, para cada pregunta:'
+          percentage: "%{count}%"
           selected: Seleccionado
           title: Resultados de la elección
           votes:
@@ -381,6 +427,7 @@ es:
             already_voted: Ya has votado en esta elección. Puedes cambiar tu voto o verificarlo.
             pending_vote: Se está emitiendo tu voto en el servidor.
             vote_rejected: No ha sido posible verificar tu voto. Por favor, hazlo de nuevo.
+          election_log: Registro de la elección
           preview: Previsualizar
           verify:
             already_voted: '¿Ya has votado?'
@@ -528,10 +575,10 @@ es:
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Emitir papeleta
           description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de su papeleta la estropeará, lo que significa, que para emitir tu voto tendrás que reiniciar el proceso de votación.
-          header: 'La papeleta está cifrada: envíala o audítala'
+          header: 'La papeleta se ha cifrado: envíala o audítala'
         casting:
           header: Se está emitiendo el voto...
-          text: La papeleta se está emitiendo en la urna.
+          text: Tu papeleta se está depositando en la urna.
         confirm:
           answer: Respuesta
           answer_number: respuesta %{number}
@@ -546,12 +593,12 @@ es:
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
-          lead: El voto ha sido emitido!
+          lead: '¡Tu voto se ha emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
         encrypting:
           header: Se está cifrando el voto...
-          text: Se está cifrando la papeleta para garantizar el secreto de voto.
+          text: Se está cifrando tu papeleta para garantizar el secreto de voto.
         failed:
           header: Voto fallido
           lead: '¡Tu voto no ha sido emitido!'
@@ -565,7 +612,7 @@ es:
           encrypting: Cifrando el voto
           failed: Voto fallido
         messages:
-          invalid_token: La sesión del puesto de votación no es válida. Intenta votar de nuevo.
+          invalid_token: Tu sesión en la cabina de votación no es válida. Intenta votar de nuevo.
           not_allowed: En este momento no puedes votar en esta votación.
         modal:
           close: Cerrar
@@ -640,7 +687,7 @@ es:
             notification_title: Eres %{role} del punto de votación %{polling_station_name} en la votación <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
           instruction: 'Ya tienes el código de acceso que has pedido: %{access_code}. Con esto ya podrás participar en %{voting}.'
-          subject: El código de acceso para participar en %{voting}
+          subject: Tu código de acceso para participar en %{voting}
     help:
       participatory_spaces:
         votings:
@@ -662,21 +709,29 @@ es:
             invalid: Ha habido un problema al suprimir el estilo de papeleta
             success: Se ha eliminado correctamente el estilo de papeleta
           edit:
-            title: Edita estilo de papeleta
+            title: Editar el estilo de papeleta
             update: Actualizar
           form:
-            code_help: 'Sugerencia: el código es el vínculo entre el censo y el estilo de papeleta. Al actualizar los datos del censo, a cada entrada se le asigna un estilo de papeleta que coincida con el código'
+            code_help: 'Pista: el código es el vínculo entre el censo y el estilo de papeleta. Al actualizar los datos del censo, a cada entrada se le asigna un estilo de papeleta que coincida con el código'
             election: Elección
-            questions: Preguntas para el estilo de votación
-            questions_help: 'Sugerencia: seleccione las preguntas de los componentes electorales, para este estilo de papeleta, que se presentarán a los votantes asignados a este estilo de votación'
+            questions: Preguntas para el estilo de papeleta
+            questions_help: 'Pista: selecciona las preguntas del compoente de Elecciones para este estilo de papeleta, que se presentará a los votantes asignados a esta'
           index:
             actions:
               confirm_destroy: '¿Estás segura?'
-              destroy: Elimina
+              destroy: Eliminar
               edit: Editar
               new: Nueva
               title: Acciones
             associated_census_data: Entradas asociadas al censo
+            explanation_callout: Un estilo de papeleta especifica qué preguntas se presentarán al votante en la cabina. En un estilo de papeleta, puedes elegir qué preguntas del componente de elecciones pertenecen a esa papeleta. El código de estilo de la papeleta se utiliza para hacer coincidir a un votante del censo con la papeleta que se presentará en la cabina. No crees ningún estilo de papeleta si quieres mostrar siempre todas las preguntas.
+            title: Estilos de papeleta
+          new:
+            create: Crear
+            title: Crear estilo de papeleta
+          update:
+            invalid: Ha habido un problema al crear el estilo de papeleta
+            success: Se ha creado correctamente el estilo de papeleta
         content_blocks:
           highlighted_votings:
             max_results: Cantidad máxima de elementos a mostrar
@@ -719,13 +774,21 @@ es:
             attachment_collections: Carpetas
             attachment_files: Archivos
             attachments: Archivos adjuntos
+            ballot_styles: Estilos de papeleta
+            census: Censo
             components: Componentes
             info: Información
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
+            monitoring_committee_certificates: Validar certificados
+            monitoring_committee_members: Miembros
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
         models:
+          ballot_style:
+            fields:
+              code: Código
+            name: Estilo de papeleta
           monitoring_committee_member:
             fields:
               email: Correo electrónico
@@ -750,6 +813,9 @@ es:
               promoted: Destacada
               published: Publicada
               title: Título
+        monitoring_committee_certificates:
+          index:
+            title: Puntos de votación
         monitoring_committee_members:
           create:
             invalid: Hubo un problema al crear este miembro del comité de seguimiento
@@ -833,6 +899,7 @@ es:
             assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
             update: Actualizar
           form:
+            census_contact_information_help: Esta información de contacto es para una participante que quiere reportar problemas con el censo. Puede ser una dirección de correo electrónico, un formulario de contacto en otro sitio, una encuesta de Decidim para visitantes, etc.
             select_a_voting_type: Por favor, selecciona un tipo de votación
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
@@ -858,23 +925,66 @@ es:
       census:
         admin:
           census:
+            create:
+              invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
+              invalid_csv_header: La cabecera CSV no tiene el número correcto de campos - por favor lee las instrucciones cuidadosamente
+            creating_data:
+              info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
+            delete:
+              button: Borrar todos los datos del censo
+              confirm: La eliminación de todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
+            destroy:
+              error: Se ha producido un error al eliminar el censo, por favor inténtalo de nuevo más tarde.
+              success: Datos del censo eliminados
             export_access_codes:
-              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirá un correo en %{email}
+              button: Exportar códigos de acceso de la votación
+              callout: Ahora puedes exportar los códigos de acceso. Esto sólo se puede hacer una vez. Una vez que inicies la exportación, recibirás un correo electrónico con las instrucciones en <strong>%{email}</strong>
+              confirm: Solo puedes exportar los códigos de acceso una vez. Asegúrate de tener acceso a la cuenta de correo electrónico <strong>%{email}</strong>.
+              file_not_exists: Este archivo no existe
+              launch_error: Problema al iniciar la exportación de códigos de acceso
+              launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
             exporting_access_codes:
-              info_message: "<strong>Por favor, espere</strong> que la exportación esté preparada. La recibirá en breve en %{email}"
+              info_message: "<strong>Por favor, espera</strong>, se está preparando la exportación. La recibirás en breve en %{email}"
             freeze:
               callout: El censo está cerrado y no se puede modificar.
             generate_access_codes:
-              button: Generar Códigos de Acceso de la votación
-              callout: Ahora puede generar los códigos de acceso. Tenga en cuenta que después de generarlos ya no podrá modificar más el censo.
-              confirm: Si continúa, ya no podrá modificar el censo.
+              button: Generar códigos de acceso de la votación
+              callout: Ahora puedes generar los códigos de acceso. Ten en cuenta que después de generarlos ya no podrás modificar más el censo.
+              confirm: Si continúas, ya no podrás modificar el censo.
               info_message_all: "<strong>Se han importado las filas correctamente</strong> del fichero %{file} (%{raw_count} de %{data_count})."
               info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
               launch_error: Ha habido un problema al generar los códigos de acceso
               launch_success: Se ha iniciado la generación de códigos.
+            generating_access_codes:
+              info_message: "<strong>Por favor espera</strong>, se están generando los códigos de acceso a la votación..."
+            new:
+              file_help:
+                explanation: 'Instrucciones para el archivo:'
+                message_1: Sólo se permiten archivos CSV (.csv).
+                message_2: El separador entre columnas debe ser un punto y coma (";").
+              has_ballot_styles_message: Has configurado los estilos de papeleta. Por favor, asegúrate de que el campo "%{ballot_style_code_header}" en el CSV corresponde al código de estilo de papeleta deseado.
+              info_message: "<strong>Aún no hay ningún censo.</strong> Por favor, utiliza el siguiente formulario para crearlo importando un archivo CSV."
+              missing_ballot_styles_message: 'No hay ningún estilo de papeleta para esta votación todavía. Si quieres tener preguntas condicionales (presentar al votante diferentes preguntas dependiendo de, p.ej. el distrito/región de residencia), debes configurar los <a href=%{ballot_styles_admin_path}>estilos de papeleta</a> <strong>antes de</strong> importar el censo. Si quieres presentar a todos los votantes las mismas preguntas, puedes continuar con el procedimiento de importación del censo.'
+              submit: Enviar csv
+              title: Crear el censo
+            show:
+              heading: Censo del espacio de votación
+            upload_info:
+              csv_example_with_ballot_style: 'Un ejemplo del archivo <strong>con</strong> estilos de papeleta:'
+              csv_example_without_ballot_style: 'Un ejemplo del archivo <strong>sin</strong> estilos de papeleta:'
+              csv_header_after: No incluyas el último campo ("%{ballot_style_code_header}") si no necesitas preguntas condicionales/estilos de papeleta
+              csv_header_before: 'El censo debe ser un archivo CSV con la siguiente cabecera:'
+        document_types:
+          dni: DNI
+          nie: NIE
+          passport: Pasaporte
         export_mailer:
           access_codes_export:
+            click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
             download: Descargar
+            subject: La exportación de los códigos de acceso de votación para %{voting_title} está disponible
+        vote_flow:
+          datum_not_found: Los datos introducidos no coinciden con ningún votante.
       content_blocks:
         highlighted_votings:
           name: Votaciones destacadas
@@ -902,23 +1012,89 @@ es:
             see_all_votings: Ver todas las votaciones
             votings_button_title: Enlace a la página de Votaciones que las muestra todas
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Volver a los puntos de votación
+          create:
+            error: Se ha producido un error al crear el cierre, por favor inténtalo de nuevo más tarde.
+            success: Cierre creado correctamente.
+          edit:
+            heading: Recuento de votos - recuento de respuestas
+            info_text: Por favor, introduce el número total de respuestas para cada pregunta.
+            modal_ballots_results_count_error:
+              close_modal: Cerrar
+              info_text: El número total de papeletas no coincide con el número total de sobres. Por favor, revisa el total de papeletas.
+              title: El total de papeletas no coincide
+            save_recount: Guardar recuento
+            total_ballots: Total de papeletas
+            total_blank_ballots: Total de papeletas en blanco
+            total_null_ballots: Total de papeletas nulas
+            total_valid_ballots: Total de papeletas válidas
+          new:
+            election: 'Elección:'
+            heading: Recuento de votos
+            info_text: 'Por favor, introduce el número total de papeletas (sobres) recontadas en este punto de votación:'
+            modal_ballots_count_error:
+              btn_validate_total: Validar recuento total de papeletas
+              close_modal: Cerrar
+              info_explanation_text: 'Por favor, revisa el número total de papeletas. Si el número total es correcto, debes proporcionar una explicación para el Comité de Seguimiento:'
+              info_text: El número total de papeletas (sobres) introducidas no coincide con el registro de personas que han votado en este punto de votación.
+              message_for_monitoring_committee: Mensaje para el Comité de Seguimiento
+              review_recount: Revisar el recuento
+              text_area_placeholder: Por favor, escribe tu mensaje
+              title: El total de registros no coincide
+              total_ballots: 'Total de papeletas:'
+              total_people: 'Total de personas:'
+            polling_station: 'Punto de votación:'
+            submit: Verificar número total
+            total_ballots_count: Número de papeletas
+          update:
+            error: Se ha producido un error al actualizar los resultados del cierre. Inténtalo de nuevo más tarde.
+            success: Resultados de cierre actualizados correctamente.
         menu:
           polling_officer_zone: Zona del gestor de mesa
         polling_officers:
-          show:
-            actions:
-              count_votes: Contar los votos en las urnas
-              identify_person: Identificar y verificar a una persona
+          index:
             polling_officer_role_description: Has sido asignado para actuar como gestor de mesa (Presidente o Administrador) en algunas de las elecciones celebradas en esta plataforma.
-            polling_stations:
-              list:
-                actions: Acciones
-                address: Dirección
-                name: Nombre
-                role: Tu rol
-                voting: Votación
+            polling_station:
+              address: Dirección
+              count_votes: Contar votos
+              election: Elección
+              identify_person: Identificar a una persona
+              name: Nombre
               no_polling_stations: Todavía no estás asignado a ningún punto de votación.
+              role: Tu rol
+              show_closure: Ver cierre
               title: Puntos de votación
+              voting: Votación
+        votes:
+          create:
+            success: Voto presencial emitido con éxito
+          in_person_fields:
+            date_of_birth: Fecha de nacimiento
+            day: Día
+            day_placeholder: DD
+            document_number: Número de documento
+            document_number_placeholder: Número de ID
+            month: Mes
+            month_placeholder: MM
+            name: Nombre
+            select: Selecciona el tipo de documento
+            voted: La participante ha votado
+            year: Año
+            year_placeholder: AAAA
+          new:
+            back: Volver a los puntos de votación
+            census_not_present: Esta participante no aparece en el censo.
+            census_not_present_description: Debe acudir a la oficina de reclamaciones del censo o al servicio de asistencia técnica.
+            census_present: Esta participante aparece en el censo.
+            census_verified: La participante aún no ha votado.
+            complete_voting: Completar votación
+            form_title: 'Selecciona el tipo de documento e introduce el número de documento de la participante:'
+            questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
+            title: Identificar y verificar a una participante
+            validate_document: Validar documento
+            verify_document: Verificar documento
+            verify_title: 'Comprueba que los siguientes datos son correctos:'
       polling_officers:
         actions:
           confirm_destroy: '¿Estás segura?'
@@ -937,10 +1113,48 @@ es:
           new: Nuevo
           title: Acciones
       votings:
+        access_code_modal:
+          email: Enviar por correo electrónico a %{email}
+          info: Necesitas un código de acceso para participar. Si no recibiste uno por correo postal, podemos enviarte uno nuevo.
+          no_email: Correo no disponible
+          no_sms: Número de teléfono no disponible
+          sms: Enviar por SMS a %{sms}
+          title: Obtener código de acceso
+        check_census:
+          check_status: Comprobar estado
+          description: Aquí, tienes la opción de comprobar tus datos del censo para saber si tienes derecho a participar en esta votación. Deberías tener ya un código de acceso, pero si lo has perdido, puedes solicitarlo de nuevo, si tus datos son correctos.
+          error:
+            info: 'Por favor, inténtalo de nuevo. Si crees que los datos del sistema son incorrectos, puedes reportarlo aquí: %{census_contact_information}.'
+            title: '¡Tus datos del censo son incorrectos!'
+          form_title: 'Rellena el siguiente formulario para comprobar tus datos del censo:'
+          invalid: Hubo un problema al comprobar el censo.
+          success:
+            access_link: vía SMS o correo electrónico.
+            info: Deberías haber recibido tu código de acceso por correo postal ya. En caso de que no lo tengas, puedes solicitarlo aquí
+            title: '¡Tus datos del censo son correctos!'
+          title: '¿Puedo votar?'
+        check_fields:
+          date_of_birth: Fecha de nacimiento
+          day: Día
+          day_placeholder: DD
+          document_number: Número de documento
+          document_number_placeholder: Número de ID
+          month: Mes
+          month_placeholder: MM
+          postal_code: Código postal
+          postal_code_placeholder: Número de código postal
+          select: Selecciona el tipo de documento
+          year: Año
+          year_placeholder: AAAA
         count:
           title:
             one: "%{count} votación"
             other: "%{count} votaciones"
+        elections_log:
+          bb_status: Estado de la elección
+          description: El registro de la elección te mostrará toda la información relevante sobre cada votación. Por ejemplo, el estado de la ceremonia de claves o el recuento o si los resultados ya están publicados. Haz clic en la elección sobre la cual quieres la información del registro.
+          election_log: Registro de la elección
+          title: Registro de la elección
         filters:
           active: Activas
           all: Todas
@@ -958,12 +1172,22 @@ es:
           only_finished: Actualmente no hay votaciones programadas, pero aquí puedes encontrar las votaciones terminadas en la lista.
           title: Votaciones
         login:
+          access_code: Código de acceso
+          access_code_placeholder: Código de acceso
+          ask_for_a_new_one: Solicitar uno nuevo.
+          dont_have_access_code: '¿No tienes un código de acceso?'
+          form_title: 'Rellena el siguiente formulario para acceder a la votación:'
           start_voting: Empezar a votar
+          step: Identificación
+          title: Identificarme con mis datos del censo
         no_census_contact_information: Aún no hay información de contacto
         orders:
           label: 'Ordenar votaciones por:'
           random: Aleatorio
           recent: Más recientes
+        send_access_code:
+          invalid: Hubo un problema al enviar el código de acceso
+          success: Tu código de acceso se ha enviado correctamente
         show:
           dates: Fechas
       votings_m:
@@ -986,6 +1210,8 @@ es:
       election_votes_header:
         exit: Salir
       voting_navigation:
+        check_census: '¿Puedo votar?'
+        election_log: Registro de la elección
         voting_menu_item: La votación
       votings:
         index:

@@ -3,7 +3,7 @@ ca:
     attributes:
       conference:
         assemblies_ids: Assemblees relacionades
-        available_slots: Llocs lliures
+        available_slots: Places disponibles
         banner_image: Imatge de banner
         consultations_ids: Consultes relacionades
         copy_categories: Copiar categories
@@ -14,7 +14,7 @@ ca:
         end_date: Data de fi
         hashtag: Hashtag
         hero_image: Imatge de la pàgina d'inici
-        location: Situació
+        location: Ubicació
         main_logo: Logo principal
         objectives: Objectius
         participatory_processes_ids: Processos participatius relacionats
@@ -55,13 +55,13 @@ ca:
         title: Títol
         weight: Pes
       conference_speaker:
-        affiliation: Membre
+        affiliation: Afiliació
         avatar: Imatge de perfil
         conference_meeting_ids: Trobades relacionades
         full_name: Nom complet
         personal_url: URL personal
         position: Càrrec
-        short_bio: Resum biogràfic
+        short_bio: Bio curta
         twitter_handle: Compte de Twitter
         user_id: Usuària
       conference_user_role:
@@ -501,6 +501,7 @@ ca:
         home:
           highlighted_conferences:
             active_conferences: Jornades actives
+            conferences_button_title: Enllaç a la pàgina de Conferències mostrant totes les conferències
             see_all_conferences: Veure totes les jornades
       photo:
         image:

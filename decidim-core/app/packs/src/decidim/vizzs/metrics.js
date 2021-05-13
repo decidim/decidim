@@ -1,6 +1,6 @@
 /* eslint-disable require-jsdoc, no-console */
 
-import areachart from "./areachart"
+import areachart from "src/decidim/vizzs/areachart"
 
 $(() => {
 

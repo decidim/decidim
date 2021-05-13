@@ -1,1 +1,1 @@
-import "../src/decidim/elections/voter/casting-vote";
+import "src/decidim/elections/voter/casting-vote";

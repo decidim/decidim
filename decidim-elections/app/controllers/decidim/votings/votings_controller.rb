@@ -24,6 +24,7 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceHelper
+      helper Decidim::Admin::IconLinkHelper
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_votings.none?
@@ -38,7 +39,7 @@ module Decidim
         enforce_permission_to :read, :voting, voting: current_participatory_space
       end
 
-      helper_method :election, :exit_path
+      helper_method :election, :exit_path, :election_log_path, :elections
 
       def login
         @form = form(Census::LoginForm).from_params(params, election: election)
@@ -87,6 +88,10 @@ module Decidim
         render action: :check_census, locals: { success: true, not_found: false, datum: datum }
       end
 
+      def elections_log
+        redirect_to election_log_path(elections.first) if elections.length == 1
+      end
+
       private
 
       def datum
@@ -97,8 +102,16 @@ module Decidim
         @election ||= Decidim::Elections::Election.find(params[:election_id])
       end
 
+      def elections
+        Decidim::Elections::Election.where(component: current_participatory_space.components).where.not(bb_status: nil)
+      end
+
       def exit_path
         EngineRouter.main_proxy(election.component).election_path(election)
+      end
+
+      def election_log_path(election)
+        EngineRouter.main_proxy(election.component).election_log_election_path(election)
       end
 
       def census_contact_information

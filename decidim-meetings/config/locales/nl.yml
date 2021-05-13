@@ -444,8 +444,10 @@ nl:
           contributions: Aantal bijdragen
           date: 'Datum:'
           edit_meeting: Bewerk vergadering
-          going: Gaat
+          going: Je hebt je ingeschreven voor deze vergadering
           join: Deelnemen aan bijeenkomst
+          leave: Inschrijving annuleren
+          leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
           meeting_report: Bijeenkomst verslag
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
