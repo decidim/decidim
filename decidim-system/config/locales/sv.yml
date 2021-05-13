@@ -105,6 +105,9 @@ sv:
           success: Organisationen har skapats.
         edit:
           secondary_hosts_hint: Ange var och en av dem på en ny rad
+        file_upload_settings:
+          file_sizes:
+            title: Max filstorlekar
         index:
           title: Organisationer
         new:

@@ -298,6 +298,7 @@ ignore_unused:
   - decidim.votings.admin_log.*
   - decidim.votings.admin.content_blocks.landing_page.*
   - decidim.votings.census.admin.census.new.file_help.*
+  - decidim.votings.census.document_types.*
   - decidim.devise.sessions.user.timed_out
   - decidim.admin.forms.file_help.import.*
   - decidim.admin.menu.questions_submenu.attachments

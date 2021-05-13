@@ -22,6 +22,12 @@ pt:
         slogan: Slogan
         slug: Campo de dados dinâmicos de URL
         title: Título
+      conference_media_link:
+        weight: Peso
+      conference_partner:
+        weight: Peso
+      conference_registration_type:
+        weight: Peso
       conference_speaker:
         full_name: Nome completo
       conference_user_role:

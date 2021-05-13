@@ -38,7 +38,9 @@ pt:
               invalid_document_type: 'Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Precisa ser recolocado
+            add_photos:
               needs_to_be_reattached: Precisa ser recolocado
             body:
               identical: E o título não pode ser idêntico

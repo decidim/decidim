@@ -502,6 +502,7 @@ en:
         home:
           highlighted_conferences:
             active_conferences: Active conferences
+            conferences_button_title: Link to the Conferences page displaying all the conferences
             see_all_conferences: See all conferences
       photo:
         image:

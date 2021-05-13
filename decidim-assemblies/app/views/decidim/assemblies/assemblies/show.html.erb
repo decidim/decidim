@@ -21,6 +21,8 @@ edit_link(
              locals: { text: t("private_space", scope: "decidim.assemblies.show") } %>
 <% end %>
 
+<%= cell("decidim/announcement", current_participatory_space.announcement) %>
+
 <div class="row column">
   <% if current_participatory_space.parent.present? %>
     <div class="row">
@@ -87,7 +89,7 @@ edit_link(
         <section id="assemblies-grid" class="section row collapse">
           <h3 class="section-heading"><%= t("children", scope: "decidim.assemblies.show") %></h3>
           <div class="row small-up-1 medium-up-2 large-up-2 card-grid">
-            <%= render partial: "decidim/assemblies/assembly", collection: current_participatory_space.children.visible_for(current_user).published %>
+            <%= render partial: "decidim/assemblies/assembly", collection: current_participatory_space.children.visible_for(current_user).published.order(weight: :asc) %>
           </div>
         </section>
       <% end %>
@@ -218,4 +220,4 @@ edit_link(
   <% end %>
 </div>
 
-<%= javascript_include_tag "decidim/assemblies/assemblies" %>
+<%= javascript_pack_tag "decidim_assemblies" %>

@@ -5,6 +5,8 @@ ro:
         delete_reason: Motivul pentru a-ți șterge contul
       common:
         created_at: Creat la
+      conversation:
+        body: Conținut
       group:
         about: Despre
         avatar: Avatar
@@ -13,6 +15,8 @@ ro:
         name: Nume
         nickname: Porecla
         phone: Telefon
+      message:
+        body: Conținut
       report:
         details: Observaţii suplimentare
       user:
@@ -1272,6 +1276,10 @@ ro:
         title: Selectaţi numărul de rezultate pe pagină
       share_modal:
         close_window: Închide fereastra
+        copy_share_link: Copiază
+        copy_share_link_clarification: Copiază link-ul de partajare în clipboard
+        copy_share_link_copied: Copiat!
+        copy_share_link_message: Link-ul a fost copiat cu succes în clipboard.
         share: Distribuie
         share_link: Distribuie link-ul
     statistics:
@@ -1524,11 +1532,6 @@ ro:
       too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
-    length_validator:
-      minimum:
-        one: cel puțin %{count} caracter
-        few: cel puțin %{count} caractere
-        other: cel puțin %{count} caractere
     required: Necesar
     required_explanation: "* Câmpurile obligatorii sunt marcate cu un asterisc"
   invisible_captcha:

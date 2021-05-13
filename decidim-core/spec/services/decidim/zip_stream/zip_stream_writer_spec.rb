@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/zip_stream/zip_stream_writer"
 
 module Decidim
   module ZipStream

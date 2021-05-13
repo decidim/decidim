@@ -327,6 +327,7 @@ gl:
             space_type: Espazo participativo
             upcoming: Próximos
       last_activity:
+        meeting_updated_at_html: "<span>Xuntanza actualizada en %{link}</span>"
         new_meeting_at_html: "<span>Nova reunión en %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -359,7 +360,6 @@ gl:
         show:
           attendees: Os asistentes contan
           contributions: Contribucións contar
-          going: Indo
           join: Únete a reunión
           meeting_report: Informe de reunión
           no_slots_available: Non hai slots dispoñibles
@@ -430,6 +430,8 @@ gl:
       proposals_from_meeting:
         meeting_proposal: 'Propostas relacionadas:'
         proposal_meeting: 'Reunións relacionadas:'
+    statistics:
+      meetings_count: Xuntanzas
   devise:
     mailer:
       join_meeting:

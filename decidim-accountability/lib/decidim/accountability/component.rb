@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/components/namer"
+require "decidim/components/namer"
 
 Decidim.register_component(:accountability) do |component|
   component.engine = Decidim::Accountability::Engine
   component.admin_engine = Decidim::Accountability::AdminEngine
-  component.icon = "decidim/accountability/icon.svg"
+  component.icon = "media/images/decidim_accountability.svg"
   component.stylesheet = "decidim/accountability/accountability"
   component.permissions_class_name = "Decidim::Accountability::Permissions"
   component.query_type = "Decidim::Accountability::AccountabilityType"

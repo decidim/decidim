@@ -355,7 +355,6 @@ eu:
         show:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
-          going: Ari da
           join: Izena eman topaketan
           meeting_report: Topaketaren txostena
           no_slots_available: Ez dago leku librerik

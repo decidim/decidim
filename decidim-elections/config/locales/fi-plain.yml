@@ -58,6 +58,12 @@ fi-pl:
       decidim/elections/question:
         one: Kysymys
         other: Kysymykset
+      decidim/votings/census/dataset:
+        one: Tietoaineisto
+        other: Tietoaineistot
+      decidim/votings/census/datum:
+        one: Tieto
+        other: Tiedot
       decidim/votings/polling_officer:
         one: Äänestysvirkailija
         other: Äänestysvirkailijat
@@ -166,6 +172,8 @@ fi-pl:
         exports:
           elections: Vaalit
           feedback_form_answers: Palautelomakkeen vastaukset
+        menu:
+          trustees: Luottamushenkilöt
         models:
           answer:
             name: Vastaus
@@ -312,6 +320,7 @@ fi-pl:
         election:
           end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} äänestystaululla"
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
+          publish_results: "%{user_name} julkaisi vaalien %{resource_name} tulokset sähköisessä ääniuurnassa"
           setup: "%{user_name} loi vaalin %{resource_name} äänestystaululle"
           start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} äänestystaululla"
           start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} äänestystaululla"
@@ -339,6 +348,51 @@ fi-pl:
           elections_count:
             one: "%{count} vaali"
             other: "%{count} vaalia"
+        election_log:
+          chained_hash: Tämän viestin ketjutettu tiiviste
+          complete: Viimeistele
+          creation_description:
+            complete: Vaali luotiin ja perustettiin onnistuneesti sähköiseen ääniuurnaan.
+            not_created: Vaalia ei ole vielä luotu.
+          creation_title: Vaali luotu
+          description: Tämä on vaalin loki, josta voit tarkastaa jokaisen vaiheen tilan, esimerkiksi milloin vaali luotiin, onko ääntenlasku suoritettu ja milloin vaali suljettiin.
+          download: Lataa
+          key_ceremony_description:
+            complete: Avainseremonia on onnistunut. Jokaisella luottamushenkilöllä on kelvolliset avaimet ja he ovat ladanneet tarvittavat avainten varmuuskopiot.
+            not_started: Avainseremonia ei ole vielä alkanut.
+            started: Avainseremonia on alkanut, mutta se ei ole vielä päättynyt.
+          key_ceremony_title: Avainseremonia
+          not_available: Ei vielä saatavilla
+          not_created: Ei luotu
+          not_published: Ei julkaistu
+          not_ready: Ei valmis
+          not_started: Ei aloitettu
+          published: Julkaistu
+          results_description:
+            not_published: Tuloksia ei ole vielä julkaistu.
+            published: Tulokset on julkaistu.
+          results_title: Tulokset
+          started: Aloitettu
+          tally_description:
+            finished: Ääntenlasku on suoritettu.
+            not_started: Ääntenlasku ei ole vielä alkanut.
+            started: Ääntenlasku on alkanut.
+          tally_title: Ääntenlasku
+          title: Vaalin loki
+          verifiable_results:
+            checksum: 'Tiedoston SHA256 tarkistussumma:'
+            description:
+              not_ready: Vahvistettava vaalin tiedosto ja SHA256-tarkistesumma eivät ole vielä käytettävissä. Heti kun tulokset julkistetaan, voit tarkistaa nämä vaalit.
+              ready: 'Täällä voit vahvistaa vaalin. Ensin sinun täytyy ladata tiedosto ja tarkastaa, että se ei ole korruptoitunut. Tarkastaaksesi tiedoston, aja seuraava komento ja tarkasta, että komennon näyttämä lopputulos vastaa tarkistussummaa:'
+            how_to_verify: 'Kun olet ladannut tiedoston ja tarkastanut sen olevan eheä, voit ajaa yleisen tarkastuksen. Kloonaa <a href=''https://github.com/decidim/decidim-bulletin-board''>tämä repositorio</a> ja aja seuraava komento sen juurihakemistossa:'
+            title: Vahvista vaalin tulokset
+            verifiable_file: 'Vaalin tarkastettava tiedosto:'
+          verify: Vahvista vaali
+          vote_description:
+            finished: Äänestys on päättynyt.
+            not_started: Äänestys ei ole vielä alkanut.
+            started: Äänestys on alkanut.
+          vote_title: Äänestysprosessi
         filters:
           active: Aktiiviset
           all: Kaikki
@@ -357,6 +411,7 @@ fi-pl:
           title: Vaaliin liittyvät kysymykset
         results:
           description: 'Tässä on äänestyksen tulokset kaikille kysymyksille:'
+          percentage: "%{count}%"
           selected: Valittu
           title: Vaalin tulokset
           votes:
@@ -370,7 +425,9 @@ fi-pl:
           back: Käynnissä olevat vaalit
           callout:
             already_voted: Olet jo äänestänyt näissä vaaleissa. Voit muuttaa ääntäsi tai tarkastaa sen.
+            pending_vote: Ääntäsi kirjataan palvelimelle.
             vote_rejected: Ääntäsi ei voida tarkastaa. Ole hyvä ja lähetä äänesi uudestaan.
+          election_log: Vaalin loki
           preview: Esikatsele
           verify:
             already_voted: Oletko jo äänestänyt?
@@ -515,9 +572,13 @@ fi-pl:
         ballot_decision:
           audit: "( Tarkasta äänesi )"
           back: Aloita äänestysprosessi uudestaan
+          ballot_hash: 'Äänestyslippusi tunniste on:'
           cast: Lähetä äänesi
           description: Tässä näkymässä voit tarkastaa, että äänesi on laskettu oikein tai että äänesi salaaminen onnistui. Turvallisuussyistä äänesi tarkastaminen kumoaa aikaisemman äänesi. Tämä tarkoittaa, että jättääksesi äänesi, sinun tulee käynnistää äänestysprosessi uudestaan.
           header: 'Äänesi on salattu: lähetä tai tarkasta se'
+        casting:
+          header: Kirjataan ääntä...
+          text: Ääntäsi lähetetään sähköiseen ääniuurnaan.
         confirm:
           answer: Vastaa
           answer_number: 'vastaus #%{number}'
@@ -529,26 +590,29 @@ fi-pl:
           question: Kysymys %{count}
         confirmed:
           back: Takaisin vaaleihin
-          error: Pahoittelut, äänen vahvistaminen epäonnistui. Ole hyvä ja äänestä uudestaan.
           experience: Minkälainen käyttökokemuksesi oli?
           feedback: Jätä meille palautetta
           header: Ääni vahvistettu
-          lead: Olet jo äänestänyt!
+          lead: Äänesi on annettu!
           text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
         encrypting:
-          header: Ääntäsi salataan...
-          text: Äänesi salataan, jotta henkilöllisyyttäsi ei voida selvittää äänesi perusteella.
+          header: Salataan ääntä...
+          text: Äänesi salataan, jotta vaalisalaisuus voidaan taata.
         failed:
           header: Äänestys epäonnistui
           lead: Ääntäsi ei ole annettu!
           text: Jokin meni pieleen, yritä uudelleen.
+          try_again: Yritä uudestaan
         header:
           ballot_decision: Lähetä tai tarkasta äänesi
+          casting: Kirjataan ääntä
           confirm: Vahvista äänesi
           confirmed: Ääni vahvistettu
-          encrypting: Ääntäsi vahvistetaan
+          encrypting: Salataan ääntä
+          failed: Äänestys epäonnistui
         messages:
+          invalid_token: Istuntosi äänestyskopissa ei ole kelvollinen. Yritä äänestää uudelleen.
           not_allowed: Et voi äänestää tässä vaalissa tällä hetkellä.
         modal:
           close: Sulje
@@ -560,9 +624,14 @@ fi-pl:
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
+        onboarding_modal:
+          close: Sulje ikkuna
+          create_account: Luo tili
+          description: Haluatko luoda oman käyttäjätilin alustalle? Sinulla on mahdollisuus osallistua prosesseihin ja olla mukana alustalla esitettyjen asioiden kehittämisessä.
+          no_account: Ei kiitos.
+          title: Oletko uusi käyttäjä tällä alustalla?
         update:
-          error: Äänen tilan päivitys epäonnistui
-          success: Äänen tilan päivitys onnistui
+          error: Äänen tilan päivittäminen epäonnistui valitettavasti. Ole hyvä ja äänestä uudestaan.
         verify:
           content:
             heading: Vahvista äänesi
@@ -616,6 +685,9 @@ fi-pl:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu rooli %{role} äänestyspaikalle %{polling_station_name}.
             email_subject: Roolisi äänestyspaikalla %{polling_station_name} on %{role}.
             notification_title: Roolisi äänestyspaikan %{polling_station_name} äänestyksessä <a href="%{resource_path}">%{resource_title}</a> on %{role}.
+        send_access_code:
+          instruction: 'Tässä on tunnistautumiskoodisi, jota pyysit: %{access_code}. Koodin avulla voit osallistua äänestykseen %{voting}.'
+          subject: Tunnistautumiskoodisi osallistuaksesi äänestykseen %{voting}
     help:
       participatory_spaces:
         votings:
@@ -629,6 +701,37 @@ fi-pl:
       votings_count: Äänestystä
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Äänestystyylin luonti epäonnistui
+            success: Äänestystyylin luonti onnistui
+          destroy:
+            invalid: Äänestystyylin poisto epäonnistui
+            success: Äänestystyylin poisto onnistui
+          edit:
+            title: Muokkaa äänestystyyliä
+            update: Päivitä
+          form:
+            code_help: 'Vihje: koodi yhdistää henkilötietorekisterin äänestystyyliin. Kun henkilötietorekisterin tiedot ladataan järjestelmään, jokaiselle tietueelle luodaan äänestystyyli koodin perusteella'
+            election: Vaali
+            questions: Äänestystyylin kysymykset
+            questions_help: 'Vihje: valitse tähän äänestystyyliin määritetyille äänestäjille kysymykset vaalikomponenteista'
+          index:
+            actions:
+              confirm_destroy: Oletko varma?
+              destroy: Poista
+              edit: Muokkaa
+              new: Uusi
+              title: Toiminnot
+            associated_census_data: Liitetyt henkilötietorekisterin tiedot
+            explanation_callout: Äänestystyyli määrittelee, mitä kysymyksiä äänestäjälle esitetään äänestyskopissa. Voit valita äänestystyylille kysymykset äänestyslappuun tämän äänestyksen vaalikomponenteista. Äänestystyylin koodeja käytetään henkilötietorekisterissä olevien henkilöiden yhdistämiseksi äänestyslappuihin. Älä luo äänestystyylejä, jos haluat esittää kaikki kysymykset kaikille äänestäjille.
+            title: Äänestystyylit
+          new:
+            create: Luo
+            title: Luo äänestystyyli
+          update:
+            invalid: Äänestystyylin päivitys epäonnistui
+            success: Äänestystyylin päivitys onnistui
         content_blocks:
           highlighted_votings:
             max_results: Näytettävien elementtien enimmäismäärä
@@ -671,13 +774,21 @@ fi-pl:
             attachment_collections: Kansiot
             attachment_files: Tiedostot
             attachments: Liitteet
+            ballot_styles: Äänestystyylit
+            census: Henkilötietorekisteri
             components: Komponentit
             info: Tiedot
             landing_page: Laskeutumissivu
-            monitoring_committee_members: Tarkkailukomitea
+            monitoring_committee: Tarkkailukomitea
+            monitoring_committee_certificates: Tarkasta varmenteet
+            monitoring_committee_members: Jäsenet
             polling_officers: Äänestysvirkailijat
             polling_stations: Äänestyspaikat
         models:
+          ballot_style:
+            fields:
+              code: Koodi
+            name: Äänestystyyli
           monitoring_committee_member:
             fields:
               email: Sähköposti
@@ -702,6 +813,9 @@ fi-pl:
               promoted: Korostettu
               published: Julkaistu
               title: Otsikko
+        monitoring_committee_certificates:
+          index:
+            title: Äänestyspaikat
         monitoring_committee_members:
           create:
             invalid: Tarkkailukomitean jäsenen luonti epäonnistui
@@ -785,6 +899,7 @@ fi-pl:
             assign_missing_officers: Joillekin äänestyspaikoille ei ole määrätty esimiehiä ja/tai virkailijoita. Määritä virkailijat Äänestyspaikat-osiosta
             update: Päivitä
           form:
+            census_contact_information_help: Nämä yhteystiedot ovat tarkoitettu osallistujille, jotka haluavat ilmoittaa virheistä henkilötietorekisterissä. Yhteystieto voi olla sähköpostiosoite, yhteydenottolomake toisella sivustolla, avoin kysely Decidimissä, tms.
             select_a_voting_type: Valitse äänestystapa
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
@@ -807,6 +922,69 @@ fi-pl:
           create: "%{user_name} loi äänestyksen %{resource_name}"
           publish: "%{user_name} julkaisi äänestyksen %{resource_name}"
           unpublish: "%{user_name} lopetti äänestyksen %{resource_name} julkaisun"
+      census:
+        admin:
+          census:
+            create:
+              invalid: Henkilötietorekisterin lataaminen epäonnistui, yritä uudestaan myöhemmin.
+              invalid_csv_header: CSV-tiedoston otsakerivillä ei ole oikeaa määrää kenttiä - lue ohjeet huolellisesti
+            creating_data:
+              info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file}."
+            delete:
+              button: Poista kaikki henkilötietorekisterin tiedot
+              confirm: Henkilötietorekisterin tietojen poistoa ei voida peruuttaa. Haluatko varmasti jatkaa?
+            destroy:
+              error: Henkilötietorekisterin poistaminen epäonnistui, yritä uudestaan myöhemmin.
+              success: Henkilötietorekisterin tiedot poistettu
+            export_access_codes:
+              button: Vie äänestyksen tunnistautumiskoodit
+              callout: Voit nyt viedä tunnistautumiskoodit järjestelmästä. Tämä voidaan tehdä vain kerran. Kun aloitat viennin, sinulle lähetetään tarvittavat ohjeet sähköpostiin <strong>%{email}</strong>
+              confirm: Voit viedä tunnistautumiskoodit vain kerran. Varmista, että pääset käsiksi sähköpostitiliin <strong>%{email}</strong>.
+              file_not_exists: Tiedostoa ei ole olemassa
+              launch_error: Tunnistautumiskoodien viennin aloittaminen epäonnistui
+              launch_success: Tunnistautumiskoodien vienti aloitettu. Saat sähköpostia hetken kuluttua sähköpostiosoitteeseen %{email}
+            exporting_access_codes:
+              info_message: "<strong>Odota hetki</strong>, vientiä valmistellaan, saat pian tiedon viennistä sähköpostiosoitteeseen %{email}"
+            freeze:
+              callout: Henkilötietorekisteri on jäädytetty, minkä takia sitä ei voi muokata.
+            generate_access_codes:
+              button: Luo äänestyksen tunnistautumiskoodit
+              callout: Voit nyt jatkaa tunnistautumiskoodien luontiin. Huomioithan, että tunnistautumiskoodien luonnin jälkeen, et voi enää muokata henkilötietorekisteriä.
+              confirm: Jos jatkat, et voi enää muokata henkilötietorekisteriä.
+              info_message_all: "<strong>Tietojen tuonti onnistui</strong> tiedostosta %{file} (yhteensä tuotu %{raw_count} / %{data_count} riviä)."
+              info_message_warn: Tarkasta, että mitään tietoja ei puutu, koska %{data_count} tietuetta luotiin ja ladatussa tiedostossa %{file} on %{raw_count} riviä.
+              launch_error: Tunnistautumiskoodien luonnin aloittaminen epäonnistui
+              launch_success: Koodien luonti aloitettu.
+            generating_access_codes:
+              info_message: "<strong>Odota hetki</strong>, äänestyksen tunnistautumiskoodeja luodaan parhaillaan..."
+            new:
+              file_help:
+                explanation: 'Tiedoston ohjeistus:'
+                message_1: Vain CSV (.csv) tiedostot ovat sallittuja.
+                message_2: Erotin sarakkeiden välillä on oltava puolipiste (";").
+              has_ballot_styles_message: Olet määrittänyt äänestystyylejä. Pidä huolta siitä, että "%{ballot_style_code_header}" -kenttä CSV-tiedostossa vastaa rivin äänestystyylin koodia.
+              info_message: "<strong>Henkilötietorekisteriä ei ole vielä olemassa.</strong> Käytä alla olevaa lomaketta luodaksesi rekisterin tuomalla tiedot CSV-tiedostosta."
+              missing_ballot_styles_message: 'Tälle äänestykselle ei ole määritetty yhtään äänestystyyliä. Jos haluat lisätä ehdollisia kysymyksiä (ts. esittää äänestäjille eri kysymyksiä esimerkiksi riippuen heidän asuinalueestaan), sinun on määritettävä <a href=%{ballot_styles_admin_path}>äänestystyylit</a> <strong>ennen</strong> henkilötietorekisterin lataamista järjestelmään. Jos haluat esittää kaikille äänestäjille samat kysymykset, voit jatkaa henkilötietorekisterin lataamiseen.'
+              submit: Lähetä CSV
+              title: Luo henkilötietorekisteri
+            show:
+              heading: Äänestystilan henkilötietorekisteri
+            upload_info:
+              csv_example_with_ballot_style: 'Esimerkki tiedostosta, jossa <strong>on</strong> äänestystyylejä:'
+              csv_example_without_ballot_style: 'Esimerkki tiedostosta, jossa <strong>ei ole</strong> äänestystyylejä:'
+              csv_header_after: Älä lisää viimeistä saraketta ("%{ballot_style_code_header}"), jos et tarvitse äänestystyylejä tai ehdollisia kysymyksiä
+              csv_header_before: 'Henkilötietorekisterin tiedot tulee antaa CSV-tiedostossa seuraavien otsakekenttien kanssa:'
+        document_types:
+          dni: Henkilöllisyystodistuksen numero
+          nie: Henkilötunnus
+          passport: Passi
+        export_mailer:
+          access_codes_export:
+            click_button: 'Voit ladata tunnistautumiskoodit seuraavan linkin kautta.<br/>Tiedosto on ladattavissa %{date} saakka.<br/>Tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelman</a> (Windowsille), <a href="https://www.keka.io/en/">Keka-ohjelman</a> (macOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelman</a> (Linux-käyttöjärjestelmille) avataksesi tiedoston. Salasana tiedoston avaamista varten: %{password}'
+            download: Lataa
+            subject: Äänestyksen tunnistautumiskoodien vientitiedosto äänestykselle %{voting_title} on nyt ladattavissa
+        vote_flow:
+          datum_not_found: Annetut tiedot eivät vastaa yhtään äänestäjää.
       content_blocks:
         highlighted_votings:
           name: Korostetut äänestykset
@@ -834,23 +1012,89 @@ fi-pl:
             see_all_votings: Näytä kaikki äänestykset
             votings_button_title: Linkki kaikkien äänestysten sivulle
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Takaisin äänestyspaikkoihin
+          create:
+            error: Äänestyksen päättämisen luonti epäonnistui, yritä uudestaan myöhemmin.
+            success: Äänestyksen päättämisen luonti onnistui.
+          edit:
+            heading: Äänten uudelleenlaskenta - Vastausten uudelleenlaskenta
+            info_text: Syötä jokaisen kysymyksen kaikkien vastausten lukumäärä.
+            modal_ballots_results_count_error:
+              close_modal: Sulje
+              info_text: Äänten kokonaismäärä ei vastaa kirjeiden kokonaismäärää. Tarkasta äänten kokonaismäärä.
+              title: Äänten kokonaismäärä ei täsmää
+            save_recount: Tallenna uudelleenlaskenta
+            total_ballots: Äänten kokonaismäärä
+            total_blank_ballots: Tyhjien äänten kokonaismäärä
+            total_null_ballots: Hylättyjen äänten kokonaismäärä
+            total_valid_ballots: Kelvollisten äänten kokonaismäärä
+          new:
+            election: 'Vaali:'
+            heading: Äänten uudelleenlaskenta
+            info_text: 'Syötä tällä äänestyspaikalla uudelleenlaskettavien äänten (kirjeiden) kokonaismäärä:'
+            modal_ballots_count_error:
+              btn_validate_total: Tarkasta äänten uudelleenlaskenta
+              close_modal: Sulje
+              info_explanation_text: 'Tarkasta äänten kokonaismäärä. Jos kokonaismäärä ei ole oikea, sinun on annettava selitys tarkkailukomitealle:'
+              info_text: Syötettyjen äänten (kirjeiden) kokonaismäärä ei täsmää ihmisten määrään, jotka ovat äänestäneet tässä äänestyspaikassa.
+              message_for_monitoring_committee: Viesti tarkkailukomitealle
+              review_recount: Tarkasta uudelleenlaskenta
+              text_area_placeholder: Kirjoita viestisi
+              title: Tietueiden kokonaismäärä ei täsmää
+              total_ballots: 'Äänten kokonaismäärä:'
+              total_people: 'Henkilöt yhteensä:'
+            polling_station: 'Äänestyspaikka:'
+            submit: Vahvista kokonaismäärä
+            total_ballots_count: Äänten kokonaismäärä
+          update:
+            error: Äänestyksen päättämisen tulosten päivittäminen epäonnistui, yritä uudestaan myöhemmin.
+            success: Äänestyksen päättämisne tulosten päivittäminen onnistui.
         menu:
           polling_officer_zone: Äänestysvirkailijoiden alue
         polling_officers:
-          show:
-            actions:
-              count_votes: Laske vaaliuurnan äänet
-              identify_person: Tunnista ja varmenna henkilö
+          index:
             polling_officer_role_description: Sinulle on annettu tehtäväksi toimia äänestyspaikan virkailijana (esimiehenä tai muuna virkailijana) tällä alustalla järjestettävissä vaaleissa.
-            polling_stations:
-              list:
-                actions: Toiminnot
-                address: Osoite
-                name: Nimi
-                role: Roolisi
-                voting: Äänestys
+            polling_station:
+              address: Osoite
+              count_votes: Laske äänet
+              election: Vaali
+              identify_person: Tunnista henkilö
+              name: Nimi
               no_polling_stations: Sinua ei ole vielä liitetty millekään äänestyspaikalle.
+              role: Roolisi
+              show_closure: Näytä äänestyksen päättäminen
               title: Äänestyspaikat
+              voting: Äänestys
+        votes:
+          create:
+            success: Fyysisesti annetun äänen tallennus onnistui
+          in_person_fields:
+            date_of_birth: Syntymäaika
+            day: Päivä
+            day_placeholder: PV
+            document_number: Asiakirjan numero
+            document_number_placeholder: Henkilöllisyystodistuksen numero
+            month: Kuukausi
+            month_placeholder: KK
+            name: Nimi
+            select: Valitse asiakirjan tyyppi
+            voted: Tämä osallistuja on äänestänyt
+            year: Vuosi
+            year_placeholder: VVVV
+          new:
+            back: Takaisin äänestyspaikkoihin
+            census_not_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
+            census_not_present_description: Hänen on mentävä reklamoimaan henkilötietorekisteriä hallinnoivaan toimistoon tai otettava yhteyttä tukeen.
+            census_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
+            census_verified: Tämä osallistuja ei ole vielä äänestänyt.
+            complete_voting: Suorita äänestys
+            form_title: 'Valitse asiakirjan tyyppi ja syötä osallistujan asiakirjan numero:'
+            questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
+            title: Tunnista ja vahvista osallistuja
+            validate_document: Tarkasta asiakirja
+            verify_document: Vahvista asiakirja
+            verify_title: 'Tarkista, että seuraavat tiedot ovat oikein:'
       polling_officers:
         actions:
           confirm_destroy: Oletko varma?
@@ -869,10 +1113,48 @@ fi-pl:
           new: Uusi
           title: Toiminnot
       votings:
+        access_code_modal:
+          email: Lähetä sähköpostitse osoitteeseen %{email}
+          info: Tarvitset tunnistautumiskoodin osallistuaksesi. Jos et saanut sitä paperipostissa, voimme lähettää sinulle uuden koodin.
+          no_email: Sähköpostiosoitetta ei ole käytettävissä
+          no_sms: Puhelinnumeroa ei ole käytettävissä
+          sms: Lähetä tekstiviestinä numeroon %{sms}
+          title: Hanki tunnistautumiskoodi
+        check_census:
+          check_status: Tarkista tila
+          description: Täällä voit tarkastaa omat tietosi henkilötietorekisterissä selvittääksesi, onko sinulla oikeus osallistua tähän äänestykseen. Sinulla pitäisi jo olla tunnistautumiskoodi, mutta jos hävitit sen, voit pyytää sitä uudestaan, jos tietosi on syötetty oikein.
+          error:
+            info: 'Yritä uudestaan. Jos epäilet, että järjestelmässä olevat tiedot eivät pidä paikkaansa, voit ilmoittaa siitä täällä: %{census_contact_information}.'
+            title: Tietosi henkilötietorekisterissä ovat virheellisiä!
+          form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
+          invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
+          success:
+            access_link: tekstiviestitse tai sähköpostitse.
+            info: Sinun olisi pitänyt saada tunnistautumiskoodisi paperipostissa. Jos sinulla ei ole koodia, voit pyytää sitä täältä
+            title: Tietosi henkilötietorekisterissä ovat oikein!
+          title: Voinko äänestää?
+        check_fields:
+          date_of_birth: Syntymäaika
+          day: Päivä
+          day_placeholder: PV
+          document_number: Asiakirjan numero
+          document_number_placeholder: Henkilöllisyystodistuksen numero
+          month: Kuukausi
+          month_placeholder: KK
+          postal_code: Postinumero
+          postal_code_placeholder: Postinumero
+          select: Valitse asiakirjan tyyppi
+          year: Vuosi
+          year_placeholder: VVVV
         count:
           title:
             one: "%{count} äänestys"
             other: "%{count} äänestystä"
+        elections_log:
+          bb_status: Vaalin tila
+          description: Vaalin loki näyttää jokaiseen äänestykseen liittyvän olennaisen tiedon. Esimerkiksi, avainseremonian tai ääntenlaskennan tila sekä tiedon tulosten julkistamisesta. Klikkaa sitä vaalia, jonka lokia haluat tarkastella.
+          election_log: Vaalin loki
+          title: Vaalin loki
         filters:
           active: Aktiiviset
           all: Kaikki
@@ -889,10 +1171,23 @@ fi-pl:
           no_votings: Hakuehdoillasi ei löytynyt yhtään äänestystä.
           only_finished: Tällä hetkellä ei ole yhtään ajastettua äänestystä, mutta täältä näet kaikki päättyneet äänestykset.
           title: Äänestykset
+        login:
+          access_code: Tunnistautumiskoodi
+          access_code_placeholder: Tunnistautumiskoodi
+          ask_for_a_new_one: Pyydä uutta.
+          dont_have_access_code: Eikö sinulla ole tunnistautumiskoodia?
+          form_title: 'Täytä seuraava lomake aloittaaksesi äänestyksen:'
+          start_voting: Aloita äänestys
+          step: Tunnistautuminen
+          title: Tunnistan itseni henkilötietorekisterin tietojen avulla
+        no_census_contact_information: Yhteystietoja ei ole vielä
         orders:
           label: 'Järjestä äänestykset:'
           random: Satunnainen
           recent: Viimeisimmät
+        send_access_code:
+          invalid: Tunnistautumiskoodin lähetys epäonnistui
+          success: Tunnistautumiskoodisi lähetys onnistui
         show:
           dates: Päivämäärät
       votings_m:
@@ -915,6 +1210,8 @@ fi-pl:
       election_votes_header:
         exit: Poistu
       voting_navigation:
+        check_census: Voinko äänestää?
+        election_log: Vaalin loki
         voting_menu_item: Äänestys
       votings:
         index:

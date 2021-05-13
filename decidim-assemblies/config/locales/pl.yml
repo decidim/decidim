@@ -14,8 +14,8 @@ pl:
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_features: Skopiuj funkcje
-        created_by: Stworzono przez
-        created_by_other: Stworzono przez inne
+        created_by: Utworzony przez
+        created_by_other: Utworzony przez inne
         creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
         decidim_assemblies_type_id: Typ zespołu
@@ -195,6 +195,7 @@ pl:
           assembly_members: Członkowie
           attachment_collections: Foldery
           attachment_files: Pliki
+          attachments: Załączniki
           categories: Kategorie
           components: Komponenty
           info: Informacje
@@ -390,11 +391,6 @@ pl:
         designated_on: Wyznaczony na
       index:
         title: Członkowie
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link do strony Konferencji wyświetlającej wszystkie konferencje
     events:
       assemblies:
         create_assembly_member:
@@ -427,17 +423,7 @@ pl:
         description: Liczba utworzonych zespołów
         object: zespoły
         title: Zespoły
-    pages:
-      home:
-        hero:
-          participate_title: Weź udział w procesach udostępnionych na platformie
-        sub_hero:
-          register_title: Zapisz się by utworzyć konto
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link do strony Procesy wyświetlającej wszystkie procesy
       show:
         related_assemblies: Powiązane zespoły
   errors:

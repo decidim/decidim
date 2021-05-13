@@ -22,6 +22,12 @@ fr-CA:
         slogan: Slogan
         slug: Slug URL
         title: Titre
+      conference_media_link:
+        weight: Rang d'affichage
+      conference_partner:
+        weight: Rang d'affichage
+      conference_registration_type:
+        weight: Rang d'affichage
       conference_speaker:
         full_name: Nom complet
       conference_user_role:
@@ -460,6 +466,7 @@ fr-CA:
         home:
           highlighted_conferences:
             active_conferences: Conférences actives
+            conferences_button_title: Lien vers la page des conférences affichant toutes les conférences
             see_all_conferences: Voir toutes les conférences
       photo:
         image:

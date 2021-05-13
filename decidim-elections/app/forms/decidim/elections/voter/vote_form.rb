@@ -9,28 +9,31 @@ module Decidim
 
         attribute :encrypted_data, String
         attribute :encrypted_data_hash, String
+        attribute :voter_id, String
+        attribute :voter_token, String
 
-        validates :encrypted_data, :encrypted_data_hash, :current_user, :election, presence: true
+        validates :encrypted_data, :encrypted_data_hash, :election, presence: true
         validate :hash_is_valid
 
         delegate :id, to: :election, prefix: true
-
-        # Public: computes a unique id for the voter/election pair.
-        def voter_id
-          @voter_id ||= Digest::SHA256.hexdigest([current_user.created_at, current_user.id, election.id, bulletin_board.authority_name.parameterize].join("."))
-        end
 
         # Public: returns the associated election for the vote.
         def election
           @election ||= context.election
         end
 
-        def bulletin_board
-          @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
+        # Public: returns the user for the vote.
+        def user
+          @user ||= context.user
         end
 
-        def current_user
-          @current_user ||= context.current_user
+        # Public: returns the email for the voter.
+        def email
+          @email ||= context.email
+        end
+
+        def bulletin_board
+          @bulletin_board ||= context.bulletin_board || Decidim::Elections.bulletin_board
         end
 
         private

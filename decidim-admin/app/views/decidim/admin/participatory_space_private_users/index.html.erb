@@ -8,9 +8,9 @@
       <% end %>
     </h2>
   </div>
-
+  <%= admin_filter_selector(:participatory_space_private_users) %>
   <div class="card-section">
-    <% if collection.any? %>
+    <% if participatory_space_private_users.any? %>
       <div class="table-scroll">
         <table class="stack">
           <thead>
@@ -23,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <% collection.each do |private_user| %>
+            <% participatory_space_private_users.each do |private_user| %>
               <tr>
                 <td>
                   <%= private_user.user.name %><br>
@@ -55,7 +55,7 @@
           </tbody>
         </table>
       </div>
-      <%= decidim_paginate collection %>
+      <%= decidim_paginate participatory_space_private_users %>
     <% end %>
   </div>
 </div>

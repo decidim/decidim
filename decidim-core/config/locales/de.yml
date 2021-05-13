@@ -5,6 +5,8 @@ de:
         delete_reason: Grund, Ihr Konto zu löschen
       common:
         created_at: Erstellt am
+      conversation:
+        body: Haupttext
       group:
         about: Über
         avatar: Profilbild
@@ -13,6 +15,8 @@ de:
         name: Name
         nickname: Spitzname
         phone: Telefonnummer
+      message:
+        body: Haupttext
       report:
         details: Zusätzliche Kommentare
       user:
@@ -1261,6 +1265,10 @@ de:
         title: Anzahl der Ergebnisse pro Seite auswählen
       share_modal:
         close_window: Fenster schließen
+        copy_share_link: Kopieren
+        copy_share_link_clarification: Öffentlichen Link in die Zwischenablage kopieren
+        copy_share_link_copied: Kopiert!
+        copy_share_link_message: Der Link wurde erfolgreich in die Zwischenablage kopiert.
         share: Teilen
         share_link: Link teilen
     statistics:
@@ -1534,10 +1542,6 @@ de:
       too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
-    length_validator:
-      minimum:
-        one: mindestens %{count} Zeichen
-        other: mindestens %{count} Zeichen
     required: Erforderlich
     required_explanation: "* Pflichtfelder sind mit einem Stern gekennzeichnet"
   invisible_captcha:

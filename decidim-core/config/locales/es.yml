@@ -5,6 +5,8 @@ es:
         delete_reason: Motivo de eliminar tu cuenta
       common:
         created_at: Creado el
+      conversation:
+        body: Cuerpo
       group:
         about: Acerca de
         avatar: Avatar
@@ -13,6 +15,8 @@ es:
         name: Nombre
         nickname: Alias
         phone: Teléfono
+      message:
+        body: Cuerpo
       report:
         details: Comentarios adicionales
       user:
@@ -1258,6 +1262,10 @@ es:
         title: Seleccionar el número de resultados por página
       share_modal:
         close_window: Cierra la ventana
+        copy_share_link: Copia
+        copy_share_link_clarification: Copiar al portapapeles el enlace para compartir
+        copy_share_link_copied: '¡Copiado!'
+        copy_share_link_message: Se ha copiado el enlace al portapapeles correctamente.
         share: Compartir
         share_link: Compartir enlace
     statistics:
@@ -1532,8 +1540,8 @@ es:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:
       minimum:
-        one: al menos %{count} carácter
-        other: al menos %{count} caracteres
+        one: Al menos %{count} carácter
+        other: Al menos %{count} caracteres
     required: Obligatorio
     required_explanation: "* Los campos requeridos están marcados con un asterisco"
   invisible_captcha:
@@ -1554,9 +1562,11 @@ es:
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
       header:
         close_menu: Cerrar menú
+        main_menu: Menú principal
         navigation: Navegación
         sign_in: Entra
         sign_up: Regístrate
+        user_menu: Menú de usuario
       impersonation_warning:
         close_session: Cerrar sesión
         description_html: Estás gestionando la participante <b>%{user_name}</b>.
@@ -1585,6 +1595,7 @@ es:
         profile: Mi cuenta
         public_profile: Mi perfil público
         sign_out: Cerrar sesión
+        title: Enlaces de perfil
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones

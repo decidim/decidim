@@ -94,7 +94,7 @@ pl:
             president: Przewodniczący
             unassigned: Nie przypisano
         search_placeholder:
-          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Przeszukaj %{collection} według nazwy/adresu e-mail/pseudonimu lub stacji wyborczej.
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Przeszukaj %{collection} według nazwy/adresu e-mail/pseudonimu lub lokalu wyborczego.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Szukaj %{collection} według tytułu, adresu lub imienia/adresu e-mail/pseudonimu oficera.
     components:
@@ -390,7 +390,6 @@ pl:
             upcoming: Głosowanie rozpoczyna się %{start_time}
       feedback:
         answer:
-          invalid: Wystąpił błąd podczas wysyłania Twojej informacji zwrotnej.
           spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Wiadomość zwrotna została wysłana.
       models:
@@ -534,24 +533,19 @@ pl:
           question: Pytanie %{count}
         confirmed:
           back: Powrót do wyborów
-          error: Przepraszamy, wystąpił błąd podczas potwierdza głosu. Proszę zagłosować ponownie.
           experience: Jak oceniasz to przeprowadzony proces?
           feedback: Podziel się z nami swoją opinią
           header: Oddanie głosu potwierdzone
-          lead: Twój głos został już wysłany!
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
-        encrypting:
-          header: Kodowanie głosu...
-          text: Twój głos jest szyfrowany, aby mieć pewność, że przekazałeś go anonimowo.
         failed:
           header: Oddanie głosu nie powiodło się
           lead: Twój głos nie został oddany!
           text: Coś poszło nie tak. Spróbuj ponownie.
+          try_again: Spróbuj ponownie
         header:
           confirm: Potwierdź swój głos
           confirmed: Głosowanie potwierdzone
-          encrypting: Potwierdzanie głosu
         messages:
           not_allowed: W tej chwili nie wolno Ci głosować na ten wybór.
         modal:
@@ -564,9 +558,6 @@ pl:
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
-        update:
-          error: Podczas aktualizowania głosu wystąpił błąd
-          success: Status głosu został zaktualizowany
         verify:
           content:
             heading: Zweryfikuj swój głos
@@ -619,7 +610,7 @@ pl:
             email_intro: Zostałeś wyznaczony na %{role} w lokalu wyborczym %{polling_station_name} w <a href="%{resource_url}">%{resource_title}</a>. Możesz zarządzać lokalami wyborczymi z dedykowanej <a href="%{polling_officer_zone_url}">Strefy Wyborczej</a>.
             email_outro: Otrzymałeś to powiadomienie ponieważ zostałeś wyznaczony na %{role} w %{polling_station_name}.
             email_subject: Posiadasz rolę %{role} w lokalu wyborczym %{polling_station_name}.
-            notification_title: Posiadasz rolę %{role} stacji ankietowej %{polling_station_name} w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
+            notification_title: Posiadasz rolę %{role} lokalu wyborczego %{polling_station_name} w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
     help:
       participatory_spaces:
         votings:
@@ -633,6 +624,9 @@ pl:
       votings_count: Głosowań
     votings:
       admin:
+        ballot_styles:
+          edit:
+            update: Aktualizuj
         content_blocks:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
@@ -678,7 +672,7 @@ pl:
             components: Komponenty
             info: Informacje
             landing_page: Strona docelowa
-            monitoring_committee_members: Komisja monitorująca
+            monitoring_committee: Komisja monitorująca
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
         models:
@@ -811,6 +805,20 @@ pl:
           create: "%{user_name} utworzył(a) głosowanie %{resource_name}"
           publish: "%{user_name} opublikował(a) głosowanie %{resource_name}"
           unpublish: "%{user_name} cofnął/cofnęła publikację głosowania %{resource_name}"
+      census:
+        admin:
+          census:
+            export_access_codes:
+              file_not_exists: Ten plik nie istnieje
+            new:
+              file_help:
+                message_1: Dozwolone są tylko pliki CSV (.csv).
+              submit: Prześlij csv
+        document_types:
+          passport: Paszport
+        export_mailer:
+          access_codes_export:
+            download: Pobierz
       content_blocks:
         highlighted_votings:
           name: Wyróżnione głosowania
@@ -839,20 +847,22 @@ pl:
         menu:
           polling_officer_zone: Strefa oficera wyborczego
         polling_officers:
-          show:
-            actions:
-              count_votes: Policz głosy w urnie wyborczej
-              identify_person: Identyfikacja i weryfikacja osoby
+          index:
             polling_officer_role_description: Zostałeś powołany do pełnienia funkcji oficera lokalu wyborczego (przewodniczącego lub kierownika) w niektórych wyborach prowadzonych na tej platformie.
-            polling_stations:
-              list:
-                actions: Działania
-                address: Adres
-                name: Nazwa
-                role: Twoja rola
-                voting: Głosowanie
+            polling_station:
               no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
-              title: Lokale wyborcze
+              role: Twoja rola
+              voting: Głosowanie
+        votes:
+          in_person_fields:
+            day: Dzień
+            day_placeholder: DD
+            month: Miesiąc
+            month_placeholder: MM
+            name: Imię
+            select: Wybierz dokument
+            year: Rok
+            year_placeholder: RRRR
       polling_officers:
         actions:
           confirm_destroy: Jesteś pewny?
@@ -871,6 +881,15 @@ pl:
           new: Nowy
           title: Działania
       votings:
+        check_census:
+          check_status: Sprawdź status
+          title: Mogę głosować?
+        check_fields:
+          day_placeholder: DD
+          month: Miesiąc
+          month_placeholder: MM
+          year: Rok
+          year_placeholder: RRRR
         count:
           title:
             one: "%{count} głosowanie"
@@ -893,6 +912,12 @@ pl:
           no_votings: Brak głosowań spełniających kryteria wyszukiwania.
           only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie przeszłe.
           title: Głosowania
+        login:
+          access_code: Kod dostępu
+          access_code_placeholder: Kod dostępu
+          dont_have_access_code: Nie masz kodu dostępu?
+          start_voting: Rozpocznij głosowanie
+          step: Identyfikacja
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo
@@ -919,6 +944,7 @@ pl:
       election_votes_header:
         exit: Wyjście
       voting_navigation:
+        check_census: Mogę głosować?
         voting_menu_item: Głosowanie
       votings:
         index:

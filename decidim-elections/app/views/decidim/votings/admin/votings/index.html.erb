@@ -22,6 +22,7 @@
         </thead>
         <tbody>
           <% votings.each do |voting| %>
+            <% next unless allowed_to? :list, :voting, voting: voting %>
             <tr>
               <td>
                 <% if voting.promoted? %>
@@ -29,7 +30,7 @@
                     <%= icon "star" %>
                   </span>
                 <% end %>
-                <% if allowed_to? :update, :voting, voting: voting %>
+                <% if allowed_to? :edit, :voting, voting: voting %>
                   <%= link_to translated_attribute(voting.title), edit_voting_path(voting) %>
                   <br>
                 <% elsif allowed_to? :preview, :voting, voting: voting %>
@@ -57,7 +58,7 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <% if allowed_to? :update, :voting, voting: voting %>
+                <% if allowed_to? :edit, :voting, voting: voting %>
                   <%= icon_link_to "pencil",
                                    edit_voting_path(voting),
                                    t("actions.configure", scope: "decidim.admin"),

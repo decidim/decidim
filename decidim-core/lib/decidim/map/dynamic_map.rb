@@ -76,12 +76,12 @@ module Decidim
 
         # @see Decidim::Map::View::Builder#stylesheet_snippets
         def stylesheet_snippets
-          template.stylesheet_link_tag("decidim/map")
+          template.stylesheet_pack_tag("decidim_map")
         end
 
         # @see Decidim::Map::View::Builder#javascript_snippets
         def javascript_snippets
-          template.javascript_include_tag("decidim/map/provider/default")
+          template.javascript_pack_tag("decidim_map_provider_default")
         end
       end
     end

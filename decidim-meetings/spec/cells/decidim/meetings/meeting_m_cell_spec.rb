@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe MeetingMCell, type: :cell do
     controller Decidim::Meetings::MeetingsController
 
-    let!(:meeting) { create(:meeting) }
+    let!(:meeting) { create(:meeting, created_at: "2001-01-01") }
     let(:model) { meeting }
     let(:the_cell) { cell("decidim/meetings/meeting_m", meeting, context: { show_space: show_space }) }
     let(:cell_html) { the_cell.call }
@@ -18,6 +18,11 @@ module Decidim::Meetings
 
       it "renders the card" do
         expect(cell_html).to have_css(".card--meeting")
+      end
+
+      it "doesn't show creation date" do
+        expect(cell_html).to have_no_content("Created at")
+        expect(cell_html).to have_no_content(I18n.l(meeting.created_at.to_date, format: :decidim_short))
       end
     end
 

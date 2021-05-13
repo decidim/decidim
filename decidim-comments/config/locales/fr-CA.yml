@@ -79,6 +79,7 @@ fr-CA:
       comment_thread:
         title: Conversation avec %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Vous devez valider votre inscription pour commenter maintenant, mais vous pouvez lire les commentaires précédents.
         blocked_comments_for_user_warning: Vous n'êtes pas en mesure de commenter pour le moment, mais vous pouvez lire les précédents.
         blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis.
         comment_details_title: Détails du commentaire

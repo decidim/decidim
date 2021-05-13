@@ -92,7 +92,7 @@ module Decidim
       end
 
       def avatar_url
-        ActionController::Base.helpers.asset_path("decidim/meetings/icon.svg")
+        ActionController::Base.helpers.asset_pack_path("media/images/decidim_meetings.svg")
       end
 
       def deleted?
@@ -108,6 +108,7 @@ module Decidim
       end
 
       def proposals
+        return unless Decidim::Meetings.enable_proposal_linking
         return unless meeting
 
         @proposals ||= meeting.authored_proposals.load

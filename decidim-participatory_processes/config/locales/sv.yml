@@ -34,6 +34,7 @@ sv:
         subtitle: Underrubrik
         target: Vilka deltar
         title: Titel
+        weight: Vikt
       participatory_process_group:
         description: Beskrivning
         group_url: Webbplats
@@ -311,16 +312,28 @@ sv:
         related_assemblies: Relaterade sammankomster
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Första HTML-block
+        html_2:
+          name: Andra HTML-block
+        html_3:
+          name: Tredje HTML-block
         metadata:
           developer_group: Annonserad av
           name: Metadata
           participatory_scope: Vad som bestäms
+          participatory_structure: Hur det bestäms
+          target: Vem deltar
         participatory_processes:
           name: Dialoger
         stats:
           name: Statistik
         title:
           meta_scope: Omfång
+          name: Titel, beskrivning och hashtag
+          participatory_processes:
+            one: 1 dialog
+            other: "%{count} dialoger"
       show:
         title: Dialoggrupper
     participatory_process_steps:
@@ -341,6 +354,8 @@ sv:
         participatory_process_groups:
           form:
             metadata: Metadata
+            title: Allmän information
+            visibility: Synlighet
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
@@ -425,6 +440,8 @@ sv:
         start_date: Startdatum
         target: Vilka deltar
         unspecified: Ej angivet
+    statistics:
+      processes_count: Dialoger
   layouts:
     decidim:
       participatory_process_groups:

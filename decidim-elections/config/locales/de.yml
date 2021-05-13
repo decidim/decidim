@@ -58,6 +58,12 @@ de:
       decidim/elections/question:
         one: Frage
         other: Fragen
+      decidim/votings/census/dataset:
+        one: Datensatz
+        other: Datensätze
+      decidim/votings/census/datum:
+        one: Daten
+        other: Daten
       decidim/votings/polling_officer:
         one: Wahllokal-Mitarbeiter
         other: Wahllokal-Mitarbeitende
@@ -166,6 +172,8 @@ de:
         exports:
           elections: Wahlen
           feedback_form_answers: Antworten auf Feedback-Formular
+        menu:
+          trustees: Wahlhelfer
         models:
           answer:
             name: Antwort
@@ -312,6 +320,7 @@ de:
         election:
           end_vote: "%{user_name} hat die Abstimmungsperiode für die Wahl %{resource_name} im Bulletin Board beendet"
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
+          publish_results: "%{user_name} hat die Resultate für die Wahl %{resource_name} im Bulletin Board veröffentlicht"
           setup: "%{user_name} hat die Wahl %{resource_name} auf dem Bulletin Board erstellt"
           start_key_ceremony: "%{user_name} hat die Schlüssel-Zeremonie für die Wahl %{resource_name} im Bulletin Board eröffnet"
           start_tally: "%{user_name} hat die Stimmenzählung für die Wahl %{resource_name} im Bulletin Board eröffnet"
@@ -515,9 +524,9 @@ de:
         ballot_decision:
           audit: "(Stimmzettel überprüfen)"
           back: Abstimmungsvorgang erneut starten
+          ballot_hash: 'Ihre Wahlurnen-ID ist:'
           cast: Stimme abgeben
           description: Hier können Sie ihre Stimme abgeben, sodass sie gezählt wird, oder alternativ können Sie überprüfen ob ihre Stimme richtig verschlüsselt wurde. Aus Sicherheitsgründen wird die Überprüfung die Stimme ungültig machen. Das bedeutet, um Ihre Stimme danach abzugeben, müssen Sie den Abstimmungsprozess erneut durchlaufen.
-          header: 'Stimmzettel ist verschlüsselt: Senden sie Ihre Stimme ab oder überprüfen Sie die Verschlüsselung'
         confirm:
           answer: Antwort
           answer_number: Antwort %{number}
@@ -529,16 +538,12 @@ de:
           question: Frage %{count}
         confirmed:
           back: Zurück zu den Wahlen
-          error: Leider ist ein Fehler bei der Bestätigung der Abstimmung aufgetreten. Bitte erneut abstimmen.
           experience: Wie war Ihre Erfahrung mit uns?
           feedback: Gib uns dein Feedback
           header: Abstimmung bestätigt
-          lead: Deine Stimme wurde bereits abgegeben!
+          lead: Ihre Stimme wurde abgegeben!
           text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
-        encrypting:
-          header: Abstimmung wird verschlüsselt...
-          text: Deine Stimme wird verschlüsselt, um sicherzustellen, dass du sie anonym abgeben kannst.
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
@@ -547,8 +552,8 @@ de:
           ballot_decision: Stimme abgeben oder überprüfen
           confirm: Bestätige deine Stimme
           confirmed: Abstimmung bestätigt
-          encrypting: Wahl bestätigen
         messages:
+          invalid_token: Ihre Sitzung in der Abstimmung ist nicht gültig. Versuchen Sie, erneut abzustimmen.
           not_allowed: Sie dürfen zur Zeit nicht an dieser Wahl teilnehmen.
         modal:
           close: Schließen
@@ -560,9 +565,12 @@ de:
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
-        update:
-          error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
-          success: Abstimmung erfolgreich aktualisiert
+        onboarding_modal:
+          close: Dialog schließen
+          create_account: Konto erstellen
+          description: Möchten Sie ein neues Konto in Decidim erstellen? Sie können an den Prozessen teilnehmen und aktiv an der Organisation teilnehmen.
+          no_account: Nein, danke.
+          title: Neu bei Decidim?
         verify:
           content:
             heading: Stimme verifizieren
@@ -616,6 +624,9 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihnen die Rolle %{role} in %{polling_station_name} zugewiesen wurde.
             email_subject: Sie haben die Rolle %{role} im Wahllokal %{polling_station_name}.
             notification_title: Sie haben die Rolle %{role} im Wahllokal %{polling_station_name} der Abstimmung <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Hier ist der Zugangscode, den Sie angefordert haben: %{access_code}. Damit können Sie an %{voting} teilnehmen.'
+          subject: Ihr Zugangscode zur Teilnahme an %{voting}
     help:
       participatory_spaces:
         votings:
@@ -629,6 +640,31 @@ de:
       votings_count: Abstimmungen
     votings:
       admin:
+        ballot_styles:
+          edit:
+            title: Wahlkategorie bearbeiten
+            update: Aktualisieren
+          form:
+            code_help: 'Hinweis: Der Code ist die Verbindung zwischen Erhebungsdaten und Wahlkategorie. Wenn die Erhebungsdaten hochgeladen werden, wird jedem Eintrag anhand dem Wahlkategorie-Code eine Wahlkategorie zugeteilt'
+            election: Wahl
+            questions: Fragen für diese Wahlkategorie
+            questions_help: 'Hinweis: Wählen Sie die Fragen aus den Wahlkomponenten aus, welche Wählern angezeigt werden sollen, die dieser Wahlkategorie zugeordnet werden'
+          index:
+            actions:
+              confirm_destroy: Sind Sie sicher?
+              destroy: Löschen
+              edit: Bearbeiten
+              new: Neu
+              title: Aktionen
+            associated_census_data: Zugehörige Erhebungseinträge
+            explanation_callout: Eine Wahlkategorie legt fest, welche Fragen einem Wähler bei der Abstimmung gestellt werden. In einer Wahlkategorie können Sie auswählen, welche Fragen aus den Wahlkomponenten dieser Wahl zu einer Wahlurne gehören. Anhand dem Wahlkategorie-Code aus den Erhebungsdaten des Wählers wird die Wahlkategorie ausgewählt, die einem Wähler angezeigt wird. Wenn Sie immer alle Fragen anzeigen wollen, erstellen Sie keine Wahlkategorien.
+            title: Wahlkategorien
+          new:
+            create: Erstellen
+            title: Wahlkategorie erstellen
+          update:
+            invalid: Beim Aktualisieren dieser Wahlkategorie ist ein Problem aufgetreten
+            success: Wahlkategorie erfolgreich aktualisiert
         content_blocks:
           highlighted_votings:
             max_results: Maximale Anzahl angezeigte Elemente
@@ -671,13 +707,21 @@ de:
             attachment_collections: Ordner
             attachment_files: Dateien
             attachments: Dateianhänge
+            ballot_styles: Wahlkategorien
+            census: Erhebung
             components: Komponenten
             info: Information
             landing_page: Landing-Page
-            monitoring_committee_members: Überwachungskomitee
+            monitoring_committee: Überwachungskomitee
+            monitoring_committee_certificates: Zertifikate überprüfen
+            monitoring_committee_members: Mitglieder
             polling_officers: Wahllokal-Mitarbeitende
             polling_stations: Wahllokale
         models:
+          ballot_style:
+            fields:
+              code: Code
+            name: Wahlkategorie
           monitoring_committee_member:
             fields:
               email: E-Mail
@@ -702,6 +746,9 @@ de:
               promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
+        monitoring_committee_certificates:
+          index:
+            title: Wahllokale
         monitoring_committee_members:
           create:
             invalid: Beim Erfassen dieses Überwachungskomitee-Mitglieds ist ein Fehler aufgetreten
@@ -785,6 +832,7 @@ de:
             assign_missing_officers: Es gibt noch Wahllokale ohne Präsident und/oder Wahlleiter. Bitte ordnen Sie diese im Wahllokal-Abschnitt zu
             update: Aktualisieren
           form:
+            census_contact_information_help: Diese Kontaktinformationen richten sich an einen Teilnehmer, der Probleme mit einer Erhebung melden möchte. Es kann eine E-Mail-Adresse, ein Kontaktformular auf einer anderen Seite, eine Decidim-Umfrage für Besucher, etc. sein.
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Titel
@@ -807,6 +855,67 @@ de:
           create: "%{user_name} hat die Abstimmung %{resource_name} erstellt"
           publish: "%{user_name} hat die Abstimmung %{resource_name} veröffentlicht"
           unpublish: "%{user_name} hat die Abstimmung %{resource_name} auf \"unveröffentlicht\" gesetzt"
+      census:
+        admin:
+          census:
+            create:
+              invalid: Beim Hochladen der Erhebung ist ein Problem aufgetreten, bitte versuchen Sie es später erneut.
+              invalid_csv_header: Der CSV-Header hat nicht die richtige Anzahl Felder - bitte lesen Sie die Anweisungen sorgfältig
+            creating_data:
+              info_message: "<strong>Bitte warten</strong>, %{processed_count} von %{raw_count} Zeilen aus der Datei %{file} wurden verarbeitet."
+            delete:
+              button: Alle Erhebungsdaten löschen
+              confirm: Dies kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+            destroy:
+              error: Beim Löschen der Erhebungsdaten ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
+              success: Erhebungsdaten gelöscht
+            export_access_codes:
+              button: Zugangscodes für die Abstimmung exportieren
+              callout: Sie können jetzt die Zugangscodes exportieren. Dies kann nur einmal geschehen. Sobald Sie den Export gestartet haben, werden Sie eine E-Mail mit den Anweisungen unter <strong>%{email}</strong> erhalten
+              confirm: Sie können die Zugangscodes nur einmal exportieren. Stellen Sie sicher, dass Sie Zugang zum E-Mail-Konto <strong>%{email}</strong> haben.
+              file_not_exists: Diese Datei existiert nicht
+              launch_error: Beim Starten des Zugangscode-Exports ist ein Problem aufgetreten
+              launch_success: Der Zugangscode-Export wurde gestartet. Sie werden in Kürze eine E-Mail an %{email} erhalten
+            exporting_access_codes:
+              info_message: "<strong>Bitte warten</strong>, der Export wird gerade vorbereitet. Sie werden ihn in Kürze an %{email} erhalten"
+            freeze:
+              callout: Die Erhebung ist geschlossen und kann nicht verändert werden.
+            generate_access_codes:
+              button: Zugangscodes für die Abstimmung generieren
+              callout: Sie können nun mit der Generierung der Zugangscodes fortfahren. Beachten Sie, dass Sie nach der Generierung der Zugangscodes nicht mehr in der Lage sein werden, die Erhebung zu ändern.
+              confirm: Wenn Sie fortfahren, werden Sie die Erhebungsdaten nicht mehr ändern können.
+              info_message_all: "Alle Zeilen aus der Datei %{file} wurden <strong>erfolgreich importiert</strong> (%{raw_count} von %{data_count})."
+              info_message_warn: Bitte überprüfen Sie, dass keine Daten fehlen, denn es wurden %{data_count} Datensätze erstellt und die hochgeladene Datei %{file} enthielt %{raw_count} Zeilen.
+              launch_error: Problem beim Starten der Zugangscodes Generierung
+              launch_success: Codegenerierung gestartet.
+            generating_access_codes:
+              info_message: "<strong>Bitte warten Sie</strong>, die Stimmzugriffscodes werden generiert..."
+            new:
+              file_help:
+                explanation: 'Hinweise für die Datei:'
+                message_1: Nur CSV-Dateien (.csv) sind erlaubt.
+                message_2: Das Trennzeichen zwischen den Spalten muss ein Semikolon (";") sein.
+              has_ballot_styles_message: Sie haben Wahlkategorien eingerichtet. Bitte stellen Sie sicher dass das Feld "%{ballot_style_code_header}" im CSV dem Code der gewünschten Wahlkategorie entspricht.
+              info_message: "<strong>Es gibt noch keine Erhebungsdaten.</strong> Bitte verwenden Sie das untenstehende Formular um die Erhebungsdaten aus einer CSV-Datei zu importieren."
+              missing_ballot_styles_message: 'Es gibt noch keine Wahlkategorien für diese Abstimmung. Wenn Sie variable Fragen haben möchten (d.h. dem Wähler unterschiedliche Fragen anzeigen, je nach z.B. Wohnort), müssen Sie die <a href=%{ballot_styles_admin_path}>Wahlkategorien</a> einrichten, <strong>bevor</strong> Sie die Erhebungsdaten importieren. Wenn Sie allen Wählern die gleichen Fragen stellen wollen, können Sie mit dem Import für Erhebungsdaten fortfahren.'
+              submit: CSV absenden
+              title: Erhebungsdaten erfassen
+            show:
+              heading: Erhebungsdaten der Abstimmung
+            upload_info:
+              csv_example_with_ballot_style: 'Ein Beispiel für die Datei <strong>mit</strong> Wahlkategorien:'
+              csv_example_without_ballot_style: 'Ein Beispiel für die Datei <strong>ohne</strong> Wahlkategorien:'
+              csv_header_after: Lassen Sie das letzte Feld ("%{ballot_style_code_header}") weg, wenn Sie keine Wahlkategorien / variablen Fragen benötigen
+              csv_header_before: 'Die Erhebungsdatei muss eine CSV-Datei mit folgender Kopfzeile sein:'
+        document_types:
+          passport: Reisepass
+        export_mailer:
+          access_codes_export:
+            click_button: 'Klicken Sie auf den Link, um die Zugangscodes herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
+            download: Herunterladen
+            subject: Der Export der Zugangscodes für die Abstimmung %{voting_title} ist verfügbar
+        vote_flow:
+          datum_not_found: Zu den eingegebenen Daten wurde kein Wähler gefunden.
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
@@ -837,20 +946,41 @@ de:
         menu:
           polling_officer_zone: Wahllokal-Mitarbeiter-Bereich
         polling_officers:
-          show:
-            actions:
-              count_votes: Stimmen in der Wahlurne zählen
-              identify_person: Eine Person identifizieren und verifizieren
+          index:
             polling_officer_role_description: Ihnen wurde eine Rolle als Wahlhelfer (Präsident oder Manager) in Wahlen dieser Plattform zugewiesen.
-            polling_stations:
-              list:
-                actions: Aktionen
-                address: Adresse
-                name: Name
-                role: Ihre Rolle
-                voting: Abstimmung
+            polling_station:
               no_polling_stations: Sie sind noch zu keinem Wahllokal zugewiesen.
-              title: Wahllokale
+              role: Ihre Rolle
+              voting: Abstimmung
+        votes:
+          create:
+            success: Persönliche Stimme erfolgreich abgegeben
+          in_person_fields:
+            date_of_birth: Geburtsdatum
+            day: Tag
+            day_placeholder: TT
+            document_number: Dokumentennummer
+            document_number_placeholder: ID-Nummer
+            month: Monat
+            month_placeholder: MM
+            name: Name
+            select: Wählen Sie die Art des Dokuments aus
+            voted: Der Teilnehmer hat abgestimmt
+            year: Jahr
+            year_placeholder: JJJJ
+          new:
+            back: Zurück zu den Wahllokalen
+            census_not_present: Dieser Teilnehmer ist nicht in den Erhebungsdaten präsent.
+            census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
+            census_present: Dieser Teilnehmer ist in den Erhebungsdaten aufgeführt.
+            census_verified: Dieser Teilnehmer hat noch nicht abgestimmt.
+            complete_voting: Abstimmung abschliessen
+            form_title: 'Wählen Sie den Dokumententyp und geben Sie die Dokumentennummer des Teilnehmers ein:'
+            questions_title: 'Er/Sie hat das Recht, bei folgenden Anfragen abstimmen:'
+            title: Einen Teilnehmer identifizieren und verifizieren
+            validate_document: Dokument validieren
+            verify_document: Dokument verifizieren
+            verify_title: 'Überprüfen Sie, dass die folgenden Daten korrekt sind:'
       polling_officers:
         actions:
           confirm_destroy: Sind Sie sicher?
@@ -869,6 +999,39 @@ de:
           new: Neu
           title: Aktionen
       votings:
+        access_code_modal:
+          email: Per E-Mail an %{email} senden
+          info: Sie benötigen einen Zugangscode um teilzunehmen. Wenn Sie keinen per Briefpost bekommen haben, können wir Ihnen einen neuen senden.
+          no_email: Keine E-Mail-Adresse verfügbar
+          no_sms: Keine Telefonnummer verfügbar
+          sms: Per SMS an %{sms} senden
+          title: Zugangscode
+        check_census:
+          check_status: Status überprüfen
+          description: Hier haben Sie die Möglichkeit, Ihre Erhebungsdaten zu überprüfen, um herauszufinden ob Sie das Recht haben, an dieser Abstimmung teilzunehmen. Sie sollten bereits einen Zugangscode haben, aber wenn Sie ihn verloren haben können Sie ihn erneut anfragen, sobald Ihre Daten korrekt sind.
+          error:
+            info: 'Bitte versuchen Sie es erneut. Wenn Sie denken, dass die Daten im System nicht korrekt sind, können Sie das hier melden: %{census_contact_information}.'
+            title: Ihre Erhebungsdaten sind nicht korrekt!
+          form_title: 'Füllen Sie das folgende Formular aus, um Ihre Erhebungsdaten zu überprüfen:'
+          invalid: Bei der Überprüfung der Erhebung ist ein Problem aufgetreten.
+          success:
+            access_link: via SMS oder E-Mail.
+            info: Sie sollten Ihren Zugangscode bereits via Briefpost bekommen haben. Falls nicht, können Sie ihn hier anfordern
+            title: Ihre Erhebungsdaten sind korrekt!
+          title: Kann ich abstimmen?
+        check_fields:
+          date_of_birth: Geburtsdatum
+          day: Tag
+          day_placeholder: TT
+          document_number: Dokumentennummer
+          document_number_placeholder: ID-Nummer
+          month: Monat
+          month_placeholder: MM
+          postal_code: Postleitzahl
+          postal_code_placeholder: Postleitzahl
+          select: Wählen Sie die Art des Dokuments aus
+          year: Jahr
+          year_placeholder: JJJJ
         count:
           title:
             one: "%{count} Abstimmung"
@@ -889,10 +1052,23 @@ de:
           no_votings: Keine Abstimmung gefunden, die Ihren Suchkriterien entspricht.
           only_finished: Momentan gibt es keine geplanten Abstimmungen, aber hier finden Sie alle abgeschlossenen Abstimmungen.
           title: Abstimmungen
+        login:
+          access_code: Zugangscode
+          access_code_placeholder: Zugangscode
+          ask_for_a_new_one: Erneut anfordern.
+          dont_have_access_code: Haben Sie keinen Zugangscode?
+          form_title: 'Füllen Sie das folgende Formular aus um auf die Abstimmung zuzugreifen:'
+          start_voting: Jetzt abstimmen
+          step: Identifikation
+          title: Mich via Erhebungsdaten identifizieren
+        no_census_contact_information: Es sind noch keine Kontaktinformationen vorhanden
         orders:
           label: 'Abstimmungen sortieren nach:'
           random: Zufällig
           recent: Neueste zuerst
+        send_access_code:
+          invalid: Beim Versenden des Zugangscodes ist ein Problem aufgetreten
+          success: Ihr Zugangscode wurde erfolgreich versandt
         show:
           dates: Daten
       votings_m:
@@ -915,6 +1091,7 @@ de:
       election_votes_header:
         exit: Beenden
       voting_navigation:
+        check_census: Kann ich abstimmen?
         voting_menu_item: Die Abstimmung
       votings:
         index:

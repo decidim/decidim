@@ -27,6 +27,9 @@ module Decidim
 
       private
 
+      attr_reader :answers
+      alias resource answers
+
       def normalize_body(answer)
         answer.body ||
           normalize_attachments(answer) ||

@@ -5,6 +5,8 @@ sv:
         delete_reason: Skäl att ta bort ditt konto
       common:
         created_at: Skapad den
+      conversation:
+        body: Innehåll
       group:
         about: Om
         avatar: Profilbild
@@ -13,6 +15,8 @@ sv:
         name: Namn
         nickname: Smeknamn
         phone: Telefon
+      message:
+        body: Innehåll
       report:
         details: Ytterligare kommentarer
       user:
@@ -35,6 +39,7 @@ sv:
       decidim/profile_updated_event: Profilen har uppdaterats
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
+      decidim/resource_endorsed_event: Resurs instämd
   activerecord:
     attributes:
       decidim/user:
@@ -78,10 +83,12 @@ sv:
       logo: "%{organization}s logotyp"
       skip_button: Gå till innehåll
     account:
+      blocked: Detta konto har blockerats på grund av överträdelse av användarvillkoren
       data_portability_export:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       delete:
+        alert: Denna åtgärd kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in med dina uppgifter. Raderingen av ditt konto kommer att resultera i anonymiseringen av dina bidrag. Du kommer fortfarande kunna skapa ett nytt konto, men dina gamla bidrag kommer inte förknippas med det.
         confirm:
           close: Stäng fönster
           ok: Ja, radera mitt konto
@@ -111,6 +118,8 @@ sv:
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
         unpublish: "%{user_name} avpublicerade komponenten %{resource_name} från utrymmet %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} har hanterat %{resource_name} eftersom %{reason}"
       moderation:
         hide: "%{user_name} gömde en resurs av typen %{resource_type} i utrymmet %{space_name}"
         unreport: "%{user_name} drog tillbaka en resurs av typen %{resource_type} i utrymmet %{space_name}"
@@ -127,6 +136,7 @@ sv:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       participatory_space_private_user:
         create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
+        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV"
         delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
@@ -140,15 +150,20 @@ sv:
         delete: "%{user_name} raderade den statiska sidan %{resource_name}"
         update: "%{user_name} uppdaterade den statiska sidan %{resource_name}"
       user:
+        block: "%{user_name} blockerade användaren %{resource_name}"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         show_email: "%{user_name} hämtade e-postadressen för deltagaren %{resource_name}"
+        transfer: "%{user_name} överförde deltagaren %{resource_name}"
+        unblock: "%{user_name} avblockerade användaren %{resource_name}"
         unofficialize: "%{user_name} gjorde deltagaren %{resource_name} inofficiell"
       user_group:
         reject: "%{user_name} avvisade gruppverifieringen för %{resource_name}"
         verify: "%{user_name} verifierade gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifierade gruppen %{resource_name} via en CSV-fil"
+      user_moderation:
+        unreport: "%{user_name} avrapporterade en %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ANVÄNDARVILLKOR FÖR ADMINISTRATÖRER</h2><p>Vi förutsätter att du har fått den vanliga föreläsningen från den lokala systemadministratören. Det brukar bygga på tre saker:</p><ol><li>Respektera andras integritet.</li><li>Tänk innan du klickar.</li><li>Med stora krafter följer stort ansvar.</li></ol>"
     alert:
@@ -244,6 +259,8 @@ sv:
       photos:
         related_photos: Relaterade bilder
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar för flera användare
       comments:
         one: kommentar
         other: kommentarer
@@ -268,6 +285,8 @@ sv:
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
+      errors:
+        duplicate_authorization: En deltagare är redan behörig med samma data.
       expired_at: Förföll vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:
@@ -315,7 +334,11 @@ sv:
         close_modal: Stäng modal
     block_user_mailer:
       notify:
+        body_1: Ditt konto har spärrats.
+        body_2: 'Anledning: %{justification}'
+        greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hej,
+        subject: Ditt konto har spärrats av %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: och %{count} fler
@@ -352,6 +375,7 @@ sv:
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
             scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -363,6 +387,13 @@ sv:
             dummy_step_translatable_text: Översättningsbar text för exempelsteg
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Bild, text och Åtgärdsknapp
+      cta_settings_form:
+        background_image: Bakgrundsbild
+        button_text: Uppmaningens text
+        button_url: Uppmaningens URL
+        description: Beskrivning
       footer_sub_hero:
         name: Sidfot sub hero banner
       hero:
@@ -374,6 +405,7 @@ sv:
         name: Banner för uppmärksammat innehåll
       highlighted_elements_settings_form:
         orders:
+          label: 'Sortera element efter:'
           random: Slumpmässig
           recent: Senaste
       how_to_participate:
@@ -400,6 +432,7 @@ sv:
         ready: Klar
       show:
         download_data: Hämta data
+        download_data_description: En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Begär data
     datepicker:
       help_text: 'Förväntat format: %{datepicker_format}'
@@ -409,6 +442,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Komplettera profil
+          nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           sign_up: Var god slutför din profil
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
@@ -417,6 +451,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
+          nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
           sign_in: Logga in
           sign_up: Registrera dig
@@ -433,11 +468,14 @@ sv:
           register: Skapa ett konto
           sign_in_disabled: Du kan få åtkomst via ett externt konto
           sign_up_disabled: Anmälan är avaktiverad, men du kan komma in med ett befintligt konto
+        user:
+          timed_out: Du var inaktiv för länge och du har blivit automatiskt utloggad från tjänsten. Om du vill fortsätta använda tjänsten, vänligen logga in igen.
       shared:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
             close_modal: Stäng modal
+            uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
             Överväg gärna en gång till att markera kryssrutan för nyhetsbrev nedan.<br>
@@ -603,6 +641,11 @@ sv:
           notification_title: '%{user_group_name} användargrupp har uppdaterat sin profil och lämnar den overifierad. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.'
       notification_event:
         notification_title: En händelse inträffade i <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
+          email_outro: Du har fått det här meddelandet eftersom du är en författare till detta innehåll.
+          email_subject: Din %{resource_type} har tagits bort
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just instämt med "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
         email_outro: Du har fått det här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -1147,6 +1190,7 @@ sv:
         view_all: Visa alla (%{count})
     security:
       selfxss_warning:
+        description: Denna webbläsarfunktion är avsedd för utvecklare och du bör inte klistra in något här om du ombads att göra det. Klistra in innehåll i detta fönster kan påverka din integritet och ge hackare tillgång till ditt konto.
         title: OBS!
     shared:
       confirm_modal:
@@ -1203,6 +1247,10 @@ sv:
         title: Välj antal resultat per sida
       share_modal:
         close_window: Stäng fönster
+        copy_share_link: Kopiera
+        copy_share_link_clarification: Kopiera länk
+        copy_share_link_copied: Kopierad!
+        copy_share_link_message: Länken kopierades.
         share: Dela
         share_link: Dela länk
     statistics:
@@ -1477,8 +1525,8 @@ sv:
     correct_errors: Det finns fel på formuläret, vänligen korrigera dem för att fortsätta.
     length_validator:
       minimum:
-        one: minst %{count} tecken
-        other: minst %{count} tecken
+        one: Minst %{count} tecken
+        other: Minst %{count} tecken
     required: Krävs
     required_explanation: "* Obligatoriska fält är markerade med en asterisk"
   invisible_captcha:

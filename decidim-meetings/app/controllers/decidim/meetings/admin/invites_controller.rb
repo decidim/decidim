@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Meetings
     module Admin

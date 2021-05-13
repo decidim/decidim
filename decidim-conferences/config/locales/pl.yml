@@ -22,6 +22,12 @@ pl:
         slogan: Slogan
         slug: URL slug
         title: Tytuł
+      conference_media_link:
+        weight: Kolejność na stronie
+      conference_partner:
+        weight: Kolejność na stronie
+      conference_registration_type:
+        weight: Kolejność na stronie
       conference_speaker:
         full_name: Pełne imię i nazwisko
       conference_user_role:

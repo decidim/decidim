@@ -7,6 +7,7 @@ module Decidim
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
+      implements Decidim::Core::CategoriesContainerInterface
 
       description "An assembly"
 
@@ -20,7 +21,6 @@ module Decidim
       field :updated_at, Decidim::Core::DateTimeType, "The time this assembly was updated", null: false
       field :published_at, Decidim::Core::DateTimeType, "The time this assembly was published", null: false
       field :reference, String, "Reference for this assembly", null: false
-      field :categories, [Decidim::Core::CategoryType, { null: true }], "Categories for this assembly", null: false
 
       field :hero_image, String, "The hero image for this assembly", null: true
       field :banner_image, String, "The banner image for this assembly", null: true
@@ -56,6 +56,7 @@ module Decidim
       field :facebook_handler, String, "Facebook handler", null: true
       field :youtube_handler, String, "Youtube handler", null: true
       field :github_handler, String, "Github handler", null: true
+      field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this assembly", null: true
 
       field :members, [Decidim::Assemblies::AssemblyMemberType, { null: true }], "Members of this assembly", null: false
       field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Childrens of this assembly", null: false

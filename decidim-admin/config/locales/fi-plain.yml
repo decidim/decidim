@@ -32,6 +32,7 @@ fi-pl:
         body: Runko
         subject: Otsikko
       organization:
+        admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
         alert_color: Ilmoitus
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
@@ -42,6 +43,7 @@ fi-pl:
         default_locale: Oletuskieli
         description: Kuvaus
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
+        enable_participatory_space_filters: Ota käyttöön osallistumistilan suodattimet
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
         force_authentication: Kirjautuminen vaaditaan
@@ -355,6 +357,17 @@ fi-pl:
           values:
             'false': Virallistettu
             'true': Ei virallistettu
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Kutsu hyväksytty
+            values:
+              'false': Ei hyäksytty
+              'true': Hyväksytty
+          user_invitation_sent_at_not_null:
+            label: Kutsu lähetetty
+            values:
+              'false': Ei lähetetty
+              'true': Lähetetty
         private_space_eq:
           label: Yksityinen
           values:
@@ -372,6 +385,7 @@ fi-pl:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
           reported_id_string_or_reported_content_cont: Etsi kohteista %{collection} raportoitavan kohteen ID:n tai sisällön perusteella.
           title_cont: '%{collection}: Hae otsikon perusteella'
+          user_name_or_user_email_cont: Hae kohteesta %{collection} nimen tai sähköpostiosoitteen perusteella.
         state_eq:
           label: Tila
       forms:

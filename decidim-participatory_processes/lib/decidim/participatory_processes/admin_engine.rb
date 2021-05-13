@@ -190,6 +190,8 @@ module Decidim
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         "#",
+                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)),
                         if: allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment),
                         submenu: { target_menu: :admin_participatory_process_attachments_menu }
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
+describe "Admin manages election steps", :slow, type: :system do
   let(:manifest_name) { "elections" }
 
   include_context "when mocking the bulletin board in the browser"
@@ -12,13 +12,19 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   before do
+    VCR.turn_off!
+    Decidim::Elections.bulletin_board.reset_test_database
     election
     login_as user, scope: :user
     visit_component_admin
   end
 
+  after do
+    VCR.turn_on!
+  end
+
   describe "setup an election" do
-    let!(:election) { create :election, :ready_for_setup, component: current_component }
+    let!(:election) { create :election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" } }
 
     it "performs the action successfully" do
       within find("tr", text: translated(election.title)) do

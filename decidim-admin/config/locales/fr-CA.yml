@@ -24,6 +24,7 @@ fr-CA:
       component:
         name: Titre
         published_at: Publiée à
+        weight: Rang
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -41,6 +42,7 @@ fr-CA:
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Montrer une bannière d'actualités
+        enable_participatory_space_filters: Activer les filtres d'espace participatif
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
         force_authentication: Forcer l'authentification
@@ -110,10 +112,12 @@ fr-CA:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
+        weight: Rang
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
+        weight: Rang
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -352,6 +356,17 @@ fr-CA:
           values:
             'false': Validé
             'true': Non validé
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitation acceptée
+            values:
+              'false': Non acceptée
+              'true': Acceptée
+          user_invitation_sent_at_not_null:
+            label: Invitation envoyée
+            values:
+              'false': Non envoyée
+              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -369,6 +384,7 @@ fr-CA:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
           reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Search %{collection} par titre.
+          user_name_or_user_email_cont: Rechercher %{collection} par nom ou par email.
         state_eq:
           label: État
       forms:
@@ -926,6 +942,13 @@ fr-CA:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
+    metrics:
+      blocked_users:
+        object: utilisateurs bloqués
+        title: Utilisateurs bloqués
+      reported_users:
+        object: utilisateurs signalés
+        title: Utilisateurs signalés
     moderations:
       actions:
         expand: Agrandir

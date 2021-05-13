@@ -15,6 +15,7 @@ module Decidim
 
       include_examples "attachable interface"
       include_examples "participatory space resourcable interface"
+      include_examples "categories container interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -393,16 +394,11 @@ module Decidim
         end
       end
 
-      describe "categories" do
-        let(:category) { create(:category) }
-        let(:query) { "{ categories { id } }" }
+      describe "announcement" do
+        let(:query) { '{ announcement { translation(locale: "en")}}' }
 
-        before do
-          model.categories << category
-        end
-
-        it "returns its categories" do
-          expect(response["categories"].first["id"]).to eq(model.categories.first.id.to_s)
+        it "returns all the required fields" do
+          expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
         end
       end
     end

@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Aktivera organisationskarta
       assembly:
         area_id: Område
         assembly_type: Typ av grupp
@@ -50,6 +52,7 @@ sv:
         target: Vem deltar
         title: Titel
         twitter: Twitter
+        weight: Vikt
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
@@ -187,6 +190,7 @@ sv:
           assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
+          attachments: Bilagor
           categories: Kategorier
           components: Komponenter
           info: Info
@@ -382,11 +386,6 @@ sv:
         designated_on: Utsedd den
       index:
         title: Medlemmar
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
     events:
       assemblies:
         create_assembly_member:
@@ -419,17 +418,7 @@ sv:
         description: Antal skapade grupper
         object: grupper
         title: Grupper
-    pages:
-      home:
-        hero:
-          participate_title: Delta i plattformens dialoger
-        sub_hero:
-          register_title: Skapa ett konto
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Länk till sidan som visar alla dialoger
       show:
         related_assemblies: Relaterade grupper
     statistics:

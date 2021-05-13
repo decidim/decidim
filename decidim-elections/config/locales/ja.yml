@@ -176,7 +176,6 @@ ja:
             upcoming: '%{start_time} に投票が終了します'
       feedback:
         answer:
-          invalid: フィードバックの送信中に問題が発生しました
           spam_detected: フォームに回答する際に問題が発生しました。もう一度お試しください。
           success: フィードバックは正常に送信されました
       models:
@@ -213,15 +212,10 @@ ja:
           experience: ご利用いただき、どう思われますか?
           feedback: フィードバックを送る
           header: 投票が確定されました
-          lead: あなたの票は既に投じられました！
           text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        encrypting:
-          header: 投票の暗号化...
-          text: 投票は暗号化されており、匿名で投票することができます。
         header:
           confirm: 投票を確定
           confirmed: 投票が確定されました
-          encrypting: 投票を確定
         messages:
           not_allowed: 現在、この選挙に投票することはできません。
         modal:

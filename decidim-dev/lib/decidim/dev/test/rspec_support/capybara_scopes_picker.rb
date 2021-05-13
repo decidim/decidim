@@ -10,6 +10,7 @@ module Capybara
       match do |scope_picker|
         data_picker = scope_picker.data_picker
         scope_name = expected ? translated(expected.name) : t("decidim.scopes.global")
+
         expect(data_picker).to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: :all)
         expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
       end
@@ -38,7 +39,9 @@ module Capybara
       expect(scope_picker).to have_scope_picked(scope)
     end
 
-    def scope_repick(scope_picker, old_scope, new_scope)
+    def scope_repick(element_id, old_scope, new_scope)
+      scope_picker = select_data_picker(element_id)
+
       data_picker = scope_picker.data_picker
 
       expect(data_picker).to have_selector(".picker-values div input[value='#{old_scope&.id || scope_picker.global_value}']", visible: :all)
@@ -50,6 +53,8 @@ module Capybara
       scope_picker_browse_scope(parent_scope, back: true)
       scope_picker_browse_scopes(new_scope.part_of_scopes - old_scope.part_of_scopes)
       data_picker_pick_current
+
+      scope_picker = select_data_picker(element_id)
 
       expect(scope_picker).to have_scope_picked(new_scope)
     end
@@ -68,6 +73,7 @@ module Capybara
     def scope_picker_browse_scopes(scopes)
       scopes.each do |scope|
         scope_picker_browse_scope(scope)
+        sleep(2)
       end
     end
 

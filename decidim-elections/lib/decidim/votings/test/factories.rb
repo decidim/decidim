@@ -3,6 +3,14 @@
 require "decidim/core/test/factories"
 require "decidim/forms/test/factories"
 
+def format_birthdate(birthdate)
+  format("%04d%02d%02d", birthdate.year, birthdate.month, birthdate.day) # rubocop:disable Style/FormatStringToken
+end
+
+def hash_for(*data)
+  Digest::SHA256.hexdigest(data.join("."))
+end
+
 FactoryBot.define do
   sequence(:voting_slug) do |n|
     "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
@@ -20,6 +28,7 @@ FactoryBot.define do
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     voting_type { "hybrid" }
+    census_contact_information { nil }
 
     trait :unpublished do
       published_at { nil }
@@ -88,12 +97,29 @@ FactoryBot.define do
     csv_row_raw_count { 1 }
     csv_row_processed_count { 1 }
 
-    after(:create) do |dataset|
-      create(:datum, dataset: dataset)
+    trait :with_data do
+      after(:create) do |dataset|
+        create_list(:datum, 5, dataset: dataset)
+      end
+    end
+
+    trait :with_access_code_data do
+      after(:create) do |dataset|
+        create_list(:datum, 5, :with_access_code, dataset: dataset)
+      end
     end
 
     trait :data_created do
       status { "data_created" }
+    end
+
+    trait :codes_generated do
+      with_access_code_data
+      status { "codes_generated" }
+    end
+
+    trait :frozen do
+      status { "freeze" }
     end
   end
 
@@ -106,13 +132,42 @@ FactoryBot.define do
       birthdate { Faker::Date.birthday(min_age: 18, max_age: 65) }
     end
 
-    hashed_in_person_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate].join(".")) }
-    hashed_check_data { Digest::SHA256.hexdigest([document_number, document_type, birthdate, postal_code].join(".")) }
+    hashed_in_person_data { hash_for(document_number, document_type, format_birthdate(birthdate)) }
+    hashed_check_data { hash_for(document_number, document_type, format_birthdate(birthdate), postal_code) }
 
     full_name { Faker::Name.name }
     full_address { Faker::Address.full_address }
     postal_code { Faker::Address.postcode }
     mobile_phone_number { Faker::PhoneNumber.cell_phone }
     email { Faker::Internet.email }
+
+    trait :with_access_code do
+      access_code { Faker::Alphanumeric.alphanumeric(number: 8) }
+      hashed_online_data { hash_for hashed_check_data, access_code }
+    end
+  end
+
+  factory :ballot_style, class: "Decidim::Votings::BallotStyle" do
+    code { Faker::Lorem.word.upcase }
+    voting { create(:voting) }
+
+    trait :with_questions do
+      transient do
+        election { create(:election, :complete, component: create(:elections_component, participatory_space: voting)) }
+      end
+    end
+
+    trait :with_ballot_style_questions do
+      with_questions
+
+      after(:create) do |ballot_style, evaluator|
+        evaluator.election.questions.first(2).map { |question| create(:ballot_style_question, question: question, ballot_style: ballot_style) }
+      end
+    end
+  end
+
+  factory :ballot_style_question, class: "Decidim::Votings::BallotStyleQuestion" do
+    question
+    ballot_style
   end
 end

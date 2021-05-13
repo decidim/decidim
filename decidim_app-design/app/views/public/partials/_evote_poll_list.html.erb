@@ -2,11 +2,11 @@
   <div class="columns">
         <h2 class="section-heading">3 votings</h2>
         <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-          <% 3.times do %>
+          <% 3.times do |index| %>
           <div class="column">
             <article class="card card--process">
               <a href="">
-                <%= image_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg", class: "card__image" %>
+                <%= image_pack_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg", class: "card__image" %>
               </a>
               <div class="card__content">
                 <div class="card__header">
@@ -20,6 +20,11 @@
                   <div class="card__text--paragraph">
                     <%= Faker::Hipster.paragraph[0..140] %>
                   </div>
+                  <% if index == 0 %>
+                  <div class="callout secondary mt-s">
+                    <strong>15 minutes</strong> remaining to vote.
+                  </div>
+                  <% end %>
                 </div>
               </div>
               <div class="card__icondata">

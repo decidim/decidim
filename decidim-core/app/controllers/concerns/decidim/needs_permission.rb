@@ -25,6 +25,7 @@ module Decidim
       end
 
       def user_has_no_permission_referer
+        return unless user_signed_in?
         return if request.referer == request.original_url
 
         request.referer

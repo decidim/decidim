@@ -401,6 +401,7 @@ nl:
             more_information: Meer informatie
             participate: Deelnemen
             participate_in: Deelnemen aan proces %{resource_name}
+            processes_button_title: Link naar de pagina Processen waarop alle processen worden weergegeven
             see_all_processes: Bekijk alle thema's
       participatory_process_steps:
         index:

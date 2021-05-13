@@ -1,0 +1,50 @@
+@import "stylesheets/decidim/forms/forms";
+
+.answer-questionnaire{
+  label{
+    font-size: inherit;
+  }
+
+  .radio-button-collection,
+  .check-box-collection,
+  .sortable-check-box-collection{
+    margin: 0 0 1rem;
+  }
+
+  .tos-agreement{
+    margin: 1rem 0 0;
+
+    .help-text{
+      margin: .2rem 0 0;
+    }
+  }
+
+  .questionnaire-question{
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: .3em;
+  }
+
+  .help-text{
+    margin-top: .5em;
+
+    .ql-video{
+      margin: .5em auto;
+    }
+  }
+
+  .last-sorted{
+    margin-bottom: 1rem;
+  }
+
+  &__steps{
+    font-size: .8rem;
+  }
+
+  &__submit{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+}

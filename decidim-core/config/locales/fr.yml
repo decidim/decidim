@@ -703,7 +703,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (",")
+          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (","). Pour pouvoir choisir le type de séparateur il recommander d'utiliser le logiciel "Libre Office"
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage qui n'a pas de texte.
@@ -1517,10 +1517,6 @@ fr:
       too_short: est trop court (moins de 15 caractères)
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
-    length_validator:
-      minimum:
-        one: au moins %{count} caractères
-        other: au moins %{count} caractères
     required: Champ obligatoire
     required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   invisible_captcha:

@@ -32,7 +32,7 @@ cs:
         instagram: Instagram
         internal_organisation: Vnitřní organizace
         is_transparent: Transparentní
-        local_area: Oblast organizace
+        local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         parent_id: Nadřazené shromáždění
         participatory_processes_ids: Související participativní procesy
@@ -196,6 +196,7 @@ cs:
           assembly_members: Členové
           attachment_collections: Složky
           attachment_files: Soubory
+          attachments: Přílohy
           categories: Kategorie
           components: Komponenty
           info: Info
@@ -267,6 +268,7 @@ cs:
       admin:
         assemblies:
           form:
+            announcement_help: Text, který sem vložíte, se uživateli zobrazí přímo pod informacemi o procesu.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
@@ -374,7 +376,7 @@ cs:
         is_transparent:
           'false': neprůhledný
           'true': transparentní
-        local_area: Oblast organizace
+        local_area: Oblast působnosti organizace
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se o tom rozhoduje
         private_space: Toto je soukromé shromáždění
@@ -391,11 +393,6 @@ cs:
         designated_on: Určen pro
       index:
         title: Členové
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
     events:
       assemblies:
         create_assembly_member:
@@ -428,17 +425,7 @@ cs:
         description: Počet vytvořených shromáždění
         object: shromáždění
         title: Shromáždění
-    pages:
-      home:
-        hero:
-          participate_title: Účast na procesech platformy
-        sub_hero:
-          register_title: Zaregistrujte se pro vytvoření účtu
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
       show:
         related_assemblies: Související shromáždění
     statistics:

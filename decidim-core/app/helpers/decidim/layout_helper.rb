@@ -55,7 +55,7 @@ module Decidim
 
       content_tag :svg, html_properties do
         inner = content_tag :title, title
-        inner += content_tag :use, nil, "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
+        inner += content_tag :use, nil, "href" => "#{asset_pack_path("media/images/icons.svg")}#icon-#{name}"
 
         inner
       end
@@ -73,10 +73,10 @@ module Decidim
 
       if path.split(".").last == "svg"
         attributes = { class: classes.join(" ") }.merge(options)
-        asset = Rails.application.assets_manifest.find_sources(path).first
+        asset = File.read(Rails.root.join("public#{asset_pack_path(path)}"))
         asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
-        image_tag(path, class: classes.join(" "), style: "display: none")
+        image_pack_tag(path, class: classes.join(" "), style: "display: none")
       end
     end
 

@@ -16,8 +16,8 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
-      enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally, :tally_ended, :results_published]
-        .map { |status| [status, status.to_s] }.to_h, _prefix: :bb
+
+      enum bb_status: [:created, :key_ceremony, :key_ceremony_ended, :vote, :vote_ended, :tally, :tally_ended, :results_published].index_with(&:to_s), _prefix: :bb
 
       component_manifest_name "elections"
 
@@ -26,6 +26,8 @@ module Decidim
       has_many :trustees, through: :elections_trustees
       has_many :votes, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Vote", dependent: :restrict_with_exception
       has_many :actions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Action", dependent: :restrict_with_exception
+      has_one :bb_closure, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::BulletinBoardClosure", dependent: :destroy
+      has_many :ps_closures, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Votings::PollingStationClosure", dependent: :destroy
 
       scope :active, lambda {
         where("start_time <= ?", Time.current)
