@@ -12,8 +12,10 @@ class FixProposalsData < ActiveRecord::Migration[5.2]
 
         locale = if author
                    author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
-                 else
+                 elsif proposal.organization
                    proposal.organization.default_locale
+                 else
+                   I18n.default_locale.to_s
                  end
 
         proposal.title = {
