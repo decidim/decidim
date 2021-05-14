@@ -32,6 +32,7 @@
         body: Tekst
         subject: Emne
       organization:
+        admin_terms_of_use_body: Innholdet i de administrative vilkårene for bruk av plattformen
         alert_color: Varsel
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
@@ -45,6 +46,7 @@
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         force_authentication: Tving godkjenning
+        force_users_to_authenticate_before_access_organization: Pålegg brukere å godkjenne før tilgang til organisasjonen
         from: Fra e-postadresse
         github_handler: GitHub brukernavn
         header_snippets: Utdrag topptekst
@@ -70,6 +72,8 @@
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
         omnipresent_banner_url: URL
+        organization_admin_email: Epost for organisasjonsadministrator
+        organization_admin_name: Navn på organisasjonen
         primary_color: Primært
         reference_prefix: Referanse prefiks
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
