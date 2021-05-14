@@ -807,7 +807,12 @@ ro:
           error: A apărut o eroare la actualizarea acestui domeniu de aplicare.
           success: Domeniu de aplicare actualizat cu succes
       share_tokens:
+        actions:
+          confirm_destroy: Sigur doriți să ștergeți acest token?
+          destroy: Șterge
+          share: Distribuie
         destroy:
+          error: A apărut o problemă la distrugerea tokenului.
           success: Jetonul a fost eliminat.
         share_tokens:
           empty: Nu există jetoane active
