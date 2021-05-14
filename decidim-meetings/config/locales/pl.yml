@@ -96,7 +96,7 @@ pl:
             creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie klocków
-            registration_code_enabled: Włączono formularz rejestracyjny
+            registration_code_enabled: Włączono kod rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
