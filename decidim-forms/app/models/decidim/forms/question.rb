@@ -5,6 +5,7 @@ module Decidim
     # The data store for a Question in the Decidim::Forms component.
     class Question < Forms::ApplicationRecord
       include Decidim::TranslatableResource
+      include Decidim::Publicable
 
       QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting files matrix_single matrix_multiple).freeze
       SEPARATOR_TYPE = "separator"

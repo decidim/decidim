@@ -239,27 +239,30 @@ module Decidim
             expect(questionnaire.questions[1].description["en"]).to eq(form_params["questions"]["1"]["description"]["en"])
             expect(questionnaire.questions[1].question_type).to eq("long_answer")
             expect(questionnaire.questions[1].max_characters).to eq(100)
-            expect(questionnaire.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
+            expect(questionnaire.questions[1].published_at).not_to be_nil
 
             expect(questionnaire.questions[2].question_type).to eq("single_option")
             expect(questionnaire.questions[2].max_choices).to be_nil
             expect(questionnaire.questions[2].max_characters).to eq(0)
-
-            expect(questionnaire.questions[3].question_type).to eq("multiple_option")
+            expect(questionnaire.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
+            expect(questionnaire.questions[2].published_at).not_to be_nil
             expect(questionnaire.questions[2].answer_options[0].free_text).to eq(false)
             expect(questionnaire.questions[2].max_choices).to be_nil
 
             expect(questionnaire.questions[3].question_type).to eq("multiple_option")
             expect(questionnaire.questions[3].answer_options[0].free_text).to eq(true)
             expect(questionnaire.questions[3].max_choices).to eq(2)
+            expect(questionnaire.questions[3].published_at).not_to be_nil
 
             expect(questionnaire.questions[4].question_type).to eq("matrix_single")
             expect(questionnaire.questions[4].answer_options[0].free_text).to eq(true)
             expect(questionnaire.questions[4].matrix_rows[0].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"]["0"]["body"]["en"])
+            expect(questionnaire.questions[4].published_at).not_to be_nil
 
             expect(questionnaire.questions[5].question_type).to eq("matrix_multiple")
             expect(questionnaire.questions[5].answer_options[0].free_text).to eq(true)
             expect(questionnaire.questions[5].matrix_rows[0].body["en"]).to eq(form_params["questions"]["5"]["matrix_rows"]["0"]["body"]["en"])
+            expect(questionnaire.questions[5].published_at).not_to be_nil
           end
         end
 
