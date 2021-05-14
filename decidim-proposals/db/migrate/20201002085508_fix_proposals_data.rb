@@ -7,16 +7,12 @@ class FixProposalsData < ActiveRecord::Migration[5.2]
     PaperTrail.request(enabled: false) do
       Decidim::Proposals::Proposal.find_each do |proposal|
         next if proposal.title.is_a?(Hash) && proposal.body.is_a?(Hash)
+        next if proposal.coauthorships.empty?
+        next if proposal.organization.blank?
 
-        author = proposal.coauthorships.first.try(:author)
+        author = proposal.coauthorships.first.author
 
-        locale = if author
-                   author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
-                 elsif proposal.organization
-                   proposal.organization.default_locale
-                 else
-                   I18n.default_locale.to_s
-                 end
+        locale = author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
 
         proposal.title = {
           locale => proposal.title
