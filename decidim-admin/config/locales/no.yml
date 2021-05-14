@@ -322,6 +322,10 @@
           title_cont: Søk %{collection} etter tittel.
         state_eq:
           label: Tilstand
+      forms:
+        file_help:
+          import:
+            message_1: CSV, JSON og Excel (.xls)-filer støttes
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
         form:
@@ -360,6 +364,10 @@
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
           impersonate_new_managed_user: Administrer ny deltaker
+      imports:
+        new:
+          accepted_mime_types:
+            xls: xls
       logs:
         logs_list:
           no_logs_yet: Det er ingen logger ennå
