@@ -677,7 +677,9 @@ ro:
         actions:
           confirm_destroy: Sigur doriți să ștergeți acest token?
           destroy: Șterge
+          share: Distribuie
         destroy:
+          error: A apărut o problemă la distrugerea tokenului.
           success: Jetonul a fost eliminat.
         share_tokens:
           empty: Nu există jetoane active
