@@ -5,6 +5,7 @@ ro:
         decidim_user_group_id: Autor
         description: Descriere
         offline_votes: Semnături interpersonale
+        offline_votes_for_scope: Semnături personale pentru %{scope_name}
         scope_id: Domeniu
         signature_end_date: Sfârșitul perioadei de colectare a semnăturilor
         signature_start_date: Începutul perioadei de colectare a semnăturilor
@@ -21,6 +22,7 @@ ro:
         area_enabled: Permite autorilor să aleagă zona pentru inițiativa lor
         attachments_enabled: Activare atașamente
         banner_image: Imagine banner
+        child_scope_threshold_enabled: Activează semnăturile pentru domeniul de aplicare, copil
         collect_user_extra_fields: Colectarea datelor cu caracter personal ale participantului la semnătură
         custom_signature_end_date_enabled: Permite autorilor să aleagă sfârșitul perioadei de colectare a semnăturilor
         description: Descriere
@@ -28,6 +30,7 @@ ro:
         extra_fields_legal_information: Informații juridice privind colectarea datelor cu caracter personal
         minimum_committee_members: Numărul minim de membri ai comitetului
         online_signature_enabled: Semnătură online activată
+        only_global_scope_enabled: Permiteți numai crearea de inițiative la nivel global
         promoting_committee_enabled: Activați comitetul de promovare
         title: Titlu
         undo_online_signatures_enabled: Permite participanților să își anuleze semnăturile online
@@ -67,6 +70,23 @@ ro:
     admin:
       actions:
         new_initiative_type: Noul tip de inițiativă
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Zonă
+          state_eq:
+            label: Județ
+            values:
+              accepted: Insuficiente semnături
+              created: Creat
+              discarded: Renunță
+              published: Publicat
+              rejected: Semnături insuficiente
+              validating: Validarea tehnică
+          type_id_eq:
+            label: Tip
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Căutați în %{collection} după titlu, descriere, ID sau numele autorului.
       menu:
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative
@@ -101,6 +121,7 @@ ro:
             initiative_title: Titlul inițiativei
             name_and_surname: Nume și prenume
             postal_code: Cod poștal
+            scope: Domeniu
             time_and_date: Ora și data
             timestamp: Ora
       titles:
@@ -119,6 +140,11 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți %{resource_title}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Semnăturile inițiativei au fost prelungite!
           notification_title: Data de încheiere a semnăturilor pentru inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost extinsă.
+        initiative_sent_to_technical_validation:
+          email_intro: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică. Puteți verifica pe <a href="%{admin_initiative_url}">panoul de administrare</a>
+          email_outro: Ați primit această notificare deoarece sunteți administrator al platformei.
+          email_subject: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică.
+          notification_title: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică. Puteți verifica pe <a href="%{admin_initiative_path}">panoul de administrare</a>
         milestone_completed:
           affected_user:
             email_intro: Inițiativa ta %{resource_title} a obținut %{percentage}% semnături!
@@ -131,7 +157,10 @@ ro:
             email_subject: Piatră nouă finalizată!
             notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a obținut %{percentage}% de semnături.
         support_threshold_reached:
+          email_intro: Inițiativa %{resource_title} a atins pragul de semnături
           email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
+          email_subject: Pragul de semnături atins
+          notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a atins pragul de semnături
     gamification:
       badges:
         initiatives:
@@ -176,12 +205,17 @@ ro:
         content_blocks:
           highlighted_initiatives:
             max_results: Cantitatea maximă de elemente de afișat
+            order:
+              default: Implicit (recent)
+              label: 'Ordonare element după:'
+              most_recent: Cele mai recente
         exports:
           initiatives: Inițiative
         initiatives:
           edit:
             accept: Acceptați inițiativa
             confirm: Ești sigur?
+            confirm_send_to_technical_validation: Sunteţi sigur(-ă)?
             discard: Renunțați la inițiativă
             export_pdf_signatures: Exportă fișierul PDF al semnăturilor
             export_votes: Exportă semnăturile
@@ -190,6 +224,8 @@ ro:
             success: Inițiativa a fost trimisă validării tehnice
             update: Actualizare
           form:
+            attachments: Atașamente
+            settings: Setări
             title: Informaţii generale
           index:
             actions_title: Acțiune
@@ -235,6 +271,10 @@ ro:
             destroy: Ștergere
             update: Actualizare
           form:
+            authorizations: Setări de autorizare
+            child_scope_threshold_enabled_help: 'Acest steag de configurare nu acceptă voturi offline, permite sub-scopurilor și funcționează cu un handler de autorizare care asociază un domeniu utilizatorului, asigură-te că ai ales acea autorizație, mai jos în setările de autorizare. Pentru ca acesta să funcţioneze domeniile de aplicare trebuie configurate în mod ierarhic: 1 părinte - N Child. Pentru mai multe informații despre cum funcționează această configurație, vedeți linkul <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"></a>.'
+            only_global_scope_enabled_help: Bifați acest steag dacă ați activat "Semnătura Child scope sigure" și ați configurat domeniul global ca domeniu părinte. Prin acest lucru, selecția de tip de inițiativă va fi omisă în asistentul pentru crearea de inițiative. Pentru mai multe informații despre cum funcționează această configurație, vedeți linkul <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"></a>.
+            options: Opţiuni
             title: Informaţii generale
           initiative_type_scopes:
             title: Domeniul de aplicare al tipului de inițiativă
@@ -266,13 +306,19 @@ ro:
           accepted: Destinatar semnături
           all: Toate
           answered: Răspuns
+          closed: Închis
+          open: Deschis
           rejected: Semnături insuficiente
         filter_type_values:
           all: Toate
       committee_requests:
+        approve:
+          success: Cererea a fost aprobată.
         new:
           continue: Continuă
           help_text: Sunteți pe cale să deveniți membru al comitetului de promotori al acestei inițiative
+        revoke:
+          success: Cererea a fost revocată.
         spawn:
           success: Solicitarea dvs. a fost trimisă autorului de inițiativă.
       content_blocks:
@@ -282,6 +328,7 @@ ro:
         fill_data:
           back: Înapoi
           continue: Continuă
+          fill_data_help: "<ul> <li>Examinați conținutul inițiativei dvs. Este ușor de înțeles titlul dvs.? Este obiectivul inițiativei dvs.?</li> <li>Trebuie să alegeți tipul de semnătură. Persoană, online sau o combinație a ambelor</li> <li>Care este aria geografică a inițiativei?</li> </ul>"
           initiative_type: Tip de inițiativă
           more_information: "(Informaţii principale)"
           select_area: Selectează o zonă
@@ -289,8 +336,15 @@ ro:
         finish:
           back: Înapoi
           back_to_initiatives: Înapoi la inițiative
+          callout_text: Felicitări! Inițiativa dvs. a fost creată cu succes.
+          confirm: Veți trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicat, nu o vei putea edita. Ești sigur?
+          edit_my_initiative: Editează inițiativa mea
           go_to_my_initiatives: Mergeți la inițiativele mele
           more_information: "(Informaţii principale)"
+          send_my_initiative: Trimite inițiativa mea la validarea tehnică
+        finish_help:
+          access_reminder: Poți accesa inițiativele tale prin filtrul %{link} de pe pagina de inițiative.
+          publish_helper_text: Reţineţi că pentru ca iniţiativa dvs. să fie publicată, trebuie să completaţi informaţiile necesare şi <strong>să le trimiteţi la validarea tehnică</strong> pentru ca un administrator să le revizuiască.
         previous_form:
           back: Înapoi
           continue: Continuă
@@ -298,12 +352,14 @@ ro:
           more_information: "(Informaţii principale)"
         promotal_committee:
           back: Înapoi
+          individual_help_text: Acest tip de inițiativă necesită o Comisie de promovare formată din cel puțin %{committee_size} de persoane (atestatori). Trebuie să împărtășiți următorul link cu celelalte persoane care fac parte din această inițiativă. Când persoanele de contact primesc acest link vor trebui să urmeze pașii indicați.
           more_information: "(Informaţii principale)"
         select_initiative_type:
           back: Înapoi
           choose_html: Vreau să creez un <strong>%{title}</strong>
           more_information: "(Informaţii principale)"
           select: Doresc să promovez această iniţiativă
+          select_initiative_type_help: Inițiativele reprezintă un mijloc prin care participanții pot interveni astfel încât organizația să poată întreprinde acțiuni de apărare a interesului general. Ce inițiativă doriți să lansați?
         share_committee_link:
           continue: Continuă
           invite_to_committee_help: Link pentru a invita persoane care vor face parte din comitetul promotor
@@ -312,7 +368,22 @@ ro:
           compare_help: Dacă oricare dintre următoarele inițiative este similară cu a dumneavoastră, vă încurajăm să o semnați. Propunerea dvs. va avea mai multe posibilități de a se realiza.
           continue: Iniţiativa mea este diferită
           more_information: "(Informaţii principale)"
+      edit:
+        accept: Acceptați inițiativa
+        back: Înapoi
+        confirm: Sunteţi sigur(-ă)?
+        discard: Renunțați la inițiativă
+        export_pdf_signatures: Exportă fișierul PDF al semnăturilor
+        export_votes: Exportă semnăturile
+        reject: Refuză inițiativă
+        title: Editare inițiativă
+        update: Actualizare
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} a acceptat cererea ta de a face parte din comitetul promotorilor pentru inițiativa %{resource_title}."
+          email_outro: 'Ați primit această notificare deoarece ați aplicat la această inițiativă: %{resource_title}'
+          email_subject: "%{author_nickname} a acceptat cererea dvs. la comitetul promotorului"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a acceptat cererea dvs. de a face parte din comitetul promotorului pentru următoarea inițiativă <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, pe care îl urmărești, a creat o nouă inițiativă, verifică și contribuește:"
           email_outro: Ați primit această notificare deoarece urmăriți %{author_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
@@ -466,6 +537,7 @@ ro:
     decidim:
       admin:
         initiative:
+          attachments: Atașamente
           committee_members: Membrii Comitetului
           components: Componente
           information: Informare
