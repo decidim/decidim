@@ -17,12 +17,28 @@
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
+        steps:
+          tally_ended:
+            title: Beregnet resultat
       elections:
         count:
           elections_count:
             one: "%{count} valg"
             other: "%{count} valg"
+        preview:
+          available_answers: Tilgjengelige svar
+          description: Dette er spørsmål du finner i avstemningsprosessen
+        results:
+          description: Dette er resultater av avstemningen, for hvert spørsmål
+          votes:
+            one: "%{count} stemmer"
+            other: "%{count} stemmer"
+            zero: "%{count} stemmer"
         show:
+          action-button:
+            change-vote: Endre stemmen din
+            vote: Start avstemning
+            vote-again: Stem på nytt
           preview: Forhåndsvisning
           voting_period_status:
             finished: Stemmegivningen startet %{start_time} og opphørte %{end_time}
