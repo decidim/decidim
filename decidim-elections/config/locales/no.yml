@@ -39,10 +39,20 @@
             change-vote: Endre stemmen din
             vote: Start avstemning
             vote-again: Stem på nytt
+          callout:
+            already-voted: Du har allerede gitt din stemme i denne prosessen. Du kan endre stemmen din eller verifisere den.
+            vote-rejected: Det var ikke mulig å bekrefte stemmen din. Vennligst avgi den igjen.
           preview: Forhåndsvisning
+          verify:
+            already-voted: Stemt allerede?
+            verify-here: Sjekk hva du har stemt på her.
+            will-verify: Du vil kunne bekrefte stemmen din når avstemningen starter.
           voting_period_status:
             finished: Stemmegivningen startet %{start_time} og opphørte %{end_time}
             upcoming: Avstemming begynner %{start_time}
+      feedback:
+        answer:
+          invalid: Det oppsto et problem med å sende inn din tilbakemelding.
       votes:
         confirm:
           answer: Svar
@@ -54,6 +64,7 @@
           question: Spørsmål %{count}
         confirmed:
           back: Tilbake til valg
+          error: Beklager, det oppstod en feil under bekreftelsen av stemmen. Vennligst stem på nytt.
           experience: Hvordan var opplevelsen din?
           feedback: Gi oss en tilbakemelding
           header: Avstemning bekreftet
@@ -76,9 +87,20 @@
           preview_alert: Dette er en forhåndsvisning av stemmebåsen.
           question_steps: Spørsmål %{current_step} av %{total_steps}
           selections: "%{selected} av %{max_selections}<br> valg"
+        processing:
+          header: Behandler avstemning...
+          text: Din stemme er mottatt og den er under behandling. Vennligst vent.
+        update:
+          error: Det oppstod et problem under oppdatering av avstemnings-status
+          success: Avstemnings-status oppdatert
         voting_step:
           back: Tilbake
           continue: Neste
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: Kontrollgruppe
   layouts:
     decidim:
       election_votes_header:
