@@ -34,6 +34,7 @@ module Decidim
       has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_one :poll, class_name: "Decidim::Meetings::Poll", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"
 

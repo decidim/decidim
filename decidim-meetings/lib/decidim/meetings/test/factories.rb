@@ -171,4 +171,9 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
   end
+
+  factory :poll, class: "Decidim::Meetings::Poll" do
+    meeting
+    questionnaire { build(:questionnaire) }
+  end
 end
