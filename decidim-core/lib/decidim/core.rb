@@ -149,6 +149,11 @@ module Decidim
     true
   end
 
+  # Setting that 
+  config_accessor :cors_enabled do
+    false
+  end
+
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
     %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)

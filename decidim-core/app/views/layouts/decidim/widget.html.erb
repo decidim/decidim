@@ -29,5 +29,6 @@
 
     <%= javascript_pack_tag "decidim_widget" %>
     <%= render partial: "layouts/decidim/js_configuration" %>
+    <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
   </body>
 </html>
