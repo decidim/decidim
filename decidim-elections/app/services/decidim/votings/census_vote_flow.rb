@@ -38,7 +38,25 @@ module Decidim
         EngineRouter.main_proxy(election.component.participatory_space).voting_login_path(election_id: election.id, vote_path: vote_path)
       end
 
+      def questions_for(election)
+        if ballot_style.present?
+          ballot_style.questions.where(election: election)
+        else
+          election.questions
+        end
+      end
+
+      def ballot_style_id
+        ballot_style&.slug
+      end
+
       private
+
+      def ballot_style
+        return @ballot_style if defined?(@ballot_style)
+
+        @ballot_style = datum&.ballot_style
+      end
 
       def datum
         return @datum if defined?(@datum)
@@ -46,7 +64,7 @@ module Decidim
         if received_voter_token
           @datum = Decidim::Votings::Census::Datum.find_by(id: received_voter_token_datum_id) if received_voter_token_datum_id
         else
-          @datum = Decidim::Votings::Census::Datum.find_by(hashed_online_data: form.hashed_online_data)
+          @datum = Decidim::Votings::Census::Datum.find_by(hashed_online_data: form.hashed_online_data, dataset: election.participatory_space.dataset)
         end
       end
 

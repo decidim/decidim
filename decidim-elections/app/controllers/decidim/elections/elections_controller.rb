@@ -9,7 +9,7 @@ module Decidim
       include Decidim::Elections::Orderable
       include HasVoteFlow
 
-      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?
+      helper_method :elections, :election, :paginated_elections, :scheduled_elections, :single?, :onboarding, :authority_public_key, :bulletin_board_server, :authority_slug
 
       def index
         redirect_to election_path(single, single: true) if single?
@@ -19,7 +19,11 @@ module Decidim
         enforce_permission_to :view, :election, election: election
       end
 
+      def election_log; end
+
       private
+
+      delegate :bulletin_board_server, :authority_slug, to: :bulletin_board_client
 
       def elections
         @elections ||= Election.where(component: current_component).published
@@ -27,6 +31,18 @@ module Decidim
 
       def election
         @election ||= Election.where(component: current_component).find(params[:id])
+      end
+
+      def onboarding
+        @onboarding ||= params[:onboarding].present?
+      end
+
+      def bulletin_board_client
+        @bulletin_board_client ||= Decidim::Elections.bulletin_board
+      end
+
+      def authority_public_key
+        @authority_public_key ||= bulletin_board_client.authority_public_key.to_json
       end
 
       # Public: Checks if the component has only one election resource.

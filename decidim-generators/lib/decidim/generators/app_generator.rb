@@ -65,13 +65,9 @@ module Decidim
                                default: false,
                                desc: "Add the necessary gems to profile the app"
 
-      class_option :skip_webpack_install, type: :boolean,
-                                          default: true,
-                                          desc: "Skip webpack installer"
-
-      class_option :skip_javascript, type: :boolean,
-                                     default: true,
-                                     desc: "Skip webpack"
+      class_option :force_ssl, type: :string,
+                               default: "true",
+                               desc: "Doesn't force to use ssl"
 
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
@@ -159,6 +155,12 @@ module Decidim
 
       def decidim_initializer
         copy_file "initializer.rb", "config/initializers/decidim.rb"
+
+        if options[:force_ssl] == "false"
+          gsub_file "config/initializers/decidim.rb",
+                    /# config.force_ssl = true/,
+                    "config.force_ssl = false"
+        end
       end
 
       def authorization_handler

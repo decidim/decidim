@@ -24,12 +24,17 @@ ja:
       component:
         name: 名前
         published_at: 公開日時
+        weight: 順番の位置
       id: ID
+      import:
+        user_group_id: インポートを作成
       newsletter:
         body: 本文
         subject: 件名
       organization:
+        admin_terms_of_use_body: 管理者の利用規約の本文
         alert_color: アラート
+        available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
         comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
         cta_button_path: Call To Action ボタンのパス
@@ -38,8 +43,11 @@ ja:
         default_locale: 既定のロケール：
         description: 説明
         enable_omnipresent_banner: Show omnipresent banner
+        enable_participatory_space_filters: 参加スペースフィルタを有効にする
         facebook_handler: Facebook handler
         favicon: アイコン
+        force_authentication: 認証の強制
+        force_users_to_authenticate_before_access_organization: 組織にアクセスする前にユーザーの認証を強制する
         from: メールアドレスから
         github_handler: GitHub handler
         header_snippets: ヘッダスニペットを表示
@@ -52,6 +60,7 @@ ja:
         highlighted_content_banner_image: 画像
         highlighted_content_banner_short_description: 短い説明
         highlighted_content_banner_title: タイトル
+        host: ホスト
         instagram_handler: Instagram handler
         logo: ロゴ
         machine_translation_display_priority: 機械翻訳表示の優先度
@@ -64,16 +73,21 @@ ja:
         omnipresent_banner_short_description: 短い説明
         omnipresent_banner_title: タイトル
         omnipresent_banner_url: URL
+        organization_admin_email: 組織管理者メールアドレス
+        organization_admin_name: 組織管理者名
+        organization_locales: 組織のロケール
         primary_color: プライマリ（プライマリ）
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: Secondary
+        secondary_hosts: セカンダリホスト
         send_welcome_notification: ウェルカム通知を送信
         success_color: 成功
         time_zone: タイムゾーン
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: グループを有効にする
+        users_registration_mode: ユーザー登録モード
         warning_color: 警告
         welcome_notification_body: Welcome通知本文
         welcome_notification_subject: ウェルカム通知の件名
@@ -92,6 +106,7 @@ ja:
       settings:
         scope_id: スコープ
       static_page:
+        allow_public_access: 認証なしでのアクセスを許可
         changed_notably: 目立つ変更がありました。
         content: コンテンツ
         organization: 組織

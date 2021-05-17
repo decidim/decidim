@@ -35,6 +35,7 @@ ca:
         origin_component_id: Component des d'on importar les propostes
       proposals_import:
         import_proposals: Importar propostes
+        keep_answers: Manté l'estat i les respostes
         keep_authors: Mantenir l'autoria original
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ ca:
               invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+            add_photos:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
             body:
               cant_be_equal_to_template: No pot ser igual a la plantilla
@@ -113,9 +116,11 @@ ca:
       proposals:
         actions:
           amend: Esmena
+          comment: Comentar
           create: Crear
           endorse: Adherir-se
           vote: Donar suport
+          vote_comment: Votar el comentari
           withdraw: Retirar
         name: Propostes
         settings:

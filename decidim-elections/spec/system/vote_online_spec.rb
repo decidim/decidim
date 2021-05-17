@@ -30,6 +30,10 @@ describe "Vote online in an election", type: :system do
 
       uses_the_voting_booth
 
+      page.find("a.focus__exit").click
+
+      expect(page).to have_current_path router.election_path(id: election.id)
+
       expect(page).to have_content("You have already voted in this election.")
       click_link "Change your vote"
 

@@ -404,6 +404,7 @@ en:
             more_information: More information
             participate: Participate
             participate_in: Participate in process %{resource_name}
+            processes_button_title: Link to the Processes page displaying all the processes
             see_all_processes: See all processes
       participatory_process_steps:
         index:

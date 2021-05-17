@@ -81,6 +81,7 @@ ro:
       comment_thread:
         title: Conversație cu %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Trebuie să fiți verificat pentru a face comentarii în acest moment, dar le puteți citi pe cele anterioare.
         blocked_comments_for_user_warning: Nu poți comenta în acest moment, dar le poți citi pe cele anterioare.
         blocked_comments_warning: Comentariile sunt dezactivate în acest moment, dar le puteți citi pe cele anterioare.
         comment_details_title: Detalii comentariu

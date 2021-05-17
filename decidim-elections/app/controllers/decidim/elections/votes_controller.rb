@@ -10,7 +10,7 @@ module Decidim
 
       helper VotesHelper
       helper_method :bulletin_board_server, :authority_public_key, :scheme_name, :election_unique_id,
-                    :exit_path, :elections, :election, :questions, :questions_count, :vote
+                    :exit_path, :elections, :election, :questions, :questions_count, :vote, :valid_questionnaire?
 
       delegate :count, to: :questions, prefix: true
 
@@ -98,7 +98,7 @@ module Decidim
       end
 
       def questions
-        @questions ||= election.questions.includes(:answers).order(weight: :asc, id: :asc)
+        @questions ||= ballot_questions.includes(:answers).order(weight: :asc, id: :asc)
       end
 
       def access_denied?
@@ -123,6 +123,12 @@ module Decidim
         end
 
         true
+      end
+
+      def valid_questionnaire?
+        return @valid_questionnaire if defined?(@valid_questionnaire)
+
+        @valid_questionnaire = election.questionnaire.questions.any?
       end
     end
   end

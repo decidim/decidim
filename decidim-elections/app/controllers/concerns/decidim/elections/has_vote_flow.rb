@@ -9,8 +9,8 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :voter_id, :voter_token, :voter_name, :preview_mode?
-        delegate :voter_id, :voter_token, :voter_name, :email, to: :vote_flow
+        helper_method :voter_id, :voter_token, :voter_name, :preview_mode?, :ballot_style_id
+        delegate :voter_id, :ballot_style_id, :voter_token, :voter_name, :email, to: :vote_flow
       end
 
       def vote_flow
@@ -31,6 +31,10 @@ module Decidim
         return @can_preview if defined?(@can_preview)
 
         @preview_mode = allowed_to?(:preview, :election, election: election)
+      end
+
+      def ballot_questions
+        vote_flow.questions_for(election)
       end
     end
   end

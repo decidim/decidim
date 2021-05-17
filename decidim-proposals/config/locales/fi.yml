@@ -35,6 +35,7 @@ fi:
         origin_component_id: Osio josta ehdotukset kopioidaan
       proposals_import:
         import_proposals: Tuo ehdotuksia
+        keep_answers: Säilytä tilat ja vastaukset
         keep_authors: Säilytä alkuperäiset laatijat
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ fi:
               invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Liitettävä uudelleen
+            add_photos:
               needs_to_be_reattached: Liitettävä uudelleen
             body:
               cant_be_equal_to_template: ei voi vastata mallipohjaa
@@ -113,9 +116,11 @@ fi:
       proposals:
         actions:
           amend: Muokkaa
+          comment: Kommentoi
           create: Luo
           endorse: Suosittele
           vote: Kannata
+          vote_comment: Äänestä kommenttia
           withdraw: Peru
         name: Ehdotukset
         settings:

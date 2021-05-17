@@ -1,0 +1,78 @@
+.questionnaire-question_readonly{
+  font-weight: bold;
+  font-size: .875rem;
+
+  p{
+    margin-bottom: .5rem;
+  }
+
+  em{
+    font-weight: normal;
+    font-size: 90%;
+  }
+
+  p + ul{
+    margin-top: -.5rem;
+  }
+}
+
+.questionnaire-question_readonly-answers{
+  margin-bottom: .5rem;
+
+  &.single_option{
+    list-style-type: disc;
+  }
+
+  &.multiple_option{
+    list-style-type: square;
+  }
+
+  &.sorting{
+    list-style-type: circle;
+  }
+}
+
+.questionnaire-question_readonly-answer{
+  font-weight: normal;
+}
+
+.questionnaire-question-matrix{
+  .collection-input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    flex-basis: 0;
+
+    input[type="text"]{
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"]{
+      margin-bottom: 0;
+
+      & ~ input[type="text"]{
+        margin-left: .5rem;
+      }
+    }
+  }
+
+  tr,
+  tr:nth-child(2n){
+    background: initial;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  thead td{
+    text-align: center;
+  }
+
+  td{
+    min-width: 100px;
+    border-right: 1px solid #f0f0f0;
+  }
+}
+
+@import "stylesheets/decidim/forms/questionnaire-answers-pdf";

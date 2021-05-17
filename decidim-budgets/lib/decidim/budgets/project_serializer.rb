@@ -46,6 +46,7 @@ module Decidim
       private
 
       attr_reader :project
+      alias resource project
 
       def component
         project.component

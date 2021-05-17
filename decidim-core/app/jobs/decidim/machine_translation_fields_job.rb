@@ -4,7 +4,7 @@ module Decidim
   # This job is part of the machine translation flow. This one specifically
   # delegates the arguments to the translation service, if any.
   class MachineTranslationFieldsJob < ApplicationJob
-    queue_as :default
+    queue_as :translations
 
     # Performs the job. It won't perform anything if the
     # `Decidim.machine_translation_service` config is not set.

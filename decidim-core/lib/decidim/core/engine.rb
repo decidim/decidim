@@ -507,7 +507,7 @@ module Decidim
             {
               name: :main_image,
               uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_path("decidim/placeholder.jpg") }
+              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
             }
           ]
 

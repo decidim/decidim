@@ -45,6 +45,7 @@ module Decidim
           }
         ) do
           @reportable.moderation.update!(hidden_at: Time.current)
+          @reportable.try(:touch)
         end
       end
 

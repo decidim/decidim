@@ -263,6 +263,7 @@ en:
       admin:
         assemblies:
           form:
+            announcement_help: The text you enter here will be shown to the user right below the assembly information.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
             filters: Filters
@@ -387,11 +388,6 @@ en:
         designated_on: Designated on
       index:
         title: Members
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link to the Conferences page displaying all the conferences
     events:
       assemblies:
         create_assembly_member:
@@ -424,17 +420,7 @@ en:
         description: Number of assemblies created
         object: assemblies
         title: Assemblies
-    pages:
-      home:
-        hero:
-          participate_title: Participate to the platform's processes
-        sub_hero:
-          register_title: Sign up to create an account
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link to the Processes page displaying all the processes
       show:
         related_assemblies: Related assemblies
     statistics:

@@ -3,7 +3,7 @@
 module Decidim
   module Forms
     class ExportQuestionnaireAnswersJob < ApplicationJob
-      queue_as :default
+      queue_as :exports
 
       def perform(user, title, answers)
         return if user&.email.blank?

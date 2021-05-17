@@ -353,7 +353,6 @@ ru:
         show:
           attendees: Количество участников
           contributions: Количество внесенных предложений
-          going: Собираетесь посетить
           join: Присоединиться к встрече
           meeting_report: Отчет о встрече
           no_slots_available: Не осталось мест

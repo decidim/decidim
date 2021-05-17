@@ -27,7 +27,7 @@
     <%= render("new_question_modal", answer: answer) if more_information?(answer) %>
   <% end %>
 
-  <% if question.min_selections == 0 %>
+  <% if question.nota_option? %>
     <%= label_tag nil, nil, class: "evote__check evote__card" do %>
       <% if question.max_selections == 1 %>
         <%= radio_button_tag question.slug, "nota_input_#{question.slug}", false, class: "nota_input" %>

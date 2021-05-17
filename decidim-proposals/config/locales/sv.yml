@@ -29,6 +29,7 @@ sv:
         answer: Svar
         cost: Kostnad
         cost_report: Kostnadsrapport
+        execution_period: Genomförandesperiod
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från
@@ -46,7 +47,9 @@ sv:
               invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Måste bifogas igen
+            add_photos:
               needs_to_be_reattached: Måste bifogas igen
             body:
               cant_be_equal_to_template: kan inte vara detsamma som mallen
@@ -139,6 +142,10 @@ sv:
             participatory_texts_enabled_readonly: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Deltagartexter` om du vill avaktivera den.
             proposal_answering_enabled: Aktiverat svar på förslag
             proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
+            proposal_edit_time: Redigering av förslag
+            proposal_edit_time_choices:
+              infinite: Tillåt redigering av förslag utan tidsbegränsning
+              limited: Tillåt redigering av förslag med tidsbegränsning
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
@@ -660,6 +667,7 @@ sv:
         success: Utkastet till förslag har tagits bort.
       last_activity:
         new_proposal_at_html: "<span>Nytt förslag vid %{link}</span>"
+        proposal_updated_at_html: "<span>Förslag uppdaterades på %{link}</span>"
       models:
         collaborative_draft:
           fields:

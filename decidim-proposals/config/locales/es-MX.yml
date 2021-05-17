@@ -35,6 +35,7 @@ es-MX:
         origin_component_id: Componente desde dónde copiar las propuestas
       proposals_import:
         import_proposals: Propuestas de importación
+        keep_answers: Mantener estado y respuestas
         keep_authors: Mantener autores originales
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ es-MX:
               invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+            add_photos:
               needs_to_be_reattached: Es necesario volver a adjuntar el fichero
             body:
               cant_be_equal_to_template: no puede ser igual a la plantilla
@@ -113,9 +116,11 @@ es-MX:
       proposals:
         actions:
           amend: Enmendar
+          comment: Comentar
           create: Crear
           endorse: Adherirse
           vote: Apoyar
+          vote_comment: Votar comentario
           withdraw: Retirar
         name: Propuestas
         settings:

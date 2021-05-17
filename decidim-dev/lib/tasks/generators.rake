@@ -30,7 +30,9 @@ namespace :decidim do
       "--recreate_db",
       "--skip_gemfile",
       "--skip_spring",
-      "--demo"
+      "--demo",
+      "--force_ssl",
+      "false"
     )
   end
 

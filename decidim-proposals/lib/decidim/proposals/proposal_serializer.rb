@@ -59,6 +59,7 @@ module Decidim
       private
 
       attr_reader :proposal
+      alias resource proposal
 
       def component
         proposal.component

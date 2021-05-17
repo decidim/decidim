@@ -83,13 +83,27 @@ module Decidim
     end
 
     def filter_scopes_values
-      main_scopes = if current_component.scope.present?
-                      [current_component.scope]
-                    else
-                      current_participatory_space.scopes.top_level
-                                                 .includes(:scope_type, :children)
-                    end
+      return filter_scopes_values_from_parent(current_component.scope) if current_component.scope.present?
+
+      main_scopes = current_participatory_space.scopes.top_level
+                                               .includes(:scope_type, :children)
       filter_scopes_values_from(main_scopes)
+    end
+
+    def filter_scopes_values_from_parent(scope)
+      scopes_values = []
+      scope.children.each do |child|
+        unless child.children
+          scopes_values << TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization))
+          next
+        end
+        scopes_values << TreeNode.new(
+          TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
+          scope_children_to_tree(child)
+        )
+      end
+
+      filter_tree_from(scopes_values)
     end
 
     def filter_scopes_values_from(scopes)
@@ -102,10 +116,7 @@ module Decidim
 
       scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global"))) if current_participatory_space.scope.blank?
 
-      TreeNode.new(
-        TreePoint.new("", t("decidim.proposals.application_helper.filter_scope_values.all")),
-        scopes_values
-      )
+      filter_tree_from(scopes_values)
     end
 
     def scope_children_to_tree(scope)
@@ -118,6 +129,13 @@ module Decidim
           scope_children_to_tree(child)
         )
       end
+    end
+
+    def filter_tree_from(scopes_values)
+      TreeNode.new(
+        TreePoint.new("", t("decidim.proposals.application_helper.filter_scope_values.all")),
+        scopes_values
+      )
     end
   end
 end

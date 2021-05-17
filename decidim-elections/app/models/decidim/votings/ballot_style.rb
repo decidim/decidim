@@ -16,6 +16,14 @@ module Decidim
                class_name: "Decidim::Votings::Census::Datum",
                inverse_of: :ballot_style,
                dependent: :nullify
+
+      def slug
+        "#{voting.slug}_#{code.parameterize}-#{id}"
+      end
+
+      def questions_for(election)
+        questions.where(election: election)
+      end
     end
   end
 end

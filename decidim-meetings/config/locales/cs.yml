@@ -469,8 +469,10 @@ cs:
           contributions: Počet příspěvků
           date: Datum
           edit_meeting: Upravit schůzku
-          going: Chystáte se
+          going: Přihlásili jste se k této schůzce
           join: Připojte se k setkání
+          leave: Zrušit registraci
+          leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
           meeting_report: Zpráva o schůzce
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace

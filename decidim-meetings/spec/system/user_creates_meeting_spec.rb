@@ -29,6 +29,13 @@ describe "User creates meeting", type: :system do
     let(:user) { create :user, :confirmed, organization: organization }
     let!(:category) { create :category, participatory_space: participatory_space }
 
+    context "when the user is not logged in" do
+      it "redirects the user to the sign in page" do
+        page.visit Decidim::EngineRouter.main_proxy(component).new_meeting_path
+        expect(page).to have_current_path("/users/sign_in")
+      end
+    end
+
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
