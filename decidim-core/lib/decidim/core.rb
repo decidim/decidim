@@ -149,7 +149,6 @@ module Decidim
     true
   end
 
-  # Setting that 
   config_accessor :cors_enabled do
     false
   end
