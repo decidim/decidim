@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:votings) do |participatory_space|
-  participatory_space.icon = "decidim/votings/icon.svg"
+  participatory_space.icon = "media/images/decidim_votings.svg"
   participatory_space.model_class_name = "Decidim::Votings::Voting"
   participatory_space.permissions_class_name = "Decidim::Votings::Permissions"
   participatory_space.stylesheet = "decidim/votings/votings"

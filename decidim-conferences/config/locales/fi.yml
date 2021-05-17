@@ -501,6 +501,7 @@ fi:
         home:
           highlighted_conferences:
             active_conferences: Aktiiviset konferenssit
+            conferences_button_title: Linkki Konferenssit-sivulle, jossa näkyvät kaikki konferenssit
             see_all_conferences: Katso kaikki konferenssit
       photo:
         image:

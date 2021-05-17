@@ -24,6 +24,7 @@ module Decidim
       private
 
       attr_reader :conversation
+      alias resource conversation
 
       def messages
         conversation.messages.map do |message|

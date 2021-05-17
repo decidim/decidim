@@ -22,7 +22,7 @@ module Decidim
             title: { en: title },
             body: { en: body },
             current_component: current_component,
-            decidim_author_id: current_user.id
+            author: current_user
           )
         end
 
@@ -59,6 +59,24 @@ module Decidim
 
           it "creates a searchable resource" do
             expect { subject.call }.to change(Decidim::SearchableResource, :count).by_at_least(1)
+          end
+
+          context "with a group author" do
+            let(:group) { create(:user_group, :verified, organization: organization) }
+            let(:form) do
+              double(
+                invalid?: invalid,
+                title: { en: title },
+                body: { en: body },
+                current_component: current_component,
+                author: group
+              )
+            end
+
+            it "sets the group as the author" do
+              subject.call
+              expect(post.author).to eq(group)
+            end
           end
         end
       end

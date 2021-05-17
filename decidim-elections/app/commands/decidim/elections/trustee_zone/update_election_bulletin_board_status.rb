@@ -20,8 +20,13 @@ module Decidim
           return broadcast(:ok, election) if election.bb_status.to_sym != required_status.to_sym
 
           transaction do
+            election.create_bb_closure!
             update_election_status!
-            fetch_election_results if election.bb_tally_ended?
+
+            if election.bb_tally_ended?
+              fetch_election_results
+              store_verifiable_results
+            end
           end
 
           broadcast(:ok, election)
@@ -35,21 +40,47 @@ module Decidim
           @results ||= Decidim::Elections.bulletin_board.get_election_results(election.id)
         end
 
+        def election_results
+          results[:election_results]
+        end
+
+        def verifiable_results
+          results[:verifiable_results]
+        end
+
         def fetch_election_results
           answers = []
-          results.values.map do |values|
+          election_results.values.map do |values|
             values.each do |key, value|
               result_key = get_answer_id_from_result(key)
               answers = Decidim::Elections::Answer.where(id: result_key)
               answers.each do |answer|
-                answer.results.create!(votes_count: value)
+                create_answer_result_for!(answer, value)
               end
             end
           end
         end
 
+        def create_answer_result_for!(answer, value)
+          params = {
+            value: value,
+            question: answer.question,
+            answer: answer,
+            result_type: "valid_answers"
+          }
+
+          election.bb_closure.results.create!(params)
+        end
+
         def get_answer_id_from_result(result_key)
           result_key.match(/question-\d+_answer-(\d+)/).captures
+        end
+
+        def store_verifiable_results
+          election.update!(
+            verifiable_results_file_url: verifiable_results[:url],
+            verifiable_results_file_hash: verifiable_results[:hash]
+          )
         end
 
         def update_election_status!

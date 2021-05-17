@@ -250,7 +250,7 @@ cs:
           fields:
             conference_meetings: Setkání konference
             price: Cena
-            registrations_count: Registrace se počítají
+            registrations_count: Počet registrací
             title: Název
             weight: Pozice v řazení
           name: Typ registrace
@@ -509,6 +509,7 @@ cs:
         home:
           highlighted_conferences:
             active_conferences: Aktivní konference
+            conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
             see_all_conferences: Podívejte se na všechny konference
       photo:
         image:

@@ -455,8 +455,10 @@ fr:
           contributions: Décompte des contributions
           date: Date
           edit_meeting: Modifier la rencontre
-          going: J'y vais
+          going: Vous vous êtes inscrit à cette rencontre
           join: Participer à la rencontre
+          leave: Annuler votre inscription
+          leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
           meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes

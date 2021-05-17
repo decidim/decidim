@@ -187,7 +187,6 @@ is-IS:
         show:
           attendees: Þátttakendur telja
           contributions: Framlög telja
-          going: Fara
           join: Skráðu þig í fundi
           meeting_report: Fundarskýrsla
           no_slots_available: Engar rifa í boði

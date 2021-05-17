@@ -80,6 +80,7 @@ en:
       comment_thread:
         title: Conversation with %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: You need to be verified to comment at this moment, but you can read the previous ones.
         blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Comments are disabled at this time, but you can read the previous ones.
         comment_details_title: Comment details

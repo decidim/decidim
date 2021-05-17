@@ -50,11 +50,13 @@ image::header-snippet.png[Header snippet]
 
 Notice that you can resize this textarea.
 
-== Asset pipeline
+== Webpacker
 
-You can go to app/assets/stylesheets/application.css.sass on your generated applications. There you can override any class using CSS with SASS.
+Decidim uses Webpacker to compile assets. There are two ways to customize CSS:
 
-In https://github.com/decidim/decidim/blob/develop/decidim-core/app/assets/stylesheets/decidim/_variables.scss[decidim-core/app/assets/stylesheets/decidim/_variables.scss] you can find the `variables` that can be overriden in your `sass`.
+- In your app `app/packs/stylesheets/decidim/decidim_application.scss` you could override any class using CSS with SASS or any CSS var
+- If you want to replace a whole file existin in Decidim you can do it by creating a file in your application with the same name and the same path. I.e: to replace `decidim-core/app/packs/stylesheets/modules/_cookie-bar.scss` you should create in your Rails app a file in
+  `app/packs/stylesheets/modules/_cookie-bar.scss` and it will have more priority over the Decidim file.
 
 We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
 

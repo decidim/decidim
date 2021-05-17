@@ -4,6 +4,7 @@
   data-authority-public-key="<%= authority_public_key %>"
   data-election-unique-id="<%= election_unique_id %>"
   data-voter-id="<%= voter_id %>"
+  <%= ballot_style_id.present? ? "data-ballot-style-id=\"#{ballot_style_id}\"" : nil %>
   data-scheme-name="<%= scheme_name %>">
 
   <% questions.each_with_index do |step_question, step_index| %>
@@ -57,8 +58,8 @@
 </div>
 
 <% if preview_mode? %>
-  <%= javascript_include_tag "decidim/elections/voter/setup-preview", integrity: true %>
+  <%= javascript_pack_tag "decidim_elections_voter_setup_preview", integrity: true %>
 <% else %>
-  <%= javascript_include_tag "decidim/elections/voter/setup-vote", integrity: true %>
+  <%= javascript_pack_tag "decidim_elections_voter_setup_vote", integrity: true %>
 <% end %>
-<%= javascript_include_tag "decidim/elections/voter/new-vote", integrity: true %>
+<%= javascript_pack_tag "decidim_elections_voter_new_vote", integrity: true %>

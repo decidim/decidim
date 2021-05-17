@@ -35,6 +35,7 @@ cs:
         origin_component_id: Komponenta pro kopírování návrhů z
       proposals_import:
         import_proposals: Návrhy na dovoz
+        keep_answers: Zachovat stav a odpovědi
         keep_authors: Uchovávejte původní autory
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ cs:
               invalid_document_type: 'Neplatný typ dokumentu. Přijaté formáty jsou: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Potřebuje být znovu připojen
+            add_photos:
               needs_to_be_reattached: Potřebuje být znovu připojen
             body:
               cant_be_equal_to_template: nelze se rovnat šabloně
@@ -121,9 +124,11 @@ cs:
       proposals:
         actions:
           amend: Pozměnit
+          comment: Komentář
           create: Vytvořit
           endorse: Schválit
           vote: Hlasování
+          vote_comment: Komentář hlasování
           withdraw: Ustoupit
         name: Návrhy
         settings:

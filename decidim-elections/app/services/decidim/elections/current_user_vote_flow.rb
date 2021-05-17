@@ -36,6 +36,12 @@ module Decidim
 
       def login_path(vote_path); end
 
+      def questions_for(election)
+        election.questions
+      end
+
+      def ballot_style_id; end
+
       private
 
       delegate :current_user, to: :context

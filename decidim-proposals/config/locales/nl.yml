@@ -47,7 +47,9 @@ nl:
               invalid_document_type: 'Ongeldig documenttype. Aanvaarde formaten zijn: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
+            add_photos:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
             body:
               cant_be_equal_to_template: mag niet gelijk zijn aan het template
@@ -91,9 +93,11 @@ nl:
       proposals:
         actions:
           amend: Pas aan
+          comment: Reactie
           create: creëren
           endorse: Aanbevelen
           vote: Stem
+          vote_comment: Stem op de reactie
           withdraw: Intrekken
         name: Voorstellen
         settings:

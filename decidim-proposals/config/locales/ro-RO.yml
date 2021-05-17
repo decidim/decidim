@@ -35,6 +35,7 @@ ro:
         origin_component_id: Componentă pentru a copia propunerile de la
       proposals_import:
         import_proposals: Importă propuneri
+        keep_answers: Păstrați starea și răspunsurile
         keep_authors: Păstrează autorii originali
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ ro:
               invalid_document_type: 'Tip de document invalid. Formatele acceptate sunt: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Trebuie să fie reatașate
+            add_photos:
               needs_to_be_reattached: Trebuie să fie reatașate
             body:
               cant_be_equal_to_template: nu poate fi egal cu șablonul
@@ -117,9 +120,11 @@ ro:
       proposals:
         actions:
           amend: Modifică
+          comment: Comentariu
           create: Crează
           endorse: Aprobare
           vote: Suport
+          vote_comment: Votează comentariul
           withdraw: Retragere
         name: Propuneri
         settings:

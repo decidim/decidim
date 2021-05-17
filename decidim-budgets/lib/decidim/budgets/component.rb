@@ -5,7 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:budgets) do |component|
   component.engine = Decidim::Budgets::Engine
   component.admin_engine = Decidim::Budgets::AdminEngine
-  component.icon = "decidim/budgets/icon.svg"
+  component.icon = "media/images/decidim_budgets.svg"
   component.stylesheet = "decidim/budgets/budgets"
   component.permissions_class_name = "Decidim::Budgets::Permissions"
   component.component_form_class_name = "Decidim::Budgets::Admin::ComponentForm"

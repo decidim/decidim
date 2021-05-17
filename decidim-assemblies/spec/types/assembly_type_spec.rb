@@ -393,6 +393,14 @@ module Decidim
           expect(response["githubHandler"]).to eq(model.github_handler)
         end
       end
+
+      describe "announcement" do
+        let(:query) { '{ announcement { translation(locale: "en")}}' }
+
+        it "returns all the required fields" do
+          expect(response["announcement"]["translation"]).to eq(model.announcement["en"])
+        end
+      end
     end
   end
 end

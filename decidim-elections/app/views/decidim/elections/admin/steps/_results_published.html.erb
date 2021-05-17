@@ -39,6 +39,13 @@
                       </tr>
                     <% end %>
 
+                    <% if question.nota_option? %>
+                      <tr>
+                        <td><%= t("decidim.elections.votes.new.nota_option") %></td>
+                        <td><%= question.blank_votes %></td>
+                        <td></td>
+                      </tr>
+                    <% end %>
                     <tr>
                       <td></td>
                       <td class="text-muted"><%= question.results_total %></td>

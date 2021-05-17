@@ -21,6 +21,7 @@ module Decidim
     end
 
     describe "#filter_scopes_values" do
+      let(:root) { helper.filter_scopes_values }
       let(:leaf) { helper.filter_scopes_values.leaf }
       let(:nodes) { helper.filter_scopes_values.node }
 
@@ -33,26 +34,14 @@ module Decidim
         end
       end
 
-      context "when the participatory space has a scope" do
-        let!(:participatory_space) { create(:participatory_process, :with_scope, organization: organization) }
+      context "when the participatory space has a scope with subscopes" do
+        let(:participatory_space) { create(:participatory_process, :with_scope, organization: organization) }
+        let!(:subscopes) { create_list :subscope, 5, parent: participatory_space.scope }
 
-        it "returns the participatory space's scope" do
+        it "returns all the subscopes" do
           expect(leaf.value).to eq("")
-          expect(nodes.count).to eq(1)
-          expect(nodes.first).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
-          expect(nodes.first.leaf).to be_a(Decidim::CheckBoxesTreeHelper::TreePoint)
-          expect(nodes.first.leaf.value).to eq(participatory_space.scope.id.to_s)
-          expect(nodes.first.leaf.label).to eq(participatory_space.scope.name["en"])
-        end
-
-        context "with subscopes" do
-          let!(:subscopes) { create_list :subscope, 5, parent: participatory_space.scope }
-
-          it "returns all the subscopes" do
-            expect(leaf.value).to eq("")
-            expect(nodes.first).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
-            expect(nodes.first.node.count).to eq(5)
-          end
+          expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
+          expect(root.node.count).to eq(5)
         end
       end
 
@@ -69,31 +58,18 @@ module Decidim
         end
       end
 
-      context "when the component has a scope" do
-        let!(:participatory_space) { create(:participatory_process, :with_scope, organization: organization) }
-        let!(:subscope) { create :subscope, parent: participatory_space.scope }
+      context "when the component has a scope with subscopes" do
+        let(:participatory_space) { create(:participatory_process, :with_scope, organization: organization) }
+        let!(:subscopes) { create_list :subscope, 5, parent: participatory_space.scope }
 
         before do
-          component.update!(settings: { scopes_enabled: true, scope_id: subscope.id })
+          component.update!(settings: { scopes_enabled: true, scope_id: participatory_space.scope.id })
         end
 
-        it "returns the participatory space's scope" do
+        it "returns all the subscopes" do
           expect(leaf.value).to eq("")
-          expect(nodes.count).to eq(1)
-          expect(nodes.first).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
-          expect(nodes.first.leaf).to be_a(Decidim::CheckBoxesTreeHelper::TreePoint)
-          expect(nodes.first.leaf.value).to eq(component.scope.id.to_s)
-          expect(nodes.first.leaf.label).to eq(component.scope.name["en"])
-        end
-
-        context "with subscopes" do
-          let!(:subscopes) { create_list :subscope, 5, parent: component.scope }
-
-          it "returns all the subscopes" do
-            expect(leaf.value).to eq("")
-            expect(nodes.first).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
-            expect(nodes.first.node.count).to eq(5)
-          end
+          expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
+          expect(root.node.count).to eq(5)
         end
       end
     end

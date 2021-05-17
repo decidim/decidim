@@ -10,6 +10,8 @@ module Decidim
           case permission_action.subject
           when :polling_officers, :polling_station
             toggle_allow(polling_officers_for_user?) if [:view].member?(permission_action.action)
+          when :polling_station_results
+            toggle_allow(polling_officer.present?) if [:manage].member?(permission_action.action)
           when :user
             allow! if permission_action.action == :update_profile
           end
@@ -25,6 +27,10 @@ module Decidim
 
         def polling_officers
           @polling_officers ||= context.fetch(:polling_officers, [])
+        end
+
+        def polling_officer
+          @polling_officer ||= context.fetch(:polling_officer, [])
         end
       end
     end

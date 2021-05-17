@@ -35,6 +35,7 @@ fr-CA:
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
+        keep_answers: Garder l'état et les réponses
         keep_authors: Gardez les auteurs originaux
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ fr-CA:
               invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+            add_photos:
               needs_to_be_reattached: Doit être téléchargé de nouveau
             body:
               cant_be_equal_to_template: ne peut pas être égal au modèle
@@ -113,9 +116,11 @@ fr-CA:
       proposals:
         actions:
           amend: Amender
+          comment: Commentaire
           create: Créer
           endorse: Soutenir
           vote: Voter
+          vote_comment: Vote sur le commentaire
           withdraw: Retirer
         name: Propositions
         settings:

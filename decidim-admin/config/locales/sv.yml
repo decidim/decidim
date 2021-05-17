@@ -356,6 +356,16 @@ sv:
           values:
             'false': Gjord officiell
             'true': Ej gjord officiell
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            values:
+              'false': Ej godkänd
+              'true': Godkänd
+          user_invitation_sent_at_not_null:
+            label: Inbjudan skickad
+            values:
+              'false': Ej skickad
+              'true': Skickad
         private_space_eq:
           label: Privat
           values:
@@ -373,6 +383,7 @@ sv:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
           reported_id_string_or_reported_content_cont: Sök %{collection} efter anmälningsID eller innehåll.
           title_cont: Sök %{collection} efter titel.
+          user_name_or_user_email_cont: Sök %{collection} efter namn eller e-post.
         state_eq:
           label: Län
       forms:

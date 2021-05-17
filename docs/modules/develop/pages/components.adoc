@@ -135,3 +135,33 @@ This sections explains how to add dummy content to a development application.
 
 * Take advantage of the Faker gem, already in decidim.
 * If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/faker/localized.rb[Localizaed], which uses `Faker` internally.
+
+== Assets
+
+In order to attach the new component assets to Webpacker configuration, you need to follow a few steps. We are considering two scenarios:
+
+- while the component is being developed, where changes in Webpacker configuration should be done in the development for simplicity
+- once the component has been completed, change the Webpacker templates for the app generators
+
+In both cases, changes are the same:
+
+1. Add the new component `app/packs` folder to webpacker.yml
+2. Add the new entrypoints of the component to `config/webpack/custom.js`
+
+=== Updating the development application
+
+While the component is being developed, it'll be simpler and faster to update Webpacker configuration inside the development app. The new component `app/packs` folder needs to be added to the list of paths that Webpack will use to look for assets.
+
+Also, components might have one or many entrypoints (for CSSs and javascripts) and images. These entrypoints need to be manually added to `config/webpack/custom.js`. **Any change in both files** requires to restart `webpack-dev-server` process.
+
+Take into account that generating a new development application **overwrites** Webpacker configuration so these changes might be overwriten. That's why it's necessary, once the changes are stable enough, to update the generators files.
+
+=== Updating Webpacker configuration for the generators
+
+Decidim webpacker configuration lives in `decidim-core/lib/decidim/webpacker`. Any change performed in the development app should be replicated in these files.
+
+Also, any npm package added to package.json should be replicated in Decidim package.json file.
+
+=== Updating the design app
+
+These changes should also be translated to the design app `config/webpacker.yml` and `config/webpack/custom.js` files. And if there are changes in the npm packages, these should be moved to.

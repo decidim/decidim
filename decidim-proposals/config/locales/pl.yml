@@ -47,7 +47,9 @@ pl:
               invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Musi zostać ponownie załączony
+            add_photos:
               needs_to_be_reattached: Musi zostać ponownie załączony
             body:
               cant_be_equal_to_template: nie może być taki sam jak szablon

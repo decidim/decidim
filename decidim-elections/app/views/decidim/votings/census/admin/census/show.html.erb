@@ -19,5 +19,5 @@
 </div>
 
 <% if current_census.creating_data? || current_census.generating_codes? %>
-  <%= javascript_include_tag "decidim/votings/admin/update_census_dataset_status" %>
+  <%= javascript_pack_tag "decidim_votings_admin_update_census_dataset_status" %>
 <% end %>

@@ -70,6 +70,7 @@ describe "Admin manages assemblies", type: :system do
 
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
+    let!(:assembly) { create :assembly, organization: organization }
 
     before do
       switch_to_host(organization.host)
@@ -79,6 +80,7 @@ describe "Admin manages assemblies", type: :system do
 
     it_behaves_like "manage assemblies"
     it_behaves_like "creating an assembly"
+    it_behaves_like "manage assemblies announcements"
 
     describe "listing parent assemblies" do
       it_behaves_like "filtering collection by published/unpublished"
@@ -102,6 +104,7 @@ describe "Admin manages assemblies", type: :system do
 
     it_behaves_like "manage assemblies"
     it_behaves_like "creating an assembly"
+    it_behaves_like "manage assemblies announcements"
 
     describe "listing child assemblies" do
       it_behaves_like "filtering collection by published/unpublished" do

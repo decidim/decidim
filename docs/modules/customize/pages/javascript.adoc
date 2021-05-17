@@ -2,9 +2,11 @@
 
 You can add Javascript code by multiple ways in Decidim:
 
-== Asset pipeline
+== Webpacker
 
-Just add it to `app/assets/javascripts/application.js`. For example to create a new alert just add:
+Decidim uses Webpack (via Webpacker) to compile assets, including javascript.
+
+During the generation of a decidim app, the file `app/packs/src/decidim/decidim_application.js` is created and hooked to Decidim packs, so any javascript written there is compiled within Decidim assets. For example to create a new alert just add:
 
 [source,javascript]
 ----
@@ -13,7 +15,10 @@ $(function(){
 });
 ----
 
-More information in https://guides.rubyonrails.org/asset_pipeline.html[Rails Asset Pipeline documentation].
+More information in https://guides.rubyonrails.org/webpacker.html[Rails Webpacker documentation].
+
+If you want to replace a whole file existin in Decidim you can do it by creating a file in your application with the same name and the same path. I.e: to replace `decidim-core/app/packs/src/decidim/editor.js` you should create in your Rails app a file in
+  `app/packs/src/decidim/editor.js` and it will have more priority over the Decidim file.
 
 == Head extra file
 

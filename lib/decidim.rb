@@ -23,7 +23,3 @@ require "decidim/accountability"
 require "decidim/debates"
 require "decidim/sortitions"
 require "decidim/blogs"
-
-# Module declaration.
-module Decidim
-end

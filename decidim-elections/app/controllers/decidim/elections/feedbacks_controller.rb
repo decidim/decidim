@@ -18,6 +18,16 @@ module Decidim
         answer_election_feedback_path(election, hash: params[:hash], token: params[:token])
       end
 
+      # Overwrites the 'after_answer_path' that gets passed to 'redirect_to'
+      # after answering the questionnaire. By default it redirects to the questionnaire_for.
+      def after_answer_path
+        if current_user.nil?
+          election_path(election, onboarding: true)
+        else
+          election_path(election)
+        end
+      end
+
       private
 
       def election

@@ -122,5 +122,22 @@ shared_examples "manage posts" do
         expect(page).to have_content("Post title 2")
       end
     end
+
+    it "can update the user group as the post author" do
+      within find("tr", text: translated(post1.title)) do
+        click_link "Edit"
+      end
+
+      within ".edit_post" do
+        select user_group.name, from: "post_user_group_id"
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within find("tr", text: translated(post1.title)) do
+        expect(page).to have_content(user_group.name)
+      end
+    end
   end
 end

@@ -28,7 +28,7 @@
           <%= render partial: "questions" if in_person_form.verified? %>
           <div class="<%= "card--secondary" unless in_person_form.verified? %>">
             <div class="card__content">
-              <%= decidim_form_for(in_person_form, url: polling_officers_polling_station_votes_path(polling_station), html: { class: "form", autocomplete: "off" }) do |f| %>
+              <%= decidim_form_for(in_person_form, url: polling_officer_election_votes_path(polling_officer, election), html: { class: "form", autocomplete: "off" }) do |f| %>
                 <div>
                   <%= render partial: "in_person_fields", locals: { f: f, form: in_person_form } %>
                 </div>

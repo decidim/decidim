@@ -274,6 +274,7 @@ fr:
       admin_log:
         election:
           publish: "%{user_name} a publié l'élection %{resource_name}"
+          publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} sur le Tableau d'affichage"
           unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
       election_m:
         badge_name:
@@ -340,7 +341,7 @@ fr:
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
-          invalid: Un problème est survenu lors de l'envoi de votre feedback.
+          invalid: Un problème est survenu lors de l'envoi de votre commentaire.
           spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
           success: Votre avis a bien été envoyé.
       models:
@@ -503,6 +504,12 @@ fr:
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
+        onboarding_modal:
+          close: Fermer la fenêtre de dialogue
+          create_account: Créer un compte
+          description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer à toutes les concertations et prendre une part active dans l'organisation.
+          no_account: Non, merci.
+          title: Nouveau sur Decidim ?
         verify:
           content:
             heading: Vérifiez votre vote
@@ -556,6 +563,8 @@ fr:
             attachments: Pièces jointes
             census: Recensement
             info: Information
+            monitoring_committee_certificates: Valider les certificats
+            monitoring_committee_members: Membres
             polling_stations: Bureaux de vote
         models:
           polling_station:
@@ -569,6 +578,9 @@ fr:
               promoted: Mise en avant
               published: Publié
               title: Titre
+        monitoring_committee_certificates:
+          index:
+            title: Bureaux de vote
         polling_stations:
           create:
             invalid: Une erreur est survenue lors de la création de ce bureau de vote
@@ -673,6 +685,14 @@ fr:
             active_votings: Votations en cours
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_officer_zone:
+        votes:
+          create:
+            success: Vote en personne émis avec succès
+          in_person_fields:
+            date_of_birth: Date de naissance
+            day: Jour
+            day_placeholder: JJ
       polling_stations:
         actions:
           confirm_destroy: Êtes-vous sûr(e) ?
