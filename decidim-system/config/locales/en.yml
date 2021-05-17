@@ -116,6 +116,9 @@ en:
           error: There was a problem updating this application.
           success: Application updated successfully.
       organizations:
+        advanced_settings:
+          hide: Hide advanced settings
+          show: Show advanced settings
         create:
           error: There was a problem creating a new organization.
           success: Organization successfully created.
