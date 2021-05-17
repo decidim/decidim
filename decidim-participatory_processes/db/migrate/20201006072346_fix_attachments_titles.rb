@@ -15,14 +15,11 @@ class FixAttachmentsTitles < ActiveRecord::Migration[5.2]
                  Decidim.default_locale
 
         # rubocop:disable Rails/SkipsModelValidations
-        attachment.update_columns(
-          title: {
-            locale => attachment.title
-          },
-          description: {
-            locale => attachment.description
-          }
-        )
+        values = {}
+        values[:title] = { locale => attachment.title } unless attachment.title.is_a?(Hash)
+        values[:description] = { locale => attachment.description } unless attachment.description.is_a?(Hash)
+
+        attachment.update_columns(values)
         # rubocop:enable Rails/SkipsModelValidations
       end
     end
