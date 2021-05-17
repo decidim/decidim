@@ -29,7 +29,8 @@ export default function icon(iconKey, attributes = {}) {
     }
   });
 
-  const iconsPath = window.Decidim.config.get("icons_path");
+  const corsMode = window.Decidim.config.get("cors_enabled");
+  const iconsPath = corsMode ? "" : window.Decidim.config.get("icons_path");
   const elHtml = `<svg><use href="${iconsPath}#icon-${iconKey}"></use></svg>`;
   const $el = $(elHtml);
   if (title) {
