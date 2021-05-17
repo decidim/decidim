@@ -1553,6 +1553,10 @@ en:
         other: At least %{count} characters
     required: Required field
     required_explanation: "* Required fields are marked with an asterisk"
+  from:
+    colors:
+      link_accesibility: https://webaim.org/resources/contrastchecker
+      warning_colors: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with WebAIM Contrast Checker or other similar tools.
   invisible_captcha:
     sentence_for_humans: If you are human, ignore this field
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
