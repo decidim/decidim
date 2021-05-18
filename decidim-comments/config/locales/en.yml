@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     models:
@@ -16,6 +17,10 @@ en:
         one: Vote
         other: Votes
   decidim:
+    gamification:
+      badges:
+        upvote_comments:
+          next_level_in: Next level in %{score}
     comments:
       comments:
         create:

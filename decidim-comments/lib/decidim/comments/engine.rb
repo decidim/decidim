@@ -80,6 +80,11 @@ module Decidim
           badge.levels = [1, 5, 10, 30, 50, 100, 200, 500, 1000]
           badge.reset = ->(user) { Decidim::Comments::Comment.where(author: user).count }
         end
+
+        Decidim::Gamification.register_badge(:upvote_comments) do |badge|
+          badge.levels = [1, 5, 10, 30, 50, 100, 200, 500, 1000]
+          badge.reset = ->(_user) { nil }
+        end
       end
     end
   end

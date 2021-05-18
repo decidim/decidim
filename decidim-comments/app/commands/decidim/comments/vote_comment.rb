@@ -43,6 +43,9 @@ module Decidim
         end
 
         notify_comment_author if @vote
+
+        Decidim::Gamification.increment_score(current_user, :upvote_comments) if @vote
+
         broadcast(:ok, @comment)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)

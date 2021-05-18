@@ -43,7 +43,6 @@ module Decidim
         end
       end
 
-
       initializer "decidim.comments.add_badges" do
         Decidim::Gamification.register_badge(:order_budgets) do |badge|
           badge.levels = [1, 2, 3, 4, 5]

@@ -2,9 +2,11 @@ my_user = Decidim::User.where(email: "admin@example.org")
 
 my_user.first.update!(last_sign_in_at: Time.current - 2.days)
 
-Decidim::Gamification.reset_badges(my_user)
+Decidim::Gamification.badges.each do |badge|
+  Decidim::Gamification.set_score(my_user.first, badge.name.to_sym, 0)
+end
 
-users = Decidim::User.where(organization: my_user.first.organization ) - my_user
+users = Decidim::User.where(organization: my_user.first.organization) - my_user
 names = Decidim::Gamification.badges.map(&:name)
 users.each do |user|
   names.each do |name|

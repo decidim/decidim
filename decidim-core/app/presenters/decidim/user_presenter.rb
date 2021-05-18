@@ -67,7 +67,7 @@ module Decidim
 
     def officialization_text
       translated_attribute(officialized_as).presence ||
-          I18n.t("decidim.profiles.default_officialization_text_for_users")
+        I18n.t("decidim.profiles.default_officialization_text_for_users")
     end
 
     def can_follow?

@@ -76,8 +76,8 @@ module Decidim
 
     def max_rank
       Rails.cache.fetch(
-          "max_rank",
-          expires_in: 10.minutes
+        "max_rank",
+        expires_in: 10.minutes
       ) do
         Decidim::Gamification.badges.map(&:levels).map(&:length).sum
       end
@@ -86,20 +86,17 @@ module Decidim
     def tiers
       users = Decidim::User.where(organization: model.organization)
       users_level = users.map { |user| get_level(user) }
-      rankings = users_level.uniq.map do |level|
-        [
-            level,
-            ((users_level.count(level).to_f / users.count.to_f) * 100.0).round(2)
-        ]
-      end.to_h
+      rankings = users_level.uniq.index_with do |level|
+        ((users_level.count(level).to_f / users.count.to_f) * 100.0).round(2)
+      end
 
       rankings[get_level(model)]
     end
 
     def get_level(user)
       Rails.cache.fetch(
-          "user/#{user.id}/level",
-          expires_in: 10.minutes
+        "user/#{user.id}/level",
+        expires_in: 10.minutes
       ) do
         Decidim::Gamification.badges.select { |badge| badge.valid_for?(user) }.map do |badge|
           status = Decidim::Gamification.status_for(user, badge.name)
