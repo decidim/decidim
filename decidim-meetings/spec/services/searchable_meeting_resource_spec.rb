@@ -12,6 +12,7 @@ module Decidim
     let!(:meeting) do
       create(
         :meeting,
+        :published,
         component: current_component,
         scope: scope1,
         title: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt."),
@@ -61,6 +62,7 @@ module Decidim
         let!(:meeting2) do
           create(
             :meeting,
+            :published,
             component: current_component,
             scope: scope1,
             title: Decidim::Faker::Localized.name,

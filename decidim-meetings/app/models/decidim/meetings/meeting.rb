@@ -106,8 +106,8 @@ module Decidim
                           D: [:description, :address],
                           datetime: :start_time
                         },
-                        index_on_create: ->(meeting) { meeting.visible? },
-                        index_on_update: ->(meeting) { meeting.visible? })
+                        index_on_create: ->(meeting) { meeting.visible? && meeting.published? },
+                        index_on_update: ->(meeting) { meeting.visible? && meeting.published? })
 
       # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
       before_create :set_default_salt
