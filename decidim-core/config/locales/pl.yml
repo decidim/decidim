@@ -659,7 +659,7 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem usuniętego zasobu.
           email_subject: '%{resource_type} został usunięty'
           notification_title: |-
-            Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.</br>
+            Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
