@@ -43,9 +43,16 @@ end
 #### New Job queues
 #### Meetings merge minutes and close actions
 
-With changes introduced in [\#7968](https://github.com/decidim/decidim/pull/7968) the `Decidim::Meetings::Minutes` model and related table are removed and the attributes of the previously existing minutes are migrated to `Decidim::Meetings::Meeting` model in the `minutes_description`, `video_url`, `audio_url` and `minutes_visible` columns.
+With changes introduced in [\#7968](https://github.com/decidim/decidim/pull/7968) the `Decidim::Meetings::Minutes` model and related table are removed and the attributes of the previously existing minutes are migrated to `Decidim::Meetings::Meeting` model in the `closing_report`, `video_url`, `audio_url` and `closing_visible` columns. These are the different results of the merge according to the initial data:
 
-If there is previous activity of creation or edition of minutes, `Decidim::ActionLog` instances and an associated `PaperTrail::Version` instance for each one will have been created pointing to these elements in their polymorphic associations. To avoid errors, the migration includes changing those associations to point to the meeting and changing the action to `close` in the action log items. This change is not reversible (the removal of meetings does, the minutes table is recreated and the instances are generated when there is data in the `down` method)
+* It there was no minutes data and the meeting was not closed nothing changes
+* If there was no minutes data and the meeting was closed, the meeting remains closed with the `closing_visible` attribute to true. In this way the closing data will remain visible.
+* If there was minutes data and the meeting was not closed, the meeting is closed and the minutes `description` value is copied to the meeting `closing_report`, the `video_url` and `audio_url` minutes attributes values are copied to the respective meeting attributes and the minutes `visible` attribute value is copied to the meeting `closing_visible` attribute.
+* If there was minutes data and the meeting was closed, the meeting remains closed and the meeting `closing_report` value remains if present. Elsewere the minutes `description` value is copied to the meeting `closing_report`. the `video_url` and `audio_url` minutes attributes values are copied to the respective meeting attributes and the minutes `visible` attribute value is copied to the meeting `closing_visible` attribute. In this case the visibility of closing report may change to false if there was a minutes with `visible` set to false.
+
+Please, note that if there was previously minutes_description and closing_report data for a meeting, after applying the changes of this release, the minutes_description data will be lost.
+
+If there is previous activity of creation or edition of minutes, `Decidim::ActionLog` instances and an associated `PaperTrail::Version` instance for each one will have been created pointing to these elements in their polymorphic associations. To avoid errors, the migration includes changing those associations to point to the meeting and changing the action to `close` in the action log items. This change is not reversible
 
 #### New Job queues
 
