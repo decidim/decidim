@@ -124,7 +124,7 @@
         }
       }
     }
-  };
+  }
   Quill.register("blots/scroll", ScrollOvderride, true);
   Parchment.register(ScrollOvderride);
 
