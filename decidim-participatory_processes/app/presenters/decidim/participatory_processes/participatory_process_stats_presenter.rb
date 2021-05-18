@@ -11,6 +11,7 @@ module Decidim
       def collection
         highlighted_stats = process_participants_stats
         highlighted_stats.concat(process_followers_stats(priority: StatsRegistry::HIGH_PRIORITY))
+        highlighted_stats.concat(process_comments_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
         highlighted_stats = highlighted_stats.reject(&:empty?)
@@ -49,6 +50,13 @@ module Decidim
 
       def process_followers_stats(conditions)
         Decidim.stats.only([:followers_count])
+               .filter(conditions)
+               .with_context(participatory_process)
+               .map { |stat_title, stat_number| [participatory_process.manifest.name, stat_title, stat_number] }
+      end
+
+      def process_comments_stats(conditions)
+        Decidim.stats.only([:process_comments_count])
                .filter(conditions)
                .with_context(participatory_process)
                .map { |stat_title, stat_number| [participatory_process.manifest.name, stat_title, stat_number] }

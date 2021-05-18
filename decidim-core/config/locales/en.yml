@@ -1284,6 +1284,7 @@ en:
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants
+      process_comments_count: Comments
       users_count: Participants
     tags:
       filter_results_for_category: 'Filter results for category: %{resource}'
