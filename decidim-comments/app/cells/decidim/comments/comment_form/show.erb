@@ -6,6 +6,13 @@
     <label class="show-for-sr" for="<%= add_comment_id %>">
       <%= t("decidim.components.add_comment_form.form.body.label") %>
     </label>
+
+    <label for="comment_locale">
+      <%= t("decidim.forms.language.language_selector") %>
+    </label>
+    <%= form.locale_select :comment, model.organization.available_locales, I18n.locale.to_s%>
+    <div class="help-text help-text-form-required-fields"><%= t("decidim.forms.language.language_help_text")%></div>
+
     <div class="hashtags__container">
       <%= form.text_area(
         :body,

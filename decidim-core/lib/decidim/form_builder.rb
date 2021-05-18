@@ -259,6 +259,15 @@ module Decidim
       select(name, selectables, options, html_options)
     end
 
+    def locale_select(what, available_locales, selected)
+      return "" unless available_locales.length > 1
+      ActionView::Base.new(ActionView::LookupContext.new(nil), {}, nil).select(
+        what,
+        :locale,
+        available_locales.collect { |l| [ I18n.with_locale(l) { I18n.t("name", scope: "locale").capitalize }, "#{l}" ] },
+        selected: selected.to_s
+      )
+    end
     # Public: Generates a select field for resource types.
     #
     # name       - The name of the field (usually resource_type)

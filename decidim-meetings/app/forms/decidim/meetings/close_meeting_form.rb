@@ -8,6 +8,7 @@ module Decidim
       attribute :proposal_ids, Array[Integer]
       attribute :proposals
       attribute :closed_at, Decidim::Attributes::TimeWithZone, default: ->(_form, _attribute) { Time.current }
+      attribute :locale
 
       validates :closing_report, presence: true
 

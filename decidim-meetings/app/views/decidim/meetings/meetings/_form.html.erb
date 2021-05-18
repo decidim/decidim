@@ -1,3 +1,11 @@
+<% if available_locales.length > 1 %>
+  <%= form.select :locale,
+                  available_locales.collect { |l| [I18n.with_locale(l) { I18n.t("name", scope: "locale").capitalize }, l]},
+                  selected: @form.locale ?  @form.locale.to_s : I18n.locale.to_s,
+                  label: t("decidim.forms.language.language_selector")%>
+  <div class="help-text help-text-form-required-fields"><%= t("decidim.forms.language.language_help_text")%></div>
+<% end %>
+
 <div class="field hashtags__container">
   <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
 </div>

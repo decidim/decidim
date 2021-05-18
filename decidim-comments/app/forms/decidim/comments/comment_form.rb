@@ -10,6 +10,7 @@ module Decidim
       attribute :user_group_id, Integer
       attribute :commentable
       attribute :commentable_gid
+      attribute :locale
 
       mimic :comment
 

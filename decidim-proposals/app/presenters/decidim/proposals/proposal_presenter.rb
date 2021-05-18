@@ -67,6 +67,12 @@ module Decidim
         end
       end
 
+      def locale(links: false, extras: true, strip_tags: false, all_locales: false)
+        return unless proposal
+
+        proposal.body.keys[0]
+      end
+
       # Returns the proposal versions, hiding not published answers
       #
       # Returns an Array.

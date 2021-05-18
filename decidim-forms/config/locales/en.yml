@@ -123,6 +123,9 @@ en:
         processors:
           resize_and_pad: Resized and padded to
           resize_to_fit: Resized to fit
+      language:
+        language_selector: Language of your contribution
+        language_help_text: Help us ensure that your contribution can be translated so that all users can read it, by selecting the language you have written in.
       question_types:
         files: Files
         long_answer: Long answer

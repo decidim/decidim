@@ -10,6 +10,7 @@ module Decidim
       attribute :body, Decidim::Attributes::CleanString
       attribute :body_template, String
       attribute :user_group_id, Integer
+      attribute :locale, String
 
       validates :title, :body, presence: true, etiquette: true
       validates :title, length: { in: 15..150 }
