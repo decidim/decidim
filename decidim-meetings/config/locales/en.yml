@@ -11,9 +11,8 @@ en:
         attending_organizations: List of organizations that attended
         audio_url: Audio URL
         closing_report: Report
+        closing_visible: Is visible
         contributions_count: Number of contributions
-        minutes_description: Description
-        minutes_visible: Is visible
         proposal_ids: Proposals created in the meeting
         video_url: Video URL
       meeting:
@@ -241,7 +240,6 @@ en:
         meeting_closes:
           edit:
             close: Close
-            secondary_title: Minutes
             title: Close meeting
         meetings:
           close:

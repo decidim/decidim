@@ -92,14 +92,14 @@ FactoryBot.define do
       contributions_count { rand(50) }
       attending_organizations { Array.new(3) { Faker::TvShows::GameOfThrones.house }.join(", ") }
       closed_at { Time.current }
+      closing_visible { true }
     end
 
     trait :closed_with_minutes do
       closed
-      minutes_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
       video_url { Faker::Internet.url }
       audio_url { Faker::Internet.url }
-      minutes_visible { true }
+      closing_visible { true }
     end
 
     trait :with_registrations_enabled do

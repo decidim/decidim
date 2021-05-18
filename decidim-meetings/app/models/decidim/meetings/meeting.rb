@@ -284,7 +284,7 @@ module Decidim
       end
 
       def minutes_data?
-        [video_url, audio_url].any?(&:present?) || minutes_description.is_a?(Hash) && minutes_description.values.any?(&:present?)
+        [video_url, audio_url].any?(&:present?)
       end
 
       private

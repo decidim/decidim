@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Meeting minutes", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
-  let(:meeting) { create(:meeting, :published, :closed_with_minutes, minutes_visible: visible, component: component) }
+  let(:meeting) { create(:meeting, :published, :closed_with_minutes, closing_visible: visible, component: component) }
 
   let(:visible) { true }
 
@@ -31,7 +31,6 @@ describe "Meeting minutes", type: :system do
       expect(page).to have_css(".minutes-section")
 
       within ".minutes-section" do
-        expect(page).to have_i18n_content(meeting.minutes_description)
         expect(page).to have_content("RELATED INFORMATION")
         expect(page).to have_css("div.card--list__item", count: 2)
         expect(page).to have_content(meeting.audio_url)
@@ -42,7 +41,6 @@ describe "Meeting minutes", type: :system do
     context "and minutes data is missing" do
       it "hides the section minutes" do
         meeting.update(
-          minutes_description: nil,
           video_url: nil,
           audio_url: nil
         )

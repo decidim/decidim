@@ -89,31 +89,31 @@ module Decidim
         end
 
         context "when closed with minutes" do
-          let(:model) { create(:meeting, :closed_with_minutes, minutes_visible: minutes_visible, component: component) }
-          let(:query) { "{ closed minutesDescription { translation(locale: \"ca\") } }" }
+          let(:model) { create(:meeting, :closed_with_minutes, closing_visible: closing_visible, component: component) }
+          let(:query) { "{ closed closingReport { translation(locale: \"ca\") } }" }
 
-          context "and minutes_visible is true" do
-            let(:minutes_visible) { true }
+          context "and closing_visible is true" do
+            let(:closing_visible) { true }
 
             it "returns true" do
               expect(response["closed"]).to be true
             end
 
             it "has a closing report" do
-              expect(response["minutesDescription"]).not_to be_nil
-              expect(response["minutesDescription"]["translation"]).to eq(model.minutes_description["ca"])
+              expect(response["closingReport"]).not_to be_nil
+              expect(response["closingReport"]["translation"]).to eq(model.closing_report["ca"])
             end
           end
 
-          context "and minutes_visible is false" do
-            let(:minutes_visible) { false }
+          context "and closing_visible is false" do
+            let(:closing_visible) { false }
 
             it "returns true" do
               expect(response["closed"]).to be true
             end
 
             it "has a closing report" do
-              expect(response["minutesDescription"]).to be_nil
+              expect(response["closingReport"]).to be_nil
             end
           end
         end

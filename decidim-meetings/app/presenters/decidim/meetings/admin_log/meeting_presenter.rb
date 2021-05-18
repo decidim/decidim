@@ -35,10 +35,9 @@ module Decidim
             private_meeting: :boolean,
             transparent: :boolean,
             published_at: :date,
-            minutes_description: :i18n,
             video_url: :string,
             audio_url: :string,
-            minutes_visible: :boolean
+            closing_visible: :boolean
           }
         end
 

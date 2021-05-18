@@ -8,10 +8,9 @@ module Decidim::Meetings
 
     let(:meeting) { create :meeting }
     let(:user) { create :user, :admin }
-    let(:minutes_description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) } }
     let(:video_url) { Faker::Internet.url }
     let(:audio_url) { Faker::Internet.url }
-    let(:minutes_visible) { true }
+    let(:closing_visible) { true }
     let(:form) do
       double(
         invalid?: invalid,
@@ -22,10 +21,9 @@ module Decidim::Meetings
         closed_at: Time.current,
         proposal_ids: proposal_ids,
         current_user: user,
-        minutes_description: minutes_description,
         video_url: video_url,
         audio_url: audio_url,
-        minutes_visible: minutes_visible
+        closing_visible: closing_visible
       )
     end
     let(:proposal_component) do

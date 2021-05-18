@@ -27,16 +27,6 @@
         <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
       </div>
     <% end %>
-  </div>
-
-  <div class="card-divider">
-    <h2 class="card-title"><%= secondary_title %></h2>
-  </div>
-
-  <div class="card-section">
-    <div class="row column">
-      <%= form.translated :editor, :minutes_description, autofocus: true, rows: 15 %>
-    </div>
 
     <div class="row column">
       <%= form.text_field :video_url %>
@@ -47,7 +37,7 @@
     </div>
 
     <div class="row column">
-      <%= form.check_box :minutes_visible %>
+      <%= form.check_box :closing_visible %>
     </div>
   </div>
 </div>

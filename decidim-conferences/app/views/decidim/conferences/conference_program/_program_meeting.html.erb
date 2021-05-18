@@ -47,7 +47,7 @@
           </div>
         </div>
       <% end %>
-      <% if meeting.minutes_visible? && (meeting.video_url.presence || meeting.audio_url.presence) %>
+      <% if meeting.closing_visible? && (meeting.video_url.presence || meeting.audio_url.presence) %>
         <div class="row">
           <div class="column medium-2">
             <strong><%= t(".streaming") %></strong>
