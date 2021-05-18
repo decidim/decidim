@@ -220,6 +220,18 @@ describe "Explore meetings", :slow, type: :system do
 
       it_behaves_like "a paginated resource"
     end
+
+    context "when there are only online meetings" do
+      let!(:meetings) do
+        create_list(:meeting, meetings_count, :online, :not_official, component: component)
+      end
+
+      it "hides map" do
+        visit_component
+
+        expect(page).to have_no_css("div.map__help")
+      end
+    end
   end
 
   describe "show", :serves_map do

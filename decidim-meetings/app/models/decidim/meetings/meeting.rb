@@ -95,6 +95,7 @@ module Decidim
 
       TYPE_OF_MEETING.each do |type|
         scope type.to_sym, -> { where(type_of_meeting: type.to_sym) }
+        scope "not_#{type}".to_sym, -> { where.not(type_of_meeting: type.to_sym) }
       end
 
       searchable_fields({
