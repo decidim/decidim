@@ -573,7 +573,7 @@ pl:
         report:
           reasons:
             does_not_belong: Nie należy
-            offensive: Ofensywa
+            offensive: Ofensywna
             spam: Spam
         reports:
           index:
