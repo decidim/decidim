@@ -30,7 +30,7 @@ pl:
       debates:
         actions:
           create: Utwórz
-          endorse: Rekomenduj
+          endorse: Rekomendacje
         name: Debaty
         settings:
           global:
