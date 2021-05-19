@@ -35,7 +35,6 @@ describe "Newsletters (view in web)", type: :system do
 
     it "renders the correct template" do
       within ".content" do
-        byebug
         expect(page).to have_link(translated(content_block.settings.cta_text), href: translated(content_block.settings.cta_url))
       end
     end
