@@ -14,6 +14,7 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::CommentableWithComponent
+      include Decidim::Comments::HasAvailabilityAttributes
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
@@ -169,6 +170,11 @@ module Decidim
 
       def maps_enabled?
         component.settings.maps_enabled?
+      end
+
+      # Public: Overrides the `accepts_new_comments?` CommentableWithComponent concern method.
+      def accepts_new_comments?
+        commentable? && !component.current_settings.comments_blocked && comments_allowed?
       end
 
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
