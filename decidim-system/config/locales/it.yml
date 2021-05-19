@@ -1,4 +1,8 @@
 it:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nome dell'applicazione OAuth
   decidim:
     system:
       actions:
@@ -81,6 +85,8 @@ it:
             api_key: API Key
             api_secret: API secret
         smtp_settings:
+          fieldsets:
+            sender: Mittente
           placeholder:
             from_label: nome-della-tua-organizzazione
         update:
