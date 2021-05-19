@@ -25,7 +25,8 @@ describe Decidim::Debates::Admin::CreateDebate do
       current_user: user,
       current_component: current_component,
       current_organization: organization,
-      finite: finite
+      finite: finite,
+      comments_enabled: true
     )
   end
   let(:finite) { true }
