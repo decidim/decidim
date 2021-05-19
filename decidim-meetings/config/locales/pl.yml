@@ -95,7 +95,7 @@ pl:
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
-            enable_pads_creation: Włącz tworzenie klocków
+            enable_pads_creation: Włącz tworzenie padów
             registration_code_enabled: Włączono kod rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             scope_id: Zakres
