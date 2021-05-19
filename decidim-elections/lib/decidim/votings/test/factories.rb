@@ -73,6 +73,7 @@ FactoryBot.define do
   factory :voting_election, parent: :election do
     transient do
       voting { create(:voting) }
+      base_id { 20_000 }
     end
 
     component { create(:elections_component, organization: organization, participatory_space: voting) }

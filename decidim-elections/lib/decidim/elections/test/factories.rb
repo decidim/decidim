@@ -18,6 +18,7 @@ FactoryBot.define do
     transient do
       organization { build(:organization) }
       number_of_votes { Faker::Number.number(digits: 2) }
+      base_id { 10_000 }
     end
 
     upcoming
@@ -33,7 +34,7 @@ FactoryBot.define do
 
     trait :bb_test do
       bb_status { "key_ceremony" }
-      id { (10_000 + Decidim::Elections::Election.bb_statuses.keys.index(bb_status)) }
+      id { (base_id + Decidim::Elections::Election.bb_statuses.keys.index(bb_status)) }
     end
 
     trait :upcoming do
@@ -279,7 +280,7 @@ FactoryBot.define do
     end
 
     closurable { create :bb_closure, election: election }
-    question { create :election_question, election: election }
+    question { create :question, election: election }
     answer { create :election_answer, question: question }
     value { Faker::Number.number(digits: 1) }
     result_type { "valid_answers" }

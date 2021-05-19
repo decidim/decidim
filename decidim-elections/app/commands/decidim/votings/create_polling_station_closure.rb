@@ -44,18 +44,6 @@ module Decidim
 
       def create_total_ballot_results!
         closure.results.create!(
-          value: form.valid_ballots_count,
-          result_type: :valid_ballots
-        )
-        closure.results.create!(
-          value: form.blank_ballots_count,
-          result_type: :blank_ballots
-        )
-        closure.results.create!(
-          value: form.null_ballots_count,
-          result_type: :null_ballots
-        )
-        closure.results.create!(
           value: form.total_ballots_count,
           result_type: :total_ballots
         )

@@ -8,15 +8,9 @@ describe "Election log", :slow, type: :system do
   let(:manifest_name) { "elections" }
 
   before do
-    VCR.turn_off!
-    Decidim::Elections.bulletin_board.reset_test_database
     election
     visit resource_locator(election).path
     click_link "Election log"
-  end
-
-  after do
-    VCR.turn_on!
   end
 
   context "when election is not set up" do
@@ -34,6 +28,8 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when election is created" do
+    include_context "with test bulletin board"
+
     let(:election) { create(:election, :bb_test, :created, component: component) }
 
     it "shows that election is created" do
@@ -47,6 +43,8 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when the key ceremony started but is not ended" do
+    include_context "with test bulletin board"
+
     let(:election) { create(:election, :bb_test, :key_ceremony, component: component) }
 
     it "shows that key ceremony has started" do
@@ -60,6 +58,8 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when the key ceremony is finished" do
+    include_context "with test bulletin board"
+
     let(:election) { create(:election, :bb_test, :key_ceremony_ended, component: component) }
 
     it "shows that key ceremony is ended" do
@@ -73,6 +73,8 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when voting has started" do
+    include_context "with test bulletin board"
+
     let(:election) { create(:election, :bb_test, :vote, component: component) }
 
     it "shows that vote has started" do
@@ -86,6 +88,8 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when voting has ended" do
+    include_context "with test bulletin board"
+
     let(:election) { create(:election, :bb_test, :vote_ended, component: component) }
 
     it "shows that voting process has ended" do
@@ -99,6 +103,8 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when tally has started" do
+    include_context "with test bulletin board"
+
     let(:election) { create(:election, :bb_test, :tally, component: component) }
 
     it "shows that tally has started" do
@@ -112,6 +118,8 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when tally is completed" do
+    include_context "with test bulletin board"
+
     let(:election) { create(:election, :bb_test, :tally_ended, component: component) }
 
     it "shows that tally has finished" do
@@ -125,6 +133,8 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when results are published" do
+    include_context "with test bulletin board"
+
     let(:election) { create(:election, :bb_test, :results_published, component: component) }
 
     it "shows that results are published" do
@@ -138,6 +148,8 @@ describe "Election log", :slow, type: :system do
   end
 
   describe "verify election" do
+    include_context "with test bulletin board"
+
     context "when election doesn't have correct bb_status" do
       let(:election) { create(:election, :bb_test, :tally_ended, component: component) }
 
