@@ -4,14 +4,19 @@ shared_examples_for "has comments availability attributes" do
   let(:comments_enabled) { nil }
   let(:comments_start_time) { nil }
   let(:comments_end_time) { nil }
+  let(:updates) do
+    { comments_enabled: comments_enabled }.merge(
+      if subject.is_a?(Decidim::Debates::Debate)
+        { start_time: comments_start_time, end_time: comments_end_time }
+      else
+        { comments_start_time: comments_start_time, comments_end_time: comments_end_time }
+      end
+    )
+  end
 
   describe "#comments_allowed?" do
     before do
-      subject.update(
-        comments_enabled: comments_enabled,
-        comments_start_time: comments_start_time,
-        comments_end_time: comments_end_time
-      )
+      subject.update(updates)
     end
 
     context "when all attributes are blank" do
