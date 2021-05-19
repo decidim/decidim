@@ -124,9 +124,10 @@ pl:
         actions:
           amend: Popraw
           create: Utwórz
-          endorse: Rekomenduj
-          vote: Wspieraj
-          withdraw: Wycofać
+          endorse: Rekomendacje
+          vote: Wspieranie
+          vote_comment: Poprzyj komentarz
+          withdraw: Wycofywanie
         name: Propozycje
         settings:
           global:
