@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= render partial: "layouts/decidim/head" %>
+  </head>
+
+  <body>
+    <header class="meeting-polls__header">
+      <div>
+        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true) %></strong>
+      </div>
+
+      <div class="flex--cc">
+        <% if current_user %>
+          <span>
+            <%= link_to current_user.name, decidim.account_path, target: "_blank", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
+          </span>
+        <% end %>
+        <span class="meeting-polls__close">
+          <%= link_to meeting_path(meeting) do %>
+            <%= t("close", scope: "decidim.meetings.layout.live_event") %>
+            <%= icon "x", class: "text-small" %>
+          <% end %>
+        </span>
+      </div>
+    </header>
+
+    <main class="meeting-polls__main">
+      <%= yield %>
+    </main>
+
+    <%= render partial: "layouts/decidim/js_configuration" %>
+  </body>
+</html>

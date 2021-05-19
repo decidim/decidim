@@ -283,6 +283,10 @@ module Decidim
         !!attendees_count && attendees_count.positive?
       end
 
+      def live?
+        start_time && end_time && Time.current >= start_time && Time.current <= end_time
+      end
+
       private
 
       def can_participate_in_meeting?(user)

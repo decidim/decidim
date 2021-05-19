@@ -28,6 +28,7 @@ module Decidim
           end
           resources :versions, only: [:show, :index]
           resource :widget, only: :show, path: "embed"
+          resource :live_event, only: :show
         end
         root to: "meetings#index"
         resource :calendar, only: [:show], format: :text
