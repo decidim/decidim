@@ -448,6 +448,8 @@ it:
       home:
         hero:
           participate_title: Partecipa ai processi della piattaforma
+        sub_hero:
+          register_title: Registrati e crea un account
     participatory_processes:
       pages:
         home:
