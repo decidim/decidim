@@ -634,6 +634,10 @@ a .card__title{
     pointer-events: none;
   }
 
+  &--inline{
+   display: inline-block; 
+  }
+
   svg{
     flex-basis: auto;
   }
