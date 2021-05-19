@@ -174,10 +174,6 @@ module Decidim
         Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
           Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
         end
-
-        Decidim.stats.register :process_comments_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
-          Decidim::ParticipatoryProcesses::StatsProcessCommentsCount.for(participatory_space)
-        end
       end
 
       initializer "decidim_participatory_processes.register_metrics" do

@@ -57,11 +57,14 @@ module Decidim
       end
 
       def process_comments_stats(conditions)
-        #  Decidim.stats.only([:comments_count]).with_context(published_components).map { |_name, value| value }.sum
-        Decidim.stats.only([:process_comments_count])
-               .filter(conditions)
-               .with_context(participatory_process)
-               .map { |stat_title, stat_number| [participatory_process.manifest.name, stat_title, stat_number] }
+        comments = Decidim.component_manifests.map do |component_manifest|
+          component_manifest.stats.only([:comments_count])
+                            .filter(conditions)
+                            .with_context(published_components)
+                            .map{ |_name, value| value}.sum
+        end
+        comments_count = comments.inject(0, :+){|sum, value| sum + value }
+        [[:participatory_processes, :comments_count, comments_count]]
       end
 
       def published_components
