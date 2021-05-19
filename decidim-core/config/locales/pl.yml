@@ -384,7 +384,7 @@ pl:
             dummy_global_attribute_1: Przykładowy atrybut 1
             dummy_global_attribute_2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
-            enable_pads_creation: Włącz tworzenie klocków
+            enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
