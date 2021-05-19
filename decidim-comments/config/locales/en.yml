@@ -17,6 +17,12 @@ en:
         other: Votes
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comments enabled
+            end_time: Comments enabled until
+            start_time: Comments enabled from
       comments:
         create:
           error: There was a problem creating the comment.
