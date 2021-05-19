@@ -2,6 +2,7 @@
 
 require "rails"
 require "active_support/all"
+require "action_view/railtie"
 
 require "pg"
 require "redis"
