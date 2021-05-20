@@ -10,7 +10,7 @@ en:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
         audio_url: Audio URL
-        closing_report: Report
+        closing_report: Minutes
         closing_visible: Is visible
         contributions_count: Number of contributions
         proposal_ids: Proposals created in the meeting
@@ -424,7 +424,6 @@ en:
         index:
           new_meeting: New meeting
         meeting_minutes:
-          meeting_minutes: Meeting Minutes
           related_information: Related Information
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
@@ -447,7 +446,7 @@ en:
           join: Join meeting
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
-          meeting_report: Meeting report
+          meeting_minutes: Meeting Minutes
           no_slots_available: No slots available
           organizations: Attending organizations
           registration_code_help_text: Your registration code

@@ -164,7 +164,7 @@ edit_link(
 
     <% if meeting.closed? && meeting.closing_visible? %>
       <div class="section">
-        <h3 class="section-heading"><%= t(".meeting_report") %></h3>
+        <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
         <%= decidim_sanitize translated_attribute meeting.closing_report %>
       </div>
     <% end %>
