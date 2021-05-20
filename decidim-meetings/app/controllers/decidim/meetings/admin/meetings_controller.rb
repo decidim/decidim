@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # This controller allows an admin to manage meetings from a Participatory Process
       class MeetingsController < Admin::ApplicationController
+        include Decidim::Meetings::Admin::Filterable
+
         helper_method :blank_service
 
         def new
@@ -77,7 +79,19 @@ module Decidim
           end
         end
 
+        def meetings
+          @meetings ||= filtered_collection
+        end
+
+        def meeting
+          @meeting ||= meetings.find(params[:id])
+        end
+
         private
+
+        def collection
+          @collection ||= Meeting.where(component: current_component).published.not_hidden
+        end
 
         def meeting_form
           form(Decidim::Meetings::Admin::MeetingForm)

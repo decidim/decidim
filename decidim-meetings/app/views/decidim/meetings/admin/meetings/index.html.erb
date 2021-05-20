@@ -8,20 +8,35 @@
       </div>
     </h2>
   </div>
-
+  <%= admin_filter_selector(:meetings) %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.meeting.fields.title", scope: "decidim.meetings") %></th>
-            <th><%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %></th>
-            <th><%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %></th>
-            <th><%= t("models.meeting.fields.closed", scope: "decidim.meetings") %></th>
+            <th>
+              <%= sort_link(query, :translated_title, t("models.meeting.fields.title", scope: "decidim.meetings"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :start_time, t("models.meeting.fields.start_time", scope: "decidim.meetings"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :end_time, t("models.meeting.fields.end_time", scope: "decidim.meetings"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :closed, t("models.meeting.fields.closed", scope: "decidim.meetings"), default_order: :desc ) %>
+            </th>
             <% if Decidim::Map.available?(:static, :geocoding) %>
               <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
             <% end %>
-            <%= th_resource_scope_label %>
+
+            <% if resource_with_scopes_enabled? %>
+              <th>
+                <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
+
+            <%#= th_resource_scope_label %>
             <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
           </tr>
         </thead>
