@@ -31,6 +31,7 @@ pl:
         body: Treść
         subject: Temat
       organization:
+        admin_terms_of_use_body: Warunki korzystania z serwisu dla administratora
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
