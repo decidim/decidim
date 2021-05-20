@@ -60,9 +60,9 @@ module Decidim
           component_manifest.stats.only([:comments_count])
                             .filter(conditions)
                             .with_context(published_components)
-                            .map{ |_name, value| value}.sum
+                            .map { |_name, value| value }.sum
         end
-        comments_count = comments.inject(0, :+){|sum, value| sum + value }
+        comments_count = comments.inject(0, :+) { |sum, value| sum + value }
         [[:participatory_processes, :comments_count, comments_count]]
       end
 
