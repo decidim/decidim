@@ -838,7 +838,7 @@ pl:
           proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
           read_less: Pokaż mniej
           read_more: Pokaż więcej
-          report: Raport
+          report: Zgłoś
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Propozycja nie zostanie usunięta, pojawi się na liście wycofanych propozycji.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Tej akcji nie można anulować!</strong>
           withdraw_proposal: Wycofaj propozycję
