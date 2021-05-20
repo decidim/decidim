@@ -49,7 +49,6 @@ FactoryBot.define do
     end
     mandatory { false }
     position { 0 }
-    published_at { Time.current }
     question_type { Decidim::Forms::Question::TYPES.first }
     questionnaire
 

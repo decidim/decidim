@@ -49,8 +49,7 @@ module Decidim
             mandatory: form_question.mandatory,
             question_type: form_question.question_type,
             max_choices: form_question.max_choices,
-            max_characters: form_question.max_characters,
-            published_at: Time.current
+            max_characters: form_question.max_characters
           }
 
           update_nested_model(form_question, question_attributes, @questionnaire.questions) do |question|
