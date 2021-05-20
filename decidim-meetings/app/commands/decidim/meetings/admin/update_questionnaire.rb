@@ -21,12 +21,12 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          Decidim::Forms::Questionnaire.transaction do
+          Decidim::Meetings::Questionnaire.transaction do
             create_questionnaire_for
             create_questionaire
             if @questionnaire.questions_editable?
               update_questionnaire_questions
-              delete_answers unless @questionnaire.published?
+              delete_answers
             end
           end
 
@@ -40,11 +40,7 @@ module Decidim
         end
 
         def create_questionaire
-          if @questionnaire.new_record?
-            # Create it published by default
-            @questionnaire.published_at = Time.current
-            @questionnaire.save!
-          end
+          @questionnaire.save! if @questionnaire.new_record?
         end
 
         def update_questionnaire_questions
@@ -56,7 +52,6 @@ module Decidim
         def update_questionnaire_question(form_question)
           question_attributes = {
             body: form_question.body,
-            description: form_question.description,
             position: form_question.position,
             question_type: form_question.question_type,
             max_choices: form_question.max_choices

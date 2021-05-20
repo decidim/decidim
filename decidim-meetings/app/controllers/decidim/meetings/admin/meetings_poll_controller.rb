@@ -44,7 +44,7 @@ module Decidim
           respond_to do |format|
             format.json do
               question_id = params["id"]
-              question = Decidim::Forms::Question.find_by(id: question_id)
+              question = Decidim::Meetings::Question.find_by(id: question_id)
               render json: question.answer_options.map { |answer_option| AnswerOptionPresenter.new(answer_option).as_json } if question.present?
             end
           end
@@ -69,15 +69,15 @@ module Decidim
         private
 
         def questionnaire
-          @questionnaire ||= Decidim::Forms::Questionnaire.find_or_initialize_by(questionnaire_for: questionnaire_for)
+          @questionnaire ||= Decidim::Meetings::Questionnaire.find_or_initialize_by(questionnaire_for: questionnaire_for)
         end
 
         def blank_question
-          @blank_question ||= Decidim::Forms::Admin::QuestionForm.new
+          @blank_question ||= Decidim::Meetings::Admin::QuestionForm.new
         end
 
         def blank_answer_option
-          @blank_answer_option ||= Decidim::Forms::Admin::AnswerOptionForm.new
+          @blank_answer_option ||= Decidim::Meetings::Admin::AnswerOptionForm.new
         end
 
         def question_types

@@ -3,7 +3,6 @@
 require "decidim/core/test/factories"
 require "decidim/forms/test/factories"
 require "decidim/participatory_processes/test/factories"
-require "decidim/assemblies/test/factories"
 
 FactoryBot.define do
   factory :meeting_component, parent: :component do
@@ -174,6 +173,39 @@ FactoryBot.define do
 
   factory :poll, class: "Decidim::Meetings::Poll" do
     meeting
-    questionnaire { build(:questionnaire) }
+  end
+
+  factory :meetings_poll_questionnaire, class: "Decidim::Meetings::Questionnaire" do
+    questionnaire_for { build(:poll) }
+  end
+
+  factory :meetings_poll_question, class: "Decidim::Meetings::Question" do
+    transient do
+      options { [] }
+    end
+
+    body { generate_localized_title }
+    position { 0 }
+    question_type { Decidim::Meetings::Question::QUESTION_TYPES.first }
+    questionnaire factory: :meetings_poll_questionnaire
+    answer_options do
+      Array.new(3).collect { build(:meetings_poll_answer_option, question: nil) }
+    end
+  end
+
+  factory :meetings_poll_answer, class: "Decidim::Meetings::Answer" do
+    questionnaire factory: :meetings_poll_questionnaire
+    question { create(:meetings_poll_question, questionnaire: questionnaire) }
+    user { create(:user, organization: questionnaire.questionnaire_for.organization) }
+  end
+
+  factory :meetings_poll_answer_option, class: "Decidim::Meetings::AnswerOption" do
+    question { create(:meetings_poll_question) }
+    body { generate_localized_title }
+  end
+
+  factory :meetings_poll_answer_choice, class: "Decidim::Meetings::AnswerChoice" do
+    answer factory: :meetings_poll_answer
+    answer_option { create(:meetings_poll_answer_option, question: answer.question) }
   end
 end

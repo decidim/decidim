@@ -9,7 +9,7 @@ describe "Admin manages meetings polls", type: :system do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component }
   let(:poll) { create(:poll) }
-  let(:questionnaire) { poll.questionnaire }
+  let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
   let(:body) do
     {
       en: "This is the first question",
@@ -240,8 +240,8 @@ describe "Admin manages meetings polls", type: :system do
   end
 
   context "when the questionnaire is already answered" do
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body, question_type: "multiple_option") }
-    let!(:answer) { create(:answer, questionnaire: questionnaire, question: question) }
+    let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire, body: body, question_type: "multiple_option") }
+    let!(:answer) { create(:meetings_poll_answer, questionnaire: questionnaire, question: question) }
 
     it "can modify questionnaire questions" do
       visit questionnaire_edit_path

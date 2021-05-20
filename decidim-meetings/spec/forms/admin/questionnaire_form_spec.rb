@@ -12,19 +12,24 @@ module Decidim
           )
         end
 
+        let(:body_english) { "First question" }
         let(:current_organization) { create(:organization) }
-        let(:position) { 0 }
 
         let(:questions) do
           [
             {
               body: {
-                "en" => "First question",
+                "en" => body_english,
                 "ca" => "Primera pregunta",
                 "es" => "Primera pregunta"
               },
-              position: position,
-              question_type: "short_answer"
+              position: 0,
+              question_type: "single_option",
+              answer_options: [
+                { "body" => { "en" => "A" } },
+                { "body" => { "en" => "B" } },
+                { "body" => { "en" => "C" } }
+              ]
             },
             {
               body: {
@@ -33,7 +38,12 @@ module Decidim
                 "es" => "Segunda pregunta"
               },
               position: 1,
-              question_type: "short_answer"
+              question_type: "multiple_option",
+              answer_options: [
+                { "body" => { "en" => "A" } },
+                { "body" => { "en" => "B" } },
+                { "body" => { "en" => "C" } }
+              ]
             }
           ]
         end
@@ -51,7 +61,7 @@ module Decidim
         end
 
         context "when a question is not valid" do
-          let(:position) { "a" }
+          let(:body_english) { "" }
 
           it { is_expected.not_to be_valid }
         end

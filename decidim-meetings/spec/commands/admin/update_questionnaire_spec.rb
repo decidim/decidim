@@ -27,8 +27,7 @@ module Decidim
                       "en" => "First answer",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
-                    },
-                    "free_text" => "0"
+                    }
                   },
                   "1" => {
                     "body" => {
@@ -54,8 +53,7 @@ module Decidim
                       "en" => "First answer",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
-                    },
-                    "free_text" => "1"
+                    }
                   },
                   "1" => {
                     "body" => {
@@ -80,7 +78,7 @@ module Decidim
 
         context "with a persisted poll and questionnaire" do
           let(:poll) { create(:poll) }
-          let(:questionnaire) { poll.questionnaire }
+          let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
           describe "when the form is invalid" do
             before do
@@ -109,16 +107,14 @@ module Decidim
               expect(questionnaire.questions[0].question_type).to eq("single_option")
               expect(questionnaire.questions[0].max_choices).to be_nil
               expect(questionnaire.questions[0].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["0"]["answer_options"]["1"]["body"]["en"])
-              expect(questionnaire.questions[0].published_at).to be_nil
 
               expect(questionnaire.questions[1].question_type).to eq("multiple_option")
               expect(questionnaire.questions[1].max_choices).to eq(2)
-              expect(questionnaire.questions[1].published_at).to be_nil
             end
           end
 
           describe "when the questionnaire has an existing question" do
-            let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+            let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire) }
 
             context "and the question should be removed" do
               let(:form_params) do
@@ -129,7 +125,23 @@ module Decidim
                       "body" => question.body,
                       "position" => 0,
                       "question_type" => "single_option",
-                      "deleted" => "true"
+                      "deleted" => "true",
+                      "answer_options" => [
+                        {
+                          "body" => {
+                            "en" => "First answer",
+                            "ca" => "Primera resposta",
+                            "es" => "Primera respuesta"
+                          }
+                        },
+                        {
+                          "body" => {
+                            "en" => "Second answer",
+                            "ca" => "Segona resposta",
+                            "es" => "Segunda respuesta"
+                          }
+                        }
+                      ]
                     }
                   ]
                 }
@@ -147,7 +159,7 @@ module Decidim
 
         context "with a new poll and questionnaire" do
           let(:poll) { build(:poll) }
-          let(:questionnaire) { build(:questionnaire, questionnaire_for: poll) }
+          let(:questionnaire) { build(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
           describe "when the form is invalid" do
             before do
@@ -190,16 +202,14 @@ module Decidim
               expect(questionnaire.questions[0].question_type).to eq("single_option")
               expect(questionnaire.questions[0].max_choices).to be_nil
               expect(questionnaire.questions[0].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["0"]["answer_options"]["1"]["body"]["en"])
-              expect(questionnaire.questions[0].published_at).to be_nil
 
               expect(questionnaire.questions[1].question_type).to eq("multiple_option")
               expect(questionnaire.questions[1].max_choices).to eq(2)
-              expect(questionnaire.questions[1].published_at).to be_nil
             end
           end
 
           describe "when the questionnaire has an existing question" do
-            let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+            let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire) }
 
             context "and the question should be removed" do
               let(:form_params) do
@@ -210,7 +220,23 @@ module Decidim
                       "body" => question.body,
                       "position" => 0,
                       "question_type" => "single_option",
-                      "deleted" => "true"
+                      "deleted" => "true",
+                      "answer_options" => [
+                        {
+                          "body" => {
+                            "en" => "First answer",
+                            "ca" => "Primera resposta",
+                            "es" => "Primera respuesta"
+                          }
+                        },
+                        {
+                          "body" => {
+                            "en" => "Second answer",
+                            "ca" => "Segona resposta",
+                            "es" => "Segunda respuesta"
+                          }
+                        }
+                      ]
                     }
                   ]
                 }

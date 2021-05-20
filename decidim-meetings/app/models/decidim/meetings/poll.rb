@@ -3,7 +3,11 @@
 module Decidim
   module Meetings
     class Poll < Meetings::ApplicationRecord
-      include Decidim::Forms::HasQuestionnaire
+      has_one :questionnaire,
+              class_name: "Decidim::Meetings::Questionnaire",
+              dependent: :destroy,
+              inverse_of: :questionnaire_for,
+              as: :questionnaire_for
 
       belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
 
