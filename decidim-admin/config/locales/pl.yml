@@ -965,8 +965,8 @@ pl:
             report_count: Liczba
             reportable_id: Id
             reportable_type: Typ
-            reported_content_url: Zgłoszony URL treści
-            reports: Raporty
+            reported_content_url: URL zgłoszonej treści
+            reports: Zgłoszenia
             visit_url: Odwiedź adres URL
         report:
           fields:
