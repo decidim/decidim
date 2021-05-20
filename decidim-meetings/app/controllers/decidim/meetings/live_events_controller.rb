@@ -6,7 +6,7 @@ module Decidim
     class LiveEventsController < Decidim::Meetings::ApplicationController
       layout "decidim/meetings/layouts/live_event"
 
-      helper_method :meeting
+      helper_method :meeting, :poll
 
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
@@ -21,6 +21,10 @@ module Decidim
 
       def meeting
         @meeting ||= Meeting.not_hidden.where(component: current_component).find(params[:meeting_id])
+      end
+
+      def poll
+        @poll ||= meeting&.poll
       end
     end
   end

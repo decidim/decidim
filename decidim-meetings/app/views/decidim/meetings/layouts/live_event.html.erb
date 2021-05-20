@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="<%= I18n.locale %>" class="no-js">
   <head>
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/head" %>
@@ -7,6 +7,16 @@
 
   <body>
     <header class="meeting-polls__header">
+      <% if current_user && poll %>
+        <div class="flex--cc">
+          <% if admin_allowed_to?(:update, :poll, meeting: meeting, poll: poll) %>
+            <%= link_to meeting_poll_questions_path(meeting), remote: true do %>
+              <button class="meeting-polls__button meeting-polls__action-administrate"><%= t(".administrate") %></button>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
       <div>
         <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true) %></strong>
       </div>
@@ -18,8 +28,8 @@
           </span>
         <% end %>
         <span class="meeting-polls__close">
-          <%= link_to meeting_path(meeting) do %>
-            <%= t("close", scope: "decidim.meetings.layout.live_event") %>
+          <%= link_to meeting_path(meeting), "aria-label": t(".close") do %>
+            <%= t(".close") %>
             <%= icon "x", class: "text-small" %>
           <% end %>
         </span>
@@ -27,6 +37,7 @@
     </header>
 
     <main class="meeting-polls__main">
+      <aside class="meeting-polls__aside is-open" id="meeting-poll-aside"></aside>
       <%= yield %>
     </main>
 

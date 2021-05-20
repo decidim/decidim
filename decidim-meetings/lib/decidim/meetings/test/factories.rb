@@ -191,6 +191,7 @@ FactoryBot.define do
 
     body { generate_localized_title }
     position { 0 }
+    status { 0 }
     question_type { Decidim::Meetings::Question::QUESTION_TYPES.first }
     questionnaire factory: :meetings_poll_questionnaire
     answer_options do

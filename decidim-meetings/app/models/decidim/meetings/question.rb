@@ -9,6 +9,7 @@ module Decidim
       QUESTION_TYPES = %w(single_option multiple_option).freeze
 
       translatable_fields :body
+      enum status: { unpublished: 0, published: 1, closed: 2 }
 
       belongs_to :questionnaire, class_name: "Decidim::Meetings::Questionnaire", foreign_key: "decidim_questionnaire_id"
 
@@ -30,6 +31,10 @@ module Decidim
 
       def translated_body
         Decidim::Forms::QuestionPresenter.new(self).translated_body
+      end
+
+      def answers_count
+        questionnaire.answers.where(question: self).count
       end
     end
   end

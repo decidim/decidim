@@ -23,12 +23,8 @@ describe "Meeting live event", type: :system do
     )
   end
 
-  def visit_meeting_live_event
-    visit meeting_live_event_path
-  end
-
   before do
-    visit_meeting_live_event
+    visit meeting_live_event_path
   end
 
   it "shows the name of the meeting" do
