@@ -122,5 +122,4 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       end
     end
   end
-
 end
