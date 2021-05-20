@@ -32,6 +32,7 @@ pl:
         body: Treść
         subject: Temat
       organization:
+        admin_terms_of_use_body: Warunki korzystania z serwisu dla administratora
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
@@ -576,7 +577,7 @@ pl:
         report:
           reasons:
             does_not_belong: Nie należy
-            offensive: Ofensywa
+            offensive: Ofensywna
             spam: Spam
         reports:
           index:
@@ -968,8 +969,8 @@ pl:
             report_count: Liczba
             reportable_id: Id
             reportable_type: Typ
-            reported_content_url: Zgłoszony URL treści
-            reports: Raporty
+            reported_content_url: URL zgłoszonej treści
+            reports: Zgłoszenia
             visit_url: Odwiedź adres URL
         report:
           fields:
