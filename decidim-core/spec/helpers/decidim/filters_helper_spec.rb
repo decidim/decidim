@@ -79,6 +79,12 @@ module Decidim
 
     describe "#filter_cache_hash" do
       let(:type) { :test }
+      let(:organization) { create(:organization) }
+      let(:proposal_component) { create(:proposal_component, organization: organization) }
+
+      before do
+        allow(helper).to receive(:current_component).and_return(proposal_component)
+      end
 
       it "generate a unique hash" do
         old_hash = helper.filter_cache_hash(filter, type)
@@ -102,6 +108,17 @@ module Decidim
         it "generate a different hash" do
           old_hash = helper.filter_cache_hash(filter, type)
           filter.test_attribute = "dummy-filter"
+
+          expect(helper.filter_cache_hash(filter, type)).not_to eq(old_hash)
+        end
+      end
+
+      context "when the component is different" do
+        let(:another_component) { create(:proposal_component, organization: organization) }
+
+        it "generate a different hash" do
+          old_hash = helper.filter_cache_hash(filter, type)
+          allow(helper).to receive(:current_component).and_return(another_component)
 
           expect(helper.filter_cache_hash(filter, type)).not_to eq(old_hash)
         end

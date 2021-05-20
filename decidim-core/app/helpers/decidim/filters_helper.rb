@@ -33,6 +33,7 @@ module Decidim
       hash = []
       hash << "decidim/proposals/filters"
       hash << type.to_s if type.present?
+      hash << current_component.id
       hash << Digest::MD5.hexdigest(filter.to_json)
 
       hash.join("/")
