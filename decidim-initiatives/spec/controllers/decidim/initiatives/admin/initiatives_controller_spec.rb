@@ -652,7 +652,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
       end
 
       it "is allowed" do
-        expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, "csv", nil)
+        expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", nil)
 
         get :export, params: { format: :csv }
         expect(flash[:alert]).to be_nil
@@ -664,7 +664,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
         let(:collection_ids) { initiatives.map(&:id) }
 
         it "enqueues the job" do
-          expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, "csv", collection_ids)
+          expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids)
 
           get :export, params: { format: :csv, collection_ids: collection_ids }
           expect(flash[:alert]).to be_nil

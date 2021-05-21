@@ -127,6 +127,7 @@ module Decidim
 
           Decidim::Initiatives::ExportInitiativesJob.perform_later(
             current_user,
+            current_organization,
             params[:format] || default_format,
             params[:collection_ids].presence&.map(&:to_i)
           )

@@ -5,22 +5,23 @@ module Decidim
     class ExportInitiativesJob < ApplicationJob
       queue_as :exports
 
-      def perform(user, format, collection_ids = nil)
-        export_data = Decidim::Exporters.find_exporter(format).new(collection_to_export(collection_ids), serializer).export
+      def perform(user, organization, format, collection_ids = nil)
+        export_data = Decidim::Exporters.find_exporter(format).new(
+          collection_to_export(collection_ids, organization),
+          serializer
+        ).export
 
         ExportMailer.export(user, "initiatives", export_data).deliver_now
       end
 
       private
 
-      def collection_to_export(ids)
-        return collection if ids.nil?
+      def collection_to_export(ids, organization)
+        collection = Decidim::Initiative.where(organization: organization)
 
-        Decidim::Initiative.where(id: ids)
-      end
+        collection = collection.where(id: ids) if ids.present?
 
-      def collection
-        Decidim::Initiative.all
+        collection
       end
 
       def serializer
