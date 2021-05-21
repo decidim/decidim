@@ -110,6 +110,10 @@ gl:
         questions: Preguntas %{count}
         unspecified: Sen especificar
       elections:
+        election_log:
+          complete: Completar
+          download: Descargar
+          vote_title: Proceso de votación
         filters:
           active: Activa
           all: Todas
@@ -126,6 +130,7 @@ gl:
           description: 'Estas son as preguntas que atoparás non proceso de votación:'
         results:
           description: 'Estes son os resultados da votación, para cada pregunta:'
+          percentage: "%{count}%"
           selected: Seleccionado
         show:
           action_button:
@@ -135,6 +140,7 @@ gl:
           callout:
             already_voted: Xa votaches nesta elección. Podes trocar o teu voto ou verificalo.
             vote_rejected: Non foi posíbel verificar o teu voto. Por favor, faino de novo.
+          election_log: Rexistro da elección
           verify:
             already_voted: Xa votaches?
             verify_here: Verifica o teu voto aquí.
@@ -310,16 +316,71 @@ gl:
             no_polling_stations: Aínda non hai puntos de votación.
           timeline:
             heading: Liña de tempo
+      polling_officer_zone:
+        closures:
+          back_to_polling_stations: Volver aos puntos de votación
+          create:
+            error: Produciuse un erro ao crear o peche, téntao de novo.
+            success: Peche creado con éxito.
+          edit:
+            heading: Reconto de votos - reconto de respostas
+            info_text: Por favor, insire o número total de respostas por cada pregunta.
+            modal_ballots_results_count_error:
+              close_modal: Pechar
+              info_text: O número total de papeletas non coincide co número de sobres. Por favor, revisa o total de papeletas.
+              title: O total de papeletas non coincide
+            save_recount: Gardar reconto
+            total_ballots: Total de papeletas
+            total_blank_ballots: Total papeletas en branco
+            total_null_ballots: Total papeletas nulas
+            total_valid_ballots: Total papeletas válidas
+          new:
+            election: 'Elección:'
+            heading: Reconto de votos
+            info_text: 'Por favor, insire o número total de papeletas (sobres) recontados neste punto de votación:'
+            modal_ballots_count_error:
+              btn_validate_total: Validar o reconto total de papeletas
+              close_modal: Pechar
+              info_explanation_text: 'Por favor, revisa o número total de papeletas. Se o número total é correcto, tes de dar unha explicación ao comité de seguimento:'
+              info_text: O número total de papeletas (sobres) inseridas non coincide co rexistro de persoas que votaron neste punto de votación.
+              message_for_monitoring_committee: Mensaxe para o comité de seguimento
+              review_recount: Revisar o reconto
+              text_area_placeholder: Por favor, escribe a túa mensaxe
+              title: O total de rexistros non coincide
+              total_ballots: 'Total de papeletas:'
+              total_people: 'Total de persoas:'
+            polling_station: 'Punto de votación:'
+            submit: Verificar o número total
+            total_ballots_count: Número de papeletas
+          update:
+            error: Produciuse un erro ao actualizar os resultados do peche, téntao de novo.
+            success: Resultados do peche actualizados con éxito.
+        polling_officers:
+          index:
+            polling_station:
+              address: Enderezo
+              count_votes: Contar votos
+              election: Elección
+              identify_person: Identificar a unha persoa
+              name: Nome
+              show_closure: Ver peche
+              title: Puntos de votación
       votings:
         check_census:
           error:
             title: Os datos do censo non son correctos!
           success:
             title: Os datos do censo son correctos!
+        elections_log:
+          bb_status: Estado da elección
+          description: O rexistro da elección amosarache toda a información importante sobre cada votación. Por exemplo, o estado da cerimonia de chaves, o reconto ou se os resultados xa están publicados. Fai clic na elección da que desexas a información do rexistro.
+          election_log: Rexistro da elección
+          title: Rexistro da elección
         login:
           start_voting: Comezar votación
         no_census_contact_information: Aínda non hai ningunha información de contacto
   layouts:
     decidim:
       voting_navigation:
+        election_log: Rexistro da elección
         voting_menu_item: A votación
