@@ -10,7 +10,7 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::Authorable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable
       include Decidim::Endorsable
       include Decidim::Followable
@@ -39,16 +39,6 @@ module Decidim
         participatory_space.try(:visible?) && component.try(:published?)
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !component.current_settings.comments_blocked
-      end
-
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
       def comments_have_alignment?
         true
@@ -61,11 +51,6 @@ module Decidim
 
       def official?
         author.nil?
-      end
-
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate_in_space?(user)
       end
 
       def users_to_notify_on_comment_created

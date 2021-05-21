@@ -11,7 +11,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
       include Decidim::Randomable
       include Decidim::TranslatableResource
 
@@ -58,11 +58,6 @@ module Decidim
         cancelled_on.present?
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
         commentable?
@@ -76,11 +71,6 @@ module Decidim
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
-      end
-
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate_in_space?(user)
       end
     end
   end

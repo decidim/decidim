@@ -10,7 +10,7 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Resourceable
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
       include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
@@ -96,11 +96,6 @@ module Decidim
         (ama? && open_ama?) || !ama?
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
         return false unless open?
@@ -133,11 +128,6 @@ module Decidim
 
       def self.export_serializer
         Decidim::Debates::DataPortabilityDebateSerializer
-      end
-
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate_in_space?(user)
       end
 
       def self.newsletter_participant_ids(component)

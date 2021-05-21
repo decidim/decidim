@@ -12,7 +12,7 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::HasReference
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Randomable
@@ -26,7 +26,9 @@ module Decidim
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
       has_many :orders, through: :line_items, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::Order"
 
-      delegate :organization, :participatory_space, to: :component
+      delegate :organization, :participatory_space, :can_participate_in_space?, to: :component
+
+      alias can_participate? can_participate_in_space?
 
       searchable_fields(
         scope_id: :decidim_scope_id,
@@ -56,16 +58,6 @@ module Decidim
         ::Decidim::ResourceLocatorPresenter.new([budget, self]).url(url_params)
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !component.current_settings.comments_blocked
-      end
-
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
@@ -84,11 +76,6 @@ module Decidim
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
       def allow_resource_permissions?
         component.settings.resources_permissions_enabled
-      end
-
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        component.can_participate_in_space?(user)
       end
 
       # Public: Checks if the project has been selected or not.

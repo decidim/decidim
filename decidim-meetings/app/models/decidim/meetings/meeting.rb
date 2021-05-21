@@ -13,7 +13,7 @@ module Decidim
       include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
@@ -171,16 +171,6 @@ module Decidim
         component.settings.maps_enabled?
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !component.current_settings.comments_blocked
-      end
-
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
       def allow_resource_permissions?
         component.settings.resources_permissions_enabled
@@ -199,11 +189,6 @@ module Decidim
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         followers
-      end
-
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate?(user)
       end
 
       def can_participate?(user)
