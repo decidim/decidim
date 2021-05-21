@@ -16,7 +16,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.query_type = "Decidim::Budgets::BudgetsType"
 
-  component.actions = %(vote)
+  component.actions = %w(vote comment)
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
@@ -32,7 +32,7 @@ Decidim.register_component(:budgets) do |component|
     resource.model_class_name = "Decidim::Budgets::Project"
     resource.template = "decidim/budgets/projects/linked_projects"
     resource.card = "decidim/budgets/project"
-    resource.actions = %(vote)
+    resource.actions = %w(vote comment)
     resource.searchable = true
   end
 
