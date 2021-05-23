@@ -275,6 +275,8 @@ gl:
               success: Datos do censo eliminados
             export_access_codes:
               button: Exportar códigos de acceso da votación
+              callout: Agora xa podes exportar os códigos de acceso. Só é posíbel facelo unha vez. Así que inicies a exportación, recibirás un correo electrónico coas instrucións en <strong>%{email}</strong>
+              confirm: Só podes exportar os códigos de acceso unha vez. Asegúrate de ter acceso á conta de correo <strong>%{email}</strong>.
               file_not_exists: Este ficheiro non existe
               launch_error: Produciuse un problema ao iniciar a exportación dos códigos de acceso
               launch_success: Iniciada a exportación dos códigos de acceso. Nun intre recibirás un correo en %{email}
@@ -284,6 +286,7 @@ gl:
               callout: O censo está conxelado e non pode ser modificado.
             generate_access_codes:
               button: Xerar códigos de acceso para a votación
+              callout: Agora xa podes xerar os códigos de acceso. Lembra que unha vez xerados, xa non poderás modificar o censo.
               confirm: Se continuas, non poderás modificar o censo.
               info_message_all: "<strong>Todas as filas foron importadas con éxito</strong> dende o ficheiro %{file} (%{raw_count} de %{data_count})."
               info_message_warn: Por favor, verifica que non se perderan datos, xa que se teñen creado %{data_count} rexistros e o ficheiro subido %{file} ten %{raw_count} filas.
@@ -302,6 +305,7 @@ gl:
               heading: Espazo de votación do censo
         export_mailer:
           access_codes_export:
+            click_button: 'Fai clic na seguinte ligazón para descargar os datos dos códigos de acceso.<br/>O ficheiro estará dispoñíbel até o %{date}.<br/>É preciso que teñas <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para macOS) ou <a href="https://peazip.github.io">PeaZip</a> (para Linux). Contrasinal: %{password}'
             download: Descargar
             subject: A exportación dos códigos de acceso á votación de %{voting_title} xa están dispoñibles
       content_blocks:
@@ -369,6 +373,7 @@ gl:
         check_census:
           error:
             title: Os datos do censo non son correctos!
+          invalid: Produciuse un problema ao verificar o censo.
           success:
             title: Os datos do censo son correctos!
         elections_log:
