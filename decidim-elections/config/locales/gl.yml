@@ -123,6 +123,9 @@ gl:
           published: Publicado
           results_description:
             not_published: Aínda non se publicaron os resultados.
+            published: Os resultados foron publicados.
+          results_title: Resultados
+          started: Iniciada
           vote_title: Proceso de votación
         filters:
           active: Activa
