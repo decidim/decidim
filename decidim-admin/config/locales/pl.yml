@@ -588,12 +588,12 @@ pl:
             reported_content: Zgłoszona zawartość
             see_current: Zobacz bieżący
             see_original: Zobacz oryginał
-            title: Raporty moderacyjne
+            title: Zgłoszenia moderacyjne
           show:
             report_details: Szczegóły przyczyny
             report_language: Zgłoś język
             report_reason: Powód
-            title: Szczegóły raportu
+            title: Szczegóły zgłoszenia
       newsletter_templates:
         index:
           preview_template: Podgląd
@@ -677,7 +677,7 @@ pl:
           officialize: Oficjalizuj
           officialized: Oficjalny
           reofficialize: Reoficjalizuj
-          reports: Raporty
+          reports: Zgłoszenia
           show_email: Pokaż adres e-mail
           status: Status
           unblock: Odblokuj użytkownika
