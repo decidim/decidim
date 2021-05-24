@@ -1066,35 +1066,6 @@ ca:
               show_closure: Veure tancament
               title: Punts de votació
               voting: Votacions
-        votes:
-          create:
-            success: S'ha emès correctament el vot presencial
-          in_person_fields:
-            date_of_birth: Data de naixement
-            day: Dia
-            day_placeholder: DD
-            document_number: Número de document
-            document_number_placeholder: Número d'ID
-            month: Mes
-            month_placeholder: MM
-            name: Nom
-            select: Escull el tipus de document
-            voted: La participant ha votat
-            year: Any
-            year_placeholder: AAAA
-          new:
-            back: Tornar als punts de votació
-            census_not_present: No s'ha trobat la participant al cens.
-            census_not_present_description: Ha d'anar a l'oficina del cens per a presentar una reclamació o per rebre assistència.
-            census_present: La participant es troba al cens.
-            census_verified: La participant encara no ha votat.
-            complete_voting: Completar el vot
-            form_title: 'Selecciona el tipus de document i introdueix el número de document de la participant:'
-            questions_title: 'Té dret a votar les següents preguntes:'
-            title: Identificar i verificar una participant
-            validate_document: Validar el document
-            verify_document: Verificar el document
-            verify_title: 'Comprova que les dades següents són correctes:'
       polling_officers:
         actions:
           confirm_destroy: N'estàs segura?
