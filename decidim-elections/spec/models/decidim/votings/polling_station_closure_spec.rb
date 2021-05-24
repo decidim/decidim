@@ -21,7 +21,7 @@ describe Decidim::Votings::PollingStationClosure, type: :model do
 
   context "with results" do
     before do
-      closure.results << build_list(:election_result, 3, closurable: closure)
+      closure.results << build_list(:election_result, 3, closurable: closure, election: closure.election)
     end
 
     it "has many associated results" do

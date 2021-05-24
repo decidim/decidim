@@ -59,7 +59,7 @@ module Decidim
           value: answer_result.value,
           decidim_elections_question_id: answer_result.question_id,
           decidim_elections_answer_id: answer_result.id,
-          result_type: "valid_answers"
+          result_type: :valid_answers
         }
 
         create_result!(params)
@@ -69,7 +69,7 @@ module Decidim
         params = {
           value: question_result.value,
           decidim_elections_question_id: question_result.id,
-          result_type: "blank_answers"
+          result_type: :blank_answers
         }
 
         create_result!(params)

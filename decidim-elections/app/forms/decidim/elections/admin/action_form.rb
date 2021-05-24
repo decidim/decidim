@@ -28,6 +28,11 @@ module Decidim
         def bulletin_board
           @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
         end
+
+        def refresh
+          remove_instance_variable(:@pending_action)
+          remove_instance_variable(:@current_step)
+        end
       end
     end
   end

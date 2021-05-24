@@ -1,14 +1,5 @@
 # frozen_string_literal: true
 
-shared_context "with test bulletin board" do
-  around do |example|
-    VCR.turn_off!
-    Decidim::Elections.bulletin_board.reset_test_database
-    example.run
-    VCR.turn_on!
-  end
-end
-
 shared_examples "doesn't allow to vote" do
   it "doesn't allow clicking in the vote button" do
     visit router.election_path(id: election.id)
