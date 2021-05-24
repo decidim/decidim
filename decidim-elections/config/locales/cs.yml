@@ -1088,35 +1088,6 @@ cs:
               show_closure: Zobrazit uzavření
               title: Volební místnosti
               voting: Hlasování
-        votes:
-          create:
-            success: Úspěšně zahlasováno Osobní volbou
-          in_person_fields:
-            date_of_birth: Datum narození
-            day: Den
-            day_placeholder: DD
-            document_number: Číslo dokumentu
-            document_number_placeholder: Číslo občanského průkazu
-            month: Měsíc
-            month_placeholder: MM
-            name: Název
-            select: Vyberte typ dokumentu
-            voted: Uživatel hlasoval
-            year: Rok
-            year_placeholder: RRRR
-          new:
-            back: Zpět do volební místnosti
-            census_not_present: Tento uživatel není uveden v seznamu osob.
-            census_not_present_description: Musí jít do úřadu spravující seznam osob nebo kontaktovat podporu.
-            census_present: Tento uživatel je uveden v seznamu osob.
-            census_verified: Uživatel ještě nehlasoval.
-            complete_voting: Dokončené hlasování
-            form_title: 'Vyberte typ dokumentu a zadejte číslo dokladu účastníka:'
-            questions_title: 'Má právo hlasovat v těchto otázkách:'
-            title: Identifikovat a ověřit účastníka
-            validate_document: Ověřit platnost dokladu
-            verify_document: Ověřit doklad
-            verify_title: 'Zkontrolujte, zda jsou tyto údaje správné:'
       polling_officers:
         actions:
           confirm_destroy: Jste si jisti?
