@@ -3,6 +3,7 @@ gl:
     attributes:
       conference:
         assemblies_ids: Asembleas relacionadas
+        available_slots: Prazas dispoñíbeis
         banner_image: Imaxe do banner
         consultations_ids: Consultas relacionadas
         copy_categories: Copiar categorías
@@ -19,12 +20,15 @@ gl:
         participatory_processes_ids: Procesos participativos relacionados
         promoted: Promocionado
         published_at: Publicado en
+        registration_terms: Condicións do rexistro
+        registrations_enabled: Rexistro habilitado
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         show_statistics: Amosar estatísticas
         sign_date: Data de sinatura
         signature: Sinatura
+        signature_name: nome da sinatura
         slogan: Eslogan
         slug: URL slug
         start_date: Data de inicio
@@ -58,6 +62,7 @@ gl:
         personal_url: Url persoal
         position: Posición
         short_bio: Pequena biografía
+        twitter_handle: Conta do Twitter
         user_id: Usuario
       conference_user_role:
         email: Correo electrónico
@@ -218,6 +223,7 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador/a
         media_link:
           fields:
             date: Data
@@ -432,6 +438,7 @@ gl:
         personal_website: Sitio web persoal
         show:
           more_info: máis información
+          speaking_at: Intervén en
       conference_speaker_cell:
         personal_url:
           personal_website: Sitio web persoal
@@ -492,6 +499,9 @@ gl:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas as conferencias
       photo:
+        image:
+          attributes:
+            alt: Imaxe
         show:
           close_modal: Pechar modal
           photo: Foto
@@ -502,6 +512,7 @@ gl:
         index:
           choose_an_option: 'Elixe a túa opción de rexistro:'
           login_as: Estás conectado como %{name} <%{email}>
+          no_registrations: Sen rexistros
           register: Rexistrarse
           title: Tipos de rexistro
       shared:
@@ -555,11 +566,19 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a conferencia "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A conferencia "%{resource_title}" habilitou as inscricións.
           notification_title: A conferencia <a href="%{resource_path}">%{resource_title}</a> habilitou as inscricións.
+        role_assigned:
+          email_intro: Fuches asignado ao rol %{role} na conferencia "%{resource_title}".
+          email_outro: Recibiches esta notificación porque tes o rol %{role} na conferencia "%{resource_title}".
+          email_subject: Fuches asignado ao rol %{role} de "%{resource_title}".
         upcoming_conference:
           email_intro: 'A conferencia "%{resource_title}" ten lugar en 2 días. Podes ler a descrición da súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a conferencia "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A conferencia "%{resource_title}" está chegando!
           notification_title: A conferencia <a href="%{resource_path}">%{resource_title}</a> chegará en 2 días.
+    help:
+      participatory_spaces:
+        conferences:
+          title: Que son as conferencias?
     log:
       value_types:
         conference_presenter:
