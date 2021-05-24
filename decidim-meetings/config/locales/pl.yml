@@ -255,7 +255,6 @@ pl:
             success: Spotkanie zostało zakończone
           create:
             invalid: Podczas tworzenia tego spotkania wystąpił błąd
-            success: Spotkanie zostało pomyślnie utworzone
           destroy:
             invalid:
               proposals_count:
