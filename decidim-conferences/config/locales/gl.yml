@@ -183,6 +183,7 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador/a
         media_link:
           fields:
             date: Data
@@ -461,6 +462,9 @@ gl:
             active_conferences: Conferencias activas
             see_all_conferences: Ver todas as conferencias
       photo:
+        image:
+          attributes:
+            alt: Imaxe
         show:
           close_modal: Pechar modal
           photo: Foto
@@ -471,6 +475,7 @@ gl:
         index:
           choose_an_option: 'Elixe a túa opción de rexistro:'
           login_as: Estás conectado como %{name} <%{email}>
+          no_registrations: Sen rexistros
           register: Rexistrarse
           title: Tipos de rexistro
       shared:
@@ -524,6 +529,10 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo a conferencia "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A conferencia "%{resource_title}" habilitou as inscricións.
           notification_title: A conferencia <a href="%{resource_path}">%{resource_title}</a> habilitou as inscricións.
+        role_assigned:
+          email_intro: Fuches asignado ao rol %{role} na conferencia "%{resource_title}".
+          email_outro: Recibiches esta notificación porque tes o rol %{role} na conferencia "%{resource_title}".
+          email_subject: Fuches asignado ao rol %{role} de "%{resource_title}".
         upcoming_conference:
           email_intro: 'A conferencia "%{resource_title}" ten lugar en 2 días. Podes ler a descrición da súa páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo a conferencia "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
