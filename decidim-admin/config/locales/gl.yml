@@ -26,6 +26,8 @@ gl:
         published_at: Publicado en
         weight: Peso
       id: ID
+      import:
+        user_group_id: Importar como
       newsletter:
         body: Corpo
         subject: Asunto
@@ -546,8 +548,12 @@ gl:
           title: Listando os usuarios reportados
         report:
           reasons:
+            does_not_belong: Non pertence
             offensive: Ofensivo
             spam: Lixo
+        tabs:
+          blocked: Bloqueados
+          unblocked: Sen bloquear
       moderations:
         index:
           title: Moderacións
@@ -909,6 +915,9 @@ gl:
       blocked_users:
         object: usuarias bloqueadas
         title: Usuarias bloqueadas
+      user_reports:
+        object: informe de usuarios
+        title: Informe de usuarios
     moderations:
       actions:
         expand: Expandir
@@ -934,6 +943,7 @@ gl:
           fields:
             created_at: Data de creación
             hidden_at: Oculto en
+            participatory_space: Espazo participativo
             report_count: Conde
             reportable_id: Id
             reportable_type: Tipo
