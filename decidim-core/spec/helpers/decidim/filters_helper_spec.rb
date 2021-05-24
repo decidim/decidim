@@ -76,36 +76,5 @@ module Decidim
         end
       end
     end
-
-    describe "#filter_cache_hash" do
-      let(:type) { :test }
-
-      it "generate a unique hash" do
-        old_hash = helper.filter_cache_hash(filter, type)
-
-        expect(helper.filter_cache_hash(filter, type)).to eq(old_hash)
-      end
-
-      it "stores filter type" do
-        expect(helper.filter_cache_hash(filter, type)).to start_with("decidim/proposals/filters/test")
-      end
-
-      context "when no type is provided" do
-        let(:type) { nil }
-
-        it "doesn't stores filter type" do
-          expect(helper.filter_cache_hash(filter)).to start_with("decidim/proposals/filters")
-        end
-      end
-
-      context "when filter is different" do
-        it "generate a different hash" do
-          old_hash = helper.filter_cache_hash(filter, type)
-          filter.test_attribute = "dummy-filter"
-
-          expect(helper.filter_cache_hash(filter, type)).not_to eq(old_hash)
-        end
-      end
-    end
   end
 end
