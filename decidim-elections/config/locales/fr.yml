@@ -529,6 +529,8 @@ fr:
           header: Vote confirmé
           lead: Votre vote a été comptabilisé !
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+        create:
+          error: Un problème s'est produit lors de la validation du vote. Veuillez réessayer.
         failed:
           header: Le vote a échoué
           lead: Votre vote n'a pas été exprimé!
@@ -710,6 +712,7 @@ fr:
         document_types:
           passport: Passeport
         vote_flow:
+          already_voted_in_person: Ce participant a déjà voté en personne et n'a plus le droit de voter.
           datum_not_found: Les données données ne correspondent à aucun électeur.
       content_blocks:
         highlighted_votings:
@@ -731,6 +734,49 @@ fr:
             active_votings: Votations en cours
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_officer_zone:
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Réponses disponibles:'
+            census_verified: Le participant n'a pas encore voté.
+            complete_voting: Vote terminé
+            identify_another: Identifier un autre participant
+            questions_title: 'Elle a le droit de voter sur les questions suivantes:'
+            questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
+            voted: Le participant a voté
+          create:
+            error: Le vote n'a pas été enregistré. Veuillez réessayer.
+          in_person_form:
+            census_not_present: Ce participant n'est pas répertorié dans le recensement.
+            census_not_present_description: Elle doit se rendre au bureau des plaintes du recensement ou contacter le support.
+            date_of_birth: Date de naissance
+            day: Jour
+            day_placeholder: JJ
+            document_number: Numéro de document
+            document_number_placeholder: Numéro de carte d'identité
+            month: Mois
+            month_placeholder: MM
+            select: Sélectionnez le type de document
+            title: 'Sélectionnez le type de document et entrez le numéro de document du participant :'
+            validate_document: Valider le document
+            year: Année
+            year_placeholder: AAAA
+          new:
+            back: Retourner aux bureaux de vote
+            title: Identifier et vérifier un participant
+          show:
+            back: Retourner aux bureaux de vote
+            title: En attente de l'enregistrement du vote en personne
+          update:
+            error: Une erreur est survenue lors de l'enregistrement du vote. Veuillez réessayer.
+            success:
+              accepted: Le vote a été enregistré avec succès.
+              rejected: Le vote n'a pas été accepté par le Tableau d'Affichage. Veuillez contacter l'administrateur du système.
+          verify_document:
+            census_present: Ce participant n'est pas répertorié dans le recensement.
+            name: Nom
+            title: 'Vérifiez que les données suivantes sont correctes:'
+            verify_document: Document requis
       polling_stations:
         actions:
           confirm_destroy: Êtes-vous sûr(e) ?
