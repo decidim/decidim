@@ -298,6 +298,51 @@ fr-CA:
           elections_count:
             one: "%{count} élection"
             other: "%{count} élections"
+        election_log:
+          chained_hash: La chaîne de hash de ce message
+          complete: Terminée
+          creation_description:
+            complete: L'élection a bien été créée et ajoutée sur le Tableau d'affichage.
+            not_created: L'élection n'est pas encore créée.
+          creation_title: Élection créée
+          description: Ceci est le journal des élections, où vous pouvez vérifier le statut de chaque étape, par exemple lorsque l'élection a été créée, si le processus de dépouillement est terminé, et la date de clôture de l'élection.
+          download: Télécharger
+          key_ceremony_description:
+            complete: La cérémonie de génération de clés est terminée. Chaque garant a des clés valides et a téléchargé les clés de sauvegarde nécessaires.
+            not_started: La génération des clés n'a pas encore commencée.
+            started: La cérémonie de génération des clés a commencé mais n'est pas encore terminée.
+          key_ceremony_title: Cérémonie de génération des clés
+          not_available: Pas encore disponible
+          not_created: N'est pas créée
+          not_published: Non publié
+          not_ready: Pas encore prêt
+          not_started: Non démarré
+          published: Publié
+          results_description:
+            not_published: Les résultats ne sont pas encore publiés.
+            published: Les résultats sont publiés.
+          results_title: Résultats
+          started: Débutée
+          tally_description:
+            finished: Le dépouillement est terminé.
+            not_started: Le dépouillement n'a pas encore commencé.
+            started: Le dépouillement a commencé.
+          tally_title: Dépouillement
+          title: Journal de l'élection
+          verifiable_results:
+            checksum: 'Somme de contrôle SHA256:'
+            description:
+              not_ready: Le fichier de vérification électoral et la somme de contrôle SHA256 ne sont pas encore disponibles. Dès que les résultats seront publiés, vous serez en mesure de vérifier cette élection.
+              ready: 'Ici, vous avez la possibilité de vérifier l''élection. D''abord, vous devez télécharger le fichier et vous assurer qu''il n''a pas été corrompu. Pour ce faire, exécutez la commande suivante et vérifiez que la sortie correspond à la somme de contrôle :'
+            how_to_verify: 'Une fois le fichier téléchargé et vérifié qu''il est correct, vous pouvez exécuter le vérificateur universel. Clonez <a href=''https://github.com/decidim/decidim-bulletin-board''>ce dépôt</a> et, depuis le dossier racine, exécutez la commande suivante :'
+            title: Vérifier les résultats de l'élection
+            verifiable_file: 'Fichier de vérification d''élection:'
+          verify: Vérifier l'élection
+          vote_description:
+            finished: Le vote est terminé.
+            not_started: Le vote n'a pas encore commencé.
+            started: Le vote a commencé.
+          vote_title: Processus de vote
         filters:
           active: Actif
           all: Toutes
@@ -330,6 +375,7 @@ fr-CA:
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
+          election_log: Journal de l'élection
           preview: Aperçu
           verify:
             already_voted: Déjà voté?
@@ -685,14 +731,6 @@ fr-CA:
             active_votings: Votations en cours
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
-      polling_officer_zone:
-        votes:
-          create:
-            success: Vote en personne émis avec succès
-          in_person_fields:
-            date_of_birth: Date de naissance
-            day: Jour
-            day_placeholder: JJ
       polling_stations:
         actions:
           confirm_destroy: Êtes-vous sûr(e) ?
@@ -721,6 +759,11 @@ fr-CA:
           title:
             one: "%{count} élection"
             other: "%{count} élections"
+        elections_log:
+          bb_status: État actuel de l'élection
+          description: Le journal des élections vous montrera toutes les informations pertinentes sur chaque vote. Par exemple, le statut de la cérémonie de génération des clées ou du dépouillement ou si les résultats sont déjà publiés. Cliquez sur l'élection à propos de laquelle vous voulez des informations.
+          election_log: Journal de l'élection
+          title: Journal de l'élection
         filters:
           active: Actifs
           all: Tous
@@ -771,6 +814,7 @@ fr-CA:
       election_votes_header:
         exit: Quitter
       voting_navigation:
+        election_log: Journal de l'élection
         voting_menu_item: Le vote
       votings:
         index:
