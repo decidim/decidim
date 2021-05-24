@@ -533,7 +533,7 @@ pl:
       initiatives_type:
         actions:
           title: Działania
-          vote: Podpisz
+          vote: Wspieranie
   layouts:
     decidim:
       admin:
