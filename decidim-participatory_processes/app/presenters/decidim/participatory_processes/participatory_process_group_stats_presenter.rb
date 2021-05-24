@@ -14,6 +14,7 @@ module Decidim
         highlighted_stats.concat(process_followers_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
+        highlighted_stats.concat(process_comments_stats(tag: :comments))
         highlighted_stats = highlighted_stats.reject(&:empty?)
         highlighted_stats = highlighted_stats.reject { |_stat_manifest, _stat_title, stat_number| stat_number.zero? }
         grouped_highlighted_stats = highlighted_stats.group_by(&:first)
@@ -53,6 +54,17 @@ module Decidim
                .filter(conditions)
                .with_context(participatory_process_group)
                .map { |stat_title, stat_number| [:participatory_process_group, stat_title, stat_number] }
+      end
+
+      def process_comments_stats(conditions)
+        comments = Decidim.component_manifests.map do |component_manifest|
+          component_manifest.stats.only([:comments_count])
+                            .filter(conditions)
+                            .with_context(published_components)
+                            .map { |_name, value| value }.sum
+        end
+        comments_count = comments.inject(0, :+) { |sum, value| sum + value }
+        [[:participatory_processes, :comments_count, comments_count]]
       end
 
       def participatory_processes
