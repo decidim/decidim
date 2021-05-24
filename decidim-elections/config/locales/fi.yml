@@ -1066,35 +1066,6 @@ fi:
               show_closure: Näytä äänestyksen päättäminen
               title: Äänestyspaikat
               voting: Äänestys
-        votes:
-          create:
-            success: Fyysisesti annetun äänen tallennus onnistui
-          in_person_fields:
-            date_of_birth: Syntymäaika
-            day: Päivä
-            day_placeholder: PV
-            document_number: Asiakirjan numero
-            document_number_placeholder: Henkilöllisyystodistuksen numero
-            month: Kuukausi
-            month_placeholder: KK
-            name: Nimi
-            select: Valitse asiakirjan tyyppi
-            voted: Tämä osallistuja on äänestänyt
-            year: Vuosi
-            year_placeholder: VVVV
-          new:
-            back: Takaisin äänestyspaikkoihin
-            census_not_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
-            census_not_present_description: Hänen on mentävä reklamoimaan henkilötietorekisteriä hallinnoivaan toimistoon tai otettava yhteyttä tukeen.
-            census_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
-            census_verified: Tämä osallistuja ei ole vielä äänestänyt.
-            complete_voting: Suorita äänestys
-            form_title: 'Valitse asiakirjan tyyppi ja syötä osallistujan asiakirjan numero:'
-            questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
-            title: Tunnista ja vahvista osallistuja
-            validate_document: Tarkasta asiakirja
-            verify_document: Vahvista asiakirja
-            verify_title: 'Tarkista, että seuraavat tiedot ovat oikein:'
       polling_officers:
         actions:
           confirm_destroy: Oletko varma?
