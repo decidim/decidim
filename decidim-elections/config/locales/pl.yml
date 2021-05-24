@@ -853,16 +853,6 @@ pl:
               no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
               role: Twoja rola
               voting: Głosowanie
-        votes:
-          in_person_fields:
-            day: Dzień
-            day_placeholder: DD
-            month: Miesiąc
-            month_placeholder: MM
-            name: Imię
-            select: Wybierz dokument
-            year: Rok
-            year_placeholder: RRRR
       polling_officers:
         actions:
           confirm_destroy: Jesteś pewny?
