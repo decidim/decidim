@@ -249,7 +249,6 @@ de:
             success: Sitzung erfolgreich abgeschlossen
           create:
             invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
-            success: Besprechung erfolgreich erstellt
           destroy:
             invalid:
               proposals_count:
