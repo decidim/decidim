@@ -434,7 +434,17 @@ gl:
         description: Número de xuntanzas creadas
         object: xuntanzas
         title: Xuntanzas
+    pages:
+      home:
+        hero:
+          participate_title: Participar nos procesos da plataforma
+        sub_hero:
+          register_title: Rexistrarse para crear unha conta
     participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Ligazón á páxina de Procesos que amosa todas as procesos
       show:
         related_assemblies: Xuntanzas relacionadas
   errors:
