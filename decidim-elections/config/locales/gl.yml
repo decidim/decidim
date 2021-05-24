@@ -105,7 +105,11 @@ gl:
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
           header: Voto confirmado
+          lead: O teu voto foi emitido!
           verify_text: Para verificalo, copia o identificador e pégao na <a href="evote-verify">páxina de verificación de voto</a>
+        encrypting:
+          header: Codificando o voto...
+          text: O teu voto está ser cifrado para garantir que pode ser emitido de xeito anónimo.
         header:
           confirm: Confirma o teu voto
           confirmed: Voto confirmado
