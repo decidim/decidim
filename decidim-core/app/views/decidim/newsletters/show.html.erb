@@ -1,5 +1,5 @@
 <% @cell = cell(
-  "decidim/newsletter_templates/basic_only_text",
+  "decidim/newsletter_templates/#{newsletter.template.manifest_name}",
   newsletter.template,
   organization: @organization,
   newsletter: newsletter,
