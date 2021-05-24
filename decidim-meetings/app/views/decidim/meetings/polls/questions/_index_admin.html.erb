@@ -1,7 +1,7 @@
 <div class="meeting-polls__admin-label"><%= t(".admin_dashboard") %></div>
 
 <% questionnaire.questions.each do |question| %>
-  <details class="meeting-polls__question--admin text-medium open" <%= "open" if updated_question == question %>>
+  <details class="meeting-polls__question--admin text-medium open" data-question="<%= question.id %>" <%= "open" if open_question == question.id %>>
     <summary><%= t(".question") %></summary>
 
     <div>

@@ -378,6 +378,7 @@ en:
         live_event:
           administrate: Administrate
           close: close
+          questions: Questions
       mailer:
         invite_join_meeting_mailer:
           invite:

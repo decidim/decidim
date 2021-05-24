@@ -1,13 +1,5 @@
-var keepOpen = <%= keep_open || false %>;
-var $aside = $("#meeting-poll-aside");
-var $adminButton = $(".meeting-polls__action-administrate");
+var $aside = $("#admin-meeting-poll-aside");
 
 if($aside.length){
-  //if(!$aside.html().length || keepOpen) {
-    $adminButton.addClass("is-open");
-    $aside.html('<%= j(render partial: "decidim/meetings/polls/questions/index_admin", locals: { questionnaire: questionnaire, updated_question: updated_question }).strip.html_safe %>');
-  //} else {
-  //  $adminButton.removeClass("is-open");
-  //  $aside.html('');
-  //}
+  $aside.html('<%= j(render partial: "decidim/meetings/polls/questions/index_admin", locals: { open_question: open_question }).strip.html_safe %>');
 }

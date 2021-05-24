@@ -85,10 +85,6 @@
       }
     }
 
-    &[open] summary ~ *{
-      animation: animateDown .2s linear forwards;
-    }
-
     &[open] .meeting-polls__answer--bar > *{
       animation: animateRight .4s ease-in-out .2s forwards;
     }

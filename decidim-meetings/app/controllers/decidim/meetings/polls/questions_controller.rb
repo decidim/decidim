@@ -9,10 +9,7 @@ module Decidim
         def index
           respond_to do |format|
             format.js do
-              render template: pick_index_template, locals: {
-                keep_open: false,
-                updated_question: nil
-              }
+              render template: pick_index_template, locals: { open_question: nil }
             end
           end
         end
@@ -26,10 +23,7 @@ module Decidim
           end
           respond_to do |format|
             format.js do
-              render template: pick_index_template, locals: {
-                keep_open: true,
-                updated_question: question
-              }
+              render template: admin_index_template, locals: { open_question: question.id }
             end
           end
         end
@@ -40,8 +34,12 @@ module Decidim
           @question ||= questionnaire.questions.find(params[:id]) if questionnaire
         end
 
+        def admin_index_template
+          "decidim/meetings/polls/questions/index_admin"
+        end
+
         def pick_index_template
-          params[:admin] ? "decidim/meetings/polls/questions/index_admin" : "decidim/meetings/polls/questions/index"
+          params[:admin] ? admin_index_template : "decidim/meetings/polls/questions/index"
         end
       end
     end
