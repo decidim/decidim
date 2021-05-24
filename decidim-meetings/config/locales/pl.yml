@@ -8,7 +8,7 @@ pl:
       close_meeting:
         attendees_count: Liczba osób biorących udział
         attending_organizations: Lista organizacji biorących udział
-        closing_report: Zgłoś
+        closing_report: Raport z zamknięcia
         contributions_count: Liczba wsparć
         proposal_ids: Propozycje stworzone na spotkaniu
       meeting:
@@ -92,7 +92,7 @@ pl:
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
-            enable_pads_creation: Włącz tworzenie klocków
+            enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
@@ -225,7 +225,7 @@ pl:
             attendee_type: Typ uczestnika
             existing_user: Istniejący użytkownik
             invite: Zaproś
-            invite_explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu spotkaniu i do organizacji.
+            invite_explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu i do organizacji.
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
           index:
@@ -236,7 +236,7 @@ pl:
               sent: Wysłane
             filter_by: Filtruj według
             invite_attendee: Zaproś uczestnika
-            invites: Zaprasza
+            invites: Zaproszeni
             registrations_disabled: Nie możesz zaprosić uczestnika, ponieważ rejestracje są wyłączone.
             search: Szukaj
         meeting_closes:
@@ -455,7 +455,7 @@ pl:
         invite:
           fields:
             email: E-mail
-            name: Nazwa
+            name: Imię
             sent_at: Wysłano
             status: Status
           status:
