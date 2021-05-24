@@ -798,6 +798,7 @@ gl:
           last_day: Último día
           last_month: O mes pasado
           last_week: A semana pasada
+          no_users_count_statistics_yet: Aínda non hai estatísticas do reconto de usuario/as
           participants: Participantes
       view_public_page: Ver páxina pública
     forms:
