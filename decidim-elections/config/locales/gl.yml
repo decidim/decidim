@@ -412,35 +412,6 @@ gl:
               name: Nome
               show_closure: Ver peche
               title: Puntos de votación
-        votes:
-          create:
-            success: Voto presencial emitido correctamente
-          in_person_fields:
-            date_of_birth: Data de nacemento
-            day: Día
-            day_placeholder: DD
-            document_number: Número de documento
-            document_number_placeholder: Número de ID
-            month: Mes
-            month_placeholder: MM
-            name: Nome
-            select: Seleccionar o tipo de documento
-            voted: O participante votou
-            year: Ano
-            year_placeholder: YYYY
-          new:
-            back: Volver aos puntos de votación
-            census_not_present: Este participante non está no censo.
-            census_not_present_description: Ten de ir á oficina de reclamacións do censo ou contactar coa asistencia técnica.
-            census_present: Este participante está no censo.
-            census_verified: O participante aínda non votou.
-            complete_voting: Completar votación
-            form_title: 'Selecciona o tipo de documento e insire o número de documento do participante:'
-            questions_title: 'Ten dereito a votar nas seguintes preguntas:'
-            title: Identificar e verificar un participante
-            validate_document: Validar documento
-            verify_document: Verificar documento
-            verify_title: 'Verifica que os seguintes datos son correctos:'
       votings:
         access_code_modal:
           email: Enviar a través de correo electrónico a %{email}
