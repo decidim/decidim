@@ -29,8 +29,8 @@ pl:
     components:
       debates:
         actions:
-          create: Utwórz
-          endorse: Rekomenduj
+          create: Tworzenie
+          endorse: Rekomendacje
         name: Debaty
         settings:
           global:
@@ -182,7 +182,6 @@ pl:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Cześć,
               Nowa debata "%{resource_title}" została utworzona w przestrzeni partycypacyjnej %{space_title}, sprawdź ją i przyłącz się:
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń partycypacyjną %{space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
             email_subject: Nowa debata "%{resource_title}" w %{space_title}
