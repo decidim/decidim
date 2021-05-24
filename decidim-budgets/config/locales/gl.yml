@@ -87,6 +87,7 @@ gl:
           delete: "%{user_name} eliminou o %{resource_name} proxecto no espazo %{space_name}"
           update: "%{user_name} actualizou o proxecto %{resource_name} no espazo %{space_name}"
       budget_information_modal:
+        back_to: Volver a %{component_name}
         close_modal: Pechar modal
         continue: Continuar
         more_information: Máis información
@@ -156,7 +157,9 @@ gl:
             other: proxectos seleccionados
           view: Ver
         orders:
+          highest_cost: Maior custo
           label: Ordenar proxectos por
+          lowest_cost: Menor custo
           most_voted: Máis votado
           random: Orde ao chou
           selected: Seleccionado
@@ -208,6 +211,10 @@ gl:
               disabled: Votación deshabilitada
               enabled: Votación habilitada
               finished: Votación finalizada
+    events:
+      budgets:
+        budget_published:
+          notification_title: O orzamento <a href="%{resource_path}">%{resource_title}</a> para %{participatory_space_title} xa está aberto.
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto
