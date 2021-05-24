@@ -365,7 +365,7 @@ pl:
             dummy_global_attribute_1: Przykładowy atrybut 1
             dummy_global_attribute_2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
-            enable_pads_creation: Włącz tworzenie klocków
+            enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
@@ -1145,8 +1145,8 @@ pl:
         subject: Zasób został zgłoszony
     reports:
       create:
-        error: Wystąpił błąd podczas tworzenia raportu. Proszę spróbować ponownie.
-        success: Raport został utworzony z powodzeniem i zostanie zweryfikowany przez administratora.
+        error: Wystąpił błąd podczas tworzenia zgłoszenia. Proszę spróbować ponownie.
+        success: Zgłoszenie zostało utworzone z powodzeniem i zostanie zweryfikowane przez administratora.
     resource_endorsements:
       create:
         error: Wystąpił błąd podczas udzielania rekomendacji.
@@ -1213,7 +1213,7 @@ pl:
         description: Czy ta treść jest nieodpowiednia?
         does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
         offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
-        report: Raport
+        report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
       floating_help:
