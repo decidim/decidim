@@ -35,7 +35,7 @@ pl:
         keep_authors: Zachowaj oryginalnych autorów
       valuation_assignment:
         admin_log:
-          valuator_role_id: Imię taksatora
+          valuator_role_id: Imię weryfikatora
     errors:
       models:
         participatory_text:
@@ -111,17 +111,17 @@ pl:
             values:
               'true': Bez odpowiedzi
           valuator_role_ids_has:
-            label: Przypisano do taksatora
+            label: Przypisano do weryfikatora
         search_placeholder:
           id_string_or_title_cont: Wyszukaj %{collection} według ID lub tytułu.
     components:
       proposals:
         actions:
           amend: Popraw
-          create: Utwórz
-          endorse: Rekomenduj
-          vote: Wspieraj
-          withdraw: Wycofać
+          create: Tworzenie
+          endorse: Rekomendacje
+          vote: Wspieranie
+          withdraw: Wycofywanie
         name: Propozycje
         settings:
           global:
@@ -154,7 +154,7 @@ pl:
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
-            threshold_per_proposal: Prób poparcia dla propozycji
+            threshold_per_proposal: Próg poparcia dla propozycji
             vote_limit: Limit możliwych wsparć na użytkownika
           step:
             amendment_creation_enabled: Można tworzyć poprawki
@@ -436,7 +436,7 @@ pl:
             select_a_meeting: Wybierz spotkanie
           index:
             actions: Działania
-            assign_to_valuator: Przypisz do taksatora
+            assign_to_valuator: Przypisz do weryfikatora
             assign_to_valuator_button: Przypisz
             cancel: Anuluj
             change_category: Zmień kategorię
@@ -450,7 +450,7 @@ pl:
             split: Podziel propozycje
             split_button: Podziel
             title: Propozycje
-            unassign_from_valuator: Anuluj przypisanie do taksatora
+            unassign_from_valuator: Anuluj przypisanie do weryfikatora
             unassign_from_valuator_button: Anuluj przypisanie
             update: Aktualizuj
             update_scope_button: Aktualizuj zakres
@@ -462,7 +462,7 @@ pl:
             select_a_proposal: Wybierz propozycję
           show:
             amendments_count: Liczba poprawek
-            assigned_valuators: Przypisani taksatorzy
+            assigned_valuators: Przypisani weryfikatorzy
             authors: Autorzy
             body: Treść
             comments_count: Liczba komentarzy
@@ -485,8 +485,8 @@ pl:
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
             remove_assignment: Usuń zadanie
-            remove_assignment_confirmation: Czy na pewno chcesz usunąć taksatora z tej propozycji?
-            valuators: Taksatorzy
+            remove_assignment_confirmation: Czy na pewno chcesz usunąć przypisanie weryfikatora z tej propozycji?
+            valuators: Weryfikatorzy
             votes_count: Liczba wsparć
             votes_ranking: Ranking wg wsparć
           update_category:
@@ -518,11 +518,11 @@ pl:
             success: Pomyślnie podzielono propozycje.
         valuation_assignments:
           create:
-            invalid: Wystąpił błąd podczas przypisywania propozycji do taksatora
-            success: Przypisano propozycje do taksatora
+            invalid: Wystąpił błąd podczas przypisywania propozycji do weryfikatora
+            success: Przypisano propozycje do weryfikatora
           delete:
-            invalid: Wystąpił błąd podczas anulowania przypisania propozycji do taksatora
-            success: Anulowano przypisanie taksatora do propozycji
+            invalid: Wystąpił błąd podczas usuwania przypisania propozycji do weryfikatora
+            success: Anulowano przypisanie weryfikatora do propozycji
       admin_log:
         proposal:
           answer: "%{user_name} odpowiedział(a) na propozycję %{resource_name} w przestrzeni %{space_name}"
@@ -532,7 +532,7 @@ pl:
         proposal_note:
           create: "%{user_name} zostawił(a) prywatną notatkę do propozycji %{resource_name} w przestrzeni %{space_name}"
         valuation_assignment:
-          create: "%{user_name} przypisał(a) propozycję %{resource_name} do taksatora"
+          create: "%{user_name} przypisał(a) propozycję %{resource_name} do weryfikatora"
           delete: "%{user_name} anulował(a) przypisanie taksatora do propozycji %{proposal_title}"
       answers:
         accepted: Zaakceptowano
@@ -711,8 +711,8 @@ pl:
             scope: Zakres
             state: Status
             title: Tytuł
-            valuator: Taksator
-            valuators: Taksatorzy
+            valuator: Weryfikator
+            valuators: Weryfikatorzy
             votes: Głosy
       new:
         limit_reached: Nie możesz tworzyć nowych propozycji, ponieważ przekroczyłeś limit.
@@ -841,7 +841,7 @@ pl:
           proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
           read_less: Pokaż mniej
           read_more: Pokaż więcej
-          report: Raport
+          report: Zgłoś
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Propozycja nie zostanie usunięta, pojawi się na liście wycofanych propozycji.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Tej akcji nie można anulować!</strong>
           withdraw_proposal: Wycofaj propozycję

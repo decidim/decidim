@@ -280,6 +280,8 @@ ro:
         name: Exemplu de autorizare
       dummy_authorization_workflow:
         name: Flux de lucru autorizare fictiv
+      errors:
+        duplicate_authorization: Un participant este deja autorizat cu aceleași date.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:
@@ -1240,6 +1242,10 @@ ro:
     tags:
       filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
       filter_results_for_scope: 'Filtrează rezultatele pentru scope: %{resource}'
+    translation_bar:
+      help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
+      show_original: Afișați textul original
+      show_translated: Arată textul tradus automat
     user_activity:
       index:
         no_activities_warning: Acest participant nu a avut încă nicio activitate.
@@ -1293,9 +1299,13 @@ ro:
         version_created_at: Versiune creată la
         version_number: Număr versiune
         version_number_out_of_total: "%{current_version} din %{total_count}"
+    version_author:
+      show:
+        deleted: Participant șters
     versions:
       resource_version:
         of_versions: "(din %{number})"
+        see_other_versions: afișați alte versiuni
         version: Versiunea %{number}
     versions_list:
       show:
@@ -1307,6 +1317,7 @@ ro:
       show:
         version_index: Versiunea %{index}
     welcome_notification:
+      default_body: <p>Bună ziua {{name}}, vă mulțumin că v-ați alăturat {{organization}} și bine ați venit!</p><ul><li>Dacă doriți să aveți o idee despre ceea ce puteți face aici, examinați secțiunea de <a href="{{help_url}}">Ajutor</a>.</li><li>După citirea acesteia veți primi primul ecuson. Aici este <a href="{{badges_url}}">lista tuturor ecusoanelor</a> pe care le puteți obține pe măsură ce participați în cadrul {{organization}}</li><li>Nu în ultimul rând, puteți să vă alăturați altor persoane, să împărtășiți cu acestea experiența dvs. de implicare și participare în cadrul {{organization}}. Formulați propuneri și comentarii, dezbateți, reflectați asupra modului de a contribui la binele comun, oferiți argumente pentru a convinge, ascultați și citiți pentru a vă lăsa convinși, exprimați-vă ideile în mod concret și direct, răspundeți ferm și cu răbdare, apărați-vă ideile și mențineți o atitudine deschisă pentru a colabora și a participa la ideile altora.</li></ul>
       default_subject: Îți mulțumim că te-ai alăturat {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1547,6 +1558,7 @@ ro:
         see_more: Vezi mai multe
   locale:
     name: Română
+    name_with_error: Română (eroare!)
   password_validator:
     domain_included_in_password: este prea similar cu acest nume de domeniu
     email_included_in_password: este prea asemănător cu adresa de e-mail

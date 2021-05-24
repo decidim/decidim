@@ -212,7 +212,7 @@ pl:
     components:
       budgets:
         actions:
-          vote: Głosuj
+          vote: Wspieranie
         name: Budżety
         settings:
           global:

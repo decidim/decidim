@@ -477,7 +477,7 @@ pl:
         report:
           reasons:
             does_not_belong: Nie należy
-            offensive: Ofensywa
+            offensive: Ofensywna
             spam: Spam
       newsletter_templates:
         index:
@@ -748,7 +748,7 @@ pl:
         static_pages: Strony
         statistics: Działania
         user_groups: Grupy użytkowników
-        users: Użytkownicy
+        users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
@@ -830,8 +830,8 @@ pl:
             hidden_at: Ukryto
             report_count: Liczba
             reportable: Zgłoszone
-            reported_content_url: Zgłoszony URL treści
-            reports: Raporty
+            reported_content_url: URL zgłoszonej treści
+            reports: Zgłoszenia
             visit_url: Odwiedź adres URL
   errors:
     messages:

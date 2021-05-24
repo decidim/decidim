@@ -237,7 +237,7 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-            valuator: Taksator
+            valuator: Weryfikator
       titles:
         assemblies: Zespoły
         assemblies_types: Typy zespołów
@@ -384,7 +384,7 @@ pl:
         related_participatory_processes: Powiązane procesy partycypacyjne
         scope: Zakres
         social_networks: Portale społecznościowe
-        social_networks_title: Udostępnij zespół na
+        social_networks_title: Odwiedź zespół na
         target: Do kogo kierowane
       statistics:
         answers_count: Odpowiedzi

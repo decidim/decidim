@@ -439,6 +439,14 @@ ro:
           fields:
             name: Nume
             plural: Plural
+        share_token:
+          fields:
+            created_at: Creată la
+            expires_at: Expiră la
+            last_used_at: Ultima utilizare
+            times_used: Număr utilizări
+            token: Token
+            user: Creat de
         static_page:
           fields:
             created_at: Creat la
@@ -585,11 +593,15 @@ ro:
         edit:
           update: Actualizare
         form:
+          colors:
+            colors_title: Culori pentru organizații
+            header_snippets_help: 'Utilizați acest câmp pentru a adăuga element în antetul HTML. Cea mai frecventă utilizare este integrarea de servicii terțe care necesită JavaScript sau CSS suplimentare. De asemenea, puteți adăuga metataguri suplimentare la HTML. Notă: acest lucru va avea efect doar în paginile publice, nu în secțiunea administrativă.'
           cta_button_path_help: 'Puteţi suprascrie unde butonul Apel la Acţiune din pagina de pornire. Utilizaţi căi parţiale, nu adrese URL complete aici. Acceptă litere, numere, cratime și tăieturi, și trebuie să înceapă cu o literă. Butonul Apel la Acțiune este afișat în pagina de start dintre textul de bun venit și descriere. Exemplu: %{url}'
           cta_button_text_help: Puteţi suprascrie textul butonului Apel la Acţiune din pagina de start pentru fiecare limbă disponibilă din organizaţie. Dacă nu este setată, va fi folosită valoarea implicită. Butonul Apel la Acțiune este afișat în pagina de start dintre textul de bun venit și descriere.
           homepage_appearance_title: Editează aspectul paginii de start
           homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
           images:
+            layout_appearance_title: Editarea aspectului formatului
             preview: Previzualizare
           omnipresent_banner_appearance_title: Editare banner omniprezent
       organization_homepage:
@@ -617,6 +629,7 @@ ro:
           invalid: A apărut o problemă la citirea fișierului CSV.
           success: Fișier CSV încărcat cu succes, trimitem un e-mail de invitație participanților. Acest lucru ar putea dura un timp.
         new:
+          explanation: 'Încărcaţi fişierul CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană a fișierului (email, numele utilizatorilor pe care doriţi să îi adăugaţi în spaţiul participativ, fără antete. Evită folosirea caracterelor invalide, cum ar fi `<>?%&^*#@()[]=+:;"{}\<unk> ` în numele utilizatorului.'
           title: Încarcă fișierul tău CSV
           upload: Incarca
       resource_permissions:
@@ -625,6 +638,10 @@ ro:
           title: Editare permisiuni
         update:
           success: Permisiuni actualizate cu succes.
+      resources:
+        index:
+          headers:
+            scope: Domeniu
       scope_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de domeniu de aplicare.
@@ -657,7 +674,12 @@ ro:
           error: A apărut o eroare la actualizarea acestui domeniu de aplicare.
           success: Domeniu de aplicare actualizat cu succes
       share_tokens:
+        actions:
+          confirm_destroy: Sigur doriți să ștergeți acest token?
+          destroy: Șterge
+          share: Distribuie
         destroy:
+          error: A apărut o problemă la distrugerea tokenului.
           success: Jetonul a fost eliminat.
         share_tokens:
           empty: Nu există jetoane active

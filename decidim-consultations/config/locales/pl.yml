@@ -380,7 +380,7 @@ pl:
     resources:
       consultations:
         actions:
-          vote: Głosuj
+          vote: Wspieranie
   layouts:
     decidim:
       admin:
