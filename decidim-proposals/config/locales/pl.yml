@@ -164,7 +164,7 @@ pl:
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
-            threshold_per_proposal: Prób poparcia dla propozycji
+            threshold_per_proposal: Próg poparcia dla propozycji
             vote_limit: Limit możliwych wsparć na użytkownika
           step:
             amendment_creation_enabled: Można tworzyć poprawki
