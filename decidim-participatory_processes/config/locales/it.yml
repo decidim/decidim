@@ -34,6 +34,7 @@ it:
         subtitle: Sottotitolo
         target: Chi partecipa
         title: Titolo
+        weight: Peso
       participatory_process_group:
         description: Descrizione
         hero_image: Immagine

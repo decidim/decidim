@@ -34,6 +34,7 @@
         subtitle: Undertittel
         target: Hvem som deltar
         title: Tittel
+        weight: Vekting
       participatory_process_group:
         description: Beskrivelse
         hero_image: Bilde

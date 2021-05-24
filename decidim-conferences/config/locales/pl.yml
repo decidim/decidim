@@ -29,6 +29,7 @@ pl:
       conference_registration_type:
         weight: Kolejność na stronie
       conference_speaker:
+        avatar: Awatar
         full_name: Pełne imię i nazwisko
       conference_user_role:
         email: E-mail
@@ -195,7 +196,7 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-            valuator: Taksator
+            valuator: Weryfikator
         media_link:
           fields:
             date: Data
@@ -320,7 +321,7 @@ pl:
               sent: Wysłano
             filter_by: Filtruj według
             invite_attendee: Zaproś użytkownika
-            invites: Zaprasza
+            invites: Zaproszeni
             search: Szukaj
           new:
             explanation: Użytkownik zostanie zaproszony do udziału w konferencji. Jeśli e-mail nie został wcześniej zarejestrowany, zostanie również zaproszony do organizacji.
@@ -454,7 +455,7 @@ pl:
         conference_invite:
           fields:
             email: E-mail
-            name: Nazwa
+            name: Imię
             registration_type: Typ rejestracji
             sent_at: Wysłano
             status: Status

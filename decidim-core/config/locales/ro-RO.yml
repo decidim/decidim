@@ -1265,6 +1265,8 @@ ro:
         does_not_belong: Conține activitate ilegală, amenințări de sinucidere, informații personale sau altceva care credeți că nu aparțin de %{organization_name}.
         offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         report: Raportează
+        spam: Conține clickbait, publicitate, escrocherii sau roboți script.
+        title: Raportează un utilizator nepotrivit
       floating_help:
         close: Închide Ajutor
         help: Ajutor
@@ -1293,6 +1295,10 @@ ro:
     tags:
       filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
       filter_results_for_scope: 'Filtrează rezultatele pentru scope: %{resource}'
+    translation_bar:
+      help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
+      show_original: Afișați textul original
+      show_translated: Arată textul tradus automat
     user_activity:
       index:
         no_activities_warning: Acest participant nu a avut încă nicio activitate.
@@ -1336,6 +1342,13 @@ ro:
       update:
         error: A apărut o eroare la actualizarea intereselor tale.
         success: Interesele tale au fost actualizate cu succes.
+    user_report_mailer:
+      notify:
+        body_1: Utilizatorul %{user} a fost raportat de %{token}
+        body_2: 'Motiv: %{reason}'
+        greetings: Salutări,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bună ziua %{admin},
+        subject: Un nou utilizator a fost raportat în %{organization_name}
     version:
       show:
         back_to_resource: Mergi înapoi
@@ -1346,9 +1359,13 @@ ro:
         version_created_at: Versiune creată la
         version_number: Număr versiune
         version_number_out_of_total: "%{current_version} din %{total_count}"
+    version_author:
+      show:
+        deleted: Participant șters
     versions:
       resource_version:
         of_versions: "(din %{number})"
+        see_other_versions: afișați alte versiuni
         version: Versiunea %{number}
     versions_list:
       show:
@@ -1360,6 +1377,7 @@ ro:
       show:
         version_index: Versiunea %{index}
     welcome_notification:
+      default_body: <p>Bună ziua {{name}}, vă mulțumin că v-ați alăturat {{organization}} și bine ați venit!</p><ul><li>Dacă doriți să aveți o idee despre ceea ce puteți face aici, examinați secțiunea de <a href="{{help_url}}">Ajutor</a>.</li><li>După citirea acesteia veți primi primul ecuson. Aici este <a href="{{badges_url}}">lista tuturor ecusoanelor</a> pe care le puteți obține pe măsură ce participați în cadrul {{organization}}</li><li>Nu în ultimul rând, puteți să vă alăturați altor persoane, să împărtășiți cu acestea experiența dvs. de implicare și participare în cadrul {{organization}}. Formulați propuneri și comentarii, dezbateți, reflectați asupra modului de a contribui la binele comun, oferiți argumente pentru a convinge, ascultați și citiți pentru a vă lăsa convinși, exprimați-vă ideile în mod concret și direct, răspundeți ferm și cu răbdare, apărați-vă ideile și mențineți o atitudine deschisă pentru a colabora și a participa la ideile altora.</li></ul>
       default_subject: Îți mulțumim că te-ai alăturat {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1574,6 +1592,11 @@ ro:
         instagram: "%{organization} la Instagram"
         twitter: "%{organization} pe Twitter"
         youtube: "%{organization} pe YouTube"
+      timeout_modal:
+        body: Ai fost inactiv de %{minutes} minute. Dacă continui să fii inactiv, vei fi deconectat automat pentru propria ta securitate.
+        continue_session: Continuă sesiunea
+        sign_out: Ieșiți
+        title: Vreți să continuați sesiunea?
       user_menu:
         account: 'Cont de utilizator: %{name}'
         admin_dashboard: Panou de administrare
@@ -1595,6 +1618,7 @@ ro:
         see_more: Vezi mai multe
   locale:
     name: Română
+    name_with_error: Română (eroare!)
   password_validator:
     domain_included_in_password: este prea similar cu acest nume de domeniu
     email_included_in_password: este prea asemănător cu adresa de e-mail

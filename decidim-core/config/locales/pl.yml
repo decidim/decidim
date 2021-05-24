@@ -383,7 +383,7 @@ pl:
             dummy_global_attribute_1: Przykładowy atrybut 1
             dummy_global_attribute_2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
-            enable_pads_creation: Włącz tworzenie klocków
+            enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
@@ -658,7 +658,7 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem usuniętego zasobu.
           email_subject: '%{resource_type} został usunięty'
           notification_title: |-
-            Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.</br>
+            Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
@@ -1191,8 +1191,8 @@ pl:
         subject: Zasób został zgłoszony
     reports:
       create:
-        error: Wystąpił błąd podczas tworzenia raportu. Proszę spróbować ponownie.
-        success: Raport został utworzony z powodzeniem i zostanie zweryfikowany przez administratora.
+        error: Wystąpił błąd podczas tworzenia zgłoszenia. Proszę spróbować ponownie.
+        success: Zgłoszenie zostało utworzone z powodzeniem i zostanie zweryfikowane przez administratora.
     resource_endorsements:
       create:
         error: Wystąpił błąd podczas udzielania rekomendacji.
@@ -1259,7 +1259,7 @@ pl:
         description: Czy ta treść jest nieodpowiednia?
         does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
         offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
-        report: Raport
+        report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
       flag_user_modal:

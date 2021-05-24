@@ -26,11 +26,15 @@ it:
         published_at: Pubblicato il
         weight: Peso
       id: ID
+      import:
+        user_group_id: Importa come
       newsletter:
         body: Testo
         subject: Oggetto
       organization:
+        admin_terms_of_use_body: Testo dei termini di utilizzo dell'admin
         alert_color: Notifica
+        available_authorizations: Autorizzazioni disponibili
         badges_enabled: Abilita badge
         comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
         cta_button_path: Percorso del pulsante Call To Action
@@ -41,6 +45,8 @@ it:
         enable_omnipresent_banner: Mostra banner onnipresente
         facebook_handler: Gestore di Facebook
         favicon: Icona
+        force_authentication: Autenticazione obbligata
+        force_users_to_authenticate_before_access_organization: Autenticazione obbligata per l'accesso all'organizzazione
         from: '"Da" indirizzo email'
         github_handler: Gestore di GitHub
         header_snippets: Frammenti di intestazione
@@ -53,6 +59,7 @@ it:
         highlighted_content_banner_image: Immagine
         highlighted_content_banner_short_description: Breve descrizione
         highlighted_content_banner_title: Titolo
+        host: Host
         instagram_handler: Gestore di Instagram
         logo: Logo
         machine_translation_display_priority: Priorità di visualizzazione della traduzione automatica
@@ -65,10 +72,14 @@ it:
         omnipresent_banner_short_description: Breve descrizione
         omnipresent_banner_title: Titolo
         omnipresent_banner_url: URL
+        organization_admin_email: Email di amministrazione dell'organizzazione
+        organization_admin_name: Nome amministratore dell'organizzazione
+        organization_locales: Localizzazioni dell'organizzazione
         primary_color: Primario
         reference_prefix: Prefisso
         rich_text_editor_in_public_views: Abilita l'editor di testo esteso per i partecipanti
         secondary_color: Secondario
+        secondary_hosts: Host secondari
         send_welcome_notification: Invia notifica di benvenuto
         success_color: Successo
         time_zone: Fuso Orario

@@ -100,7 +100,7 @@ pl:
     components:
       elections:
         actions:
-          vote: Głosuj
+          vote: Wspieranie
         name: Wybory
         settings:
           global:

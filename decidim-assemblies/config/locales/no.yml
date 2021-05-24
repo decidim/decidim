@@ -50,6 +50,7 @@
         target: Hvem deltar
         title: Tittel
         twitter: Twitter
+        weight: Vekting
         youtube: YouTube
       assembly_member:
         birthday: Fødselsdag
@@ -382,11 +383,15 @@
         comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: Påtegnelser
+        followers_count: Følgere
+        headline: Statistikk
         meetings_count: Møter
+        no_stats: Det finnes ingen statistikk enda.
         orders_count: Støtter
         pages_count: Sider
         participants_count: Deltakere
         posts_count: Innlegg
+        processes_count: Prosesser
         projects_count: Prosjekter
         proposals_count: Forslag
         results_count: Resultater
@@ -440,6 +445,8 @@
       home:
         hero:
           participate_title: Delta i plattformens prosesser
+        sub_hero:
+          register_title: Registrer deg for å opprette en konto
     participatory_processes:
       pages:
         home:
