@@ -15,7 +15,7 @@ module Decidim
       end
 
       def geocoded_meetings
-        @geocoded_meetings ||= meetings.select(&:geocoded?)
+        @geocoded_meetings ||= meetings.select(&:geocoded_and_valid?)
       end
 
       def meetings
