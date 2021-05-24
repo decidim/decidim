@@ -47,7 +47,7 @@ pl:
     components:
       elections:
         actions:
-          vote: Głosuj
+          vote: Wspieranie
         name: Wybory
         settings:
           global:
@@ -183,7 +183,7 @@ pl:
         show:
           back: Wszystkie wybory
           preview: Podgląd
-          vote: Głosuj
+          vote: Wspieranie
           voting_period_status:
             finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
             ongoing: Głosowanie kończy się %{end_time}
