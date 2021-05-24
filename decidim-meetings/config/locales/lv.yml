@@ -230,7 +230,6 @@ lv:
             success: Sanāksme ir veiksmīgi slēgta
           create:
             invalid: Šīs sanāksmes izveides laikā radās problēma
-            success: Sanāksme ir veiksmīgi izveidota
           destroy:
             success: Sanāksme ir veiksmīgi izdzēsta
           edit:
