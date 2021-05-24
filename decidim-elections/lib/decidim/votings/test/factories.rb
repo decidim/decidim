@@ -202,8 +202,10 @@ FactoryBot.define do
     polling_station
     polling_officer
     polling_officer_notes { Faker::Lorem.paragraph }
+    monitoring_committee_notes { nil }
     signed_at { nil }
     phase { :count }
+    validated_at { nil }
 
     trait :with_results do
       phase { :signature }

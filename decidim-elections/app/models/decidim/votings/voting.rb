@@ -152,6 +152,12 @@ module Decidim
       def vote_flow_for(election)
         Decidim::Votings::CensusVoteFlow.new(election)
       end
+
+      def published_elections
+        components.where(manifest_name: :elections).published.flat_map do |component|
+          Decidim::Elections::Election.where(component: component).published
+        end
+      end
     end
   end
 end

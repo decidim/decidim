@@ -52,7 +52,9 @@ module Decidim
             :components,
             :polling_station, :polling_stations,
             :polling_officer, :polling_officers,
-            :monitoring_committee_menu, :monitoring_committee_member, :monitoring_committee_members, :monitoring_committee_certificate, :monitoring_committee_certificates,
+            :monitoring_committee_menu, :monitoring_committee_member, :monitoring_committee_members,
+            :monitoring_committee_polling_station_closure, :monitoring_committee_polling_station_closures,
+            :monitoring_committee_verify_elections,
             :census,
             :ballot_style, :ballot_styles
           ].member? permission_action.subject
@@ -104,9 +106,11 @@ module Decidim
             toggle_allow(user_can_read_voting?) if permission_action.action == :read
           when :monitoring_committee_members
             toggle_allow(user.admin?) if permission_action.action == :read
-          when :monitoring_committee_certificate
-            toggle_allow(user_monitoring_committee_for_voting?) if permission_action.action == :manage
-          when :monitoring_committee_certificates
+          when :monitoring_committee_polling_station_closure
+            toggle_allow(user_monitoring_committee_for_voting? && closure.present?) if [:read, :validate].member?(permission_action.action)
+          when :monitoring_committee_polling_station_closures
+            toggle_allow(user_monitoring_committee_for_voting?) if permission_action.action == :read
+          when :monitoring_committee_verify_elections
             toggle_allow(user_monitoring_committee_for_voting?) if permission_action.action == :read
           when :census
             toggle_allow(user.admin?) if permission_action.action == :manage
@@ -163,6 +167,10 @@ module Decidim
 
         def ballot_style
           @ballot_style ||= context.fetch(:ballot_style, nil)
+        end
+
+        def closure
+          @closure ||= context.fetch(:closure, nil)
         end
       end
     end

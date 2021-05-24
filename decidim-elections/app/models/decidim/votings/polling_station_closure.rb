@@ -31,6 +31,13 @@ module Decidim
       def signed?
         signed_at.present?
       end
+
+      # Public: Checks if the closure has been validated by the monitoring committee or not.
+      #
+      # Returns Boolean.
+      def validated?
+        validated_at.present?
+      end
     end
   end
 end
