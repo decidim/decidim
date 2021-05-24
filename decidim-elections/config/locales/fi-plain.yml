@@ -782,7 +782,6 @@ fi-pl:
             info: Tiedot
             landing_page: Laskeutumissivu
             monitoring_committee: Tarkkailukomitea
-            monitoring_committee_certificates: Tarkasta varmenteet
             monitoring_committee_members: Jäsenet
             polling_officers: Äänestysvirkailijat
             polling_stations: Äänestyspaikat
@@ -815,9 +814,6 @@ fi-pl:
               promoted: Korostettu
               published: Julkaistu
               title: Otsikko
-        monitoring_committee_certificates:
-          index:
-            title: Äänestyspaikat
         monitoring_committee_members:
           create:
             invalid: Tarkkailukomitean jäsenen luonti epäonnistui
