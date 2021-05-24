@@ -117,6 +117,9 @@ gl:
             already-voted: Xa votaches?
             verify-here: Verifica o teu voto aquí.
             will-verify: Poderás verificar o teu voto unha vez comece a elección.
+      feedback:
+        answer:
+          invalid: Produciuse un problema ao enviar os teu comentario.
       models:
         answer:
           fields:
@@ -158,6 +161,10 @@ gl:
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
           header: Voto confirmado
+          lead: O teu voto foi emitido!
+        encrypting:
+          header: Codificando o voto...
+          text: O teu voto está ser cifrado para garantir que pode ser emitido de xeito anónimo.
         header:
           confirm: Confirma o teu voto
           confirmed: Voto confirmado
@@ -183,6 +190,7 @@ gl:
         menu:
           votings_submenu:
             components: Compoñentes
+            monitoring_committee_members: Comité de seguimento
         votings:
           form:
             select_a_voting_type: Por favor, selecciona un tipo de votación
@@ -193,6 +201,13 @@ gl:
       polling_officer_zone:
         polling_officers:
           show:
+            actions:
+              count_votes: Contar os votos das furnas
+              identify_person: Identificar e verificar unha persoa
+            polling_officer_role_description: Fuches asignado para actuar como xestor de mesa (Presidente ou Administrador) nalgunhas das eleccións celebradas nesta plataforma.
             polling_stations:
               list:
                 actions: Accións
+                role: O teu rol
+                voting: Votacións
+              no_polling_stations: Aínda non fuches asignado/a a ningún punto de votación.
