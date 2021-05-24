@@ -14,6 +14,7 @@ on:
       - "decidim-admin/**"
       - "decidim-core/**"
       - "decidim-dev/**"
+      - "decidim-meetings/**"
       - "decidim-participatory_processes/**"
 
 env:
