@@ -182,10 +182,10 @@ es:
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
             notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} ha sido aceptado para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} ha sido aceptado para acceder como contribuidora de %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptado para acceder como colaboradora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} ha sido aceptada para acceder como contribuidora de %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptada para acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} ha sido rechazado para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
