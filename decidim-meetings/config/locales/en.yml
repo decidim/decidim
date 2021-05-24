@@ -490,16 +490,19 @@ en:
           success: You have updated the meeting successfully.
       meetings_map:
         view_meeting: View meeting
-      meetings_poll_questions:
+      polls:
         questions:
-          admin_dashboard: Administrator dashboard
-          edit: Edit in the admin
-          question: Question
-          received_answer: received answer
-          received_answers: received answers
-          results: Results
-          send: Send
-          sent: Sent
+          index:
+            question: Question
+          index_admin:
+            admin_dashboard: Administrator dashboard
+            edit: Edit in the admin
+            question: Question
+            received_answer: received answer
+            received_answers: received answers
+            results: Results
+            send: Send
+            sent: Sent
       models:
         invite:
           fields:

@@ -1,0 +1,13 @@
+<% if questionnaire.all_questions_unpublished? %>
+  <p class="padding-1">A lo largo de este encuentro se enviarán preguntas que podrás contestar. Irán apareciendo aquí.</p>
+<% end %>
+
+<% questionnaire.questions.visible.each do |question| %>
+  <details class="meeting-polls__question--admin text-medium open" <%= "open" if updated_question == question %>>
+    <summary><%= t(".question") %></summary>
+
+    <div>
+      <p><%= translated_attribute(question.body) %></p>
+    </div>
+  </details>
+<% end %>

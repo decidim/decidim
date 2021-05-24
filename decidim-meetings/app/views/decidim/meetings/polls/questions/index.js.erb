@@ -1,0 +1,13 @@
+var keepOpen = <%= keep_open || false %>;
+var $aside = $("#meeting-poll-aside");
+var $button = $(".meeting-polls__action-list");
+
+if($aside.length){
+  //if(!$aside.html().length || keepOpen) {
+    $button.addClass("is-open");
+    $aside.html('<%= j(render partial: "decidim/meetings/polls/questions/index", locals: { questionnaire: questionnaire, updated_question: updated_question }).strip.html_safe %>');
+  // } else {
+  //   $button.removeClass("is-open");
+  //   $aside.html('');
+  // }
+}

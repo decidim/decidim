@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # The data store for a Questionnaire in the Decidim::Meetings component.
-    class Questionnaire < Forms::ApplicationRecord
+    class Questionnaire < Meetings::ApplicationRecord
       belongs_to :questionnaire_for, polymorphic: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
@@ -13,6 +13,10 @@ module Decidim
       def questions_editable?
         has_component = questionnaire_for.meeting.respond_to? :component
         (has_component && !questionnaire_for.meeting.component.published?) || answers.empty?
+      end
+
+      def all_questions_unpublished?
+        questions.all?(&:unpublished?)
       end
     end
   end

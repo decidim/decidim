@@ -13,7 +13,7 @@
         <div><%= t(".question") %></div>
         <div>
           <% if question.unpublished? %>
-            <%= link_to meeting_poll_question_path(meeting, question), method: :patch, remote: true do %>
+            <%= link_to meeting_polls_question_path(meeting, question), method: :patch, remote: true do %>
               <button class="button button--nomargin primary small"><%= t(".send") %></button>
             <% end %>
           <% else %>
@@ -28,7 +28,7 @@
           <% if question.unpublished? %>
             <button class="button button--nomargin primary small" disabled><%= t(".send") %></button>
           <% elsif question.published? %>
-            <%= link_to meeting_poll_question_path(meeting, question), method: :patch, remote: true do %>
+            <%= link_to meeting_polls_question_path(meeting, question), method: :patch, remote: true do %>
               <button class="button button--nomargin primary small"><%= t(".send") %></button>
             <% end %>
           <% elsif question.closed? %>

@@ -29,9 +29,10 @@ module Decidim
           resources :versions, only: [:show, :index]
           resource :widget, only: :show, path: "embed"
           resource :live_event, only: :show
-          resources :poll_questions, only: [:index, :update], controller: "meetings_poll_questions"
-          # TODO
-          # resource :poll_answers, only: [:index], controller: "meetings_poll_questions"
+          namespace :polls do
+            resources :questions, only: [:index, :update]
+            resources :answers, only: [:index, :create, :update]
+          end
         end
         root to: "meetings#index"
         resource :calendar, only: [:show], format: :text
