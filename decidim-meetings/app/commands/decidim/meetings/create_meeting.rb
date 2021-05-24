@@ -52,7 +52,8 @@ module Decidim
           registration_terms: { I18n.locale => form.registration_terms },
           registrations_enabled: form.registrations_enabled,
           type_of_meeting: form.clean_type_of_meeting,
-          component: form.current_component
+          component: form.current_component,
+          published_at: Time.current
         }
 
         @meeting = Decidim.traceability.create!(

@@ -13,8 +13,9 @@ module Decidim
       it_behaves_like "a component query type"
 
       describe "meetings" do
-        let!(:meetings) { create_list(:meeting, 2, component: model) }
-        let!(:other_meetings) { create_list(:meeting, 2) }
+        let!(:meetings) { create_list(:meeting, 2, :published, component: model) }
+        let!(:other_meetings) { create_list(:meeting, 2, :published) }
+        let!(:unpublshed_meetings) { create_list(:meeting, 2) }
 
         let(:query) { "{ meetings { edges { node { id } } } }" }
 
@@ -22,6 +23,7 @@ module Decidim
           ids = response["meetings"]["edges"].map { |edge| edge["node"]["id"] }
           expect(ids).to include(*meetings.map(&:id).map(&:to_s))
           expect(ids).not_to include(*other_meetings.map(&:id).map(&:to_s))
+          expect(ids).not_to include(*unpublshed_meetings.map(&:id).map(&:to_s))
         end
 
         context "when private" do
@@ -42,7 +44,7 @@ module Decidim
         let(:variables) { { id: meeting.id.to_s } }
 
         context "when the meeting belongs to the component" do
-          let!(:meeting) { create(:meeting, component: model) }
+          let!(:meeting) { create(:meeting, :published, component: model) }
 
           it "finds the meeting" do
             expect(response["meeting"]["id"]).to eq(meeting.id.to_s)
@@ -50,7 +52,7 @@ module Decidim
         end
 
         context "when the meeting doesn't belong to the component" do
-          let!(:meeting) { create(:meeting, component: create(:meeting_component)) }
+          let!(:meeting) { create(:meeting, :published, component: create(:meeting_component)) }
 
           it "returns null" do
             expect(response["meeting"]).to be_nil
@@ -58,7 +60,7 @@ module Decidim
         end
 
         context "when private" do
-          let!(:meeting) { create(:meeting, component: model, private_meeting: true, transparent: false) }
+          let!(:meeting) { create(:meeting, :published, component: model, private_meeting: true, transparent: false) }
 
           it "returns null" do
             expect(response["meeting"]).to be_nil
