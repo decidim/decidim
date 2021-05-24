@@ -28,5 +28,9 @@ describe Decidim::Votings::PollingStationClosure, type: :model do
       expect(closure.results.first).to be_a(Decidim::Elections::Result)
       expect(closure.results.size).to eq(3)
     end
+
+    it "the results have an associated bulletin board closure" do
+      expect(closure.results.first.closurable).to be_a(Decidim::Votings::PollingStationClosure)
+    end
   end
 end

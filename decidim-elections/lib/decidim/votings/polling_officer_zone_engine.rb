@@ -14,7 +14,7 @@ module Decidim
         resources :polling_officers, path: "/", only: [:index] do
           resources :elections, only: [:index] do
             resource :closure
-            resources :votes, only: [:new, :create, :show]
+            resources :in_person_votes, only: [:new, :create, :show, :update]
           end
         end
       end

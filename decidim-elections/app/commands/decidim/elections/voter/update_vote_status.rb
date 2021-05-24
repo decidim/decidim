@@ -49,8 +49,7 @@ module Decidim
         end
 
         def update_vote_status
-          vote.status = vote_status
-          vote.save!
+          vote.update!(status: vote_status)
         end
 
         def notify_voter

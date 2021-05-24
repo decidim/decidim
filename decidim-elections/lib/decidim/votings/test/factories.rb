@@ -83,6 +83,10 @@ FactoryBot.define do
   factory :polling_officer, class: "Decidim::Votings::PollingOfficer" do
     user { create :user, organization: voting.organization }
     voting { create :voting }
+
+    trait :president do
+      presided_polling_station { create :polling_station, voting: voting }
+    end
   end
 
   factory :monitoring_committee_member, class: "Decidim::Votings::MonitoringCommitteeMember" do
@@ -169,5 +173,49 @@ FactoryBot.define do
   factory :ballot_style_question, class: "Decidim::Votings::BallotStyleQuestion" do
     question
     ballot_style
+  end
+
+  factory :in_person_vote, class: "Decidim::Votings::InPersonVote" do
+    transient do
+      voting { create(:voting) }
+      component { create(:elections_component, participatory_space: voting) }
+    end
+
+    election { create(:election, component: component) }
+    sequence(:voter_id) { |n| "voter_#{n}" }
+    status { "pending" }
+    message_id { "decidim-test-authority.2.vote.in_person+v.5826de088371d1b15b38f00c8203871caec07041ed0c8fb0c6fb875f0df763b6" }
+    polling_station { polling_officer.polling_station }
+    polling_officer { create(:polling_officer, :president, voting: voting) }
+
+    trait :accepted do
+      status { "accepted" }
+    end
+
+    trait :rejected do
+      status { "rejected" }
+    end
+  end
+
+  factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do
+    election
+    polling_station
+    polling_officer
+    polling_officer_notes { Faker::Lorem.paragraph }
+
+    trait :with_results do
+      transient do
+        results_number { 2 }
+      end
+
+      after :create do |closure, evaluator|
+        evaluator.results_number.times do
+          closure.results << create(
+            :election_result,
+            closurable: closure
+          )
+        end
+      end
+    end
   end
 end

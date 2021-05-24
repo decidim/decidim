@@ -81,8 +81,7 @@ module Decidim
         end
 
         def polling_station_election_votes_count
-          # the votes count should/will be scoped to the polling station
-          @polling_station_election_votes_count ||= election.votes&.count
+          @polling_station_election_votes_count ||= polling_station.in_person_votes.where(election: election).count
         end
       end
     end

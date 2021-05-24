@@ -136,9 +136,21 @@ module Decidim
       end
 
       def has_elections?
-        components.where(manifest_name: :elections).any? do |component|
-          Decidim::Elections::Election.where(component: component).any?
-        end
+        Decidim::Elections::Election.where(component: components).any?
+      end
+
+      # Methods for Votings Space <-> Elections Component interaction
+
+      def complete_election_data(election, election_data)
+        election_data[:polling_stations] = polling_stations.map(&:slug)
+        election_data[:ballot_styles] = ballot_styles.map do |ballot_style|
+          questions = ballot_style.questions_for(election)
+          [ballot_style.slug, questions.map(&:slug)] if questions.any?
+        end.compact.to_h
+      end
+
+      def vote_flow_for(election)
+        Decidim::Votings::CensusVoteFlow.new(election)
       end
     end
   end

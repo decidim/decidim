@@ -17,15 +17,15 @@
   <div class="row">
     <%= f.label :day, t(".day"), class: "columns small-4" do %>
       <%= f.text_field :day, placeholder: t(".day_placeholder"), "data-autojump" => true, "data-max-length" => 2,
-                        "data-jump-next" => "#in_person_month" %>
+                        "data-jump-next" => "#login_month" %>
     <% end %>
     <%= f.label :month, t(".month"), class: "columns small-4" do %>
       <%= f.text_field :month, placeholder: t(".month_placeholder"), "data-autojump" => true, "data-max-length" => 2,
-                        "data-jump-prev" => "#in_person_day", "data-jump-next" => "#in_person_year" %>
+                        "data-jump-prev" => "#login_day", "data-jump-next" => "#login_year" %>
     <% end %>
     <%= f.label :year, t(".year"), class: "columns small-4" do %>
       <%= f.text_field :year, placeholder: t(".year_placeholder"), "data-autojump" => true, "data-max-length" => 4,
-                        "data-jump-prev" => "#in_person_month" %>
+                        "data-jump-prev" => "#login_month" %>
     <% end %>
   </div>
 </fieldset>

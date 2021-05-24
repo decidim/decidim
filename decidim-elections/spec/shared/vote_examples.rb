@@ -26,10 +26,6 @@ end
 shared_examples "allows admins to preview the voting booth" do
   let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }
 
-  it_behaves_like "allows to preview booth"
-end
-
-shared_examples "allows to preview booth" do
   before do
     visit router.election_path(id: election.id)
 
