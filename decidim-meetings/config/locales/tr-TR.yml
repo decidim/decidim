@@ -247,7 +247,6 @@ tr:
             success: Toplantı başarıyla kapatıldı
           create:
             invalid: Bu toplantıyı oluştururken bir sorun oluştu
-            success: Toplantı başarıyla oluşturuldu
           destroy:
             invalid:
               proposals_count:
