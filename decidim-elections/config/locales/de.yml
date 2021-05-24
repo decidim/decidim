@@ -1044,35 +1044,6 @@ de:
               show_closure: Abschluss ansehen
               title: Wahllokale
               voting: Abstimmung
-        votes:
-          create:
-            success: Persönliche Stimme erfolgreich abgegeben
-          in_person_fields:
-            date_of_birth: Geburtsdatum
-            day: Tag
-            day_placeholder: TT
-            document_number: Dokumentennummer
-            document_number_placeholder: ID-Nummer
-            month: Monat
-            month_placeholder: MM
-            name: Name
-            select: Wählen Sie die Art des Dokuments aus
-            voted: Der Teilnehmer hat abgestimmt
-            year: Jahr
-            year_placeholder: JJJJ
-          new:
-            back: Zurück zu den Wahllokalen
-            census_not_present: Dieser Teilnehmer ist nicht in den Erhebungsdaten präsent.
-            census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
-            census_present: Dieser Teilnehmer ist in den Erhebungsdaten aufgeführt.
-            census_verified: Dieser Teilnehmer hat noch nicht abgestimmt.
-            complete_voting: Abstimmung abschliessen
-            form_title: 'Wählen Sie den Dokumententyp und geben Sie die Dokumentennummer des Teilnehmers ein:'
-            questions_title: 'Er/Sie hat das Recht, bei folgenden Anfragen abstimmen:'
-            title: Einen Teilnehmer identifizieren und verifizieren
-            validate_document: Dokument validieren
-            verify_document: Dokument verifizieren
-            verify_title: 'Überprüfen Sie, dass die folgenden Daten korrekt sind:'
       polling_officers:
         actions:
           confirm_destroy: Sind Sie sicher?
