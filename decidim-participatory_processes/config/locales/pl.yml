@@ -141,7 +141,7 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-            valuator: Taksator
+            valuator: Weryfikator
         user:
           fields:
             invitation_accepted_at: Zaproszenie przyjęli w
