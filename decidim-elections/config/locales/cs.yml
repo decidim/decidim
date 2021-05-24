@@ -1006,6 +1006,7 @@ cs:
             download: Stáhnout
             subject: Export hlasovacích kódů pro %{voting_title} je k dispozici
         vote_flow:
+          already_voted_in_person: Tento uživatel již hlasoval osobně a nemá právo hlasovat.
           datum_not_found: Poskytnutá data neodpovídají žádnému voliči.
       content_blocks:
         highlighted_votings:
@@ -1078,14 +1079,43 @@ cs:
             confirm: Ok, pokračovat
             error: Došlo k chybě. Prosím zkuste to znovu.
             heading: Přepočet hlasů - uzavření podpisu
+            info_text: Pokud budete pokračovat, již nemůžete upravovat žádné informace, tuto akci nelze vrátit zpět.
+            title: Tuto akci nelze vrátit zpět
           update:
             error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
             success: Výsledky uzávěrky byly úspěšně aktualizovány.
         in_person_votes:
+          complete_voting:
+            available_answers: 'Dostupné odpovědi:'
+            census_verified: Uživatel ještě nehlasoval.
+            identify_another: Identifikovat jiného účastníka
+            questions_title: 'Má právo hlasovat v těchto otázkách:'
           in_person_form:
             date_of_birth: Datum narození
+            day: Den
             day_placeholder: DD
             document_number: Číslo dokumentu
+            document_number_placeholder: Číslo občanského průkazu
+            month: Měsíc
+            month_placeholder: MM
+            select: Vyberte typ dokumentu
+            title: 'Vyberte typ dokumentu a zadejte číslo dokladu účastníka:'
+            validate_document: Ověřit platnost dokladu
+            year: Rok
+            year_placeholder: RRRR
+          new:
+            back: Zpět do volební místnosti
+            title: Identifikovat a ověřit účastníka
+          show:
+            back: Zpět do volební místnosti
+          update:
+            error: Při registraci hlasování došlo k chybě. Zkuste to znovu.
+            success:
+              accepted: Hlasování bylo úspěšně zaregistrováno.
+          verify_document:
+            census_present: Tento uživatel je uveden v seznamu osob.
+            name: Jméno
+            verify_document: Ověřit doklad
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
@@ -1112,6 +1142,15 @@ cs:
           manager: Manažer
           president: Předseda
           unassigned: Nepřiřazen
+      polling_station_closure_recount:
+        nota_option: Prázdná/Nic z výše uvedených
+        polling_officer_notes: 'Poznámky volebního komisaře:'
+        polling_officer_notes_blank: Nejsou žádné poznámky
+        signed: Podepsáno
+        total_ballots: 'Celkový počet hlasovacích lístků:'
+        total_blank_ballots: 'Celkový počet nevyplněných hlasovacích lístků:'
+        total_null_ballots: 'Celkový počet prázdných hlasovacích lístků:'
+        total_valid_ballots: 'Celkový počet platných hlasovacích lístků:'
       polling_stations:
         actions:
           confirm_destroy: Jste si jist?
