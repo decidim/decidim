@@ -1069,9 +1069,23 @@ cs:
             polling_station: 'Volební místnost:'
             submit: Ověřit celkové číslo
             total_ballots_count: Počet hlasovacích lístků
+          show:
+            heading: Počet hlasů
+          sign:
+            cancel: Zrušit
+            check_box: Přezkoumal jsem to a je to stejné jako fyzický certifikát o ukončení voleb
+            close_modal: Zavřít
+            confirm: Ok, pokračovat
+            error: Došlo k chybě. Prosím zkuste to znovu.
+            heading: Přepočet hlasů - uzavření podpisu
           update:
             error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
             success: Výsledky uzávěrky byly úspěšně aktualizovány.
+        in_person_votes:
+          in_person_form:
+            date_of_birth: Datum narození
+            day_placeholder: DD
+            document_number: Číslo dokumentu
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
