@@ -170,7 +170,7 @@ pl:
         reject: Odrzuć
         share: Udostępnij
         user:
-          new: Nowy użytkownik
+          new: Nowy administrator
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
@@ -873,7 +873,7 @@ pl:
         static_pages: Strony
         statistics: Działania
         user_groups: Grupy użytkowników
-        users: Użytkownicy
+        users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
