@@ -1020,6 +1020,14 @@ en:
       polling_officer_zone:
         closures:
           back_to_polling_stations: Back to polling stations
+          certify:
+            add_images: Add images
+            error: An error occurred attaching the certificate, please try again.
+            form_legend: Upload a picture of the Electoral Closure Certificate
+            heading: Vote recount - Upload certificate
+            info_text: Please upload a picture of the Electoral Closure Certificate.
+            submit: Upload the certificate
+            success: Certificate uploaded successfully.
           create:
             error: An error occurred creating the closure, please try again later.
             success: Closure successfully created.
@@ -1055,6 +1063,7 @@ en:
             total_ballots_count: Number of ballots
           show:
             heading: Vote recount
+            info_text: Polling station electoral closure.
           sign:
             cancel: Cancel
             check_box: I've reviewed this and is the same as the physical electoral closure certificate

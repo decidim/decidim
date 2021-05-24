@@ -4,6 +4,7 @@ module Decidim
   module Votings
     # The data store for an Election Closure.
     class PollingStationClosure < ApplicationRecord
+      include Decidim::HasAttachments
       enum phase: [:count, :results, :certificate, :signature, :complete], _suffix: true
 
       belongs_to :election,
@@ -21,6 +22,8 @@ module Decidim
                class_name: "Decidim::Elections::Result",
                dependent: :destroy,
                as: :closurable
+
+      delegate :organization, to: :election
 
       # Public: Checks if the closure has been signed by the polling officer or not.
       #
