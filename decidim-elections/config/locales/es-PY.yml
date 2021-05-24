@@ -780,7 +780,6 @@ es-PY:
             info: Información
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
-            monitoring_committee_certificates: Validar certificados
             monitoring_committee_members: Miembros
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
@@ -813,9 +812,6 @@ es-PY:
               promoted: Destacada
               published: Publicada
               title: Título
-        monitoring_committee_certificates:
-          index:
-            title: Puntos de votación
         monitoring_committee_members:
           create:
             invalid: Hubo un problema al crear este miembro del comité de seguimiento
