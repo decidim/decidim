@@ -596,6 +596,8 @@ fi:
           lead: Äänesi on annettu!
           text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
+        create:
+          error: Äänen jättämisessä tapahtui virhe. Ole hyvä ja yritä uudelleen.
         encrypting:
           header: Salataan ääntä...
           text: Äänesi salataan, jotta vaalisalaisuus voidaan taata.
@@ -984,6 +986,7 @@ fi:
             download: Lataa
             subject: Äänestyksen tunnistautumiskoodien vientitiedosto äänestykselle %{voting_title} on nyt ladattavissa
         vote_flow:
+          already_voted_in_person: Tämä osallistuja on jo äänestänyt fyysisessä tilaisuudessa eikä hänellä ole oikeutta äänestää verkossa.
           datum_not_found: Annetut tiedot eivät vastaa yhtään äänestäjää.
       content_blocks:
         highlighted_votings:
@@ -1047,9 +1050,64 @@ fi:
             polling_station: 'Äänestyspaikka:'
             submit: Vahvista kokonaismäärä
             total_ballots_count: Äänten kokonaismäärä
+          show:
+            heading: Äänten uudelleenlaskenta
+          sign:
+            cancel: Peruuta
+            check_box: Olen tarkastanut tämän ja se on sama kuin fyysisen äänestyksen päättämisen todistus
+            close_modal: Sulje
+            confirm: Ok, jatka
+            error: Tapahtui jokin virhe. Yritä uudestaan.
+            heading: Äänten uudelleenlaskenta - Allekirjoita äänestyksen päättäminen
+            info_text: Jos jatkat, et voi enää muokata mitään tietoja. Tätä toimintoa ei voi peruuttaa.
+            submit: Allekirjoita äänestyksen päättäminen
+            success: Äänestyksen päättämisen allekirjoittaminen onnistui.
+            title: Toimintoa ei voi peruuttaa
           update:
             error: Äänestyksen päättämisen tulosten päivittäminen epäonnistui, yritä uudestaan myöhemmin.
             success: Äänestyksen päättämisne tulosten päivittäminen onnistui.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Mahdolliset vastaukset:'
+            census_verified: Osallistuja ei ole vielä äänestänyt.
+            complete_voting: Viimeistele äänestys
+            identify_another: Tunnista toinen osallistuja
+            questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
+            questions_title_voted: 'Osallistuja on jo äänestänyt verkossa ja hänellä on oikeus äänestää seuraavista kysymyksistä:'
+            voted: Osallistuja on äänestänyt
+          create:
+            error: Ääntä ei tallennettu. Ole hyvä ja yritä uudelleen.
+          in_person_form:
+            census_not_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
+            census_not_present_description: Hänen on mentävä reklamoimaan henkilötietorekisteriä hallinnoivaan toimistoon tai otettava yhteyttä tukeen.
+            date_of_birth: Syntymäaika
+            day: Päivä
+            day_placeholder: PV
+            document_number: Asiakirjan numero
+            document_number_placeholder: Henkilöllisyystodistuksen numero
+            month: Kuukausi
+            month_placeholder: KK
+            select: Valitse asiakirjan tyyppi
+            title: 'Valitse asiakirjan tyyppi ja syötä osallistujan asiakirjan numero:'
+            validate_document: Vahvista asiakirja
+            year: Vuosi
+            year_placeholder: VVVV
+          new:
+            back: Takaisin äänestyspaikkoihin
+            title: Tunnista ja vahvista osallistuja
+          show:
+            back: Takaisin äänestyspaikkoihin
+            title: Odottaa fyysisessä tilaisuudessa annetun äänen tallennusta
+          update:
+            error: Äänen tallennuksessa tapahtui virhe. Ole hyvä ja yritä uudelleen.
+            success:
+              accepted: Äänen tallennus onnistui.
+              rejected: Ääntä ei hyväksytty sähköisessä ääniuurnassa. Ota yhteyttä järjestelmänvalvojaan.
+          verify_document:
+            census_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
+            name: Nimi
+            title: 'Tarkista, että seuraavat tiedot ovat oikein:'
+            verify_document: Vahvista asiakirja
         menu:
           polling_officer_zone: Äänestysvirkailijoiden alue
         polling_officers:
@@ -1066,35 +1124,6 @@ fi:
               show_closure: Näytä äänestyksen päättäminen
               title: Äänestyspaikat
               voting: Äänestys
-        votes:
-          create:
-            success: Fyysisesti annetun äänen tallennus onnistui
-          in_person_fields:
-            date_of_birth: Syntymäaika
-            day: Päivä
-            day_placeholder: PV
-            document_number: Asiakirjan numero
-            document_number_placeholder: Henkilöllisyystodistuksen numero
-            month: Kuukausi
-            month_placeholder: KK
-            name: Nimi
-            select: Valitse asiakirjan tyyppi
-            voted: Tämä osallistuja on äänestänyt
-            year: Vuosi
-            year_placeholder: VVVV
-          new:
-            back: Takaisin äänestyspaikkoihin
-            census_not_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
-            census_not_present_description: Hänen on mentävä reklamoimaan henkilötietorekisteriä hallinnoivaan toimistoon tai otettava yhteyttä tukeen.
-            census_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
-            census_verified: Tämä osallistuja ei ole vielä äänestänyt.
-            complete_voting: Suorita äänestys
-            form_title: 'Valitse asiakirjan tyyppi ja syötä osallistujan asiakirjan numero:'
-            questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
-            title: Tunnista ja vahvista osallistuja
-            validate_document: Tarkasta asiakirja
-            verify_document: Vahvista asiakirja
-            verify_title: 'Tarkista, että seuraavat tiedot ovat oikein:'
       polling_officers:
         actions:
           confirm_destroy: Oletko varma?
@@ -1105,6 +1134,16 @@ fi:
           manager: Virkailija
           president: Esimies
           unassigned: Ei määritetty
+      polling_station_closure_recount:
+        nota_option: Tyhjä / Ei mitään näistä
+        polling_officer_notes: 'Äänestysvirkailijan muistiinpanot:'
+        polling_officer_notes_blank: Muistiinpanoja ei ole
+        recount_summary: 'Uudelleenlaskennan yhteenveto:'
+        signed: Allekirjoitettu
+        total_ballots: 'Äänten kokonaismäärä:'
+        total_blank_ballots: 'Tyhjien äänten kokonaismäärä:'
+        total_null_ballots: 'Hylättyjen äänten kokonaismäärä:'
+        total_valid_ballots: 'Kelvollisten äänten kokonaismäärä:'
       polling_stations:
         actions:
           confirm_destroy: Oletko varma?

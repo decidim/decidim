@@ -360,7 +360,10 @@ gl:
         show:
           attendees: Os asistentes contan
           contributions: Contribucións contar
+          going: Inscribícheste nesta xuntaza
           join: Únete a reunión
+          leave: Cancelar a túa inscrición
+          leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
           meeting_report: Informe de reunión
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes

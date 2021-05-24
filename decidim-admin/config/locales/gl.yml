@@ -40,6 +40,7 @@ gl:
         default_locale: Configuración predeterminada
         description: Descrición
         enable_omnipresent_banner: Mostrar o banner omnipresente
+        enable_participatory_space_filters: Activar os filtros no espazo participativo
         facebook_handler: Administrador de Facebook
         favicon: Ícona
         force_authentication: Forzar autenticación
