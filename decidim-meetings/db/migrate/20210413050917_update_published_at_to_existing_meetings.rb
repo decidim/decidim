@@ -3,13 +3,17 @@
 # By default all existing meetings were published when created
 # This migration prevents un-publishing all existing meetings
 class UpdatePublishedAtToExistingMeetings < ActiveRecord::Migration[5.2]
+  class Meeting < ApplicationRecord
+    self.table_name = :decidim_meetings_meetings
+  end
+
   def change
-    Decidim::Meetings::Meeting.find_each do |meeting|
+    Meeting.reset_column_information
+
+    Meeting.find_each do |meeting|
       if meeting.published_at.nil?
-        # rubocop:disable Rails/SkipsModelValidations
-        # use update_column to prevent running callbacks
-        meeting.update_column :published_at, meeting.created_at
-        # rubocop:enable Rails/SkipsModelValidations
+        meeting.published_at = meeting.created_at
+        meeting.save!
       end
     end
   end
