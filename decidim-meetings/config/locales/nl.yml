@@ -244,6 +244,7 @@ nl:
             success: Vergadering succesvol afgesloten
           create:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
           destroy:
             success: Vergadering succesvol verwijderd
           edit:
@@ -264,6 +265,9 @@ nl:
           new:
             create: Creëren
             title: Creëer vergadering
+          publish:
+            invalid: Er is een fout opgetreden bij het publiceren van deze vergadering
+            success: Vergadering succesvol gepubliceerd
           service:
             description: Beschrijving
             down: Omlaag
@@ -274,6 +278,9 @@ nl:
           services:
             add_service: Dienst toevoegen
             services: Diensten
+          unpublish:
+            invalid: Er is een probleem opgetreden bij het weghalen van deze vergadering
+            success: Vergadering met succes weggehaald
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
