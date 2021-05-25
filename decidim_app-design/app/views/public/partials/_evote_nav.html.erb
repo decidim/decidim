@@ -38,6 +38,11 @@
         <span>Log</span>
       </div>
       <% end %>
+      <% if @activepage == "statistics" %>
+      <div class="process-nav__link">
+        <span>Statistics</span>
+      </div>
+      <% end %>
     </button>
     <div class="row column process-nav__content" id="process-nav-content" data-toggler=".is-active">
       <ul>
@@ -69,6 +74,11 @@
         <li class="<% if @activepage == "log" %>is-active<% end %>">
           <%= link_to page_path("evote-consultation-landing"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
           <span>Log</span>
+          <% end %>
+        </li>
+        <li class="<% if @activepage == "statistics" %>is-active<% end %>">
+          <%= link_to page_path("evote-statistics"), class: "process-nav__link #{'is-active' if @activepage == 'statistics'}" do %>
+          <span>Statistics</span>
           <% end %>
         </li>
       </ul>
