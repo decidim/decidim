@@ -856,6 +856,8 @@ cs:
           results:
             bulletin_board: Vývěska
             polling_stations: Volební místnosti
+            result_types:
+              total_ballots: Celkový počet hlasovacích lístků
             selected: Vybráno
             title: Výsledky voleb <i>%{election_title}</i>
             totals: Celkem
@@ -892,9 +894,16 @@ cs:
             validated: Ověřeno?
           edit:
             change_polling_station: Zpět do volebních místností
+            monitoring_committee_notes_placeholder: Zde nahlaste jakýkoliv incident
+          validate:
+            success: Uzavření bylo správně ověřeno
         monitoring_committee_verify_elections:
           index:
             download: Stáhnout
+            how_to_run_verifier: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
+            how_to_title: Jak ověřit platnost voleb
+            not_available: Ještě není k dispozici
+            title: Volby
         polling_officers:
           create:
             invalid: Při vytváření tohoto volebního komisaře došlo k chybě
@@ -1080,6 +1089,7 @@ cs:
           certify:
             add_images: Přidat obrázky
             error: Došlo k chybě při připojování certifikátu, zkuste to prosím znovu.
+            form_legend: Nahrajte prosím fotografii volebního certifikátu o uzavření
             info_text: Nahrajte prosím fotografii volebního certifikátu o uzavření.
             submit: Nahrát certifikát
             success: Certifikát byl úspěšně nahrán.
@@ -1127,6 +1137,7 @@ cs:
             heading: Přepočet hlasů - uzavření podpisu
             info_text: Pokud budete pokračovat, již nemůžete upravovat žádné informace, tuto akci nelze vrátit zpět.
             submit: Podepsat uzavření
+            success: Uzavření úspěšně podepsáno.
             title: Tuto akci nelze vrátit zpět
           update:
             error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
@@ -1137,7 +1148,12 @@ cs:
             census_verified: Uživatel ještě nehlasoval.
             identify_another: Identifikovat jiného účastníka
             questions_title: 'Má právo hlasovat v těchto otázkách:'
+            questions_title_voted: 'Účastník již hlasoval on-line a je oprávněn hlasovat v následujících otázkách:'
+            voted: Uživatel hlasoval
+          create:
+            error: Hlasování nebylo zaregistrováno. Zkuste to prosím znovu.
           in_person_form:
+            census_not_present: Tento uživatel není uveden v seznamu osob.
             date_of_birth: Datum narození
             day: Den
             day_placeholder: DD
