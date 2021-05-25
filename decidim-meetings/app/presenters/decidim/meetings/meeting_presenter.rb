@@ -35,7 +35,7 @@ module Decidim
       def locale(*)
         return unless meeting
 
-        meeting.description.keys[0]
+        meeting.description.is_a?(Hash) ? meeting.description.keys[0] : I18n.locale.to_s
       end
 
       def location(all_locales: false)
