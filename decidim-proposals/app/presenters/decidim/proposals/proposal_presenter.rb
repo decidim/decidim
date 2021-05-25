@@ -67,7 +67,7 @@ module Decidim
         end
       end
 
-      def locale(links: false, extras: true, strip_tags: false, all_locales: false)
+      def locale(*)
         return unless proposal
 
         proposal.body.keys[0]

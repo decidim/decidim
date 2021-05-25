@@ -32,7 +32,7 @@ module Decidim
         end
       end
 
-      def locale(links: false, all_locales: false)
+      def locale(*)
         return unless meeting
 
         meeting.description.keys[0]

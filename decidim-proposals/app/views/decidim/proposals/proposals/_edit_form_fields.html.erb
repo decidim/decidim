@@ -2,7 +2,7 @@
 
 <% if available_locales.length > 1 %>
   <%= form.select :locale,
-                  available_locales.collect { |l| [I18n.with_locale(l) { I18n.t("name", scope: "locale").capitalize }, l]},
+                  available_locales.collect { |l| [I18n.with_locale(l) { I18n.t("name", scope: "locale").capitalize }, l.to_s]},
                   selected: form_presenter.locale.to_s,
                   label: t("decidim.forms.language.language_selector")%>
   <div class="help-text help-text-form-required-fields"><%= t("decidim.forms.language.language_help_text")%></div>
