@@ -169,7 +169,8 @@ module Decidim
                 # When the proposal has existing photos or documents, their IDs
                 # will be sent as Strings in the form payload.
                 photos: proposal.photos.map { |a| a.id.to_s },
-                documents: proposal.documents.map { |a| a.id.to_s }
+                documents: proposal.documents.map { |a| a.id.to_s },
+                locale: "en"
               }
             end
             let(:proposal) { create(:proposal, :with_photo, :with_document, component: component, users: [user]) }
