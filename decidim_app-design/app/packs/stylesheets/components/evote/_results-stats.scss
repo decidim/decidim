@@ -1,31 +1,33 @@
-.results-stats {
-  &__table {
+.results-stats{
+  &__table{
     margin-top: 2rem;
-    caption {
+
+    caption{
       background-color: $secondary;
       color: $white;
       text-transform: uppercase;
       text-align: left;
       font-weight: bold;
-      letter-spacing: 0.02em;
+      letter-spacing: .02em;
       line-height: 1;
     }
-    thead th {
+
+    thead th{
       text-transform: uppercase;
       font-weight: bold;
-      letter-spacing: 0.02em;
+      letter-spacing: .02em;
       line-height: 1;
       font-size: 90%;
       background-color: $medium-gray;
       white-space: nowrap;
     }
 
-    td {
+    td{
       font-size: 120%;
       white-space: nowrap;
     }
 
-    tbody th {
+    tbody th{
       text-align: left;
       background-color: inherit;
       border-right: 1px solid $medium-gray;
@@ -34,7 +36,7 @@
     }
   }
 
-  &__percentage {
+  &__percentage{
     font-size: 75%;
   }
 }
