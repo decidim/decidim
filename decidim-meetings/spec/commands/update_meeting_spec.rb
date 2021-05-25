@@ -38,6 +38,7 @@ module Decidim::Meetings
         address: address,
         latitude: latitude,
         longitude: longitude,
+        locale: "en",
         user_group_id: user_group_id,
         current_user: current_user,
         current_organization: organization,

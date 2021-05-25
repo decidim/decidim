@@ -11,6 +11,7 @@ module Decidim::Meetings
     let(:form) do
       double(
         invalid?: invalid,
+        locale: "en",
         closing_report: { en: "Great meeting" },
         closed_at: Time.current,
         proposal_ids: proposal_ids,
