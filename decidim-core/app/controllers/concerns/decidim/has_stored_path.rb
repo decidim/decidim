@@ -32,7 +32,7 @@ module Decidim
       # the TOS. Most of the times this is because of a redirect to the TOS
       # page (in which case the desired location is somewhere else after the
       # TOS is agreed).
-      return true if current_user && !current_user.tos_accepted? && (tos_path.start_with?(request.path) || request.path.starts_with?(tos_path))
+      return true if current_user && !current_user.tos_accepted? && request.path == URI(tos_path).path
 
       false
     end
