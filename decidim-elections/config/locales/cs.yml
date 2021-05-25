@@ -855,6 +855,7 @@ cs:
             view: Zobrazit
           results:
             bulletin_board: Vývěska
+            election_totals: Volební součet
             polling_stations: Volební místnosti
             result_types:
               total_ballots: Celkový počet hlasovacích lístků
