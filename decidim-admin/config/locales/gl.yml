@@ -26,10 +26,13 @@ gl:
         published_at: Publicado en
         weight: Peso
       id: ID
+      import:
+        user_group_id: Importar como
       newsletter:
         body: Corpo
         subject: Asunto
       organization:
+        admin_terms_of_use_body: Corpo para o texto das condicións de uso do administrador/a
         alert_color: Alerta
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
@@ -69,6 +72,9 @@ gl:
         omnipresent_banner_short_description: Descrición curta
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        organization_admin_email: Correo electrónico do administrador/a da organización
+        organization_admin_name: Nome do administrador/a da organización
+        organization_locales: Idiomas da organización
         primary_color: Primaria
         reference_prefix: Prefijo de referencia
         rich_text_editor_in_public_views: Habilitar o editor de texto avanzado para os participantes
@@ -80,6 +86,7 @@ gl:
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
         user_groups_enabled: Activar grupos de usuarios
+        users_registration_mode: Modo rexistro de usuarios/as
         warning_color: Aviso
         welcome_notification_body: Corpo da notificación de benvida
         welcome_notification_subject: Asunto da notificación de benvida
@@ -156,6 +163,8 @@ gl:
         new: Novo %{name}
         newsletter:
           new: Novo boletín
+        participatory_space_private_user:
+          new: Novo usuario privado do espazo participativo
         per_page: Por páxina
         permissions: Permisos
         reject: Rexeitar
@@ -309,12 +318,14 @@ gl:
           error: Houbo un erro ao actualizar este compoñente.
           success: O compoñente foi actualizado correctamente.
       conflicts:
+        attempts: Tentativas
         'false': 'Non'
         managed_user_name: Usuario xestionado
         solved: Resolto
         title: Conflitos de verificación
         transfer:
           email: Correo electrónico
+          error: Produciuse un problema ao transferir el participante actual a un participante xestionado.
           name: Nome
           reason: Motivo
           success: A transferencia actual completouse con éxito.
@@ -360,12 +371,14 @@ gl:
         search_label: Busca
         search_placeholder:
           name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
+          reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
           title_cont: Procurar %{collection} por título.
         state_eq:
           label: Estado
       forms:
         file_help:
           import:
+            explanation: 'Instrucións para o ficheiro:'
             message_1: Están soportados os ficheiros CSV, JSON e Excel (.xls)
             message_2: Para os ficheiros CSV, o separador entre columnas ten de ser o punto e coa (";")
       help_sections:
@@ -407,10 +420,13 @@ gl:
           impersonate_existing_user: Substitúe o usuario "%{name}"
           impersonate_new_managed_user: Substituír o novo usuario xestor
       imports:
+        creators:
+          proposalcreator: Creador da proposta
         error: Produciuse un problema durante a importación
         help:
           proposalcreator: O ficheiro ten de incluír os nomes de columna title/en e body/en (ou outro idioma da túa preferencia, por exemplo title/gl e body/gl). Admítense tamén as columnas scope/id e category/id.
         import_from_file: Importar dende o ficheiro
+        invalid_lines: Atopouse un erro no recurso número %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
@@ -418,6 +434,7 @@ gl:
             xls: xls
           actions:
             back: Volver
+          file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
         notice: "%{number}%{resource_name} importados con éxito"
       logs:
@@ -540,14 +557,20 @@ gl:
             block: Bloquear usuario
             title: Accións
             unblock: Desbloquear usuario
+            unreport: Desfacer denuncia
           name: Nome
           nickname: Alcume
           reason: Motivo
+          reports: Número de denuncias
           title: Listando os usuarios reportados
         report:
           reasons:
+            does_not_belong: Non pertence
             offensive: Ofensivo
             spam: Lixo
+        tabs:
+          blocked: Bloqueados
+          unblocked: Sen bloquear
       moderations:
         index:
           title: Moderacións
@@ -565,6 +588,7 @@ gl:
             reported_content: Contido reportado
             see_current: Ver actual
             see_original: Ver orixinal
+            title: Informes de moderación
           show:
             report_details: Detalles do motivo
             report_language: Idioma do informe
@@ -899,6 +923,7 @@ gl:
           last_day: Último día
           last_month: O mes pasado
           last_week: A semana pasada
+          no_users_count_statistics_yet: Aínda non hai estatísticas do reconto de usuario/as
           participants: Participantes
       view_public_page: Ver páxina pública
     forms:
@@ -909,6 +934,12 @@ gl:
       blocked_users:
         object: usuarias bloqueadas
         title: Usuarias bloqueadas
+      reported_users:
+        object: usuario/as reportado/as
+        title: Usuario/as reportado/as
+      user_reports:
+        object: informe de usuarios
+        title: Informe de usuarios
     moderations:
       actions:
         expand: Expandir
@@ -934,6 +965,7 @@ gl:
           fields:
             created_at: Data de creación
             hidden_at: Oculto en
+            participatory_space: Espazo participativo
             report_count: Conde
             reportable_id: Id
             reportable_type: Tipo
