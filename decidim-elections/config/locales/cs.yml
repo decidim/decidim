@@ -107,10 +107,16 @@ cs:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Vyhledejte %{collection} podle jména/e-mailu/přezdívky nebo volební místnosti.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Hledat %{collection} podle názvu, adresy nebo jména úředníka/e-mailu/přezdívky.
+        signed_eq:
+          label: Podepsáno
+          values:
+            'false': Podepsáno
+            'true': Nepodepsáno
         validated_eq:
           label: Ověřeno
           values:
             'false': Ověřeno
+            'true': Neschváleno
     components:
       elections:
         actions:
@@ -481,6 +487,7 @@ cs:
             end_time: Končí v
             start_time: Začíná v
             title: Název
+            verifiable_results_file_hash: Kontrolní součet SHA256 souboru
         question:
           fields:
             answers: Odpovědi
@@ -808,6 +815,7 @@ cs:
             monitoring_committee: Monitorovací výbor
             monitoring_committee_election_results: Ověřit výsledky
             monitoring_committee_members: Členové
+            monitoring_committee_polling_station_closures: Potvrdit certifikáty
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
@@ -847,6 +855,9 @@ cs:
             bulletin_board: Vývěska
             polling_stations: Volební místnosti
             totals: Celkem
+          show:
+            publish_results: Zveřejnit výsledky
+            publishing: Zveřejňování výsledků...
         monitoring_committee_members:
           create:
             invalid: Při vytváření tohoto člena monitorovacího výboru došlo k potížím
@@ -866,7 +877,14 @@ cs:
             title: Vytvořit člena monitorovacího výboru
         monitoring_committee_polling_station_closures:
           actions:
+            title: Akce
+            validate: Ověřit
             view: Zobrazit
+          closures:
+            signed: Podepsáno?
+            validated: Ověřeno?
+          edit:
+            change_polling_station: Zpět do volebních místností
         monitoring_committee_verify_elections:
           index:
             download: Stáhnout
