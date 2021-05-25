@@ -629,6 +629,8 @@ cs:
           lead: Váš hlas byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
+        create:
+          error: Při hlasování se vyskytl problém. Zkuste to prosím znovu.
         encrypting:
           header: Šifrování hlasování...
           text: Váš hlasovací lístek je šifrován, aby bylo zajištěno že vaše hlasování je tajné.
@@ -854,10 +856,15 @@ cs:
           results:
             bulletin_board: Vývěska
             polling_stations: Volební místnosti
+            selected: Vybráno
+            title: Výsledky voleb <i>%{election_title}</i>
             totals: Celkem
           show:
             publish_results: Zveřejnit výsledky
             publishing: Zveřejňování výsledků...
+          update:
+            invalid: Při publikování výsledků došlo k chybě
+            rejected: Zveřejnění výsledků bylo výborem Vývěsky zamítnuto. Zkuste to znovu nebo se obraťte na správce systému.
         monitoring_committee_members:
           create:
             invalid: Při vytváření tohoto člena monitorovacího výboru došlo k potížím
