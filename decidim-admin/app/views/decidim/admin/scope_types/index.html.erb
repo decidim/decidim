@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-divider">
     <% if allowed_to? :creste, :scope_type %>
-      <h2 class="card-title"><%= t "decidim.admin.titles.scope_types" %> <%= link_to t("actions.add", scope: "decidim.admin"), ["new", "scope_type"], class: "button tiny button--title" %></h2>
+      <h2 class="card-title"><%= t "decidim.admin.titles.scope_types" %> <%= link_to t("actions.add", scope: "decidim.admin"), [:new, :scope_type], class: "button tiny button--title" %></h2>
     <% end %>
   </div>
   <div class="card-section">
@@ -26,7 +26,7 @@
               <td class="table-list__actions">
 
                 <% if allowed_to? :update, :scope_type, scope_type: scope_type %>
-                  <%= icon_link_to "pencil", ["edit", scope_type], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+                  <%= icon_link_to "pencil", [:edit, scope_type], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :scope_type, scope_type: scope_type %>
