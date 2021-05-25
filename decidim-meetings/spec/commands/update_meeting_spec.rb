@@ -135,6 +135,7 @@ module Decidim::Meetings
             address: address,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
+            locale: "en",
             user_group_id: user_group_id,
             services_to_persist: [],
             current_user: current_user,
