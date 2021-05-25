@@ -249,7 +249,6 @@ ca:
             success: Trobada tancada amb èxit
           create:
             invalid: S'ha produït un error en crear aquesta trobada
-            success: Trobada creada amb èxit
           destroy:
             invalid:
               proposals_count:

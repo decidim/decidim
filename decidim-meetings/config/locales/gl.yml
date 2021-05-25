@@ -229,7 +229,6 @@ gl:
             success: Reunión pechada con éxito
           create:
             invalid: Produciuse un problema ao crear esta reunión
-            success: Reunión creada correctamente
           destroy:
             success: Reunión eliminada correctamente
           edit:

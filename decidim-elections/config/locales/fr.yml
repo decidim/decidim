@@ -611,7 +611,6 @@ fr:
             attachments: Pièces jointes
             census: Recensement
             info: Information
-            monitoring_committee_certificates: Valider les certificats
             monitoring_committee_members: Membres
             polling_stations: Bureaux de vote
         models:
@@ -626,9 +625,6 @@ fr:
               promoted: Mise en avant
               published: Publié
               title: Titre
-        monitoring_committee_certificates:
-          index:
-            title: Bureaux de vote
         polling_stations:
           create:
             invalid: Une erreur est survenue lors de la création de ce bureau de vote
@@ -735,6 +731,11 @@ fr:
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
       polling_officer_zone:
+        closures:
+          show:
+            heading: Recomptage des votes
+          sign:
+            cancel: Annuler
         in_person_votes:
           complete_voting:
             available_answers: 'Réponses disponibles:'

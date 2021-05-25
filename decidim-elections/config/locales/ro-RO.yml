@@ -448,11 +448,7 @@ ro:
             associated_census_data: Intrări asociate recensământului
         menu:
           votings_submenu:
-            monitoring_committee_certificates: Validare certificate
             monitoring_committee_members: Membri
-        monitoring_committee_certificates:
-          index:
-            title: Secţii de votare
       census:
         admin:
           census:

@@ -233,7 +233,6 @@ sk:
             success: Stretnutie bolo úspešne uzavreté
           create:
             invalid: Pri vytváraní tohto stretnutia došlo k problému
-            success: Stretnutie bolo úspešne vytvorené
           destroy:
             success: Stretnutie bolo úspešne vymazané
           edit:

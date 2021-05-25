@@ -253,7 +253,6 @@ ro:
             success: Ședință închisă cu succes
           create:
             invalid: A apărut o problemă la crearea acestei întâlniri
-            success: Ședință creată cu succes
           destroy:
             invalid:
               proposals_count:
