@@ -345,7 +345,9 @@ en:
         meetings:
           index:
             all: All
+            closed: Closed
             date: Date
+            meeting_report: Meeting report
             meetings: Meetings
             past: Past
             search: Search
@@ -391,11 +393,13 @@ en:
           activity: My activity
           all: All
           category: Category
+          closed: Closed
           date: Date
           date_values:
             all: All
             past: Past
             upcoming: Upcoming
+          meeting_report: Meeting Report
           my_meetings: My meetings
           origin: Origin
           origin_values:
