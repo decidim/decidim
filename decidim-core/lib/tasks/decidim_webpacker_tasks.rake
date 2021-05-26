@@ -22,9 +22,6 @@ namespace :decidim do
       # Webpack JS config files
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
 
-      # Replace DECIDIM_PATH by the path to the gem
-      gsub_file rails_app_path.join("config/webpack/custom.js"), /DECIDIM_PATH/, decidim_path.to_s
-
       # Install JS dependencies
       system! "npm ci"
     end
@@ -35,11 +32,6 @@ namespace :decidim do
 
     def rails_app_path
       @rails_app_path ||= Rails.root
-    end
-
-    def gsub_file(path, regexp, *args, &block)
-      content = File.read(path.to_s).gsub(regexp, *args, &block)
-      File.open(path, "wb") { |file| file.write(content) }
     end
 
     def copy_file_to_application(origin_path, destination_path = origin_path)
