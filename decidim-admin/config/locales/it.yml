@@ -87,6 +87,7 @@ it:
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
+        users_registration_mode: Modalità di registrazione utenti
         warning_color: Attenzione
         welcome_notification_body: Testo del messaggio di Benvenuto
         welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto
@@ -112,10 +113,12 @@ it:
         show_in_footer: Mostra nel footer
         slug: URL slug
         title: Titolo
+        weight: Ordine di posizionamento
       static_page_topic:
         description: Descrizione
         show_in_footer: Mostra nel footer
         title: Titolo
+        weight: Ordine di posizionamento
       user_group_csv_verification:
         file: File
     errors:
@@ -126,6 +129,10 @@ it:
               allowed_file_content_types: File immagine non valido
             official_img_header:
               allowed_file_content_types: File immagine non valido
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tipo di MIME non valido
   activerecord:
     attributes:
       decidim/static_page:
@@ -152,6 +159,7 @@ it:
         category:
           new: Nuova categoria
         export: Esporta
+        import: Importazione
         manage: Gestisci
         new: Nuovo %{name}
         newsletter:
@@ -349,6 +357,17 @@ it:
           values:
             'false': Ufficializzato
             'true': Non ufficializzato
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invito accettato
+            values:
+              'false': Non accettato
+              'true': Accettato
+          user_invitation_sent_at_not_null:
+            label: Invito inviato
+            values:
+              'false': Non inviato
+              'true': Inviato
         private_space_eq:
           label: Privato
           values:
@@ -366,8 +385,15 @@ it:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
           reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile.
           title_cont: Cerca %{collection} per titolo.
+          user_name_or_user_email_cont: Cerca %{collection} per nome o email.
         state_eq:
           label: Stato
+      forms:
+        file_help:
+          import:
+            explanation: 'Guida per il file:'
+            message_1: Sono supportati i formsti CSV, JSON e Excel (.xlsx)
+            message_2: I separatori delle colonne per il formato CSV devono essere punto e virgola (";")
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
         form:
@@ -406,6 +432,22 @@ it:
           impersonate_existing_managed_user: Gestisci partecipante %{name}"
           impersonate_existing_user: Gestisci partecipante %{name}"
           impersonate_new_managed_user: Gestisci nuovo partecipante
+      imports:
+        creators:
+          proposalcreator: Autore della proposta
+        error: Si è verificato un errore durante l'importazione
+        help:
+          proposalcreator: Il file deve avere nomi di colonna title/en e body/en (o un altro locale che preferisci, ad esempio title/it e body/it). Sono supportate anche le colonne scope/id e category/id.
+        import_from_file: Importare da un file
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Indietro
+          import: Importazione
+        notice: "%{number} %{resource_name} importati con successo"
       logs:
         logs_list:
           no_logs_yet: Non ci sono ancora i log
@@ -523,7 +565,9 @@ it:
       moderated_users:
         index:
           actions:
+            block: Blocca Utente
             title: Azioni
+            unblock: Sblocca Utente
             unreport: Non inserire
           name: Nome
           nickname: Nickname
@@ -534,6 +578,9 @@ it:
             does_not_belong: Non appartiene
             offensive: Offensivo
             spam: Spam
+        tabs:
+          blocked: Bloccato
+          unblocked: Non Bloccato
       moderations:
         index:
           title: Moderazione
@@ -546,6 +593,8 @@ it:
           index:
             author: Autore(i)
             callout_html: Un contenuto appare nel pannello di moderazione quando è stato segnalato da un utente (può essere chiunque abbia un account registrato) cliccando sul flag %{icon} accanto all'elemento.
+            content_original_language: Lingua originale del contenuto
+            participatory_space: Spazio partecipativo
       newsletter_templates:
         index:
           preview_template: Anteprima
