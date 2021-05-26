@@ -5,7 +5,7 @@ module Decidim
     module Runner
       def self.included(base)
         base.alias_method :original_initialize, :initialize
-        base.send(:private, :original_initialize)
+        base.send :private, :original_initialize
 
         base.define_method :initialize do |argv|
           original_initialize(argv)
