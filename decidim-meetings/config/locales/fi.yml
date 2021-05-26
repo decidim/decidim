@@ -249,6 +249,7 @@ fi:
             success: Tapaamisen sulkeminen onnistui
           create:
             invalid: Tapaamisen luonti epäonnistui
+            success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
           destroy:
             invalid:
               proposals_count:
@@ -274,6 +275,9 @@ fi:
           new:
             create: Luo
             title: Luo tapaaminen
+          publish:
+            invalid: Tapaamisen julkaiseminen epäonnistui
+            success: Tapaamisen julkaiseminen onnistui
           service:
             description: Kuvaus
             down: Alas
@@ -284,6 +288,9 @@ fi:
           services:
             add_service: Lisää palvelu
             services: Palvelut
+          unpublish:
+            invalid: Tapaamisen julkaisemisen peruminen epäonnistui
+            success: Tapaamisen julkaisemisen peruminen onnistui
           update:
             invalid: Tapaamisen päivitys epäonnistui
             success: Tapaamisen päivitys onnistui
