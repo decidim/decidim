@@ -249,7 +249,6 @@ fr:
             success: Rencontre close avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
-            success: Rencontre créée avec succès
           destroy:
             invalid:
               proposals_count:

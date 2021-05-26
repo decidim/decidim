@@ -780,7 +780,6 @@ es-MX:
             info: Información
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
-            monitoring_committee_certificates: Validar certificados
             monitoring_committee_members: Miembros
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
@@ -813,9 +812,6 @@ es-MX:
               promoted: Destacada
               published: Publicada
               title: Título
-        monitoring_committee_certificates:
-          index:
-            title: Puntos de votación
         monitoring_committee_members:
           create:
             invalid: Hubo un problema al crear este miembro del comité de seguimiento
@@ -1066,35 +1062,6 @@ es-MX:
               show_closure: Ver cierre
               title: Puntos de votación
               voting: Votación
-        votes:
-          create:
-            success: Voto presencial emitido con éxito
-          in_person_fields:
-            date_of_birth: Fecha de nacimiento
-            day: Día
-            day_placeholder: DD
-            document_number: Número de documento
-            document_number_placeholder: Número de ID
-            month: Mes
-            month_placeholder: MM
-            name: Nombre
-            select: Selecciona el tipo de documento
-            voted: La participante ha votado
-            year: Año
-            year_placeholder: AAAA
-          new:
-            back: Volver a los puntos de votación
-            census_not_present: Esta participante no aparece en el censo.
-            census_not_present_description: Debe acudir a la oficina de reclamaciones del censo o al servicio de asistencia técnica.
-            census_present: Esta participante aparece en el censo.
-            census_verified: La participante aún no ha votado.
-            complete_voting: Completar votación
-            form_title: 'Selecciona el tipo de documento e introduce el número de documento de la participante:'
-            questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
-            title: Identificar y verificar a una participante
-            validate_document: Validar documento
-            verify_document: Verificar documento
-            verify_title: 'Comprueba que los siguientes datos son correctos:'
       polling_officers:
         actions:
           confirm_destroy: '¿Estás segura?'

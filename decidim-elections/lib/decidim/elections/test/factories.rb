@@ -17,6 +17,8 @@ FactoryBot.define do
   factory :election, class: "Decidim::Elections::Election" do
     transient do
       organization { build(:organization) }
+      number_of_votes { Faker::Number.number(digits: 2) }
+      base_id { 10_000 }
     end
 
     upcoming
@@ -32,7 +34,7 @@ FactoryBot.define do
 
     trait :bb_test do
       bb_status { "key_ceremony" }
-      id { (10_000 + Decidim::Elections::Election.bb_statuses.keys.index(bb_status)) }
+      id { (base_id + Decidim::Elections::Election.bb_statuses.keys.index(bb_status)) }
     end
 
     trait :upcoming do
@@ -117,12 +119,8 @@ FactoryBot.define do
       finished
       bb_status { "vote_ended" }
 
-      after(:create) do |election|
-        election.questions.each do |question|
-          question.answers.each do |answer|
-            create(:election_result, answer: answer, question: question)
-          end
-        end
+      after(:create) do |election, evaluator|
+        create_list(:vote, evaluator.number_of_votes, :accepted, election: election)
       end
     end
 
@@ -136,6 +134,10 @@ FactoryBot.define do
       bb_status { "tally_ended" }
       verifiable_results_file_hash { SecureRandom.hex(32) }
       verifiable_results_file_url { Faker::Internet.url }
+
+      after(:create) do |election|
+        create(:bb_closure, :with_results, election: election)
+      end
     end
 
     trait :results_published do
@@ -225,7 +227,7 @@ FactoryBot.define do
 
     trait :with_votes do
       after(:build) do |answer|
-        create(:election_result, answer: answer)
+        create(:election_result, election: answer.question.election, question: answer.question, answer: answer)
       end
     end
 
@@ -247,37 +249,51 @@ FactoryBot.define do
   end
 
   factory :bb_closure, class: "Decidim::Elections::BulletinBoardClosure" do
-    election
-  end
+    initialize_with do
+      Decidim::Elections::BulletinBoardClosure.find_or_create_by(
+        decidim_elections_election_id: election.id
+      )
+    end
 
-  factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do
-    election
-    polling_officer_notes { Faker::Lorem.paragraph }
-    polling_station
-    polling_officer
+    election { create(:election, :complete) }
 
     trait :with_results do
-      transient do
-        results_number { 2 }
-      end
-
-      after :create do |closure, evaluator|
-        evaluator.results_number.times do
-          closure.results << create(
-            :election_result,
-            closurable: closure
-          )
+      after :create do |closure|
+        total_votes = closure.election.votes.count
+        closure.election.questions.each do |question|
+          max = total_votes
+          question.answers.each do |answer|
+            value = Faker::Number.between(from: 0, to: max)
+            closure.results << create(:election_result, election: closure.election, question: question, answer: answer, value: value)
+            max -= value
+          end
+          closure.results << create(:election_result, :blank_ballots, election: closure.election, question: question, value: max)
         end
+        closure.results << create(:election_result, :total_ballots, election: closure.election, value: total_votes)
       end
     end
   end
 
   factory :election_result, class: "Decidim::Elections::Result" do
-    closurable { create :bb_closure }
-    question
+    transient do
+      election { create(:election, :tally_ended) }
+    end
+
+    closurable { create :bb_closure, election: election }
+    question { create :question, election: election }
     answer { create :election_answer, question: question }
     value { Faker::Number.number(digits: 1) }
     result_type { "valid_answers" }
+
+    trait :null_ballots do
+      result_type { "null_ballots" }
+      answer { nil }
+    end
+
+    trait :blank_ballots do
+      result_type { "blank_ballots" }
+      answer { nil }
+    end
 
     trait :total_ballots do
       result_type { "total_ballots" }
@@ -343,5 +359,9 @@ FactoryBot.define do
     message_id { "decidim-test-authority.2.vote.cast+v.5826de088371d1b15b38f00c8203871caec07041ed0c8fb0c6fb875f0df763b6" }
     user { build(:user) }
     email { "an_email@example.org" }
+
+    trait :accepted do
+      status { "accepted" }
+    end
   end
 end

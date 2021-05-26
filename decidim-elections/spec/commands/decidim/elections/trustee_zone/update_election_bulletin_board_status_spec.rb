@@ -72,10 +72,10 @@ describe Decidim::Elections::TrusteeZone::UpdateElectionBulletinBoardStatus do
     it "create the election results" do
       subject.call
 
-      expect(election.questions.first.answers.first.results.first.value).to eq 1
-      expect(election.questions.first.answers.last.results.first.value).to eq 2
-      expect(election.questions.last.answers.first.results.first.value).to eq 3
-      expect(election.questions.last.answers.last.results.first.value).to eq 4
+      expect(election.bb_closure.results.select { |r| r.question == election.questions.first && r.answer == election.questions.first.answers.first && r.value == 1 }.count).to eq 1
+      expect(election.bb_closure.results.select { |r| r.question == election.questions.first && r.answer == election.questions.first.answers.last && r.value == 2 }.count).to eq 1
+      expect(election.bb_closure.results.select { |r| r.question == election.questions.last && r.answer == election.questions.last.answers.first && r.value == 3 }.count).to eq 1
+      expect(election.bb_closure.results.select { |r| r.question == election.questions.last && r.answer == election.questions.last.answers.last && r.value == 4 }.count).to eq 1
     end
   end
 end

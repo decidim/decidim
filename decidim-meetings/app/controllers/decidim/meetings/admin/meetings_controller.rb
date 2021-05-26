@@ -61,7 +61,6 @@ module Decidim
           Decidim::Meetings::Admin::DestroyMeeting.call(meeting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
-
               redirect_to meetings_path
             end
 
@@ -72,6 +71,38 @@ module Decidim
                 scope: "decidim.meetings.admin"
               )
 
+              render action: "index"
+            end
+          end
+        end
+
+        def publish
+          enforce_permission_to :update, :meeting, meeting: meeting
+
+          Decidim::Meetings::Admin::PublishMeeting.call(meeting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("meetings.publish.success", scope: "decidim.meetings.admin")
+              redirect_to meetings_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("meetings.publish.invalid", scope: "decidim.meetings.admin")
+              render action: "index"
+            end
+          end
+        end
+
+        def unpublish
+          enforce_permission_to :update, :meeting, meeting: meeting
+
+          Decidim::Meetings::Admin::UnpublishMeeting.call(meeting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("meetings.unpublish.success", scope: "decidim.meetings.admin")
+              redirect_to meetings_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("meetings.unpublish.invalid", scope: "decidim.meetings.admin")
               render action: "index"
             end
           end

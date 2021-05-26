@@ -10,7 +10,10 @@ $(() => {
     }
 
     if (event.originalEvent.key.length === 1 && event.target.dataset.jumpNext) {
-      if (event.target.value.length === event.target.dataset.maxLength) {
+      if (
+        event.target.value.length ===
+        parseInt(event.target.dataset.maxLength, 10)
+      ) {
         event.preventDefault();
         setTimeout(() => {
           const next = $(event.target.dataset.jumpNext);

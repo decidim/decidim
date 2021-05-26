@@ -96,8 +96,9 @@ module Decidim
       end
 
       def install_decidim_webpacker
-        # Copy CSS variables template file
+        # Copy CSS files
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
+        copy_file "_decidim-settings.scss", "app/packs/stylesheets/decidim/_decidim-settings.scss"
 
         # Copy JS application file
         copy_file "decidim_application.js", "app/packs/src/decidim/decidim_application.js"

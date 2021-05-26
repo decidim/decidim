@@ -13,14 +13,7 @@ describe "Elections log", type: :system do
     let(:organization_traits) { [:secure_context] }
   end
 
-  before do
-    VCR.turn_off!
-    Decidim::Elections.bulletin_board.reset_test_database
-  end
-
-  after do
-    VCR.turn_on!
-  end
+  include_context "with test bulletin board"
 
   describe "when voting has only one election" do
     it "redirects to election log" do

@@ -10,7 +10,7 @@ module Decidim
     # options - An optional hash of options (default: { zoom: 17 })
     #           * zoom: A number to represent the zoom value of the map
     def static_map_link(resource, options = {}, map_html_options = {}, &block)
-      return unless resource.geocoded?
+      return unless resource.geocoded_and_valid?
       return unless map_utility_static || map_utility_dynamic
 
       address_text = resource.try(:address)

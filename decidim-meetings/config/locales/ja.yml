@@ -235,7 +235,6 @@ ja:
             success: ミーティングが正常に閉じられました
           create:
             invalid: このミーティングを作成する際に問題が発生しました
-            success: ミーティングを作成しました
           destroy:
             invalid:
               proposals_count:
