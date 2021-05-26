@@ -6,9 +6,9 @@ class AddExternalDomainWhitelistToOrganization < ActiveRecord::Migration[5.2]
 
     reversible do |direction|
       direction.up do
-        Decidim::Organization.find_each do |organization|
-          organization.update!(external_domain_whitelist: ["decidim.org", "github.com"])
-        end
+        # rubocop:disable Rails/SkipsModelValidations
+        Decidim::Organization.update_all(external_domain_whitelist: ["decidim.org", "github.com"])
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end
