@@ -337,6 +337,12 @@ it:
         show:
           view_more_logs: Visualizza più registri
           welcome: Benvenuti nel pannello di amministrazione di Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Dominio troppo corto
+        update:
+          error: Impossibile aggiornare la whitelist dei domini
+          success: Whitelist dei domini aggiornata con successo
       exports:
         export_as: "%{name} esporta come %{export_format}"
         formats:
@@ -439,6 +445,7 @@ it:
         help:
           proposalcreator: Il file deve avere nomi di colonna title/en e body/en (o un altro locale che preferisci, ad esempio title/it e body/it). Sono supportate anche le colonne scope/id e category/id.
         import_from_file: Importare da un file
+        invalid_lines: Ci sono errori di importazione alle linee %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
@@ -446,6 +453,7 @@ it:
             xlsx: xlsx
           actions:
             back: Indietro
+          file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
         notice: "%{number} %{resource_name} importati con successo"
       logs:
@@ -468,6 +476,7 @@ it:
         areas: Ambiti territoriali
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
+        external_domain_whitelist: Whitelist di domini esterni
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
@@ -572,6 +581,7 @@ it:
           name: Nome
           nickname: Nickname
           reason: Motivazione
+          reports: Numero di segnalazioni
           title: Elencando gli utenti segnalati
         report:
           reasons:
@@ -595,6 +605,15 @@ it:
             callout_html: Un contenuto appare nel pannello di moderazione quando è stato segnalato da un utente (può essere chiunque abbia un account registrato) cliccando sul flag %{icon} accanto all'elemento.
             content_original_language: Lingua originale del contenuto
             participatory_space: Spazio partecipativo
+            reported_content: Contenuto segnalato
+            see_current: Vedi l'attuale
+            see_original: Vedi l'originale
+            title: Segnalazioni di moderazione
+          show:
+            report_details: Dettagli del motivo
+            report_language: Lingua del report
+            report_reason: Motivo
+            title: Dettagli del report
       newsletter_templates:
         index:
           preview_template: Anteprima
@@ -660,6 +679,9 @@ it:
           error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
       officializations:
+        block:
+          error: Si è verificato un errore durante il blocco del partecipante
+          success: Partecipante bloccato con successo
         create:
           success: Utente ufficializzato con successo
         destroy:
@@ -667,6 +689,7 @@ it:
         index:
           actions: Azioni
           badge: Distintivo
+          block: Blocca Utente
           created_at: Creato a
           name: Nome
           nickname: Nickname
@@ -674,8 +697,10 @@ it:
           officialize: ufficializzare
           officialized: ufficializzato
           reofficialize: Reofficialize
+          reports: Report
           show_email: Mostra indirizzo email
           status: Stato
+          unblock: Sblocca Utente
           unofficialize: Unofficialize
         new:
           badge: Distintivo di ufficializzazione
@@ -689,6 +714,9 @@ it:
           hidden: nascosto
           show: Mostra
           title: Mostra l'indirizzo email dell'utente
+        unblock:
+          error: Si è verificato un errore durante lo sblocco del partecipante
+          success: Partecipante sbloccato con successo
       organization:
         edit:
           title: Modifica l'organizzazione
@@ -700,6 +728,7 @@ it:
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Social networks
           twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
@@ -719,6 +748,17 @@ it:
             layout_appearance_title: Modifica aspetto del layout
             preview: Anteprima
           omnipresent_banner_appearance_title: Modifica banner onnipresente
+      organization_external_domain_whitelist:
+        edit:
+          update: Aggiorna
+        external_domain:
+          down: Giù
+          external_domain: Dominio esterno
+          remove: Rimuovi
+          up: Su
+        form:
+          add: Aggiungi alla whitelist
+          title: Whitelist di domini esterni
       organization_homepage:
         edit:
           active_content_blocks: Blocchi di contenuto attivo
@@ -734,6 +774,7 @@ it:
           error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
         index:
+          import_via_csv: Importa da CSV
           title: Utente privato dello spazio partecipativo
         new:
           create: Creare
@@ -743,6 +784,7 @@ it:
           invalid: Si è verificato un errore durante la lettura del file CSV.
           success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
         new:
+          explanation: 'Carica il file CSV. Il file deve contenere due colonne (e-mail e nome) senza intestazioni: nella prima sono elencati gli indirizzi e-mail degli utenti che si desidera aggiungere allo spazio partecipativo, nella seconda i loro nomi. Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nella colonna dei nomi.'
           title: Carica il tuo file CSV
           upload: Carica File
       resource_permissions:
@@ -751,6 +793,10 @@ it:
           title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
+      resources:
+        index:
+          headers:
+            scope: Ambito
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
@@ -782,6 +828,18 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo àmbito.
           success: OK, l'àmbito è stato aggiornato.
+      share_tokens:
+        actions:
+          confirm_destroy: Sei sicuro di voler eliminare questo token?
+          destroy: Elimina
+          share: Condividi
+        destroy:
+          error: Si è verificato un problema durante la distruzione del token.
+          success: Token eliminato correttamente.
+        share_tokens:
+          empty: Non esistono token attivi
+          help: Questi token sono utilizzati per condividere pubblicamente questa risorsa non pubblicata con qualsiasi utente. Saranno nascosti al momento della pubblicazione della risorsa. Clicca sull'icona di condivisione del token per visitare l'URL condivisibile.
+          title: Condividi token
       shared:
         gallery:
           add_images: Aggiungi immagini
@@ -839,6 +897,7 @@ it:
         impersonatable_users: Partecipanti gestibili
         impersonations: Gestione dei partecipanti
         metrics: Partecipazione in cifre
+        panel: Amministratore
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
@@ -902,6 +961,13 @@ it:
       errors:
         impersonate_user:
           reason: È necessario fornire un motivo durante la rappresentazione di un utente non gestito
+    metrics:
+      blocked_users:
+        object: utenti bloccati
+        title: Utenti bloccati
+      reported_users:
+        object: utenti segnalati
+        title: Utenti segnalati
     moderations:
       actions:
         hidden: Nascosto
