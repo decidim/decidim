@@ -34,7 +34,7 @@ module Decidim
         default = config["default"] || {}
         additional_paths = default["additional_paths"] || []
         additional_paths += Decidim::Webpacker.configuration.additional_paths
-        entrypoints = Decidim::Webpacker.configuration.entrypoints.stringify_keys
+        entrypoints = Decidim::Webpacker.configuration.entrypoints
         config.each do |environment, env_config|
           config[environment] = env_config.merge(
             "additional_paths" => additional_paths,
