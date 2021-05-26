@@ -142,10 +142,6 @@ edit_link(
       <%= render "meeting_agenda" %>
     <% end %>
 
-    <% if meeting.closing_visible? && meeting.minutes_data? %>
-      <%= render "meeting_minutes" %>
-    <% end %>
-
     <% if !meeting.closed? && meeting.user_group_registrations.any? %>
       <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
       <div class="section">
@@ -168,6 +164,11 @@ edit_link(
         <%= decidim_sanitize translated_attribute meeting.closing_report %>
       </div>
     <% end %>
+
+    <% if meeting.closing_visible? && meeting.minutes_data? %>
+      <%= render "meeting_minutes" %>
+    <% end %>
+
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
     <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
   </div>
