@@ -249,7 +249,6 @@ es:
             success: Encuentro cerrado con éxito
           create:
             invalid: Se ha producido un error al crear este encuentro
-            success: Encuentro creado con éxito
           destroy:
             invalid:
               proposals_count:

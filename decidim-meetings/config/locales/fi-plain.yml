@@ -249,7 +249,6 @@ fi-pl:
             success: Tapahtuma onnistuneesti suljettu
           create:
             invalid: Tapahtuman luonnissa esiintyi ongelma
-            success: Tapahtuma onnistuneesti luotu
           destroy:
             invalid:
               proposals_count:

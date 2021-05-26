@@ -24,6 +24,7 @@ $(() => {
 
   $totalBallotsInput.on("keyup", function() {
     $("#modal-total-ballots-value").html(parseInt($totalBallotsInput.val(), 10));
+    $("#envelopes_result_polling_officer_notes").val("")
   });
 
   $("#envelopes_result_polling_officer_notes").on("keyup", function() {

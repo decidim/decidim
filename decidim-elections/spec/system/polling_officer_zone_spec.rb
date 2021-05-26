@@ -46,7 +46,7 @@ describe "Polling Officer zone", type: :system do
 
   context "when the user is a polling officer and an election has finished" do
     let(:component) { create(:elections_component, participatory_space: voting) }
-    let!(:election) { create(:election, :finished, questions: questions, component: component) }
+    let!(:election) { create(:election, :published, :finished, questions: questions, component: component) }
     let(:questions) { [create(:question, :complete)] }
 
     it "can access the new results form for the polling station" do
@@ -101,6 +101,46 @@ describe "Polling Officer zone", type: :system do
         end
 
         expect(page).to have_content("Closure results successfully updated")
+      end
+    end
+
+    describe "when attaching the physical certificate image to the closure", processing_uploads_for: Decidim::AttachmentUploader do
+      let!(:closure) { create(:ps_closure, :with_results, phase: :certificate, election: election, polling_station: polling_station) }
+
+      before do
+        visit decidim_votings_polling_officer_zone.polling_officer_election_closure_path(assigned_polling_officer, election)
+      end
+
+      it "can attach images to the closure" do
+        expect(page).to have_content("Vote recount - Upload certificate")
+
+        within ".form.certify_closure" do
+          attach_file :closure_certify_add_photos, Decidim::Dev.asset("city.jpeg")
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Certificate uploaded successfully.")
+        expect(page.html).to include("city.jpeg")
+      end
+    end
+
+    describe "when signing the closure" do
+      let!(:closure) { create(:ps_closure, :with_results, phase: :signature, election: election, polling_station: polling_station) }
+
+      before do
+        visit decidim_votings_polling_officer_zone.polling_officer_election_closure_path(assigned_polling_officer, election)
+      end
+
+      it "can sign the closure" do
+        expect(page).to have_content("Vote recount - Sign closure")
+
+        within ".form.sign_closure" do
+          check "I've reviewed this and is the same as the physical electoral closure certificate"
+          click_button "Sign the closure", wait: 2
+          click_button "Ok, continue"
+        end
+
+        expect(page).to have_content("Closure signed successfully")
       end
     end
   end

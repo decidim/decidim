@@ -27,7 +27,6 @@ module Decidim
           transaction do
             copy_meeting!
             copy_services!
-            schedule_upcoming_meeting_notification
             send_notification
           end
 
@@ -75,14 +74,6 @@ module Decidim
               "description" => service.description
             )
           end
-        end
-
-        def schedule_upcoming_meeting_notification
-          checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(copied_meeting)
-
-          Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: copied_meeting.start_time - 2.days)
-            .perform_later(copied_meeting.id, checksum)
         end
 
         def send_notification

@@ -262,6 +262,7 @@ gl:
       admin:
         assemblies:
           form:
+            announcement_help: O texto que insires aquí amosarase ao participante xusto debaixo da información da xuntanza.
             duration: Duración
             duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
             filters: Filtros

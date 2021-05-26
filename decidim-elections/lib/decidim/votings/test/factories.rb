@@ -70,6 +70,15 @@ FactoryBot.define do
     end
   end
 
+  factory :voting_election, parent: :election do
+    transient do
+      voting { create(:voting) }
+      base_id { 20_000 }
+    end
+
+    component { create(:elections_component, organization: organization, participatory_space: voting) }
+  end
+
   factory :polling_station, class: "Decidim::Votings::PollingStation" do
     title { generate_localized_title }
     location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -83,6 +92,10 @@ FactoryBot.define do
   factory :polling_officer, class: "Decidim::Votings::PollingOfficer" do
     user { create :user, organization: voting.organization }
     voting { create :voting }
+
+    trait :president do
+      presided_polling_station { create :polling_station, voting: voting }
+    end
   end
 
   factory :monitoring_committee_member, class: "Decidim::Votings::MonitoringCommitteeMember" do
@@ -169,5 +182,65 @@ FactoryBot.define do
   factory :ballot_style_question, class: "Decidim::Votings::BallotStyleQuestion" do
     question
     ballot_style
+  end
+
+  factory :in_person_vote, class: "Decidim::Votings::InPersonVote" do
+    transient do
+      voting { create(:voting) }
+      component { create(:elections_component, participatory_space: voting) }
+    end
+
+    election { create(:election, component: component) }
+    sequence(:voter_id) { |n| "voter_#{n}" }
+    status { "pending" }
+    message_id { "decidim-test-authority.2.vote.in_person+v.5826de088371d1b15b38f00c8203871caec07041ed0c8fb0c6fb875f0df763b6" }
+    polling_station { polling_officer.polling_station }
+    polling_officer { create(:polling_officer, :president, voting: voting) }
+
+    trait :accepted do
+      status { "accepted" }
+    end
+
+    trait :rejected do
+      status { "rejected" }
+    end
+  end
+
+  factory :ps_closure, class: "Decidim::Votings::PollingStationClosure" do
+    transient do
+      number_of_votes { Faker::Number.number(digits: 2) }
+    end
+
+    election { create(:voting_election, :complete) }
+    polling_station { polling_officer.polling_station }
+    polling_officer { create(:polling_officer, :president, voting: election.participatory_space) }
+    polling_officer_notes { Faker::Lorem.paragraph }
+    monitoring_committee_notes { nil }
+    signed_at { nil }
+    phase { :count }
+    validated_at { nil }
+
+    trait :with_results do
+      phase { :signature }
+
+      after :create do |closure, evaluator|
+        total_votes = evaluator.number_of_votes
+        create_list(:in_person_vote, evaluator.number_of_votes, :accepted, voting: closure.election.participatory_space, election: closure.election)
+
+        closure.election.questions.each do |question|
+          max = total_votes
+          question.answers.each do |answer|
+            value = Faker::Number.between(from: 0, to: max)
+            closure.results << create(:election_result, closurable: closure, election: closure.election, question: question, answer: answer, value: value)
+            max -= value
+          end
+          value = Faker::Number.between(from: 0, to: max)
+          closure.results << create(:election_result, :null_ballots, election: closure.election, question: question, value: value)
+          max -= value
+          closure.results << create(:election_result, :blank_ballots, election: closure.election, question: question, value: max)
+        end
+        closure.results << create(:election_result, :total_ballots, closurable: closure, election: closure.election, value: total_votes)
+      end
+    end
   end
 end

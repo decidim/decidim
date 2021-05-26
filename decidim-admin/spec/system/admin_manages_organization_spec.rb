@@ -178,6 +178,34 @@ describe "Admin manages organization", type: :system do
         end
       end
 
+      context "when the admin terms of use content has linebreaks inside different formattings" do
+        let(:terms_content) do
+          <<~HTML
+            <p>foo</p>
+            <h1><br></h1>
+            <p><strong><br></strong></p>
+            <p><u><br></u></p>
+            <p><em><br></em></p>
+          HTML
+        end
+
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+          )
+        end
+
+        it "is still editable" do
+          find('div[contenteditable="true"].ql-editor').send_keys(Array.new(15) { :backspace }, "bar baz")
+          click_button "Update"
+          expect(page).to have_content("Organization updated successfully")
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>bar baz</p>")
+        end
+      end
+
       context "when adding br tags to terms of use content" do
         let(:another_organization) { create(:organization) }
         let(:image) { create(:attachment, attached_to: another_organization) }

@@ -237,7 +237,6 @@ it:
             success: OK, il meeting è stato chiuso.
           create:
             invalid: C'è stato un problema durante la creazione di questo meeting.
-            success: OK, il meeting è stato creato con successo.
           destroy:
             invalid:
               proposals_count:

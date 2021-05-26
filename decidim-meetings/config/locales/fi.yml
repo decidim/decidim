@@ -249,7 +249,6 @@ fi:
             success: Tapaamisen sulkeminen onnistui
           create:
             invalid: Tapaamisen luonti epäonnistui
-            success: Tapaamisen luonti onnistui
           destroy:
             invalid:
               proposals_count:

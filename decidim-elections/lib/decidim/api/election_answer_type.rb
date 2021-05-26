@@ -17,7 +17,7 @@ module Decidim
       field :results_total, GraphQL::Types::Int, "The total sum of votes for this answer", null: true, camelize: false
       field :selected, GraphQL::Types::Boolean, "Is this answer selected?", null: true
 
-      field :proposals, [Decidim::Proposals::ProposalType, { null: true }], "The proposals related to this answer", null: true
+      field :proposals, [Decidim::Proposals::ProposalType, { null: true }], "The proposals related to this answer", null: true if defined?(Decidim::Proposals::ProposalType)
       field :results, [Decidim::Elections::ElectionResultType, { null: true }], "The voting results related to this answer", null: true
     end
   end
