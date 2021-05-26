@@ -24,7 +24,6 @@ namespace :decidim do
 
       # Replace DECIDIM_PATH by the path to the gem
       gsub_file rails_app_path.join("config/webpack/custom.js"), /DECIDIM_PATH/, decidim_path.to_s
-      gsub_file rails_app_path.join("config/webpacker.yml"), /DECIDIM_PATH/, decidim_path.to_s
 
       # Install JS dependencies
       system! "npm ci"
