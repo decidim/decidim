@@ -249,6 +249,7 @@ ca:
             success: Trobada tancada amb èxit
           create:
             invalid: S'ha produït un error en crear aquesta trobada
+            success: S'ha creat la trobada correctament. Adona-te'n que per a fer-la pública, ho hauràs de fer manualment.
           destroy:
             invalid:
               proposals_count:
@@ -274,6 +275,9 @@ ca:
           new:
             create: Crear
             title: Crear trobada
+          publish:
+            invalid: S'ha produït un error en publicar la trobada
+            success: La trobada ara ja és pública
           service:
             description: Descripció
             down: Baixar
@@ -284,6 +288,9 @@ ca:
           services:
             add_service: Afegeix servei
             services: Serveis
+          unpublish:
+            invalid: Hi ha hagut un problema en en despublicar la trobada
+            success: La trobada ara ja no és pública
           update:
             invalid: S'ha produït un error en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
