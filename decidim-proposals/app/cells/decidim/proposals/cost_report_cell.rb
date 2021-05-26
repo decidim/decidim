@@ -14,7 +14,7 @@ module Decidim
       private
 
       def cost
-        number_to_currency(model.cost)
+        number_to_currency(model.cost, unit: Decidim.currency_unit)
       end
 
       def cost_report

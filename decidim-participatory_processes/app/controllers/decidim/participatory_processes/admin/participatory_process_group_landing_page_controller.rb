@@ -6,58 +6,46 @@ module Decidim
       # Controller that allows managing the participatory process group landing
       # page
       class ParticipatoryProcessGroupLandingPageController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
-        helper_method :active_blocks, :inactive_blocks, :participatory_process_group
+        include Decidim::Admin::LandingPage
 
-        def edit
-          enforce_permission_to :update, :process_group, process_group: participatory_process_group
-          render layout: "decidim/admin/participatory_process_group"
+        layout "decidim/admin/participatory_process_group"
+
+        helper_method :participatory_process_group
+
+        def content_block_scope
+          :participatory_process_group_homepage
         end
 
-        def update
-          enforce_permission_to :update, :process_group, process_group: participatory_process_group
-          Decidim::Admin::ReorderContentBlocks.call(current_organization, :participatory_process_group_homepage, params[:manifests], participatory_process_group.id) do
-            on(:ok) do
-              head :ok
-            end
-            on(:invalid) do
-              head :bad_request
-            end
-          end
+        def scoped_resource
+          @scoped_resource ||= collection.find(params[:participatory_process_group_id])
         end
+
+        def enforce_permission_to_update_resource
+          enforce_permission_to :update, :process_group, process_group: scoped_resource
+        end
+
+        def resource_sort_url
+          participatory_process_group_landing_page_path(scoped_resource)
+        end
+
+        def active_content_blocks_title
+          t("participatory_process_group_landing_page.edit.active_content_blocks", scope: "decidim.admin")
+        end
+
+        def inactive_content_blocks_title
+          t("participatory_process_group_landing_page.edit.inactive_content_blocks", scope: "decidim.admin")
+        end
+
+        def resource_content_block_cell
+          "decidim/participatory_process_groups/content_block"
+        end
+
+        alias participatory_process_group scoped_resource
 
         private
 
-        def participatory_process_group
-          @participatory_process_group ||= collection.find(params[:participatory_process_group_id])
-        end
-
         def collection
           @collection ||= OrganizationParticipatoryProcessGroups.new(current_user.organization).query
-        end
-
-        def content_blocks
-          @content_blocks ||= Decidim::ContentBlock.for_scope(
-            :participatory_process_group_homepage,
-            organization: current_organization
-          ).where(scoped_resource_id: participatory_process_group.id)
-        end
-
-        def active_blocks
-          @active_blocks ||= content_blocks.published
-        end
-
-        def inactive_blocks
-          @inactive_blocks ||= content_blocks.unpublished + unused_manifests
-        end
-
-        def used_manifests
-          @used_manifests ||= content_blocks.map(&:manifest_name)
-        end
-
-        def unused_manifests
-          @unused_manifests ||= Decidim.content_blocks.for(:participatory_process_group_homepage).reject do |manifest|
-            used_manifests.include?(manifest.name.to_s)
-          end
         end
       end
     end

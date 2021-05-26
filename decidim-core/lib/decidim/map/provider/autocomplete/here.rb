@@ -10,7 +10,7 @@ module Decidim
           class Builder < Decidim::Map::Autocomplete::Builder
             # @see Decidim::Map::FrontendUtility::Builder#javascript_snippets
             def javascript_snippets
-              template.javascript_include_tag("decidim/geocoding/provider/here")
+              template.javascript_pack_tag("decidim_geocoding_provider_here")
             end
           end
         end

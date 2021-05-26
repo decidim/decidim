@@ -26,6 +26,7 @@ module Decidim
         request = create_request
 
         if request.persisted?
+          notify_author
           broadcast(:ok, request)
         else
           broadcast(:invalid, request)
@@ -46,6 +47,23 @@ module Decidim
 
         request.save
         request
+      end
+
+      def notify_author
+        return if initiative.author == current_user
+
+        Decidim::EventsManager.publish(
+          event: "decidim.events.initiatives.spawn_committee_request",
+          event_class: Decidim::Initiatives::SpawnCommitteeRequestEvent,
+          resource: initiative,
+          affected_users: [initiative.author],
+          force_send: true,
+          extra: { applicant: current_user }
+        )
+      end
+
+      def initiative
+        @initiative ||= Decidim::Initiative.find(form.initiative_id)
       end
     end
   end

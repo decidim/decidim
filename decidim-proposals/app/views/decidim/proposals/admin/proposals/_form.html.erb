@@ -84,6 +84,12 @@
 
             <div class="row column">
               <%= form.upload :file, optional: false %>
+              <% if params[:id].present? %>
+                <% if proposal.documents.present? %>
+                  <%= form.hidden_field :id, value: proposal.documents.first.id %>
+                  <%= form.check_box :delete_file, label: t(".delete_attachment"), value: proposal.documents.first.id %>
+                <% end %>
+              <% end %>
             </div>
           <% end %>
         </fieldset>
@@ -92,4 +98,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/proposals/admin/proposals_form" %>
+<%= javascript_pack_tag "decidim_proposals_admin" %>

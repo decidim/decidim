@@ -24,7 +24,7 @@ shared_context "with frontend map builder" do
     end
   end
   let(:organization) { create(:organization) }
-  let(:template) { template_class.new }
+  let(:template) { template_class.new(ActionView::LookupContext.new(nil)) }
   let(:options) { {} }
   let(:js_options) { options.transform_keys { |k| k.to_s.camelize(:lower) }.to_h }
 
@@ -67,20 +67,26 @@ shared_context "with frontend map elements" do
         <html lang="en">
         <head>
           <title>Map Test</title>
-          #{stylesheet_link_tag "application"}
-          #{javascript_include_tag "application"}
+          #{stylesheet_pack_tag "decidim_core"}
+          #{javascript_pack_tag "decidim_core"}
           #{builder.stylesheet_snippets}
           #{builder.javascript_snippets}
           #{head_extra}
         </head>
         <body>
-          #{document_inner}
+          <header>
+            <a href="#content">Skip to main content</a>
+          </header>
+          <main id="content">
+            <h1>Map Test</h1>
+            #{document_inner}
+          </main>
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
             // finished loading.
-            $(document).ready(function() {
+            window.$(document).ready(function() {
               setTimeout(function() {
-                $("body").append('<div id="ready_indicator">Document ready</div>');
+                window.$("body").append('<div id="ready_indicator">Document ready</div>');
               }, 1000);
             });
           </script>
@@ -119,16 +125,27 @@ shared_examples "a page with dynamic map" do
     let(:html_body) do
       builder = subject
       template.instance_eval do
-        builder.map_element(id: "map", class: "google-map") do
-          content_tag(:span, "", id: "map_inner")
+        # Create two separate map elements to make sure generating multiple
+        # map elements won't produce any HTML or accessibility validation
+        # errors.
+        content = builder.map_element(id: "map1", class: "google-map") do
+          content_tag(:span, "", id: "map1_inner")
         end
+        content += builder.map_element(id: "map2", class: "google-map") do
+          content_tag(:span, "", id: "map2_inner")
+        end
+        content
       end
     end
   end
 
-  it "displays the map" do
-    expect(page).to have_selector("#map.google-map", visible: :all)
-    expect(page).to have_selector("#map_inner", visible: :all)
+  it_behaves_like "accessible page"
+
+  it "displays the maps" do
+    expect(page).to have_selector("#map1.google-map", visible: :all)
+    expect(page).to have_selector("#map1_inner", visible: :all)
+    expect(page).to have_selector("#map2.google-map", visible: :all)
+    expect(page).to have_selector("#map2_inner", visible: :all)
   end
 end
 

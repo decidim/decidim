@@ -29,13 +29,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Sortasi baru ditambahkan ke %{participatory_space_title}
           notification_title: Sortasi <a href="%{resource_path}">%{resource_title}</a> telah ditambahkan ke %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortasi
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortasi
     sortitions:
       admin:
         actions:

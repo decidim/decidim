@@ -43,12 +43,12 @@ module Decidim
       def headers
         return [] if processed_collection.empty?
 
-        processed_collection.first.keys
+        processed_collection.inject([]) { |keys, resource| keys | resource.keys }
       end
 
       def processed_collection
         @processed_collection ||= collection.map do |resource|
-          flatten(@serializer.new(resource).serialize)
+          flatten(@serializer.new(resource).run)
         end
       end
 

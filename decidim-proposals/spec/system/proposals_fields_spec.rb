@@ -11,7 +11,7 @@ describe "Proposals", type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 

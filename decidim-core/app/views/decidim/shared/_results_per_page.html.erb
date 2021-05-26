@@ -7,18 +7,18 @@
       data-disable-hover="true"
       data-click-open="true"
       data-close-on-click="true"
-      tabindex="-1">
-      <li class="is-dropdown-submenu-parent" tabindex="-1">
-        <a href="#" id="<%= menu_id %>-control" aria-controls="<%= menu_id %>" aria-haspopup="true" title="<%= t("decidim.shared.results_per_page.title") %>"><%= per_page %></a>
-        <ul id="<%= menu_id %>" class="menu" role="menu" aria-labelledby="<%= menu_id %>-control" tabindex="-1">
+      role="menubar">
+      <li class="is-dropdown-submenu-parent" role="presentation">
+        <a href="#" id="<%= menu_id %>-control" aria-controls="<%= menu_id %>" aria-haspopup="true" title="<%= t("decidim.shared.results_per_page.title") %>" role="menuitem"><%= per_page %></a>
+        <ul id="<%= menu_id %>" class="menu" role="menu" aria-labelledby="<%= menu_id %>-control">
           <% Decidim::Paginable::OPTIONS.each do |per_page_option| %>
-            <li>
+            <li role="presentation">
               <%= link_to per_page_option,
                           url_for(params.to_unsafe_h.merge(page: nil, per_page: per_page_option)),
                           data: { per_page_option: per_page_option },
                           remote: true,
                           title: t("decidim.shared.results_per_page.title"),
-                          tabindex: "-1" %>
+                          role: "menuitem" %>
             </li>
           <% end %>
         </ul>

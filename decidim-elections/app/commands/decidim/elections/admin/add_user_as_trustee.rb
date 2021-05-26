@@ -38,7 +38,8 @@ module Decidim
           @trustee = Decidim.traceability.create!(
             Trustee,
             form.current_user,
-            user: form.user
+            user: form.user,
+            organization: form.user.organization
           )
         end
 
@@ -48,7 +49,7 @@ module Decidim
           @existing_trustee_participatory_spaces ||= Decidim::Elections::Trustee.joins(:trustees_participatory_spaces)
                                                                                 .includes([:user])
                                                                                 .where(trustees_participatory_spaces: trustees_space)
-                                                                                .where("decidim_user_id = ?", form.user.id).any?
+                                                                                .where(decidim_user_id: form.user.id).any?
         end
 
         # if there's no user - trustee relation, the trustee gets created and the notification

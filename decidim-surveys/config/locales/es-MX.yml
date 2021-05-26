@@ -21,8 +21,12 @@ es-MX:
           global:
             announcement: Anuncio
             clean_after_publish: Borrar respuestas al publicar la encuesta
+            ends_at: Respuestas aceptadas hasta
+            ends_at_help: Dejar en blanco para ninguna fecha específica
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            starts_at: Respuestas aceptadas de
+            starts_at_help: Dejar en blanco para ninguna fecha específica
           step:
             allow_answers: Permitir respuestas
             allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
@@ -45,6 +49,8 @@ es-MX:
         description: Número de encuestas respondidas por los usuarios
         object: respuestas a encuestas
         title: Respuestas a encuestas
+    statistics:
+      answers_count: Respuestas
     surveys:
       admin:
         exports:

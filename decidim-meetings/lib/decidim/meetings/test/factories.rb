@@ -38,10 +38,13 @@ FactoryBot.define do
     registration_type { :on_this_platform }
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
-    salt { SecureRandom.hex(32) }
 
     author do
       component.try(:organization)
+    end
+
+    trait :published do
+      published_at { Time.current }
     end
 
     trait :online do
@@ -105,6 +108,10 @@ FactoryBot.define do
 
     trait :upcoming do
       start_time { Faker::Time.between(from: 1.day.from_now, to: 10.days.from_now) }
+    end
+
+    factory :published_meeting do
+      published_at { Time.current }
     end
   end
 

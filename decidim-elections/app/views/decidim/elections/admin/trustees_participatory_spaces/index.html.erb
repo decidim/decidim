@@ -23,7 +23,11 @@
           <% trustees.each do |trustee| %>
             <tr>
               <td>
-                <%= trustee.user.name %>
+                <% if trustee.name.present? %>
+                  <%= trustee.name %>
+                <% else %>
+                  <%= trustee.user.name %>
+                <% end %>
               </td>
               <td>
                 <%= trustee.user.email %>
@@ -45,13 +49,13 @@
                 <% if allowed_to?(:update, :trustee_participatory_space, trustee_participatory_space: trustee_current_participatory_space(trustee)) %>
                   <%= icon_link_to considered_icon_action_for(trustee), edit_trustee_path(trustee_current_participatory_space(trustee)), considered_label_action_for(trustee), class: "action-icon--edit" %>
                 <% else %>
-                  <%= icon considered_icon_action_for(trustee), class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon considered_icon_action_for(trustee), class: "action-icon action-icon--disabled", role: "img", aria_label: considered_label_action_for(trustee) %>
                 <% end %>
 
                 <% if allowed_to?(:delete, :trustee_participatory_space, trustee_participatory_space: trustee_current_participatory_space(trustee)) %>
                   <%= icon_link_to "circle-x", trustee_path(trustee_current_participatory_space(trustee)), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.elections") %>
                 <% end %>
               </td>
             </tr>

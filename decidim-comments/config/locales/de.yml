@@ -39,7 +39,13 @@ de:
           user_group_id:
             label: Kommentieren als
         opinion:
+          label: Ihre Meinung zu diesem Thema
+          negative: Negativ
+          negative_selected: Ihre Meinung zu diesem Thema ist negativ
           neutral: Neutral
+          neutral_selected: Ihre Meinung zu diesem Thema ist neutral
+          positive: Positiv
+          positive_selected: Ihre Meinung zu diesem Thema ist positiv
         remaining_characters: "%{count} Zeichen übrig"
         remaining_characters_1: "%{count} Zeichen übrig"
         title: Kommentar hinzufügen
@@ -73,6 +79,7 @@ de:
       comment_thread:
         title: Konversation mit %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Sie müssen aktuell verifiziert sein um zu kommentieren, aber Sie können die bisherigen Kommentare lesen.
         blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.
         blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
         comment_details_title: Kommentarinformationen
@@ -103,6 +110,16 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" oder seinem Autor folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
           notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Ihr Kommentar in "%{resource_title}" wurde negativ bewertet. Er hat nun insgesamt %{upvotes} positive und %{downvotes} negative Stimmen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
+          email_subject: Ihr Kommentar in "%{resource_title}" wurde negativ bewertet.
+          notification_title: Ihr <a href="%{resource_path}">Kommentar</a> in "%{resource_title}" wurde negativ bewertet. Er hat nun insgesamt %{upvotes} positive und %{downvotes} negative Stimmen.
+        comment_upvoted:
+          email_intro: Ihr Kommentar in "%{resource_title}" wurde positiv bewertet. Er hat nun insgesamt %{upvotes} positive und %{downvotes} negative Stimmen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
+          email_subject: Ihr Kommentar in "%{resource_title}" wurde positiv bewertet.
+          notification_title: Ihr <a href="%{resource_path}">Kommentar</a> in "%{resource_title}" wurde positiv bewertet. Er hat nun insgesamt %{upvotes} positive und %{downvotes} negative Stimmen.
         reply_created:
           email_intro: "%{author_name} hat auf Ihren Kommentar zu %{resource_title} geantwortet. Sie können das auf dieser Seite lesen:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.

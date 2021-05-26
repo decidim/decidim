@@ -21,6 +21,9 @@ module Decidim
           update_trustee!
 
           broadcast(:ok, trustee)
+        rescue ActiveRecord::RecordNotUnique
+          form.errors.add(:name, :taken)
+          broadcast(:invalid)
         end
 
         private
@@ -31,6 +34,7 @@ module Decidim
 
         def update_trustee!
           trustee.update!(
+            name: form.name,
             public_key: form.public_key
           )
         end

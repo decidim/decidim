@@ -34,16 +34,8 @@ pt:
             confirm: As autorizações do tipo "Revogar antes de data" não podem ser anuladas. Tem a certeza de que pretende continuar?
             confirm_all: A opção de revogar todas as autorizações não pode ser anulada. Tem a certeza de que pretende continuar?
           destroy_nok: Ocorreu um problema ao revogar as autorizações.
-          destroy_ok: Todas as autorizações correspondentes foram revogadas corretamente!
           info: Existe um total de %{count} participantes verificados.
           no_data: Não existem participantes verificados
-          title: Revogação da verificação
-        authorization_workflows: Verificações
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} atualizou a configuração de verificação de Documentos de Identidade"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} verificou %{resource_name} usando verificação de Documentos de Identidade off-line"
     authorization_handlers:
       admin:
         csv_census:

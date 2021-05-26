@@ -7,7 +7,8 @@ In order to develop on decidim, you'll need:
 * *Git* 2.15+
 * *PostgreSQL* 9.5+
 * *Ruby* 2.5.0 (2.3+ should work just fine, but that's the version we test against)
-* *NodeJS* 9.x.x
+* *NodeJS* 15.14.x
+* *Npm* 7.7.x
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
 

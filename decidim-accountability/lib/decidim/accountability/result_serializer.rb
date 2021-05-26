@@ -48,6 +48,7 @@ module Decidim
       private
 
       attr_reader :result
+      alias resource result
 
       def component
         result.component

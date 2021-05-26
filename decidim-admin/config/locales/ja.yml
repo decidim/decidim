@@ -24,13 +24,17 @@ ja:
       component:
         name: 名前
         published_at: 公開日時
-        weight: 重量
+        weight: 順番の位置
       id: ID
+      import:
+        user_group_id: インポートを作成
       newsletter:
         body: 本文
         subject: 件名
       organization:
+        admin_terms_of_use_body: 管理者の利用規約の本文
         alert_color: アラート
+        available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
         comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
         cta_button_path: Call To Action ボタンのパス
@@ -39,8 +43,11 @@ ja:
         default_locale: 既定のロケール：
         description: 説明
         enable_omnipresent_banner: Show omnipresent banner
+        enable_participatory_space_filters: 参加スペースフィルタを有効にする
         facebook_handler: Facebook handler
         favicon: アイコン
+        force_authentication: 認証の強制
+        force_users_to_authenticate_before_access_organization: 組織にアクセスする前にユーザーの認証を強制する
         from: メールアドレスから
         github_handler: GitHub handler
         header_snippets: ヘッダスニペットを表示
@@ -53,6 +60,7 @@ ja:
         highlighted_content_banner_image: 画像
         highlighted_content_banner_short_description: 短い説明
         highlighted_content_banner_title: タイトル
+        host: ホスト
         instagram_handler: Instagram handler
         logo: ロゴ
         machine_translation_display_priority: 機械翻訳表示の優先度
@@ -65,16 +73,21 @@ ja:
         omnipresent_banner_short_description: 短い説明
         omnipresent_banner_title: タイトル
         omnipresent_banner_url: URL
+        organization_admin_email: 組織管理者メールアドレス
+        organization_admin_name: 組織管理者名
+        organization_locales: 組織のロケール
         primary_color: プライマリ（プライマリ）
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: Secondary
+        secondary_hosts: セカンダリホスト
         send_welcome_notification: ウェルカム通知を送信
         success_color: 成功
         time_zone: タイムゾーン
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: グループを有効にする
+        users_registration_mode: ユーザー登録モード
         warning_color: 警告
         welcome_notification_body: Welcome通知本文
         welcome_notification_subject: ウェルカム通知の件名
@@ -90,19 +103,20 @@ ja:
         name: 名前
         organization: 組織
         plural: 複数形
+      settings:
+        scope_id: スコープ
       static_page:
+        allow_public_access: 認証なしでのアクセスを許可
         changed_notably: 目立つ変更がありました。
         content: コンテンツ
         organization: 組織
         show_in_footer: フッターに表示
         slug: URL スラグ
         title: タイトル
-        weight: 重量
       static_page_topic:
         description: 説明
         show_in_footer: フッターに表示
         title: タイトル
-        weight: 重量
       user_group_csv_verification:
         file: ファイル
     errors:
@@ -113,6 +127,10 @@ ja:
               allowed_file_content_types: 無効な画像ファイル
             official_img_header:
               allowed_file_content_types: 無効な画像ファイル
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: MIMEタイプが無効です
   activerecord:
     attributes:
       decidim/static_page:
@@ -132,19 +150,29 @@ ja:
       actions:
         add: 追加
         browse: 検索
+        category:
+          new: 新しいカテゴリ
         export: エクスポート
+        import: インポート
         manage: 管理
         new: 新しい %{name}
+        newsletter:
+          new: 新しいニュースレター
+        participatory_space_private_user:
+          new: 新しい参加スペースのプライベートユーザー
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
         share: 共有
+        user:
+          new: 新規ユーザー
         verify: 確認する
       admin_terms_of_use:
         accept:
           error: 管理者の利用規約に同意中にエラーが発生しました。
           success: 素晴らしい！管理者の利用規約に同意しました。
         actions:
+          accept: 次の規約に同意します
           are_you_sure: 管理者の条件を拒否してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
@@ -223,6 +251,10 @@ ja:
       autocomplete:
         no_results: 結果が見つかりませんでした
         search_prompt: 検索するには少なくとも3文字を入力してください
+      block_user:
+        new:
+          justification: 判定理由
+          title: ユーザー %{name} をブロックする
       categories:
         create:
           error: このカテゴリの作成中に問題が発生しました。
@@ -278,6 +310,8 @@ ja:
         update:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
+      conflicts:
+        'false': 'いいえ'
       dashboard:
         show:
           view_more_logs: もっとログを見る
@@ -355,6 +389,16 @@ ja:
           impersonate_existing_managed_user: 参加者を管理 "%{name}"
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
+      imports:
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: 戻る
+          import: インポート
+        notice: "%{number} %{resource_name} を正常にインポートしました"
       logs:
         logs_list:
           no_logs_yet: ログはまだありません
@@ -378,8 +422,10 @@ ja:
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
+        moderation: グローバルモデレーション
         newsletters: ニュースレター
         participants: 参加者
+        reported_users: 報告済みユーザー
         scope_types: スコープの種類
         scopes: スコープ
         settings: 設定
@@ -467,6 +513,17 @@ ja:
             phone: 電話番号
             state: 都道府県：
             users_count: 参加者数
+      moderated_users:
+        index:
+          actions:
+            title: アクション
+            unreport: 報告解除
+          nickname: ニックネーム
+        report:
+          reasons:
+            spam: スパム
+        tabs:
+          unblocked: 未ブロック
       moderations:
         index:
           title: モデレーション
@@ -475,6 +532,9 @@ ja:
             does_not_belong: 属していません
             offensive: 攻撃
             spam: スパム
+        reports:
+          index:
+            author: 投稿者
       newsletter_templates:
         index:
           preview_template: プレビュー
@@ -806,7 +866,7 @@ ja:
         not_hidden: 非表示にしない
         title: アクション
         unhide: Unhide
-        unreport: 未報告
+        unreport: 報告解除
       admin:
         reportable:
           hide:
@@ -816,7 +876,7 @@ ja:
             invalid: リソースの非表示解除中に問題が発生しました。
             success: リソースの非表示を解除しました。
           unreport:
-            invalid: リソースの未報告中に問題が発生しました。
+            invalid: リソースの報告解除中に問題が発生しました。
             success: リソースの報告を解除しました。
       models:
         moderation:

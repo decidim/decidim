@@ -1,0 +1,28 @@
+.external-link-container{
+  position: relative;
+}
+
+.external-link-indicator{
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  width: .5em;
+  margin: 0 .2rem 0 .1rem;
+  height: .5em;
+
+  .icon{
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  a img + &{
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    background-color: rgba(white, .9);
+    padding: .2em;
+    width: .9rem;
+    height: .9rem;
+  }
+}

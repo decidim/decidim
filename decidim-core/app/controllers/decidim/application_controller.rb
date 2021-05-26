@@ -11,13 +11,13 @@ module Decidim
     include NeedsPermission
     include PayloadInfo
     include ImpersonateUsers
+    include HasStoredPath
     include NeedsTosAccepted
     include HttpCachingDisabler
     include ActionAuthorization
     include ForceAuthentication
     include SafeRedirect
     include NeedsSnippets
-
     include UserBlockedChecker
 
     helper Decidim::MetaTagsHelper
@@ -37,10 +37,6 @@ module Decidim
                          ::Decidim::Admin::Permissions,
                          ::Decidim::Permissions)
 
-    # Saves the location before loading each page so we can return to the
-    # right page.
-    before_action :store_current_location
-
     before_action :store_machine_translations_toggle
     helper_method :machine_translations_toggled?
 
@@ -53,16 +49,25 @@ module Decidim
 
     private
 
-    # Stores the url where the user will be redirected after login.
+    # This overrides Devise's method for extracting the path from the URL. We
+    # want to ensure the path to be stored in the cookie is not too long in
+    # order to avoid ActionDispatch::Cookies::CookieOverflow exception. If the
+    # session cookie (containing all the session data) is over 4 KB in length,
+    # it would lead to an exception if the cookie store is being used. This is
+    # a hard constraint set by ActionDispatch because some browsers do not allow
+    # cookies over 4 KB.
     #
-    # Uses the `redirect_url` param or the current url if there's no param.
-    # In Devise controllers we only store the URL if it's from the params, we don't
-    # want to overwrite the stored URL for a Devise one.
-    def store_current_location
-      return if skip_store_location?
+    # Original code in Devise: https://git.io/Jt6wt
+    def extract_path_from_location(location)
+      path = super
+      return path unless Rails.application.config.session_store == ActionDispatch::Session::CookieStore
 
-      value = redirect_url || request.url
-      store_location_for(:user, value)
+      # Allow 3 KB size for the path because there can be also some other
+      # session variables out there.
+      return path if path.bytesize <= ActionDispatch::Cookies::MAX_COOKIE_SIZE - 1024
+
+      # For too long paths, remove the URL parameters
+      path.split("?").first
     end
 
     # We store whether the user is requesting to toggle the translations or not.
@@ -77,21 +82,9 @@ module Decidim
       RequestStore.store[:toggle_machine_translations]
     end
 
-    def skip_store_location?
-      # Skip if Devise already handles the redirection
-      return true if devise_controller? && redirect_url.blank?
-      # Skip for all non-HTML requests"
-      return true unless request.format.html?
-      # Skip if a signed in user requests the TOS page without having agreed to
-      # the TOS. Most of the times this is because of a redirect to the TOS
-      # page (in which case the desired location is somewhere else after the
-      # TOS is agreed).
-      return true if current_user && !current_user.tos_accepted? && request.path == tos_path
-
-      false
-    end
-
     def user_has_no_permission_path
+      return decidim.new_user_session_path unless user_signed_in?
+
       decidim.root_path
     end
 

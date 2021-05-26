@@ -237,7 +237,6 @@ it:
             success: OK, il meeting è stato chiuso.
           create:
             invalid: C'è stato un problema durante la creazione di questo meeting.
-            success: OK, il meeting è stato creato con successo.
           destroy:
             invalid:
               proposals_count:
@@ -410,7 +409,6 @@ it:
           contributions: Conteggio dei contributi
           date: Data
           edit_meeting: Modifica la riunione
-          going: Parteciperò
           join: Partecipa alla riunione
           meeting_report: Rapporto della riunione
           no_slots_available: Nessuna slot disponibile

@@ -7,7 +7,7 @@ require "decidim/core/test/shared_examples/input_sort_examples"
 module Decidim
   module ParticipatoryProcesses
     describe ParticipatoryProcessInputSort, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:type_class) { Decidim::Api::QueryType }
       let!(:models) { create_list(:participatory_process, 3, :published, organization: current_organization) }
 

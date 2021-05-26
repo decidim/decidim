@@ -139,10 +139,8 @@ pt:
             other: "%{count} eleições"
         show:
           preview: Pré-visualizar
-          vote: Voto
           voting_period_status:
             finished: A votação começou em %{start_time} e terminou em %{end_time}
-            ongoing: A votação termina em %{end_time}
             upcoming: A votação começa em %{start_time}
       models:
         answer:
@@ -173,16 +171,10 @@ pt:
           experience: Como foi a sua experiência?
           feedback: Dê-nos algum feedback
           header: Voto confirmado
-          lead: O seu voto já foi transmitido!
           text: 'Pode verificar que o seu voto foi adicionado corretamente à caixa de voto com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: Para verificá-lo, copie o identificador e cole-o na <a href="evote-verify">página de verificação de voto</a>
-        encrypting:
-          header: A codificar voto...
-          text: O seu voto está a ser encriptado para garantir que pode transmiti-lo anonimamente.
         header:
           confirm: Confirmar o seu voto
           confirmed: Voto confirmado
-          encrypting: A confirmar voto
         messages:
           not_allowed: Não está autorizado a votar nesta eleição neste momento.
         modal:
@@ -203,9 +195,6 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: A eleição %{resource_title} está agora ativa em %{participatory_space_title}.
           notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> está agora ativa em %{participatory_space_title}.
-    participatory_processes:
-      statistics:
-        elections_count: Eleições
   layouts:
     decidim:
       election_votes_header:

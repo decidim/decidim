@@ -295,6 +295,9 @@ zh-CN:
       show:
         related_assemblies: 相关的会议
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: 统计
       show:
         title: 参与性进程组
     participatory_process_steps:
@@ -388,25 +391,6 @@ zh-CN:
         start_date: 开始日期
         target: 谁参与
         unspecified: 未指定
-      statistics:
-        answers_count: 答案
-        comments_count: 评论
-        debates_count: 辩论
-        endorsements_count: 授权
-        followers_count: 关注者
-        headline: 统计
-        meetings_count: 会议
-        no_stats: 尚无统计数据。
-        orders_count: 支持
-        pages_count: 页 次
-        participants_count: 参加者
-        processes_count: 进程
-        projects_count: 项目
-        proposals_count: 建议
-        results_count: 成果
-        supports_count: 支持
-        surveys_count: 调查
-        users_count: 参加者
   layouts:
     decidim:
       participatory_process_groups:

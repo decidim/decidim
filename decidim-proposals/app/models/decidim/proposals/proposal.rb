@@ -107,7 +107,7 @@ module Decidim
         return unless author.is_a?(Decidim::User)
 
         joins(:coauthorships)
-          .where("decidim_coauthorships.coauthorable_type = ?", name)
+          .where(decidim_coauthorships: { coauthorable_type: name })
           .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
       end
 
@@ -374,6 +374,7 @@ module Decidim
       # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
         return true if draft?
+        return true if component.settings.proposal_edit_time == "infinite"
 
         limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit

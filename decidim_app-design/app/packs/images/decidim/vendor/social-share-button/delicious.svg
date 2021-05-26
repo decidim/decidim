@@ -1,0 +1,13 @@
+<svg width="256px" height="256px" viewBox="1899 111 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <desc>Delicious</desc>
+    <defs></defs>
+    <g id="delicious" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1899.000000, 111.000000)">
+        <rect id="bg" fill="#0076E8" x="0" y="0" width="256" height="256" rx="40"></rect>
+        <g id="Group" transform="translate(128.000000, 129.000000) rotate(90.000000) translate(-128.000000, -129.000000) translate(38.000000, 39.000000)">
+            <polygon id="Shape" fill="#FFFFFF" points="0.239990234 90.0551489 90.0155647 90.0551489 90.0155647 179.830723 0.239990234 179.830723 0.239990234 90.0551489"></polygon>
+            <polygon id="Shape-Copy" fill-opacity="0.0656136775" fill="#000000" points="0.239990234 0.169276596 90.0079051 0.169276596 90.0079051 89.9528936 0.240373213 89.9528936 0.240373213 0.169276596"></polygon>
+            <polygon id="Shape-Copy-2" fill-opacity="0.0656136775" fill="#000000" points="90 90 179.767915 90 179.767915 179.783617 90.000383 179.783617 90.000383 90"></polygon>
+            <polygon id="Shape" fill="#FFFFFF" points="89.9961702 0.169276596 179.764085 0.169276596 179.764085 89.9528936 89.9965532 89.9528936 89.9965532 0.169276596"></polygon>
+        </g>
+    </g>
+</svg>

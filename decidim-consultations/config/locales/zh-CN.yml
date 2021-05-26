@@ -115,6 +115,8 @@ zh-CN:
           questions: 问 题
           results: 成果
         questions_submenu:
+          attachments: 附件
+          categories: 类别管理
           components: 组件
           configuration: 配置
           consultation: Consultation
@@ -311,10 +313,6 @@ zh-CN:
           title: 什么是协商？
     menu:
       consultations: 协商
-    pages:
-      home:
-        statistics:
-          consultations_count: 协商
     questions:
       next_button: 下一个问题
       previous_button: 上一个问题
@@ -351,10 +349,6 @@ zh-CN:
           vote: 投票
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: 附件
-          categories: 类别管理
       consultation_voting_data:
         start_voting_date: 投票开始
       question_components:

@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Initiatives
     describe InitiativeType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:initiative, online_votes: { "total" => 5 }, offline_votes: { "total" => 3 }) }
 

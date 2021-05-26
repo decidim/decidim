@@ -1,0 +1,30 @@
+<section class="wrapper-home home-section">
+  <div class="row" id="highlighted-votings">
+    <h3 class="section-heading"><%= t("active_votings", scope: i18n_scope) %></h3>
+    <div class="row collapse">
+      <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
+        large-up-4 card-grid">
+        <% highlighted_votings.each do |voting| %>
+          <div class="column">
+            <%= link_to decidim_votings.voting_path(voting), class: "card card--voting card--mini" do %>
+              <div aria-hidden="true" class="card__image-top"
+                style="background-image:url(<%= voting.banner_image.url %>)"></div>
+              <div class="card__content">
+                <span class="card__title card__link"><%= translated_attribute voting.title %></span>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="see-all-votings">
+    <div class="columns small-centered small-12
+      smallmedium-8 medium-6 large-4">
+      <%= link_to t("see_all_votings", scope: i18n_scope),
+                  decidim_votings.votings_path,
+                  class: "button expanded hollow button--sc home-section__cta",
+                  title: t("votings_button_title", scope: i18n_scope) %>
+    </div>
+  </div>
+</section>

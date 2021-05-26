@@ -238,7 +238,6 @@ ar:
             success: تم إغلاق الاجتماع بنجاح
           create:
             invalid: كانت هناك مشكلة في إنشاء هذا الاجتماع
-            success: تم إنشاء الاجتماع بنجاح
           destroy:
             success: تم حذف الاجتماع بنجاح
           edit:
@@ -371,7 +370,6 @@ ar:
         show:
           attendees: الحضور الحضور
           contributions: عدد المساهمات
-          going: ذاهب
           join: أنضم إلى الأجتماع
           meeting_report: تقرير الاجتماع
           no_slots_available: لا فتحات المتاحة

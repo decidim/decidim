@@ -27,14 +27,14 @@ describe Decidim::Initiatives::Admin::SupportThresholdReachedEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("Support threshold reached")
+      expect(subject.email_subject).to eq("Signatures threshold reached")
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("The initiative #{resource_title} has reached the support threshold")
+        .to eq("The initiative #{resource_title} has reached the signatures threshold")
     end
   end
 
@@ -48,7 +48,7 @@ describe Decidim::Initiatives::Admin::SupportThresholdReachedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> initiative has reached the support threshold")
+        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> initiative has reached the signatures threshold")
     end
   end
 end

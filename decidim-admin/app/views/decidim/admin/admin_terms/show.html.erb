@@ -1,4 +1,4 @@
-<%= cell("decidim/announcement", admin_terms_announcement_args ) %>
+<%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
 
 <article class="card">
   <div class="card-section grid-x grid-margin-x">

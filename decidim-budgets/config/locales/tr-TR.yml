@@ -1,16 +1,23 @@
 tr:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Kapsam
+        description: Açıklama
+        title: Başlık
+        total_budget: Toplam bütçe
       project:
+        budget_amount: Bütçe tutarı
         decidim_category_id: Kategori
-        decidim_scope_id: kapsam
+        decidim_scope_id: Kapsam
         description: Açıklama
         proposal_ids: İlgili teklifler
+        selected: Uygulama için seçildi
         title: Başlık
   activerecord:
     models:
       decidim/budgets/project:
-        one: proje
+        one: Proje
         other: Projeler
   decidim:
     budgets:
@@ -18,13 +25,37 @@ tr:
         attachment_collections: Klasörler
         attachments: Ekler
         confirm_destroy: Bu projeyi silmek istediğinize emin misiniz?
-        destroy: silmek
+        destroy: Sil
         edit: Düzenle
-        import: Projelere teklif alma
-        preview: Ön izleme
+        edit_projects: Projeleri Yönet
+        import: Teklifleri projelere aktarın
+        new: Yeni %{name}
+        preview: Önizleme
         title: Eylemler
       admin:
+        budgets:
+          create:
+            invalid: Bu bütçe oluşturulurken bir sorunla karşılaşıldı
+            success: Bütçe başarıyla oluşturuldu
+          destroy:
+            invalid: Bu bütçe silinirken bir sorun oluştu
+            success: Bütçe başarıyla silindi
+          edit:
+            title: Bütçeyi düzenle
+            update: Bütçeyi güncelle
+          index:
+            title: Bütçeler
+          new:
+            create: Bütçe oluştur
+            title: Yeni bütçe
+          update:
+            invalid: Bu bütçe güncellenirken bir sorunla karşılaşıldı
+            success: Bütçe başarıyla güncellendi
+        exports:
+          projects: Projeler
         models:
+          budget:
+            name: Bütçe
           project:
             name: proje
         projects:
@@ -35,45 +66,87 @@ tr:
             success: Proje başarıyla silindi
           edit:
             title: Projeyi düzenle
-            update: Güncelleştirme
+            update: Güncelle
           index:
             finished_orders: Tamamlanan oylar
             pending_orders: Bekleyen oylar
+            selected: Seçili
             title: Projeler
           new:
-            create: yaratmak
+            create: Oluştur
             title: Yeni proje
           update:
             invalid: Bu projeyi güncellerken bir sorun oluştu
             success: Proje başarıyla güncellendi
         proposals_imports:
           create:
-            invalid: Teklifleri projelere içe aktarırken bir sorun oluştu
-            success: "%{number} teklif başarıyla projelere aktarıldı"
+            invalid: Teklifleri projelere aktarırken bir sorun oluştu
+            success: "%{number} adet teklif başarıyla projelere aktarıldı"
           new:
-            create: Projelere teklif alma
+            create: Teklifleri projelere aktarın
             no_components: Bu katılımcı alanda teklifleri projelere aktarmak için başka bir teklif bileşeni yoktur.
             select_component: Lütfen bir bileşen seçin
+            title: Teklifleri içe aktar
       admin_log:
+        budget:
+          create: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini oluşturdu"
+          delete: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini sildi"
+          update: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini güncelledi"
         project:
-          create: "%{user_name} , %{space_name} alanda %{resource_name} proje yarattı"
-          delete: "%{user_name} , %{space_name} uzayda %{resource_name} projeyi sildi"
-          update: "%{user_name} , %{space_name} uzayda %{resource_name} proje güncellendi"
+          create: "%{user_name}, %{space_name} alanında %{resource_name} proje yarattı"
+          delete: "%{user_name}, %{space_name} alanında %{resource_name} projeyi sildi"
+          update: "%{user_name}, %{space_name} alanında %{resource_name} projesini güncellendi"
+      budget:
+        view: Tüm bütçe projelerini görüntüleyin
+      budget_information_modal:
+        back_to: '%{component_name} öğesine geri dön'
+        close_modal: Pencereyi kapat
+        continue: Devam et
+        more_information: Daha fazla bilgi
+      budgets_list:
+        cancel_order:
+          more_than_one: '%{name} üzerindeki oyunuzu silin ve baştan başlayın'
+          only_one: oyunuzu silin ve baştan başlayın.
+        finished_message: Oylama sürecini bitirdiniz. Katıldığınız için teşekkürler!
+        highlighted_cta: '%{name} için oy verin'
+        if_change_opinion: Fikrini değiştirdiysen, yapabilirsin
+        my_budgets: Bütçelerim
+        voted_on: '%{links} linkinden oy verdiniz'
+      limit_announcement:
+        cant_vote: Bu bütçeye oy veremezsiniz. <a href="%{landing_path}"> Başka bir bütçe deneyin </a>.
+        limit_reached: '%{links} alanında aktif oylarınız var. Bu bütçeye oy vermek için <a href="%{landing_path}"> oyunuzu silmeli ve baştan başlamalısınız </a>.'
       models:
+        budget:
+          fields:
+            name: Adı
+            projects_count: Proje sayısı
+            total_budget: Toplam bütçe
         project:
           fields:
             title: Başlık
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Seçtiğiniz projeler şunlardır:'
+          subject: '%{space_name} katılımcı alanına oy verdiniz'
+          voted_on_space: '%{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
+          voted_on_space_with_scope: '%{scope_name} (%{scope_type}) kapsamındaki %{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
       projects:
         budget_confirm:
-          cancel: İptal etmek
-          confirm: Onaylamak
+          are_you_sure: Fikrinizi değiştirirseniz, oyunuzu daha sonra değiştirebilirsiniz.
+          cancel: İptal Et
+          confirm: Onayla
           description: Bunlar bütçenin bir parçası olmak için seçtiğiniz projeler.
-          title: Oylamayı onayla
+          title: Oyu onayla
         budget_excess:
           budget_excess:
+            description: Bu proje maksimum bütçeyi aşıyor ve eklenemez. Dilerseniz daha önce eklemeyi seçmiş olduğunuz bir projeyi silebilir veya tercihlerinize göre oyunuzu verebilirsiniz.
             title: Maksimum bütçe aşıldı
           close: Kapat
-          ok: tamam
+          description: Bu proje maksimum bütçeyi aşıyor ve eklenemez. Dilerseniz daha önce eklemeyi seçmiş olduğunuz bir projeyi silebilir veya tercihlerinize göre oyunuzu verebilirsiniz.
+          ok: TAMAM
+          projects_excess:
+            description: Bu proje maksimum proje sayısını aşıyor ve eklenemez. Dilerseniz daha önce eklemeyi seçmiş olduğunuz bir projeyi silebilir veya tercihlerinize göre oyunuzu verebilirsiniz.
+            title: Maksimum proje sınırını aştı
         budget_summary:
           are_you_sure: Oyunuzu iptal etmek istediğinizden emin misiniz?
           assigned: 'atanan:'
@@ -81,30 +154,71 @@ tr:
           checked_out:
             description: Bütçeye zaten oy verdiniz. Fikrinizi değiştirdiyseniz, %{cancel_link}yapabilirsiniz.
             title: Bütçe oyu tamamlandı
+          minimum_projects_rule:
+            description: Sizce hangi projeler için bütçe ayırmalıyız? Bütçeyi belirlemek için istediğiniz en az %{minimum_number} proje seçin ve tercihlerinize göre oy verin.
+            instruction: "<li> İstediğiniz en az %{minimum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oylayın. </li>"
+          projects_rule:
+            description: Sizce hangi projeler için bütçe ayırmalıyız? İstediğiniz en az %{minimum_number} ve en fazla %{maximum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oy verin.
+            instruction: "<li> İstediğiniz en az %{minimum_number} ve en fazla %{maximum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oylayın. </li>"
+          projects_rule_maximum_only:
+            description: Sizce hangi projeler için bütçe ayırmalıyız? İstediğiniz en fazla %{maximum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oylayın.
+            instruction: "<li> İstediğiniz en fazla %{maximum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oylayın. </li>"
+          rules:
+            title: Bütçe kuralları
           title: Bütçeye siz karar verin
+          total_budget: Toplam bütçe
+          total_projects: Toplam Oy
+          vote_threshold_percent_rule:
+            description: Sizce hangi projeler için bütçe ayırmalıyız? Bütçeyi belirlemek için istediğiniz projelere en az %{minimum_budget} atayın ve tercihlerinize göre oy verin.
+            instruction: "<li> İstediğiniz projelere en az %{minimum_budget} atayın ve bütçeyi belirlemek için tercihlerinize göre oy verin. </li>"
         count:
           projects_count:
             one: 1 proje
             other: "%{count} proje"
         filters:
           category: Kategori
-          scope: kapsam
+          scope: Kapsam
           search: Arama
+          status: Durum
+          status_values:
+            all: Tümü
+            not_selected: Seçili değil
+            selected: Seçili
         filters_small_view:
-          close_modal: Kalıcı modal
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         order_progress:
-          vote: Oy
+          vote: Oy ver
         order_selected_projects:
           remove: Kaldır
           selected_projects:
-            one: proje seçildi
+            one: seçilen proje
             other: seçilen projeler
           view: Görünüm
+        orders:
+          highest_cost: En yüksek maliyet
+          label: Projeleri buna göre sırala
+          lowest_cost: En düşük maliyet
+          most_voted: En çok oylanan
+          random: Rasgele sırala
+          selected: Seçili
         project:
+          add: Oyunuza %{resource_name} projesini ekleyin
+          remove: '%{resource_name} projesini oyunuzdan çıkarın'
+          selected: Seçili
           view: Görünüm
+          votes:
+            one: oy
+            other: oylar
+          you_voted: Buna oy verdin
+        project_budget_button:
+          add: Oyunuza ekleyin
+          add_descriptive: Oyunuza %{resource_name} projesini ekleyin
+          added: Oyunuza eklendi
+          added_descriptive: '%{resource_name} projesi oyunuza eklendi'
+        projects_for: '%{name} için projeler'
         show:
           budget: Bütçe
           view_all_projects: Tüm projeleri görüntüle
@@ -115,17 +229,53 @@ tr:
         name: Bütçeler
         settings:
           global:
-            announcement: duyuru
+            announcement: Duyurular
             comments_enabled: Yorumlar etkin
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            form:
+              errors:
+                budget_voting_rule_only_one: Yalnızca bir oylama kuralı etkinleştirilmelidir
+                budget_voting_rule_required: Bir oylama kuralı gerekli
+            landing_page_content: Bütçeler ana sayfası
+            more_information_modal: Daha fazla bilgi
             projects_per_page: Sayfa başına projeler
+            resources_permissions_enabled: Her proje için eylem izinleri ayarlanabilir
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
+            title: Başlık
             total_budget: Toplam bütçe
+            vote_minimum_budget_projects_number: Oy verilecek minimum proje sayısı
+            vote_rule_minimum_budget_projects_enabled: 'Kuralı etkinleştir: Oylanacak minimum proje sayısı'
+            vote_rule_selected_projects_enabled: 'Kuralı etkinleştir: Oylanacak minimum ve maksimum sayıda projeye sahip seçilen projeler'
+            vote_rule_threshold_percent_enabled: 'Kuralı etkinleştir: Minimum bütçe yüzdesi'
+            vote_selected_projects_maximum: Seçilecek maksimum proje sayısı
+            vote_selected_projects_minimum: Seçilecek minimum proje sayısı
             vote_threshold_percent: Oy eşiği yüzde
+            workflow: İş Akışı
+            workflow_choices:
+              all: 'Hepsinde oy ver: Katılımcıların tüm bütçelerde oy kullanmasına olanak tanır.'
+              one: 'Birinde oy verin: Katılımcıların herhangi bir bütçede, ancak yalnızca bir bütçede oy kullanmasına izin verir.'
           step:
-            announcement: duyuru
+            announcement: Duyuru
             comments_blocked: Yorumlar engellendi
+            highlighted_heading: Vurgulanan başlık
+            landing_page_content: Bütçeler ana sayfası
+            list_heading: Liste başlığı
+            more_information_modal: Daha fazla bilgi
             show_votes: Oyları göster
+            title: Başlık
+            votes: Oylama
             votes_choices:
+              disabled: Oylama devre dışı
               enabled: Oylama etkin
+              finished: Oylama bitti
+    events:
+      budgets:
+        budget_published:
+          email_intro: '%{resource_title} bütçesi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{resource_title} bütçesi artık %{participatory_space_title} için aktif.'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> bütçesi artık %{participatory_space_title} için aktif.
     orders:
       checkout:
         error: Oyunuzu işleme koymada bir sorun oluştu
@@ -133,8 +283,5 @@ tr:
       destroy:
         error: Oyunuzu iptal ederken bir sorun oluştu
         success: Oyunuz başarıyla iptal edildi
-    resource_links:
-      included_proposals:
-        project_proposal: 'Bu projede yer alan teklifler:'
   index:
     confirmed_orders_count: Oy sayısı

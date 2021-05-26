@@ -5,7 +5,7 @@ module Decidim
     # A form object used to create comments from the graphql api.
     #
     class CommentForm < Form
-      attribute :body, String
+      attribute :body, Decidim::Attributes::CleanString
       attribute :alignment, Integer
       attribute :user_group_id, Integer
       attribute :commentable
@@ -19,7 +19,7 @@ module Decidim
       validate :max_depth
 
       def max_length
-        if current_component&.settings.respond_to?(:comments_max_length)
+        if current_component.try(:settings).respond_to?(:comments_max_length)
           component_length = current_component.try { settings.comments_max_length.positive? }
           return current_component.settings.comments_max_length if component_length
         end

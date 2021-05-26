@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".title") %></h2>
+  </div>
+
+  <div class="card-section">
+    <% form.messages.each do |key, value| %>
+      <% if form.errors.include?(key) %>
+        <p><%= form.errors.messages[key][0].html_safe %></p>
+      <% else %>
+        <p><%= value.html_safe %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

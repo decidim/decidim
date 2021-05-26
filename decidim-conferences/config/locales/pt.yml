@@ -22,6 +22,12 @@ pt:
         slogan: Slogan
         slug: Campo de dados dinâmicos de URL
         title: Título
+      conference_media_link:
+        weight: Peso
+      conference_partner:
+        weight: Peso
+      conference_registration_type:
+        weight: Peso
       conference_speaker:
         full_name: Nome completo
       conference_user_role:
@@ -206,7 +212,6 @@ pt:
             price: Preço
             registrations_count: Contagem de registos
             title: Título
-            weight: Peso
           name: Tipo de registo
       partners:
         create:
@@ -266,10 +271,6 @@ pt:
       conferences:
         conference_registration:
           confirm: "%{user_name} confirmou um registo da conferência na conferência %{resource_name}"
-        partner:
-          create: "%{user_name} criou %{resource_name} na conferência %{space_name}"
-          delete: "%{user_name} removeu o administrador %{resource_name} da conferência %{space_name}"
-          update: "%{user_name} atualizou %{resource_name} na conferência %{space_name}"
         registration_type:
           create: "%{user_name} criou o tipo de registo %{resource_name} na conferência %{space_name}"
           publish: "%{user_name} publicou o tipo de registo %{resource_name} na conferência %{space_name}"
@@ -490,23 +491,6 @@ pt:
         related_assemblies: Reuniões relacionadas
         related_consultations: Consultas Relacionadas
         related_participatory_processes: Processos participativos relacionados
-      statistics:
-        answers_count: Respostas
-        comments_count: Comentários
-        conference_count: Conferências
-        debates_count: Debates
-        endorsements_count: Endossos
-        headline: Atividade
-        meetings_count: Reuniões
-        orders_count: Votos
-        pages_count: Páginas
-        posts_count: Publicações
-        projects_count: Projetos
-        proposals_count: Propostas
-        results_count: Resultados
-        surveys_count: Inquéritos
-        users_count: Participantes
-        votes_count: Votos
     events:
       conferences:
         conference_registration_confirmed:

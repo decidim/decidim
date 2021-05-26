@@ -23,7 +23,6 @@ uk:
       component:
         name: Ім'я
         published_at: 'Оприлюднено:'
-        weight: Вага
       id: Псевдонім
       newsletter:
         body: Основний текст

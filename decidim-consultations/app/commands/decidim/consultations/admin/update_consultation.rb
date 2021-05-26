@@ -11,6 +11,9 @@ module Decidim
         # consultation - the Consultation to update
         # form - A form object with the params.
         def initialize(consultation, form)
+          form.banner_image = consultation.banner_image if form.banner_image.blank?
+          form.introductory_image = consultation.introductory_image if form.introductory_image.blank?
+
           @consultation = consultation
           @form = form
         end

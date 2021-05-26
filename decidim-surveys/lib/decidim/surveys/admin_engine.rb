@@ -19,8 +19,10 @@ module Decidim
       end
 
       initializer "decidim.notifications.components" do
-        Decidim::EventsManager.subscribe(/^decidim\.events\.components/) do |event_name, data|
-          CleanSurveyAnswersJob.perform_later(event_name, data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe(/^decidim\.events\.components/) do |event_name, data|
+            CleanSurveyAnswersJob.perform_later(event_name, data)
+          end
         end
       end
 

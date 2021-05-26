@@ -8,13 +8,6 @@ module Decidim
         current_organization.admin_terms_of_use_body.symbolize_keys[I18n.locale].html_safe
       end
 
-      def admin_terms_announcement_args
-        {
-          callout_class: current_user.admin_terms_accepted? ? "success" : "warning",
-          announcement: announcement_body
-        }
-      end
-
       def announcement_body
         if current_user.admin_terms_accepted?
           t("accept.success", scope: "decidim.admin.admin_terms_of_use")

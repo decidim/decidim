@@ -128,16 +128,43 @@ describe "Admin manages budgets", type: :system do
       let(:project2) { create(:project, budget: budget2, budget_amount: 95_000_000) }
       let(:user2) { create :user, :confirmed, organization: organization }
       let(:user3) { create :user, :confirmed, organization: organization }
+
+      # User has one finished and pending order
       let!(:finished_order) do
-        order = create(:order, user: user2, budget: budget)
+        order = create(:order, user: user, budget: budget)
         order.projects << project
         order.checked_out_at = Time.current
         order.save!
         order
       end
       let!(:pending_order) do
+        order = create(:order, user: user, budget: budget2)
+        order.projects << project2
+        order.save!
+        order
+      end
+
+      # User2 has two finished orders
+      let!(:finished_order2) do
+        order = create(:order, user: user2, budget: budget)
+        order.projects << project
+        order.checked_out_at = Time.current
+        order.save!
+        order
+      end
+      let!(:finished_order3) do
+        order = create(:order, user: user2, budget: budget2)
+        order.projects << project2
+        order.checked_out_at = Time.current
+        order.save!
+        order
+      end
+
+      # User3 has one finished order
+      let!(:finished_order4) do
         order = create(:order, user: user3, budget: budget2)
         order.projects << project2
+        order.checked_out_at = Time.current
         order.save!
         order
       end
@@ -145,8 +172,16 @@ describe "Admin manages budgets", type: :system do
       it "shows finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Finished orders: \n1")
-          expect(page).to have_content("Pending orders: \n1")
+          expect(page).to have_content("Finished votes: \n4")
+          expect(page).to have_content("Pending votes: \n1")
+        end
+      end
+
+      it "shows count of users with finished and pending orders" do
+        visit current_path
+        within find_all(".card-divider").last do
+          expect(page).to have_content("Users with finished votes: \n3")
+          expect(page).to have_content("Users with pending votes: \n1")
         end
       end
     end

@@ -6,7 +6,7 @@ describe "Meeting", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create :meeting, :with_services, component: component }
+  let(:meeting) { create :meeting, :published, :with_services, component: component }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   def visit_meeting
@@ -28,13 +28,13 @@ describe "Meeting", type: :system do
   end
 
   context "when component is not commentable" do
-    let!(:resources) { create_list(:meeting, 3, :with_services, component: component) }
+    let!(:resources) { create_list(:meeting, 3, :published, :with_services, component: component) }
 
     it_behaves_like "an uncommentable component"
   end
 
   context "when the meeting is the same as the current year" do
-    let(:meeting) { create(:meeting, component: component, start_time: Time.current) }
+    let(:meeting) { create(:meeting, :published, component: component, start_time: Time.current) }
 
     it "doesn't show the year" do
       visit_meeting
@@ -46,7 +46,7 @@ describe "Meeting", type: :system do
   end
 
   context "when the meeting is different from the current year" do
-    let(:meeting) { create(:meeting, component: component, start_time: 1.year.ago) }
+    let(:meeting) { create(:meeting, :published, component: component, start_time: 1.year.ago) }
 
     it "shows the year" do
       visit_meeting

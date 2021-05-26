@@ -15,6 +15,7 @@ module Decidim
       expect { described_class.new(form, user1).call }.to broadcast(:ok)
 
       expect(user2.reload.followers).not_to include(user1)
+      expect(user2.follows_count).to eq(0)
     end
 
     describe "gamification" do

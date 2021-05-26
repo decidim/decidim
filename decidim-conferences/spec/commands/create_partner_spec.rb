@@ -9,17 +9,20 @@ module Decidim::Conferences
     let(:conference) { create(:conference) }
     let(:user) { nil }
     let!(:current_user) { create :user, :confirmed, organization: conference.organization }
+    let(:logo) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+
     let(:form) do
       double(
         Admin::PartnerForm,
         invalid?: invalid,
         current_user: current_user,
         name: "Name",
+        errors: ActiveModel::Errors.new(Admin::PartnerForm),
         attributes: {
           name: "name",
           weight: 1,
           partner_type: "main_promotor",
-          logo: Decidim::Dev.test_file("avatar.jpg", "image/jpeg"),
+          logo: logo,
           link: Faker::Internet.url,
           remove_logo: false
         }
@@ -33,6 +36,21 @@ module Decidim::Conferences
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+
+      context "when image is invalid" do
+        let(:invalid) { false }
+
+        let(:logo) { Decidim::Dev.test_file("invalid.jpeg", "image/jpeg") }
+
+        before do
+          Decidim::Conferences::PartnerLogoUploader.enable_processing = true
+        end
+
+        it "prevents uploading" do
+          expect { subject.call }.not_to raise_error
+          expect { subject.call }.to broadcast(:invalid)
+        end
       end
     end
 

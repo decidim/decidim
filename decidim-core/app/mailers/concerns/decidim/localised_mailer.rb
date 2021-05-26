@@ -9,12 +9,14 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      # Yields with the I18n locale changed to the user's one.
+      # Yields with the I18n locale changed to the user's one. It will only
+      # yield if the user has an email, thus avoiding sending emails to deleted
+      # users.
       #
       # Returns nothing.
       def with_user(user)
         I18n.with_locale(user.locale || user.organization.default_locale) do
-          yield
+          yield if user.email.present?
         end
       end
 

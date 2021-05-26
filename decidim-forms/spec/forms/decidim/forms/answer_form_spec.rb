@@ -18,10 +18,19 @@ module Decidim
       let(:mandatory) { false }
       let(:question_type) { "short_answer" }
       let(:max_choices) { nil }
+      let(:max_characters) { 0 }
 
       let!(:questionable) { create(:dummy_resource) }
       let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable) }
       let!(:user) { create(:user, organization: questionable.organization) }
+
+      let(:options) do
+        [
+          { "body" => Decidim::Faker::Localized.sentence },
+          { "body" => Decidim::Faker::Localized.sentence },
+          { "body" => Decidim::Faker::Localized.sentence }
+        ]
+      end
 
       let!(:question) do
         create(
@@ -30,15 +39,13 @@ module Decidim
           mandatory: mandatory,
           question_type: question_type,
           max_choices: max_choices,
-          options: [
-            { "body" => Decidim::Faker::Localized.sentence },
-            { "body" => Decidim::Faker::Localized.sentence },
-            { "body" => Decidim::Faker::Localized.sentence }
-          ]
+          max_characters: max_characters,
+          options: options
         )
       end
 
-      let!(:answer) { build(:answer, user: user, questionnaire: questionnaire, question: question) }
+      let(:body) { Decidim::Faker::Localized.sentence }
+      let!(:answer) { build(:answer, user: user, questionnaire: questionnaire, question: question, body: body) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -65,6 +72,37 @@ module Decidim
           it "is not valid if choices are empty" do
             subject.choices = []
             expect(subject).not_to be_valid
+          end
+        end
+
+        context "and question type is files" do
+          let(:question_type) { "files" }
+          let(:uploaded_files) do
+            [
+              Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+              Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+            ]
+          end
+
+          context "when the body is empty" do
+            before do
+              subject.body = nil
+              subject.add_documents = uploaded_files
+            end
+
+            it "is valid" do
+              expect(subject).to be_valid
+            end
+          end
+
+          context "when there are no uploaded files" do
+            before do
+              subject.add_documents = nil
+            end
+
+            it "is not valid if there are no files" do
+              expect(subject).not_to be_valid
+            end
           end
         end
 
@@ -193,6 +231,40 @@ module Decidim
 
         it "saves correct matrix_row_id for each choice" do
           expect(subject.choices.map(&:matrix_row_id)).to eq [3, 2, 1]
+        end
+      end
+
+      context "when the question has a character limit" do
+        let(:max_characters) { 30 }
+
+        context "when the question has a text answer" do
+          let(:question_type) { "short_answer" }
+          let!(:answer) { build(:answer, user: user, questionnaire: questionnaire, question: question, body: "This answer is very very very long") }
+
+          it "is not valid if the answer is too long" do
+            expect(subject).not_to be_valid
+          end
+        end
+
+        context "when the option has choices" do
+          let(:question_type) { "multiple_option" }
+          let(:body) { nil }
+          let(:options) do
+            [
+              { "body" => Decidim::Faker::Localized.sentence },
+              { "body" => Decidim::Faker::Localized.sentence },
+              { "body" => Decidim::Faker::Localized.sentence, "free_text" => "1" }
+            ]
+          end
+
+          it "is not valid if a free_text answer is too long" do
+            subject.choices = [
+              { "answer_option_id" => "1", "body" => "foo" },
+              { "answer_option_id" => "3", "custom_body" => "I am a very long string that will exceed character limit" }
+            ]
+
+            expect(subject).not_to be_valid
+          end
         end
       end
     end

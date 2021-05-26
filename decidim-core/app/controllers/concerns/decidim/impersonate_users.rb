@@ -56,16 +56,24 @@ module Decidim
       # Returns the managed user impersonated by an admin if exists
       def managed_user
         return unless can_impersonate_users?
+        return if impersonation_log.blank?
 
-        impersonation_log&.user
+        @managed_user ||= begin
+          impersonation_log.ensure_not_expired!
+          impersonation_log.user
+        end
       end
 
       # Check if the active impersonation session has expired or not.
       def check_impersonation_log_expired
-        return unless can_impersonate_users? && expired_log
+        # Prevent ajax requests to follow redirect
+        return if request && request.xhr?
+        # Prevent redirect on non-HTML responses, because we want redirect AFTER impersonation.js inits a reload.
+        return if request && request.negotiate_mime([Mime[:html]]).blank?
+        return unless can_impersonate_users?
+        return unless expired_log
 
-        expired_log.ended_at = Time.current
-        expired_log.save!
+        expired_log.update!(ended_at: Time.current)
         flash[:alert] = I18n.t("managed_users.expired_session", scope: "decidim")
         redirect_to decidim_admin.impersonatable_users_path
       end

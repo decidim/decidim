@@ -1,0 +1,80 @@
+.title-bar{
+  a.logo{
+    color: #fff;
+  }
+
+  @include breakpoint(smallmedium down){
+    border-top: 2.125rem solid darken($dark-gray, 15%);
+  }
+}
+
+.tool-bar{
+  text-align: right;
+  position: absolute;
+  right: 2rem;
+  vertical-align: middle;
+
+  @include breakpoint(smallmedium down){
+    position: initial;
+  }
+
+  .dropdown.menu > li > a{
+    background: transparent;
+  }
+
+  .is-dropdown-submenu{
+    z-index: 2;
+  }
+
+  .user-login{
+    vertical-align: middle;
+    position: initial;
+    text-align: left;
+    display: inline-block;
+    margin-top: 0;
+
+    @include breakpoint(smallmedium down){
+      position: absolute;
+      right: 2rem;
+      margin-top: -1.2rem;
+    }
+  }
+
+  .language-choose{
+    position: initial;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+
+    .is-dropdown-submenu-parent a{
+      color: #fff;
+
+      &::after{
+        border-color: #fff transparent transparent !important;
+      }
+    }
+
+    .is-dropdown-submenu li > a{
+      color: $dark-gray;
+
+      &:hover{
+        background-color: lighten($medium-gray, 30%);
+      }
+    }
+
+    @include breakpoint(smallmedium down){
+      font-size: .8rem;
+      position: absolute;
+      top: -2.2rem;
+      left: .5rem;
+      margin-left: 0;
+
+      .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+        border-color: var(--secondary);
+        border-width: 3px;
+        right: 10px;
+        margin-top: 0;
+      }
+    }
+  }
+}

@@ -23,6 +23,7 @@ module Decidim
       include Decidim::Reportable
       include Decidim::Authorable
       include Decidim::TranslatableResource
+      include Decidim::Publicable
 
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
@@ -41,42 +42,54 @@ module Decidim
 
       geocoded_by :address
 
+      scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
 
       scope :visible_meeting_for, lambda { |user|
-        (all.distinct if user&.admin?) ||
+        (all.published.distinct if user&.admin?) ||
           if user.present?
-            spaces = %w(assembly participatory_process)
-            spaces << "conference" if defined?(Decidim::Conference)
-            user_role_queries = spaces.map do |participatory_space_name|
+            spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
+              {
+                name: manifest.model_class_name.constantize.table_name.singularize,
+                class_name: manifest.model_class_name
+              }
+            end
+            user_role_queries = spaces.map do |space|
+              roles_table = "#{space[:name]}_user_roles"
+              next unless connection.table_exists?(roles_table)
+
               "SELECT decidim_components.id FROM decidim_components
               WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
               IN
-              (SELECT CONCAT(decidim_#{participatory_space_name}_user_roles.decidim_#{participatory_space_name}_id, '-Decidim::#{participatory_space_name.classify}')
-              FROM decidim_#{participatory_space_name}_user_roles WHERE decidim_#{participatory_space_name}_user_roles.decidim_user_id = ?)
+              (SELECT CONCAT(#{roles_table}.#{space[:name]}_id, '-#{space[:class_name]}')
+              FROM #{roles_table} WHERE #{roles_table}.decidim_user_id = ?)
               "
             end
 
-            where("decidim_meetings_meetings.private_meeting = ?
-            OR decidim_meetings_meetings.transparent = ?
-            OR decidim_meetings_meetings.id IN
-              (SELECT decidim_meetings_registrations.decidim_meeting_id FROM decidim_meetings_registrations WHERE decidim_meetings_registrations.decidim_user_id = ?)
-            OR decidim_meetings_meetings.decidim_component_id IN
-              (SELECT decidim_components.id FROM decidim_components
+            query = "
+              decidim_meetings_meetings.private_meeting = ?
+              OR decidim_meetings_meetings.transparent = ?
+              OR decidim_meetings_meetings.id IN (
+                SELECT decidim_meetings_registrations.decidim_meeting_id FROM decidim_meetings_registrations WHERE decidim_meetings_registrations.decidim_user_id = ?
+              )
+              OR decidim_meetings_meetings.decidim_component_id IN (
+                SELECT decidim_components.id FROM decidim_components
                 WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
                 IN
                   (SELECT CONCAT(decidim_participatory_space_private_users.privatable_to_id, '-', decidim_participatory_space_private_users.privatable_to_type)
                   FROM decidim_participatory_space_private_users WHERE decidim_participatory_space_private_users.decidim_user_id = ?)
               )
-            OR decidim_meetings_meetings.decidim_component_id IN
-              (
-                #{user_role_queries.compact.join(" UNION ")}
-              )
-            ", false, true, user.id, user.id, *user_role_queries.compact.map { user.id })
-              .distinct
+            "
+            if user_role_queries.any?
+              query = "#{query} OR decidim_meetings_meetings.decidim_component_id IN
+                (#{user_role_queries.compact.join(" UNION ")})
+              "
+            end
+
+            where(query, false, true, user.id, user.id, *user_role_queries.compact.map { user.id }).published.distinct
           else
-            visible
+            published.visible
           end
       }
 
@@ -93,10 +106,11 @@ module Decidim
                           D: [:description, :address],
                           datetime: :start_time
                         },
-                        index_on_create: ->(meeting) { meeting.visible? },
-                        index_on_update: ->(meeting) { meeting.visible? })
+                        index_on_create: ->(meeting) { meeting.visible? && meeting.published? },
+                        index_on_update: ->(meeting) { meeting.visible? && meeting.published? })
 
-      after_initialize :set_default_salt
+      # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
+      before_create :set_default_salt
 
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
@@ -215,6 +229,8 @@ module Decidim
       end
 
       def authored_proposals
+        return [] unless Decidim::Meetings.enable_proposal_linking
+
         Decidim::Proposals::Proposal
           .joins(:coauthorships)
           .where(

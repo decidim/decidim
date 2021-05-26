@@ -106,7 +106,7 @@ describe Decidim::Verifications::IdDocuments::Admin::ConfirmUserOfflineAuthoriza
         .and_call_original
       expect { subject.call }.to change(Decidim::ActionLog, :count)
       action_log = Decidim::ActionLog.last
-      expect(action_log.version).not_to be_present
+      expect(action_log.version).to be_present
     end
   end
 end

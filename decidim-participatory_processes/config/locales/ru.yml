@@ -254,6 +254,9 @@ ru:
     menu:
       processes: Движения
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Деятельность
       show:
         title: Группы движений соучастия
     participatory_process_steps:
@@ -331,23 +334,6 @@ ru:
         start_date: Дата начала
         target: Кто участвует
         unspecified: Не указано
-      statistics:
-        answers_count: Ответов
-        comments_count: Комментариев
-        debates_count: Обсуждений
-        endorsements_count: Выражений поддержки
-        headline: Деятельность
-        meetings_count: Встреч
-        orders_count: Голосов
-        pages_count: Страниц
-        participants_count: Участников
-        processes_count: Движений
-        projects_count: Проектов
-        proposals_count: Предложений
-        results_count: Итогов
-        supports_count: Голосов
-        surveys_count: Опросов
-        users_count: Участников
   layouts:
     decidim:
       participatory_process_groups:

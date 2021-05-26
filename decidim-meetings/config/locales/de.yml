@@ -14,6 +14,7 @@ de:
       meeting:
         address: Adresse
         available_slots: Verfügbare Slots für dieses Meeting
+        customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
@@ -25,6 +26,7 @@ de:
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
         private_meeting: Private Sitzung
+        registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
@@ -247,7 +249,6 @@ de:
             success: Sitzung erfolgreich abgeschlossen
           create:
             invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
-            success: Besprechung erfolgreich erstellt
           destroy:
             invalid:
               proposals_count:
@@ -264,6 +265,7 @@ de:
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
@@ -325,21 +327,21 @@ de:
             success: Registrierungscode erfolgreich validiert
       admin_log:
         invite:
-          create: "%{user_name} lud %{attendee_name} , %{resource_name} Treffen auf den %{space_name} Feldern beizutreten"
-          deleted: "%{user_name} ungebeten %{attendee_name} von %{resource_name} Treffen auf dem %{space_name} Platz"
-          update: "%{user_name} lud %{attendee_name} , %{resource_name} Treffen auf den %{space_name} Feldern beizutreten"
+          create: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
+          deleted: "%{user_name} hat die Einladung von %{attendee_name} zur Sitzung %{resource_name} in %{space_name} entfernt"
+          update: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
         meeting:
-          close: "%{user_name} schloss das %{resource_name} Treffen auf dem %{space_name} Platz"
-          create: "%{user_name} erstellt das %{resource_name} Treffen auf dem %{space_name} Platz"
-          delete: "%{user_name} löschte das %{resource_name} Treffen auf dem %{space_name} Platz"
-          export_registrations: "%{user_name} exportierte die Registrierungen der %{resource_name} Sitzung auf den %{space_name} Feldern"
-          update: "%{user_name} aktualisiert das %{resource_name} Treffen auf dem %{space_name} Platz"
+          close: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} geschlossen"
+          create: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
+          export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
+          update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
           value_types:
             organizer_presenter:
               not_found: 'Der Organisator wurde nicht in der Datenbank gefunden (ID: %{id})'
         minutes:
-          create: "%{user_name} erstellt das Protokoll des Treffens %{resource_name} auf dem %{space_name} Feld"
-          update: "%{user_name} aktualisiert das Protokoll der Sitzung %{resource_name} auf den %{space_name} Feldern"
+          create: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} erstellt"
+          update: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} aktualisiert"
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
@@ -361,6 +363,7 @@ de:
             space_type: Partizipativer Raum
             upcoming: Bevorstehende
       last_activity:
+        meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
         new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -389,12 +392,15 @@ de:
           title: Ihre Besprechung bearbeiten
           update: Aktualisieren
         filters:
+          activity: Meine Aktivität
+          all: Alles
           category: Kategorie
           date: Datum
           date_values:
             all: Alle
             past: Vergangene
             upcoming: Bevorstehende
+          my_meetings: Meine Sitzungen
           origin: Ursprung
           origin_values:
             all: Alle
@@ -448,8 +454,10 @@ de:
           contributions: Beiträge zählen
           date: Datum
           edit_meeting: Besprechung bearbeiten
-          going: Gehen
+          going: Sie haben sich für diese Sitzung angemeldet
           join: Tritt dem Treffen bei
+          leave: Registrierung stornieren
+          leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
           meeting_report: Gesprächsprotokoll
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
@@ -533,6 +541,8 @@ de:
       proposals_from_meeting:
         meeting_proposal: 'Ähnliche Vorschläge:'
         proposal_meeting: 'Ähnliche Treffen:'
+    statistics:
+      meetings_count: Sitzungen
   devise:
     mailer:
       join_meeting:

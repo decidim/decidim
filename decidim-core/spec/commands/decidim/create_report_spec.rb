@@ -9,6 +9,7 @@ module Decidim
       let(:component) { create(:component, organization: organization) }
       let(:reportable) { create(:dummy_resource, component: component) }
       let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+      let!(:admin_no_moderation_mail) { create(:user, :admin, :confirmed, organization: organization, email_on_moderations: false) }
       let(:user) { create(:user, :confirmed, organization: organization) }
       let(:form) { ReportForm.from_params(form_params) }
       let(:form_params) do
@@ -77,6 +78,15 @@ module Decidim
           expect(ReportedMailer)
             .to have_received(:report)
             .with(admin, last_report)
+        end
+
+        it "doesnt send an email to the admin when he/she doesnt allow it" do
+          allow(ReportedMailer).to receive(:report).and_call_original
+          command.call
+          last_report = Report.last
+          expect(ReportedMailer)
+            .not_to have_received(:report)
+            .with(admin_no_moderation_mail, last_report)
         end
 
         context "and the reportable has been already reported two times" do

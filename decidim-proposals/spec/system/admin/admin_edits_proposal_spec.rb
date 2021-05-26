@@ -58,6 +58,39 @@ describe "Admin edits proposals", type: :system do
         expect(page).to have_content("not authorized")
       end
     end
+
+    context "when the proposal has attachement", processing_uploads_for: Decidim::AttachmentUploader do
+      let!(:component) do
+        create(:proposal_component,
+               :with_creation_enabled,
+               :with_attachments_allowed,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      let!(:proposal) do
+        create(:proposal,
+               :official,
+               component: component,
+               title: "Proposal with attachments",
+               body: "This is my proposal and I want to upload attachments.")
+      end
+
+      let!(:document) { create(:attachment, :with_pdf, attached_to: proposal) }
+
+      it "can be remove attachment" do
+        visit_component_admin
+        find("a.action-icon--edit-proposal").click
+        find("input#proposal_attachment_delete_file").set(true)
+        find(".form-general-submit .button").click
+
+        expect(page).to have_content("Proposal successfully updated.")
+
+        visit_component_admin
+        find("a.action-icon--edit-proposal").click
+        expect(page).to have_no_content("Current file")
+      end
+    end
   end
 
   describe "editing a non-official proposal" do

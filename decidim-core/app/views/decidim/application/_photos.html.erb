@@ -1,6 +1,6 @@
 <% if photos.any? %>
   <div class="section images">
-    <h3 class="section-heading"><%= t(".related_photos") %></h3>
+    <h3 class="section-heading"><%= t("decidim.application.photos.related_photos") %></h3>
     <div class="gallery row">
       <% photos.in_groups_of(3, false).each do |group| %>
         <% group.each_with_index do |photo, index| %>

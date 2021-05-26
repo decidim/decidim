@@ -26,6 +26,7 @@ module Decidim::Assemblies
         invalid?: invalid,
         title: { en: "title" },
         subtitle: { en: "subtitle" },
+        weight: 1,
         slug: "slug",
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
@@ -65,7 +66,8 @@ module Decidim::Assemblies
         facebook_handler: "lorem",
         instagram_handler: "lorem",
         youtube_handler: "lorem",
-        github_handler: "lorem"
+        github_handler: "lorem",
+        announcement: { en: "announcement_lorem" }
       )
     end
     let(:invalid) { false }

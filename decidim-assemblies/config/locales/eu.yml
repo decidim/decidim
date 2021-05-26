@@ -321,22 +321,6 @@ eu:
         scope: Esparrua
         social_networks: Sare sozialak
         target: Nor parte hartzen du
-      statistics:
-        answers_count: Erantzunak
-        assemblies_count: Biltzarrak
-        comments_count: Iruzkinak
-        debates_count: eztabaidak
-        endorsements_count: Oniritziak
-        headline: Jarduera
-        meetings_count: Topaketak
-        orders_count: Euskarriak
-        pages_count: Orriak
-        projects_count: Proiektuak
-        proposals_count: Proposamenak
-        results_count: Emaitzak
-        surveys_count: Inkestak
-        users_count: Parte-hartzaileak
-        votes_count: Euskarriak
     assembly_members:
       assembly_member:
         designated_on: Izendatuta

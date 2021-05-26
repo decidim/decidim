@@ -109,7 +109,7 @@ it:
         answer:
           body: Il corpo non può essere vuoto
       files:
-        extension_whitelist: 'Formati accettati:'
+        extension_allowlist: 'Formati accettati:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Questa immagine sarà:'

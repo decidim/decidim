@@ -40,17 +40,11 @@ zh-CN:
           next_level_in: 再创建 %{score} 个测试以达到下一关！
           unearned_another: 此参与者尚未创建任何测试。
           unearned_own: 您还没有创建测试。
-    pages:
-      home:
-        statistics:
-          bar: 条形图
-          dummies_count_high: 倾角高
-          dummies_count_medium: 虚拟机介质
-          foo: Foo
-    participatory_processes:
-      statistics:
-        dummies_count_high: 倾角高
-        dummies_count_medium: 虚拟机介质
     resource_links:
       test_link:
         dummy_resource_dummy: 相关虚假的
+    statistics:
+      bar: 条形图
+      dummies_count_high: 倾角高
+      dummies_count_medium: 虚拟机介质
+      foo: Foo

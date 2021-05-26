@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+    </h2>
+  </div>
+  <div class="table-scroll">
+    <ul class="accordion mb-m evote__preview"
+        data-accordion
+        data-multi-expand="true"
+        data-allow-all-closed="true">
+        <% election.questions.each_with_index do |question, i| %>
+          <li class="accordion-item evote__preview-question <%= " is-active" if i == 0 %>" data-accordion-item>
+            <a href="#" class="accordion-title flex--sbc"><%= t(".question") %>: <%= translated_attribute(question.title) %></a>
+            <div class="accordion-content" data-tab-content>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th><%= t(".answer") %></th>
+                      <th><%= t(".result") %></th>
+                      <th><%= t(".selected") %></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% question.answers.each do |answer| %>
+                      <tr>
+                        <td><%= translated_attribute(answer.title) %></td>
+                        <% if answer.results_total > 0 %>
+                          <td class="text-success"><%= answer.results_total %></td>
+                        <% else %>
+                          <td><%= answer.results_total %></td>
+                        <% end %>
+                        <% if answer.selected %>
+                          <td class="text-success"><%= t(".selected") %></td>
+                        <% else %>
+                          <td><%= t(".not_selected") %></td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+
+                    <tr>
+                      <td></td>
+                      <td class="text-muted"><%= question.results_total %></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+</div>

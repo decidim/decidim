@@ -36,6 +36,8 @@ module Decidim
 
       # salt is used to generate secure hash in anonymous answers
       def set_default_salt
+        return unless defined?(salt)
+
         self.salt ||= Tokenizer.random_salt
       end
     end

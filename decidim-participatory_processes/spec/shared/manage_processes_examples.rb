@@ -6,6 +6,7 @@ shared_examples "manage processes examples" do
     let!(:process_with_group) { create(:participatory_process, organization: organization, participatory_process_group: process_group) }
     let!(:process_without_group) { create(:participatory_process, organization: organization) }
     let(:model_name) { participatory_process.class.model_name }
+    let(:resource_controller) { Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController }
 
     def filter_by_group(group_title)
       visit current_path

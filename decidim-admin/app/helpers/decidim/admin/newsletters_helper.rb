@@ -131,23 +131,17 @@ module Decidim
         ]
       end
 
-      def newsletter_attention_callout_args
+      def newsletter_attention_callout_announcement
         {
-          announcement: {
-            body: t("warning", scope: "decidim.admin.newsletters.select_recipients_to_deliver").html_safe
-          },
-          callout_class: "warning"
+          body: t("warning", scope: "decidim.admin.newsletters.select_recipients_to_deliver").html_safe
         }
       end
 
-      def newsletter_recipients_count_callout_args
+      def newsletter_recipients_count_callout_announcement
         spinner = "<span id='recipients_count_spinner' class='loading-spinner hide'></span>"
         body = "#{t("recipients_count", scope: "decidim.admin.newsletters.select_recipients_to_deliver", count: recipients_count_query)} #{spinner}"
         {
-          announcement: {
-            body: body
-          },
-          callout_class: "warning"
+          body: body
         }
       end
     end

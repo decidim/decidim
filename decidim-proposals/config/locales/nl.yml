@@ -47,7 +47,9 @@ nl:
               invalid_document_type: 'Ongeldig documenttype. Aanvaarde formaten zijn: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
+            add_photos:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
             body:
               cant_be_equal_to_template: mag niet gelijk zijn aan het template
@@ -91,9 +93,11 @@ nl:
       proposals:
         actions:
           amend: Pas aan
+          comment: Reactie
           create: creëren
           endorse: Aanbevelen
           vote: Stem
+          vote_comment: Stem op de reactie
           withdraw: Intrekken
         name: Voorstellen
         settings:
@@ -118,6 +122,10 @@ nl:
             participatory_texts_enabled_readonly: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
+            proposal_edit_time: Voorstel bewerken
+            proposal_edit_time_choices:
+              infinite: Voorstellen onbeperkt in tijd laten bewerken
+              limited: Voorstellen laten bewerken binnen een bepaalde termijn
             proposal_length: Maximum aantal tekens voor een voorstel
             proposal_limit: Beperking van het aantal voorstellen per gebruiker
             proposal_wizard_step_1_help_text: Helptekst "Maak" bij het maken van een nieuw voorstel
@@ -333,6 +341,7 @@ nl:
         actions:
           preview: Voorbeeldweergave
         exports:
+          proposal_comments: Reacties
           proposals: Voorstellen
         models:
           proposal:
@@ -356,7 +365,9 @@ nl:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
+            document_legend: 'Voeg een document toe van minder dan 2MB. Elk onderdeel tot op 3 niveaus diep wordt verwerkt tot voorstellen. Ondersteunde formaten zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
             upload_document: Document uploaden
           publish:
@@ -397,6 +408,7 @@ nl:
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
+            delete_attachment: Bijlage verwijderen
             select_a_category: Kies een categorie
             select_a_meeting: Selecteer een vergadering
           index:
@@ -543,13 +555,6 @@ nl:
               ok: Trek het gezamenlijk ontwerp in
               title: De volgende actie is onomkeerbaar
             success: Gezamenlijk ontwerp is succesvol ingetrokken.
-        compare:
-          mine_is_different: Mijn gezamenlijk ontwerp is anders
-          no_similars_found: Goed gedaan! Geen vergelijkbare gezamenlijke ontwerpen gevonden
-          title: Vergelijkbare gezamenlijke ontwerpen
-        complete:
-          send: Verzenden
-          title: Voltooi uw gezamenlijk ontwerp
         count:
           drafts_count:
             one: "%{count} gezamenlijk ontwerp"
@@ -581,7 +586,6 @@ nl:
           unfold: Ontvouwen
         new:
           send: Doorgaan met
-          title: Creëer uw gezamenlijk ontwerp
         new_collaborative_draft_button:
           new_collaborative_draft: Nieuw gezamenlijk ontwerp
         orders:
@@ -626,23 +630,14 @@ nl:
         update:
           error: Er is een fout opgetreden bij het opslaan van de gezamenlijke conceptversie.
           success: Samenwerkingsconcept met succes bijgewerkt.
-          title: Samenwerkend concept bewerken
         wizard_aside:
-          back: Terug
           back_from_collaborative_draft: Terug naar gezamenlijke concepten
-          back_from_step_1: Terug naar gezamenlijke concepten
-          back_from_step_2: Terug naar gezamenlijke concepten
-          back_from_step_3: Terug naar vergelijking van concepten voor samenwerking
-          back_from_step_4: Terug naar het ontwerp bewerken
           info: U maakt een <strong>gezamenlijk ontwerp</strong>.
-        wizard_steps:
-          current_step: Huidige stap
-          see_steps: zie stappen
-          step_1: Maak uw gezamenlijk ontwerp
-          step_2: Vergelijk met gezamenlijke ontwerpen
-          step_3: Voltooi uw gezamenlijke ontwerp
-          step_of: Stap %{current_step_num} van %{total_steps}
-          title: Gezamenlijke ontwerpontwerp-creatie stappen
+        wizard_header:
+          title: Maak uw gezamenlijk ontwerp
+      content_blocks:
+        highlighted_proposals:
+          proposals: Voorstellen
       create:
         error: Er is een fout opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol aangemaakt. Opgeslagen als concept.
@@ -651,6 +646,7 @@ nl:
         success: Voorstel concept is succesvol verwijderd.
       last_activity:
         new_proposal_at_html: "<span>Nieuw voorstel op %{link}</span>"
+        proposal_updated_at_html: "<span>Voorstel bijgewerkt op %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -756,6 +752,8 @@ nl:
           view_index:
             see_index: Zie index
         preview:
+          announcement_body: Jouw voorstel is opgeslagen als concept. Het moet gepubliceerd worden om het op de site te laten verschijnen.
+          announcement_title: Je voorstel is nog niet gepubliceerd
           modify: Pas het voorstel aan
           proposal_edit_before_minutes:
             one: Je kan dit voorstel bewerken in de eerste minuut nadat het gepubliceerd is. Zodra deze tijd verstreken is, kan je het voorstel niet meer bewerken.
@@ -878,3 +876,7 @@ nl:
       included_proposals:
         proposal_project: 'Voorstel in deze projecten:'
         proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
+    statistics:
+      proposals_accepted: Aanvaarde voorstellen
+      proposals_count: Voorstellen
+      supports_count: Aantal keer gesteund

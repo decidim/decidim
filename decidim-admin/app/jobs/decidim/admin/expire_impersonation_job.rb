@@ -9,8 +9,7 @@ module Decidim
         impersonation_log = Decidim::ImpersonationLog.where(admin: current_user, user: user).active.first
         return unless impersonation_log
 
-        impersonation_log.expired_at = Time.current
-        impersonation_log.save!
+        impersonation_log.expire!
       end
     end
   end

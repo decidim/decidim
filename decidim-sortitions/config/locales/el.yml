@@ -30,13 +30,6 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
           email_subject: Προστέθηκε νέα κλήρωση στον χώρο συμμετοχής %{participatory_space_title}
           notification_title: Η κλήρωση <a href="%{resource_path}">%{resource_title}</a> προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Κληρώσεις
-    participatory_processes:
-      statistics:
-        sortitions_count: Κληρώσεις
     sortitions:
       admin:
         actions:

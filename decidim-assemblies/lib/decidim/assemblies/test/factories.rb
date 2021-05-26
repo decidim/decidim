@@ -53,6 +53,8 @@ FactoryBot.define do
     instagram_handler { "others" }
     youtube_handler { "others" }
     github_handler { "others" }
+    weight { 1 }
+    announcement { generate_localized_title }
 
     trait :with_type do
       assembly_type { create :assemblies_type, organization: organization }

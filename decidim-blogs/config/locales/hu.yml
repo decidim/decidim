@@ -74,10 +74,3 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: 'Új bejegyzés ehhez: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> bejegyzés közzétéve itt: %{participatory_space_title}'
-    pages:
-      home:
-        statistics:
-          posts_count: Bejegyzések
-    participatory_processes:
-      statistics:
-        posts_count: Bejegyzések

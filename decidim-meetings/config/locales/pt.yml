@@ -237,7 +237,6 @@ pt:
             success: Reunião encerrada corretamente
           create:
             invalid: Ocorreu um problema ao criar esta reunião
-            success: Reunião criada corretamente
           destroy:
             invalid:
               proposals_count:
@@ -410,7 +409,6 @@ pt:
           contributions: Contagem de contribuições
           date: Data
           edit_meeting: Editar reunião
-          going: Indo
           join: Adira à reunião
           meeting_report: Relatório da reunião
           no_slots_available: Não há intervalos de tempo disponíveis

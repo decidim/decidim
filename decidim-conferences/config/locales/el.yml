@@ -22,6 +22,12 @@ el:
         slogan: Σύνθημα
         slug: Slug διεύθυνσης URL
         title: Τίτλος
+      conference_media_link:
+        weight: Βάρος
+      conference_partner:
+        weight: Βάρος
+      conference_registration_type:
+        weight: Βάρος
       conference_speaker:
         full_name: Ονοματεπώνυμο
       conference_user_role:
@@ -206,7 +212,6 @@ el:
             price: Τιμή
             registrations_count: Αριθμός εγγραφών
             title: Τίτλος
-            weight: Βάρος
           name: Τύπος εγγραφής
       partners:
         create:
@@ -266,10 +271,6 @@ el:
       conferences:
         conference_registration:
           confirm: "Ο χρήστης %{user_name} επιβεβαίωση μια εγγραφή διάσκεψης στη διάσκεψη %{resource_name}"
-        partner:
-          create: "Ο χρήστης %{user_name} δημιούργησε %{resource_name} στη διάσκεψη %{space_name}"
-          delete: "Ο χρήστης %{user_name} κατάργησε τον διαχειριστή %{resource_name} από τη διάσκεψη %{space_name}"
-          update: "Ο χρήστης %{user_name} ενημέρωσε το στοιχείο %{resource_name} στη διάσκεψη %{space_name}"
         registration_type:
           create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
           publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
@@ -490,23 +491,6 @@ el:
         related_assemblies: Σχετικές συνελεύσεις
         related_consultations: Σχετικές διαβουλεύσεις
         related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
-      statistics:
-        answers_count: Απαντήσεις
-        comments_count: Σχόλια
-        conference_count: Διασκέψεις
-        debates_count: Συζητήσεις
-        endorsements_count: Επιδοκιμασίες
-        headline: Δραστηριότητα
-        meetings_count: Συσκέψεις
-        orders_count: Υποστηρίξεις
-        pages_count: Σελίδες
-        posts_count: Δημοσιεύσεις
-        projects_count: Έργα
-        proposals_count: Προτάσεις
-        results_count: Αποτελέσματα
-        surveys_count: Έρευνες
-        users_count: Συμμετέχοντες
-        votes_count: Υποστηρίξεις
     events:
       conferences:
         conference_registration_confirmed:

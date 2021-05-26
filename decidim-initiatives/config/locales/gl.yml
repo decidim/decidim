@@ -53,8 +53,13 @@ gl:
       actions:
         new_initiative_type: Novo tipo de iniciativa
       menu:
+        attachments: Anexos
+        committee_members: Membros da comisión
+        components: Compoñentes
+        information: Información
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
+        moderations: Moderacións
       models:
         initiatives:
           fields:
@@ -349,13 +354,6 @@ gl:
         print:
           city: Cidade
         result:
-          answer_title:
-            accepted: Esta proposta foi aceptada porque
-            created: Esta proposta foi creada
-            discarded: Esta proposta foi descartada porque
-            published: Esta proposta publícase porque
-            rejected: Esta proposta foi rexeitada porque
-            validating: Esta proposta está a ser avaliada
           initiative_rejected_reason: Esta iniciativa foi rexeitada debido á súa falta de apoios.
         show:
           follow_description: Recibir unha notificación cando hai noticias nesta iniciativa
@@ -405,12 +403,6 @@ gl:
           vote: Vota
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Anexos
-          committee_members: Membros do comité
-          components: Compoñentes
-          information: Información
       initiative_creation_header:
         back: De volta
         fill_data: Crear

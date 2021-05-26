@@ -5,20 +5,20 @@ pl:
         templates: Szablony
       templates:
         apply:
-          error: Wystąpił problem z zastosowaniem tego szablonu.
-          success: Szablon zastosowany pomyślnie
+          error: Wystąpił błąd z zastosowaniem tego szablonu.
+          success: Szablon został zastosowany
         copy:
-          error: Wystąpił problem podczas kopiowania tego szablonu.
-          success: Szablon został skopiowany pomyślnie
+          error: Wystąpił błąd podczas kopiowania tego szablonu.
+          success: Szablon został skopiowany
         create:
           error: Wystąpił błąd podczas tworzenia tego szablonu.
-          success: Szablon utworzony pomyślnie
+          success: Szablon został utworzony
         destroy:
-          success: Szablon usunięty pomyślnie
+          success: Szablon został usunięty
         empty: Brak szablonów.
         update:
-          error: Wystąpił problem podczas opuszczania tego szablonu.
-          success: Szablon zaktualizowany pomyślnie
+          error: Wystąpił błąd podczas aktualizowania szablonu.
+          success: Szablon został zaktualizowany
       titles:
         template_types:
           questionnaires: Szablony kwestionariusza
@@ -43,7 +43,7 @@ pl:
             skip_template: Pomiń
           edit:
             edit: Edytuj
-            empty: Brak pytań
+            empty: Nie ma jeszcze żadnych pytań
             questionnaire: Kwestionariusz
           form:
             save: Zapisz
@@ -55,6 +55,6 @@ pl:
           preview:
             current_step: Krok %{step}
             of_total_steps: z %{total_steps}
-            tos_agreement: Biorąc udział akceptujesz Warunki korzystania z serwisu
+            tos_agreement: Biorąc udział akceptujesz Regulamin korzystania z serwisu
       template_types:
         questionnaires: Kwestionariusze

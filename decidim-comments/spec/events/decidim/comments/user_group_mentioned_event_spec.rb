@@ -28,7 +28,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("You have been mentioned in #{translated resource.title} as a member of #{group.name}")
+      expect(subject.email_subject).to eq("You have been mentioned in #{html_escape(translated(resource.title))} as a member of #{html_escape(group.name)}")
     end
   end
 
@@ -41,20 +41,20 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You have received this notification because you are a member of the group #{group.name} that has been mentioned in #{translated resource.title}.")
+        .to eq("You have received this notification because you are a member of the group #{html_escape(group.name)} that has been mentioned in #{html_escape(translated(resource.title))}.")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("You have been mentioned in <a href=\"#{resource_path}#comment_#{comment.id}\">#{translated resource.title}</a>")
+        .to include("You have been mentioned in <a href=\"#{resource_path}#comment_#{comment.id}\">#{html_escape(translated(resource.title))}</a>")
 
       expect(subject.notification_title)
-        .to include(" as a member of <a href=\"/profiles/#{group.nickname}\">#{group.name} @#{group.nickname}</a>")
+        .to include(" as a member of <a href=\"/profiles/#{group.nickname}\">#{html_escape(group.name)} @#{group.nickname}</a>")
 
       expect(subject.notification_title)
-        .to include(" by <a href=\"/profiles/#{comment_author.nickname}\">#{comment_author.name} @#{comment_author.nickname}</a>")
+        .to include(" by <a href=\"/profiles/#{comment_author.nickname}\">#{html_escape(comment_author.name)} @#{comment_author.nickname}</a>")
     end
   end
 

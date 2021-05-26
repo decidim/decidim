@@ -22,6 +22,7 @@ module Decidim
           decidim_organization_id: assembly.decidim_organization_id,
           title: assembly.title,
           subtitle: assembly.subtitle,
+          weight: assembly.weight,
           short_description: assembly.short_description,
           description: assembly.description,
           remote_hero_image_url: Decidim::Assemblies::AssemblyPresenter.new(assembly).hero_image_url,
@@ -71,13 +72,15 @@ module Decidim
             attachment_collections: serialize_attachment_collections,
             files: serialize_attachments
           },
-          components: serialize_components
+          components: serialize_components,
+          announcement: assembly.announcement
         }
       end
 
       private
 
       attr_reader :assembly
+      alias resource assembly
 
       def serialize_categories
         return unless assembly.categories.first_class.any?
@@ -140,7 +143,7 @@ module Decidim
 
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@assembly)
-        serializer.serialize
+        serializer.run
       end
     end
   end

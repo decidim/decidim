@@ -38,6 +38,12 @@ module Decidim
         expect { command.call }.to broadcast(:ok)
       end
 
+      it "changes the auth salt to invalidate all other sessions" do
+        old_salt = user.authenticatable_salt
+        command.call
+        expect(user.reload.authenticatable_salt).not_to eq(old_salt)
+      end
+
       it "stores the deleted_at and delete_reason to the user" do
         command.call
         expect(user.reload.delete_reason).to eq(data[:delete_reason])

@@ -30,6 +30,7 @@ module Decidim
         translatable_attribute :subtitle, String
         translatable_attribute :target, String
         translatable_attribute :title, String
+        translatable_attribute :announcement, String
 
         attribute :created_by, String
         attribute :facebook_handler, String
@@ -45,6 +46,7 @@ module Decidim
         attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
         attribute :scope_id, Integer
+        attribute :weight, Integer, default: 0
 
         attribute :is_transparent, Boolean
         attribute :promoted, Boolean
@@ -78,6 +80,8 @@ module Decidim
 
         validates :banner_image, passthru: { to: Decidim::Assembly }
         validates :hero_image, passthru: { to: Decidim::Assembly }
+
+        validates :weight, presence: true
 
         alias organization current_organization
 

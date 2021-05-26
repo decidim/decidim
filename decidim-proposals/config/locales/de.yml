@@ -35,6 +35,7 @@ de:
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
       proposals_import:
         import_proposals: Vorschläge importieren
+        keep_answers: Status und Antworten behalten
         keep_authors: Behalten Sie die ursprünglichen Autoren
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ de:
               invalid_document_type: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
+            add_photos:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
             body:
               cant_be_equal_to_template: kann nicht gleich der Vorlage sein
@@ -113,9 +116,11 @@ de:
       proposals:
         actions:
           amend: Änderungsvorschlag
+          comment: Kommentieren
           create: Erstellen
           endorse: Unterstützung
           vote: Abstimmung
+          vote_comment: Kommentar bewerten
           withdraw: Zurückziehen
         name: Vorschläge
         settings:
@@ -140,6 +145,10 @@ de:
             participatory_texts_enabled_readonly: Die Interaktion mit dieser Einstellung ist nicht möglich, wenn Vorschläge bestehen. Bitte erstellen Sie eine neue „Vorschlagskomponente“, wenn Sie diese Funktion aktivieren möchten, oder verwerfen Sie alle importierten Vorschläge im Menü „Beteiligungstexte“, wenn Sie diese Funktion deaktivieren möchten.
             proposal_answering_enabled: Vorschlagsantworten aktiviert
             proposal_edit_before_minutes: Vorschläge können von Autoren innerhalb dieser Zeit bearbeitet werden
+            proposal_edit_time: Vorschläge bearbeiten
+            proposal_edit_time_choices:
+              infinite: Vorschläge können beliebig lang bearbeitet werden
+              limited: Vorschläge können nach einem spezifischen Zeitfenster nicht mehr bearbeitet werden
             proposal_length: Maximale Länge des Haupttextes
             proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
@@ -422,6 +431,7 @@ de:
           form:
             attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
+            delete_attachment: Anhang löschen
             select_a_category: Kategorie auswählen
             select_a_meeting: Besprechung auswählen
           index:
@@ -569,13 +579,6 @@ de:
               ok: Ziehen Sie den gemeinsamen Entwurf zurück
               title: Die folgende Aktion ist irreversibel
             success: Kollaborativer Entwurf erfolgreich zurückgezogen.
-        compare:
-          mine_is_different: Mein gemeinsamer Entwurf ist anders
-          no_similars_found: Gut gemacht! Keine ähnlichen kollaborativen Entwürfe gefunden
-          title: Ähnliche kollaborative Entwürfe
-        complete:
-          send: Absenden
-          title: Vervollständigen Sie Ihren gemeinsamen Entwurf
         count:
           drafts_count:
             one: "%{count} kollaborativer Entwurf"
@@ -607,7 +610,6 @@ de:
           unfold: Aufklappen
         new:
           send: Fortsetzen
-          title: Gemeinsamen Entwurf erstellen
         new_collaborative_draft_button:
           new_collaborative_draft: Neuer gemeinsamer Entwurf
         orders:
@@ -652,23 +654,11 @@ de:
         update:
           error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
           success: Collaborative Draft wurde erfolgreich aktualisiert.
-          title: gemeinsamen Entwurf bearbeiten
         wizard_aside:
-          back: Zurück
           back_from_collaborative_draft: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_1: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_2: Zurück zu gemeinschaftlichen Entwürfen
-          back_from_step_3: Zurück zum Vergleich der gemeinschaftlichen Entwürfe
-          back_from_step_4: Zurück zum Entwurf bearbeiten
           info: Sie erstellen einen <strong>gemeinsamen Entwurf</strong>.
-        wizard_steps:
-          current_step: Aktueller Schritt
-          see_steps: siehe Schritte
-          step_1: Erstellen Sie Ihren gemeinsamen Entwurf
-          step_2: Vergleichen Sie mit gemeinsamen Entwürfen
-          step_3: Vervollständigen Sie Ihren gemeinsamen Entwurf
-          step_of: Schritt %{current_step_num} von %{total_steps}
-          title: Gemeinschaftliche Entwurfsschritte
+        wizard_header:
+          title: Erstellen Sie Ihren gemeinsamen Entwurf
       content_blocks:
         highlighted_proposals:
           proposals: Vorschläge
@@ -680,6 +670,7 @@ de:
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
       last_activity:
         new_proposal_at_html: "<span>Neuer Vorschlag bei %{link}</span>"
+        proposal_updated_at_html: "<span>Vorschlag aktualisiert unter %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -789,6 +780,8 @@ de:
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Ihr Vorschlag wurde als Entwurf gespeichert. Er muss veröffentlicht werden, damit er auf der Seite erscheint.
+          announcement_title: Ihr Vorschlag wurde noch nicht veröffentlicht
           modify: Vorschlag ändern
           proposal_edit_before_minutes:
             one: Sie können diesen Vorschlag in der ersten Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
@@ -912,3 +905,7 @@ de:
       included_proposals:
         proposal_project: 'Vorschlag, der in diesen Projekten erscheint:'
         proposal_result: 'Vorschlag erscheint in diesen Ergebnissen:'
+    statistics:
+      proposals_accepted: Akzeptierte Vorschläge
+      proposals_count: Vorschläge
+      supports_count: Unterstützungen

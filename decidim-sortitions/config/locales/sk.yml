@@ -32,13 +32,6 @@ sk:
           email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Nová voľba losovaním bola pridaná ku %{participatory_space_title}
           notification_title: Vvoľba losovaním <a href="%{resource_path}">%{resource_title} </a> bola pridaná ku %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Voľby losovaním
-    participatory_processes:
-      statistics:
-        sortitions_count: Voľby losovaním
     sortitions:
       admin:
         actions:

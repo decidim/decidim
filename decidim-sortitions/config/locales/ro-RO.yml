@@ -32,13 +32,6 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți „%{participatory_space_title}”. O puteți anula de la link-ul anterior.
           email_subject: Sortare nouă adăugată la %{participatory_space_title}
           notification_title: Sortarea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortări
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortări
     sortitions:
       admin:
         actions:
@@ -157,3 +150,5 @@ ro:
             one: O sortare
             few: "%{count} sortări"
             other: "%{count} sortări"
+    statistics:
+      sortitions_count: Trageri la sorți

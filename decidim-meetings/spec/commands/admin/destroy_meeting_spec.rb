@@ -53,5 +53,19 @@ module Decidim::Meetings
         expect { meeting.reload }.not_to raise_error
       end
     end
+
+    context "when proposal linking is disabled for meetings" do
+      before do
+        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+      end
+
+      it "destroys the meeting and does not call authored_proposals on the meeting" do
+        expect(meeting).not_to receive(:authored_proposals)
+
+        subject.call
+
+        expect { meeting.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
   end
 end

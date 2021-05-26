@@ -42,6 +42,28 @@ module Decidim
         context "when everything is OK" do
           it { is_expected.to be_valid }
         end
+
+        describe "map_model" do
+          let(:component) { create(:post_component, organization: current_organization) }
+          let(:post) { create(:post, component: component, author: author) }
+          let(:author) { create(:user, organization: current_organization) }
+
+          before do
+            subject.map_model(post)
+          end
+
+          it "does not assign the user group for normal users" do
+            expect(subject.user_group_id).to be_nil
+          end
+
+          context "when the author is a group" do
+            let(:author) { create(:user_group, :verified, organization: current_organization) }
+
+            it "assigns the user group ID to the form" do
+              expect(subject.user_group_id).to eq(author.id)
+            end
+          end
+        end
       end
     end
   end

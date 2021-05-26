@@ -124,5 +124,39 @@ module Decidim::Comments
         end
       end
     end
+
+    describe "#vote_button_to" do
+      context "when commentable has permissions set for the vote_comment action" do
+        let(:permissions) do
+          {
+            vote_comment: {
+              authorization_handlers: {
+                "dummy_authorization_handler" => { "options" => {} }
+              }
+            }
+          }
+        end
+
+        let(:user) { create(:user, :confirmed, organization: organization) }
+
+        before do
+          organization.available_authorizations = ["dummy_authorization_handler"]
+          organization.save!
+          commentable.create_resource_permission(permissions: permissions)
+          allow(commentable).to receive(:comments_have_votes?).and_return(true)
+          allow(subject).to receive(:current_user).and_return(user)
+        end
+
+        it "renders an action_authorized button" do
+          expect(subject).to have_css("[data-open=\"authorizationModal\"]")
+        end
+      end
+
+      context "when commentable has no permissions set for the vote_comment action" do
+        it "renders a plain button" do
+          expect(subject).to have_no_css("[data-open=\"authorizationModal\"]")
+        end
+      end
+    end
   end
 end

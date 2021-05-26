@@ -9,10 +9,10 @@ module Decidim
       #
       # meetings - A collection of meetings
       def meetings_data_for_map(meetings)
-        geocoded_meetings = meetings.select(&:geocoded?)
+        geocoded_meetings = meetings.select(&:geocoded_and_valid?)
         geocoded_meetings.map do |meeting|
           meeting.slice(:latitude, :longitude, :address).merge(title: translated_attribute(meeting.title),
-                                                               description: translated_attribute(meeting.description),
+                                                               description: html_truncate(translated_attribute(meeting.description), length: 200),
                                                                startTimeDay: l(meeting.start_time, format: "%d"),
                                                                startTimeMonth: l(meeting.start_time, format: "%B"),
                                                                startTimeYear: l(meeting.start_time, format: "%Y"),

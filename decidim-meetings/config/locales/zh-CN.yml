@@ -235,7 +235,6 @@ zh-CN:
             success: 会议已成功关闭
           create:
             invalid: 创建此会议时出现问题
-            success: 会议已成功创建
           destroy:
             invalid:
               proposals_count:
@@ -405,7 +404,6 @@ zh-CN:
           contributions: 捐款计数
           date: 日期
           edit_meeting: 编辑会议
-          going: 去了
           join: 加入会议
           meeting_report: 会议报告
           no_slots_available: 无可用槽位

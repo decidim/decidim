@@ -34,16 +34,9 @@ sv:
             confirm: Återkallande av auktorisering före datum kan inte ångras. Vill du fortsätta?
             confirm_all: Det går inte att ångra återkallande av alla auktoriseringar. Vill du fortsätta?
           destroy_nok: Det gick inte att återkalla auktoriseringar.
-          destroy_ok: Alla auktoriseringar som överensstämmer har återkallats!
           info: Det finns totalt %{count} verifierade deltagare.
           no_data: Inga verifierade deltagare
-          title: Återkallande av verifiering
-        authorization_workflows: Verifieringar
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} uppdaterade konfiguration för verifikation av identitetshandlingar"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} verifierade %{resource_name} hjälp av offlineverifiering av identitetshandlingar"
+        authorization_workflows: Auktoriseringar
     authorization_handlers:
       admin:
         csv_census:

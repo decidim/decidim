@@ -72,6 +72,11 @@ module Decidim
       organization.scopes.where(id: scope_ids).sort { |s1, s2| part_of.index(s2.id) <=> part_of.index(s1.id) }
     end
 
+    # Allow ransacker to search for a key in a hstore column (`name`.`en`)
+    ransacker :name do |parent|
+      Arel::Nodes::InfixOperation.new("->>", parent.table[:name], Arel::Nodes.build_quoted(I18n.locale.to_s))
+    end
+
     private
 
     def forbid_cycles

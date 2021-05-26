@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Accountability
     describe TimelineEntryType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:timeline_entry) }
 

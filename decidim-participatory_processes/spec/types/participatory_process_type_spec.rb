@@ -8,11 +8,12 @@ require "decidim/core/test/shared_examples/attachable_interface_examples"
 module Decidim
   module ParticipatoryProcesses
     describe ParticipatoryProcessType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:participatory_process, :with_scope) }
 
       include_examples "attachable interface"
+      include_examples "categories container interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -242,19 +243,6 @@ module Decidim
         it "returns all the required steps" do
           step_response = response["steps"].first
           expect(step_response["id"]).to eq(step.id.to_s)
-        end
-      end
-
-      describe "categories" do
-        let(:category) { create(:category) }
-        let(:query) { "{ categories { id } }" }
-
-        before do
-          model.categories << category
-        end
-
-        it "returns its categories" do
-          expect(response["categories"].first["id"]).to eq(model.categories.first.id.to_s)
         end
       end
 

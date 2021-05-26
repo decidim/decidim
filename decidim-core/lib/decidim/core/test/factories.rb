@@ -108,6 +108,7 @@ FactoryBot.define do
       }
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
+    enable_participatory_space_filters { true }
 
     trait :secure_context do
       host { "localhost" }
@@ -136,6 +137,7 @@ FactoryBot.define do
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
+    email_on_moderations { true }
 
     trait :confirmed do
       confirmed_at { Time.current }

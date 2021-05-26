@@ -44,7 +44,7 @@ module Decidim
         when "participants"
           return none unless user
 
-          where(id: joins(:amendable).where("decidim_amendments.decidim_user_id = ?", user.id))
+          where(id: joins(:amendable).where(decidim_amendments: { decidim_user_id: user.id }))
         else # Assume 'all'
           only_emendations
         end
@@ -135,7 +135,7 @@ module Decidim
       when "participants"
         return self.class.none unless user
 
-        published_emendations.where("decidim_amendments.decidim_user_id = ?", user.id)
+        published_emendations.where(decidim_amendments: { decidim_user_id: user.id })
       else # Assume 'all'
         published_emendations
       end

@@ -8,6 +8,7 @@ module Decidim
 
     attribute :title, String
     attribute :file
+    attribute :delete_file, Boolean
 
     mimic :attachment
 

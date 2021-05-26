@@ -30,13 +30,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: 'Új sorsolás hozzáadva ehhez: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> sorsolás hozzáadva ehhez: %{participatory_space_title}'
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sorsolások
-    participatory_processes:
-      statistics:
-        sortitions_count: Sorsolások
     sortitions:
       admin:
         actions:

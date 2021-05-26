@@ -6,7 +6,6 @@ it:
         description: Descrizione
         title: Titolo
         total_budget: Budget totale
-        weight: Peso
       project:
         budget_amount: Importo del budget
         decidim_category_id: Categoria
@@ -226,8 +225,5 @@ it:
       destroy:
         error: C'è stato un errore durante la cancellazione del voto.
         success: OK, il tuo voto è stato cancellato.
-    resource_links:
-      included_proposals:
-        project_proposal: 'Proposte incluse in questo progetto:'
   index:
     confirmed_orders_count: Computo dei voti

@@ -1,0 +1,12 @@
+<ul id="polling_officers_list">
+  <% decorated_polling_officers.each do |polling_officer| %>
+    <li>
+      <label><input type="checkbox" data-picker-text="<%= polling_officer.name %> (@<%= polling_officer.nickname %>)" data-picker-url="<%= picker_path %>" value="<%= polling_officer.id %>" data-picker-choose> <%= polling_officer.name %> (@<%= polling_officer.nickname %>)</label>
+    </li>
+  <% end %>
+  <% if more_polling_officers? %>
+    <li><div class="callout warning"><%= t("polling_officers_picker.more_polling_officers", scope: "decidim.votings.admin.polling_officers", number: more_polling_officers_count) %></div>
+    </li>
+  <% end %>
+</ul>
+<div id="no_polling_officers" class="callout warning"><%= t("polling_officers_picker.no_polling_officers", scope: "decidim.votings.admin.polling_officers") %></div>

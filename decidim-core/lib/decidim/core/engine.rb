@@ -2,10 +2,12 @@
 
 require "rails"
 require "active_support/all"
+require "sprockets/railtie"
 
 require "pg"
 require "redis"
 
+require "acts_as_list"
 require "devise"
 require "devise-i18n"
 require "devise_invitable"
@@ -33,6 +35,7 @@ require "geocoder"
 require "paper_trail"
 require "cells/rails"
 require "cells-erb"
+require "cell/partial"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
@@ -41,8 +44,13 @@ require "batch-loader"
 require "etherpad-lite"
 require "diffy"
 require "anchored"
+require "social-share-button"
+require "ransack"
+require "searchlight"
 
 require "decidim/api"
+require "decidim/middleware/strip_x_forwarded_host"
+require "decidim/middleware/current_organization"
 
 module Decidim
   module Core
@@ -52,14 +60,16 @@ module Decidim
       engine_name "decidim"
 
       initializer "decidim.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::LayoutHelper if respond_to?(:helper)
+        config.to_prepare do
+          ActiveSupport.on_load :action_controller do
+            helper Decidim::LayoutHelper if respond_to?(:helper)
+          end
         end
       end
 
       initializer "decidim.middleware" do |app|
-        app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
-        app.config.middleware.insert_before Warden::Manager, Decidim::StripXForwardedHost
+        app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
       end
 
@@ -90,9 +100,7 @@ module Decidim
       initializer "decidim.graphql_api" do
         # Enable them method `!` everywhere for compatibility, this line will be removed when upgrading to GraphQL 2.0
         GraphQL::DeprecatedDSL.activate
-        Decidim::Api::QueryType.define do
-          Decidim::QueryExtensions.define(self)
-        end
+        Decidim::Api::QueryType.include Decidim::QueryExtensions
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
         Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
@@ -181,59 +189,70 @@ module Decidim
 
       initializer "decidim.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.home", scope: "decidim"),
-                    decidim.root_path,
-                    position: 1,
-                    active: :exclusive
+          menu.add_item :root,
+                        I18n.t("menu.home", scope: "decidim"),
+                        decidim.root_path,
+                        position: 1,
+                        active: :exclusive
 
-          menu.item I18n.t("menu.help", scope: "decidim"),
-                    decidim.pages_path,
-                    position: 7,
-                    active: :inclusive
+          menu.add_item :pages,
+                        I18n.t("menu.help", scope: "decidim"),
+                        decidim.pages_path,
+                        position: 7,
+                        active: :inclusive
         end
       end
 
       initializer "decidim.user_menu" do
         Decidim.menu :user_menu do |menu|
-          menu.item t("account", scope: "layouts.decidim.user_profile"),
-                    decidim.account_path,
-                    position: 1.0,
-                    active: :exact
+          menu.add_item :account,
+                        t("account", scope: "layouts.decidim.user_profile"),
+                        decidim.account_path,
+                        position: 1.0,
+                        active: :exact
 
-          menu.item t("notifications_settings", scope: "layouts.decidim.user_profile"),
-                    decidim.notifications_settings_path,
-                    position: 1.1
+          menu.add_item :notifications_settings,
+                        t("notifications_settings", scope: "layouts.decidim.user_profile"),
+                        decidim.notifications_settings_path,
+                        position: 1.1
 
           if available_verification_workflows.any?
-            menu.item t("authorizations", scope: "layouts.decidim.user_profile"),
-                      decidim_verifications.authorizations_path,
-                      position: 1.2
+            menu.add_item :authorizations,
+                          t("authorizations", scope: "layouts.decidim.user_profile"),
+                          decidim_verifications.authorizations_path,
+                          position: 1.2
           end
 
           if current_organization.user_groups_enabled? && user_groups.any?
-            menu.item t("user_groups", scope: "layouts.decidim.user_profile"),
-                      decidim.own_user_groups_path,
-                      position: 1.3
+            menu.add_item :own_user_groups,
+                          t("user_groups", scope: "layouts.decidim.user_profile"),
+                          decidim.own_user_groups_path,
+                          position: 1.3
           end
 
-          menu.item t("my_interests", scope: "layouts.decidim.user_profile"),
-                    decidim.user_interests_path,
-                    position: 1.4
+          menu.add_item :user_interests,
+                        t("my_interests", scope: "layouts.decidim.user_profile"),
+                        decidim.user_interests_path,
+                        position: 1.4
 
-          menu.item t("my_data", scope: "layouts.decidim.user_profile"),
-                    decidim.data_portability_path,
-                    position: 1.5
+          menu.add_item :data_portability,
+                        t("my_data", scope: "layouts.decidim.user_profile"),
+                        decidim.data_portability_path,
+                        position: 1.5
 
-          menu.item t("delete_my_account", scope: "layouts.decidim.user_profile"),
-                    decidim.delete_account_path,
-                    position: 999,
-                    active: :exact
+          menu.add_item :delete_account,
+                        t("delete_my_account", scope: "layouts.decidim.user_profile"),
+                        decidim.delete_account_path,
+                        position: 999,
+                        active: :exact
         end
       end
 
       initializer "decidim.notifications" do
-        Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
-          EventPublisherJob.perform_later(event_name, data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
+            EventPublisherJob.perform_later(event_name, data)
+          end
         end
       end
 
@@ -331,6 +350,36 @@ module Decidim
 
           metric_registry.settings do |settings|
             settings.attribute :highlighted, type: :boolean, default: true
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
+
+        Decidim.metrics_registry.register(:blocked_users) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::BlockedUsersMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
+
+        Decidim.metrics_registry.register(:user_reports) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::UserReportsMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
+            settings.attribute :scopes, type: :array, default: %w(home)
+            settings.attribute :weight, type: :integer, default: 1
+          end
+        end
+
+        Decidim.metrics_registry.register(:reported_users) do |metric_registry|
+          metric_registry.manager_class = "Decidim::Metrics::ReportedUsersMetricManage"
+
+          metric_registry.settings do |settings|
+            settings.attribute :highlighted, type: :boolean, default: false
             settings.attribute :scopes, type: :array, default: %w(home)
             settings.attribute :weight, type: :integer, default: 1
           end
@@ -458,7 +507,7 @@ module Decidim
             {
               name: :main_image,
               uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_path("decidim/placeholder.jpg") }
+              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
             }
           ]
 

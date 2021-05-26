@@ -1,0 +1,130 @@
+/* Froms foundation overwrites */
+
+$checkboxes-minimum-width: 200px;
+$help-text-margin-top: ($form-spacing * .5) * -1;
+
+.input-group{
+  .input-group-field{
+    &:focus{
+      // To raise the focus border on top of any other nearby elements
+      position: relative;
+      z-index: 10;
+    }
+  }
+}
+
+.input-group-button button{
+  height: 2.5rem;
+  padding: .5rem 1rem;
+}
+
+label,
+.field{
+  &.has-tribute{
+    position: relative;
+
+    .tribute-container{
+      top: auto;
+      margin-top: -$form-spacing;
+      max-width: none;
+      width: 100%;
+    }
+  }
+}
+
+.help-text{
+  display: block;
+  line-height: 1.2;
+  margin: $help-text-margin-top 0 $form-spacing;
+}
+
+.form-input-extra-before,
+.form-input-extra-after{
+  display: block;
+  font-size: $input-error-font-size;
+  font-weight: $input-error-font-weight;
+  margin-top: $form-spacing * -1;
+}
+
+#registration_user_nickname_characters{
+  margin-top: 1rem;
+}
+
+.form-input-extra-before{
+  margin-bottom: $form-spacing / 2;
+}
+
+.form-input-extra-after{
+  margin-bottom: $form-spacing;
+}
+
+label > [type="checkbox"],
+label > [type="radio"]{
+  margin-bottom: 0; //fixes some problems with line-height in double-line labels
+}
+
+/* Switch additional styles */
+
+.switch-with-label{
+  > label{
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+  }
+
+  .switch-paddle{
+    display: inline-block;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+}
+
+.switch{
+  input.switch-input{
+    &:active,
+    &:focus{
+      & + .switch-paddle{
+        outline: $input-outline-focus;
+        outline-color: var(--highlight);
+        outline-offset: $input-outline-offset;
+      }
+    }
+  }
+}
+
+.checkboxes{
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &::after{
+    /* Align last row to left */
+    min-width: $checkboxes-minimum-width;
+    content: "";
+  }
+
+  label{
+    min-width: $checkboxes-minimum-width;
+
+    input[type="checkbox"]{
+      vertical-align: middle;
+    }
+  }
+}
+
+#{text-inputs()},
+textarea,
+select,
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"]{
+  outline: $input-outline;
+
+  &:active,
+  &:focus{
+    outline: $input-outline-focus;
+    outline-color: var(--highlight);
+    outline-offset: $input-outline-offset;
+  }
+}

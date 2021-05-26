@@ -4,7 +4,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), data: { disable_dynamic_change: true } %>
+        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
         <div class="input-group-button">
           <button type="submit" class="button" aria-controls="collaborative_drafts">
             <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>

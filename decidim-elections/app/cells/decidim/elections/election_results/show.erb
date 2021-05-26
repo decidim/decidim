@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="columns large-8">
+    <h2 class="section-heading"><%= t("decidim.elections.elections.results.title") %></h2>
+
+    <p><%= t("decidim.elections.elections.results.description") %></p>
+
+    <ul class="accordion mb-m evote__preview"
+      data-accordion
+      data-multi-expand="true"
+      data-allow-all-closed="true">
+      <% model.questions.each_with_index do |question, i| %>
+        <li class="accordion-item evote__preview-question <%= " is-active" if i == 0 %>" data-accordion-item>
+          <a href="#" class="accordion-title flex--sbc"><%= translated_attribute(question.title) %></a>
+
+          <div class="accordion-content" data-tab-content>
+            <% question.answers.each do |answer| %>
+              <div class="evote__preview-result">
+                <h3 class="evote__preview-option">
+                  <%= translated_attribute(answer.title) %>
+
+                  <% if answer.selected? %>
+                    <span class="label label--small label--highlight">
+                      <%= t("decidim.elections.elections.results.selected") %>
+                    </span>
+                  <% end %>
+                </h3>
+
+                <%= render view: :progress_bar, locals: { results_percentage: answer.results_percentage, results_total: answer.results_total } %>
+              </div>
+            <% end %>
+
+            <% if question.results.blank_answers.any? %>
+              <%= render view: :blank_votes, locals: { question: question } %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

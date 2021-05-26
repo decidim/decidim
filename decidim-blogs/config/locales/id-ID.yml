@@ -69,10 +69,3 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Posting baru diterbitkan pada %{participatory_space_title}
           notification_title: Posting <a href="%{resource_path}">%{resource_title}</a> telah diterbitkan dalam %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Posting
-    participatory_processes:
-      statistics:
-        posts_count: Posting

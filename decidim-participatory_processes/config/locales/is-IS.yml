@@ -143,6 +143,9 @@ is-IS:
     menu:
       processes: Ferli
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Virkni
       show:
         title: Þátttaka ferli hópa
     participatory_processes:
@@ -176,21 +179,6 @@ is-IS:
         scope: Umfang
         start_date: Upphafsdagur
         target: Hver tekur þátt
-      statistics:
-        answers_count: Svör
-        comments_count: Athugasemdir
-        debates_count: Umræður
-        endorsements_count: Áritanir
-        headline: Virkni
-        meetings_count: Fundir
-        pages_count: Síður
-        participants_count: Þátttakendur
-        processes_count: Ferli
-        projects_count: Verkefni
-        proposals_count: Tillögur
-        results_count: Niðurstöður
-        surveys_count: Kannanir
-        users_count: Þátttakendur
   layouts:
     decidim:
       participatory_process_groups:

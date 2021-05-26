@@ -1,26 +1,18 @@
-<% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
+<% add_decidim_page_title(t("decidim.proposals.collaborative_drafts.wizard_header.title")) %>
 
 <div class="row">
   <%= render partial: "wizard_aside" %>
 
   <div class="columns large-6">
-    <%= render partial: "decidim/proposals/proposals/wizard_header" %>
+    <%= render partial: "wizard_header" %>
 
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form, url: compare_collaborative_drafts_path, method: :get) do |form| %>
-          <%= form_required_explanation %>
-
-          <div class="field">
-            <%= form.text_field :title %>
-          </div>
-
-          <div class="field">
-            <%= form.text_area :body, rows: 10 %>
-          </div>
+        <%= decidim_form_for(@form) do |form| %>
+          <%= render partial: "edit_form_fields", locals: { form: form } %>
 
           <div class="actions">
-            <%= form.submit t("decidim.proposals.collaborative_drafts.new.send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
+            <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
           </div>
         <% end %>
       </div>
@@ -29,4 +21,4 @@
   <div class="columns large-3"></div>
 </div>
 
-<%= javascript_include_tag "decidim/proposals/add_proposal" %>
+<%= javascript_pack_tag "decidim_proposals" %>

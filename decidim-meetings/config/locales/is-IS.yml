@@ -101,8 +101,6 @@ is-IS:
         meetings:
           close:
             success: Fundur með góðum árangri lokað
-          create:
-            success: Fundur búin til með góðum árangri
           destroy:
             success: Fundur með góðum árangri eytt
           edit:
@@ -187,7 +185,6 @@ is-IS:
         show:
           attendees: Þátttakendur telja
           contributions: Framlög telja
-          going: Fara
           join: Skráðu þig í fundi
           meeting_report: Fundarskýrsla
           no_slots_available: Engar rifa í boði

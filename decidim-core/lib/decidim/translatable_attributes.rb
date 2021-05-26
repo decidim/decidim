@@ -43,7 +43,8 @@ module Decidim
 
           define_method attribute_name do
             field = public_send(name) || {}
-            field[locale.to_s] || field[locale.to_sym]
+            value = field[locale.to_s] || field[locale.to_sym]
+            attribute_set[attribute_name].coerce(value)
           end
 
           define_method "#{attribute_name}=" do |value|

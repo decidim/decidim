@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get "/*id" => "pages#show", as: :page, format: false
 
     get "/index", to: redirect("/")
-    root to: "pages#show", id: "index"
+    get "/", to: "pages#show", id: "index"
   end
 
   root to: "pages#show", id: "index"

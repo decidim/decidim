@@ -1,0 +1,171 @@
+//Variables
+$footer-author-color: $dark-gray;
+$author-color: $muted;
+$date-color: $muted;
+$date-font-size: $small-font-size;
+$author-data-color: $muted;
+
+//Styles
+
+.author-data{
+  @include flex;
+  @include flex-align($x: left, $y: middle);
+
+  color: var(--secondary);
+  font-size: .9rem;
+  padding-left: 30px;
+  position: relative;
+
+  .author__name{
+    color: var(--secondary);
+    margin-bottom: 0;
+  }
+
+  .author__avatar{
+    position: absolute;
+    margin-left: -30px;
+  }
+}
+
+.author-data--small{
+  padding-left: 25px;
+}
+
+.author-data--big{
+  padding-left: 0;
+
+  .author-data__main{
+    margin: 0;
+  }
+
+  .author--flex,
+  .author__name--container{
+    display: flex;
+    align-items: center;
+  }
+
+  .author__avatar{
+    position: relative;
+    margin-left: 0;
+
+    img{
+      margin-top: auto;
+      width: rem-calc(54);
+      height: rem-calc(54);
+      object-fit: cover;
+    }
+  }
+
+  .author__name{
+    @extend .heading5;
+  }
+
+  .author__nickname{
+    font-size: rem-calc(15);
+  }
+
+  .author__verified{
+    margin-left: $global-margin / 4;
+  }
+}
+
+.author-data--nopadding{
+  padding-left: 0;
+}
+
+.author-data__main{
+  display: inline;
+  margin-right: .8rem;
+}
+
+.author-data__extra{
+  display: inline-block;
+
+  > button,
+  > span,
+  > a{
+    margin-right: 1rem;
+  }
+
+  @include breakpoint(large){
+    &::before{
+      content: "";
+      margin-right: .8rem;
+      border-right: $border;
+      height: .7rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+.author{
+  display: flex;
+  font-size: .9rem;
+}
+
+.author--inline{
+  display: inline-block;
+
+  span{
+    padding-right: 5px;
+  }
+}
+
+.author__name{
+  display: inline-block;
+  flex-grow: 1;
+  font-weight: 600;
+  align-self: center;
+  color: $author-color;
+}
+
+a:hover .author__name{
+  color: inherit;
+  text-decoration: underline;
+}
+
+.author__avatar{
+  padding: 0 .5em 0 0;
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+
+  .author--inline &{
+    display: inline-block;
+  }
+
+  img{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    margin-top: -5px;
+  }
+}
+
+.author__avatar--small{
+  .author-data &{
+    margin-left: -25px;
+  }
+
+  img{
+    width: 20px;
+    height: 20px;
+    margin-top: -3px;
+  }
+}
+
+.author__date{
+  display: block;
+  color: $date-color;
+  font-size: $date-font-size;
+}
+
+.author__verified,
+.author__badge svg{
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--primary);
+}

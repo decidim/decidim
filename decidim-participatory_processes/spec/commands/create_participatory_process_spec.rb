@@ -13,12 +13,14 @@ module Decidim::ParticipatoryProcesses
     let(:current_user) { create :user, :admin, organization: organization }
     let(:errors) { double.as_null_object }
     let(:related_process_ids) { [] }
+    let(:weight) { 1 }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessForm,
         invalid?: invalid,
         title: { en: "title" },
         subtitle: { en: "subtitle" },
+        weight: weight,
         slug: "slug",
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },

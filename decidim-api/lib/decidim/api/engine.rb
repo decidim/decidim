@@ -5,6 +5,8 @@ require "graphiql/rails"
 require "rack/cors"
 require "sprockets/es6"
 
+require "decidim/core"
+
 module Decidim
   module Api
     # Mountable engine that exposes a side-wide API for Decidim.

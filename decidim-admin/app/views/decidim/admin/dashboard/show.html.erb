@@ -8,7 +8,7 @@
   <p><%= t ".welcome" %></p>
 
   <% unless current_user.admin_terms_accepted? %>
-    <%= cell("decidim/announcement", admin_terms_announcement_args ) %>
+    <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
   <% end %>
 
   <div class="grid-x grid-margin-x">

@@ -75,10 +75,3 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{participatory_space_title}". Jūs varat atsekot tai no iepriekšējās saites.
           email_subject: Telpā %{participatory_space_title} ir publicēta jauna ziņa
           notification_title: Ziņa <a href="%{resource_path}">%{resource_title}</a> ir publicēta telpā %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Ziņas
-    participatory_processes:
-      statistics:
-        posts_count: Ziņas

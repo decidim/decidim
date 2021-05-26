@@ -35,6 +35,7 @@ fr-CA:
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
+        keep_answers: Garder l'état et les réponses
         keep_authors: Gardez les auteurs originaux
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ fr-CA:
               invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+            add_photos:
               needs_to_be_reattached: Doit être téléchargé de nouveau
             body:
               cant_be_equal_to_template: ne peut pas être égal au modèle
@@ -113,9 +116,11 @@ fr-CA:
       proposals:
         actions:
           amend: Amender
+          comment: Commentaire
           create: Créer
           endorse: Soutenir
           vote: Voter
+          vote_comment: Vote sur le commentaire
           withdraw: Retirer
         name: Propositions
         settings:
@@ -422,6 +427,7 @@ fr-CA:
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             created_in_meeting: Cette proposition provient d'une réunion
+            delete_attachment: Supprimer la pièce jointe
             select_a_category: Sélectionner une catégorie
             select_a_meeting: Sélectionnez une réunion
           index:
@@ -569,13 +575,6 @@ fr-CA:
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
             success: Brouillon collaboratif retiré avec succès.
-        compare:
-          mine_is_different: Mon brouillon collaboratif est différent
-          no_similars_found: Bien joué! Aucun brouillon collaboratif similaire n'a été trouvé
-          title: Brouillons collaboratifs similaires
-        complete:
-          send: Envoyer
-          title: Complétez votre brouillon collaboratif
         count:
           drafts_count:
             one: "%{count} brouillon collaboratif"
@@ -607,7 +606,6 @@ fr-CA:
           unfold: Se dérouler
         new:
           send: Continuer
-          title: Créez votre brouillon collaboratif
         new_collaborative_draft_button:
           new_collaborative_draft: Nouveau brouillon collaboratif
         orders:
@@ -652,23 +650,11 @@ fr-CA:
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
           success: Brouillon collaboratif mis à jour avec succès.
-          title: Modifier la question collaborative
         wizard_aside:
-          back: Arrière
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
-          back_from_step_1: Retour aux brouillons collaboratifs
-          back_from_step_2: Retour aux brouillons collaboratifs
-          back_from_step_3: Retour à la comparaison des brouillons collaboratifs
-          back_from_step_4: Retour à l'édition du brouillon
           info: Vous créez un <strong>projet collaboratif</strong>.
-        wizard_steps:
-          current_step: Étape actuelle
-          see_steps: voir les étapes
-          step_1: Créez votre projet collaboratif
-          step_2: Comparer avec les projets collaboratifs
-          step_3: Complétez votre projet collaboratif
-          step_of: Etape %{current_step_num} sur %{total_steps}
-          title: Étapes de création du brouillon collaboratif
+        wizard_header:
+          title: Créez votre projet collaboratif
       content_blocks:
         highlighted_proposals:
           proposals: Propositions
@@ -680,6 +666,7 @@ fr-CA:
         success: Le brouillon de la proposition a bien été supprimé.
       last_activity:
         new_proposal_at_html: "<span>Nouvelle proposition à %{link}</span>"
+        proposal_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -789,6 +776,8 @@ fr-CA:
         placeholder:
           address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
+          announcement_body: Votre proposition a été enregistrée en tant que brouillon. Elle doit être publiée pour qu'elle apparaisse sur le site.
+          announcement_title: Votre proposition n'a pas encore été publiée
           modify: Modifier la proposition
           proposal_edit_before_minutes:
             one: Vous avez la possibilité de modifier cette proposition dans la première minute suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.

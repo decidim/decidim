@@ -40,17 +40,11 @@ pl:
           next_level_in: Stwórz %{score} dodatkowych testów, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik nie utworzył jeszcze żadnych testów.
           unearned_own: Nie stworzyłeś jeszcze żadnych testów.
-    pages:
-      home:
-        statistics:
-          bar: Bar
-          dummies_count_high: Przykładowa duża liczba
-          dummies_count_medium: Przykładowa średnia liczba
-          foo: Foo
-    participatory_processes:
-      statistics:
-        dummies_count_high: Przykładowa duża liczba
-        dummies_count_medium: Przykładowa średnia liczba
     resource_links:
       test_link:
         dummy_resource_dummy: Przykładowe powiązanie
+    statistics:
+      bar: Bar
+      dummies_count_high: Przykładowa duża liczba
+      dummies_count_medium: Przykładowa średnia liczba
+      foo: Foo

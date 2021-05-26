@@ -15,6 +15,7 @@ es-PY:
         edit: Editar
         new: Nueva publicación
         title: Comportamiento
+        user_group_id: Crear publicación como
       admin:
         models:
           components:
@@ -29,6 +30,7 @@ es-PY:
             success: Publicación eliminada con éxito
           edit:
             save: Actualizar
+            title: Editar publicación
           index:
             title: Publicaciones
           new:
@@ -75,10 +77,5 @@ es-PY:
           email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva publicación publicada en %{participatory_space_title}
           notification_title: La publicación <a href="%{resource_path}">%{resource_title}</a> se publicó en %{participatory_space_title}.
-    pages:
-      home:
-        statistics:
-          posts_count: Publicaciones
-    participatory_processes:
-      statistics:
-        posts_count: Publicaciones
+    statistics:
+      posts_count: Publicaciones

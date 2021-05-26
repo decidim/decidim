@@ -11,10 +11,15 @@ en:
         question_type: Type
       questionnaire_question:
         mandatory: Mandatory
+        max_characters: Character limit (leave to 0 if no limit)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Needs to be reattached
+            body:
+              too_long: is too long
             choices:
               missing: are not complete
               too_many: are too many
@@ -111,7 +116,7 @@ en:
         answer:
           body: Body can't be blank
       files:
-        extension_whitelist: 'Accepted formats:'
+        extension_allowlist: 'Accepted formats:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'This image will be:'
@@ -119,6 +124,7 @@ en:
           resize_and_pad: Resized and padded to
           resize_to_fit: Resized to fit
       question_types:
+        files: Files
         long_answer: Long answer
         matrix_multiple: Matrix (Multiple option)
         matrix_single: Matrix (Single option)

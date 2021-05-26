@@ -374,3 +374,18 @@ step setting :amendments_visibility.
 ....
   config.amendments_visibility_options = %w(all participants)
 ....
+
+== Export fields
+
+To customize export fields, you can subscribe to any serialize event. Every serializer event has unique event name in format: decidim.serialize.module_here.class_here
+
+[source,ruby]
+....
+  initializer "decidim_budgets.serializer_listener" do
+    ActiveSupport::Notifications.subscribe("decidim.serialize.budgets.project_serializer") do |_event_name, data|
+      # Implement your custom code for new or existing fields.
+      data[:serialized_data][:column_title] = "Row data #{data[:resource].class}"
+    end
+  end
+....
+

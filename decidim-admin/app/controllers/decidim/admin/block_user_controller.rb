@@ -21,14 +21,14 @@ module Decidim
         BlockUser.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.block.success", scope: "decidim.admin")
+            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
           end
 
           on(:invalid) do
             flash[:alert] = I18n.t("officializations.block.error", scope: "decidim.admin")
+            render :new
           end
         end
-
-        redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
       end
 
       def destroy

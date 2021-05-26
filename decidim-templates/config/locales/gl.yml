@@ -1,1 +1,60 @@
 gl:
+  decidim:
+    admin:
+      menu:
+        templates: Padróns
+      templates:
+        apply:
+          error: Produciuse un problema ao aplicar o padrón.
+          success: Padrón aplicado con éxito
+        copy:
+          error: Produciuse un problema ao copiar o padrón.
+          success: Padrón copiado con éxito
+        create:
+          error: Produciuse un problema ao crear o padrón.
+          success: Padrón creado con éxito
+        destroy:
+          success: Padrón eliminado con éxito
+        empty: Aínda non hai padróns.
+        update:
+          error: Produciuse un problema ao actualizar o padrón.
+          success: Padrón actualizado con éxito
+      titles:
+        template_types:
+          questionnaires: Padrón para cuestionarios
+        templates: Padróns
+    models:
+      questionnaire_template:
+        fields:
+          questions: Número de preguntas
+          title: Título do cuestionario
+      template:
+        fields:
+          created_at: Creado o
+        name: Padrón
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Crear a partir dun padrón
+            description: Estás a punto de crear un novo cuestonario. Podes escoller un padrón predefinido e modificalo despois.
+            label: Escoller padrón
+            placeholder: Escoller padrón
+            skip_template: Omitir
+          edit:
+            edit: Editar
+            empty: Aínda non hai preguntas
+            questionnaire: Cuestionario
+          form:
+            save: Gardar
+            template_title: Información do padrón
+            title: Padrón de cuestionario %{questionnaire_for}
+          index:
+            confirm_delete: Tes a certeza de querer eliminar este padrón?
+            title: Padróns de cuestionario
+          preview:
+            current_step: Paso %{step}
+            of_total_steps: de %{total_steps}
+            tos_agreement: Ao participar, aceptas os termos do servizo
+      template_types:
+        questionnaires: Cuestionarios

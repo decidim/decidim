@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require "decidim/forms/admin"
+require "decidim/forms/api"
 require "decidim/forms/engine"
 require "decidim/forms/admin_engine"
-require "decidim/forms/api"
 
 module Decidim
   # This namespace holds the logic of the `Forms`.

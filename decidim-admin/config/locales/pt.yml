@@ -24,7 +24,6 @@ pt:
       component:
         name: Nome
         published_at: Publicado em
-        weight: Peso
       id: ID
       newsletter:
         body: Corpo
@@ -94,12 +93,10 @@ pt:
         show_in_footer: Mostrar no rodapé
         slug: Texto curto de URL
         title: Título
-        weight: Peso
       static_page_topic:
         description: Descrição
         show_in_footer: Mostrar no rodapé
         title: Título
-        weight: Peso
       user_group_csv_verification:
         file: Ficheiro
     errors:

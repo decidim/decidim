@@ -1,8 +1,40 @@
 gl:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nome da aplicación OAuth
+        organization_logo: Logo da organización (cadrado)
+        organization_name: Organización
+        organization_url: URL da organización
+        redirect_uri: URI de redirección
+      organization:
+        address: Nome do servidor SMTP
+        from_email: Enderezo de correo electrónico
+        from_label: Etiqueta
+        password: Contrasinal
+        port: Porto
+        user_name: Nome de usuario
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipos MIME do panel de administración
+          default: Tipos MIME predefinidos
+        allowed_file_extensions:
+          admin: Extensións de ficheiros do panel de administrador
+          default: Extensións predefinidas de ficheiro
+          image: Extensións dos ficheiros de imaxe
+        maximum_file_size:
+          avatar: Tamaño do ficheiro do avatar
+          default: Tamaño de ficheiro predefinido
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: A URI de redirección ten de ser un URI SSL
   decidim:
     system:
       actions:
-        confirm_destroy: Estás seguro de que queres eliminar isto?
+        confirm_destroy: Estás certo/a de querer eliminar isto?
         destroy: Eliminar
         edit: Editar
         new: Novo
@@ -13,63 +45,138 @@ gl:
           error: Produciuse un erro ao crear un administrador novo.
           success: O administrador creouse con éxito
         destroy:
-          success: O administrador eliminouse con éxito
+          success: Administrador eliminado con éxito
         edit:
           title: Editar administrador
-          update: Actualización
+          update: Actualizar
         index:
           title: Administradores
         new:
           create: Crear
           title: Novo administrador
         update:
-          error: Houbo un erro ao actualizar este administrador.
-          success: Admin actualizouse con éxito
+          error: Produciuse un problema ao actualizar este administrador.
+          success: Administrador actualizado con éxito
       default_pages:
         placeholders:
-          content: Engade contido significativo á páxina %{page} estática no taboleiro de administrador.
-          title: Título predeterminado para %{page}
+          content: Por favor, engade contido signification á páxina estática %{page} no panel do administrador.
+          title: Título predefinido para %{page}
       menu:
         admins: Administradores
-        dashboard: Taboleiro de instrumentos
+        dashboard: Panel de control
+        oauth_applications: Aplicacións OAuth
         organizations: Organizacións
       models:
         admin:
           fields:
             created_at: Creado en
             email: Correo electrónico
-          name: Admin
+          name: Administrador
           validations:
             email_uniqueness: xa existe outro administrador co mesmo correo electrónico
+        oauth_application:
+          fields:
+            created_at: Creado o
+            name: Nome da aplicación OAuth
+            organization_name: Organización
+          name: Aplicacións OAuth
         organization:
           actions:
             save_and_invite: Crear organización e invitar administrador
           fields:
             created_at: Creado en
+            file_upload_settings: Axustes de subida de ficheiros
             name: Nome
+            omniauth_settings: Axustes do Omniauth
+            smtp_settings: Axustes SMTP
           name: Organización
+      oauth_applications:
+        create:
+          error: Produciuse un problema ao crear esta aplicación.
+          success: Aplicación creada con éxito.
+        destroy:
+          error: Produciuse un problema ao destruír esta aplicación.
+          success: Aplicación destruída con éxito.
+        edit:
+          save: Gardar
+          title: Editar aplicación
+        form:
+          select_organization: Seleccionar unha organización
+        index:
+          confirm_delete: Estás certo/a de querer eliminar esta aplicación?
+          title: Aplicacións OAuth
+        new:
+          save: Gardar
+          title: Nova aplicación
+        update:
+          error: Produciuse un erro ao actualizar esta aplicación.
+          success: Aplicación actualizada con éxito.
       organizations:
         create:
           error: Produciuse un erro ao crear unha nova organización.
           success: Organización creada con éxito.
         edit:
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
+        file_upload_settings:
+          content_types:
+            admin_hint: Estes tipos MIME están permitidos na sección de subidas do panel de administración. Os usuarios administradores teñen que ser conscientes dos riscos de subir algúns formatos de documentos, agardase entón que sexan cautelosos á hora de subir ficheiros.
+            default_hint: Estas tipos MIME están permitidos de xeito predefinido para todos os usuarios.
+            intro_html: Podes engadir comodíns co asterisco para os tipos MIME, p. ex. <code>image/*</code>.
+            title: Tipos MiME permitidos
+          file_extensions:
+            admin_hint: Estas extensións de ficheiro están permitidas na sección de subidas do panel de administración. Os usuarios administradores teñen que ser conscientes dos riscos de subir algúns formatos de documentos, agardase entón que sexan cautelosos á hora de subir ficheiros.
+            default_hint: Estas extensións de ficheiro están permitidas de xeito predefinido para todos os usuarios.
+            image_hint: Estas extensións de ficheiro están permitidas para calquera imaxe a subir.
+            title: Extensións de ficheiro permitidas
+          file_sizes:
+            avatar_hint: Megabytes (MB). Este límite no tamaño de ficheiro é o empregado para subir a imaxe do avatar.
+            default_hint: Megabytes (MB). Este límite no tamaño de ficheiro é o predefinido a empregar para todos os ficheiros a subir agás se especifique o contrario.
+            title: Tamaño máximo de ficheiros
+          intro: |
+            Por favor, ten moita precaución á hora de mudar estes axustes. Cantas menos opcións permitas, mellor.
+            Permitir extensións especificas ou tipos MIME, pode expor os usuarios do sistema a riscos de seguranza e tamén pode afectar á accesibilidade do sitio web.
         index:
           title: Organizacións
         new:
           reference_prefix_hint: O prefixo de referencia utilízase para identificar de forma exclusiva recursos en todas as organizacións
           secondary_hosts_hint: Entre cada unha delas nunha nova liña
           title: Nova organización
+        omniauth_settings:
+          decidim:
+            client_id: ID do cliente
+            client_secret: Segredo do cliente
+            site_url: URL do sitio
+          enabled: Habilitado
+          enabled_by_default: Este provedor esta habilitado de xeito predefinido. Pódese editar pero non deshabilitar.
+          facebook:
+            app_id: ID da app
+            app_secret: Segredo da app
+          google_oauth2:
+            client_id: ID do cliente
+            client_secret: Segredo do cliente
+          icon: Icona
+          icon_path: Ruta da icona
+          twitter:
+            api_key: Clave da API
+            api_secret: Segredo da API
+        smtp_settings:
+          fieldsets:
+            sender: Remitente
+          instructions:
+            from_label: 'O remitente do correo será: "o-nome-da-tua-organizacion <your-organization@example.org>". Deixar baleiro para empregar ''Correo electrónico'' como etiqueta'
+          placeholder:
+            from_email: a-tua-organizacion@exemplo.org
+            from_label: o-nome-da-tua-organizacion
         update:
           error: Produciuse un erro ao actualizar esta organización.
           success: A organización actualizouse con éxito.
         users_registration_mode:
           disabled: O acceso só se pode facer con contas externas
           enabled: Permitir aos usuarios rexistrarse e iniciar sesión
-          existing: Non permita que os usuarios se rexistren, pero permiten que os usuarios xa teñan acceso
+          existing: Non permitir que os usuarios se rexistren, mais permitir que os usuarios existentes inicien sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear unha organización para comezar. Asegúrate de ler %{guide} antes de continuar.
           our_getting_started_guide: a nosa guía de inicio
       titles:
-        dashboard: Taboleiro de instrumentos
+        dashboard: Panel de control

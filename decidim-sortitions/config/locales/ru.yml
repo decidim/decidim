@@ -32,13 +32,6 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} добавлена новая жеребьевка
           notification_title: В %{participatory_space_title} была добавлена жеребьевка <a href="%{resource_path}">%{resource_title}</a>
-    pages:
-      home:
-        statistics:
-          sortitions_count: Жеребьевок
-    participatory_processes:
-      statistics:
-        sortitions_count: Жеребьевок
     sortitions:
       admin:
         actions:

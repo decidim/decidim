@@ -15,7 +15,12 @@ module Decidim
             post :answer
           end
 
-          resource :vote
+          resources :votes, only: [:new, :create, :update, :show] do
+            get :verify
+            match "new", action: :new, via: :post, as: :login, on: :collection
+          end
+
+          get :election_log, on: :member
         end
 
         root to: "elections#index"

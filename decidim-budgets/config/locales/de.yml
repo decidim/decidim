@@ -6,7 +6,7 @@ de:
         description: Beschreibung
         title: Titel
         total_budget: Gesamtbudget
-        weight: Gewichtung
+        weight: Bestellposition
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
@@ -48,12 +48,16 @@ de:
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
             title: Budgets
+            users_with_finished_orders: Benutzer mit abgeschlossenen Stimmen
+            users_with_pending_orders: Benutzer mit ausstehenden Stimmen
           new:
             create: Budget erstellen
             title: Neues Budget
           update:
             invalid: Es gab ein Problem beim Aktualisieren dieses Budgets
             success: Budget erfolgreich aktualisiert
+        exports:
+          projects: Projekte
         models:
           budget:
             name: Bugdet
@@ -90,13 +94,13 @@ de:
             title: Vorschläge importieren
       admin_log:
         budget:
-          create: "%{user_name} erstellte das %{resource_name} Budget in dem %{space_name} Raum"
-          delete: "%{user_name} löschte das %{resource_name} Budget in dem %{space_name} Raum"
-          update: "%{user_name} aktualisierte das %{resource_name} Budget in dem %{space_name} Raum"
+          create: "%{user_name} hat das Budget %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Budget %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Budget %{resource_name} in %{space_name} aktualisiert"
         project:
-          create: "%{user_name} erstellt das %{resource_name} Projekt in dem %{space_name} Raum"
-          delete: "%{user_name} löschte das %{resource_name} Projekt in den %{space_name} Leerzeichen"
-          update: "%{user_name} aktualisiert das %{resource_name} Projekt in den %{space_name} Räumen"
+          create: "%{user_name} hat das Projekt %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Projekt %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Projekt %{resource_name} in %{space_name} aktualisiert"
       budget:
         view: Alle Budgetprojekte anzeigen
       budget_information_modal:
@@ -104,6 +108,9 @@ de:
         close_modal: Dialog schließen
         continue: Weiter
         more_information: Mehr Informationen
+      budget_list_item:
+        voting_finished: Sie haben bei diesem Budget abgestimmt
+        voting_started: Sie haben damit begonnen, bei diesem Budget abzustimmen
       budgets_list:
         cancel_order:
           more_than_one: lösche deine Stimme am %{name} und beginne neu
@@ -286,6 +293,9 @@ de:
         success: Ihre Abstimmung wurde erfolgreich abgebrochen
     resource_links:
       included_proposals:
-        project_proposal: 'Vorschläge in diesem Projekt:'
+        project_proposal: Vorschläge in diesem Projekt
+    statistics:
+      orders_count: Projektauswahlen
+      projects_count: Projekte
   index:
     confirmed_orders_count: Stimmen zählen

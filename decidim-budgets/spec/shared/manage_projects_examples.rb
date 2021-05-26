@@ -9,6 +9,23 @@ shared_examples "manage projects" do
     end
 
     it_behaves_like "having a rich text editor", "new_project", "full"
+
+    it "displays the proposals picker" do
+      expect(page).to have_content("Choose proposals")
+    end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim::Budgets).to receive(:enable_proposal_linking).and_return(false)
+
+        # Reload the page with the updated settings
+        visit current_path
+      end
+
+      it "does not display the proposal picker" do
+        expect(page).not_to have_content "Choose proposals"
+      end
+    end
   end
 
   it "updates a project" do

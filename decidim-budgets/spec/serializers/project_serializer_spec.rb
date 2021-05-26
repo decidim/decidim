@@ -9,7 +9,7 @@ module Decidim::Budgets
     let(:scope) { create(:scope, organization: category.participatory_space.organization) }
     let(:project) { create(:project, budget: budget, category: category, scope: scope) }
     let(:subject) { described_class.new(project) }
-    let(:serialized) { subject.serialize }
+    let(:serialized) { subject.run }
     let(:attachment) { create :attachment, attached_to: project }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
@@ -86,6 +86,16 @@ module Decidim::Budgets
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.first).url)
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.second).url)
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.last).url)
+      end
+    end
+
+    context "when subscribed to the serialize event" do
+      ActiveSupport::Notifications.subscribe("decidim.serialize.budgets.project_serializer") do |_event_name, data|
+        data[:serialized_data][:test_field] = "Resource class: #{data[:resource].class}"
+      end
+
+      it "includes new field" do
+        expect(serialized[:test_field]).to eq("Resource class: Decidim::Budgets::Project")
       end
     end
   end

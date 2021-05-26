@@ -18,8 +18,10 @@ module Decidim
           "from" => from
         }
       end
-      let(:mail) { described_class.send_email(user, organization) }
+      let(:mail) { described_class.send_email(user, organization, subject, reply_to) }
       let(:from) { "" }
+      let(:reply_to) { nil }
+      let(:subject) { "Test subject" }
 
       it "update correctly mail.delivery_method.settings" do
         expect(mail.delivery_method.settings[:address]).to eq("mail.gotham.gov")
@@ -29,11 +31,12 @@ module Decidim
       end
 
       context "when there is no organization at all" do
-        let(:mail) { described_class.send_email(user, nil) }
+        let(:mail) { described_class.send_email(user, nil, subject, reply_to) }
 
         it "returns default values" do
           expect(mail.from).to eq(["change-me@example.org"])
           expect(mail.reply_to).to eq(nil)
+          expect(mail.subject).to eq(subject)
         end
       end
 
@@ -42,16 +45,14 @@ module Decidim
 
         it "returns default values" do
           expect(mail.from).to eq(["change-me@example.org"])
-          expect(mail.reply_to).to eq(nil)
         end
       end
 
       context "when from is not set" do
         let(:from) { nil }
 
-        it "set default values for mail.from and mail.reply_to" do
+        it "set default values for mail.from" do
           expect(mail.from).to eq(["change-me@example.org"])
-          expect(mail.reply_to).to eq(["change-me@example.org"])
         end
       end
 
@@ -60,7 +61,29 @@ module Decidim
 
         it "set default values for mail.from and mail.reply_to" do
           expect(mail.from).to eq(["decide@gotham.org"])
-          expect(mail.reply_to).to eq(["decide@gotham.org"])
+        end
+      end
+
+      context "when reply_to is set" do
+        let(:reply_to_address) { "villain@gotham.org" }
+        let(:reply_to) { "Arthur Fleck <#{reply_to_address}>" }
+
+        it "set given reply_to" do
+          expect(mail.reply_to).to eq([reply_to_address])
+        end
+      end
+
+      context "when reply_to is unset" do
+        it "uses default config" do
+          expect(mail.from).to eq(["change-me@example.org"])
+        end
+      end
+
+      context "when subject is set" do
+        let(:subject) { "Custom subject" }
+
+        it "sets subject" do
+          expect(mail.subject).to eq("Custom subject")
         end
       end
     end

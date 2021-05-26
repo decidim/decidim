@@ -7,7 +7,7 @@ require "decidim/core/test"
 module Decidim
   module Pages
     describe PagesType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:page_component) }
 
       it_behaves_like "a component query type"

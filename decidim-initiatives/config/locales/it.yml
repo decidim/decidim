@@ -69,6 +69,8 @@ it:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cerca %{collection} per titolo, descrizione, ID o nome dell'autore.
       menu:
+        components: componenti
+        information: Informazione
         initiatives: Iniziative
         initiatives_types: Tipi di iniziativa
       models:
@@ -133,10 +135,7 @@ it:
             email_subject: Nuova pietra miliare completata!
             notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
         support_threshold_reached:
-          email_intro: L'iniziativa %{resource_title} ha raggiunto la soglia di supporto
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
-          email_subject: Soglia di supporto raggiunta
-          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto la soglia di supporto
     gamification:
       badges:
         initiatives:
@@ -298,10 +297,8 @@ it:
         finish:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
-          edit_my_initiative: Modifica le mie iniziative
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"
-          send_my_initiative: Invia la mia iniziativa
         previous_form:
           back: Indietro
           continue: Continua
@@ -410,13 +407,6 @@ it:
         print:
           city: Città
         result:
-          answer_title:
-            accepted: Questa proposta è stata accettata perché
-            created: Questa proposta è stata creata
-            discarded: Questa proposta è stata scartata perché
-            published: Questa proposta è pubblicata perché
-            rejected: Questa proposta è stata respinta perché
-            validating: Questa proposta è in corso di valutazione
           initiative_rejected_reason: Questa iniziativa è stata respinta a causa della mancanza di firme.
         show:
           follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
@@ -477,12 +467,6 @@ it:
           vote: Firma
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: allegati
-          committee_members: membri del Comitato
-          components: componenti
-          information: Informazione
       initiative_creation_header:
         back: Indietro
         fill_data: Creare

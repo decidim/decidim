@@ -59,6 +59,8 @@ is-IS:
           info: Upplýsingar
           questions: Spurningar
         questions_submenu:
+          attachments: Viðhengi
+          categories: Flokkar
           components: Hluti
           consultation: Samráð
           info: Upplýsingar
@@ -174,10 +176,6 @@ is-IS:
         contextual_help: Vinsamlegast staðfestu valinn valkost.
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Viðhengi
-          categories: Flokkar
       question_components:
         question_menu_item: Spurningin
         unfold: Fella út

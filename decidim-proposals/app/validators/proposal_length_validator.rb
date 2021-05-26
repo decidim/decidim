@@ -20,7 +20,8 @@ class ProposalLengthValidator < ActiveModel::EachValidator
     if min && min.positive? && value.length < min
       record.errors.add(
         attribute,
-        options[:message] || :too_short
+        options[:message] || :too_short,
+        count: min
       )
     end
   end
@@ -31,7 +32,8 @@ class ProposalLengthValidator < ActiveModel::EachValidator
     if max && max.positive? && value.length > max
       record.errors.add(
         attribute,
-        options[:message] || :too_long
+        options[:message] || :too_long,
+        count: max
       )
     end
   end

@@ -1,0 +1,15 @@
+<%= decidim_form_for(@form,
+                     url: certify_polling_officer_election_closure_path(polling_officer, election),
+                     html: { multipart: true, class: "form certify_closure" }) do |form| %>
+
+  <div class="row column gallery__container">
+    <fieldset>
+      <legend><%= t("form_legend", scope: "decidim.votings.polling_officer_zone.closures.certify") %></legend>
+      <div class="row column">
+        <%= form.file_field :add_photos, multiple: true, label: t("add_images", scope: "decidim.votings.polling_officer_zone.closures.certify") %>
+      </div>
+    </fieldset>
+  </div>
+
+  <%= form.submit t("submit", scope: "decidim.votings.polling_officer_zone.closures.certify"), class: "button button--sc mt-sm mb-none" %>
+<% end %>

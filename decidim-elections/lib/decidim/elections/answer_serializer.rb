@@ -17,6 +17,10 @@ module Decidim
       # Public: Exports a hash with the serialized data for this answer.
       def serialize
         {
+          participatory_space: {
+            id: election.participatory_space.id,
+            title: election.participatory_space.title
+          },
           id: answer.id,
           election_id: election.id,
           election_title: election.title,
@@ -24,13 +28,14 @@ module Decidim
           question_title: question.title,
           answer_id: answer.id,
           answer_title: answer.title,
-          answer_votes: answer.votes_count
+          answer_votes: answer.results_total
         }
       end
 
       private
 
       attr_reader :answer
+      alias resource answer
 
       def election
         answer.question.election

@@ -8,7 +8,9 @@ module Decidim::ParticipatoryProcesses
 
     let!(:organization) { create(:organization) }
     let!(:local_participatory_processes) do
-      create_list(:participatory_process, 3, organization: organization)
+      create(:participatory_process, organization: organization, weight: 2)
+      create(:participatory_process, organization: organization, weight: 3)
+      create(:participatory_process, organization: organization, weight: 1)
     end
 
     let!(:foreign_participatory_processes) do
@@ -22,6 +24,10 @@ module Decidim::ParticipatoryProcesses
 
       it "excludes the external processes" do
         expect(subject).not_to include(*foreign_participatory_processes)
+      end
+
+      it "order processes by weight" do
+        expect(subject.to_a.first.weight).to eq 1
       end
     end
   end

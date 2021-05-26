@@ -29,6 +29,7 @@ tr:
             success: Yayın başarıyla silindi
           edit:
             save: Güncelleştirme
+            title: Gönderiyi düzenle
           index:
             title: Mesajlar
           new:
@@ -48,6 +49,8 @@ tr:
             title: Başlık
       posts:
         show:
+          back: Listeye geri dön
+          comments: Yorumlar
           view: Görünüm
         sidebar_blog:
           comments: yorumlar
@@ -60,9 +63,12 @@ tr:
           global:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
+            endorsements_blocked: Yorumlar engellendi
+            endorsements_enabled: Yorumlar etkin
     events:
       blogs:
         post_created:
@@ -70,10 +76,3 @@ tr:
           email_outro: Bu bildirimi aldınız çünkü "%{participatory_space_title}" u takip ediyorsun. Bunu önceki linkten takip edebilirsiniz.
           email_subject: '%{participatory_space_title}yayınlanan yeni gönderi'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> sonrası %{participatory_space_title}olarak yayınlandı.
-    pages:
-      home:
-        statistics:
-          posts_count: Mesajlar
-    participatory_processes:
-      statistics:
-        posts_count: Mesajlar

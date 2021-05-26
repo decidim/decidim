@@ -56,7 +56,7 @@ module Decidim::Admin
 
       context "when the image does not exist" do
         it "creates the related image" do
-          expect(content_block.images).to be_empty
+          expect(content_block.images).to eq({ "background_image" => nil })
 
           subject.call
           content_block.reload

@@ -86,7 +86,7 @@ Visit http://localhost:3000 to see your app running.
 
 == Configuration & setup
 
-Decidim comes pre-configured with some safe defaults, but can be changed through the `config/initializers/decidim.rb` file in your app. Check the comments there or read the comments in https://github.com/decidim/decidim/blob/master/decidim-core/lib/decidim/core.rb[the source file] (the part with the `config_accessor` calls) for more up-to-date info.
+Decidim comes pre-configured with some safe defaults, but can be changed through the `config/initializers/decidim.rb` file in your app. Check the comments there or read the comments in https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/core.rb[the source file] (the part with the `config_accessor` calls) for more up-to-date info.
 
 === Scheduled tasks
 
@@ -133,7 +133,7 @@ This will create a system user with the email and password you set. We recommend
 
 Then, visit the `/system` dashboard and login with the email and passwords you just entered and create your organization. You're done! :tada:
 
-You can check the https://github.com/decidim/decidim/tree/master/decidim-system/README.md[`decidim-system` README file] for more info on how organizations work.
+You can check the https://github.com/decidim/decidim/tree/develop/decidim-system/README.md[`decidim-system` README file] for more info on how organizations work.
 
 == Checklist
 

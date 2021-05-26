@@ -36,6 +36,21 @@ module Decidim::Admin
       end
     end
 
+    context "when the CSV file has BOM" do
+      let(:file) { File.new Decidim::Dev.asset("import_participatory_space_private_users_with_bom.csv") }
+      let(:email) { "my_user@example.org" }
+
+      it "broadcasts ok" do
+        expect(subject.call).to broadcast(:ok)
+      end
+
+      it "enqueues a job for each present value without BOM" do
+        expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).with(email, kind_of(String), private_users_to, current_user)
+
+        subject.call
+      end
+    end
+
     it "broadcasts ok" do
       expect(subject.call).to broadcast(:ok)
     end

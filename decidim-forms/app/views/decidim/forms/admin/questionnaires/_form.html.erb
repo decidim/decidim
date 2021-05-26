@@ -105,8 +105,10 @@
   <% end %>
 </div>
 
-<% if questionnaire.questions_editable? %>
-  <%= javascript_include_tag "decidim/forms/admin/forms" %>
-<% end %>
+<%= javascript_pack_tag "decidim_forms_admin" %>
 
-<%= javascript_include_tag "decidim/forms/admin/collapsible_questions" %>
+<% if questionnaire.questions_editable? %>
+  <script>
+    window.Decidim.createEditableForm()
+  </script>
+<% end %>

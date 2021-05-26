@@ -10,10 +10,15 @@ fi-pl:
         question_type: Tyyppi
       questionnaire_question:
         mandatory: Pakollinen
+        max_characters: Merkkimäärärajoitus (jätä arvoksi 0, jos merkkimäärää ei ole rajoitettu)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Liitettävä uudelleen
+            body:
+              too_long: liian pitkä
             choices:
               missing: ovat puutteellisia
               too_many: liian monta
@@ -110,7 +115,7 @@ fi-pl:
         answer:
           body: Runkoteksti ei voi olla tyhjä
       files:
-        extension_whitelist: 'Sallitut tiedostopäätteet:'
+        extension_allowlist: 'Sallitut tiedostopäätteet:'
       images:
         dimensions: "%{width} x %{height} pikseliä"
         dimensions_info: 'Tämän kuvan koko tulee olemaan:'
@@ -118,6 +123,7 @@ fi-pl:
           resize_and_pad: Muutetaan kokoon ja täytetään
           resize_to_fit: Muutetaan mahtumaan kokoon
       question_types:
+        files: Tiedostot
         long_answer: Pitkä vastaus
         matrix_multiple: Matriisi (useat valinnat)
         matrix_single: Matriisi (yksi valinta)

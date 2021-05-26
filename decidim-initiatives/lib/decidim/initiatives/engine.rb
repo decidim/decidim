@@ -6,7 +6,6 @@ require "decidim/core"
 require "decidim/initiatives/current_locale"
 require "decidim/initiatives/initiatives_filter_form_builder"
 require "decidim/initiatives/initiative_slug"
-require "decidim/initiatives/api"
 require "decidim/initiatives/query_extensions"
 
 module Decidim
@@ -81,6 +80,7 @@ module Decidim
 
           content_block.settings do |settings|
             settings.attribute :max_results, type: :integer, default: 4
+            settings.attribute :order, type: :string, default: "default"
           end
         end
       end
@@ -92,10 +92,11 @@ module Decidim
 
       initializer "decidim_initiatives.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.initiatives", scope: "decidim"),
-                    decidim_initiatives.initiatives_path,
-                    position: 2.6,
-                    active: :inclusive
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 2.4,
+                        active: :inclusive
         end
       end
 
@@ -122,9 +123,7 @@ module Decidim
       end
 
       initializer "decidim_initiatives.query_extensions" do
-        Decidim::Api::QueryType.define do
-          QueryExtensions.define(self)
-        end
+        Decidim::Api::QueryType.include QueryExtensions
       end
     end
   end

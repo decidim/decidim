@@ -6,6 +6,8 @@ module Decidim
     # Holds a many-to-many relationship between conversations and their participants
     #
     class Participation < ApplicationRecord
+      self.table_name = "decidim_messaging_participations"
+
       belongs_to :conversation,
                  foreign_key: :decidim_conversation_id,
                  class_name: "Decidim::Messaging::Conversation",

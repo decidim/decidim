@@ -42,7 +42,7 @@ module Decidim
     attr_reader :component, :emendation, :amender
 
     def amendable_module
-      emendation.class.parent
+      emendation.class.module_parent
     end
 
     def title_similarity

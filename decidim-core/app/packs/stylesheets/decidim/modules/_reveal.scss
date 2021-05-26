@@ -1,0 +1,81 @@
+/* Reveal foundation overwrites */
+
+@include breakpoint(small down){
+  .reveal{
+    width: 95%;
+    left: 2.5%;
+    top: 2rem;
+    height: auto;
+    min-height: auto;
+  }
+}
+
+.reveal__header{
+  border-bottom: $border;
+  margin-bottom: 1rem;
+
+  &.reveal__header--nomargin{
+    margin-bottom: 0;
+  }
+}
+
+.reveal__footer{
+  border-top: $border;
+
+  .buttons{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 50px; // bottom padding is needed to avoid hiding buttons on mobiles because of https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+
+    @include breakpoint(medium){
+      padding-bottom: 0;
+      margin-bottom: -1rem;
+    }
+  }
+}
+
+.reveal__bg{
+  background-color: $light-gray-dark;
+}
+
+.reveal__title{
+  margin-top: -6px;
+}
+
+.reveal__list{
+  @extend .list-reset;
+
+  li{
+    @extend .p-s;
+
+    display: flex;
+  }
+
+  li.selected{
+    background-color: rgba($warning, .3);
+    justify-content: space-between;
+
+    svg{
+      color: $success;
+      align-self: center;
+    }
+  }
+
+  li:hover{
+    cursor: pointer;
+  }
+
+  li:not(:last-child){
+    border-bottom: $border;
+  }
+}
+
+.reveal__trigger{
+  cursor: pointer;
+}
+
+.reveal__buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}

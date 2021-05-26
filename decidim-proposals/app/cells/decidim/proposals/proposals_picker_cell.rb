@@ -50,7 +50,7 @@ module Decidim
 
       def filtered_proposals
         @filtered_proposals ||= if filtered?
-                                  proposals.where("title ILIKE ?", "%#{search_text}%")
+                                  proposals.where("title::text ILIKE ?", "%#{search_text}%")
                                            .or(proposals.where("reference ILIKE ?", "%#{search_text}%"))
                                            .or(proposals.where("id::text ILIKE ?", "%#{search_text}%"))
                                 else

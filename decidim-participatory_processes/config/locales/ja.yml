@@ -295,6 +295,9 @@ ja:
       show:
         related_assemblies: 関連する参加スペース
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: 統計情報
       show:
         title: 参加型プロセスグループ
     participatory_process_steps:
@@ -388,25 +391,6 @@ ja:
         start_date: 開始日
         target: 参加者
         unspecified: 指定されていない
-      statistics:
-        answers_count: 回答
-        comments_count: コメント
-        debates_count: ディベート
-        endorsements_count: 支持
-        followers_count: フォロワー
-        headline: 統計情報
-        meetings_count: ミーティング
-        no_stats: 統計情報はまだありません。
-        orders_count: サポート
-        pages_count: ページ
-        participants_count: 参加者
-        processes_count: 参加型プロセス
-        projects_count: プロジェクト
-        proposals_count: 提案
-        results_count: 結果
-        supports_count: サポート
-        surveys_count: 調査
-        users_count: 参加者
   layouts:
     decidim:
       participatory_process_groups:
