@@ -42,7 +42,7 @@ module Decidim
 
       def comments_query
         Decidim::Comments::Comment
-          .where(decidim_root_commentable_id: participatory_space_ids)
+          .where(decidim_participatory_process_id: participatory_space_ids)
           .pluck(:decidim_author_id)
           .uniq
       end
