@@ -19,7 +19,7 @@ module Decidim
         # Decidim gem assets
         decidim_gems = Bundler.load.specs.select { |spec| spec.name =~ /^decidim-/ }
         decidim_gems.each do |gem|
-          asset_config_path = "#{gem.full_gem_path}/config/assets.rb"
+          asset_config_path = File.join(gem.full_gem_path, "config/assets.rb")
           next unless File.exist?(asset_config_path)
 
           load asset_config_path
