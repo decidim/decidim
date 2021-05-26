@@ -16,5 +16,13 @@ module Decidim
         configuration.additional_paths.push(path)
       end
     end
+
+    def self.register_entrypoint(name, path)
+      configuration.entrypoints[name] = path
+    end
+
+    def self.register_entrypoints(entrypoints)
+      configuration.entrypoints.merge!(entrypoints)
+    end
   end
 end
