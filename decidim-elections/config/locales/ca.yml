@@ -91,6 +91,16 @@ ca:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca a %{collection} per nom, correu electrònic o àlies, o bé per punt de votació.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Cerca %{collection} per títol, adreça o bé per responsable, amb el seu nom, correu electrònic o àlies.
+        signed_eq:
+          label: Signat
+          values:
+            'false': Signat
+            'true': Sense signar
+        validated_eq:
+          label: Validat
+          values:
+            'false': Validat
+            'true': Sense validar
     components:
       elections:
         actions:
@@ -455,6 +465,8 @@ ca:
             end_time: Finalitza el
             start_time: Comença el
             title: Títol
+            verifiable_results_file_hash: Comprovació de suma SHA256 del fitxer
+            verifiable_results_file_url: Fitxer de verificació de l'elecció
         question:
           fields:
             answers: Respostes
