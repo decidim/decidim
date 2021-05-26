@@ -27,7 +27,7 @@ module Decidim
     end
 
     def self.searchable_resources_of_type_participant
-      searchable_resources.select { |r| r == "Decidim::User" }
+      searchable_resources.slice("Decidim::User", "Decidim::UserGroup")
     end
 
     def self.searchable_resources_of_type_participatory_space
