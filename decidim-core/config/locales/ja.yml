@@ -35,6 +35,7 @@ ja:
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
+      decidim/resource_endorsed_event: 支持されたリソース
   activerecord:
     attributes:
       decidim/user:
@@ -74,10 +75,12 @@ ja:
       logo: "%{organization}の公式ロゴ"
       skip_button: メインコンテンツにスキップ
     account:
+      blocked: このアカウントは利用規約違反によりブロックされています
       data_portability_export:
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       delete:
+        alert: この操作は元に戻せません。アカウントを削除すると、ログインできなくなります。 アカウントを削除すると、あなたの貢献が匿名化されます。 引き続き新しいアカウントを作成することはできますが、これらの貢献は関連付けられません。
         confirm:
           close: ウィンドウを閉じる
           ok: はい、アカウントを削除します
@@ -107,6 +110,8 @@ ja:
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
+      impersonation_log:
+        manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
       moderation:
         hide: "%{user_name} が %{resource_type} タイプのリソースを %{space_name} スペースに隠しました"
         unreport: "%{user_name} は %{resource_type} タイプの %{space_name} スペースのリソースを報告していません"
@@ -123,6 +128,7 @@ ja:
         update: "%{user_name} が組織設定を更新しました"
       participatory_space_private_user:
         create: "%{user_name} が %{resource_name} を非公開参加者に招待しました"
+        create_via_csv: "%{user_name} が %{resource_name} をCSV経由で非公開参加者に招待しました"
         delete: "%{user_name} が参加者 %{resource_name} を非公開参加者として削除しました"
       scope:
         create: "%{user_name} が %{resource_name} スコープを作成しました"
@@ -136,15 +142,21 @@ ja:
         delete: "%{user_name} が %{resource_name} の静的ページを削除しました"
         update: "%{user_name} は %{resource_name} 静的ページを更新しました"
       user:
+        block: "%{user_name} がユーザー %{resource_name} をブロックしました"
         invite: "%{user_name} が参加者 %{resource_name} をロール %{role} で招待しました"
         officialize: "%{user_name} が参加者 %{resource_name} を公式化しました"
+        promote: "%{user_name} が %{resource_name} を昇格しました"
         remove_from_admin: "%{user_name} が参加者 %{resource_name} をロールで削除しました: %{role}"
         show_email: "%{user_name} が参加者 %{resource_name} のメールを取得しました"
+        transfer: "%{user_name} が参加者 %{resource_name} を移転しました"
+        unblock: "%{user_name} さんが %{resource_name} さんのブロックを解除しました"
         unofficialize: "%{user_name} が参加者 %{resource_name} を非公式にしました"
       user_group:
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
+      user_moderation:
+        unreport: "%{user_name} が %{resource_type} - %{unreported_user_name} の報告を解除しました"
     admin_terms_of_use:
       default_body: "<h2>管理者向け利用規約</h2><p>システム管理者からレクチャーを受けたと思います。通常、以下の3つのことに集約されます。</p><ol><li>他社のプライバシーを尊重する</li><li>クリックする前に考える</li><li>大きな力には大きな責任が伴う</li></ol>"
     alert:
@@ -158,9 +170,9 @@ ja:
         button: '%{model_name} を修正'
         error: リソースの修正中にエラーが発生しました。
         help_text: '%{model_name} を変更して、この %{amendable_fields} を改善しましょう。'
-        promote_button: '%{model_name} にプロモート'
-        promote_confirm_text: この承認を宣伝してもよろしいですか？
-        promote_help_text: この制約を宣伝し、独立した %{model_name} として公開することができます
+        promote_button: '%{model_name} に昇格'
+        promote_confirm_text: この修正を承認してもよろしいですか？
+        promote_help_text: この修正を昇格し、独立した %{model_name} として公開することができます
         section_heading: 修正履歴 (%{count})
       compare_draft:
         continue: 続ける
@@ -263,6 +275,8 @@ ja:
         name: 許可の例：
       dummy_authorization_workflow:
         name: ダミー認証ワークフロー
+      errors:
+        duplicate_authorization: 同じデータを持つ参加者はすでに承認されています。管理者があなたの詳細を確認するために連絡します。
       expired_at: '%{timestamp} で期限切れ'
       expires_at: '%{timestamp} で期限切れ'
       foo_authorization:
@@ -766,7 +780,7 @@ ja:
         current_members_without_admins: '現在のメンバー (管理者なし):'
         manage_members: メンバーの管理
       promote:
-        error: この参加者を宣伝する際に問題が発生しました
+        error: この参加者を昇格する際に問題が発生しました
         success: 参加者が正常に昇格しました
       reject:
         error: この参加リクエストを拒否する際に問題が発生しました
