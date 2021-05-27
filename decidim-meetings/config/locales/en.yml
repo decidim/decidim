@@ -211,6 +211,7 @@ en:
             invalid: There was a problem updating this agenda
             success: Agenda successfully updated
         exports:
+          answers: Answers
           meeting_comments: Comments
           meetings: Meetings
           registrations: Registrations

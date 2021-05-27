@@ -14,6 +14,8 @@ module Decidim
   module Meetings
     autoload :Registrations, "decidim/meetings/registrations"
     autoload :MeetingSerializer, "decidim/meetings/meeting_serializer"
+    autoload :UserAnswersSerializer, "decidim/meetings/user_answers_serializer"
+    autoload :DataPortabilityUserAnswersSerializer, "decidim/meetings/data_portability_user_answers_serializer"
 
     include ActiveSupport::Configurable
 

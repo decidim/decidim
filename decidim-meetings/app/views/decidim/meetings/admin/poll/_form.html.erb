@@ -4,12 +4,7 @@
       <%= edit_questionnaire_title %>
       <% if questionnaire.answers.any? %>
         <div class="button--title">
-          <%= export_dropdown(current_component, questionnaire.id) if true || allowed_to?(:export_answers, :questionnaire) %>
-        </div>
-        <div class="button--title">
-          <% if allowed_to? :show, :questionnaire_answers %>
-            <%= link_to t("actions.show", scope: "decidim.forms.admin.questionnaires"), questionnaire_participants_url, class: "button tiny button--title new" %>
-          <% end %>
+          <%= export_dropdown(current_component, questionnaire.id) if allowed_to?(:export_answers, :questionnaire) %>
         </div>
       <% else %>
         <button class="button tiny button--title" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
@@ -31,9 +26,7 @@
               form: question_form,
               id: tabs_id_for_question(blank_question),
               editable: questionnaire.questions_editable?,
-              answer_option_template_selector: "#answer-option-template-dummy",
-              display_condition_template_selector: "",
-              matrix_row_template_selector: "" %>
+              answer_option_template_selector: "#answer-option-template-dummy" %>
       </script>
       <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-dummy" %>
     <% end %>
@@ -50,9 +43,7 @@
               form: question_form,
               id: tabs_id_for_question(question),
               editable: questionnaire.questions_editable?,
-              answer_option_template_selector: "#answer-option-template-#{index}",
-              display_condition_template_selector: "",
-              matrix_row_template_selector: "" %>
+              answer_option_template_selector: "#answer-option-template-#{index}" %>
         <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
       <% end %>
     <% end %>
