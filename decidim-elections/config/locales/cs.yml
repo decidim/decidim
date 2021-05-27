@@ -488,6 +488,7 @@ cs:
             start_time: Začíná v
             title: Název
             verifiable_results_file_hash: Kontrolní součet SHA256 souboru
+            verifiable_results_file_url: Ověřitelný volební soubor
         question:
           fields:
             answers: Odpovědi
@@ -818,6 +819,7 @@ cs:
             monitoring_committee_election_results: Ověřit výsledky
             monitoring_committee_members: Členové
             monitoring_committee_polling_station_closures: Potvrdit certifikáty
+            monitoring_committee_verify_elections: Ověřit volby
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
@@ -853,21 +855,28 @@ cs:
           actions:
             title: Akce
             view: Zobrazit
+          index:
+            title: Vyberte si volby, u kterých chcete vidět výsledky
           results:
             bulletin_board: Vývěska
             election_totals: Volební součet
             polling_stations: Volební místnosti
             result_types:
+              blank_answers: Prázdné odpovědi
+              blank_ballots: Prázdné hlasovací lístky
               total_ballots: Celkový počet hlasovacích lístků
+              valid_ballots: Platné hlasovací lístky
             selected: Vybráno
             title: Výsledky voleb <i>%{election_title}</i>
             totals: Celkem
           show:
+            change_election: Změnit volbu
             publish_results: Zveřejnit výsledky
             publishing: Zveřejňování výsledků...
           update:
             invalid: Při publikování výsledků došlo k chybě
             rejected: Zveřejnění výsledků bylo výborem Vývěsky zamítnuto. Zkuste to znovu nebo se obraťte na správce systému.
+            success: Výsledky byly úspěšně publikovány
         monitoring_committee_members:
           create:
             invalid: Při vytváření tohoto člena monitorovacího výboru došlo k potížím
@@ -891,10 +900,12 @@ cs:
             validate: Ověřit
             view: Zobrazit
           closures:
+            change_election: Změnit volbu
             signed: Podepsáno?
             validated: Ověřeno?
           edit:
             change_polling_station: Zpět do volebních místností
+            monitoring_committee_notes: Poznámky
             monitoring_committee_notes_placeholder: Zde nahlaste jakýkoliv incident
           validate:
             success: Uzavření bylo správně ověřeno
