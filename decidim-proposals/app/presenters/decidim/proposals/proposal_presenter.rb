@@ -70,7 +70,7 @@ module Decidim
       def locale(*)
         return unless proposal
 
-        proposal.body.is_a?(Hash) ? proposal.body.keys[0] : I18n.locale.to_s
+        proposal.body.is_a?(Hash) ? proposal.body.keys.first : I18n.locale.to_s
       end
 
       # Returns the proposal versions, hiding not published answers
