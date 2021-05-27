@@ -150,6 +150,10 @@ ja:
     admin:
       actions:
         add: 追加
+        attachment:
+          new: 新しい添付ファイル
+        attachment_collection:
+          new: 新しい添付ファイルのコレクション
         browse: 検索
         category:
           new: 新しいカテゴリ
@@ -312,7 +316,19 @@ ja:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
       conflicts:
+        attempts: 試行回数
         'false': 'いいえ'
+        managed_user_name: 管理ユーザー
+        solved: 解決済み
+        title: 確認の競合
+        transfer:
+          email: Eメールアドレス
+          error: 参加者から管理参加者への移転中に問題が発生しました。
+          name: 名前
+          reason: 理由
+          title: 移行
+        'true': 'はい'
+        user_name: ユーザー
       dashboard:
         show:
           view_more_logs: もっとログを見る
@@ -329,6 +345,9 @@ ja:
         category_id_eq:
           label: カテゴリ
         filter_label: フィルター
+        moderations:
+          reportable_type_string_eq:
+            label: タイプ
         officialized_at_null:
           label: 都道府県：
           values:
@@ -349,13 +368,16 @@ ja:
         search_label: 検索
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
+          reported_id_string_or_reported_content_cont: 報告可能なIDまたはコンテンツで %{collection} を検索します。
           title_cont: '%{collection} をタイトルで検索します。'
         state_eq:
           label: 都道府県：
       forms:
         file_help:
           import:
+            explanation: 'ファイルのガイダンス:'
             message_1: CSV、JSON、Excel (.xls) ファイルがサポートされています
+            message_2: CSV ファイルの場合、列間の区切り文字はセミコロン(";") でなければなりません。
       help_sections:
         error: ヘルプセクションの更新中に問題が発生しました
         form:
@@ -395,6 +417,13 @@ ja:
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
       imports:
+        creators:
+          proposalcreator: 提案クリエイター
+        error: インポート中に問題が発生しました
+        help:
+          proposalcreator: 'ファイルには、カラム名「title/en」と「body/en」(または、あなたが好む別のロケール、例: 「title/ja」と「body/ja」) が必要です。また、カラム名「scope/id」と「category/id」にも対応しています。'
+        import_from_file: ファイルからインポート
+        invalid_lines: リソース番号 %{invalid_lines} にエラーが見つかりました
         new:
           accepted_mime_types:
             csv: csv
@@ -402,6 +431,7 @@ ja:
             xls: xls
           actions:
             back: 戻る
+          file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
         notice: "%{number} %{resource_name} を正常にインポートしました"
       logs:
@@ -521,13 +551,22 @@ ja:
       moderated_users:
         index:
           actions:
+            block: ユーザーをブロック
             title: アクション
+            unblock: ユーザーのブロックを解除
             unreport: 報告解除
+          name: 名前
           nickname: ニックネーム
+          reason: 理由
+          reports: レポート数
+          title: 報告されたユーザー一覧
         report:
           reasons:
+            does_not_belong: 所属していない
+            offensive: 攻撃的
             spam: スパム
         tabs:
+          blocked: ブロック済
           unblocked: 未ブロック
       moderations:
         index:
@@ -540,6 +579,7 @@ ja:
         reports:
           index:
             author: 投稿者
+            callout_html: コンテンツは、そのアイテムの横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
       newsletter_templates:
         index:
           preview_template: プレビュー
