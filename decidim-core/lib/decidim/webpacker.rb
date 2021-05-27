@@ -17,10 +17,6 @@ module Decidim
       end
     end
 
-    def self.register_entrypoint(name, path)
-      configuration.entrypoints[name.to_s] = path
-    end
-
     def self.register_entrypoints(entrypoints)
       configuration.entrypoints.merge!(entrypoints.stringify_keys)
     end
