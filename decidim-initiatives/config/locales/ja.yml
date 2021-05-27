@@ -82,10 +82,13 @@ ja:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       menu:
+        attachments: 添付ファイル
+        committee_members: 委員会メンバー
         components: コンポーネント
         information: 情報
         initiatives: イニシアチブ
         initiatives_types: 取り組み種別
+        moderations: モデレーション
       models:
         initiatives:
           fields:
@@ -347,6 +350,8 @@ ja:
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{author_nickname} によって支持されたイニシアチブ。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって承認されました。
+      form:
+        delete_attachment: 削除
       index:
         title: イニシアチブ
       initiative_signatures:
@@ -425,7 +430,11 @@ ja:
         result:
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
+          edit: 編集
           follow_description: このイニシアチブでニュースがある場合に通知を受け取る
+          offline_method: このイニシアチブは、 In-personal 署名のみを収集します。
+          print: イニシアチブを印刷
+          send_to_technical_validation: 技術検証に送る
         signatures_count:
           other: " 署名"
         vote_cabin:
@@ -469,6 +478,9 @@ ja:
         accepted: 承認済み
         expired: 期限切れ
       unavailable_scope: 利用できないスコープ
+      update:
+        error: エラーが発生しました
+        success: イニシアチブが正常に更新されました
       versions:
         shared:
           back_to_resource: イニシアチブに戻る
