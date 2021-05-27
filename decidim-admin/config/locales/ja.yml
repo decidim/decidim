@@ -352,6 +352,10 @@ ja:
           title_cont: '%{collection} をタイトルで検索します。'
         state_eq:
           label: 都道府県：
+      forms:
+        file_help:
+          import:
+            message_1: CSV、JSON、Excel (.xls) ファイルがサポートされています
       help_sections:
         error: ヘルプセクションの更新中に問題が発生しました
         form:
