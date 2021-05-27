@@ -55,7 +55,6 @@ export default class PollComponent {
     }
   }
 
-
   /**
    * Performs the ajax call that updates the list of questions
    * Before, stores the current questions states to apply them after the ajax call has

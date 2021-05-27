@@ -494,7 +494,7 @@ en:
       polls:
         questions:
           index:
-            question: Question
+            empty_questions: A lo largo de este encuentro se enviarán preguntas que podrás contestar. Irán apareciendo aquí.
           index_admin:
             admin_dashboard: Administrator dashboard
             edit: Edit in the admin
@@ -504,6 +504,13 @@ en:
             results: Results
             send: Send
             sent: Sent
+          closed_question:
+            question_results: Question results
+          published_question:
+            max_choices_alert: There are too many choices selected
+            question: Question
+            question_replied: Question replied
+            reply_question: Reply question
       models:
         invite:
           fields:

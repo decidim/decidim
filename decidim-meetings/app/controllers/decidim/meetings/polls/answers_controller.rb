@@ -4,33 +4,33 @@ module Decidim
   module Meetings
     module Polls
       class AnswersController < Decidim::Meetings::ApplicationController
-        helper_method :meeting, :poll, :questionnaire
+        include Decidim::Meetings::PollsResources
+        include FormFactory
 
-        def index
-        end
+        helper_method :question
 
         def create
-        end
+          # TODO
+          #enforce_permission_to :update, :answer, questionnaire: questionnaire
+          @form = form(AnswerForm).from_params(params, question: question, current_user: current_user)
 
-        def update
+          CreateAnswer.call(@form, current_user, questionnaire) do
+            # Both :ok and :invalid render the same template, because
+            # validation errors are displayed in the template
+            respond_to do |format|
+              format.js
+            end
+          end
         end
 
         private
 
-        def meeting
-          @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
-        end
-
-        def poll
-          @poll ||= meeting&.poll
-        end
-
-        def questionnaire
-          @questionnaire ||= Decidim::Meetings::Questionnaire.find_by(questionnaire_for: poll) if poll
-        end
-
         def question
-          @question ||= questionnaire.questions.find(params[:id]) if questionnaire
+          @question ||= questionnaire.questions.find(answer_params[:question_id]) if questionnaire
+        end
+
+        def answer_params
+          params.require(:answer).permit(:question_id, choices: [:body, :answer_option_id])
         end
       end
     end

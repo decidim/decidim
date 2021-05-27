@@ -27,6 +27,11 @@ module Decidim
         %w(single_option multiple_option).include?(question_type)
       end
 
+      # Public: returns whether the questionnaire is answered by the user or not.
+      def answered_by?(user)
+        questionnaire.answers.where({user: user, question: self}).any? if questionnaire.questions.present? && user.present?
+      end
+
       def number_of_options
         answer_options.size
       end

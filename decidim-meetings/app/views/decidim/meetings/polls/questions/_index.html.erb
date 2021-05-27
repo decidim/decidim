@@ -1,15 +1,5 @@
 <% if questionnaire.all_questions_unpublished? %>
-  <p class="padding-1">A lo largo de este encuentro se enviarán preguntas que podrás contestar. Irán apareciendo aquí.</p>
+  <p class="padding-1"><%= t(".empty_questions") %></p>
 <% end %>
 
-<% questionnaire.questions.visible.each do |question| %>
-  <%# TODO: is-new %>
-  <details class="meeting-polls__question text-medium" data-question="<%= question.id %>">
-    <summary><%= t(".question") %></summary>
-
-    <div>
-      <p><%= translated_attribute(question.body) %></p>
-    </div>
-  </details>
-<% end %>
-</div>
+<%= render partial: "decidim/meetings/polls/questions/question", collection: questionnaire.questions.visible %>

@@ -1,7 +1,8 @@
 import MeetingsPollComponent from "src/decidim/meetings/poll.component"
+const OPEN_CLASS = "is-open";
 
 $(() => {
-  // Mount polls component for plain users
+  // Mount polls component for users
   const $container = $("[data-decidim-meetings-poll]");
   const $counter = $("#visible-questions-count");
   const poll = new MeetingsPollComponent($container, $container.data("decidim-meetings-poll"), $counter);
@@ -10,12 +11,12 @@ $(() => {
     event.preventDefault();
 
     if(!poll.isMounted()){
-      $(event.target).addClass("is-open");
-      $container.addClass("is-open");
+      $(event.target).addClass(OPEN_CLASS);
+      $container.addClass(OPEN_CLASS);
       poll.mountComponent();
     } else {
-      $(event.target).removeClass("is-open");
-      $container.removeClass("is-open");
+      $(event.target).removeClass(OPEN_CLASS);
+      $container.removeClass(OPEN_CLASS);
       poll.unmountComponent();
     }
   });
@@ -28,12 +29,12 @@ $(() => {
     event.preventDefault();
 
     if(!adminPoll.isMounted()){
-      $(event.target).addClass("is-open");
-      $adminContainer.addClass("is-open");
+      $(event.target).addClass(OPEN_CLASS);
+      $adminContainer.addClass(OPEN_CLASS);
       adminPoll.mountComponent();
     } else {
-      $(event.target).removeClass("is-open");
-      $adminContainer.removeClass("is-open");
+      $(event.target).removeClass(OPEN_CLASS);
+      $adminContainer.removeClass(OPEN_CLASS);
       adminPoll.unmountComponent();
     }
   });
