@@ -693,6 +693,7 @@ ja:
         edit:
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
+          delete_image: 画像を削除
           select_a_category: カテゴリを選択してください
           send: 送信
           title: 提案を編集
@@ -864,3 +865,6 @@ ja:
       included_proposals:
         proposal_project: 'これらのプロジェクトに表示される提案'
         proposal_result: 'これらの結果に提案が表示されます:'
+    statistics:
+      proposals_count: 提案
+      supports_count: サポート
