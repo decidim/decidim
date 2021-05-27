@@ -34,10 +34,20 @@ ja:
         subtitle: サブタイトル
         target: 参加者
         title: タイトル
+        weight: 重みづけ
       participatory_process_group:
         description: 説明
+        developer_group: プロモーターグループ
+        group_url: ウェブサイト
+        hashtag: ハッシュタグ
         hero_image: 画像
+        local_area: 組織エリア
+        meta_scope: スコープメタデータ
         participatory_process_ids: 関連する参加型プロセス
+        participatory_scope: 決定されること
+        participatory_structure: 決定方法
+        target: 参加者
+        title: タイトル
       participatory_process_step:
         cta_path: コールからアクションパス
         cta_text: アクションテキストの呼び出し
@@ -90,6 +100,9 @@ ja:
         unpublish: 公開しない
       menu:
         participatory_process_groups: 参加型プロセスグループ
+        participatory_process_groups_submenu:
+          info: 情報
+          landing_page: ランディングページ
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
           attachment_collections: フォルダ
@@ -112,6 +125,8 @@ ja:
             title: タイトル
           name: 参加型プロセス
         participatory_process_group:
+          fields:
+            title: タイトル
           name: 参加型プロセスグループ
         participatory_process_step:
           fields:
@@ -139,6 +154,13 @@ ja:
           copy: コピー
           select: 複製したいデータを選択してください
           title: 重複した参加型プロセス
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: アクティブコンテンツブロック
+          inactive_content_blocks: 非アクティブコンテンツブロック
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: 更新
       participatory_process_groups:
         destroy:
           error: 参加型プロセスグループの削除中にエラーが発生しました。
@@ -296,8 +318,27 @@ ja:
         related_assemblies: 関連する参加スペース
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: 最初の HTML ブロック
+        html_2:
+          name: 2番目のHTMLブロック
+        html_3:
+          name: 3番目の HTML ブロック
+        metadata:
+          developer_group: プロモーター
+          name: メタデータ
+          participatory_scope: 決定されること
+          participatory_structure: 決定方法
+          target: 参加者
+        participatory_processes:
+          name: 参加型プロセス
         stats:
           name: 統計情報
+        title:
+          meta_scope: スコープ
+          name: タイトル、説明、ハッシュタグ
+          participatory_processes:
+            other: "%{count} 個のプロセス"
       show:
         title: 参加型プロセスグループ
     participatory_process_steps:
@@ -309,9 +350,17 @@ ja:
         content_blocks:
           highlighted_processes:
             max_results: 表示する要素の最大量
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: メタデータ
+            title: 一般情報
+            visibility: 公開範囲
         participatory_process_imports:
           form:
             document_legend: ドキュメントを追加
@@ -379,6 +428,7 @@ ja:
           loading: 結果を読み込み中...
       show:
         area: エリア
+        belongs_to_group: このプロセスの所属グループ
         dates: 日付
         developer_group: プロモーターグループ
         end_date: 終了日
@@ -436,6 +486,8 @@ ja:
           more_info_about: 参加型プロセス %{resource_name} についての詳細情報
           take_part: 参加する
           take_part_in: 参加型プロセス %{resource_name} に参加する
+        promoted_process_group:
+          more_info: 詳細情報
       process_header_steps:
         step: 段階 %{current} / %{total}
         view_steps: プロセスのフェーズ
