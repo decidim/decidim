@@ -135,6 +135,12 @@ ja:
           update:
             invalid: この質問の更新中に問題が発生しました
             success: 問題が正常に更新されました
+        steps:
+          create_election:
+            not_used_trustee: "(未使用)"
+            public_key:
+              'false': <strong>公開鍵</strong>がありません
+              'true': <strong>公開鍵</strong>があります
       admin_log:
         election:
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
