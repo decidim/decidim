@@ -907,11 +907,15 @@ cs:
             change_polling_station: Zpět do volebních místností
             monitoring_committee_notes: Poznámky
             monitoring_committee_notes_placeholder: Zde nahlaste jakýkoliv incident
+          show:
+            change_polling_station: Zpět do volebních místností
           validate:
             success: Uzavření bylo správně ověřeno
         monitoring_committee_verify_elections:
           index:
             download: Stáhnout
+            how_to_checksum: 'Chcete-li se ujistit, že stažený soubor nebyl během procesu stahování poškozen nebo zmanipulován, spusťte následující příkaz v konzoli a zkontrolujte, zda výstup odpovídá výše uvedenému kontrolním součtu:'
+            how_to_download: Chcete-li ověřit volby, stáhněte si ověřitelný soubor z tabulky výše.
             how_to_run_verifier: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
             how_to_title: Jak ověřit platnost voleb
             not_available: Ještě není k dispozici
@@ -1102,6 +1106,7 @@ cs:
             add_images: Přidat obrázky
             error: Došlo k chybě při připojování certifikátu, zkuste to prosím znovu.
             form_legend: Nahrajte prosím fotografii volebního certifikátu o uzavření
+            heading: Přepočet hlasů - Nahrát certifikát
             info_text: Nahrajte prosím fotografii volebního certifikátu o uzavření.
             submit: Nahrát certifikát
             success: Certifikát byl úspěšně nahrán.
@@ -1158,6 +1163,7 @@ cs:
           complete_voting:
             available_answers: 'Dostupné odpovědi:'
             census_verified: Uživatel ještě nehlasoval.
+            complete_voting: Dokončené hlasování
             identify_another: Identifikovat jiného účastníka
             questions_title: 'Má právo hlasovat v těchto otázkách:'
             questions_title_voted: 'Účastník již hlasoval on-line a je oprávněn hlasovat v následujících otázkách:'
@@ -1183,6 +1189,7 @@ cs:
             title: Identifikovat a ověřit účastníka
           show:
             back: Zpět do volební místnosti
+            title: Čekání na registraci osobního hlasu
           update:
             error: Při registraci hlasování došlo k chybě. Zkuste to znovu.
             success:
@@ -1222,6 +1229,7 @@ cs:
         nota_option: Prázdná/Nic z výše uvedených
         polling_officer_notes: 'Poznámky volebního komisaře:'
         polling_officer_notes_blank: Nejsou žádné poznámky
+        recount_summary: 'Přepočet shrnutí:'
         signed: Podepsáno
         total_ballots: 'Celkový počet hlasovacích lístků:'
         total_blank_ballots: 'Celkový počet nevyplněných hlasovacích lístků:'
