@@ -64,6 +64,10 @@ ja:
           edit:
             title: ディベートを編集
             update: ディベートを更新
+          form:
+            debate_type: ディベートタイプ
+            finite: 期間限定 (開始時刻と終了時刻あり)
+            open: 無期限 (開始時刻または終了時刻なし)
           index:
             title: ディベート
           new:
@@ -72,6 +76,8 @@ ja:
           update:
             invalid: このディベートを更新する際に問題が発生しました。
             success: ディベートが正常に更新されました。
+        exports:
+          comments: コメント
         models:
           debate:
             name: ディベート
@@ -150,6 +156,7 @@ ja:
           groups_count: グループ
           last_comment_by: 最新コメント
           no_comments_yet: コメントがありません
+          open: 公開ディベート
           participants_count: 参加者
         update:
           invalid: ディベートの更新に問題がありました。
@@ -162,6 +169,7 @@ ja:
         versions_list:
           back_to_resource: ディベートに戻る
       last_activity:
+        debate_updated_at_html: "<span>ディベートが %{link} に更新されました</span>"
         new_debate_at_html: "<span> %{link}での新しいディベート</span>"
       models:
         debate:
