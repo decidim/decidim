@@ -86,34 +86,12 @@
     }
 
     &[open] .meeting-polls__answer--bar > *{
-      animation: animateRight .4s ease-in-out .2s forwards;
+      opacity: 1;
+      transform: translateX(0);
     }
 
     &.is-new{
       animation: animateHighlight 5s ease-in-out forwards;
-    }
-
-    @keyframes animateDown{
-      0%{
-        opacity: 0;
-        transform: translateY(-25%);
-      }
-
-      75%{
-        opacity: 0;
-      }
-    }
-
-    @keyframes animateRight{
-      from{
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-
-      to{
-        opacity: 1;
-        transform: translateX(0);
-      }
     }
 
     @keyframes animateHighlight{
