@@ -876,6 +876,13 @@ cs:
       index:
         last_activity: Poslední aktivita
         resource_type: Typ
+    links:
+      invalid_url: Neplatná URL
+      warning:
+        body_1: Chystáte se navštívit externí odkaz a chtěli bychom, abyste byli opatrní, pokud jde o obsah na externím webu.
+        body_2: Zkontrolujte prosím odkaz, který se chystáte navštívit, a než budete pokračovat, ujistěte se, že jste jej rozpoznali jako bezpečný web.
+        cancel: Zrušit
+        close_modal: Zavřít modal
     log:
       base_presenter:
         create: "%{user_name} vytvořil %{resource_name}"
