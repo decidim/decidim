@@ -294,16 +294,8 @@ shared_examples "proposals wizards" do |options|
         expect(page).to have_content(user.name)
         expect(page).to have_content(proposal_body)
 
-        expect(page).to have_css(".dynamic-map-instructions")
+        expect(page).to have_css(".card__content.address")
         expect(page).to have_css(".google-map")
-        within "#edit_proposal_#{proposal_draft.id}" do
-          expect(page).to have_field("proposal_title", type: :hidden, with: proposal_title)
-          expect(page).to have_field("proposal_body", type: :hidden, with: proposal_body)
-          expect(page).to have_field("proposal_address", type: :hidden, with: address)
-          expect(page).to have_field("proposal_longitude", type: :hidden, with: longitude)
-          expect(page).to have_field("proposal_latitude", type: :hidden, with: latitude)
-          expect(page).to have_button("Update position")
-        end
       end
 
       it "shows a publish button" do
