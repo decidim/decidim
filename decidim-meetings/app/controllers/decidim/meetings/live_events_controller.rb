@@ -16,7 +16,6 @@ module Decidim
         flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
         redirect_to(ResourceLocatorPresenter.new(meeting).index)
       end
-
     end
   end
 end

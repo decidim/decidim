@@ -16,7 +16,11 @@ module Decidim
       def answer_percentage
         total = answers.count
         option = answers.where(decidim_answer_option_id: model.id).count
-        "#{number_with_precision((option.to_f / total) * 100, precision: 1, significant: true)}%"
+        "#{number_with_precision(calculate_percentage(option, total), precision: 1, significant: true)}%"
+      end
+
+      def calculate_percentage(part, total)
+        total.zero? ? 0 : (part.to_f / total) * 100
       end
 
       def answers

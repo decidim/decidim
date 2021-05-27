@@ -197,6 +197,18 @@ FactoryBot.define do
     answer_options do
       Array.new(3).collect { build(:meetings_poll_answer_option, question: nil) }
     end
+
+    trait :unpublished do
+      status { 0 }
+    end
+
+    trait :published do
+      status { 1 }
+    end
+
+    trait :closed do
+      status { 2 }
+    end
   end
 
   factory :meetings_poll_answer, class: "Decidim::Meetings::Answer" do

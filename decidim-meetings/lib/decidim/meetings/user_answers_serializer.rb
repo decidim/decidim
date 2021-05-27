@@ -30,10 +30,10 @@ module Decidim
       alias resource answers
 
       def normalize_body(answer)
-        normalize_choices(answer, answer.choices)
+        normalize_choices(answer.choices)
       end
 
-      def normalize_choices(answer, choices)
+      def normalize_choices(choices)
         choices.map do |choice|
           choice.try(:body)
         end

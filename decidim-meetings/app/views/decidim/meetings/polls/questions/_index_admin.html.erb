@@ -9,7 +9,7 @@
 
       <%= link_to t(".edit"), Decidim::EngineRouter.admin_proxy(meeting.component).edit_meeting_poll_path(meeting), target: "_blank", rel: "noopener noreferrer" %>
 
-      <div class="meeting-polls__admin-action">
+      <div class="meeting-polls__admin-action-publish">
         <div><%= t(".question") %></div>
         <div>
           <% if question.unpublished? %>
@@ -22,18 +22,26 @@
           <% end %>
         </div>
       </div>
-      <div class="meeting-polls__admin-action">
+      <div class="meeting-polls__admin-action-close">
         <div><%= t(".results") %></div>
         <div>
-          <% if question.unpublished? %>
-            <button class="button button--nomargin primary small" disabled><%= t(".send") %></button>
-          <% elsif question.published? %>
-            <%= link_to meeting_polls_question_path(meeting, question), method: :patch, remote: true do %>
-              <button class="button button--nomargin primary small"><%= t(".send") %></button>
+          <% unless question.unpublished? %>
+            <% question.answer_options.each do |answer_option| %>
+              <%= cell "decidim/meetings/question_responses", answer_option %>
             <% end %>
-          <% elsif question.closed? %>
-            <div><strong><%= t(".sent") %></strong></div>
           <% end %>
+
+          <div>
+            <% if question.unpublished? %>
+              <button class="button button--nomargin primary small" disabled><%= t(".send") %></button>
+            <% elsif question.published? %>
+              <%= link_to meeting_polls_question_path(meeting, question), method: :patch, remote: true do %>
+                <button class="button button--nomargin primary small"><%= t(".send") %></button>
+              <% end %>
+            <% elsif question.closed? %>
+              <div><strong><%= t(".sent") %></strong></div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@ module Decidim
           answer_question
         end
 
-        broadcast(:ok, meeting)
+        broadcast(:ok)
       end
 
       private

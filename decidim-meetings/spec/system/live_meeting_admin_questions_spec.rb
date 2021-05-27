@@ -15,6 +15,12 @@ describe "Meeting live event poll administration", type: :system do
            :confirmed,
            organization: organization
   end
+  let(:user_2) do
+    create :user,
+           :admin,
+           :confirmed,
+           organization: organization
+  end
 
   let(:manifest_name) { "meetings" }
 
@@ -49,26 +55,76 @@ describe "Meeting live event poll administration", type: :system do
   end
   let!(:poll) { create(:poll, meeting: meeting) }
   let!(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
-  let!(:question_multiple_option) { create(:meetings_poll_question, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
-  let!(:question_single_option) { create(:meetings_poll_question, questionnaire: questionnaire, body: body_single_option_question, question_type: "single_option") }
 
   before do
     visit meeting_live_event_path
-    click_link "Administrate"
+    click_button "Administrate"
   end
 
-  it "list the questions in the Administrate section" do
-    expect(page.all(".meeting-polls__question--admin").size).to eq(2)
+  context "when all questions are unpublished" do
+    let!(:question_multiple_option) { create(:meetings_poll_question, :unpublished, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
+    let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire: questionnaire, body: body_single_option_question, question_type: "single_option") }
+
+    it "list the questions in the Administrate section" do
+      expect(page.all(".meeting-polls__question--admin").size).to eq(2)
+    end
+
+    it "allows to edit a question in the administrator" do
+      open_first_question
+
+      expect(page).to have_content("This is the first question")
+      new_window = window_opened_by { click_link "Edit in the admin" }
+
+      within_window new_window do
+        expect(page).to have_current_path(questionnaire_edit_path)
+      end
+    end
+
+    it "allows to publish an unpublished question" do
+      open_first_question
+
+      within(".meeting-polls__admin-action-publish") do
+        click_button "Send"
+
+        sleep(3)
+
+        expect(page).to have_content("Sent")
+        expect(page).to have_content("0 received answers")
+      end
+    end
   end
 
-  it "allows to edit a question in the administrator" do
-    # Click first question and open it
-    page.first(".meeting-polls__question--admin").click
-    expect(page).to have_content("This is the first question")
-    new_window = window_opened_by { click_link "Edit in the admin" }
+  context "when there's a published question with answers" do
+    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
 
-    within_window new_window do
-      expect(page).to have_current_path(questionnaire_edit_path)
+    let!(:answer_user_1) { create(:meetings_poll_answer, question: question_multiple_option, user: user, questionnaire: questionnaire) }
+    let!(:answer_user_2) { create(:meetings_poll_answer, question: question_multiple_option, user: user_2, questionnaire: questionnaire) }
+
+    let!(:answer_choice_user_1) { create(:meetings_poll_answer_choice, answer: answer_user_1, answer_option: question_multiple_option.answer_options.first) }
+    let!(:answer_choice_user_2) { create(:meetings_poll_answer_choice, answer: answer_user_2, answer_option: question_multiple_option.answer_options.first) }
+
+    it "allows to see question answers" do
+      open_first_question
+
+      within(".meeting-polls__admin-action-close") do
+        expect(page).to have_content("0%")
+        expect(page).to have_content("100%")
+      end
+    end
+
+    it "allows to close a published question" do
+      open_first_question
+
+      within(".meeting-polls__admin-action-close") do
+        click_button "Send"
+
+        sleep(3)
+
+        expect(page).to have_content("Sent")
+
+        question_multiple_option.reload
+        expect(question_multiple_option).to be_closed
+      end
     end
   end
 
@@ -76,5 +132,9 @@ describe "Meeting live event poll administration", type: :system do
 
   def questionnaire_edit_path
     Decidim::EngineRouter.admin_proxy(component).edit_meeting_poll_path(meeting_id: meeting.id)
+  end
+
+  def open_first_question
+    page.first(".meeting-polls__question--admin").click
   end
 end

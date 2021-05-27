@@ -10,8 +10,7 @@ module Decidim
         helper_method :question
 
         def create
-          # TODO
-          #enforce_permission_to :update, :answer, questionnaire: questionnaire
+          enforce_permission_to :create, :answer, question: question
           @form = form(AnswerForm).from_params(params, question: question, current_user: current_user)
 
           CreateAnswer.call(@form, current_user, questionnaire) do

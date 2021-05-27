@@ -12,6 +12,7 @@ module Decidim
       attribute :current_user, Decidim::User
       attribute :answer, Decidim::Meetings::Answer
 
+      validates :selected_choices, presence: true
       validate :max_choices, if: -> { question.max_choices }
 
       attr_writer :question
@@ -49,9 +50,7 @@ module Decidim
       private
 
       def max_choices
-        if selected_choices.size > question.max_choices
-          errors.add(:choices, :too_many)
-        end
+        errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
       end
 
       def mandatory_label

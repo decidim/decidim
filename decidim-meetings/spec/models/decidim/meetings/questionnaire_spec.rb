@@ -40,6 +40,22 @@ module Decidim
           expect(subject.reload).not_to be_questions_editable
         end
       end
+
+      describe "#all_questions_unpublished?" do
+        it "returns true when all questionnaire questions are in unpublished state" do
+          subject.questions << create(:meetings_poll_question, :unpublished)
+          subject.questions << create(:meetings_poll_question, :unpublished)
+
+          expect(subject).to be_all_questions_unpublished
+        end
+
+        it "returns false when any questionnaire question is not unpublished" do
+          subject.questions << create(:meetings_poll_question, :unpublished)
+          subject.questions << create(:meetings_poll_question, :published)
+
+          expect(subject).not_to be_all_questions_unpublished
+        end
+      end
     end
   end
 end

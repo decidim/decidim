@@ -22,7 +22,7 @@ module Decidim
       def query
         answers = Answer.joins(:question).where(questionnaire: @questionnaire)
 
-        answers.sort_by { |answer| answer.question.position }.group_by { |a| a.user }.values
+        answers.sort_by { |answer| answer.question.position }.group_by(&:user).values
       end
     end
   end

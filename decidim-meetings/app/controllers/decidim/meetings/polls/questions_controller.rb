@@ -15,15 +15,13 @@ module Decidim
         end
 
         def update
-          # TODO: permissions
-          # TODO: move to command
-          if question
-            question.closed! if question.published?
-            question.published! if question.unpublished?
-          end
-          respond_to do |format|
-            format.js do
-              render template: admin_index_template, locals: { open_question: question.id }
+          enforce_permission_to :update, :question, question: question
+
+          Decidim::Meetings::Admin::UpdateQuestionStatus.call(question, current_user) do
+            respond_to do |format|
+              format.js do
+                render template: admin_index_template, locals: { open_question: question.id }
+              end
             end
           end
         end
