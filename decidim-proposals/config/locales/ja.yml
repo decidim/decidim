@@ -716,6 +716,7 @@ ja:
         edit:
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
+          delete_image: 画像を削除
           select_a_category: カテゴリを選択してください
           send: 送信
           title: 提案を編集
