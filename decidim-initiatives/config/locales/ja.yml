@@ -345,6 +345,8 @@ ja:
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{author_nickname} によって支持されたイニシアチブ。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって承認されました。
+      form:
+        delete_attachment: 削除
       index:
         title: イニシアチブ
       initiative_signatures:
@@ -423,7 +425,11 @@ ja:
         result:
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
+          edit: 編集
           follow_description: このイニシアチブでニュースがある場合に通知を受け取る
+          offline_method: このイニシアチブは、 In-personal 署名のみを収集します。
+          print: イニシアチブを印刷
+          send_to_technical_validation: 技術検証に送る
         signatures_count:
           other: " 署名"
         vote_cabin:
@@ -467,6 +473,9 @@ ja:
         accepted: 承認済み
         expired: 期限切れ
       unavailable_scope: 利用できないスコープ
+      update:
+        error: エラーが発生しました
+        success: イニシアチブが正常に更新されました
       versions:
         shared:
           back_to_resource: イニシアチブに戻る
@@ -511,6 +520,6 @@ ja:
       initiatives:
         initiative:
           check: ご確認ください
-          check_and_support: サインアウトしてください
+          check_and_support: ログアウトしてください
         no_initiatives_yet:
           no_initiatives_yet: まだイニシアチブがありません！
