@@ -160,6 +160,13 @@ module Decidim
                         position: 1.6,
                         if: allowed_to?(:update, :help_sections),
                         active: is_active_link?(decidim_admin.help_sections_path)
+
+          menu.add_item :external_domain_whitelist,
+                        I18n.t("menu.external_domain_whitelist", scope: "decidim.admin"),
+                        decidim_admin.edit_organization_external_domain_whitelist_path,
+                        position: 1.7,
+                        if: allowed_to?(:update, :organization, organization: current_organization),
+                        active: is_active_link?(decidim_admin.edit_organization_external_domain_whitelist_path)
         end
       end
 
