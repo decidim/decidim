@@ -386,6 +386,11 @@ pt:
             map: Mapa
             start_time: Data de início
             title: Título
+      public_participants_list:
+        attending_participants: Participantes presentes
+        hidden_participants_count:
+          one: e mais %{count} pessoa
+          other: e mais %{count} pessoas
       read_more: "(saiba mais)"
       registration_mailer:
         confirmation:
