@@ -8,9 +8,12 @@ ca:
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
-        closing_report: Informe
+        audio_url: URL d'àudio
+        closing_report: Acta
+        closing_visible: És visible
         contributions_count: Nombre de contribucions
         proposal_ids: Propostes creades en a la trobada
+        video_url: URL de vídeo
       meeting:
         address: Adreça
         available_slots: Espais disponibles per a aquesta trobada
@@ -35,11 +38,6 @@ ca:
         title: Títol
         transparent: Transparent
         type_of_meeting: Tipus
-      minutes:
-        audio_url: URL d'àudio
-        description: Descripció
-        video_url: URL de vídeo
-        visible: És visible
     errors:
       models:
         meeting_agenda:
@@ -172,7 +170,6 @@ ca:
           proposals_count:
             one: 'No es pot destruir la trobada perquè té %{count} proposta associades:'
             other: 'No es pot destruir la trobada perquè té %{count} propostes associades:'
-        minutes: Acta
         new: Nova trobada
         preview: Previsualitzar
         registrations: Inscripcions
@@ -294,19 +291,6 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
-        minutes:
-          create:
-            invalid: S'ha produït un error en crear aquesta acta
-            success: S'ha creat l'acta amb èxit
-          edit:
-            title: Editar actes
-            update: Actualitza
-          new:
-            create: Crea
-            title: Crea l'acta
-          update:
-            invalid: S'ha produït un error en actualitzar aquesta acta
-            success: L'acta s'ha actualitzat correctament
         models:
           meeting:
             name: Trobada
@@ -346,9 +330,6 @@ ca:
           value_types:
             organizer_presenter:
               not_found: 'L''organitzador no s''ha trobat a la base de dades (identificació: %{id})'
-        minutes:
-          create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
-          update: "%{user_name} ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
@@ -442,7 +423,6 @@ ca:
         index:
           new_meeting: Nova trobada
         meeting_minutes:
-          meeting_minutes: Acta de la trobada
           related_information: Informació relacionada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb la teva cerca o no hi ha cap trobada programada.
@@ -465,7 +445,7 @@ ca:
           join: Inscriu-te a la trobada
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
-          meeting_report: Informe de la trobada
+          meeting_minutes: Acta de la trobada
           no_slots_available: No hi ha places disponible
           organizations: Organitzacions que han assistit
           registration_code_help_text: El teu codi de registre
