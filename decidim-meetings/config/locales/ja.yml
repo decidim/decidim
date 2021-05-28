@@ -8,7 +8,8 @@ ja:
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
-        closing_report: レポート
+        closing_report: 議事録
+        closing_visible: 非表示にする
         contributions_count: 貢献数
         proposal_ids: 会議で作成された提案
       meeting:
@@ -30,9 +31,6 @@ ja:
         start_time: 開始時刻
         title: タイトル
         transparent: 透明度
-      minutes:
-        description: 説明
-        visible: 非表示にする
     errors:
       models:
         meeting_agenda:
@@ -159,7 +157,6 @@ ja:
         invalid_destroy:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、会議を削除できません:'
-        minutes: 議事録
         new: 新しいミーティング
         preview: プレビュー
         registrations: 登録
@@ -263,18 +260,6 @@ ja:
           update:
             invalid: この会議の更新中に問題が発生しました
             success: ミーティングを更新しました
-        minutes:
-          create:
-            invalid: この分を作成する際に問題が発生しました
-            success: 議事録が正常に作成された
-          edit:
-            update: 更新
-          new:
-            create: 作成
-            title: 議事録を作成
-          update:
-            invalid: この議事録の更新中に問題が発生しました
-            success: 議事録が正常に更新されました
         models:
           meeting:
             name: 会議
@@ -313,9 +298,6 @@ ja:
           value_types:
             organizer_presenter:
               not_found: '主催者がデータベース上に見つかりませんでした (ID: %{id})'
-        minutes:
-          create: "%{user_name} が %{resource_name} スペースにミーティング %{space_name} の議事録を作成しました"
-          update: "%{user_name} が %{resource_name} スペースでミーティング %{space_name} の議事録を更新しました"
       calendar_modal:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
@@ -386,7 +368,6 @@ ja:
         index:
           new_meeting: 新しいミーティング
         meeting_minutes:
-          meeting_minutes: ミーティング議事録
           related_information: 関連情報
         meetings:
           no_meetings_warning: 検索条件に一致するミーティングがないか，スケジュールされたミーティングがありません．
@@ -405,7 +386,7 @@ ja:
           date: 日付
           edit_meeting: ミーティングを編集
           join: 会議に参加
-          meeting_report: ミーティングレポート
+          meeting_minutes: ミーティング議事録
           no_slots_available: 利用可能なスロットがありません
           organizations: 組織に参加
           registration_code_help_text: 登録コード
