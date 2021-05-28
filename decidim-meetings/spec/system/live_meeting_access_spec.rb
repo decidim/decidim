@@ -20,7 +20,7 @@ describe "Meeting live event access", type: :system do
   end
 
   context "when online meeting is live" do
-    let(:meeting) { create :meeting, :online, :live, component: component }
+    let(:meeting) { create :meeting, :published, :online, :live, component: component }
 
     it "shows the link to the live meeting streaming" do
       visit_meeting
@@ -36,7 +36,7 @@ describe "Meeting live event access", type: :system do
   end
 
   context "when online meeting is not live" do
-    let(:meeting) { create :meeting, :online, :past, component: component }
+    let(:meeting) { create :meeting, :published, :online, :past, component: component }
 
     it "doesn't show the link to the live meeting streaming" do
       visit_meeting

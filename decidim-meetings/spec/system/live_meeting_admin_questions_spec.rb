@@ -24,7 +24,7 @@ describe "Meeting live event poll administration", type: :system do
 
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create :meeting, :online, :live, component: component }
+  let(:meeting) { create :meeting, :published, :online, :live, component: component }
   let(:meeting_path) do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
@@ -86,8 +86,6 @@ describe "Meeting live event poll administration", type: :system do
       within(".meeting-polls__admin-action-publish") do
         click_button "Send"
 
-        sleep(3)
-
         expect(page).to have_content("Sent")
         expect(page).to have_content("0 received answers")
       end
@@ -117,8 +115,6 @@ describe "Meeting live event poll administration", type: :system do
 
       within(".meeting-polls__admin-action-close") do
         click_button "Send"
-
-        sleep(3)
 
         expect(page).to have_content("Sent")
 

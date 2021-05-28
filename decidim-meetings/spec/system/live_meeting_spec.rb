@@ -7,7 +7,7 @@ describe "Meeting live event", type: :system do
   let(:manifest_name) { "meetings" }
 
   let!(:user) { create :user, :confirmed, organization: organization }
-  let(:meeting) { create :meeting, :online, :live, component: component }
+  let(:meeting) { create :meeting, :published, :online, :live, component: component }
   let(:meeting_path) do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
