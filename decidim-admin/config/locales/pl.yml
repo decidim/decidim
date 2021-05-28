@@ -662,7 +662,7 @@ pl:
         create:
           success: Użytkownik został zweryfikowany
         destroy:
-          success: Użytkownik nieoficjalizowany pomyślnie
+          success: Cofnięto weryfikację użytkownika
         index:
           actions: Działania
           badge: Odznaka
