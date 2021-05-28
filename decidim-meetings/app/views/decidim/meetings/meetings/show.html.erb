@@ -54,7 +54,7 @@ edit_link(
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
       </div>
-      <% if meeting.closed? %>
+      <% if meeting.closed? && meeting.closing_visible? %>
         <% double = meeting.has_contributions? && meeting.has_attendees? %>
         <div class="card card--secondary extra definition-data">
           <% if meeting.has_contributions? %>
@@ -69,7 +69,7 @@ edit_link(
               <span class="definition-data__number"><%= meeting.attendees_count %></span>
             </div>
           <% end %>
-          <% if meeting.attending_organizations %>
+          <% if meeting.attending_organizations.present? %>
             <div class="definition-data__item">
               <span class="definition-data__title"><%= t(".organizations") %></span>
               <span class="definition-data__text"><%= simple_format(meeting.attending_organizations) %></span>
@@ -143,10 +143,6 @@ edit_link(
       <%= render "meeting_agenda" %>
     <% end %>
 
-    <% if meeting.minutes.present? && meeting.minutes.visible? %>
-      <%= render "meeting_minutes" %>
-    <% end %>
-
     <%= cell "decidim/meetings/public_participants_list", meeting %>
 
     <% if !meeting.closed? && meeting.user_group_registrations.any? %>
@@ -165,12 +161,17 @@ edit_link(
       </div>
     <% end %>
 
-    <% if meeting.closed? %>
+    <% if meeting.closed? && meeting.closing_visible? %>
       <div class="section">
-        <h3 class="section-heading"><%= t(".meeting_report") %></h3>
+        <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
         <%= decidim_sanitize translated_attribute meeting.closing_report %>
       </div>
     <% end %>
+
+    <% if meeting.closing_visible? && meeting.minutes_data? %>
+      <%= render "meeting_minutes" %>
+    <% end %>
+
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
     <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
   </div>
