@@ -1,0 +1,33 @@
+<% seed = SecureRandom.hex(3).to_s %>
+<div class="comment__header__context-menu">
+  <label for="toggle-context-menu-<%= seed %>">
+    <%= icon "ellipses" %>
+  </label>
+  <input type="checkbox" class="comment__header__context-menu__toggle" name="toggle-context-menu" id="toggle-context-menu-<%= seed %>">
+  <ul class="card comment__header__context-menu__content">
+    <li>
+      <a class="comment__header__context-menu__content-item" href="#">
+        <%= icon "flag" , class: "icon--small" , aria_label: "Report" %>
+        <span>Report</span>
+      </a>
+    </li>
+    <li>
+      <a class="comment__header__context-menu__content-item" href="<%= page_path("proposals/comment-view") + "#single-comment" %>" title="Enlace permamente"" target="_blank">
+        <%= icon "link-intact" , class: "icon--small" , aria_label: "Enlace permanente" %>
+        <span>Get link</span>
+      </a>
+    </li>
+    <li>
+      <a class="comment__header__context-menu__content-item" href="#">
+        <%= icon "pencil" , class: "icon--small" , aria_label: "Editar" %>
+        <span>Edit</span>
+      </a>
+    </li>
+    <li>
+      <a class="comment__header__context-menu__content-item" href="#">
+        <%= icon "trash" , class: "icon--small" , aria_label: "Eliminar" %>
+        <span>Delete</span>
+      </a>
+    </li>
+  </ul>
+</div>

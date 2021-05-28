@@ -13,16 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="comment__header__context-menu">
-      <label for="toggle-context-menu"><%= icon "ellipses" %></label>
-      <input type="checkbox" name="toggle-context-menu" id="toggle-context-menu">
-      <ul class="card comment__header__context-menu__content">
-        <li><%= icon "flag", class: "icon--small", aria_label: "Report" %><a href="#" target="_blank" rel="noopener noreferrer">Report</a></li>
-        <li><%= icon "link-intact", class: "icon--small", aria_label: "Enlace permanente" %><a href="#" target="_blank" rel="noopener noreferrer">Get link</a></li>
-        <li><%= icon "pencil", class: "icon--small", aria_label: "Editar" %><a href="#" target="_blank" rel="noopener noreferrer">Edit</a></li>
-        <li><%= icon "trash", class: "icon--small", aria_label: "Eliminar" %><a href="#" target="_blank" rel="noopener noreferrer">Delete</a></li>
-      </ul>
-    </div>
+    <%= partial "comment_context_menu" %>
   </div>
   <div class="comment__content">
     <p>

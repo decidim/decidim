@@ -39,12 +39,12 @@ $comment-form-bg: $light-gray;
       cursor: pointer;
     }
 
-    #toggle-context-menu{
+    &__toggle{
       position: absolute;
       visibility: hidden;
     }
 
-    #toggle-context-menu:checked ~ &__content{
+    &__toggle:checked ~ &__content{
       display: block;
     }
 
@@ -62,20 +62,20 @@ $comment-form-bg: $light-gray;
       margin: 0;
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
       overflow: hidden;
+
+      &-item{
+        padding: $comment-padding / 2 $comment-padding;
+        display: flex;
+        align-items: baseline;
+        gap: $comment-padding;
+        cursor: pointer;
+      }
     }
-  
-    &__content li{
-      padding: $comment-padding / 2 $comment-padding;
-      display: flex;
-      align-items: baseline;
-      gap: $comment-padding;
-      cursor: pointer;
-    }
-  
+
     &__content li:hover{
       background-color: $light-gray-dark;
     }
-  
+
     &__content li:not(:first-child){
       border-top: 1px solid $medium-gray;
     }
