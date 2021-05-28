@@ -211,7 +211,7 @@ describe "Meeting registrations", type: :system do
 
             expect(page).to have_content("successfully")
 
-            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("You have signed up for this meeting")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
             expect(page).to have_text("ATTENDING PARTICIPANTS")
