@@ -439,6 +439,8 @@ ja:
             official_meeting: 公式ミーティング
             start_time: 開始日
             title: タイトル
+      public_participants_list:
+        attending_participants: 参加する
       read_more: "(続きを読む)"
       registration_mailer:
         confirmation:
