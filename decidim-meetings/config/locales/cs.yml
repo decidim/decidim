@@ -516,6 +516,13 @@ cs:
             official_meeting: Oficiální schůzka
             start_time: Datum zahájení
             title: Titul
+      public_participants_list:
+        attending_participants: Účast účastníků
+        hidden_participants_count:
+          one: a %{count} další osoba
+          few: a %{count} další osoby
+          many: a %{count} dalších osob
+          other: a %{count} další osoby
       read_more: "(Přečtěte si více)"
       registration_mailer:
         confirmation:
