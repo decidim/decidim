@@ -3,6 +3,8 @@ ja:
     attributes:
       answer:
         body: 回答
+        choices: 選択項目
+        selected_choices: 選択した項目
       question:
         max_choices: 選択肢の最大数
         question_type: タイプ
