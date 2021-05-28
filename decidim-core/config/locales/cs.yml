@@ -1288,6 +1288,8 @@ cs:
         filters:
           areas: Oblasti
           select_an_area: Vyberte oblast
+      public_participation:
+        public_participation: Ukázat svou účast veřejně
       reference:
         reference: 'Odkaz: %{reference}'
       represent_user_group:
