@@ -3,7 +3,7 @@ import attachGeocoding from "src/decidim/geocoding/attach_input"
 $(() => {
   // Adds the latitude/longitude inputs after the geocoding is done
   const $meetingAddress = $("#meeting_address");
-  if($meetingAddress.length > 0) {
+  if ($meetingAddress.length > 0) {
     attachGeocoding($meetingAddress);
   }
 

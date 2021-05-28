@@ -81,19 +81,25 @@ export default class PollComponent {
   /**
    * Iterates over all existing questions and stores the state in an internal attribute.
    * @private
+   * @param {jQuery} $parent - The HTML content for the questionnaire.
    * @returns {Void} - Returns nothing
    */
   _storeQuestionState($parent) {
     $("[data-question]", $parent).each((_i, el) => {
       const $el = $(el);
       const questionId = $el.data("question");
-      $el[0].open === true ? this.questions[questionId] = OPEN : this.questions[questionId] = CLOSED;
+      if ($el[0].open === true) {
+        this.questions[questionId] = OPEN;
+      } else {
+        this.questions[questionId] = CLOSED;
+      }
     });
   }
 
   /**
    * Initializes the states of all the questions.
    * @private
+   * @param {jQuery} $parent - The HTML container for the questionnaire.
    * @returns {Void} - Returns nothing
    */
   _setQuestionsState($parent) {
@@ -107,6 +113,7 @@ export default class PollComponent {
    *   - sets the is-new class if the question is new (doesn't exist in the internal list)
    *   - sets the state to open if it was open in the internal list
    * @private
+   * @param {jQuery} $el - The HTML container for the questionnaire.
    * @returns {Void} - Returns nothing
    */
   _setQuestionState($el) {
@@ -114,9 +121,9 @@ export default class PollComponent {
     // Current question state
     const state = this.questions[questionId];
     // New questions have a special class
-    if(!state) {
+    if (!state) {
       $el.addClass("is-new");
-    } else if(state === OPEN) {
+    } else if (state === OPEN) {
       $el.prop(OPEN, true);
     }
   }
@@ -151,7 +158,7 @@ export default class PollComponent {
    * @returns {Void} - Returns nothing
    */
   _updateCounter() {
-    if(this.$counter) {
+    if (this.$counter) {
       const questionsCount = this.$element.find("details").length;
       this.$counter.html(`(${questionsCount})`);
     }

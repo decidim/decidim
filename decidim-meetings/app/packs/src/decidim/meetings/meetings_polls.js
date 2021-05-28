@@ -10,14 +10,14 @@ $(() => {
   $(".meeting-polls__action-list").on("click", (event) => {
     event.preventDefault();
 
-    if(!poll.isMounted()){
-      $(event.target).addClass(OPEN_CLASS);
-      $container.addClass(OPEN_CLASS);
-      poll.mountComponent();
-    } else {
+    if (poll.isMounted()) {
       $(event.target).removeClass(OPEN_CLASS);
       $container.removeClass(OPEN_CLASS);
       poll.unmountComponent();
+    } else {
+      $(event.target).addClass(OPEN_CLASS);
+      $container.addClass(OPEN_CLASS);
+      poll.mountComponent();
     }
   });
 
@@ -28,14 +28,14 @@ $(() => {
   $(".meeting-polls__action-administrate").on("click", (event) => {
     event.preventDefault();
 
-    if(!adminPoll.isMounted()){
-      $(event.target).addClass(OPEN_CLASS);
-      $adminContainer.addClass(OPEN_CLASS);
-      adminPoll.mountComponent();
-    } else {
+    if (adminPoll.isMounted()) {
       $(event.target).removeClass(OPEN_CLASS);
       $adminContainer.removeClass(OPEN_CLASS);
       adminPoll.unmountComponent();
+    } else {
+      $(event.target).addClass(OPEN_CLASS);
+      $adminContainer.addClass(OPEN_CLASS);
+      adminPoll.mountComponent();
     }
   });
 });
