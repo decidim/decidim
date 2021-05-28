@@ -23,7 +23,6 @@ is-IS:
         title: Titill
         transparent: Gegnsætt
       minutes:
-        description: Lýsing
         visible: Er sýnilegt
   decidim:
     admin:
@@ -127,10 +126,7 @@ is-IS:
         minutes:
           create:
             success: Fundargerðir búin til með góðum árangri
-          edit:
-            update: Uppfæra
           new:
-            create: Búa til
             title: Búðu til mínútur
           update:
             success: Fundargerðir með góðum árangri uppfærð
