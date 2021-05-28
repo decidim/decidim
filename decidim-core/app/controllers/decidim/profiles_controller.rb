@@ -84,7 +84,7 @@ module Decidim
       return if params[:nickname].blank?
 
       @profile_holder ||= Decidim::UserBaseEntity.where(nickname: params[:nickname], organization: current_organization).first!
-    rescue
+    rescue ActiveRecord::RecordNotFound
       raise ActionController::RoutingError, "No user with the given nickname. Account deleted."
     end
   end
