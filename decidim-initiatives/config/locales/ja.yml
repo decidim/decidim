@@ -544,6 +544,6 @@ ja:
       initiatives:
         initiative:
           check: ご確認ください
-          check_and_support: サインアウトしてください
+          check_and_support: ログアウトしてください
         no_initiatives_yet:
           no_initiatives_yet: まだイニシアチブがありません！
