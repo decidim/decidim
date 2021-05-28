@@ -368,7 +368,7 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
-          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści raportu.
+          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści zgłoszenia.
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
@@ -660,7 +660,7 @@ pl:
           error: Wystąpił błąd blokowania użytkownika
           success: Użytkownik został zablokowany
         create:
-          success: Użytkownik oficjalnie z powodzeniem
+          success: Użytkownik został zweryfikowany
         destroy:
           success: Użytkownik nieoficjalizowany pomyślnie
         index:
