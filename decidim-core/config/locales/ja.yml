@@ -1254,6 +1254,8 @@ ja:
         filters:
           areas: エリア
           select_an_area: エリアを選択
+      public_participation:
+        public_participation: 参加を公開する
       reference:
         reference: 'リファレンス： %{reference}'
       represent_user_group:
