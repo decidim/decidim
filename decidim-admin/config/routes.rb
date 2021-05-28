@@ -7,6 +7,7 @@ Decidim::Admin::Engine.routes.draw do
       resource :homepage, only: [:edit, :update], controller: "organization_homepage" do
         resources :content_blocks, only: [:edit, :update], controller: "organization_homepage_content_blocks"
       end
+      resource :external_domain_whitelist, only: [:edit, :update], controller: "organization_external_domain_whitelist"
 
       member do
         get :users

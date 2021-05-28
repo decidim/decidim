@@ -41,6 +41,7 @@ describe "Conference program", type: :system do
       create_list(
         :meeting,
         3,
+        :published,
         component: component
       )
     end

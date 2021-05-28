@@ -448,11 +448,7 @@ ro:
             associated_census_data: Intrări asociate recensământului
         menu:
           votings_submenu:
-            monitoring_committee_certificates: Validare certificate
             monitoring_committee_members: Membri
-        monitoring_committee_certificates:
-          index:
-            title: Secţii de votare
       census:
         admin:
           census:
@@ -475,36 +471,6 @@ ro:
           passport: Pașaport
         vote_flow:
           datum_not_found: Datele oferite nu se potrivesc cu nici un alegător.
-      polling_officer_zone:
-        votes:
-          create:
-            success: Votul în persoană a fost scris cu succes
-          in_person_fields:
-            date_of_birth: Data naşterii
-            day: Zi
-            day_placeholder: ZZ
-            document_number: Număr document
-            document_number_placeholder: Număr ID
-            month: Lună
-            month_placeholder: LL
-            name: Nume
-            select: Selectaţi tipul documentului
-            voted: Participantul a votat
-            year: An
-            year_placeholder: AAAA
-          new:
-            back: Înapoi la secţiile de votare
-            census_not_present: Acest participant nu este listat în recensământ.
-            census_not_present_description: Ea trebuie să meargă la biroul de reclamaţii pentru recensământ sau să contacteze asistenţa.
-            census_present: Acest participant este listat în recensământ.
-            census_verified: Participantul nu a votat încă.
-            complete_voting: Finalizează votarea
-            form_title: 'Selectați tipul documentului și introduceți numărul documentului participantului:'
-            questions_title: 'Ea are drept de vot în următoarele întrebări:'
-            title: Identifică și verifică un participant
-            validate_document: Validare document
-            verify_document: Verificare document
-            verify_title: 'Verifică dacă următoarele date sunt corecte:'
       votings:
         check_census:
           check_status: Verifică starea

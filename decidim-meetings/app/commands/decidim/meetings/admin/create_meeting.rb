@@ -19,8 +19,6 @@ module Decidim
           transaction do
             create_meeting!
             create_services!
-            schedule_upcoming_meeting_notification
-            send_notification
           end
 
           broadcast(:ok, meeting)
@@ -76,23 +74,6 @@ module Decidim
               "description" => service.description
             )
           end
-        end
-
-        def schedule_upcoming_meeting_notification
-          checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
-
-          Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: meeting.start_time - 2.days)
-            .perform_later(meeting.id, checksum)
-        end
-
-        def send_notification
-          Decidim::EventsManager.publish(
-            event: "decidim.events.meetings.meeting_created",
-            event_class: Decidim::Meetings::CreateMeetingEvent,
-            resource: meeting,
-            followers: meeting.participatory_space.followers
-          )
         end
       end
     end

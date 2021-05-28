@@ -9,6 +9,12 @@ module Decidim
 
         def show
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
+
+          @form = if closure.certificate_phase?
+                    form(ClosureCertifyForm).instance.with_context(closure: closure)
+                  elsif closure.signature_phase?
+                    form(ClosureSignForm).instance
+                  end
         end
 
         def new
@@ -62,6 +68,42 @@ module Decidim
           redirect_to polling_officer_election_closure_path(polling_officer, election)
         end
 
+        def certify
+          enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
+
+          @form = form(ClosureCertifyForm).from_params(params).with_context(closure: closure)
+
+          CertifyPollingStationClosure.call(@form, closure) do
+            on(:ok) do
+              flash[:notice] = t(".success")
+            end
+
+            on(:invalid) do
+              flash[:alert] = t(".error")
+            end
+          end
+
+          redirect_to polling_officer_election_closure_path(polling_officer, election)
+        end
+
+        def sign
+          enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
+
+          @form = form(ClosureSignForm).from_params(params)
+
+          SignPollingStationClosure.call(@form, closure) do
+            on(:ok) do
+              flash[:notice] = t(".success")
+            end
+
+            on(:invalid) do
+              flash[:alert] = t(".error")
+            end
+          end
+
+          redirect_to polling_officer_election_closure_path(polling_officer, election)
+        end
+
         private
 
         def polling_officer
@@ -81,8 +123,7 @@ module Decidim
         end
 
         def polling_station_election_votes_count
-          # the votes count should/will be scoped to the polling station
-          @polling_station_election_votes_count ||= election.votes&.count
+          @polling_station_election_votes_count ||= polling_station.in_person_votes.where(election: election).count
         end
       end
     end

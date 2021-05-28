@@ -31,6 +31,7 @@ pl:
         body: Treść
         subject: Temat
       organization:
+        admin_terms_of_use_body: Warunki korzystania z serwisu dla administratora
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
@@ -166,7 +167,7 @@ pl:
         reject: Odrzuć
         share: Udostępnij
         user:
-          new: Nowy użytkownik
+          new: Nowy administrator
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
@@ -573,7 +574,7 @@ pl:
         report:
           reasons:
             does_not_belong: Nie należy
-            offensive: Ofensywa
+            offensive: Ofensywna
             spam: Spam
         reports:
           index:
@@ -584,12 +585,12 @@ pl:
             reported_content: Zgłoszona zawartość
             see_current: Zobacz bieżący
             see_original: Zobacz oryginał
-            title: Raporty moderacyjne
+            title: Zgłoszenia moderacyjne
           show:
             report_details: Szczegóły przyczyny
             report_language: Zgłoś język
             report_reason: Powód
-            title: Szczegóły raportu
+            title: Szczegóły zgłoszenia
       newsletter_templates:
         index:
           preview_template: Podgląd
@@ -673,7 +674,7 @@ pl:
           officialize: Oficjalizuj
           officialized: Oficjalny
           reofficialize: Reoficjalizuj
-          reports: Raporty
+          reports: Zgłoszenia
           show_email: Pokaż adres e-mail
           status: Status
           unblock: Odblokuj użytkownika
@@ -869,7 +870,7 @@ pl:
         static_pages: Strony
         statistics: Działania
         user_groups: Grupy użytkowników
-        users: Użytkownicy
+        users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
@@ -965,8 +966,8 @@ pl:
             report_count: Liczba
             reportable_id: Id
             reportable_type: Typ
-            reported_content_url: Zgłoszony URL treści
-            reports: Raporty
+            reported_content_url: URL zgłoszonej treści
+            reports: Zgłoszenia
             visit_url: Odwiedź adres URL
         report:
           fields:

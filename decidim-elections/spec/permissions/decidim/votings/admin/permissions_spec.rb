@@ -85,7 +85,7 @@ describe Decidim::Votings::Admin::Permissions do
       end
 
       context "when reading the Certificates" do
-        let(:action_subject) { :monitoring_committee_certificates }
+        let(:action_subject) { :monitoring_committee_polling_station_closures }
         let(:action_name) { :read }
 
         it { is_expected.to eq false }
@@ -141,7 +141,7 @@ describe Decidim::Votings::Admin::Permissions do
       end
 
       context "when reading their voting's Certificates" do
-        let(:action_subject) { :monitoring_committee_certificates }
+        let(:action_subject) { :monitoring_committee_polling_station_closures }
         let(:action_name) { :read }
 
         it { is_expected.to eq true }

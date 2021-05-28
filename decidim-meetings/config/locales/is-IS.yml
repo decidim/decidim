@@ -101,8 +101,6 @@ is-IS:
         meetings:
           close:
             success: Fundur með góðum árangri lokað
-          create:
-            success: Fundur búin til með góðum árangri
           destroy:
             success: Fundur með góðum árangri eytt
           edit:

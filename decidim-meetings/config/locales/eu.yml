@@ -227,7 +227,6 @@ eu:
             success: Topaketa ongi itxi da
           create:
             invalid: Arazo bat izan da topaketa hau sortzean.
-            success: Topaketa ongi sortu da
           destroy:
             success: Topaketa zuzen ezabatu da.
           edit:

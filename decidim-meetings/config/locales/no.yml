@@ -245,7 +245,6 @@
             success: Møtet ble avsluttet
           create:
             invalid: Det oppstod et problem med å opprette dette møtet
-            success: Møtet ble opprettet
           destroy:
             success: Møtet ble slettet
           edit:

@@ -348,6 +348,51 @@ fi:
           elections_count:
             one: "%{count} vaali"
             other: "%{count} vaalia"
+        election_log:
+          chained_hash: Tämän viestin ketjutettu tiiviste
+          complete: Viimeistele
+          creation_description:
+            complete: Vaali luotiin ja perustettiin onnistuneesti sähköiseen ääniuurnaan.
+            not_created: Vaalia ei ole vielä luotu.
+          creation_title: Vaali luotu
+          description: Tämä on vaalin loki, josta voit tarkastaa jokaisen vaiheen tilan, esimerkiksi milloin vaali luotiin, onko ääntenlasku suoritettu ja milloin vaali suljettiin.
+          download: Lataa
+          key_ceremony_description:
+            complete: Avainseremonia on onnistunut. Jokaisella luottamushenkilöllä on kelvolliset avaimet ja he ovat ladanneet tarvittavat avainten varmuuskopiot.
+            not_started: Avainseremonia ei ole vielä alkanut.
+            started: Avainseremonia on alkanut, mutta se ei ole vielä päättynyt.
+          key_ceremony_title: Avainseremonia
+          not_available: Ei vielä saatavilla
+          not_created: Ei luotu
+          not_published: Ei julkaistu
+          not_ready: Ei valmis
+          not_started: Ei aloitettu
+          published: Julkaistu
+          results_description:
+            not_published: Tuloksia ei ole vielä julkaistu.
+            published: Tulokset on julkaistu.
+          results_title: Tulokset
+          started: Aloitettu
+          tally_description:
+            finished: Ääntenlasku on suoritettu.
+            not_started: Ääntenlasku ei ole vielä alkanut.
+            started: Ääntenlasku on alkanut.
+          tally_title: Ääntenlasku
+          title: Vaalin loki
+          verifiable_results:
+            checksum: 'Tiedoston SHA256 tarkistussumma:'
+            description:
+              not_ready: Vahvistettava vaalin tiedosto ja SHA256-tarkistesumma eivät ole vielä käytettävissä. Heti kun tulokset julkistetaan, voit tarkistaa nämä vaalit.
+              ready: 'Täällä voit vahvistaa vaalin. Ensin sinun täytyy ladata tiedosto ja tarkastaa, että se ei ole korruptoitunut. Tarkastaaksesi tiedoston, aja seuraava komento ja tarkasta, että komennon näyttämä lopputulos vastaa tarkistussummaa:'
+            how_to_verify: 'Kun olet ladannut tiedoston ja tarkastanut sen olevan eheä, voit ajaa yleisen tarkastuksen. Kloonaa <a href=''https://github.com/decidim/decidim-bulletin-board''>tämä repositorio</a> ja aja seuraava komento sen juurihakemistossa:'
+            title: Vahvista vaalin tulokset
+            verifiable_file: 'Vaalin tarkastettava tiedosto:'
+          verify: Vahvista vaali
+          vote_description:
+            finished: Äänestys on päättynyt.
+            not_started: Äänestys ei ole vielä alkanut.
+            started: Äänestys on alkanut.
+          vote_title: Äänestysprosessi
         filters:
           active: Aktiiviset
           all: Kaikki
@@ -366,6 +411,7 @@ fi:
           title: Vaaliin liittyvät kysymykset
         results:
           description: 'Tässä on äänestyksen tulokset kaikille kysymyksille:'
+          percentage: "%{count}%"
           selected: Valittu
           title: Vaalin tulokset
           votes:
@@ -381,6 +427,7 @@ fi:
             already_voted: Olet jo äänestänyt näissä vaaleissa. Voit muuttaa ääntäsi tai tarkastaa sen.
             pending_vote: Ääntäsi kirjataan palvelimelle.
             vote_rejected: Ääntäsi ei voida tarkastaa. Ole hyvä ja lähetä äänesi uudestaan.
+          election_log: Vaalin loki
           preview: Esikatsele
           verify:
             already_voted: Oletko jo äänestänyt?
@@ -549,6 +596,8 @@ fi:
           lead: Äänesi on annettu!
           text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
+        create:
+          error: Äänen jättämisessä tapahtui virhe. Ole hyvä ja yritä uudelleen.
         encrypting:
           header: Salataan ääntä...
           text: Äänesi salataan, jotta vaalisalaisuus voidaan taata.
@@ -733,7 +782,6 @@ fi:
             info: Tiedot
             landing_page: Laskeutumissivu
             monitoring_committee: Tarkkailukomitea
-            monitoring_committee_certificates: Tarkasta varmenteet
             monitoring_committee_members: Jäsenet
             polling_officers: Äänestysvirkailijat
             polling_stations: Äänestyspaikat
@@ -766,9 +814,6 @@ fi:
               promoted: Korostettu
               published: Julkaistu
               title: Otsikko
-        monitoring_committee_certificates:
-          index:
-            title: Äänestyspaikat
         monitoring_committee_members:
           create:
             invalid: Tarkkailukomitean jäsenen luonti epäonnistui
@@ -937,6 +982,7 @@ fi:
             download: Lataa
             subject: Äänestyksen tunnistautumiskoodien vientitiedosto äänestykselle %{voting_title} on nyt ladattavissa
         vote_flow:
+          already_voted_in_person: Tämä osallistuja on jo äänestänyt fyysisessä tilaisuudessa eikä hänellä ole oikeutta äänestää verkossa.
           datum_not_found: Annetut tiedot eivät vastaa yhtään äänestäjää.
       content_blocks:
         highlighted_votings:
@@ -965,27 +1011,71 @@ fi:
             see_all_votings: Näytä kaikki äänestykset
             votings_button_title: Linkki kaikkien äänestysten sivulle
       polling_officer_zone:
-        menu:
-          polling_officer_zone: Äänestysvirkailijoiden alue
-        polling_officers:
-          show:
-            actions:
-              count_votes: Laske vaaliuurnan äänet
-              identify_person: Tunnista ja varmenna henkilö
-            polling_officer_role_description: Sinulle on annettu tehtäväksi toimia äänestyspaikan virkailijana (esimiehenä tai muuna virkailijana) tällä alustalla järjestettävissä vaaleissa.
-            polling_stations:
-              list:
-                actions: Toiminnot
-                address: Osoite
-                name: Nimi
-                role: Roolisi
-                voting: Äänestys
-              no_polling_stations: Sinua ei ole vielä liitetty millekään äänestyspaikalle.
-              title: Äänestyspaikat
-        votes:
+        closures:
+          back_to_polling_stations: Takaisin äänestyspaikkoihin
           create:
-            success: Fyysisesti annetun äänen tallennus onnistui
-          in_person_fields:
+            error: Äänestyksen päättämisen luonti epäonnistui, yritä uudestaan myöhemmin.
+            success: Äänestyksen päättämisen luonti onnistui.
+          edit:
+            heading: Äänten uudelleenlaskenta - Vastausten uudelleenlaskenta
+            info_text: Syötä jokaisen kysymyksen kaikkien vastausten lukumäärä.
+            modal_ballots_results_count_error:
+              close_modal: Sulje
+              info_text: Äänten kokonaismäärä ei vastaa kirjeiden kokonaismäärää. Tarkasta äänten kokonaismäärä.
+              title: Äänten kokonaismäärä ei täsmää
+            save_recount: Tallenna uudelleenlaskenta
+            total_ballots: Äänten kokonaismäärä
+            total_blank_ballots: Tyhjien äänten kokonaismäärä
+            total_null_ballots: Hylättyjen äänten kokonaismäärä
+            total_valid_ballots: Kelvollisten äänten kokonaismäärä
+          new:
+            election: 'Vaali:'
+            heading: Äänten uudelleenlaskenta
+            info_text: 'Syötä tällä äänestyspaikalla uudelleenlaskettavien äänten (kirjeiden) kokonaismäärä:'
+            modal_ballots_count_error:
+              btn_validate_total: Tarkasta äänten uudelleenlaskenta
+              close_modal: Sulje
+              info_explanation_text: 'Tarkasta äänten kokonaismäärä. Jos kokonaismäärä ei ole oikea, sinun on annettava selitys tarkkailukomitealle:'
+              info_text: Syötettyjen äänten (kirjeiden) kokonaismäärä ei täsmää ihmisten määrään, jotka ovat äänestäneet tässä äänestyspaikassa.
+              message_for_monitoring_committee: Viesti tarkkailukomitealle
+              review_recount: Tarkasta uudelleenlaskenta
+              text_area_placeholder: Kirjoita viestisi
+              title: Tietueiden kokonaismäärä ei täsmää
+              total_ballots: 'Äänten kokonaismäärä:'
+              total_people: 'Henkilöt yhteensä:'
+            polling_station: 'Äänestyspaikka:'
+            submit: Vahvista kokonaismäärä
+            total_ballots_count: Äänten kokonaismäärä
+          show:
+            heading: Äänten uudelleenlaskenta
+          sign:
+            cancel: Peruuta
+            check_box: Olen tarkastanut tämän ja se on sama kuin fyysisen äänestyksen päättämisen todistus
+            close_modal: Sulje
+            confirm: Ok, jatka
+            error: Tapahtui jokin virhe. Yritä uudestaan.
+            heading: Äänten uudelleenlaskenta - Allekirjoita äänestyksen päättäminen
+            info_text: Jos jatkat, et voi enää muokata mitään tietoja. Tätä toimintoa ei voi peruuttaa.
+            submit: Allekirjoita äänestyksen päättäminen
+            success: Äänestyksen päättämisen allekirjoittaminen onnistui.
+            title: Toimintoa ei voi peruuttaa
+          update:
+            error: Äänestyksen päättämisen tulosten päivittäminen epäonnistui, yritä uudestaan myöhemmin.
+            success: Äänestyksen päättämisne tulosten päivittäminen onnistui.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Mahdolliset vastaukset:'
+            census_verified: Osallistuja ei ole vielä äänestänyt.
+            complete_voting: Viimeistele äänestys
+            identify_another: Tunnista toinen osallistuja
+            questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
+            questions_title_voted: 'Osallistuja on jo äänestänyt verkossa ja hänellä on oikeus äänestää seuraavista kysymyksistä:'
+            voted: Osallistuja on äänestänyt
+          create:
+            error: Ääntä ei tallennettu. Ole hyvä ja yritä uudelleen.
+          in_person_form:
+            census_not_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
+            census_not_present_description: Hänen on mentävä reklamoimaan henkilötietorekisteriä hallinnoivaan toimistoon tai otettava yhteyttä tukeen.
             date_of_birth: Syntymäaika
             day: Päivä
             day_placeholder: PV
@@ -993,24 +1083,43 @@ fi:
             document_number_placeholder: Henkilöllisyystodistuksen numero
             month: Kuukausi
             month_placeholder: KK
-            name: Nimi
             select: Valitse asiakirjan tyyppi
-            voted: Tämä osallistuja on äänestänyt
+            title: 'Valitse asiakirjan tyyppi ja syötä osallistujan asiakirjan numero:'
+            validate_document: Vahvista asiakirja
             year: Vuosi
             year_placeholder: VVVV
           new:
             back: Takaisin äänestyspaikkoihin
-            census_not_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
-            census_not_present_description: Hänen on mentävä reklamoimaan henkilötietorekisteriä hallinnoivaan toimistoon tai otettava yhteyttä tukeen.
-            census_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
-            census_verified: Tämä osallistuja ei ole vielä äänestänyt.
-            complete_voting: Suorita äänestys
-            form_title: 'Valitse asiakirjan tyyppi ja syötä osallistujan asiakirjan numero:'
-            questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
             title: Tunnista ja vahvista osallistuja
-            validate_document: Tarkasta asiakirja
+          show:
+            back: Takaisin äänestyspaikkoihin
+            title: Odottaa fyysisessä tilaisuudessa annetun äänen tallennusta
+          update:
+            error: Äänen tallennuksessa tapahtui virhe. Ole hyvä ja yritä uudelleen.
+            success:
+              accepted: Äänen tallennus onnistui.
+              rejected: Ääntä ei hyväksytty sähköisessä ääniuurnassa. Ota yhteyttä järjestelmänvalvojaan.
+          verify_document:
+            census_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
+            name: Nimi
+            title: 'Tarkista, että seuraavat tiedot ovat oikein:'
             verify_document: Vahvista asiakirja
-            verify_title: 'Tarkista, että seuraavat tiedot ovat oikein:'
+        menu:
+          polling_officer_zone: Äänestysvirkailijoiden alue
+        polling_officers:
+          index:
+            polling_officer_role_description: Sinulle on annettu tehtäväksi toimia äänestyspaikan virkailijana (esimiehenä tai muuna virkailijana) tällä alustalla järjestettävissä vaaleissa.
+            polling_station:
+              address: Osoite
+              count_votes: Laske äänet
+              election: Vaali
+              identify_person: Tunnista henkilö
+              name: Nimi
+              no_polling_stations: Sinua ei ole vielä liitetty millekään äänestyspaikalle.
+              role: Roolisi
+              show_closure: Näytä äänestyksen päättäminen
+              title: Äänestyspaikat
+              voting: Äänestys
       polling_officers:
         actions:
           confirm_destroy: Oletko varma?
@@ -1021,6 +1130,16 @@ fi:
           manager: Virkailija
           president: Esimies
           unassigned: Ei määritetty
+      polling_station_closure_recount:
+        nota_option: Tyhjä / Ei mitään näistä
+        polling_officer_notes: 'Äänestysvirkailijan muistiinpanot:'
+        polling_officer_notes_blank: Muistiinpanoja ei ole
+        recount_summary: 'Uudelleenlaskennan yhteenveto:'
+        signed: Allekirjoitettu
+        total_ballots: 'Äänten kokonaismäärä:'
+        total_blank_ballots: 'Tyhjien äänten kokonaismäärä:'
+        total_null_ballots: 'Hylättyjen äänten kokonaismäärä:'
+        total_valid_ballots: 'Kelvollisten äänten kokonaismäärä:'
       polling_stations:
         actions:
           confirm_destroy: Oletko varma?
@@ -1066,6 +1185,11 @@ fi:
           title:
             one: "%{count} äänestys"
             other: "%{count} äänestystä"
+        elections_log:
+          bb_status: Vaalin tila
+          description: Vaalin loki näyttää jokaiseen äänestykseen liittyvän olennaisen tiedon. Esimerkiksi, avainseremonian tai ääntenlaskennan tila sekä tiedon tulosten julkistamisesta. Klikkaa sitä vaalia, jonka lokia haluat tarkastella.
+          election_log: Vaalin loki
+          title: Vaalin loki
         filters:
           active: Aktiiviset
           all: Kaikki
@@ -1122,6 +1246,7 @@ fi:
         exit: Poistu
       voting_navigation:
         check_census: Voinko äänestää?
+        election_log: Vaalin loki
         voting_menu_item: Äänestys
       votings:
         index:

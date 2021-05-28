@@ -57,12 +57,13 @@ module Decidim
             component = current_participatory_space.try(:components)&.find_by(manifest_name: :elections)
             next unless component
 
+            link = Decidim::EngineRouter.admin_proxy(component).trustees_path(locale: I18n.locale)
             menu.add_item :trustees,
                           I18n.t("trustees", scope: "decidim.elections.admin.menu"),
-                          Decidim::EngineRouter.admin_proxy(component).trustees_path,
+                          link,
                           position: 100,
                           if: allowed_to?(:manage, :trustees),
-                          active: is_active_link?(Decidim::EngineRouter.admin_proxy(component).trustees_path)
+                          active: is_active_link?(link)
           end
         end
       end

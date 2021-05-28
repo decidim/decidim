@@ -227,7 +227,6 @@ pt:
             success: Reunião fechada com sucesso
           create:
             invalid: Tem havido um problema ao criar esta reunião
-            success: Reunião criada com sucesso
           destroy:
             success: Reunião excluída com sucesso
           edit:

@@ -15,6 +15,7 @@ describe "User creates meeting", type: :system do
     create_list(
       :meeting,
       meetings_count,
+      :published,
       component: current_component,
       start_time: 1.day.from_now,
       end_time: start_time + 4.hours

@@ -8,7 +8,8 @@ module Decidim
     describe PollingStationClosureType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:ps_closure, :with_results) }
+      let(:signed_at) { nil }
+      let(:model) { create(:ps_closure, :with_results, signed_at: signed_at) }
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -64,6 +65,24 @@ module Decidim
         it "returns the results" do
           ids = response["results"].map { |result| result["id"].to_i }
           expect(ids).to eq(model.results.map(&:id))
+        end
+      end
+
+      describe "signed" do
+        let(:query) { "{ signed }" }
+
+        context "when the closure is signed" do
+          let(:signed_at) { Time.current }
+
+          it "returns true " do
+            expect(response["signed"]).to be true
+          end
+        end
+
+        context "when the closure is not signed" do
+          it "returns false" do
+            expect(response["signed"]).to be_falsey
+          end
         end
       end
     end

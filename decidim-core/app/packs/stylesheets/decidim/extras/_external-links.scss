@@ -26,3 +26,19 @@
     height: .9rem;
   }
 }
+
+.external-link-page-content{
+  .external-link-url{
+    background-color: $light-gray;
+    word-wrap: break-word;
+    word-break: break-word;
+
+    .alert{
+      color: $alert-color;
+    }
+  }
+
+  .external-link-cancel{
+    color: $dark-medium-gray;
+  }
+}

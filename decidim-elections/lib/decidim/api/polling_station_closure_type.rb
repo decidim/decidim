@@ -13,6 +13,7 @@ module Decidim
       field :polling_officer_notes, GraphQL::Types::String, "The polling officer notes for this closure", null: false
       field :results, [Decidim::Elections::ElectionResultType, { null: true }], "The results for this closure", null: false
       field :polling_station, Decidim::Votings::PollingStationType, "The polling station for this closure", null: true
+      field :signed, GraphQL::Types::Boolean, "Whether this closure is signed or not", method: :signed?, null: true
     end
   end
 end
