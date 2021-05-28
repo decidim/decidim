@@ -910,6 +910,7 @@ cs:
           show:
             change_polling_station: Zpět do volebních místností
           validate:
+            error: Při ověřování uzavření došlo k chybě
             success: Uzavření bylo správně ověřeno
         monitoring_committee_verify_elections:
           index:
