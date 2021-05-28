@@ -8,7 +8,8 @@ pt:
       close_meeting:
         attendees_count: Número de Participantes
         attending_organizations: Lista de organizações que participaram
-        closing_report: Relatório
+        closing_report: Minutos
+        closing_visible: É visível
         contributions_count: Número de contribuições
         proposal_ids: Propostas criadas na reunião
       meeting:
@@ -28,9 +29,6 @@ pt:
         start_time: Hora de início
         title: Título
         transparent: Transparente
-      minutes:
-        description: Descrição
-        visible: É visível
     errors:
       models:
         meeting_agenda:
@@ -151,7 +149,6 @@ pt:
         confirm_destroy: Deseja mesmo excluir este encontro?
         destroy: Excluir
         edit: Editar
-        minutes: Minutos
         new: Nova reunião
         preview: Visualização
         registrations: Inscrições
@@ -249,18 +246,6 @@ pt:
           update:
             invalid: Tem havido um problema ao atualizar esta reunião
             success: Reunião atualizada com sucesso
-        minutes:
-          create:
-            invalid: Houve um problema ao criar esta ata
-            success: Minutos criados com sucesso
-          edit:
-            update: Atualizar
-          new:
-            create: Criar
-            title: Crie minutos
-          update:
-            invalid: Houve um problema ao atualizar esta ata
-            success: Minutos atualizados com sucesso
         models:
           meeting:
             name: encontro
@@ -298,9 +283,6 @@ pt:
           value_types:
             organizer_presenter:
               not_found: 'O organizador não foi encontrado no banco de dados (ID: %{id})'
-        minutes:
-          create: "%{user_name} criou a ata da reunião %{resource_name} no espaço %{space_name}"
-          update: "%{user_name} atualizou a ata da reunião %{resource_name} no espaço %{space_name}"
       calendar_modal:
         calendar_url: URL do calendário
         close_window: Janela fechada
@@ -343,7 +325,6 @@ pt:
           filter_by: Filtrar por
           unfold: Desdobrar
         meeting_minutes:
-          meeting_minutes: Atas de Reunião
           related_information: Informação relacionada
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
@@ -355,7 +336,7 @@ pt:
           attendees: Contagem de participantes
           contributions: Contagem de Contribuições
           join: Participe da reunião
-          meeting_report: Relatório de reunião
+          meeting_minutes: Atas de Reunião
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
           registration_code_help_text: Seu código de registro
