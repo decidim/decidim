@@ -258,6 +258,8 @@ ja:
         search_prompt: 検索するには少なくとも3文字を入力してください
       block_user:
         new:
+          action: アカウントをブロックして理由を送信
+          description: ユーザーをブロックすると、そのユーザーのアカウントは使用できなくなりますが、ブロック解除を検討する方法については、正当な理由とガイドラインを提示することができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
       categories:
@@ -326,6 +328,7 @@ ja:
           error: 参加者から管理参加者への移転中に問題が発生しました。
           name: 名前
           reason: 理由
+          success: 現在の移転が正常に完了しました。
           title: 移行
         'true': 'はい'
         user_name: ユーザー
@@ -580,6 +583,17 @@ ja:
           index:
             author: 投稿者
             callout_html: コンテンツは、そのアイテムの横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
+            content_original_language: コンテンツのオリジナル言語
+            participatory_space: 参加型スペース
+            reported_content: 報告されたコンテンツ
+            see_current: 現状を見る
+            see_original: オリジナルを見る
+            title: モデレーションレポート
+          show:
+            report_details: 理由の詳細
+            report_language: 報告の言語
+            report_reason: '理由:'
+            title: 報告の詳細
       newsletter_templates:
         index:
           preview_template: プレビュー
@@ -645,6 +659,9 @@ ja:
           error: このニュースレターの更新中に問題が発生しました。
           success: ニュースレターは正常に更新されました。送信する前に確認してください。
       officializations:
+        block:
+          error: 参加者のブロック中にエラーが発生しました
+          success: 参加者が正常にブロックされました
         create:
           success: 参加者が正常に公式化されました
         destroy:
@@ -652,6 +669,7 @@ ja:
         index:
           actions: アクション
           badge: バッジ
+          block: ユーザーをブロック
           created_at: 作成日時
           name: 名前
           nickname: アカウントID
@@ -659,8 +677,10 @@ ja:
           officialize: 公式化
           officialized: 公式化済み
           reofficialize: Reofficize
+          reports: 報告
           show_email: メールアドレスを表示
           status: ステータス
+          unblock: ユーザーのブロックを解除
           unofficialize: 非公式化
         new:
           badge: 公式バッジ
@@ -674,6 +694,9 @@ ja:
           hidden: hidden
           show: 表示
           title: 参加者のメールアドレスを表示
+        unblock:
+          error: 参加者のブロック解除中にエラーが発生しました
+          success: 参加者のブロックを解除しました
       organization:
         edit:
           title: 組織を編集
@@ -685,6 +708,7 @@ ja:
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: この組織の更新に問題がありました。
@@ -719,6 +743,7 @@ ja:
           error: この参加スペースのプライベート参加者を削除する際に問題が発生しました。
           success: 参加スペースのプライベート参加者アクセスが正常に破棄されました。
         index:
+          import_via_csv: CSV形式でインポート
           title: 参加スペースプライベート参加者
         new:
           create: 作成
@@ -841,6 +866,7 @@ ja:
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         metrics: 指標
+        panel: 管理者
         participants: 参加者
         scope_types: スコープの種類
         scopes: スコープ
@@ -904,8 +930,19 @@ ja:
       errors:
         impersonate_user:
           reason: 管理対象外の参加者を管理する場合は理由を入力する必要があります
+    metrics:
+      blocked_users:
+        object: ブロックされたユーザー
+        title: ブロックされたユーザー
+      reported_users:
+        object: 報告されたユーザー
+        title: 報告したユーザー
+      user_reports:
+        object: ユーザーの報告
+        title: ユーザーの報告
     moderations:
       actions:
+        expand: 展開
         hidden: Hidden
         hide: 非表示
         not_hidden: 非表示にしない
@@ -926,17 +963,28 @@ ja:
       models:
         moderation:
           fields:
+            created_at: 作成日
             hidden_at: '非表示:'
+            participatory_space: 参加型スペース
             report_count: カウント
+            reportable_id: Id
+            reportable_type: 種別
             reported_content_url: 報告されたコンテンツ URL
             reports: レポート
             visit_url: URL を参照
+        report:
+          fields:
+            details: 理由の詳細
+            locale: 言語
+            reason: 理由
   errors:
     messages:
       invalid_json: 無効なJSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: グローバルモデレーション
         newsletters:
           title: ニュースレター
         settings:
