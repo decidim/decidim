@@ -142,6 +142,8 @@ edit_link(
       <%= render "meeting_agenda" %>
     <% end %>
 
+    <%= cell "decidim/meetings/public_participants_list", meeting %>
+
     <% if !meeting.closed? && meeting.user_group_registrations.any? %>
       <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
       <div class="section">
