@@ -8,9 +8,12 @@ cs:
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
-        closing_report: Zpráva
+        audio_url: Audio URL
+        closing_report: Minut
+        closing_visible: Viditelný
         contributions_count: Počet příspěvků
         proposal_ids: Návrhy vytvořené na schůzi
+        video_url: Video URL
       meeting:
         address: Adresa
         available_slots: Dostupné sloty pro toto schůzku
@@ -35,11 +38,6 @@ cs:
         title: Název
         transparent: Transparentní
         type_of_meeting: Typ
-      minutes:
-        audio_url: Audio URL
-        description: Popis
-        video_url: Video URL
-        visible: Viditelný
     errors:
       models:
         meeting_agenda:
@@ -180,7 +178,6 @@ cs:
             few: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
-        minutes: Minut
         new: Nové setkání
         preview: Náhled
         registrations: Registrace
@@ -304,19 +301,6 @@ cs:
           update:
             invalid: Došlo k problému při aktualizaci této schůzky
             success: Schůzka byla úspěšně aktualizována
-        minutes:
-          create:
-            invalid: Při vytváření těchto minut došlo k problému
-            success: Minuty úspěšně vytvořeny
-          edit:
-            title: Upravit minuty
-            update: Aktualizace
-          new:
-            create: Vytvořit
-            title: Vytvořte minuty
-          update:
-            invalid: Při aktualizaci těchto minut došlo k problému
-            success: Minuty úspěšně aktualizovány
         models:
           meeting:
             name: Setkání
@@ -358,9 +342,6 @@ cs:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebyl nalezen v databázi (ID: %{id})'
-        minutes:
-          create: "%{user_name} vytvořilo zápisy ze schůzky %{resource_name} v prostoru %{space_name}"
-          update: "%{user_name} aktualizoval zápisy ze schůzky %{resource_name} na %{space_name} místa"
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
@@ -399,6 +380,13 @@ cs:
           close: Ukončit schůzku
           title: Ukončit schůzku
       meetings:
+        calendar_modal:
+          add_to_calendar: Přidat do kalendáře
+          apple: Přidat do Apple kalendáře
+          close_window: Zavřít okno
+          full_details_html: Pro úplné podrobnosti přejděte na %{link}
+          google: Přidat do Google kalendáře
+          outlook: Přidat do kalendáře aplikace Outlook
         count:
           meetings_count:
             one: "%{count} schůzka"
@@ -456,7 +444,6 @@ cs:
         index:
           new_meeting: Nová schůzka
         meeting_minutes:
-          meeting_minutes: Zápis z porady
           related_information: Související informace
         meetings:
           no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo nejsou plánovány žádné schůzky.
@@ -479,7 +466,7 @@ cs:
           join: Připojte se k setkání
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
-          meeting_report: Zpráva o schůzce
+          meeting_minutes: Zápis z porady
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace
           registration_code_help_text: Váš registrační kód
