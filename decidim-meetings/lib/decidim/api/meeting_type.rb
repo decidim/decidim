@@ -31,9 +31,7 @@ module Decidim
       field :closing_report, Decidim::Core::TranslatedFieldType, "The closing report of this meeting.", null: true
       field :video_url, GraphQL::Types::String, "URL for the video of the session, if any", null: true
       field :audio_url, GraphQL::Types::String, "URL for the audio of the session, if any", null: true
-      # probably useful in the future, when handling user permissions
-      # field :closing_visible, !types.Boolean, "Whether this minutes is public or not", property: :visible
-      #
+
       def closing_report
         object.closing_report if object.closing_visible?
       end
