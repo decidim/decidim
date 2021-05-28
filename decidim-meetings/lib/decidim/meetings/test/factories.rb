@@ -42,6 +42,10 @@ FactoryBot.define do
       component.try(:organization)
     end
 
+    trait :published do
+      published_at { Time.current }
+    end
+
     trait :online do
       type_of_meeting { :online }
       online_meeting_url { "https://decidim.org" }
@@ -108,6 +112,10 @@ FactoryBot.define do
     trait :live do
       start_time { 1.day.ago }
       end_time { 1.day.from_now }
+    end
+
+    factory :published_meeting do
+      published_at { Time.current }
     end
   end
 

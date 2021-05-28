@@ -257,7 +257,6 @@ cs:
             success: Setkání bylo úspěšně uzavřeno
           create:
             invalid: Při vytváření této schůzky došlo k problému
-            success: Setkání bylo úspěšně vytvořeno
           destroy:
             invalid:
               proposals_count:

@@ -23,7 +23,18 @@
             one: "%{count} valg"
             other: "%{count} valg"
         show:
+          action_button:
+            change_vote: Endre stemmen din
+            vote: Start avstemning
+            vote_again: Stem på nytt
+          callout:
+            already_voted: Du har allerede gitt din stemme i denne prosessen. Du kan endre stemmen din eller verifisere den.
+            vote_rejected: Det var ikke mulig å bekrefte stemmen din. Vennligst avgi den igjen.
           preview: Forhåndsvisning
+          verify:
+            already_voted: Stemt allerede?
+            verify_here: Sjekk hva du har stemt på her.
+            will_verify: Du vil kunne bekrefte stemmen din når avstemningen starter.
           voting_period_status:
             finished: Stemmegivningen startet %{start_time} og opphørte %{end_time}
             upcoming: Avstemming begynner %{start_time}
@@ -58,6 +69,14 @@
         voting_step:
           back: Tilbake
           continue: Neste
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee: Kontrollgruppe
+      votings:
+        login:
+          start_voting: Start avstemning
   layouts:
     decidim:
       election_votes_header:

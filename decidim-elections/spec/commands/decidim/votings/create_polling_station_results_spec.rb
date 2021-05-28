@@ -68,6 +68,12 @@ module Decidim::Votings
       it "broadcasts ok" do
         expect(subject.call).to broadcast(:ok)
       end
+
+      it "changes to certificate phase" do
+        subject.call
+
+        expect(closure.certificate_phase?).to be true
+      end
     end
   end
 end

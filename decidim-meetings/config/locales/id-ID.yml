@@ -224,7 +224,6 @@ id:
             success: Rapat berhasil ditutup
           create:
             invalid: Ada masalah saat membuat rapat ini
-            success: Pertemuan berhasil dibuat
           destroy:
             success: Rapat berhasil dihapus
           edit:

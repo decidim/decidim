@@ -237,7 +237,6 @@ pt:
             success: Reunião encerrada corretamente
           create:
             invalid: Ocorreu um problema ao criar esta reunião
-            success: Reunião criada corretamente
           destroy:
             invalid:
               proposals_count:

@@ -501,6 +501,7 @@ nl:
         home:
           highlighted_conferences:
             active_conferences: Actieve conferenties
+            conferences_button_title: Link naar de pagina Conferenties waarop alle conferenties worden weergegeven
             see_all_conferences: Bekijk alle conferenties
       photo:
         image:

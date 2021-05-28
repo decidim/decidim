@@ -247,7 +247,6 @@ sv:
             success: Mötet avslutades
           create:
             invalid: Det gick inte att skapa mötet
-            success: Möte skapades
           destroy:
             invalid:
               proposals_count:

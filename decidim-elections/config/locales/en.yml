@@ -92,6 +92,16 @@ en:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Search %{collection} by name/email/nickname or polling station.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Search %{collection} by title, address or officer name/email/nickname.
+        signed_eq:
+          label: Signed
+          values:
+            'false': Signed
+            'true': Not signed
+        validated_eq:
+          label: Validated
+          values:
+            'false': Validated
+            'true': Not validated
     components:
       elections:
         actions:
@@ -458,6 +468,8 @@ en:
             end_time: End at
             start_time: Starts at
             title: Title
+            verifiable_results_file_hash: File SHA256 checksum
+            verifiable_results_file_url: Verifiable election file
         question:
           fields:
             answers: Answers
@@ -599,6 +611,8 @@ en:
           lead: Your vote has been cast!
           text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: To check it, copy the identifier and paste it on the <a href="%{link}">vote verification page</a>
+        create:
+          error: There was a problem casting the vote. Please, try again.
         encrypting:
           header: Encrypting the vote...
           text: Your ballot is being encrypted to ensure the secret of your vote.
@@ -783,8 +797,10 @@ en:
             info: Information
             landing_page: Landing Page
             monitoring_committee: Monitoring Committee
-            monitoring_committee_certificates: Validate Certificates
+            monitoring_committee_election_results: Validate Results
             monitoring_committee_members: Members
+            monitoring_committee_polling_station_closures: Validate Certificates
+            monitoring_committee_verify_elections: Verify Elections
             polling_officers: Polling Officers
             polling_stations: Polling Stations
         models:
@@ -816,9 +832,33 @@ en:
               promoted: Highlighted
               published: Published
               title: Title
-        monitoring_committee_certificates:
+        monitoring_committee_election_results:
+          actions:
+            title: Actions
+            view: View
           index:
-            title: Polling Stations
+            title: Choose an election you want to see the results for
+          results:
+            bulletin_board: Bulletin Board
+            election_totals: Election totals
+            polling_stations: Polling stations
+            result_types:
+              blank_answers: Blank answers
+              blank_ballots: Blank ballots
+              null_ballots: Null ballots
+              total_ballots: Total ballots
+              valid_ballots: Valid ballots
+            selected: Selected
+            title: Results for the election <i>%{election_title}</i>
+            totals: Totals
+          show:
+            change_election: Change election
+            publish_results: Publish results
+            publishing: Publishing results...
+          update:
+            invalid: There was a problem publishing the results
+            rejected: The publication of the results was rejected by the Bulletin Board. Try again or contact the system administrator.
+            success: The results were successfully published
         monitoring_committee_members:
           create:
             invalid: There was a problem creating this monitoring committee member
@@ -836,6 +876,38 @@ en:
           new:
             create: Create
             title: Create monitoring committee member
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Actions
+            validate: Validate
+            view: View
+          closures:
+            change_election: Change election
+            signed: Signed?
+            title: Polling Stations for the election <i>%{election_title}</i>
+            validated: Validated?
+          edit:
+            change_polling_station: Back to Polling Stations
+            monitoring_committee_notes: Remarks
+            monitoring_committee_notes_placeholder: Report any incidence here
+            title: Results for the election <i>%{election_title}</i> in the polling station <i>%{polling_station_title}</i>
+          elections:
+            title: Choose an election you want to validate
+          show:
+            change_polling_station: Back to Polling Stations
+            monitoring_committee_notes: Remarks from the Monitoring Committee
+          validate:
+            error: There was a problem validating the closure
+            success: The closure has been validated correctly
+        monitoring_committee_verify_elections:
+          index:
+            download: Download
+            how_to_checksum: 'To make sure the file you downloaded has not been corrupted or tampered with during the download process, run the following command in your console and check that the output matches the checksum reported above:'
+            how_to_download: To verify an election, download its verifiable file from the table above.
+            how_to_run_verifier: 'Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href=''https://github.com/decidim/decidim-bulletin-board''>this repository</a> and, from the root folder, run the following command:'
+            how_to_title: How to verify the validity of an election
+            not_available: Not yet avaliable
+            title: Elections
         polling_officers:
           create:
             invalid: There was a problem creating this polling officer
@@ -987,6 +1059,7 @@ en:
             download: Download
             subject: The export of the voting access codes for %{voting_title} is available
         vote_flow:
+          already_voted_in_person: This participant has already voted in person and is not entitled to vote.
           datum_not_found: The given data doesn't match any voter.
       content_blocks:
         highlighted_votings:
@@ -1017,6 +1090,14 @@ en:
       polling_officer_zone:
         closures:
           back_to_polling_stations: Back to polling stations
+          certify:
+            add_images: Add images
+            error: An error occurred attaching the certificate, please try again.
+            form_legend: Upload a picture of the Electoral Closure Certificate
+            heading: Vote recount - Upload certificate
+            info_text: Please upload a picture of the Electoral Closure Certificate.
+            submit: Upload the certificate
+            success: Certificate uploaded successfully.
           create:
             error: An error occurred creating the closure, please try again later.
             success: Closure successfully created.
@@ -1050,9 +1131,65 @@ en:
             polling_station: 'Polling station:'
             submit: Verify total number
             total_ballots_count: Number of ballots
+          show:
+            heading: Vote recount
+            info_text: Polling station electoral closure.
+          sign:
+            cancel: Cancel
+            check_box: I've reviewed this and is the same as the physical electoral closure certificate
+            close_modal: Close
+            confirm: Ok, continue
+            error: An error occurred, please try again.
+            heading: Vote recount - Sign closure
+            info_text: If you continue you can no longer modify any of the information, this action can't be undone.
+            submit: Sign the closure
+            success: Closure signed successfully.
+            title: Action can't be undone
           update:
             error: An error occurred updating the closure results, please try again later.
             success: Closure results successfully updated.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Available answers:'
+            census_verified: The participant has not voted yet.
+            complete_voting: Complete voting
+            identify_another: Identify another participant
+            questions_title: 'She is entitled to vote in the following questions:'
+            questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
+            voted: The participant has voted
+          create:
+            error: The vote was not registered. Please try again.
+          in_person_form:
+            census_not_present: This participant is not listed in the census.
+            census_not_present_description: She must go to the census complaint office or contact support.
+            date_of_birth: Date of birth
+            day: Day
+            day_placeholder: DD
+            document_number: Document number
+            document_number_placeholder: ID number
+            month: Month
+            month_placeholder: MM
+            select: Select the type of the document
+            title: 'Select the document type and enter the participant''s document number:'
+            validate_document: Validate document
+            year: Year
+            year_placeholder: YYYY
+          new:
+            back: Back to polling stations
+            title: Identify and verify a participant
+          show:
+            back: Back to polling stations
+            title: Waiting for the in person vote to be registered
+          update:
+            error: There was an error registering the vote. Please, try again.
+            success:
+              accepted: The vote was registered successfully.
+              rejected: The vote was not accepted by the Bulletin Board. Please, contact the system administrator.
+          verify_document:
+            census_present: This participant is listed in the census.
+            name: Name
+            title: 'Check that the following data is correct:'
+            verify_document: Verify document
         menu:
           polling_officer_zone: Polling Officer zone
         polling_officers:
@@ -1069,35 +1206,6 @@ en:
               show_closure: View closure
               title: Polling Stations
               voting: Voting
-        votes:
-          create:
-            success: In person vote casted successfully
-          in_person_fields:
-            date_of_birth: Date of birth
-            day: Day
-            day_placeholder: DD
-            document_number: Document number
-            document_number_placeholder: ID number
-            month: Month
-            month_placeholder: MM
-            name: Name
-            select: Select the type of the document
-            voted: The participant has voted
-            year: Year
-            year_placeholder: YYYY
-          new:
-            back: Back to polling stations
-            census_not_present: This participant is not listed in the census.
-            census_not_present_description: She must go to the census complaint office or contact support.
-            census_present: This participant is listed in the census.
-            census_verified: The participant has not voted yet.
-            complete_voting: Complete voting
-            form_title: 'Select the document type and enter the participant''s document number:'
-            questions_title: 'She is entitled to vote in the following questions:'
-            title: Identify and verify a participant
-            validate_document: Validate document
-            verify_document: Verify document
-            verify_title: 'Check that the following data is correct:'
       polling_officers:
         actions:
           confirm_destroy: Are you sure?
@@ -1108,6 +1216,16 @@ en:
           manager: Manager
           president: President
           unassigned: Unassigned
+      polling_station_closure_recount:
+        nota_option: Blank/ None of the above
+        polling_officer_notes: 'Polling officer notes:'
+        polling_officer_notes_blank: There are no notes
+        recount_summary: 'Recount summary:'
+        signed: Signed
+        total_ballots: 'Total ballots:'
+        total_blank_ballots: 'Total blank ballots:'
+        total_null_ballots: 'Total null ballots:'
+        total_valid_ballots: 'Total valid ballots:'
       polling_stations:
         actions:
           confirm_destroy: Are you sure?

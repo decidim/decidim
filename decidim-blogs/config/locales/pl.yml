@@ -17,6 +17,7 @@ pl:
         edit: Edytuj
         new: Nowy wpis
         title: Działania
+        user_group_id: Utwórz wpis jako
       admin:
         models:
           components:

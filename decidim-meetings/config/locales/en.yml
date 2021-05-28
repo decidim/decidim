@@ -252,7 +252,7 @@ en:
             success: Meeting successfully closed
           create:
             invalid: There was a problem creating this meeting
-            success: Meeting successfully created
+            success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
           destroy:
             invalid:
               proposals_count:
@@ -278,6 +278,9 @@ en:
           new:
             create: Create
             title: Create meeting
+          publish:
+            invalid: There was a problem publishing this meeting
+            success: Meeting successfully published
           service:
             description: Description
             down: Down
@@ -288,6 +291,9 @@ en:
           services:
             add_service: Add service
             services: Services
+          unpublish:
+            invalid: There was a problem unpublishing this meeting
+            success: Meeting successfully unpublished
           update:
             invalid: There was a problem updating this meeting
             success: Meeting successfully updated
@@ -531,6 +537,11 @@ en:
             official_meeting: Official meeting
             start_time: Start date
             title: Title
+      public_participants_list:
+        attending_participants: Attending participants
+        hidden_participants_count:
+          one: and %{count} more person
+          other: and %{count} more people
       read_more: "(read more)"
       registration_mailer:
         confirmation:

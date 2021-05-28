@@ -231,7 +231,6 @@ hu:
             success: Találkozó lezárása sikeres
           create:
             invalid: Probléma történt a találkozó létrehozása során
-            success: Találkozó létrehozása sikeres
           destroy:
             invalid:
               proposals_count:

@@ -20,14 +20,4 @@ describe Decidim::Elections::Result do
       expect(result.closurable).to be_a(Decidim::Elections::BulletinBoardClosure)
     end
   end
-
-  context "when the result comes from a polling station " do
-    subject(:result) { build(:election_result, closurable: closure) }
-
-    let(:closure) { build(:ps_closure) }
-
-    it "has an associated bulletin board closure" do
-      expect(result.closurable).to be_a(Decidim::Votings::PollingStationClosure)
-    end
-  end
 end

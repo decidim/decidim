@@ -7,12 +7,6 @@ module Decidim
       class InPersonForm < Form
         include Decidim::Votings::Census::InPersonFields
         include Decidim::Votings::Census::FrontendFields
-
-        attribute :verified, Boolean
-        attribute :voted, Boolean
-
-        alias verified? verified
-        alias voted? voted
       end
     end
   end
