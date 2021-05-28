@@ -259,7 +259,7 @@ pt:
           edit:
             update: Atualizar
           new:
-            create: Criar
+            create: Crio
             title: Crie minutos
           update:
             invalid: Houve um problema ao atualizar esta ata
