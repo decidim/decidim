@@ -43,7 +43,11 @@ ja:
             title: 予算の編集
             update: 予算を更新
           index:
+            finished_orders: 完了した投票
+            pending_orders: 保留中の投票
             title: 予算
+            users_with_finished_orders: 投票済みのユーザー
+            users_with_pending_orders: 投票保留中のユーザー
           new:
             create: 予算を作成する
             title: 新しい予算
@@ -146,6 +150,7 @@ ja:
             description: すでに予算に投票しています。気が変わった場合は、 %{cancel_link} することができます。
             title: 予算投票が完了しました
           title: 予算を決める
+          total_projects: 投票の合計
         count:
           projects_count:
             other: "%{count} プロジェクト"
@@ -219,6 +224,8 @@ ja:
             vote_minimum_budget_projects_number: 投票するプロジェクトの最小数
             vote_rule_minimum_budget_projects_enabled: 'ルールを有効にします: 投票するプロジェクトの最小数'
             vote_rule_threshold_percent_enabled: 'ルールを有効にします：予算の最小割合'
+            vote_selected_projects_maximum: 選択するプロジェクトの上限
+            vote_selected_projects_minimum: 選択するプロジェクトの下限
             vote_threshold_percent: 投票しきい値パーセント
             workflow: ワークフロー
             workflow_choices:
