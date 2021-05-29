@@ -864,6 +864,7 @@ cs:
             result_types:
               blank_answers: Prázdné odpovědi
               blank_ballots: Prázdné hlasovací lístky
+              null_ballots: Prázdné hlasovací lístky
               total_ballots: Celkový počet hlasovacích lístků
               valid_ballots: Platné hlasovací lístky
             selected: Vybráno
@@ -902,13 +903,18 @@ cs:
           closures:
             change_election: Změnit volbu
             signed: Podepsáno?
+            title: Hlasovací stanice pro volby <i>%{election_title}</i>
             validated: Ověřeno?
           edit:
             change_polling_station: Zpět do volebních místností
             monitoring_committee_notes: Poznámky
             monitoring_committee_notes_placeholder: Zde nahlaste jakýkoliv incident
+            title: Výsledky voleb <i>%{election_title}</i> ve volební místnosti<i>%{polling_station_title}</i>
+          elections:
+            title: Vyberte volbu, kterou chcete ověřit
           show:
             change_polling_station: Zpět do volebních místností
+            monitoring_committee_notes: Poznámky monitorovacího výboru
           validate:
             error: Při ověřování uzavření došlo k chybě
             success: Uzavření bylo správně ověřeno
@@ -1173,6 +1179,7 @@ cs:
             error: Hlasování nebylo zaregistrováno. Zkuste to prosím znovu.
           in_person_form:
             census_not_present: Tento uživatel není uveden v seznamu osob.
+            census_not_present_description: Musí jít do úřadu pro stížnosti ze sčítání nebo kontaktovat podporu.
             date_of_birth: Datum narození
             day: Den
             day_placeholder: DD
@@ -1199,6 +1206,7 @@ cs:
           verify_document:
             census_present: Tento uživatel je uveden v seznamu osob.
             name: Jméno
+            title: 'Zkontrolujte, zda jsou tyto údaje správné:'
             verify_document: Ověřit doklad
         menu:
           polling_officer_zone: Zóna volebního komisaře
