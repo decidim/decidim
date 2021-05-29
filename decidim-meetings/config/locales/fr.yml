@@ -473,6 +473,11 @@ fr:
             official_meeting: Rencontre officielle
             start_time: Date de début
             title: Titre
+      public_participants_list:
+        attending_participants: Participants présents
+        hidden_participants_count:
+          one: et %{count} personne de plus
+          other: et %{count} personnes de plus
       read_more: "(Voir la suite)"
       registration_mailer:
         confirmation:
