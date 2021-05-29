@@ -320,6 +320,13 @@ gl:
       meeting:
         not_allowed: Non tes permiso para ver esta reunión
       meetings:
+        calendar_modal:
+          add_to_calendar: Engadir ao calendario
+          apple: Engadir ao Apple Calendar
+          close_window: Pechar xanela
+          full_details_html: Ver todos os detalles en %{link}
+          google: Engadir ao Google Calendar
+          outlook: Engadir ao calendario do Outlook
         filters:
           category: Categoría
           date: Data
@@ -375,6 +382,11 @@ gl:
             map: Mapa
             start_time: Data de inicio
             title: Título
+      public_participants_list:
+        attending_participants: Participantes presentes
+        hidden_participants_count:
+          one: e %{count} persoa máis
+          other: e %{count} persoas máis
       read_more: "(Le máis)"
       registration_mailer:
         confirmation:
