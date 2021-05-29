@@ -478,6 +478,12 @@ ro:
             official_meeting: Ședința oficială
             start_time: Data de început
             title: Titlu
+      public_participants_list:
+        attending_participants: Participanți la eveniment
+        hidden_participants_count:
+          one: și încă %{count} persoană
+          few: și încă %{count} persoane
+          other: și încă %{count} persoane
       read_more: "(citește mai mult)"
       registration_mailer:
         confirmation:
