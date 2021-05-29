@@ -4,7 +4,7 @@
   <details class="meeting-polls__question--admin text-medium open" data-question="<%= question.id %>" <%= "open" if open_question == question.id %>>
     <summary><%= t(".question") %></summary>
 
-    <%= form_tag(meeting_polls_question_path(meeting, question), method: :patch, remote: true) do%>
+    <%= form_tag(meeting_polls_question_path(meeting, question), method: :patch, remote: true) do %>
       <div>
         <p><%= translated_attribute(question.body) %></p>
 
