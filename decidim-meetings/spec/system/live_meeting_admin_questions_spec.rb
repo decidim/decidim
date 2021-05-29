@@ -83,12 +83,10 @@ describe "Meeting live event poll administration", type: :system do
     it "allows to publish an unpublished question" do
       open_first_question
 
-      within(".meeting-polls__admin-action-publish") do
-        click_button "Send"
+      click_button "Send"
 
-        expect(page).to have_content("Sent")
-        expect(page).to have_content("0 received answers")
-      end
+      expect(page).to have_content("Sent")
+      expect(page).to have_content("0 received answers")
     end
   end
 
@@ -104,23 +102,19 @@ describe "Meeting live event poll administration", type: :system do
     it "allows to see question answers" do
       open_first_question
 
-      within(".meeting-polls__admin-action-close") do
-        expect(page).to have_content("0%")
-        expect(page).to have_content("100%")
-      end
+      expect(page).to have_content("0%")
+      expect(page).to have_content("100%")
     end
 
     it "allows to close a published question" do
       open_first_question
 
-      within(".meeting-polls__admin-action-close") do
-        click_button "Send"
+      click_button "Send"
 
-        expect(page).to have_content("Sent")
+      expect(page).to have_content("Sent")
 
-        question_multiple_option.reload
-        expect(question_multiple_option).to be_closed
-      end
+      question_multiple_option.reload
+      expect(question_multiple_option).to be_closed
     end
   end
 
