@@ -88,6 +88,36 @@ module Decidim
           end
         end
 
+        context "when closed with minutes" do
+          let(:model) { create(:meeting, :closed_with_minutes, closing_visible: closing_visible, component: component) }
+          let(:query) { "{ closed closingReport { translation(locale: \"ca\") } }" }
+
+          context "and closing_visible is true" do
+            let(:closing_visible) { true }
+
+            it "returns true" do
+              expect(response["closed"]).to be true
+            end
+
+            it "has a closing report" do
+              expect(response["closingReport"]).not_to be_nil
+              expect(response["closingReport"]["translation"]).to eq(model.closing_report["ca"])
+            end
+          end
+
+          context "and closing_visible is false" do
+            let(:closing_visible) { false }
+
+            it "returns true" do
+              expect(response["closed"]).to be true
+            end
+
+            it "has a closing report" do
+              expect(response["closingReport"]).to be_nil
+            end
+          end
+        end
+
         context "when open" do
           let(:model) { create(:meeting, component: component) }
 
@@ -113,19 +143,6 @@ module Decidim
           ids = response["agenda"]["items"].map { |item| item["id"] }
           expect(ids).to include(*model.agenda.agenda_items.map(&:id).map(&:to_s))
           expect(response["agenda"]["id"]).to eq(agenda.id.to_s)
-        end
-      end
-
-      describe "minutes" do
-        let(:query) { "{ minutes { id } }" }
-        let(:minutes) { create(:minutes) }
-
-        before do
-          model.update(minutes: minutes)
-        end
-
-        it "returns the minutes's items" do
-          expect(response["minutes"]["id"]).to eq(minutes.id.to_s)
         end
       end
 
