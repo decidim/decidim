@@ -11,6 +11,7 @@ module Decidim
     include NeedsPermission
     include PayloadInfo
     include ImpersonateUsers
+    include HasStoredPath
     include NeedsTosAccepted
     include HttpCachingDisabler
     include ActionAuthorization
@@ -36,10 +37,6 @@ module Decidim
                          ::Decidim::Admin::Permissions,
                          ::Decidim::Permissions)
 
-    # Saves the location before loading each page so we can return to the
-    # right page.
-    before_action :store_current_location
-
     before_action :store_machine_translations_toggle
     helper_method :machine_translations_toggled?
 
@@ -51,18 +48,6 @@ module Decidim
     skip_before_action :disable_http_caching, unless: :user_signed_in?
 
     private
-
-    # Stores the url where the user will be redirected after login.
-    #
-    # Uses the `redirect_url` param or the current url if there's no param.
-    # In Devise controllers we only store the URL if it's from the params, we don't
-    # want to overwrite the stored URL for a Devise one.
-    def store_current_location
-      return if skip_store_location?
-
-      value = redirect_url || request.url
-      store_location_for(:user, value)
-    end
 
     # This overrides Devise's method for extracting the path from the URL. We
     # want to ensure the path to be stored in the cookie is not too long in
@@ -95,20 +80,6 @@ module Decidim
 
     def machine_translations_toggled?
       RequestStore.store[:toggle_machine_translations]
-    end
-
-    def skip_store_location?
-      # Skip if Devise already handles the redirection
-      return true if devise_controller? && redirect_url.blank?
-      # Skip for all non-HTML requests"
-      return true unless request.format.html?
-      # Skip if a signed in user requests the TOS page without having agreed to
-      # the TOS. Most of the times this is because of a redirect to the TOS
-      # page (in which case the desired location is somewhere else after the
-      # TOS is agreed).
-      return true if current_user && !current_user.tos_accepted? && request.path == tos_path
-
-      false
     end
 
     def user_has_no_permission_path
