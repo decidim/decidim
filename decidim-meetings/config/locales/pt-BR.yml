@@ -319,6 +319,9 @@ pt:
           add_to_calendar: Adicionar à agenda
           apple: Adicionar ao calendário da Apple
           close_window: Fechar janela
+          full_details_html: Para todos os detalhes, visite %{link}
+          google: Adicionar à agenda do Google
+          outlook: Adicionar à agenda do Outlook
         filters:
           category: Categoria
           date: Data
