@@ -8,10 +8,12 @@ ja:
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
+        audio_url: 音声URL
         closing_report: 議事録
         closing_visible: 非表示にする
         contributions_count: 貢献数
         proposal_ids: 会議で作成された提案
+        video_url: 動画URL
       meeting:
         address: 住所
         available_slots: この会議で利用可能なスロット
