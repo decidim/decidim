@@ -31,7 +31,9 @@ ja:
         title: タイトル
         transparent: 透明度
       minutes:
+        audio_url: 音声URL
         description: 説明
+        video_url: 動画URL
         visible: 非表示にする
     errors:
       models:
@@ -269,6 +271,7 @@ ja:
             invalid: この分を作成する際に問題が発生しました
             success: 議事録が正常に作成された
           edit:
+            title: 議事録を編集
             update: 更新
           new:
             create: 作成
