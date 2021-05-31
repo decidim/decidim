@@ -13,6 +13,12 @@ module Decidim
 
       belongs_to :questionnaire, class_name: "Decidim::Meetings::Questionnaire", foreign_key: "decidim_questionnaire_id"
 
+      has_many :answers,
+               class_name: "Decidim::Meetings::Answer",
+               foreign_key: "decidim_question_id",
+               dependent: :destroy,
+               inverse_of: :question
+
       has_many :answer_options,
                class_name: "Decidim::Meetings::AnswerOption",
                foreign_key: "decidim_question_id",

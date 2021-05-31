@@ -3,7 +3,5 @@
 <div>
   <p><%= translated_attribute(question.body) %></p>
 
-  <% question.answer_options.each do |answer_option| %>
-    <%= cell "decidim/meetings/question_responses", answer_option %>
-  <% end %>
+  <%= cell "decidim/meetings/question_responses", question %>
 </div>

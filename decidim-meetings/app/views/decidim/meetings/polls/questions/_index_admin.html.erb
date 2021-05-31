@@ -1,6 +1,6 @@
 <div class="meeting-polls__admin-label"><%= t(".admin_dashboard") %></div>
 
-<% questionnaire.questions.each do |question| %>
+<% questionnaire.questions.includes([:questionnaire]).each do |question| %>
   <details class="meeting-polls__question--admin text-medium open" data-question="<%= question.id %>" <%= "open" if open_question == question.id %>>
     <summary><%= t(".question") %></summary>
 
@@ -25,9 +25,7 @@
           <div><%= t(".results") %></div>
           <div>
             <% unless question.unpublished? %>
-              <% question.answer_options.each do |answer_option| %>
-                <%= cell "decidim/meetings/question_responses", answer_option %>
-              <% end %>
+              <%= cell "decidim/meetings/question_responses", question %>
             <% end %>
 
             <% if question.unpublished? %>
