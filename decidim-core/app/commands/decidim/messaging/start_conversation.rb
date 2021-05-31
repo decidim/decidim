@@ -26,7 +26,7 @@ module Decidim
 
           broadcast(:ok, conversation)
         else
-          broadcast(:invalid)
+          broadcast(:invalid, conversation.errors.full_messages)
         end
       end
 

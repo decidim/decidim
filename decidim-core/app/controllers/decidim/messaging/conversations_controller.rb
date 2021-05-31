@@ -46,8 +46,11 @@ module Decidim
             }
           end
 
-          on(:invalid) do
-            render json: { error: I18n.t("messaging.conversations.create.error", scope: "decidim") }, status: :unprocessable_entity
+          on(:invalid) do |messages|
+            render action: :error, locals: {
+              error: I18n.t("messaging.conversations.create.error", scope: "decidim"),
+              messages: messages
+            }, status: :unprocessable_entity
           end
         end
       end
