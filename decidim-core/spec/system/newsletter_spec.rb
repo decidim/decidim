@@ -18,7 +18,7 @@ describe "Newsletters (view in web)", type: :system do
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
         introduction: Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
         cta_text: Decidim::Faker::Localized.word,
-        cta_url: I18n.available_locales.index_with { |_locale| Faker::Internet.url }
+        cta_url: I18n.available_locales.map { |locale| [locale, Faker::Internet.url] }.to_h
       }
     )
     content_block
