@@ -30,6 +30,18 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when body is too long" do
+        let(:body) { "c" * 1001 }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when body has maximum length" do
+        let(:body) { "c" * 1000 }
+
+        it { is_expected.to be_valid }
+      end
+
       context "when no recipient" do
         let(:recipient_id) { nil }
 
