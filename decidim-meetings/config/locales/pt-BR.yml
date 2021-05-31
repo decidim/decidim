@@ -315,6 +315,10 @@ pt:
       meeting:
         not_allowed: Você não tem permissão para ver esta reunião
       meetings:
+        calendar_modal:
+          add_to_calendar: Adicionar à agenda
+          apple: Adicionar ao calendário da Apple
+          close_window: Fechar janela
         filters:
           category: Categoria
           date: Data
