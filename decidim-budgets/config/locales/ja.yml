@@ -13,6 +13,7 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         proposal_ids: 関連する提案
+        selected: 実装の選択
         title: タイトル
   activerecord:
     models:
@@ -54,6 +55,8 @@ ja:
           update:
             invalid: 予算の更新中に問題が発生しました。
             success: 予算が正常に更新されました。
+        exports:
+          projects: プロジェクト
         models:
           budget:
             name: 予算
@@ -87,6 +90,7 @@ ja:
             create: プロジェクトへの提案をインポート
             no_components: この参加スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
+            title: 提案のインポート
       admin_log:
         budget:
           create: "%{user_name} が予算 %{resource_name} を %{space_name} に作成しました。"
@@ -139,9 +143,14 @@ ja:
           title: 投票の確認
         budget_excess:
           budget_excess:
+            description: 予算上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
             title: 最大予算を超えました
           close: 閉じる
+          description: 予算上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
           ok: OK
+          projects_excess:
+            description: プロジェクト数の上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
+            title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
           assigned: 'アサイン済み:'
@@ -149,8 +158,23 @@ ja:
           checked_out:
             description: すでに予算に投票しています。気が変わった場合は、 %{cancel_link} することができます。
             title: 予算投票が完了しました
+          minimum_projects_rule:
+            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
+            instruction: "<li>希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。</li>"
+          projects_rule:
+            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。
+            instruction: "<li>希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。</li>"
+          projects_rule_maximum_only:
+            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。
+            instruction: "<li>希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。</li>"
+          rules:
+            title: 予算ルール
           title: 予算を決める
+          total_budget: 予算の合計
           total_projects: 投票の合計
+          vote_threshold_percent_rule:
+            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトに予算を %{minimum_budget} 以上割り当てて、好ましいと思う予算を決めて投票します。
+            instruction: "<li>希望するプロジェクトに %{minimum_budget} 以上の予算を割り当てて、好ましいと思う予算を決めて投票します。</li>"
         count:
           projects_count:
             other: "%{count} プロジェクト"
@@ -223,6 +247,7 @@ ja:
             total_budget: 予算の合計
             vote_minimum_budget_projects_number: 投票するプロジェクトの最小数
             vote_rule_minimum_budget_projects_enabled: 'ルールを有効にします: 投票するプロジェクトの最小数'
+            vote_rule_selected_projects_enabled: 'ルールの有効化: 投票するプロジェクトの最小数と最大数'
             vote_rule_threshold_percent_enabled: 'ルールを有効にします：予算の最小割合'
             vote_selected_projects_maximum: 選択するプロジェクトの上限
             vote_selected_projects_minimum: 選択するプロジェクトの下限
