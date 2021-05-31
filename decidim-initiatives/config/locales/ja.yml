@@ -375,6 +375,7 @@ ja:
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} は、%{resource_title} イニシアチブの推進委員会に参加するあなたの申請を承認しました。"
+          email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
           email_subject: "%{author_nickname} が推進委員会への申請を承認しました"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> は、以下のイニシアチブ <a href="%{resource_url}">%{resource_title}</a> のための推進委員会の一員となるためのあなたの申請を承認しました。
         create_initiative_event:
@@ -389,10 +390,13 @@ ja:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって承認されました。
         revoke_membership_request:
           email_intro: "%{author_nickname} は、以下のイニシアチブ %{resource_title} の推進委員会に参加する申請を拒否しました。"
+          email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
           email_subject: "%{author_nickname} が推進委員会への申請を拒否しました"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> は、以下のイニシアチブ <a href="%{resource_url}">%{resource_title}</a> のための推進委員会の一員となるためのあなたの申請を拒否しました。
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} は、あなたのイニシアチブの推進委員会 %{resource_title} への参加を希望しました。リクエストを承認または拒否するには、イニシアチブの編集フォームに進んでください。"
+          email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} の作成者だからです。'
+          email_subject: "%{applicant_nickname} があなたのイニシアチブに参加しようとしています"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> があなたのイニシアチブの推進委員会に申請しました <a href="%{resource_url}">%{resource_title}</a>. 受け入れるか拒否するには <a href="%{resource_url}/edit">ここ</a>をクリックしてください。
       form:
         add_attachments: ドキュメント
