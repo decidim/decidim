@@ -7,7 +7,10 @@
 #   - graphiql-rails: PR to remove it from oct 2019 - https://github.com/rmosolgo/graphiql-rails/pull/76
 module Decidim
   class AssetsToSilenceSprocketsDependency
-    def precompile; [] end
+    def precompile
+      []
+    end
+
     def precompile=(value); end
   end
 end
