@@ -55,6 +55,7 @@ it:
         debate_closes:
           edit:
             close: Chiudi
+            title: Chiudi dibattito
         debates:
           create:
             invalid: C'è stato un problema durante la creazione del dibattito.
@@ -64,6 +65,10 @@ it:
           edit:
             title: Modifica dibattito
             update: Aggiornamento del dibattito
+          form:
+            debate_type: Tipo di dibattito
+            finite: Chiuso (Con i tempi di inizio e fine)
+            open: Aperto (Nessun ora di inizio o di fine)
           index:
             title: Discussioni
           new:
@@ -72,16 +77,27 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
             success: Dibattito aggiornato con successo.
+        exports:
+          comments: Commenti
         models:
           debate:
             name: Dibattito
       admin_log:
         debate:
+          close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"
           create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio %{space_name}"
           update: "%{user_name} ha aggiornato il dibattito %{resource_name} sullo spazio %{space_name}"
       debate_m:
         commented_time_ago: Commentato %{time} fa
       debates:
+        close:
+          invalid: Si è verificato un errore durante la chiusura del dibattito.
+          success: Dibattito chiuso con successo.
+        close_debate_modal:
+          close: Chiudi
+          description: Qual è la sintesi o la conclusione di questo dibattito?
+          send: Chiudi dibattito
+        closed: Chiuso
         count:
           debates_count:
             one: "%{count} dibattito"
@@ -101,6 +117,7 @@ it:
           category: Categoria
           category_prompt: Seleziona una categoria
           citizens: Cittadini
+          commented: Commentato
           my_debates: I miei dibattiti
           official: Ufficiale
           origin: Origine
@@ -109,6 +126,7 @@ it:
           state: Stato
           state_values:
             closed: Chiuso
+            open: Apri
           user_groups: Gruppi
         filters_small_view:
           close_modal: Chiudi modalità
@@ -131,8 +149,17 @@ it:
           updated: Aggiornato di recente
         show:
           back: Torna alla lista
+          close_debate: Chiudi dibattito
           date: Data
+          debate_closed: Chiuso
+          debate_conclusions_are: 'Il dibattito si è concluso il %{date} con queste conclusioni:'
+          edit_conclusions: Modifica conclusioni
           edit_debate: Modifica dibattito
+          groups_count: Gruppi
+          last_comment_by: Ultimo commento di
+          no_comments_yet: Ancora nessun commento
+          open: Apri il dibattito
+          participants_count: Partecipanti
         update:
           invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
           success: Dibattito aggiornato con successo.
@@ -144,6 +171,7 @@ it:
         versions_list:
           back_to_resource: Torna al dibattito
       last_activity:
+        debate_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
         new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:
         debate:
