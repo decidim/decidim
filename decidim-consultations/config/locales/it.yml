@@ -94,6 +94,7 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di una nuova consultazione.
           success: Consultazione creata con successo.
+        deprecation_warning: Il modulo di consultazione sarà deprecato nel prossimo futuro. Stiamo lavorando alla prossima versione crittograficamente sicura chiamata Votazioni.
         edit:
           update: Aggiornare
         form:
