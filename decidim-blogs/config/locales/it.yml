@@ -29,6 +29,7 @@ it:
             success: Posta cancellata con successo
           edit:
             save: Aggiornare
+            title: Modifica post
           index:
             title: Messaggi
           new:
