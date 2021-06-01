@@ -115,6 +115,7 @@ en:
             email_subject: The "%{resource_title}" meeting was closed
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
         meeting_created:
+          button_text: Register to the meeting
           email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New meeting added to %{participatory_space_title}
