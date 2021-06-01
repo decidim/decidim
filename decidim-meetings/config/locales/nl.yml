@@ -358,6 +358,13 @@ nl:
           close: Vergadering sluiten
           title: Vergadering sluiten
       meetings:
+        calendar_modal:
+          add_to_calendar: Toevoegen aan agenda
+          apple: Toevoegen aan Apple agenda
+          close_window: Sluit venster
+          full_details_html: Ga naar %{link} voor alle details
+          google: Toevoegen aan Google agenda
+          outlook: Toevoegen aan Outlook agenda
         count:
           meetings_count:
             one: "%{count} vergadering"
