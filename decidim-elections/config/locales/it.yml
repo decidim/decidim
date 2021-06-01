@@ -212,7 +212,14 @@ it:
             vote: Inizia a votare
             vote_again: Vota di nuovo
           back: Elezioni disponibili
+          callout:
+            already_voted: Hai già espresso il tuo voto in questa elezione. Puoi cambiare il tuo voto o verificarlo.
+            vote_rejected: Non è stato possibile verificare il tuo voto. Per favore esprimi il tuo voto di nuovo.
           preview: Anteprima
+          verify:
+            already_voted: Hai già votato?
+            verify_here: Verifica il tuo voto qui.
+            will_verify: Sarete in grado di verificare il vostro voto una volta che le votazioni saranno iniziate.
           voting_period_status:
             finished: La votazione è iniziata il %{start_time} ed è terminata il %{end_time}
             upcoming: La votazione inizia il %{start_time}
@@ -309,6 +316,23 @@ it:
           email_subject: L'elezione di %{resource_title} è ora attiva per %{participatory_space_title}.
           notification_title: L'elezione <a href="%{resource_path}">%{resource_title}</a> è ora attiva per %{participatory_space_title}.
     votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee: Comitato di Sorveglianza
+            monitoring_committee_election_results: Convalida Risultati
+        monitoring_committee_election_results:
+          actions:
+            title: Azioni
+            view: Visualizza
+      polling_officer_zone:
+        polling_officers:
+          index:
+            polling_officer_role_description: Sei stato designato funzionario del seggio elettorale (Presidente o Gestore) in alcune elezioni svolte su questa piattaforma.
+            polling_station:
+              no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
+              role: Il tuo ruolo
+              voting: Votazione
       votings:
         login:
           start_voting: Inizia a votare
