@@ -30,11 +30,16 @@ module Decidim
       end
 
       def users
-        user_entities(current_organization.users)
+        search(current_organization.users)
       end
 
-      def user_entities(relation = nil)
-        relation ||= current_organization.user_entities
+      def user_entities
+        search(current_organization.user_entities)
+      end
+
+      private
+
+      def search(relation)
         respond_to do |format|
           format.json do
             if (term = params[:term].to_s).present?
