@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "jquery-tmpl-rails"
 require "icalendar"
 
 require "decidim/core"
