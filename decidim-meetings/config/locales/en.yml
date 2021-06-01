@@ -509,7 +509,7 @@ en:
           closed_question:
             question_results: Question results
           index:
-            empty_questions: A lo largo de este encuentro se enviarán preguntas que podrás contestar. Irán apareciendo aquí.
+            empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
           index_admin:
             admin_dashboard: Administrator dashboard
             edit: Edit in the admin
