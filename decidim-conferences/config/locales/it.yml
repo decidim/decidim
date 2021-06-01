@@ -3,6 +3,7 @@ it:
     attributes:
       conference:
         assemblies_ids: Assemblee collegate
+        available_slots: Slot disponibili
         banner_image: Immagine banner
         consultations_ids: Consultazioni correlate
         copy_categories: Copia le categorie
@@ -10,26 +11,59 @@ it:
         copy_features: Copia le caratteristiche
         decidim_scope_id: Obiettivo
         description: Descrizione
+        end_date: Data di fine
         hashtag: Hashtag
         hero_image: Immagine della home page
+        location: Luogo
+        main_logo: Logo principale
+        objectives: Obiettivi
         participatory_processes_ids: Processi partecipativi correlati
         promoted: In evidenza
         published_at: Pubblicato il
+        registration_terms: Termini di registrazione
+        registrations_enabled: Registrazioni abilitate
         scope_id: Obiettivo
         scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
+        sign_date: Firmato il
+        signature: Firma
+        signature_name: nome firma
         slogan: Slogan
         slug: Slug URL
+        start_date: Data di inizio
         title: Titolo
       conference_media_link:
+        date: Data
+        link: Collegamento
+        title: Titolo
         weight: Peso
       conference_partner:
+        link: Collegamento
+        logo: Logo
+        name: Nome
+        partner_type: Tipo di partner
         weight: Peso
+      conference_registration_invite:
+        email: Email
+        name: Nome
+        registration_type_id: Tipo di registrazione
+        user_id: Utente
       conference_registration_type:
+        description: Descrizione
+        price: Prezzo
+        title: Titolo
         weight: Peso
       conference_speaker:
+        affiliation: Affiliazione
+        avatar: Avatar
+        conference_meeting_ids: Conferenze correlate
         full_name: Nome e cognome
+        personal_url: URL personale
+        position: Posizione
+        short_bio: Biografia breve
+        twitter_handle: Identificativo Twitter
+        user_id: Utente
       conference_user_role:
         email: E-mail
         name: Nome
@@ -272,6 +306,10 @@ it:
       conferences:
         conference_registration:
           confirm: "%{user_name} confermato la registrazione alla conferenza %{resource_name}"
+        partner:
+          create: "%{user_name} ha creato il partner %{resource_name} nella conferenza %{space_name}"
+          delete: "%{user_name} ha rimosso il partner %{resource_name} dalla conferenza %{space_name}"
+          update: "%{user_name} ha aggiornato il partner %{resource_name} nella conferenza %{space_name}"
         registration_type:
           create: "%{user_name} ha creato il %{resource_name} tipo di registrazione nella conferenza %{space_name}"
           publish: "%{user_name} ha pubblicato il %{resource_name} tipo di registrazione nella %{space_name} conferenza"
@@ -404,6 +442,7 @@ it:
         personal_website: Sito web personale
         show:
           more_info: maggiori informazioni
+          speaking_at: Parlando a
       conference_speaker_cell:
         personal_url:
           personal_website: Sito web personale
@@ -541,6 +580,12 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la conferenza "%{resource_title}". Puoi smettere di seguirla dal link precedente.
           email_subject: La conferenza "%{resource_title}" sta arrivando!
           notification_title: La conferenza <a href="%{resource_path}">%{resource_title}</a> sarà tra 2 giorni.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Una <strong>conferenza</strong> è una raccolta di riunioni organizzate in un programma, con un certo numero di persone invitate come relatori, e altri campi di informazione tipici di grandi congressi o eventi sociali (registrazione, elenco delle organizzazioni che sostengono o sponsorizzano l'evento, ecc.).</p> <p>Esempi: Una conferenza può essere un evento rilevante per un'organizzazione e i suoi membri, o può essere parte di un processo partecipativo o il seguito di una consultazione.</p>\n"
+          page: "<p>Una <strong>conferenza</strong> è una raccolta di riunioni organizzate in un programma, con un certo numero di persone invitate come relatori, e altri campi di informazione tipici di grandi congressi o eventi sociali (registrazione, elenco delle organizzazioni che sostengono o sponsorizzano l'evento, ecc.).</p> <p>Esempi: Una conferenza può essere un evento rilevante per un'organizzazione e i suoi membri, o può essere parte di un processo partecipativo o il seguito di una consultazione.</p>\n"
+          title: Cosa sono le conferenze?
     log:
       value_types:
         conference_presenter:
