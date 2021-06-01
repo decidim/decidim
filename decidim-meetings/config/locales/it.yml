@@ -31,7 +31,9 @@ it:
         title: Titolo
         transparent: Trasparente
       minutes:
+        audio_url: URL Audio
         description: Descrizione
+        video_url: URL Video
         visible: È visibile
     errors:
       models:
@@ -272,6 +274,7 @@ it:
             invalid: Si è verificato un problema durante la creazione di questi minuti
             success: Minuti creati con successo
           edit:
+            title: Modifica il verbale
             update: Aggiornare
           new:
             create: Creare
