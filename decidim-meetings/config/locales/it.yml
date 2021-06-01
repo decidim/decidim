@@ -336,6 +336,13 @@ it:
       meeting:
         not_allowed: Non sei autorizzato a visualizzare questo incontro
       meetings:
+        calendar_modal:
+          add_to_calendar: Aggiungi al calendario
+          apple: Aggiungi al calendario Apple
+          close_window: Chiudi finestra
+          full_details_html: Per ulteriori dettagli vai a %{link}
+          google: Aggiungi al calendario di Google
+          outlook: Aggiungi al calendario di Outlook
         count:
           meetings_count:
             one: "%{count} riunione"
@@ -428,6 +435,8 @@ it:
             official_meeting: Riunione ufficiale
             start_time: Data di inizio
             title: Titolo
+      public_participants_list:
+        attending_participants: Partecipanti presenti
       read_more: "(leggi di più)"
       registration_mailer:
         confirmation:
