@@ -259,6 +259,7 @@ ja:
       admin:
         assemblies:
           form:
+            announcement_help: ここに入力したテキストは、アセンブリ情報のすぐ下に表示されます。
             duration: 持続期間
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
             filters: フィルタ

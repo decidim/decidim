@@ -1269,6 +1269,8 @@ ro:
         filters:
           areas: Domenii
           select_an_area: Selectează o zonă
+      public_participation:
+        public_participation: Arată public participarea mea
       reference:
         reference: 'Referinţă: %{reference}'
       represent_user_group:

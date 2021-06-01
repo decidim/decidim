@@ -1,0 +1,182 @@
+fr-LU:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nom de l'application OAuth
+        organization_logo: Logo de l'organisation (carré)
+        organization_name: Organisation
+        organization_url: URL de l'organisation
+        redirect_uri: URI de redirection
+      organization:
+        address: Nom de l'hôte SMTP
+        from_email: Adresse e-mail d'envoi des notifications
+        from_label: Label de l'envoyeur
+        password: Mot de passe
+        port: Port
+        user_name: Nom d'utilisateur
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Formats autorisés - Admin (MIME)
+          default: Formats autorisés par défaut (MIME)
+        allowed_file_extensions:
+          admin: Extensions autorisées pour l'admin
+          default: Extensions de fichiers par défaut
+          image: Formats d'image autorisés
+        maximum_file_size:
+          avatar: Taille du fichier de l'avatar
+          default: Taille de fichier par défaut
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URI de redirection doit être une URI SSL
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cela ?
+        destroy: Supprimer
+        edit: Modifier
+        new: Nouvelle
+        save: Sauvegarder
+        title: Actions
+      admins:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
+          success: Admin créé avec succès
+        destroy:
+          success: Administrateur supprimé avec succès
+        edit:
+          title: Modifier l'administrateur
+          update: Mettre à jour
+        index:
+          title: Administrateurs
+        new:
+          create: Créer
+          title: Nouvel administrateur
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
+          success: Administrateur mis à jour avec succès
+      default_pages:
+        placeholders:
+          content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
+          title: Titre par défaut pour %{page}
+      menu:
+        admins: Administrateurs
+        dashboard: Tableau de bord
+        oauth_applications: Applications OAuth
+        organizations: Organisations
+      models:
+        admin:
+          fields:
+            created_at: Créé le
+            email: Courriel
+          name: Administrateur
+          validations:
+            email_uniqueness: un autre administrateur avec la même adresse email existe déjà
+        oauth_application:
+          fields:
+            created_at: Créée le
+            name: Nom de l'application OAuth
+            organization_name: Organisation
+          name: Application OAuth
+        organization:
+          actions:
+            save_and_invite: Créer une organisation et inviter un administrateur
+          fields:
+            created_at: Créé le
+            file_upload_settings: Paramètres de téléchargement de fichier
+            name: Nom
+            omniauth_settings: Paramètres Omniauth
+            smtp_settings: Paramètres SMTP
+          name: Organisation
+      oauth_applications:
+        create:
+          error: Un problème est survenu lors de la création de cette application.
+          success: Application créée avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression de cette application.
+          success: Application supprimée avec succès.
+        edit:
+          save: Enregistrer
+          title: Modifier l'application
+        form:
+          select_organization: Sélectionnez une organisation
+        index:
+          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
+          title: Applications OAuth
+        new:
+          save: Enregistrer
+          title: Nouvelle application
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette application.
+          success: Application mise à jour avec succès.
+      organizations:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
+          success: Organisation créée avec succès.
+        edit:
+          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+        file_upload_settings:
+          content_types:
+            admin_hint: Ces types MIME sont autorisés pour les téléchargements dans la section admin. Les administrateurs doivent être conscients des risques liés au téléchargement de certains formats de document, il faut donc vous attendre à qu'ils soient plus prudents avec les téléchargements de fichiers.
+            default_hint: Ces formats de fichiers sont autorisés par défaut pour tous les utilisateurs.
+            intro_html: Vous ajoutez des wildcards (jokers) avec le caractère astérisque pour les types MIME, par exemple <code>image/*</code>.
+            title: Types MIME acceptés
+          file_extensions:
+            admin_hint: Ces formats de fichiers sont autorisés pour les téléchargements dans la section admin. Les administrateurs doivent être conscients des risques liés au téléchargement de certains formats de document, il faut donc vous attendre à qu'ils soient plus prudents avec les téléchargements de fichiers.
+            default_hint: Ces formats de fichiers sont autorisés par défaut pour tous les utilisateurs.
+            image_hint: Ces extensions de fichier sont autorisées pour tout type de téléchargement d'image.
+            title: Extensions autorisées
+          file_sizes:
+            avatar_hint: Mégaoctets (Mo). Cette taille de fichier est utilisée pour les téléchargements d'images avatar.
+            default_hint: Megabytes (MB). Cette limite de taille de fichier est la valeur par défaut utilisée pour tous les téléchargements de fichiers, sauf indication contraire.
+            title: Taille maximum des fichiers
+          intro: |
+            Veuillez être extrêmement prudent lorsque vous envisagez de modifier ces paramètres. Moins vous autorisez, mieux c'est.
+            L'autorisation d'extensions de fichiers spécifiques ou de types MIME peut exposer les utilisateurs du système à des risques de sécurité et peut également affecter l'accessibilité du site.
+        index:
+          title: Organisations
+        new:
+          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
+          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+          title: Nouvelle organisation
+        omniauth_settings:
+          decidim:
+            client_id: ID du client
+            client_secret: Secret du client
+            site_url: URL du site
+          enabled: Activé
+          enabled_by_default: Ce fournisseur est activé par défaut. Il peut être édité mais non désactivé.
+          facebook:
+            app_id: ID de l'application
+            app_secret: Secret de l'application
+          google_oauth2:
+            client_id: ID du client
+            client_secret: Secret du client
+          icon: Icône
+          icon_path: Chemin de l'icône
+          twitter:
+            api_key: Clé API
+            api_secret: Secret de l'API
+        smtp_settings:
+          fieldsets:
+            sender: Expéditeur
+          instructions:
+            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme label'
+          placeholder:
+            from_email: votre-organisation@exemple.org
+            from_label: nom-de-votre-organisation
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
+        users_registration_mode:
+          disabled: L'accès n'est possible qu'avec des comptes externes
+          enabled: Autoriser les utilisateurs à s'inscrire et à se connecter
+          existing: Ne pas autoriser les utilisateurs à s'inscrire, mais autoriser les utilisateurs existants à se connecter
+      shared:
+        notices:
+          no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
+          our_getting_started_guide: Notre guide de démarrage
+      titles:
+        dashboard: Tableau de bord
