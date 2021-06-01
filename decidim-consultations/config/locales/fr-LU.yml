@@ -1,0 +1,378 @@
+fr-LU:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Image de la bannière
+        decidim_highlighted_scope_id: Périmètre d'application mis en avant
+        description: Description
+        end_voting_date: Le vote prend fin le
+        introductory_image: Image d'introduction
+        introductory_video_url: URL de la vidéo d'introduction
+        questions: Questions
+        slug: Identifiant
+        start_voting_date: Le vote commence le
+        subtitle: Sous-titre
+        title: Titre
+      question:
+        banner_image: Image de la bannière
+        decidim_scope_id: Périmètre d'application
+        hashtag: Hashtag
+        hero_image: Image de la page d'accueil
+        i_frame_url: URL du système de vote externe
+        instructions: Instructions supplémentaires pour le vote
+        max_votes: Nombre maximal de votes
+        min_votes: Nombre minimal de votes
+        origin_scope: Périmètre
+        origin_title: Origine
+        origin_url: URL d'origine
+        participatory_scope: Objectif
+        promoter_group: Organisateur
+        question_context: Contexte
+        reference: Référence
+        scope: Périmètre d'application
+        slug: Identifiant
+        subtitle: Sous-titre
+        vote: Système de vote externe
+        what_is_decided: Objectifs
+      response:
+        decidim_consultations_response_group_id: Groupe
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Le nombre maximum de voix doit être supérieur ou égal au minimum.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Réponse introuvable.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Nombre de voix invalide
+    models:
+      decidim/consultation:
+        one: Consultation
+        other: Consultations
+      decidim/consultations/question:
+        one: Question
+        other: Questions
+      decidim/consultations/response:
+        one: Réponse
+        other: Réponses
+      decidim/consultations/vote:
+        one: Vote
+        other: Votes
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Retour aux résultats
+        new_consultation: Nouvelle votation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
+        new_response_group: Nouveau groupe
+        publish_results: Publier les résultats
+        response_groups: Gérer les groupes de réponses
+        unpublish_results: Dépublier des résultats
+      consultation_publications:
+        create:
+          error: Une erreur s'est produite lors de la publication de cette votation.
+          success: La votation a été publiée avec succès.
+        destroy:
+          error: Il y a eu une erreur lors de la dépublication de cette votation.
+          success: La votation a été dépubliée avec succès.
+      consultation_results_publications:
+        create:
+          error: Une erreur s'est produite lors de la publication des résultats de cette votation.
+          success: Les résultats de la votation ont été publiés avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la dépublication des résultats de cette votation.
+          success: Les résultats de la votation ont été dépubliés avec succès.
+      consultations:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle votation.
+          success: La votation a été créée avec succès.
+        deprecation_warning: Le module de consultation sera obsolète dans un avenir proche. Nous travaillons sur la prochaine version cryptographique sécurisée appelée Votes.
+        edit:
+          update: Mettre à jour
+        form:
+          slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui amènent à cette votation. Ils n''acceptent que les lettres, les chiffres et les tirets et doivent commencer par une lettre. Exemple : %{url}'
+          title: Informations générales
+        index:
+          not_published: Non publiée
+          published: Publiée
+        new:
+          create: Créer
+          title: Nouvelle votation
+        results:
+          not_visible: Les résultats seront disponibles lorsque la consultation sera close
+          participants: "%{count} participant·e·s"
+          total_votes: 'Total : %{count} votes'
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette votation.
+          success: Votation mise à jour avec succès.
+      menu:
+        consultations: Votations
+        consultations_submenu:
+          info: Informations
+          questions: Questions
+          results: Résultats
+        questions_submenu:
+          components: Fonctionnalités
+          configuration: Configuration
+          consultation: Votation
+          info: Informations
+          responses: Réponses
+      models:
+        consultation:
+          fields:
+            created_at: Créée le
+            published: Publiée
+            title: Titre
+          name:
+            one: Votation
+            other: Votations
+        question:
+          fields:
+            created_at: Créée le
+            published: Publiée
+            title: Titre
+          name:
+            one: Question
+            other: Questions
+        response:
+          fields:
+            created_at: Créée le
+            response_group: Groupe
+            title: Titre
+          name:
+            one: Réponse
+            other: Réponses
+      question_configuration:
+        disable_external_voting: Veuillez désactiver le vote externe pour les configurations avancées
+        form:
+          help: Configurez plusieurs choix de questions en augmentant le nombre maximum de réponses qu'un participant peut sélectionner. La valeur maximale par défaut est 1, ce qui signifie qu'une seule réponse peut être sélectionnée.
+          title: Configuration avancée
+      question_publications:
+        create:
+          error: Une erreur s'est produite lors de la publication de cette question.
+          success: Question publiée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la suppression de cette question.
+          success: Question dépubliée avec succès.
+      questions:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle question.
+          success: Question créée avec succès.
+        destroy:
+          success: Question supprimée avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          title: Informations générales
+        index:
+          not_published: Non publiée
+          published: Publiée
+        new:
+          create: Créer
+          title: Nouvelle question
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette question.
+          success: Question mise à jour avec succès.
+      response_groups:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau groupe de réponses.
+          success: Le groupe de réponses a été créé avec succès.
+        destroy:
+          error: Il y a eu un problème lors de la suppression du groupe de réponse. Vérifiez qu'aucune réponse ne dépend d'elle.
+          success: Le groupe de réponses a bien été supprimé.
+        edit:
+          update: Mettre à jour
+        form:
+          title: Informations générales
+        help: Utiliser des groupes pour organiser des questions à choix multiples dans des blocs.
+        new:
+          create: Créer
+          title: Nouveau groupe de réponse
+        update:
+          error: Il y a eu un problème lors de la mise à jour de cette réponse.
+          success: Réponse mise à jour avec succès.
+      responses:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle réponse.
+          success: Réponse créée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la suppression de la réponse.
+          success: Réponse supprimée avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          title: Informations générales
+        new:
+          create: Créer
+          title: Nouvelle réponse
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette réponse.
+          success: Réponse mise à jour avec succès.
+      titles:
+        consultations: Votations
+        questions: Questions
+        response_groups: Groupes de réponses
+        responses: Réponses
+        results: Résultats
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Quantité maximale d'éléments à afficher
+      consultation:
+        start_voting_date: Le vote commence le
+        view_results: Voir les résultats
+      consultation_card:
+        view_results: Voir les résultats
+      consultations:
+        orders:
+          label: 'Trier les votations par :'
+          random: Aléatoire
+          recent: Les plus récentes
+        show:
+          dates: Dates
+      content_blocks:
+        highlighted_consultations:
+          name: Votations mises en avant
+      count:
+        title:
+          one: "%{count} votation"
+          other: "%{count} votations"
+      filters:
+        active: Actives
+        all: Tout
+        finished: Passées
+        search: Rechercher
+        state: État
+        upcoming: À venir
+      filters_small_view:
+        close_modal: Fermer la fenêtre
+        filter: Filtre
+        filter_by: Filtrer par
+        unfold: Voir la suite
+      highlighted_questions:
+        title: Questions de %{scope_name}
+      index:
+        title: Votations
+      last_activity:
+        new_consultation: Nouvelle consultation
+        new_question_at_html: "<span>Nouvelle question à %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Votations actives
+            see_all_consultations: Voir toutes les votations
+            voting_ends_in:
+              one: Le vote se termine <strong>demain</strong>
+              other: Le vote prend fin à <strong>%{count} jour</strong>
+            voting_ends_today: Fin du vote <strong>aujourd'hui</strong>
+      question:
+        take_part: Participer
+        view_results: Voir les résultats
+        votes_out_of:
+          one: vote sur
+          other: votes sur
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Les participants pourraient distribuer un minimum de %{votes} votes parmi différentes options.
+          title: Dans cette question plusieurs choix sont permis
+          total_participants: Un total de %{count} personnes ont participé au vote.
+          vote_limit:
+            description: Les participants peuvent voter jusqu'à %{limit} options.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Vous devez répartir un minimum de %{votes} voix entre différentes questions.
+          title: 'Les votes sont soumis aux règles suivantes :'
+          vote_limit:
+            description: Vous pouvez voter jusqu'à %{limit} options.
+            left: Restant
+            votes: Votes
+      question_votes:
+        create:
+          error: Il y a eu des erreurs lors du vote sur la question
+          success: Vous pouvez le modifier jusqu'à la fin de la consultation. Seul le dernier vote sera accepté.
+          title_error: Erreur de vote !
+          title_success: Vote enregistré avec succès
+      regular_questions:
+        title: Questions pour cette votation
+      show:
+        badge_name:
+          finished: Terminées
+          open: Ouverte
+          open_votes: Votes ouverts
+          published_results: Résultats publiés
+        footer_button_text:
+          debate: Débat
+          view: Voir
+          view_results: Voir les résultats
+          vote: Voter
+        unspecified: Non précisé
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Une votation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, appeler à participer à la consultation, à faire décoller et à ordonner le débat. Lorsque la date de la votation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les votations peuvent porter sur presque tous les aspects qui affectent une organisation : changer le nom ou le logo de l'organisation en offrant plusieurs alternatives, décider ou non de faire partie d'une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, etc.</p>\n"
+          page: "<p><strong>Une consultation</strong> est un espace qui vous permet de poser une question claire à toutes les personnes qui forment une organisation, appeler à participer à la consultation, à faire décoller et à ordonner le débat. Lorsque la date de la consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les consultations peuvent porter sur presque tous les aspects qui affectent une organisation : changer le nom ou le logo de l'organisation en offrant plusieurs alternatives, décider ou non de faire partie d'une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, etc.</p>\n"
+          title: Que sont les consultations?
+    menu:
+      consultations: Votations
+    pages:
+      home:
+        statistics:
+          consultations_count: Votations
+    questions:
+      next_button: Question suivante
+      previous_button: Question précédente
+      results:
+        title: Résultats
+      show:
+        read_more: Voir la suite
+      statistics:
+        assistants_count_title: Assistants
+        comments_count_title: Commentaires
+        meetings_count_title: Rencontres
+        supports_count_title: Soutiens
+      technical_info:
+        technical_data: Données techniques
+      vote_button:
+        already_voted: Déjà voté
+        already_voted_hover: Retirer le vote
+        starting_from: À partir de %{date}
+        verification_required: Vérifier votre compte pour voter
+        vote: Voter
+      vote_modal:
+        close_modal: Fermer la fenêtre de dialogue
+        contextual_help: Veuillez sélectionner une option.
+        title: 'Votation : soutien aux questions'
+      vote_modal_confirm:
+        change: Modifier
+        close_modal: Fermer la fenêtre de dialogue
+        confirm: Confirmer
+        contextual_help: Veuillez confirmer l'option sélectionnée.
+        title: 'Consultation : confirmer le soutien'
+    resources:
+      consultations:
+        actions:
+          vote: Voter
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Documents liés
+          categories: Catégories
+      consultation_voting_data:
+        start_voting_date: Le vote commence le
+      question_components:
+        question_menu_item: La question
+        unfold: Voir la suite
+      question_header:
+        back_to_consultation: Voir toutes les votations
+        back_to_question: Retour à la question
