@@ -43,7 +43,6 @@ PATH
       devise_invitable (~> 2.0)
       jquery-rails (~> 4.4)
     decidim-api (0.25.0.dev)
-      graphiql-rails (~> 1.4, < 1.5)
       graphql (~> 1.12, >= 1.12.3)
       rack-cors (~> 1.0)
       redcarpet (~> 3.5, >= 3.5.1)
@@ -457,9 +456,6 @@ GEM
     geocoder (1.6.7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    graphiql-rails (1.4.11)
-      railties
-      sprockets-rails
     graphlient (0.4.0)
       faraday (>= 1.0)
       faraday_middleware

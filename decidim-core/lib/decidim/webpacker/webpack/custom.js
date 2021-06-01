@@ -99,6 +99,7 @@ module.exports = {
     decidim_assemblies: "DECIDIM_PATH/decidim-assemblies/app/packs/entrypoints/decidim_assemblies.js",
     decidim_assemblies_admin: "DECIDIM_PATH/decidim-assemblies/app/packs/entrypoints/decidim_assemblies_admin.js",
     decidim_api_docs: "DECIDIM_PATH/decidim-api/app/packs/entrypoints/decidim_api_docs.js",
+    decidim_api_graphiql: "DECIDIM_PATH/decidim-api/app/packs/entrypoints/decidim_api_graphiql.js",
     decidim_blogs: "DECIDIM_PATH/decidim-blogs/app/packs/entrypoints/decidim_blogs.js",
     decidim_budgets: "DECIDIM_PATH/decidim-budgets/app/packs/entrypoints/decidim_budgets.js",
     decidim_conferences_admin: "DECIDIM_PATH/decidim-conferences/app/packs/entrypoints/decidim_conferences_admin.js",

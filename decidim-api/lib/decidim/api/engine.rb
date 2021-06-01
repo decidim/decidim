@@ -1,10 +1,21 @@
 # frozen_string_literal: true
 
 require "graphql"
-require "graphiql/rails"
 require "rack/cors"
 
 require "decidim/core"
+require "decidim/api/graphiql/config"
+
+if ActiveSupport::Inflector.method(:inflections).arity.zero?
+  # Rails 3 does not take a language in inflections.
+  ActiveSupport::Inflector.inflections do |inflect|
+    inflect.acronym("GraphiQL")
+  end
+else
+  ActiveSupport::Inflector.inflections(:en) do |inflect|
+    inflect.acronym("GraphiQL")
+  end
+end
 
 module Decidim
   module Api
@@ -22,7 +33,7 @@ module Decidim
       end
 
       initializer "decidim-api.graphiql" do
-        GraphiQL::Rails.config.tap do |config|
+        Decidim::GraphiQL::Rails.config.tap do |config|
           config.query_params = true
           config.initial_query = File.read(
             File.join(__dir__, "graphiql-initial-query.txt")
