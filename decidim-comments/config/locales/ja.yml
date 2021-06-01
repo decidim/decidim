@@ -100,6 +100,16 @@ ja:
           email_outro: '"%{resource_title}" 、またはその参加者をフォローしているためこの通知を受け取りました。前のリンクからフォローを解除することができます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>
+        comment_downvoted:
+          email_intro: '"%{resource_title}" でのあなたの意見への反対票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
+          email_outro: このコメントの作成者であるため、この通知を受け取りました。
+          email_subject: '"%{resource_title}" のコメントに反対票がありました。'
+          notification_title: '"%{resource_title}"についてのあなたの <a href="%{resource_path}">コメント</a> に反対票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
+        comment_upvoted:
+          email_intro: '"%{resource_title}" でのあなたの意見への賛成票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
+          email_outro: このコメントの作成者であるため、この通知を受け取りました。
+          email_subject: '"%{resource_title}" のコメントに賛成票がありました。'
+          notification_title: '"%{resource_title}"についてのあなたの <a href="%{resource_path}">コメント</a> に賛成票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
         reply_created:
           email_intro: "%{author_name} は %{resource_title}であなたのコメントを返信しました。このページで読むことができます:"
           email_outro: コメントが返信されたため、この通知を受信しました。

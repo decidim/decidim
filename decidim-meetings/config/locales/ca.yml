@@ -291,9 +291,9 @@ ca:
             success: S'ha creat l'acta amb èxit
           edit:
             title: Editar actes
-            update: Actualitza
+            update: Actualitzar
           new:
-            create: Crea
+            create: Crear
             title: Crea l'acta
           update:
             invalid: S'ha produït un error en actualitzar aquesta acta

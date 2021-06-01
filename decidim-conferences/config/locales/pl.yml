@@ -189,7 +189,7 @@ pl:
         conference_user_role:
           fields:
             email: E-mail
-            name: Nazwa
+            name: Imię
             role: Rola
           name: Administrator konferencji
           roles:

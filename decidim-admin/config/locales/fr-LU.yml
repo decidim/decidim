@@ -1,0 +1,989 @@
+fr-LU:
+  activemodel:
+    attributes:
+      area:
+        area_type: Périmètre d'assemblée
+        name: Titre
+        organization: Organisation
+      area_type:
+        name: Titre
+        organization: Organisation
+        plural: Pluriel
+      attachment:
+        attachment_collection_id: Dossier
+        description: Description
+        file: Fichier
+        title: Nom de la pièce jointe ou de l'image
+      attachment_collection:
+        description: Description
+        name: Titre
+      category:
+        description: Description
+        name: Titre
+        parent_id: Parent
+      component:
+        name: Titre
+        published_at: Publiée à
+        weight: Rang d'affichage
+      id: ID
+      import:
+        user_group_id: Créer des imports en tant que
+      newsletter:
+        body: Corps de texte
+        subject: Objet
+      organization:
+        alert_color: Alerte
+        available_authorizations: Autorisations disponibles
+        badges_enabled: Activer les badges
+        comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+        cta_button_path: Chemin du bouton d'action
+        cta_button_text: Texte du bouton d'action
+        customize_welcome_notification: Personnaliser le mail de bienvenue
+        default_locale: Langue par défaut
+        description: Description
+        enable_omnipresent_banner: Montrer une bannière d'actualités
+        facebook_handler: Gestionnaire Facebook
+        favicon: Icône
+        force_authentication: Forcer l'authentification
+        force_users_to_authenticate_before_access_organization: Forcer les utilisateurs à s'authentifier avant d'accéder à l'organisation
+        from: Adresse e-mail de l’expéditeur
+        github_handler: Gestionnaire GitHub
+        header_snippets: Éléments à ajouter entre les balises HTML
+        highlight_alternative_color: Surbrillance alternative
+        highlight_color: Surbrillance
+        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
+        highlighted_content_banner_action_title: Titre du bouton d'action
+        highlighted_content_banner_action_url: URL du bouton d'action
+        highlighted_content_banner_enabled: Afficher la bannière de contenu mis en valeur
+        highlighted_content_banner_image: Image
+        highlighted_content_banner_short_description: Brève description
+        highlighted_content_banner_title: Titre
+        host: Host
+        instagram_handler: Gestionnaire Instagram
+        logo: Logo
+        machine_translation_display_priority: Priorité de l'affichage de la traduction automatique
+        machine_translation_display_priority_original: Texte original en premier
+        machine_translation_display_priority_translation: Texte traduit en premier
+        name: Nom
+        official_img_footer: Logo officiel - pied de page
+        official_img_header: Logo officiel - barre de navigation
+        official_url: URL officielle de l'organisation
+        omnipresent_banner_short_description: Brève description
+        omnipresent_banner_title: Titre
+        omnipresent_banner_url: URL
+        organization_admin_email: E-mail de l'administrateur de l'organisation
+        organization_admin_name: Nom de l'administrateur de l'organisation
+        organization_locales: Langues de l'organisation
+        primary_color: Primaire
+        reference_prefix: Préfixe de référence
+        rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
+        secondary_color: Secondaire
+        secondary_hosts: Secondary hosts
+        send_welcome_notification: Envoyer un mail de bienvenue
+        success_color: Succès
+        time_zone: Fuseau horaire
+        tos_version: Version des conditions d'utilisation
+        twitter_handler: Gestionnaire Twitter
+        user_groups_enabled: Activer les groupes d'utilisateurs
+        users_registration_mode: Mode d'inscription des utilisateurs
+        warning_color: Attention
+        welcome_notification_body: Corps du mail de bienvenue
+        welcome_notification_subject: Objet du mail de bienvenue
+        youtube_handler: Gestionnaire YouTube
+      scope:
+        code: Code
+        name: Titre
+        organization: Organisation
+        parent_id: Parent
+        scope_type: Type de secteur
+        scope_type_id: Type de secteur
+      scope_type:
+        name: Titre
+        organization: Organisation
+        plural: Pluriel
+      settings:
+        scope_id: Secteur
+      static_page:
+        allow_public_access: Autoriser l'accès sans authentification
+        changed_notably: Il y a eu des changements notables.
+        content: Contenu
+        organization: Organisation
+        show_in_footer: Montrer dans le pied de page
+        slug: Identifiant
+        title: Titre
+        weight: Rang d'affichage
+      static_page_topic:
+        description: La description
+        show_in_footer: Montrer dans le pied de page
+        title: Titre
+        weight: Rang d'affichage
+      user_group_csv_verification:
+        file: Fichier
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Fichier image invalide
+            official_img_header:
+              allowed_file_content_types: Fichier image invalide
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Type MIME invalide
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Contenu
+        slug: Identifiant
+        title: Titre
+      doorkeeper/application:
+        authorize_url: Autoriser l'URL
+        client_id: Identifiant client
+        client_secret: Secret client
+        organization_name: Nom de l'organisation
+        organization_url: URL de l'organisation
+        redirect_uri: Rediriger l'URI
+        site: Site Internet
+  decidim:
+    admin:
+      actions:
+        add: Ajouter
+        attachment:
+          new: Nouvelle pièce jointe
+        attachment_collection:
+          new: Nouveau dossier
+        browse: Parcourir
+        category:
+          new: Nouvelle catégorie
+        export: Exporter
+        import: Importer
+        manage: Gérer
+        new: + %{name}
+        newsletter:
+          new: Nouvelle newsletter
+        participatory_space_private_user:
+          new: Nouvel utilisateur privé de l'espace participatif
+        per_page: Par page
+        permissions: Autorisations
+        reject: Rejeter
+        share: Partager
+        user:
+          new: Nouvel utilisateur
+        verify: Vérifier
+      admin_terms_of_use:
+        accept:
+          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
+          success: Super! Vous avez accepté les conditions d'utilisation administrateur.
+        actions:
+          accept: J'accepte les conditions d'utilisation suivantes
+          are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
+          refuse: Refuser les conditions d'utilisation administrateur
+          title: Accepter les conditions d'utilisation
+        required_review:
+          alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
+          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation administrateur. Sinon, vous ne pourrez pas utiliser la plateforme en tant qu'administrateur.
+          cta: Consultez les maintenant.
+        title: Conditions d'utilisation administrateur
+      area_types:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été créé avec succès.
+        destroy:
+          success: Le type de périmètre d'assemblée a bien été supprimé
+        edit:
+          title: Modifier le type de périmètre d'assemblée
+          update: Mettre à jour
+        new:
+          create: Créer un type de périmètre d'assemblée
+          title: Nouveau type de périmètre d'assemblée
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
+          success: Le type de périmètre d'assemblée a été mis à jour avec succès
+      areas:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
+          success: Zone d'application créée avec succès.
+        destroy:
+          has_spaces: Le secteur a des sous-secteur dépendants, il ne doit pas avoir de dépendances pour être supprimé.
+          success: La zone d'application a bien été supprimée
+        edit:
+          title: Modifier la zone d'application
+          update: Mettre à jour
+        new:
+          create: Créer une zone d'application
+          title: Nouvelle zone d'application
+        no_areas: Aucune zone d'application
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
+          success: Zone d'application mise à jour avec succès
+      attachment_collections:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau dossier.
+          success: Le dossier a été créé avec succès.
+        destroy:
+          success: Dossier supprimé avec succès.
+        edit:
+          title: Modifier le dossier
+          update: Mettre à jour
+        index:
+          attachment_collection_used: Ce dossier ne peut pas être supprimé car il est en cours d'utilisation.
+          attachment_collections_title: Dossiers de pièces jointes
+        new:
+          create: Créer
+          title: Nouveau dossier
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce dossier.
+          success: Dossier mis à jour avec succès.
+      attachments:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau document lié.
+          success: Document lié créé avec succès.
+        destroy:
+          success: Document lié supprimé avec succès.
+        edit:
+          title: Modifier le document lié
+          update: Mettre à jour
+        index:
+          attachments_title: Documents liés
+        new:
+          create: Lier un document
+          title: Nouveau document lié
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce document lié.
+          success: Document lié mis à jour avec succès.
+      autocomplete:
+        no_results: Aucun résultat trouvé
+        search_prompt: Renseignez au moins trois caractères pour lancer la recherche
+      block_user:
+        new:
+          action: Bloquer le compte et envoyer la justification
+          description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification et vos directives les conditions de déblocage de l'utilisateur.
+          justification: Justification
+          title: Bloquer l'utilisateur %{name}
+      categories:
+        create:
+          error: Une erreur s'est produite lors de la création de cette catégorie.
+          success: Catégorie créée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
+          success: Catégorie supprimée avec succès.
+        edit:
+          title: Modifier la catégorie
+          update: Mettre à jour
+        index:
+          categories_title: Catégories
+          category_used: Cette catégorie ne peut pas être supprimée car elle est utilisée.
+        new:
+          create: Créer une catégorie
+          title: Nouvelle catégorie
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
+          success: Catégorie mise à jour avec succès.
+      component_permissions:
+        update:
+          error: Un problème est survenu lors de la mise à jour des permissions de ce composant.
+          success: Autorisations mises à jour avec succès.
+      components:
+        create:
+          error: Une erreur s'est produite lors de la création de cette fonctionnalité.
+          success: Fonctionnalité créée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
+          success: La fonctionnalité a été supprimée avec succès.
+        edit:
+          title: Modifier la fonctionnalité
+          update: Mettre à jour
+        form:
+          default_step_settings: Paramètres d'étape par défaut
+          global_settings: Paramètres globaux
+          step_settings: Paramètres de l'étape
+        index:
+          add: Ajouter une fonctionnalité
+          headers:
+            actions: Actions
+            name: Nom de la fonctionnalité
+            scope: Secteur de la fonctionnalité
+            type: Type de fonctionnalité
+        new:
+          add: Ajouter une fonctionnalité
+          title: 'Ajouter une fonctionnalité : %{name}'
+        publish:
+          success: La fonctionnalité a été publiée avec succès.
+        title: Fonctionnalités
+        unpublish:
+          success: La fonctionnalité a été dépubliée avec succès.
+        update:
+          error: Une erreur est survenue lors de la mise à jour de cette fonctionnalité.
+          success: La fonctionnalité a été mise à jour avec succès.
+      conflicts:
+        attempts: Tentatives
+        'false': 'Non'
+        managed_user_name: Utilisateur représenté
+        solved: Résolu
+        title: Conflits de vérification
+        transfer:
+          email: Email
+          error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
+          name: Nom
+          reason: Raison
+          success: Le transfert a bien été effectué.
+          title: Transfert
+        'true': 'Oui'
+        user_name: Utilisateur
+      dashboard:
+        show:
+          view_more_logs: Afficher plus
+          welcome: Bienvenue dans l'espace d'administration de Decidim.
+      exports:
+        export_as: "%{name} en format %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+      filters:
+        category_id_eq:
+          label: Catégorie
+        filter_label: Filtre
+        moderations:
+          reportable_type_string_eq:
+            label: Type
+        officialized_at_null:
+          label: État
+          values:
+            'false': Validé
+            'true': Non validé
+        private_space_eq:
+          label: Privé
+          values:
+            'false': Public
+            'true': Privé
+        published_at_null:
+          label: Publié
+          values:
+            'false': Publié
+            'true': Dépublié
+        scope_id_eq:
+          label: Secteur
+        search_label: Rechercher
+        search_placeholder:
+          name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
+          reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
+          title_cont: Rechercher %{collection} par titre.
+        state_eq:
+          label: État
+      forms:
+        file_help:
+          import:
+            explanation: 'Instructions concernant le fichier:'
+            message_1: Les fichiers CSV, JSON et Excel (.xls) sont supportés
+            message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
+      help_sections:
+        error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
+        form:
+          save: Sauvegarder
+        success: Les sections d'aide ont été mises à jour avec succès
+      impersonatable_users:
+        index:
+          filter:
+            all: Tout
+            managed: Géré
+            not_managed: Non géré
+          filter_by: Filtrer par
+          impersonate: Représenter
+          impersonate_new_managed_user: Représenter un nouvel utilisateur
+          managed: Représenté
+          name: Nom
+          needs_authorization_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
+          not_managed: Non représenté
+          promote: Promouvoir
+          search: Rechercher
+          status: Statut
+          view_logs: Consultez les journaux d'activité
+      impersonations:
+        close_session:
+          error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
+          success: La session de l'utilisateur que vous représentiez a été fermée avec succès.
+        create:
+          error: Une erreur a été commise en représentant l'identité de l'utilisateur.
+          success: L'utilisateur à représenter a été créé avec succès.
+        form:
+          authorization_method: Méthode d'autorisation
+          name: Nom
+          reason: Raison
+        new:
+          impersonate: Représenter
+          impersonate_existing_managed_user: Représenter l'utilisateur "%{name}"
+          impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
+          impersonate_new_managed_user: Représenter un nouvel utilisateur
+      imports:
+        creators:
+          proposalcreator: Créateur de proposition
+        error: Un problème est survenu lors de l'import
+        help:
+          proposalcreator: Le fichier doit comprendre les colonnes title/fr et body/fr (ou une autre locale de votre choix). Les colonnes scope/id et category/id sont également prises en charge.
+        import_from_file: Importer à partir d'un fichier
+        invalid_lines: Erreur trouvée dans la ressource aux lignes %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Retour
+          file_legend: Ajouter un fichier d'import qui sera analysé.
+          import: Importer
+        notice: "%{number} %{resource_name} importées avec succès"
+      logs:
+        logs_list:
+          no_logs_yet: Il n'y a pas encore de journal d'activité
+      managed_users:
+        promotion:
+          error: Une erreur s'est produite lors de la promotion de l'utilisateur représenté.
+          success: L'utilisateur représenté a été promu avec succès.
+        promotions:
+          new:
+            explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à s'inscrire sur l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un email pour accepter votre invitation.
+            new_managed_user_promotion: Promouvoir un utilisateur représenté en utilisateur standard
+            promote: Promouvoir
+      menu:
+        admin_log: Journal d'activité personnel
+        admins: Administrateurs
+        appearance: Apparence
+        area_types: Types de périmètre d'assemblée
+        areas: Zones d'application
+        configuration: Configuration
+        dashboard: Tableau de bord
+        help_sections: Sections d'aide
+        homepage: Page d'accueil
+        impersonations: Utilisateurs représentés
+        moderation: Modération globale
+        newsletters: Bulletins d'information (newsletter)
+        participants: Participants
+        reported_users: Utilisateurs signalés
+        scope_types: Types de secteur
+        scopes: Périmètres d’application
+        settings: Paramètres
+        static_pages: Pages
+        user_groups: Groupes d'utilisateurs
+        users: Utilisateurs
+      metrics:
+        metrics:
+          see_more_metrics: Voir plus d'indicateurs
+      models:
+        area:
+          fields:
+            area_type: Type de périmètre d'assemblée
+            name: Titre
+        area_type:
+          fields:
+            name: Titre
+            plural: Pluriel
+        attachment:
+          fields:
+            collection: Dossier
+            content_type: Type de contenu
+            file_size: Taille
+            title: Titre
+          name: Document lié
+        attachment_collection:
+          name: Dossier
+        category:
+          name: Catégorie
+        impersonation_log:
+          fields:
+            admin: Administrateur
+            ended_at: Terminé le
+            expired_at: Expiré le
+            reason: Raison
+            started_at: Commencé le
+            user: Utilisateur
+        newsletter:
+          fields:
+            created_at: Créée le
+            progress: Avancement
+            sent_at: Envoyé à
+            sent_to: Envoyé à
+            subject: Objet
+          name: Bulletin d'information (newsletter)
+        participatory_space_private_user:
+          name: Utilisateur de l'espace participatif
+        scope:
+          fields:
+            name: Titre
+            scope_type: Type de secteur
+        scope_type:
+          fields:
+            name: Titre
+            plural: Pluriel
+        share_token:
+          fields:
+            created_at: Créée le
+            expires_at: Expire le
+            last_used_at: Dernière utilisation
+            times_used: Nombre d'utilisations
+            token: Jeton
+            user: Créé par
+        static_page:
+          fields:
+            created_at: Créée le
+            title: Titre
+        user:
+          fields:
+            created_at: Date de création
+            email: Email
+            last_sign_in_at: Date de la dernière connexion
+            name: Nom
+            role: Rôle
+            roles:
+              admin: Administrateur
+              user_manager: Représentant de l'utilisateur
+          name: Utilisateur
+        user_group:
+          fields:
+            actions: Actions
+            created_at: Créé le
+            document_number: Numéro de document
+            name: Nom
+            phone: Téléphone
+            state: État
+            users_count: Nombre d'utilisateurs
+      moderated_users:
+        index:
+          actions:
+            block: Bloquer l'utilisateur
+            title: Actions
+            unblock: Débloquer l'utilisateur
+            unreport: Annuler le signalement
+          name: Nom
+          nickname: Pseudonyme
+          reason: Raison du signalement
+          reports: Nombre de signalements
+          title: Liste des utilisateurs signalés
+        report:
+          reasons:
+            does_not_belong: N'appartient pas
+            offensive: Offensant
+            spam: Spam
+        tabs:
+          blocked: Bloqué
+          unblocked: Non bloqué
+      moderations:
+        index:
+          title: Modérations
+        report:
+          reasons:
+            does_not_belong: N'appartient pas
+            offensive: Agressif
+            spam: Spam
+        reports:
+          index:
+            author: Auteur(s)
+            callout_html: Un contenu apparaît dans le panneau de modération quand il a été signalé par un utilisateur (personne ayant un compte enregistré) en cliquant sur le drapeau %{icon} à côté de l'élément.
+            content_original_language: Langue d'origine du contenu
+            participatory_space: Espace participatif
+            reported_content: Contenu signalé
+            see_current: Voir le contenu dans sa langue d'origine
+            see_original: Voir l'original
+            title: Signalements
+          show:
+            report_details: Motif du signalement
+            report_language: Langue d'origine du signalement
+            report_reason: Motif
+            title: Détails du signalement
+      newsletter_templates:
+        index:
+          preview_template: Aperçu
+          title: Modèles de newsletter
+          use_template: Utiliser ce modèle
+        show:
+          preview: 'Prévisualiser le modèle: %{template_name}'
+          use_template: Utiliser ce modèle
+      newsletters:
+        create:
+          error: Il y a eu une erreur lors de la création de cette newsletter.
+          success: Newsletter créée avec succès. Veuillez la vérifier avant de l'envoyer.
+        deliver:
+          error: Il y a eu une erreur lors de l'envoi de cette newsletter.
+          success: Newsletter envoyée avec succès.
+        destroy:
+          error_already_sent: 'Suppression impossible car la newsletter a déjà été envoyée.'
+          success: Newsletter supprimée avec succès.
+        edit:
+          save_and_preview: Enregistrer et prévisualiser
+          title: Modifier la newsletter
+        index:
+          all: tous
+          all_users: 'Tous les utilisateurs '
+          and: 'et '
+          confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
+          followers: 'abonnés '
+          has_been_sent_to: 'A été envoyé à : '
+          no_scopes: Aucun secteur
+          not_sent: Envoi non effectué
+          participants: 'participants '
+          segmented_to: 'Segmenté à %{subject}: '
+          subscribed_count: 'Abonné:'
+          title: Newsletters
+        new:
+          save: Enregistrer
+          title: Nouvelle newsletter
+        select_recipients_to_deliver:
+          all_spaces: Tous
+          all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
+          confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
+          deliver: Envoyer la newsletter
+          followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          none: Aucun
+          participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
+          scopes_help: Envoie la newsletter aux utilisateurs qui ont un secteur sélectionné dans les paramètres "Mes intérêts".
+          select_scopes: Filtrer pour les utilisateurs ayant activé un secteur dans les paramètres "Mes intérêts".
+          select_spaces: Sélectionnez les espaces pour segmenter la newsletter
+          select_users: Sélectionnez les utilisateurs à qui vous souhaitez envoyer la newsletter
+          send_to_all_users: Envoyer à tous
+          send_to_followers: Envoyer aux abonnés
+          send_to_participants: Envoyer aux participants
+          title: Sélectionner les destinataires
+          warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
+        send:
+          no_recipients: Aucun destinataire pour cette sélection
+        show:
+          preview: Aperçu
+          select_recipients_to_deliver: Sélectionner les destinataires
+          subject: Objet
+        update:
+          error: Erreur lors de la mise à jour de la newsletter.
+          success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
+      officializations:
+        block:
+          error: Une erreur s'est produite lors du blocage du participant
+          success: Participant bloqué avec succès
+        create:
+          success: Utilisateur validé avec succès
+        destroy:
+          success: Validation de l'utilisateur supprimée avec succès
+        index:
+          actions: Actions
+          badge: Badge
+          block: Bloquer l'utilisateur
+          created_at: Créée le
+          name: Nom
+          nickname: Pseudonyme
+          not_officialized: Non validé
+          officialize: Valider
+          officialized: Validé
+          reofficialize: De nouveau validé
+          reports: Signalements
+          show_email: Montrer les adresses e-mail
+          status: Statut
+          unblock: Débloquer l'utilisateur
+          unofficialize: Invalider
+        new:
+          badge: Badge de validation
+          officialize: Valider
+          title: Valider l'utilisateur "%{name}"
+        show_email_modal:
+          close_modal: Fermer la fenêtre de dialogue
+          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir l'adresse e-mail. Cette action sera enregistrée.
+          email_address: Adresse e-mail
+          full_name: Nom complet
+          hidden: masqués
+          show: Afficher
+          title: Afficher l'adresse e-mail des participants
+        unblock:
+          error: Une erreur s'est produite lors du déblocage du participant
+          success: Participant débloqué avec succès
+      organization:
+        edit:
+          title: Modifier l'organisation
+          update: Mettre à jour
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
+          social_handlers: Liens des réseaux sociaux
+          twitter: Twitter
+          url: URL
+          youtube: YouTube
+        update:
+          error: Erreur lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
+      organization_appearance:
+        edit:
+          update: Mettre à jour
+        form:
+          colors:
+            colors_title: Couleurs de l'organisation
+            header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
+          cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
+          cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
+          homepage_appearance_title: Modifier l'apparence de la page d'accueil
+          homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
+          images:
+            layout_appearance_title: Modifier l’aspect de la mise en page
+            preview: Aperçu
+          omnipresent_banner_appearance_title: Modifier la bannière permanente
+      organization_homepage:
+        edit:
+          active_content_blocks: Blocs de contenu actif
+          inactive_content_blocks: Blocs de contenu inactif
+      organization_homepage_content_blocks:
+        edit:
+          update: Mettre à jour
+      participatory_space_private_users:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
+          success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
+          success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
+        index:
+          import_via_csv: Importer via csv
+          title: Utilisateur privé de l'espace participatif
+        new:
+          create: Créer
+          title: Nouvel utilisateur privé de l'espace participatif.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Il y a eu un problème de lecture du fichier CSV.
+          success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
+        new:
+          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
+          title: Téléchargez votre fichier CSV
+          upload: Télécharger
+      resource_permissions:
+        edit:
+          submit: Soumettre
+          title: Modifier les autorisations
+        update:
+          success: Autorisations mises à jour avec succès.
+      resources:
+        index:
+          headers:
+            scope: Secteur
+      scope_types:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau type de secteur.
+          success: Type de secteur créé avec succès.
+        destroy:
+          success: Le type de secteur a été supprimé avec succès
+        edit:
+          title: Modifier le type de secteur
+          update: Mettre à jour
+        new:
+          create: Créer un type de secteur
+          title: Nouveau secteur
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce type de secteur.
+          success: Type de secteur mis à jour avec succès
+      scopes:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
+          success: Périmètre d'application créé avec succès.
+        destroy:
+          success: Périmètre d'application supprimé avec succès
+        edit:
+          title: Modifier le périmètre d'application
+          update: Mettre à jour
+        new:
+          create: Créer un périmètre d'application
+          title: Nouveau périmètre d'application
+        no_scopes: Pas de périmètre d'application à ce niveau.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
+          success: Périmètre d'application mis à jour avec succès
+      share_tokens:
+        actions:
+          confirm_destroy: Souhaitez-vous vraiment supprimer ce jeton?
+          destroy: Supprimer
+          share: Partager
+        destroy:
+          error: Une erreur s'est produite lors de la destruction du jeton.
+          success: Jeton détruit avec succès.
+        share_tokens:
+          empty: Il n'y a pas de jeton actif
+          help: Ces jetons sont utilisés pour partager cette ressource non publiée à n'importe quel utilisateur. Ils seront cachés dès que la ressource sera publiée. Cliquez sur l'icône du jeton pour visiter l'URL partageable.
+          title: Partager les jetons
+      shared:
+        gallery:
+          add_images: Ajouter des images
+          delete_image: Supprimer l'image
+          gallery_legend: Ajouter une galerie d'images (facultatif)
+      static_page_topics:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau sujet.
+          success: Sujet créé avec succès.
+        destroy:
+          success: Sujet détruit avec succès
+        edit:
+          title: Modifier le sujet
+          update: Mettre à jour le sujet
+        new:
+          create: Créer un sujet
+          title: Nouveau sujet
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce sujet.
+          success: Sujet mis à jour avec succès
+      static_pages:
+        actions:
+          view: Voir la page publique
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle page.
+          success: Page créée avec succès.
+        destroy:
+          success: La page a été détruite avec succès
+        edit:
+          changed_notably_help: Si cette case est cochée, les utilisateurs devront accepter les nouvelles conditions d'utilisation.
+          title: Modifier la page
+          update: Mettre à jour
+        form:
+          none: Aucun
+          slug_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
+        index:
+          last_notable_change: Dernier changement notable
+        new:
+          create: Créer une page
+          title: Nouvelle page
+        topic:
+          destroy: Supprimer le sujet
+          edit: Modifier le sujet
+          empty: Il n'y a pas de page dans cette thématique
+          without_topic: Pages sans sujet
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette page.
+          success: Page mise à jour avec succès
+      titles:
+        admin_log: Journal d'administration
+        area_types: Types de périmètre d'assemblée
+        areas: Zones d'application
+        authorization_workflows: Méthodes de vérification
+        dashboard: Tableau de bord
+        impersonatable_users: Utilisateurs pouvant être représentés
+        impersonations: Gestion des utilisateurs
+        metrics: Indicateurs
+        panel: Administrateur
+        participants: Utilisateurs
+        scope_types: Types de secteur
+        scopes: Périmètres d'application
+        static_pages: Pages
+        statistics: Activité
+        user_groups: Groupes d'utilisateurs
+        users: Utilisateurs
+      user_group:
+        csv_verify:
+          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
+          success: Le fichier CSV a été chargé avec succès, nous vérifions les groupes d'utilisateurs correspondant aux critères. Cela pourrait prendre un moment.
+        reject:
+          invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
+          success: Groupe d'utilisateurs refusé avec succès
+        verify:
+          invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
+          success: Groupe d'utilisateurs vérifié avec succès
+      user_groups:
+        index:
+          filter:
+            all: Tous
+            pending: En attente
+            rejected: Non validés
+            verified: Vérifié
+          filter_by: Filtrer par
+          search: Rechercher
+          state:
+            pending: En attente
+            rejected: Non validés
+            verified: Vérifié
+          verify_via_csv: Vérifier via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
+          title: Téléchargez votre fichier CSV
+          upload: Télécharger
+      users:
+        create:
+          error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
+          success: Utilisateur invité avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la tentative de suppression de cet utilisateur.
+          success: L'utilisateur n'est plus un administrateur.
+        form:
+          email: Email
+          name: Nom
+          role: Rôle
+        new:
+          create: Inviter
+          title: Inviter l'utilisateur en tant qu'administrateur
+      users_statistics:
+        users_count:
+          admins: Administrateurs
+          last_day: Hier
+          last_month: Le mois dernier
+          last_week: La semaine dernière
+          no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs
+          participants: Participants
+      view_public_page: Voir la page publique
+    forms:
+      errors:
+        impersonate_user:
+          reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
+    metrics:
+      blocked_users:
+        object: utilisateurs bloqués
+        title: Utilisateurs bloqués
+      reported_users:
+        object: utilisateurs signalés
+        title: Utilisateurs signalés
+    moderations:
+      actions:
+        expand: Agrandir
+        hidden: Masqués
+        hide: Masquer
+        not_hidden: Visibles
+        title: Actions
+        unhide: Afficher
+        unreport: Annuler le signalement
+      admin:
+        reportable:
+          hide:
+            invalid: Il y a eu un problème au moment de masquer le contenu.
+            success: Contenu masqué avec succès.
+          unhide:
+            invalid: Il y a eu un problème pour découvrir la ressource.
+            success: Ressource non cachée avec succès.
+          unreport:
+            invalid: Il y a eu un problème lors de l'annulation du signalement du contenu.
+            success: Le contenu n'est plus signalé.
+      models:
+        moderation:
+          fields:
+            created_at: Date de création
+            hidden_at: Masqué le
+            participatory_space: Espace participatif
+            report_count: Compteur
+            reportable_id: ID
+            reportable_type: Type
+            reported_content_url: URL
+            reports: Motif
+            visit_url: Visitez l'URL
+        report:
+          fields:
+            details: Détails du signalement
+            locale: Langue
+            reason: Motif
+  errors:
+    messages:
+      invalid_json: JSON non valide
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Modération globale
+        newsletters:
+          title: Newsletters
+        settings:
+          title: Paramètres
+        users:
+          title: Utilisateurs

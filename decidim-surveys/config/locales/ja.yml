@@ -19,8 +19,12 @@ ja:
           global:
             announcement: お知らせ
             clean_after_publish: アンケートを公開するときに回答を削除する
+            ends_at: 回答受付の終了日時
+            ends_at_help: 特定の日付がない場合は空白のままにしてください
             scope_id: スコープ
             scopes_enabled: スコープが有効
+            starts_at: 回答受付の開始日時
+            starts_at_help: 特定の日付がない場合は空白のままにしてください
           step:
             allow_answers: 回答を許可
             allow_unregistered: 未登録ユーザーがアンケートに回答できるようにする

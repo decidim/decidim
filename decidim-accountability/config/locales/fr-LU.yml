@@ -1,0 +1,246 @@
+fr-LU:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Progression
+        decidim_category_id: Catégorie
+        decidim_scope_id: Périmètre d'application
+        description: Description
+        end_date: Date de fin
+        progress: Avancement
+        project_ids: Projets inclus
+        proposals: Propositions incluses
+        start_date: Date de début
+        title: Titre
+        updated_at: Mise à jour à
+      status:
+        description: Description
+        key: Clé
+        name: Nom
+        progress: Avancement
+      timeline_entry:
+        description: Description
+        entry_date: Date
+    models:
+      decidim/accountability/proposal_linked_event: Proposition incluse dans une réalisation
+      decidim/accountability/result_progress_updated_event: Résultat du progrès mis à jour
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Réalisation
+        other: Réalisations
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Dossiers
+        attachments: Pièces jointes
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
+        destroy: Supprimer
+        edit: Modifier
+        import_csv: Importer un fichier CSV
+        new: Nouveau %{name}
+        preview: Aperçu
+        timeline_entries: Évolution de la réalisation
+        title: Actions
+      admin:
+        exports:
+          result_comments: Commentaires
+          results: Réalisations
+        import_results:
+          new:
+            import: Importer
+            info: "<p>Nous vous recommandons de suivre les étapes suivantes :</p><ol><li>Créez les statuts pour les résultats que vous souhaitez ajouter (<a href='%{link_new_status}' target='_blank'>lien</a>)</li><li>Créez au moins un résultat manuellement via ce panneau administrateur (<a href='%{link_new_result}' target='_blank'>lien</a>) avant d'utiliser l'import, pour comprendre ce que vous aurez besoin de remplir.</li><li>Téléchargez l'export en format CSV (%{link_export_csv})</li><li>Faites les modifications nécessaires. Vous pouvez uniquement changer les colonnes suivantes du fichier CSV : </li></ol><ul><li><b>category/id:</b> Identifiant de la catégorie</li><li><b>scope/id :</b> Identifiant du secteur</li><li><b>parent/id :</b> Identifiant du parent (pour les résultats liés). Optional</li><li><b>title/I18N:</b> Titre en langue X</li><li><b>description/I18N:</b> Description en langue X</li><li><b>start_date:</b> date à laquelle le résultat commence (format AAAA-MM-JJ)</li><li><b>end_date:</b> date à laquelle le résultat finit (format AAAA-MM-JJ)</li><li><b>status/id:</b> Identifiant du statut du résultat</li><li><b>progress:</b> Pourcentage (de 0 à 100) de l'exécution du résultat</li><li><b>proposals_ids:</b> Identifiant interne des propositions liées (séparées avec une virgule). La conversion en <span class='attribute-name'>URL de la proposition</span> se fait automatiquement.</li></ul>"
+            link: lien
+            title: Importer les résultats depuis un fichier CSV
+        imports:
+          create:
+            success: Le fichier a commencé à être importé. Vous recevrez un email dans les prochaines minutes avec le résultat de l'import
+        models:
+          result:
+            name: Réalisation
+          status:
+            name: Progression
+          timeline_entry:
+            name: Élément de chronologie
+        results:
+          create:
+            invalid: Un problème est survenu lors de la création de cette réalisation
+            success: Réalisation créée avec succès
+          destroy:
+            success: Réalisation supprimée avec succès
+          edit:
+            title: Modifier la réalisation
+            update: Mise à jour de la réalisation
+          index:
+            title: Réalisations
+          new:
+            create: Créer une réalisation
+            title: Nouvelle réalisation
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cette réalisation
+            success: Réalisation mise à jour avec succès
+        shared:
+          subnav:
+            statuses: Progrès
+        statuses:
+          create:
+            invalid: Un problème est survenu lors de la création de ce statut
+            success: Statut créé avec succès
+          destroy:
+            success: Statut supprimé avec succès
+          edit:
+            title: Modifier le statut
+            update: Mettre à jour le statut
+          index:
+            title: Statuts
+          new:
+            create: Créer un statut
+            title: Nouveau statut
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de ce statut
+            success: Statut mis à jour avec succès
+        timeline_entries:
+          create:
+            invalid: Un problème est survenu lors de la création de cette élément de chronologie
+            success: Élément de chronologie créé avec succès
+          destroy:
+            success: Élément de chronologie supprimé avec succès
+          edit:
+            title: Modifier l'élément de chronologie
+            update: Mise à jour de l'élément de chronologie
+          index:
+            title: Étapes-clés de la réalisation
+          new:
+            create: Créer un élément de chronologie
+            title: Nouvel élément de chronologie
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cet élément de chronologie
+            success: Élément de chronologie mis à jour avec succès
+      admin_log:
+        result:
+          create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé la réalisation %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour la réalisation %{resource_name} dans %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Dates
+          results: Réalisations
+          unspecified: Non précisé
+      import_mailer:
+        import:
+          errors: Erreurs
+          errors_present: Un problème est survenu lors de l'import des résultats
+          row_number: Ligne
+          subject: Import des résultats réussi
+          success: Import des résultats réussi. Vous pouvez consulter les résultats dans l'interface d'administration.
+      last_activity:
+        new_result_at_html: "<span>Nouvelle réalisation %{link}</span>"
+      models:
+        result:
+          fields:
+            category: Catégorie
+            created_at: Créé le
+            end_date: Date de fin
+            id: ID
+            progress: Avancement
+            scope: Secteur
+            start_date: Date de début
+            status: Statut
+            title: Titre
+        status:
+          fields:
+            description: Description
+            key: Clé
+            name: Nom
+            progress: Avancement
+        timeline_entry:
+          fields:
+            description: Description
+            entry_date: Date
+      result_m:
+        executed: Exécuté
+        view: Voir
+      results:
+        count:
+          results_count:
+            one: 1 réalisation
+            other: "%{count} réalisations"
+        filters:
+          all: Tous
+          scopes: Périmètre d'application
+        home:
+          categories_label: Catégories
+          subcategories_label: Sous-catégories
+        home_header:
+          global_status: État d'exécution global
+        nav_breadcrumb:
+          global: Exécution globale
+        search:
+          search: Rechercher des réalisations
+        show:
+          stats:
+            attendees: Participants
+            back_to_resource: Revenir à la réalisation
+            comments: Commentaires
+            contributions: Contributions
+            last_edited_by: Dernière édition par
+            last_updated_at: Dernière mise à jour à
+            meetings: Réunions
+            proposals: Propositions
+            votes: Votes
+        timeline:
+          title: Évolution du projet
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Catégorie
+          scope_id_eq:
+            label: Secteur
+          status_id_eq:
+            label: Statut
+    components:
+      accountability:
+        name: Suivi
+        settings:
+          global:
+            categories_label: Nom pour "Catégories"
+            comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            display_progress_enabled: Afficher les progrès
+            heading_leaf_level_results: Nom pour "Projets"
+            heading_parent_level_results: Nom pour "Réalisations"
+            intro: Introduction
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
+            subcategories_label: Nom pour "Sous-catégories"
+          step:
+            comments_blocked: Bloquer la création de nouveaux commentaires
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'La proposition "%{proposal_title}" a été incluse dans une réalisation. Vous pouvez le voir sur cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Une mise à jour de %{proposal_title}
+          notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans la réalisation <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Le résultat "%{resource_title}", qui inclut la proposition "%{proposal_title}", est maintenant terminé à %{progress}%. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification car vous suivez "%{proposal_title}" et cette proposition est incluse dans le résultat "%{resource_title}". Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour à %{resource_title} progress
+          notification_title: Le résultat <a href="%{resource_path}">%{resource_title}</a>, qui inclut la proposition <a href="%{proposal_path}">%{proposal_title}</a>, est désormais achevé à %{progress}%.
+    metrics:
+      results:
+        description: Nombre de résultats générés
+        object: résultats
+        title: Résultats
+    participatory_spaces:
+      highlighted_results:
+        see_all: Voir tous les résultats (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projets inclus dans cette réalisation
+      included_proposals:
+        result_proposal: Propositions incluses dans cette réalisation

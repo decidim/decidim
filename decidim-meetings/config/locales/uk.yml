@@ -241,7 +241,7 @@ uk:
           edit:
             update: Оновити
           new:
-            create: Додати
+            create: Створити
             title: Додати протокол
           update:
             invalid: При спробі оновити цей протокол сталася помилка

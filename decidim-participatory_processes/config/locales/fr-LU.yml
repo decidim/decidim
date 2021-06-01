@@ -1,0 +1,503 @@
+fr-LU:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Annonce
+        area_id: Périmètre d'assemblée
+        banner_image: Image d'en-tête
+        copy_categories: Copier les catégories
+        copy_components: Copier les fonctionnalités
+        copy_steps: Copier les étapes
+        decidim_area_id: Périmètre d'assemblée
+        description: Description
+        developer_group: Organisateur
+        domain: Domaine
+        end_date: Date de fin
+        hashtag: Hashtag
+        hero_image: Image de la page d'accueil
+        local_area: Espace d'organisation
+        meta_scope: Échelle
+        participatory_process_group_id: Groupe de processus
+        participatory_scope: Objectifs
+        participatory_structure: Modalités de décision
+        promoted: Mise en avant
+        published_at: Publiée à
+        related_process_ids: Concertations liées
+        scope_id: Périmètre d'application
+        scope_type_max_depth_id: Profondeur du filtre de portée
+        scopes_enabled: Périmètres d'application activés
+        short_description: Résumé
+        show_metrics: Afficher les métriques
+        show_statistics: Montrer les statistiques
+        slug: Identifiant
+        start_date: Date de début
+        subtitle: Sous-titre
+        target: Participants
+        title: Titre
+        weight: Rang d'affichage
+      participatory_process_group:
+        description: Description
+        developer_group: Groupe d'initiateurs
+        group_url: Site web
+        hashtag: Hashtag
+        hero_image: Image
+        local_area: Zone d'organisation
+        meta_scope: Secteur
+        participatory_process_ids: Concertations liées
+        participatory_scope: Objectif
+        participatory_structure: Modalités de décision
+        target: Qui participe
+        title: Titre
+      participatory_process_step:
+        cta_path: Chemin d'accès à l'action
+        cta_text: Texte d'appel à l'action
+        description: Description
+        end_date: Date de fin
+        short_description: Résumé
+        start_date: Date de début
+        title: Titre
+      participatory_process_user_role:
+        email: Email
+        name: Nom
+        role: Rôle
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Étape activée
+      decidim/participatory_process_step_changed_event: Étape modifiée
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Processus participatif
+        other: Processus participatifs
+      decidim/participatory_process_group:
+        one: Groupe de concertations
+        other: Groupes de concertations
+      decidim/participatory_process_step:
+        one: Étape
+        other: Étapes
+  decidim:
+    admin:
+      actions:
+        activate: Activer
+        configure: Configurer
+        confirm_destroy: Confirmez la suppression
+        destroy: Supprimer
+        duplicate: Dupliquer
+        edit: Modifier
+        filter:
+          all_processes: Afficher tous les processus
+          process_groups: Groupes de processus
+        import_process: Importer
+        new_process: Nouvelle concertation
+        new_process_group: Nouveau groupe de concertations
+        new_process_step: Nouvelle étape
+        new_process_user_role: Nouvel administrateur de la concertation
+        preview: Aperçu
+        publish: Publier
+        resend_invitation: Renvoyer l'invitation
+        unpublish: Dépublier
+      menu:
+        participatory_process_groups: Groupes de concertations
+        participatory_process_groups_submenu:
+          info: Information
+          landing_page: Page d'accueil
+        participatory_processes: Concertations
+        participatory_processes_submenu:
+          attachment_collections: Dossiers
+          attachment_files: Fichiers
+          attachments: Documents liés
+          categories: Catégories
+          components: Fonctionnalités
+          info: Information
+          moderations: Modérations
+          private_users: Utilisateurs privés
+          process_admins: Administrateurs de la concertation
+          steps: Étapes
+      models:
+        participatory_process:
+          fields:
+            created_at: Créée le
+            private: Privée
+            promoted: Mise en avant
+            published: Publiée
+            title: Titre
+          name: Concertation
+        participatory_process_group:
+          fields:
+            title: Titre
+          name: Groupe de concertations
+        participatory_process_step:
+          fields:
+            end_date: Date de fin
+            start_date: Date de début
+            title: Titre
+          name: Étape de la concertation
+        participatory_process_user_role:
+          fields:
+            email: Email
+            name: Nom
+            role: Rôle
+          name: Utilisateur de la concertation
+          roles:
+            admin: Administrateur
+            collaborator: Relecteur
+            moderator: Modérateur
+            valuator: Évaluateur
+        user:
+          fields:
+            invitation_accepted_at: Invitation acceptée à
+            invitation_sent_at: Invitation envoyée à
+      participatory_process_copies:
+        new:
+          copy: Copier
+          select: Sélectionnez les données que vous souhaitez dupliquer
+          title: Dupliquer la concertation
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocs de contenu actifs
+          inactive_content_blocks: Blocs de contenu inactifs
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Mettre à jour
+      participatory_process_groups:
+        destroy:
+          error: Une erreur s'est produite lors de la suppression du groupe de concertations.
+          success: Groupe de concertations supprimé avec succès.
+        edit:
+          title: Modifier le groupe de concertations
+          update: Mettre à jour
+        new:
+          create: Créer
+          title: Nouveau groupe de concertations
+        update:
+          error: Il y a eu une erreur lors de la mise à jour de ce groupe de concertations.
+          success: Groupe de concertations mis à jour avec succès.
+      participatory_process_imports:
+        create:
+          error: Une erreur s'est produite lors de l'import de cette concertation.
+          success: Concertation importée avec succès.
+        new:
+          import: Importer
+          select: Sélectionnez les données que vous souhaitez importer
+          title: Importer une concertation
+      participatory_process_publications:
+        create:
+          error: Une erreur s'est produite lors de la publication de cette concertation.
+          success: Concertation publiée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la publication de cette concertation.
+          success: Concertation dépubliée avec succès.
+      participatory_process_step_activations:
+        create:
+          error: Une erreur s'est produite lors de l'activation de cette étape de la concertation.
+          success: Étape de la concertation activée avec succès.
+      participatory_process_steps:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle étape de la concertation.
+          success: Étape de la concertation créée avec succès.
+        default_title: Introduction
+        destroy:
+          error:
+            active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
+            last_step: Vous ne pouvez pas supprimer la dernière étape de la concertation.
+          success: L'étape de la concertation a été supprimée avec succès.
+        edit:
+          title: Modifier l'étape de la concertation
+          update: Mettre à jour
+        index:
+          steps_title: Étapes
+        new:
+          create: Créer
+          title: Nouvelle étape de la concertation
+        ordering:
+          error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
+          success: Étape de la concertation mise à jour avec succès.
+      participatory_process_user_roles:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
+          success: Utilisateur ajouté avec succès à cette concertation.
+        destroy:
+          success: Utilisateur supprimé avec succès de cette concertation.
+        edit:
+          title: Mettre à jour l'administrateur du processus participatif
+          update: Mettre à jour
+        index:
+          process_admins_title: Administrateurs de la concertation
+        new:
+          create: Créer
+          title: Nouvel administrateur du processus participatif
+        update:
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
+          success: L'utilisateur a été mis à jour avec succès pour cette concertation.
+      participatory_processes:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle concertation.
+          success: Concertation créée avec succès. Configurez maintenant ses étapes.
+        edit:
+          update: Mettre à jour
+        index:
+          not_published: Non publiée
+          private: Privée
+          public: Publique
+          published: Publiée
+        new:
+          create: Créer
+          title: Nouvelle concertation
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette concertation.
+          success: Concertation mise à jour avec succès.
+      participatory_processes_copies:
+        create:
+          error: Une erreur s'est produite lors de la duplication de cette concertation.
+          success: Concertation dupliquée avec succès.
+      participatory_processes_group:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
+          success: Groupe de concertations créé avec succès.
+      titles:
+        participatory_process_groups: Groupes de concertations
+        participatory_processes: Concertations
+      users:
+        resend_invitation:
+          error: Une erreur s'est produite lors de l'envoi de l’invitation.
+          success: Invitation renvoyée avec succès.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} a créé la concertation %{resource_name}"
+        publish: "%{user_name} a publié la concertation %{resource_name}"
+        unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
+        update: "%{user_name} a mis à jour la concertation %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} a créé le groupe de concertations %{resource_name}"
+        update: "%{user_name} a mis à jour le groupe de concertations %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"
+        create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"
+        delete: "%{user_name} a supprimé l'étape %{resource_name} de la concertation %{space_name}"
+        update: "%{user_name} a mis à jour l'étape %{resource_name} de la concertation %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de la concertation %{space_name}"
+        update: "%{user_name} a changé le rôle de l'utilisateur %{resource_name} dans la concertation %{space_name}"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Vous avez été assigné en tant que %{role} pour le processus participatif "%{resource_title}".
+          email_outro: Vous avez reçu cette notification parce que vous êtes %{role} du processus participatif "%{resource_title}".
+          email_subject: Vous avez été assigné comme %{role} pour "%{resource_title}".
+          notification_title: Vous avez été assigné en tant que %{role} pour le processus participatif <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: 'L''étape %{resource_title} vient d''être activée pour %{participatory_space_title}. Vous pouvez désormais la consulter sur cette page :'
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title} vient d'être effectuée ! Nous vous invitons à venir consulter la page afin de découvrir les dernières améliorations
+          notification_title: L'étape %{resource_title} est désormais activée pour <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Les dates de l''étape %{resource_title} de %{participatory_space_title} ont été mises à jour. Vous pouvez les retrouver sur cette page :'
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title} vient d'être réalisée ! Nous vous invitons à venir voir les dernières améliorations
+          notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> sur <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
+          page: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
+          title: Qu'est-ce qu'une concertation ?
+    menu:
+      processes: Concertations
+    metrics:
+      participatory_processes:
+        description: Nombre de concertations dans cette organisation
+        object: concertations
+        title: Concertations
+    participatory_process:
+      show:
+        related_assemblies: Assemblées associées
+    participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Bloc HTML 1
+        html_2:
+          name: Bloc HTML 2
+        html_3:
+          name: Bloc HTML 3
+        metadata:
+          developer_group: Promu par
+          name: Métadonnées
+          participatory_scope: Objectifs
+          participatory_structure: Modalités de décision
+          target: Qui participe
+        participatory_processes:
+          name: Concertations
+        stats:
+          name: Activité
+        title:
+          meta_scope: Secteur
+          name: Titre, description et hashtag
+          participatory_processes:
+            one: 1 concertation
+            other: "%{count} concertations"
+      show:
+        title: Groupes de concertations
+    participatory_process_steps:
+      index:
+        process_steps: Étapes de la concertation
+        title: Étapes de la concertation
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Quantité maximale d'éléments à afficher
+        new_import:
+          accepted_types:
+            json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Métadonnées
+            title: Informations générales
+            visibility: Visibilité
+        participatory_process_imports:
+          form:
+            document_legend: Ajouter un document
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
+            cta_text_help: Si non défini, le bouton ne sera pas affiché.
+        participatory_processes:
+          form:
+            announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
+            duration: Durée
+            filters: Filtres
+            images: Images
+            metadata: Métadonnées
+            other: Autre
+            related_processes: Concertations liées
+            scope_type_max_depth_help: Restreindre la profondeur du filtre de secteur; Le filtre s'affichera du secteur général au type de secteur sélectionné.
+            select_an_area: Sélectionnez un secteur
+            select_process_group: Sélectionnez un groupe de concertations
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            title: Informations générales
+            visbility: Visibilité
+      content_blocks:
+        highlighted_processes:
+          name: Concertations mises en avant
+      index:
+        title: Concertations
+      last_activity:
+        new_participatory_process: Nouvelle concertation
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Concertations actives
+            active_step: Étape active
+            more_information: Plus d'informations
+            participate: Participer
+            participate_in: Participer au processus %{resource_name}
+            see_all_processes: Voir toutes les concertations
+      participatory_process_steps:
+        index:
+          back_to_process: Retour à la page du processus
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 concertation active
+              other: "%{count} concertations actives"
+            all:
+              one: 1 concertation
+              other: "%{count} concertations"
+            past:
+              one: 1 concertation passée
+              other: "%{count} concertations passées"
+            upcoming:
+              one: 1 concertation à venir
+              other: "%{count} concertations à venir"
+          explanations:
+            no_active: Aucune concertation active
+            no_active_nor_upcoming: Aucune concertation active ni à venir
+            no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
+          names:
+            active: Actifs
+            all: Tous
+            past: Passés
+            upcoming: À venir
+          see: Voir
+        index:
+          loading: Chargement des résultats...
+      show:
+        area: Périmètre d'assemblée
+        belongs_to_group: Cette concertation appartient à
+        dates: Dates
+        developer_group: Organisateur
+        end_date: Date de fin
+        local_area: Espace d'organisation
+        participatory_scope: Objectifs
+        participatory_structure: Modalités de décision
+        private_space: Ceci est une concertation privée
+        related_processes: Concertations liées
+        scope: Périmètre d'application
+        start_date: Date de début
+        target: Participants
+        unspecified: Non précisé
+      statistics:
+        answers_count: Réponses
+        comments_count: Commentaires
+        debates_count: Débats
+        endorsements_count: Soutiens
+        followers_count: Abonnés
+        headline: Activité
+        meetings_count: Rencontres
+        no_stats: Il n'y a pas encore de statistiques.
+        orders_count: Votes
+        pages_count: Pages
+        participants_count: Participants
+        processes_count: Concertations
+        projects_count: Projets
+        proposals_count: Propositions
+        results_count: Réalisations
+        supports_count: Votes
+        surveys_count: Enquêtes
+        users_count: Participants
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Parcourir
+          browse_resource: Parcourir le groupe de concertation %{resource_name}
+          processes_count: 'Concertations :'
+      participatory_process_widgets:
+        show:
+          active_step: 'Étape actuelle :'
+          take_part: Participer
+      participatory_processes:
+        index:
+          promoted_processes: Concertations mises en avant
+        participatory_process:
+          active_step: 'Étape actuelle :'
+          more_info: Plus d'informations
+          more_info_about: Plus d'infos sur la concertation %{resource_name}
+          take_part: Participer
+          take_part_in: Participer à la concertation %{resource_name}
+        promoted_process:
+          active_step: 'Étape actuelle :'
+          more_info: Plus d'informations
+          more_info_about: Plus d'infos sur la concertation %{resource_name}
+          take_part: Participer
+          take_part_in: Participer à la concertation %{resource_name}
+        promoted_process_group:
+          more_info: Plus d'informations
+      process_header_steps:
+        step: Étape %{current} sur %{total}
+        view_steps: Voir les étapes
+      process_navigation:
+        process_menu_item: Présentation

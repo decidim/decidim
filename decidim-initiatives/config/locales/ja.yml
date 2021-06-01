@@ -31,7 +31,7 @@ ja:
         minimum_committee_members: 委員の最小数
         online_signature_enabled: オンライン署名は有効です
         only_global_scope_enabled: グローバルスコープの取り組みの作成のみを許可する
-        promoting_committee_enabled: プロモーション委員会を有効にする
+        promoting_committee_enabled: 推進委員会を有効にする
         title: タイトル
         undo_online_signatures_enabled: 参加者がオンライン署名を取り消すことを有効にする
         validate_sms_code_on_votes: 署名プロセスにSMSコード検証ステップを追加
@@ -125,15 +125,20 @@ ja:
       initiatives:
         admin:
           initiative_sent_to_technical_validation:
-            email_intro: イニシアチブ %{resource_title}" が技術的な検証に送信されました。 <a href="%{admin_initiative_url}">管理者パネル</a> で確認してください。
+            email_intro: イニシアチブ %{resource_title}" が技術的な検証に提出されました。 <a href="%{admin_initiative_url}">管理者パネル</a> で確認してください。
             email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-            email_subject: イニシアチブ %{resource_title}" は技術的な検証に送信されました。
-            notification_title: イニシアチブ %{resource_title}" が技術的な検証に送信されました。 <a href="%{admin_initiative_path}">管理者パネル</a> で確認してください。
+            email_subject: イニシアチブ %{resource_title}" は技術的な検証に提出されました。
+            notification_title: イニシアチブ %{resource_title}" が技術的な検証に提出されました。 <a href="%{admin_initiative_path}">管理者パネル</a> で確認してください。
         initiative_extended:
           email_intro: イニシアチブ %{resource_title} の署名の終了日が延長されました！
           email_outro: '%{resource_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: イニシアティブ署名の終了日を延長しました！
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブの署名の終了日が延長されました。
+        initiative_sent_to_technical_validation:
+          email_intro: イニシアチブ %{resource_title}" が技術的検証に提出されました。 <a href="%{admin_initiative_url}">管理者パネル</a> で確認してください。
+          email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
+          email_subject: イニシアチブ %{resource_title}" は技術的検証に提出されました。
+          notification_title: イニシアチブ %{resource_title}" が技術的検証に提出されました。 <a href="%{admin_initiative_path}">管理者パネル</a> で確認してください。
         milestone_completed:
           affected_user:
             email_intro: あなたのイニシアチブ %{resource_title} は署名の %{percentage}%を達成しました！
@@ -146,7 +151,10 @@ ja:
             email_subject: 新しいマイルストーンが完了しました！
             notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは署名の %{percentage}%を達成している。
         support_threshold_reached:
+          email_intro: イニシアチブ %{resource_title} は署名のしきい値に達しました
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
+          email_subject: 署名のしきい値に達しました
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは署名のしきい値に達しました
     gamification:
       badges:
         initiatives:
@@ -184,25 +192,30 @@ ja:
           index:
             approve: 承認
             confirm_revoke: よろしいですか？
-            invite_to_committee_help: このリンクを共有して他の参加者をプロモーター委員会に招待します
-            no_members_yet: プロモーター委員会にメンバーがいません。
+            invite_to_committee_help: このリンクを共有して他の参加者を推進委員会に招待します
+            no_members_yet: 推進委員会にメンバーがいません。
             revoke: Revoke
             title: 委員会メンバー
         content_blocks:
           highlighted_initiatives:
             max_results: 表示する要素の最大量
+            order:
+              default: デフォルト (最近のもの)
+              label: 'ソートする要素:'
+              most_recent: 新着順
         exports:
           initiatives: イニシアチブ
         initiatives:
           edit:
             accept: 取り組みを承認する
             confirm: よろしいですか？
+            confirm_send_to_technical_validation: 本当によろしいですか？
             discard: イニシアチブを破棄する
             export_pdf_signatures: 署名の PDF をエクスポート
             export_votes: 署名をエクスポート
             reject: イニシアチブを拒否する
-            send_to_technical_validation: 技術検証に送る
-            success: このイニシアチブは技術検証に送信されました
+            send_to_technical_validation: 技術検証に提出する
+            success: このイニシアチブは技術検証に提出されました
             update: 更新
           form:
             attachments: 添付ファイル
@@ -253,6 +266,7 @@ ja:
             update: 更新
           form:
             authorizations: 認証設定
+            child_scope_threshold_enabled_help: 'この設定では、対面での署名収集をサポートせず、サブスコープの署名フラグを有効にし、スコープとユーザーを関連付ける承認ハンドラと連携します。オーソリゼーションの設定で、下記のオーソリゼーションを必ず選択してください。これが機能するためには、1つのスコープ - N個のサブスコープというように、階層的に構成されている必要があります。この設定がどのように機能するかについては、この<a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a>を参照してください。'
             only_global_scope_enabled_help: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。 これを有効にすると、取り組み作成ウィザードで取り組みタイプの選択がスキップされます。 この設定の仕組みについての詳細は、この <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a> を参照してください。'
             options: オプション
             title: 一般情報
@@ -267,7 +281,7 @@ ja:
       admin_log:
         initiative:
           publish: "%{user_name} が %{resource_name} イニシアチブを公開しました"
-          send_to_technical_validation: "%{user_name} が %{resource_name} イニシアチブを技術的な検証に送信しました"
+          send_to_technical_validation: "%{user_name} が %{resource_name} イニシアチブを技術的検証に提出しました"
           unpublish: "%{user_name} が %{resource_name} イニシアチブを破棄しました"
           update: "%{user_name} が %{resource_name} のイニシアチブを更新しました"
       admin_states:
@@ -292,9 +306,13 @@ ja:
         filter_type_values:
           all: すべて
       committee_requests:
+        approve:
+          success: リクエストが承認されました。
         new:
           continue: 続ける
-          help_text: このイニシアチブのプロモーター委員会のメンバーになることを要求しようとしています
+          help_text: このイニシアチブの推進委員会のメンバーになることを要求しようとしています
+        revoke:
+          success: リクエストが取り消されました。
         spawn:
           success: あなたのリクエストはイニシアチブの作成者に送信されました。
       content_blocks:
@@ -304,6 +322,7 @@ ja:
         fill_data:
           back: 戻る
           continue: 続ける
+          fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。タイトルはわかりやすいでしょうか? イニシアチブの目的は明確でしょうか? </li> <li>署名の種別を選択する必要があります。対面署名、オンライン署名、または両方の組み合わせのいずれかです。</li> <li>イニシアチブの地理的範囲はどうなりますか?</li></ul>"
           initiative_type: イニシアティブの種類
           more_information: "(詳細)"
           select_area: エリアを選択
@@ -311,8 +330,15 @@ ja:
         finish:
           back: 戻る
           back_to_initiatives: イニシアチブに戻る
+          callout_text: おめでとうございます！あなたのイニシアチブが問題なく作成されました。
+          confirm: イニシアチブを提出し、管理者がレビューして公開することになります。一度公開すると編集できなくなりますが、よろしいですか？
+          edit_my_initiative: 自分のイニシアチブを編集
           go_to_my_initiatives: 私のイニシアチブに移動
           more_information: "(詳細)"
+          send_my_initiative: 自分のイニシアチブを技術検証に提出
+        finish_help:
+          access_reminder: イニシアチブには、「イニシアチブ」ページの「%{link}」フィルターからアクセスできます。
+          publish_helper_text: イニシアチブを公開するためには、必要な情報を記入し、<strong>技術検証に提出</strong>して管理者に確認してもらう必要があることを覚えておいてください。
         previous_form:
           back: 戻る
           continue: 続ける
@@ -320,21 +346,38 @@ ja:
           more_information: "(詳細)"
         promotal_committee:
           back: 戻る
+          individual_help_text: この種類のイニシアチブでは、少なくとも%{committee_size} のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、この取り組みに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
           more_information: "(詳細)"
         select_initiative_type:
           back: 戻る
           choose_html: <strong>%{title}</strong> を作成したい
           more_information: "(詳細)"
           select: 私はこのイニシアチブを推進したいです
+          select_initiative_type_help: イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？
         share_committee_link:
           continue: 続ける
-          invite_to_committee_help: プロモーター委員会に参加する人を招待するためのリンク
+          invite_to_committee_help: 推進委員会に参加する人を招待するためのリンク
         show_similar_initiatives:
           back: 戻る
           compare_help: 以下のイニシアチブのいずれかがあなたのものと似ている場合は、署名することをお勧めします。あなたの提案には、より多くの可能性があります。
           continue: 私のイニシアチブは異なる
           more_information: "(詳細)"
+      edit:
+        accept: イニシアチブを承認する
+        back: 戻る
+        confirm: 本当によろしいですか？
+        discard: イニシアチブを破棄する
+        export_pdf_signatures: 署名の PDF をエクスポート
+        export_votes: 署名をエクスポート
+        reject: イニシアチブを拒否する
+        title: イニシアチブを編集する
+        update: 更新する
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} は、%{resource_title} イニシアチブの推進委員会に参加するあなたの申請を承認しました。"
+          email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
+          email_subject: "%{author_nickname} が推進委員会への申請を承認しました"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> は、以下のイニシアチブ <a href="%{resource_url}">%{resource_title}</a> のための推進委員会の一員となるためのあなたの申請を承認しました。
         create_initiative_event:
           email_intro: "あなたがフォローしている%{author_name} %{author_nickname}が新しいイニシアチブを作成しました。チェックして貢献してください："
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -345,6 +388,20 @@ ja:
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{author_nickname} によって支持されたイニシアチブ。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって承認されました。
+        revoke_membership_request:
+          email_intro: "%{author_nickname} は、以下のイニシアチブ %{resource_title} の推進委員会に参加する申請を拒否しました。"
+          email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
+          email_subject: "%{author_nickname} が推進委員会への申請を拒否しました"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> は、以下のイニシアチブ <a href="%{resource_url}">%{resource_title}</a> のための推進委員会の一員となるためのあなたの申請を拒否しました。
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} は、あなたのイニシアチブの推進委員会 %{resource_title} への参加を希望しました。リクエストを承認または拒否するには、イニシアチブの編集フォームに進んでください。"
+          email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} の作成者だからです。'
+          email_subject: "%{applicant_nickname} があなたのイニシアチブに参加しようとしています"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> があなたのイニシアチブの推進委員会に申請しました <a href="%{resource_url}">%{resource_title}</a>. 受け入れるか拒否するには <a href="%{resource_url}/edit">ここ</a>をクリックしてください。
+      form:
+        add_attachments: ドキュメント
+        attachment_legend: "(オプション) 添付ファイルを追加"
+        delete_attachment: 削除
       index:
         title: イニシアチブ
       initiative_signatures:
@@ -380,6 +437,13 @@ ja:
         author_list:
           hidden_authors_count:
             other: '%{count} 人以上'
+        committee_members:
+          approve: 承認
+          confirm_revoke: 本当によろしいですか？
+          invite_to_committee_help: このリンクを共有して他の参加者を推進委員会に招待します
+          no_members_yet: 推進委員会にメンバーがいません。
+          revoke: 取り消し
+          title: 委員会メンバー
         count:
           title:
             other: "%{count} のイニシアチブ"
@@ -419,11 +483,37 @@ ja:
           recent: 直近のもの
           recently_published: 直近に公開
         print:
+          address: 住所
+          author_title: イニシアチブの作成者
           city: 市区町村名
+          email: Eメールアドレス
+          full_name: フルネーム
+          general_title: イニシアチブの承認申請
+          id_number: ID 番号
+          initiative:
+            attachments: 添付ドキュメント（各ドキュメントの名前を以下に記入してください）
+            description: '説明:'
+            title: 'タイトル:'
+            type: イニシアチブの種別
+          legal_text: 収集された個人データは、現行の法律に基づき、組織によって機密情報として取り扱われます。
+          phone_number: 電話番号
+          place_date: 場所、日付
+          postal_code: 郵便番号
+          print: 印刷
+          province: 都道府県/州
+          section: '組織から要求された場合、印刷した紙に必要事項を記入して、指定の場所に送信してください:'
+          signature: 署名
         result:
+          answer_title: このイニシアチブは回答されました
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
+          any_vote_method: このイニシアチブは、オンラインと対面の署名の両方を収集します。
+          confirm: イニシアチブを提出し、管理者がレビューして公開することになります。一度公開すると編集できなくなりますが、よろしいですか？
+          edit: 編集
           follow_description: このイニシアチブでニュースがある場合に通知を受け取る
+          offline_method: このイニシアチブは、 In-personal 署名のみを収集します。
+          print: イニシアチブを印刷
+          send_to_technical_validation: 技術検証に提出する
         signatures_count:
           other: " 署名"
         vote_cabin:
@@ -445,7 +535,7 @@ ja:
         more_information: ここでは、イニシアチブの作成プロセスについての詳細情報があります。
         progress_report_body_for: '%{title} が必要な署名の %{percentage}%に達しました。'
         progress_report_for: 'イニシアチブの概要: %{title}'
-        promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。プロモーター委員会に招待するには、次のリンクを進めてください。
+        promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
         status_change_body_for: 'イニシアチブ %{title} がステータスを %{state}に変更しました'
         status_change_for: イニシアチブ %{title} のステータスが変更されました
       last_activity:
@@ -467,6 +557,9 @@ ja:
         accepted: 承認済み
         expired: 期限切れ
       unavailable_scope: 利用できないスコープ
+      update:
+        error: エラーが発生しました
+        success: イニシアチブが正常に更新されました
       versions:
         shared:
           back_to_resource: イニシアチブに戻る
@@ -490,7 +583,7 @@ ja:
         fill_data: 作成
         finish: 完了
         previous_form: 開始
-        promotal_committee: プロモーター委員会
+        promotal_committee: 推進委員会
         select_initiative_type: 選択
         show_similar_initiatives: 比較
         step: '%{current} / %{total}'
@@ -511,6 +604,6 @@ ja:
       initiatives:
         initiative:
           check: ご確認ください
-          check_and_support: サインアウトしてください
+          check_and_support: ログアウトしてください
         no_initiatives_yet:
           no_initiatives_yet: まだイニシアチブがありません！

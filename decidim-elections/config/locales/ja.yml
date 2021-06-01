@@ -135,6 +135,14 @@ ja:
           update:
             invalid: この質問の更新中に問題が発生しました
             success: 問題が正常に更新されました
+        steps:
+          create_election:
+            not_used_trustee: "(未使用)"
+            public_key:
+              'false': <strong>公開鍵</strong>がありません
+              'true': <strong>公開鍵</strong>があります
+          tally_ended:
+            title: 結果を集計しました
       admin_log:
         election:
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
@@ -169,8 +177,28 @@ ja:
           filter: 絞り込み
           filter_by: 絞り込み条件
           unfold: 展開
+        preview:
+          available_answers: 利用可能な回答
+          description: これらは投票プロセスで見つける質問です
+        results:
+          description: これらは、各質問に対する投票の結果です
+          votes:
+            one: "%{count} 票"
+            other: "%{count} 票"
+            zero: "%{count} 票"
         show:
+          action-button:
+            change-vote: 投票の変更
+            vote: 投票の開始
+            vote-again: 再投票
+          callout:
+            already-voted: すでにこの選挙に投票しました。投票の変更と確認ができます。
+            vote-rejected: 投票を確認できませんでした。もう一度お試しください。
           preview: プレビュー
+          verify:
+            already-voted: すでに投票しましたか？
+            verify-here: 投票を確認してください。
+            will-verify: 選挙が開始されると、投票を確認することができます。
           voting_period_status:
             finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
             upcoming: '%{start_time} に投票が終了します'
@@ -210,6 +238,7 @@ ja:
           question: 質問 %{count}
         confirmed:
           back: 選挙に戻る
+          error: 申し訳ありませんが、投票の確認中にエラーが発生しました。もう一度投票してください。
           experience: ご利用いただき、どう思われますか?
           feedback: フィードバックを送る
           header: 投票が確定されました
@@ -234,6 +263,12 @@ ja:
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
           selections: "%{selected} / %{max_selections}<br> の選択"
+        processing:
+          header: 投票を処理しています...
+          text: 投票を受け付けました。しばらくお待ちください。
+        update:
+          error: 投票ステータスの更新中に問題が発生しました
+          success: 投票ステータスを更新しました
         voting_step:
           back: 戻る
           continue: 次へ
@@ -255,12 +290,23 @@ ja:
       statistics:
         elections_count: 選挙
     votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: 監視委員会
       polling_officer_zone:
         polling_officers:
           show:
+            actions:
+              count_votes: 投票箱の投票数をカウント
+              identify_person: 本人確認と本人確認を行う
+            polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(長またはマネージャー) として行動するように割り当てられています。
             polling_stations:
               list:
                 actions: アクション
+                role: あなたの役割
+                voting: 投票
+              no_polling_stations: まだどの投票所にも割り当てられていません。
   layouts:
     decidim:
       election_votes_header:

@@ -1,0 +1,688 @@
+fr-LU:
+  activemodel:
+    attributes:
+      answer:
+        description: Description
+        image: Image
+        proposals: Propositions associées
+        title: Titre
+      election:
+        description: Description
+        end_time: Le vote se termine à
+        start_time: Le vote commence à
+        title: Titre
+      question:
+        description: Description
+        max_selections: Nombre maximum de sélections
+        min_selections: Aucune des options ci-dessus
+        title: Titre
+      voting:
+        end_time: Le vote se termine
+        start_time: Le vote commence le
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: ne peut pas être modifié
+            public_key:
+              cant_be_changed: ne peut être modifiée
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Réponse
+        other: Réponses
+      decidim/elections/election:
+        one: Élection
+        other: Élections
+      decidim/elections/question:
+        one: Question
+        other: Questions
+      decidim/votings/voting:
+        one: Vote
+        other: Votes
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Voter
+        name: Élections
+        settings:
+          global:
+            announcement: Annonce
+          step:
+            announcement: Annonce
+    elections:
+      actions:
+        confirm_destroy: Êtes-vous certain ?
+        destroy: Détruire
+        edit: Modifier
+        feedback: Feedbacks des votants
+        import: Importer des propositions dans les réponses
+        manage_answers: Gérer les réponses
+        manage_questions: Gérer les questions
+        manage_steps: Gérer les étapes
+        new: Nouveau %{name}
+        preview: Aperçu
+        publish: Publier
+        title: Actions
+        unpublish: Dépublier
+      admin:
+        answers:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette réponse
+            success: Réponse créée avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette réponse
+            success: Réponse supprimée avec succès
+          edit:
+            title: Modifier la réponse
+            update: Mettre à jour la réponse
+          index:
+            invalid_max_selections: Vous avez besoin de %{missing_answers} réponse(s) de plus pour correspondre aux sélections maximales
+            title: Réponses
+          new:
+            create: Créer une réponse
+            title: Nouvelle réponse
+          select:
+            disable: Désélectionner la réponse
+            enable: Marquer la réponse comme sélectionnée
+            invalid: Un problème est survenu lors de la sélection de cette réponse
+            success: Réponse sélectionnée avec succès
+          unselect:
+            invalid: Une erreur est survenue lors de la désélection de cette réponse
+            success: Réponse désélectionnée avec succès
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cette réponse
+            success: Réponse mise à jour avec succès
+        elections:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette élection
+            success: Élection créée avec succès
+          destroy:
+            invalid: Il y a eu un problème lors de la suppression de cette élection
+            success: Élection supprimée avec succès
+          edit:
+            title: Modifier l'élection
+            update: Mettre à jour l'élection
+          index:
+            no_bulletin_board: Il n'y a pas de <a href="https://github.com/decidim/decidim-bulletin-board">serveur Bulletin Board</a> configuré, ce qui est nécessaire pour utiliser ce module. Cette tâche doit être effectuée par l'administrateur système.
+            title: Élections
+          new:
+            create: Créer une élection
+            title: Nouvelle élection
+          publish:
+            success: L'élection a été publiée avec succès.
+          unpublish:
+            success: L'élection a été dépubliée avec succès.
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de cette élection
+            success: Élection mise à jour avec succès
+        exports:
+          elections: Élections
+          feedback_form_answers: Feedbacks des répondants
+        models:
+          answer:
+            name: Réponse
+          election:
+            name: Élection
+          question:
+            name: Question
+          trustee:
+            name: Garant
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l'importation des propositions en réponses
+            success: "%{number} propositions importées avec succès dans les réponses"
+          new:
+            create: Importer des propositions dans les réponses
+            no_components: Il n'y a pas d'autres fonctionnalités Propositions dans cet espace participatif pour importer des propositions.
+            select_component: Veuillez sélectionner une fonctionnalité
+            title: Importer des propositions
+        questions:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette question
+            success: Question créée avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette question
+            success: Question supprimée avec succès
+          edit:
+            title: Modifier la question
+            update: Mettre à jour la question
+          index:
+            title: Questions
+          new:
+            create: Créer une question
+            title: Nouvelle question
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de cette question
+            success: Question mise à jour avec succès
+        steps:
+          create_election:
+            errors:
+              max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
+              minimum_answers: Les questions doivent avoir <strong>au moins deux réponses</strong>.
+              minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
+              published: L'élection n'est <strong>pas publiée</strong>.
+              time_before: L'heure de début se situe<strong>moins de 3 heures</strong> avant le commencement de l'élection.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
+            invalid: Une erreur est survenue lors de la création de l'élection
+            no_trustees: Il n'y a pas de garants configurés pour cet espace participatif
+            not_used_trustee: "(non utilisé)"
+            public_key:
+              'false': n'a pas de <strong>clé publique</strong>
+              'true': a une <strong>clé publique</strong>
+            requirements:
+              max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>.
+              minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>.
+              minimum_questions: L'élection a <strong>au moins 1 question</strong>.
+              published: L'élection est <strong>publiée</strong>.
+              time_before: La configuration est réalisée <strong>au moins %{hours} heures</strong> avant le début de l'élection.
+              trustees_number: L'espace participatif <strong>doit avoir au moins %{number} garants avec une clé publique</strong>.
+            submit: Configurer l'élection
+            success: Élection envoyée avec succès au Tableau de Bord
+            title: Configurer l'élection
+            trustees: Garants de l'élection
+          created:
+            invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés
+            submit: Démarrer la cérémonie des clés
+            title: Élection créée
+            trustees: Garants
+          key_ceremony:
+            title: Cérémonie des clés
+            trustees: Garants
+          key_ceremony_ended:
+            errors:
+              time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour démarrer la période de vote.
+            invalid: Il y a eu un problème au démarrage de la période de vote
+            requirements:
+              time_before: L'élection va bientôt commencer. Vous pouvez démarrer la période de vote manuellement, ou elle sera démarrée automatiquement avant l'heure de départ, à %{start_time}.
+            submit: Commencer la période de vote
+            title: Prêt à commencer
+          processing: Traitement en cours...
+          results_published:
+            title: Résultats publiés
+          tally:
+            trustees: Garants
+          tally_ended:
+            submit: Publier les résultats
+            title: Résultats calculés
+          vote:
+            errors:
+              time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
+            invalid: Un problème est survenu lors de la clôture de la période de vote
+            requirements:
+              time_after: L'élection est terminée. Vous pouvez terminer la période de vote manuellement, ou elle se terminera automatiquement dans quelques minutes.
+            submit: Fin de la période de vote
+            success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
+            title: Période de vote
+          vote_ended:
+            title: Période de vote terminée
+          vote_stats:
+            no_vote_statistics_yet: Pas encore de statistiques sur le vote
+            title: Statistiques du vote
+            voters: Votants
+            votes: Votes
+        trustees_participatory_spaces:
+          actions:
+            disable: Désactiver
+            enable: Autoriser
+          create:
+            exists: Ce garant existe déjà dans cet espace participatif
+            invalid: Une erreur s'est produite lors de la création du garant
+            success: Le garant a bien été créé
+          delete:
+            invalid: Il y a eu un problème lors de la suppression de ce garant
+            success: Le garant a bien été supprimé
+          form:
+            select_user: Sélectionner un utilisateur
+          index:
+            title: Garants
+          new:
+            create: Créer un garant
+            title: Nouveau garant
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour du garant %{trustee}
+            success: Le garant %{trustee} a été mis à jour avec succès
+      admin_log:
+        election:
+          publish: "%{user_name} a publié l'élection %{resource_name}"
+          unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Terminées
+          ongoing: Active
+          upcoming: À venir
+        end_date: Se termine le
+        footer:
+          view: Voir
+          vote: Voter
+        label:
+          date: Dates
+        questions: '%{count} questions'
+        start_date: Début
+        unspecified: Non spécifié
+      elections:
+        count:
+          elections_count:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        filters:
+          active: Actif
+          all: Toutes
+          finished: Terminées
+          search: Rechercher
+          state: Statut
+          upcoming: À venir
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Voir plus
+        preview:
+          available_answers: Réponses disponibles
+          description: Voici les questions que vous trouverez dans le processus de vote
+          title: Questions de l'élection
+        results:
+          description: Ce sont les résultats du vote, pour chaque question
+          selected: Sélectionné
+          title: Résultats de l'élection
+          votes:
+            one: "%{count} vote"
+            other: "%{count} votes"
+            zero: "%{count} votes"
+        show:
+          action-button:
+            change-vote: Changer votre vote
+            vote: Commencer à voter
+            vote-again: Voter à nouveau
+          back: Élections disponibles
+          callout:
+            already-voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
+            vote-rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
+          preview: Aperçu
+          verify:
+            already-voted: Déjà voté?
+            verify-here: Vérifiez votre vote ici.
+            will-verify: Vous pourrez vérifier votre vote une fois l'élection commencée.
+          voting_period_status:
+            finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
+            ongoing: 'Vote actif jusqu''au : %{end_time}'
+            upcoming: Le vote commence le %{start_time}
+      feedback:
+        answer:
+          invalid: Un problème est survenu lors de l'envoi de votre feedback.
+          spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
+          success: Votre avis a bien été envoyé.
+      models:
+        answer:
+          fields:
+            proposals: Propositions
+            title: Titre
+        election:
+          fields:
+            end_time: Prend fin à
+            start_time: Commence à
+            title: Titre
+        question:
+          fields:
+            answers: Réponses
+            max_selections: Nombre maximum de sélections
+            title: Titre
+        trustees_participatory_space:
+          fields:
+            considered: autorisé
+            email: Email
+            inactive: inactif
+            name: Nom
+            notification: Notification envoyée à
+            public_key: Clé publique
+            status: Statut
+      orders:
+        label: Trier les élections par 
+        older: Les plus anciens
+        recent: Les plus récents
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Cette élection est en cours de création dans le Tableau d'Affichage. Il est très important que chaque Mandataire qui y participe fasse une sauvegarde de ces clés et les stocke dans un endroit sûr. Ensuite, le processus se poursuit.
+            download_election_keys: Télécharger les clés
+            download_icon: Icône indiquant une action de téléchargement
+            title: Sauvegarder les clés d'élection pour %{election}
+          key_ceremony_steps:
+            back: Retour
+            description: Cette élection est en cours de création dans le Tableau d'Affichage. Pour compléter ce processus, votre participation en tant que Mandataire est nécessaire.
+            keys:
+              create_election: Génération des clés
+              key_ceremony:
+                joint_election_key: Génération de la clé conjointe
+                step_1: Publication des clés
+            list:
+              status: Statut
+              task: Tâche
+            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les Mandataires doivent être connectés pour le compléter.
+            start: Démarrer
+            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
+            status:
+              completed: Terminé
+              pending: En attente
+              processing: Traitement en cours
+            title: Créer des clés d'élection pour %{election}
+          restore_modal:
+            description: Le Tableau d'Affichage a des informations pour vous en temps que Mandataire de cette élection. Pour continuer le processus, commencer par télécharger le fichier de sauvegarde généré pendant la session précédente.
+            title: Restaurer les clés d'élection pour %{election}
+            upload_election_keys: Télécharger les clés d'élection
+            upload_icon: Icône indiquant une action de téléchargement
+          tally_steps:
+            back: Retour
+            description: Les résultats de cette élection sont calculés dans le Bulletin Board et pour compléter ce processus, votre participation en tant que garant est nécessaire.
+            list:
+              status: Statut
+              task: Tâche
+            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
+            start: Démarrer
+            start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
+            status:
+              completed: Terminé
+              pending: En attente
+              processing: Traitement en cours
+          update:
+            error: Le statut de l'élection n'a pas été mis à jour.
+            success: 'Le statut de l''élection est : %{status}'
+        menu:
+          trustee_zone: Espace de garant
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Non'
+                  name: Action requise ?
+                  'true': Effectuer l'action
+                bb_status: Statut
+                election: Élection
+                voting_period: Période de vote
+              no_elections: Il n'y a pas d'élections dans lesquelles vous êtes garant.
+              title: Élections
+            identification_keys:
+              cancel: Annuler
+              generate: Générer les clés d'identification
+              generate_error: Une erreur s'est produite lors de la génération des clés d'identification.
+              generate_legend: Vous devez générer une paire de clés d'identification pour participer aux élections en tant que garant.
+              generate_legend_1: Après avoir cliqué sur le bouton, le téléchargement du fichier contenant les clés d'identification générées va commencer.
+              generate_legend_2: Copiez le fichier téléchargé sur un périphérique USB fiable
+              generate_legend_3: Assurez-vous que votre ordinateur ne possède pas de copie du fichier (par exemple, vérifiez les dossiers Téléchargements et Bureau).
+              generate_legend_4: Faites une autre copie du fichier sur un appareil externe et conservez-le dans un endroit très sûr.
+              submit: Envoyer
+              submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur Decidim.
+              submit_title: Soumettre la clé d'identification publique
+              title: Clés d'identification du garant
+              upload: Téléchargez vos clés d'identification
+              upload_error:
+                invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
+                invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
+                invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée par Decidim.
+              upload_legend: Decidim a vos clés d'identification publiques, mais votre navigateur ne l'a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
+            not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
+            not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
+            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
+          update:
+            success: Votre clé d'identification publique a bien été stockée.
+      votes:
+        confirm:
+          answer: Répondre
+          answer_number: répondre à %{number}
+          confirm: Valider
+          edit: éditer
+          header: Confirmer votre vote
+          intro: Voici un résumé du vote que vous êtes sur le point d'envoyer. <br> Veuillez confirmer votre vote ou modifier vos réponses.
+          nota_option: Vide
+          question: Question %{count}
+        confirmed:
+          back: Retour aux élections
+          experience: Comment a été votre expérience?
+          feedback: Donnez-nous votre avis
+          header: Vote confirmé
+          lead: Votre vote a déjà été exprimé!
+          text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+        encrypting:
+          header: Encodage du vote...
+          text: Votre vote est en cours de cryptage pour vous assurer que vous pouvez le diffuser de manière anonyme.
+        failed:
+          header: Le vote a échoué
+          lead: Votre vote n'a pas été exprimé!
+          text: Une erreur est survenue, veuillez réessayer.
+        header:
+          confirm: Confirmer votre vote
+          confirmed: Vote confirmé
+          encrypting: Confirmation du vote
+        messages:
+          not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
+        modal:
+          close: Fermer
+          proposal_header: 'Propositions:'
+        new:
+          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses
+          more_information: Plus d'informations
+          nota_option: Vide / Aucune des options ci-dessus
+          preview_alert: Ceci est un aperçu de la cabine de vote.
+          question_steps: Question %{current_step} sur %{total_steps}
+          selections: "%{selected} sur %{max_selections}<br> sélections"
+        processing:
+          header: Traitement du vote...
+          text: Votre vote a été reçu et est en cours de traitement. Veuillez patienter.
+        update:
+          error: Un problème est survenu lors de la mise à jour du statut de vote
+          success: Statut du vote mis à jour avec succès
+        verify:
+          content:
+            heading: Vérifiez votre vote
+          error:
+            header: Vote introuvable !
+        voting_step:
+          back: Retour
+          continue: Suivant
+      warnings:
+        no_elections_warning: Aucune élection ne correspond à vos critères de recherche ou aucune élection n'est programmée.
+        no_scheduled_elections_warning: À l'heure actuelle, il n'y a pas d'élections programmées, mais vous trouverez ici toutes les élections passées.
+    events:
+      elections:
+        election_published:
+          email_intro: 'L''élection %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez la voir sur cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: L'élection %{resource_title} est maintenant active pour %{participatory_space_title}.
+          notification_title: L'élection de <a href="%{resource_path}">%{resource_title}</a> est maintenant active pour %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}".
+            email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
+            notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
+            email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
+            notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Une <strong>élection</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à l'élection, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de l'élection arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les élections peuvent porter sur presque n'importe quel aspect qui affecte une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
+          page: "<p>Une <strong>élection</strong> est un espace qui vous permet de poser une question claire à toutes les personnes formant une organisation, d'appeler à participer à l'élection, à susciter et organiser le débat pour ou contre une réponse. Lorsque la date de l'élection arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples : Les élections peuvent porter sur presque n'importe quel aspect qui affecte une organisation : changer le nom, le logo en offrant plusieurs alternatives, décider ou non de d'intégrer une organisation plus grande, valider ou rejeter un nouveau plan stratégique ou le résultat d'un groupe de travail, choisir la limitation à 1,2 ou 3 mandatures.</p>\n"
+          title: Que sont les élections ?
+    menu:
+      votings: Élections
+    pages:
+      home:
+        statistics:
+          elections_count: Élections
+    participatory_processes:
+      statistics:
+        elections_count: Élections
+    votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Nombre maximum d'éléments à afficher
+        index:
+          not_published: Non publié
+          published: Publié
+        menu:
+          votings: Élections
+          votings_submenu:
+            attachment_collections: Dossiers
+            attachment_files: Fichiers
+            attachments: Pièces jointes
+            info: Information
+            polling_stations: Bureaux de vote
+        models:
+          polling_station:
+            fields:
+              address: Adresse
+              title: Titre
+            name: Bureau de vote
+          voting:
+            fields:
+              created_at: Créée le
+              promoted: Mise en avant
+              published: Publié
+              title: Titre
+        polling_stations:
+          create:
+            invalid: Une erreur est survenue lors de la création de ce bureau de vote
+            success: Le bureau de vote a été créée avec succès
+          destroy:
+            invalid: Une erreur est survenue lors de la suppression de ce bureau de vote
+            success: Le bureau de vote a bien été supprimé
+          edit:
+            title: Modifier le bureau de vote
+            update: Mettre à jour le bureau de vote
+          form:
+            address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
+            location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
+            location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple : l''étage du bâtiment où se trouve le bureau de vote.'
+          index:
+            title: Bureaux de vote
+          new:
+            create: Créer
+            title: Créer un bureau de vote
+          update:
+            invalid: Une erreur est survenue lors de la mise à jour de ce bureau de vote
+            success: Le bureau de vote a bien été mis à jour
+        titles:
+          votings: Élections
+        votings:
+          actions:
+            confirm_destroy: Êtes-vous sûr(e) ?
+            destroy: Supprimer
+            new_voting: Nouvel espace de vote
+            publish: Publier
+            unpublish: Dépublier
+          create:
+            invalid: Une erreur s'est produite lors de la création de cette élection
+            success: Élection créée avec succès
+          edit:
+            assign_missing_officers: Il reste des bureaux de votes sans président et/ou accesseurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
+            update: Mettre à jour
+          form:
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            title: Titre
+          new:
+            create: Créer
+            title: Nouvelle élection
+          publish:
+            success: Élection publiée avec succès
+          unpublish:
+            success: Élection publiée avec succès
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de cette élection
+            success: Élection mise à jour avec succès
+      admin_log:
+        voting:
+          create: "%{user_name} a créé l'élection %{resource_name}"
+          publish: "%{user_name} a publié l'élection %{resource_name}"
+          unpublish: "%{user_name} a annulé la publication de l'élection %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Élections remarquables
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Votations en cours
+            see_all_votings: Voir toutes les votations
+            votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Actions
+                address: Adresse
+                name: Nom
+              title: Bureaux de vote
+      polling_stations:
+        actions:
+          confirm_destroy: Êtes-vous sûr(e) ?
+          destroy: Supprimer
+          edit: Modifier
+          new: Nouveau
+          title: Actions
+      votings:
+        count:
+          title:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        filters:
+          active: Actifs
+          all: Tous
+          finished: Terminées
+          search: Rechercher
+          state: Statut
+          upcoming: À venir
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Dérouler
+        index:
+          no_votings: Aucun vote ne correspond à votre recherche.
+          only_finished: À l'heure actuelle, il n'y a pas de votes planifiés, mais vous trouverez ici une liste de tous les votes passées.
+          title: Votations
+        orders:
+          label: 'Trier les votations par:'
+          random: Aléatoire
+          recent: Les plus récentes
+        show:
+          dates: Dates
+      votings_m:
+        badge_name:
+          finished: Passées
+          ongoing: En cours
+          upcoming: À venir
+        footer_button_text:
+          participate: Participer
+          view: Voir
+          vote: Voter
+        unspecified: Non précisées
+        voting_type:
+          hybrid: Hybride
+          in_person: En présentiel
+          online: En ligne
+        voting_types_label: Type de vote
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Quitter
+      votings:
+        index:
+          promoted_votings: Votations remarquables
+        promoted_voting:
+          more_info: Plus d'informations
+          vote: Voter

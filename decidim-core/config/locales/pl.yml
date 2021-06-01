@@ -471,7 +471,7 @@ pl:
           subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
           terms: warunki i zasady korzystania
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
-          tos_title: Warunki korzystania z Serwisu
+          tos_title: Warunki korzystania z Platformy
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
@@ -725,11 +725,11 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: Jako obrazów używaj najlepiej krajobrazów, serwis docina obraz. Dla plików CSV separatorem kolumn musi być przecinek (",")
+          message_2: Jako obrazów używaj najlepiej krajobrazów, obraz jest docinany automatycznie. Dla plików CSV separatorem kolumn musi być przecinek (",")
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
-          message_2: Serwis docina obraz.
+          message_2: Obraz jest docinany automatycznie.
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
@@ -1131,8 +1131,8 @@ pl:
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
-          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Serwisu. W przeciwnym razie nie będziesz mógł korzystać z platformy.
-          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z serwisu'
+          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Platformy. W przeciwnym razie nie będziesz mógł korzystać z platformy.
+          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:

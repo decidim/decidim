@@ -27,6 +27,9 @@ ja:
         user_group_id: 次のように提案を作成
       proposal_answer:
         answer: 回答
+        cost: コスト
+        cost_report: コストレポート
+        execution_period: 実行期間
       proposals_copy:
         copy_proposals: 選択したコンポーネントからのすべての提案を現在のものにインポートし、このアクションを元に戻すことができないことを理解しています。
         origin_component_id: 提案をコピーするコンポーネント
@@ -133,6 +136,10 @@ ja:
             participatory_texts_enabled_readonly: 既存の提案がある場合は、この設定は操作できません。 この機能を有効にする場合は、新しい `提案 コンポーネント` を作成し、もし無効にしたい場合はインポートされたすべての提案を `参加型 テキスト` メニューから破棄してください。
             proposal_answering_enabled: 提案への回答を有効にする
             proposal_edit_before_minutes: 作成者が提案を作成してから編集が可能な時間（分）
+            proposal_edit_time: 提案の編集
+            proposal_edit_time_choices:
+              infinite: いつでも提案を編集することを許可する
+              limited: 特定の期間内での提案の編集を許可する
             proposal_length: 提案本文の最大長
             proposal_limit: 参加者ごとの提案数制限
             proposal_wizard_step_1_help_text: 提案ウィザード "作成" ステップヘルプ テキスト
@@ -348,6 +355,7 @@ ja:
         actions:
           preview: プレビュー
         exports:
+          proposal_comments: コメント
           proposals: 提案
         models:
           proposal:
@@ -371,7 +379,9 @@ ja:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(ドキュメントセクションのプレビューとソートが可能になります)"
+            document_legend: '2MB未満のドキュメントを追加してください。セクションの深さが3レベルになるまで、各セクションは提案にパースされます。提案書式は次のとおりです: %{valid_mime_types}'
             title: ドキュメントを追加
             upload_document: ドキュメントをアップロード
           publish:
@@ -412,6 +422,7 @@ ja:
           form:
             attachment_legend: "(オプション) 添付ファイルを追加"
             created_in_meeting: この提案は会議から来ています
+            delete_attachment: 添付ファイルを削除
             select_a_category: カテゴリを選択
             select_a_meeting: ミーティングを選択
           index:
@@ -485,6 +496,7 @@ ja:
             no_components: この参加スペースには他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
             select_states: インポートする提案のステータスを確認してください
+            title: 提案をインポート
         proposals_merges:
           create:
             invalid: 選択した提案をマージする際に問題が発生しました。
@@ -635,6 +647,9 @@ ja:
           info: <strong>共同ドラフト</strong>を作成しています。
         wizard_header:
           title: 共同作業の下書きを作成する
+      content_blocks:
+        highlighted_proposals:
+          proposals: 提案
       create:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。ドラフトとして保存されました。
@@ -643,6 +658,7 @@ ja:
         success: 提案の下書きは正常に削除されました。
       last_activity:
         new_proposal_at_html: "<span> %{link}で新しい提案</span>"
+        proposal_updated_at_html: "<span> %{link} で提案が更新されました</span>"
       models:
         collaborative_draft:
           fields:
@@ -686,9 +702,16 @@ ja:
         count:
           proposals_count:
             other: "%{count} の提案"
+        dynamic_map_instructions:
+          instructions: <h3>地図上のポイントを移動することができます。 </h3><p>提案を公開する前に「位置を更新」ボタンをクリックしてください。</p>
         edit:
+          add_documents: ドキュメント
+          add_images: ファイル
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
+          delete_document: ドキュメントの削除
+          delete_image: 画像を削除
+          gallery_legend: "(オプション) 提案カードに画像を追加する"
           select_a_category: カテゴリを選択してください
           send: 送信
           title: 提案を編集
@@ -740,12 +763,17 @@ ja:
             document_index: ドキュメントのインデックス
           view_index:
             see_index: インデックスを見る
+        placeholder:
+          address: インディアナ州 ホームウッドドライブブラウンズバーグ 37, 46112
         preview:
+          announcement_body: あなたの提案は下書きとして保存されました。サイトに表示するには公開する必要があります。
+          announcement_title: 提案はまだ公開されていません
           modify: 提案を変更する
           proposal_edit_before_minutes:
             other: 提案が公開されてから最初の %{count} 分間、この提案を編集することができます。 この時間が経過すると、提案を編集することはできません。
           publish: 公開
           title: 提案を公開
+          update_position: 位置を更新
         proposal:
           creation_date: '作成: %{date}'
           view_proposal: 提案を表示

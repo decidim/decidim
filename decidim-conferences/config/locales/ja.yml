@@ -3,6 +3,7 @@ ja:
     attributes:
       conference:
         assemblies_ids: 関連する参加スペース
+        available_slots: 利用可能なスロット
         banner_image: バナー画像
         consultations_ids: 関連する議案
         copy_categories: カテゴリをコピー
@@ -10,26 +11,59 @@ ja:
         copy_features: 機能をコピー
         decidim_scope_id: スコープ
         description: 説明
+        end_date: 終了日
         hashtag: ハッシュタグ
         hero_image: ホーム画像
+        location: 場所
+        main_logo: メインロゴ
+        objectives: 目的
         participatory_processes_ids: 関連する参加型プロセス
         promoted: 強調表示
         published_at: 公開日時
+        registration_terms: 参加規約
+        registrations_enabled: 登録可能
         scope_id: スコープ
         scopes_enabled: スコープは有効です
         short_description: 短い説明
         show_statistics: 統計情報を表示
+        sign_date: 署名日
+        signature: 署名
+        signature_name: 署名の名前
         slogan: Slogan
         slug: URL スラグ
+        start_date: 開始日
         title: タイトル
       conference_media_link:
+        date: 日付
+        link: リンク
+        title: タイトル
         weight: 重量
       conference_partner:
+        link: リンク
+        logo: ロゴ
+        name: 名前
+        partner_type: パートナータイプ
         weight: 重量
+      conference_registration_invite:
+        email: Eメールアドレス
+        name: 名前
+        registration_type_id: 登録種別
+        user_id: ユーザー
       conference_registration_type:
+        description: 説明
+        price: 価格
+        title: タイトル
         weight: 重量
       conference_speaker:
+        affiliation: 所属
+        avatar: アバター
+        conference_meeting_ids: 関連するミーティング
         full_name: フルネーム
+        personal_url: 個人URL
+        position: 位置
+        short_bio: 略歴
+        twitter_handle: Twitterアカウント
+        user_id: ユーザー
       conference_user_role:
         email: Eメールアドレス
         name: 名前
@@ -269,6 +303,10 @@ ja:
       conferences:
         conference_registration:
           confirm: "%{user_name} が %{resource_name} カンファレンスへの登録を確認しました"
+        partner:
+          create: "%{user_name} が %{space_name} カンファレンスでパートナー %{resource_name} を作成しました"
+          delete: "%{user_name} がパートナー %{resource_name} を %{space_name} カンファレンスから削除しました"
+          update: "%{user_name} が %{space_name} カンファレンスのパートナー %{resource_name} を更新しました"
         registration_type:
           create: "%{user_name} が %{resource_name} カンファレンスで %{space_name} の登録タイプを作成しました"
           publish: "%{user_name} が %{resource_name} カンファレンスで %{space_name} 登録タイプを公開しました"
@@ -400,6 +438,7 @@ ja:
         personal_website: 個人のウェブサイト
         show:
           more_info: 詳細情報
+          speaking_at: 発表場所
       conference_speaker_cell:
         personal_url:
           personal_website: 個人のウェブサイト
