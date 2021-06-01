@@ -191,6 +191,8 @@ it:
           key_ceremony:
             title: Cerimonia chiave
             trustees: Fiduciari
+          tally_ended:
+            title: Risultati conteggiati
       admin_log:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
@@ -200,11 +202,22 @@ it:
           elections_count:
             one: "%{count} elezione"
             other: "%{count} elezioni"
+        preview:
+          available_answers: Risposte disponibili
+          description: Queste sono le domande che troverete nel processo di voto
         results:
           description: Questi sono i risultati della votazione, per ogni quesito
           selected: Selezionato
           title: Risultati delle elezioni
+          votes:
+            one: "%{count} voto"
+            other: "%{count} voti"
+            zero: "%{count} voti"
         show:
+          action-button:
+            change-vote: Cambia il tuo voto
+            vote: Inizia a votare
+            vote-again: Vota di nuovo
           back: Elezioni disponibili
           preview: Anteprima
           voting_period_status:
