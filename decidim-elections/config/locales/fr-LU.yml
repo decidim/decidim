@@ -1,0 +1,262 @@
+fr-LU:
+  activemodel:
+    attributes:
+      answer:
+        description: Description
+        image: Image
+        proposals: Propositions associées
+        title: Titre
+      election:
+        description: Description
+        end_time: Le vote se termine à
+        start_time: Le vote commence à
+        title: Titre
+      question:
+        description: Description
+        max_selections: Nombre maximum de sélections
+        min_selections: Aucune des options ci-dessus
+        title: Titre
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Réponse
+        other: Réponses
+      decidim/elections/election:
+        one: Élection
+        other: Élections
+      decidim/elections/question:
+        one: Question
+        other: Questions
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Voter
+        name: Élections
+        settings:
+          global:
+            announcement: Annonce
+          step:
+            announcement: Annonce
+    elections:
+      actions:
+        confirm_destroy: Êtes-vous certain ?
+        destroy: Détruire
+        edit: Modifier
+        edit_answers: Modifier les réponses
+        edit_questions: Modifier les questions
+        import: Importer des propositions dans les réponses
+        new: Nouveau %{name}
+        preview: Aperçu
+        publish: Publier
+        title: Actions
+        unpublish: Dépublier
+      admin:
+        answers:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette réponse
+            success: Réponse créée avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette réponse
+            success: Réponse supprimée avec succès
+          edit:
+            title: Modifier la réponse
+            update: Mettre à jour la réponse
+          index:
+            invalid_max_selections: Vous avez besoin de %{missing_answers} réponse(s) de plus pour correspondre aux sélections maximales
+            title: Réponses
+          new:
+            create: Créer une réponse
+            title: Nouvelle réponse
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cette réponse
+            success: Réponse mise à jour avec succès
+        elections:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette élection
+            success: Élection créée avec succès
+          destroy:
+            invalid: Il y a eu un problème lors de la suppression de cette élection
+            success: Élection supprimée avec succès
+          edit:
+            title: Modifier l'élection
+            update: Mettre à jour l'élection
+          index:
+            no_bulletin_board: Il n'y a pas de <a href="https://github.com/decidim/decidim-bulletin-board">serveur Bulletin Board</a> configuré, ce qui est nécessaire pour utiliser ce module. Cette tâche doit être effectuée par l'administrateur système.
+            title: Élections
+          new:
+            create: Créer une élection
+            title: Nouvelle élection
+          publish:
+            success: L'élection a été publiée avec succès.
+          unpublish:
+            success: L'élection a été dépubliée avec succès.
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de cette élection
+            success: Élection mise à jour avec succès
+        models:
+          answer:
+            name: Réponse
+          election:
+            name: Élection
+          question:
+            name: Question
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l'importation des propositions en réponses
+            success: "%{number} propositions importées avec succès dans les réponses"
+          new:
+            create: Importer des propositions dans les réponses
+            no_components: Il n'y a pas d'autres fonctionnalités Propositions dans cet espace participatif pour importer des propositions.
+            select_component: Veuillez sélectionner une fonctionnalité
+        questions:
+          create:
+            invalid: Il y a eu un problème lors de la création de cette question
+            success: Question créée avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette question
+            success: Question supprimée avec succès
+          edit:
+            title: Modifier la question
+            update: Mettre à jour la question
+          index:
+            title: Questions
+          new:
+            create: Créer une question
+            title: Nouvelle question
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour de cette question
+            success: Question mise à jour avec succès
+      admin_log:
+        election:
+          publish: "%{user_name} a publié l'élection %{resource_name}"
+          unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Terminées
+          ongoing: Active
+          upcoming: À venir
+        end_date: Se termine le
+        footer:
+          view: Voir
+          vote: Voter
+        label:
+          date: Dates
+        questions: '%{count} questions'
+        start_date: Début
+        unspecified: Non spécifié
+      elections:
+        count:
+          elections_count:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        filters:
+          active: Actif
+          all: Toutes
+          finished: Terminées
+          search: Rechercher
+          state: Statut
+          upcoming: À venir
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Voir plus
+        show:
+          back: Toutes les élections
+          preview: Aperçu
+          vote: Voter
+          voting_period_status:
+            finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
+            ongoing: Le vote se termine le %{end_time}
+            upcoming: Le vote commence le %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Propositions
+            title: Titre
+        election:
+          fields:
+            end_time: Prend fin à
+            start_time: Commence à
+            title: Titre
+        question:
+          fields:
+            answers: Réponses
+            max_selections: Nombre maximum de sélections
+            title: Titre
+      orders:
+        label: Trier les élections par 
+        older: Les plus anciens
+        recent: Les plus récents
+      votes:
+        confirm:
+          answer: Répondre
+          answer_number: répondre à %{number}
+          confirm: Valider
+          edit: éditer
+          header: Confirmer votre vote
+          intro: Voici un résumé du vote que vous êtes sur le point d'envoyer. <br> Veuillez confirmer votre vote ou modifier vos réponses.
+          nota_option: Vide
+          question: Question %{count}
+        confirmed:
+          back: Retour aux élections
+          experience: Comment a été votre expérience?
+          feedback: Donnez-nous votre avis
+          header: Vote confirmé
+          lead: Votre vote a déjà été exprimé!
+          text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Pour vérifier, copiez l'identifiant et collez-le sur la <a href="evote-verify">page de vérification de vote</a>
+        encrypting:
+          header: Encodage du vote...
+          text: Votre vote est en cours de cryptage pour vous assurer que vous pouvez le diffuser de manière anonyme.
+        header:
+          confirm: Confirmer votre vote
+          confirmed: Vote confirmé
+          encrypting: Confirmation du vote
+        messages:
+          not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
+        modal:
+          close: Fermer
+          proposal_header: 'Propositions:'
+        new:
+          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses
+          more_information: Plus d'informations
+          nota_option: Vide / Aucune des options ci-dessus
+          preview_alert: Ceci est un aperçu de la cabine de vote.
+          question_steps: Question %{current_step} sur %{total_steps}
+          selections: "%{selected} sur %{max_selections}<br> sélections"
+        voting_step:
+          back: Retour
+          continue: Suivant
+      warnings:
+        no_elections_warning: Aucune élection ne correspond à vos critères de recherche ou aucune élection n'est programmée.
+        no_scheduled_elections_warning: À l'heure actuelle, il n'y a pas d'élections programmées, mais vous trouverez ici toutes les élections passées.
+    events:
+      elections:
+        election_published:
+          email_intro: 'L''élection %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez la voir sur cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: L'élection %{resource_title} est maintenant active pour %{participatory_space_title}.
+          notification_title: L'élection de <a href="%{resource_path}">%{resource_title}</a> est maintenant active pour %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Élections
+    participatory_processes:
+      statistics:
+        elections_count: Élections
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Quitter
