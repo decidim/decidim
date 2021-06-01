@@ -1,5 +1,36 @@
 # Change Log
 
+## [v0.24.3](https://github.com/decidim/decidim/releases/tag/v0.24.3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-participatory processes**: Fix attachment title migration generating possibly invalid values [\#8044](https://github.com/decidim/decidim/pull/8044)
+- **decidim-comments**, **decidim-consultations**: Fix for commenting in consultation questions [\#8062](https://github.com/decidim/decidim/pull/8062)
+- **decidim-core**: Fix boolean fields for .reported? and .hidden? which is nil if no report exists [\#8082](https://github.com/decidim/decidim/pull/8082)
+- **decidim-core**: Fix redirects broken by Terms and Conditions redirect [\#8083](https://github.com/decidim/decidim/pull/8083)
+- **decidim-core**: Use correct newsletter cell for web view [\#8081](https://github.com/decidim/decidim/pull/8081)
+- **decidim-core**, **decidim-proposals**: Remove proposals filters cache [\#8038](https://github.com/decidim/decidim/pull/8038)
+- **decidim-core**, **decidim-meetings**: Include resources on maps only when the geocoding got valid coords [\#8039](https://github.com/decidim/decidim/pull/8039)
+- **decidim-core**: Fix editor when formatting starts with a linebreak [\#8024](https://github.com/decidim/decidim/pull/8024)
+- **decidim-admin**: Use symbols for polymorphic route arguments [\#8060](https://github.com/decidim/decidim/pull/8060)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Bump gems versions to fix dependendabot alerts [\#8041](https://github.com/decidim/decidim/pull/8041)
+- Bump bundle version for security reasons [\#8084](https://github.com/decidim/decidim/pull/8084)
+
 ## [v0.24.2](https://github.com/decidim/decidim/releases/tag/v0.24.2)
 
 ### Added
