@@ -368,6 +368,13 @@ ca:
           close: Tancar trobada
           title: Tancar trobada
       meetings:
+        calendar_modal:
+          add_to_calendar: Afegeix al calendari
+          apple: Afegeix al calendari d'Apple
+          close_window: Tanca la finestra
+          full_details_html: Per a més informació visiteu %{link}
+          google: Afegeix al calendari de Google
+          outlook: Afegeix al calendari d'Outlook
         count:
           meetings_count:
             one: "%{count} trobada"
@@ -480,6 +487,11 @@ ca:
             official_meeting: Trobada oficial
             start_time: Data d'inici
             title: Títol
+      public_participants_list:
+        attending_participants: Participants que assisteixen
+        hidden_participants_count:
+          one: i %{count} persona més
+          other: i %{count} persones més
       read_more: "(llegeix més)"
       registration_mailer:
         confirmation:
