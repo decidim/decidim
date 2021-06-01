@@ -353,6 +353,17 @@ pl:
           values:
             'false': Oficjalny
             'true': Nieoficjalny
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Zaakceptowano zaproszenie
+            values:
+              'false': Nie zaakceptowano
+              'true': Zaakceptowano
+          user_invitation_sent_at_not_null:
+            label: Wysłano zaproszenie
+            values:
+              'false': Nie wysłano
+              'true': Wysłano
         private_space_eq:
           label: Prywatny
           values:
