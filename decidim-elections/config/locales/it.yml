@@ -219,7 +219,14 @@ it:
             vote: Inizia a votare
             vote-again: Vota di nuovo
           back: Elezioni disponibili
+          callout:
+            already-voted: Hai già espresso il tuo voto in questa elezione. Puoi cambiare il tuo voto o verificarlo.
+            vote-rejected: Non è stato possibile verificare il tuo voto. Per favore esprimi il tuo voto di nuovo.
           preview: Anteprima
+          verify:
+            already-voted: Hai già votato?
+            verify-here: Verifica il tuo voto qui.
+            will-verify: Sarete in grado di verificare il vostro voto una volta che le votazioni saranno iniziate.
           voting_period_status:
             finished: La votazione è iniziata il %{start_time} ed è terminata il %{end_time}
             upcoming: La votazione inizia il %{start_time}
@@ -287,6 +294,7 @@ it:
           question: Domanda %{count}
         confirmed:
           back: Torna alle elezioni
+          error: Siamo spiacenti, si è verificato un errore nella conferma del voto. Si prega di votare di nuovo.
           experience: Com'è stata la tua esperienza?
           feedback: Lasciaci un feedback
           header: Voto confermato
@@ -311,6 +319,12 @@ it:
           preview_alert: Questa è un'anteprima della cabina di voto.
           question_steps: Domanda %{current_step} di %{total_steps}
           selections: "%{selected} di %{max_selections}<br> selezioni"
+        processing:
+          header: Elaborazione del voto...
+          text: Il tuo voto è stato ricevuto ed è in fase di elaborazione. Attendere prego.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento dello stato della voto
+          success: Stato del voto aggiornato con successo
         voting_step:
           back: Indietro
           continue: Successivo
@@ -329,13 +343,24 @@ it:
       statistics:
         elections_count: Elezioni
     votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: Comitato di Sorveglianza
       polling_officer_zone:
         polling_officers:
           show:
+            actions:
+              count_votes: Conteggio dei voti nelle urne
+              identify_person: Identifica e verifica una persona
+            polling_officer_role_description: Sei stato designato funzionario del seggio elettorale (Presidente o Gestore) in alcune elezioni svolte su questa piattaforma.
             polling_stations:
               list:
                 actions: Azioni
                 name: Nome
+                role: Il tuo ruolo
+                voting: Votazione
+              no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
   layouts:
     decidim:
       election_votes_header:
