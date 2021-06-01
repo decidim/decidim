@@ -100,7 +100,6 @@ module Decidim
         remove_file "config/initializers/assets.rb"
         remove_dir("app/assets")
         remove_dir("app/javascript")
-        copy_file "assets.rb", "config/initializers/assets.rb"
       end
 
       def remove_sprockets_requirement
