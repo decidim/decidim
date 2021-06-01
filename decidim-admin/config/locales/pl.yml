@@ -161,7 +161,7 @@ pl:
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:
-          new: Nowy prywatny użytkownik przestrzeni partycypacyjnej
+          new: Nowy użytkownik prywatny
         per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzuć
