@@ -6,6 +6,7 @@ $(() => {
   const totalAllocation = parseInt($budgetSummaryTotal.attr("data-total-allocation"), 10);
 
   const cancelEvent = (event) => {
+    $(event.currentTarget).removeClass("loading-spinner");
     event.stopPropagation();
     event.preventDefault();
   };
@@ -24,6 +25,8 @@ $(() => {
     const currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
     const $currentTarget = $(event.currentTarget);
     const projectAllocation = parseInt($currentTarget.attr("data-allocation"), 10);
+
+    $currentTarget.addClass("loading-spinner");
 
     if ($currentTarget.attr("disabled")) {
       cancelEvent(event);

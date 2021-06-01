@@ -108,6 +108,14 @@
       padding: 1rem $card-padding;
     }
 
+    .loading-spinner {
+      margin: 0 !important;
+      position: relative;
+      &:before {
+        position: absolute;
+      }
+    }
+
     &:last-child{
       margin-bottom: 0;
     }
