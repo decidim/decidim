@@ -37,6 +37,9 @@
 }
 
 .questionnaire-question-matrix{
+  display: block;
+  overflow-x: auto;
+
   .collection-input{
     display: flex;
     align-items: center;
