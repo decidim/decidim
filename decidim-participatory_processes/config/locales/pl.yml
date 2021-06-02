@@ -37,7 +37,7 @@ pl:
       participatory_process_group:
         description: Opis
         hero_image: Obraz
-        name: Nazwa
+        name: Imię
         participatory_process_ids: Powiązane procesy
       participatory_process_step:
         cta_path: Ścieżka przycisku CTA
@@ -49,7 +49,7 @@ pl:
         title: Tytuł
       participatory_process_user_role:
         email: Adres e-mail
-        name: Nazwa
+        name: Imię
         role: Rola
     errors:
       models:
@@ -123,7 +123,7 @@ pl:
           name: Proces partycypacyjny
         participatory_process_group:
           fields:
-            name: Nazwa
+            name: Imię
           name: Grupa procesu
         participatory_process_step:
           fields:
