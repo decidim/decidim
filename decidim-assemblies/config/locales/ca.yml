@@ -63,7 +63,6 @@ ca:
         full_name: Nom complet
         gender: Gènere
         position: Posició
-        user_id: Usuària
       assembly_user_role:
         email: Correu electrònic
         name: Nom
