@@ -8,8 +8,8 @@ module Decidim
       include Decidim::ResourceHelper
 
       before_action :authenticate_user!, only: [:create]
-      before_action :set_commentable
-      before_action :ensure_commentable!
+      before_action :set_commentable, except: [:destroy]
+      before_action :ensure_commentable!, except: [:destroy]
 
       helper_method :root_depth, :commentable, :order, :reply?, :reload?
 
@@ -63,12 +63,38 @@ module Decidim
         end
       end
 
+      def destroy
+        set_comment
+        @commentable = @comment.commentable
+
+        enforce_permission_to :destroy, :comment, comment: comment
+
+        Decidim::Comments::DeleteComment.call(comment, current_user) do
+          on(:ok) do
+            @comments_count = @comment.root_commentable.comments_count
+            respond_to do |format|
+              format.js { render :delete }
+            end
+          end
+
+          on(:invalid) do
+            respond_to do |format|
+              format.js { render :deletion_error }
+            end
+          end
+        end
+      end
+
       private
 
       attr_reader :commentable, :comment
 
       def set_commentable
         @commentable = GlobalID::Locator.locate_signed(commentable_gid)
+      end
+
+      def set_comment
+        @comment = Decidim::Comments::Comment.find_by(id: params[:id])
       end
 
       def ensure_commentable!

@@ -183,6 +183,14 @@ module Decidim
         @translated_body ||= translated_attribute(body, organization)
       end
 
+      def delete!
+        return if deleted?
+
+        update(deleted_at: Time.current)
+
+        update_counter
+      end
+
       def deleted?
         deleted_at.present?
       end

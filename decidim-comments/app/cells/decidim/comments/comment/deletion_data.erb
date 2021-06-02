@@ -1,6 +1,1 @@
-<div class="comment__header">
-  <div class="comment__deleted">
-    <%= deletion_message %>
-  </div>
-</div>
-
+<%= render partial: "decidim/comments/comments/delete.html", locals: { comment: model } %>

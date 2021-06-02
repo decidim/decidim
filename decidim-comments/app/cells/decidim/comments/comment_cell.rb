@@ -7,6 +7,7 @@ module Decidim
       include ActionView::Helpers::DateHelper
       include Decidim::IconHelper
       include Decidim::ResourceHelper
+      include Cell::ViewModel::Partial
 
       delegate :current_user, :user_signed_in?, to: :controller
 
@@ -93,10 +94,6 @@ module Decidim
         else
           I18n.t("decidim.components.comment.alignment.against")
         end
-      end
-
-      def deletion_message
-        t("decidim.components.comment.deleted_at", date: l(deleted_at, format: :decidim_short))
       end
 
       def votes_up_classes

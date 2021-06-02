@@ -20,6 +20,8 @@ en:
       comments:
         create:
           error: There was a problem creating the comment.
+        delete:
+          error: The comment couldn't be deleted.
       comments_count: Comments count
       comments_title: Comments
       last_activity:

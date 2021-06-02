@@ -18,7 +18,7 @@ module Decidim
       isolate_namespace Decidim::Comments
 
       routes do
-        resources :comments, only: [:index, :create] do
+        resources :comments, only: [:index, :create, :destroy] do
           resources :votes, only: [:create]
         end
       end
