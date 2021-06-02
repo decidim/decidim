@@ -63,7 +63,6 @@ de:
         full_name: Vollständiger Name
         gender: Geschlecht
         position: Position
-        user_id: User
       assembly_user_role:
         email: Email
         name: Name
