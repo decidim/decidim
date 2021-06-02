@@ -55,7 +55,6 @@ is-IS:
         full_name: Fullt nafn
         gender: Kyn
         position: Staða
-        user_id: Notandi
       assembly_user_role:
         email: Email
         name: Nafn
