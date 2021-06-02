@@ -33,7 +33,7 @@ pl:
         full_name: Pełne imię i nazwisko
       conference_user_role:
         email: E-mail
-        name: Nazwa
+        name: Imię
         role: Rola
     errors:
       models:
