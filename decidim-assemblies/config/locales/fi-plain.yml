@@ -63,7 +63,6 @@ fi-pl:
         full_name: Koko nimi
         gender: Sukupuoli
         position: Asema
-        user_id: Käyttäjä
       assembly_user_role:
         email: Sähköposti
         name: Nimi
