@@ -8,13 +8,13 @@ pl:
         title: Tytuł
       election:
         description: Opis
-        end_time: Głosowanie kończy się
-        start_time: Głosowanie rozpoczyna się
+        end_time: Głosowanie kończy się o
+        start_time: Głosowanie rozpoczyna się o
         title: Tytuł
       question:
         description: Opis
-        max_selections: Maksymalna liczba wyborów
-        min_selections: Żaden z powyższych wariantów
+        max_selections: Maksymalna liczba opcji do wybrania
+        min_selections: Żadna z powyższych opcji
         title: Tytuł
       voting:
         end_time: Głosowanie kończy się
@@ -28,13 +28,13 @@ pl:
         election:
           attributes:
             attachment:
-              needs_to_be_reattached: Musi zostać ponownie załączony
+              needs_to_be_reattached: Załącz ponownie
         trustee:
           attributes:
             name:
               cant_be_changed: nie można zmienić
             public_key:
-              cant_be_changed: nie może zostać zmieniony
+              cant_be_changed: nie można zmienić
   activerecord:
     errors:
       models:
@@ -100,7 +100,7 @@ pl:
     components:
       elections:
         actions:
-          vote: Wspieranie
+          vote: Głosowanie
         name: Wybory
         settings:
           global:
@@ -134,7 +134,7 @@ pl:
             title: Edytuj odpowiedź
             update: Aktualizuj odpowiedź
           index:
-            invalid_max_selections: Potrzebujesz jeszcze %{missing_answers} odpowiedzi, aby osiągnąć maksymalną liczbę wyborów
+            invalid_max_selections: Potrzebujesz jeszcze %{missing_answers} odpowiedzi, aby osiągnąć maksymalną liczbę opcji do wybrania
             title: Odpowiedzi
           new:
             create: Utwórz odpowiedź
@@ -152,8 +152,8 @@ pl:
             success: Odpowiedź została zaktualizowana
         elections:
           create:
-            invalid: Wystąpił błąd podczas tworzenia wyboru
-            success: Wybór został utworzony
+            invalid: Wystąpił błąd podczas tworzenia wyborów
+            success: Wybory zostały pomyślnie utworzone
           destroy:
             invalid: Wystąpił błąd podczas usuwania wyboru
             success: Wybór został usunięty
