@@ -7,14 +7,14 @@ module Decidim::Assemblies
     subject { described_class.new(form, current_user, assembly) }
 
     let(:assembly) { create(:assembly) }
-    let(:user) { nil }
+    let(:user_entity) { nil }
     let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
     let(:form) do
       instance_double(
         Admin::AssemblyMemberForm,
         invalid?: invalid,
         full_name: "Full name",
-        user: user,
+        user: user_entity,
         attributes: {
           weight: 0,
           full_name: "Full name",
@@ -67,11 +67,11 @@ module Decidim::Assemblies
       end
 
       context "with an existing user in the platform" do
-        let!(:user) { create(:user, organization: assembly.organization) }
+        let!(:user_entity) { create(:user, organization: assembly.organization) }
 
         it "sets the user" do
           subject.call
-          expect(assembly_member.user).to eq user
+          expect(assembly_member.user).to eq user_entity
         end
 
         it "notifies the user" do
@@ -82,11 +82,37 @@ module Decidim::Assemblies
               event: "decidim.events.assemblies.create_assembly_member",
               event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
               resource: assembly,
-              followers: a_collection_containing_exactly(user)
+              followers: a_collection_containing_exactly(user_entity)
             )
 
           subject.call
           expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
+        end
+      end
+
+      context "with an existing group in the platform" do
+        let!(:member1) { create(:user, organization: assembly.organization) }
+        let!(:member2) { create(:user, organization: assembly.organization) }
+        let!(:user_entity) { create(:user_group, :verified, users: [member1, member2], organization: assembly.organization) }
+
+        it "sets the group" do
+          subject.call
+          expect(assembly_member.user).to eq user_entity
+        end
+
+        it "notifies the group members" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .once
+            .with(
+              event: "decidim.events.assemblies.create_assembly_member",
+              event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
+              resource: assembly,
+              followers: a_collection_containing_exactly(member1, member2)
+            )
+
+          subject.call
+          expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.twice.on_queue("mailers")
         end
       end
     end
