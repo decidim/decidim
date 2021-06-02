@@ -89,9 +89,6 @@ module Decidim
         # Create empty directory for images
         empty_directory "app/packs/images"
 
-        # Ensure bundle install before installing webpacker
-        run "bundle install"
-
         # Run webpacker installation
         rails "webpacker:install"
 
