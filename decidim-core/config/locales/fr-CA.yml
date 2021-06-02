@@ -1252,6 +1252,8 @@ fr-CA:
         filters:
           areas: Zones d'application
           select_an_area: Sélectionnez une zone d'application
+      public_participation:
+        public_participation: Afficher ma présence publiquement
       reference:
         reference: 'Référence : %{reference}'
       represent_user_group:
