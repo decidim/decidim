@@ -54,6 +54,7 @@ en:
         alignment:
           against: Against
           in_favor: In favor
+        deleted_at: Comment deleted on %{date}
         deleted_user: Deleted participant
         hide_replies: Hide replies
         reply: Reply

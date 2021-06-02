@@ -1,25 +1,29 @@
 <%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id } do %>
-  <div class="comment__header">
-    <div class="author-data">
-      <div class="author-data__main">
-        <%= render :author %>
-        <span>
-          <%= time_tag created_at, l(created_at, format: :decidim_short) %>
-        </span>
-      </div>
-      <div class="author-data__extra">
-        <%= render :utilities %>
+  <% if model.deleted? %>
+    <%= render :deletion_data %>
+  <% else %>
+    <div class="comment__header">
+      <div class="author-data">
+        <div class="author-data__main">
+          <%= render :author %>
+          <span>
+            <%= time_tag created_at, l(created_at, format: :decidim_short) %>
+          </span>
+        </div>
+        <div class="author-data__extra">
+          <%= render :utilities %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="comment__content">
-    <%= alignment_badge %>
-    <%= comment_body %>
-  </div>
-  <div class="comment__footer">
-    <%= render :actions %>
-    <%= votes %>
-  </div>
+    <div class="comment__content">
+      <%= alignment_badge %>
+      <%= comment_body %>
+    </div>
+    <div class="comment__footer">
+      <%= render :actions %>
+      <%= votes %>
+    </div>
+  <% end %>
   <div id="comment-<%= model.id %>-replies">
     <% if has_replies? %>
       <% replies.each do |reply| %>

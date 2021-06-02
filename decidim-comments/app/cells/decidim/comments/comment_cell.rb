@@ -12,6 +12,7 @@ module Decidim
 
       property :root_commentable
       property :created_at
+      property :deleted_at
       property :alignment
       property :translated_body
       property :comment_threads
@@ -92,6 +93,10 @@ module Decidim
         else
           I18n.t("decidim.components.comment.alignment.against")
         end
+      end
+
+      def deletion_message
+        t("decidim.components.comment.deleted_at", date: l(deleted_at, format: :decidim_short))
       end
 
       def votes_up_classes
