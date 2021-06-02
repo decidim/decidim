@@ -109,7 +109,7 @@ module Decidim
       end
 
       context "with --branch flag" do
-        let(:default_branch) { "webpacker-dep-docs" }
+        let(:default_branch) { "webpacker-deps-docs" }
         let(:command) { "decidim --branch #{default_branch} #{test_app}" }
 
         it_behaves_like "a new production application"

@@ -239,7 +239,7 @@ module Decidim
       def branch
         return if options[:path]
 
-        @branch ||= options[:edge] ? "webpacker-dep-docs" : options[:branch].presence
+        @branch ||= options[:edge] ? "webpacker-deps-docs" : options[:branch].presence
       end
 
       def app_name
