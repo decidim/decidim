@@ -667,6 +667,7 @@ it:
         success: La bozza della proposta è stata cancellata con successo.
       last_activity:
         new_proposal_at_html: "<span>Nuova proposta al %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta aggiornata a%{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -711,6 +712,8 @@ it:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} proposte"
+        dynamic_map_instructions:
+          instructions: <h3>Puoi spostare il punto sulla mappa. </h3><p>Non dimenticare di cliccare sul pulsante "Aggiorna posizione" prima di pubblicare la tua proposta.</p>
         edit:
           add_documents: Documenti
           add_images: File
@@ -780,6 +783,7 @@ it:
             other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
           publish: Pubblica
           title: Pubblica la tua proposta
+          update_position: Aggiorna posizione
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
@@ -896,3 +900,7 @@ it:
       included_proposals:
         proposal_project: 'Le proposte compaiono nei seguenti progetti:'
         proposal_result: 'Le proposte compaiono nei seguenti risultati:'
+    statistics:
+      proposals_accepted: Proposte accettate
+      proposals_count: Proposte
+      supports_count: Sostegni
