@@ -787,7 +787,7 @@ pl:
           success: Użytkownik nie jest już administratorem.
         form:
           email: E-mail
-          name: Nazwa
+          name: Imię
           role: Rola
         new:
           create: Zaproś
