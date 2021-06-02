@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Meetings
     module ContentBlocks
-      describe UpcomingMeetingsCell, type: :cell do
+      describe UpcomingMeetingCell, type: :cell do
         controller Decidim::Meetings::Directory::MeetingsController
 
         let(:html) { cell("decidim/meetings/content_blocks/meetings").call }
