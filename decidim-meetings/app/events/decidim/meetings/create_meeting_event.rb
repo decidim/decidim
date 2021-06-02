@@ -14,7 +14,13 @@ module Decidim
       end
 
       def button_url
-        Decidim::EngineRouter.main_proxy(component).join_meeting_registration_url(meeting_id: resource.id, host: organization.host) if resource.can_be_joined_by?(user)
+        if resource.can_be_joined_by?(user)
+          if resource.registration_form_enabled?
+            Decidim::EngineRouter.main_proxy(component).join_meeting_registration_url(meeting_id: resource.id, host: organization.host)
+          else
+            Decidim::EngineRouter.main_proxy(component).meeting_url(id: resource.id, host: organization.host)
+          end
+        end
       end
     end
   end
