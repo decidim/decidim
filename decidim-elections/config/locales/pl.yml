@@ -154,8 +154,8 @@ pl:
             success: Odpowiedź została zaktualizowana
         elections:
           create:
-            invalid: Wystąpił błąd podczas tworzenia wyboru
-            success: Wybór został utworzony
+            invalid: Wystąpił błąd podczas tworzenia wyborów
+            success: Wybory zostały pomyślnie utworzone
           destroy:
             invalid: Wystąpił błąd podczas usuwania wyboru
             success: Wybór został usunięty
