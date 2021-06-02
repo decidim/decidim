@@ -60,6 +60,7 @@ pt:
         full_name: Nome completo
         gender: Gênero
         position: Posição
+        user_id: Usuário ou grupo
       assembly_user_role:
         email: E-mail
         name: Nome
