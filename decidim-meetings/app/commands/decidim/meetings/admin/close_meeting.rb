@@ -41,6 +41,9 @@ module Decidim
           ) do
             meeting.update!(
               closing_report: form.closing_report,
+              video_url: form.video_url,
+              audio_url: form.audio_url,
+              closing_visible: form.closing_visible,
               attendees_count: form.attendees_count,
               contributions_count: form.contributions_count,
               attending_organizations: form.attending_organizations,

@@ -12,7 +12,6 @@ describe "Admin manages meetings other features", type: :system, serves_map: tru
   it_behaves_like "manage registrations"
   it_behaves_like "manage announcements"
   it_behaves_like "manage agenda"
-  it_behaves_like "manage minutes"
   it_behaves_like "manage invites"
   it_behaves_like "export meetings"
   it_behaves_like "duplicate meetings"

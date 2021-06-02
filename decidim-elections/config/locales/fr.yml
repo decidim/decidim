@@ -736,6 +736,15 @@ fr:
             heading: Recomptage des votes
           sign:
             cancel: Annuler
+            check_box: J'ai passé en revue ce certificat, il est identique à celui de fermeture des élections physiques
+            close_modal: Clore
+            confirm: Ok, continuer
+            error: Une erreur est survenue, veuillez réessayer.
+            heading: Recomptage des voix - Signer la fermeture
+            info_text: Si vous continuez, vous ne pouvez plus modifier aucune des informations, cette action ne peut pas être annulée.
+            submit: Signer la fermeture
+            success: Fermeture signée avec succès.
+            title: Cette action ne peut pas être annulée
         in_person_votes:
           complete_voting:
             available_answers: 'Réponses disponibles:'
@@ -778,6 +787,16 @@ fr:
             name: Nom
             title: 'Vérifiez que les données suivantes sont correctes:'
             verify_document: Document requis
+      polling_station_closure_recount:
+        nota_option: Vide / Aucune des options ci-dessus
+        polling_officer_notes: 'Notes de l''accesseur :'
+        polling_officer_notes_blank: Il n'y a aucune note
+        recount_summary: 'Bilan du recomptage:'
+        signed: Signé
+        total_ballots: 'Nombre total de bulletins :'
+        total_blank_ballots: 'Nombre total de bulletins blanc :'
+        total_null_ballots: 'Nombre total de bulletins nuls :'
+        total_valid_ballots: 'Nombre total de bulletins valides :'
       polling_stations:
         actions:
           confirm_destroy: Êtes-vous sûr(e) ?
