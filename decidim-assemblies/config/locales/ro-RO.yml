@@ -63,7 +63,6 @@ ro:
         full_name: Numele complet
         gender: Sexul
         position: Poziție
-        user_id: Utilizator
       assembly_user_role:
         email: E-mail
         name: Nume
