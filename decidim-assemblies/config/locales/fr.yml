@@ -62,6 +62,7 @@ fr:
         full_name: Nom et prénom
         gender: Genre
         position: Statut
+        user_id: Utilisateur ou groupe
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
