@@ -63,7 +63,6 @@ cs:
         full_name: Celé jméno
         gender: Rod
         position: Pozice
-        user_id: Uživatel
       assembly_user_role:
         email: E-mail
         name: název
