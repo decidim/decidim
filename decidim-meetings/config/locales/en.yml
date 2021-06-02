@@ -9,12 +9,9 @@ en:
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
-        audio_url: Audio URL
-        closing_report: Minutes
-        closing_visible: Is visible
+        closing_report: Report
         contributions_count: Number of contributions
         proposal_ids: Proposals created in the meeting
-        video_url: Video URL
       meeting:
         address: Address
         available_slots: Available slots for this meeting
@@ -39,6 +36,11 @@ en:
         title: Title
         transparent: Transparent
         type_of_meeting: Type
+      minutes:
+        audio_url: Audio URL
+        description: Description
+        video_url: Video URL
+        visible: Is visible
     errors:
       models:
         meeting_agenda:
@@ -171,6 +173,7 @@ en:
           proposals_count:
             one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
             other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
+        minutes: Minutes
         new: New meeting
         preview: Preview
         registrations: Registrations
@@ -292,6 +295,19 @@ en:
           update:
             invalid: There was a problem updating this meeting
             success: Meeting successfully updated
+        minutes:
+          create:
+            invalid: There was a problem creating this minutes
+            success: Minutes successfully created
+          edit:
+            title: Edit minutes
+            update: Update
+          new:
+            create: Create
+            title: Create minutes
+          update:
+            invalid: There was a problem updating this minutes
+            success: Minutes successfully updated
         models:
           meeting:
             name: Meeting
@@ -331,6 +347,9 @@ en:
           value_types:
             organizer_presenter:
               not_found: 'The organizer was not found on the database (ID: %{id})'
+        minutes:
+          create: "%{user_name} created the minutes of the meeting %{resource_name} on the %{space_name} space"
+          update: "%{user_name} updated the minutes of the meeting %{resource_name} on the %{space_name} space"
       calendar_modal:
         calendar_url: Calendar URL
         close_window: Close window
@@ -369,13 +388,6 @@ en:
           close: Close meeting
           title: Close meeting
       meetings:
-        calendar_modal:
-          add_to_calendar: Add to calendar
-          apple: Add to Apple calendar
-          close_window: Close window
-          full_details_html: For full details go to %{link}
-          google: Add to Google calendar
-          outlook: Add to Outlook calendar
         count:
           meetings_count:
             one: "%{count} meeting"
@@ -431,6 +443,7 @@ en:
         index:
           new_meeting: New meeting
         meeting_minutes:
+          meeting_minutes: Meeting Minutes
           related_information: Related Information
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
@@ -453,7 +466,7 @@ en:
           join: Join meeting
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
-          meeting_minutes: Meeting Minutes
+          meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations
           registration_code_help_text: Your registration code
@@ -488,11 +501,6 @@ en:
             official_meeting: Official meeting
             start_time: Start date
             title: Title
-      public_participants_list:
-        attending_participants: Attending participants
-        hidden_participants_count:
-          one: and %{count} more person
-          other: and %{count} more people
       read_more: "(read more)"
       registration_mailer:
         confirmation:

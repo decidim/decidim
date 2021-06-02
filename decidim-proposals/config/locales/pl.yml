@@ -123,7 +123,6 @@ pl:
       proposals:
         actions:
           amend: Popraw
-          comment: Skomentuj
           create: Tworzenie
           endorse: Rekomendacje
           vote: Wspieranie

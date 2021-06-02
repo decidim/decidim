@@ -13,8 +13,8 @@ module Decidim
         def events
           Rails.cache.fetch(cache_key) do
             meetings.map do |meeting|
-              MeetingCalendar.new(meeting).events
-            end.compact.join
+              MeetingToEvent.new(meeting).to_ical
+            end.join
           end
         end
 

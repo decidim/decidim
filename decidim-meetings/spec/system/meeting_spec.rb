@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting", type: :system, download: true do
+describe "Meeting", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -11,24 +11,6 @@ describe "Meeting", type: :system, download: true do
 
   def visit_meeting
     visit resource_locator(meeting).path
-  end
-
-  it "has a link to download the meeting in ICS format" do
-    visit_meeting
-    click_button "Add to calendar"
-
-    expect(page).to have_link("Add to Outlook calendar")
-
-    click_link("Add to Outlook calendar")
-
-    expect(File.basename(download_path)).to include(".ics")
-  end
-
-  it "has a link to add to google calendar" do
-    visit_meeting
-    click_button "Add to calendar"
-
-    expect(page).to have_link("Add to Google calendar", href: /calendar\.google\.com/)
   end
 
   context "when meeting has services" do

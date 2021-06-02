@@ -8,8 +8,7 @@ lv:
       close_meeting:
         attendees_count: Apmeklētāju skaits
         attending_organizations: Organizāciju saraksts, kuras apmeklēja
-        closing_report: Protokols
-        closing_visible: Ir redzams
+        closing_report: Ziņot
         contributions_count: Papildinājumu daudzums
         proposal_ids: Sanāksmē radītie priekšlikumi
       meeting:
@@ -29,6 +28,9 @@ lv:
         start_time: Sākuma laiks
         title: Nosaukums
         transparent: Caurskatāms
+      minutes:
+        description: Apraksts
+        visible: Ir redzams
     errors:
       models:
         meeting_agenda:
@@ -152,6 +154,7 @@ lv:
         confirm_destroy: Vai tiešām vēlaties dzēst šo sanāksmi?
         destroy: Dzēst
         edit: Labot
+        minutes: Protokols
         new: Jauna sanāksme
         preview: Priekšskatīt
         registrations: Reģistrācija
@@ -252,6 +255,18 @@ lv:
           update:
             invalid: Šīs sanāksmes atjaunināšanas laikā radās problēma
             success: Sanāksme ir veiksmīgi atjaunināta
+        minutes:
+          create:
+            invalid: Šīs protokola izveides laikā radās problēma
+            success: Protokols ir veiksmīgi izveidots
+          edit:
+            update: Atjaunināt
+          new:
+            create: Izveidot
+            title: Izveidot protokolu
+          update:
+            invalid: Šī protokola atjaunināšanas laikā radās problēma
+            success: Protokols ir veiksmīgi atjaunināts
         models:
           meeting:
             name: Sanāksme
@@ -292,6 +307,9 @@ lv:
           value_types:
             organizer_presenter:
               not_found: 'Organizators netika atrasts datubāzē (ID: %{id})'
+        minutes:
+          create: "%{user_name} izveidoja sanāksmes %{resource_name} protokolu %{space_name} telpā"
+          update: "%{user_name} atjaunināja sanāksmes %{resource_name} protokolu %{space_name} telpā"
       calendar_modal:
         calendar_url: Kalendāra URL
         close_window: Aizvērt logu
@@ -334,6 +352,7 @@ lv:
           filter_by: Filtrēt pēc
           unfold: Atritināt
         meeting_minutes:
+          meeting_minutes: Sanāksmes protokols
           related_information: Saistītā informācija
         meetings:
           no_meetings_warning: Neviena sanāksme neatbilst jūsu meklēšanas kritērijiem, vai arī neviena sanāksme nav plānota.
@@ -346,7 +365,7 @@ lv:
           back: Atpakaļ uz sarakstu
           contributions: Papildinājumu skaits
           join: Pievienoties sanāksmei
-          meeting_minutes: Sanāksmes protokols
+          meeting_report: Sanāksmes ziņojums
           no_slots_available: Nav pieejama laika runāšanai
           organizations: Apmeklējošās organizācijas
           registration_code_help_text: Jūsu reģistrācijas kods

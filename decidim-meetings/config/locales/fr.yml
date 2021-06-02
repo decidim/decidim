@@ -8,12 +8,9 @@ fr:
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
-        audio_url: URL de l'audio
         closing_report: Compte rendu
-        closing_visible: Est visible
         contributions_count: Nombre de contributions
         proposal_ids: Propositions élaborées lors de la rencontre
-        video_url: URL de la vidéo
       meeting:
         address: Adresse
         available_slots: Places disponibles pour cette rencontre
@@ -38,6 +35,11 @@ fr:
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
+      minutes:
+        audio_url: URL de l'audio
+        description: Description
+        video_url: URL de la vidéo
+        visible: Est visible
     errors:
       models:
         meeting_agenda:
@@ -170,6 +172,7 @@ fr:
           proposals_count:
             one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
             other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
+        minutes: Compte rendu
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
@@ -284,6 +287,19 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
+        minutes:
+          create:
+            invalid: Un problème est survenu lors de la création de ce compte rendu
+            success: Compte rendu créé avec succès
+          edit:
+            title: Modifier le compte-rendu
+            update: Mettre à jour
+          new:
+            create: Créer
+            title: Créer un compte rendu
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de ce compte rendu
+            success: Compte rendu mis à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -323,6 +339,9 @@ fr:
           value_types:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
+        minutes:
+          create: "%{user_name} a créé le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le compte rendu de la rencontre %{resource_name} sur l'espace %{space_name}"
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
@@ -416,6 +435,7 @@ fr:
         index:
           new_meeting: Nouvelle rencontre
         meeting_minutes:
+          meeting_minutes: Comptes rendus des rencontres
           related_information: Informations liées
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
@@ -438,7 +458,7 @@ fr:
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
-          meeting_minutes: Comptes rendus des rencontres
+          meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           registration_code_help_text: Votre code d'inscription
@@ -473,11 +493,6 @@ fr:
             official_meeting: Rencontre officielle
             start_time: Date de début
             title: Titre
-      public_participants_list:
-        attending_participants: Participants présents
-        hidden_participants_count:
-          one: et %{count} personne de plus
-          other: et %{count} personnes de plus
       read_more: "(Voir la suite)"
       registration_mailer:
         confirmation:

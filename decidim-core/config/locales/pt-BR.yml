@@ -938,8 +938,6 @@ pt:
       participatory_space_filters:
         filters:
           select_an_area: Selecione uma área
-      public_participation:
-        public_participation: Mostre minha presença publicamente
       reference:
         reference: 'Referência: %{reference}'
       represent_user_group:

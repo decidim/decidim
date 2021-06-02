@@ -8,8 +8,7 @@ eu:
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
-        closing_report: Minutu
-        closing_visible: Ikusgai dago
+        closing_report: Salatu
         contributions_count: Ekarpen-kopurua
         proposal_ids: Topaketan sortutako proposamenak
       meeting:
@@ -29,6 +28,9 @@ eu:
         start_time: Hasiera-ordua
         title: Titulua
         transparent: gardena
+      minutes:
+        description: deskribapena
+        visible: Ikusgai dago
     errors:
       models:
         meeting_agenda:
@@ -149,6 +151,7 @@ eu:
         confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        minutes: Minutu
         new: Bilera berria
         preview: Aurreikusi
         registrations: Izen-emateak
@@ -246,6 +249,18 @@ eu:
           update:
             invalid: Arazo bat izan da topaketa hau eguneratzean.
             success: Topaketa zuzen eguneratu da.
+        minutes:
+          create:
+            invalid: Arazo bat izan da minutu hau sortzeko
+            success: Akta ongi sortu da
+          edit:
+            update: eguneratzearen
+          new:
+            create: Sortu
+            title: Sortu minutu
+          update:
+            invalid: Arazo bat izan da minutu hau eguneratzean
+            success: Akta ongi eguneratu da
         models:
           meeting:
             name: Topaketa
@@ -283,6 +298,9 @@ eu:
           value_types:
             organizer_presenter:
               not_found: 'Antolatzailea ez da aurkitu datu-basean (ID: %{id})'
+        minutes:
+          create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
+          update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
       calendar_modal:
         calendar_url: Egutegiaren URLa
         close_window: Itxi leihoa
@@ -325,6 +343,7 @@ eu:
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
         meeting_minutes:
+          meeting_minutes: Bilera Minutes
           related_information: Lotutako informazioa
         meetings:
           no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
@@ -336,7 +355,7 @@ eu:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
           join: Izena eman topaketan
-          meeting_minutes: Bilera Minutes
+          meeting_report: Topaketaren txostena
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
           registration_code_help_text: Zure izena emateko kodea

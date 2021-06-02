@@ -145,7 +145,7 @@ pl:
         participatory_process_user_role:
           fields:
             email: Adres e-mail
-            name: Imię
+            name: Nazwa
             role: Rola
           name: Administrator procesu partycypacyjnego
           roles:

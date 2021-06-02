@@ -8,9 +8,6 @@ module Decidim::Meetings
 
     let(:meeting) { create :meeting }
     let(:user) { create :user, :admin }
-    let(:video_url) { Faker::Internet.url }
-    let(:audio_url) { Faker::Internet.url }
-    let(:closing_visible) { true }
     let(:form) do
       double(
         invalid?: invalid,
@@ -20,10 +17,7 @@ module Decidim::Meetings
         attending_organizations: "Some organization",
         closed_at: Time.current,
         proposal_ids: proposal_ids,
-        current_user: user,
-        video_url: video_url,
-        audio_url: audio_url,
-        closing_visible: closing_visible
+        current_user: user
       )
     end
     let(:proposal_component) do

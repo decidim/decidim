@@ -8,8 +8,7 @@ ar:
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
-        closing_report: الدقائق
-        closing_visible: مرئي
+        closing_report: أبلغ عن
         contributions_count: عدد المساهمات
         proposal_ids: المقترحات التي تم إنشاؤها في الاجتماع
       meeting:
@@ -29,6 +28,9 @@ ar:
         start_time: وقت البدء
         title: عنوان
         transparent: شفاف
+      minutes:
+        description: وصف
+        visible: مرئي
     errors:
       models:
         meeting_agenda:
@@ -160,6 +162,7 @@ ar:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا الاجتماع؟
         destroy: حذف
         edit: تعديل
+        minutes: الدقائق
         new: اجتماع جديد
         preview: معاينة
         registrations: التسجيلات
@@ -257,6 +260,18 @@ ar:
           update:
             invalid: حدثت مشكلة أثناء تحديث هذا الاجتماع
             success: تم تحديث الاجتماع بنجاح
+        minutes:
+          create:
+            invalid: كانت هناك مشكلة في إنشاء هذه الدقائق
+            success: تم إنشاء الدقائق بنجاح
+          edit:
+            update: تحديث
+          new:
+            create: إنشاء
+            title: خلق دقائق
+          update:
+            invalid: حدثت مشكلة أثناء تحديث هذه الدقائق
+            success: تم تحديث الدقائق بنجاح
         models:
           meeting:
             name: لقاء
@@ -299,6 +314,9 @@ ar:
           value_types:
             organizer_presenter:
               not_found: 'لم يتم العثور على المنظم في قاعدة البيانات (المعرف: %{id})'
+        minutes:
+          create: "%{user_name} خلق محضر الاجتماع %{resource_name} على %{space_name} الفضاء"
+          update: "%{user_name} تحديث محضر الاجتماع %{resource_name} على %{space_name} الفضاء"
       calendar_modal:
         calendar_url: العنوان الشبكي للتقويم
         close_window: أغلق النافذة
@@ -341,6 +359,7 @@ ar:
           filter_by: مصنف بواسطة
           unfold: كشف
         meeting_minutes:
+          meeting_minutes: محضر الاجتماع
           related_information: معلومات ذات صله
         meetings:
           no_meetings_warning: لا توجد اجتماعات تطابق معايير البحث الخاصة بك أو لا يوجد أي اجتماع مجدولة.
@@ -352,7 +371,7 @@ ar:
           attendees: الحضور الحضور
           contributions: عدد المساهمات
           join: أنضم إلى الأجتماع
-          meeting_minutes: محضر الاجتماع
+          meeting_report: تقرير الاجتماع
           no_slots_available: لا فتحات المتاحة
           organizations: حضور المنظمات
           registration_code_help_text: رمز التسجيل الخاص بك

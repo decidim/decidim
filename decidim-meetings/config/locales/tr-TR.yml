@@ -8,12 +8,9 @@ tr:
       close_meeting:
         attendees_count: Katılımcı sayısı
         attending_organizations: Katılan kuruluşların listesi
-        audio_url: Ses URL'si
-        closing_report: Dakika
-        closing_visible: Görünür
+        closing_report: Rapor
         contributions_count: Katkı sayısı
         proposal_ids: Toplantıda oluşturulan teklifler
-        video_url: Video URL'si
       meeting:
         address: Adres
         available_slots: Bu toplantı için mevcut yuvalar
@@ -36,6 +33,11 @@ tr:
         title: Başlık
         transparent: Şeffaf
         type_of_meeting: Tür
+      minutes:
+        audio_url: Ses URL'si
+        description: Açıklama
+        video_url: Video URL'si
+        visible: Görünür
     errors:
       models:
         meeting_agenda:
@@ -168,6 +170,7 @@ tr:
           proposals_count:
             one: 'Toplantı, kendisiyle ilişkilendirilmiş %{count} teklif içerdiğinden yok edilemez:'
             other: 'Toplantı, kendisiyle ilişkilendirilmiş %{count} teklif içerdiğinden yok edilemez:'
+        minutes: Dakika
         new: Yeni toplantı
         preview: Ön izleme
         registrations: Kayıtlar
@@ -281,6 +284,19 @@ tr:
           update:
             invalid: Bu toplantı güncellenirken bir sorun oluştu
             success: Toplantı başarıyla güncellendi
+        minutes:
+          create:
+            invalid: Bu dakikalar oluşturulurken bir sorunla karşılaşıldı
+            success: Dakika başarıyla oluşturuldu
+          edit:
+            title: Dakikaları düzenleyin
+            update: Güncelle
+          new:
+            create: Oluştur
+            title: Dakika oluşturun
+          update:
+            invalid: Bu dakikalar güncellenirken bir sorun oluştu
+            success: Dakika başarıyla güncellendi
         models:
           meeting:
             name: Toplantı
@@ -320,6 +336,9 @@ tr:
           value_types:
             organizer_presenter:
               not_found: 'Organizatör veritabanında bulunamadı (ID: %{id})'
+        minutes:
+          create: "%{user_name}, %{space_name} alanında%{resource_name} toplantısının dakikalarını oluşturdu"
+          update: "%{user_name}, %{space_name} alanında %{resource_name} toplantısının dakikalarını güncelledi"
       calendar_modal:
         calendar_url: Takvim URL'si
         close_window: Pencereyi kapat
@@ -409,6 +428,7 @@ tr:
         index:
           new_meeting: Yeni toplantı
         meeting_minutes:
+          meeting_minutes: Görüşme süreleri
           related_information: İlgili bilgi
         meetings:
           no_meetings_warning: Hiçbir toplantı, arama kriterinizle eşleşmiyor veya planlanmış bir toplantı yok.
@@ -428,7 +448,7 @@ tr:
           date: Tarih
           edit_meeting: Toplantıyı Düzenle
           join: Toplantıya katıl
-          meeting_minutes: Görüşme süreleri
+          meeting_report: Toplantı Raporu
           no_slots_available: Kullanılabilir yer yok
           organizations: Katılan kuruluşlar
           registration_code_help_text: Kayıt kodunuz

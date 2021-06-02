@@ -82,7 +82,7 @@ pl:
         send_welcome_notification: Wyślij komunikat powitalny
         success_color: Powodzenie
         time_zone: Strefa czasowa
-        tos_version: Warunki korzystania z Platformy
+        tos_version: Warunki korzystania z usługi
         twitter_handler: Handler Twittera
         user_groups_enabled: Włącz grupy użytkowników
         users_registration_mode: Tryb rejestracji użytkowników
@@ -323,7 +323,7 @@ pl:
         transfer:
           email: Adres e-mail
           error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
-          name: Imię
+          name: Nazwa
           reason: Powód
           success: Bieżący transfer został pomyślnie zakończony.
           title: Transfer
@@ -368,7 +368,7 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
-          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści zgłoszenia.
+          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści raportu.
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
@@ -393,7 +393,7 @@ pl:
           impersonate: Podszywać się
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
           managed: Zamknięte
-          name: Imię
+          name: Nazwa
           needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
           not_managed: Niezamknięte
           promote: Awansuj
@@ -409,7 +409,7 @@ pl:
           success: Zarządzany użytkownik został pomyślnie utworzony.
         form:
           authorization_method: Metoda autoryzacji
-          name: Imię
+          name: Nazwa
           reason: Powód
         new:
           impersonate: Podszywać się
@@ -533,7 +533,7 @@ pl:
             created_at: Data utworzenia
             email: E-mail
             last_sign_in_at: Ostatni dzień rejestracji
-            name: Imię
+            name: Nazwa
             role: Rola
             roles:
               admin: Admin
@@ -660,15 +660,15 @@ pl:
           error: Wystąpił błąd blokowania użytkownika
           success: Użytkownik został zablokowany
         create:
-          success: Użytkownik został zweryfikowany
+          success: Użytkownik oficjalnie z powodzeniem
         destroy:
-          success: Cofnięto weryfikację użytkownika
+          success: Użytkownik nieoficjalizowany pomyślnie
         index:
           actions: Działania
           badge: Odznaka
           block: Zablokuj użytkownika
           created_at: Utworzono
-          name: Imię
+          name: Nazwa
           nickname: Pseudonim
           not_officialized: Nieoficjalny
           officialize: Oficjalizuj

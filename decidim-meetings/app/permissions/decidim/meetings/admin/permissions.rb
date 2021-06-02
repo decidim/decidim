@@ -11,6 +11,7 @@ module Decidim
           allowed_registration_form_action?
           allowed_meeting_action?
           allowed_agenda_action?
+          allowed_minutes_action?
 
           permission_action
         end
@@ -23,6 +24,10 @@ module Decidim
 
         def agenda
           @agenda ||= context.fetch(:agenda, nil)
+        end
+
+        def minutes
+          @minutes ||= context.fetch(:minutes, nil)
         end
 
         def registration_form
@@ -61,6 +66,17 @@ module Decidim
             toggle_allow(meeting.present?)
           when :update
             toggle_allow(agenda.present? && meeting.present?)
+          end
+        end
+
+        def allowed_minutes_action?
+          return unless permission_action.subject == :minutes
+
+          case permission_action.action
+          when :create
+            toggle_allow(meeting.present?)
+          when :update
+            toggle_allow(minutes.present? && meeting.present?)
           end
         end
       end

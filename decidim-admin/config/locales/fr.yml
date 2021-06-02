@@ -336,12 +336,6 @@ fr:
         show:
           view_more_logs: Afficher plus
           welcome: Bienvenue dans l'espace d'administration de Decidim.
-      domain_whitelist:
-        form:
-          domain_too_short: Le nom de domaine est trop court
-        update:
-          error: Échec lors de la mise à jour de la liste blanches du domaine
-          success: Liste blanche du domaine mise à jour avec succès
       exports:
         export_as: "%{name} en format %{export_format}"
         formats:
@@ -475,7 +469,6 @@ fr:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
-        external_domain_whitelist: Liste blanche du domaine externe
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
@@ -747,17 +740,6 @@ fr:
             layout_appearance_title: Modifier l’aspect de la mise en page
             preview: Aperçu
           omnipresent_banner_appearance_title: Modifier la bannière permanente
-      organization_external_domain_whitelist:
-        edit:
-          update: Mettre à jour
-        external_domain:
-          down: Descendre
-          external_domain: Domaine externe
-          remove: Supprimer
-          up: Monter
-        form:
-          add: Ajouter à la liste blanche
-          title: Liste blanche du domaine externe
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contenu actif

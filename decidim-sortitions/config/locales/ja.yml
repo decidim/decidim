@@ -138,5 +138,3 @@ ja:
         sortitions_count:
           count:
             other: "%{count} ソート数"
-    statistics:
-      sortitions_count: 並べ替え

@@ -8,8 +8,7 @@ sk:
       close_meeting:
         attendees_count: Počet účastníkov
         attending_organizations: Zoznam organizácií, ktoré sa zúčastnili
-        closing_report: Minút
-        closing_visible: Viditeľný
+        closing_report: Správa
         contributions_count: Počet príspevkov
         proposal_ids: Návrhy vytvorené na schôdzi
       meeting:
@@ -29,6 +28,9 @@ sk:
         start_time: Čas začatia
         title: Názov
         transparent: Transparentné
+      minutes:
+        description: Popis
+        visible: Viditeľný
     errors:
       models:
         meeting_agenda:
@@ -155,6 +157,7 @@ sk:
         confirm_destroy: Naozaj chcete túto schôdzku vymazať?
         destroy: Odstrániť
         edit: Upraviť
+        minutes: Minút
         new: Nové stretnutie
         preview: Náhľad
         registrations: Registrácia
@@ -255,6 +258,18 @@ sk:
           update:
             invalid: Došlo k problému pri aktualizácii tohto stretnutia
             success: Schôdzka bola úspešne aktualizovaná
+        minutes:
+          create:
+            invalid: Pri vytváraní týchto minút došlo k problému
+            success: Minúty úspešne vytvorené
+          edit:
+            update: Aktualizácia
+          new:
+            create: Vytvoriť
+            title: Vytvorte minúty
+          update:
+            invalid: Pri aktualizácii týchto minút došlo k problému
+            success: Minúty úspešne aktualizované
         models:
           meeting:
             name: Stretnutie
@@ -296,6 +311,9 @@ sk:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebol nájdený v databáze (ID:%{id})'
+        minutes:
+          create: "% {USER_NAME} vytvorilo zápisy zo schôdzky% {resource_name} v priestore% {space_name}"
+          update: "% {USER_NAME} aktualizoval zápisy zo schôdzky% {resource_name} na% {space_name} miesta"
       calendar_modal:
         calendar_url: URL kalendára
         close_window: Zatvorte okno
@@ -338,6 +356,7 @@ sk:
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
         meeting_minutes:
+          meeting_minutes: Zápisnica z porady
           related_information: Súvisiace informácie
         meetings:
           no_meetings_warning: Žiadne schôdzky nezodpovedajú vašim kritériám vyhľadávania alebo nie sú plánované žiadne schôdzky.
@@ -350,7 +369,7 @@ sk:
           back: Späť na zoznam
           contributions: Počet príspevkov
           join: Pripojte sa k stretnutie
-          meeting_minutes: Zápisnica z porady
+          meeting_report: Správa o schôdzke
           no_slots_available: Žiadne sloty nie sú k dispozícii
           organizations: Účastnícke organizácie
           registration_code_help_text: Váš registračný kód

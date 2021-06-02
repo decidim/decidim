@@ -8,8 +8,7 @@ gl:
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Listaxe de organizacións que asistiron
-        closing_report: Minutos
-        closing_visible: É visible
+        closing_report: Informe
         contributions_count: Número de contribucións
         proposal_ids: Propostas creadas na reunión
       meeting:
@@ -31,6 +30,9 @@ gl:
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
+      minutes:
+        description: Descrición
+        visible: É visible
     errors:
       models:
         meeting_agenda:
@@ -151,6 +153,7 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
+        minutes: Minutos
         new: Nova reunión
         preview: Vista previa
         registrations: Rexistros
@@ -250,6 +253,18 @@ gl:
           update:
             invalid: Produciuse un problema ao actualizar esta reunión
             success: Reunión actualizada correctamente
+        minutes:
+          create:
+            invalid: Produciuse un problema ao crear estes minutos
+            success: Minutos creados con éxito
+          edit:
+            update: Actualización
+          new:
+            create: Crear
+            title: Crea minutos
+          update:
+            invalid: Produciuse un problema ao actualizar estes minutos
+            success: Minutos actualizados correctamente
         models:
           meeting:
             name: Reunión
@@ -287,6 +302,9 @@ gl:
           value_types:
             organizer_presenter:
               not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
+        minutes:
+          create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
+          update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
       calendar_modal:
         calendar_url: URL do calendario
         close_window: Pechar ventá
@@ -320,13 +338,6 @@ gl:
       meeting:
         not_allowed: Non tes permiso para ver esta reunión
       meetings:
-        calendar_modal:
-          add_to_calendar: Engadir ao calendario
-          apple: Engadir ao Apple Calendar
-          close_window: Pechar xanela
-          full_details_html: Ver todos os detalles en %{link}
-          google: Engadir ao Google Calendar
-          outlook: Engadir ao calendario do Outlook
         filters:
           category: Categoría
           date: Data
@@ -337,6 +348,7 @@ gl:
           filter_by: Filtrar por
           unfold: Despregar
         meeting_minutes:
+          meeting_minutes: Minutos de reunión
           related_information: Información relacionada
         meetings:
           no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
@@ -351,7 +363,7 @@ gl:
           join: Únete a reunión
           leave: Cancelar a túa inscrición
           leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
-          meeting_minutes: Minutos de reunión
+          meeting_report: Informe de reunión
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
           registration_code_help_text: O seu código de rexistro
@@ -382,11 +394,6 @@ gl:
             map: Mapa
             start_time: Data de inicio
             title: Título
-      public_participants_list:
-        attending_participants: Participantes presentes
-        hidden_participants_count:
-          one: e %{count} persoa máis
-          other: e %{count} persoas máis
       read_more: "(Le máis)"
       registration_mailer:
         confirmation:

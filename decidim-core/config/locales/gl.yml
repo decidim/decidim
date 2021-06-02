@@ -667,15 +667,6 @@ gl:
       index:
         last_activity: Última actividade
         resource_type: Tipo
-    links:
-      invalid_url: URL non válido
-      warning:
-        body_1: Estás a punto de visitar unha ligazón externa e gustaríanos ser cautelosos canto ao contido deste sitio externo.
-        body_2: Por favor, verifica a ligazón a punto de visitar e asegúrate de que é un sitio seguro antes de continuar.
-        cancel: Cancelar
-        close_modal: Pechar modal
-        proceed: Continuar
-        title: Abrir ligazón externa
     log:
       base_presenter:
         create: "%{user_name} creouse %{resource_name}"
@@ -951,8 +942,6 @@ gl:
         filters:
           areas: Ámbitos
           select_an_area: Seleccione unha área
-      public_participation:
-        public_participation: Amosar a miña presenza publicamente
       reference:
         reference: 'Referencia: %{reference}'
       represent_user_group:

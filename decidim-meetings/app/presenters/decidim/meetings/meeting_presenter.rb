@@ -74,17 +74,6 @@ module Decidim
         end
       end
 
-      # start time and end time in rfc3339 format removing '-' and ':' symbols
-      # joined with '/'. This format is used to generate the dates query param
-      # in google calendars event link
-      def dates_param
-        return unless meeting
-
-        [meeting.start_time, meeting.end_time].map do |date|
-          date.rfc3339.tr("-:", "")
-        end.join("/")
-      end
-
       # Next methods are used for present a Meeting As Proposal Author
       def name
         title

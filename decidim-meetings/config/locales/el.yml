@@ -8,8 +8,7 @@ el:
       close_meeting:
         attendees_count: Αριθμός συμμετεχόντων
         attending_organizations: Λίστα οργανισμών που συμμετείχαν
-        closing_report: Πρακτικά
-        closing_visible: Είναι ορατό
+        closing_report: Αναφορά
         contributions_count: Αριθμός συνεισφορών
         proposal_ids: Προτάσεις που δημιουργήθηκαν στη σύσκεψη
       meeting:
@@ -29,6 +28,9 @@ el:
         start_time: Ώρα έναρξης
         title: Τίτλος
         transparent: Διαφανής
+      minutes:
+        description: Περιγραφή
+        visible: Είναι ορατό
     errors:
       models:
         meeting_agenda:
@@ -149,6 +151,7 @@ el:
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν τη σύσκεψη;
         destroy: Διαγραφή
         edit: Επεξεργασία
+        minutes: Πρακτικά
         new: Νέα σύσκεψη
         preview: Προεπισκόπηση
         registrations: Εγγραφές
@@ -249,6 +252,18 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της σύσκεψης
             success: Η σύσκεψη ενημερώθηκε με επιτυχία
+        minutes:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτών των πρακτικών
+            success: Τα πρακτικά δημιουργήθηκαν με επιτυχία
+          edit:
+            update: Ενημέρωση
+          new:
+            create: Δημιουργία
+            title: Δημιουργία πρακτικών
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτών των πρακτικών
+            success: Τα πρακτικά ενημερώθηκαν με επιτυχία
         models:
           meeting:
             name: Σύσκεψη
@@ -288,6 +303,9 @@ el:
           value_types:
             organizer_presenter:
               not_found: 'Ο διοργανωτής δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+        minutes:
+          create: "Ο χρήστης %{user_name} δημιούργησε τα πρακτικά της σύσκεψης %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε τα πρακτικά της σύσκεψης %{resource_name} στον χώρο %{space_name}"
       calendar_modal:
         calendar_url: Διεύθυνση URL ημερολογίου
         close_window: Κλείσιμο παραθύρου
@@ -330,6 +348,7 @@ el:
           filter_by: Φιλτράρισμα κατά
           unfold: Αποκάλυψη
         meeting_minutes:
+          meeting_minutes: Πρακτικά σύσκεψης
           related_information: Σχετικές πληροφορίες
         meetings:
           no_meetings_warning: Καμία σύσκεψη δεν ταιριάζει με τα κριτήρια αναζήτησης, ή δεν έχει προγραμματιστεί σύσκεψη.
@@ -343,7 +362,7 @@ el:
           contributions: Πλήθος συνεισφορών
           date: Ημερομηνία
           join: Συμμετοχή στη σύσκεψη
-          meeting_minutes: Πρακτικά σύσκεψης
+          meeting_report: Αναφορά σύσκεψης
           no_slots_available: Δεν υπάρχουν διαθέσιμες θέσεις
           organizations: Οργανισμοί που συμμετέχουν
           registration_code_help_text: Ο κωδικός εγγραφής σας

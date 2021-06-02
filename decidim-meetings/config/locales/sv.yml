@@ -8,12 +8,9 @@ sv:
       close_meeting:
         attendees_count: Antal deltagare
         attending_organizations: Lista över organisationer som deltog
-        audio_url: Ljud-URL
-        closing_report: Anteckningar
-        closing_visible: Är synlig
+        closing_report: Rapport
         contributions_count: Antal bidrag
         proposal_ids: Förslag som skapades på mötet
-        video_url: Video-URL
       meeting:
         address: Adress
         available_slots: Tillgängliga platser för detta möte
@@ -37,6 +34,11 @@ sv:
         title: Titel
         transparent: Transparent
         type_of_meeting: Typ
+      minutes:
+        audio_url: Ljud-URL
+        description: Beskrivning
+        video_url: Video-URL
+        visible: Är synlig
     errors:
       models:
         meeting_agenda:
@@ -168,6 +170,7 @@ sv:
           proposals_count:
             one: 'Mötet kan inte raderas eftersom det finns %{count} relaterat förslag:'
             other: 'Mötet kan inte raderas eftersom det finns %{count} relaterade förslag:'
+        minutes: Anteckningar
         new: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
@@ -277,6 +280,19 @@ sv:
           update:
             invalid: Det gick inte att uppdatera mötet
             success: Mötet har uppdaterats
+        minutes:
+          create:
+            invalid: Det gick inte att skapa protokollet
+            success: Protokollet skapades
+          edit:
+            title: Redigera protokollen
+            update: Uppdatering
+          new:
+            create: Skapa
+            title: Skapa protokoll
+          update:
+            invalid: Det gick inte att uppdatera protokollet
+            success: Protokollet uppdaterades
         models:
           meeting:
             name: Möte
@@ -316,6 +332,9 @@ sv:
           value_types:
             organizer_presenter:
               not_found: 'Arrangören hittades inte i databasen (ID: %{id})'
+        minutes:
+          create: "%{user_name} skapade protokollet från mötet %{resource_name} på plats %{space_name}"
+          update: "%{user_name} uppdaterade protokollet från mötet %{resource_name} på plats %{space_name}"
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
@@ -402,6 +421,7 @@ sv:
         index:
           new_meeting: Nytt möte
         meeting_minutes:
+          meeting_minutes: Mötesprotokoll
           related_information: Relaterad information
         meetings:
           no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
@@ -421,7 +441,7 @@ sv:
           date: Datum
           edit_meeting: Redigera möte
           join: Gå med i mötet
-          meeting_minutes: Mötesprotokoll
+          meeting_report: Mötesrapport
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
           registration_code_help_text: Din registreringskod
