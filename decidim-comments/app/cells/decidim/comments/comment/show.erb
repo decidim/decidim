@@ -10,10 +10,8 @@
             <%= time_tag created_at, l(created_at, format: :decidim_short) %>
           </span>
         </div>
-        <div class="author-data__extra">
-          <%= render :utilities %>
-        </div>
       </div>
+      <%= render :utilities %>
     </div>
     <div class="comment__content">
       <%= alignment_badge %>

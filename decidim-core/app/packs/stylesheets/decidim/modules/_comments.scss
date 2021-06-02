@@ -69,6 +69,10 @@ $comment-form-bg: $light-gray;
         align-items: baseline;
         gap: $comment-padding;
         cursor: pointer;
+
+        span{
+          line-height: $paragraph-lineheight;
+        }
       }
     }
 

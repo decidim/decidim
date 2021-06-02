@@ -1,13 +1,37 @@
-<button type="button" class="link-alt" data-open="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" title="<%= t("decidim.components.comment.report.title") %>" aria-controls="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" aria-haspopup="true" tabindex="0">
-  <%= icon "flag", aria_hidden: true, class: "icon--small", role: "img", "aria-hidden": true %>
-  <span class="show-for-sr"><%= t("decidim.components.comment.report.title") %></span>
-</button>
-
-<%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", title: t("decidim.components.comment.single_comment_link_title") do %>
-  <span class="show-for-sr"><%= t("decidim.components.comment.single_comment_link_title") %></span>
-  <%= icon "link-intact", class: "icon--small", role: "img", "aria-hidden": true %>
-<% end %>
-
+<div class="comment__header__context-menu">
+  <label for="<%= context_menu_id %>">
+    <%= icon "ellipses" %>
+  </label>
+  <input type="checkbox" class="comment__header__context-menu__toggle" name="toggle-context-menu" id="<%= context_menu_id %>">
+  <ul class="card comment__header__context-menu__content">
+    <li>
+      <button type="button" class="link-alt comment__header__context-menu__content-item" data-open="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" title="<%= t("decidim.components.comment.report.title") %>" aria-controls="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" aria-haspopup="true" tabindex="0">
+        <%= icon "flag", class: "icon--small", aria_label: t("decidim.components.comment.report.title") %>
+        <span><%= t("decidim.components.comment.report.action") %></span>
+      </button>
+    </li>
+    <li>
+      <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", class: "comment__header__context-menu__content-item", title: t("decidim.components.comment.single_comment_link_title") do %>
+        <%= icon "link-intact", class: "icon--small", aria_label: t("decidim.components.comment.single_comment_link_title") %>
+        <span><%= t("decidim.components.comment.single_comment_link_title") %></span>
+      <% end %>
+    </li>
+    <% if model.authored_by?(current_user) %>
+      <li>
+        <a class="comment__header__context-menu__content-item" href="#">
+          <%= icon "pencil", class: "icon--small", aria_label: t("decidim.components.comment.edit") %>
+          <span><%= t("decidim.components.comment.edit") %></span>
+        </a>
+      </li>
+      <li>
+        <%= link_to comment_path, remote: true, method: :delete, class: "comment__header__context-menu__content-item", data: { confirm: t("decidim.components.comment.confirm_destroy") } do %>
+          <%= icon "trash", class: "icon--small", aria_label: t("decidim.components.comment.delete") %>
+          <span><%= t("decidim.components.comment.delete") %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <% if current_user.present? %>
   <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
 <% end %>

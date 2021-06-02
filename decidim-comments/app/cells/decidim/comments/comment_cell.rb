@@ -53,6 +53,10 @@ module Decidim
         "comment#{model.id}-reply"
       end
 
+      def context_menu_id
+        "toggle-context-menu-#{model.id}"
+      end
+
       def can_reply?
         user_signed_in? && accepts_new_comments? &&
           root_commentable.user_allowed_to_comment?(current_user)
@@ -116,6 +120,10 @@ module Decidim
         else
           resource_locator(root_commentable).path(params)
         end
+      end
+
+      def comment_path
+        decidim_comments.comment_path(model)
       end
 
       def up_votes_count
