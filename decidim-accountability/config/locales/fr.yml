@@ -244,3 +244,5 @@ fr:
         result_project: Projets inclus dans cette réalisation
       included_proposals:
         result_proposal: Propositions incluses dans cette réalisation
+    statistics:
+      results_count: Résultats

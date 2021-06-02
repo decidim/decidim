@@ -337,6 +337,12 @@ fi:
         show:
           view_more_logs: Näytä lisää lokitietoja
           welcome: Tervetuloa Decidimin hallintapaneeliin.
+      domain_whitelist:
+        form:
+          domain_too_short: Verkkotunnus on liian lyhyt
+        update:
+          error: Sallittujen verkkotunnusten listan päivitys epäonnistui
+          success: Sallittujen verkkotunnusten listan päivitys onnistui
       exports:
         export_as: "%{name} muodossa %{export_format}"
         formats:
@@ -470,6 +476,7 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
+        external_domain_whitelist: Sallittujen ulkoisten verkkotunnusten lista
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -741,6 +748,17 @@ fi:
             layout_appearance_title: Muokkaa sivupohjan ulkoasua
             preview: Esikatsele
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
+      organization_external_domain_whitelist:
+        edit:
+          update: Päivitä
+        external_domain:
+          down: Alas
+          external_domain: Ulkoinen verkkotunnus
+          remove: Poista
+          up: Ylös
+        form:
+          add: Lisää sallittujen listalle
+          title: Sallittujen ulkoisten verkkotunnusten lista
       organization_homepage:
         edit:
           active_content_blocks: Aktiiviset sisältöblokit

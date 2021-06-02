@@ -8,9 +8,12 @@ pl:
       close_meeting:
         attendees_count: Liczba osób biorących udział
         attending_organizations: Lista organizacji biorących udział
-        closing_report: Raport z zamknięcia
+        audio_url: Adres URL audio
+        closing_report: Protokół
+        closing_visible: Jest widoczne
         contributions_count: Liczba wsparć
         proposal_ids: Propozycje stworzone na spotkaniu
+        video_url: Adres URL wideo
       meeting:
         address: Adres
         available_slots: Dostępne miejsca na to spotkanie
@@ -33,11 +36,6 @@ pl:
         title: Tytuł
         transparent: Transparentny
         type_of_meeting: Typ
-      minutes:
-        audio_url: Adres URL audio
-        description: Opis
-        video_url: Adres URL wideo
-        visible: Jest widoczne
     errors:
       models:
         meeting_agenda:
@@ -178,7 +176,6 @@ pl:
             few: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje:'
             many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
             other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
-        minutes: Protokół
         new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
@@ -271,7 +268,7 @@ pl:
             available_slots_help: Pozostaw 0, jeśli masz dostęp do nieograniczonej liczby miejsc
             disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
             location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
-            location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostępem.'
+            location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
             online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
             registration_url_help: 'Link: zezwól użytkownikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
             select_a_meeting_type: Wybierz typ spotkania
@@ -294,19 +291,6 @@ pl:
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił błąd
             success: Spotkanie zostało zaktualizowane
-        minutes:
-          create:
-            invalid: Podczas tworzenia tego protokołu błąd
-            success: Protokół został utworzony
-          edit:
-            title: Edytuj protokół
-            update: Aktualizuj
-          new:
-            create: Utwórz
-            title: Utwórz protokół
-          update:
-            invalid: Podczas aktualizowania tego protokołu wystąpił błąd
-            success: Protokół został zaktualizowany
         models:
           meeting:
             name: Spotkanie
@@ -348,9 +332,6 @@ pl:
           value_types:
             organizer_presenter:
               not_found: 'Nie znaleziono organizatora w bazie danych (ID: %{id})'
-        minutes:
-          create: "%{user_name} utworzył(a) protokół ze spotkania %{resource_name} w przestrzeni %{space_name}"
-          update: "%{user_name} zaktualizował(a) protokół ze spotkania %{resource_name} w przestrzeni %{space_name}"
       calendar_modal:
         calendar_url: Adres URL kalendarza
         close_window: Zamknij okno
@@ -437,7 +418,7 @@ pl:
           create_as: Utwórz spotkanie jako
           disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
-          location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostępem.'
+          location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
           online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
           registration_url_help: 'Link: zezwól uczestnikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
           select_a_category: Wybierz kategorię
@@ -446,7 +427,6 @@ pl:
         index:
           new_meeting: Nowe spotkanie
         meeting_minutes:
-          meeting_minutes: Protokół ze spotkania
           related_information: Powiązana informacja
         meetings:
           no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma żadnego zaplanowanego spotkania.
@@ -466,7 +446,7 @@ pl:
           date: Data
           edit_meeting: Edytuj spotkanie
           join: Dołącz do spotkania
-          meeting_report: Notatka ze spotkania
+          meeting_minutes: Protokół ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           registration_code_help_text: Twój kod rejestracyjny

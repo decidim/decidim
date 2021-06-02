@@ -30,7 +30,7 @@ pl:
         models:
           components:
             description: Opis
-            tos: Warunki korzystania
+            tos: Warunki uczestnictwa
         questionnaires:
           actions:
             back: Powrót do pytań
@@ -158,7 +158,7 @@ pl:
             title: JavaScript jest wyłączony
           questionnaire_not_published:
             body: Ten formularz nie został jeszcze opublikowany.
-          tos_agreement: Biorąc udział akceptujesz Warunki korzystania z serwisu
+          tos_agreement: Biorąc udział akceptujesz Warunki korzystania z Platformy
       step_navigation:
         show:
           are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?

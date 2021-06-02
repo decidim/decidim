@@ -8,9 +8,12 @@ fi:
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
-        closing_report: Raportti
+        audio_url: Äänen URL-osoite
+        closing_report: Pöytäkirja
+        closing_visible: On näkyvissä
         contributions_count: Kontribuutioiden määrä
         proposal_ids: Ehdotusta luotu tapaamisessa
+        video_url: Videon URL-osoite
       meeting:
         address: Osoite
         available_slots: Tämän tapaamisen vapaiden paikkojen määrä
@@ -35,11 +38,6 @@ fi:
         title: Otsikko
         transparent: Läpinäkyvä
         type_of_meeting: Tyyppi
-      minutes:
-        audio_url: Äänen URL-osoite
-        description: Kuvaus
-        video_url: Videon URL-osoite
-        visible: On näkyvissä
     errors:
       models:
         meeting_agenda:
@@ -172,7 +170,6 @@ fi:
           proposals_count:
             one: 'Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
-        minutes: Pöytäkirja
         new: Uusi tapaaminen
         preview: Esikatsele
         registrations: Ilmoittautumiset
@@ -249,6 +246,7 @@ fi:
             success: Tapaamisen sulkeminen onnistui
           create:
             invalid: Tapaamisen luonti epäonnistui
+            success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
           destroy:
             invalid:
               proposals_count:
@@ -274,6 +272,9 @@ fi:
           new:
             create: Luo
             title: Luo tapaaminen
+          publish:
+            invalid: Tapaamisen julkaiseminen epäonnistui
+            success: Tapaamisen julkaiseminen onnistui
           service:
             description: Kuvaus
             down: Alas
@@ -284,22 +285,12 @@ fi:
           services:
             add_service: Lisää palvelu
             services: Palvelut
+          unpublish:
+            invalid: Tapaamisen julkaisemisen peruminen epäonnistui
+            success: Tapaamisen julkaisemisen peruminen onnistui
           update:
             invalid: Tapaamisen päivitys epäonnistui
             success: Tapaamisen päivitys onnistui
-        minutes:
-          create:
-            invalid: Pöytäkirjan luonti epäonnistui
-            success: Pöytäkirjan luonti onnistui
-          edit:
-            title: Muokkaa pöytäkirjaa
-            update: Päivitä
-          new:
-            create: Luo
-            title: Luo pöytäkirja
-          update:
-            invalid: Pöytäkirjan päivitys epäonnistui
-            success: Pöytäkirjan päivitys onnistui
         models:
           meeting:
             name: Tapaaminen
@@ -339,9 +330,6 @@ fi:
           value_types:
             organizer_presenter:
               not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
-        minutes:
-          create: "%{user_name} loi tapaamisen pöytäkirjan %{resource_name} osallistumistilassa %{space_name}"
-          update: "%{user_name} päivitti tapaamisen pöytäkirjan %{resource_name} osallistumistilassa %{space_name}"
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
@@ -380,6 +368,13 @@ fi:
           close: Sulje tapaaminen
           title: Sulje tapaaminen
       meetings:
+        calendar_modal:
+          add_to_calendar: Lisää kalenteriin
+          apple: Lähetä Apple-kalenteriin
+          close_window: Sulje ikkuna
+          full_details_html: Tapahtuman kaikki tiedot löytyvät osoitteesta %{link}
+          google: Lisää Google-kalenteriin
+          outlook: Lisää Outlook-kalenteriin
         count:
           meetings_count:
             one: "%{count} tapaaminen"
@@ -435,7 +430,6 @@ fi:
         index:
           new_meeting: Uusi tapaaminen
         meeting_minutes:
-          meeting_minutes: Tapaamisen pöytäkirja
           related_information: Liittyviä tietoja
         meetings:
           no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
@@ -458,7 +452,7 @@ fi:
           join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
-          meeting_report: Tapaamisen raportti
+          meeting_minutes: Tapaamisen pöytäkirja
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
           registration_code_help_text: Ilmoittautumiskoodisi
@@ -493,6 +487,11 @@ fi:
             official_meeting: Virallinen tapaaminen
             start_time: Alkamispäivä
             title: Otsikko
+      public_participants_list:
+        attending_participants: Mukana olevat osallistujat
+        hidden_participants_count:
+          one: ja %{count} muu henkilö
+          other: ja %{count} muuta henkilöä
       read_more: "(lue lisää)"
       registration_mailer:
         confirmation:

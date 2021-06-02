@@ -988,6 +988,14 @@ de:
       polling_officer_zone:
         closures:
           back_to_polling_stations: Zurück zu den Wahllokalen
+          certify:
+            add_images: Bilder hinzufügen
+            error: Beim Anhängen des Zertifikats ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
+            form_legend: Ein Bild des Wahlabschlusszertifikats hochladen
+            heading: Stimmen-Neuzählung - Zertifikat hochladen
+            info_text: Bitte laden Sie ein Bild des Wahlabschlusszertifikats hoch.
+            submit: Zertifikat hochladen
+            success: Zertifikat erfolgreich hochgeladen.
           create:
             error: Beim Abschliessen ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Erfolgreich abgeschlossen.
@@ -1021,6 +1029,8 @@ de:
             polling_station: 'Wahllokal:'
             submit: Gesamtzahl überprüfen
             total_ballots_count: Anzahl Stimmen
+          show:
+            info_text: Wahlabschluss des Wahlbüros.
           update:
             error: Beim Aktualisieren der Abschluss-Resultate ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Abschluss-Resultate erfolgreich aktualisiert.

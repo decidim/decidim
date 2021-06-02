@@ -99,6 +99,12 @@
                           </div>
                         <% end %>
 
+                        <% if show_public_participation? %>
+                          <div class="row column public-participation">
+                            <%= cell("decidim/public_participation", form) %>
+                          </div>
+                        <% end %>
+
                         <div class="row column tos-agreement">
                           <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: !current_participatory_space.can_participate?(current_user) %>
                           <div class="help-text">
