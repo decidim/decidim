@@ -823,6 +823,19 @@ de:
               blank_answers: Leere Antworten
               blank_ballots: Leere Stimmzettel
               null_ballots: Ungültige Stimmzettel
+              total_ballots: Total Stimmzettel
+              valid_ballots: Gültige Stimmzettel
+            selected: Ausgewählt
+            title: Ergebnisse der Wahl <i>%{election_title}</i>
+            totals: Gesamt
+          show:
+            change_election: Wahl ändern
+            publish_results: Ergebnisse veröffentlichen
+            publishing: Ergebnisse werden veröffentlicht...
+          update:
+            invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten
+            rejected: Die Veröffentlichung der Ergebnisse wurde vom Bulletin Board abgelehnt. Versuchen Sie es erneut oder kontaktieren Sie den Systemadministrator.
+            success: Die Ergebnisse wurden erfolgreich veröffentlicht
         monitoring_committee_members:
           create:
             invalid: Beim Erfassen dieses Überwachungskomitee-Mitglieds ist ein Fehler aufgetreten
