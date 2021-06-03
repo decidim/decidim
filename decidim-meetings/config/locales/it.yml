@@ -8,7 +8,8 @@ it:
       close_meeting:
         attendees_count: Numero di partecipanti
         attending_organizations: Elenco delle organizzazioni partecipanti
-        closing_report: Rapporto
+        closing_report: Minuti
+        closing_visible: È visibile
         contributions_count: Numero di contributi
         proposal_ids: Proposte create nell'incontro
       meeting:
@@ -30,9 +31,6 @@ it:
         start_time: Orario inizio
         title: Titolo
         transparent: Trasparente
-      minutes:
-        description: Descrizione
-        visible: È visibile
     errors:
       models:
         meeting_agenda:
@@ -161,7 +159,6 @@ it:
           proposals_count:
             one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
             other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
-        minutes: Minuti
         new: Nuovo incontro
         preview: Anteprima
         registrations: Iscrizioni
@@ -237,7 +234,6 @@ it:
             success: OK, il meeting è stato chiuso.
           create:
             invalid: C'è stato un problema durante la creazione di questo meeting.
-            success: OK, il meeting è stato creato con successo.
           destroy:
             invalid:
               proposals_count:
@@ -267,18 +263,6 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
             success: OK, il meeting è stato aggiornato.
-        minutes:
-          create:
-            invalid: Si è verificato un problema durante la creazione di questi minuti
-            success: Minuti creati con successo
-          edit:
-            update: Aggiornare
-          new:
-            create: Creare
-            title: Crea minuti
-          update:
-            invalid: Si è verificato un problema durante l'aggiornamento di questo minuto
-            success: Minuti aggiornati con successo
         models:
           meeting:
             name: Reunione
@@ -318,9 +302,6 @@ it:
           value_types:
             organizer_presenter:
               not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
-        minutes:
-          create: "%{user_name} ha creato i minuti della riunione %{resource_name} nello spazio %{space_name}"
-          update: "%{user_name} ha aggiornato i minuti della riunione %{resource_name} nello spazio %{space_name}"
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Chiudi la finestra
@@ -392,7 +373,6 @@ it:
         index:
           new_meeting: Nuova riunione
         meeting_minutes:
-          meeting_minutes: Riunione dei verbali
           related_information: Informazioni correlate
         meetings:
           no_meetings_warning: Nessun meeting corrisponde ai tuoi criteri di ricerca oppure non vi è nessun meeting in programma.
@@ -411,7 +391,7 @@ it:
           date: Data
           edit_meeting: Modifica la riunione
           join: Partecipa alla riunione
-          meeting_report: Rapporto della riunione
+          meeting_minutes: Riunione dei verbali
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
           registration_code_help_text: Il tuo codice di registrazione

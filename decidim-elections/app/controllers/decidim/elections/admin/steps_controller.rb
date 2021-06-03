@@ -6,7 +6,7 @@ module Decidim
       # This controller allows to manage the steps of an election.
       class StepsController < Admin::ApplicationController
         helper StepsHelper
-        helper_method :elections, :election, :current_step, :vote_stats
+        helper_method :elections, :election, :current_step, :vote_stats, :bulletin_board_server
 
         def index
           enforce_permission_to :read, :steps, election: election
@@ -44,6 +44,10 @@ module Decidim
         end
 
         private
+
+        def bulletin_board_server
+          Decidim::Elections.bulletin_board.bulletin_board_server
+        end
 
         def current_step_form_class
           @current_step_form_class ||= {

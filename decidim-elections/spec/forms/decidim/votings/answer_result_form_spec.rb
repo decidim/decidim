@@ -39,7 +39,7 @@ describe Decidim::Votings::AnswerResultForm do
     it { is_expected.to be_invalid }
   end
 
-  describe "when value not a number" do
+  describe "when value is not a number" do
     let(:value) { "abcde" }
 
     it { is_expected.to be_invalid }

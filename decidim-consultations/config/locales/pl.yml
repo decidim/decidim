@@ -379,7 +379,7 @@ pl:
     resources:
       consultations:
         actions:
-          vote: Głosuj
+          vote: Wspieranie
     statistics:
       consultations_count: Konsultacje
       votes_count: Głosy

@@ -45,7 +45,7 @@ module Decidim
       def create_total_ballot_results!
         closure.results.create!(
           value: form.total_ballots_count,
-          result_type: "total_ballots"
+          result_type: :total_ballots
         )
       end
     end

@@ -27,6 +27,10 @@ module Decidim
     included do
       include Geocoder::Store::ActiveRecord
 
+      def geocoded_and_valid?
+        geocoded? && to_coordinates.none?(&:nan?)
+      end
+
       private
 
       # rubocop:disable Style/OptionalBooleanParameter

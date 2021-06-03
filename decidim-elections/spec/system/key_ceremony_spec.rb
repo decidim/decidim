@@ -20,30 +20,21 @@ describe "Key ceremony", type: :system do
   end
 
   describe "key ceremony process" do
-    include_context "when mocking the bulletin board in the browser"
-
     include_context "when managing a component as an admin" do
       let(:admin_component_organization_traits) { [:secure_context] }
     end
 
     context "when performing the key ceremony", :slow, download: true do
-      before do
-        VCR.turn_off!
-        Decidim::Elections.bulletin_board.reset_test_database
-      end
-
-      after do
-        VCR.turn_on!
-      end
+      include_context "with test bulletin board"
 
       it "generates backup keys, restores them and creates election keys" do
         setup_election(election)
 
-        proxy.cache.with_scope("trustee 1 download") { download_election_keys(0) }
-        proxy.cache.with_scope("trustee 2 download") { download_election_keys(1) }
+        download_election_keys(0)
+        download_election_keys(1)
 
-        proxy.cache.with_scope("complete ceremony with trustee 1") { complete_key_ceremony(0) }
-        proxy.cache.with_scope("check complete ceremony with trustee 2") { check_key_ceremony_completed(1) }
+        complete_key_ceremony(0)
+        check_key_ceremony_completed(1)
       end
     end
 

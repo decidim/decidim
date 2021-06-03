@@ -35,6 +35,7 @@ gl:
         origin_component_id: Componente para copiar as propostas de
       proposals_import:
         import_proposals: Propostas de importación
+        keep_answers: Manter o estado e as respostas
         keep_authors: Mantén os autores orixinais
       valuation_assignment:
         admin_log:
@@ -109,9 +110,11 @@ gl:
     components:
       proposals:
         actions:
+          comment: Comentario
           create: Crear
           endorse: Endosar
           vote: Vota
+          vote_comment: Votar comentario
           withdraw: Retirar
         name: Propostas
         settings:

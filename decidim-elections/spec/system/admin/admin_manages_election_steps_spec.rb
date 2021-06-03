@@ -5,22 +5,14 @@ require "spec_helper"
 describe "Admin manages election steps", :slow, type: :system do
   let(:manifest_name) { "elections" }
 
-  include_context "when mocking the bulletin board in the browser"
-
   include_context "when managing a component as an admin" do
     let(:admin_component_organization_traits) { [:secure_context] }
   end
 
   before do
-    VCR.turn_off!
-    Decidim::Elections.bulletin_board.reset_test_database
     election
     login_as user, scope: :user
     visit_component_admin
-  end
-
-  after do
-    VCR.turn_on!
   end
 
   describe "setup an election" do
@@ -53,6 +45,8 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "start the key ceremony" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :created, component: current_component }
 
     it "performs the action successfully" do
@@ -93,6 +87,8 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "start the voting period" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :key_ceremony_ended, component: current_component }
 
     it "performs the action successfully" do
@@ -119,6 +115,8 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "voting period" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :vote, component: current_component }
 
     context "with no vote statistics" do
@@ -160,6 +158,8 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "end the voting period" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
 
     it "performs the action successfully" do
@@ -186,6 +186,8 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "start the tally" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :vote_ended, component: current_component }
 
     it "performs the action successfully" do
@@ -212,7 +214,7 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "tally ended" do
-    let!(:election) { create :election, :bb_test, :tally_ended, component: current_component }
+    let!(:election) { create :election, :tally_ended, component: current_component }
     let!(:question) { election.questions.first }
     let!(:answer) { question.answers.first }
 
@@ -231,6 +233,8 @@ describe "Admin manages election steps", :slow, type: :system do
   end
 
   describe "publishing results" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :tally_ended, component: current_component }
     let!(:question) { election.questions.first }
     let!(:answer) { question.answers.first }
