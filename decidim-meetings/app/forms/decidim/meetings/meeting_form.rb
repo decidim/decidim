@@ -24,6 +24,7 @@ module Decidim
       attribute :registration_url, String
       attribute :available_slots, Integer, default: 0
       attribute :registration_terms, String
+      attribute :show_iframe, Boolean, default: false
 
       validates :title, presence: true
       validates :description, presence: true

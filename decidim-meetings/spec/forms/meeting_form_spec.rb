@@ -38,6 +38,7 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
+    let(:show_iframe) { true }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
     let(:attributes) do
       {
@@ -59,7 +60,8 @@ module Decidim::Meetings
         available_slots: available_slots,
         registration_terms: registration_terms,
         registrations_enabled: true,
-        registration_url: registration_url
+        registration_url: registration_url,
+        show_iframe: show_iframe
       }
     end
 

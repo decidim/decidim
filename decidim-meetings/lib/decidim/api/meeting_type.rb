@@ -72,6 +72,7 @@ module Decidim
       end
       field :type_of_meeting, GraphQL::Types::String, "The type of the meeting (online or in-person)", null: false
       field :online_meeting_url, GraphQL::Types::String, "The URL of the meeting (when the type is online)", null: false
+      field :show_iframe, GraphQL::Types::Boolean, "Whether show or not the iframe", null: false
     end
   end
 end

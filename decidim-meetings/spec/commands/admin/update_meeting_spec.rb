@@ -31,6 +31,7 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:customize_registration_email) { true }
     let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
+    let(:show_iframe) { false }
 
     let(:form) do
       double(
@@ -57,7 +58,8 @@ module Decidim::Meetings
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
         customize_registration_email: customize_registration_email,
-        registration_email_custom_content: registration_email_custom_content
+        registration_email_custom_content: registration_email_custom_content,
+        show_iframe: show_iframe
       )
     end
 
@@ -153,7 +155,8 @@ module Decidim::Meetings
             clean_type_of_meeting: type_of_meeting,
             online_meeting_url: online_meeting_url,
             customize_registration_email: customize_registration_email,
-            registration_email_custom_content: registration_email_custom_content
+            registration_email_custom_content: registration_email_custom_content,
+            show_iframe: show_iframe
           )
         end
 

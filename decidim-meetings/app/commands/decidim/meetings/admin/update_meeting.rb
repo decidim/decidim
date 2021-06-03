@@ -61,7 +61,8 @@ module Decidim
             private_meeting: form.private_meeting,
             transparent: form.transparent,
             customize_registration_email: form.customize_registration_email,
-            registration_email_custom_content: form.registration_email_custom_content
+            registration_email_custom_content: form.registration_email_custom_content,
+            show_iframe: form.show_iframe
           )
         end
 

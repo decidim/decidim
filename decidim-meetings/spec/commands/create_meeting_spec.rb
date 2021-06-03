@@ -21,6 +21,7 @@ module Decidim::Meetings
     let(:type_of_meeting) { "online" }
     let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
+    let(:show_iframe) { true }
     let(:registration_type) { "on_this_platform" }
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
@@ -49,7 +50,8 @@ module Decidim::Meetings
         registration_terms: registration_terms,
         registrations_enabled: registrations_enabled,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        show_iframe: show_iframe
       )
     end
 
@@ -104,6 +106,12 @@ module Decidim::Meetings
         subject.call
 
         expect(meeting).to be_published
+      end
+
+      it "sets show_iframe" do
+        subject.call
+
+        expect(meeting).to be_show_iframe
       end
 
       context "when the author is a user_group" do

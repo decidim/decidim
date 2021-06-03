@@ -128,10 +128,10 @@ edit_link(
       <%= decidim_sanitize(present(meeting).description(links: true)) %>
 
       <% if meeting.online_meeting? %>
-        <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+        <%= cell "decidim/meetings/online_meeting_link", meeting %>
       <% elsif meeting.hybrid_meeting? %>
-       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
-       <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+        <%= cell "decidim/meetings/online_meeting_link", meeting %>
       <% else %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <% end %>

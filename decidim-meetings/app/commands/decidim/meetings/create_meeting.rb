@@ -53,7 +53,8 @@ module Decidim
           registrations_enabled: form.registrations_enabled,
           type_of_meeting: form.clean_type_of_meeting,
           component: form.current_component,
-          published_at: Time.current
+          published_at: Time.current,
+          show_iframe: form.show_iframe
         }
 
         @meeting = Decidim.traceability.create!(
