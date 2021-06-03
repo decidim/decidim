@@ -40,11 +40,10 @@ module Decidim
         end
 
         transaction do
-          if @proposal.draft?
-            update_draft
-          else
-            update_proposal
+          I18n.with_locale(form.locale) do
+            @proposal.draft? ? update_draft : update_proposal
           end
+
           create_gallery if process_gallery?
           create_attachments if process_attachments?
 
