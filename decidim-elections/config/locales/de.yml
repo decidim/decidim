@@ -91,6 +91,16 @@ de:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: In %{collection} nach Name/E-Mail/Nickname oder Wahllokal suchen.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : In %{collection} suchen nach Titel, Adresse oder Wahllokal-Mitarbeiter.
+        signed_eq:
+          label: Signiert
+          values:
+            'false': Signiert
+            'true': Nicht signiert
+        validated_eq:
+          label: Überprüft
+          values:
+            'false': Überprüft
+            'true': Nicht überprüft
     components:
       elections:
         actions:
@@ -454,6 +464,7 @@ de:
             end_time: Endet um
             start_time: Beginnt um
             title: Titel
+            verifiable_results_file_hash: SHA256-Prüfsumme der Datei
         question:
           fields:
             answers: Antworten
@@ -1033,7 +1044,19 @@ de:
             submit: Gesamtzahl überprüfen
             total_ballots_count: Anzahl Stimmen
           show:
+            heading: Neuzählung
             info_text: Wahlabschluss des Wahlbüros.
+          sign:
+            cancel: Abbrechen
+            check_box: Ich habe dies geprüft und es ist dasselbe wie das physische Abschlusszertifikat
+            close_modal: Schliessen
+            confirm: OK, fortfahren
+            error: Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+            heading: Neuzählung - Schliessung signieren
+            info_text: Wenn Sie fortfahren, können Sie keine der Informationen mehr ändern. Diese Aktion kann nicht rückgängig gemacht werden.
+            submit: Schliessung signieren
+            success: Schliessung erfolgreich signiert.
+            title: Aktion kann nicht rückgängig gemacht werden
           update:
             error: Beim Aktualisieren der Abschluss-Resultate ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Abschluss-Resultate erfolgreich aktualisiert.
@@ -1048,6 +1071,37 @@ de:
             voted: Der Teilnehmer hat abgestimmt
           create:
             error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
+          in_person_form:
+            census_not_present: Dieser Teilnehmer ist nicht in den Zensusdaten aufgeführt.
+            census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
+            date_of_birth: Geburtsdatum
+            day: Tag
+            day_placeholder: TT
+            document_number: Dokumentnummer
+            document_number_placeholder: ID-Nummer
+            month: Monat
+            month_placeholder: MM
+            select: Wählen Sie die Art des Dokuments aus
+            title: 'Wählen Sie den Dokumententyp und geben Sie die Dokumentennummer des Teilnehmers ein:'
+            validate_document: Dokument validieren
+            year: Jahr
+            year_placeholder: JJJJ
+          new:
+            back: Zurück zu den Wahllokalen
+            title: Einen Teilnehmer identifizieren und verifizieren
+          show:
+            back: Zurück zu den Wahllokalen
+            title: Warte auf die Registrierung der persönlichen Stimme
+          update:
+            error: Beim Registrieren dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+            success:
+              accepted: Die Stimme wurde erfolgreich registriert.
+              rejected: Die Abstimmung wurde vom Bulletin Board nicht akzeptiert. Bitte kontaktieren Sie den Systemadministrator.
+          verify_document:
+            census_present: Dieser Teilnehmer ist in den Zensusdaten aufgeführt.
+            name: Name
+            title: 'Überprüfen Sie, dass die folgenden Daten korrekt sind:'
+            verify_document: Dokument verifizieren
         menu:
           polling_officer_zone: Wahllokal-Mitarbeiter-Bereich
         polling_officers:
@@ -1074,6 +1128,16 @@ de:
           manager: Manager
           president: Präsident
           unassigned: Nicht zugewiesen
+      polling_station_closure_recount:
+        nota_option: Leer / Keine der oben genannten
+        polling_officer_notes: 'Notizen der Wahllokal-Mitarbeitenden:'
+        polling_officer_notes_blank: Es gibt keine Notizen
+        recount_summary: 'Zusammenfassung der Neuzählung:'
+        signed: Signiert
+        total_ballots: 'Gesamtzahl der Stimmzettel:'
+        total_blank_ballots: 'Anzahl leere Stimmzettel:'
+        total_null_ballots: 'Anzahl ungültige Stimmzettel:'
+        total_valid_ballots: 'Anzahl gültige Stimmzettel:'
       polling_stations:
         actions:
           confirm_destroy: Sind Sie sicher?
