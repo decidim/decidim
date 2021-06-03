@@ -591,6 +591,8 @@ de:
           lead: Ihre Stimme wurde abgegeben!
           text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
+        create:
+          error: Beim Abgeben dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
@@ -958,6 +960,7 @@ de:
             download: Herunterladen
             subject: Der Export der Zugangscodes für die Abstimmung %{voting_title} ist verfügbar
         vote_flow:
+          already_voted_in_person: Dieser Teilnehmer hat bereits persönlich abgestimmt und hat kein Stimmrecht mehr.
           datum_not_found: Zu den eingegebenen Daten wurde kein Wähler gefunden.
       content_blocks:
         highlighted_votings:
@@ -1034,6 +1037,17 @@ de:
           update:
             error: Beim Aktualisieren der Abschluss-Resultate ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Abschluss-Resultate erfolgreich aktualisiert.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Verfügbare Antworten:'
+            census_verified: Der Teilnehmer hat noch nicht abgestimmt.
+            complete_voting: Abstimmung abschliessen
+            identify_another: Einen anderen Teilnehmer identifizieren
+            questions_title: 'Er hat das Recht, bei folgenden Anfragen abzustimmen:'
+            questions_title_voted: 'Der Teilnehmer hat bereits online abgestimmt und kann bei folgenden Fragen abstimmen:'
+            voted: Der Teilnehmer hat abgestimmt
+          create:
+            error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
         menu:
           polling_officer_zone: Wahllokal-Mitarbeiter-Bereich
         polling_officers:
