@@ -280,10 +280,6 @@ module Decidim
         !!attendees_count && attendees_count.positive?
       end
 
-      def live?
-        start_time && end_time && Time.current >= start_time && Time.current <= end_time
-      end
-
       def self.sort_by_translated_title_asc
         field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
         order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))

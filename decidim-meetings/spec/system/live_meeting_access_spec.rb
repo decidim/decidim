@@ -86,4 +86,52 @@ describe "Meeting live event access", type: :system do
       expect(page).to have_css("iframe")
     end
   end
+
+  describe "live meeting access" do
+    let(:meeting) { create :meeting, :published, :online, component: component }
+    let(:start_time) { meeting.start_time }
+    let(:end_time) { meeting.end_time }
+
+    around do |example|
+      travel_to current_time do
+        example.run
+      end
+    end
+
+    before do
+      visit_meeting
+    end
+
+    context "when current time is further than 10 minutes from the start time" do
+      let(:current_time) { start_time - 20.minutes }
+
+      it "is not live" do
+        expect(page).to have_no_content("This meeting is happening right now")
+      end
+    end
+
+    context "when current time is lesser than 10 minutes from the start time" do
+      let(:current_time) { start_time - 5.minutes }
+
+      it "is live" do
+        expect(page).to have_content("This meeting is happening right now")
+      end
+    end
+
+    context "when current time in between the start and the end time" do
+      let(:current_time) { start_time + 1.minute }
+
+      it "is live" do
+        expect(page).to have_content("This meeting is happening right now")
+      end
+    end
+
+    context "when current time has passed the end time" do
+      let(:current_time) { end_time + 5.minutes }
+
+      it "is not live" do
+        expect(page).to have_no_content("This meeting is happening right now")
+      end
+    end
+  end
 end

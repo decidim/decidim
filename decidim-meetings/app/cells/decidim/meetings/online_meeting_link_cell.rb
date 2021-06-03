@@ -22,6 +22,13 @@ module Decidim
       def show_embed?
         model.show_embedded_iframe? && embedder.embeddable?
       end
+
+      def live?
+        model.start_time &&
+          model.end_time &&
+          Time.current >= (model.start_time - 10.minutes) &&
+          Time.current <= model.end_time
+      end
     end
   end
 end
