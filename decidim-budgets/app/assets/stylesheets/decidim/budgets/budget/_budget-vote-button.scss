@@ -1,0 +1,23 @@
+.budget-vote-button.expanded {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    &.added {
+      .budget-list__action {
+        background: var(--primary);
+        border-color: white;
+        color: white;
+      }
+    }
+    &:not(.added) {
+      .budget-list__action {
+        border-color: white;
+        color: white;
+      }
+    }
+  }
+}
